@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 759759b67582b241d0bab1e043dd15e54a804faf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ca7f042aaa97967d47dd9f35afaa647e0d37361
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98251546"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407273"
 ---
 # <a name="troubleshoot-capacity-pool-issues"></a>Solución de problemas de grupos de capacidad
 
@@ -43,7 +43,7 @@ En este artículo se describen las resoluciones a las incidencias que puede tene
 
 ## <a name="next-steps"></a>Pasos siguientes  
 
-* [Configuración de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md)
+* [Creación de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md)
 * [Administración de un grupo de capacidad de QoS manual](manage-manual-qos-capacity-pool.md)
 * [Cambio dinámico del nivel de servicio de un volumen](dynamic-change-volume-service-level.md)
 * [Cambiar el tamaño de un grupo de capacidad o de un volumen](azure-netapp-files-resize-capacity-pools-or-volumes.md)

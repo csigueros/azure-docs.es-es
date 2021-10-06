@@ -3,18 +3,18 @@ title: Administración del portal del Contrato Enterprise de Azure
 description: En este artículo se explican las tareas comunes que un administrador lleva a cabo en el portal del Contrato Enterprise de Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/25/2021
+ms.date: 09/28/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: boalcsva
+ms.reviewer: sapnakeshari
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: bf887ad515f8c4349fcff54d25be1c70a30d018f
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: ede22b400b597c8cc474d49f65341bb5b24ea118
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123098325"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216771"
 ---
 # <a name="azure-ea-portal-administration"></a>Administración del portal del Contrato Enterprise de Azure
 
@@ -198,7 +198,7 @@ Los administradores de empresa pueden asociar cuentas existentes a los departame
 
 1. Inicie sesión en Azure EA Portal como administrador de empresa.
 1. Seleccione **Administrar** en el panel de navegación izquierdo.
-1. Seleccione **Departamento**.
+1. Seleccione **Cuenta**.
 1. Mantenga el puntero sobre la fila en que se encuentra la cuenta y seleccione el icono de lápiz de la derecha.
 1. Seleccione el departamento en el menú desplegable.
 1. Seleccione **Guardar**.

@@ -1,23 +1,20 @@
 ---
-title: Configuración del acceso a orígenes de datos para MSI de Azure Purview a escala (versión preliminar)
+title: Configuración del acceso a orígenes de datos para MSI de Azure Purview a escala
 description: En este tutorial, configurará valores MSI de Azure en las suscripciones de origen de datos de Azure.
 author: zeinam
 ms.author: zeinam
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: tutorial
-ms.date: 05/28/2021
-ms.openlocfilehash: 952f69d7d33ae695103ee42de4462bdaa30c2538
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.date: 09/27/2021
+ms.openlocfilehash: 101d18cdecdc4fc7d4fb33b824500350f53b7b3f
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113109204"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213401"
 ---
-# <a name="tutorial-configure-access-to-data-sources-for-azure-purview-msi-at-scale-preview"></a>Tutorial: Configuración del acceso a orígenes de datos para MSI de Azure Purview a escala (versión preliminar)
-
-> [!IMPORTANT]
-> Azure Purview se encuentra actualmente en versión preliminar. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado con disponibilidad general.
+# <a name="tutorial-configure-access-to-data-sources-for-azure-purview-msi-at-scale"></a>Tutorial: Configuración del acceso a orígenes de datos para MSI de Azure Purview a escala
 
 Para examinar orígenes de datos, Azure Purview necesita acceder a ellos. Este tutorial está pensado para propietarios de suscripciones de Azure y administradores de orígenes de datos de Azure Purview. Le ayudará a identificar el acceso necesario y configurar las reglas de autenticación y red necesarias para Azure Purview en los orígenes de datos de Azure.
 
@@ -51,8 +48,8 @@ Antes de ejecutar el script, cree un archivo .csv (por ejemplo, "C:\temp\Subscri
 |----|----|----|
 |`SubscriptionId`|Identificadores de suscripción de Azure para los orígenes de datos.|12345678-aaaa-bbbb-cccc-1234567890ab|
 |`KeyVaultName`|Nombre del almacén de claves existente que se implementa en la suscripción del origen de datos.|ContosoDevKeyVault|
-|`SecretNameSQLUserName`|Nombre de un secreto de Azure Key Vault existente que contiene un nombre de usuario de Azure Active Directory (Azure AD) que puede iniciar sesión en Azure Synapse, Azure SQL Database o Azure SQL Managed Instance mediante la autenticación de Azure AD.|ContosoDevSQLAdmin|
-|`SecretNameSQLPassword`|Nombre de un secreto de Azure Key Vault existente que contiene una contraseña de Azure AD que puede iniciar sesión en Azure Synapse, Azure SQL Database o Azure SQL Managed Instance mediante la autenticación de Azure AD.|ContosoDevSQLPassword|
+|`SecretNameSQLUserName`|Nombre de un secreto de Azure Key Vault existente que contiene un nombre de usuario de Azure Active Directory (Azure AD) que puede iniciar sesión en Azure Synapse, Azure SQL Database o Azure SQL Managed Instance mediante la autenticación de Azure AD.|ContosoDevSQLAdmin|
+|`SecretNameSQLPassword`|Nombre de un secreto de Azure Key Vault existente que contiene una contraseña de Azure AD que puede iniciar sesión en Azure Synapse, Azure SQL Database o Azure SQL Managed Instance mediante la autenticación de Azure AD.|ContosoDevSQLPassword|
    
 
 
@@ -61,7 +58,7 @@ Antes de ejecutar el script, cree un archivo .csv (por ejemplo, "C:\temp\Subscri
 :::image type="content" source="./media/tutorial-data-sources-readiness/subscriptions-input.png" alt-text="Captura de pantalla en la que se muestra una lista de suscripciones de ejemplo." lightbox="./media/tutorial-data-sources-readiness/subscriptions-input.png":::
 
 > [!NOTE] 
-> En caso necesario, puede actualizar el nombre de archivo y la ruta en el código.
+> Puede actualizar el nombre de archivo y la ruta de acceso en el código, si es necesario.
 
 
 ## <a name="run-the-script-and-install-the-required-powershell-modules"></a>Ejecución del script e instalación de los módulos de PowerShell necesarios 
@@ -70,9 +67,9 @@ Siga estos pasos para ejecutar el script desde el equipo Windows:
 
 1. [Descargue el script de configuración MSI de Azure Purview](https://github.com/Azure/Purview-Samples/tree/master/Data-Source-MSI-Configuration) en la ubicación que prefiera.
 
-2. En el equipo, escriba **PowerShell** en el cuadro de búsqueda de la barra de tareas de Windows. En la lista de búsqueda, haga clic con el botón derecho en **Windows PowerShell** y seleccione **Ejecutar como administrador**.
+2. En el equipo, escriba **PowerShell** en el cuadro de búsqueda de la barra de tareas de Windows. En la lista de búsqueda, mantenga presionado (o haga clic con el botón derecho) en **Windows PowerShell** y seleccione **Ejecutar como administrador**.
 
-3. Escriba el comando siguiente en la ventana de PowerShell. (Reemplace `<path-to-script>` por la ruta del archivo de script extraído).
+3. Escriba el comando siguiente en la ventana de PowerShell. (Reemplace `<path-to-script>` por la ruta de acceso del archivo de script extraído).
 
    ```powershell
    dir -Path <path-to-script> | Unblock-File
@@ -171,10 +168,10 @@ Cuando se complete el proceso, puede ver el informe de salida para revisar los c
 Actualmente, el script admite los orígenes de datos siguientes:
 
 - Azure Blob Storage (BlobStorage)
-- Azure Data Lake Storage Gen2 (ADLSGen2)
-- Azure Data Lake Storage Gen1 (ADLSGen1)
-- Azure SQL Database (AzureSQLDB)
-- Azure SQL Managed Instance (AzureSQLMI)
+- Azure Data Lake Storage Gen2 (ADLSGen2)
+- Azure Data Lake Storage Gen1 (ADLSGen1)
+- Azure SQL Database (AzureSQLDB)
+- Azure SQL Managed Instance (AzureSQLMI)
 - Grupo dedicado de Azure Synapse (Synapse)
 
 Puede elegir todos o cualquiera de estos orígenes de datos como parámetro de entrada al ejecutar el script.

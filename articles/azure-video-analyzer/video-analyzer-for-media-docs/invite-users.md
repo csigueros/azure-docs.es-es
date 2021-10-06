@@ -1,27 +1,22 @@
 ---
 title: 'Invite a usuarios a Azure Video Analyzer for Media (antes conocido como Video Analyzer for Media): Azure'
-titleSuffix: Azure Video Analyzer for Media
 description: En este artículo se muestra cómo invitar a los usuarios a Azure Video Analyzer for Media (antes conocido como Video Analyzer for Media).
-services: azure-video-analyzer
-author: Juliako
-manager: femila
 ms.topic: quickstart
-ms.subservice: azure-video-analyzer-media
-ms.date: 02/03/2021
-ms.author: juliako
-ms.openlocfilehash: b724ebdc929c654c5a31db2c797901147be3e29a
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.date: 09/14/2021
+ms.openlocfilehash: 791e9e7d3090aaa79cd754135f26e79fae3a9e0a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112119590"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650778"
 ---
 # <a name="quickstart-invite-users-to-video-analyzer-for-media"></a>Inicio rápido: invitar usuarios a Video Analyzer for Media
 
 Para colaborar con sus compañeros, puede invitarlos a su cuenta de Azure Video Analyzer for Media (anteriormente Video Indexer). 
 
 > [!NOTE]
-> Solo el administrador de la cuenta puede agregar o quitar usuarios.
+> Solo el administrador de la cuenta puede agregar o quitar usuarios.</br>
+> Cuando use cuentas de pago, solo puede invitar a usuarios de Azure AD.
 
 ## <a name="invite-new-users"></a>Invitación a nuevos usuarios
 

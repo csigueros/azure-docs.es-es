@@ -3,12 +3,12 @@ title: Introducción a Azure Arc
 description: Obtenga información sobre qué es Azure Arc y cómo ayuda a los clientes a habilitar la administración y el gobierno de sus recursos híbridos con otros servicios y características de Azure.
 ms.date: 05/25/2021
 ms.topic: overview
-ms.openlocfilehash: 878e1b9166a10a071d3870edcc70d1775fbcd914
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 7a900a7a0454f4dff5cdfe98f611982c33617c1d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867132"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124832357"
 ---
 # <a name="azure-arc-overview"></a>Introducción a Azure Arc
 
@@ -56,7 +56,7 @@ Entre las principales características de Azure Arc se incluyen:
 
 A continuación se muestran los detalles de precios de las características disponibles hoy en día con Azure Arc.
 
-### <a name="arc-enabled-servers"></a>Servidores habilitados para Arc
+### <a name="azure-arc-enabled-servers"></a>Servidores habilitados para Azure Arc
 
 La siguiente funcionalidad del plano de control de Azure Arc se ofrece sin costo adicional:
 
@@ -70,11 +70,11 @@ La siguiente funcionalidad del plano de control de Azure Arc se ofrece sin costo
 
 * Administración de la actualización.
 
-Cualquier servicio de Azure que se use en los servidores habilitados para Arc, como Azure Security Center o Azure Monitor, se cobrará según los precios de ese servicio. Para más información, consulte la [página de precios de Azure](https://azure.microsoft.com/pricing/).
+Cualquier servicio de Azure que se use en los servidores habilitados para Azure Arc, como Azure Security Center o Azure Monitor, se cobrará según los precios de ese servicio. Para más información, consulte la [página de precios de Azure](https://azure.microsoft.com/pricing/).
 
 ### <a name="azure-arc-enabled-kubernetes"></a>Kubernetes habilitado para Azure Arc
 
-Cualquier servicio de Azure que se use en Kubernetes habilitado para Arc, como Azure Security Center o Azure Monitor, se cobrará según los precios de ese servicio. Para más información sobre los precios de las configuraciones a partir de Kubernetes habilitado para Azure Arc, consulte la [página de precios de Azure](https://azure.microsoft.com/pricing/).
+Cualquier servicio de Azure que se use en Kubernetes habilitados para Azure Arc, como Azure Security Center o Azure Monitor, se cobrará según los precios de ese servicio. Para más información sobre los precios de las configuraciones a partir de Kubernetes habilitado para Azure Arc, consulte la [página de precios de Azure](https://azure.microsoft.com/pricing/).
 
 ### <a name="azure-arc-enabled-data-services"></a>Servicios de datos habilitados para Azure Arc
 

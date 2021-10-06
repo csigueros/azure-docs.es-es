@@ -3,14 +3,14 @@ title: Azure Kubernetes Service como origen de Event Grid (versión preliminar)
 description: En este artículo se describe cómo utilizar Azure Kubernetes Service como origen de eventos de Event Grid. Proporciona el esquema y los vínculos a los artículos de procedimientos y tutorial.
 author: zr-msft
 ms.topic: conceptual
-ms.date: 07/12/2021
+ms.date: 10/04/2021
 ms.author: zarhoads
-ms.openlocfilehash: 16b82ea59e69457475966fecfb8a0ca8d7dd20ce
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 84eb67d9df14efefe753fe40da938e0a7f4f2c6c
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113734117"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129423922"
 ---
 # <a name="azure-kubernetes-service-aks-as-an-event-grid-source-preview"></a>Azure Kubernetes Service (AKS) como origen de Event Grid (versión preliminar)
 
@@ -80,10 +80,7 @@ Esta sección contiene un ejemplo del aspecto que deben tener los datos para cad
     },
     "dataVersion": "1",
     "metadataVersion": "1",
-    "eventTime": "2021-07-01T04:52:57.0000000Z",
-    "EventProcessedUtcTime": "2021-07-02T04:40:04.1049205Z",
-    "PartitionId": 1,
-    "EventEnqueuedUtcTime": "2021-07-01T04:52:58.8650000Z"
+    "eventTime": "2021-07-01T04:52:57.0000000Z"
 }
 ```
 # <a name="cloud-event-schema"></a>[Esquema de eventos en la nube](#tab/cloud-event-schema)
@@ -102,10 +99,7 @@ Esta sección contiene un ejemplo del aspecto que deben tener los datos para cad
       "latestPreviewKubernetesVersion": "1.21.1"
     },
     "specversion": "1.0",
-    "time": "2021-07-01T04:52:57.0000000Z",
-    "EventProcessedUtcTime": "2021-07-02T04:40:04.1049205Z",
-    "PartitionId": 1,
-    "EventEnqueuedUtcTime": "2021-07-01T04:52:58.8650000Z"
+    "time": "2021-07-01T04:52:57.0000000Z"
 }
 ```
 

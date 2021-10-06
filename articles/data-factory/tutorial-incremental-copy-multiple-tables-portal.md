@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 07/05/2021
-ms.openlocfilehash: 75ddd0ebf1a4d796cf59f087399ea94957916349
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a961b008406c487b1543ee827fe1c33d3e435645
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638417"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767458"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-a-database-in-azure-sql-database-using-the-azure-portal"></a>Carga incremental de datos de varias tablas de SQL Server en Azure SQL Database mediante Azure Portal
 
@@ -58,7 +58,7 @@ Estos son los pasos importantes para crear esta solución:
 
     Este es el diagrama de solución de alto nivel: 
 
-    ![Cargar datos de forma incremental](media/tutorial-incremental-copy-multiple-tables-portal/high-level-solution-diagram.png)
+    :::image type="content" source="media/tutorial-incremental-copy-multiple-tables-portal/high-level-solution-diagram.png" alt-text="Cargar datos de forma incremental":::
 
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
@@ -234,7 +234,7 @@ END
 1. Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
 2. En el menú de la izquierda, seleccione **Crear un recurso** > **Integración** > **Data Factory**: 
    
-   ![Selección de la factoría de datos en el panel Nuevo](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Selección de Data Factory en el &quot;panel&quot; Nuevo":::
 
 3. En la página **Nueva factoría de datos**, escriba **ADFMultiIncCopyTutorialDF** como **nombre**. 
  
@@ -262,11 +262,11 @@ Cuando mueva datos de un almacén de datos de una privada red (local) a un almac
 
 1. En la página principal de la interfaz de usuario de Azure Data Factory, seleccione la pestaña [Administrar](./author-management-hub.md) en el panel izquierdo.
 
-   ![Botón Administrar de la página principal](media/doc-common-process/get-started-page-manage-button.png)
+   :::image type="content" source="media/doc-common-process/get-started-page-manage-button.png" alt-text="Botón Administrar de la página principal":::
 
 1. Seleccione **Entornos de ejecución de integración** en el panel izquierdo y, a continuación, seleccione **+ Nuevo**.
 
-   ![Creación de una instancia de Integration Runtime](media/doc-common-process/manage-new-integration-runtime.png)
+   :::image type="content" source="media/doc-common-process/manage-new-integration-runtime.png" alt-text="Creación de una instancia de Integration Runtime":::
 
 1. En la ventana **Integration Runtime Setup** (Configuración de Integration Runtime), seleccione la opción **Perform data movement and dispatch activities to external computes** (Realizar movimientos de datos y enviar actividades a procesos externos) y haga clic en **Continue** (Continuar). 
 
@@ -275,10 +275,10 @@ Cuando mueva datos de un almacén de datos de una privada red (local) a un almac
 
 1. Haga clic en **Click here to launch the express setup for this computer** (Haga clic aquí para iniciar la configuración rápida en este equipo) en la sección **Option 1: Express setup** (Opción 1: configuración rápida). 
 
-   ![Vínculo a configuración rápida](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png" alt-text="Vínculo a configuración rápida":::
 1. En la ventana **Microsoft Integration Runtime (Self-hosted) Express Setup** (Configuración rápida de Integration Runtime [autohospedado]), haga clic en **Close** (Cerrar). 
 
-   ![Configuración correcta de Integration Runtime](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtime-setup-successful.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtime-setup-successful.png" alt-text="Configuración correcta de Integration Runtime":::
 1. En el explorador web, en la ventana **Integration Runtime Setup** (Configuración de Integration Runtime), haga clic en **Finish** (Finalizar). 
 
  
@@ -324,7 +324,7 @@ En el último paso, creó un servicio vinculado para vincular su base de datos d
 
 1. Confirme que ve dos servicios vinculados en la lista. 
    
-    ![Dos servicios vinculados](./media/tutorial-incremental-copy-multiple-tables-portal/two-linked-services.png) 
+    :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/two-linked-services.png" alt-text="Dos servicios vinculados"::: 
 
 ## <a name="create-datasets"></a>Creación de conjuntos de datos
 En este paso, creará conjuntos de datos para representar el origen de datos, el destino de los datos y el lugar para almacenar la marca de agua.
@@ -339,7 +339,7 @@ En este paso, creará conjuntos de datos para representar el origen de datos, el
 
 1. Cambie a la pestaña **Connection** (Conexión) de la ventana de propiedades y seleccione **SqlServerLinkedService** en **Linked service** (Servicio vinculado). No seleccione ninguna tabla aquí. La actividad de copia en la canalización usa una consulta SQL para cargar los datos en lugar de cargar la tabla entera.
 
-   ![Conjunto de datos de origen: conexión](./media/tutorial-incremental-copy-multiple-tables-portal/source-dataset-connection.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/source-dataset-connection.png" alt-text="Conjunto de datos de origen: conexión":::
 
 
 ### <a name="create-a-sink-dataset"></a>Creación de un conjunto de datos receptor
@@ -354,14 +354,14 @@ En este paso, creará conjuntos de datos para representar el origen de datos, el
     1. Haga clic en **+ New** (+ Nuevo) en la sección **Create/update parameters** (Crear o actualizar parámetros). 
     1. Escriba **SinkTableName** en **Name** (Nombre) and **String** en **Type** (Tipo). Este conjunto de datos toma **SinkTableName** como parámetro. El parámetro SinkTableName lo establece la canalización dinámicamente en el runtime. La actividad ForEach de la canalización recorre en iteración una lista de nombres de tabla y pasa el nombre de tabla a este conjunto de datos en cada iteración.
    
-        ![Conjunto de datos receptor: propiedades](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png" alt-text="Conjunto de datos receptor: propiedades":::
 1. Cambie a la pestaña **Connection** (Conexión) de la ventana de propiedades y seleccione **AzureSqlDatabaseLinkedService** en **Linked service** (Servicio vinculado). En la propiedad **Table**, haga clic en **Agregar contenido dinámico**.   
     
 1. En la ventana **Add Dynamic Content** (Agregar contenido dinámico), seleccione **SinkTableName** en la sección **Parameters** (Parámetros). 
  
 1. Después de hacer clic en **Finish** (Finalizar), aparecerá "@dataset().SinkTableName" como nombre de la tabla.
 
-   ![Conjunto de datos receptor: conexión](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png" alt-text="Conjunto de datos receptor: conexión":::
 
 ### <a name="create-a-dataset-for-a-watermark"></a>Creación de un conjunto de datos para una marca de agua
 En este paso, creará un conjunto de datos para almacenar un valor de límite máximo. 
@@ -376,7 +376,7 @@ En este paso, creará un conjunto de datos para almacenar un valor de límite m�
     1. Seleccione **AzureSqlDatabaseLinkedService** como **Linked service** (Servicio vinculado).
     1. Seleccione **[dbo].[watermarktable]** para **Table** (Tabla).
 
-        ![Conjunto de datos de marca de agua: conexión](./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png" alt-text="Conjunto de datos de marca de agua: conexión":::
 
 ## <a name="create-a-pipeline"></a>Crear una canalización
 La canalización toma una lista de tablas como un parámetro. La actividad ForEach recorre en iteración la lista de nombres de tabla y realiza las siguientes operaciones: 
@@ -405,7 +405,7 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
 
 1. Cambie a la pestaña **Settings** (Configuración) y escriba `@pipeline().parameters.tableList` en **Items** (Elementos). La actividad ForEach recorre en iteración una lista de tablas y realiza la operación de copia incremental. 
 
-    ![Actividad ForEach: configuración](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-settings.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/foreach-settings.png" alt-text="Actividad ForEach: configuración":::
 
 1. Seleccione la actividad **ForEach** en la canalización, en caso de que aún no esté seleccionada. Haga clic en el botón **Edit (icono del lápiz)** .
 
@@ -421,7 +421,7 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
         select * from watermarktable where TableName  =  '@{item().TABLE_NAME}'
         ```
 
-        ![Primera actividad de búsqueda: configuración](./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-settings.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-settings.png" alt-text="Primera actividad de búsqueda: configuración":::
 1. Arrastre y coloque la actividad **Lookup** (Búsqueda) del cuadro de herramientas **Activities** (Actividades) y escriba **LookupNewWaterMarkActivity** en **Name** (Nombre).
         
 1. Cambie a la pestaña **Configuración** .
@@ -434,12 +434,12 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
         select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
         ```
     
-        ![Segunda actividad de búsqueda: configuración](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png" alt-text="Segunda actividad de búsqueda: configuración":::
 1. Arrastre y coloque la actividad **Copy** (Copia) del cuadro de herramientas **Activities** (Actividades) y escriba **IncrementalCopyActivity** en **Name** (Nombre). 
 
 1. Conecte las dos actividades **Lookup** (Búsqueda) con la actividad **Copy** (Copia) una a una. Para conectarse, empiece a arrastrar en el cuadro **verde** adjunto a la actividad **Lookup** (Búsqueda) y colóquela en la actividad **Copy** (Copia). Suelte el botón del mouse cuando el color del borde de la actividad de copia cambie a **azul**.
 
-    ![Conexión de las actividades de búsqueda a la actividad de copia](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png" alt-text="Conexión de las actividades de búsqueda a la actividad de copia":::
 1. Seleccione la actividad **Copy** (Copia) de la canalización. Cambie a la pestaña **Source** (Origen) en la ventana de **propiedades**. 
 
     1. Seleccione **SourceDataset** como **Source Dataset** (Conjunto de datos de origen). 
@@ -450,7 +450,7 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
         select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
         ```
 
-        ![Actividad de copia: configuración del origen](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png" alt-text="Actividad de copia: configuración del origen":::
 1. Cambie a la pestaña **Sink** (Receptor) y seleccione **SinkDataset** en **Sink Dataset** (Conjunto de datos receptor). 
         
 1. Siga estos pasos:
@@ -460,14 +460,14 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
     1. En la propiedad **Table Type** (Tipo de tabla), escriba `@{item().TableType}`.
     1. En **Table type parameter name** (Nombre del parámetro de tipo de tabla), escriba `@{item().TABLE_NAME}`.
 
-        ![Actividad de copia: parámetros](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png" alt-text="Actividad de copia: parámetros":::
 1. Arrastre la actividad **Stored Procedure** (procedimiento almacenado) del cuadro de herramientas **Activities** (Actividades) y colóquela en la superficie del diseñador de canalizaciones. Conecte la actividad **Copy** (Copia) a la actividad **Stored Procedure** (Procedimiento almacenado). 
 
 1. Seleccione el **Stored Procedure** actividad en la canalización y escriba **StoredProceduretoWriteWatermarkActivity** para **nombre** en la **General** pestaña de la **propiedades** ventana. 
 
 1. Cambie a la pestaña **SQL Account** (Cuenta de SQL) y seleccione **AzureSqlDatabaseLinkedService** en **Linked service** (Servicio vinculado).
 
-    ![Actividad de procedimiento almacenado: cuenta SQL](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png" alt-text="Actividad de procedimiento almacenado: cuenta SQL":::
 1. Cambie a la pestaña **Stored Procedure** (Procedimiento almacenado) y realice los pasos siguientes:
 
     1. Como **Stored procedure name** (Nombre de procedimiento almacenado), seleccione `[dbo].[usp_write_watermark]`. 
@@ -479,7 +479,7 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
-        ![Actividad de procedimiento almacenado: configuración del procedimiento almacenado](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png" alt-text="Actividad de procedimiento almacenado: configuración del procedimiento almacenado":::
 1. Seleccione **Publish All** (Publicar todo) para publicar las entidades que creó en el servicio Data Factory. 
 
 1. Espere a que aparezca el mensaje **Successfully published** (Publicado correctamente). Para ver las notificaciones, haga clic en el vínculo **Show Notifications** (Mostrar notificaciones). Para cerrar la ventana de notificaciones, haga clic en la **X**.
@@ -508,7 +508,7 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
     ]
     ```
 
-    ![Argumentos de Pipeline Run (Ejecución de canalización)](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-run-arguments.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-run-arguments.png" alt-text="Argumentos de Pipeline Run (Ejecución de canalización)":::
 
 ## <a name="monitor-the-pipeline"></a>Supervisar la canalización
 

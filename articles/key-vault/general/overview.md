@@ -10,20 +10,20 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d88f3ed4dbeafc935e58096fb094518b8b0274b4
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: b4635b461441b4ac4ed193a48cbd8e14790ac835
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111411510"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060675"
 ---
 # <a name="about-azure-key-vault"></a>Acerca de Azure Key Vault
 
 Azure Key Vault ayuda a solucionar los problemas siguientes:
 
 - **Administración de secretos**: Azure Key Vault se puede utilizar para almacenar de forma segura y controlar de manera estricta el acceso a los tokens, contraseñas, certificados, claves de API y otros secretos.
-- **Administración de claves**: también se puede usar Azure Key Vault como una solución de administración de claves. Azure Key Vault facilita la creación y control de las claves de cifrado utilizadas para cifrar los datos. 
-- **Administración de certificados**: Azure Key Vault también es un servicio que le permite inscribir, administrar e implementar fácilmente certificados públicos y privados de la Seguridad de la capa de transporte y de la Capa de sockets seguros (TLS/SSL) para su uso con Azure y sus recursos internos conectados.
+- **Administración de claves**: se puede usar Azure Key Vault como una solución de administración de claves. Azure Key Vault facilita la creación y control de las claves de cifrado utilizadas para cifrar los datos.
+- **Administración de certificados**: Azure Key Vault le permite aprovisionar, administrar e implementar fácilmente certificados públicos y privados de la Seguridad de la capa de transporte y de la Capa de sockets seguros (TLS/SSL) para su uso con Azure y sus recursos internos conectados.
 
 Azure Key Vault tiene dos niveles de servicio: Estándar, que realiza el cifrado con una clave de software, y Prémium, que incluye claves protegidas mediante un módulo de seguridad de hardware (HSM). Para ver una comparación entre los niveles Estándar y Premium, consulte la [página de precios de Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 

@@ -1,29 +1,29 @@
 ---
 title: Copia de datos de Amazon Redshift
+description: Obtenga información sobre cómo copiar datos de Amazon Redshift en almacenes de datos receptores compatibles a través de canalizaciones de Synapse Analytics o Azure Data Factory.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre cómo copiar datos desde Amazon Redshift a almacenes de datos de receptor compatibles mediante Azure Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
-ms.openlocfilehash: e341ab94cbc54c420489d501ae62c00660759788
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: ff1aa2fdb5f5adca47130cd3ff00d09e5f2f0649
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123315718"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124828261"
 ---
-# <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copia de datos de Amazon Redshift mediante Azure Data Factory
+# <a name="copy-data-from-amazon-redshift-using-azure-data-factory-or-synapse-analytics"></a>Copia de datos de Amazon Redshift mediante Azure Data Factory o Synapse Analytics
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-amazon-redshift-connector.md)
 > * [Versión actual](connector-amazon-redshift.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se resume el uso de la actividad de copia de Azure Data Factory para copiar datos de Amazon Redshift. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
+En este artículo se resume el uso de la actividad de copia en canalizaciones de Azure Data Factory y Synapse Analytics para copiar datos de Amazon Redshift. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -56,7 +56,7 @@ Siga estos pasos para crear un servicio vinculado a Amazon Redshift en la interf
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un servicio vinculado con la interfaz de usuario de Azure Data Factory":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -85,7 +85,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado Amazon Reds
 | port |El número del puerto TCP que el servidor de Amazon Redshift utiliza para escuchar las conexiones del cliente. |No, el valor predeterminado es 5439 |
 | database |Nombre de la base de datos de Amazon Redshift. |Sí |
 | username |Nombre del usuario que tiene acceso a la base de datos. |Sí |
-| password |Contraseña para la cuenta de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
+| password |Contraseña para la cuenta de usuario. Marque este campo como SecureString para almacenarlo de forma segura, o bien [haga referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |No |
 
 **Ejemplo**:
@@ -161,7 +161,7 @@ Para copiar datos desde Amazon Redshift, establezca el tipo de origen de la acti
 | Query |Utilice la consulta personalizada para leer los datos. Por ejemplo: select * from MyTable. |No (si se especifica "tableName" en el conjunto de datos) |
 | redshiftUnloadSettings | Grupo de propiedades al usar Amazon Redshift UNLOAD. | No |
 | s3LinkedServiceName | Hace referencia a Amazon S3 que se usa como almacenamiento provisional especificando para ello un nombre de servicio vinculado de tipo "AmazonS3". | Sí, se utiliza UNLOAD |
-| bucketName | Indique el depósito S3 para almacenar los datos provisionales. Si no se proporciona, el servicio Data Factory lo genera automáticamente.  | Sí, se utiliza UNLOAD |
+| bucketName | Indique el depósito S3 para almacenar los datos provisionales. Si no se proporciona, el servicio lo genera automáticamente.  | Sí, se utiliza UNLOAD |
 
 **Ejemplo: Origen Amazon Redshift de la actividad de copia mediante UNLOAD**
 
@@ -189,7 +189,7 @@ Obtenga más información en la sección siguiente sobre cómo usar UNLOAD para 
 
 En este caso de uso de ejemplo, la actividad de copia descarga los datos de Amazon Redshift en Amazon S3 según se configura en "redshiftUnloadSettings", luego copia los datos de Amazon S3 en Azure Blob, según se especifica en "stagingSettings", y al final se usa PolyBase para cargar los datos en Azure Synapse Analytics. Todo el formato provisional es controlado como corresponde por la actividad de copia.
 
-![Flujo de trabajo de copia de Redshift a Azure Synapse Analytics](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
+:::image type="content" source="media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png" alt-text="Flujo de trabajo de copia de Redshift a Azure Synapse Analytics":::
 
 ```json
 "activities":[
@@ -237,9 +237,9 @@ En este caso de uso de ejemplo, la actividad de copia descarga los datos de Amaz
 
 ## <a name="data-type-mapping-for-amazon-redshift"></a>Asignación de tipos de datos para Amazon Redshift
 
-Al copiar datos desde Amazon Redshift, se utilizan las siguientes asignaciones de tipos de datos de Amazon Redshift en los tipos de datos provisionales de Azure Data Factory. Consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md) para información sobre cómo la actividad de copia asigna el tipo de datos y el esquema de origen al receptor.
+Al copiar datos desde Amazon Redshift, se utilizan las siguientes asignaciones de los tipos de datos de Amazon Redshift en los tipos de datos provisionales usados internamente en el servicio. Consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md) para información sobre cómo la actividad de copia asigna el tipo de datos y el esquema de origen al receptor.
 
-| Tipo de datos de Amazon Redshift | Tipo de datos provisionales de Data Factory |
+| Tipo de datos de Amazon Redshift | Tipo de datos de servicio provisional |
 |:--- |:--- |
 | bigint |Int64 |
 | BOOLEAN |String |
@@ -259,4 +259,4 @@ Al copiar datos desde Amazon Redshift, se utilizan las siguientes asignaciones d
 Para obtener información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

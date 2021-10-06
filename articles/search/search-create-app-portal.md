@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 08/24/2021
-ms.openlocfilehash: f9ce6f3c7898a492400f6a8cec62e65ab8777e15
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 129c0af62663fcc37621db0d2f37e5fdee55d05c
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770872"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209649"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Inicio rápido: Creación de una aplicación de demostración en el portal (Azure Cognitive Search)
 
@@ -133,7 +133,7 @@ Si está usando un servicio gratuito, recuerde que está limitado a tres índice
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-La aplicación de demostración es útil para crear prototipos, ya que puede simular una experiencia del usuario final sin tener que escribir código de JavaScript o de front-end. Para obtener más información sobre las características del front-end, comience con la navegación por facetas:
+La aplicación de demostración es útil para la creación de prototipos porque puede simular una experiencia de usuario final sin tener que escribir código JavaScript o front-end; sin embargo, a medida que se acerca a la prueba de concepto en su propio proyecto, revise una de las muestras de código completo que es un facsímil más cercano de una aplicación real:
 
 > [!div class="nextstepaction"]
-> [Procedimientos para crear un filtro de facetas](search-filters-facets.md)
+> [Incorporación de la funcionalidad de búsqueda a aplicaciones web](tutorial-csharp-overview.md)

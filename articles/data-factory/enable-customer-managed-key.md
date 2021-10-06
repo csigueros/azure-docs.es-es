@@ -8,12 +8,12 @@ ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.reviewer: mariozi
-ms.openlocfilehash: 3580ae78497426f1399981035e861bc51c912144
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 725ebc0dbb8b037dcfcde8d154353fd7cf0a1a59
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697561"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208112"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Cifrado de Azure Data Factory con claves administradas por el cliente
 
@@ -149,7 +149,7 @@ De forma predeterminada, la configuración de CMK no se incluye en la plantilla 
 
   :::image type="content" source="media/enable-customer-managed-key/07-include-in-template.png" alt-text="Captura de pantalla de la opción para incluir una clave administrada por el cliente en la plantilla de Resource Manager.":::
 
-La siguiente configuración se agregará en la plantilla de Resource Manager. Estas propiedades se pueden parametrizar en canalizaciones de integración y entrega continuas mediante la edición de la [configuración de los parámetros de Azure Resource Manager](continuous-integration-deployment.md#use-custom-parameters-with-the-resource-manager-template).
+La siguiente configuración se agregará en la plantilla de Resource Manager. Estas propiedades se pueden parametrizar en canalizaciones de integración y entrega continuas mediante la edición de la [configuración de los parámetros de Azure Resource Manager](continuous-integration-delivery-resource-manager-custom-parameters.md).
 
   :::image type="content" source="media/enable-customer-managed-key/08-template-with-customer-managed-key.png" alt-text="Captura de pantalla de la opción para incluir la clave administrada por el cliente en la plantilla de Azure Resource Manager.":::
 

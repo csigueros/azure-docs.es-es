@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 08/04/2021
+ms.date: 09/22/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
-ms.openlocfilehash: 2ed3e7d1525c750c698e853921900e6d39feb83e
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 10cd246d0a60184616facb799f9dc079cb5cf30d
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123480361"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216790"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Protección de un área de trabajo de Azure Machine Learning con redes virtuales
 
@@ -27,8 +27,8 @@ En este artículo, aprenderá a proteger un área de trabajo de Azure Machine Le
 >
 > * [Información general sobre redes virtuales](how-to-network-security-overview.md)
 > * [Protección del entorno de entrenamiento](how-to-secure-training-vnet.md)
-> * [Protección de un entorno de inferencia](how-to-secure-inferencing-vnet.md)
-> * [Habilitación de Azure Machine Learning Studio en una red virtual](how-to-enable-studio-virtual-network.md)
+> * [Protección del entorno de inferencia](how-to-secure-inferencing-vnet.md)
+> * [Habilitación de la función de Studio](how-to-enable-studio-virtual-network.md)
 > * [Uso de un DNS personalizado](how-to-custom-dns.md)
 > * [Uso de un firewall](how-to-access-azureml-behind-firewall.md)
 >
@@ -45,6 +45,8 @@ En este artículo aprenderá a habilitar los siguientes recursos de áreas de tr
 ## <a name="prerequisites"></a>Requisitos previos
 
 + Lea el artículo [Introducción a la seguridad de red](how-to-network-security-overview.md) para comprender los escenarios comunes de redes virtuales y la arquitectura de red virtual general.
+
++ Lea el artículo [Procedimientos recomendados de Azure Machine Learning para la seguridad empresarial](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) para información sobre los procedimientos recomendados.
 
 + Una red virtual y una subred existentes que se usarán con los recursos de proceso.
 
@@ -79,6 +81,9 @@ Cuando la instancia de ACR está detrás de una red virtual, Azure Machine Learn
 > [!IMPORTANT]
 > El clúster de proceso que se usa para compilar imágenes de Docker debe poder acceder a los repositorios de paquetes que se usan para entrenar e implementar los modelos. Es posible que tenga que agregar reglas de seguridad de red que permitan el acceso a repositorios públicos, [usar paquetes de Python privados](how-to-use-private-python-packages.md) o usar [imágenes de Docker personalizadas](how-to-train-with-custom-image.md) que ya incluyan los paquetes.
 
+> [!WARNING]
+> Si Azure Container Registry usa un punto de conexión privado para comunicarse con la red virtual, no puede usar una identidad administrada con un clúster de proceso de Azure Machine Learning. Para usar una identidad administrada con un clúster de proceso, use un punto de conexión de servicio con Azure Container Registry para el área de trabajo.
+
 ## <a name="required-public-internet-access"></a>Acceso obligatorio a una red de Internet pública
 
 [!INCLUDE [machine-learning-required-public-internet-access](../../includes/machine-learning-public-internet-access.md)]
@@ -94,47 +99,20 @@ Para obtener más información sobre cómo configurar un punto de conexión priv
 > [!WARNING]
 > La protección de un área de trabajo con puntos de conexión privados no garantiza la seguridad de un extremo a otro por sí misma. Debe seguir los pasos que se describen en el resto de este artículo y la serie de redes virtuales para proteger componentes individuales de la solución. Por ejemplo, si usa un punto de conexión privado para el área de trabajo, pero la cuenta de Azure Storage no está detrás de la red virtual, el tráfico entre el área de trabajo y el almacenamiento no usa la red virtual por motivos de seguridad.
 
-## <a name="secure-azure-storage-accounts-with-service-endpoints"></a>Protección de cuentas de almacenamiento de Azure con puntos de conexión de servicio
+## <a name="secure-azure-storage-accounts"></a>Protección de cuentas de Azure Storage
 
-Azure Machine Learning admite cuentas de almacenamiento configuradas para usar puntos de conexión de servicio o puntos de conexión privados. En esta sección, aprenderá a proteger una cuenta de Azure Storage mediante puntos de conexión de servicio. En el caso de los puntos de conexión privados, consulte la sección siguiente.
+Azure Machine Learning admite cuentas de almacenamiento configuradas para usar un punto de conexión privado o un punto de conexión de servicio. 
 
-Para usar una cuenta de Azure Storage para el área de trabajo en una red virtual, siga estos pasos:
-
-1. En Azure Portal, vaya al servicio de almacenamiento que quiera usar en el área de trabajo.
-
-   [![Almacenamiento asociado al área de trabajo de Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
-
-1. En la página de la cuenta de servicio de almacenamiento, seleccione __Redes__.
-
-   ![Área de redes de la página de Azure Storage en Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
-
-1. En la pestaña __Firewalls y redes virtuales__, realice las acciones siguientes:
-    1. Seleccione __Redes seleccionadas__.
-    1. En __Redes virtuales__, seleccione el vínculo __Agregar red virtual existente__. Esta acción agrega la red virtual en la que reside el proceso (vea el paso 1).
-
-        > [!IMPORTANT]
-        > La cuenta de almacenamiento debe estar en la misma red virtual y subred que las instancias de proceso o clústeres usados para entrenamiento o inferencia.
-
-    1. Seleccione la casilla __Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento__. Este cambio no concede a todos los servicios de Azure acceso a su cuenta de almacenamiento.
-    
-        * Los recursos de algunos servicios, cuando **están registrados en la suscripción**, pueden obtener acceso a la cuenta de almacenamiento **de la misma suscripción** para ciertas operaciones. Por ejemplo, operaciones de escritura de registros o creación de copias de seguridad.
-        * Los recursos de algunos servicios pueden conceder acceso explícito a su cuenta de almacenamiento. Para ello, __asignan un rol de Azure__ a su identidad administrada asignada por el sistema.
-
-        Para más información, vea [Configuración de Firewalls y redes virtuales de Azure Storage](../storage/common/storage-network-security.md#trusted-microsoft-services).
+# <a name="private-endpoint"></a>[Punto de conexión privado](#tab/pe)
 
 > [!TIP]
-> Al usar un punto de conexión de servicio, también puede deshabilitar el acceso público. Para obtener más información, consulte la sección sobre cómo [deshabilitar el acceso de lectura público](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
+> Debe configurar dos puntos de conexión privados para la cuenta de almacenamiento predeterminada:
+> * Un punto de conexión privado con un recurso secundario de destino de **blob**.
+> * Un punto de conexión privado con un recurso secundario de destino de **archivo** (recurso compartido de archivos).
+>
+> Si tiene previsto usar [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) en la canalización, también es necesario configurar puntos de conexión privados con subrecursos de destino de **cola** y **tabla**. ParallelRunStep usa la cola y la tabla para la programación y distribución de tareas.
 
-## <a name="secure-azure-storage-accounts-with-private-endpoints"></a>Protección de cuentas de almacenamiento de Azure con puntos de conexión privados
-
-Azure Machine Learning admite cuentas de almacenamiento configuradas para usar puntos de conexión de servicio o puntos de conexión privados. Si la cuenta de almacenamiento usa puntos de conexión privados, debe configurar dos para la cuenta de almacenamiento predeterminada:
-1. Un punto de conexión privado con un recurso secundario de destino de **blob**.
-1. Un punto de conexión privado con un recurso secundario de destino de **archivo** (recurso compartido de archivos).
-
-> [!TIP]
-> Si tiene previsto usar [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) en la canalización, también es necesario configurar puntos de conexión privados con una **cola** y un subrecurso de destino de **tabla**. ParallelRunStep usa la cola y la tabla en segundo plano para la programación y distribución de tareas.
-
-![Captura de pantalla que muestra la página de configuración de los puntos de conexión privados con opciones de blob y archivo](./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png)
+:::image type="content" source="./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png" alt-text="Captura de pantalla que muestra la página de configuración de los puntos de conexión privados con opciones de blob y archivo":::
 
 Para configurar un punto de conexión privado para una cuenta de almacenamiento que **no** sea el almacenamiento predeterminado, seleccione el tipo **Subrecurso de destino** correspondiente a la cuenta de almacenamiento que quiere agregar.
 
@@ -143,6 +121,33 @@ Para más información, consulte [Uso de puntos de conexión privados para Azure
 > [!TIP]
 > Al usar un punto de conexión privado, también puede deshabilitar el acceso público. Para obtener más información, consulte la sección sobre cómo [deshabilitar el acceso de lectura público](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
 
+# <a name="service-endpoint"></a>[Punto de conexión de servicio](#tab/se)
+
+1. En Azure Portal, seleccione la cuenta de Azure Storage.
+
+1. En la sección __Seguridad y redes__ de la izquierda de la página, seleccione __Redes__ y, luego, elija la pestaña __Firewalls y redes virtuales__.
+
+1. Seleccione __Redes seleccionadas__. En __Redes virtuales__, seleccione el vínculo __Agregar red virtual existente__ y luego la red virtual que el área de trabajo usa.
+
+    > [!IMPORTANT]
+    > La cuenta de almacenamiento debe estar en la misma red virtual y subred que las instancias de proceso o clústeres usados para entrenamiento o inferencia.
+
+1. En la sección __Resource instances__ (Instancias de recursos), seleccione `Microsoft.MachineLearningServices/Workspace` como __Tipo de recurso__ y seleccione el área de trabajo mediante __Nombre de instancia__. Para más información, consulte [Acceso de confianza basado en la identidad administrada asignada por el sistema](/azure/storage/common/storage-network-security#trusted-access-based-on-system-assigned-managed-identity).
+
+1. En __Excepciones__, seleccione __Allow Azure services on the trusted services list to access this storage account__ (Permitir que los servicios de Azure de la lista de servicios de confianza accedan a esta cuenta de almacenamiento).
+
+    * Los recursos de algunos servicios, cuando **están registrados en la suscripción**, pueden obtener acceso a la cuenta de almacenamiento **de la misma suscripción** para ciertas operaciones. Por ejemplo, operaciones de escritura de registros o creación de copias de seguridad.
+    * Los recursos de algunos servicios pueden conceder acceso explícito a su cuenta de almacenamiento. Para ello, __asignan un rol de Azure__ a su identidad administrada asignada por el sistema.
+
+    Para más información, vea [Configuración de Firewalls y redes virtuales de Azure Storage](../storage/common/storage-network-security.md#trusted-microsoft-services).
+
+:::image type="content" source="./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png" alt-text="Área de redes de la página de Azure Storage en Azure Portal":::
+
+> [!TIP]
+> Al usar un punto de conexión de servicio, también puede deshabilitar el acceso público. Para obtener más información, consulte la sección sobre cómo [deshabilitar el acceso de lectura público](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
+
+---
+
 ## <a name="secure-azure-key-vault"></a>Protección de Azure Key Vault
 
 Azure Machine Learning usa una instancia de Key Vault asociada para almacenar las siguientes credenciales:
@@ -150,7 +155,17 @@ Azure Machine Learning usa una instancia de Key Vault asociada para almacenar la
 * Contraseñas para las instancias de Azure Container Repository
 * Cadenas de conexión a almacenes de datos
 
-Azure Key Vault se puede configurar para usar puntos de conexión de servicio o puntos de conexión privados. Para usar las funcionalidades de experimentación de Azure Machine Learning con Azure Key Vault detrás de una red virtual, siga los pasos siguientes:
+Azure Key Vault se puede configurar para usar un punto de conexión privado o un punto de conexión de servicio. Para usar las funcionalidades de experimentación de Azure Machine Learning con Azure Key Vault detrás de una red virtual, siga los pasos siguientes:
+
+> [!TIP]
+> Independientemente de si usa un punto de conexión privado o un punto de conexión de servicio, el almacén de claves debe estar en la misma red que el punto de conexión privado del área de trabajo.
+
+# <a name="private-endpoint"></a>[Punto de conexión privado](#tab/pe)
+
+Para información sobre cómo usar un punto de conexión privado con Azure Key Vault, consulte [Integración de Key Vault con Azure Private Link](/azure/key-vault/general/private-link-service#establish-a-private-link-connection-to-key-vault-using-the-azure-portal).
+
+
+# <a name="service-endpoint"></a>[Punto de conexión de servicio](#tab/se)
 
 1. Vaya a la instancia de Key Vault asociada al área de trabajo.
 
@@ -161,14 +176,18 @@ Azure Key Vault se puede configurar para usar puntos de conexión de servicio o 
     1. En __Redes virtuales__, seleccione __Agregar redes virtuales existentes__ para agregar la red virtual donde reside el proceso de experimentación.
     1. En __¿Quiere permitir que los servicios de confianza de Microsoft puedan omitir este firewall?__ , seleccione __Sí__.
 
-   [![Sección "Firewalls y redes virtuales" del panel de Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
+    :::image type="content" source="./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png" alt-text="Sección sobre firewalls y redes virtuales del panel de Key Vault":::
+
+Para más información, vea [Configuración de redes de Azure Key Vault](/azure/key-vault/general/how-to-azure-key-vault-network-security).
+
+---
 
 ## <a name="enable-azure-container-registry-acr"></a>Habilitación de un registro de Azure Container Registry (ACR)
 
 > [!TIP]
 > Si no usó una instancia de Azure Container Registry existente al crear el área de trabajo, es posible que no exista ninguna. De forma predeterminada, el área de trabajo no creará ninguna instancia de ACR hasta que necesite una. Para forzar la creación de una, entrene o implemente un modelo mediante el área de trabajo antes de seguir los pasos de esta sección.
 
-Azure Container Registry se puede configurar para usar puntos de conexión de servicio o puntos de conexión privados. Siga estos pasos para configurar el área de trabajo a fin de que use ACR cuando se encuentre en la red virtual:
+Puede configurar Azure Container Registry para usar un punto de conexión privado. Siga estos pasos para configurar el área de trabajo a fin de que use ACR cuando se encuentre en la red virtual:
 
 1. Busque el nombre de la instancia de Azure Container Registry para el área de trabajo mediante alguno de los métodos siguientes:
 
@@ -188,7 +207,7 @@ Azure Container Registry se puede configurar para usar puntos de conexión de se
 
     Este comando devuelve un valor similar a `"/subscriptions/{GUID}/resourceGroups/{resourcegroupname}/providers/Microsoft.ContainerRegistry/registries/{ACRname}"`. La última parte de la cadena es el nombre de Azure Container Registry para el área de trabajo.
 
-1. Limite el acceso a la red virtual mediante los pasos descritos en [Configuración del acceso de red al registro](../container-registry/container-registry-vnet.md#configure-network-access-for-registry). Al agregar la red virtual, seleccione la red virtual y la subred para los recursos de Azure Machine Learning.
+1. Limite el acceso a la red virtual mediante los pasos descritos en [Conexión privada a Azure Container Registry](../container-registry/container-registry-private-link.md). Al agregar la red virtual, seleccione la red virtual y la subred para los recursos de Azure Machine Learning.
 
 1. Configure la instancia de ACR del área de trabajo para [permitir el acceso de los servicios de confianza](../container-registry/allow-access-trusted-services.md).
 
@@ -264,18 +283,7 @@ validate=False)
 
 ## <a name="securely-connect-to-your-workspace"></a>Conexión segura al área de trabajo
 
-Se pueden usar los métodos siguientes para conectarse al área de trabajo segura:
-
-* [Azure VPN Gateway:](../vpn-gateway/vpn-gateway-about-vpngateways.md) conecta redes locales a la VNet mediante una conexión privada. La conexión se realiza mediante la red pública de Internet. Hay dos tipos de puertas de enlace de VPN que puede usar:
-
-    * [De punto a sitio](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md): cada equipo cliente usa un cliente VPN para conectarse a la red virtual.
-    * [De sitio a sitio](../vpn-gateway/tutorial-site-to-site-portal.md): un dispositivo VPN conecta la red virtual a la red local.
-
-* [ExpressRoute:](https://azure.microsoft.com/services/expressroute/) conecta redes locales a la nube mediante una conexión privada. La conexión se realiza mediante un proveedor de conectividad.
-* [Azure Bastion:](../bastion/bastion-overview.md) en este escenario, se crea una máquina virtual de Azure (a veces denominada "jump box") dentro de la VNet. A continuación, se conecta a la máquina virtual mediante Azure Bastion. Bastion permite conectarse a la máquina virtual mediante una sesión RDP o SSH desde el explorador web local. A continuación, use la jump box como entorno de desarrollo. Puesto que está dentro de la VNet, puede acceder directamente al área de trabajo. Para obtener un ejemplo de cómo usar un jumpbox, vea [Tutorial: Creación de un área de trabajo segura](tutorial-create-secure-workspace.md).
-
-> [!IMPORTANT]
-> Al usar una __puerta de enlace de VPN__ o __ExpressRoute__, deberá planear cómo funciona la resolución de nombres entre los recursos locales y los de la red virtual. Para obtener más información, vea [Creación de un servidor DNS personalizado](how-to-custom-dns.md).
+[!INCLUDE [machine-learning-connect-secure-workspace](../../includes/machine-learning-connect-secure-workspace.md)]
 
 ## <a name="workspace-diagnostics"></a>Diagnóstico del área de trabajo
 
@@ -287,7 +295,7 @@ Este artículo forma parte de una serie sobre la protección de un flujo de trab
 
 * [Información general sobre redes virtuales](how-to-network-security-overview.md)
 * [Protección del entorno de entrenamiento](how-to-secure-training-vnet.md)
-* [Protección de un entorno de inferencia](how-to-secure-inferencing-vnet.md)
-* [Habilitación de Azure Machine Learning Studio en una red virtual](how-to-enable-studio-virtual-network.md)
+* [Protección del entorno de inferencia](how-to-secure-inferencing-vnet.md)
+* [Habilitación de la función de Studio](how-to-enable-studio-virtual-network.md)
 * [Uso de un DNS personalizado](how-to-custom-dns.md)
 * [Uso de un firewall](how-to-access-azureml-behind-firewall.md)

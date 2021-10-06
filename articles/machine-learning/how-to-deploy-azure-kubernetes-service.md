@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Obtenga información sobre cómo implementar modelos de Azure Machine Learning como un servicio web con Azure Kubernetes Service.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 ms.custom: contperf-fy21q1, deploy
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/28/2021
-ms.openlocfilehash: 67d28d7f218debde1bd29abf0e4bbdaa0c7c49dd
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: fbacf4317defe999563a936b6c263ea2619f1eab
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867602"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428414"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implementación de un modelo en un clúster de Azure Kubernetes Service
 
@@ -60,9 +60,6 @@ En Azure Kubernetes Service, la implementación se realiza en un clúster de AKS
 - Un clúster de Azure Kubernetes Service conectado al área de trabajo. Para obtener más información, consulte [Creación y conexión de un clúster de Azure Kubernetes Service](how-to-create-attach-kubernetes.md).
 
     - Si quiere implementar modelos en nodos de GPU o en nodos de FPGA (o en cualquier SKU específica), debe crear un clúster con la SKU específica. No se admite la creación de un grupo de nodos secundarios en un clúster existente ni la implementación de modelos en el grupo de nodos secundarios.
-
-> [!IMPORTANT]
-> Actualmente, Azure Machine Learning no admite la implementación de modelos en la versión **1.21.x** de Azure Kubernetes Service.
 
 ## <a name="understand-the-deployment-processes"></a>Comprender los procesos de implementación
 

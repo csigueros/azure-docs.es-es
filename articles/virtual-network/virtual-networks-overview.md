@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2020
 ms.author: kumud
-ms.openlocfilehash: 927ff80a544ef8fbff348aeb8781f8a55c84e109
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 57d719f5ea56123c4b237e48f07f1e82fd885b3b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106061900"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624811"
 ---
 # <a name="what-is-azure-virtual-network"></a>¿Qué es Azure Virtual Network?
 
@@ -74,6 +74,9 @@ Puede integrar los servicios de Azure en la red virtual con las siguientes opcio
 ## <a name="azure-vnet-limits"></a>Límites de Azure VNet
 
 Hay ciertos límites en torno al número de recursos de Azure que puede implementar. La mayoría de los límites de redes de Azure están en los valores máximos. Sin embargo, puede [aumentar ciertos límites de red](../azure-portal/supportability/networking-quota-requests.md) como se especifica en la [página de límites de red virtual](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits). 
+
+## <a name="virtual-networks-and-availability-zones"></a>Redes virtuales y zonas de disponibilidad
+Las redes virtuales y las subredes abarcan todas las zonas de disponibilidad de una región. No es necesario dividirlas por zonas de disponibilidad para dar cabida a los recursos de zona. Por ejemplo, si configura una máquina virtual de zona, no tiene que tener en cuenta la red virtual al seleccionar la zona de disponibilidad de la máquina virtual. Lo mismo sucede con otros recursos de zona.
 
 ## <a name="pricing"></a>Precios
 

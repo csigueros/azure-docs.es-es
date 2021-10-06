@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 07/02/2021
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: 02b4341d9eddb039eb44ba964ca2e4a25c4835a7
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 5a599e80dea9d172ddb42cdfe76325ff5e807fbc
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539404"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129378010"
 ---
 En este inicio rápido aprenderá patrones de diseño comunes para realizar la síntesis de texto a voz mediante el SDK de voz. Para empezar, puede realizar una configuración y síntesis básicas y, después, pasar a ejemplos más avanzados para el desarrollo de aplicaciones personalizadas, entre las que se incluyen:
 
@@ -30,9 +30,8 @@ En este artículo se da por sentado que tiene una cuenta de Azure y una suscripc
 ## <a name="install-the-speech-sdk"></a>Instalación de Speech SDK
 
 En primer lugar, deberá instalar <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK para JavaScript</a>. Utilice las siguientes instrucciones en función de la plataforma:
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span
-class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Explorador web </a>
+- [Node.js](../../../speech-sdk.md?tabs=nodejs#get-the-speech-sdk)
+- [Explorador web](../../../speech-sdk.md?tabs=browser#get-the-speech-sdk)
 
 Además, en función del entorno de destino, use una de las siguientes:
 

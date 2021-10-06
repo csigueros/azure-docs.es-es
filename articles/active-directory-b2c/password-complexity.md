@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/12/2021
+ms.date: 09/20/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 81c6e58e34f30d5736c40c77a308321dee28ae34
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 14c269ae8cb29d32659f500357bbc7bcd81e6d8c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103224272"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128578933"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configuración de los requisitos de complejidad de contraseñas de Azure Active Directory B2C
 
@@ -48,11 +48,12 @@ Si usa directivas personalizadas, puede ([configurar la complejidad de la contra
 ## <a name="configure-password-complexity"></a>Configurar la complejidad de la contraseña
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
-3. En Azure Portal, busque y seleccione **Azure AD B2C**.
-4. Seleccione **Flujos de usuario**.
-2. Seleccione un flujo de usuario y haga clic en **Propiedades**.
-3. En **Complejidad de la contraseña**, cambie la complejidad de contraseña de este flujo de usuario a **Simple**, **Segura** o **Personalizada**.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. En Azure Portal, busque y seleccione **Azure AD B2C**.
+1. Seleccione **Flujos de usuario**.
+1. Seleccione un flujo de usuario y haga clic en **Propiedades**.
+1. En **Complejidad de la contraseña**, cambie la complejidad de contraseña de este flujo de usuario a **Simple**, **Segura** o **Personalizada**.
 
 ### <a name="comparison-chart"></a>Gráfico de comparación
 
@@ -222,12 +223,13 @@ Guarde el archivo de directiva.
 ### <a name="upload-the-files"></a>Carga de los archivos
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
-3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
-4. Seleccione **Marco de experiencia de identidad**.
-5. En la página Directivas personalizadas, haga clic en **Cargar directiva**.
-6. Seleccione **Sobrescribir la directiva si existe**, y busque y seleccione el archivo *TrustFrameworkExtensions.xml*.
-7. Haga clic en **Cargar**.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
+1. Seleccione **Marco de experiencia de identidad**.
+1. En la página Directivas personalizadas, haga clic en **Cargar directiva**.
+1. Seleccione **Sobrescribir la directiva si existe**, y busque y seleccione el archivo *TrustFrameworkExtensions.xml*.
+1. Haga clic en **Cargar**.
 
 ### <a name="run-the-policy"></a>Ejecución de la directiva
 

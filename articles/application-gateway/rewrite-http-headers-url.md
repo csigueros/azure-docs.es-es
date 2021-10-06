@@ -1,18 +1,17 @@
 ---
-title: Reescritura de encabezados HTTP y direcciones URL con Azure Application Gateway | Microsoft Docs
+title: Reescritura de los encabezados HTTP y direcciones URL con Azure Application Gateway
 description: En este artículo, se proporciona información general sobre la reescritura de encabezados HTTP y direcciones URL en Azure Application Gateway
-services: application-gateway
 author: azhar2005
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/05/2021
 ms.author: azhussai
-ms.openlocfilehash: b7cf7c98e71da215eb30dcab556a88d6d2701591
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c4e4af8fb14c48988a593261365dcfde6c7a0657
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789454"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128577286"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Reescritura de los encabezados HTTP y direcciones URL con Application Gateway
 
@@ -97,7 +96,7 @@ Si desea utilizar el valor entero, no debe mencionar el número. Simplemente, us
 
 ## <a name="server-variables"></a>Variables de servidor
 
-App Gateway usa variables de servidor para almacenar información útil sobre el servidor, la conexión con el cliente y la solicitud actual en la conexión. La dirección IP del cliente y el tipo de explorador web son ejemplos de la información almacenada. Las variables de servidor cambian dinámicamente, por ejemplo, cuando se carga una página nueva o cuando se publica un formulario. Puede usar estas variables para evaluar las condiciones de reescritura y volver a escribir los encabezados. Para usar el valor de las variables del servidor a fin de volver a escribir los encabezados, deberá especificar estas variables con la sintaxis {var_ *nombreDeVariableDeServidor*}.
+App Gateway usa variables de servidor para almacenar información útil sobre el servidor, la conexión con el cliente y la solicitud actual en la conexión. La dirección IP del cliente y el tipo de explorador web son ejemplos de la información almacenada. Las variables de servidor cambian dinámicamente, por ejemplo, cuando se carga una página nueva o cuando se publica un formulario. Puede usar estas variables para evaluar las condiciones de reescritura y volver a escribir los encabezados. Para usar el valor de las variables del servidor a fin de volver a escribir los encabezados, deberá especificar estas variables con la sintaxis {var_ *nombreDeVariableDeServidor*}.
 
 Application Gateway admite las siguientes variables de servidor:
 
@@ -139,7 +138,7 @@ Application Gateway admite las siguientes variables de servidor para los escenar
 | client_certificate_serial | Número de serie del certificado de cliente para una conexión SSL establecida.  |
 | client_certificate_start_date| Fecha de inicio del certificado de cliente. |
 | client_certificate_subject| Cadena del "nombre distintivo del firmante" del certificado de cliente para una conexión SSL establecida. |
-| client_certificate_verification| Resultado de la comprobación del certificado de cliente: *SUCCESS*, *FAILED:<reason>* o *NONE* si no había un certificado presente. | 
+| client_certificate_verification| Resultado de la comprobación del certificado de cliente: *SUCCESS*, *FAILED:\<reason\>* o *NONE* si no había un certificado presente. | 
 
 ## <a name="rewrite-configuration"></a>Configuración de la reescritura
 

@@ -4,15 +4,15 @@ description: En este tutorial se describe cómo examinar Azure Data Lake Storage
 author: shsandeep123
 ms.author: sandeepshah
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: 02bdb1812556d08b00885a68fb50443e97d6977c
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: 0d2da12eed5bdfe393cb20c489df2591356b9012
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123214043"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214871"
 ---
 # <a name="register-and-scan-azure-data-lake-storage-gen2"></a>Registro y examen de Azure Data Lake Storage Gen2
 
@@ -138,7 +138,7 @@ En la pantalla **Registrar orígenes (Azure Data Lake Storage Gen2)** , haga lo 
 
 Para crear y ejecutar un nuevo examen, siga estos pasos:
 
-1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de Purview Studio.
+1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Seleccione el origen de Azure Data Lake Storage Gen2 que registró.
 

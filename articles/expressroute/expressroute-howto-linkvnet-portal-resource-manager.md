@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/10/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: bed2f746d0216a120b1f144a410a15d533ae3113
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 91e95bd6b269558353d74cbaa51dce94539001c1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866646"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606406"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Tutorial: Conexión de una red virtual con un circuito de ExpressRoute mediante el portal
 
@@ -86,6 +86,9 @@ En este tutorial, obtendrá información sobre cómo:
 Puede compartir un circuito ExpressRoute entre varias suscripciones. En la ilustración siguiente se muestra un sencillo esquema de cómo funciona el uso compartido de circuitos ExpressRoute entre varias suscripciones.
 
 :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/cross-subscription.png" alt-text="Conectividad entre suscripciones":::
+
+> [!NOTE]
+> No se admite la conexión de redes virtuales entre nubes soberanas de Azure y la nube pública de Azure. Solo puede vincular redes virtuales de distintas suscripciones de la misma nube.
 
 Cada una de las nubes más pequeñas dentro de la nube de gran tamaño se usa para representar las suscripciones que pertenecen a diferentes departamentos dentro de una organización. Cada departamento de la organización usa su propia suscripción para implementar sus servicios, pero puede compartir un único circuito ExpressRoute para volver a conectarse a la red local. Un solo departamento (en este ejemplo: TI) puede ser el propietario de ExpressRoute. Otras suscripciones dentro de la organización pueden usar el circuito ExpressRoute.
 
@@ -185,6 +188,7 @@ Al agregar una nueva conexión para la puerta de enlace de ExpressRoute, active 
 La compatibilidad de FastPath con el emparejamiento de redes virtuales está ahora en versión preliminar pública. La inscripción solo está disponible a través Azure PowerShell. Consulte las [características de la versión preliminar de FastPath](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview) para obtener instrucciones sobre cómo inscribirse.
 
 > [!NOTE] 
+> Todas las conexiones configuradas para FastPath en la suscripción de destino se inscribirán en esta versión preliminar. No se recomienda habilitar esta versión preliminar en las suscripciones de producción.
 > Si ya tiene FastPath configurado y desea inscribirse en la característica en versión preliminar, debe hacer lo siguiente:
 > 1. Inscríbase en la característica en versión preliminar de FastPath con el comando de Azure PowerShell anterior.
 > 1. Deshabilite y vuelva a habilitar FastPath en la conexión de destino.

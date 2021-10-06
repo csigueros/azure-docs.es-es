@@ -11,12 +11,12 @@ ms.author: danil
 ms.reviewer: mathoma, bonova, danil
 ms.date: 8/18/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 7f9067d2f568c3f3d65b89508d85046970c9e334
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 801bfe634281ffc795bd0f9c56089f915be52ac6
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129273426"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083797"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferencias de T-SQL entre SQL Server y una Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -70,7 +70,7 @@ Limitaciones:
 - Con una Instancia administrada de SQL, puede hacer una copia de seguridad de una base de datos de instancia en una copia de seguridad con hasta 32 franjas, lo cual es suficiente para bases de datos de hasta 4 TB si se usa la compresión de copia de seguridad.
 - No se puede ejecutar `BACKUP DATABASE ... WITH COPY_ONLY` en una base de datos cifrada con Cifrado de datos transparente (TDE) administrado por el servicio. TDE administrado por un servicio hace que las copias de seguridad se cifren con una clave interna de TDE. No es posible exportar la clave, por lo que no se puede restaurar la copia de seguridad. Use copias de seguridad automáticas y restauración a un momento dado, o use [Cifrado de datos transparente administrado por el cliente (BYOK)](../database/transparent-data-encryption-tde-overview.md#customer-managed-transparent-data-encryption---bring-your-own-key) en su lugar. También puede deshabilitar el cifrado en la base de datos.
 - Las copias de seguridad nativas realizadas en una Instancia administrada no se pueden restaurar en un servidor de SQL Server. Esto se debe a que la Instancia administrada tiene una versión de base de datos interna superior en comparación con cualquier versión de SQL Server.
-- Para crear una copia de seguridad o restaurar una base de datos hacia y desde un almacenamiento de Azure, es necesario crear una firma de acceso compartido (SAS) y un URI que conceda derechos de acceso restringidos a los recursos de Azure Storage. [Más información](restore-sample-database-quickstart.md#restore-from-a-backup-file-using-t-sql). No se admite el uso de claves de acceso para estos escenarios.
+- Para crear una copia de seguridad o restaurar una base de datos hacia y desde un almacenamiento de Azure, es necesario crear una firma de acceso compartido (SAS) y un URI que conceda derechos de acceso restringidos a los recursos de Azure Storage. [Más información](https://docs.microsoft.com/azure/azure-sql/managed-instance/restore-sample-database-quickstart#restore-from-a-backup-file-using-t-sql). No se admite el uso de claves de acceso para estos escenarios.
 - El tamaño máximo de una franja de copia de seguridad con el uso del comando `BACKUP` en una Instancia administrada de SQL es de 195 GB, lo cual es el tamaño máximo del blob. Aumente el número de franjas en el comando de copia de seguridad para reducir el tamaño de las franjas y permanecer dentro de este límite.
 
     > [!TIP]

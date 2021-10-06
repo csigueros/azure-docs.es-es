@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/10/2021
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 2a76ee1c5009091247d9629bdbb0edc0b8c8a217
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d1a46cd010f0a629e787a7ebabcfe002837b7ad3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738075"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124811173"
 ---
 # <a name="azure-firewall-premium-features"></a>Características de Azure Firewall Prémium
 

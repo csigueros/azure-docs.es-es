@@ -2,13 +2,13 @@
 title: 'Tutorial: Usar Azure Event Grid para automatizar el cambio de tamaño de imágenes cargadas'
 description: 'Tutorial: Azure Event Grid puede desencadenarse en cargas de blob de Azure Storage. Puede usarlo para enviar archivos de imagen cargados en Azure Storage a otros servicios, como Azure Functions, a fin de cambiar el tamaño y otras mejoras.'
 ms.topic: tutorial
-ms.date: 07/07/2020
-ms.openlocfilehash: 46e0f9a0b6d98c91f2de203061597c9172f502aa
-ms.sourcegitcommit: 149815030568fb4d4dd2e2025a18dc64fc190d07
+ms.date: 09/28/2021
+ms.openlocfilehash: 74e7905bbf548b0864a9b871eba964a5759a91a6
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129062110"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234136"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar el cambio de tamaño de imágenes cargadas mediante Event Grid
 

@@ -1,7 +1,6 @@
 ---
-title: 'Inicio rápido: Visualización de la lista de aplicaciones en el inquilino'
-titleSuffix: Azure AD
-description: En este inicio rápido, utilice Azure Portal a fin de ver la lista de aplicaciones registradas para usar el inquilino de Azure Active Directory (Azure AD) para la administración de identidades.
+title: 'Inicio rápido: Visualización de aplicaciones empresariales'
+description: Vea las aplicaciones empresariales que están registradas para usar su inquilino de Azure Active Directory.
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -9,111 +8,68 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 07/22/2021
+ms.date: 09/07/2021
 ms.author: davidmu
-ms.reviewer: alamaral
-ms.custom: it-pro
-ms.openlocfilehash: b5b9c84a5cbadd7d3661a2109223c43dbff7da7a
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.reviewer: arvinh
+ms.openlocfilehash: eb1a2a2359ed8c59c5de605977362307de5821b1
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114605698"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129061093"
 ---
-# <a name="quickstart-view-the-list-of-applications-in-your-tenant"></a>Inicio rápido: Visualización de la lista de aplicaciones en el inquilino
+# <a name="quickstart-view-enterprise-applications-in-azure-active-directory"></a>Inicio rápido: Visualización de aplicaciones empresariales en Azure Active Directory
 
-Comience a usar Azure AD como sistema de Administración de identidad y acceso (IAM) de las aplicaciones que usa su organización. En este inicio rápido, verá las aplicaciones que ya están configuradas para usar el inquilino de Azure AD como proveedor de identidades (IdP).
+En este inicio rápido, aprenderá a usar el centro de administración de Azure Active Directory para buscar y ver las aplicaciones empresariales que ya están configuradas en el inquilino de Azure Active Directory (Azure AD).
+
+Para probar los pasos de este inicio rápido, se recomienda usar un entorno que no sea de producción.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para ver las aplicaciones que se han registrado en el inquilino de Azure AD, necesita:
 
 - Una cuenta de Azure. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Uno de los siguientes roles: Administrador global, Administrador de aplicaciones en la nube, Administrador de aplicaciones o Propietario de la entidad de servicio.
+- Finalización de los pasos de [Inicio rápido: Adición de una aplicación empresarial](add-application-portal.md).
 
->[!IMPORTANT]
->Para probar los pasos de este inicio rápido, se recomienda usar un entorno que no sea de producción.
+## <a name="view-a-list-of-applications"></a>Visualización de una lista de aplicaciones
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+Para ver las aplicaciones empresariales registradas en el inquilino:
 
-Para instalar y usar la CLI localmente, ejecute la versión 2.0.4 de la CLI de Azure o una posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
+1. Vaya al [centro de administración de Azure Active Directory](https://aad.portal.azure.com) e inicie sesión con uno de los roles enumerados en los requisitos previos.
+1. En el menú de la izquierda, seleccione **Aplicaciones empresariales**. Se abre el panel **Todas las aplicaciones**, en el que se ve una lista de las aplicaciones que hay en su inquilino de Azure AD.
 
-## <a name="find-the-list-of-applications-in-your-tenant"></a>Búsqueda de la lista de aplicaciones del inquilino
+    :::image type="content" source="media/view-applications-portal/view-enterprise-applications.png" alt-text="Vea las aplicaciones registradas en el inquilino de Azure AD.":::
 
-Para ver las aplicaciones registradas en el inquilino:
-
-# <a name="portal"></a>[Portal](#tab/azure-portal)
-
-Las aplicaciones registradas con el inquilino de Azure AD están visibles en la sección **Aplicaciones empresariales** de Azure Portal.
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. En el panel **Servicios de Azure**, seleccione **Aplicaciones empresariales**.
-3. En el menú desplegable **Tipo de aplicación**, seleccione **Todas las aplicaciones** y elija **Aplicar**. Aparece una muestra aleatoria de las aplicaciones del inquilino.
-4. Para ver más aplicaciones, seleccione **Cargar más** en la parte inferior de la lista. Si hay varias aplicaciones en el inquilino, puede resultar más fácil buscar una aplicación específica en lugar de desplazarse por la lista. La búsqueda de una aplicación específica se trata más adelante en este inicio rápido.
-
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
-
-Inicie sesión y use aplicaciones con los comandos [az ad app](/cli/azure/ad/app).
-
-```azurecli
-az login
-
-az ad app list --all
-```
-
----
-
-## <a name="select-viewing-options"></a>Selección de las opciones de visualización
-
-Seleccione las opciones en función de lo que busque.
-
-# <a name="portal"></a>[Portal](#tab/azure-portal)
-
-1. Puede ver las aplicaciones por **tipo de aplicación**, **estado de aplicación** y **visibilidad de aplicación**.
-2. En **Tipo de aplicación**, elija una de estas opciones:
-    - **Aplicaciones empresariales** muestra las aplicaciones que no son de Microsoft.
-    - **Aplicaciones de Microsoft** muestra las aplicaciones de Microsoft.
-    - **Todas las aplicaciones** muestra las aplicaciones de Microsoft y las que no son de Microsoft.
-3. En **Estado de la aplicación**, elija **Cualquiera**, **Deshabilitada** o **Habilitada**. La opción **Cualquiera** incluye tanto aplicaciones habilitadas como deshabilitadas.
-4. En **Visibilidad de la aplicación**, elija **Cualquiera** u **Oculta**. La opción **Ocultas** muestra las aplicaciones que están en el inquilino, pero que los usuarios no pueden ver.
-5. Después de elegir las opciones que desee, seleccione **Aplicar**.
-
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
-
-```azurecli
-az ad app list --filter "displayname eq 'test' and servicePrincipalType eq 'Application'"
-```
-
----
+1. Para ver más aplicaciones, seleccione **Cargar más** en la parte inferior de la lista. Si hay muchas aplicaciones en el inquilino, puede resultar más fácil buscar una aplicación específica en lugar de desplazarse por la lista.
 
 ## <a name="search-for-an-application"></a>Búsqueda de una aplicación
 
 Para buscar una aplicación concreta:
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
-
 1. En el menú **Tipo de aplicación**, seleccione **Todas las aplicaciones** y elija **Aplicar**.
-2. Escriba el nombre de la aplicación que desea buscar. Si la aplicación se ha agregado al inquilino de Azure AD, aparece en los resultados de la búsqueda. En este ejemplo, se muestra que GitHub no se ha agregado a las aplicaciones del inquilino.
-    ![En el ejemplo se muestra que una aplicación no se ha agregado al inquilino](media/view-applications-portal/search-for-tenant-application.png).
-3. Pruebe a escribir las primeras letras del nombre de una aplicación. En este ejemplo se muestran todas las aplicaciones que empiezan por **Office**.
-    ![En el ejemplo se muestran todas las aplicaciones que empiezan por Sales](media/view-applications-portal/search-by-prefix.png).
+1. Escriba el nombre de la aplicación que desea buscar. Si la aplicación se ha agregado al inquilino de Azure AD, aparece en los resultados de la búsqueda. Por ejemplo, puede buscar la aplicación **Azure AD SAML Toolkit 1** que se usa en los inicios rápidos anteriores. 
+1. Pruebe a escribir las primeras letras del nombre de una aplicación.
 
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+## <a name="select-viewing-options"></a>Selección de las opciones de visualización
 
-```azurecli
-az ad app show --id 710abb12-abeb-40ba-91ab-4b1f44f9ceb8 --query 'objectId' -o json
-```
+Seleccione las opciones en función de lo que busque:
 
----
-
-> [!TIP]
-> La administración de aplicaciones se puede automatizar mediante Graph API, consulte el artículo sobre la [automatización de la administración de aplicaciones con Microsoft Graph API](/graph/application-saml-sso-configure-api).
+1. Puede ver las aplicaciones por **tipo de aplicación**, **estado de aplicación** y **visibilidad de aplicación**.
+1. En **Tipo de aplicación**, elija una de estas opciones:
+    - **Aplicaciones empresariales** muestra las aplicaciones que no son de Microsoft.
+    - **Aplicaciones de Microsoft** muestra las aplicaciones de Microsoft.
+    - **Todas las aplicaciones** muestra las aplicaciones de Microsoft y las que no son de Microsoft.
+1. En **Estado de la aplicación**, elija **Cualquiera**, **Deshabilitada** o **Habilitada**. La opción **Cualquiera** incluye tanto aplicaciones habilitadas como deshabilitadas.
+1. En **Visibilidad de la aplicación**, elija **Cualquiera** u **Oculta**. La opción **Ocultas** muestra las aplicaciones que están en el inquilino, pero que los usuarios no pueden ver.
+1. Después de elegir las opciones que desee, seleccione **Aplicar**.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-En este inicio rápido no se han creado recursos, por lo que no hay nada que limpiar.
+Si ha creado una aplicación de prueba denominada **Azure AD SAML Toolkit 1** que ha utilizado en los inicios rápidos, puede considerar la posibilidad de eliminarla ahora para limpiar el inquilino. Para más información, consulte [Eliminación de una aplicación](delete-application-portal.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Pase al siguiente artículo, donde aprenderá a usar Azure AD como proveedor de identidades para una aplicación.
+Aprenda a eliminar una aplicación empresarial.
 > [!div class="nextstepaction"]
-> [Adición de una aplicación](add-application-portal.md)
+> [Eliminar una aplicación](add-application-portal.md)

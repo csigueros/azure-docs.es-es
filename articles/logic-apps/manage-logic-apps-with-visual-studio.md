@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 04/23/2021
-ms.openlocfilehash: 14b3487a158062e3186b485a8bcbd4584a0f09d2
-ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
+ms.openlocfilehash: fff316c328ac61f48693e635745ca42a9c773c4d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113665356"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646632"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Administración de aplicaciones lógicas con Visual Studio
 
@@ -127,7 +127,7 @@ Para crear aplicaciones lógicas en escenarios de integración empresarial de ne
 
 1. En Visual Studio, abra el proyecto de grupo de recursos de Azure que contiene la aplicación lógica.
 
-1. En el Explorador de soluciones, abra el menú contextual del archivo **<nombre de la aplicación lógica>.json** y seleccione **Open With Logic App Designer** (Abrir con el Diseñador de aplicación lógica). (Teclado: CTRL + L)
+1. En el Explorador de soluciones, abra el menú contextual del archivo **\<logic-app-name\>.json** y, después, seleccione **Abrir con el Diseñador de aplicación lógica**. (Teclado: CTRL + L)
 
    ![Abrir el archivo .json de la aplicación lógica con el Diseñador de aplicación lógica](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 

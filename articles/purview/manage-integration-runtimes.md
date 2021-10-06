@@ -4,15 +4,15 @@ description: En este artículo se explican los pasos para crear y administrar en
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 02/03/2021
-ms.openlocfilehash: 1b2748664046c97258ee3414b741075627064bbc
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.date: 09/27/2021
+ms.openlocfilehash: 1a51af8fd34516ca87d7ab98332221a308480193
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867485"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217154"
 ---
 # <a name="create-and-manage-a-self-hosted-integration-runtime"></a>Creación y administración de un entorno de ejecución de integración autohospedado
 
@@ -24,13 +24,36 @@ En este artículo se describe cómo crear y administrar un entorno de ejecución
 > [!IMPORTANT]
 > Si ha creado la cuenta de Azure Purview después del 18 de agosto de 2021, asegúrese de descargar e instalar la versión más reciente del entorno de ejecución de integración autohospedado desde el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=39717).
 
+## <a name="prerequisites"></a>Requisitos previos
+
+- Las versiones compatibles de Windows son:
+  - Windows 8.1
+  - Windows 10
+  - Windows Server 2012
+  - Windows Server 2012 R2
+  - Windows Server 2016
+  - Windows Server 2019
+
+No se admite la instalación del entorno de ejecución de integración autohospedado en un controlador de dominio.
+
+- El entorno de ejecución de integración autohospedado requiere un sistema operativo de 64 bits con .NET Framework 4.7.2 o posterior. Consulte [Requisitos de sistema de .NET Framework](/dotnet/framework/get-started/system-requirements) para más información.
+- La configuración mínima recomendada para la máquina del entorno de ejecución de integración autohospedado es un procesador de 2 GHz con 4 núcleos, 8 GB de RAM y 80 GB de espacio disponible en disco duro. Para obtener información detallada sobre los requisitos del sistema, consulte la [descarga](https://www.microsoft.com/download/details.aspx?id=39717).
+- Si el equipo host está en hibernación, el entorno de ejecución de integración autohospedado no responde a las solicitudes de datos. Configure un plan de energía adecuado en el equipo antes de instalar el entorno de ejecución de integración autohospedado. Si la máquina está configurada para hibernar, se mostrará un mensaje en el instalador del entorno de ejecución de integración autohospedado.
+- Debe ser administrador de la máquina para instalar y configurar correctamente el entorno de ejecución de integración autohospedado.
+- Las ejecuciones de examen se suceden con una frecuencia específica según la programación que haya configurado. El uso del procesador y la RAM en la máquina sigue el mismo patrón en los momentos de máxima actividad y en los de inactividad. El uso de recursos también depende en gran medida de la cantidad de datos que se examinen. Cuando hay varios trabajos de examen en curso, puede ver que el uso de los recursos aumenta durante las horas pico.
+- Puede que las tareas produzcan errores durante la extracción de datos en formatos Parquet, ORC o Avro.
+
+## <a name="setting-up-a-self-hosted-integration-runtime"></a>Configuración de un entorno de ejecución de integración autohospedado
+
+Para crear y configurar un entorno de ejecución de integración autohospedado, use los procedimientos siguientes.
+
 ## <a name="create-a-self-hosted-integration-runtime"></a>Creación de una instancia de Integration Runtime autohospedada
 
-1. En la página principal de Purview Studio, seleccione **Management Center** (Centro de administración) en el panel de navegación izquierdo.
+1. En la página principal de [Purview Studio](https://web.purview.azure.com/resource/), seleccione **Asignación de datos** en el panel de navegación izquierdo.
 
 2. En **Sources and scanning** (Orígenes y examen) en el panel izquierdo, seleccione **Integration runtimes** (Entornos de ejecución de integración) y, a continuación, **+ New** (+ Nuevo).
 
-   :::image type="content" source="media/manage-integration-runtimes/select-integration-runtimes.png" alt-text="Haga clic en el entorno de ejecución de integración.":::
+   :::image type="content" source="media/manage-integration-runtimes/select-integration-runtimes.png" alt-text="Seleccione en IR.":::
 
 3. En la página **Integration runtime setup** (Configuración de Integration Runtime), seleccione **Self-Hosted** (Autohospedado) para crear un entorno de ejecución de integración autohospedado y, luego, seleccione **Continuar** (Continuar).
 
@@ -98,13 +121,13 @@ En función de los orígenes, es posible que también tenga que permitir los dom
 
 ## <a name="manage-a-self-hosted-integration-runtime"></a>Administración de un entorno de ejecución de integración autohospedado
 
-Para editar un entorno de ejecución de integración autohospedado, vaya a **Integration runtimes** (Entornos de ejecución de integración) en **Management center** (Centro de administración), seleccione el entorno de ejecución de integración y haga clic en Editar. Ahora puede actualizar la descripción, copiar la clave o volver a generar nuevas claves.
+Para editar un entorno de ejecución de integración autohospedado, vaya a **Integration runtimes** (Entornos de ejecución de integración) en **Management center** (Centro de administración), seleccione el entorno de ejecución de integración y seleccione Editar. Ahora puede actualizar la descripción, copiar la clave o volver a generar nuevas claves.
 
 :::image type="content" source="media/manage-integration-runtimes/edit-integration-runtime.png" alt-text="Editar IR.":::
 
 :::image type="content" source="media/manage-integration-runtimes/edit-integration-runtime-settings.png" alt-text="Editar los detalles de IR.":::
 
-Para eliminar un entorno de ejecución de integración autohospedado, vaya a **Integration runtimes** (Entornos de ejecución de integración) en el centro de administración, seleccione el entorno de ejecución de integración y, a continuación, haga clic en **Eliminar**. Una vez eliminado el entorno de ejecución de integración, se producirá un error en cualquier examen en curso que dependa de él.
+Para eliminar un entorno de ejecución de integración autohospedado, vaya a **Integration runtimes** (Entornos de ejecución de integración) en el centro de administración, seleccione el entorno de ejecución de integración y, a continuación, seleccione **Eliminar**. Una vez eliminado el entorno de ejecución de integración, se producirá un error en cualquier examen en curso que dependa de él.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

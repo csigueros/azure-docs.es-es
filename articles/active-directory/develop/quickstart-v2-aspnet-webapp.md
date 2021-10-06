@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1
-ms.openlocfilehash: 08c53f816b151026c03068451aa440f12a2cbc15
-ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
+ms.openlocfilehash: 0c648ae229db1ebe6ae50131c23e292c616b2820
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112677811"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633495"
 ---
 # <a name="quickstart-aspnet-web-app-that-signs-in-azure-ad-users"></a>Inicio rápido: aplicación web de ASP.NET que hace que usuarios de Azure AD inicien sesión
 

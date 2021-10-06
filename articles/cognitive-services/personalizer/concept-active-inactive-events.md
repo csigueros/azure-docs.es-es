@@ -8,44 +8,48 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: ba95c22a773a382a3c03aab18f8f885e6a2791d8
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.openlocfilehash: 948d375c0f580a71dbd27fa10660c0c7e0046a10
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122831013"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129219161"
 ---
-# <a name="active-and-inactive-events"></a>Eventos activos e inactivos
+# <a name="defer-event-activation"></a>Aplazamiento de la activación de eventos
 
-Un evento **activo** es cualquier llamada al rango donde sepa que va a mostrar el resultado al cliente y determine la puntuación de recompensa. Este es el comportamiento predeterminado.
+La activación aplazada de eventos le permite crear sitios web personalizados o campañas de correo electrónico, teniendo en cuenta que el usuario puede que nunca vea realmente la página o abra el correo electrónico. En estos escenarios, es posible que la aplicación tenga que llamar a Rank, incluso antes de saber si el resultado se va a usar o a mostrar al usuario. Si el contenido nunca se muestra al usuario, no se debe suponer ningún premio predeterminado (normalmente cero) para que aprenda.
+La activación aplazada le permite usar los resultados de una llamada a Rank en un momento dado y decidir si el evento se debe aprender más adelante o en otra parte del código.
 
-Un evento **inactivo** es una llamada al rango donde no está seguro de si el usuario verá la acción recomendada, debido a la lógica de negocios. Esto le permite descartar el evento para que Personalizer no esté entrenado con la recompensa predeterminada. Los eventos inactivos no deben llamar a la API Reward.
+## <a name="typical-scenarios-for-deferred-activation"></a>Escenarios típicos de activación aplazada
 
-Es importante que el bucle de aprendizaje conozca el tipo de evento real. Un evento inactivo no tendrá una llamada de recompensa. Un evento activo debe tener una llamada de recompensa, pero si la llamada a la API no se realiza, se aplica la puntuación de recompensa predeterminada. Cambie el estado de un evento de inactivo a activo en cuanto sepa que va a influir en la experiencia del usuario.
+Aplazar la activación de eventos es útil en los siguientes escenarios de ejemplo:
 
-## <a name="typical-active-events-scenario"></a>Escenario típico de eventos activos
+* Está representando previamente una página web personalizada para un usuario, pero es posible que el usuario nunca llegue a verla porque alguna lógica de negocios puede invalidar la opción de acción de Personalizer.
+* Está personalizando el contenido "below the fold" (parte inferior) en una página web y es muy posible que el usuario nunca vea el contenido.
+* Está personalizando los correos electrónicos de marketing y debe evitar el entrenamiento de correos electrónicos que nunca han abierto los usuarios.
+* Ha personalizado un canal multimedia dinámico y los usuarios pueden dejar de reproducir el canal antes de que llegue a las canciones o vídeos seleccionados por Personalizer. 
 
-Cuando la aplicación llama a API Rank, recibe la acción que la aplicación debe mostrar en el campo **rewardActionId**.  A partir de ese momento, Personalizer espera una llamada de recompensa con la misma puntuación de recompensa que tiene el mismo identificador de evento. La puntuación de recompensa se usará para entrenar el modelo para las llamadas futuras al rango. Si no se recibe ninguna llamada de recompensa para el eventId, se aplica una recompensa predeterminada. Las [recompensas predeterminadas](how-to-settings.md#configure-rewards-for-the-feedback-loop) se establecen en el recurso de Personalizer en Azure Portal.
+En términos generales, estos escenarios se producen cuando:
 
-## <a name="other-event-type-scenarios"></a>Otros escenarios de tipos de eventos
+* Está representando previamente la interfaz de usuario que el usuario podría ver o no debido a restricciones de tiempo o de la interfaz de usuario.
+* La aplicación realiza la personalización predictiva en la que realiza llamadas Rank antes de saber si va a usar la salida.
 
-En algunos escenarios, es posible que la aplicación tenga que llamar a Rank, incluso antes de saber si el resultado se va a usar o a mostrar al usuario. Esto puede ocurrir en situaciones donde, por ejemplo, la representación de la página del contenido promocionado se sobrescribe con una campaña de marketing. Si el resultado de la llamada a Rank no se usó nunca y el usuario nunca lo vio, no envíe la llamada de recompensa correspondiente.
+## <a name="how-to-defer-activation-and-later-activate-events"></a>Aplazamiento de la activación de eventos y su posterior activación
 
-Normalmente, estos escenarios se producen cuando:
+Para aplazar la activación de un evento, llame a [Rank](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank) con `deferActivation = True` en el cuerpo de la solicitud.
 
-* Está preprocesando la interfaz de usuario que el usuario podría o no ver.
-* La aplicación está haciendo una personalización predictiva en la que las llamadas de Rank se realizan con poco contexto en tiempo real y la aplicación puede utilizar o no la salida.
+En cuanto sepa que a los usuarios se les ha mostrado el contenido o los elementos multimedia personalizados, y que es razonable que esperen un premio, debe activar ese evento. Para ello, llame a la [API Activate](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Activate) con eventId.
 
-En estos casos, use Personalizer para llamar a Rank solicitando al evento que esté _inactivo_. Personalizer no esperará una recompensa para este evento y no aplicará ninguna predeterminada.
 
-Después, en la lógica de negocios, si la aplicación usa la información de la llamada a Rank, lo único que debe hacer es _activar_ el evento. En cuanto el evento está activo, Personalizer espera una recompensa de evento. Si no se realiza ninguna llamada explícita a la API Rank, Personalizer aplica una recompensa predeterminada.
+La llamada a la [API Activate](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Activate) para esa llamada a EventID debe recibirse antes de que expire la ventana tiempo de espera de premio.
 
-## <a name="inactive-events"></a>Eventos inactivos
+### <a name="behavior-with-deferred-activation"></a>Comportamiento con activación aplazada 
 
-Para deshabilitar el entrenamiento de un evento, llame a Rank mediante `learningEnabled = False`.
-
-Para un evento inactivo, el aprendizaje se activa implícitamente si envía una recompensa para el eventId o si llama a la API `activate` para dicho eventId.
+Personalizer aprenderá de los eventos y premios como se muestra a continuación:
+* Si llama a Rank con `deferActivation = True` y *no llama* a la API `Activate` para ese eventId y llama a Reward, Personalizer no aprende del evento.
+* Si llama a Rank con `deferActivation = True` y *llama* a la API `Activate` para ese eventId y llama a Reward, Personalizer aprenderá del evento con la puntuación de premio especificada.
+* Si llama a Rank con `deferActivation = True` y *llama* a la API `Activate` para ese eventId, pero omite llamar a Reward, Personalizer aprenderá del evento con la puntuación de premio predeterminado establecida en la configuración.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
+* Configuración de [premios predeterminados](how-to-settings.md#configure-rewards-for-the-feedback-loop).
 * Aprenda [cómo determinar la puntuación de recompensa y qué datos se deben tener en cuenta](concept-rewards.md).

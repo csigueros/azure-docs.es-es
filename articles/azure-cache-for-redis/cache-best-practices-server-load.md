@@ -1,5 +1,5 @@
 ---
-title: Procedimientos recomendados para usar y supervisar la carga del servidor en Azure Cache for Redis
+title: Procedimientos recomendados para usar y supervisar la carga del servidor
 titleSuffix: Azure Cache for Redis
 description: Aprenda a usar y supervisar la carga del servidor en Azure Cache for Redis.
 author: shpathak-msft
@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/25/2021
 ms.author: shpathak
-ms.openlocfilehash: ceeff68f65ace76f4fe9060edeb775085508c969
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 51a0a5ede1c9d978fcc7eea98c7519c70bd9126e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123113683"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626140"
 ---
 # <a name="manage-server-load-for-azure-cache-for-redis"></a>Administración de la carga del servidor en Azure Cache for Redis
 
@@ -47,6 +47,10 @@ Agregue supervisión en la carga del servidor para asegurarse de que recibe noti
 ## <a name="plan-for-server-maintenance"></a>Planeamiento del mantenimiento del servidor
 
 Asegúrese de que tiene capacidad suficiente en el servidor para controlar la carga máxima mientras los servidores de caché se someten a mantenimiento. Para probar el sistema, reinicie los nodos mientras está bajo carga máxima. Para más información sobre cómo simular la implementación de una revisión, consulte [Reinicio](cache-administration.md#reboot).
+
+## <a name="test-for-increased-server-load-after-failover"></a>Prueba del aumento de la carga del servidor después de la conmutación por error
+
+En el caso de las SKU estándar y prémium, cada caché está hospedada en dos nodos. Un equilibrador de carga distribuye las conexiones de cliente a los dos nodos. Cuando se produce un mantenimiento planeado o no planeado en el nodo principal, este finaliza todas las conexiones de cliente. En este caso, todas las conexiones de cliente podrían distribuirse a un solo nodo, lo que provocaría que la carga del servidor aumentara en el nodo restante. Para probar este escenario, se recomienda reiniciar el nodo principal y asegurarse de que un nodo puede controlar todas las conexiones de cliente sin que la carga del servidor sea demasiado alta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

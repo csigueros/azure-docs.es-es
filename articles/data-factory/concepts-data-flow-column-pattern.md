@@ -1,7 +1,7 @@
 ---
-title: Patrones de columna en el flujo de datos de asignación de Azure Data Factory
+title: Patrones de columnas en el flujo de datos de asignación
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Cree patrones generalizados de transformación de datos mediante patrones de columna en flujos de datos de asignación de Azure Data Factory
+description: Cree patrones generalizados de transformación de datos mediante patrones de columna en flujos de datos de asignación con Azure Data Factory o Synapse Analytics.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/21/2021
-ms.openlocfilehash: 0b99e1cc31464aabe2519da172f250dc7a6f7c8d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: 32d39c956121881da0073b53fe5b4196dbc179de
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637836"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124828491"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Uso de patrones de columnas en el flujo de datos de asignación
 
@@ -32,24 +32,24 @@ Varias transformaciones de flujo de datos de asignación permiten hacer referenc
 
 Para agregar un patrón de columna a una columna derivada, de agregado o de transformación de ventana, haga clic en **Agregar** encima de la lista de columnas o el icono del signo más junto a una columna derivada existente. Seleccione **Add column pattern** (Agregar patrón de columna).
 
-![Captura de pantalla que muestra el icono de suma para agregar el patrón de columna](media/data-flow/add-column-pattern.png "Patrones de columnas")
+:::image type="content" source="media/data-flow/add-column-pattern.png" alt-text="Captura de pantalla que muestra el icono de suma para agregar el patrón de columna":::
 
 Use el [generador de expresiones](concepts-data-flow-expression-builder.md) para escribir la condición de coincidencia. Cree una expresión booleana que busque la coincidencia con las columnas en función de los elementos `name`, `type`, `stream`, `origin` y `position` de la columna. El patrón afectará a cualquier columna, desfasada o definida, donde la condición devuelva true.
 
 
-![Captura de pantalla que muestra la pestaña Derived column's settings (Configuración de la columna derivada).](media/data-flow/edit-column-pattern.png "Patrones de columnas")
+:::image type="content" source="media/data-flow/edit-column-pattern.png" alt-text="Captura de pantalla que muestra la pestaña Derived column's settings (Configuración de la columna derivada).":::
 
 El patrón de columna anterior coincide con cada columna de tipo de datos doble y crea una columna derivada por coincidencia. Al indicar `$$` como campo de nombre de columna, todas las columnas coincidentes se actualizan con el mismo nombre. El valor de cada columna es el valor existente redondeado a dos decimales.
 
 Para comprobar que la condición de coincidencia es correcta, puede validar el esquema de salida de las columnas definidas en la pestaña **Inspeccionar** u obtener una instantánea de los datos en la pestaña **Vista previa de los datos**. 
 
-![Captura de pantalla que muestra la pestaña Output schema (Esquema de salida).](media/data-flow/columnpattern3.png "Patrones de columnas")
+:::image type="content" source="media/data-flow/columnpattern3.png" alt-text="Captura de pantalla que muestra la pestaña Output schema (Esquema de salida).":::
 
 ### <a name="hierarchical-pattern-matching"></a>Coincidencia de patrones jerárquica
 
 También puede crear una coincidencia de patrones dentro en estructuras jerárquicas complejas. Expanda la sección `Each MoviesStruct that matches` en la que se le solicitará cada jerarquía en el flujo de datos. Después, puede crear patrones de coincidencia para las propiedades dentro de la jerarquía elegida.
 
-![La captura de pantalla muestra el patrón de columna en jerarquías.](media/data-flow/patterns-hierarchy.png "Patrones de columnas en jerarquías")
+:::image type="content" source="media/data-flow/patterns-hierarchy.png" alt-text="La captura de pantalla muestra el patrón de columna en jerarquías.":::
 
 ## <a name="rule-based-mapping-in-select-and-sink"></a>Asignación basada en reglas en selección y receptor
 
@@ -57,11 +57,11 @@ Cuando asigna columnas en transformaciones de origen y selección, puede agregar
 
 Para agregar una asignación basada en reglas, haga clic en **Agregar asignación** y seleccione **Rule based mapping** (Asignación basada en reglas).
 
-![Captura de pantalla que muestra la asignación basada en reglas seleccionada en Agregar asignación.](media/data-flow/rule2.png "Asignación basada en reglas")
+:::image type="content" source="media/data-flow/rule2.png" alt-text="Captura de pantalla que muestra la asignación basada en reglas seleccionada en Agregar asignación.":::
 
 Cada asignación basada en reglas requiere dos entradas: la condición por la que buscar coincidencias y el nombre de cada columna asignada. Ambos valores se insertaron a través del [generador de expresiones](concepts-data-flow-expression-builder.md). En el cuadro de expresión de la izquierda, escriba la condición de coincidencia booleana. En el cuadro de expresión de la derecha, especifique a qué se asignará la columna coincidente.
 
-![Captura de pantalla que muestra una asignación.](media/data-flow/rule-based-mapping.png "Asignación basada en reglas")
+:::image type="content" source="media/data-flow/rule-based-mapping.png" alt-text="Captura de pantalla que muestra una asignación.":::
 
 Use la sintaxis de `$$` para hacer referencia al nombre de entrada de una columna coincidente. Utilizando la imagen anterior como ejemplo, supongamos que un usuario desea buscar coincidencias en todas las columnas de cadena cuyos nombres tengan más de 6 caracteres. Si una columna de entrada se denomina `test`, la expresión `$$ + '_short'` cambiará el nombre de la columna `test_short`. Si esta es la única asignación que existe, todas las columnas que no cumplan la condición se quitarán de los datos de salida.
 
@@ -71,7 +71,7 @@ Los patrones coinciden con las columnas desfasadas y definidas. Para ver qué co
 
 Si hace clic en el icono del botón de contenido adicional hacia abajo, puede especificar una condición de asignación de regex. Una condición de asignación de regex coincide con todos los nombres de columna que coinciden con la condición regex especificada. Se puede usar en combinación con las asignaciones estándar basadas en reglas.
 
-![Captura de pantalla que muestra la condición de asignación de regex con Hierarchy level (Nivel de jerarquía) y Name matches (Coincidencias de nombres).](media/data-flow/regex-matching.png "Asignación basada en reglas")
+:::image type="content" source="media/data-flow/regex-matching.png" alt-text="Captura de pantalla que muestra la condición de asignación de regex con Hierarchy level (Nivel de jerarquía) y Name matches (Coincidencias de nombres).":::
 
 El ejemplo anterior coincide con el patrón regex `(r)` o cualquier nombre de columna que contenga un "r" en minúscula. De forma similar a la asignación basada en reglas estándar, todas las columnas coincidentes se modifican por la condición de la derecha con `$$` sintaxis.
 
@@ -79,7 +79,7 @@ El ejemplo anterior coincide con el patrón regex `(r)` o cualquier nombre de co
 
 Si la proyección definida tiene una jerarquía, puede usar la asignación basada en reglas para asignar las subcolumnas de las jerarquías. Especifique una condición de coincidencia y la columna compleja cuyas subcolumnas desee asignar. Todas las subcolumnas coincidentes se enviarán con la regla para asignar un nombre de salida especificada a la derecha.
 
-![Captura de pantalla que muestra una asignación basada en reglas usando una jerarquía.](media/data-flow/rule-based-hierarchy.png "Asignación basada en reglas")
+:::image type="content" source="media/data-flow/rule-based-hierarchy.png" alt-text="Captura de pantalla que muestra una asignación basada en reglas usando una jerarquía.":::
 
 En el ejemplo anterior se hace coincidir con todas las subcolumnas de la columna compleja `a`. `a` contiene dos subcolumnas `b` y `c`. El esquema de salida incluirá dos columnas `b` y `c`, ya que la condición para asignar un nombre de salida es `$$`.
 

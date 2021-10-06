@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: overview
 ms.date: 06/08/2021
-ms.openlocfilehash: 745a0b67bf2ac225f62b0e18cadc009a16007ab6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e9925b8c01cbaaeaf28815a7188118ff2060d507
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740943"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208027"
 ---
 # <a name="what-is-azure-data-factory"></a>¿Qué es Azure Data Factory?
 
@@ -32,7 +32,7 @@ Azure Data Factory es la plataforma que resuelve estos escenarios de datos. Se t
 
 Además, puede publicar los datos transformados en almacenes de datos, como Azure Synapse Analytics, para que los consuman aplicaciones de inteligencia empresarial (BI). En última instancia, mediante Azure Data Factory, los datos sin procesar se pueden organizar en almacenes de datos y Data Lakes significativos para tomar mejores decisiones empresariales.
 
-![Vista de nivel superior de Data Factory](media/data-flow/overview.png)
+:::image type="content" source="media/data-flow/overview.png" alt-text="Vista de nivel superior de Data Factory":::
 
 ## <a name="how-does-it-work"></a>¿Cómo funciona?
 
@@ -60,7 +60,7 @@ Cuando los datos están presentes en un almacén de datos centralizado en la nub
 Si prefiere codificar las transformaciones a mano, ADF admite actividades externas para ejecutar las transformaciones en servicios de proceso como HDInsight Hadoop, Spark, Data Lake Analytics y Machine Learning.
 
 ### <a name="cicd-and-publish"></a>CI/CD y publicación
-[Data Factory](continuous-integration-deployment.md) ofrece compatibilidad total con CI/CD de sus canalizaciones de datos mediante Azure DevOps y GitHub. Esto le permite desarrollar y distribuir incrementalmente los procesos ETL antes de publicar el producto terminado. Después de que se han procesado los datos sin procesar en un formato compatible listo para la empresa, cargue los datos en Azure Data Warehouse, Azure SQL Database, Azure CosmosDB o un motor de análisis al que puedan apuntar los usuarios con sus herramientas de inteligencia empresarial.
+[Data Factory](continuous-integration-delivery.md) ofrece compatibilidad total con CI/CD de sus canalizaciones de datos mediante Azure DevOps y GitHub. Esto le permite desarrollar y distribuir incrementalmente los procesos ETL antes de publicar el producto terminado. Después de que se han procesado los datos sin procesar en un formato compatible listo para la empresa, cargue los datos en Azure Data Warehouse, Azure SQL Database, Azure CosmosDB o un motor de análisis al que puedan apuntar los usuarios con sus herramientas de inteligencia empresarial.
 ### <a name="monitor"></a>Supervisión
 Una vez creada e implementada correctamente la canalización de integración de datos, que proporciona un valor empresarial a partir de datos procesados, supervise las canalizaciones y las actividades programadas para ver las tasas de éxito y error. Azure Data Factory tiene compatibilidad integrada para la supervisión de canalizaciones mediante Azure Monitor, API, PowerShell, los registros de Azure Monitor y los paneles de mantenimiento de Azure Portal.
 

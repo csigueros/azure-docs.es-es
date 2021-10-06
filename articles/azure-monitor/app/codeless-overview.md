@@ -5,13 +5,12 @@ ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
 ms.date: 08/31/2021
-ms.reviewer: mbullwin
-ms.openlocfilehash: f7193489c35384a9ede10606a9ad335ea69bb974
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 3f6af0beb887f66f4696707dcc0e0f408004509a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123434887"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124827623"
 ---
 # <a name="what-is-auto-instrumentation-for-azure-monitor-application-insights"></a>¿Qué es la instrumentación automática para Azure Monitor Application Insights?
 
@@ -41,15 +40,15 @@ A medida que agregamos nuevas integraciones, la matriz de funcionalidades de ins
 
 ### <a name="windows"></a>Windows
 
-La supervisión de aplicaciones en Azure App Service en Windows está disponible para aplicaciones de **[.NET](./azure-web-apps.md?tabs=net)** (habilitada de forma predeterminada), **[.NET Core](./azure-web-apps.md?tabs=netcore)** , **[Java](./azure-web-apps.md?tabs=java)** y **[Node.js](./azure-web-apps.md?tabs=nodejs)** . Para supervisar una aplicación de Python, agregue el [SDK](./opencensus-python.md) al código.
+La supervisión de aplicaciones en Azure App Service en Windows está disponible para aplicaciones **[ASP.NET](./azure-web-apps-net.md)** (habilitado de forma predeterminada), **[ASP.NET Core](./azure-web-apps-net-core.md)** , **[Java](./azure-web-apps-java.md)** (en versión preliminar pública) y **[Node.js](./azure-web-apps-nodejs.md)** . Para supervisar una aplicación de Python, agregue el [SDK](./opencensus-python.md) al código.
 
 > [!NOTE]
 > Para Windows, la supervisión de aplicaciones está disponible actualmente para los servicios administrados o basados en código en App Service. La supervisión de aplicaciones en contenedores de Windows en App Service todavía no se admite mediante la integración con Application Insights.
 
 ### <a name="linux"></a>Linux
-Puede habilitar la supervisión de aplicaciones de **[Java](./azure-web-apps.md?tabs=java)** y **[Node.js](./azure-web-apps.md?tabs=nodejs)** que se ejecutan en Linux en App Service mediante el portal. La experiencia de ambos lenguajes está en GA y disponible en todas las regiones. 
+Puede habilitar la supervisión para las aplicaciones **[Java](./azure-web-apps-java.md?)** , **[Node.js](./azure-web-apps-nodejs.md?tabs=linux)** y **[ASP.NET Core](./azure-web-apps-net-core.md?tabs=linux)(versión preliminar)** que se ejecuten en Linux en App Service a través del portal. 
 
-Para otros lenguajes, como [.NET Core](./asp-net-core.md) y [Python](./opencensus-python.md), use el SDK.
+Para [Python,](./opencensus-python.md)use el SDK.
 
 ## <a name="azure-functions"></a>Azure Functions
 

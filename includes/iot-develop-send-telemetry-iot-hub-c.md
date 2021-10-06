@@ -4,34 +4,40 @@ description: Archivo de inclusión
 author: timlt
 ms.service: iot-develop
 ms.topic: include
-ms.date: 08/03/2021
+ms.date: 09/10/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: cf398acc35f309218d123a0c8fc60e7d6f4a3a81
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 91c4236c69eaae3e534f06ed0b4ae2f3fb8c7747
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121744397"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094085"
 ---
 [![Examinar el código](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/pnp)
 
-En este artículo de inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. Vamos a utilizar la CLI de Azure para crear un centro de Azure IoT y un dispositivo. A continuación, utilizaremos un ejemplo de un SDK de dispositivo IoT de Azure para ejecutar un controlador de temperatura simulado, conectarlo de forma segura al centro y enviar datos de telemetría.
+En este artículo de inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. Vamos a utilizar la CLI de Azure e IoT Explorer para crear un centro de Azure IoT y un dispositivo. A continuación, utilizaremos un ejemplo de un SDK de dispositivo IoT de Azure para ejecutar un controlador de temperatura simulado, conectarlo de forma segura al centro y enviar datos de telemetría.
 
 ## <a name="prerequisites"></a>Prerrequisitos
+Este inicio rápido se ejecuta en Windows, Linux y Raspberry Pi. Se ha probado en las siguientes versiones de sistema operativo y dispositivo:
+
+- Windows 10
+- Ubuntu 20.04 LTS que se ejecuta en Subsistema de Windows para Linux (WSL)
+- Raspberry Pi SO versión 10 (Raspian) que se ejecuta en un Raspberry Pi 3 modelo B+
+
+Instale los siguientes requisitos previos en la máquina de desarrollo, excepto donde se indique para Raspberry Pi:
+
 - Si no tiene una suscripción de Azure, [cree una gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de comenzar.
 - [Git](https://git-scm.com/downloads).
-- [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): utilidad multiplataforma para supervisar y administrar Azure IoT 
+- [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): utilidad multiplataforma basada en GUI para supervisar y administrar Azure IoT. Si usa Raspberry Pi como plataforma de desarrollo, se recomienda instalar IoT Explorer en otro equipo. Si no desea instalar IoT Explorer, puede usar la CLI de Azure para realizar los mismos pasos. 
 - CLI de Azure. Tiene dos opciones para ejecutar comandos de la CLI de Azure en este inicio rápido:
     - Use Azure Cloud Shell, un shell interactivo que ejecuta comandos de la CLI en el explorador. Esta opción se recomienda porque no es necesario instalar nada. Si usa Cloud Shell por primera vez, inicie sesión en [Azure Portal](https://portal.azure.com). Siga los pasos descritos en el [inicio rápido de Cloud Shell](../articles/cloud-shell/quickstart.md) para **iniciar Cloud Shell** y **seleccionar el entorno Bash**.
-    - Opcionalmente, ejecute la CLI de Azure en su equipo local. Si la CLI de Azure ya está instalada, ejecute `az upgrade` para actualizar la CLI y las extensiones a la versión actual. Para instalar la CLI de Azure, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
+    - Opcionalmente, ejecute la CLI de Azure en su equipo local. Si la CLI de Azure ya está instalada, ejecute `az upgrade` para actualizar la CLI y las extensiones a la versión actual. Para instalar la CLI de Azure, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli). Si usa Raspberry Pi como plataforma de desarrollo, se recomienda usar Azure Cloud Shell o instalar la CLI de Azure en otro equipo.
 
 Instale los requisitos previos restantes para su sistema operativo.
 
-### <a name="linux"></a>Linux
-Los pasos de este tutorial se han probado con Ubuntu Linux 18.04.
-
-Para completar este inicio rápido en Linux, es preciso instalar el siguiente software en el entorno Linux local:
+### <a name="linux-or-raspberry-pi-os"></a>Linux o Raspberry Pi OS
+Para realizar este inicio rápido en Linux o Raspberry Pi OS, instale el software siguiente:
 
 Instale **GCC**, **Git**, **cmake** y las dependencias necesarias con el comando `apt-get`:
 
@@ -62,21 +68,25 @@ Para completar este inicio rápido en Windows, instale Visual Studio 2019 y ag
 En esta sección, usará el SDK de C para enviar mensajes desde un dispositivo simulado al centro de IoT. Ejecutará un ejemplo que implementa un controlador de temperatura con dos sensores de termostato.
 
 ### <a name="build-the-sample"></a>Compilación del ejemplo
-1. Abra una consola para instalar el SDK de dispositivo IoT de Azure para C y ejecute el ejemplo de código. En Windows, seleccione **Inicio**, escriba *Símbolo del sistema para desarrolladores para VS 2019* y abra la consola. En el caso de Linux, abra Bash.
+1. Abra una nueva consola para instalar el SDK de dispositivo Azure IoT para C y ejecute el ejemplo de código. En Windows, seleccione **Inicio**, escriba *Símbolo del sistema para desarrolladores para VS 2019* y abra la consola. En Linux y Raspberry Pi OS, abra un terminal de comandos de Bash.
 
     > [!NOTE]
-    > Si usa una instalación local de la CLI de Azure, es posible que ahora tenga dos ventanas de consola abiertas. Asegúrese de escribir los comandos de esta sección en la consola que acaba de abrir, no en la que ha estado usando para la CLI.
+    > Si usa una instalación local de la CLI de Azure, es posible que ahora tenga dos ventanas de consola abiertas. Asegúrese de escribir los comandos de esta sección en la consola que acaba de abrir, en lugar de la que ha estado usando para la CLI.
 
-1. En la consola de C, clone el SDK de dispositivo IoT de Azure para C en su equipo local:
+1. Cambie a la carpeta local en la que quiere clonar el repositorio de ejemplo.
+
+1. Clone el SDK del dispositivo de Azure IoT para C en la máquina local:
     ```console
     git clone https://github.com/Azure/azure-iot-sdk-c.git
     ```
 1. Navegue a la carpeta raíz del SDK y ejecute el siguiente comando para actualizar las dependencias:
+
     ```console
     cd azure-iot-sdk-c
     git submodule update --init
     ```
     Esta operación tarda unos minutos.
+
 1. Ejecute los siguientes comandos para compilar el SDK y los ejemplos:
 
     ```console
@@ -113,7 +123,7 @@ En esta sección, usará el SDK de C para enviar mensajes desde un dispositivo s
 
     **Bash**
     ```bash
-    cmake/iothub_client/samples/pnp/pnp_temperature_controller/Debug/pnp_temperature_controller
+    cmake/iothub_client/samples/pnp/pnp_temperature_controller/pnp_temperature_controller
     ```
     > [!NOTE]
     > En este ejemplo de código se usa Azure IoT Plug and Play, que le permite integrar dispositivos inteligentes en sus soluciones sin ninguna configuración manual.  De forma predeterminada, la mayoría de los ejemplos de esta documentación usan IoT Plug and Play. Para más información sobre las ventajas de IoT Plug and Play y los casos para su uso o no, consulte [¿Qué es IoT Plug and Play?](../articles/iot-develop/overview-iot-plug-and-play.md)
@@ -128,14 +138,14 @@ Para ver la telemetría en Azure IoT Explorer:
 
 1. En el centro de IoT del explorador de IoT, seleccione **View devices in this hub** (Ver dispositivos en este centro) y seleccione el dispositivo en la lista. 
 1. En el menú de la izquierda del dispositivo, seleccione **Telemetría**.
-1. Confirme que la opción **Use built-in event hub** (Usar centro de eventos integrado) esté establecido en *Sí* y, a continuación, seleccione **Iniciar**.
+1. Confirme que la opción **Use built-in event hub** (Usar centro de eventos integrado) esté establecida en *Sí* y, a continuación, seleccione **Iniciar**.
 1. Vea la telemetría a medida que el dispositivo envía mensajes a la nube.
 
     :::image type="content" source="media/iot-develop-send-telemetry-iot-hub-c/iot-explorer-device-telemetry.png" alt-text="Captura de pantalla de la telemetría del dispositivo en IoT Explorer":::
 
 1. Seleccione **Detener** para dejar de recibir eventos.
 
-Para leer la telemetría que envían los componentes individuales del dispositivo, puede usar las de tipo Plug and Play del explorador de IoT. Por ejemplo, el controlador de temperatura de este inicio rápido tiene dos termostatos: thermostat1 y thermostat2. Para ver la temperatura que notifica thermostat1: 
+Para leer la telemetría que envían los componentes individuales del dispositivo, puede utilizar las características de Plug and Play de IoT Explorer. Por ejemplo, el controlador de temperatura de este inicio rápido tiene dos termostatos: thermostat1 y thermostat2. Para ver la temperatura que notifica thermostat1: 
 
 1. En el explorador de IoT del dispositivo, seleccione **IoT Plug and Play components** (Componentes de IoT Plug and Play) en el menú de la izquierda. A continuación, seleccione **thermostat1** en la lista de componentes.
 
@@ -145,7 +155,7 @@ Para leer la telemetría que envían los componentes individuales del dispositiv
 
 Para ver la telemetría del dispositivo con la CLI de Azure:
 
-1. En la aplicación de la CLI, ejecute el comando [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) para supervisar los eventos enviados desde el dispositivo simulado al centro de IoT. Use los nombres que creó anteriormente en Azure IoT para el dispositivo IoT Hub.
+1. Ejecute el comando [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) para supervisar los eventos enviados desde el dispositivo simulado al centro de IoT. Use los nombres que creó anteriormente en Azure IoT para el dispositivo IoT Hub.
 
     ```azurecli
     az iot hub monitor-events --output table --device-id mydevice --hub-name {YourIoTHubName}

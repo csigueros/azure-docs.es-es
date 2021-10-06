@@ -2,19 +2,22 @@
 title: 'Funciones de Bicep: any'
 description: Describe la función any que está disponible en Bicep para convertir tipos.
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: c4bf30d88f9cad54e83ad1d813242dc09e6c01a5
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 09/09/2021
+ms.openlocfilehash: 00d99a9329f48b089563b4366ae9683ce2874901
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111027132"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124827584"
 ---
 # <a name="any-function-for-bicep"></a>Función any para Bicep
 
 Bicep admite una función llamada `any()` para resolver errores de tipo en el sistema de tipos de Bicep. Esta función se usa cuando el formato del valor que se proporciona no coincide con lo que espera el sistema de tipos. Por ejemplo, si la propiedad requiere un número, pero se debe proporcionar como cadena, por ejemplo `'0.5'`, use la función `any()` para suprimir el error indicado por el sistema de tipos.
 
 Esta función no existe en el entorno en tiempo de ejecución de las plantillas de Azure Resource Manager. Solo se usa en Bicep y no se emite en el JSON para la plantilla compilada.
+
+> [!NOTE]
+> Para resolver los errores de tipo, infórmenos cuando deba usar la función `any()` porque faltan tipos o son incorrectos. Agregue los detalles a la incidencia [validación de un tipo que falta o imprecisiones](https://github.com/Azure/bicep/issues/784) de GitHub.
 
 ## <a name="any"></a>cualquiera
 
@@ -71,6 +74,6 @@ publicIPAddress: any((pipId == '') ? null : {
 
 Para conocer usos más complejos de la función `any()`, consulte los ejemplos siguientes:
 
-* [Recursos secundarios que requieren nombres específicos](https://github.com/Azure/bicep/blob/main/docs/examples/201/api-management-create-all-resources/main.bicep#L246)
+* [Recursos secundarios que requieren nombres específicos](https://github.com/Azure/bicep/blob/62eb8109ae51d4ee4a509d8697ef9c0848f36fe4/docs/examples/201/api-management-create-all-resources/main.bicep#L247)
 * [Propiedad de recurso no definida en el tipo del recurso, aunque existe](https://github.com/Azure/bicep/blob/main/docs/examples/201/log-analytics-with-solutions-and-diagnostics/main.bicep#L26)
 

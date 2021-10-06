@@ -4,19 +4,19 @@ description: Aprenda a crear una regla de patrón de recursos para anular cómo 
 author: djpmsft
 ms.author: daperlov
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 04/15/2021
-ms.openlocfilehash: 00b3abc14207e2cb20d61f20639bf326a426cf37
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.date: 09/27/2021
+ms.openlocfilehash: c2d6f90bf9a3e3b3f7c03db1ab0a4fbf258703eb
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111813616"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218876"
 ---
 # <a name="create-resource-set-pattern-rules"></a>Creación de reglas de patrón de conjunto de recursos
 
-Los sistemas de procesamiento de datos a escala normalmente almacenan una sola tabla en un disco en varios archivos. Este concepto se representa en Azure Purview mediante conjuntos de recursos. Un conjunto de recursos es un objeto simple del catálogo de datos que representa una gran cantidad de recursos en almacenamiento. Para más información, consulte [Descripción de los conjuntos de recursos](concept-resource-sets.md).
+Los sistemas de procesamiento de datos a escala normalmente almacenan una sola tabla en un almacenamiento en varios archivos. Este concepto se representa en Azure Purview mediante conjuntos de recursos. Un conjunto de recursos es un objeto simple del catálogo de datos que representa una gran cantidad de recursos en almacenamiento. Para más información, consulte [Descripción de los conjuntos de recursos](concept-resource-sets.md).
 
 Al analizar una cuenta de almacenamiento, Azure Purview usa un conjunto de patrones definidos para determinar si un grupo de recursos es un conjunto de recursos. En algunos casos, es posible que la agrupación de un conjunto de recursos de Azure Purview no refleje adecuadamente el estado de los datos. Las reglas de patrón del conjunto de recursos le permiten personalizar o invalidar la forma en que Azure Purview detecta qué recursos se agrupan como conjuntos de recursos, además de cómo se muestran dentro del catálogo.
 
@@ -26,12 +26,13 @@ Las reglas de patrón se admiten actualmente en los siguientes tipos de origen:
 - Azure Files
 - Amazon S3
 
+El conjunto de características del conjunto de recursos avanzado debe estar habilitado para crear reglas de patrón de conjunto de recursos. Para más información, consulte [Descripción de los conjuntos de recursos](concept-resource-sets.md#advanced-resource-sets).
 
 ## <a name="how-to-create-a-resource-set-pattern-rule"></a>Cómo crear una regla de patrón de conjunto de recursos
 
 Siga los pasos que se indican a continuación para crear una nueva regla de patrón de conjunto de recursos:
 
-1. Vaya al centro de administración. Seleccione **Pattern rules** (Reglas de patrón) en el menú bajo el encabezado de conjuntos de recursos. Para crear una regla, seleccione **+ New** (+ Nueva).
+1. Vaya al mapa de datos. Seleccione **Pattern rules** (Reglas de patrón) en el menú bajo el encabezado de administración de orígenes. Para crear una regla, seleccione **+ New** (+ Nueva).
 
    :::image type="content" source="media/how-to-resource-set-pattern-rules/create-new-scoped-resource-set-rule.png" alt-text="Creación de reglas de patrón de conjunto de recursos" border="true":::
 
@@ -53,7 +54,7 @@ Siga los pasos que se indican a continuación para crear una nueva regla de patr
 
       :::image type="content" source="media/how-to-resource-set-pattern-rules/scoped-resource-set-rule-example.png" alt-text="Creación de una nueva regla de configuración." border="true":::
 
-1. Haga clic en **Agregar** para guardar la regla.
+1. Seleccione **Agregar** para guardar la regla.
 
 > [!NOTE]
 > Después de crear una regla de patrón, todos los exámenes nuevos aplicarán la regla durante la ingesta. Los recursos existentes en el catálogo de datos se actualizarán a través de un proceso en segundo plano que puede tardar hasta varias horas. 

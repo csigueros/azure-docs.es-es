@@ -3,39 +3,41 @@ title: Respuesta a las alertas de Azure Defender para Key Vault
 description: Obtenga información sobre los pasos necesarios para responder a las alertas de Azure Defender para Key Vault.
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 09/13/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 67c556e44f07240b1ad1bcde61f40042da46def8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 45ed38f3325ae66c72fff7f0aec35347b5e28ace
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96122199"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664986"
 ---
 # <a name="respond-to-azure-defender-for-key-vault-alerts"></a>Respuesta a las alertas de Azure Defender para Key Vault
-Cuando reciba una alerta de Azure Defender para Key Vault, se recomienda investigar y responder a la alerta, tal y como se describe a continuación. Azure Defender para Key Vault protege las aplicaciones y las credenciales, por lo que, incluso si está familiarizado con la aplicación o el usuario que desencadenó la alerta, es importante comprobar la situación relativa a cada alerta.  
+Cuando reciba una alerta de [Azure Defender para Key Vault](defender-for-key-vault-introduction.md), se recomienda investigar la alerta y responder a ella, tal y como se describe a continuación. Azure Defender para Key Vault protege las aplicaciones y las credenciales, por lo que, incluso si está familiarizado con la aplicación o el usuario que desencadenó la alerta, es importante comprobar la situación relativa a cada alerta.  
 
-Cada alerta de Azure Defender para Key Vault incluye los siguientes elementos:
+Las alertas de Azure Defender para Key Vault incluyen los siguientes elementos:
 
-- Id. de objeto
-- Nombre principal de usuario o dirección IP del recurso sospechoso
+- Identificador de objeto
+- Nombre principal de usuario o dirección IP del recurso sospechoso 
+
+En función del *tipo* de acceso que se haya producido, algunos campos pueden no estar disponibles. Por ejemplo, si una aplicación ha accedido al almacén de claves, no verá un nombre principal de usuario asociado. Si el tráfico se originó fuera de Azure, no verá un identificador de objeto.
 
 > [!TIP]
-> En función del *tipo* de acceso que se ha producido, algunos campos pueden no estar disponibles. Por ejemplo, si una aplicación ha accedido al almacén de claves, no verá un nombre principal de usuario asociado. Si el tráfico se originó fuera de Azure, no verá un identificador de objeto.
+> A las máquinas virtuales de Azure se les asignan direcciones IP de Microsoft. Esto significa que una alerta puede contener una dirección IP de Microsoft aunque guarde relación con actividad registrada fuera de Microsoft. Por lo tanto, aunque una alerta tenga una dirección IP de Microsoft, debe investigarse de todos modos tal y como se describe en esta página.
 
-## <a name="step-1-contact"></a>Paso 1. Contacto
+## <a name="step-1-identify-the-source"></a>Paso 1. Identificación del origen
 
 1. Compruebe si el tráfico se originó en el inquilino de Azure. Si el firewall del almacén de claves está habilitado, es probable que haya proporcionado acceso al usuario o a la aplicación que desencadenó esta alerta.
-1. Si no puede comprobar el origen del tráfico, continúe con el [Paso 2. Mitigación inmediata](#step-2-immediate-mitigation).
+1. Si no puede comprobar el origen del tráfico, continúe con el [Paso 2. Respuesta consecuente](#step-2-respond-accordingly).
 1. Si puede identificar el origen del tráfico en el inquilino, póngase en contacto con el usuario o el propietario de la aplicación. 
 
 > [!CAUTION]
 > Azure Defender para Key Vault está diseñado para ayudar a identificar la actividad sospechosa causada por credenciales robadas. **No** descarte la alerta simplemente porque reconoce el usuario o la aplicación. Póngase en contacto con el propietario de la aplicación o el usuario y compruebe que la actividad es legítima. Puede crear una regla de supresión para eliminar el ruido si es necesario. Obtenga más información en [Supresión de alertas de Azure Defender](alerts-suppression-rules.md).
 
 
-## <a name="step-2-immediate-mitigation"></a>Paso 2. Mitigación inmediata 
+## <a name="step-2-respond-accordingly"></a>Paso 2. Respuesta consecuente 
 Si no reconoce el usuario o la aplicación, o si cree que el acceso no debe haberse autorizado:
 
 - Si el tráfico procedía de una dirección IP no reconocida:
@@ -50,9 +52,9 @@ Si no reconoce el usuario o la aplicación, o si cree que el acceso no debe habe
     1. Póngase en contacto con el administrador.
     1. Determine si es necesario reducir o revocar los permisos de Azure Active Directory.
 
-## <a name="step-3-identify-impact"></a>Paso 3. Identificación del impacto 
-Cuando se haya mitigado el impacto, investigue los secretos del almacén de claves que se vieron afectados:
-1. Abra la página "Seguridad" en Azure Key Vault y vea la alerta desencadenada.
+## <a name="step-3-measure-the-impact"></a>Paso 3. Medida del impacto
+Cuando se haya mitigado el evento, investigue los secretos del almacén de claves que se han visto afectados:
+1. Abra la página **Seguridad** en Azure Key Vault y vea la alerta desencadenada.
 1. Seleccione la alerta específica que se desencadenó.
     Revise la lista de los secretos a los que se accedió y la marca de tiempo.
 1. Opcionalmente, si tiene habilitados los registros de diagnóstico del almacén de claves, revise las operaciones anteriores para la dirección IP del autor de la llamada correspondiente, la entidad de seguridad de usuario o el identificador de objeto.  

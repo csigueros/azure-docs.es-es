@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 08/16/2021
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: e315542d8d58a58fa4e2cea8bbab4768af0596eb
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: b84ff908404c2d18f86ddd63fa14a9854fdf72d6
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122252395"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129079340"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-net"></a>Envío y recepción de mensajes con destino y origen en colas de Azure Service Bus (.NET)
 En esta guía de inicio rápido se muestra cómo enviar y recibir mensajes a y de una cola de Service Bus mediante la biblioteca de .NET [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/).
@@ -25,7 +25,7 @@ En esta guía de inicio rápido se muestra cómo enviar y recibir mensajes a y d
 - **Creación de un espacio de nombres de Service Bus y una cola**. Siga los pasos descritos en el artículo [Uso de Azure Portal para crear un espacio de nombres de Service Bus y una cola](service-bus-quickstart-portal.md) para crear una cola y un espacio de nombres de Service Bus. 
 
     > [!IMPORTANT]
-    > Anote la **cadena de conexión** para el espacio de nombres de Service Bus y el nombre de la **cola** que creó. Los usará más adelante en este tutorial. 
+    > Anote la [**cadena de conexión principal**](./service-bus-quickstart-topics-subscriptions-portal.md#get-the-connection-string) del espacio de nombres de Service Bus y el nombre de la **cola** que creó. Los usará más adelante en este tutorial. 
 
 
 ## <a name="send-messages"></a>Envío de mensajes
@@ -59,7 +59,7 @@ En esta sección se muestra cómo crear una aplicación de consola de .NET Core 
 ### <a name="add-code-to-send-messages-to-the-queue"></a>Incorporación de código para enviar mensajes a la cola
 
 1. Reemplace el código del archivo **Program.cs** por el código siguiente. Estos son los pasos importantes del código.  
-    1. Crea un objeto [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) mediante la cadena de conexión al espacio de nombres. 
+    1. Crea un objeto [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) mediante la cadena de conexión principal al espacio de nombres. 
     1. Invoca al método [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) en el objeto [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) para crear un objeto [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) para la cola específica de Service Bus.     
     1. Crea un objeto [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) mediante el método [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync).
     1. Agrega mensajes al lote mediante [ServiceBusMessageBatch.TryAddMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch.tryaddmessage). 
@@ -134,7 +134,7 @@ En esta sección se muestra cómo crear una aplicación de consola de .NET Core 
             }
         }   
         ``` 
-1. Reemplace `<NAMESPACE CONNECTION STRING>` por la cadena de conexión del espacio de nombres de Service Bus. Además, reemplace `<QUEUE NAME>` por el nombre de la cola.
+1. Reemplace `<NAMESPACE CONNECTION STRING>` por la cadena de conexión principal del espacio de nombres de Service Bus. Además, reemplace `<QUEUE NAME>` por el nombre de la cola.
 1. Compile el proyecto y asegúrese de que no hay errores. 
 1. Ejecute el programa y espere el mensaje de confirmación.
     
@@ -182,7 +182,7 @@ En esta sección agregará código para recuperar mensajes de la cola.
 
 1. Reemplace el código del archivo **Program.cs** por el código siguiente. Estos son los pasos importantes del código.
     Estos son los pasos importantes del código:
-    1. Crea un objeto [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) mediante la cadena de conexión al espacio de nombres. 
+    1. Crea un objeto [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) mediante la cadena de conexión principal al espacio de nombres. 
     1. Invoca al método [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) en el objeto [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) para crear un objeto [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) para la cola de Service Bus especificada. 
     1. Especifica los controladores para los eventos [ProcessMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) y [ProcessErrorAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processerrorasync) del objeto [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor). 
     1. Inicia el procesamiento de mensajes; para ello, invoca el método [StartProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.startprocessingasync) en el objeto [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor). 
@@ -272,7 +272,7 @@ En esta sección agregará código para recuperar mensajes de la cola.
             }
         }
         ```
-1. Reemplace `<NAMESPACE CONNECTION STRING>` por la cadena de conexión del espacio de nombres de Service Bus. Además, reemplace `<QUEUE NAME>` por el nombre de la cola. 
+1. Reemplace `<NAMESPACE CONNECTION STRING>` por la cadena de conexión principal del espacio de nombres de Service Bus. Además, reemplace `<QUEUE NAME>` por el nombre de la cola. 
 1. Compile el proyecto y asegúrese de que no hay errores.
 1. Ejecute la aplicación del destinatario. Debería ver los mensajes recibidos. Presione cualquier tecla para detener el receptor y la aplicación. 
 

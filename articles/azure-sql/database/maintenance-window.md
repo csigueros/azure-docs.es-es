@@ -9,13 +9,13 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
 ms.custom: references_regions
-ms.date: 07/22/2021
-ms.openlocfilehash: 9f058cfc97821dc9ddcbedeeed1acf9ebb9919d3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 10/05/2021
+ms.openlocfilehash: ca8ed4fa480bd394196f4ca5b37c52bcc06e41c1
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751312"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546178"
 ---
 # <a name="maintenance-window-preview"></a>Ventana de mantenimiento (versión preliminar)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -76,32 +76,49 @@ La elección de una ventana de mantenimiento que no sea la predeterminada está 
 
 La elección de una ventana de mantenimiento que no sea la predeterminada está disponible actualmente en las siguientes regiones:
 
-- Este de Australia
-- Sudeste de Australia
-- Sur de Brasil
-- Centro de Canadá
-- Este de Canadá
-- Centro de la India
-- Centro de EE. UU.
-- Este de EE. UU.
-- Este de EE. UU. 2
-- Este de Asia
-- Sur de Francia
-- Centro-oeste de Alemania
-- Japón Oriental
-- Centro de Corea del Sur*
-- Centro-Norte de EE. UU.
-- Norte de Europa
-- Centro-Sur de EE. UU.
-- Sudeste de Asia
-- Sur de Reino Unido 2
-- Oeste de Reino Unido
-- Centro-Oeste de EE. UU.
-- Oeste de Europa
-- Oeste de EE. UU.
-- Oeste de EE. UU. 2
-
-*Solo está disponible para Azure SQL Managed Instance
+| Región de Azure | Instancia administrada de SQL | SQL Database | SQL Database en una [zona de disponibilidad de Azure](high-availability-sla.md) | 
+|:---|:---|:---|:---|
+| Centro de Australia 1 | Yes | | |
+| Centro de Australia 2 | Yes | | |
+| Este de Australia | Sí | Sí | Sí |
+| Sudeste de Australia | Sí | Sí | |
+| Sur de Brasil | Sí | Sí |  |
+| Centro de Canadá | Sí | Sí | Sí |
+| Este de Canadá | Sí | Sí | |
+| India central | Sí | Sí | |
+| Centro de EE. UU. | Sí | Sí | Sí |
+| Este de China 2 |Sí | Sí ||
+| Norte de China 2 |Sí|Sí ||
+| Este de EE. UU. | Sí | Sí | Sí |
+| Este de EE. UU. 2 | Sí | Sí | Sí |
+| Este de Asia | Sí | Sí | |
+| Centro de Francia | Sí | Sí | |
+| Sur de Francia | Sí | Sí | |
+| Centro-oeste de Alemania | Sí | Sí |  |
+| Norte de Alemania | Sí |  |  |
+| Japón Oriental | Sí | Sí | Sí |
+| Japón Occidental | Sí | Sí | |
+| Centro de Corea del Sur | Sí | | |
+| Corea del Sur | Sí | | |
+| Centro-Norte de EE. UU | Sí | Sí | |
+| Norte de Europa | Sí | Sí | Sí |
+| Norte de Sudáfrica | Sí | | | 
+| Oeste de Sudáfrica | Sí | | | 
+| Centro-sur de EE. UU. | Sí | Sí | Sí |
+| Sur de la India | Sí | Sí | |
+| Sudeste de Asia | Sí | Sí | Sí |
+| Norte de Suiza | Sí | Sí | |
+| Oeste de Suiza | Yes | | |
+| Centro de Emiratos Árabes Unidos | Yes | | |
+| Norte de Emiratos Árabes Unidos | Sí | | |
+| Sur de Reino Unido 2 | Sí | Sí | Sí |
+| Oeste de Reino Unido | Sí | Sí | |
+| Centro-Oeste de EE. UU. | Sí | Sí | |
+| Oeste de Europa | Sí | Sí | Sí |
+| Oeste de la India | Sí | | |
+| Oeste de EE. UU. | Sí | Sí |  |
+| Oeste de EE. UU. 2 | Sí | Sí | Sí |
+| | | | | 
 
 ## <a name="gateway-maintenance-for-azure-sql-database"></a>Mantenimiento de la puerta de enlace para Azure SQL Database
 
@@ -113,7 +130,7 @@ Para aprovechar al máximo la ventaja de las ventanas de mantenimiento, asegúre
 
 Para obtener más información sobre la directiva de conexión de cliente en Azure SQL Database consulte la [directiva de conexión de Azure SQL Database](../database/connectivity-architecture.md#connection-policy). 
 
-Para obtener más información sobre la directiva de conexión de cliente en Azure SQL Managed Instance, consulte los [tipos de conexión de Azure SQL Managed Instance](../../azure-sql/managed-instance/connection-types-overview.md).
+Para más información sobre la directiva de conexión de cliente en Azure SQL Managed Instance, consulte [Tipos de conexión de Azure SQL Managed Instance](../../azure-sql/managed-instance/connection-types-overview.md).
 
 ## <a name="considerations-for-azure-sql-managed-instance"></a>Consideraciones sobre Azure SQL Managed Instance
 
@@ -136,13 +153,15 @@ La configuración y el cambio de la ventana de mantenimiento provoca un cambio d
 >  Asegúrese de que el grupo de seguridad de red y las reglas de firewall no bloquearán el tráfico de datos después de cambiar la dirección IP. 
 
 ### <a name="serialization-of-virtual-cluster-management-operations"></a>Serialización de operaciones de administración de clústeres virtuales
+
 Las operaciones que afectan a los clústeres virtuales, como las actualizaciones de servicio y el cambio de tamaño de los clústeres (mediante la incorporación de nodos de proceso nuevos o la eliminación de los nodos de proceso innecesarios) se serializan. En otras palabras, una nueva operación de administración de clústeres virtuales no se puede iniciar hasta que se completa la anterior. En caso de que la ventana de mantenimiento se cierre antes de que se complete la operación de actualización o mantenimiento del servicio en curso, cualquier otra operación de administración de clúster virtual enviada mientras tanto se pondrá en espera hasta que se abra la siguiente ventana de mantenimiento y se complete la operación de actualización o mantenimiento del servicio. No es habitual que una operación de mantenimiento lleve más tiempo que el que dura una sola ventana por clúster virtual, pero puede ocurrir en el caso de operaciones de mantenimiento muy complejas.
+
 La serialización de las operaciones de administración de clústeres virtuales es un comportamiento general que también se aplica a la directiva de mantenimiento predeterminada. Con una programación de ventana de mantenimiento configurada, el período entre dos ventanas adyacentes puede ser de unos días. Las operaciones enviadas también pueden estar en espera durante unos días si la operación de mantenimiento abarca dos ventanas. Este es un caso muy poco frecuente, pero la creación de nuevas instancias o el cambio de tamaño de las instancias existentes (si se necesitan nodos de proceso adicionales) se puede bloquear durante este período.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Notificaciones anticipadas](advance-notifications.md)
 * [Configuración de ventanas de mantenimiento](maintenance-window-configure.md)
+* [Notificaciones anticipadas](advance-notifications.md)
 
 ## <a name="learn-more"></a>Más información
 

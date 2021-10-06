@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 05/16/2021
-ms.openlocfilehash: c3010cb1d972bb898fd8346266166bb632191ead
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 609a0edaa15c9ce9d71655bbb358168806202ea9
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259088"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400598"
 ---
 # <a name="managed-connectors-in-azure-logic-apps"></a>Conectores administrados en Azure Logic Apps
 
 Los [conectores administrados](apis-list.md) proporcionan maneras de obtener acceso a otros servicios y sistemas en los que los [desencadenadores y las acciones integrados](built-in.md) no están disponibles. Puede usar estos desencadenadores y acciones para crear flujos de trabajo que integren datos, aplicaciones, servicios basados en la nube y sistemas locales. En comparación con los desencadenadores y las acciones integrados, estos conectores suelen estar vinculados a un servicio o sistema específico, como Azure Blob Storage, Office 365, SQL, Salesforce o los servidores SFTP. Administrados por Microsoft y hospedados en Azure, los conectores administrados normalmente requieren que primero se cree una conexión desde el flujo de trabajo y autentique su identidad. Tanto los desencadenadores basados en la periodicidad como los basados en un webhook están disponibles, por lo que si usa un desencadenador basado en la periodicidad, revise la [Información general sobre el comportamiento de la periodicidad](apis-list.md#recurrence-behavior).
 
-Para un pequeño número de servicios, sistemas y protocolos, Azure Logic Apps proporciona operaciones integradas junto con sus [versiones de conector administrado](managed.md). El número y el intervalo disponibles varían en función de si se crea un recurso de aplicación lógica basado en el plan de consumo que se ejecute en Azure Logic Apps multiinquilino o un recurso de aplicación lógica basado en planes estándar que se ejecute en Azure Logic Apps de un solo inquilino. Para obtener más información, revise [Entorno de servicio de integración (ISE): inquilino único o multiinquilino](../logic-apps/single-tenant-overview-compare.md). En cambio, en la mayoría de los casos, la versión integrada proporciona un mejor rendimiento, funcionalidades y precios, entre otras cosas.
+Para un pequeño número de servicios, sistemas y protocolos, Azure Logic Apps proporciona operaciones integradas junto con sus [versiones de conector administrado](managed.md). El número y el intervalo disponibles varían en función de si se crea un recurso de aplicación lógica basado en el plan de consumo que se ejecute en Azure Logic Apps multiinquilino o un recurso de aplicación lógica basado en planes estándar que se ejecute en Azure Logic Apps de un solo inquilino. Para más información, revise [Entorno de servicio de integración (ISE): inquilino único o multiinquilino](../logic-apps/single-tenant-overview-compare.md). En cambio, en la mayoría de los casos, la versión integrada proporciona un mejor rendimiento, funcionalidades y precios, entre otras cosas.
 
 Por ejemplo, si crea una aplicación lógica de un solo inquilino, las operaciones integradas están disponibles para Azure Service Bus, Azure Event Hubs, SQL Server y MQ. En algunos casos, una versión integrada y una versión del conector administrado están disponibles. En cambio, en la mayoría de los casos, la versión integrada proporciona un mejor rendimiento, funcionalidades y precios, entre otras cosas. Si crea una aplicación lógica multiinquilino, las operaciones integradas están disponibles para Azure Functions, Azure App Services y Azure API Management.
 
@@ -610,8 +610,8 @@ Para más información, consulte los temas siguientes:
 <!-- Integration account connector docs -->
 [as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Codificar y descodificar mensajes que usan el protocolo AS2"
 [edifact-doc]: ../logic-apps/logic-apps-enterprise-integration-edifact.md "Codificar y descodificar mensajes que usan el protocolo EDIFACT"
-[edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Descodificar mensajes que usan el protocolo EDIFACT"
-[edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Codificar mensajes que usan el protocolo EDIFACT"
+[edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-edifact.md "Descodificar mensajes que usan el protocolo EDIFACT"
+[edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-edifact.md "Codificar mensajes que usan el protocolo EDIFACT"
 [x12-doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "Codificar y descodificar mensajes que usan el protocolo X12"
 [x12-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-decode.md "Descodificar mensajes que usan el protocolo X12"
 [x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Codificar mensajes que usan el protocolo X12"

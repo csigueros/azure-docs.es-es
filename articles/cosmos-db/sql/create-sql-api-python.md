@@ -13,12 +13,12 @@ ms.custom:
 - seo-javascript-september2019
 - seo-python-october2019
 - devx-track-python
-ms.openlocfilehash: 190f1eeb27d4e9a86b3104b977f1068a3da4d3b1
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: d8f2176065b8a9726cc0496756a22ccefbf0f0c8
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117714"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129155465"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Inicio rápido: Compilación de una aplicación de Python mediante una cuenta de SQL API de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -50,6 +50,10 @@ En este inicio rápido, se crea y administra una cuenta de Azure Cosmos DB para 
 - La [extensión de Python para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview).
 - [Git](https://www.git-scm.com/downloads). 
 - [SDK de SQL API de Azure Cosmos DB para Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)
+
+## <a name="important-update-on-python-2x-support"></a>Actualización importante en la compatibilidad con Python 2.x
+
+Las nuevas versiones de este SDK no admitirán Python 2.x a partir del 1 de enero de 2022. Compruebe [CHANGELOG](./sql-api-sdk-python.md) para más información.
 
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
 
@@ -218,7 +222,7 @@ Los siguientes fragmentos de código se han tomado del archivo *cosmos_get_start
 
 En este inicio rápido, ha aprendido a crear una cuenta de Azure Cosmos DB, a crear un contenedor mediante el Explorador de datos y a ejecutar una aplicación de Python en Visual Studio Code. Ahora puede importar datos adicionales en la cuenta de Azure Cosmos DB. 
 
-¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Puede usar información sobre el clúster de bases de datos existente para planear la capacidad.
+¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Para ello, puede usar información sobre el clúster de bases de datos existente.
 * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
 * Si conoce las velocidades de solicitud típicas de la carga de trabajo de la base de datos actual, lea sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).
 

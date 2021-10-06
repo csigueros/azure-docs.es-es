@@ -11,12 +11,12 @@ author: MarkusVi
 manager: mtillman
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dad33236812329014851a7397488025a4df558cd
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 267c7ae20f9d424d03897e0ee31b7ad990ed261d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111528793"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754087"
 ---
 # <a name="quickstart-access-azure-ad-logs-with-the-microsoft-graph-api"></a>Inicio rápido: Acceso a los registros de Azure AD con Microsoft Graph API 
 
@@ -47,15 +47,15 @@ El objetivo de este paso es crear un registro de un inicio de sesión con error 
 
 En esta sección se proporcionan los pasos necesarios para obtener información sobre el inicio de sesión mediante Graph API.
 
- ![Consulta del Probador de Graph](./media/quickstart-access-log-with-graph-api/graph-explorer-query.png)   
+ ![Consulta del Explorador de Microsoft Graph](./media/quickstart-access-log-with-graph-api/graph-explorer-query.png)   
 
 **Para revisar el inicio de sesión con errores:**
 
-1. Vaya al [Probador de Microsoft Graph](https://developer.microsoft.com/en-us/graph/graph-explorer).
+1. Vaya al [Explorador de Microsoft Graph](https://developer.microsoft.com/en-us/graph/graph-explorer).
 
 2. Inicie sesión en el inquilino como administrador global.
 
-    ![Autenticación en el Probador de Microsoft Graph](./media/quickstart-access-log-with-graph-api/graph-explorer-authentication.png)   
+    ![Autenticación del Explorador de Microsoft Graph](./media/quickstart-access-log-with-graph-api/graph-explorer-authentication.png)   
 
 3. En la **lista desplegable Verbo HTTP**, seleccione **GET**.
 
@@ -67,7 +67,7 @@ En esta sección se proporcionan los pasos necesarios para obtener información 
 
 Revise el resultado de la consulta.
 
- ![Vista previa de la respuesta en el Probador de Microsoft Graph](./media/quickstart-access-log-with-graph-api/response-preview.png)   
+ ![Vista previa de la respuesta en el Explorador de Microsoft Graph](./media/quickstart-access-log-with-graph-api/response-preview.png)   
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

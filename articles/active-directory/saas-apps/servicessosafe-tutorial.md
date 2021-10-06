@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/23/2020
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 046ded816c28c2153e5609992eb4b7c7cd7f2978
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1c83fe4216860574a47fe884a2bb1889a029e401
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98729616"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124821449"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sosafe"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con SoSafe
 
@@ -37,12 +37,12 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* SoSafe admite el inicio de sesión único habilitado por **SP e IDP**.
+* SoSafe admite el inicio de sesión único iniciado por **SP e IDP**.
 * SoSafe admite el aprovisionamiento de usuarios **Just-In-Time**.
+* SoSafe admite el [aprovisionamiento automatizado de usuarios](sosafe-provisioning-tutorial.md).
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
-
 
 ## <a name="adding-sosafe-from-the-gallery"></a>Incorporación de SoSafe desde la galería
 
@@ -54,7 +54,6 @@ Para configurar la integración de SoSafe en Azure AD, debe agregar la aplicaci
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba SoSafe en el cuadro de búsqueda.
 1. Seleccione SoSafe en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-sosafe"></a>Configuración y prueba del inicio de sesión único de Azure AD para SoSafe
 
@@ -75,7 +74,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal, en la página de integración de la aplicación SoSafe, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
@@ -95,6 +94,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 1. En la sección Configurar SoSafe, copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
@@ -143,21 +143,23 @@ En esta sección, va a permitir que B.Simon acceda a SoSafe mediante el inicio d
 
 En esta sección, creará un usuario llamado Britta Simon en SoSafe. SoSafe admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si no existe un usuario en SoSafe, se creará tras la autenticación.
 
+SoSafe también admite el aprovisionamiento automático de usuarios. [Aquí](./sosafe-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
 #### <a name="sp-initiated"></a>Iniciado por SP:
 
-1. Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la URL de inicio de sesión de SoSafe, desde donde puede poner en marcha el flujo de inicio de sesión.  
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la URL de inicio de sesión de SoSafe, desde donde puede poner en marcha el flujo de inicio de sesión.  
 
-1. Vaya directamente a la URL de inicio de sesión de SoSafe y comience el flujo de inicio de sesión desde allí.
+* Vaya directamente a la URL de inicio de sesión de SoSafe y comience el flujo de inicio de sesión desde allí.
 
 #### <a name="idp-initiated"></a>Iniciado por IDP:
 
 * Haga clic en **Probar esta aplicación** en Azure Portal. Se debería iniciar sesión automáticamente en la instancia de SoSafe para la que ha configurado el inicio de sesión único. 
 
-También puede usar el Panel de acceso de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de SoSafe en el panel de acceso, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de SoSafe para la que ha configurado el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de SoSafe que se encuentra en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de SoSafe para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

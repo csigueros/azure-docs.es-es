@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con BenQ IAM | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con BenQ IAM'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y BenQ IAM.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/30/2021
+ms.date: 09/16/2021
 ms.author: jeedes
-ms.openlocfilehash: cbe0dbe25956c097abd780f8f8da6213d231a3c4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1adfc67567176be0d5cda6124392f8069e7b962e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121786199"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128630005"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-benq-iam"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con BenQ IAM
+# <a name="tutorial-azure-ad-sso-integration-with-benq-iam"></a>Tutorial: Integración del inicio de sesión único de Azure AD con BenQ IAM
 
 En este tutorial, aprenderá a integrar BenQ IAM con Azure Active Directory (Azure AD). Al integrar BenQ IAM con Azure AD, puede hacer lo siguiente:
 
@@ -75,9 +75,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://service-portaltest.benq.com/saml/init/<ID>`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://service-portal.benq.com/saml/init/<ID>`
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://service-portaltest.benq.com/saml/consume/<ID>`
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://service-portal.benq.com/saml/consume/<ID>`
 
 1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
@@ -131,7 +131,30 @@ En esta sección, va a permitir que B.Simon acceda a BenQ IAM mediante el inicio
 
 ## <a name="configure-benq-iam-sso"></a>Configuración del inicio de sesión único de BenQ IAM
 
-Para configurar el inicio de sesión único en **BenQ IAM**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de BenQ IAM](mailto:benqcare.us@benq.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+1. Inicie sesión en BenQ IAM con la cuenta de administrador de BenQ y haga clic en **SSO Setting** (Configuración de SSO) en la sección Account Management (Administración de cuentas).
+
+    ![Captura de pantalla de la configuración de SSO](./media/benq-iam-tutorial/sso-setting.png)
+
+1. Seleccione **SSO by SAML** (SSO mediante SAML) como configuración de SSO en el menú emergente y haga clic en **Next** (Siguiente).
+
+    ![Captura de pantalla del inicio de sesión único mediante SAML](./media/benq-iam-tutorial/sso-by-saml.png)
+
+1. Realice los siguientes pasos en la página **SSO Setting** (Configuración de SSO).
+
+    ![Captura de pantalla de la configuración de SSO](./media/benq-iam-tutorial/saml-configuration.png)
+
+    a. En el cuadro de texto **Login/SSO URL** (Inicio de sesión/Dirección URL de inicio de sesión único), pegue el valor de **URL de inicio de sesión** que copió de Azure Portal.
+
+    b. En el cuadro de texto **Identifier/Entity ID** (Identificador/Id. de entidad), pegue el valor de **Identificador** que ha copiado de Azure Portal.
+
+    c. En el Bloc de notas abra el archivo del **certificado (Base64)** que descargó de Azure Portal, copie el contenido y péguelo en el cuadro de texto **Certificate(Base64)** (Certificado [Base64]).
+
+    d. Copie el valor de **Identifier** (Identificador) y péguelo en el cuadro de texto **Identificador** de la sección **Configuración básica de SAML** en Azure Portal.
+
+    e. Copie el valor de la **dirección URL de respuesta** y péguelo en el cuadro de texto **Dirección URL de respuesta**, en la sección **Configuración básica de SAML** de Azure Portal.
+
+    f. Haga clic en **Next**.
+
 
 ### <a name="create-benq-iam-test-user"></a>Creación de un usuario de prueba de BenQ IAM
 
@@ -151,7 +174,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * En Azure Portal, haga clic en **Probar esta aplicación**. Al hacerlo, debería iniciar sesión automáticamente en la instancia de BenQ IAM en la que configuró el inicio de sesión único. 
 
-También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de BenQ IAM en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de BenQ IAM para la que haya configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de BenQ IAM en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de BenQ IAM para la que haya configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,13 @@ ms.author: bobazile
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 079ef0c70641100e0b2efe7d08d79dc218a83abc
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.subservice: pstn
+ms.openlocfilehash: b6fa8523a347f9191c607ce3ba50b32f2d088886
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259043"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636028"
 ---
 # <a name="session-border-controllers-and-voice-routing"></a>Controladores de límites de sesión y enrutadores de voz
 El enrutamiento directo de Azure Communication Services le permite conectar la infraestructura de telefonía existente a Azure. En el artículo se enumeran los pasos de alto nivel necesarios para conectar un controlador de límites de sesión (CLS) compatible con enrutamiento directo y cómo funciona el enrutamiento de voz para el recurso de comunicación habilitado. 
@@ -48,6 +49,9 @@ Al agregar una configuración de enrutamiento directo a un recurso, todas las ll
 ## <a name="voice-routing-examples"></a>Ejemplos de enrutamiento de voz
 En los ejemplos siguientes se muestra el enrutamiento de voz en un flujo de llamadas.
 
+> [!NOTE]
+> En todos los ejemplos, aunque la ruta de voz superior tiene mayor prioridad, los CLS de una ruta se prueban en orden aleatorio.
+
 ### <a name="one-route-example"></a>Un ejemplo de ruta:
 Si ha creado una ruta de voz con un patrón `^\+1(425|206)(\d{7})$` y le ha agregado `sbc1.contoso.biz` y `sbc2.contoso.biz`, cuando el usuario realice una llamada a `+1 425 XXX XX XX` o `+1 206 XXX XX XX`, la llamada primero se enrutará al CLS `sbc1.contoso.biz` o `sbc2.contoso.biz`. Si no hay CLS disponible, se descarta la llamada.
 
@@ -58,7 +62,7 @@ Si ha creado una ruta de voz con un patrón `^\+1(425|206)(\d{7})$` y le ha agre
 Si ha creado una ruta de voz con un patrón `^\+1(425|206)(\d{7})$` y le ha agregado `sbc1.contoso.biz` y `sbc2.contoso.biz`, y luego ha creado una segunda ruta con el mismo patrón con `sbc3.contoso.biz` y `sbc4.contoso.biz`. y se ha creado una tercera ruta con `^+1(\d[10])$` con `sbc5.contoso.biz`. En este caso, cuando el usuario realiza una llamada a `+1 425 XXX XX XX` o `+1 206 XXX XX XX`, la llamada se enruta primero al CLS `sbc1.contoso.biz` o `sbc2.contoso.biz`. Si sbc1 y sbc2 no están disponibles, se probará la ruta con menor prioridad (`sbc3.contoso.biz` y `sbc4.contoso.biz`). Si ninguno de los CLS de la segunda ruta está disponible, se probará la tercera ruta; si sbc5 tampoco está disponible, se descarta la llamada. Además, si un usuario marca `+1 321 XXX XX XX`, la llamada va a `sbc5.contoso.biz` y no está disponible, se descarta la llamada.
 
 > [!NOTE]
-> En todos los ejemplos, aunque la ruta de voz superior tiene mayor prioridad, los CLS de una ruta se prueban en orden aleatorio.
+> La conmutación por error al siguiente CLS en el enrutamiento de voz solo funciona para los códigos de respuesta 408, 503 y 504.
 
 > [!NOTE]
 > En todos los ejemplos, si el número marcado no coincide con el patrón, la llamada se descartará a menos que exista un número comprado para el recurso de comunicación y este número se usó como `alternateCallerId` en la aplicación. 

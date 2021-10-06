@@ -3,16 +3,16 @@ title: Cuotas de vCPU de Azure
 description: Obtenga información acerca de las cuotas de vCPU para Azure Virtual Machines.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: quota
+ms.subservice: sizes
 ms.topic: how-to
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 8f032f2f39ea092c22e201fa7993179369ef45f8
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 6a984f044bb77b2a16ea41f34f00bf05d3e5220d
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697773"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216011"
 ---
 # <a name="check-vcpu-quotas-using-azure-powershell"></a>Comprobación de cuotas de vCPU mediante Azure PowerShell
 
@@ -21,7 +21,7 @@ ms.locfileid: "122697773"
 Las cuotas de vCPU para máquinas virtuales y conjuntos de escalado de máquinas virtuales se organizan en dos niveles para cada suscripción en cada región. El primer nivel es el número de vCPU regionales totales y el segundo son los núcleos de las diversas familias de tamaños de máquina virtual, como las vCPU de la serie D estándar. Siempre que se implemente una máquina virtual nueva, las vCPU de dicha máquina virtual no deben exceder la cuota de vCPU de la familia de tamaños de máquina virtual o el total de la cuota de vCPU regional. Si se supera cualquiera de esas dos cuotas, no se permitirá la implementación de la máquina virtual. También hay una cuota para el número total de máquinas virtuales en la región. Se pueden ver los detalles de cada una de estas cuotas en la sección **Uso y cuotas** de la página **Suscripción** en [Azure Portal](https://portal.azure.com), o bien puede consultar los valores mediante PowerShell.
 
 > [!NOTE]
-> La cuota se calcula en función del número total de núcleos en uso tanto los asignados como los desasignados. Si necesita más núcleos, [solicite un aumento de la cuota](../../azure-portal/supportability/resource-manager-core-quotas-request.md) o elimine las máquinas virtuales que ya no sean necesarias. 
+> La cuota se calcula en función del número total de núcleos en uso tanto los asignados como los desasignados. Si necesita más núcleos, [solicite un aumento de la cuota](../../azure-portal/supportability/regional-quota-requests.md) o elimine las máquinas virtuales que ya no sean necesarias. 
  
 ## <a name="check-usage"></a>Comprobación del uso
 
@@ -77,7 +77,7 @@ Premium Storage Managed Disks                1 10000 Count
 ## <a name="reserved-vm-instances"></a>Instancias reservadas de máquina virtual
 Las instancias reservadas de máquina virtual, cuyo ámbito es una sola suscripción sin tamaño de máquina virtual flexible, agregarán un aspecto nuevo a las cuotas de vCPU. Estos valores describen el número de instancias del tamaño indicado que deben poderse implementar en la suscripción. Actúan como un marcador de posición en el sistema de cuotas para asegurarse de que esa cuota esté reservada y que las instancias reservadas de máquina virtual puedan implementarse en la suscripción. Por ejemplo, si una suscripción específica tiene diez instancias reservadas de máquina virtual Standard_D1, el límite de uso para las instancias reservadas de máquina virtual Standard_D1 será de diez. Esto hará que Azure se asegure de que siempre hay al menos 10 vCPU disponibles en el total de la cuota de vCPU regional que se utilizará para instancias de Standard_D1 y que hay al menos 10 vCPU disponibles en la cuota de vCPU de la Familia D estándar que se utilizará para las instancias de Standard_D1.
 
-Si es necesario un incremento de cuota para adquirir una instancia reservada de suscripción única, puede [solicitarlo](../../azure-portal/supportability/resource-manager-core-quotas-request.md) en su suscripción.
+Si es necesario un incremento de cuota para adquirir una instancia reservada de suscripción única, puede [solicitarlo](../../azure-portal/supportability/regional-quota-requests.md) en su suscripción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

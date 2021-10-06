@@ -3,17 +3,17 @@ title: Uso del portal para notificaciones de mantenimiento
 description: Use el portal para ver las notificaciones de mantenimiento de máquinas virtuales que se ejecutan en Azure e iniciar el mantenimiento de autoservicio.
 author: shants123
 ms.service: virtual-machines
-ms.subservice: maintenance-control
+ms.subservice: maintenance
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 11/19/2019
+ms.date: 09/08/2021
 ms.author: shants
-ms.openlocfilehash: 8ec87f5377fad1e42ad5b6e96f32a4dae241a4ca
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: a027014500fa9e4a6ca1f68e2da5fb62df37e5ec
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698795"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216059"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-portal"></a>Control de las notificaciones de mantenimiento planeado con el portal
 
@@ -27,9 +27,7 @@ Puede usar Azure Portal y buscar máquinas virtuales con mantenimiento programad
 
 2. En el panel de navegación de la izquierda, haga clic en **Máquinas virtuales**.
 
-3. En el panel Virtual Machines, seleccione **Editar columnas** para abrir la lista de columnas disponibles.
-
-4. Seleccione y agregue las siguientes columnas:
+3. En el panel Máquinas virtuales, seleccione el botón **Mantenimiento -> Mantenimiento de máquinas virtuales** para abrir la lista con las columnas de mantenimiento.
 
    **Estado de mantenimiento**: muestra el estado de mantenimiento para la máquina virtual. Estos son los valores posibles:
       

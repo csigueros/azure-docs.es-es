@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
 ms.date: 06/23/2021
-ms.openlocfilehash: 2aa4fe3e7e2f7637060996b53748391da03879ec
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 07a47b432470b683680c315f2d1d741cc607774f
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123032289"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214606"
 ---
 # <a name="whats-new-in-anomaly-detector"></a>Novedades de Anomaly Detector
 
@@ -19,6 +19,10 @@ Conozca las novedades del servicio. Estos elementos incluyen notas de la versió
 También se han agregado vínculos a contenido generado por el usuario. Esos elementos se marcarán con la etiqueta **[UGC]** . Algunos se hospedan en sitios web que son externos a Microsoft, por lo que Microsoft no es responsable de su contenido. Tenga precaución al utilizar estos recursos. Póngase en contacto con AnomalyDetector@microsoft.com o genere una incidencia en GitHub si quiere que eliminemos el contenido.
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="september-2021"></a>Septiembre de 2021
+* Anomaly Detector (univariante) disponible en Jio Oeste de la India.
+* API de detección de anomalías multivariante implementadas en cinco regiones más: Este de Asia, Oeste de EE. UU., Centro de la India, Centro de Corea del Sur, Centro-oeste de Alemania.
 
 ### <a name="august-2021"></a>Agosto de 2021
 
@@ -70,9 +74,6 @@ También se han agregado vínculos a contenido generado por el usuario. Esos ele
 * 20 de agosto de 2019 [Anomaly Detector para el entorno local con compatibilidad con contenedores](https://channel9.msdn.com/Shows/AI-Show/Bring-Anomaly-Detector-on-premise-with-containers-support): AI Show con Qun Ying y Seth Juarez
 * 13 de agosto de 2019 [Presentación de Azure Anomaly Detector](https://channel9.msdn.com/Shows/AI-Show/Introducing-Azure-Anomaly-Detector?WT.mc_id=ai-c9-niner): AI Show con Qun Ying y Seth Juarez
 
-## <a name="open-source-projects"></a>Proyectos de código abierto
-
-* 3 de junio de 2019 **[UGC]** [Cuaderno de Jupyter Notebook para ilustrar el uso de Anomaly Detector y la transmisión a Power BI](https://github.com/marvinbuss/MS-AnomalyDetector): Marvin Buss
 
 ## <a name="service-updates"></a>Actualizaciones del servicio
 

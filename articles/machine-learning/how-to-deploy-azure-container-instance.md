@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Obtenga información sobre cómo implementar modelos de Azure Machine Learning como un servicio web con Azure Container Instances.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 ms.custom: deploy
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/20/2021
-ms.openlocfilehash: 433e202aceb7ba4cd08268575fba5a64f8bbaadb
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: a42c87124490d666427b408912d470d85df3b399
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114287143"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429706"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Implementación de un modelo en Azure Container Instances
 

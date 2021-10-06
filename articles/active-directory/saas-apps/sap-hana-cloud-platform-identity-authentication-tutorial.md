@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/18/2021
+ms.date: 09/01/2021
 ms.author: jeedes
-ms.openlocfilehash: dc0cd57eb32baaeac0850337bbead3a73dec9292
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eeee49a49e4d0c7269056cee9975303c4f22e69b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98897352"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124746195"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-cloud-platform-identity-authentication"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con SAP Cloud Platform Identity Authentication
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar SAP Cloud Platform Identity Authenticati
 * Puede permitir que los usuarios inicien sesión automáticamente en SAP Cloud Platform Identity Authentication con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -37,7 +37,8 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* SAP Cloud Platform Identity Authentication admite el inicio de sesión único iniciado por **SP** e **IDP**
+* SAP Cloud Platform Identity Authentication admite el inicio de sesión único iniciado por **SP** e **IDP**.
+* SAP Cloud Platform Identity Authentication admite el [aprovisionamiento automatizado de usuarios](sap-cloud-platform-identity-authentication-provisioning-tutorial.md).
 
 Antes de adentrarse en los detalles técnicos, es fundamental entender los conceptos vamos a tratar. Los Servicios de federación de Active Directory y SAP Cloud Platform Identity Authentication le permiten implementar el inicio de sesión único en aplicaciones o servicios protegidos por Azure AD (como un IdP) con aplicaciones y servicios de SAP protegidos por SAP Cloud Platform Identity Authentication.
 
@@ -89,13 +90,13 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal, en la página de integración de la aplicación **SAP Cloud Platform Identity Authentication**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
 4. En la sección **Configuración básica de SAML**, si desea configurar en el modo iniciado por **IDP**, siga estos pasos:
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `<IAS-tenant-id>.accounts.ondemand.com`
+    a. En el cuadro de texto **Identificador**, escriba un valor con el siguiente patrón: `<IAS-tenant-id>.accounts.ondemand.com`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<IAS-tenant-id>.accounts.ondemand.com/saml2/idp/acs/<IAS-tenant-id>.accounts.ondemand.com`
 
@@ -106,7 +107,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Información de dominio y direcciones URL de inicio de sesión único de SAP Cloud Platform Identity Authentication](common/metadata-upload-additional-signon.png)
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `{YOUR BUSINESS APPLICATION URL}`
+    En el cuadro de texto **URL de inicio de sesión**, escriba un valor con el siguiente patrón: `{YOUR BUSINESS APPLICATION URL}`
 
     > [!NOTE]
     > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Use la dirección URL de inicio de sesión de su aplicación empresarial específica. Si tiene alguna duda, póngase en contacto con el [equipo de soporte técnico de SAP Cloud Platform Identity Authentication](https://cloudplatform.sap.com/capabilities/security/trustcenter.html).
@@ -191,6 +192,9 @@ De manera predeterminada, la opción de federación de identidades está deshabi
 
 Para más información sobre cómo habilitar o deshabilitar la federación de identidades con SAP Cloud Platform Identity Authentication, consulte la sección Enable Identity Federation with SAP Cloud Platform Identity Authentication (Activación de la federación de identidades con SAP Cloud Platform Identity Authentication) del artículo [Configure Identity Federation with the User Store of SAP Cloud Platform Identity Authentication](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/c029bbbaefbf4350af15115396ba14e2.html) (Configuración de la federación de identidades con el almacén de usuarios de SAP Cloud Platform Identity Authentication).
 
+> [!NOTE]
+> El inicio de sesión único de SAP Cloud Platform Identity Authentication también admite el aprovisionamiento automático de usuarios. [Aquí](./sap-cloud-platform-identity-authentication-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
@@ -205,7 +209,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de SAP Cloud Platform Identity Authentication para la que configurara el inicio de sesión único.
 
-También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de SAP Cloud Platform Identity Authentication en Aplicaciones, si está configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para iniciar el flujo de inicio de sesión y, si está configurado en modo IDP, debería iniciar sesión automáticamente en la instancia de SAP Cloud Platform Identity Authentication para la que configurara el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de SAP Cloud Platform Identity Authentication en Aplicaciones, si está configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para iniciar el flujo de inicio de sesión y, si está configurado en modo IDP, debería iniciar sesión automáticamente en la instancia de SAP Cloud Platform Identity Authentication para la que configurara el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

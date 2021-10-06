@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2021
-ms.openlocfilehash: 37e6573e1bc26bc79477cf532ef442964f760985
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 32d5602a4f71b1e66e135fe2478f2d9b10b8424d
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123226779"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129219199"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>¿Qué es un área de trabajo de Azure Machine Learning?
 
@@ -115,7 +115,12 @@ Al crear una nueva área de trabajo, se crean automáticamente varios recursos d
 
   Para usar una cuenta de Azure Storage existente, no puede ser una cuenta de tipo BlobStorage ni prémium (Premium_LRS y Premium_GRS). Tampoco puede tener un espacio de nombres jerárquico (se usa con Azure Data Lake Storage Gen2). No se admiten Premium Storage ni el espacio de nombres jerárquico con la cuenta de almacenamiento _predeterminada_ del área de trabajo. Puede usar Premium Storage o el espacio de nombres jerárquico con cuentas de almacenamiento _no predeterminadas_.
   
-+ [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): registra los contenedores de docker que usa durante el entrenamiento y al implementar un modelo. Para reducir los costos, ACR se **carga de forma diferida** hasta que se crean imágenes de la implementación.
++ [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): registra los contenedores de Docker que se usan para los componentes siguientes:
+    * [Entornos de Azure Machine Learning](concept-environments.md) al entrenar e implementar modelos
+    * [AutoML](concept-automated-ml.md) al implementar recursos
+    * [Generación de perfiles de los datos](how-to-connect-data-ui.md#data-profile-and-preview)
+
+    Para minimizar los costes, ACR se **carga de manera diferida** hasta que se necesitan las imágenes.
 
     > [!NOTE]
     > Si la configuración de la suscripción requiere agregar etiquetas a los recursos que hay en ella, se producirá un error en la instancia de Azure Container Registry (ACR) creada por Azure Machine Learning, ya que no se pueden establecer etiquetas en ACR.

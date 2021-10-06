@@ -1,18 +1,18 @@
 ---
 title: Registro y examen de una instancia de Azure Database for PostgreSQL
-description: En este tutorial se describe cómo examinar una base de datos de Azure Database for PostgreSQL
+description: En este tutorial se describe cómo examinar una base de datos de Azure Database for PostgreSQL en Azure Purview.
 author: evwhite
 ms.author: evwhite
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: tutorial
 ms.date: 06/30/2021
-ms.openlocfilehash: 622e89392dc10f12fe81ed1c1085e5b9cc524999
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: abc676fbff551781f720db5937a9c35c7c8f81ea
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122181303"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209817"
 ---
 # <a name="register-and-scan-an-azure-database-for-postgresql"></a>Registro y examen de una instancia de Azure Database for PostgreSQL
 
@@ -73,7 +73,7 @@ En la pantalla **Registrar orígenes [Azure Database for PostgreSQL]** , haga lo
 
 Para crear y ejecutar un nuevo examen, siga estos pasos:
 
-1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de Purview Studio.
+1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Seleccione el origen de Azure Database for PostgreSQL que registró.
 

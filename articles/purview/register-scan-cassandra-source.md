@@ -1,20 +1,20 @@
 ---
-title: Registro de Cassandra como origen y configuración de los análisis en Azure Purview
+title: Registro de Cassandra como origen y configuración de los exámenes
 description: En este artículo, se explica cómo registrar el servidor de Cassandra en Azure Purview y cómo configurar un análisis.
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 8/06/2021
-ms.openlocfilehash: 8e2136cdb4cca53d81412335f7f5878fd8d70b86
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: dcc0ef65654d8100a1c96cdb0c84a6ac758587a2
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121788065"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212745"
 ---
-# <a name="register-and-scan-a-cassandra-source"></a>Registro y análisis de un origen de Cassandra 
+# <a name="register-and-scan-a-cassandra-source-preview"></a>Registro y examen de un origen de Cassandra (versión preliminar)
 
 En este artículo se describe cómo registrar un servidor de Cassandra en Purview y cómo configurar un análisis.
 
@@ -52,14 +52,14 @@ En la pantalla Registrar orígenes (Cassandra) (Registrar orígenes [Cassandra])
 3. Escriba el puerto usado por el servidor de Cassandra en el campo **Puerto**.
 4. Seleccione una colección o cree una nueva (opcional).
 
-5.  Haga clic en **Register** (Registrar).
+5.  Seleccione **Registrar**.
     :::image type="content" source="media/register-scan-cassandra-source/configure-sources.png" alt-text="Configuración del origen de Cassandra" border="true":::
 
 ## <a name="creating-and-running-a-scan"></a>Creación y ejecución de un examen
 
 Para crear y ejecutar un nuevo examen, siga estos pasos:
 
-1.  En el centro de administración, haga clic en Integration runtimes (Entornos de ejecución de integración). Asegúrese de que está configurado un entorno de ejecución de integración autohospedado. Si no lo está, use los pasos que se indican [aquí](./manage-integration-runtimes.md) para configurar un entorno de ejecución de integración autohospedado.
+1.  En el centro de administración, seleccione Entornos de ejecución de integración. Asegúrese de que está configurado un entorno de ejecución de integración autohospedado. Si no lo está, use los pasos que se indican [aquí](./manage-integration-runtimes.md) para configurar un entorno de ejecución de integración autohospedado.
 
 2.  Vaya a **Sources** (Orígenes).
 
@@ -96,13 +96,13 @@ No se acepta el empleo de NOT ni de caracteres especiales.
     g. **Maximum memory available** (Memoria máxima disponible): memoria máxima (en GB) disponible en la máquina virtual del cliente que van a usar los procesos de examen. Depende del tamaño del servidor de Cassandra que se va a examinar.
         :::image type="content" source="media/register-scan-cassandra-source/scan.png" alt-text="Examinar el origen de Cassandra" border="true":::
 
-6.  Haga clic en **Probar la conexión**.
+6.  Seleccione **Test Connection** (Probar conexión).
 
-7.  Haga clic en **Continuar**.
+7.  Seleccione **Continuar**.
 
 8.  Elija el **desencadenador del examen**. Puede configurar una programación o ejecutar el examen una vez.
 
-9.  Revise el examen y haga clic en **Save and run** (Guardar y ejecutar).
+9.  Revise el examen y seleccione **Save and run** (Guardar y ejecutar).
 
 ## <a name="viewing-your-scans-and-scan-runs"></a>Visualización de los exámenes y las ejecuciones de exámenes
 

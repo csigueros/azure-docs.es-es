@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81e40a295d9572fb38a1289d4bdf661095b9ca7a
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 2bb017cd4532d4739b563d4a22a50a731268407f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114449129"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124759726"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planeación e implementación de la protección con contraseña de Azure Active Directory local
 
@@ -95,6 +95,9 @@ Se aplican los siguientes requisitos principales:
     | --- | --- |
     |`https://login.microsoftonline.com`|Solicitudes de autenticación|
     |`https://enterpriseregistration.windows.net`|Funcionalidad de protección con contraseña de Azure AD|
+
+> [!NOTE]
+> Algunos puntos de conexión, como el punto de conexión de CRL, no se abordan en este artículo. Para obtener una lista de todos los puntos de conexión admitidos, consulte [Intervalos de direcciones IP y direcciones URL de Microsoft 365](/microsoft-365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).
 
 ### <a name="azure-ad-password-protection-dc-agent"></a>Agente de controlador de dominio de protección con contraseña de Azure AD
 

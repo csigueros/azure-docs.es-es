@@ -4,15 +4,15 @@ description: En este artículo se describe cómo registrar un proyecto de Google
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 7/15/2021
-ms.openlocfilehash: d88df617e994f4a609b12dff0419fd673f8207d1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: caaf78e14669d67f525e5756efd8e2fd301f9b38
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121721930"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218551"
 ---
 # <a name="register-and-scan-google-bigquery-source-preview"></a>Registro y examen del origen de Google BigQuery (versión preliminar)
 
@@ -56,14 +56,14 @@ En la pantalla Register sources (Registrar orígenes) (Google BigQuery), siga es
 
 3.  Seleccione una colección o cree una nueva (opcional).
 
-4.  Haga clic en **Register** (Registrar).
+4.  Seleccione **Registrar**.
     :::image type="content" source="media/register-scan-google-bigquery-source/configure-sources.png" alt-text="Configurar el origen de BigQuery" border="true":::
 
 ## <a name="creating-and-running-a-scan"></a>Creación y ejecución de un examen
 
 Para crear y ejecutar un nuevo examen, siga estos pasos:
 
-1.  En el centro de administración, haga clic en Integration runtimes (Entornos de ejecución de integración). Asegúrese de que está configurado un entorno de ejecución de integración autohospedado. Si no lo está, use los pasos que se indican [aquí](./manage-integration-runtimes.md) para configurar un entorno de ejecución de integración autohospedado.
+1.  En el centro de administración, seleccione Entornos de ejecución de integración. Asegúrese de que está configurado un entorno de ejecución de integración autohospedado. Si no lo está, use los pasos que se indican [aquí](./manage-integration-runtimes.md) para configurar un entorno de ejecución de integración autohospedado.
 
 2.  Vaya a **Sources** (Orígenes).
 
@@ -83,7 +83,7 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
     - Especificar el identificador de correo electrónico de la cuenta de servicio en el campo User name (Nombre de usuario). Por ejemplo, xyz\@developer.gserviceaccount.com.
     - Guarde el archivo de clave privada de la cuenta de servicio en formato JSON en el secreto del almacén de claves.
 
-    Para crear una clave privada desde la plataforma en la nube de Google, en el menú de navegación, haga clic en IAM & Admin (IAM y admin.) -\> Service Accounts (Cuentas de servicio) -\> Select a project (Seleccionar un proyecto) -\> Haga clic en la dirección de correo electrónico de la cuenta de servicio para la que desea crear una clave -\> Haga clic en la pestaña **Keys** (Claves) -\> Haga clic en el menú desplegable **Add key** (Agregar clave) y seleccione Create new key (Crear clave). Ahora elija el formato JSON.
+    Para crear una clave privada desde la plataforma en la nube de Google, en el menú de navegación, seleccione IAM & Admin (IAM y admin.) -\> Service Accounts (Cuentas de servicio) -\> Select a project (Seleccionar un proyecto) -\> Seleccione en la dirección de correo electrónico de la cuenta de servicio para la que desea crear una clave -\> Seleccione en la pestaña **Keys** (Claves) -\> Seleccione el menú desplegable **Add key** (Agregar clave) y seleccione Create new key (Crear clave). Ahora elija el formato JSON.
 
       > [!Note]
       > El contenido de la clave privada se guarda en un archivo temporal en la máquina virtual cuando se ejecutan los procesos de examen. Este archivo temporal se elimina después de que los exámenes se hayan completado correctamente. Si se produce un error en cualquiera de ellos, el sistema seguirá reintentando la operación hasta que se ejecute correctamente. Asegúrese de que el acceso está restringido adecuadamente en la máquina virtual en la que se ejecuta SHIR.**
@@ -107,13 +107,13 @@ No se acepta el empleo de NOT ni de caracteres especiales.
     f.  **Maximum memory available** (Memoria máxima disponible): memoria máxima (en GB) disponible en la máquina virtual del cliente que van a usar los procesos de examen. Depende del tamaño del proyecto de Google BigQuery que se va a examinar.
         :::image type="content" source="media/register-scan-google-bigquery-source/scan.png" alt-text="Examinar origen de BigQuery" border="true":::
 
-6.  Haga clic en **Probar la conexión**.
+6.  Seleccione **Test Connection** (Probar conexión).
 
-7.  Haga clic en **Continuar**.
+7.  Seleccione **Continuar**.
 
 8.  Elija el **desencadenador del examen**. Puede configurar una programación o ejecutar el examen una vez.
 
-9.  Revise el examen y haga clic en **Save and run** (Guardar y ejecutar).
+9.  Revise el examen y seleccione **Guardar y ejecutar**.
 
 ## <a name="viewing-your-scans-and-scan-runs"></a>Visualización de los exámenes y las ejecuciones de exámenes
 

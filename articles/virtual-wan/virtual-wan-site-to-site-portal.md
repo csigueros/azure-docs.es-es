@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 08/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: 544275ce4c9ab31fa65fe17351eed495895569e2
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: ece8300ee9d44699dfcce8fd89b1e07b94d99df9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123432169"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823283"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Creación de una conexión de sitio a sitio mediante Azure Virtual WAN
 
@@ -53,25 +53,25 @@ Un centro de conectividad es una red virtual que puede contener puertas de enlac
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-s2s-hub-include.md)]
 
-## <a name="create-site-to-site-vpn-gateway"></a><a name="gateway"></a>Crear una puerta de enlace de VPN de sitio a sitio
+## <a name="configure-a-site-to-site-gateway"></a><a name="gateway"></a>Configuración de una puerta de enlace de sitio a sitio
 
-En esta sección, configurará la conectividad de sitio a sitio y, a continuación, continuará con la creación del centro de conectividad y la puerta de enlace de VPN S2S. Un centro de conectividad y una puerta de enlace pueden tardar unos 30 minutos en crearse.
+En esta sección, configurará la conectividad de sitio a sitio y, a continuación, continuará con la creación del centro de conectividad y la puerta de enlace de VPN de sitio a sitio. Un centro de conectividad y una puerta de enlace pueden tardar unos 30 minutos en crearse.
 
 [!INCLUDE [Create a gateway](../../includes/virtual-wan-tutorial-s2s-gateway-include.md)]
 
-## <a name="create-site"></a><a name="site"></a>Crear sitio
+## <a name="create-a-site"></a><a name="site"></a>Creación de un sitio
 
 En esta sección, va a crear un sitio. Los sitios se corresponden con las ubicaciones físicas. Puede crear tantos sitios como necesite. Por ejemplo, si tiene una sucursal en Nueva York, otra en Londres y otra en Los Ángeles, crearía tres sitios independientes. Estos sitios contienen los puntos de conexión de dispositivo VPN local. Puede crear hasta 1000 sitios en cada centro de conectividad virtual de una instancia de Virtual WAN. Si tiene varios centros de conectividad, puede crear 1000 sitios en cada uno de ellos. Si tiene un dispositivo CPE de un asociado de Virtual WAN, hable con él para conocer en qué consiste su automatización de Azure. Normalmente, la automatización implica que, con un simple clic, se puede exportar a Azure la información de las ramas a gran escala y configurar la conectividad entre el CPE y la puerta de enlace de VPN de Azure Virtual WAN. Para más información, consulte la [guía de automatización de Azure para asociados de CPE](virtual-wan-configure-automation-providers.md).
 
 [!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 
-## <a name="connect-vpn-site-to-hub"></a><a name="connectsites"></a>Conectar el sitio VPN al centro de conectividad
+## <a name="connect-the-vpn-site-to-a-hub"></a><a name="connectsites"></a>Conexión del sitio de VPN con el centro de conectividad
 
 En esta sección, conectará el sitio VPN al centro de conectividad.
 
 [!INCLUDE [Connect VPN sites](../../includes/virtual-wan-tutorial-s2s-connect-vpn-site-include.md)]
 
-## <a name="connect-vnet-to-hub"></a><a name="vnet"></a>Conexión de una red virtual a un centro de conectividad
+## <a name="connect-a-vnet-to-the-hub"></a><a name="vnet"></a>Conexión de una red virtual a un centro
 
 En esta sección, va a crear una conexión entre el centro de conectividad y la red virtual.
 

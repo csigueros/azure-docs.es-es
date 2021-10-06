@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 09/13/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29b000ee3231361ccdca4c2909e093cdaef6bc04
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: cf76e5ffc7b3eabae7366805ed1a87d262854992
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866522"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128630117"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>¿Qué es un token de actualización principal?
 
@@ -69,14 +69,14 @@ En escenarios de dispositivos registrados de Azure AD, el complemento WAM de Az
 
 ## <a name="what-is-the-lifetime-of-a-prt"></a>¿Cuál es la duración de un PRT?
 
-Una vez emitido, un PRT es válido durante 14 días y se renueva continuamente siempre y cuando el usuario use activamente el dispositivo.  
+Una vez emitido, un PRT es válido durante 90 días y se renueva continuamente siempre y cuando el usuario use activamente el dispositivo.  
 
 ## <a name="how-is-a-prt-used"></a>¿Cómo se usa un PRT?
 
 Dos componentes principales de Windows usan un PRT:
 
 * **Complemento CloudAP de Azure AD**: durante el inicio de sesión de Windows, el complemento CloudAP de Azure AD solicita un PRT a Azure AD mediante las credenciales proporcionadas por el usuario. También almacena en caché el PRT para permitir el inicio de sesión almacenado en caché cuando el usuario no tiene acceso a una conexión de Internet.
-* **Complemento WAM de Azure AD**: cuando los usuarios intentan acceder a las aplicaciones, el complemento WAM de Azure AD usa el PRT para permitir el inicio de sesión único en Windows 10. El complemento WAM de Azure AD usa el PRT para solicitar tokens de acceso y actualización para las aplicaciones en las que las solicitudes de tokens dependen de WAM. También permite el inicio de sesión único en los exploradores mediante la inserción del PRT en las solicitudes del explorador. El inicio de sesión único en el explorador de Windows 10 se admite en Microsoft Edge (de forma nativa), en Chrome (mediante las extensiones [Windows 10 Accounts](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji?hl=en) u [Office Online](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb?hl=en)) o en Mozilla Firefox v91 y posteriores (a través de la [opción SSO de Windows](https://support.mozilla.org/en-US/kb/windows-sso)).
+* **Complemento WAM de Azure AD**: cuando los usuarios intentan acceder a las aplicaciones, el complemento WAM de Azure AD usa el PRT para permitir el inicio de sesión único en Windows 10. El complemento WAM de Azure AD usa el PRT para solicitar tokens de acceso y actualización para las aplicaciones en las que las solicitudes de tokens dependen de WAM. También permite el inicio de sesión único en los exploradores mediante la inserción del PRT en las solicitudes del explorador. El inicio de sesión único en el explorador de Windows 10 se admite en Microsoft Edge (de forma nativa), en Chrome (mediante las extensiones [Windows 10 Accounts](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji?hl=en) u [Office Online](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb?hl=en)) o en Mozilla Firefox v91 y posteriores (mediante la [opción SSO de Windows](https://support.mozilla.org/kb/windows-sso) para Firefox).
 
 ## <a name="how-is-a-prt-renewed"></a>¿Cómo se renueva un PRT?
 

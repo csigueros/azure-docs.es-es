@@ -4,16 +4,16 @@ description: En este artículo se proporcionan detalles conceptuales sobre los o
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 09/27/2021
 ms.custom: references_regions
-ms.openlocfilehash: e5b2c5eaca13b26504c4229ef990abc4adce23c9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1d484bce594d5894052ffeb4f1ff4a1dbf202d50
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121724179"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215251"
 ---
 # <a name="supported-data-sources-and-file-types-in-azure-purview"></a>Tipos de archivo y orígenes de datos admitidos en Azure Purview
 
@@ -35,7 +35,7 @@ Los siguientes tipos de archivo se admiten para los exámenes y para la extracci
 > Cada archivo Gzip debe estar asignado a un solo archivo CSV. Los archivos Gzip están sujetos a reglas de clasificación personalizadas y del sistema. Actualmente no se admite el examen de un archivo Gzip asignado a varios archivos o cualquier otro tipo de archivo que no sea CSV. Además, el analizador de Purview admite el examen de tipos de archivo PARQUET comprimidos con Snappy para la extracción y clasificación de esquemas. 
 
 > [!Note]
-> El analizador de Purview no admite tipos de datos complejos en los tipos de archivo AVRO, ORC y PARQUET para la extracción de esquemas.   
+> El analizador de Purview no admite tipos de datos complejos (por ejemplo, MAP, LIST, STRUCT) en los tipos de archivo AVRO, ORC y PARQUET para la extracción de esquemas.   
 
 ## <a name="sampling-within-a-file"></a>Muestreo en un archivo
 
@@ -69,5 +69,5 @@ Las 206 reglas de clasificación del sistema se aplican a los formatos de archi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Tutorial: ejecución de Starter Kit y examen de datos](tutorial-scan-data.md)
-- [Administración de orígenes de datos en Azure Purview (versión preliminar)](manage-data-sources.md)
+- [Exámenes e ingesta en Purview](concept-scans-and-ingestion.md)
+- [Administración de orígenes de datos en Azure Purview](manage-data-sources.md)

@@ -7,12 +7,12 @@ ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e3ab2a3bfc6e42e1cba479ee8dacb97d8f46305a
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: b50badbf1353ffbb4c5f6fb347cb3c8b1168c97c
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122324751"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407083"
 ---
 # <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer"></a>Consulta de datos exportados desde Azure Monitor mediante Azure Data Explorer
 Exportar datos de Azure Monitor a una cuenta de Azure Storage permite la retención a bajo costo y la capacidad de reasignar registros a regiones distintas. Use Azure Data Explorer para consultar datos exportados de las áreas de trabajo de Log Analytics. Una vez que se configuran, las tablas compatibles que se envían desde las áreas de trabajo hasta la cuenta de Azure Storage estarán disponibles como un origen de datos para Azure Data Explorer.
@@ -107,7 +107,7 @@ with
    docstring = "Docs",
    folder = "ExternalTables"
 )
-'@ -f $TableName, $schema, $BlobURL, $ContainerAccessKey, $subscriptionId, $WorkspaceName, $resourcegroupname,$WorkspaceId
+'@ -f $TableName, $schema, $BlobURL, $ContainerAccessKey, $subscriptionId, $WorkspaceName.ToLower(), $resourcegroupname.ToLower(),$WorkspaceId
 
 $createMapping = @'
 .create external table {0} json mapping "{1}" '[{2}]'

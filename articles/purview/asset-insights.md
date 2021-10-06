@@ -1,22 +1,25 @@
 ---
-title: Información detallada de recursos en los datos en Azure Purview (versión preliminar)
+title: Información detallada de recursos en los datos de Azure Purview
 description: En esta guía paso a paso se describe cómo ver y usar los informes de información detallada de recursos de Purview en los datos.
 author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-insights
 ms.topic: how-to
-ms.date: 11/20/2020
-ms.openlocfilehash: b9a207ffa14a18a5f4421fd21cebed28290b5ea6
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 09/27/2021
+ms.openlocfilehash: 8879edc7d1858cff5871c5339da4857d81f5c2d8
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183087"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217086"
 ---
 # <a name="asset-insights-on-your-data-in-azure-purview"></a>Información detallada de recursos en los datos de Azure Purview
 
 En esta guía paso a paso se describe cómo obtener acceso a los informes de información detallada de recursos de Purview en los datos, y cómo verlos y filtrarlos.
+
+> [!IMPORTANT]
+> Azure Purview Insights se encuentra actualmente en versión preliminar. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
 En esta guía paso a paso, aprenderá a:
 
@@ -33,7 +36,7 @@ Antes de empezar a usar la información detallada de Purview, asegúrese de que 
 
 * Ha configurado y realizado un examen en el tipo de origen.
 
-Para más información, consulte [Administración de orígenes de datos en Azure Purview (versión preliminar)](manage-data-sources.md).
+Para más información, consulte [Administración de orígenes de datos en Azure Purview](manage-data-sources.md).
 
 ## <a name="use-purview-asset-insights"></a>Uso de la información detallada de recursos de Purview
 
@@ -48,11 +51,11 @@ En Azure Purview, puede registrar y examinar los tipos de origen. Una vez comple
 
    :::image type="content" source="./media/asset-insights/portal-access.png" alt-text="Inicio de Purview desde Azure Portal":::
 
-1. En la página **Home** (Inicio) de Purview, seleccione el icono **View insights** (Ver información) para acceder al área **Insights** :::image type="icon" source="media/asset-insights/ico-insights.png" border="false"::: (Información detallada).
+1. En la página **Inicio** de Purview, seleccione **Información** en el menú de la izquierda.
 
    :::image type="content" source="./media/asset-insights/view-insights.png" alt-text="Visualización de información detallada en Azure Portal":::
 
-1. En el área **Insights** (Información detallada) :::image type="icon" source="media/asset-insights/ico-insights.png" border="false":::, seleccione **Assets** (Recursos) para mostrar el informe **Asset insights** (Información detallada de recursos).
+1. En el área **Información**, seleccione **Recursos** para mostrar el informe **Asset insights** (Información de recursos) de Purview.
 
 ### <a name="view-asset-insights"></a>Visualización de información detallada de recursos
 
@@ -90,7 +93,7 @@ El siguiente par de gráficos de la información detallada de recursos muestra u
    > [!NOTE]
    > Si el examen se ha ejecutado solo una vez en los últimos 30 días o se ha producido algún cambio en el catálogo, como la adición o eliminación de una clasificación, solo una vez en ese período, la información sobre los cambios aparece en blanco.
 
-1. Al hacer clic en el tipo de origen, verá las carpetas superiores con los cambios en los recuentos de los recursos principales.
+1. Al seleccionar el tipo de origen, verá las carpetas superiores con los cambios en los recuentos de los recursos principales.
 
 1. Seleccione la ruta de acceso para ver la lista de recursos.
 

@@ -1,34 +1,29 @@
 ---
-title: 'Inicio rápido: Creación de una cuenta de Azure Purview en Azure Portal'
+title: 'Inicio rápido: Creación de una cuenta de Purview en Azure Portal'
 description: En este inicio rápido se describe cómo crear una cuenta de Azure Purview y configurar los permisos necesarios para empezar a usarla.
 author: nayenama
 ms.author: nayenama
-ms.date: 08/18/2021
+ms.date: 09/27/2021
 ms.topic: quickstart
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 4f0ef5010a0862b1fa5514d83f6570eefa2c4e10
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: c1a8b47df487cb3159ee1ac7492cf5eb04c1dec6
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123102540"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217436"
 ---
-# <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Inicio rápido: Creación de una cuenta de Azure Purview en Azure Portal.
+# <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Inicio rápido: Creación de una cuenta de Azure Purview en Azure Portal
 
-Azure Purview es una herramienta de gobernanza de datos unificada que le ayuda a administrar su escenario de datos. En este inicio rápido se describen los pasos necesarios para crear una cuenta de Azure Purview en Azure Portal y empezar a trabajar en el proceso de clasificación, protección y de descubrimiento de los datos en Purview.
+En este inicio rápido se describen los pasos necesarios para crear una cuenta de Azure Purview en Azure Portal y empezar a trabajar en el proceso de clasificación, protección y de descubrimiento de los datos en Purview.
 
-## <a name="prerequisites"></a>Requisitos previos
+Azure Purview es un servicio de gobernanza de datos que le ayuda a administrar y gobernar el escenario de datos. Al conectarse a los datos de sus orígenes locales, multinube y de software como servicio (SaaS), Purview crea un mapa actualizado de la información. Identifica y clasifica los datos confidenciales y proporciona un linaje completo. Los consumidores de datos pueden descubrir datos en la organización y los administradores de datos pueden auditar, proteger y garantizar el uso correcto de los datos.
 
-* Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Para más información sobre Purview, [consulte nuestra página de información general](overview.md). Para más información sobre la implementación de Purview en la organización, [consulte nuestros procedimientos recomendados sobre implementación](deployment-best-practices.md).
 
-* La cuenta de usuario que use para iniciar sesión en Azure debe tener el rol de colaborador, propietario o administrador de la suscripción de Azure.
-
-* Un [inquilino de Azure Active Directory](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) propio.
-
-* Ninguna [directiva de Azure](../governance/policy/overview.md) debe impedir la creación de **cuentas de almacenamiento** o **espacios de nombres del centro de eventos**. Purview implementará una cuenta de almacenamiento administrada y un centro de eventos cuando se cree. Si existe una directiva que bloquea la operación y debe mantenerla, siga nuestra [guía de etiquetas de excepción de Purview](create-purview-portal-faq.md) para preparar el entorno.
+[!INCLUDE [purview-quickstart-prerequisites](includes/purview-quickstart-prerequisites.md)]
 
 ## <a name="create-an-azure-purview-account"></a>Creación de una cuenta de Azure Purview
 

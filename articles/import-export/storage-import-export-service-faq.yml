@@ -6,15 +6,15 @@ metadata:
   services: storage
   ms.service: storage
   ms.topic: conceptual
-  ms.date: 08/24/2021
+  ms.date: 09/07/2021
   ms.author: alkohli
   ms.subservice: common
-  ms.openlocfilehash: bfdbb966783e4f95945933c074265d8c45ee1f61
-  ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+  ms.openlocfilehash: 7a4344ed0aa7346d3c87d36d96e4772c08080327
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/25/2021
-  ms.locfileid: "122867618"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124763564"
 title: 'Servicio Azure Import/Export: preguntas frecuentes'
 summary: >
   Estas son algunas de las preguntas que puede plantearse, junto con sus respuestas, al usar el servicio Azure Import/Export para transferir datos a Azure Storage.
@@ -88,18 +88,7 @@ sections:
       Envíe solo las unidades de disco duro en el paquete de envío. No incluya elementos como cables de alimentación o cables USB.
   - question: >
       ¿Es necesario enviar mis unidades con FedEx o DHL?
-    answer: >
-      Puede enviar las unidades al centro de datos de Azure con cualquier empresa de transporte conocida, como FedEx, DHL o UPS, o bien mediante el servicio postal de los Estados Unidos. Sin embargo, para el envío de devolución de las unidades desde el centro de datos, debe proporcionar:
-
-
-      - Un número de cuenta de FedEx en Estados Unidos y Europa, o
-
-      - Un número de cuenta de DHL en las regiones de Asia y Australia.
-
-
-      > [!NOTE]
-
-      > Los centros de datos en la India requieren una carta de declaración en el membrete (entrega challan) para devolver las unidades de disco. Para organizar el pase de entrada necesario, también se debe reservar la selección con el operador seleccionado y compartir los detalles con el centro de datos.
+    answer: "Puede enviar las unidades al centro de datos de Azure con cualquier empresa de transporte conocida. Se recomienda usar FedEx, DHL o UPS. Si usa el servicio postal de EE. UU., tenga en cuenta que el dispositivo se entrega a la oficina de correos de EE. UU. más cercana en lugar del centro de datos, lo que puede provocar retrasos significativos.\n\nPara el envío de devolución de las unidades desde el centro de datos, debe proporcionar: \n\n- Un número de cuenta de FedEx en Estados Unidos y Europa, o\n- Un número de cuenta de DHL en las regiones de Asia y Australia.\n\n> [!NOTE]\n> Los centros de datos en la India requieren una carta de declaración en el membrete (entrega challan) para devolver las unidades de disco. Para organizar el pase de entrada necesario, también se debe reservar la selección con el operador seleccionado y compartir los detalles con el centro de datos.\n    \n"
   - question: >
       ¿Existe alguna restricción internacional en el envío y la devolución de las unidades?
     answer: >

@@ -10,12 +10,12 @@ ms.date: 3/02/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 465109f42a0f5608c6b0a4b030476c915c3514df
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 69724711421182b2a530a2411b6ecc31b95a1388
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121721786"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823604"
 ---
 # <a name="monitoring-azure-files"></a>Supervisión de Azure Files
 
@@ -69,10 +69,10 @@ Para obtener la lista de operaciones de SMB y de REST que se registran, vea [Ope
 
 ## <a name="creating-a-diagnostic-setting"></a>Creación de una configuración de diagnóstico
 
-Puede crear una configuración de diagnóstico mediante Azure Portal, PowerShell, la CLI de Azure, una plantilla de Azure Resource Manager o Azure Policy.
+Puede crear una configuración de diagnóstico mediante Azure Portal, PowerShell, la CLI de Azure, una plantilla de Azure Resource Manager o Azure Policy.
 
 > [!NOTE]
-> Los registros de Azure Storage en Azure Monitor están en versión preliminar pública, además de estar disponibles para pruebas de versión preliminar en todas las regiones de nube pública. Esta versión preliminar habilita los registros de blobs (que incluye Azure Data Lake Storage Gen2), archivos, colas y tablas. Esta característica está disponible para todas las cuentas de almacenamiento que se crean con el modelo de implementación de Azure Resource Manager. Consulte [Introducción a las cuentas de almacenamiento](../common/storage-account-overview.md).
+> Los registros de Azure Storage en Azure Monitor están en versión preliminar pública, además de estar disponibles para pruebas de versión preliminar en todas las regiones de nube pública y del Gobierno de EE. UU. Esta versión preliminar habilita los registros de blobs (que incluye Azure Data Lake Storage Gen2), archivos, colas y tablas. Esta característica está disponible para todas las cuentas de almacenamiento que se crean con el modelo de implementación de Azure Resource Manager. Consulte [Introducción a las cuentas de almacenamiento](../common/storage-account-overview.md).
 
 Para obtener instrucciones generales, consulte [Creación de una configuración de diagnóstico para recopilar registros y métricas de la plataforma en Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
@@ -273,7 +273,7 @@ Para ver una plantilla de Azure Resource Manager que crea una configuración de 
 
 ### <a name="azure-policy"></a>[Azure Policy](#tab/policy)
 
-Puede crear una configuración de diagnóstico mediante una definición de directiva. De este modo, puede asegurarse de que se cree una configuración de diagnóstico para cada cuenta creada o actualizada. Vea [Definiciones integradas de Azure Policy para Azure Storage](../common/policy-reference.md).
+Puede crear una configuración de diagnóstico mediante una definición de directiva. De este modo, puede asegurarse de que se crea una configuración de diagnóstico para cada cuenta que se crea o actualiza. Consulte [Definiciones integradas de Azure Policy para Azure Storage](../common/policy-reference.md).
 
 ---
 
@@ -492,7 +492,7 @@ Puede acceder a los registros de los recursos como blob en una cuenta de almacen
 Para obtener la lista de operaciones de SMB y de REST que se registran, vea [Operaciones registradas de almacenamiento y mensajes de estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) y [Referencia de datos de supervisión de Azure Files](storage-files-monitoring-reference.md).
 
 > [!NOTE]
-> Los registros de Azure Storage en Azure Monitor están en versión preliminar pública, además de estar disponibles para pruebas de versión preliminar en todas las regiones de nube pública. Esta versión preliminar habilita los registros de blobs (lo que incluye Azure Data Lake Storage Gen2), archivos, colas, tablas, cuentas de almacenamiento Premium en cuentas de almacenamiento de uso general v1 y v2. Las cuentas de almacenamiento clásico no se admiten.
+> Los registros de Azure Storage en Azure Monitor están en versión preliminar pública, además de estar disponibles para pruebas de versión preliminar en todas las regiones de nube pública y del Gobierno de EE. UU. Esta versión preliminar habilita los registros de blobs (lo que incluye Azure Data Lake Storage Gen2), archivos, colas, tablas, cuentas de almacenamiento Premium en cuentas de almacenamiento de uso general v1 y v2. Las cuentas de almacenamiento clásico no se admiten.
 
 Las entradas del registro se crean solo si se presentan solicitudes al punto de conexión de servicio. Por ejemplo, si una cuenta de almacenamiento tiene actividad en el punto de conexión de su archivo, pero no en los puntos de conexión de su tabla o cola, solo se crean los registros correspondientes al servicio del archivo de Azure. Los registros de Azure Storage contienen información detallada sobre las solicitudes correctas y erróneas realizadas a un servicio de almacenamiento. Esta información se puede utilizar para supervisar solicitudes concretas y para diagnosticar problemas con un servicio de almacenamiento. Las solicitudes se registran en función de la mejor opción.
 

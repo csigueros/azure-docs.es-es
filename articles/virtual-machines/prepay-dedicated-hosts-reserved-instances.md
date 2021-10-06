@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: 464ffc8b5d4d04aeb7e4013f5b25d240d5ee9b06
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 1cdd083c1f3e394feea1e29434f87878ace8dbfc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122688968"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546232"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Ahorro de costos con las reservas de Azure Dedicated Host
 
@@ -43,7 +43,7 @@ El descuento de la reserva no se aplica para lo siguiente:
 
 - **Nubes**: las reservas no están disponibles para la compra en las regiones de Alemania o China.
 
-- **Cuota insuficiente**: una reserva cuyo ámbito sea de una sola suscripción debe tener cuota de vCPU disponible en la suscripción para la nueva instancia reservada. Por ejemplo, si la suscripción de destino tiene un límite de cuota de 10 vCPU para la serie DSv3, no podrá comprar hosts dedicados de reserva que admitan esta serie. La comprobación de cuota para las reservas incluye las máquinas virtuales y los host dedicados ya implementados en la suscripción. Puede [crear una solicitud de aumento de la cuota](../azure-portal/supportability/resource-manager-core-quotas-request.md) para resolver este problema.
+- **Cuota insuficiente**: una reserva cuyo ámbito sea de una sola suscripción debe tener cuota de vCPU disponible en la suscripción para la nueva instancia reservada. Por ejemplo, si la suscripción de destino tiene un límite de cuota de 10 vCPU para la serie DSv3, no podrá comprar hosts dedicados de reserva que admitan esta serie. La comprobación de cuota para las reservas incluye las máquinas virtuales y los host dedicados ya implementados en la suscripción. Puede [crear una solicitud de aumento de la cuota](../azure-portal/supportability/regional-quota-requests.md) para resolver este problema.
 
 - **Restricciones de capacidad**: en algunas circunstancias poco frecuentes, Azure limita la compra de nuevas reservas a un subconjunto de SKU de hosts dedicados debido a que la capacidad en una región es baja.
 
@@ -85,6 +85,8 @@ Si tiene un Contrato Enterprise, puede usar la opción **Agregar más** para agr
 - **Single subscription scope** (Ámbito de suscripción única): aplica el descuento por reserva a los recursos coincidentes de la suscripción seleccionada.
 
 - **Ámbito compartido**: aplica el descuento por reserva a los recursos coincidentes en suscripciones aptas que están en el contexto de facturación. Para los clientes de EA, el contexto de facturación es la inscripción. En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.
+
+- **Grupo de administración**: aplica el descuento de reserva al recurso correspondiente en la lista de suscripciones que forman parte del grupo de administración y del ámbito de facturación.
 
 ## <a name="usage-data-and-reservation-utilization"></a>Datos de uso y utilización de la reserva
 

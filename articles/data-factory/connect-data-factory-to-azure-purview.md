@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions
-ms.date: 09/02/2021
-ms.openlocfilehash: a3f88b7263f264f2ae69892839524207e08e768d
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.date: 09/27/2021
+ms.openlocfilehash: 5d5b1ed8a20bc459370a9bb7e437e1f5c977714d
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123452220"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218013"
 ---
 # <a name="connect-data-factory-to-azure-purview-preview"></a>Conexión de Data Factory a Azure Purview (versión preliminar)
 
@@ -43,7 +43,7 @@ Para establecer la conexión en la interfaz de usuario de creación de Data Fact
 
 Si la cuenta de Purview está protegida por el firewall, cree los puntos de conexión privados administrados para Purview. Obtenga más información sobre cómo permitir que Data Factory [acceda a una cuenta de Purview protegida](how-to-access-secured-purview-account.md). Puede hacerlo durante la conexión inicial o editar una conexión existente más adelante.
 
-La información de conexión de Purview se almacena en el recurso de la factoría de datos, como se muestra a continuación. Para establecer la conexión mediante programación, puede actualizar la factoría de datos y agregar la configuración `purviewConfiguration`.
+La información de conexión de Purview se almacena en el recurso de la factoría de datos, como se muestra a continuación. Para establecer la conexión mediante programación, puede actualizar la factoría de datos y agregar la configuración `purviewConfiguration`. Si quiere insertar linaje de las actividades de SSIS, agregue también la etiqueta `catalogUri`.
 
 ```json
 {
@@ -56,8 +56,11 @@ La información de conexión de Purview se almacena en el recurso de la factorí
             "purviewResourceId": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupname>/providers/Microsoft.Purview/accounts/<PurviewAccountName>"
         }
     },
-    "identity": {...},
     ...
+    "identity": {...},
+    "tags": {
+        "catalogUri": "<PurviewAccountName>.catalog.purview.azure.com //Note: used for SSIS lineage only"
+    }
 }
 ```
 
@@ -77,9 +80,20 @@ La identidad administrada de la factoría de datos se usa para autenticar las op
 
     Al conectar la factoría de datos a Purview en la interfaz de usuario de creación, ADF intenta agregar esta asignación de roles automáticamente. Si tiene los roles integrados de Azure **Propietario** o **Administrador de acceso de usuarios** en la cuenta de Purview, esta operación se realiza correctamente.
 
-Es posible que vea la siguiente advertencia si tiene privilegios para leer la información de asignación de roles de Purview y no se concede el rol necesario. Para asegurarse de que la conexión se establezca correctamente para la inserción de linaje de canalización, vaya a la cuenta de Purview y compruebe si se ha concedido el rol **Conservador de datos de Purview** a la identidad administrada de la factoría de datos. Si no es así, agregue manualmente la asignación de roles.
+## <a name="monitor-purview-connection"></a>Supervisión de la conexión de Purview
 
-:::image type="content" source="./media/data-factory-purview/register-purview-account-warning.png" alt-text="Captura de pantalla de la advertencia de registro de una cuenta de Purview.":::
+Una vez que conecte la factoría de datos a una cuenta de Purview, verá la página siguiente con detalles sobre las funcionalidades de integración habilitadas.
+
+:::image type="content" source="./media/data-factory-purview/monitor-purview-connection-status.png" alt-text="Captura de pantalla para supervisar el estado de integración entre Azure Data Factory y Purview.":::
+
+En **Data Lineage - Pipeline** (Linaje de datos: canalización), es posible que vea uno de los siguientes estados:
+
+- **Conectado**: la factoría de datos está conectada correctamente a la cuenta de Purview. Tenga en cuenta que esto indica que la factoría de datos está asociada a una cuenta de Purview y que tiene permiso para insertar linaje en ella. Si la cuenta de Purview está protegida mediante firewall, también debe asegurarse de que el entorno de ejecución de integración usado para ejecutar las actividades y realizar la inserción de linaje puede llegar a la cuenta de Purview. Más información en [Acceso a una cuenta protegida de Azure Purview desde Azure Data Factory](how-to-access-secured-purview-account.md).
+- **Desconectado**: la factoría de datos no puede insertar linaje en Purview porque no se ha concedido el rol de administrador de datos de Purview a la identidad administrada de la factoría de datos. Para corregir este problema, vaya a la cuenta de Purview para comprobar las asignaciones de roles y conceda manualmente el rol según sea necesario. Más información en la sección [Configuración de la autenticación](#set-up-authentication).
+- **Desconocido**: Data Factory no puede comprobar el estado. Los posibles motivos son:
+
+    - No se puede acceder a la cuenta de Purview desde la red actual porque la cuenta está protegida mediante firewall. Puede iniciar la interfaz de usuario de ADF desde una red privada que tenga conectividad con su cuenta de Purview en su lugar.
+    - No tiene permiso para comprobar las asignaciones de roles en la cuenta de Purview. Puede ponerse en contacto con el administrador de la cuenta de Purview para que compruebe las asignaciones de roles. Más información sobre el rol de Purview necesario en la sección [Configuración de la autenticación](#set-up-authentication).
 
 ## <a name="report-lineage-data-to-azure-purview"></a>Notificación de datos de linaje a Azure Purview
 

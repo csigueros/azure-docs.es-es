@@ -4,13 +4,13 @@ description: Se describe cómo definir parámetros en un archivo Bicep.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/02/2021
-ms.openlocfilehash: 901e95708be75ebd4415c90dbd51eeb46ba492c4
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.date: 09/13/2021
+ms.openlocfilehash: b53402dfaa274c57d40ef7814b7920dc7eb0a8c7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450258"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128619521"
 ---
 # <a name="parameters-in-bicep"></a>Parámetros en Bicep
 
@@ -20,7 +20,11 @@ Resource Manager resuelve los valores de parámetro antes de iniciar las operac
 
 Cada parámetro debe establecerse en uno de los [tipos de datos](data-types.md).
 
-## <a name="minimal-declaration"></a>Declaración mínima
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Para más información sobre los parámetros y para obtener instrucciones prácticas, consulte [Creación de plantillas de Bicep reutilizables mediante parámetros](/learn/modules/build-reusable-bicep-templates-parameters) en **Microsoft Learn**.
+
+## <a name="declaration"></a>Declaración
 
 Cada parámetro necesita un nombre y un tipo. Un parámetro no puede tener el mismo nombre que una variable, recurso, salida u otro parámetro en el mismo ámbito.
 
@@ -32,18 +36,27 @@ param demoObject object
 param demoArray array
 ```
 
-## <a name="decorators"></a>Elementos Decorator
+## <a name="default-value"></a>Valor predeterminado
 
-Los parámetros usan decoradores para restricciones o metadatos. Los decoradores tienen el formato `@expression` y se colocan encima de la declaración del parámetro.
+Puede especificar un valor predeterminado para un parámetro. El valor predeterminado se usa cuando no se proporciona un valor durante la implementación.
 
 ```bicep
-@expression
-param stgAcctName string
+param demoParam string = 'Contoso'
 ```
 
-En las secciones siguientes de este artículo se muestra cómo usar los decoradores que están disponibles en un archivo Bicep.
+Puede usar expresiones con el valor predeterminado. No se permiten expresiones con otras propiedades de parámetro. La función no puede usar la función [reference](bicep-functions-resource.md#reference) ni ninguna de las funciones [list](bicep-functions-resource.md#list) de la sección de parámetros. Estas funciones obtienen el estado del runtime del recurso y no se pueden ejecutar antes de la implementación cuando se resuelven parámetros.
+
+```bicep
+param location string = resourceGroup().location
+```
+
+Puede usar otro valor de parámetro para compilar un valor predeterminado. La plantilla siguiente crea un nombre de plan de host a partir del nombre del sitio.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/parameters/parameterswithfunctions.bicep" highlight="2":::
 
 ## <a name="secure-parameters"></a>Parámetros seguros
+
+Los parámetros usan decoradores para restricciones o metadatos. Los decoradores tienen el formato `@expression` y se colocan encima de la declaración del parámetro.
 
 Puede marcar los parámetros de objeto o cadena como seguros. El valor de un parámetro seguro no se guarda en el historial de implementaciones y no se registra.
 
@@ -66,34 +79,6 @@ Puede definir valores permitidos para un parámetro. Los valores permitidos se p
 ])
 param demoEnum string
 ```
-
-## <a name="default-value"></a>Valor predeterminado
-
-Puede especificar un valor predeterminado para un parámetro. El valor predeterminado se usa cuando no se proporciona un valor durante la implementación.
-
-```bicep
-param demoParam string = 'Contoso'
-```
-
-Para especificar un valor predeterminado junto con otras propiedades para el parámetro, use la sintaxis siguiente.
-
-```bicep
-@allowed([
-  'Contoso'
-  'Fabrikam'
-])
-param demoParam string = 'Contoso'
-```
-
-Puede usar expresiones con el valor predeterminado. No se permiten expresiones con otras propiedades de parámetro. La función no puede usar la función [reference](bicep-functions-resource.md#reference) ni ninguna de las funciones [list](bicep-functions-resource.md#list) de la sección de parámetros. Estas funciones obtienen el estado del runtime del recurso y no se pueden ejecutar antes de la implementación cuando se resuelven parámetros.
-
-```bicep
-param location string = resourceGroup().location
-```
-
-Puede usar otro valor de parámetro para compilar un valor predeterminado. La plantilla siguiente crea un nombre de plan de host a partir del nombre del sitio.
-
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/parameters/parameterswithfunctions.bicep":::
 
 ## <a name="length-constraints"></a>Restricciones de longitud
 

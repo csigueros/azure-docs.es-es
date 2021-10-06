@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/11/2021
 ms.custom: mvc
-ms.openlocfilehash: f925eb888c1955212a762eb46c63300afd17d77d
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 89548cf1c98e360569255b9028b26230fedf5ed2
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123427737"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092345"
 ---
 # <a name="tutorial-discover-physical-servers-with-azure-migrate-discovery-and-assessment"></a>Tutorial: Detección de servidores físicos con Azure Migrate: Discovery and assessment
 
@@ -194,26 +194,28 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 ### <a name="3-run-the-azure-migrate-installer-script"></a>3. Ejecución del script del instalador de Azure Migrate
 
 1. Extraiga el archivo comprimido en la carpeta del servidor que hospedará el dispositivo.  No ejecute el script en un servidor con un dispositivo de Azure Migrate existente.
-2. Inicie PowerShell en el servidor anterior con privilegios administrativos (elevados).
-3. Cambie el directorio de PowerShell a la carpeta en la que se ha extraído el contenido del archivo comprimido descargado.
-4. Ejecute el script denominado **AzureMigrateInstaller.ps1** ejecutando el comando siguiente:
 
-    
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
+2. Inicie PowerShell en el servidor anterior con privilegios administrativos (elevados).
+
+3. Cambie el directorio de PowerShell a la carpeta en la que se ha extraído el contenido del archivo comprimido descargado.
+
+4. Ejecute el script denominado `AzureMigrateInstaller.ps1` ejecutando el comando siguiente:
+
+   `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1`
 
 5. Seleccione entre las opciones de escenario, nube y conectividad para implementar un dispositivo con la configuración deseada. Por ejemplo, la selección que se muestra a continuación configura un dispositivo y evalúa **servidores físicos** _(o servidores que se ejecutan en otras nubes, como AWS, GCP, Xen, etc.)_ en un proyecto de Azure Migrate con la conectividad **predeterminada _(punto de conexión público)_**  en la **nube pública de Azure**.
 
-    :::image type="content" source="./media/tutorial-discover-physical/script-physical-default-inline.png" alt-text="Captura de pantalla que muestra cómo configurar un dispositivo con la configuración deseada" lightbox="./media/tutorial-discover-physical/script-physical-default-expanded.png":::
+   :::image type="content" source="./media/tutorial-discover-physical/script-physical-default-inline.png" alt-text="Captura de pantalla que muestra cómo configurar un dispositivo con la configuración deseada" lightbox="./media/tutorial-discover-physical/script-physical-default-expanded.png":::
 
 6. El script del instalador hace lo siguiente:
 
- - Instala agentes y una aplicación web.
- - Instala los roles de Windows, incluido el servicio de activación de Windows, IIS y PowerShell ISE.
- - Descarga e instala un módulo de reescritura de IIS.
- - Actualiza una clave del registro (HKLM) con detalles de configuración persistentes para Azure Migrate.
- - Crea los siguientes archivos en la ruta de acceso:
-    - **Archivos de configuración**:%Programdata%\Microsoft Azure\Config
-    - **Archivos de registro**:%Programdata%\Microsoft Azure\Logs
+   - Instala agentes y una aplicación web.
+   - Instala los roles de Windows, incluido el servicio de activación de Windows, IIS y PowerShell ISE.
+   - Descarga e instala un módulo de reescritura de IIS.
+   - Actualiza una clave del registro (HKLM) con detalles de configuración persistentes para Azure Migrate.
+   - Crea los siguientes archivos en la ruta de acceso:
+     - **Archivos de configuración:** `%ProgramData%\Microsoft Azure\Config`
+     - **Archivos de registro:** `%ProgramData%\Microsoft Azure\Logs`
 
 Una vez que el script se haya ejecutado correctamente, el administrador de configuración del dispositivo se iniciará automáticamente.
 
@@ -231,15 +233,15 @@ Configure el dispositivo por primera vez.
 1. Abra un explorador en cualquier servidor que pueda conectarse al dispositivo y abra la dirección URL de la aplicación web del dispositivo: **https://*nombre o dirección IP del dispositivo*: 44368**.
 
    Como alternativa, puede abrir la aplicación desde el escritorio, para lo que debe hacer clic en el acceso directo de la aplicación.
-2. Acepte los **términos de licencia** y lea la información de terceros.
+1. Acepte los **términos de licencia** y lea la información de terceros.
 1. En la aplicación web > **Set up prerequisites** (Configurar los requisitos previos ), realice las siguientes operaciones:
-    - **Connectivity** (Conectividad): la aplicación comprueba que el servidor tenga acceso a Internet. Si el servidor usa un proxy:
-        - Haga clic en **Configurar el proxy** y especifique la dirección del proxy (con los formatos http://ProxyIPAddress o http://ProxyFQDN) ) y el puerto de escucha.
-        - Especifique las credenciales si el proxy requiere autenticación.
-        - Solo se admite un proxy HTTP.
-        - Si ha agregado detalles del proxy o ha deshabilitado el proxy o la autenticación, haga clic en **Guardar** para desencadenar la comprobación de conectividad.
-    - **Time sync** (Sincronización de hora): Se comprueba la hora. Para que la detección del servidor funcione correctamente, la hora del dispositivo debe estar sincronizada con la hora de Internet.
-    - **Instalación de actualizaciones**: la herramienta Azure Migrate: Discovery and assessment comprueba que el dispositivo tenga instaladas las actualizaciones más recientes. Una vez finalizada la comprobación, puede hacer clic en **Ver servicios del dispositivo** para ver el estado y las versiones de los componentes que se ejecutan en el dispositivo.
+   - **Connectivity** (Conectividad): la aplicación comprueba que el servidor tenga acceso a Internet. Si el servidor usa un proxy:
+     - Haga clic en **Configurar el proxy** y especifique la dirección del proxy (con los formatos http://ProxyIPAddress o http://ProxyFQDN) ) y el puerto de escucha.
+     - Especifique las credenciales si el proxy requiere autenticación.
+     - Solo se admite un proxy HTTP.
+     - Si ha agregado detalles del proxy o ha deshabilitado el proxy o la autenticación, haga clic en **Guardar** para desencadenar la comprobación de conectividad.
+   - **Time sync** (Sincronización de hora): Se comprueba la hora. Para que la detección del servidor funcione correctamente, la hora del dispositivo debe estar sincronizada con la hora de Internet.
+   - **Instalación de actualizaciones**: la herramienta Azure Migrate: Discovery and assessment comprueba que el dispositivo tenga instaladas las actualizaciones más recientes. Una vez finalizada la comprobación, puede hacer clic en **Ver servicios del dispositivo** para ver el estado y las versiones de los componentes que se ejecutan en el dispositivo.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registro del dispositivo en Azure Migrate
 
@@ -249,14 +251,11 @@ Configure el dispositivo por primera vez.
     ![Modal que muestra el código del dispositivo](./media/tutorial-discover-vmware/device-code.png)
 
 1. Haga clic en **Copiar código e Iniciar sesión** para copiar el código del dispositivo y abrir un símbolo del sistema de inicio de sesión de Azure en una nueva pestaña del explorador. Si no aparece, asegúrese de que ha deshabilitado el bloqueador de elementos emergentes en el explorador.
-1. En la nueva pestaña, pegue el código del dispositivo e inicie sesión con su nombre de usuario y contraseña de Azure.
-   
-   No se admite el inicio de sesión con un PIN.
-3. En caso de que cierre accidentalmente la pestaña de inicio de sesión sin iniciar sesión, deberá actualizar la pestaña explorador del administrador de configuración del dispositivo para volver a habilitar el botón Iniciar sesión.
+1. En la nueva pestaña, pegue el código del dispositivo e inicie sesión con su nombre de usuario y contraseña de Azure. No se admite el inicio de sesión con un PIN.
+1. En caso de que cierre accidentalmente la pestaña de inicio de sesión sin iniciar sesión, deberá actualizar la pestaña explorador del administrador de configuración del dispositivo para volver a habilitar el botón Iniciar sesión.
 1. Una vez que haya iniciado sesión correctamente, vuelva a la pestaña anterior con el administrador de configuración del dispositivo.
-4. Si la cuenta de usuario de Azure que se usa para el registro tiene los [permisos]() adecuados en los recursos de Azure creados durante la generación de la clave, se iniciará el registro del dispositivo.
+1. Si la cuenta de usuario de Azure que se usa para el registro tiene los [permisos]() adecuados en los recursos de Azure creados durante la generación de la clave, se iniciará el registro del dispositivo.
 1. Una vez que el dispositivo se ha registrado correctamente, puede ver los detalles de registro haciendo clic en **Ver detalles**.
-
 
 ## <a name="start-continuous-discovery"></a>Inicio de detección continua
 
@@ -289,8 +288,7 @@ Ahora, conecte desde el dispositivo a los servidores físicos que se van a detec
 1. Puede **volver a validar** la conectividad a los servidores en cualquier momento antes de iniciar la detección.
 1. Haga clic en **Iniciar detección** para dar comienzo a la detección de los servidores validados correctamente. Una vez que la detección se ha iniciado correctamente, puede comprobar el estado de detección en cada servidor de la tabla.
 
-
-De esta forma comienza la detección. Los metadatos de los servidores detectados tardan alrededor de 2 minutos por servidor en aparecer en Azure Portal.
+La detección de 100 servidores y sus metadatos tarda aproximadamente 2 minutos en completarse para aparecer en Azure Portal.
 
 ## <a name="verify-servers-in-the-portal"></a>Comprobación de los servidores en el portal
 
@@ -298,6 +296,13 @@ Una vez finalizada la detección, puede verificar que los servidores aparezcan e
 
 1. Abra el panel de Azure Migrate.
 2. En la página **Azure Migrate - Servidores** > **Azure Migrate: Discovery and assessment**, haga clic en el icono que muestra el número de **servidores detectados**.
+
+## <a name="delete-servers"></a>Eliminación de servidores
+Una vez iniciada la detección, puede eliminar cualquiera de los servidores agregados desde el administrador de configuración del dispositivo; para ello, busque el nombre del servidor en la tabla **Add discovery source** (Agregar origen de detección) y haga clic en **Delete** (Eliminar).
+
+>[!NOTE]
+> Si elige eliminar un servidor en el que se ha iniciado la detección, se detendrá la detección y la evaluación en curso, lo que puede afectar a la clasificación de confianza de la evaluación que incluye a este servidor. [Más información](https://go.microsoft.com/fwlink/?linkid=2171565)
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Valoración de los servidores físicos](tutorial-assess-physical.md) para la migración a máquinas virtuales de Azure.

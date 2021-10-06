@@ -6,19 +6,27 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/30/2021
-ms.openlocfilehash: 086457e916f3eeef41023efe56cc011e714ab343
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.date: 09/27/2021
+ms.openlocfilehash: 4bcd4a2bfc3b9daab502b55fccad63b0fb01be46
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866333"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129082868"
 ---
 # <a name="create-dynamics-365-for-customer-engagement--power-apps-plans"></a>Creación de planes de Dynamics 365 for Customer Engagement & Power Apps
 
-Si ha habilitado la administración de licencias de aplicaciones para la oferta, la pestaña **Planes** aparece como se muestra en la captura de pantalla siguiente. De lo contrario, vaya a [Configuración técnica de una oferta de Dynamics 365 for Customer Engagement & Power Apps](dynamics-365-customer-engage-technical-configuration.md).
+Si ha habilitado la administración de licencias de aplicaciones para la oferta, la pestaña **Información general del plan** aparece como se muestra en la captura de pantalla a continuación. De lo contrario, vaya a [Configuración técnica de una oferta de Dynamics 365 for Customer Engagement & Power Apps](dynamics-365-customer-engage-technical-configuration.md).
+
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+
+[ ![Captura de pantalla de la pestaña Información general del plan para una oferta de Dynamics 365 for Customer Engagement & Power Apps habilitada para licencias de aplicaciones de terceros.](./media/third-party-license/plan-tab-d365-workspaces.png) ](./media/third-party-license/plan-tab-d365-workspaces.png#lightbox)
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
 
 :::image type="content" source="./media/third-party-license/plan-tab.png" alt-text="Captura de pantalla de la pestaña Información general del plan para una oferta de Dynamics 365 for Customer Engagement & Power Apps habilitada para licencias de aplicaciones de terceros.":::
+
+---
 
 Si la oferta tiene habilitada la administración de licencias de aplicaciones, debe definir al menos un plan. Puede crear una variedad de planes con diferentes opciones dentro de la misma oferta. Estos planes (a veces denominados SKU) pueden diferir en lo tocante a monetización o niveles de servicio. Más adelante, asignará los identificadores de servicio de estos planes en el paquete de solución para habilitar una comprobación de licencia en tiempo de ejecución por parte de la plataforma de Dynamics con respecto a estos planes. Asignará el identificador de servicio de cada plan del paquete de solución. Esto permite a la plataforma de Dynamics ejecutar una comprobación de licencia con estos planes.
 
@@ -33,6 +41,18 @@ Si la oferta tiene habilitada la administración de licencias de aplicaciones, d
 
 En la pestaña **Lista del plan**, puede definir el nombre y la descripción del plan como desee que aparezcan en el marketplace comercial. Esta información se mostrará en la página de lista de Microsoft AppSource.
 
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+
+1. En el cuadro **Nombre del plan**, se muestra el nombre que proporcionó anteriormente para este plan. Puede cambiarlo en cualquier momento. Este nombre aparecerá en el marketplace comercial como el título del plan de software de la oferta.
+1. En el cuadro **Descripción del plan**, explique lo que hace que este plan de software sea único y las diferencias con respecto a otros planes de software de su oferta. Esta descripción puede contener hasta 500 caracteres.
+1. Seleccione **Guardar borrador** y, a continuación, en la ruta de navegación de la parte superior de la página, **Planes**.
+
+    [ ![Captura de pantalla que muestra el vínculo Información general del plan en la página Lista de planes de una oferta en el Centro de partners.](./media/third-party-license/bronze-plan-workspaces.png) ](./media/third-party-license/bronze-plan-workspaces.png#lightbox)
+
+1. Para crear otro plan para esta oferta, en la parte superior de la página **Información general del plan**, seleccione **+ Crear nuevo plan**. A continuación, repita los pasos descritos en la sección [Creación de un plan](#create-a-plan). En caso contrario, si ha terminado de crear planes, vaya a la sección siguiente: Copia de los identificadores de servicio.
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
+
 1. En el cuadro **Nombre del plan**, se muestra el nombre que proporcionó anteriormente para este plan. Puede cambiarlo en cualquier momento. Este nombre aparecerá en el marketplace comercial como el título del plan de software de la oferta.
 1. En el cuadro **Descripción del plan**, explique lo que hace que este plan de software sea único y las diferencias con respecto a otros planes de software de su oferta. Esta descripción puede contener hasta 500 caracteres.
 1. Seleccione **Guardar borrador** y, en la parte superior izquierda, seleccione **Información general del plan**.
@@ -41,13 +61,25 @@ En la pestaña **Lista del plan**, puede definir el nombre y la descripción del
 
 1. Para crear otro plan para esta oferta, en la parte superior de la página **Información general del plan**, seleccione **+ Crear nuevo plan**. A continuación, repita los pasos descritos en la sección [Creación de un plan](#create-a-plan). En caso contrario, si ha terminado de crear planes, vaya a la sección siguiente: Copia de los identificadores de servicio.
 
+---
+
 ## <a name="copy-the-service-ids"></a>Copia de los identificadores de servicio
 
 Debe copiar el identificador de servicio de cada plan que creó para poder asignarlo al paquete de solución en el paso siguiente.
 
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+
+- Para cada plan que haya creado, copie el identificador de servicio en un lugar seguro. Lo agregará al paquete de solución en el paso siguiente. El identificador de servicio se muestra en la página **Información general del plan** con el formato `ISV name.offer name.plan ID`. Por ejemplo, Fabrikam.F365.bronze.
+
+    [ ![Captura de pantalla de la página Información general del plan. El id. de servicio del plan está resaltado.](./media/third-party-license/service-id-workspaces.png) ](./media/third-party-license/service-id-workspaces.png#lightbox)
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
+
 - Para cada plan que haya creado, copie el identificador de servicio en un lugar seguro. Lo agregará al paquete de solución en el paso siguiente. El identificador de servicio se muestra en la página **Información general del plan** con el formato `ISV name.offer name.plan ID`. Por ejemplo, Fabrikam.F365.bronze.
 
     :::image type="content" source="./media/third-party-license/service-id.png" alt-text="Captura de pantalla de la página Información general del plan. El identificador de servicio del plan está resaltado.":::
+
+---
 
 ## <a name="add-service-ids-to-your-solution-package"></a>Agregar los identificadores de servicio al paquete de solución
 

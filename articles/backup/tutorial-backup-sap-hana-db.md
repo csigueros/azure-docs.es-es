@@ -2,13 +2,13 @@
 title: 'Tutorial: Copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure'
 description: En este tutorial, aprenderá a hacer una copia de seguridad de una base de datos de SAP HANA que se ejecuta en una máquina virtual de Azure en un almacén de Azure Backup Recovery Services.
 ms.topic: tutorial
-ms.date: 09/01/2021
-ms.openlocfilehash: 3cfbd89e9df6cf2d0d30d744ee8e437e3c364094
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 09/27/2021
+ms.openlocfilehash: 629465100106ff3a2403a27cae9bb00e1350bf5e
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123434257"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129082733"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Copia de seguridad de bases de datos de SAP HANA en una máquina virtual de Azure
 
@@ -38,8 +38,8 @@ Asegúrese de seguir estos pasos antes de configurar copias de seguridad:
   * Debe tener credenciales para agregar y eliminar usuarios.
   * Tenga en cuenta que esta clave se puede eliminar después de que el script de registro previo correctamente se registre correctamente.
 * También puede optar por crear una clave para el usuario de HANA SYSTSEM existente en **hdbuserstore** en lugar de una clave personalizada como se indica en el paso anterior.
-* Ejecute el script de configuración de la copia de seguridad de SAP HANA (script de registro previo) en la máquina virtual donde está instalado HANA como usuario raíz. [Este script](https://aka.ms/scriptforpermsonhana) prepara el sistema HANA para la copia de seguridad y requiere que la clave creada en los pasos anteriores se transfiera como entrada. Para comprender cómo esta entrada se pasa en forma de parámetro al script, consulte la sección [Qué hace el script de registro previo](#what-the-pre-registration-script-does). También se describe lo que hace el script de registro previo.
-* Si la configuración de HANA usa puntos de conexión privados, ejecute el [script de registro previo](https://aka.ms/scriptforpermsonhana) con el parámetro *-sn* o *--skip-network-checks*.
+* Ejecute el script de configuración de la copia de seguridad de SAP HANA (script de registro previo) en la máquina virtual donde está instalado HANA como usuario raíz. [Este script](https://go.microsoft.com/fwlink/?linkid=2173610) prepara el sistema HANA para la copia de seguridad y requiere que la clave creada en los pasos anteriores se transfiera como entrada. Para comprender cómo esta entrada se pasa en forma de parámetro al script, consulte la sección [Qué hace el script de registro previo](#what-the-pre-registration-script-does). También se describe lo que hace el script de registro previo.
+* Si la configuración de HANA usa puntos de conexión privados, ejecute el [script de registro previo](https://go.microsoft.com/fwlink/?linkid=2173610) con el parámetro *-sn* o *--skip-network-checks*.
 
 >[!NOTE]
 >El script de registro previo instala **compat-unixODBC234** para las cargas de trabajo de SAP HANA que se ejecutan en RHEL (7.4, 7.6 y 7.7) y **unixODBC** para RHEL 8.1. [Este paquete se encuentra en el repositorio de Update Services de RHEL for SAP HANA (para RHEL 7 Server) para SAP Solutions (RPM)](https://access.redhat.com/solutions/5094721).  Para una imagen de RHEL de Azure Marketplace, el repositorio sería **rhui-rhel-sap-hana-for-rhel-7-server-rhui-e4s-rpms**.
@@ -57,12 +57,14 @@ En la tabla siguiente se enumeran las distintas alternativas que se pueden usar 
 | Etiquetas de FQDN de Azure Firewall          | Más facilidad de administración, ya que los FQDN necesarios se administran automáticamente | Solo se puede usar con Azure Firewall.                         |
 | Permite el acceso a los FQDN/IP del servicio | Sin costos adicionales.   <br><br>  Funciona con todos los firewalls y dispositivos de seguridad de red | Es posible que sea necesario acceder a un amplio conjunto de direcciones IP o FQDN   |
 | Usar un servidor proxy HTTP                 | Un único punto de acceso a Internet para las máquinas virtuales.                       | Costos adicionales de ejecutar una máquina virtual con el software de proxy.         |
+| [Punto de conexión de servicio de red virtual](/azure/virtual-network/virtual-network-service-endpoints-overview)    |     Se puede usar para Azure Storage (= almacén de Recovery Services).     <br><br>     Proporciona una gran ventaja para optimizar el rendimiento del tráfico del plano de datos.          |         No se puede usar para Azure AD ni el servicio Azure Backup.    |
+| Aplicación virtual de red      |      Se puede usar para Azure Storage, Azure AD y el servicio Azure Backup. <br><br> **Plano de datos**   <ul><li>      Azure Storage: `*.blob.core.windows.net`, `*.queue.core.windows.net`  </li></ul>   <br><br>     **Plano de administración**  <ul><li>  Azure AD: permitir el acceso a los FQDN mencionados en las secciones 56 y 59 de [Microsoft 365 Common y Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). </li><li>   Servicio Azure Backup: `.backup.windowsazure.com` </li></ul> <br>Más información en [Información general de las etiquetas FQDN](/azure/firewall/fqdn-tags#:~:text=An%20FQDN%20tag%20represents%20a%20group%20of%20fully,the%20required%20outbound%20network%20traffic%20through%20your%20firewall.).       |  Agrega sobrecarga al tráfico del plano de datos y reduce el rendimiento.  |
 
 A continuación se proporcionan más detalles sobre el uso de estas opciones:
 
 ### <a name="private-endpoints"></a>Puntos de conexión privados
 
-Los puntos de conexión privados permiten conectar de forma segura desde los servidores de una red virtual al almacén de Recovery Services. El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual del almacén. El tráfico de red entre los recursos dentro de la red virtual y el almacén viaja a través de la red virtual y un vínculo privado en la red troncal de Microsoft. Esto elimina la exposición de la red pública de Internet. Obtenga más información sobre los puntos de conexión privados para Azure Backup [aquí](./private-endpoints.md).
+Los puntos de conexión privados permiten conectar de forma segura desde los servidores de una red virtual al almacén de Recovery Services. El punto de conexión privado usa una dirección IP privada del espacio de direcciones de la red virtual del almacén. El tráfico de red entre los recursos dentro de la red virtual y el almacén viaja a través de la red virtual y un vínculo privado en la red troncal de Microsoft. Esto elimina la exposición de la red pública de Internet. Un punto de conexión privado se asigna a una subred específica de una red virtual y no se puede usar para Azure Active Directory. Obtenga más información sobre los puntos de conexión privados para Azure Backup [aquí](./private-endpoints.md).
 
 ### <a name="nsg-tags"></a>Etiquetas de NSG
 
@@ -102,17 +104,19 @@ Al hacer una copia de seguridad de una base de datos SAP HANA que se ejecuta en 
 
 ## <a name="understanding-backup-and-restore-throughput-performance"></a>Descripción del rendimiento de las copias de seguridad y la restauración
 
-Las copias de seguridad (tanto del registro como las que no son del registro) en máquinas virtuales de Azure de SAP HANA proporcionadas mediante Backint son flujos de datos a almacenes de Azure Recovery Services y, por tanto, es importante comprender esta metodología de streaming.
+Las copias de seguridad (tanto del registro como las que no son del registro) en máquinas virtuales de Azure de SAP HANA proporcionadas mediante Backint son flujos de datos a almacenes de Azure Recovery Services (que internamente utiliza Azure Storage Blob) y, por tanto, es importante comprender esta metodología de streaming.
 
-El componente Backint de HANA proporciona las "canalizaciones" (una canalización para leer y una canalización para escribir), conectadas a los discos subyacentes en los que residen los archivos de base de datos, que el servicio Azure Backup lee y transporta al almacén de Azure Recovery Services. El servicio Azure Backup también hace una suma de comprobación para validar los flujos de datos, además de las comprobaciones de validación nativas de Backint. Estas validaciones garantizarán que los datos presentes en el almacén de Azure Recovery Services son realmente confiables y recuperables.
+El componente de Backint de HANA proporciona las "canalizaciones" (una canalización para leer y una canalización para escribir), conectadas a los discos subyacentes en los que residen los archivos de base de datos, que el servicio Azure Backup lee y transporta al almacén de Azure Recovery Services, que es una cuenta remota de Azure Storage. El servicio Azure Backup también hace una suma de comprobación para validar los flujos de datos, además de las comprobaciones de validación nativas de Backint. Estas validaciones garantizarán que los datos presentes en el almacén de Azure Recovery Services son realmente confiables y recuperables.
 
-Dado que los flujos de datos tratan principalmente con discos, debe comprender el rendimiento del disco para medir el rendimiento de la copia de seguridad y la restauración. Consulte [este artículo](../virtual-machines/disks-performance.md) para obtener una descripción detallada del rendimiento de los discos en máquinas virtuales de Azure. También es de aplicación para el rendimiento de las copias de seguridad y la restauración.
+Dado que los flujos de datos tratan principalmente con discos, debe comprender el rendimiento del disco para la lectura y el rendimiento de red para la transferencia de los datos de copia de seguridad para medir el rendimiento de la copia de seguridad y la restauración. Consulte [este artículo](../virtual-machines/disks-performance.md) para obtener una descripción detallada del rendimiento de los discos y la red en máquinas virtuales de Azure. También es de aplicación para el rendimiento de las copias de seguridad y la restauración.
 
 **El servicio Azure Backup intenta alcanzar hasta aproximadamente 420 MBps para copias de seguridad que no son del registro (como la completa, la diferencial y la incremental) y hasta 100 MBps para copias de seguridad del registro de HANA**. Como se mencionó anteriormente, no se garantizan las velocidades y dependen de los siguientes factores:
 
-* Rendimiento máximo del disco sin almacenamiento en caché de la máquina virtual
-* Tipo de disco subyacente y su rendimiento
-* Número de procesos que intentan leer y escribir en el mismo disco al mismo tiempo.
+- Rendimiento máximo de disco sin almacenar en caché de la máquina virtual: lectura desde el área de datos o registro.
+- Tipo de disco subyacente y su rendimiento: lectura desde el área de datos o registro.
+- Rendimiento de red máximo de la máquina virtual: escritura en el almacén de Recovery Services.
+- Si la red virtual tiene una NVA o un firewall, su rendimiento de red.
+- Si los datos o el registro residen en Azure NetApp Files: tanto leer desde ANF como escribir en el almacén consumen red de la máquina virtual.
 
 > [!IMPORTANT]
 > En máquinas virtuales más pequeñas, en las que el rendimiento del disco sin almacenamiento en caché está muy cerca o es inferior a 400 MBps, puede que le preocupe que el servicio de copia de seguridad consuma todas las IOPS del disco, lo que puede afectar a las operaciones de SAP HANA relacionadas con la lectura y escritura de los discos. En ese caso, si desea limitar el consumo del servicio de copia de seguridad al límite máximo, puede consultar la sección siguiente.
@@ -176,13 +180,19 @@ La salida de comandos debe mostrar la tecla {SID}{DBNAME}, con el usuario como A
 
 A continuación se ofrece un resumen de los pasos necesarios para ejecutar el script previo al registro. Tenga en cuenta que en este flujo se proporciona la clave de usuario SYSTEM como parámetro de entrada al script de registro previo.
 
-|Quién  |De  |Qué ejecutar  |Comentarios  |
-|---------|---------|---------|---------|
-|```<sid>```adm (SO)     |  SO DE HANA       |   Lea el tutorial y descargue el script previo al registro      |   Lea los [requisitos previos anteriores](#prerequisites)    Descargue el script previo al registro desde [aquí](https://aka.ms/scriptforpermsonhana).  |
-|```<sid>```adm (SO) y usuario del SISTEMA (HANA)    |      SO DE HANA   |   Ejecute el comando hdbuserstore Set      |   Por ejemplo, hdbuserstore Set SYSTEM hostname>:3```<Instance#>```13 SYSTEM ```<password>``` **Nota:**  Asegúrese de usar el nombre de host en lugar de la dirección IP o el nombre de dominio completo.      |
-|```<sid>```adm (SO)    |   SO DE HANA      |  Ejecute el comando hdbuserstore List.       |   Compruebe si el resultado incluye el almacén predeterminado como a continuación: ```KEY SYSTEM  ENV : <hostname>:3<Instance#>13  USER: SYSTEM```      |
-|Raíz (SO)     |   SO DE HANA        |    Ejecute el script previo al registro previo de HANA de Azure Backup      |    ```./msawb-plugin-config-com-sap-hana.sh -a --sid <SID> -n <Instance#> --system-key SYSTEM```     |
-|```<sid>```adm (SO)    |  SO DE HANA       |   Ejecute el comando hdbuserstore List.      |    Compruebe si el resultado incluye nuevas líneas como se indica a continuación: ```KEY AZUREWLBACKUPHANAUSER  ENV : localhost: 3<Instance#>13   USER: AZUREWLBACKUPHANAUSER```.     |
+| Quién     |    De    |    Qué ejecutar    |    Comentarios    |
+| --- | --- | --- | --- |
+| `<sid>`adm (SO) |    SO DE HANA   | Lea el tutorial y descargue el script de registro previo.  |    Tutorial: [Copia de seguridad de bases de datos de SAP HANA en una máquina virtual de Azure](/azure/backup/tutorial-backup-sap-hana-db)   <br><br>    Descargue el [script de registro previo](https://go.microsoft.com/fwlink/?linkid=2173610). |
+| `<sid>`adm (SO)    |    SO DE HANA    |   Iniciar HANA (iniciar HDB)    |   Antes de la configuración, asegúrese de que HANA esté en funcionamiento.   |
+| `<sid>`adm (SO)   |   SO DE HANA  |    Ejecute el comando: <br>  `hdbuserstore Set`   |  `hdbuserstore Set SYSTEM <hostname>:3<Instance#>13 SYSTEM <password>`  <br><br>   **Nota** <br>  Asegúrese de usar el nombre de host en lugar de la dirección IP o el FQDN.   |
+| `<sid>`adm (SO)   |  SO DE HANA    |   Ejecute el comando:<br> `hdbuserstore List`   |  Compruebe si el resultado incluye el almacén predeterminado como a continuación: <br><br> `KEY SYSTEM`  <br> `ENV : <hostname>:3<Instance#>13`    <br>  `USER : SYSTEM`   |
+| Raíz (SO)   |   SO DE HANA    |    Ejecute el [script de registro previo de HANA de Azure Backup](https://go.microsoft.com/fwlink/?linkid=2173610).     | `./msawb-plugin-config-com-sap-hana.sh -a --sid <SID> -n <Instance#> --system-key SYSTEM`    |
+| `<sid>`adm (SO)   |   SO DE HANA   |    Ejecute el comando: <br> `hdbuserstore List`   |   Compruebe si el resultado incluye nuevas líneas como se indica a continuación: <br><br>  `KEY AZUREWLBACKUPHANAUSER` <br>  `ENV : localhost: 3<Instance#>13`   <br> `USER: AZUREWLBACKUPHANAUSER`    |
+| Colaborador de Azure     |    Azure portal    |   Configure el NSG, la NVA, Azure Firewall, y así sucesivamente para permitir el tráfico saliente al servicio Azure Backup, Azure AD y Azure Storage.     |    [Configurar la conectividad de red](/azure/backup/tutorial-backup-sap-hana-db#set-up-network-connectivity)    |
+| Colaborador de Azure |   Azure portal    |   Cree o abra un almacén de Recovery Services y, a continuación, seleccione Copia de seguridad de HANA.   |   Busque todas las máquinas virtuales de HANA de destino de las que se va a hacer una copia de seguridad.   |
+| Colaborador de Azure    |   Azure portal    |   Detecte las bases de datos de HANA y configure la directiva de copia de seguridad.   |  Por ejemplo: <br><br>  Copia de seguridad semanal: todos los domingos a las 2:00 a.m., retención semanal de 12 semanas, mensual de 12 meses, anual de 3 años   <br>   Diferencial o incremental: todos los días, excepto el domingo    <br>   Registro: cada 15 minutos, retención de 35 días    |
+| Colaborador de Azure  |   Azure portal    |    Almacén de Recovery Service: elementos de copia de seguridad: SAP HANA     |   Compruebe los trabajos de copia de seguridad (carga de trabajo de Azure).    |
+| Administrador de HANA    | HANA Studio   | Compruebe la consola de Backup, el catálogo de Backup, backup.log, backint.log y globa.ini.   |    Tanto SYSTEMDB como la base de datos del inquilino.   |
 
 Después de ejecutar correctamente el script previo al registro y comprobarlo, puede continuar para comprobar [los requisitos de conectividad](#set-up-network-connectivity) y, a continuación, [configurar la copia de seguridad](#discover-the-databases) desde el almacén de Recovery Services.
 
@@ -221,6 +231,12 @@ Para crear un almacén de Recovery Services:
    ![Seleccionar Revisar + crear](./media/tutorial-backup-sap-hana-db/review-create.png)
 
 Ahora se ha creado el almacén de Recovery Services.
+
+## <a name="enable-cross-region-restore"></a>Habilitación de la restauración entre regiones
+
+En el almacén de Recovery Services, puede habilitar la restauración entre regiones. Debe activar la restauración entre regiones antes de configurar y proteger las copias de seguridad de las bases de datos de HANA. Más información en [Establecimiento de la restauración entre regiones](/azure/backup/backup-create-rs-vault#set-cross-region-restore).
+
+[Más información](/azure/backup/backup-azure-recovery-services-vault-overview) sobre la restauración entre regiones.
 
 ## <a name="discover-the-databases"></a>Detección de bases de datos
 

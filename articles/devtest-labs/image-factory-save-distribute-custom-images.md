@@ -1,14 +1,14 @@
 ---
-title: Guardado y distribución de imágenes en Azure DevTest Labs | Microsoft Docs
+title: Guardado y distribución de imágenes
 description: En este artículo se tratan los pasos para guardar imágenes personalizadas de máquinas virtuales (VM) que ya se han creado en Azure DevTest Labs.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: a5278626f8cdd4299912f3c952786422436fe916
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d89a792e66d227eaeb20e48c80d432aa0cf56871
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85476247"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128623577"
 ---
 # <a name="save-custom-images-and-distribute-to-multiple-labs"></a>Guardar imágenes personalizadas y distribuirlas a varios laboratorios
 En este artículo se tratan los pasos para guardar las imágenes personalizadas de máquinas virtuales (VM) que ya se han creado. También se trata cómo distribuir estas imágenes personalizadas en otros laboratorios DevTest Labs de la organización.

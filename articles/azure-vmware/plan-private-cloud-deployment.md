@@ -3,13 +3,13 @@ title: Planificación de la implementación de Azure VMware Solution
 description: Aprenda a planear la implementación de Azure VMware Solution.
 ms.topic: tutorial
 ms.custom: contperf-fy21q4
-ms.date: 07/07/2021
-ms.openlocfilehash: 4f0f59a01ff53646a23809efa129a154bfba81ee
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.date: 09/27/2021
+ms.openlocfilehash: 6528727fda867f5f07d7d83b09df1bbf70df6b92
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122444218"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129079473"
 ---
 # <a name="plan-the-azure-vmware-solution-deployment"></a>Planificación de la implementación de Azure VMware Solution
 
@@ -34,7 +34,7 @@ Cuando haya terminado, siga los pasos recomendados al final para continuar con e
 Identifique la suscripción que piensa usar para implementar Azure VMware Solution.  Puede crear una nueva suscripción o usar una existente.
 
 >[!NOTE]
->La suscripción debe estar asociada a un Contrato Enterprise de Microsoft o a un plan de Azure de Proveedor de soluciones en la nube. Para más información, consulte [Criterios de idoneidad](request-host-quota-azure-vmware-solution.md#eligibility-criteria).
+>La suscripción debe estar asociada a un Contrato Enterprise de Microsoft o a un plan de Azure de Proveedor de soluciones en la nube o a un Contrato de cliente de Microsoft. Para más información, consulte [Criterios de idoneidad](request-host-quota-azure-vmware-solution.md#eligibility-criteria).
 
 ## <a name="identify-the-resource-group"></a>Identificación del grupo de recursos
 
@@ -65,7 +65,7 @@ La primera implementación de Azure VMware Solution que realice consta de una nu
 
 
 >[!NOTE]
->Para obtener información sobre los límites del número de hosts por clúster, el número de clústeres por nube privada y el número de hosts por nube privada, consulte [Límites, cuotas y restricciones de suscripción y servicio de Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-vmware-solution-limits).
+>Para obtener información sobre los límites del número de hosts por clúster, el número de clústeres por nube privada y el número de hosts por nube privada, consulte [Límites, cuotas y restricciones de suscripción y servicio de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-vmware-solution-limits).
 
 ## <a name="request-a-host-quota"></a>Solicitud de una cuota de host 
 

@@ -3,16 +3,16 @@ title: 'Azure Defender para registros de contenedor: ventajas y características
 description: Obtenga información sobre las ventajas y características de Azure Defender para registros de contenedor.
 author: memildin
 ms.author: memildin
-ms.date: 09/05/2021
+ms.date: 10/04/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 5c9407e33cefc9c604192252a119db5a42851949
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 1f38acc2ef70e4f2c9a556a652954ebcdc86e2d8
+ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123541412"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129419133"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introducción a Azure Defender para registros de contenedor
 
@@ -29,7 +29,7 @@ Para proteger los registros basados en Azure Resource Manager de la suscripción
 |Registros e imágenes compatibles:|Imágenes de Linux en registros de ACR accesibles desde la red pública de Internet con acceso al shell<br>[Registros de ACR protegidos con Azure Private Link](../container-registry/container-registry-private-link.md)|
 |Registros e imágenes no compatibles:|Imágenes de Windows<br>Registros "privados" (a menos que se conceda acceso a los [servicios de confianza](../container-registry/allow-access-trusted-services.md#trusted-services))<br>Imágenes excesivamente minimalistas, como las imágenes [base de Docker](https://hub.docker.com/_/scratch/) o imágenes "sin distribución" que solo contienen una aplicación y sus dependencias en tiempo de ejecución sin un administrador de paquetes, shell o sistema operativo.<br>Imágenes con la [especificación del formato de imagen Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/master/spec.md)|
 |Roles y permisos necesarios:|**Lector de seguridad** y [roles y permisos de Azure Container Registry](../container-registry/container-registry-roles.md)|
-|Nubes:|:::image type="icon" source="./media/icons/yes-icon.png" border="false"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/yes-icon.png" border="false"::: US Gov y China Gov: actualmente solo se admite el examen en la característica de inserción. Más información en [¿Cuándo se examinan las imágenes?](#when-are-images-scanned)|
+|Nubes:|:::image type="icon" source="./media/icons/yes-icon.png" border="false"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/yes-icon.png" border="false"::: Nacionales o soberanas (Azure Government y Azure China 21Vianet)|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-container-registries"></a>¿Cuáles son las ventajas de Azure Defender para registros de contenedor?

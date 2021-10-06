@@ -1,18 +1,18 @@
 ---
 title: Redes de App Service Environment
 description: Detalles de las redes de App Service Environment
-author: ccompy
+author: madsd
 ms.assetid: 6f262f63-aef5-4598-88d2-2f2c2f2bfc24
 ms.topic: article
 ms.date: 06/30/2021
-ms.author: ccompy
+ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 89a14dc204e10231a134477650081396fc8e433f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 177a9095a6a1cfb15a7bd17e106406521d1eda14
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121723039"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639023"
 ---
 # <a name="app-service-environment-networking"></a>Redes de App Service Environment
 
@@ -21,7 +21,19 @@ ms.locfileid: "121723039"
 > 
 
 
-App Service Environment (ASE) es una implementación de inquilino único de Azure App Service que hospeda aplicaciones web, aplicaciones de API y aplicaciones de funciones. Cuando se instala ASE, se elige la instancia de Azure Virtual Network (VNet) en la que desea que se implemente. Toda la aplicación de tráfico de entrada y salida estará dentro de la VNet que especifique. El ASE se implementa en una sola subred de la red virtual. No se puede implementar nada más en esa misma subred. La subred debe delegarse en Microsoft.Web/HostingEnvironments.
+App Service Environment (ASE) es una implementación de inquilino único de Azure App Service que hospeda aplicaciones web, aplicaciones de API y aplicaciones de funciones. Cuando se instala ASE, se elige la instancia de Azure Virtual Network (VNet) en la que desea que se implemente. Toda la aplicación de tráfico de entrada y salida estará dentro de la VNet que especifique. El ASE se implementa en una sola subred de la red virtual. No se puede implementar nada más en esa misma subred.
+
+## <a name="subnet-requirements"></a>Requisitos de subred
+
+La subred debe delegarse en Microsoft.Web/hostingEnvironments y debe estar vacía.
+
+El tamaño de la subred puede afectar a los límites de escalado de las instancias del plan de App Service en ASE. Se recomienda usar un espacio de direcciones de /24 (256 direcciones) para la subred con el fin de garantizar que hay suficientes direcciones para admitir la escala de producción.
+
+Para usar una subred más pequeña, debe tener en cuenta los siguientes detalles de la configuración de red y de ASE.
+
+Cualquier subred tiene cinco direcciones reservadas para fines de administración. Además de las direcciones de administración, ASE escalará dinámicamente la infraestructura subyacente y usará entre 4 y 27 direcciones en función de la configuración, la escala y la carga. Las direcciones restantes se pueden usar para las instancias del plan de App Service. El tamaño mínimo de la subred es un espacio de direcciones de /27 (32 direcciones).
+
+Si se queda sin direcciones, se puede restringir el escalado horizontal de sus planes de App Service en ASE, o bien puede experimentar una mayor latencia durante cargas de tráfico intensivas si no se puede escalar la infraestructura subyacente.
 
 ## <a name="addresses"></a>Direcciones 
 
@@ -32,7 +44,7 @@ La implementación del ASE tiene la siguiente información de red en el momento 
 | Red virtual de ASE | La red virtual en la que se implementa el ASE. |
 | Subred de ASE | La subred en la que se implementa el ASE. |
 | Sufijo del dominio | El sufijo de dominio que usan las aplicaciones realizadas en este ASE. |
-| IP virtual | Tipo de IP virtual que usa el ASE. Los dos valores posibles son interno y externo. |
+| IP virtual | Esta configuración es el tipo de IP virtual que usa ASE. Los dos valores posibles son interno y externo. |
 | Dirección de entrada | La dirección de entrada es la dirección con la que se llega a las aplicaciones de este ASE. Si tiene una dirección IP virtual interna, se trata de una dirección en la subred del ASE. Si la dirección es externa, será una dirección orientada al público. |
 | Direcciones de salida predeterminadas | De forma predeterminada, las aplicaciones de este ASE usarán esta dirección al realizar llamadas de salida a Internet. |
 

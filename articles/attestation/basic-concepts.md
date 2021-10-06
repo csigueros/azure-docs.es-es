@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 82b40680d5f9aa46514273d8a147971b19cae9c8
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: bc405fa293eec4f991ca5cab51d3d8f2a4c3c816
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123438559"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233265"
 ---
 # <a name="basic-concepts"></a>Conceptos básicos
 
@@ -46,7 +46,12 @@ Azure Attestation proporciona un proveedor compartido regional en cada región d
 | Norte de Europa | `https://sharedneu.neu.attest.azure.net` | 
 | Oeste de Europa| `https://sharedweu.weu.attest.azure.net` | 
 | Este de EE. UU. 2 | `https://sharedeus2.eus2.attest.azure.net` | 
-| Centro de EE. UU. | `https://sharedcus.cus.attest.azure.net` | 
+| Centro de EE. UU. | `https://sharedcus.cus.attest.azure.net` |
+| Sudeste de Asia | `https://sharedsasia.sasia.attest.azure.net` | 
+| Centro-Norte de EE. UU | `https://sharedncus.ncus.attest.azure.net` | 
+| Centro-sur de EE. UU. | `https://sharedscus.scus.attest.azure.net` | 
+| US Gov - Virginia | `https://sharedugv.ugv.attest.azure.us` | 
+| US Gov: Arizona | `https://shareduga.uga.attest.azure.us` | 
 
 ## <a name="attestation-request"></a>Solicitud de atestación
 

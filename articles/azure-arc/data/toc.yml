@@ -13,7 +13,7 @@ items:
         href: privacy-data-collection-and-reporting.md
   - name: Guías de inicio rápido
     items:
-      - name: Planeamiento de la implementación de servicios de datos habilitados para Azure Arc
+      - name: Planeamiento de una implementación de servicios de datos habilitados para Azure Arc
         href: plan-azure-arc-data-services.md
   - name: Conceptos
     items:

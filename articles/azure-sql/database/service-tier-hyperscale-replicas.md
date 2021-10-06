@@ -8,13 +8,13 @@ ms.topic: overview
 author: yorek
 ms.author: damauri
 ms.reviewer: ''
-ms.date: 7/27/2021
-ms.openlocfilehash: 9fa0a964033439a4b1c5276bf4310528dd345ff8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 9/24/2021
+ms.openlocfilehash: e2785f965cdbb94af081e937f0b2290578c04796
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121722894"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059537"
 ---
 # <a name="hyperscale-secondary-replicas"></a>Réplicas secundarias de Hiperescala
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -22,13 +22,13 @@ ms.locfileid: "121722894"
 Como se describe en [Arquitectura de funciones distribuidas](service-tier-hyperscale.md), Hiperescala de Azure SQL Database tiene dos tipos diferentes de nodos de proceso, también llamados réplicas:
 
 - Principal: sirve operaciones de lectura y escritura
-- Secundaria: proporciona escalado horizontal de lectura, alta disponibilidad y replicación geográfica
+- Secundaria: proporciona [escalado horizontal de lectura](read-scale-out.md), [alta disponibilidad](high-availability-sla.md) y [replicación geográfica](active-geo-replication-overview.md)
 
 Las réplicas secundarias siempre son de solo lectura y pueden ser de tres tipos diferentes:
 
 - Réplica de alta disponibilidad
-- Réplica con nombre (en versión preliminar)
-- Réplica geográfica (en versión preliminar)
+- Réplica con nombre (en [versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/))
+- Réplica geográfica (en [versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/))
 
 Cada tipo tiene una arquitectura, un conjunto de características, un propósito y un costo diferentes. En función de las características que necesite, puede usar solo una o incluso las tres juntas.
 
@@ -63,7 +63,7 @@ La diferencia con respecto a las réplicas de alta disponibilidad es que las ré
 - admiten hasta 30 réplicas con nombre (para cada réplica principal).
 - admiten autenticación diferente para cada réplica con nombre mediante la creación de diferentes inicios de sesión en los servidores lógicos que hospedan las réplicas con nombre.
 
-El objetivo principal de las réplicas con nombre es permitir un escenario de escalado horizontal de lectura de OLTP masivo y mejorar las cargas de trabajo de procesamiento transaccional y analítico híbrido (HTAP). Aquí hay ejemplos de cómo crear estas soluciones:
+El objetivo principal de las réplicas con nombre es permitir un escenario de [escalado horizontal de lectura](read-scale-out.md) de OLTP masivo y mejorar las cargas de trabajo de procesamiento transaccional y analítico híbrido (HTAP). Aquí hay ejemplos de cómo crear estas soluciones:
 
 - [Ejemplo de escalado horizontal de OLTP](https://github.com/Azure-Samples/azure-sql-db-named-replica-oltp-scaleout)
 - [Ejemplo de escalado horizontal de HTAP](https://github.com/Azure-Samples/azure-sql-db-named-replica-htap)

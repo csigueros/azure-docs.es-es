@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: e7bcfe1afc063d89bc6a5339bf62521cd644b8ca
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1c769cdac870c7384495d41158bd7ad516608575
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048347"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632963"
 ---
 # <a name="register-a-saas-application"></a>Registro de una aplicación SaaS
 
@@ -109,7 +109,14 @@ Respuesta de ejemplo:
   }
 ```
 
-El valor del campo `"access_token"` en la respuesta es el `<access_token>` que pasará como parámetro de autorización al llamar a todas las API de suministro de SaaS y de medición de Marketplace.
+| Elemento | Descripción |
+| ------- | ----------- |
+| `access_token` | Este elemento es el `<access_token>` (token de acceso) que pasará como parámetro de autorización al llamar a todas las API de suministro de SaaS y de medición de Marketplace. Al llamar a una API de REST protegida, el token se inserta en el campo `Authorization` del encabezado de la solicitud como un token de "portador", lo que permite a la API autenticar el llamador. | 
+| `expires_in` | El número de segundos que el token de acceso sigue siendo válido, antes de expirar, desde la hora de emisión. La hora de emisión puede encontrarse en la notificación `iat` del token. |
+| `expires_on` | La hora a la que expira el token de acceso. La fecha se representa como el número de segundos desde "1970-01-01T0:0:0Z UTC" (se corresponde con la notificación `exp` del token). |
+| `not_before` | El intervalo de tiempo cuando el token de acceso tiene efecto y se puede aceptar. La fecha se representa como el número de segundos desde "1970-01-01T0:0:0Z UTC" (se corresponde con la notificación `nbf` del token). |
+| `resource` | El recurso para el que se solicitó el token de acceso, que coincide con el parámetro de la cadena de consulta `resource` de la solicitud. |
+| `token_type` | El tipo de token, que es un token de acceso al "Portador", lo que significa que el recurso puede permitir el acceso al portador del token. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

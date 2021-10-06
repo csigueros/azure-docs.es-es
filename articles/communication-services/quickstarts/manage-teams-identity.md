@@ -9,17 +9,18 @@ ms.author: tchladek
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 8718573de0742e69bee723f34ff94fcb20656be4
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.subservice: identity
+ms.openlocfilehash: 5fb6632fa31143c26d3cad84d42d1417aaf97496
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123251140"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081346"
 ---
 # <a name="quickstart-set-up-and-manage-teams-access-tokens"></a>Inicio rápido: Configuración y administración de tokens de acceso de Teams
 
 > [!IMPORTANT]
-> Para habilitar o deshabilitar la experiencia del punto de conexión de Teams personalizado, [complete y envíe este formulario](https://forms.office.com/r/B8p5KqCH19).
+> Esta característica solo está disponible en versión preliminar. Para habilitar o deshabilitar la experiencia del punto de conexión de Teams personalizado, [complete y envíe este formulario](https://forms.office.com/r/B8p5KqCH19).
 
 En este inicio rápido, compilará una aplicación de consola de .NET para autenticar a un usuario de Microsoft 365 mediante la Biblioteca de autenticación de Microsoft (MSAL) y la recuperación de un token de usuario Azure Active Directory (Azure AD). A continuación, intercambiaremos ese token por un token de acceso de Teams con el SDK de identidad de Azure Communication Services. Después, el SDK de llamadas de Communication Services puede usar el token de acceso de Teams para crear un punto de conexión de Teams personalizado.
 
@@ -191,6 +192,9 @@ En el directorio de aplicaciones, instale el paquete de la biblioteca de identid
 dotnet add package Azure.Communication.Identity
 dotnet add package Microsoft.Identity.Client
 ```
+
+> [!NOTE]
+> Los paquetes para la versión preliminar privada no están disponibles en repositorios de paquetes oficiales como NPM o NuGet.org. Puede encontrar los SDK en los siguientes repositorios de paquetes [.NET](https://dev.azure.com/azure-sdk/public/_packaging?_a=package&feed=azure-sdk-for-net&package=Azure.Communication.Identity&protocolType=NuGet&version=1.1.0-alpha.20210531.2) y [JavaScript](https://www.npmjs.com/package/@azure/communication-identity/v/1.1.0-alpha.20210531.1).
 
 #### <a name="set-up-the-app-framework"></a>Instalación del marco de la aplicación
 

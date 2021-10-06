@@ -1,7 +1,7 @@
 ---
-title: 'Inicio rápido: Asignación de usuarios a una aplicación'
+title: 'Inicio rápido: Creación y asignación de una cuenta de usuario'
 titleSuffix: Azure AD
-description: Esta guía de inicio rápido le guiará en el proceso de permitir que los usuarios usen una aplicación que ha configurado para usar Azure AD como proveedor de identidades.
+description: Cree una cuenta de usuario en el inquilino de Azure Active Directory y asígnela a una aplicación.
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -9,68 +9,65 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/23/2021
+ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: alamaral
-ms.openlocfilehash: 5c8b4ec030f60b940d8d6c36bd31e10932151dd5
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: 28f5cfe158c13928d9443df22551bcfd6e7d8e85
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114667176"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129058406"
 ---
-# <a name="quickstart-assign-users-to-an-application"></a>Inicio rápido: Asignación de usuarios a una aplicación
+# <a name="quickstart-create-and-assign-a-user-account-in-azure-active-directory"></a>Inicio rápido: Creación y asignación de una cuenta de usuario en Azure Active Directory
 
-En la guía de inicio rápido anterior, configuró las propiedades de una aplicación. Al establecer las propiedades, configuró la experiencia para los usuarios asignados y sin asignar. En esta guía de inicio rápido se explica el proceso de asignación de usuarios a la aplicación.
+En esta guía de inicio rápido, usará el centro de administración de Azure Active Directory para crear una cuenta de usuario en el inquilino de Azure Active Directory (Azure AD). Después de crear la cuenta, puede asignarla a la aplicación empresarial que agregó al inquilino.
+
+Para probar los pasos de este inicio rápido, se recomienda usar un entorno que no sea de producción.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para asignar usuarios a una aplicación que ha agregado al inquilino de Azure AD, necesita:
+Para crear una cuenta de usuario y asignarla a una aplicación empresarial, necesita lo siguiente:
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Uno de los siguientes roles: Administrador global, Administrador de aplicaciones en la nube, Administrador de aplicaciones o Propietario de la entidad de servicio.
-- Opcional: Haber finalizado el inicio rápido de [Visualización de las aplicaciones](view-applications-portal.md).
-- Opcional: Haber finalizado el inicio rápido de [Incorporación de una aplicación](add-application-portal.md).
-- Opcional: Haber finalizado el inicio rápido de [Configuración de una aplicación](add-application-portal-configure.md).
+- Finalización de los pasos de [Inicio rápido: Adición de una aplicación empresarial en Azure Active Directory](add-application-portal.md).
 
->[!IMPORTANT]
->Use un entorno que no sea de producción para probar los pasos de esta guía de inicio rápido.
+## <a name="create-a-user-account"></a>Crea una cuenta de usuario
 
-## <a name="assign-users-to-an-app"></a>Asignación de usuarios a una aplicación
+Para crear una cuenta de usuario en el inquilino de Azure AD:
 
-1. En el portal de Azure AD, seleccione **Aplicaciones empresariales**. Después, busque y seleccione la aplicación que desea configurar.
-2. En el menú de navegación de la izquierda, seleccione **Usuarios y grupos**.
-   > [!NOTE]
-   > Algunas de las aplicaciones de Microsoft 365 requieren el uso de PowerShell.
-3. Seleccione el botón **Add user/groups** (Agregar usuario/grupos).
-4. En el panel **Agregar asignación**, seleccione **Usuarios y grupos**.
-5. Seleccione el usuario o el grupo que desea asignar a la aplicación. También puede empezar a escribir el nombre del usuario o grupo en el cuadro de búsqueda. Puede elegir varios usuarios y grupos; sus selecciones aparecerán en **Elementos seleccionados**.
-    > [!IMPORTANT]
-    > Cuando se asigna un grupo a una aplicación, solo tendrán acceso los usuarios del grupo. La asignación no se aplica en cascada a los grupos anidados.
+1. Vaya al [centro de administración de Azure Active Directory](https://aad.portal.azure.com) e inicie sesión con uno de los roles enumerados en los requisitos previos.
+1. En el menú izquierdo, seleccione **Usuarios**.
+1. Seleccione **Nuevo usuario** en la parte superior del panel.
 
-    > [!NOTE]
-    > La asignación basada en grupos requiere Azure Active Directory Premium P1 o P2. La asignación basada en grupo se admite en grupos de seguridad únicamente. Actualmente no se admiten las pertenencias a grupos anidados y los grupos de Microsoft 365. Para conocer más requisitos de licencia de las características abordadas en este artículo, vea la [página de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory).
-6. Cuando termine, elija **Seleccionar**.
-   :::image type="content" source="./media/assign-user-or-group-access-portal/assign-users.png" alt-text="Asignación de un usuario o un grupo a la aplicación":::
-7. En el panel **Usuarios y grupos**, seleccione uno o varios usuarios o grupos de la lista y, luego, haga clic en el botón **Seleccionar** en la parte inferior del panel.
-8. Si la aplicación lo permite, puede asignar un rol al usuario o al grupo. En el panel **Agregar asignación**, elija **Seleccionar rol**. Después, en el panel **Seleccionar rol**, seleccione el rol que quiera aplicar a los usuarios o grupos escogidos y, luego, haga clic en **Aceptar** en la parte inferior del panel.
-    > [!NOTE]
-    > Si la aplicación no permite seleccionar roles, se asignará el rol de acceso predeterminado. En este caso, la aplicación administrará el nivel de acceso que tienen los usuarios.
-9. En el panel **Agregar asignación**, haga clic en el botón **Asignar** en la parte inferior del panel.
+    :::image type="content" source="media/add-application-portal-assign-users/new-user.png" alt-text="Adición de una nueva cuenta de usuario en el inquilino de Azure AD.":::
+    
+1. En el campo **Nombre de usuario**, escriba el nombre de usuario de la cuenta usuario. Por ejemplo, `contosouser1@contoso.com`. Asegúrese de cambiar `contoso.com` por el nombre del dominio del inquilino.
+1. En el campo **Nombre**, escriba el nombre del usuario de la cuenta. Por ejemplo, `contosouser1`.
+1. Deje la opción **Generar automáticamente la contraseña** seleccionada y, a continuación, seleccione **Mostrar contraseña**. Anote el valor que se muestra en el cuadro Contraseña.
+1. Seleccione **Crear**.
 
-Puede anular la asignación de usuarios o grupos mediante el mismo procedimiento. Seleccione el usuario o el grupo cuya asignación desea anular y, a continuación, seleccione **Eliminar**. Algunas de las aplicaciones de Microsoft 365 y Office 365 requieren el uso de PowerShell.
+## <a name="assign-a-user-account-to-an-enterprise-application"></a>Asignación de una cuenta de usuario a una aplicación empresarial
+
+Para asignar una cuenta de usuario a una aplicación empresarial:
+
+1. En el [centro de administración de Azure Active Directory](https://aad.portal.azure.com), seleccione **Aplicaciones empresariales** y, a continuación, busque y seleccione la aplicación a la que desea asignar la cuenta de usuario. Por ejemplo, la aplicación que creó en el inicio rápido anterior llamada **Azure AD SAML Toolkit 1**.
+1. En el panel izquierdo, seleccione **Usuarios y grupos** y, a continuación, seleccione **Agregar usuario o grupo**.
+
+    :::image type="content" source="media/add-application-portal-assign-users/assign-user.png" alt-text="Asignación de una cuenta de usuario a una aplicación en el inquilino de Azure AD.":::
+
+1. En el panel **Agregar asignación**, seleccione **Ninguno seleccionado** en **Usuarios y grupos**.
+1. Busque y seleccione el usuario que desea asignar a la aplicación. Por ejemplo, `contosouser1@contoso.com`.
+1. Elija **Seleccionar**.
+1. En el panel **Agregar asignación**, seleccione **Asignar** en la parte inferior del panel.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando haya terminado con la guía de inicio rápido, considere la posibilidad de eliminar la aplicación. De este modo, podrá mantener limpio el inquilino de prueba. La eliminación de la aplicación se trata en el último inicio rápido de esta serie, consulte [Eliminación de una aplicación](delete-application-portal.md).
+Si tiene previsto completar el siguiente inicio rápido, mantenga la aplicación que ha creado. De lo contrario, puede considerar la posibilidad de eliminarla para limpiar el inquilino. Para más información, consulte [Inicio rápido: Eliminación de una aplicación del inquilino](delete-application-portal.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Pase al siguiente artículo, donde aprenderá a configurar el inicio de sesión único en una aplicación.
+Obtenga información sobre cómo configurar el inicio de sesión único para una aplicación empresarial.
 > [!div class="nextstepaction"]
-> [Configuración del inicio de sesión único basado en SAML](add-application-portal-setup-sso.md)
-
-O BIEN
-
-> [!div class="nextstepaction"]
-> [Configuración del inicio de sesión único basado en OIDC](add-application-portal-setup-oidc-sso.md)
+> [Habilitar el inicio de sesión único](add-application-portal-setup-sso.md)

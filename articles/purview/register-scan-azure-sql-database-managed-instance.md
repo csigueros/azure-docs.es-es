@@ -1,18 +1,18 @@
 ---
 title: Registro y examen de una Instancia administrada de Azure SQL Database
-description: En este tutorial se describe cómo examinar la Instancia administrada de Azure SQL Database.
+description: En este tutorial, se describe cómo examinar la Instancia administrada de Azure SQL Database en Azure Purview.
 author: hophanms
 ms.author: hophan
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: tutorial
 ms.date: 05/08/2021
-ms.openlocfilehash: 06f3ee8b820d732c0f605adc3201cff57fa70b42
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c633d95c615298876a8bedd76ecbd9c96a4f54da
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739078"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209704"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Registro y examen de una Instancia administrada de Azure SQL Database
 
@@ -31,8 +31,9 @@ El origen de datos de la Instancia administrada de Azure SQL Database admite la 
 - Cree una cuenta de Purview si aún no tiene una.
 
 - [Configuración de un punto de conexión público en Instancia administrada de Azure SQL](../azure-sql/managed-instance/public-endpoint-configure.md)
+
     > [!Note]
-    > La organización debe poder permitir el punto de conexión público, ya que en Purview el **punto de conexión privado todavía no se admite**. Si usa un punto de conexión privado, el examen no se realizará correctamente.
+    > Ahora se admite el examen de instancias administradas de Azure SQL Database que estén configuradas con puntos de conexión privados mediante puntos de conexión privados de ingesta de Azure Purview y una máquina virtual del entorno de ejecución de integración autohospedado. Para más información relacionada con los requisitos previos, consulte [Conexión a Azure Purview y examen de los orígenes de datos de forma privada y segura](./catalog-private-link-end-to-end.md).
 
 ### <a name="setting-up-authentication-for-a-scan"></a>Configuración de la autenticación para un examen
 

@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 08/20/2021
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: d3317bafa2ff03e83bd79e9a3efa0ecfaffd4124
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 43358ec8c79e09d0701a098a2bd992f2cee8b23f
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122752880"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129378129"
 ---
 | Resource | Límite |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -49,4 +49,4 @@ ms.locfileid: "122752880"
 <sup>8</sup>Este límite es aplicable solo al plan de consumo. No hay límites en estas categorías para otros niveles.<br/>
 <sup>9</sup>Solo se aplica al plan de consumo. Incluye una cadena de consulta de hasta 2048 bytes de longitud.<br/>
 <sup>10</sup> Para aumentar este límite, póngase en contacto con el [soporte técnico](https://azure.microsoft.com/support/options/).<br/>
-<sup>11</sup>Las puertas de enlace autohospedadas solo se admiten en los planes Desarrollador y Premium. El límite se aplica al número de [recursos de puerta de enlace autohospedados](/rest/api/apimanagement/2020-06-01-preview/gateway). Para aumentar este límite, póngase en contacto con el departamento de [soporte técnico](https://azure.microsoft.com/support/options/). Tenga en cuenta que el número de nodos (o réplicas) asociados a un recurso de puerta de enlace autohospedado es ilimitado en el plan Premium y está limitado a un solo nodo en el plan Desarrollador.
+<sup>11</sup>Las puertas de enlace autohospedadas solo se admiten en los planes Desarrollador y Premium. El límite se aplica al número de [recursos de puerta de enlace autohospedados](/rest/api/apimanagement/2021-04-01-preview/gateway). Para aumentar este límite, póngase en contacto con el departamento de [soporte técnico](https://azure.microsoft.com/support/options/). Tenga en cuenta que el número de nodos (o réplicas) asociados a un recurso de puerta de enlace autohospedado es ilimitado en el plan Premium y está limitado a un solo nodo en el plan Desarrollador.

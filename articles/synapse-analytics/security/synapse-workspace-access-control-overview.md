@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: b92603e5aa9f7c42a2e4789353077058b1fc6ea9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6ee619e6036b9d8bc3b0323bc793903dab0a2735
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730923"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129207341"
 ---
 # <a name="azure-synapse-access-control"></a>Control de acceso de Azure Synapse 
 
@@ -48,7 +48,7 @@ Para *crear* estos recursos, es preciso tener los roles Propietario o Colaborado
 Synapse admite dos modelos de desarrollo.
 
 - **Desarrollo en vivo de Synapse**. El código se desarrolla y depura en Synapse Studio y, después, se **publica** para guardarlo y ejecutarlo.  El servicio Synapse es la única fuente confiable para la edición y ejecución de código.  Al cerrar Synapse Studio los trabajos que no se hayan publicado se pierden.  
-- **Desarrollo habilitado para Git**. El código se desarrolla y depura en Synapse Studio y los cambios se **envían** a una rama de trabajo de un repositorio de Git. Todo el trabajo de una o varias ramas se integra en una rama de colaboración, desde donde se **publica** en el servicio. El repositorio de Git es la única fuente confiable para la edición de código, mientras que el servicio lo es para su ejecución. Los cambios se deben enviar al repositorio de Git, o bien se deben publicar en el servicio antes de cerrar Synapse Studio. [Aquí encontrará más información](../cicd/continuous-integration-deployment.md) sobre el uso de Synapse Analytics con Git.
+- **Desarrollo habilitado para Git**. El código se desarrolla y depura en Synapse Studio y los cambios se **envían** a una rama de trabajo de un repositorio de Git. Todo el trabajo de una o varias ramas se integra en una rama de colaboración, desde donde se **publica** en el servicio. El repositorio de Git es la única fuente confiable para la edición de código, mientras que el servicio lo es para su ejecución. Los cambios se deben enviar al repositorio de Git, o bien se deben publicar en el servicio antes de cerrar Synapse Studio. [Aquí encontrará más información](../cicd/continuous-integration-delivery.md) sobre el uso de Synapse Analytics con Git.
 
 En ambos modelos de desarrollo, cualquier usuario con acceso a Synapse Studio puede crear artefactos de código. Sin embargo, para publicarlos en el servicio, leer los publicados, enviar los cambios a Git, ejecutar código y acceder a datos vinculados protegidos mediante credenciales se necesitan permisos adicionales.
 
@@ -76,7 +76,7 @@ El creador de un área de trabajo se asigna como administrador de Active Directo
 
 **Grupos de SQL sin servidor**: a los administradores de Synapse se les conceden los permisos de `db_owner` (`DBO`) en el grupo de SQL sin servidor, "Built-in". Para conceder a otros usuarios acceso a grupos de SQL sin servidor, los administradores de Synapse necesitan ejecutar scripts de SQL en todos los grupos sin servidor.  
 
-**Grupos de SQL dedicados**: el permiso de administrador de Active Directory se le concede al creador del área de trabajo y al MSI del área de trabajo.  El permiso para acceder a grupos de SQL dedicados no se concede de forma automática. Para conceder a otros usuarios o grupos acceso a grupos de SQL dedicados, el administrador de Active Directory debe ejecutar scripts de SQL en cada grupo de SQL dedicado.
+**Grupos de SQL dedicados**: a los administradores de Synapse se les conceden permisos `db_owner` (`DBO`) en los grupos de SQL dedicados. el permiso de administrador de Active Directory se le concede al creador del área de trabajo y al MSI del área de trabajo.  El permiso para acceder a grupos de SQL dedicados no se concede de forma automática. Para conceder a otros usuarios o grupos acceso a grupos de SQL dedicados, el administrador de Active Directory debe ejecutar scripts de SQL en cada grupo de SQL dedicado.
 
 Para ver ejemplos de scripts de SQL para conceder permisos de SQL en grupos de SQL, consulte el artículo sobre la [configuración de Synapse Access Control](./how-to-set-up-access-control.md).  
 

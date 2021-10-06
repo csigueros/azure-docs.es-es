@@ -6,18 +6,20 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 09/02/2021
-ms.openlocfilehash: 89627b97a5c2e8ae068db18583fab38aeb6fe5f6
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 09/27/2021
+ms.openlocfilehash: 073b4bf8c1be14aa26141e20d5f6d6f4abdf9ff1
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123434563"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208801"
 ---
 # <a name="troubleshooting-private-endpoint-configuration-for-purview-accounts"></a>Solución de problemas de configuración de punto de conexión privado de cuentas de Purview
 
-En esta guía se resumen las limitaciones conocidas relacionadas con el uso de puntos de conexión privados para Azure Purview y se proporciona una lista de pasos y soluciones para resolver algunos de los problemas relevantes más comunes. 
+> [!IMPORTANT]
+> Si creó un punto de conexión privado del _portal_ para su cuenta de Purview **antes del 27 de septiembre de 2021 a las 15:30 UTC**, deberá realizar las acciones necesarias como se detalla en [Reconfiguración de DNS para puntos de conexión privados del portal](./catalog-private-link.md#reconfigure-dns-for-portal-private-endpoints). **Estas acciones deben realizarse antes del 11 de octubre de 2021. Si no lo hace, los puntos de conexión privados del portal existentes dejarán de funcionar**.
 
+En esta guía se resumen las limitaciones conocidas relacionadas con el uso de puntos de conexión privados para Azure Purview y se proporciona una lista de pasos y soluciones para resolver algunos de los problemas relevantes más comunes. 
 
 ## <a name="known-limitations"></a>Limitaciones conocidas
 
@@ -44,7 +46,7 @@ En esta guía se resumen las limitaciones conocidas relacionadas con el uso de p
 
 2. Si el punto de conexión privado del portal está implementado, asegúrese de implementar también el punto de conexión privado de la cuenta.
 
-3. Si el punto de conexión privado del portal está implementado y el acceso a la red pública está establecido para denegarse en la cuenta de Azure Purview, asegúrese de iniciar Azure Purview Studio desde la red interna. 
+3. Si el punto de conexión privado del portal está implementado y el acceso a la red pública está establecido para denegarse en la cuenta de Azure Purview, asegúrese de iniciar [Azure Purview Studio](https://web.purview.azure.com/resource/) desde la red interna.
   <br>
     - Para comprobar la resolución de nombres correcta, puede usar la herramienta de línea de comandos **NSlookup.exe** para consultar `web.purview.azure.com`. El resultado debe devolver una dirección IP privada que pertenezca al punto de conexión privado del portal. 
     - Para comprobar la conectividad de red, puede usar cualquier herramienta de prueba de red para probar la conectividad de salida al punto de conexión `web.purview.azure.com` con el puerto **443**. La conexión debe establecerse correctamente.    
@@ -140,14 +142,14 @@ En esta guía se resumen las limitaciones conocidas relacionadas con el uso de p
 
 10. Si la máquina de administración y las VM del entorno de ejecución de integración autohospedado están implementadas en la red local y ha configurado el reenviador DNS en su entorno, compruebe la configuración de DNS y de red en su entorno. 
 
-11. Si se usa el punto de conexión privado de ingesta, asegúrese de que el entorno de ejecución de integración autohospedado esté registrado correctamente en la cuenta de Purview y de que se muestre en ejecución tanto en la VM del entorno de ejecución de integración autohospedado con en Azure Purview Studio.
+11. Si se usa el punto de conexión privado de ingesta, asegúrese de que el entorno de ejecución de integración autohospedado esté registrado correctamente en la cuenta de Purview y de que se muestre en ejecución tanto en la VM del entorno de ejecución de integración autohospedado como en [Purview Studio](https://web.purview.azure.com/resource/).
 
 ## <a name="common-errors-and-messages"></a>Errores habituales y mensajes
 
 ### <a name="issue"></a>Problema 
 Recibe el siguiente mensaje de error al ejecutar un examen:
 
-  ```Internal system error. Please contact support with correlationId:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx System Error, contact support.```
+`Internal system error. Please contact support with correlationId:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx System Error, contact support.`
 
 ### <a name="cause"></a>Causa 
 Puede indicar problemas relacionados con la conectividad o la resolución de nombres entre la VM que ejecuta el entorno de ejecución de integración autohospedado y la cuenta de almacenamiento o el centro de eventos de los recursos administrados de Azure Purview.
@@ -159,7 +161,7 @@ Valide la resolución de nombres entre la VM que ejecuta el entorno de ejecució
 ### <a name="issue"></a>Problema 
 Recibe el siguiente mensaje de error al ejecutar un nuevo examen:
 
-  ```message: Unable to setup config overrides for this scan. Exception:'Type=Microsoft.WindowsAzure.Storage.StorageException,Message=The remote server returned an error: (404) Not Found.,Source=Microsoft.WindowsAzure.Storage,StackTrace= at Microsoft.WindowsAzure.Storage.Core.Executor.Executor.EndExecuteAsync[T](IAsyncResult result)```
+  `message: Unable to setup config overrides for this scan. Exception:'Type=Microsoft.WindowsAzure.Storage.StorageException,Message=The remote server returned an error: (404) Not Found.,Source=Microsoft.WindowsAzure.Storage,StackTrace= at Microsoft.WindowsAzure.Storage.Core.Executor.Executor.EndExecuteAsync[T](IAsyncResult result)`
 
 ### <a name="cause"></a>Causa 
 Puede indicar la ejecución de una versión anterior del entorno de ejecución de integración autohospedado. Si ha creado la cuenta de Azure Purview después del 18 de agosto de 2021, debe usar la versión 5.9.7885.3 del entorno de ejecución de integración autohospedado.

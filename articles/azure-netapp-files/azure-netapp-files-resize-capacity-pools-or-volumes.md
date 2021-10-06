@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/30/2021
 ms.author: b-juche
-ms.openlocfilehash: b57997408112466c45d6ce1364e1ac0a2c358cd1
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: fcba2424c457d97a45096af9a35b5f2afa4086ba
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321040"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407254"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>Cambiar el tamaño de un grupo de capacidad o de un volumen
 Puede cambiar el tamaño de un grupo de capacidad o un volumen según sea necesario, por ejemplo, cuando se llena un volumen o un grupo de capacidad. 
@@ -84,7 +84,7 @@ En la tabla siguiente se describe el comportamiento de cambio de tamaño del vol
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Configuración de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md)
+- [Creación de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md)
 - [Administración de un grupo de capacidad de QoS manual](manage-manual-qos-capacity-pool.md)
 - [Cambio dinámico del nivel de servicio de un volumen](dynamic-change-volume-service-level.md) 
 - [Descripción de la cuota de volumen](volume-quota-introduction.md)

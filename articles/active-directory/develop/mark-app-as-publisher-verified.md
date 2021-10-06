@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 09/27/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 2b658cdc58777274bb14f9e8069cef2facdb0479
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb1347b0dfcb2be5c485e503fb87c5a70dd7d30c
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92363460"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153793"
 ---
 # <a name="mark-your-app-as-publisher-verified"></a>Marcación de la aplicación como comprobada por el publicador
 
@@ -46,9 +46,9 @@ Asegúrese de que ha cumplido los [requisitos previos](publisher-verification-ov
 
     - En el Centro de partners, este usuario debe tener uno de los siguientes [roles](/partner-center/permissions-overview): Administrador de MPN, administrador de cuentas o administrador global (se trata de un rol compartido que se controla en Azure AD). 
 
-1. Vaya al portal de registro de aplicaciones:  
+1. Vaya a la hoja **Registros de aplicaciones**:  
 
-1. Haga clic en una aplicación que quiera marcar como comprobada por el publicador y abra la hoja Personalización de marca. 
+1. Haga clic en una aplicación que desee marcar como comprobada por el publicador y abra la hoja **Personalización de marca**. 
 
 1. Asegúrese de que el [dominio del editor](howto-configure-publisher-domain.md) de la aplicación esté establecido. 
 

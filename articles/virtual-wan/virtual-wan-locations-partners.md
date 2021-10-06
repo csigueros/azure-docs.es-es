@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: references_regions
-ms.openlocfilehash: ff6e928c5f50c2f0a15936b190f0191da67b81c3
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: c5d548105b5fd749865132ae0629eaac17462da2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122419448"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124818050"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Ubicaciones de concentradores virtuales y asociados de Azure Virtual WAN
 
@@ -61,7 +61,7 @@ Estos asociados tienen ofertas de **Aplicaciones administradas** que ahora está
 |---|---|
 |[Barracuda Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overviewus/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overview)| [Guía de implementación de WAN de Barracuda CloudGen](https://campus.barracuda.com/product/cloudgenwan/doc/91980640/deployment/)|
 |[VWAN del enrutador del servicio en la nube de Cisco (CSR)](https://aka.ms/ciscoMarketPlaceOffer)| La integración de la solución Cisco SD-WAN con Azure Virtual WAN mejora las implementaciones de Cloud OnRamp for Multi-Cloud y permite configurar Cisco Catalyst 8000V Edge Software (Cisco Catalyst 8000V) como una aplicación virtual de red (NVA) en centros de Azure Virtual WAN. [Visualización de Cisco SD-WAN Cloud OnRamp, Guía de configuración de Cisco IOS XE Release 17.x](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) 
-|[VMware SD-WAN en el centro de Virtual WAN](https://sdwan.vmware.com/partners/microsoft) | Durante la versión preliminar pública de VMware SD-WAN en el centro de VWAN, VMware requiere que el cliente se registre mediante el envío de un correo electrónico a vhubsupport@vmware.com. [Guía de implementación de VMware SD-WAN en el centro de Virtual WAN](https://kb.vmware.com/s/article/82746)|
+|[VMware SD-WAN en el centro de Virtual WAN](https://sdwan.vmware.com/partners/microsoft) | Para obtener instrucciones sobre la implementación del dispositivo VMware SD-WAN en el centro de Virtual WAN, consulte la [Guía de implementación de VMware SD-WAN en el centro de Virtual WAN](https://kb.vmware.com/s/article/82746). Para realizar la implementación, acceda a la aplicación administrada [aquí](https://azuremarketplace.microsoft.com/marketplace/apps/velocloud.vmware_sdwan_in_vwan)|
 
 Los siguientes asociados están preparados para agregar NVA en las ofertas del centro virtual en un futuro próximo: Redes de Aviatrix, Citrix y Versa.
 

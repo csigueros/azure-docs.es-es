@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con una organización de GitHub Enterprise Cloud | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con una organización de GitHub Enterprise Cloud | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y una organización de GitHub Enterprise Cloud.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/24/2020
+ms.date: 09/08/2021
 ms.author: jeedes
-ms.openlocfilehash: 12d80ee98ceef33221b7713703e8106bada6470c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fdd62a5acdc0c470b8b675d650b88839093dcbf4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750427"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124834254"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-a-github-enterprise-cloud-organization"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con una organización de GitHub Enterprise Cloud
+# <a name="tutorial-azure-ad-sso-integration-with-a-github-enterprise-cloud-organization"></a>Tutorial: Integración del inicio de sesión único de Azure AD con una organización de GitHub Enterprise Cloud
 
 En este tutorial, aprenderá a integrar una **organización** de GitHub Enterprise Cloud con Azure Active Directory (Azure AD). Al integrar una organización de GitHub Enterprise Cloud con Azure AD, puede:
 
@@ -27,9 +27,9 @@ En este tutorial, aprenderá a integrar una **organización** de GitHub Enterpri
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para configurar la integración de Azure AD con una organización de GitHub Enterprise Cloud, necesita los siguientes elementos:
+Para empezar, necesita los siguientes elementos:
 
-* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
+* Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 * Una organización GitHub creada en [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), que requiere el [plan de facturación de GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations).
 
 ## <a name="scenario-description"></a>Descripción del escenario
@@ -38,8 +38,7 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 * GitHub admite el inicio de sesión único iniciado por **SP**
 
-* GitHub admite el [**aprovisionamiento de usuarios (invitaciones de la organización)** automático](github-provisioning-tutorial.md).
-
+* GitHub admite el aprovisionamiento de usuarios (invitaciones de la organización) [**automatizado**](github-provisioning-tutorial.md).
 
 ## <a name="adding-github-from-the-gallery"></a>Adición de GitHub desde la galería
 
@@ -83,9 +82,8 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     c. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://github.com/orgs/<Organization ID>/sso`
 
-
     > [!NOTE]
-    > Tenga en cuenta que estos no son valores reales. Tendrá que actualizar estos valores con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Aquí le recomendamos que utilice el valor de cadena único en el identificador. Vaya a la sección de administración de GitHub para recuperar estos valores.
+    > Tenga en cuenta que estos no son valores reales. Tiene que actualizarlos con el identificador, la dirección URL de respuesta y la URL de inicio de sesión reales. Aquí le recomendamos que utilice el valor de cadena único en el identificador. Vaya a la sección de administración de GitHub para recuperar estos valores.
 
 5. La aplicación GitHub espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de pantalla muestra la lista de atributos predeterminados, donde a **Unique User Identifier (Name ID)** (Identificador de usuario único [Identificador de nombre]) se le ha asignado **user.userprincipalname**. La aplicación GitHub espera que al **identificador de usuario único (Identificador de nombre)** se le haya asignado **user.mail**, por lo que se debe editar la asignación de atributos. Para ello, haga clic en el icono **Editar** y cambie la asignación de atributos.
 
@@ -98,7 +96,6 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 7. En la sección **Set up GitHub** (Configurar GitHub), copie las direcciones URL que necesite.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
-
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -137,7 +134,7 @@ En esta sección va a permitir que B.Simon acceda a GitHub mediante el inicio de
 
 3. Active la casilla **Habilitar autenticación SAML** para ver los campos de configuración del inicio de sesión único y siga estos pasos:
 
-    ![Captura de pantalla que muestra la sección "SAML Single Sign-On" (Inicio de sesión único de SAML) con los cuadros de texto "Enable SAML authentication" (Habilitar autenticación SAML) y URL resaltados.](./media/github-tutorial/saml-sso.png)
+    ![Captura de pantalla que muestra la sección "SAML Single Sign-On" (Inicio de sesión único de SAML) con los cuadros de texto "Enable SAML authentication" (Habilitar autenticación SAML) y URL resaltados.](./media/github-tutorial/authentication.png)
 
     a. Copie el valor de **Single sign-on URL** (Dirección URL de inicio de sesión único) y pegue el valor en el cuadro de texto **URL de inicio de sesión** de la sección **Configuración básica de SAML** de Azure Portal.
     
@@ -157,11 +154,11 @@ En esta sección va a permitir que B.Simon acceda a GitHub mediante el inicio de
     
     e. Actualice la **dirección URL del servicio de consumidor de aserciones (URL de respuesta)** con respecto a la dirección URL predeterminada, con el fin de que la dirección URL de GitHub coincida con la del registro de aplicaciones de Azure.
 
-    ![imagen](./media/github-tutorial/tutorial_github_sha.png)
+    ![Captura de pantalla que muestra la imagen.](./media/github-tutorial/certificate.png)
 
 5. Haga clic en **Test SAML configuration** (Probar configuración de SAML) para configura que no hay errores de validación durante el SSO.
 
-    ![Configuración](./media/github-tutorial/test.png)
+    ![Captura de pantalla que muestra la configuración](./media/github-tutorial/test.png)
 
 6. Haga clic en **Guardar**
 
@@ -182,13 +179,13 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
 3. Haga clic en **Invitar a miembros**.
 
-    ![Invite Users (Invitar a usuarios)](./media/github-tutorial/invite-member.png "Invitar a usuarios")
+    ![Captura de pantalla que muestra Invitar a usuarios](./media/github-tutorial/invite-member.png "Invitar a usuarios")
 
 4. En la página de diálogo **Invitar a miembros**, realice los siguientes pasos:
 
     a. En el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico de la cuenta de Britta Simon.
 
-    ![Invite People (Invitar a personas)](./media/github-tutorial/email-box.png "Invitar a contactos")
+    ![Captura de pantalla que muestra invitar a personas](./media/github-tutorial/email-box.png "Invitar a contactos")
 
     b. Haga clic en **Enviar invitación**.
 
@@ -205,7 +202,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya directamente a la dirección URL de inicio de sesión de GitHub e inicie el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de GitHub en Mis aplicaciones, se le redirigirá a la URL de inicio de sesión de la aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de GitHub en Mis aplicaciones, se le redirigirá a la URL de inicio de sesión de la aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

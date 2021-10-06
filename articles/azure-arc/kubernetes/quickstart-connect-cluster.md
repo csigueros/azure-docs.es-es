@@ -5,15 +5,15 @@ author: mgoedtel
 ms.author: magoedte
 ms.service: azure-arc
 ms.topic: quickstart
-ms.date: 06/30/2021
+ms.date: 09/09/2021
 ms.custom: template-quickstart
 keywords: Kubernetes, Arc, Azure, cluster
-ms.openlocfilehash: 16e271cf6183dce74fad3075a2e8336030960a08
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: bcc4d9183bf60e37c1d024462d7ab924df1f671e
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122966646"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129210777"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>Inicio rápido: conexión de un clúster de Kubernetes existente a Azure Arc
 
@@ -49,10 +49,9 @@ En este inicio rápido, conocerá las ventajas de Kubernetes habilitado para Azu
 * Un archivo `kubeconfig` y un contexto que apunte al clúster.
 * Permisos de lectura y escritura en el tipo de recurso de Kubernetes habilitado para Azure Arc (`Microsoft.Kubernetes/connectedClusters`).
 
-* Instale la [versión más reciente de Helm 3](https://helm.sh/docs/intro/install).
+* Instale [Helm 3](https://helm.sh/docs/intro/install). Asegúrese de que la versión de Helm 3 es &lt; 3.7.0.
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
-
 
 * [Azure PowerShell, versión 5.9.0 o posterior](/powershell/azure/install-az-ps)
 
@@ -81,7 +80,7 @@ En este inicio rápido, conocerá las ventajas de Kubernetes habilitado para Azu
 * Un archivo `kubeconfig` y un contexto que apunte al clúster.
 * Permisos de lectura y escritura en el tipo de recurso de Kubernetes habilitado para Azure Arc (`Microsoft.Kubernetes/connectedClusters`).
 
-* Instale la [versión más reciente de Helm 3](https://helm.sh/docs/intro/install).
+* Instale [Helm 3](https://helm.sh/docs/intro/install). Asegúrese de que la versión de Helm 3 es &lt; 3.7.0.
 
 ---
 
@@ -96,9 +95,9 @@ En este inicio rápido, conocerá las ventajas de Kubernetes habilitado para Azu
 | `https://management.azure.com` (para la nube de Azure), `https://management.usgovcloudapi.net` (para Azure US Government) | Necesario para que el agente se conecte a Azure y registre el clúster. |
 | `https://<region>.dp.kubernetesconfiguration.azure.com` (para la nube de Azure), `https://<region>.dp.kubernetesconfiguration.azure.us` (para Azure US Government) | Punto de conexión de plano de datos para que el agente inserte información de la configuración de estado y recuperación de cambios. |
 | `https://login.microsoftonline.com`, `login.windows.net` (para la nube de Azure), `https://login.microsoftonline.us` (para Azure US Government) | Necesario para capturar y actualizar tokens de Azure Resource Manager. |
-| `https://mcr.microsoft.com` | Necesario para extraer imágenes de contenedor para agentes de Azure Arc.                                                                  |
+| `https://mcr.microsoft.com`, `https://*.data.mcr.microsoft.com` | Necesario para extraer imágenes de contenedor para agentes de Azure Arc.                                                                  |
 | `https://gbl.his.arc.azure.com` |  Necesario para obtener el punto de conexión regional para extraer certificados de Managed Service Identity (MSI) asignados por el sistema. |
-| `https://*.his.arc.azure.com` (para la nube de Azure), `https://usgv.his.arc.azure.us` (para Azure US Government) |  Se requiere para extraer certificados de Managed Service Identity (MSI) asignados por el sistema. |
+| `https://*.his.arc.azure.com` (para la nube de Azure), `https://usgv.his.arc.azure.us` y `https://gbl.his.arc.azure.us` (para Azure US Government) |  Necesario para extraer certificados de identidad administrados que haya asignado el sistema. |
 |`*.servicebus.windows.net`, `guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`, `sts.windows.net` | Para escenarios basados en la [conexión de clúster](cluster-connect.md) y la [ubicación personalizada](custom-locations.md). |
 
 ## <a name="1-register-providers-for-azure-arc-enabled-kubernetes"></a>1. Registro de proveedores en Kubernetes habilitado para Azure Arc
@@ -247,21 +246,11 @@ Si el clúster se encuentra detrás de un servidor proxy de salida, tanto la CLI
 
 1. Establezca las variables de entorno necesarias para que CLI de Azure use el servidor proxy de salida:
 
-    * Si usa bash, ejecute el siguiente comando con los valores adecuados:
-
-        ```bash
-        export HTTP_PROXY=<proxy-server-ip-address>:<port>
-        export HTTPS_PROXY=<proxy-server-ip-address>:<port>
-        export NO_PROXY=<cluster-apiserver-ip-address>:<port>
-        ```
-
-    * Si usa PowerShell, ejecute el siguiente comando con los valores adecuados:
-
-        ```powershell
-        $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
-        $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
-        $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
-        ```
+    ```bash
+    export HTTP_PROXY=<proxy-server-ip-address>:<port>
+    export HTTPS_PROXY=<proxy-server-ip-address>:<port>
+    export NO_PROXY=<cluster-apiserver-ip-address>:<port>
+    ```
 
 2. Ejecute el comando connect con los parámetros de proxy especificados:
 
@@ -270,8 +259,9 @@ Si el clúster se encuentra detrás de un servidor proxy de salida, tanto la CLI
     ```
 
     > [!NOTE]
-    > * Algunas solicitudes de red, como las que implican la comunicación entre servicios en el clúster, deben separarse del tráfico que se enruta a través del servidor proxy para la comunicación saliente. El parámetro `--proxy-skip-range` se puede usar para especificar el intervalo CIDR y los puntos de conexión en formato separado por comas para que las comunicaciones entre los agentes y estos puntos de conexión no se realicen a través del proxy de salida. Como mínimo, el intervalo CIDR de los servicios del clúster debe especificarse como valor para este parámetro. Por ejemplo, supongamos que `kubectl get svc -A` devuelve una lista de servicios donde todos los servicios tienen valores ClusterIP en el intervalo `10.0.0.0/16`. Entonces, el valor para especificar `--proxy-skip-range`es "10.0.0.0/16,kubernetes.default.svc".
+    > * Algunas solicitudes de red, como las que implican la comunicación entre servicios en el clúster, deben separarse del tráfico que se enruta a través del servidor proxy para la comunicación saliente. El parámetro `--proxy-skip-range` se puede usar para especificar el intervalo CIDR y los puntos de conexión en formato separado por comas para que las comunicaciones entre los agentes y estos puntos de conexión no se realicen a través del proxy de salida. Como mínimo, el intervalo CIDR de los servicios del clúster debe especificarse como valor para este parámetro. Por ejemplo, supongamos que `kubectl get svc -A` devuelve una lista de servicios donde todos los servicios tienen valores ClusterIP en el intervalo `10.0.0.0/16`. A continuación, el valor que se va a especificar para `--proxy-skip-range` es `10.0.0.0/16,kubernetes.default.svc,.svc.cluster.local,.svc`.
     > * `--proxy-http` `--proxy-https` y `--proxy-skip-range` se esperan para la mayoría de los entornos de proxy de salida. `--proxy-cert` *solo* se necesita si hay que insertar en el almacén de certificados de confianza de pods del agente certificados de confianza que espera el proxy.
+    > * El proxy de salida debe configurarse para permitir conexiones de WebSocket.
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
@@ -279,13 +269,11 @@ Si el clúster se encuentra detrás de un servidor proxy de salida, tanto la Azu
 
 1. Establezca las variables de entorno necesarias para que Azure PowerShell use el servidor proxy de salida:
 
-    * Ejecute el siguiente comando con los valores adecuados:
-
-        ```powershell
-        $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
-        $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
-        $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
-        ```
+    ```powershell
+    $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
+    $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
+    $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
+    ```
 
 2. Ejecute el comando connect con el parámetro de proxy especificado:
 
@@ -332,7 +320,7 @@ eastus   AzureArcTest1 microsoft.kubernetes/connectedclusters
 
 ## <a name="6-view-azure-arc-agents-for-kubernetes"></a>6. Visualización de agentes de Azure Arc para Kubernetes
 
-Kubernetes habilitado para Azure Arc implementa algunos operadores en el espacio de nombres `azure-arc`.
+Kubernetes habilitado para Azure Arc implementa varios operadores en el espacio de nombres `azure-arc`.
 
 1. Para ver estas implementaciones y pods, utilice:
 
@@ -375,7 +363,7 @@ az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
 ```
 
 >[!NOTE]
-> Si se usa Azure Portal para eliminar el recurso Kubernetes habilitado para Azure Arc, se eliminan todos los recursos de configuración asociados, pero *no* se elimina ningún agente que se ejecute en el clúster. El procedimiento recomendado es eliminar el recurso Kubernetes habilitado para Azure Arc mediante `az connectedk8s delete`, en lugar de Azure Portal.
+> Si se usa Azure Portal para eliminar el recurso Kubernetes habilitado para Azure Arc, se eliminan todos los recursos de configuración asociados, pero *no* se elimina ningún agente que se ejecute en el clúster. El procedimiento recomendado es eliminar el recurso de Kubernetes habilitado para Azure Arc mediante `az connectedk8s delete` en lugar de Azure Portal.
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
@@ -386,7 +374,7 @@ Remove-AzConnectedKubernetes -ClusterName AzureArcTest1 -ResourceGroupName Azure
 ```
 
 >[!NOTE]
-> Si se usa Azure Portal para eliminar el recurso Kubernetes habilitado para Azure Arc, se eliminan todos los recursos de configuración asociados, pero *no* se elimina ningún agente que se ejecute en el clúster. El procedimiento recomendado es eliminar el recurso Kubernetes habilitado para Azure Arc mediante `Remove-AzConnectedKubernetes`, en lugar de Azure Portal.
+> Si se usa Azure Portal para eliminar el recurso Kubernetes habilitado para Azure Arc, se eliminan todos los recursos de configuración asociados, pero *no* se elimina ningún agente que se ejecute en el clúster. El procedimiento recomendado es eliminar el recurso de Kubernetes habilitado para Azure Arc mediante `Remove-AzConnectedKubernetes` en lugar de Azure Portal.
 
 ---
 

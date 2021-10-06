@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: be43dda1e1fdf6d23031f2d2bf75a7f126ddef7a
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 7e16fd0d1c6370cb0ab973760c988c600f42888c
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123272842"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153527"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migración de máquinas virtuales de VMware a Azure (basada en agente)
 
@@ -103,7 +103,7 @@ Mobility Service debe estar instalado en las máquinas que desee replicar.
 Prepare la cuenta como se indica a continuación:
 
 1. Prepare un dominio o cuenta local con permisos para instalar en la máquina virtual.
-2. En máquinas virtuales Windows, si no va a usar una cuenta de dominio, deshabilite el control de acceso de usuario remoto en la máquina local: agregue la entrada DWORD **LocalAccountTokenFilterPolicy**, con un valor de 1, en el Registro, bajo **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**.
+2. En el caso de las máquinas virtuales Windows, si no va a usar una cuenta de dominio, deshabilite el control de acceso de usuario remoto en la máquina local. Para ello, agregue la entrada de DWORD **LocalAccountTokenFilterPolicy**, con un valor de 1, en el Registro, bajo **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**.
 3. En máquinas virtuales Linux, prepare una cuenta raíz en el servidor Linux de origen.
 
 
@@ -354,7 +354,7 @@ Después de comprobar que la migración de prueba funciona según lo previsto, p
 
 ## <a name="complete-the-migration"></a>Completar la migración
 
-1. Una vez finalizada la migración, haga clic con el botón derecho en la máquina virtual > **Detener migración**. Esto hace lo siguiente:
+1. Una vez finalizada la migración, haga clic con el botón derecho en la máquina virtual > **Detener replicación**. Esto hace lo siguiente:
     - Detiene la replicación en la máquina local.
     - Quita la máquina del recuento de **Servidores en replicación** en Azure Migrate: Server Migration.
     - Limpia la información de estado de replicación de la máquina virtual.

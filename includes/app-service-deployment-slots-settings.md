@@ -2,14 +2,14 @@
 author: cephalin
 ms.service: app-service
 ms.topic: include
-ms.date: 09/18/2019
+ms.date: 09/09/2021
 ms.author: cephalin
-ms.openlocfilehash: 062b46350412f3aec2eb10deddaf9b4cab37a4a4
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 0cc0758c2c4c2c0aca9f1b55ef8ee7c5e5790f31
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123453694"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "126056925"
 ---
 Cuando crea un clon de la configuración de otro espacio de implementación, la configuración clonada se puede editar. Algunos elementos de configuración siguen al contenido en los intercambios (no son específicos de la ranura), mientras que otros permanecen en la misma ranura después de este (específicos). Las listas siguientes muestran la configuración que cambia cuando se intercambian las ranuras.
 
@@ -45,6 +45,6 @@ Se prevé que las características marcadas con un asterisco (*) no se intercamb
 
 > [!NOTE]
 > Para que la configuración mencionada anteriormente sea intercambiable, agregue la configuración de la aplicación `WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS` en todas las ranuras de la aplicación y establezca su valor en `0` o `false`. Esta configuración se puede intercambiar o no. Recuerde que no puede hacer que solo algunos valores de configuración sean intercambiables y que los demás no lo sean. Las identidades administradas nunca se intercambian y no se ven afectadas por esta invalidación de la configuración de la aplicación
-
+>
 > Algunas configuraciones de aplicaciones que se aplican a configuraciones no intercambiadas no se intercambian. Por ejemplo, como los valores de diagnóstico no se intercambian, los valores de aplicaciones relacionados como `WEBSITE_HTTPLOGGING_RETENTION_DAYS` y `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` tampoco lo hacen, aunque no se muestren como valores de ranura.
 >

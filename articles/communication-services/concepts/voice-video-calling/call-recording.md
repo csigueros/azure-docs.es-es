@@ -10,12 +10,13 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: fef4972271046f7435140fd2d9ba3d18c7c3b11c
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.subservice: calling
+ms.openlocfilehash: a6e5f1ecb5686145718d83febf3faf5c520db6fe
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123254754"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609524"
 ---
 # <a name="calling-recording-overview"></a>Introducción a la grabación de llamadas
 
@@ -55,7 +56,7 @@ Las API de control de un entorno de ejecución se pueden usar para administrar l
 Se publica una notificación `Microsoft.Communication.RecordingFileStatusUpdated` de Event Grid cuando una grabación está lista para su recuperación, normalmente unos minutos después de que se haya completado el proceso de grabación (por ejemplo, finalizó la reunión o se detuvo la grabación). Las notificaciones de eventos de grabación incluyen los elementos `contentLocation` y `metadataLocation`, que se usan para recuperar los elementos multimedia grabados y un archivo de metadatos de la grabación.
 
 ### <a name="notification-schema-reference"></a>Referencia del esquema de notificación
-```
+```typescript
 {
     "id": string, // Unique guid for event
     "topic": string, // Azure Communication Services resource id

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 3cfe75edcf338f5248baf396147a5b77803fbfb3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 46f2811fa3f5a57add9af0b67444d236e3b18519
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97655941"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129231052"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Consulta de datos de Avro con Azure Data Lake Analytics
 
@@ -66,13 +66,13 @@ En esta sección, se consultan datos de Avro y se exportan a un archivo CSV en A
 
     ```sql
         DROP ASSEMBLY IF EXISTS [Avro];
-        CREATE ASSEMBLY [Avro] FROM @"/Assemblies/Avro/Avro.dll";
+        CREATE ASSEMBLY [Avro] FROM @"/Assemblies/Avro/Avro.dll&quot;;
         DROP ASSEMBLY IF EXISTS [Microsoft.Analytics.Samples.Formats];
-        CREATE ASSEMBLY [Microsoft.Analytics.Samples.Formats] FROM @"/Assemblies/Avro/Microsoft.Analytics.Samples.Formats.dll";
+        CREATE ASSEMBLY [Microsoft.Analytics.Samples.Formats] FROM @&quot;/Assemblies/Avro/Microsoft.Analytics.Samples.Formats.dll&quot;;
         DROP ASSEMBLY IF EXISTS [Newtonsoft.Json];
-        CREATE ASSEMBLY [Newtonsoft.Json] FROM @"/Assemblies/Avro/Newtonsoft.Json.dll";
+        CREATE ASSEMBLY [Newtonsoft.Json] FROM @&quot;/Assemblies/Avro/Newtonsoft.Json.dll&quot;;
         DROP ASSEMBLY IF EXISTS [log4net];
-        CREATE ASSEMBLY [log4net] FROM @"/Assemblies/Avro/log4net.dll";
+        CREATE ASSEMBLY [log4net] FROM @&quot;/Assemblies/Avro/log4net.dll&quot;;
 
         REFERENCE ASSEMBLY [Newtonsoft.Json];
         REFERENCE ASSEMBLY [log4net];
@@ -80,8 +80,8 @@ En esta sección, se consultan datos de Avro y se exportan a un archivo CSV en A
         REFERENCE ASSEMBLY [Microsoft.Analytics.Samples.Formats];
 
         // Blob container storage account filenames, with any path
-        DECLARE @input_file string = @"wasb://hottubrawdata@kevinsayazstorage/kevinsayIoT/{*}/{*}/{*}/{*}/{*}/{*}";
-        DECLARE @output_file string = @"/output/output.csv";
+        DECLARE @input_file string = @&quot;wasb://hottubrawdata@kevinsayazstorage/kevinsayIoT/{*}/{*}/{*}/{*}/{*}/{*}&quot;;
+        DECLARE @output_file string = @&quot;/output/output.csv&quot;;
 
         @rs =
         EXTRACT
@@ -89,35 +89,35 @@ En esta sección, se consultan datos de Avro y se exportan a un archivo CSV en A
         Body byte[]
         FROM @input_file
 
-        USING new Microsoft.Analytics.Samples.Formats.ApacheAvro.AvroExtractor(@"
+        USING new Microsoft.Analytics.Samples.Formats.ApacheAvro.AvroExtractor(@&quot;
         {
-            ""type"":""record"",
-            ""name"":""Message"",
-            ""namespace"":""Microsoft.Azure.Devices"",
-            ""fields"":
+            &quot;&quot;type&quot;&quot;:&quot;&quot;record&quot;&quot;,
+            &quot;&quot;name&quot;&quot;:&quot;&quot;Message&quot;&quot;,
+            &quot;&quot;namespace&quot;&quot;:&quot;&quot;Microsoft.Azure.Devices&quot;&quot;,
+            &quot;&quot;fields&quot;&quot;:
            [{
-                ""name"":""EnqueuedTimeUtc"",
-                ""type"":""string""
+                &quot;&quot;name&quot;&quot;:&quot;&quot;EnqueuedTimeUtc&quot;&quot;,
+                &quot;&quot;type&quot;&quot;:&quot;&quot;string&quot;&quot;
             },
             {
-                ""name"":""Properties"",
-                ""type"":
+                &quot;&quot;name&quot;&quot;:&quot;&quot;Properties&quot;&quot;,
+                &quot;&quot;type&quot;&quot;:
                 {
-                    ""type"":""map"",
-                    ""values"":""string""
+                    &quot;&quot;type&quot;&quot;:&quot;&quot;map&quot;&quot;,
+                    &quot;&quot;values&quot;&quot;:&quot;&quot;string&quot;&quot;
                 }
             },
             {
-                ""name"":""SystemProperties"",
-                ""type"":
+                &quot;&quot;name&quot;&quot;:&quot;&quot;SystemProperties&quot;&quot;,
+                &quot;&quot;type&quot;&quot;:
                 {
-                    ""type"":""map"",
-                    ""values"":""string""
+                    &quot;&quot;type&quot;&quot;:&quot;&quot;map&quot;&quot;,
+                    &quot;&quot;values&quot;&quot;:&quot;&quot;string&quot;&quot;
                 }
             },
             {
-                ""name"":""Body"",
-                ""type"":[""null"",""bytes""]
+                &quot;&quot;name&quot;&quot;:&quot;&quot;Body&quot;&quot;,
+                &quot;&quot;type&quot;&quot;:[&quot;&quot;null&quot;&quot;,&quot;&quot;bytes&quot;&quot;]
             }]
         }"
         );
@@ -170,8 +170,6 @@ En esta sección, se consultan datos de Avro y se exportan a un archivo CSV en A
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha aprendido a consultar los datos de Avro para enrutar de manera eficaz los mensajes de Azure IoT Hub a servicios de Azure.
-
-Para ver ejemplos de soluciones completas que usen IoT Hub, consulte la [Documentación sobre los aceleradores de soluciones de IoT](../iot-accelerators/index.yml).
 
 Para obtener más información sobre cómo desarrollar soluciones con IoT Hub, consulte la [Guía para desarrolladores de IoT Hub](iot-hub-devguide.md).
 

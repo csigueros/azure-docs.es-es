@@ -1,20 +1,20 @@
 ---
-title: Registro de Erwin Mart y configuración de los exámenes en Azure Purview
+title: Registro de Erwin Mart y configuración de los exámenes
 description: En este artículo, se explica cómo registrar Erwin Mart en Azure Purview y cómo configurar un examen.
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 7/16/2021
-ms.openlocfilehash: 2b6c9f621c4c18a172e12bc93387eb75451cb851
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 8077658b644853f9ce0789a1d0863b3bde902818
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121736336"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211543"
 ---
-# <a name="register-and-scan-erwin-mart-server-preview"></a>Registro de un servidor de Erwin Mart y configuración de un examen (versión preliminar)
+# <a name="register-and-scan-erwin-mart-server-preview"></a>Registro y examen de un servidor de Erwin Mart (versión preliminar)
 
 En este artículo, se describe cómo registrar un servidor de Erwin Mart en Purview y cómo configurar un examen.
 
@@ -71,7 +71,7 @@ En la pantalla Register sources (Erwin) (Registrar orígenes [Erwin]), haga lo s
 4.  Escriba un valor para **Application name** (Nombre de la aplicación).
 
     >[!Note]
-    > Para encontrar los detalles anteriores, vaya a al modelador de datos de Erwin. Haga clic en Mart -\> Connect (Conectar) para ver los detalles relacionados con el nombre del servidor, el puerto y el nombre de la aplicación.
+    > Para encontrar los detalles anteriores, vaya a al modelador de datos de Erwin. Seleccione Mart -\> Connect (Conectar) para ver los detalles relacionados con el nombre del servidor, el puerto y el nombre de la aplicación.
 
     :::image type="content" source="media/register-scan-erwin-source/erwin-details.png" alt-text="Buscar los detalles de Erwin" border="true":::
     
@@ -86,7 +86,7 @@ En la pantalla Register sources (Erwin) (Registrar orígenes [Erwin]), haga lo s
 
 Para crear y ejecutar un nuevo examen, siga estos pasos:
 
-1.  En el centro de administración, haga clic en Integration runtimes (Entornos de ejecución de integración). Asegúrese de que se haya configurado un entorno de ejecución de integración autohospedado en la máquina virtual en la que se ejecuta la instancia de Erwin Mart. Si no lo está, use los pasos que se indican [aquí](./manage-integration-runtimes.md) para configurar un entorno de ejecución de integración autohospedado.
+1.  En el centro de administración, seleccione Entornos de ejecución de integración. Asegúrese de que se haya configurado un entorno de ejecución de integración autohospedado en la máquina virtual en la que se ejecuta la instancia de Erwin Mart. Si no lo está, use los pasos que se indican [aquí](./manage-integration-runtimes.md) para configurar un entorno de ejecución de integración autohospedado.
 
 2.  Vaya a **Sources** (Orígenes).
 
@@ -124,13 +124,13 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
     :::image type="content" source="media/register-scan-erwin-source/setup-scan.png" alt-text="Desencadenar examen" border="true":::
    
 
-6.  Haga clic en **Probar la conexión**.
+6.  Seleccione **Test Connection** (Probar conexión).
 
-7.  Haga clic en **Continuar**.
+7.  Seleccione **Continuar**.
 
 8.  Elija el **desencadenador del examen**. Puede configurar una programación o ejecutar el examen una vez.
 
-9.  Revise el examen y haga clic en **Save and run** (Guardar y ejecutar).
+9.  Revise el examen y seleccione **Save and run** (Guardar y ejecutar).
 
 ## <a name="viewing-your-scans-and-scan-runs"></a>Visualización de los exámenes y las ejecuciones de exámenes
 

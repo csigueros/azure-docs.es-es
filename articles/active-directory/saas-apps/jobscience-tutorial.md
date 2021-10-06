@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 8fdfa2385851773f30305ca9ec7f5371d39e8089
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: beea6cdb03557a008504e992529c72ff9317cf60
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124765361"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230786"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Tutorial: Integración de Azure Active Directory con Jobscience
 
@@ -111,7 +111,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `http://<company name>.my.salesforce.com`
     
     > [!NOTE] 
-    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Puede obtener este valor con el [equipo de soporte técnico del cliente de Jobscience](http://www.jobscience.com/support) o en el perfil de SSO que va a crear, lo que se explica más adelante en el tutorial. 
+    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Puede obtener este valor con el [equipo de soporte técnico del cliente de Jobscience](https://www.bullhorn.com/technical-support/) o en el perfil de SSO que va a crear, lo que se explica más adelante en el tutorial. 
  
 1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 

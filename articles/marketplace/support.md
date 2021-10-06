@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: navits09
 ms.author: navits
-ms.date: 01/19/2020
-ms.openlocfilehash: 47ed6f8e8756d8fe317b932edf360b710b58e26b
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 09/27/2021
+ms.openlocfilehash: 8866a00c6905ee046ce52177ca6f01874de62548
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110706861"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081954"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Soporte técnico para el programa de marketplace comercial en el Centro de partners
 
@@ -23,6 +23,42 @@ Microsoft ofrece soporte para una amplia variedad de productos y servicios. Enco
 - Si es anunciante y tiene una pregunta relacionada con la aplicación o el servicio, revise las siguientes opciones de soporte técnico.
 
 ## <a name="get-help-or-open-a-support-ticket"></a>Obtención de ayuda o apertura de una incidencia de soporte técnico
+
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home) con su cuenta profesional. Si aún no lo ha hecho, tendrá que [crear una cuenta del Centro de partners](create-account.md).
+
+1. En la página principal, seleccione el mosaico **Ayuda y soporte técnico**.
+
+     [ ![Muestra la página principal del Centro de partners con el mosaico Ayuda y soporte técnico resaltado.](./media/workspaces/partner-center-help-support-tile.png) ](./media/workspaces/partner-center-help-support-tile.png#lightbox)
+
+1. En **Mis solicitudes de soporte técnico**, seleccione **Nueva solicitud**.
+
+1. En el cuadro **Problem summary** (Resumen del problema), escriba una descripción breve de la incidencia.
+
+1. En el cuadro **Tipo de problema**, haga una de las acciones siguientes:
+
+    - **Opción 1**: Escriba palabras clave como: Marketplace, aplicación de Azure, oferta de SaaS, administración de cuentas, administración de clientes potenciales, problema de implementación, pago o migración de ofertas de venta conjunta. Luego, seleccione un tipo de problema en la lista de recomendaciones que aparece.
+
+    - **Opción 2**: Seleccione **Examinar temas** en la lista **Categoría** y, luego, seleccione **Marketplace comercial**. Luego, seleccione el **Tema** y **Subtema** adecuados.
+
+1. Una vez que haya encontrado el tema que desea, seleccione **Revisar soluciones**.
+
+    ![Paso siguiente](./media/support/next-step.png)
+
+Se muestran las opciones siguientes:
+
+- Para seleccionar otro tema, haga clic en **Select a different issue** (Seleccionar otra incidencia).
+- Para ayudar a resolver el problema, revise los pasos y documentos recomendados, si está disponible.
+
+    [ ![Muestra la página Soluciones recomendadas.](./media/support/recommended-solutions.png) ](./media/support/recommended-solutions.png#lightbox)
+
+Si no encuentra la respuesta que busca en la autoayuda, seleccione **Provide issue details** (Proporcionar detalles del problema). Complete todos los campos obligatorios para acelerar el proceso de resolución y seleccione **Enviar**.
+
+>[!Note]
+>Si no ha iniciado sesión en el Centro de partners, puede que tenga que iniciar sesión para poder crear un vale.
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
 
 1. Inicia sesión con la cuenta profesional. Si aún no lo ha hecho, tendrá que [crear una cuenta del Centro de partners](create-account.md).
 
@@ -56,9 +92,23 @@ Si no encuentra la respuesta que busca en la autoayuda, seleccione **Provide iss
 >[!Note]
 >Si no ha iniciado sesión en el Centro de partners, puede que tenga que iniciar sesión para poder crear un vale.
 
+---
+
 ## <a name="track-your-existing-support-requests"></a>Realizar un seguimiento de las solicitudes de soporte técnico existentes
 
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+
+1. Para revisar las incidencias abiertas y cerradas, inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home) con su cuenta profesional.
+
+1. En la página principal, seleccione el mosaico **Ayuda y soporte técnico**.
+
+    [ ![Muestra la página principal del Centro de partners con el mosaico Ayuda y soporte técnico resaltado.](./media/workspaces/partner-center-help-support-tile.png) ](./media/workspaces/partner-center-help-support-tile.png#lightbox)
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
+
 Para revisar los vales abiertos y cerrados, seleccione **Marketplace comercial** > **Soporte técnico** en el menú de navegación de la izquierda.
+
+---
 
 ## <a name="record-issue-details-with-a-har-file"></a>Registro de los detalles del problema con un archivo HAR
 
@@ -72,19 +122,19 @@ Para ayudar a los agentes de soporte técnico a solucionar el problema, consider
 Para generar un archivo HAR mediante **Microsoft Edge** o **Google Chrome**:
 
 1. Vaya a la página web donde está experimentando el problema.
-2. En la esquina superior derecha de la ventana, seleccione el icono de puntos suspensivos y, a continuación, **Más herramientas** > **Herramientas de desarrollo**. Puede presionar F12 como método abreviado de teclado.
-3. En el panel Herramientas de desarrollo, seleccione la pestaña **Red**.
-4. Seleccione **Stop recording network log** (Dejar de grabar el registro de red) y **Borrar** para quitar los registros existentes. El icono de registro cambiará a gris.
+1. En la esquina superior derecha de la ventana, seleccione el icono de puntos suspensivos y, a continuación, **Más herramientas** > **Herramientas de desarrollo**. Puede presionar F12 como método abreviado de teclado.
+1. En el panel Herramientas de desarrollo, seleccione la pestaña **Red**.
+1. Seleccione **Stop recording network log** (Dejar de grabar el registro de red) y **Borrar** para quitar los registros existentes. El icono de registro cambiará a gris.
 
     ![Cómo quitar registros existentes en Microsoft Edge o Google Chrome](media/support/chromium-stop-clear-session.png)
 
-5. Seleccione **Record network log** (Grabar el registro de red) para iniciar la grabación. Al iniciar la grabación, el icono de registro se volverá rojo.
+1. Seleccione **Record network log** (Grabar el registro de red) para iniciar la grabación. Al iniciar la grabación, el icono de registro se volverá rojo.
 
     ![Cómo iniciar la grabación en Microsoft Edge o Google Chrome](media/support/chromium-start-session.png)
 
-6. Reproduzca el problema que desea solucionar.
-7. Una vez que haya reproducido el problema, seleccione **Stop recording network log** (Dejar de grabar el registro de red).
-8. Seleccione **Exportar HAR**, marcado con un icono de flecha hacia abajo y guarde el archivo.
+1. Reproduzca el problema que desea solucionar.
+1. Una vez que haya reproducido el problema, seleccione **Stop recording network log** (Dejar de grabar el registro de red).
+1. Seleccione **Exportar HAR**, marcado con un icono de flecha hacia abajo y guarde el archivo.
 
     ![Cómo exportar un archivo HAR en Microsoft Edge o Google Chrome](media/support/chromium-network-export-har.png)
 

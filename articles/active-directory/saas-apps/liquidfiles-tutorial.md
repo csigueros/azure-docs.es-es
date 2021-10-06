@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con LiquidFiles | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con LiquidFiles'
 description: Obtenga información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y LiquidFiles.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/02/2021
+ms.date: 09/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 482d47c69da61ce932127d1e450f106ee02b4172
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 2c20c03e61d7fa7055d1044d69cacc8b234ad8f4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111571640"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636655"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-liquidfiles"></a>Tutorial: Integración de Azure Active Directory con LiquidFiles
+# <a name="tutorial-azure-ad-sso-integration-with-liquidfiles"></a>Tutorial: Integración del inicio de sesión único de Azure AD con LiquidFiles
 
 En este tutorial, aprenderá a integrar LiquidFiles con Azure Active Directory (Azure AD). La integración de LiquidFiles con Azure AD permite:
 
@@ -32,6 +32,9 @@ Para configurar la integración de Azure AD con LiquidFiles, necesita los siguie
 
 * Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/).
 * Una suscripción habilitada para el inicio de sesión único en LiquidFiles.
+
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 

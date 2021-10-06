@@ -3,12 +3,12 @@ title: 'Inicio rápido: Introducción'
 description: En este inicio rápido, aprenderá a usar el flujo de trabajo básico para la implementación de Defender para IoT.
 ms.topic: quickstart
 ms.date: 06/06/2021
-ms.openlocfilehash: cae5b1db400cebe341463dbc752fe5559b779380
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 32565bfcf87facb957dc4e8b1fc73f52eb1c7ac2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123437676"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124836423"
 ---
 # <a name="quickstart-get-started-with-defender-for-iot"></a>Inicio rápido: Introducción a Defender para IoT
 
@@ -63,6 +63,8 @@ El registro incluye:
 - Definición de los dispositivos confirmados
 - Descarga de un archivo de activación para la consola de administración local
 
+También puede usar una suscripción de prueba para supervisar 1000 dispositivos de forma gratuita durante 30 días. Para más información, consulte [Incorporación de una suscripción de prueba](how-to-manage-subscriptions.md#onboard-a-trial-subscription).
+
 **Para realizar el registro**:
 
 1. Vaya al portal de Azure Defender para IoT.
@@ -74,6 +76,8 @@ El registro incluye:
 1. Seleccione la pestaña **Download the on-premises management console** (Descargar la consola de administración local) y guarde el archivo de activación descargado. Este archivo contiene los dispositivos confirmados agregados que ha definido. El archivo se cargará en la consola de administración después del inicio de sesión inicial.
 
 Para obtener información sobre cómo retirar una suscripción, consulte [Retirada de una suscripción](how-to-manage-subscriptions.md#offboard-a-subscription).
+
+
 
 ## <a name="install-and-set-up-the-on-premises-management-console"></a>Instalación y configuración de la consola de administración local
 

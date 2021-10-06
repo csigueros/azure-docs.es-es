@@ -1,0 +1,114 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas frecuentes sobre los informes de Azure Active Directory | Microsoft Docs
+  description: Preguntas frecuentes sobre los informes de Azure Active Directory.
+  services: active-directory
+  documentationcenter: ''
+  author: cawrites
+  manager: MarkusVi
+  ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
+  ms.service: active-directory
+  ms.workload: identity
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: conceptual
+  ms.subservice: report-monitor
+  ms.date: 05/12/2020
+  ms.author: markvi
+  ms.reviewer: dhanyahk
+  ms.collection: M365-identity-device-management
+  ms.openlocfilehash: fe6775a15dc878bb31c60df592ca5d24b29b2c6a
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124839103"
+title: Preguntas frecuentes en torno a los informes de Azure Active Directory
+summary: "Este artículo incluye respuestas a preguntas más frecuentes sobre los informes de Azure Active Directory (Azure AD). Para más información, consulte [Informes de Azure Active Directory](overview-reports.md). \n"
+sections:
+- name: Introducción
+  questions:
+  - question: >
+      Actualmente uso las API de punto de conexión `https://graph.windows.net/<tenant-name>/reports/` para extraer informes de uso de aplicaciones integradas y de auditoría de Azure AD en nuestros sistemas de informes mediante programación. ¿A cuál debo cambiar?
+    answer: >
+      Consulte la [referencia de API](https://developer.microsoft.com/graph/) para ver cómo puede [usar las API para acceder a informes de actividad](concept-reporting-api.md). Este punto de conexión tiene dos informes (**auditoría** e **inicios de sesión**) que proporcionan todos los datos que obtuvo en el punto de conexión de la API anterior. Este nuevo punto de conexión también tiene un informe de inicios de sesión con la licencia Premium de Azure AD que puede usar para obtener información del uso de aplicaciones y de dispositivos, y de inicio de sesión de usuarios.
+  - question: >
+      Actualmente uso las API de punto de conexión `https://graph.windows.net/<tenant-name>/reports/`para extraer informes de seguridad de Azure AD (tipos específicos de detecciones, como credenciales perdidas o inicios de sesión desde direcciones IP anónimas) en nuestros sistemas de informes mediante programación. ¿A cuál debo cambiar?
+    answer: >
+      Puede usar la  [API de detecciones de riesgo de Identity Protection](../identity-protection/howto-identity-protection-graph-api.md)  para acceder a las detecciones de seguridad mediante Microsoft Graph. Este nuevo formato proporciona mayor flexibilidad en el modo en que permite consultar los datos, con filtrado avanzado, selección de campos y mucho más, y normaliza las detecciones de riesgo en un tipo para facilitar la integración en SIEM y otras herramientas de recolección de datos. Dado que los datos están en un formato diferente, no puede sustituir una nueva consulta para las consultas anteriores. Sin embargo, [la nueva API utiliza Microsoft Graph](/graph/api/resources/identityriskevent?view=graph-rest-beta&preserve-view=true), que es el estándar de Microsoft para estas API como Microsoft 365 o Azure AD. Así, el trabajo necesario puede dilatar sus inversiones actuales en Microsoft Graph o ayudarle a comenzar la transición a esta nueva plataforma estándar.
+  - question: >
+      ¿Cómo puedo obtener una licencia Premium?
+    answer: >
+      Consulte [Introducción a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para actualizar la edición de Azure Active Directory.
+  - question: >
+      ¿Cuándo se deberían ver los datos de actividades después de obtener una licencia Premium?
+    answer: >
+      Si ya tiene datos de actividades como una licencia gratuita, entonces puede verlos inmediatamente. Si no tiene ningún dato, tardarán hasta tres días en mostrarse en los informes.
+  - question: >
+      ¿Puedo ver los datos del último mes después de obtener una licencia de Azure AD Premium?
+    answer: >
+      Si ha cambiado recientemente a una versión Premium (incluida una versión de prueba), inicialmente, puede ver datos de hasta siete días. Cuando se acumulan datos, puede ver los datos de los últimos 30 días.
+  - question: >
+      ¿Tengo que ser administrador global para ver los inicios de sesión de actividad en Azure Portal o para obtener datos mediante la API?
+    answer: >
+      No, también puede acceder a los datos de informes mediante el portal o por medio de la API si es un **Lector de seguridad** o un **Administrador de seguridad** en el inquilino. Por supuesto, los **Administradores globales** también tendrá acceso a estos datos.
+- name: Registros de actividad
+  questions:
+  - question: "¿Cuál es la retención de datos de los registros de actividad (auditoría e inicios de sesión) en Azure Portal? \n"
+    answer: >
+      Para más información, consulte las [directivas de retención de datos para informes de Azure AD](reference-reports-data-retention.md).
+  - question: >
+      ¿Cuánto tiempo debo esperar para poder ver los datos de actividad después de haber completado una tarea?
+    answer: >
+      Los registros de auditoría tienen una latencia que oscila entre 15 minutos y una hora. Los registros de actividad de inicio de sesión pueden tardar desde 15 minutos hasta 2 horas para algunos registros.
+  - question: >
+      ¿Puedo obtener información del registro de actividad de Microsoft 365 mediante Azure Portal?
+    answer: >
+      Aunque los registros de actividad de Microsoft 365 y de Azure AD comparten muchos de los recursos del directorio, si desea obtener una vista completa de los registros de actividad de Microsoft 365, debe ir al [Centro de administración de Microsoft 365](https://admin.microsoft.com) para obtener la información del registro de actividad de Office 365.
+  - question: >
+      ¿Cuáles son las API que utilizo para obtener información sobre los registros de actividad de Microsoft 365?
+    answer: >
+      Use las [API de Administración de Microsoft 365](/office/office-365-management-api/office-365-management-apis-overview) para acceder a los registros de actividad de Microsoft 365 a través de una API.
+  - question: >
+      ¿Cuántos registros puedo descargar de Azure Portal?
+    answer: >
+      Puede descargar hasta 5000 registros de Azure Portal. Los registros se ordenan a partir de los *más recientes* y, de forma predeterminada, se obtienen los últimos 5000 registros.
+- name: Inicios de sesión no seguros
+  questions:
+  - question: >
+      Hay una detección de riesgo en Identity Protection, pero no veo el inicio de sesión correspondiente en el informe de inicios de sesión. ¿Es normal?
+    answer: >
+      Sí, Identity Protection evalúa el riesgo de todos los flujos de autenticación si es interactivo o no interactivo. Sin embargo, el informe únicamente de todos los inicios de sesión muestra los inicios de sesión interactivos.
+  - question: >
+      ¿Cómo puedo saber por qué un inicio de sesión o un usuario se marcó como peligroso en Azure Portal?
+    answer: >
+      Si tiene una suscripción a **Azure AD Premium**, puede aprender más sobre las detecciones de riesgo subyacentes mediante la selección de un usuario en **Usuarios marcados en riesgo** o la selección de un registro en el informe **Inicios de sesión de riesgo**. Si tiene una suscripción **gratuita** o **básica**, puede ver los usuarios en riesgo y los informes de inicios de sesión en riesgo, pero no puede ver la información de las detecciones de riesgo subyacentes.
+  - question: >
+      ¿Cómo se calculan las direcciones IP en los inicios de sesión y en el informe de inicios de sesión de riesgo?
+    answer: "Las direcciones IP se emiten de forma que no haya ninguna conexión definitiva entre una dirección IP y donde se encuentre físicamente el equipo con esa dirección. La asignación de direcciones IP se complica aún más por factores tales como los proveedores de dispositivos móviles y VPN que emiten direcciones IP desde grupos centrales, a menudo muy lejos de donde se usa realmente el dispositivo del cliente. Actualmente, la conversión de la dirección IP en una ubicación física en los informes de Azure AD es un esfuerzo notable basado en seguimientos, datos del Registro, búsquedas inversas y otra información. \n"
+  - question: >
+      ¿Qué significa la detección de riesgo "Inicio de sesión con riesgo adicional detectado"?
+    answer: >
+      Para proporcionarle información detallada de todos los inicios de sesión en riesgo en su entorno, "Inicio de sesión con riesgo adicional detectado" funciona como marcador de posición para los inicios de sesión en detecciones exclusivas de los suscriptores de Azure AD Identity Protection.
+- name: Acceso condicional
+  questions:
+  - question: >
+      ¿Qué novedades ofrece esta característica?
+    answer: >
+      Los clientes ya pueden solucionar los problemas de las directivas de acceso condicional mediante el informe de los inicios de sesión. Los clientes pueden revisar el estado del acceso condicional y profundizar en los detalles de las directivas que se aplican al inicio de sesión y al resultado de cada directiva.
+  - question: >
+      ¿Cómo empiezo?
+    answer: "Primeros pasos:\n\n* Navegue hasta el informe de inicios de sesión en [Azure Portal](https://portal.azure.com).\n* Haga clic en el inicio de sesión cuyos problemas desea solucionar.\n* Vaya a la pestaña **Acceso condicional**. Aquí puede ver todas las directivas que afectaron al inicio de sesión y el resultado de cada directiva. \n    \n"
+  - question: >
+      ¿Cuáles son todos los valores posibles del estado Acceso condicional?
+    answer: "El estado Acceso condicional puede tener los siguientes valores:\n\n* **No aplicado**: significa que no había ninguna directiva de acceso condicional con el usuario y la aplicación en el ámbito. \n* **Correcto**: significa que había una directiva de acceso condicional con el usuario y la aplicación en el ámbito y las directivas de acceso condicional se cumplieron correctamente. \n* **Error**: El inicio de sesión cumplió la condición de usuario y aplicación de al menos una directiva de acceso condicional, y los controles de concesión no se han cumplido o se han establecido para bloquear el acceso.\n    \n"
+  - question: >
+      ¿Cuáles son los valores posibles del resultado de la directiva de acceso condicional?
+    answer: "La directiva de acceso condicional puede ofrecer los siguientes resultados:\n\n* **Correcto**: la directiva se cumplió correctamente.\n* **Error**: no se cumplió la directiva.\n* **No aplicado**: puede deberse a que las condiciones de la directiva no se cumplieron.\n* **No habilitado**: puede deberse a que la directiva presenta un estado deshabilitado. \n    \n"
+  - question: >
+      El nombre de la directiva del informe de todos los inicios de sesión no coincide con el nombre de la directiva de acceso condicional. ¿Por qué?
+    answer: >
+      El nombre de la directiva del informe de todos los inicios de sesión se basa en el nombre de la directiva de acceso condicional en el momento de inicio de sesión. Puede ser incoherente con el nombre de la directiva de acceso condicional si actualizó el nombre de la directiva más tarde, es decir, después de iniciar sesión.
+  - question: >
+      Mi inicio de sesión se ha bloqueado debido a una directiva de acceso condicional, pero el informe de actividad de inicio de sesión muestra que el inicio de sesión se realizó correctamente. ¿Por qué?
+    answer: Actualmente, el informe de inicio de sesión es posible que muestre resultados que no son precisos para los escenarios de Exchange ActiveSync cuando se aplica el acceso condicional. En el informe puede haber casos en los que el resultado del inicio de sesión del informe muestra un inicio de sesión correcto, pero en realidad se produjo un error debido a una directiva de acceso condicional.

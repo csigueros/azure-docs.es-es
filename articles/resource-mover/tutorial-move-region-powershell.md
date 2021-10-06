@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 02/21/2021
 ms.author: raynew
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 865b4e7f93d70b9ba77e773dd3a599e8eed01376
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: ca79be770784771bd77eae6c2419e5473f30c6e4
+ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112467166"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129418905"
 ---
 # <a name="move-resources-across-regions-in-powershell"></a>Movimiento de recursos entre regiones en PowerShell
 
@@ -213,7 +213,7 @@ Compruebe si los recursos que ha agregado tienen dependencias en otros recursos 
     - Para recuperar una lista de todas las dependencias que faltan:
 
         ```azurepowershell-interactive
-        Get-AzResourceMoverUnresolvedDependency -MoveCollectionName "PS-centralus-westcentralus-demoRMS" -ResourceGroupName "RG-MoveCollection-demoRMS" -DependencyLevel Descendant"
+        Get-AzResourceMoverUnresolvedDependency -MoveCollectionName "PS-centralus-westcentralus-demoRMS" -ResourceGroupName "RG-MoveCollection-demoRMS" -DependencyLevel Descendant
         ```
         **Salida** ![Texto de salida después de recuperar una lista de todas las dependencias](./media/tutorial-move-region-powershell/dependencies-list.png)  
 

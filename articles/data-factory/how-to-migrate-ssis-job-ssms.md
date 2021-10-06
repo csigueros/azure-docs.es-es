@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
 ms.date: 4/7/2020
-ms.openlocfilehash: 5a9e69b0672a5b4235effcd68b50eeddc5ec9f82
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b1e7f42274b8402b55d358e10cde30f93520dd72
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121735309"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824695"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Migración de trabajos de Agente SQL Server a ADF con SSMS
 
@@ -42,10 +42,10 @@ La característica descrita en este artículo requiere SQL Server Management Stu
 ## <a name="migrate-ssis-jobs-to-adf"></a>Migración de trabajos de SSIS a ADF
 
 1. En SSMS, en el Explorador de objetos, seleccione Agente SQL Server, elija los trabajos, haga clic con el botón derecho y seleccione **Migrate SSIS Jobs to ADF** (Migración de trabajos de SSIS a ADF).
-![Instantánea del Explorador de objetos de SQL Server Management Studio, donde se pueden seleccionar trabajos y migrar trabajos de SSIS a ADF.](media/how-to-migrate-ssis-job-ssms/menu.png)
+:::image type="content" source="media/how-to-migrate-ssis-job-ssms/menu.png" alt-text="Instantánea del Explorador de objetos de SQL Server Management Studio, donde se pueden seleccionar trabajos y migrar trabajos de SSIS a ADF.":::
 
 1. Inicie sesión en Azure, seleccione la suscripción de Azure, Data Factory e Integration Runtime. Azure Storage es opcional, se usa en el paso de asignación de la ubicación del paquete si los trabajos de SSIS que se van a migrar tienen paquetes del sistema de archivos de SSIS.
-![menú](media/how-to-migrate-ssis-job-ssms/step1.png)
+:::image type="content" source="media/how-to-migrate-ssis-job-ssms/step1.png" alt-text="menú":::
 
 1. Asigne las rutas de los paquetes SSIS y los archivos de configuración de trabajos de SSIS a las rutas de destino a las que pueden acceder las canalizaciones migradas. En este paso de asignación, puede:
 
@@ -53,28 +53,28 @@ La característica descrita en este artículo requiere SQL Server Management Stu
     1. Actualizar la ruta a la carpeta de origen. Las rutas de acceso válidas son las rutas de acceso de carpeta o las rutas de acceso de carpeta primaria de paquetes.
     1. Actualizar la ruta de acceso a la carpeta de destino. El valor predeterminado es la ruta de acceso relativa a la cuenta de almacenamiento predeterminada, que se selecciona en el paso 1.
     1. Eliminar una asignación seleccionada mediante **Delete Mapping** (Eliminar asignación).
-![Instantánea de la página Map SSIS Package and Configuration Paths (Asignar paquete de SSIS y rutas de configuración), donde se pueden agregar asignaciones.](media/how-to-migrate-ssis-job-ssms/step2.png)
-![Instantánea de la página Map SSIS Package and Configuration Paths (Asignar paquete de SSIS y rutas de configuración), donde se pueden actualizar las rutas de las carpetas de origen y destino.](media/how-to-migrate-ssis-job-ssms/step2-1.png)
+:::image type="content" source="media/how-to-migrate-ssis-job-ssms/step2.png" alt-text="Captura de pantalla en la que se muestra la página Map SSIS Package and Configuration Paths (Asignar las rutas de los paquetes SSIS y la configuración), donde se pueden agregar asignaciones.":::
+:::image type="content" source="media/how-to-migrate-ssis-job-ssms/step2-1.png" alt-text="Captura de pantalla en la que se muestra la página Map SSIS Package and Configuration Paths (Asignar las rutas de los paquetes SSIS y la configuración), donde se pueden actualizar las rutas de las carpetas de destino y origen.":::
 
 1. Seleccione los trabajos aplicables que se van a migrar y configure la opción *Ejecutar una actividad de paquete SSIS*.
 
     - La *configuración predeterminada* se aplica de forma predeterminada a todos los pasos seleccionados. Para más información de cada propiedad, consulte la *pestaña Configuración* de [Ejecutar una actividad de paquete SSIS](how-to-invoke-ssis-package-ssis-activity.md) cuando la ubicación del paquete es *File System (Package)* (Sistema de archivos [paquete]).
-    ![Instantánea de la página Select SSIS Jobs (Seleccionar trabajos de SSIS), donde se puede configurar la actividad del paquete de SSIS ejecutado correspondiente.](media/how-to-migrate-ssis-job-ssms/step3-1.png)
+    :::image type="content" source="media/how-to-migrate-ssis-job-ssms/step3-1.png" alt-text="Instantánea de la página Select SSIS Jobs (Seleccionar trabajos de SSIS), donde se puede configurar la actividad del paquete de SSIS ejecutado correspondiente.":::
     - *Step Setting* (Configuración de paso): realice la configuración de un paso seleccionado.
         
         **Apply Default Setting** (Aplicación opción predeterminada): se selecciona el valor predeterminado. Desactive esta opción para establecer la configuración solo para el paso seleccionado.  
         Para más información sobre cada propiedad, consulte la *pestaña Configuración* de la opción [Ejecutar una actividad de paquete SSIS](how-to-invoke-ssis-package-ssis-activity.md) cuando la ubicación del paquete es *File System (Package)* (Sistema de archivos [paquete]).
-    ![Instantánea de la página Select SSIS Jobs (Seleccionar trabajos de SSIS), donde se puede aplicar la configuración predeterminada.](media/how-to-migrate-ssis-job-ssms/step3-2.png)
+    :::image type="content" source="media/how-to-migrate-ssis-job-ssms/step3-2.png" alt-text="Instantánea de la página Select SSIS Jobs (Seleccionar trabajos de SSIS), donde se puede aplicar la configuración predeterminada.":::
 
 1. Genere e implemente una plantilla de ARM.
     1. Seleccione o especifique la ruta de acceso de salida de las plantillas de ARM de las canalizaciones de ADF migradas. La carpeta se creará automáticamente si no existe.
     2. Seleccione la opción **Deploy ARM templates to your data factory** (Implementar plantillas de ARM en la factoría de datos):
         - la opción predeterminada está deseleccionada. Puede implementar las plantillas de Resource Manager generadas más adelante manualmente.
         - Seleccione la implementación de plantillas de Resource Manager en la factoría de datos directamente.
-    ![Instantánea de la página Configure Migration (Configurar migración), donde se puede seleccionar o especificar la ruta de salida de las plantillas de Resource Manager para las canalizaciones de ADF migradas y seleccionar la opción Deploy ARM templates to your data factory (Implementar plantillas de Resource Manager en la factoría de datos).](media/how-to-migrate-ssis-job-ssms/step4.png)
+    :::image type="content" source="media/how-to-migrate-ssis-job-ssms/step4.png" alt-text="Instantánea de la página Configure Migration (Configurar migración), donde se puede seleccionar o especificar la ruta de salida de las plantillas de Resource Manager para las canalizaciones de ADF migradas y seleccionar la opción Deploy ARM templates to your data factory (Implementar plantillas de Resource Manager en la factoría de datos).":::
 
 1. Migre y, luego, compruebe los resultados.
-![Instantánea de la página Migration Result (Resultado de la migración), donde se muestra el progreso de la migración.](media/how-to-migrate-ssis-job-ssms/step5.png)
+:::image type="content" source="media/how-to-migrate-ssis-job-ssms/step5.png" alt-text="Instantánea de la página Migration Result (Resultado de la migración), donde se muestra el progreso de la migración.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

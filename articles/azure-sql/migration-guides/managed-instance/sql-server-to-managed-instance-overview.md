@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: cawrites
 ms.date: 09/07/2021
-ms.openlocfilehash: 8c44d6e92f2943f3c565e80d42d9d0c474fddd4f
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 62f895fdea75ff97154910c177cda04413663d68
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123542258"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352044"
 ---
 # <a name="migration-overview-sql-server-to-azure-sql-managed-instance"></a>Información general sobre la migración: de SQL Server a Azure SQL Managed Instance
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -171,7 +171,7 @@ De forma predeterminada, Azure Database Migration Service solo admite la migraci
 
 Después de reiniciar el servicio, los inicios de sesión de usuario o grupo de Windows aparecen en la lista de inicios de sesión disponibles para la migración. En el caso de los inicios de sesión de usuario o grupo de Windows que migre, se le pedirá que proporcione el nombre de dominio asociado. No se admiten las cuentas de usuario de servicio (cuentas con el nombre de dominio NT AUTHORITY) y las cuentas de usuario virtual (cuentas con el nombre de dominio NT SERVICE). Para obtener más información, consulte [Migración de los usuarios y los grupos de Windows de una instancia de SQL Server a Azure SQL Managed Instance mediante T-SQL](../../managed-instance/migrate-sql-server-users-to-instance-transact-sql-tsql-tutorial.md).
 
-Como alternativa, puede usar la [utilidad de PowerShell](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins) especialmente diseñada por los arquitectos de migración de datos de Microsoft. La utilidad usa PowerShell para crear un script de T-SQL para volver a crear inicios de sesión y seleccionar usuarios de base de datos del origen para el destino. 
+Como alternativa, puede usar la [utilidad de PowerShell](https://www.microsoft.com/download/details.aspx?id=103111) especialmente diseñada por los arquitectos de migración de datos de Microsoft. La utilidad usa PowerShell para crear un script de T-SQL para volver a crear inicios de sesión y seleccionar usuarios de base de datos del origen para el destino. 
 
 La utilidad de PowerShell asigna automáticamente cuentas de Windows Server Active Directory a cuentas de Azure AD, y puede realizar una búsqueda de UPN para cada inicio de sesión en la instancia de Active Directory de origen. La utilidad incluye en scripts los roles de servidor y de base de datos personalizados, junto con la pertenencia a roles y los permisos de usuario. Todavía no se admiten bases de datos independientes y solo un subconjunto de los permisos de SQL Server posibles se incluyen en scripts. 
 

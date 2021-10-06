@@ -4,19 +4,22 @@ description: En esta guía paso a paso se describe cómo ver y usar los informes
 author: batamig
 ms.author: bagol
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-insights
 ms.topic: how-to
-ms.date: 01/17/2021
-ms.openlocfilehash: d3b828aab13a822c307119dca64dac81c9201d5b
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.date: 09/27/2021
+ms.openlocfilehash: cf3540f439396f3e4308eae10077693de440827f
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122397804"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213981"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Conclusiones de la etiqueta de confidencialidad sobre los datos de Azure Purview
 
 En esta guía paso a paso se describe cómo acceder a conclusiones de seguridad que las etiquetas de confidencialidad que se aplican a los datos proporcionan. En la guía también se describe cómo ver y filtrar esas conclusiones.
+
+> [!IMPORTANT]
+> Las conclusiones de la etiqueta de confidencialidad de Azure Purview se encuentran actualmente en VERSIÓN PRELIMINAR. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
 Los orígenes de datos compatibles incluyen: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, Azure SQL Database, Azure SQL Managed Instance y cubos de Amazon S3
 
@@ -40,11 +43,11 @@ Antes de empezar con las conclusiones de Purview, asegúrese de que ha completad
 
 - [Etiquetas de confidencialidad de Microsoft 365 extendidas a los recursos de Azure ámbito](create-sensitivity-label.md), y crear o seleccionar las etiquetas que desea aplicar a los datos.
 
-- Configurar y completar un examen de los datos de prueba en cada origen de datos. Para más información, consulte [Administración de orígenes de datos en Azure Purview (versión preliminar)](manage-data-sources.md) y [Creación de un conjunto de reglas de examen](create-a-scan-rule-set.md).
+- Configurar y completar un examen de los datos de prueba en cada origen de datos. Para obtener más información, consulte [Administración de orígenes de datos en Azure Purview](manage-data-sources.md) y [Creación de un conjunto de reglas de examen](create-a-scan-rule-set.md).
 
-- Iniciar sesión en Purview con una cuenta con un [rol de lector o conservador de datos](catalog-permissions.md#roles).
+- Ha iniciado sesión en Purview con una cuenta con el [rol de lector o conservador de datos](catalog-permissions.md#roles).
 
-Para obtener más información, consulte [Administrar orígenes de datos en Azure Purview (versión preliminar)](manage-data-sources.md) y [Etiquetar automáticamente los datos en Azure Purview](create-sensitivity-label.md).
+Para obtener más información, consulte [Administración de orígenes de datos en Azure Purview](manage-data-sources.md) y [Etiquetado automático de los datos en Azure Purview](create-sensitivity-label.md).
 
 ## <a name="use-purview-sensitivity-labeling-insights"></a>Uso de conclusiones del etiquetado de confidencialidad de Purview
 
@@ -74,7 +77,7 @@ Purview usa las mismas clasificaciones que Microsoft 365, también conocidas co
     > [!NOTE]
     > Si este informe está vacío, es posible que no haya extendido las etiquetas de confidencialidad a Azure Purview. Para obtener más información, vea [Etiquetado automático de los datos en Azure Purview](create-sensitivity-label.md).
 
-   :::image type="content" source="media/insights/sensitivity-labeling-insights-small.png" alt-text="Conclusiones del etiquetado de confidencialidad" lightbox="media/insights/sensitivity-labeling-insights.png":::
+   :::image type="content" source="media/insights/sensitivity-labeling-insights-small.png" alt-text="Conclusiones del etiquetado de confidencialidad":::
 
    La página **Sensitivity labeling insights** (Conclusiones del etiquetado de confidencialidad) muestra las áreas siguientes:
 
@@ -99,7 +102,7 @@ En cualquiera de los siguientes grafos de **Sensitivity labeling insights** (Con
 
 Por ejemplo:
 
-:::image type="content" source="media/insights/sensitivity-label-drilldown-small.png" alt-text="Exploración en profundidad de etiquetas de confidencialidad" lightbox="media/insights/sensitivity-label-drilldown.png":::
+:::image type="content" source="media/insights/sensitivity-label-drilldown-small.png" alt-text="Exploración en profundidad de etiquetas de confidencialidad":::
 
 Para obtener más información, ejecute cualquiera de las opciones siguientes:
 

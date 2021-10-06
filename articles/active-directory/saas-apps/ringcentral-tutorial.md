@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/09/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 3c8126c051457d740d1a5414a130b4ee3fffcd8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f18ebeb71f597bc7988c8f97840ac1a1e38ebb9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104954129"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124830310"
 ---
 # <a name="tutorial-integrate-ringcentral-with-azure-active-directory"></a>Tutorial: Integración de RingCentral con Azure Active Directory
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar RingCentral con Azure Active Directory
 * Permitir que los usuarios puedan iniciar sesión automáticamente en RingCentral con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -41,6 +41,8 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * RingCentral admite SSO iniciado por **IDP**.
+
+* RingCentral admite el [aprovisionamiento automático de usuarios](ringcentral-provisioning-tutorial.md).
 
 ## <a name="add-ringcentral-from-the-gallery"></a>Agregar RingCentral desde la galería
 
@@ -183,13 +185,15 @@ En esta sección va a permitir que B. Simon acceda a RingCentral mediante el in
 
 En esta sección, creará un usuario llamado Britta Simon en RingCentral. Colabore con el [equipo de soporte técnico de RingCentral](https://success.ringcentral.com/RCContactSupp) para agregar usuarios en la plataforma de RingCentral. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
+RingCentral también admite el aprovisionamiento automático de usuarios. [Aquí](./ringcentral-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 
 * Haga clic en Probar esta aplicación en Azure Portal; debería iniciar sesión automáticamente en la instancia de RingCentral para la que ha configurado el inicio de sesión único.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de RingCentral en Aplicaciones, debería iniciar sesión automáticamente en la instancia de RingCentral para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de RingCentral en Aplicaciones, debería iniciar sesión automáticamente en la instancia de RingCentral para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

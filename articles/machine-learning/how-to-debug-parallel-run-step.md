@@ -11,12 +11,12 @@ ms.reviewer: larryfr, vaidyas, laobri, tracych
 ms.author: pansav
 author: psavdekar
 ms.date: 09/23/2020
-ms.openlocfilehash: aaacc12f6a577fd0a2ff0150d22902bb6e7d6cc1
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 3150ad022ddde1b72d0941d552351715920a161e
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111753402"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217814"
 ---
 # <a name="troubleshooting-the-parallelrunstep"></a>Solución de problemas de ParallelRunStep
 
@@ -28,17 +28,17 @@ Para obtener sugerencias generales sobre la solución de problemas de una canali
 
  La clase ParallelRunStep se ejecuta como un paso de las canalizaciones de Machine Learning. Es posible que desee [probar los scripts localmente](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines) como primer paso.
 
-##  <a name="script-requirements"></a>Requisitos del script
+## <a name="entry-script-requirements"></a>Requisitos del script de entrada
 
-El script para `ParallelRunStep` *debe contener* dos funciones:
+El script de entrada de una clase `ParallelRunStep` *debe contener* una función `run()` y contiene, opcionalmente, una función `init()`:
 - `init()`: utilice esta función en preparaciones costosas o comunes para el procesamiento posterior. Por ejemplo, para cargar el modelo en un objeto global. Solo se llamará a esta función una vez al principio del proceso.
     > [!NOTE]
-    > Si el método `init` crea un directorio de salida, especifique que `exist_ok=True`. Al método `init` se le llama desde cada proceso de trabajo en cada nodo en el que se ejecuta el trabajo.
+    > Si el método `init` crea un directorio de salida, especifique que `parents=True` y `exist_ok=True`. Al método `init` se le llama desde cada proceso de trabajo en cada nodo en el que se ejecuta el trabajo.
 -  `run(mini_batch)`: la función se ejecutará para cada instancia de `mini_batch`.
     -  `mini_batch`: `ParallelRunStep` invocará el método run y pasará una lista o `DataFrame` de Pandas como argumento al método. Cada entrada de mini_batch será una ruta de acceso de archivo si la entrada es `FileDataset`, o `DataFrame` de Pandas si la entrada es `TabularDataset`.
     -  `response`: El método run() debe devolver `DataFrame` de Pandas o una matriz. Para append_row output_action, estos elementos devueltos se anexan al archivo de salida común. Para summary_only, se omite el contenido de los elementos. Para todas las acciones de salida, cada elemento de salida devuelto indica una ejecución correcta del elemento de entrada en el minilote de entrada. Asegúrese de que se incluyen suficientes datos en el resultado de la ejecución para asignar la entrada al resultado de la salida de la ejecución. La salida de la ejecución se escribirá en el archivo de salida y no se garantiza que esté en orden, por lo que debe usar alguna clave en la salida para asignarla a la entrada.
         > [!NOTE]
-        > Se espera un elemento de salida para un elemento de entrada.  
+        > Se espera un elemento de salida para un elemento de entrada.
 
 ```python
 %%writefile digit_identification.py
@@ -101,7 +101,8 @@ file_path = os.path.join(script_dir, "<file_name>")
     - En el caso de `FileDataset`, es el número de archivos con un valor mínimo de `1`. Puede combinar varios archivos en un solo minilote.
     - En el caso de `TabularDataset`, es el tamaño de los datos. Los valores posibles son `1024`, `1024KB`, `10MB` y `1GB`. `1MB` es el valor recomendado. El minilote de `TabularDataset` nunca cruzará los límites de los archivos. Por ejemplo, si tiene archivos. csv de varios tamaños, el menor es de 100 KB y el mayor es de 10 MB. Si establece `mini_batch_size = 1MB`, los archivos con un tamaño menor que 1 MB se tratarán como un solo minilote. Los archivos de tamaño mayor que 1 MB se dividirán en varios minilotes.
         > [!NOTE]
-        > TabularDatasets respaldados por SQL no se pueden particionar. Los valores de TabularDataset de un único archivo Parquet y un único grupo de filas no se pueden particionar.
+        > TabularDatasets respaldados por SQL no se pueden particionar.
+        > Los valores de TabularDataset de un único archivo Parquet y un único grupo de filas no se pueden particionar.
 
 - `error_threshold`: número de errores de registro para `TabularDataset` y errores de archivo para `FileDataset` que se deben omitir durante el procesamiento. Si el recuento de errores de la entrada supera este valor, el trabajo se anulará. El umbral de error es para toda la entrada y no para los minilotes individuales que se envían al método `run()`. El intervalo es `[-1, int.max]`. La parte `-1` indica que se omitirán todos los errores durante el procesamiento.
 - `output_action`: uno de los valores siguientes indica cómo se organizará la salida:
@@ -111,18 +112,18 @@ file_path = os.path.join(script_dir, "<file_name>")
 - `source_directory`: rutas de acceso a las carpetas que contienen todos los archivos que se van a ejecutar en el destino de proceso (opcional).
 - `compute_target`: Solo se admite `AmlCompute`.
 - `node_count`: número de nodos de proceso que se usarán para ejecutar el script de usuario.
-- `process_count_per_node`: número de procesos de trabajo por nodo para ejecutar el script de entrada en paralelo. En el caso de una máquina de GPU, el valor predeterminado es 1. En una máquina de CPU, el valor predeterminado es el número de núcleos por nodo. Un proceso de trabajo llamará repetidamente a `run()` pasando el lote de pequeño tamaño que obtiene. El número total de procesos de trabajo del trabajo es `process_count_per_node * node_count`, que decide el número máximo de `run()` que se van a ejecutar en paralelo.  
+- `process_count_per_node`: número de procesos de trabajo por nodo para ejecutar el script de entrada en paralelo. En el caso de una máquina de GPU, el valor predeterminado es 1. En una máquina de CPU, el valor predeterminado es el número de núcleos por nodo. Un proceso de trabajo llamará repetidamente a `run()` pasando el lote de pequeño tamaño que obtiene. El número total de procesos de trabajo del trabajo es `process_count_per_node * node_count`, que decide el número máximo de `run()` que se van a ejecutar en paralelo.
 - `environment`: definición del entorno de Python. Puede configurarla para usar un entorno de Python existente o un entorno temporal. La definición también es responsable de establecer las dependencias de la aplicación necesarias (opcional).
 - `logging_level`: nivel de detalle del registro. Los valores con nivel de detalle en aumento son: `WARNING`, `INFO` y `DEBUG`. (Opcional; el valor predeterminado es `INFO`).
 - `run_invocation_timeout`: tiempo de espera de invocación del método `run()` en segundos. (Opcional; el valor predeterminado es `60`).
-- `run_max_try`: número máximo de intentos de `run()` para un minilote. Se produce un error en `run()` si se genera una excepción o no se devuelve nada cuando se alcanza `run_invocation_timeout` (opcional; el valor predeterminado es `3`). 
+- `run_max_try`: número máximo de intentos de `run()` para un minilote. Se produce un error en `run()` si se genera una excepción o no se devuelve nada cuando se alcanza `run_invocation_timeout` (opcional; el valor predeterminado es `3`).
 
-Puede especificar `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout` y `run_max_try` como `PipelineParameter`, de modo que, cuando vuelva a enviar una ejecución de la canalización, pueda optimizar los valores de los parámetros. En este ejemplo, se usa `PipelineParameter` para `mini_batch_size` y `Process_count_per_node`, y se cambiarán estos valores cuando se vuelva a enviar otra ejecución. 
+Puede especificar `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout` y `run_max_try` como `PipelineParameter`, de modo que, cuando vuelva a enviar una ejecución de la canalización, pueda optimizar los valores de los parámetros. En este ejemplo, se usa `PipelineParameter` para `mini_batch_size` y `Process_count_per_node`, y se cambiarán estos valores cuando se vuelva a enviar otra ejecución.
 
 #### <a name="cuda-devices-visibility"></a>Visibilidad de dispositivos CUDA
 Para los destinos de proceso equipados con GPU, la variable de entorno `CUDA_VISIBLE_DEVICES` se establecerá en los procesos de trabajo. En AmlCompute, puede encontrar el número total de dispositivos GPU en la variable de entorno `AZ_BATCHAI_GPU_COUNT_FOUND`, que se establece automáticamente. Si quiere que cada proceso de trabajo tenga una GPU dedicada, establezca `process_count_per_node` en un valor igual al número de dispositivos GPU de una máquina. Cada proceso de trabajo asignará un índice único a `CUDA_VISIBLE_DEVICES`. Si un proceso de trabajo se detiene por cualquier motivo, el siguiente proceso de trabajo iniciado usará el índice de GPU publicado.
 
-Si el número total de dispositivos GPU es inferior a `process_count_per_node`, a los procesos de trabajo se les asignará un índice de GPU hasta que se hayan usado todos. 
+Si el número total de dispositivos GPU es inferior a `process_count_per_node`, a los procesos de trabajo se les asignará un índice de GPU hasta que se hayan usado todos.
 
 Dado que el número total de dispositivos GPU es 2 y `process_count_per_node = 4`, como ejemplo, el proceso 0 y el proceso 1 tendrán el índice 0 y 1. Los procesos 2 y 3 no tendrán una variable de entorno. Si una biblioteca usa esta variable de entorno para la asignación de GPU, los procesos 2 y 3 no tendrán GPU y no intentarán adquirir dispositivos de GPU. Si el proceso 0 se detiene, se liberará el índice 0 de GPU. El siguiente proceso, que es el proceso 4, tendrá asignado el índice 0 de GPU.
 
@@ -183,7 +184,7 @@ Cuando necesite comprender en detalle cómo ejecuta cada nodo el script de puntu
 
 - `~/logs/sys/node/<node_id>/<process_name>.txt`: este archivo proporciona información detallada sobre cada uno de los minilotes a medida que un trabajo lo elige o lo completa. Para cada minilote, este archivo incluye:
 
-    - La dirección IP y el PID del proceso de trabajo. 
+    - La dirección IP y el PID del proceso de trabajo.
     - El número total de elementos, el número de elementos procesados correctamente y el número de elementos con errores.
     - Hora de inicio, duración, tiempo de proceso y tiempo del método de ejecución.
 
@@ -198,7 +199,7 @@ También puede ver los resultados de las comprobaciones periódicas del uso de r
     - `node_resource_usage.csv`: información general sobre el uso de recursos del nodo.
     - `processes_resource_usage.csv`: información general sobre el uso de recursos de cada proceso.
 
-### <a name="how-do-i-log-from-my-user-script-from-a-remote-context"></a>¿Cómo me puedo registrar desde mi script de usuario en un contexto remoto?
+## <a name="how-do-i-log-from-my-user-script-from-a-remote-context"></a>¿Cómo me puedo registrar desde mi script de usuario en un contexto remoto?
 
 ParallelRunStep puede ejecutar varios procesos en un nodo basado en process_count_per_node. Para organizar los registros de cada proceso en el nodo y combinar las instrucciones print y log, se recomienda usar el registrador ParallelRunStep como se muestra a continuación. Puede obtener un registrador de EntryScript, y hacer que los registros aparezcan en la carpeta **logs/user** del portal.
 
@@ -224,33 +225,71 @@ def run(mini_batch):
     return mini_batch
 ```
 
-### <a name="where-does-the-message-from-python-logging-sink-to"></a>¿Dónde se recibe el mensaje `logging` de Python?
+## <a name="where-does-the-message-from-python-logging-sink-to"></a>¿Dónde se recibe el mensaje `logging` de Python?
 ParallelRunStep establece un controlador en el registrador raíz, que recibe el mensaje en `logs/user/stdout/<node_id>/processNNN.stdout.txt`.
 
 El valor predeterminado de `logging` es el nivel `WARNING`. De manera predeterminada, los niveles por debajo de `WARNING` no se mostrarán, como `INFO` o `DEBUG`.
 
-### <a name="where-is-the-message-from-subprocess-created-with-popen"></a>¿Dónde se crea el mensaje del subproceso con Popen()?
-Si no se especifica `stdout` ni `stderr`, un subproceso heredará la configuración del proceso de trabajo.
-
-`stdout` escribirá en `logs/sys/node/<node_id>/processNNN.stdout.txt`; y `stderr`, en `logs/sys/node/<node_id>/processNNN.stderr.txt`.
-
-### <a name="how-could-i-write-to-a-file-to-show-up-in-the-portal"></a>¿Cómo puedo escribir en un archivo para que aparezca en el portal?
+## <a name="how-could-i-write-to-a-file-to-show-up-in-the-portal"></a>¿Cómo puedo escribir en un archivo para que aparezca en el portal?
 Los archivos de la carpeta `logs` se cargarán y se mostrarán en el portal.
 Puede obtener la carpeta `logs/user/entry_script_log/<node_id>` como se muestra a continuación y crear la ruta de acceso del archivo para escribir:
 
 ```python
 from pathlib import Path
+from azureml_user.parallel_run import EntryScript
+
 def init():
     """Init once in a worker process."""
     entry_script = EntryScript()
-    folder = entry_script.log_dir
+    log_dir = entry_script.log_dir
+    log_dir = Path(entry_script.log_dir)  # logs/user/entry_script_log/<node_id>/.
+    log_dir.mkdir(parents=True, exist_ok=True) # Create the folder if not existing.
 
-    fil_path = Path(folder) / "<file_name>"
+    proc_name = entry_script.agent_name  # The process name in pattern "processNNN".
+    fil_path = log_dir / f"{proc_name}_<file_name>" # Avoid conflicting among worker processes with proc_name.
 ```
 
-### <a name="how-do-i-write-a-file-to-the-output-directory-and-then-view-it-in-the-portal"></a>¿Cómo se escribe un archivo en el directorio de salida y se ve luego en el portal?
+## <a name="how-to-handle-log-in-new-processes"></a>¿Cómo controlar el registro en nuevos procesos?
+Puede generar nuevos procesos en el script de entrada con el módulo [`subprocess`](https://docs.python.org/3/library/subprocess.html), conectarse a sus canalizaciones de entrada, salida o error y obtener sus códigos de retorno.
 
-Puede obtener el directorio de salida de la clase `EntryScript` y escribir en él. Para ver los archivos escritos, en el paso Ejecutar vista del portal de Azure Machine Learning, seleccione la pestaña **Resultados y registros**. Elija el vínculo **Data outputs** (Resultados de datos) y, luego, complete los pasos que se describen en el cuadro de diálogo. 
+El enfoque recomendado es usar la función [`run()`](https://docs.python.org/3/library/subprocess.html#subprocess.run) con `capture_output=True`. Los errores se mostrarán en `logs/user/error/<node_id>/<process_name>.txt`.
+
+Si quiere usar `Popen()`, debe redirigir stdout/stderr a archivos, como:
+```python
+from pathlib import Path
+from subprocess import Popen
+
+from azureml_user.parallel_run import EntryScript
+
+
+def init():
+    """Show how to redirect stdout/stderr to files in logs/user/entry_script_log/<node_id>/."""
+    entry_script = EntryScript()
+    proc_name = entry_script.agent_name  # The process name in pattern "processNNN".
+    log_dir = Path(entry_script.log_dir)  # logs/user/entry_script_log/<node_id>/.
+    log_dir.mkdir(parents=True, exist_ok=True) # Create the folder if not existing.
+    stdout_file = str(log_dir / f"{proc_name}_demo_stdout.txt")
+    stderr_file = str(log_dir / f"{proc_name}_demo_stderr.txt")
+    proc = Popen(
+        ["...")],
+        stdout=open(stdout_file, "w"),
+        stderr=open(stderr_file, "w"),
+        # ...
+    )
+
+```
+
+> [!NOTE]
+> Un proceso de trabajo ejecuta el código "system" y el código de script de entrada en el mismo proceso.
+>
+> Si no se especifica `stdout` ni `stderr`, un subproceso creado con `Popen()` en el script de entrada heredará la configuración del proceso de trabajo.
+>
+> `stdout` escribirá en `logs/sys/node/<node_id>/processNNN.stdout.txt`; y `stderr`, en `logs/sys/node/<node_id>/processNNN.stderr.txt`.
+
+
+## <a name="how-do-i-write-a-file-to-the-output-directory-and-then-view-it-in-the-portal"></a>¿Cómo se escribe un archivo en el directorio de salida y se ve luego en el portal?
+
+Puede obtener el directorio de salida de la clase `EntryScript` y escribir en él. Para ver los archivos escritos, en el paso Ejecutar vista del portal de Azure Machine Learning, seleccione la pestaña **Resultados y registros**. Elija el vínculo **Data outputs** (Resultados de datos) y, luego, complete los pasos que se describen en el cuadro de diálogo.
 
 Use `EntryScript` en el script de entrada, como en este ejemplo:
 
@@ -264,14 +303,14 @@ def run(mini_batch):
     (Path(output_dir) / res2).write...
 ```
 
-### <a name="how-can-i-pass-a-side-input-such-as-a-file-or-files-containing-a-lookup-table-to-all-my-workers"></a>¿Cómo puedo pasar una entrada lateral, como archivos que contienen una tabla de búsqueda, a todos los trabajos?
+## <a name="how-can-i-pass-a-side-input-such-as-a-file-or-files-containing-a-lookup-table-to-all-my-workers"></a>¿Cómo puedo pasar una entrada lateral, como archivos que contienen una tabla de búsqueda, a todos los trabajos?
 
 El usuario puede pasar datos de referencia al script mediante el parámetro side_inputs de ParalleRunStep. Todos los conjuntos de datos proporcionados como side_inputs se montarán en cada nodo de trabajo. El usuario puede obtener la ubicación del montaje pasando el argumento.
 
 Construya un [conjunto de datos](/python/api/azureml-core/azureml.core.dataset.dataset) que contenga los datos de referencia, especifique una ruta de acceso de montaje local y regístrelo con su área de trabajo. Páselo al parámetro `side_inputs` de `ParallelRunStep`. Además, puede agregar su ruta de acceso en la sección `arguments` para acceder fácilmente a su ruta de acceso montada.
 
 > [!NOTE]
-> Use FileDatasets solo para side_inputs. 
+> Use FileDatasets solo para side_inputs.
 
 ```python
 local_path = "/tmp/{}".format(str(uuid.uuid4()))
@@ -296,7 +335,7 @@ args, _ = parser.parse_known_args()
 labels_path = args.labels_dir
 ```
 
-### <a name="how-to-use-input-datasets-with-service-principal-authentication"></a>¿Cómo se usan los conjuntos de datos de entrada con la autenticación de entidad de servicio?
+## <a name="how-to-use-input-datasets-with-service-principal-authentication"></a>¿Cómo se usan los conjuntos de datos de entrada con la autenticación de entidad de servicio?
 El usuario puede pasar conjuntos de datos de entrada con la autenticación de entidad de servicio usada en el área de trabajo. El uso de un conjunto de datos de este tipo en ParallelRunStep requiere que se registre el conjunto para que construya la configuración de ParallelRunStep.
 
 ```python
@@ -304,15 +343,15 @@ service_principal = ServicePrincipalAuthentication(
     tenant_id="***",
     service_principal_id="***",
     service_principal_password="***")
- 
+
 ws = Workspace(
     subscription_id="***",
     resource_group="***",
     workspace_name="***",
     auth=service_principal
     )
- 
-default_blob_store = ws.get_default_datastore() # or Datastore(ws, '***datastore-name***') 
+
+default_blob_store = ws.get_default_datastore() # or Datastore(ws, '***datastore-name***')
 ds = Dataset.File.from_files(default_blob_store, '**path***')
 registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
 ```
@@ -353,6 +392,8 @@ ParallelRunStep iniciará nuevos procesos de trabajo en sustitución de los que 
 
 * Consulte estos [cuadernos de Jupyter Notebook que muestran canalizaciones de Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines).
 
-* Vea la referencia del SDK para obtener ayuda con el paquete [azureml-pipeline-steps](/python/api/azureml-pipeline-steps/azureml.pipeline.steps). Vea la [documentación](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep) de referencia de la clase ParallelRunStep.
+* Vea la referencia del SDK para obtener ayuda con el paquete [azureml-pipeline-steps](/python/api/azureml-pipeline-steps/azureml.pipeline.steps).
+
+* Vea la [documentación](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig) de referencia de la clase ParallelRunConfig y la [documentación](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep) para la clase ParallelRunStep.
 
 * Realice el [tutorial avanzado](tutorial-pipeline-batch-scoring-classification.md) sobre cómo usar canalizaciones con ParallelRunStep. En este tutorial se explica cómo pasar otro archivo como entrada lateral.

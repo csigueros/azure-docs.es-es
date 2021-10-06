@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: 21012848ba3624df6110eaea182beccc4646d234
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b9ca2a4ba836adacb81a82ad59a11c21ffd6c3fb
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105609282"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216885"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Consultas de Azure Cognitive Search
 
@@ -89,7 +89,7 @@ También podría necesitar filtros para invocar un formulario de consulta especi
 |-----------------|-------------|
 | Filtros de rango | En Azure Cognitive Search, las consultas de intervalo se compilan con el parámetro de filtro. Para más información y ejemplos, consulte [Ejemplo de filtro de intervalo](search-query-simple-examples.md#example-5-range-filters). |
 | Búsqueda de ubicación geográfica | Si un campo utilizable en búsqueda es del [tipo Edm.GeographyPoint](/rest/api/searchservice/supported-data-types) puede crear una expresión de filtro para "buscar cerca de mí" o utilizar controles de búsqueda basados en mapas. Los campos que proporcionan búsquedas geográficas contienen coordenadas. Para más información y para poder ver un ejemplo, consulte [Ejemplo de búsqueda georreferenciada](search-query-simple-examples.md#example-6-geo-search). |
-| Navegación por facetas | Una estructura de navegación por facetas se convierte en fundamental en la navegación dirigida por el usuario cuando se invoca un filtro en respuesta a un evento `onclick` en una faceta. Como puede verse, las facetas y los filtros están relacionados. Si agrega navegación por facetas, necesitará filtros para completar la experiencia. Para más información, consulte [Creación de filtro de faceta](search-filters-facets.md). |
+| Navegación por facetas | En el árbol de [navegación por facetas](search-faceted-navigation.md), los usuarios pueden seleccionar facetas y restringir los resultados en cada clic. Cada faceta tiene el respaldo de un filtro que excluye los documentos que ya no coinciden con los criterios. |
 
 > [!NOTE]
 > El texto que se usa en una expresión de filtro no se analiza durante el procesamiento de la consulta. Se supone que la entrada de texto es un patrón de caracteres textual que distingue entre mayúsculas y minúsculas, y que coincide o no. Las expresiones de filtro se construyen mediante la [sintaxis de OData](query-odata-filter-orderby-syntax.md) y se pasan en un parámetro **`filter`** en todos los campos *filtrables* del índice. Para más información, consulte [Filtros de Azure Cognitive Search](search-filters.md).

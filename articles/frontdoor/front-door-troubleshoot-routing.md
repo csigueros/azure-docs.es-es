@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/30/2020
+ms.date: 09/08/2021
 ms.author: duau
-ms.openlocfilehash: 15cdcefe628a392704e650b560243e2f6a134ec2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed47d310f418936b84c505fcf254947a67f0eb6d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94629995"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824413"
 ---
 # <a name="troubleshooting-common-routing-problems"></a>Solución de problemas comunes de enrutamiento
 
@@ -29,19 +29,27 @@ En este artículo se describe cómo solucionar problemas comunes de enrutamiento
 
 * Las solicitudes normales enviadas al back-end sin pasar a través de Azure Front Door son correctas. Al pasar a través de Azure Front Door, se producen respuestas de error 503.
 * El error de Azure Front Door suele aparecer después de unos 30 segundos.
+* Errores intermitentes de 503 con el registro `ErrorInfo: OriginInvalidResponse`.
 
 ### <a name="cause"></a>Causa
 
-La causa de este problema puede ser una de estas dos:
+La causa del problema puede ser una de estas tres cosas:
  
 * El back-end es mayor que el tiempo de expiración configurado (el valor predeterminado es 30 segundos) para recibir la solicitud de Azure Front Door.
-* El tiempo que se tarda en enviar una respuesta a la solicitud desde Azure Front Door es mayor que el valor de tiempo de expiración. 
+* El tiempo que se tarda en enviar una respuesta a la solicitud desde Azure Front Door es mayor que el valor de tiempo de expiración.
+* El cliente envió una solicitud de intervalo de bytes con `Accept-Encoding header` (compresión habilitada).
 
 ### <a name="troubleshooting-steps"></a>Pasos para solucionar problemas
 
 * Envíe la solicitud al back-end directamente (sin pasar a través de Azure Front Door). Vea cuánto tiempo tarda el back-end en responder.
 * Envíe la solicitud a través de Azure Front Door y vea si se obtienen respuestas 503. Si no es así, es posible que no se trate de un problema de tiempo de expiración. Póngase en contacto con el servicio de soporte técnico.
-* Si se analizan los resultados de Azure Front Door en el código de respuesta de error 503, configure el campo `sendReceiveTimeout` para su instancia de Azure Front Door. Puede ampliar el tiempo de expiración predeterminado hasta 4 minutos (240 segundos). La opción de configuración está en `backendPoolSettings` y se denomina `sendRecvTimeoutSeconds`. 
+* Si las solicitudes que pasan por Azure Front Door dan lugar a un código de respuesta de error 503, configure **Send/receive timeout (in seconds)** (Tiempo de espera de envío o recepción (en segundos)) para Azure Front Door. Puede ampliar el tiempo de espera predeterminado hasta 4 minutos (240 segundos). Para configurar esta opción, vaya al *diseñador de Front Door* y seleccione **Configuración**.
+
+    :::image type="content" source=".\media\troubleshoot-route-issues\send-receive-timeout.png" alt-text="Captura de pantalla del campo de tiempo de espera de envío o recepción en el diseñador de Front Door.":::
+
+* Si con la configuración del tiempo de espera no se resuelve el problema, use una herramienta como Fiddler o la herramienta para desarrolladores del explorador para comprobar si el cliente envía solicitudes de intervalo de bytes con encabezados Accept-Encoding, lo que provoca que el origen responda con distintas longitudes de contenido. En caso afirmativo, puede deshabilitar la compresión en Origen/Azure Front Door, o bien crear una regla de conjunto de reglas para quitar `accept-encoding` de las solicitudes de intervalo de bytes.
+
+    :::image type="content" source=".\media\troubleshoot-route-issues\remove-encoding-rule.png" alt-text="Captura de pantalla de la regla Accept-Encoding en el motor de reglas.":::
 
 ## <a name="requests-sent-to-the-custom-domain-return-a-400-status-code"></a>Las solicitudes enviadas al dominio personalizado devuelven el código de estado 400
 

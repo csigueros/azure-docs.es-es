@@ -4,21 +4,24 @@ description: 'Servicios de comercialización: en esta sección se describen los 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/01/2021
+ms.date: 09/23/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: dcd7c7c64c0a686abe88b9e0d5810ff84aab27f9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9d957adf84bf6f9cf9b48c5d5554d27206d8c382
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121742040"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708386"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Las ventajas de Marketplace comercial
 
 Ya ha publicado en el marketplace comercial de Microsoft, ahora quiere ver que la oferta tenga éxito. Se le ofrecen las ventajas comerciales, técnicas y de marketing que necesita para acelerar el crecimiento de su oferta.
 
 Una vez que la oferta esté activa en Microsoft AppSource o Azure Marketplace, vaya al [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165457) para acceder a sus ventajas aptas de marketing, ventas y técnicas y activarlas. Las ventajas de las Recompensas de Marketplace se basan en la involucración y las ventas comerciales de Marketplace. Cuanto más se involucra, más gana.
+
+> [!NOTE]
+> Las divisas ($) a las que se hace referencia en las imágenes de este artículo son los niveles de ventaja Marketplace Rewards, que se basan en ventas facturadas acumulativas o puestos vendidos mediante Microsoft AppSource y Azure Marketplace.
 
 ## <a name="marketplace-rewards"></a>Recompensas de Marketplace
 

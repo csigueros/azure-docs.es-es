@@ -7,12 +7,12 @@ ms.service: purview
 ms.topic: conceptual
 ms.date: 08/27/2021
 ms.custom: template-concept
-ms.openlocfilehash: a2953402d95822e8392bf8a0b607d8427e03cb88
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: b528e4a4b96e0dbe5f8b2eca748420a23f3c2950
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123481581"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208912"
 ---
 # <a name="azure-purview-account-upgrade-information"></a>Información de actualización de la cuenta de Azure Purview
 
@@ -39,15 +39,15 @@ Cuando se actualice la cuenta, no tendrá que realizar ningún cambio para usar 
 
 En las cuentas de Purview heredadas existen colecciones, pero tienen nuevas funcionalidades y se administran de una manera diferente en las cuentas de Purview actualizadas.
 
-Las colecciones heredadas eran una manera de organizar orígenes de datos y artefactos en la cuenta de Purview. Las colecciones se siguen usando para personalizar el mapa de datos de Purview a fin de que coincida con el panorama empresarial, pero ahora también incluyen el control de acceso. En lugar de controlar el acceso en un nivel general fuera del mapa de datos, con las colecciones la experiencia de administración de acceso coincidirá con el mapa de datos.
+Las [colecciones heredadas](how-to-create-and-manage-collections.md#legacy-collection-guide) eran una manera de organizar orígenes de datos y artefactos en la cuenta de Purview. Las colecciones se siguen usando para personalizar el mapa de datos de Purview a fin de que coincida con el panorama empresarial, pero ahora también incluyen el control de acceso. En lugar de controlar el acceso en un nivel general fuera del mapa de datos, con las colecciones la experiencia de administración de acceso coincidirá con el mapa de datos.
 
-Las colecciones le dan un control preciso sobre los orígenes de datos, pero también sobre la detectabilidad. Los usuarios solo verán los recursos de las colecciones a las que tienen acceso, por lo que solo verán la información que necesitan.
+Las [colecciones](how-to-create-and-manage-collections.md) le dan un control preciso sobre los orígenes de datos, pero también sobre la detectabilidad. Los usuarios solo verán los recursos de las colecciones a las que tienen acceso, por lo que solo verán la información que necesitan.
 
 Cuando se actualice la cuenta de Purview, las colecciones también se actualizarán. Todos los recursos actuales se migrarán a estas nuevas colecciones. En las secciones siguientes, se analizará dónde puede encontrar las colecciones y los recursos existentes.
 
 ### <a name="locate-and-manage-collections"></a>Búsqueda y administración de colecciones
 
-Para buscar las colecciones nuevas, comenzará en [Purview Studio](use-purview-studio.md). Para encontrar Studio, vaya al recurso de Purview en [Azure Portal](https://portal.azure.com) y seleccione el icono **Open Purview Studio** (Abrir Purview Studio) en la página de información general.
+Para buscar las colecciones nuevas, comenzará en [Purview Studio](https://web.purview.azure.com/resource/). Para encontrar Studio, vaya al recurso de Purview en [Azure Portal](https://portal.azure.com) y seleccione el icono **Open Purview Studio** (Abrir Purview Studio) en la página de información general.
 
 Seleccione Mapa de datos > Colecciones en el panel de la izquierda para abrir la página de administración de colecciones.
 
@@ -98,7 +98,7 @@ Para los exámenes programados, solo debe esperar a su siguiente ejecución y lo
 
 Para los exámenes de una sola vez, tendrá que volver a ejecutarlos manualmente para rellenar los recursos de la colección.
 
-1. En Purview Studio, abra el Mapa de datos y seleccione **Orígenes**. Seleccione el origen que quiera examinar.
+1. En [Purview Studio](https://web.purview.azure.com/resource/), abra el Mapa de datos y seleccione **Orígenes**. Seleccione el origen que quiera examinar.
 
     :::image type="content" source="./media/concept-account-upgrade/select-sources.png" alt-text="Captura de pantalla de la ventana de Purview Studio, abierta en el Mapa de datos, con los orígenes resaltados." border="true":::
 
@@ -109,6 +109,53 @@ Para los exámenes de una sola vez, tendrá que volver a ejecutarlos manualmente
 1. Seleccione **Run scan now** (Ejecutar examen ahora) para volver a ejecutar el examen.
 
     :::image type="content" source="./media/concept-account-upgrade/run-scan-now.png" alt-text="Captura de pantalla de la ventana de Purview Studio, abierta en un examen, con la opción Run scan now (Ejecutar examen ahora) resaltada." border="true":::
+
+### <a name="what-happens-when-your-upgraded-account-doesnt-have-a-collection-admin"></a>¿Qué ocurre cuando la cuenta actualizada no tiene un administrador de colección?
+
+La cuenta de Purview actualizada tendrá administradores de colección predeterminados si el proceso puede identificar al menos un usuario o grupo en el orden siguiente: 
+
+1. Propietario (asignado explícitamente)
+
+1. Administrador de acceso de usuario (asignado explícitamente)
+
+1. Administrador de origen de datos y administrador provisional de datos
+
+Si la cuenta no tiene ningún usuario o grupo coincidente con los criterios anteriores, la cuenta de Purview actualizada no tendrá ningún administrador de colección. 
+
+Todavía puede agregar manualmente un administrador de colección mediante la API de administración. El usuario que llama a esta API debe tener permiso de propietario o de administrador de acceso de usuario en la cuenta de Purview para ejecutar una acción de escritura en la cuenta. Deberá conocer el `objectId` del nuevo administrador de colección para enviarlo a través de la API.
+
+#### <a name="request"></a>Solicitud
+
+   ```
+    POST https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Purview/accounts/<accountName>/addRootCollectionAdmin?api-version=2021-07-01
+   ```    
+    
+#### <a name="request-body"></a>Cuerpo de la solicitud
+
+   ```json
+    {
+        "objectId": "<objectId>"
+    }
+   ```    
+
+`objectId` es el objectId del nuevo administrador de la colección que se va a agregar.
+
+#### <a name="response-body"></a>Response body
+
+Si se completa correctamente, recibirá una respuesta de cuerpo vacío con el código `200`.
+
+En caso de error, el formato del cuerpo de la respuesta es el siguiente.
+
+   ```json
+    {
+        "error": {
+            "code": "19000",
+            "message": "The caller does not have Microsoft.Authorization/roleAssignments/write permission on resource: [/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>].",
+            "target": null,
+            "details": []
+        }
+    }
+   ```
 
 ## <a name="permissions"></a>Permisos
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/22/2021
 ms.author: bagol
-ms.openlocfilehash: 2f7425d987e878d843271b7222d00f4e326d6478
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: dd9f0c69b610b54ae6f07661ba15d9f0cf22b3ea
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122515698"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407216"
 ---
 # <a name="azure-sentinel-process-event-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de eventos de proceso de Azure Sentinel (versión preliminar pública)
 
@@ -80,7 +80,7 @@ El siguiente contenido de Azure Sentinel funciona con cualquier actividad de pro
     - [Complemento de Exchange PowerShell agregado (eventos de proceso normalizados)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_ExchangePowerShellSnapin.yaml)
     - [Host exportando buzón y quitando exportación (eventos de proceso normalizados)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_HostExportingMailboxAndRemovingExport.yaml)
     - [Uso de Invoke-PowerShellTcpOneLine (eventos de proceso normalizados)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_Invoke-PowerShellTcpOneLine.yaml)
-    - [Shell TCP inverso de Nishang en Base64 (eventos de proceso normalizados)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_NishangReverseTCPShellBase64.yaml)
+    - [Shell TCP inverso en Base64 (eventos de proceso normalizados)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_NishangReverseTCPShellBase64.yaml)
     - [Resumen de usuarios creados mediante modificadores de línea de comandos poco comunes o no documentados (eventos de proceso normalizados)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_persistence_create_account.yaml)
     - [Descarga de Powercat (eventos de proceso normalizados)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_PowerCatDownload.yaml)
     - [Descargas de PowerShell (eventos de proceso normalizados)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_powershell_downloads.yaml)
@@ -102,12 +102,13 @@ El modelo de información de eventos de proceso está alineado con el [esquema d
 
 ### <a name="log-analytics-fields"></a>Campos de Log Analytics
 
-Log Analytics genera los siguientes campos para cada registro, que se pueden invalidar al crear un conector personalizado.
+Log Analytics genera los siguientes campos para cada registro y se pueden invalidar al crear un conector personalizado.
 
 | Campo         | Tipo     | Debate      |
 | ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | <a name="timegenerated"></a>**TimeGenerated** | datetime | Hora a la que el dispositivo de informes generó el evento.|
 | **_ResourceId**   | guid     | Id. de recurso de Azure del dispositivo o servicio de informes, o bien Id. de recurso del reenviador de registros para los eventos reenviados mediante Syslog, CEF o WEF. |
+| **Tipo** | String | Tabla original de la que se ha obtenido el registro. Este campo es útil cuando el mismo evento se puede recibir a través de varios canales en tablas diferentes y tienen los mismos valores EventVendor y EventProduct.<br><br>Por ejemplo, un evento Sysmon se puede recopilar en la tabla Event o en la tabla WindowsEvent. |
 | | | |
 
 > [!NOTE]
@@ -116,7 +117,7 @@ Log Analytics genera los siguientes campos para cada registro, que se pueden inv
 
 ## <a name="event-fields"></a>Campos del evento
 
-Los campos de evento son comunes a todos los esquemas y describen la propia actividad y el dispositivo de informes.
+Los campos del evento son comunes a todos los esquemas y describen la propia actividad y el dispositivo de informes.
 
 | Campo               | Clase       | Tipo       |  Descripción        |
 |---------------------|-------------|------------|--------------------|
@@ -127,11 +128,11 @@ Los campos de evento son comunes a todos los esquemas y describen la propia acti
 | **EventType**           | Mandatory   | Enumerated |    Describe la operación notificada por el registro. <br><br>Para los registros de proceso, los valores admitidos son: <br>- `ProcessCreated` <br>- `ProcessTerminated` |
 | **EventResult**         | Mandatory   | Enumerated |  Describe el resultado del evento, normalizado en uno de los siguientes valores admitidos: <br><br>- `Success`<br>- `Partial`<br>- `Failure`<br>- `NA` (no aplicable) <br><br>El origen solo puede proporcionar un valor para el campo **EventResultDetails**, que se debe analizar para obtener el valor **EventResult**.<br><br>**Nota**: Los eventos de proceso normalmente solo comunican los aciertos. |
 | **EventOriginalUid**    | Opcional    | String     |   Id. único del registro original, si lo proporciona el origen.<br><br>Ejemplo: `69f37748-ddcd-4331-bf0f-b137f1ea83b`|
-| **EventOriginalType**   | Opcional    | String     |   El tipo o identificador del evento original, si lo proporciona el origen.<br><br>Ejemplo: `4688`|
+| **EventOriginalType**   | Opcional    | String     |   Tipo o Id. del evento original, si lo proporciona el origen.<br><br>Ejemplo: `4688`|
 | <a name ="eventproduct"></a>**EventProduct**        | Mandatory   | String     |             Producto que genera el evento. <br><br>Ejemplo: `Sysmon`<br><br>**Nota:** Es posible que este campo no esté disponible en el registro de origen. En tales casos, el analizador debe establecer este campo.           |
 | **EventProductVersion** | Opcional    | String     | Versión del producto que genera el evento. <br><br>Ejemplo: `12.1`      |
 | **EventVendor**         | Mandatory   | String     |           Proveedor del producto que genera el evento. <br><br>Ejemplo: `Microsoft`  <br><br>**Nota:** Es posible que este campo no esté disponible en el registro de origen. En tales casos, el analizador debe establecer este campo.  |
-| **EventSchemaVersion**  | Mandatory   | String     |    Versión del esquema. La versión del esquema que se documenta aquí es `0.1`.         |
+| **EventSchemaVersion**  | Mandatory   | String     |    Versión del esquema. La versión del esquema que se documenta aquí el la versión `0.1`.         |
 | **EventReportUrl**      | Opcional    | String     | Dirección URL proporcionada en el evento para un recurso que ofrece información adicional sobre el evento.|
 | **Dvc** | Mandatory       | String     |                Identificador único del dispositivo en el que se produjo el evento. <br><br>Este campo puede ser un alias de los campos [DvcId](#dvcid), [DvcHostname](#dvchostname) o [DvcIpAddr](#dvcipaddr). En el caso de orígenes en la nube, para los que no hay ningún dispositivo aparente, use el valor del campo [EventProduct](#eventproduct).            |
 | <a name ="dvcipaddr"></a>**DvcIpAddr**           | Recomendado | Dirección IP |         La dirección IP del dispositivo en el que se produjo el evento de proceso.  <br><br>Ejemplo: `45.21.42.12`    |
@@ -162,12 +163,12 @@ El esquema de eventos de proceso hace referencia a las entidades siguientes, que
 | **CommandLine**    | Alias        |            |     Alias para [TargetProcessCommandLine](#targetprocesscommandline)  |
 | **Hash**           | Alias        |            |       Alias para el mejor hash disponible. |
 | <a name="actorusername"></a>**ActorUsername**  | Mandatory    | String     | Nombre de usuario del usuario que inició el evento. <br><br>Ejemplo: `CONTOSO\WIN-GG82ULGC9GO$`     |
-| **ActorUsernameType**              | Mandatory    | Enumerated |   Especifica el tipo de nombre de usuario almacenado en el campo [ActorUsername](#actorusername). Para más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity). <br><br>Ejemplo: `Windows`       |
-| <a name="actoruserid"></a>**ActorUserId**    | Recomendado  | String     |   Identificador único de Actor. El identificador específico depende del sistema que genere el evento. Para más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).  <br><br>Ejemplo: `S-1-5-18`    |
-| **ActorUserIdType**| Recomendado  | String     |  Tipo del identificador almacenado en el campo [ActorUserId](#actoruserid). Para más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity). <br><br>Ejemplo: `SID`         |
+| **ActorUsernameType**              | Mandatory    | Enumerated |   Especifica el tipo de nombre de usuario almacenado en el campo [ActorUsername](#actorusername). Para más información, consulte la [Entidad Usuario](normalization-about-schemas.md#the-user-entity). <br><br>Ejemplo: `Windows`       |
+| <a name="actoruserid"></a>**ActorUserId**    | Recomendado  | String     |   Identificador único de Actor. El identificador específico depende del sistema que genere el evento. Para más información, consulte la [Entidad Usuario](normalization-about-schemas.md#the-user-entity).  <br><br>Ejemplo: `S-1-5-18`    |
+| **ActorUserIdType**| Recomendado  | String     |  Tipo del identificador almacenado en el campo [ActorUserId](#actoruserid). Para más información, consulte la [Entidad Usuario](normalization-about-schemas.md#the-user-entity). <br><br>Ejemplo: `SID`         |
 | **ActorSessionId** | Opcional     | String     |   Identificador único de la sesión de inicio de sesión de Actor.  <br><br>Ejemplo: `999`<br><br>**Nota**: El tipo se define como *cadena* para admitir distintos sistemas, pero en Windows este valor debe ser numérico. <br><br>Si usa una máquina Windows y ha usado un tipo diferente, asegúrese de convertir los valores. Por ejemplo, si ha utilizado un valor hexadecimal, conviértalo en un valor decimal.   |
 | **ActingProcessCommandLine**       | Opcional     | String     |   Línea de comandos utilizada para ejecutar el proceso de acción. <br><br>Ejemplo: `"choco.exe" -v`    |
-| **ActingProcessName**              | Opcional     | string     |   Nombre del proceso de acción. Este nombre se deriva normalmente de la imagen o del archivo ejecutable que se usa para definir el código inicial y los datos asignados al espacio de direcciones virtuales del proceso.<br><br>Ejemplo: `C:\Windows\explorer.exe`  |
+| **ActingProcessName**              | Opcional     | string     |   Nombre del proceso de acción. Este nombre se deriva normalmente de la imagen o el archivo ejecutable que se usa para definir el código inicial y los datos asignados al espacio de direcciones virtuales del proceso.<br><br>Ejemplo: `C:\Windows\explorer.exe`  |
 | **ActingProcessFileCompany**       | Opcional     | String     |           La empresa que creó el archivo de imagen del proceso de acción.  <br><br> Ejemplo: `Microsoft`    |
 | **ActingProcessFileDescription**   | Opcional     | String     |  Descripción insertada en la información de la versión del archivo de imagen del proceso de acción. <br><br>Ejemplo: `Notepad++ : a free (GPL) source code editor` |
 | **ActingProcessFileProduct**       | Opcional     | String     |Nombre del producto de la información de la versión del archivo de imagen del proceso de acción. <br><br> Ejemplo: `Notepad++`           |
@@ -176,8 +177,8 @@ El esquema de eventos de proceso hace referencia a las entidades siguientes, que
 | **ActingProcessFileOriginalName** | Opcional     | String     |Nombre de archivo original del producto de la información de la versión del archivo de imagen del proceso de acción.       <br><br> Ejemplo: `Notepad++.exe` |
 | **ActingProcessIsHidden**          | Opcionales     | Boolean    |      Indicación de si el proceso de acción está en modo oculto.  |
 | **ActingProcessInjectedAddress**   | Opcional     | String     |      Dirección de memoria en la que se almacena el proceso de acción responsable.           |
-| **ActingProcessId**| Mandatory    | int        | Identificador de proceso (PID) del proceso de acción.<br><br>Ejemplo: `48610176`           <br><br>**Nota**: El tipo se define como *cadena* para admitir distintos sistemas, pero en Windows y Linux este valor debe ser numérico. <br><br>Si usa una máquina Windows o Linux y ha usado un tipo diferente, asegúrese de convertir los valores. Por ejemplo, si ha utilizado un valor hexadecimal, conviértalo en un valor decimal.    |
-| **ActingProcessGuid**              | Opcional     | string     |  Identificador único (GUID) generado del proceso de acción. Permite identificar el proceso entre sistemas.  <br><br> Ejemplo: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
+| **ActingProcessId**| Mandatory    | String        | Identificador de proceso (PID) del proceso de acción.<br><br>Ejemplo: `48610176`           <br><br>**Nota**: El tipo se define como *cadena* para admitir distintos sistemas, pero en Windows y Linux este valor debe ser numérico. <br><br>Si usa una máquina Windows o Linux y usa un tipo diferente, asegúrese de convertir los valores. Por ejemplo, si ha utilizado un valor hexadecimal, conviértalo en un valor decimal.    |
+| **ActingProcessGuid**              | Opcional     | string     |  Identificador único (GUID) generado del proceso de acción. Permite identificar el proceso en los sistemas.  <br><br> Ejemplo: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
 | **ActingProcessIntegrityLevel**    | Opcional     | String     |       Cada proceso tiene un nivel de integridad que se representa en su token. Los niveles de integridad determinan el nivel de protección o acceso del proceso. <br><br> Windows define los siguientes niveles de integridad: **bajo**, **medio**, **alto** y **sistema**. Los usuarios estándar reciben un nivel de integridad **medio** y los usuarios con privilegios elevados reciben un nivel de integridad **alto**. <br><br> Para más información, consulte [Control de integridad obligatorio: aplicaciones Win32](/windows/win32/secauthz/mandatory-integrity-control). |
 | **ActingProcessMD5**               | Opcional     | String     |Hash MD5 del archivo de imagen del proceso de acción.  <br><br>Ejemplo: `75a599802f1fa166cdadb360960b1dd0`|
 | **ActingProcessSHA1**              | Opcionales     | SHA1       | Hash SHA-1 del archivo de imagen del proceso de acción.             <br><br>  Ejemplo: `d55c5a4df19b46db8c54c801c4665d3338acdab0`  |
@@ -194,7 +195,7 @@ El esquema de eventos de proceso hace referencia a las entidades siguientes, que
 | **ParentProcessFileVersion**       | Opcional     | String     | Versión del producto de la información de la versión del archivo de imagen del proceso principal.    <br><br> Ejemplo: `7.9.5.0` |
 | **ParentProcessIsHidden**          | Opcionales     | Boolean    |   Indicación de si el proceso principal está en modo oculto.  |
 | **ParentProcessInjectedAddress**   | Opcional     | String     |    Dirección de memoria en la que se almacena el proceso principal responsable.           |
-| **ParentProcessId**| Mandatory    | integer    | Identificador de proceso (PID) del proceso principal.   <br><br>     Ejemplo: `48610176`    |
+| **ParentProcessId**| Mandatory    | String    | Identificador de proceso (PID) del proceso primario.   <br><br>     Ejemplo: `48610176`    |
 | **ParentProcessGuid**              | Opcional     | String     |  Identificador único (GUID) generado del proceso principal.  Permite identificar el proceso entre sistemas.    <br><br> Ejemplo: `EF3BD0BD-2B74-60C5-AF5C-010000001E00` |
 | **ParentProcessIntegrityLevel**    | Opcional     | String     |   Cada proceso tiene un nivel de integridad que se representa en su token. Los niveles de integridad determinan el nivel de protección o acceso del proceso. <br><br> Windows define los siguientes niveles de integridad: **bajo**, **medio**, **alto** y **sistema**. Los usuarios estándar reciben un nivel de integridad **medio** y los usuarios con privilegios elevados reciben un nivel de integridad **alto**. <br><br> Para más información, consulte [Control de integridad obligatorio: aplicaciones Win32](/windows/win32/secauthz/mandatory-integrity-control). |
 | **ParentProcessMD5**               | Opcionales     | MD5        | Hash MD5 del archivo de imagen del proceso principal.  <br><br>Ejemplo: `75a599802f1fa166cdadb360960b1dd0`|
@@ -206,7 +207,7 @@ El esquema de eventos de proceso hace referencia a las entidades siguientes, que
 | **ParentProcessCreationTime**      | Opcionales    | DateTime   |    La fecha y hora en que se inició el proceso principal. |
 | <a name="targetusername"></a>**TargetUsername** | Obligatorio para los eventos de creación de procesos. | String     | Nombre de usuario del usuario de destino.  <br><br>Ejemplo:   `CONTOSO\WIN-GG82ULGC9GO$`      |
 | **TargetUsernameType**             | Obligatorio para los eventos de creación de procesos.   | Enumerated | Especifica el tipo de nombre de usuario almacenado en el campo [TargetUsername](#targetusername). Para más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).          <br><br>  Ejemplo: `Windows`        |
-|<a name="targetuserid"></a> **TargetUserId**   | Recomendado | String     | Identificador único del usuario de destino. El identificador específico depende del sistema que genere el evento. Para más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).            <br><br> Ejemplo: `S-1-5-18`    |
+|<a name="targetuserid"></a> **TargetUserId**   | Recomendado | String     | Identificador único del usuario de destino. El identificador específico depende del sistema que genere el evento. Para más información, consulte la [Entidad Usuario](normalization-about-schemas.md#the-user-entity).            <br><br> Ejemplo: `S-1-5-18`    |
 | **TargetUserIdType**               | Recomendado | String     | Tipo del identificador de usuario almacenado en el campo [TargetUserId](#targetuserid). Para más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).            <br><br> Ejemplo: `SID`  |
 | **TargetUserSessionId**            | Opcional     | String     |Identificador único de la sesión de inicio de sesión del usuario de destino. <br><br>Ejemplo: `999`          <br><br>**Nota**: El tipo se define como *cadena* para admitir distintos sistemas, pero en Windows este valor debe ser numérico. <br><br>Si usa una máquina Windows o Linux y ha usado un tipo diferente, asegúrese de convertir los valores. Por ejemplo, si ha utilizado un valor hexadecimal, conviértalo en un valor decimal.     |
 | <a name="targetprocessname"></a>**TargetProcessName**              | Mandatory    | string     |Nombre del proceso de destino. Este nombre se deriva normalmente de la imagen o del archivo ejecutable que se usa para definir el código inicial y los datos asignados al espacio de direcciones virtuales del proceso.   <br><br>     Ejemplo: `C:\Windows\explorer.exe`     |
@@ -227,7 +228,7 @@ El esquema de eventos de proceso hace referencia a las entidades siguientes, que
 | <a name="targetprocesscommandline"></a> **TargetProcessCommandLine**       | Mandatory    | String     | Línea de comandos utilizada para ejecutar el proceso de destino.   <br><br> Ejemplo: `"choco.exe" -v`  |
 | <a name="targetprocesscurrentdirectory"></a> **TargetProcessCurrentDirectory**       | Opcional    | String     | Directorio actual en el que se ejecuta el proceso de destino.  <br><br> Ejemplo: `c:\windows\system32`  |
 | **TargetProcessCreationTime**      | Mandatory    | DateTime   |    Versión del producto de la información de la versión del archivo de imagen del proceso de destino.   |
-| **TargetProcessId**| Mandatory    | String     |  Identificador de proceso (PID) del proceso de destino.     <br><br>Ejemplo: `48610176`<br><br>**Nota**: El tipo se define como *cadena* para admitir distintos sistemas, pero en Windows y Linux este valor debe ser numérico. <br><br>Si usa una máquina Windows o Linux y ha usado un tipo diferente, asegúrese de convertir los valores. Por ejemplo, si ha utilizado un valor hexadecimal, conviértalo en un valor decimal.         |
+| **TargetProcessId**| Mandatory    | String     |  Identificador de proceso (PID) del proceso de destino.     <br><br>Ejemplo: `48610176`<br><br>**Nota**: El tipo se define como *cadena* para admitir distintos sistemas, pero en Windows y Linux este valor debe ser numérico. <br><br>Si usa una máquina Windows o Linux y usa un tipo diferente, asegúrese de convertir los valores. Por ejemplo, si ha utilizado un valor hexadecimal, conviértalo en un valor decimal.         |
 | **TargetProcessGuid**              | Opcional    | String     |Identificador único (GUID) generado del proceso de destino. Permite identificar el proceso entre sistemas.   <br><br>  Ejemplo: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`  |
 | **TargetProcessIntegrityLevel**    | Opcional    | String     |   Cada proceso tiene un nivel de integridad que se representa en su token. Los niveles de integridad determinan el nivel de protección o acceso del proceso. <br><br> Windows define los siguientes niveles de integridad: **bajo**, **medio**, **alto** y **sistema**. Los usuarios estándar reciben un nivel de integridad **medio** y los usuarios con privilegios elevados reciben un nivel de integridad **alto**. <br><br> Para más información, consulte [Control de integridad obligatorio: aplicaciones Win32](/windows/win32/secauthz/mandatory-integrity-control). |
 | **TargetProcessTokenElevation**    | Opcional    | String     |Tipo de token que indica la presencia o ausencia de elevación de privilegios de Control de acceso de usuario (UAC) aplicada al proceso que se creó o terminó.   <br><br>    Ejemplo: `None`     |
@@ -240,7 +241,7 @@ El esquema de eventos de proceso hace referencia a las entidades siguientes, que
 Para más información, consulte:
 
 - [Normalización en Azure Sentinel](normalization.md)
-- [Referencia del esquema de normalización de la autenticación de Azure Sentinel (versión preliminar pública)](authentication-normalization-schema.md)
+- [Referencia del esquema de normalización de la autenticación de Azure Sentinel (Versión preliminar pública)](authentication-normalization-schema.md)
 - [Referencia del esquema de normalización de DNS de Azure Sentinel](dns-normalization-schema.md)
 - [Referencia del esquema de normalización de eventos de archivo de Azure Sentinel (versión preliminar pública)](file-event-normalization-schema.md)
 - [Referencia del esquema de normalización de redes de Azure Sentinel](normalization-schema.md)

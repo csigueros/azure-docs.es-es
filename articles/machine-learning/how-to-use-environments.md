@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/11/2021
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: 3b722cecc932370af8bcde7e374263a25d40c347
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 845e852f2ef3155fce451f7e80f5c8f43eb8abf6
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129094678"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355220"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Creación y uso de entornos de software en Azure Machine Learning
 
@@ -108,7 +108,7 @@ myenv = Environment.from_pip_requirements(name = "myenv",
 
 ### <a name="enable-docker"></a>Habilitación de Docker
 
-Azure Machine Learning compila una imagen de Docker y crea un entorno de Python en ese contenedor de acuerdo con las especificaciones. Las imágenes de Docker se almacenan en caché y se reutilizan: la primera vez que se ejecutan en un entorno nuevo suele tardar más, ya que la imagen debe compilarse. En las ejecuciones locales, especifique Docker en [RunConfiguration](/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py#variables). 
+Azure Machine Learning compila una imagen de Docker y crea un entorno de Python en ese contenedor de acuerdo con las especificaciones. Las imágenes de Docker se almacenan en caché y se reutilizan: la primera vez que se ejecutan en un entorno nuevo suele tardar más, ya que la imagen debe compilarse. En las ejecuciones locales, especifique Docker en [RunConfiguration](/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py&preserve-view=true#variables). 
 
 De manera predeterminada, la imagen de Docker recién creada aparece en el registro de contenedor que está asociado al área de trabajo.  El nombre del repositorio tiene el formato *azureml/azureml_\<uuid\>* . La parte del identificador único (*uuid*) del nombre corresponde a un hash calculado a partir de la configuración del entorno. Esta correspondencia permite que el servicio determine si ya existe para reutilizar una imagen del entorno dado.
 

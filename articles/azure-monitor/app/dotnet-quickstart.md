@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/11/2021
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 90d4fd76350d03bd876d97a7191011079b11845e
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 03506bd066ee81eb61c2d44f0d31f1336bd44f05
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112300999"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081118"
 ---
 # <a name="quickstart-monitor-an-aspnet-core-app-with-azure-monitor-application-insights"></a>Inicio rápido: Supervisión de una aplicación de ASP.NET Core con Azure Monitor Application Insights
 
@@ -100,7 +100,7 @@ La telemetría tarda varios minutos en ingerirse en Application Insights para su
 
 1. Ejecute la aplicación web mediante `dotnet run` o el entorno de desarrollo integrado (IDE).
 1. En Azure Portal, cuando vea el recurso de Application Insights, seleccione **Métricas en directo** en **Investigar**.
-1. En la aplicación, seleccione los vínculos **Inicio** y **Privacidad** repetidamente.
+1. En la aplicación (`http://localhost:5000`), seleccione los vínculos **Inicio** y **Privacidad** repetidamente.
 1. Observe la actividad en la pantalla **Métricas en directo** a medida que se realizan solicitudes en la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes

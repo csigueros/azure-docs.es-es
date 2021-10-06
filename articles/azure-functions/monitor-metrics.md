@@ -3,19 +3,16 @@ title: Uso de métricas de supervisión con Azure Functions
 description: Aprenda a usar las métricas de Azure Monitor para ver y consultar los datos de telemetría de Azure Functions que Azure Application Insights recopila y almacena.
 ms.topic: how-to
 ms.date: 07/4/2021
-ms.openlocfilehash: b5f0b483295cccff8caf97503233e1e7881173cf
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: 8f9e80a50e3041ea37d765938613563b31f16af0
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113568619"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215764"
 ---
 # <a name="using-azure-monitor-metric-with-azure-functions"></a>Uso de métricas de Azure Monitor con Azure Functions
 
 Azure Functions se integra con las métricas de Azure Monitor para permitirle el análisis de las métricas generadas por la aplicación de funciones durante la ejecución. Para más información, consulte [Información general sobre las métricas de Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md). Estas métricas indican cómo se ejecuta la aplicación de funciones en la plataforma de App Service. Puede revisar los datos de consumo de recursos usados para calcular los costos del plan de consumo. Para investigar la telemetría detallada de las ejecuciones de la función, incluidos los datos de registro, también debe usar [Application Insights](functions-monitoring.md) en Azure Monitor. 
-
-> [!NOTE]
-> Las métricas de Azure Monitor no se admiten actualmente cuando la aplicación de funciones se ejecuta en Linux en un plan de consumo.
 
 ## <a name="available-metrics"></a>Métricas disponibles
 

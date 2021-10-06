@@ -5,14 +5,14 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: quickstart
-ms.date: 09/01/2021
+ms.date: 09/08/2021
 ms.author: duau
-ms.openlocfilehash: 36be075345dcacdf8246f46462a2665718f27e7e
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: a6714867b5b863f608e3282c5e6f3bb0d2425969
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123424805"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091490"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-the-azure-portal"></a>Inicio rápido: Creación y configuración de una instancia de Route Server mediante Azure Portal
 
@@ -20,7 +20,10 @@ Este artículo le ayuda a configurar Azure Route Server para su emparejamiento c
 
 :::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagrama del entorno de implementación de Route Server mediante Azure Portal." border="false":::
 
-## <a name="prerequisites"></a>Prerrequisitos
+> [!IMPORTANT]
+> Si tiene un Azure Route Server creado antes del 1 de septiembre y no tiene una dirección IP pública asociada, deberá volver a crear el Route Server para que pueda obtener una dirección IP con fines de administración.
+
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Consulte [Límites de servicio de Azure Route Server](route-server-faq.md#limitations).
@@ -33,7 +36,7 @@ Desde un explorador, navegue al [Portal de Azure](https://portal.azure.com) e in
 
 ### <a name="create-a-route-server"></a>Creación de una instancia de Route Server
 
-1. Ir a https://aka.ms/routeserver.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione **Servidor de rutas**.
 
 1. Seleccione **+ Create new route server** (+ Crear un nuevo servidor de rutas).
 

@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: fc1e7bd2f82755f94469dc9feece7351f1ba0a32
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 75473561ecb827f12aeb02cb69b12259862da10b
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121729841"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129229665"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>Envío de mensajes de nube a dispositivo con IoT Hub (Node.js)
 
@@ -202,7 +202,5 @@ Ahora está preparado para ejecutar las aplicaciones.
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, aprendió a enviar y recibir mensajes de nube a dispositivo.
-
-Para ver ejemplos de soluciones de un extremo a otro que usen IoT Hub, vea el [Acelerador de la solución de supervisión remota de Azure IoT](https://azure.microsoft.com/documentation/suites/iot-suite/).
 
 Para obtener más información sobre cómo desarrollar soluciones con IoT Hub, consulte la [Guía para desarrolladores de IoT Hub](iot-hub-devguide.md).
