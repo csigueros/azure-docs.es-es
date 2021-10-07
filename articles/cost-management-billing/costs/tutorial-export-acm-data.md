@@ -3,18 +3,18 @@ title: 'Tutorial: Creación y administración de datos exportados desde Azure Co
 description: En este artículo se muestra cómo crear y administrar datos de Azure Cost Management para utilizarlos en sistemas externos.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/05/2021
+ms.date: 09/16/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: f6d640d40b586e435e1484fce8d6560a961ba6ac
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5c27f34adcf427a82f425f7ef4cf24a4ae843bc4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121731947"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648779"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Creación y administración de datos exportados
 
@@ -295,6 +295,14 @@ Este es un ejemplo del archivo de manifiesto _manifest.json.
   ]
 }
 ```
+
+### <a name="export-versions"></a>Versiones de exportación
+
+Cuando crea una exportación programada en Azure Portal o con la API, siempre se ejecuta en la versión de exportación usada en el momento de la creación. Azure mantiene las exportaciones creadas anteriormente en la misma versión, a menos que la actualice. Al hacerlo, se evitan los cambios en los cargos y en los campos de archivos .csv si se cambia la versión de exportación. A medida que la funcionalidad de exportación cambia con el tiempo, los nombres de los campos a veces cambian y se agregan nuevos campos.
+
+Si desea usar los datos y campos disponibles más recientes, se recomienda crear una nueva exportación en Azure Portal. Para actualizar una exportación existente a la versión más reciente, actualícela en Azure Portal o con la versión más reciente de Export API. La actualización de una exportación existente puede provocar que vea pequeñas diferencias en los campos y los cargos en archivos que se producen después.
+
+
 ## <a name="verify-that-data-is-collected"></a>Verificación de la recopilación de los datos
 
 Puede comprobar fácilmente que los datos de Cost Management se están recopilando y consultar el archivo CSV exportado mediante el Explorador de Azure Storage.

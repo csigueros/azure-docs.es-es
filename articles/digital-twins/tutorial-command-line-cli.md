@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/1/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 26e90482ad03406bbf586c7c9a8f2fdcc31cad7c
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 50e5a8fb09a3bd54dd4131f6c60de6b315233e86
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122254029"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128557686"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-the-azure-cli"></a>Tutorial: Creación de un grafo de Azure Digital Twins mediante la CLI de Azure
 
@@ -161,6 +161,8 @@ Para crear un gemelo digital, se usa el comando [az dt twin create](/cli/azure/d
     
     :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Captura de pantalla de Cloud Shell que muestra el resultado parcial de una consulta de gemelos, que incluye room0 y room1." lightbox="media/tutorial-command-line/cli/output-query-all.png":::
 
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
+
 ### <a name="modify-a-digital-twin"></a>Modificación de un gemelo digital
 
 También puede modificar las propiedades de un gemelo que haya creado. 
@@ -217,7 +219,7 @@ Para agregar una relación, use el comando [az dt twin relationship create](/cli
     
     La salida de cada comando mostrará información sobre la relación creada correctamente.
 
-1. Puede comprobar las relaciones con cualquiera de los siguientes comandos, que consultan las relaciones en la instancia de Azure Digital Twins.
+1. Puede comprobar las relaciones con cualquiera de los siguientes comandos, que imprimen las relaciones de la instancia de Azure Digital Twins.
     * Para ver todas las relaciones que proceden de cada planta (vista de las relaciones desde un lado):
         ```azurecli-interactive
         az dt twin relationship list --dt-name <Azure-Digital-Twins-instance-name> --twin-id floor0
@@ -241,6 +243,8 @@ Los gemelos y las relaciones que ha configurado en este tutorial forman el sigui
 ## <a name="query-the-twin-graph-to-answer-environment-questions"></a>Consulta del gráfico de gemelos para responder a las preguntas del entorno
 
 Una de las principales características de Azure Digital Twins es la posibilidad de [consultar](concepts-query-language.md) el gráfico de gemelos de forma fácil y eficaz para responder a las preguntas sobre el entorno. En la CLI de Azure, esto se hace con el comando [az dt twin query](/cli/azure/dt/twin?view=azure-cli-latest&preserve-view=true#az_dt_twin_query).
+
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
 
 Ejecute las siguientes consultas en Cloud Shell para responder a algunas preguntas sobre el entorno de ejemplo.
 
@@ -278,7 +282,7 @@ Ejecute las siguientes consultas en Cloud Shell para responder a algunas pregunt
     :::image type="content" source="media/tutorial-command-line/cli/output-query-relationship.png" alt-text="Captura de pantalla de Cloud Shell que muestra el resultado de la consulta de relación, que incluye room0." lightbox="media/tutorial-command-line/cli/output-query-relationship.png":::
 
     > [!NOTE]
-    > Observe que se consulta un identificador del gemelo (como floor0 en la consulta anterior) mediante el campo de metadatos `$dtId`. 
+    > Un identificador de gemelo (como floor0 en la consulta anterior) se consulta mediante el campo de metadatos `$dtId`. 
     >
     >Cuando se usa Cloud Shell para ejecutar una consulta con campos de metadatos como este que comienzan por `$`, se debe eludir `$` con un acento grave para que Cloud Shell sepa que no es una variable y se debe consumir como literal en el texto de la consulta. Esto se refleja en la captura de pantalla anterior.
 

@@ -8,12 +8,12 @@ ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, cli-validate, seodec18
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 603d8e642cd2e88beec6ae34094a2c6c43d179ee
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 6c342a898a7ad9f0918313b2292a0105c75f6c8a
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107768959"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129535569"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Creación de una aplicación web HTML estática en Azure
 
@@ -165,4 +165,4 @@ Este comando puede tardar varios segundos en ejecutarse.
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Asignación de un dominio personalizado](app-service-web-tutorial-custom-domain-uiex.md)
+> Asignación de dominios personalizados

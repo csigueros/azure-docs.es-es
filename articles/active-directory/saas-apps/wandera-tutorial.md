@@ -1,7 +1,6 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Wandera RADAR Admin | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con Wandera RADAR Admin'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Wandera RADAR Admin.
-services: active-directory
 author: jeevansd
 manager: CelesteDG
 ms.reviewer: celested
@@ -11,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/10/2021
 ms.author: jeedes
-ms.openlocfilehash: 7f2658261e89ab82c59cdb9b3491766e95491c92
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: c6606494bcdcc006634d4bbb4405933e0adb8ebb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111985242"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653804"
 ---
 # <a name="tutorial-integrate-wandera-radar-admin-with-azure-active-directory"></a>Tutorial: Integración de Wandera RADAR Admin con Azure Active Directory
 
@@ -81,7 +80,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://radar.wandera.com/saml/acs/<TENANT_ID>`
 
     > [!NOTE]
-    > Este valor no es real. Actualícelo con la dirección URL de respuesta real. Póngase en contacto con el [equipo de soporte técnico al cliente de Wandera RADAR Admin](https://www.wandera.com/about-wandera/contact/#supportsection) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal. Reemplace cuidadosamente la parte <tenant id> de la dirección URL anterior por el identificador de inquilino mostrado en la página **Configuración** > **Administración** > **Inicio de sesión único** de su cuenta de Wandera.
+    > Este valor no es real. Actualícelo con la dirección URL de respuesta real. Póngase en contacto con el [equipo de soporte técnico al cliente de Wandera RADAR Admin](https://www.wandera.com/about-wandera/contact/#supportsection) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal. Reemplace cuidadosamente la parte \<tenant id\> de la dirección URL anterior por el identificador de inquilino mostrado en la página **Configuración** > **Administración** > **Inicio de sesión único** de su cuenta de Wandera.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
@@ -157,7 +156,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Haga clic en Probar esta aplicación en Azure Portal; debería iniciar sesión automáticamente en la instancia de Wandera RADAR Admin para la que configuró el inicio de sesión único.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Wandera RADAR Admin en Aplicaciones, debería iniciar sesión automáticamente en la instancia de Wandera RADAR Admin para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Wandera RADAR Admin en Aplicaciones, debería iniciar sesión automáticamente en la instancia de Wandera RADAR Admin para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

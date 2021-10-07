@@ -1,7 +1,7 @@
 ---
-title: 'Inicio rápido: Eliminación de una aplicación del inquilino'
+title: 'Inicio rápido: Eliminación de una aplicación empresarial'
+description: Eliminación de una aplicación empresarial en Azure Active Directory.
 titleSuffix: Azure AD
-description: Este inicio rápido utiliza Azure Portal para eliminar una aplicación del inquilino de Azure Active Directory (Azure AD).
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -9,52 +9,40 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/23/2021
+ms.date: 09/22/2021
 ms.author: davidmu
-ms.reviewer: alamaral
-ms.openlocfilehash: a29ac9aa0cecaefb3d9ada87b60d2bebb8c5269b
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.reviewer: ergleenl
+ms.openlocfilehash: 16bc055ed2b47ee5c212fa26387599a8d4ada7a8
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123112428"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129058216"
 ---
-# <a name="quickstart-delete-an-application-from-your-tenant"></a>Inicio rápido: Eliminación de una aplicación del inquilino
+# <a name="quickstart-delete-an-enterprise-application-in-azure-active-directory"></a>Inicio rápido: Eliminación de una aplicación empresarial en Azure Active Directory
 
-Este inicio rápido utiliza Azure Portal para eliminar una aplicación que se agregó al inquilino de Azure Active Directory (Azure AD).
+En esta guía de inicio rápido, usará el centro de administración de Azure Active Directory para eliminar una aplicación que se agregó al inquilino de Azure Active Directory (Azure AD).
 
-Para más información sobre el inicio de sesión único y Azure, consulte [¿Qué es el inicio de sesión único?](what-is-single-sign-on.md)
+Para probar los pasos de este inicio rápido, se recomienda usar un entorno que no sea de producción.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para eliminar una aplicación del inquilino de Azure AD, necesita:
+Para la eliminación de una aplicación empresarial, necesitará:
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Uno de los siguientes roles: Administrador global, Administrador de aplicaciones en la nube, Administrador de aplicaciones o Propietario de la entidad de servicio.
-- Opcional: Haber finalizado el inicio rápido de [Visualización de las aplicaciones](view-applications-portal.md).
-- Opcional: Haber finalizado el inicio rápido de [Incorporación de una aplicación](add-application-portal.md).
-- Opcional: Haber finalizado el inicio rápido de [Configuración de una aplicación](add-application-portal-configure.md).
-- Opcional: haber finalizado [Asignación de usuarios a una aplicación](add-application-portal-assign-users.md).
-- Opcional: Haber finalizado el inicio rápido de [Configuración del inicio de sesión único](add-application-portal-setup-sso.md).
+- Finalización de los pasos de [Inicio rápido: Adición de una aplicación empresarial](add-application-portal.md).
 
->[!IMPORTANT]
->Use un entorno que no sea de producción para probar los pasos de esta guía de inicio rápido.
+## <a name="delete-an-enterprise-application"></a>Eliminación de una aplicación empresarial
 
-> [!NOTE]
->Para eliminar una aplicación de Azure AD, se debe asignar a un usuario uno de los siguientes roles: administrador global, administrador de aplicaciones en la nube, administrador de aplicaciones o propietario de la entidad de servicio.
+Para la eliminación de una aplicación empresarial:
 
-## <a name="delete-an-application-from-your-azure-ad-tenant"></a>Eliminación de una aplicación del inquilino de Azure AD
+1. Vaya al [centro de administración de Azure Active Directory](https://aad.portal.azure.com) e inicie sesión con uno de los roles enumerados en los requisitos previos.
+1. En el menú de la izquierda, seleccione **Aplicaciones empresariales**. Se abre el panel **Todas las aplicaciones**, en el que se ve una lista de las aplicaciones que hay en su inquilino de Azure AD. Busque y seleccione la aplicación que desea eliminar. Por ejemplo, **Azure AD SAML Toolkit 1**.
+1. En la sección **Administrar** del menú izquierdo, seleccione **Propiedades**.
+1. En la parte superior del panel **Propiedades** seleccione **Eliminar** y, a continuación, seleccione **Sí** para confirmar que quiere eliminar la aplicación de su inquilino de Azure AD.
 
-Para eliminar una aplicación del inquilino de Azure AD:
-
-1. En el portal de Azure AD, seleccione **Aplicaciones empresariales**. Busque y seleccione la aplicación que desea eliminar. En este caso, queremos eliminar **360 Online**.
-1. En la sección **Administrar** en el panel izquierdo, seleccione **Propiedades**.
-1. Seleccione **Eliminar** y, a continuación, seleccione **Sí** para confirmar que quiere eliminar la aplicación de su inquilino de Azure AD.
-
-:::image type="content" source="media/add-application-portal/delete-application.png" alt-text="Captura de la pantalla Propiedades que muestra cómo cambiar el logotipo.":::
-
-> [!TIP]
-> La administración de aplicaciones se puede automatizar mediante Graph API, consulte el artículo sobre la [automatización de la administración de aplicaciones con Microsoft Graph API](/graph/application-saml-sso-configure-api).
+    :::image type="content" source="media/delete-application-portal/delete-application.png" alt-text="Eliminación de una aplicación empresarial":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -62,6 +50,6 @@ Cuando haya terminado con esta serie de inicios rápidos, considere la posibilid
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ha completado la serie de inicios rápidos. A continuación, obtenga información acerca del inicio de sesión único (SSO), para lo que debe consultar [¿Qué es el inicio de sesión único (SSO)?](what-is-single-sign-on.md) O bien, lea los procedimientos recomendados en la administración de aplicaciones.
+Obtenga más información sobre cómo planear una implementación de inicio de sesión único.
 > [!div class="nextstepaction"]
-> [Procedimientos recomendados de administración de aplicaciones](application-management-fundamentals.md)
+> [Planeamiento de la implementación del inicio de sesión único](plan-sso-deployment.md)

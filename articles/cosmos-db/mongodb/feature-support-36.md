@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 03/02/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: 08e9b63c8ec56ddba1899372d0d6b1d2c8bc423f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2fcaaf038ec7a619ec36a68fdd720ac7599da25f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121786367"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128649726"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API de Azure Cosmos DB para MongoDB (versión 3.6): características y sintaxis que se admiten
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -295,9 +295,9 @@ La API de Azure Cosmos DB para MongoDB admite los siguientes comandos de base de
 | $dateToString | Sí |
 | $isoDayOfWeek | Sí |
 | $isoWeek | Sí |
-| $dateFromParts | No | 
-| $dateToParts | No |
-| $dateFromString | No |
+| $dateFromParts | Yes | 
+| $dateToParts | Yes |
+| $dateFromString | Yes |
 | $isoWeekYear | Sí |
 
 ### <a name="conditional-expressions"></a>Expresiones condicionales
@@ -417,7 +417,7 @@ En las consultas de $regex, las expresiones ancladas a la izquierda permiten la 
 
 Cuando es necesario incluir '$' o '|', es mejor crear dos (o más) consultas regex. Por ejemplo, dada la siguiente consulta original: ```find({x:{$regex: /^abc$/})```, tiene que modificarse de la siguiente forma:
 
-```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```
+`find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})`
 
 La primera parte utilizará el índice para restringir la búsqueda a esos documentos que empiezan por ^ abc y la segunda parte buscará coincidencias con los datos exactos. El operador de barra '|' actúa como una función "or": la consulta ```find({x:{$regex: /^abc |^def/})``` coincide con los documentos con los que el campo "x" tiene un valor que comienza por "abc" o "def". Para utilizar el índice, se recomienda dividir la consulta en dos consultas distintas combinadas mediante el operador $or: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
@@ -513,34 +513,8 @@ $polygon | No |
 
 Cuando se usa la operación `findOneAndUpdate`, se admiten las operaciones de ordenación en un solo campo, pero no se admiten las operaciones de ordenación en varios campos.
 
-## <a name="unique-indexes"></a>Índices únicos
-
-Los [índices únicos](mongodb-indexing.md#unique-indexes) garantizan que un campo determinado no tiene valores duplicados en todos los documentos de una colección, de forma parecida a como se conserva la singularidad en la clave "_id" predeterminada. Puede crear índices únicos en Cosmos DB mediante el comando `createIndex` con el parámetro de restricción `unique`:
-
-```javascript
-globaldb:PRIMARY> db.coll.createIndex( { "amount" : 1 }, {unique:true} )
-{
-        "_t" : "CreateIndexesResponse",
-        "ok" : 1,
-        "createdCollectionAutomatically" : false,
-        "numIndexesBefore" : 1,
-        "numIndexesAfter" : 4
-}
-```
-
-## <a name="compound-indexes"></a>Índices compuestos
-
-Los [índices compuestos](mongodb-indexing.md#compound-indexes-mongodb-server-version-36) proporcionan una manera de crear un índice para grupos de campos de hasta 8 campos. Este tipo de índice difiere de los índices compuestos nativos de MongoDB. En Azure Cosmos DB, se usan índices compuestos para las operaciones de ordenación que se aplican a varios campos. Para crear un índice compuesto, debe especificar más de una propiedad como parámetro:
-
-```javascript
-globaldb:PRIMARY> db.coll.createIndex({"amount": 1, "other":1})
-{
-        "createdCollectionAutomatically" : false, 
-        "numIndexesBefore" : 1,
-        "numIndexesAfter" : 2,
-        "ok" : 1
-}
-```
+## <a name="indexing"></a>Indización
+La API de MongoDB [admite una variedad de índices](mongodb-indexing.md) para habilitar la ordenación en varios campos, mejorar el rendimiento de las consultas y aplicar la unidad.
 
 ## <a name="gridfs"></a>GridFS
 
@@ -549,10 +523,6 @@ Azure Cosmos DB admite GridFS a través de cualquier controlador MongoDB compat
 ## <a name="replication"></a>Replicación
 
 Cosmos DB admite la replicación automática y nativa en las capas más inferiores. Esta lógica se amplía para lograr también una replicación global de baja latencia. Cosmos DB no es compatible con comandos de replicación manuales.
-
-
-
-
 
 ## <a name="retryable-writes"></a>Escrituras reintentables
 

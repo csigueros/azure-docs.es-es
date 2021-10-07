@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/03/2021
+ms.date: 09/23/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c28b901643e150cf98b97633f0dbec0a348b3995
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: f8ecfa670980015acbdd8f5b639734f538910804
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112232872"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708631"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-privileged-identity-management"></a>Visualización del historial de auditoría para los roles de Azure AD en Privileged Identity Management
 
@@ -39,7 +39,7 @@ La auditoría de recursos proporciona una vista de toda la actividad asociada a 
 
 1. Filtre el historial con una fecha predefinida o un intervalo personalizado.
 
-    ![Lista de auditoría de recursos con filtros](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+    ![Lista de auditoría de roles de Azure AD con filtros](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
 ## <a name="view-my-audit"></a>Visualización de mi auditoría
 

@@ -17,12 +17,12 @@ ms.date: 07/16/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9ed7b31625275c808555534fcd49314444ab0ad
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 4ce1aecb88f595b7edba2e1f89d82c06e1fbbc69
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114388153"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128622291"
 ---
 # <a name="sign-in-logs-in-azure-active-directory"></a>Registros de inicios de sesión en Azure Active Directory
 
@@ -69,7 +69,7 @@ Para acceder al registro de inicios de sesión, debe ser:
 
 ## <a name="what-azure-ad-license-do-you-need"></a>¿Qué licencia de Azure AD necesita?
 
-El informe de actividad de inicio de sesión está disponible en [todas las ediciones de Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data) y también se puede acceder a ella mediante Microsoft Graph API.
+El informe de actividad de inicio de sesión está disponible en [todas las ediciones de Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data). Si tiene una licencia de Azure Active Directory P1 o P2, también puede acceder al informe de actividad de inicio de sesión mediante Microsoft Graph API.
 
 
 ## <a name="where-can-you-find-it-in-the-azure-portal"></a>¿Dónde puede encontrarlo en Azure Portal?

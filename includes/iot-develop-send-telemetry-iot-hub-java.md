@@ -7,23 +7,23 @@ ms.topic: include
 ms.date: 08/03/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 21adc3edb161aba5d315b7429fdf5ff244574bc2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6eb78c0601efd305a7fa6983f06ec703a18d0760
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121744398"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129516566"
 ---
-[![Examinar el código](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/pnp-device-sample)
+[![Examinar el código](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples/pnp-device-sample)
 
-En este artículo de inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. Vamos a utilizar la CLI de Azure para crear un centro de Azure IoT y un dispositivo. A continuación, utilizaremos un ejemplo de un SDK de dispositivo IoT de Azure para ejecutar un controlador de temperatura simulado, conectarlo de forma segura al centro y enviar datos de telemetría.
+En este artículo de inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. Va a utilizar la CLI de Azure e IoT Explorer para crear un centro de Azure IoT y un dispositivo. A continuación, utilizaremos un ejemplo de un SDK de dispositivo IoT de Azure para ejecutar un controlador de temperatura simulado, conectarlo de forma segura al centro y enviar datos de telemetría.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 - Si no tiene una suscripción de Azure, [cree una gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de comenzar.
 - [Git](https://git-scm.com/downloads).
 - Una máquina de desarrollo con Java SE Development Kit 8 o posterior. Puede descargar el JDK de Java 8 (LTS) para varias plataformas desde [Descargar compilaciones de Zulu de OpenJDK](https://www.azul.com/downloads/zulu-community/). En el instalador, seleccione la opción **Agregar a PATH**.
 - [Apache Maven 3](https://maven.apache.org/download.cgi). Después de extraer la descarga en una carpeta local, agregue la ruta de acceso completa de la carpeta */bin* de Maven a la variable PATH de Windows.
-- [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): utilidad multiplataforma para supervisar y administrar Azure IoT 
+- [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): utilidad multiplataforma basado en GUI para supervisar y administrar Azure IoT. 
 - CLI de Azure. Tiene dos opciones para ejecutar comandos de la CLI de Azure en este inicio rápido:
     - Use Azure Cloud Shell, un shell interactivo que ejecuta comandos de la CLI en el explorador. Esta opción se recomienda porque no es necesario instalar nada. Si usa Cloud Shell por primera vez, inicie sesión en [Azure Portal](https://portal.azure.com). Siga los pasos descritos en el [inicio rápido de Cloud Shell](../articles/cloud-shell/quickstart.md) para **iniciar Cloud Shell** y **seleccionar el entorno Bash**.
     - Opcionalmente, ejecute la CLI de Azure en su equipo local. Si la CLI de Azure ya está instalada, ejecute `az upgrade` para actualizar la CLI y las extensiones a la versión actual. Para instalar la CLI de Azure, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
@@ -34,7 +34,7 @@ En este artículo de inicio rápido, se explica un flujo de trabajo básico de d
 En esta sección, usará el SDK de Java para enviar mensajes desde un dispositivo simulado al centro de IoT. Ejecutará un ejemplo que implementa un controlador de temperatura con dos sensores de termostato.
 
 ### <a name="configure-your-environment"></a>Configurar su entorno
-1. Abra una consola para instalar el SDK para dispositivos Java de Azure IoT y compile y ejecute el ejemplo de código.
+1. Abra una consola para instalar el SDK para dispositivos Java de Azure IoT y compile y ejecute el ejemplo de código. Usará esta consola en los pasos siguientes.
 
     > [!NOTE]
     > Si usa una instalación local de la CLI de Azure, es posible que ahora tenga dos ventanas de consola abiertas. Asegúrese de escribir los comandos de esta sección en la consola que acaba de abrir, no en la que ha estado usando para la CLI.
@@ -60,7 +60,7 @@ En esta sección, usará el SDK de Java para enviar mensajes desde un dispositiv
     ```
 
 ### <a name="build-the-sample"></a>Compilación del ejemplo
-1. En la consola, clone el SDK para dispositivos Java de Azure IoT en su máquina local:
+1. Clone el SDK para dispositivos Java de Azure IoT en su máquina local:
     ```console
     git clone https://github.com/Azure/azure-iot-sdk-java.git
     ```
@@ -72,11 +72,11 @@ En esta sección, usará el SDK de Java para enviar mensajes desde un dispositiv
     Esta operación tarda varios minutos.
 
 ### <a name="run-the-code"></a>Ejecución del código
-1. En la consola de Java, vaya al directorio de ejemplos.
+1. Vaya al directorio de ejemplos.
     ```console
     cd device/iot-device-samples/pnp-device-sample/temperature-controller-device-sample
     ```
-1. En la consola de Java, ejecute el siguiente ejemplo de código.
+1. Ejecute el siguiente código de ejemplo.
 
     ```console
     mvn exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.device.TemperatureController"
@@ -101,7 +101,7 @@ Para ver la telemetría en Azure IoT Explorer:
 
 1. Seleccione **Detener** para dejar de recibir eventos.
 
-Para leer la telemetría que envían los componentes individuales del dispositivo, puede usar las de tipo Plug and Play del explorador de IoT. Por ejemplo, el controlador de temperatura de este inicio rápido tiene dos termostatos: thermostat1 y thermostat2. Para ver la temperatura que notifica thermostat1: 
+Para leer la telemetría que envían los componentes individuales del dispositivo, puede utilizar las características de Plug and Play de IoT Explorer. Por ejemplo, el controlador de temperatura de este inicio rápido tiene dos termostatos: thermostat1 y thermostat2. Para ver la temperatura que notifica thermostat1: 
 
 1. En el explorador de IoT del dispositivo, seleccione **IoT Plug and Play components** (Componentes de IoT Plug and Play) en el menú de la izquierda. A continuación, seleccione **thermostat1** en la lista de componentes.
 
@@ -111,7 +111,7 @@ Para leer la telemetría que envían los componentes individuales del dispositiv
 
 Para ver la telemetría del dispositivo con la CLI de Azure:
 
-1. En la aplicación de la CLI, ejecute el comando [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) para supervisar los eventos enviados desde el dispositivo simulado al centro de IoT. Use los nombres que creó anteriormente en Azure IoT para el dispositivo IoT Hub.
+1. Ejecute el comando [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) para supervisar los eventos enviados desde el dispositivo simulado al centro de IoT. Use los nombres que creó anteriormente en Azure IoT para el dispositivo IoT Hub.
 
     ```azurecli
     az iot hub monitor-events --output table --device-id mydevice --hub-name {YourIoTHubName}

@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 03/24/2021
-ms.openlocfilehash: d063a0870616b5b977df18c56d9d66515b03d0a5
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.date: 09/10/2021
+ms.openlocfilehash: 035b6c9b12df69395409c1c0aa70be219bc2533e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107870866"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124760220"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutorial: Aceptación y recepción de datos con Azure Data Share  
 
@@ -94,9 +94,11 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
    Para abrir la invitación desde Azure Portal directamente, busque **Invitaciones de recurso compartido de datos** en Azure Portal. Esta acción le lleva a la lista de invitaciones de Data Share.
 
+   Si es un usuario invitado de un inquilino, se le pedirá que compruebe la dirección de correo electrónico del inquilino antes de ver la invitación de Data Share por primera vez. Una vez comprobado, es válido durante 12 meses.
+
    ![Lista de invitaciones](./media/invitations.png "Lista de invitaciones") 
 
-1. Seleccione el recurso compartido que desea ver. 
+1. Seleccione la invitación que desea ver. 
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 

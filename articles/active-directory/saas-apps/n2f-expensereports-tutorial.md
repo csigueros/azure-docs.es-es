@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Informes de gastos de N2F | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con Informes de gastos de N2F'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory e Informes de gastos de N2F.
 services: active-directory
 author: jeevansd
@@ -9,32 +9,28 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/01/2019
+ms.date: 09/22/2021
 ms.author: jeedes
-ms.openlocfilehash: b260e51321e14a6ea1d1ee75f88ca7564b83d492
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30d2101bb59856c30e0cb9042cd8ec8d9e95affc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92516765"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128675674"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>Tutorial: Integración de Azure Active Directory con Informes de gastos de N2F
+# <a name="tutorial-azure-ad-sso-integration-with-n2f---expense-reports"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Informes de gastos de N2F
 
-En este tutorial, aprenderá a integrar Informes de gastos de N2F con Azure Active Directory (Azure AD).
-La integración de Informes de gastos de N2F con Azure AD le proporciona las siguientes ventajas:
+En este tutorial, aprenderá a integrar Informes de gastos de N2F con Azure Active Directory (Azure AD). Al integrar Informes de gastos de N2F con Azure AD, puede hacer lo siguiente:
 
-* Puede controlar en Azure AD quién tiene acceso a Informes de gastos de N2F.
-* Puede permitir que los usuarios inicien sesión automáticamente en Informes de gastos de N2F (inicio de sesión único) con sus cuentas de Azure AD.
-* Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Controlar en Azure AD quién tiene acceso a Informes de gastos de N2F.
+* Permitir que los usuarios inicien sesión automáticamente en Informes de gastos de N2F con sus cuentas de Azure AD.
+* Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+## <a name="prerequisites"></a>Requisitos previos
 
-## <a name="prerequisites"></a>Prerequisites
+Para empezar, necesita los siguientes elementos:
 
-Para configurar la integración de Azure AD con los informes de gastos de N2F, necesita los siguientes elementos:
-
-* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
+* Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 * Suscripción habilitada para el inicio de sesión único en Informes de gastos de N2F.
 
 ## <a name="scenario-description"></a>Descripción del escenario
@@ -43,69 +39,45 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 * Informes de gastos de N2F admite el inicio de sesión único iniciado por **SP** e **IDP**.
 
-## <a name="adding-n2f---expense-reports-from-the-gallery"></a>Incorporación de los informes de gastos de N2F desde la galería
+## <a name="add-n2f---expense-reports-from-the-gallery"></a>Incorporación de Informes de gastos de N2F desde la galería
 
 Para configurar la integración de los informes de gastos de N2F con Azure AD, es preciso agregar dichos informes desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar los informes de gastos de N2F desde la galería, realice los pasos siguientes:**
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. En la sección **Agregar desde la galería**, escriba **Informes de gastos de N2F** en el cuadro de búsqueda.
+1. Seleccione **Informes de gastos de N2F** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
+## <a name="configure-and-test-azure-ad-sso-for-n2f---expense-reports"></a>Configuración y prueba del inicio de sesión único de Azure AD para Informes de gastos de N2F
 
-    ![Botón Azure Active Directory](common/select-azuread.png)
+Configure y pruebe el inicio de sesión único de Azure AD con Informes de gastos de N2F utilizando un usuario de prueba llamado **B. Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Informes de gastos de N2F.
 
-2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
+Para configurar y probar el inicio de sesión único de Azure AD con Informes de gastos de N2F, siga estos pasos:
 
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
+    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+1. **[Configuración del inicio de sesión único de Informes de gastos de N2F](#configure-n2f---expense-reports-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
+    1. **[Creación de un usuario de prueba de Informes de gastos de N2F](#create-n2f---expense-reports-test-user)** : para tener un homólogo de B. Simon en Informes de gastos de N2F que esté vinculado a la representación del usuario en Azure AD.
+1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
-    ![Botón Nueva aplicación](common/add-new-app.png)
+Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-4. En el cuadro de búsqueda, escriba **Informes de gastos de N2F**, seleccione **Informes de gastos de N2F** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+1. En Azure Portal, en la página de integración de la aplicación **Informes de gastos de N2F**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
-     ![Informes de gastos de N2F en la lista de resultados](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
-
-En esta sección, puede configurar y probar el inicio de sesión único de Azure AD con los informes de gastos de N2F con un usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Informes de gastos de N2F.
-
-Para configurar y probar el inicio de sesión único de Azure AD con Informes de gastos de N2F, es preciso completar los siguientes bloques de creación:
-
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Informes de gastos de N2F](#configure-n2f---expense-reports-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Informes de gastos de N2F](#create-n2f---expense-reports-test-user)** : para tener un homólogo de Britta Simon en Informes de gastos de N2F que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
-
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
-
-Para configurar el inicio de sesión único de Azure AD con Informes de gastos de N2F, siga estos pasos:
-
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Informes de gastos de N2F**, seleccione **Inicio de sesión único**.
-
-    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
-
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
-
-    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
-
-3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
-
-    ![Edición de la configuración básica de SAML](common/edit-urls.png)
+   ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, no es necesario realizar ningún paso porque la aplicación ya está integrada previamente con Azure.
 
-    ![Captura de pantalla que muestra la página Inicio de sesión basado en SAML con Configuración básica de SAML.](common/preintegrated.png)
-
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Captura de pantalla que muestra la página Integraciones, donde puede agregar el inicio de sesión único de Azure A D.](common/metadata-upload-additional-signon.png)
-
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://www.n2f.com/app/`
+    En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://www.n2f.com/app/`
 
 6. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
@@ -115,92 +87,59 @@ Para configurar el inicio de sesión único de Azure AD con Informes de gastos d
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-    a. URL de inicio de sesión
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
-    b. Identificador de Azure AD
+En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-    c. URL de cierre de sesión
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
+1. En las propiedades del **usuario**, siga estos pasos:
+   1. En el campo **Nombre**, escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+   1. Haga clic en **Crear**.
 
-### <a name="configure-n2f---expense-reports-single-sign-on"></a>Configuración del inicio de sesión único de Informes de gastos de N2F
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+
+En esta sección, permitirá que B. Simon use el inicio de sesión único de Azure concediéndole acceso a Informes de gastos de N2F.
+
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En la lista de aplicaciones, seleccione **Informes de gastos de N2F**.
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+
+## <a name="configure-n2f---expense-reports-sso"></a>Configuración del inicio de sesión único de Informes de gastos de N2F
 
 1. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la compañía de Informes de gastos de N2F.
 
 2. Haga clic en **Settings** (Configuración) y seleccione **Advance Settings** (Configuración avanzada) en la lista desplegable.
 
-    ![Captura de pantalla que muestra la opción Advanced Settings (Configuración avanzada) seleccionada.](./media/n2f-expensereports-tutorial/configure1.png)
+    ![Captura de pantalla que muestra la opción Advanced Settings (Configuración avanzada) seleccionada.](./media/n2f-expensereports-tutorial/profile.png)
 
 3. Seleccione la pestaña **Account settings** (Configuración de la cuenta).
 
-    ![Captura de pantalla que muestra la opción Account settings (Configuración de la cuenta) seleccionada.](./media/n2f-expensereports-tutorial/configure2.png)
+    ![Captura de pantalla que muestra la opción Account settings (Configuración de la cuenta) seleccionada.](./media/n2f-expensereports-tutorial/account.png)
 
 4. Seleccione **Authentication** (Autenticación) y luego seleccione la pestaña **+ Add an authentication method** (+Agregar un método de autenticación).
 
-    ![Captura de pantalla que muestra la autenticación de la configuración de la cuenta, donde puede agregar un método de autenticación.](./media/n2f-expensereports-tutorial/configure3.png)
+    ![Captura de pantalla que muestra la autenticación de la configuración de la cuenta, donde puede agregar un método de autenticación.](./media/n2f-expensereports-tutorial/general.png)
 
 5. Seleccione **SAML Microsoft Office 365** como método de autenticación.
 
-    ![Captura de pantalla que muestra el método de autenticación con SAML Microsoft Office 365 seleccionado.](./media/n2f-expensereports-tutorial/configure4.png)
+    ![Captura de pantalla que muestra el método de autenticación con SAML Microsoft Office 365 seleccionado.](./media/n2f-expensereports-tutorial/method.png)
 
 6. En la sección **Authentication method** (Método deautenticación), realice los pasos siguientes:
 
-    ![Captura de pantalla que muestra Authentication method (Método de autenticación), donde puede escribir los valores descritos.](./media/n2f-expensereports-tutorial/configure5.png)
+    ![Captura de pantalla que muestra Authentication method (Método de autenticación), donde puede escribir los valores descritos.](./media/n2f-expensereports-tutorial/metadata.png)
 
     a. En el cuadro de texto **Identificador de entidad**, pegue el valor de **Identificador de Azure AD** que copió de Azure Portal.
 
     b. En el cuadro de texto **Metadata URL** (Dirección URL de metadatos), pegue el valor de **App Federation Metadata Url** (Dirección URL de metadatos de federación de aplicaciones) que copió de Azure Portal.
 
     c. Haga clic en **Save**(Guardar).
-
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
-
-El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
-
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
-
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
-
-2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-
-    ![Botón Nuevo usuario](common/new-user.png)
-
-3. En las propiedades Usuario, siga estos pasos.
-
-    ![Cuadro de diálogo Usuario](common/user-properties.png)
-
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
-  
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
-    Por ejemplo: BrittaSimon@contoso.com
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
-
-    d. Haga clic en **Crear**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-
-En esta sección, permitirá que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a Informes de gastos de N2F.
-
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **Informes de gastos de N2F**.
-
-    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
-
-2. En la lista de aplicaciones, seleccione **Informes de gastos de N2F**.
-
-    ![El vínculo Informes de gastos de N2F en la lista de aplicaciones](common/all-applications.png)
-
-3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
-
-    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
-4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
-
-    ![Panel Agregar asignación](common/add-assign-user.png)
-
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-
-6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-
-7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ### <a name="create-n2f---expense-reports-test-user"></a>Creación de un usuario de prueba de Informes de gastos de N2F
 
@@ -212,19 +151,19 @@ Para permitir que los usuarios de Azure AD inicien sesión en Informes de gastos
 
 2. Haga clic en **Settings** (Configuración) y seleccione **Advance Settings** (Configuración avanzada) en la lista desplegable.
 
-    ![Captura de pantalla que muestra la opción Advanced Settings (Configuración avanzada) seleccionada.](./media/n2f-expensereports-tutorial/configure1.png)
+    ![Captura de pantalla que muestra la opción Advanced Settings (Configuración avanzada) seleccionada.](./media/n2f-expensereports-tutorial/profile.png)
 
 3. Seleccione la pestaña **Users** (Usuarios) en el panel de navegación izquierdo.
 
-    ![Captura de pantalla que muestra la pestaña Users (Usuarios) seleccionada.](./media/n2f-expensereports-tutorial/user1.png)
+    ![Captura de pantalla que muestra la pestaña Users (Usuarios) seleccionada.](./media/n2f-expensereports-tutorial/user.png)
 
 4. Seleccione la pestaña **+ New user** (+Nuevo usuario).
 
-    ![Captura de pantalla que muestra la opción New user (Nuevo usuario).](./media/n2f-expensereports-tutorial/user2.png)
+    ![Captura de pantalla que muestra la opción New user (Nuevo usuario).](./media/n2f-expensereports-tutorial/create-user.png)
 
 5. En la sección **User** (Usuario), realice los siguientes pasos:
 
-    ![Captura de pantalla que muestra la sección donde puede escribir los valores descritos.](./media/n2f-expensereports-tutorial/user3.png)
+    ![Captura de pantalla que muestra la sección donde puede escribir los valores descritos.](./media/n2f-expensereports-tutorial/values.png)
 
     a. En el cuadro de texto **Email address** (Dirección de correo electrónico), escriba la dirección de correo electrónico de un usuario, por ejemplo, **brittasimon\@contoso.com**.
 
@@ -239,16 +178,22 @@ Para permitir que los usuarios de Azure AD inicien sesión en Informes de gastos
     > [!NOTE]
     > Si tiene algún problema al agregar el usuario, póngase en contacto con el [equipo de soporte técnico de Informes de gastos de N2F](mailto:support@n2f.com).
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
+## <a name="test-sso"></a>Prueba de SSO
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-Al hacer clic en el icono de Informes de gastos de N2F en el panel de acceso, debería iniciar sesión automáticamente en la versión de Informes de gastos de N2F para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Iniciado por SP:
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esto le redirigirá a la dirección URL de inicio de sesión de Informes de gastos de N2F, donde puede iniciar el flujo de inicio de sesión.  
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+* Vaya directamente a la dirección URL de inicio de sesión de Informes de gastos de N2F e inicie el flujo de inicio de sesión desde allí.
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Iniciado por IDP:
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
+* Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de Informes de gastos de N2F para la que ha configurado el inicio de sesión único. 
+
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Informes de gastos de N2F que se encuentra en Aplicaciones, si ha realizado la configuración en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión. Si ha realizado la configuración en modo IDP, debería iniciar sesión automáticamente en la instancia de Informes de gastos de N2F para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Una vez configurado Informes de gastos de N2F, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

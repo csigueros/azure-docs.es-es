@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: overview
 ms.date: 03/24/2021
 ms.author: inhenkel
-ms.openlocfilehash: 6dd82d635199e4aa47a07e09b3c4649dbc4ef7cd
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: e17ec995ad9d8171d1d6a0b51b5112e4597d618f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "122643649"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656690"
 ---
 # <a name="media-services-v3-samples"></a>Ejemplos de Media Services v3
 
@@ -31,7 +31,10 @@ Encontrará la descripción y los vínculos a los ejemplos que puede encontrar e
 |-------------|-------------|
 | [Account/CreateAccount](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Account/CreateAccount)|En el ejemplo, se muestra cómo crear una cuenta de Media Services y establecer la cuenta de almacenamiento principal, además de opciones de configuración avanzadas, como la lista de direcciones IP permitidas para la entrega de claves, la identidad administrada, la autenticación del almacenamiento y la incorporación de su propia clave de cifrado.|
 | [VideoEncoding/Encoding_PredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_PredefinedPreset)|En el ejemplo, se muestra cómo enviar un trabajo mediante un valor preestablecido integrado y una entrada de dirección URL HTTP, publicar un recurso de salida para el streaming y descargar los resultados para su comprobación.|
+| [VideoEncoding/Encoding_H264_ContentAware](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_H264_ContentAware) | Muestra el uso más básico de la codificación con reconocimiento de contenido H.264 sin restricciones |
+| [VideoEncoding/Encoding_H264_ContentAware_Constrained](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_H264_ContentAware_Constrained) | Muestra cómo usar la clase PresetConfigurations para restringir el comportamiento de salida del valor preestablecido|
 | [VideoEncoding/Encoding_H264](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_H264)|En el ejemplo, se muestra cómo enviar un trabajo mediante un valor preestablecido de codificación H.264 personalizado y una entrada de dirección URL HTTP, publicar un recurso de salida para la transmisión y descargar los resultados para su comprobación.|
+| [VideoEncoding/Encoding_HEVC_ContentAware](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_HEVC_ContentAware) | Muestra el uso básico del códec HEVC con codificación con reconocimiento de contenido y sin restricciones.  La clase PresetConfigurations también es compatible con HEVC y se puede agregar a este ejemplo.|
 | [VideoEncoding/Encoding_HEVC](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_HEVC)|En el ejemplo, se muestra cómo enviar un trabajo mediante un valor preestablecido de codificación HEVC personalizado y una entrada de dirección URL HTTP, publicar un recurso de salida para la transmisión y descargar los resultados para su comprobación.|
 | [VideoEncoding/Encoding_StitchTwoAssets](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_StitchTwoAssets)|En el ejemplo, se muestra cómo enviar un trabajo mediante JobInputSequence para unir 2 o más recursos que se puedan recortar por hora de inicio o de finalización. El archivo codificado resultante es un vídeo único con todos los recursos unidos.  El ejemplo también publicará el recurso de salida para la transmisión y descargará los resultados para su comprobación.|
 | [VideoEncoding/Encoding_SpriteThumbnail](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_SpriteThumbnail)|En el ejemplo, se muestra cómo enviar un trabajo mediante un valor preestablecido personalizado con un sprite de miniaturas y una entrada de dirección URL HTTP, publicar un recurso de salida para la transmisión y descargar los resultados para su comprobación.|
@@ -45,6 +48,7 @@ Encontrará la descripción y los vínculos a los ejemplos que puede encontrar e
 | [Streaming/AssetFilters](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Streaming/AssetFilters)|En este ejemplo, se muestra cómo crear una transformación con valores preestablecidos de AdaptiveStreaming integrados, enviar un trabajo, crear un filtro de recursos y un filtro de cuentas, asociar los filtros a los localizadores de streaming e imprimir direcciones URL para la reproducción.|
 | [Streaming/StreamHLSAndDASH](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Streaming/StreamHLSAndDASH)|En este ejemplo, se muestra cómo crear una transformación con un valor preestablecido de AdaptiveStreaming integrado, enviar un trabajo y publicar un recurso de salida para la transmisión HLS y DASH.|
 | [HighAvailabilityEncodingStreaming](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/HighAvailabilityEncodingStreaming/) | En este ejemplo, se proporcionan instrucciones y procedimientos recomendados para un sistema de producción con codificación o análisis a petición. Los lectores deben comenzar por el artículo complementario [Alta disponibilidad con Media Services y Vídeo bajo demanda (VOD)](architecture-high-availability-encoding-concept.md). Se proporciona un archivo de solución independiente para el ejemplo [HighAvailabilityEncodingStreaming](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/HighAvailabilityEncodingStreaming/README.md). |
+| [Azure Functions para Media Services](https://github.com/xpouyat/media-services-v3-dotnet-core-functions-integration/tree/main/Functions)|Este proyecto contiene ejemplos de Azure Functions que se conectan a Azure Media Services v3 para el procesamiento de vídeo. Puede usar Visual Studio 2019 o Visual Studio Code para desarrollar y ejecutar las funciones. Se proporciona una plantilla de Azure Resource Manager y un flujo de trabajo de Acciones de GitHub para la implementación de los recursos de Functions y para habilitar la implementación continua.|
 
 ## <a name="nodejs"></a>[Node.JS](#tab/node/)
 

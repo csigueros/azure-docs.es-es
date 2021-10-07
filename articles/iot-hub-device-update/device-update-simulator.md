@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 7381d7f233bc813118f310b08352d1642904a907
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: d5a860455a66dc7db137b8d0eb7aad942271ef90
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109753802"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128566319"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-ubuntu-1804-x64-simulator-reference-agent"></a>Tutorial sobre la actualización de dispositivos para Azure IoT Hub mediante el agente de referencia del simulador de Ubuntu 18.04 (x64)
 
@@ -128,7 +128,7 @@ Inicie Device Update Agent en los nuevos dispositivos de software.
 
 Reemplace `<device connection string>` por una cadena de conexión
 ```shell
-./AducIotAgentSim-microsoft-swupdate -c '<device connection string>'
+sudo ./AducIotAgentSim-microsoft-swupdate "<device connection string>"
 ```
 
 o bien
@@ -161,7 +161,7 @@ Agent running. [main]
 
 ## <a name="import-update"></a>Importación de actualización
 
-1. Descargue el [manifiesto de importación de ejemplo](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/TutorialImportManifest.json) y la [actualización de imagen de ejemplo](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/adu-update-image-raspberrypi3-0.6.5073.1.swu).
+1. Descargue el [manifiesto de importación de ejemplo](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0/TutorialImportManifest_Sim.json) y la [actualización de imagen de ejemplo](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/adu-update-image-raspberrypi3-0.6.5073.1.swu). _Nota_: Se trata de archivos de actualización que se usan de nuevo en el tutorial de Raspberry Pi, ya que la actualización de este tutorial se simulará y, por tanto, no importa el contenido específico del archivo. 
 2. Inicie sesión en [Azure Portal](https://portal.azure.com/) y vaya a su instancia de IoT Hub con Device Update. A continuación, seleccione la opción Actualizaciones de dispositivos en Administración de dispositivos automática en la barra de navegación izquierda.
 
 3. Seleccione la pestaña Actualizaciones.

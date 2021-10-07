@@ -5,15 +5,16 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2d2f29553d831d80923f569211bc15855b96f591
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 9310b08a41932e92ab57728c2c55476c67f086b1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110665936"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601641"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Supervisión y administración de canalizaciones de Azure Data Factory mediante Azure Portal y PowerShell
 > [!div class="op_single_selector"]
@@ -46,39 +47,39 @@ En esta sección se describen también las transiciones de sectores de un conjun
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Haga clic en **Factorías de datos** en el menú de la izquierda. Si no ve está opción, haga clic en **Más servicios >** y luego en **Factorías de datos**, en la categoría **INTELIGENCIA Y ANÁLISIS**.
 
-   ![Examinar todo -> Factorías de datos](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
+   :::image type="content" source="./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png" alt-text="Examinar todo -> Factorías de datos":::
 3. En la hoja **Factorías de datos**, seleccione la factoría de datos que le interese.
 
-    ![Selección de la factoría de datos](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
+    :::image type="content" source="./media/data-factory-monitor-manage-pipelines/select-data-factory.png" alt-text="Selección de la factoría de datos":::
 
    Verá la página principal de la factoría de datos.
 
-   ![Hoja Factoría de datos](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
+   :::image type="content" source="./media/data-factory-monitor-manage-pipelines/data-factory-blade.png" alt-text="Hoja Factoría de datos":::
 
 #### <a name="diagram-view-of-your-data-factory"></a>Vista de diagrama de la factoría de datos
 La vista **Diagrama** de una factoría de datos ofrece un panel único para supervisar y administrar la factoría de datos y sus recursos. Haga clic en **Diagrama** en la página principal de la factoría de datos para ver la vista de **diagrama**.
 
-![Vista Diagrama](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/diagram-view.png" alt-text="Vista Diagrama":::
 
 Puede acercar, alejar, hacer zoom para ajustar, hacer zoom al 100 %, bloquear el diseño del diagrama y colocar automáticamente canalizaciones y conjuntos de datos. También puede ver la información de linaje de datos (es decir, se muestran los elementos ascendentes y descendentes de los elementos seleccionados).
 
 ### <a name="activities-inside-a-pipeline"></a>Actividades en una canalización
 1. Haga clic con el botón derecho en la canalización y luego en **Abrir canalización** para ver todas las actividades de la canalización junto con los conjuntos de datos de entrada y salida para las actividades. Esta característica resulta útil cuando la canalización incluye más de una actividad y se quiere entender el linaje operativo de una sola canalización.
 
-    ![Menú Abrir canalización](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)     
+    :::image type="content" source="./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png" alt-text="Menú Abrir canalización":::     
 2. En el ejemplo siguiente, verá una actividad de copia en la canalización con una entrada y una salida. 
 
-    ![Actividades en una canalización](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png)
+    :::image type="content" source="./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png" alt-text="Actividades en una canalización":::
 3. Puede navegar de nuevo a la página principal haciendo clic en el vínculo **Data Factory** situado en la ruta de navegación en la esquina superior izquierda.
 
-    ![Navegación hacia atrás a la factoría de datos](./media/data-factory-monitor-manage-pipelines/navigate-back-to-data-factory.png)
+    :::image type="content" source="./media/data-factory-monitor-manage-pipelines/navigate-back-to-data-factory.png" alt-text="Navegación hacia atrás a la factoría de datos":::
 
 ### <a name="view-the-state-of-each-activity-inside-a-pipeline"></a>Visualización del estado de cada actividad dentro de una canalización
 Puede ver el estado actual de una actividad viendo el estado de cualquiera de los conjuntos de datos que genera la actividad.
 
 Al hacer doble clic en **OutputBlobTable** en la vista **Diagrama**, puede observar todos los segmentos generados por distintas ejecuciones de actividades dentro de una canalización. Puede ver que la actividad de copia se ejecutó correctamente durante las últimas ocho horas y generó los segmentos en el estado **Listo**.  
 
-![Estado de la canalización](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png" alt-text="Estado de la canalización":::
 
 Los segmentos de conjunto de datos en una factoría de datos pueden tener uno de los siguientes estados:
 
@@ -143,20 +144,20 @@ Los segmentos de conjunto de datos en una factoría de datos pueden tener uno de
 
 Puede ver los detalles sobre un segmento haciendo clic en la hoja **Segmentos actualizados recientemente**.
 
-![Detalles de segmento](./media/data-factory-monitor-manage-pipelines/slice-details.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/slice-details.png" alt-text="Detalles de segmento":::
 
 Si el segmento se ejecutó varias veces, aparecen varias filas en la lista **Ejecuciones de actividad** . Para ver detalles sobre una ejecución de actividad, haga clic en la entrada de la ejecución en la lista **Ejecuciones de actividades** . La lista muestra todos los archivos de registro junto con un mensaje de error, si hubiera alguno. Esta característica resulta muy útil para ver y depurar registros sin tener que salir de la factoría de datos.
 
-![Detalles de ejecución de actividad](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/activity-run-details.png" alt-text="Detalles de ejecución de actividad":::
 
 Si el segmento no está en el estado **Listo**, puede ver los segmentos ascendentes que no están en estado Listo y bloquean la ejecución del segmento actual en la lista **Segmentos ascendentes que no están listos**. Esta característica resulta muy útil cuando el segmento tiene el estado **En espera** y se quiere saber cuáles son las dependencias ascendentes por las que el segmento está esperando.
 
-![Segmentos ascendentes que no están listos](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png" alt-text="Segmentos ascendentes que no están listos":::
 
 ### <a name="dataset-state-diagram"></a>Diagrama de estado del conjunto de datos
 Cuando se implementa una factoría de datos y las canalizaciones tienen un período activo válido, los segmentos del conjunto de datos pasan de un estado a otro. Actualmente, el estado del segmento se ajusta al siguiente diagrama de estado:
 
-![Diagrama de estado](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/state-diagram.png" alt-text="Diagrama de estado":::
 
 El flujo de transición de estado del conjunto de datos de la factoría de datos es el siguiente: En espera -> En curso /En curso (Validando) -> Listo/Error.
 
@@ -204,13 +205,13 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
 #### <a name="use-the-azure-portal-to-debug-an-error"></a>Uso de Azure Portal para depurar un error
 1. En la hoja **Tabla**, haga clic en el segmento problemático cuyo **Estado** sea **Error**.
 
-   ![Hoja Tabla con segmentos con problemas](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
+   :::image type="content" source="./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png" alt-text="Hoja Tabla con segmentos con problemas":::
 2. En la hoja **Segmento de datos**, haga clic en la ejecución de actividad que falló.
 
-   ![Segmento de datos con un error](./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png)
+   :::image type="content" source="./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png" alt-text="Segmento de datos con un error":::
 3. En la hoja **Detalles de la ejecución de actividad**, puede descargar los archivos asociados al procesamiento de HDInsight. Haga clic en **Descargar** correspondiente a Status/stderr para descargar el archivo de registro de errores que contiene detalles sobre el error.
 
-   ![Hoja Detalles de ejecución de actividad con errores](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)     
+   :::image type="content" source="./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png" alt-text="Hoja Detalles de ejecución de actividad con errores":::     
 
 #### <a name="use-powershell-to-debug-an-error"></a>Uso de PowerShell para depurar un error
 1. Inicie **PowerShell**.
@@ -278,11 +279,11 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
 ### <a name="use-the-azure-portal"></a>Uso de Azure Portal
 Tras solucionar los problemas y depurar los errores de una canalización, puede volver a ejecutar los elementos con fallos; para ello, vaya al segmento de error y haga clic en el botón **Ejecutar** de la barra de comandos.
 
-![Repetición de ejecución de un segmento con errores](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/rerun-slice.png" alt-text="Repetición de ejecución de un segmento con errores":::
 
 En caso de que el segmento no se valide debido a un error de directiva (por ejemplo que los datos no estén disponibles), puede corregir el error y volver a validarlo haciendo clic en el botón **Validar** de la barra de comandos.
 
-![Corrección de errores y validación](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png" alt-text="Corrección de errores y validación":::
 
 ### <a name="use-azure-powershell"></a>Uso de Azure PowerShell
 Puede volver a ejecutar errores mediante el cmdlet **Set-AzDataFactorySliceStatus**. Vea el tema [Set-AzDataFactorySliceStatus](/powershell/module/az.datafactory/set-azdatafactoryslicestatus) para obtener información sobre la sintaxis y otros detalles del cmdlet.
@@ -300,37 +301,37 @@ Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -Da
 
 1.  Inicie sesión en Azure Portal y seleccione **Monitor -> Alertas** para abrir la página de alertas.
 
-    ![Abra la página Alertas.](media/data-factory-monitor-manage-pipelines/v1alerts-image1.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image1.png" alt-text="Abra la página Alertas.":::
 
 2.  Haga clic en **+Nueva regla de alertas** para crear una nueva alerta.
 
-    ![Creación de una nueva alerta](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image2.png" alt-text="Creación de una nueva alerta":::
 
 3.  Defina **Alert condition** (Condición de la alerta). (Asegúrese de seleccionar **Factorías de datos** en el campo **Filtrar por tipo de recurso**). También puede especificar valores para **Dimensiones**.
 
-    ![Definir la condición de la alerta: Seleccione el destino](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image3.png" alt-text="Definir la condición de la alerta: Seleccione el destino":::
 
-    ![Definir la condición de la alerta: Agregue criterios de alerta.](media/data-factory-monitor-manage-pipelines/v1alerts-image4.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image4.png" alt-text="Definir la condición de la alerta: Agregue criterios de alerta.":::
 
-    ![Definir la condición de la alerta: Agregue la lógica de alerta](media/data-factory-monitor-manage-pipelines/v1alerts-image5.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image5.png" alt-text="Definir la condición de la alerta: Agregue la lógica de alerta":::
 
 4.  Defina los **Detalles de alertas**.
 
-    ![Definir los detalles de la alerta](media/data-factory-monitor-manage-pipelines/v1alerts-image6.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image6.png" alt-text="Definir los detalles de la alerta":::
 
 5.  Defina el **Grupo de acciones**.
 
-    ![Definir el grupo de acciones: Crear un nuevo grupo de acciones](media/data-factory-monitor-manage-pipelines/v1alerts-image7.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image7.png" alt-text="Definir el grupo de acciones: Crear un nuevo grupo de acciones":::
 
-    ![Definir el grupo de acciones: Establecer las propiedades](media/data-factory-monitor-manage-pipelines/v1alerts-image8.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image8.png" alt-text="Definir el grupo de acciones: Establecer las propiedades":::
 
-    ![Definir el grupo de acciones: Nuevo grupo de acciones creado](media/data-factory-monitor-manage-pipelines/v1alerts-image9.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image9.png" alt-text="Definir el grupo de acciones: Nuevo grupo de acciones creado":::
 
 ## <a name="move-a-data-factory-to-a-different-resource-group-or-subscription"></a>Desplazamiento de una factoría de datos a una suscripción o un grupo de recursos diferente
 Puede mover una factoría de datos a un grupo de recursos o una suscripción diferentes con el botón **Mover** de la barra de comandos que aparece en la página principal de su factoría de datos.
 
-![Mover factoría de datos](./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png" alt-text="Mover factoría de datos":::
 
 Junto con la factoría de datos, también puede mover todos los recursos relacionados (como las alertas asociadas a la factoría de datos).
 
-![Cuadro de diálogo Mover recursos](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/MoveResources.png" alt-text="Cuadro de diálogo Mover recursos":::

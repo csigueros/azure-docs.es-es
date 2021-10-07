@@ -1,14 +1,14 @@
 ---
-title: Cifrado de una cuenta de almacenamiento de Azure usada por un laboratorio en Azure DevTest Labs
+title: Cifrado de una cuenta de almacenamiento de Azure usada por un laboratorio
 description: Aprenda a configurar el cifrado de un almacenamiento de Azure usado por un laboratorio en Azure DevTest Labs
 ms.topic: how-to
 ms.date: 07/29/2020
-ms.openlocfilehash: dcede89fb23c532742e41121688bcb51a5a73833
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 337cd45b20b9fe52bb487a3b36bde905541f840b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92149306"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128552592"
 ---
 # <a name="encrypt-azure-storage-used-by-a-lab-in-azure-devtest-labs"></a>Cifrado de un almacenamiento de Azure usado por un laboratorio en Azure DevTest Labs
 Cada laboratorio creado en Azure DevTest Labs se crea con una cuenta de almacenamiento de Azure asociada. La cuenta de almacenamiento se utiliza para lo siguiente: 
@@ -65,7 +65,7 @@ Estos documentos se usan para admitir la opción para crear fórmulas a partir d
 - Creación de una máquina virtual a partir de una fórmula.
 
 ### <a name="artifact-results"></a>Resultados de artefacto
-A medida que se aplican los artefactos, el tamaño de los resultados de artefacto respectivos puede aumentar con el tiempo en función del número y el tipo de artefactos que se ejecutan en las máquinas virtuales de laboratorio. Por lo tanto, como propietario de un laboratorio, puede que desee controlar el ciclo de vida de tales documentos. Para más información, consulte [Administración del ciclo de vida de Azure Blob Storage](../storage/blobs/storage-lifecycle-management-concepts.md).
+A medida que se aplican los artefactos, el tamaño de los resultados de artefacto respectivos puede aumentar con el tiempo en función del número y el tipo de artefactos que se ejecutan en las máquinas virtuales de laboratorio. Por lo tanto, como propietario de un laboratorio, puede que desee controlar el ciclo de vida de tales documentos. Para más información, consulte [Administración del ciclo de vida de Azure Blob Storage](../storage/blobs/lifecycle-management-overview.md).
 
 > [!IMPORTANT]
 > Se recomienda que realice este paso para reducir los gastos asociados con la cuenta de Azure Storage. 

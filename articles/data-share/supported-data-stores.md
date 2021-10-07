@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 04/20/2021
-ms.openlocfilehash: def73d137f3cc2c79ae8417995ec6bdf6c519b7d
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.date: 09/10/2021
+ms.openlocfilehash: 605405965e4c6bc17321401245866f9b21f3a988
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812631"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124760068"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Almacenes de datos admitidos en Azure Data Share
 
@@ -68,7 +68,7 @@ Cuando los consumidores aceptan los datos en Azure Data Lake Storage Gen2 o Azur
 Para obtener más información, consulte [Uso compartido y recepción de datos de Azure SQL Database y Azure Synapse Analytics](how-to-share-from-sql.md).
 
 ## <a name="share-from-data-explorer"></a>Uso compartido desde Data Explorer
-Azure Data Share permite compartir bases de datos en contexto desde los clústeres de Azure Data Explorer. Un proveedor de datos puede compartir en el nivel de base de datos o de clúster. 
+Azure Data Share permite compartir bases de datos en contexto desde los clústeres de Azure Data Explorer. Un proveedor de datos puede compartir en el nivel de base de datos o de clúster. Si usa la API de Data Share para compartir datos, también puede compartir tablas específicas.  
 
 Cuando los datos se comparten en el nivel de base de datos, los consumidores de datos solo pueden acceder a las bases de datos que comparte el proveedor de datos. Si un proveedor comparte datos en el nivel de clúster, los consumidores de datos pueden acceder a todas las bases de datos del clúster del proveedor, incluidas las bases de datos futuras que cree el proveedor.
 

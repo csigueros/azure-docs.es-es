@@ -1,16 +1,16 @@
 ---
 title: Implementación de Azure Blockchain Workbench (versión preliminar)
 description: Cómo implementar Azure Blockchain Workbench (versión preliminar)
-ms.date: 07/16/2020
+ms.date: 09/15/2021
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: references_regions
-ms.openlocfilehash: b46a35b45a51d0cc76942c4ca142c4c7792a28b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 09767c1270593738efaf00ea6fc0b8e35f529239
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87077017"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128581095"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Implementación de Azure Blockchain Workbench (versión preliminar)
 
@@ -74,27 +74,14 @@ Una vez que se han completado los pasos descritos en los requisitos previos, est
 
 1. Seleccione **Aceptar** para finalizar la sección de configuración básica.
 
-1. En **Configuración avanzada**, elija si desea crear una nueva red de cadena de bloques o usar una red de cadena de bloques de prueba de autoridad existente.
+1. En **Configuración avanzada**, elija la red de cadena de bloques de prueba de autoridad de Ethereum existente, la configuración de Active Directory y el tamaño de máquina virtual preferido para los componentes de Blockchain Workbench.
 
-    Para **Crear nueva**:
-
-    La opción *Crear nueva* implementa un libro de contabilidad de cuórum de Azure Blockchain Service con la SKU básica predeterminada.
-
-    ![Configuración avanzada para la nueva red de la cadena de bloques](media/deploy/advanced-blockchain-settings-new.png)
-
-    | Configuración | Descripción  |
-    |---------|--------------|
-    | Plan de tarifa de Azure Blockchain Service | Elija el nivel de servicio **Básico** o **Estándar** de Azure Blockchain Service que se usa para Blockchain Workbench. |
-    | Configuración de Azure Active Directory | Seleccione **Agregar más adelante**.</br>Nota: Si decide [configurar previamente Azure AD](#azure-ad-configuration) o volver a implementar, elija *Agregar ahora*. |
-    | Selección de máquina virtual | Seleccione el rendimiento de almacenamiento y el tamaño de máquina virtual preferidos para la red de cadena de bloques. Elija un tamaño más pequeño de máquina virtual, como *Estándar DS1 v2*, si tiene una suscripción con límites de servicio bajos, como el nivel Gratis de Azure. |
-
-    Para **Usar existente**:
-
-    La opción *usar existente* opción le permite especificar una red de cadena de bloques de prueba de autoridad (PoA) de Ethereum. Los puntos de conexión tienen los siguientes requisitos.
+    El punto de conexión RPC de Ethereum tiene los requisitos siguientes:
 
    * El punto de conexión debe ser una red de cadena de bloques de prueba de autoridad (PoA) de Ethereum.
    * El punto de conexión debe ser públicamente accesible a través de la red.
    * La red de cadena de bloques PoA debe configurarse para que el precio del gas se establezca en cero.
+   * El punto de conexión comienza con `https://` o `http://`, y termina con un número de puerto. Por ejemplo: `http<s>://<network-url>:<port>` 
 
      > [!NOTE]
      > Las cuentas de Blockchain Workbench no tienen fondos. Si se requieren fondos, habrá un error de transacción.
@@ -103,7 +90,7 @@ Una vez que se han completado los pasos descritos en los requisitos previos, est
 
      | Configuración | Descripción  |
      |---------|--------------|
-     | Punto de conexión RPC de Ethereum | Proporcione el punto de conexión RPC de una red de cadena de bloques PoA existente. El punto de conexión comienza con https:// o http:// y termina con un número de puerto. Por ejemplo: `http<s>://<network-url>:<port>` |
+     | Punto de conexión RPC de Ethereum | Proporcione el punto de conexión RPC de una red de cadena de bloques PoA existente. |
      | Configuración de Azure Active Directory | Seleccione **Agregar más adelante**.</br>Nota: Si decide [configurar previamente Azure AD](#azure-ad-configuration) o volver a implementar, elija *Agregar ahora*. |
      | Selección de máquina virtual | Seleccione el rendimiento de almacenamiento y el tamaño de máquina virtual preferidos para la red de cadena de bloques. Elija un tamaño más pequeño de máquina virtual, como *Estándar DS1 v2*, si tiene una suscripción con límites de servicio bajos, como el nivel Gratis de Azure. |
 

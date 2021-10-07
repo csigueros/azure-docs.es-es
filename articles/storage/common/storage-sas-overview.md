@@ -10,17 +10,17 @@ ms.date: 12/28/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: a1b9c8f81de706fb53839a241115947d6cf8d0bc
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 1ea3f9181e1ebbbe4ae71c3e2505490361f066a8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113726921"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128560278"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)
 
 Una Firma de acceso compartido (SAS) ofrece acceso delegado seguro a los recursos en la cuenta de almacenamiento. Con una SAS, tiene control granular sobre la forma en que un cliente puede tener acceso a los datos. Por ejemplo:
- 
+
 - A qué recursos puede acceder el cliente.
 
 - Qué permisos tienen para esos recursos.
@@ -51,13 +51,13 @@ Para más información sobre la SAS de servicio, consulte [Create a service SAS 
 
 ### <a name="account-sas"></a>SAS de cuenta
 
-Una SAS de cuenta está protegida con la clave de cuenta de almacenamiento. SAS de cuenta delega el acceso a los recursos en uno o varios de los servicios de almacenamiento. Todas las operaciones disponibles con una SAS de servicio o delegación de usuarios están también disponibles con una SAS de cuenta. 
+Una SAS de cuenta está protegida con la clave de cuenta de almacenamiento. SAS de cuenta delega el acceso a los recursos en uno o varios de los servicios de almacenamiento. Todas las operaciones disponibles con una SAS de servicio o delegación de usuarios están también disponibles con una SAS de cuenta.
 
 También puede delegar el acceso a lo siguiente:
 
-- Operaciones de nivel de servicio (por ejemplo, las operaciones **Get/Set Service Properties** y **Get Service Stats**). 
+- Operaciones de nivel de servicio (por ejemplo, las operaciones **Get/Set Service Properties** y **Get Service Stats**).
 
-- Operaciones de lectura, escritura y eliminación que no se permiten con una SAS de servicio. 
+- Operaciones de lectura, escritura y eliminación que no se permiten con una SAS de servicio.
 
 Para obtener más información sobre la SAS de cuenta, consulte [Create an account SAS (REST API)](/rest/api/storageservices/create-account-sas) (Creación de una SAS de cuenta [API REST]).
 
@@ -82,7 +82,7 @@ Una Firma de acceso compartido es un URI firmado que apunta a uno o varios recur
 
 ### <a name="sas-signature-and-authorization"></a>Firma y autorización de SAS
 
-Puede firmar un token de SAS con una clave de delegación de usuario o con una clave de cuenta de almacenamiento (clave compartida). 
+Puede firmar un token de SAS con una clave de delegación de usuario o con una clave de cuenta de almacenamiento (clave compartida).
 
 #### <a name="signing-a-sas-token-with-a-user-delegation-key"></a>Firma de un token de SAS con una clave de delegación de usuario
 
@@ -134,15 +134,15 @@ Muchos servicios reales pueden usar una combinación de estos dos enfoques. Por 
 
 Además, en ciertos escenarios, se requiere una SAS para autorizar el acceso al objeto de origen en las operaciones de copia:
 
-- Cuando copia un blob en otro blob que reside en otra cuenta de almacenamiento. 
-  
+- Cuando copia un blob en otro blob que reside en otra cuenta de almacenamiento.
+
   Si lo desea, también puede usar una SAS para autorizar el acceso al blob de destino.
 
-- Cuando copia un archivo en otro archivo que reside en otra cuenta de almacenamiento. 
+- Cuando copia un archivo en otro archivo que reside en otra cuenta de almacenamiento.
 
   Si lo desea, también puede usar una SAS para autorizar el acceso al archivo de destino.
 
-- Cuando se copia un blob en un archivo o un archivo en un blob. 
+- Cuando se copia un blob en un archivo o un archivo en un blob.
 
   Debe usar una SAS incluso si los objetos de origen y destino residen en la misma cuenta de almacenamiento.
 
@@ -166,11 +166,11 @@ Las siguientes recomendaciones para el uso de firmas de acceso compartido pueden
 
 - **Use horas de expiración a corto plazo en una SAS ad-hoc, SAS de servicio o SAS de cuenta.** De esta manera, incluso si una SAS está en peligro, es válida solo durante un breve período. Esta práctica es especialmente importante si no puede hacer referencia a una directiva de acceso almacenada. Las expiraciones a corto plazo también limitan la cantidad de datos que puede escribirse en un blob mediante la limitación del tiempo disponible para cargarlos.
 
-- **Haga que los clientes renueven automáticamente la SAS si fuese necesario.** Los clientes deben renovar la SAS correctamente antes de la expiración para que exista tiempo para los reintentos si el servicio que ofrece la SAS no está disponible. Esto puede ser innecesario en algunos casos. Por ejemplo, puede que desee usar la SAS para un pequeño número de operaciones inmediatas de corta duración. Se espera que estas operaciones se completen dentro del período de expiración. Como resultado, no espera que la SAS se renueve. Sin embargo, si dispone de un cliente que realice solicitudes de forma rutinaria a través de la SAS, existe la posibilidad de la expiración. 
+- **Haga que los clientes renueven automáticamente la SAS si fuese necesario.** Los clientes deben renovar la SAS correctamente antes de la expiración para que exista tiempo para los reintentos si el servicio que ofrece la SAS no está disponible. Esto puede ser innecesario en algunos casos. Por ejemplo, puede que desee usar la SAS para un pequeño número de operaciones inmediatas de corta duración. Se espera que estas operaciones se completen dentro del período de expiración. Como resultado, no espera que la SAS se renueve. Sin embargo, si dispone de un cliente que realice solicitudes de forma rutinaria a través de la SAS, existe la posibilidad de la expiración.
 
 - **Tenga cuidado con la hora de inicio de la SAS.** Si establece la hora de inicio de una SAS en la hora actual, pueden producirse errores intermitentes durante los primeros minutos. Esto se debe a que diferentes equipos tienen horas actuales ligeramente diferentes (lo que se conoce como sesgo del reloj). En general, establezca la hora de inicio sea al menos 15 minutos en el pasado. O, no establezca esta opción en absoluto, lo que hará que sea válido inmediatamente en todos los casos. Normalmente se aplica lo mismo a la hora de expiración. Recuerde que debe tener en cuenta hasta 15 minutos de desplazamiento del reloj en cualquier dirección en una solicitud. Para los clientes con una versión REST anterior a 2012-02-12, la duración máxima de una SAS que no hace referencia a una directiva de acceso almacenada es de 1 hora. Se producirá un error en las directivas que especifican un período más largo de 1 hora.
 
-- **Tenga cuidado con el formato de fecha y hora de SAS.** Para algunas utilidades (como AzCopy), necesita que los formatos de fecha y hora sean "+%Y-%m-%dT%H:%M:%SZ". Este formato incluye específicamente los segundos. 
+- **Tenga cuidado con el formato de fecha y hora de SAS.** Para algunas utilidades (como AzCopy), necesita que los formatos de fecha y hora sean "+%Y-%m-%dT%H:%M:%SZ". Este formato incluye específicamente los segundos.
 
 - **Sea específico con el recurso al que se va a tener acceso.** Un procedimiento recomendado de seguridad es proporcionar al usuario los privilegios mínimos necesarios. Si un usuario solo necesita acceso de lectura en una única entidad, concédale acceso de lectura a esa única entidad y no acceso de lectura, escritura o eliminación a todas las entidades. Esto también ayuda a reducir los daños si se pone en peligro una SAS porque la SAS tiene menor menos poder en manos de un atacante.
 

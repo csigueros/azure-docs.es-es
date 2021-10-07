@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/28/2021
+ms.date: 09/01/2021
 ms.author: jeedes
-ms.openlocfilehash: ab3afec6b849288a87ba8aa194d5b180a49dc184
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 52b944e60edbdc3eb784fcc91736bfca531340a0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111557687"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124801645"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-segment"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Segment
 
@@ -39,6 +39,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Segment admite el inicio de sesión único iniciado por **SP e IDP**.
 * Segment admite el aprovisionamiento de usuarios **Just-In-Time**.
+* Segment admite el [aprovisionamiento automatizado de usuarios](segment-provisioning-tutorial.md).
 
 ## <a name="add-segment-from-the-gallery"></a>Adición de Segment desde la galería
 
@@ -76,7 +77,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `urn:auth0:segment-prod:samlp-<CUSTOMER_VALUE>`
+    a. En el cuadro de texto **Identificador**, escriba un valor con el siguiente patrón: `urn:auth0:segment-prod:samlp-<CUSTOMER_VALUE>`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://segment-prod.auth0.com/login/callback?connection=<CUSTOMER_VALUE>`
 
@@ -85,7 +86,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://app.segment.com`
 
     > [!NOTE]
-    > Estos valores son marcadores de posición. Debe usar los valores reales de identificador, dirección URL de respuesta o dirección URL de inicio de sesión. Los pasos para obtener estos valores se describen más adelante.
+    > Estos valores son marcadores de posición. Tiene que usar el identificador y la dirección URL de respuesta reales. Los pasos para obtener estos valores se describen más adelante.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
@@ -157,6 +158,8 @@ En esta sección, va a permitir que B.Simon acceda a Segment mediante el inicio 
 
 En esta sección, se crea un usuario llamado B.Simon en Segment. Segment admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si el usuario no existe en Segment, se crea uno después de la autenticación.
 
+Segment también admite el aprovisionamiento automático de usuarios. [Aquí](./segment-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
@@ -171,7 +174,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de Segment para la que configuró el inicio de sesión único. 
 
-También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Segment en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión y, si se ha configurado en modo IDP, debería iniciar sesión automáticamente en la instancia de Segment para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Segment en Aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión y, si se ha configurado en modo IDP, debería iniciar sesión automáticamente en la instancia de Segment para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

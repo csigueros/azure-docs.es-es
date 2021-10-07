@@ -3,12 +3,12 @@ title: Selección de tipos de disco administrado para nodos de clúster administ
 description: Obtenga información sobre cómo seleccionar los tipos de disco administrado para los nodos de clúster administrado de Service Fabric y cómo configurarlos en una plantilla de ARM.
 ms.topic: how-to
 ms.date: 5/10/2021
-ms.openlocfilehash: 054f2b68bfc2a8177e792824dd3c507bf6b4523b
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: c9daef02b9249d44d5d202f5066bac40f807ec58
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111961041"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546337"
 ---
 # <a name="select-managed-disk-types-for-service-fabric-managed-cluster-nodes"></a>Selección de tipos de disco administrado para nodos de clúster administrados de Service Fabric
 
@@ -42,10 +42,9 @@ Los valores posibles son:
 
 ```json
 {
-    "apiVersion": "2021-05-01",
-    "type": "Microsoft.ServiceFabric/managedclusters",
-    "dataDiskType": "StandardSSD_LRS"
-    
+  "apiVersion": "2021-05-01",
+  "type": "Microsoft.ServiceFabric/managedclusters",
+  "dataDiskType": "StandardSSD_LRS"
 }
 ```
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/21/2021
 ms.author: martinek
 ms.custom: references_regions
-ms.openlocfilehash: 4fe0b913c003ccf4247833ba1dc12c4ec1e7248a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 030197a39ef10193887e3fc9966acd1979137291
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730202"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233131"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure
 
@@ -96,7 +96,7 @@ Ilustración 2: Pareja regional de Azure hipotética
 ## <a name="cross-region-activities"></a>Actividades entre regiones
 Como se indica en la ilustración 2.
 
-1. **Azure Compute (IaaS)** : debe aprovisionar recursos de procesos adicionales de antemano para asegurarse de que haya recursos disponibles en otra región durante un desastre. Para obtener más información, consulte [Guía técnica sobre resistencia en Azure](https://github.com/uglide/azure-content/blob/master/articles/resiliency/resiliency-technical-guidance.md). 
+1. **Azure Compute (IaaS)** : debe aprovisionar recursos de procesos adicionales de antemano para asegurarse de que haya recursos disponibles en otra región durante un desastre. 
 
 2. **Azure Storage**: si utiliza discos administrados, obtenga información sobre las [copias de seguridad entre regiones](/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) con Azure Backup y la [replicación de máquinas virtuales](./site-recovery/azure-to-azure-tutorial-enable-replication.md) de una región a otra con Azure Site Recovery. Si está usando cuentas de almacenamiento, el almacenamiento con redundancia geográfica (GRS) se configura de manera predeterminada cuando se crea una cuenta de Azure Storage. Con GRS, los datos se replican automáticamente tres veces dentro de la región primaria y tres veces en la región emparejada. Para obtener más información, consulte [Opciones de redundancia de Azure Storage](storage/common/storage-redundancy.md).
 

@@ -1,25 +1,25 @@
 ---
 title: Transformación de datos con cuadernos de Databricks
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Aprenda a procesar o transformar datos mediante la ejecución de un cuaderno de Databricks en Azure Data Factory.
+description: Obtenga información sobre cómo procesar o transformar datos mediante la ejecución de un cuaderno de Databricks en las canalizaciones de Synapse Analytics y Azure Data Factory.
 ms.service: data-factory
 ms.subservice: tutorials
 ms.custom: synapse
 author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
-ms.date: 03/15/2018
-ms.openlocfilehash: d4db58e70c31724bac3678eb0f692e13d26211c6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: 9f82c1f2e39261ba4ba1072f5da9f807f23a180e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638012"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798472"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformación de datos mediante la ejecución de blocs de notas de Databricks
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-La actividad Notebook de Azure Databricks en una [canalización de Data Factory](concepts-pipelines-activities.md) ejecuta un bloc de notas de Databricks en el área de trabajo de Azure Databricks. Este artículo se basa en el artículo sobre [actividades de transformación de datos](transform-data.md) , que presenta información general de la transformación de datos y las actividades de transformación admitidas.  Azure Databricks es una plataforma administrada para ejecutar Apache Spark.
+La actividad de cuadernos de Azure Databricks en una [canalización](concepts-pipelines-activities.md) ejecuta un cuaderno de Databricks en el área de trabajo de Azure Databricks. Este artículo se basa en el artículo sobre [actividades de transformación de datos](transform-data.md) , que presenta información general de la transformación de datos y las actividades de transformación admitidas.  Azure Databricks es una plataforma administrada para ejecutar Apache Spark.
 
 ## <a name="databricks-notebook-activity-definition"></a>Definición de la actividad Notebook de Databricks
 
@@ -109,15 +109,15 @@ En la definición de la actividad de Databricks anterior, se especifican estos t
 
 Para más detalles, consulte la [documentación de Databricks](/azure/databricks/dev-tools/api/latest/libraries#managedlibrarieslibrary) sobre los tipos de bibliotecas.
 
-## <a name="passing-parameters-between-notebooks-and-data-factory"></a>Pasar parámetros entre cuadernos y Data Factory
+## <a name="passing-parameters-between-notebooks-and-pipelines"></a>Pasar parámetros entre cuadernos y canalizaciones
 
-Puede pasar parámetros de Data Factory a cuadernos mediante la propiedad *baseParameters* que se encuentra en la actividad de Databricks.
+Puede pasar parámetros a cuadernos mediante la propiedad *baseParameters* que se encuentra en la actividad de Databricks.
 
-En ciertos casos, es posible que necesite devolver algunos valores del cuaderno a Data Factory, ya que se pueden usar en el flujo de control (esto es, para realizar comprobaciones condicionales) de Data Factory; también se pueden consumir mediante actividades de bajada (el límite de tamaño es de 2 MB).
+En ciertos casos, es posible que necesite devolver algunos valores del cuaderno al servicio, ya que se pueden usar en el flujo de control (esto es, para realizar comprobaciones condicionales) del servicio; también se pueden consumir mediante actividades de bajada (el límite de tamaño es de 2 MB).
 
-1. En el cuaderno, puede llamar a [dbutils.notebook.exit("returnValue")](/azure/databricks/notebooks/notebook-workflows#notebook-workflows-exit) y el valor de "ReturnValue" correspondiente se devolverá a Data Factory.
+1. En el cuaderno, puede llamar a [dbutils.notebook.exit("returnValue")](/azure/databricks/notebooks/notebook-workflows#notebook-workflows-exit) y el valor de "returnValue" correspondiente se devolverá al servicio.
 
-2. Puede usar la salida de Data Factory mediante una expresión como `@{activity('databricks notebook activity name').output.runOutput}`. 
+2. Puede usar la salida del servicio mediante una expresión como `@{activity('databricks notebook activity name').output.runOutput}`. 
 
    > [!IMPORTANT]
    > Si va a pasar un objeto JSON, puede obtener los valores anexando los nombres de propiedad. Ejemplo: `@{activity('databricks notebook activity name').output.runOutput.PropertyName}`

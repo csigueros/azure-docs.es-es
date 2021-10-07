@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: 0486263551246a794f90867621be0e87d42747c6
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 90f7c99aa82dfc91c9910309b66246439e513c88
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123273310"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129532666"
 ---
 # <a name="overallocating-capacity-reservation-preview"></a>Asignación excesiva de reserva de capacidad (versión preliminar)
 
@@ -27,9 +27,6 @@ En este artículo se da por supuesto que ha creado un grupo de reserva de capaci
 > La reserva de capacidad está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
-## <a name="register-for-capacity-reservation"></a>Registro para la reserva de capacidad 
-
-Antes de poder usar la característica Reserva de capacidad, debe [registrar la suscripción para la versión preliminar](capacity-reservation-overview.md#register-for-capacity-reservation). El registro puede tardar varios minutos en terminar. Puede usar la CLI de Azure o PowerShell para completar el registro de la característica.
 
 ## <a name="instance-view-for-capacity-reservation-group"></a>Vista de instancia del grupo de reserva de capacidad 
 

@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 14a235337a1b3bf26874cffe8893f0c21f2ed9f7
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 814ed1001c39b48a5aa93162cb54ec520050eb66
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517881"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457570"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxis de las consultas de enrutamiento de mensajes de IoT Hub
 
@@ -147,7 +147,7 @@ deviceClient.sendEvent(message, (err, res) => {
 ```
 
 > [!NOTE] 
-> Se muestra cómo administrar la codificación del cuerpo en JavaScript. Si quiere ver un ejemplo en C#, descargue los [ejemplos de C# de Azure IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Descomprima el archivo master.zip. El archivo Program.cs de la solución de Visual Studio *SimulatedDevice* muestra cómo codificar y enviar mensajes a una instancia de IoT Hub. Este es el mismo ejemplo que se usa para probar el enrutamiento de mensajes, como se explica en el [tutorial de enrutamiento de mensajes](tutorial-routing.md). En la parte inferior de Program.cs, también hay un método para leer en uno de los archivos codificados, descodificarlo y escribirlo de nuevo en ASCII para que pueda leerlo. 
+> Se muestra cómo administrar la codificación del cuerpo en JavaScript. Si quiere ver un ejemplo en C#, descargue los [ejemplos de C# de Azure IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip). Descomprima el archivo master.zip. El archivo Program.cs de la solución de Visual Studio *SimulatedDevice* muestra cómo codificar y enviar mensajes a una instancia de IoT Hub. Este es el mismo ejemplo que se usa para probar el enrutamiento de mensajes, como se explica en el [tutorial de enrutamiento de mensajes](tutorial-routing.md). En la parte inferior de Program.cs, también hay un método para leer en uno de los archivos codificados, descodificarlo y escribirlo de nuevo en ASCII para que pueda leerlo. 
 
 
 ### <a name="query-expressions"></a>Expresiones de consulta

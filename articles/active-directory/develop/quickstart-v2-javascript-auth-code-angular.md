@@ -9,23 +9,23 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 01/14/2021
+ms.date: 09/09/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: f9993521e26250b5d296e1dddb982fdc43e317a5
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.openlocfilehash: 7b6c30d967576ac78fb29986c1638ead99f5989b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112516891"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626349"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-an-angular-spa-using-the-auth-code-flow"></a>Inicio rápido: Inicio de sesión y obtención de un token de acceso en una SPA de Angular mediante el flujo de código de autorización
 
-En este inicio rápido descargará y ejecutará un código de ejemplo que muestra cómo una aplicación de página única de JavaScript Angular puede realizar el inicio de sesión de usuarios y llamar a Microsoft Graph API mediante el flujo de código de autorización. En el ejemplo de código se muestra cómo obtener un token de acceso para llamar a Microsoft Graph API o a cualquier API web. 
+En este inicio rápido descargará y ejecutará un código de ejemplo que muestra cómo una aplicación de página única de JavaScript Angular puede realizar el inicio de sesión de usuarios y llamar a Microsoft Graph API mediante el flujo de código de autorización. En el ejemplo de código se muestra cómo obtener un token de acceso para llamar a Microsoft Graph API o a cualquier API web.
 
 Para ilustrar este tema, consulte el apartado en el que se explica el [funcionamiento del ejemplo](#how-the-sample-works).
 
-En este inicio rápido se usa MSAL Angular v2 con el flujo de código de autorización. Puede encontrar un inicio rápido similar que usa MSAL Angular 1 con el flujo implícito en [Inicio rápido: Inicio de sesión de usuarios en aplicaciones de página única de JavaScript](./quickstart-v2-angular.md).
+En este inicio rápido se usa MSAL Angular v2 con el flujo de código de autorización.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -50,7 +50,7 @@ En este inicio rápido se usa MSAL Angular v2 con el flujo de código de autori
 > #### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
 >
 > 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
-> 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
+> 1. Si tiene acceso a varios inquilinos, use el filtro **Directorios y suscripciones** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para ir al inquilino en el que quiere registrar la aplicación.
 > 1. Busque y seleccione **Azure Active Directory**.
 > 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
 > 1. Escriba el **nombre** de la aplicación. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
@@ -58,7 +58,7 @@ En este inicio rápido se usa MSAL Angular v2 con el flujo de código de autori
 > 1. Seleccione **Registrar**. En la página de **información general** de la aplicación, anote el valor del **Identificador de aplicación (cliente)** para su uso posterior.
 > 1. En **Administrar**, seleccione **Autenticación**.
 > 1. En **Configuraciones de plataforma**, seleccione **Agregar una plataforma**. En el panel que se abre, seleccione **Aplicación de página única**.
-> 1. Establezca el valor de **URI de redirección** en `http://localhost:4200/`. Este es el puerto predeterminado que NodeJS escuchará en la máquina local. Devolveremos la respuesta de autenticación a este identificador URI después de autenticar correctamente al usuario. 
+> 1. Establezca el valor de **URI de redirección** en `http://localhost:4200/`. Este es el puerto predeterminado que NodeJS escuchará en la máquina local. Devolveremos la respuesta de autenticación a este identificador URI después de autenticar correctamente al usuario.
 > 1. Seleccione **Configurar** para aplicar los cambios.
 > 1. En **Configuraciones de plataforma** expanda **Aplicación de página única**.
 > 1. Confirme que en **Tipos de concesión** ![Ya configurado](media/quickstart-v2-javascript/green-check.png) Su URI de redirección es válido para el flujo de código de autorización con PKCE.
@@ -94,7 +94,7 @@ En este inicio rápido se usa MSAL Angular v2 con el flujo de código de autori
 >   return new PublicClientApplication({
 >     auth: {
 >       clientId: 'Enter_the_Application_Id_Here',
->       authority: 'Enter_the_Cloud_Instance_Id_HereEnter_the_Tenant_Info_Here',
+>       authority: 'Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here',
 >       redirectUri: 'Enter_the_Redirect_Uri_Here'
 >     },
 >     cache: {
@@ -116,7 +116,7 @@ En este inicio rápido se usa MSAL Angular v2 con el flujo de código de autori
 > - `Enter_the_Application_Id_Here` es el **identificador de aplicación (cliente)** de la aplicación que registró.
 >
 >    Para buscar el valor de **Identificador de aplicación (cliente)** , vaya a la página **Información general** del registro de la aplicación en Azure Portal.
-> - `Enter_the_Cloud_Instance_Id_Here` es la instancia de la nube de Azure. En el caso de la nube principal o global de Azure, escriba `https://login.microsoftonline.com/`. Para nubes **nacionales** (por ejemplo, China), consulte [Nubes nacionales](authentication-national-cloud.md).
+> - `Enter_the_Cloud_Instance_Id_Here` es la instancia de la nube de Azure. En el caso de la nube principal o global de Azure, escriba `https://login.microsoftonline.com`. Para nubes **nacionales** (por ejemplo, China), consulte [Nubes nacionales](authentication-national-cloud.md).
 > - `Enter_the_Tenant_info_here` se establece en una de las opciones siguientes:
 >   - Si la aplicación admite *cuentas de este directorio organizativo*, reemplace este valor por los valores de **Id. de inquilino** o **Nombre de inquilino**. Por ejemplo, `contoso.microsoft.com`.
 >
@@ -141,7 +141,7 @@ En este inicio rápido se usa MSAL Angular v2 con el flujo de código de autori
 
 > [!div renderon="docs"]
 >
-> Desplácese hacia abajo en el mismo archivo y actualice `graphMeEndpoint`. 
+> Desplácese hacia abajo en el mismo archivo y actualice `graphMeEndpoint`.
 > - Reemplace la cadena `Enter_the_Graph_Endpoint_Herev1.0/me` por `https://graph.microsoft.com/v1.0/me`.
 > - `Enter_the_Graph_Endpoint_Herev1.0/me` es el punto de conexión en el que se realizarán las llamadas API. Como servicio principal de Microsoft Graph API (global), escriba `https://graph.microsoft.com/` (incluya la barra diagonal final). Para más información, consulte la [documentación](/graph/deployments).
 >
@@ -182,7 +182,7 @@ Ejecute el proyecto con un servidor web mediante Node.js:
 
 ### <a name="msaljs"></a>msal.js
 
-La biblioteca MSAL.js inicia la sesión de los usuarios y solicita los tokens que se usan para acceder a una API protegida por la plataforma de identidad de Microsoft. 
+La biblioteca MSAL.js inicia la sesión de los usuarios y solicita los tokens que se usan para acceder a una API protegida por la plataforma de identidad de Microsoft.
 
 Si tiene Node.js instalado, también puede descargar la versión más reciente mediante el administrador de paquetes de Node.js (npm):
 

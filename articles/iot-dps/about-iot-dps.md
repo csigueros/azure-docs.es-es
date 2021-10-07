@@ -11,12 +11,12 @@ manager: eliotgra
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 1c5fd2416c37743dc48544da4bcfd23fc6928cdd
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
+ms.openlocfilehash: d65ef555ff0f05ca8020b3598bc6ac3022a708dd
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112539021"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272725"
 ---
 # <a name="what-is-azure-iot-hub-device-provisioning-service"></a>¿Qué es Azure IoT Hub Device Provisioning Service?
 Microsoft Azure proporciona un amplio conjunto de servicios públicos en la nube integrados para todas las necesidades de su solución de IoT. IoT Hub Device Provisioning Service (DPS) es un servicio auxiliar para IoT Hub que habilita el aprovisionamiento sin interacción Just-In-Time a la instancia correcta del centro de IoT sin necesidad de intervención humana. DPS habilita el aprovisionamiento de millones de dispositivos de forma segura y escalable.
@@ -126,6 +126,6 @@ Ahora tiene una visión general sobre el aprovisionamiento de dispositivos de Io
 
 [Configuración de IoT Hub Device Provisioning Service con Azure Portal](quick-setup-auto-provision.md)
 
-[Creación y aprovisionamiento de un dispositivo simulado](quick-create-simulated-device.md)
+[Creación y aprovisionamiento de un dispositivo simulado](quick-create-simulated-device-tpm.md)
 
 [Configurar el dispositivo para el aprovisionamiento](tutorial-set-up-device.md)

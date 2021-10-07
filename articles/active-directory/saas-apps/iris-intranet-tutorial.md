@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/04/2021
+ms.date: 09/01/2021
 ms.author: jeedes
-ms.openlocfilehash: 59e7d6dcf8a5b384b82c5d3294d5f627d990fb7b
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: d6925b0f4e9f871444e85a1369be541fd1172af9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745500"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128573656"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iris-intranet"></a>Tutorial: Integración de Azure Active Directory con Iris Intranet
 
@@ -40,6 +40,8 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 * Iris Intranet admite el inicio de sesión único iniciado por **SP**.
 
 * Iris Intranet admite el aprovisionamiento de usuarios **Just-In-Time**.
+
+* Iris Intranet admite el [aprovisionamiento automatizado de usuarios](iris-intranet-provisioning-tutorial.md).
 
 ## <a name="add-iris-intranet-from-the-gallery"></a>Adición de Iris Intranet desde la galería
 
@@ -120,6 +122,8 @@ Para configurar el inicio de sesión único en **Iris Intranet**, hay que enviar
 
 En esta sección, se crea un usuario llamado a Britta Simon en Iris Intranet. Iris Intranet admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario no existe en Iris Intranet, se crea después de la autenticación.
 
+Iris Intranet también admite el aprovisionamiento automático de usuarios. [Aquí](./iris-intranet-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
@@ -128,7 +132,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya directamente a la URL de inicio de sesión de Iris Intranet y comience el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Iris Intranet de Aplicaciones, accederá automáticamente a la dirección URL de inicio de sesión de la aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Iris Intranet de Aplicaciones, accederá automáticamente a la dirección URL de inicio de sesión de la aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

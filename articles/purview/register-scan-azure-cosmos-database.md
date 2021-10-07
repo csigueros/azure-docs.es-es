@@ -4,15 +4,15 @@ description: En esta guía se describen los detalles de cómo examinar Azure Cos
 author: djpmsft
 ms.author: daperlov
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: 5cbf179cd28a36705379049a66010d02d2e7cf24
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 14799d5a3ae5878461775e8f581fdda44c140d30
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739089"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209972"
 ---
 # <a name="register-and-scan-azure-cosmos-database-sql-api"></a>Registro y examen de Azure Cosmos Database (SQL API)
 
@@ -52,7 +52,7 @@ Cuando el método de autenticación seleccionado es **Clave de cuenta**, debe ob
 Para registrar una nueva cuenta de Azure Cosmos Database (SQL API) en el catálogo de datos, haga lo siguiente:
 
 1. Vaya a la cuenta de Purview.
-1. Seleccione **Mapa de datos** en el panel de navegación izquierdo.
+1. Seleccione **Data Map** (Mapa de datos) en el panel de navegación izquierdo.
 1. Seleccione **Registrar**.
 1. En **Register sources** (Registrar orígenes), seleccione **Azure Cosmos DB (SQL API)** .
 1. Seleccione **Continuar**
@@ -74,7 +74,7 @@ En la pantalla **Register sources (Azure Cosmos DB (SQL API))** (Registrar orí
 
 Para crear y ejecutar un nuevo examen, siga estos pasos:
 
-1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de Purview Studio.
+1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Seleccione el origen de datos de Azure Cosmos DB que ha registrado.
 

@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.author: rolyon
 ms.reviewer: ''
 ms.subservice: common
-ms.date: 05/06/2021
-ms.openlocfilehash: 3e5e46e15a7885eb5e3f4828cb8298355a116fd8
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.date: 09/24/2021
+ms.openlocfilehash: 0ab670b9ef6309b8db01f4a53f41c703dea69423
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112300496"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092288"
 ---
 # <a name="tutorial-add-a-role-assignment-condition-to-restrict-access-to-blobs-using-the-azure-portal-preview"></a>Tutorial: Adición de una condición de asignación de roles para restringir el acceso a blobs mediante Azure Portal (versión preliminar)
 
@@ -29,8 +29,8 @@ En la mayoría de los casos, una asignación de roles concederá los permisos ne
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Agregar una condición a una asignación de roles
-> * Restringir el acceso a blobs en función de una etiqueta de índice de blobs
+> - Agregar una condición a una asignación de roles
+> - Restringir el acceso a blobs en función de una etiqueta de índice de blobs
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -67,7 +67,7 @@ Este es el aspecto de la condición en el código:
 1. Inicie sesión en Azure Portal como propietario de una suscripción.
 
 1. Haga clic en **Azure Active Directory**.
-    
+
 1. Cree un usuario o busque uno existente. En este tutorial se usa Chandra como ejemplo.
 
 ## <a name="step-2-set-up-storage"></a>Paso 2: Configuración del almacenamiento
@@ -87,7 +87,7 @@ Este es el aspecto de la condición en el código:
     Si no ve la sección y acaba de registrar la suscripción, es posible que tenga que esperar unos minutos hasta que los cambios se propaguen. Para más información, consulte [Uso de etiquetas de índice de blobs (versión preliminar) para administrar y buscar datos en Azure Blob Storage](../blobs/storage-blob-index-how-to.md).
 
     > [!NOTE]
-    > Los blobs también admiten la capacidad de almacenar metadatos arbitrarios de clave-valor definidos por el usuario. Aunque los metadatos son similares a las etiquetas de índice de blobs, debe usar etiquetas de índice de blobs con condiciones. 
+    > Los blobs también admiten la capacidad de almacenar metadatos arbitrarios de clave-valor definidos por el usuario. Aunque los metadatos son similares a las etiquetas de índice de blobs, debe usar etiquetas de índice de blobs con condiciones.
 
     | Clave | Value |
     | --- | --- |
@@ -133,7 +133,7 @@ Este es el aspecto de la condición en el código:
 
 ## <a name="step-4-add-a-condition"></a>Paso 4: Incorporación de una condición
 
-1. En la pestaña **Condición**, haga clic en **Agregar condición**.
+1. En la pestaña **Condiciones (opcional)** , haga clic en **Agregar condición**.
 
     ![Captura de pantalla de la página de condiciones de Agregar asignación de roles para una nueva condición.](./media/storage-auth-abac-portal/condition-add-new.png)
 
@@ -141,7 +141,7 @@ Este es el aspecto de la condición en el código:
 
 1. En la sección Agregar acción, haga clic en **Seleccionar acciones**.
 
-    Aparece el panel Seleccionar una acción. Este panel es una lista filtrada de acciones de datos basada en la asignación de roles que será el destino de la condición. 
+    Aparece el panel Seleccionar una acción. Este panel es una lista filtrada de acciones de datos basada en la asignación de roles que será el destino de la condición.
 
     ![Captura de pantalla del panel Seleccionar una acción con una acción seleccionada.](./media/storage-auth-abac-portal/condition-actions-select.png)
 
@@ -213,7 +213,7 @@ Para probar la condición, deberá usar Azure PowerShell.
     ```
 
     Este es un ejemplo de la salida. Tenga en cuenta que **no puede** leer el archivo debido a la condición que ha agregado.
-    
+
     ```azurepowershell
     Get-AzStorageBlob: This request is not authorized to perform this operation using this permission. HTTP Status Code: 403 - HTTP Error Message: This request is not authorized to perform this operation using this permission.
     ErrorCode: AuthorizationPermissionMismatch
@@ -221,7 +221,7 @@ Para probar la condición, deberá usar Azure PowerShell.
     RequestId: <requestId>
     Time: Sun, 13 Sep 2020 12:33:42 GMT
     ```
-    
+
 1. Lea el archivo del proyecto Cascade.
 
     ```azurepowershell
@@ -229,10 +229,10 @@ Para probar la condición, deberá usar Azure PowerShell.
     ```
 
     Este es un ejemplo de la salida. Observe que sí puede leer el archivo porque tiene la etiqueta Project=Cascade.
-    
+
     ```azurepowershell
        AccountName: <storageAccountName>, ContainerName: <containerName>
-    
+
     Name                 BlobType  Length          ContentType                    LastModified         AccessTier SnapshotT
                                                                                                                   ime
     ----                 --------  ------          -----------                    ------------         ---------- ---------

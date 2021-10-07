@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 0f800d2d42d0d8815021f1582b04750d87aa5abc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be90f5bdbd34201672cd2b39c7bbbe53e4de38cf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101651450"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128572072"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Salesforce
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Salesforce con Azure Active Directory (
 * Permitir que los usuarios inicien sesión automáticamente en Salesforce con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -177,6 +177,14 @@ En esta sección, va a permitir que B. Simon acceda a Salesforce mediante el in
 
     ![Configuración del aprovisionamiento de usuarios con inicio de sesión único habilitado](./media/salesforce-tutorial/salesforcexml.png)
 
+    > [!NOTE]
+    > Si configuró SAML JIT, debe completar un paso adicional en la sección **[Configuración del inicio de sesión único de Azure AD.](#configure-azure-ad-sso)** La aplicación Salesforce espera aserciones específicas de SAML, lo que requiere que tenga atributos específicos en la configuración de los atributos del token SAML. En la siguiente captura de pantalla se muestra la lista de los atributos requeridos de Salesforce.
+    
+    ![Captura de pantalla que muestra el panel de atributos requeridos de JIT.](./media/salesforce-tutorial/just-in-time-attributes-required.png)
+    
+    Si sigue teniendo problemas con el aprovisionamiento de usuarios con SAML JIT, consulte [Requisitos de aprovisionamiento Just-In-Time y campos de aserción de SAML](https://help.salesforce.com/s/articleView?id=sf.sso_jit_requirements.htm&type=5). Por lo general, cuando se produce un error JIT, puede que el error sea `We can't log you in because of an issue with single sign-on. Contact your Salesforce admin for help.`.
+
+
 1. En el panel de navegación izquierdo de Salesforce, haga clic en **Company Settings** (Configuración de la empresa) para expandir la sección relacionada y haga clic en **My Domain** (Mi dominio).
 
     ![Configuración del inicio de sesión único en Mi dominio](./media/salesforce-tutorial/sf-my-domain.png)
@@ -204,7 +212,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya directamente a la dirección URL de inicio de sesión de Salesforce e inicie el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Salesforce en Aplicaciones, se debería iniciar sesión automáticamente en la versión de Salesforce para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Salesforce en el portal Aplicaciones, se debería iniciar sesión automáticamente en la versión de Salesforce para la que configuró el inicio de sesión único. Para más información acerca del portal Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="test-sso-for-salesforce-mobile"></a>Prueba del inicio de sesión único para Salesforce (móvil)
 

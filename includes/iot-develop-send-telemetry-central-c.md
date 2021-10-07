@@ -4,29 +4,31 @@ description: Archivo de inclusión
 author: timlt
 ms.service: iot-develop
 ms.topic: include
-ms.date: 05/06/2021
+ms.date: 09/10/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 9b383086eb9a53f061f445b26fe2bcd1242524ae
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0665035b31142f5be7fa825a83d8575b49e8e717
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121802215"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128909171"
 ---
 [![Examinar el código](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/pnp)
 
-En este inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. En primer lugar, cree una aplicación de Azure IoT Central para hospedar dispositivos. A continuación, utilizaremos un ejemplo de un SDK de dispositivo IoT de Azure para ejecutar un controlador de temperatura simulado, conectarlo de forma segura a IoT Central y enviar datos de telemetría.
+En este artículo de inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. En primer lugar, cree una aplicación de Azure IoT Central para hospedar dispositivos. A continuación, utilizaremos un ejemplo de un SDK de dispositivo IoT de Azure para ejecutar un controlador de temperatura simulado, conectarlo de forma segura a IoT Central y enviar datos de telemetría.
 
 ## <a name="prerequisites"></a>Requisitos previos
-- Puede ejecutar este inicio rápido en Linux o Windows. Los comandos del shell usan el separador de ruta de acceso estándar de Linux: `/`. Si usa Windows, reemplace estos separadores por el separador de ruta de acceso de Windows: `\`.
+Este inicio rápido se ejecuta en Windows, Linux y Raspberry Pi. Se ha probado en las siguientes versiones de sistema operativo y dispositivo:
+
+- Windows 10
+- Ubuntu 20.04 LTS que se ejecuta en Subsistema de Windows para Linux (WSL)
+- Raspberry Pi OS, versión 10 (buster), que se ejecuta en un dispositivo Raspberry Pi 3 Model B+
 
 Instale los requisitos previos restantes para su sistema operativo.
 
-### <a name="linux"></a>Linux
-Los pasos de este tutorial se han probado con Ubuntu Linux 18.04.
-
-Para completar este inicio rápido en Linux, es preciso instalar el siguiente software en el entorno Linux local:
+### <a name="linux-or-raspberry-pi-os"></a>Linux o Raspberry Pi OS
+Para realizar este inicio rápido en Linux y Raspberry Pi OS, instale el software siguiente:
 
 Instale **GCC**, **Git**, **cmake** y las dependencias necesarias con el comando `apt-get`:
 
@@ -59,7 +61,7 @@ En esta sección, configurará el entorno local, instalará el SDK de dispositiv
 
 ### <a name="configure-your-environment"></a>Configurar su entorno
 
-1. Abra una consola para instalar el SDK de dispositivo de Azure IoT para C y ejecute el ejemplo de código. En Windows, seleccione **Inicio**, escriba *Símbolo del sistema para desarrolladores para VS 2019* y abra la consola. En el caso de Linux, abra Bash. 
+1. Abra una consola para instalar el SDK de dispositivo de C de Azure IoT y ejecute el ejemplo de código. En Windows, seleccione **Inicio**, escriba *Símbolo del sistema para desarrolladores para VS 2019* y abra la consola. En Linux y Raspberry Pi OS, abra un terminal de comandos de Bash. 
 
 1. Establezca las siguientes variables de entorno con los comandos adecuados para la consola. El dispositivo simulado usa estos valores para conectarse a IoT Central. Para `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY` y `IOTHUB_DEVICE_DPS_DEVICE_ID`, use los valores de conexión del dispositivo que guardó anteriormente.
 
@@ -87,6 +89,8 @@ En esta sección, configurará el entorno local, instalará el SDK de dispositiv
     ```
 
 ### <a name="install-the-sdk-and-samples"></a>Instalación del SDK y los ejemplos
+
+1. Cambie a la carpeta en la que quiere clonar el repositorio de ejemplo.
 
 1. Copie el SDK de dispositivo de Azure IoT para C en la máquina local.
 
@@ -119,7 +123,7 @@ En esta sección, configurará el entorno local, instalará el SDK de dispositiv
 
     **Bash**
     ```bash
-    cmake/iothub_client/samples/pnp/pnp_temperature_controller/Debug/pnp_temperature_controller
+    cmake/iothub_client/samples/pnp/pnp_temperature_controller/pnp_temperature_controller
     ```
 
     Una vez que el dispositivo simulado se conecta a la aplicación IoT Central, se conecta a la instancia de dispositivo que creó en la aplicación y comienza a enviar datos de telemetría. En la consola se muestran los detalles de conexión y la salida de telemetría: 

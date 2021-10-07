@@ -17,12 +17,12 @@ ms.date: 04/30/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7ccca25bf140a51755c229f8c438e053a7ac7de
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 73ccb2ddb9e229faea69ae3f67ed8285b0256808
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319274"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128581273"
 ---
 # <a name="audit-logs-in-azure-active-directory"></a>Registros de auditoría en Azure Active Directory 
 
@@ -103,7 +103,7 @@ Azure Portal ofrece varias opciones para acceder al registro. Por ejemplo, en el
 
 ![Apertura de registros de auditoría](./media/concept-audit-logs/audit-logs-menu.png)
 
-Además, puede acceder directamente a los registros de auditoría mediante [este vínculo](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/ProvisioningEvents).
+Además, puede ir directamente a los registros de auditoría mediante [este vínculo](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/ProvisioningEvents).
 
 
 También puede acceder al registro de auditoría mediante Microsoft Graph API.
@@ -227,6 +227,9 @@ También puede descargar los datos filtrados, hasta 250 000 registros, si selec
 Puede ver los registros de actividad de Microsoft 365 desde el [Centro de administración de Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Aunque los registros de actividad de Microsoft 365 y Azure AD comparten muchos de los recursos del directorio, solo el Centro de administración de Microsoft 365 proporciona una vista completa de los registros de actividad de Microsoft 365. 
 
 También puede acceder a los registros de actividad de Microsoft 365 mediante programación con las [API de administración de Office 365](/office/office-365-management-api/office-365-management-apis-overview).
+
+> [!NOTE]
+> La mayoría de las suscripciones independientes o agrupadas de Microsoft 365 tienen dependencias de back-end en algunos subsistemas dentro del límite del centro de datos de Microsoft 365. Las dependencias necesitan la escritura diferida de cierta información para mantener los directorios sincronizados y, básicamente, para ayudar a habilitar la incorporación sin complicaciones en una suscripción para participar en Exchange Online. Para estas escrituras diferidas, las entradas del registro de auditoría muestran las acciones realizadas por "Microsoft Substrate Management". Estas entradas del registro de auditoría hacen referencia a las operaciones de creación, actualización y eliminación ejecutadas por Exchange Online para Azure AD. Las entradas son informativas y no se necesita ninguna acción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

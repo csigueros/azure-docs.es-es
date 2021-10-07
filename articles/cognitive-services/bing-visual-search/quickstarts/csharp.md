@@ -3,20 +3,18 @@ title: 'Inicio rápido: Obtención de conclusiones de imágenes mediante la API 
 titleSuffix: Azure Cognitive Services
 description: Aprenda a cargar una imagen con Bing Visual Search API y C# y, a continuación, obtener conclusiones sobre esta.
 services: cognitive-services
-author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
-ms.author: scottwhi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 83e4e2b1c1eb10f7a4cd0f2fb4f87b280801eed0
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e2f2b1d21e36f059b3848e6f9a1a9d6ed02c05ab
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96487123"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128669462"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>Inicio rápido: Obtención de conclusiones de imágenes mediante la API de REST Bing Visual Search y C#
 
@@ -27,7 +25,7 @@ ms.locfileid: "96487123"
 
 Este inicio rápido muestra cómo cargar una imagen en la API Bing Visual Search y cómo ver la información detallada que devuelve.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Cualquier edición de [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * La [plataforma Json.NET](https://www.newtonsoft.com/json), disponible como paquete NuGet.

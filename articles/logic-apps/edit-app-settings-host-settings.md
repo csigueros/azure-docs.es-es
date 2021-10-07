@@ -6,12 +6,13 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 08/18/2021
-ms.openlocfilehash: 731fe8f29fc4e67e2d74d46702768e642928ae09
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 228e0ac6243ae25463a81967c6d5cbcd903ad2ce
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122514571"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824158"
 ---
 # <a name="edit-host-and-app-settings-for-logic-apps-in-single-tenant-azure-logic-apps"></a>Edición de la configuración de host y aplicación para aplicaciones lógicas en Azure Logic Apps de inquilino único
 
@@ -234,7 +235,8 @@ Esta configuración afecta al rendimiento y la capacidad de Azure Logic Apps de 
 | Configuración | Valor predeterminado | Descripción |
 |---------|---------------|-------------|
 | `Runtime.Backend.DefaultAppendArrayItemsLimit` | `100000` <br>(100 000 elementos de matriz) | Establece el número máximo de elementos de una variable con el tipo Array. |
-| `Runtime.Backend.VariableOperation.MaximumVariableSize` | Flujo de trabajo con estado: `104857600` caracteres <p><p>Flujo de trabajo sin estado: `1024` caracteres | Establece el tamaño máximo en caracteres para el contenido que puede almacenar una variable. |
+| `Runtime.Backend.VariableOperation.MaximumVariableSize` | Flujo de trabajo con estado: `104857600` caracteres | Establece el tamaño máximo en caracteres para el contenido que puede almacenar una variable cuando se usa en un flujo de trabajo con estado. |
+| `Runtime.Backend.VariableOperation.MaximumStatelessVariableSize` | Flujo de trabajo sin estado: `1024` caracteres | Establece el tamaño máximo en caracteres para el contenido que puede almacenar una variable cuando se usa en un flujo de trabajo sin estado. |
 ||||
 
 <a name="http-webhook"></a>

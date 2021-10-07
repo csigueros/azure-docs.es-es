@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: b6dd0fd95280a65615d38ab11a2f9814f58586f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d58bfc14e4b61860d239cc3dcfd0ad276aec781
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98945846"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273521"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparación de opciones de almacenamiento para los clústeres de Azure HDInsight
 
@@ -40,7 +40,7 @@ En la tabla siguiente se resumen los servicios de Azure Storage que son compatib
 
 Para obtener más información sobre los tipos de cuentas de almacenamiento, consulte [Información general acerca de la cuenta de Azure Storage](../storage/common/storage-account-overview.md).
 
-Para obtener más información sobre los niveles de acceso de Azure Storage, consulte [Azure Blob Storage: niveles de almacenamiento de archivo, esporádico, frecuente y Premium (versión preliminar)](../storage/blobs/storage-blob-storage-tiers.md).
+Para obtener más información sobre los niveles de acceso de Azure Storage, consulte [Azure Blob Storage: niveles de almacenamiento de archivo, esporádico, frecuente y Premium (versión preliminar)](../storage/blobs/access-tiers-overview.md).
 
 Puede crear clústeres mediante combinaciones de servicios para el almacenamiento principal y el secundario opcional. En la tabla siguiente se resumen las configuraciones de almacenamiento de clúster que actualmente se admiten en HDInsight:
 

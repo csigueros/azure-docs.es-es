@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/20/2021
+ms.date: 08/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 5e2f5689b476e4b6bf1c707c2c630879af4962fc
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 0717ed4934bd2a8ff9c0dbc4b893710aaaff870b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110471838"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650826"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coda"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Coda
 
@@ -40,6 +40,8 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 * Coda admite inicio de sesión único iniciado por **IDP**.
 
 * Coda admite el aprovisionamiento de usuarios **Just-In-Time**.
+
+* Coda admite el [aprovisionamiento automático de usuarios](coda-provisioning-tutorial.md).
 
 ## <a name="add-coda-from-the-gallery"></a>Adición de Coda desde la galería
 
@@ -155,13 +157,15 @@ Esto completa el trabajo necesario para la configuración de la conexión de ini
 
 En esta sección, se crea el usuario B.Simon en Coda. Coda admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario ya no existe en Coda, se crea otro después de la autenticación.
 
+Coda también admite el aprovisionamiento automático de usuarios. [Aquí](./coda-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 
 * Haga clic en Probar esta aplicación en Azure Portal; debería iniciar sesión automáticamente en la instancia de Coda para la que configuró el inicio de sesión único.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Coda en Aplicaciones, debería iniciar sesión automáticamente en la instancia de Coda para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Coda en Aplicaciones, debería iniciar sesión automáticamente en la instancia de Coda para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

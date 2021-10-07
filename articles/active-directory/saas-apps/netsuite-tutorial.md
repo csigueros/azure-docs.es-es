@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/20/2021
+ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: d99a19efcef0cae518d8d21d3371adaf37d32ff7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a38d2ced173e74263cdf159a1f3243e00ce0911b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98625487"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776579"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure AD con NetSuite
 
@@ -41,6 +41,7 @@ NetSuite admite:
 
 * El inicio de sesión único iniciado por IDP.
 * El aprovisionamiento de usuarios Just-In-Time.
+* NetSuite admite el [aprovisionamiento automático de usuarios](netsuite-provisioning-tutorial.md).
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
@@ -56,11 +57,11 @@ Para configurar la integración de NetSuite en Azure AD, agregue NetSuite desde
 1. En la sección **Agregar desde la galería**, escriba **NetSuite** en el cuadro de búsqueda.
 1. En el panel de resultados, seleccione **NetSuite** y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-netsuite"></a>Configuración y prueba del inicio de sesión único de Azure AD para NetSuite
+## <a name="configure-and-test-azure-ad-sso-for-netsuite"></a>Configuración y prueba del inicio de sesión único de Azure AD para NetSuite
 
 Configure y pruebe el inicio de sesión único de Azure AD con NetSuite con un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de NetSuite.
 
-Para configurar y probar el inicio de sesión único de Azure AD con NetSuite, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con NetSuite, haga lo siguiente:
 
 1. [Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso), para permitir que los usuarios puedan utilizar esta característica.
     * [Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user) para probar el inicio de sesión único de Azure AD con el usuario B.Simon.  
@@ -79,23 +80,7 @@ Para habilitar el inicio de sesión único de Azure AD en Azure Portal, siga es
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, en el cuadro de texto **URL de respuesta**, escriba una dirección URL en uno de los formatos siguientes:
-
-    ```https
-    https://<Instance ID>.NetSuite.com/saml2/acs
-    https://<Instance ID>.na1.NetSuite.com/saml2/acs
-    https://<Instance ID>.na2.NetSuite.com/saml2/acs
-    https://<Instance ID>.sandbox.NetSuite.com/saml2/acs
-    https://<Instance ID>.na1.sandbox.NetSuite.com/saml2/acs
-    https://<Instance ID>.na2.sandbox.NetSuite.com/saml2/acs
-    ```
-
-    * Obtendrá el valor **<`Instance ID`>** en la sección de configuración NetSuite, que se explica más adelante en el paso 8 del tutorial, en Configuración de NetSuite. Encontrará el dominio exacto (en este caso, system.na0.netsuite.com).
-
-        ![Captura de pantalla que muestra la página de configuración de SAML en la que puede obtener el dominio.](./media/NetSuite-tutorial/domain-value.png)
-
-        > [!NOTE]
-        > Los valores de las direcciones URL anteriores no son reales. Actualícelos con la dirección URL de respuesta real. Para obtener el valor, póngase en contacto con el [equipo de soporte técnico de cliente de NetSuite](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml). También puede consultar los formatos que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+1. En la sección **Configuración básica de SAML**, en el cuadro de texto **URL de respuesta**, escriba una dirección URL: `https://system.netsuite.com/saml2/acs`
 
 1. La aplicación NetSuite espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
@@ -246,13 +231,15 @@ En esta sección va a permitir que B.Simon acceda a NetSuite mediante el inicio 
 
 En esta sección se crea un usuario llamado B.Simon en NetSuite. NetSuite admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario deja de existir en NetSuite, se crea uno nuevo después de la autenticación.
 
+NetSuite también admite el aprovisionamiento automático de usuarios. [Aquí](./netsuite-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 
 - Haga clic en Probar esta aplicación en Azure Portal. Se debería iniciar sesión automáticamente en la instancia de NetSuite para la que configuró el inicio de sesión único.
 
-- Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de NetSuite en Mis aplicaciones, se debería iniciar sesión automáticamente en la instancia de NetSuite para la que configuró el inicio de sesión único. Para más información acerca del portal Mis aplicaciones, consulte [Introducción a Mis aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+- Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de NetSuite en Mis aplicaciones, se debería iniciar sesión automáticamente en la instancia de NetSuite para la que configuró el inicio de sesión único. Para más información acerca del portal Mis aplicaciones, consulte [Introducción a Mis aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

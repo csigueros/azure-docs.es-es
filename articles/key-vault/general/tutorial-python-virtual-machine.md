@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Uso de Azure Key Vault con una máquina virtual en Python | Microsoft Docs'
 description: En este tutorial, va a configurar una máquina virtual en la aplicación de Python para que lea un secreto de su almacén de claves.
-services: key-vault
 author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
@@ -9,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 25182105db831724565c6bf3dbbbb79832b677f7
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 463474d13f0df50aebd775e119918e0db7ad65c2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772067"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597329"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-python"></a>Tutorial: Uso de Azure Key Vault con una máquina virtual en Python
 
@@ -109,7 +108,7 @@ az keyvault set-policy --name "<your-unique-keyvault-name>" --object-id "<system
 Para iniciar sesión en la máquina virtual, siga las instrucciones que encontrará en el artículo en el que se explica la [conexión y el inicio de sesión en una máquina virtual Linux en Azure](../../virtual-machines/linux/login-using-aad.md), o bien en el que se explica la [conexión y el inicio de sesión en una máquina virtual Windows en Azure](../../virtual-machines/windows/connect-logon.md).
 
 
-Para iniciar sesión en una máquina virtual Linux, puede usar el comando ssh con el "<publicIpAddress>" proporcionado en el paso de [Creación de una máquina virtual](#create-a-virtual-machine):
+Para iniciar sesión en una máquina virtual Linux, puede usar el comando ssh con el \<publicIpAddress\> proporcionado en el paso de [Creación de una máquina virtual](#create-a-virtual-machine):
 
 ```terminal
 ssh azureuser@<PublicIpAddress>
@@ -129,7 +128,7 @@ pip3 install azure.identity
 
 ## <a name="create-and-edit-the-sample-python-script"></a>Creación y edición del script de Python de ejemplo
 
-En la máquina virtual, cree un archivo de Python llamado **sample.py**. Posteriormente, edítelo para que contenga el siguiente código y reemplace <nombre-almacén de claves-único> por el nombre de su almacén de claves:
+En la máquina virtual, cree un archivo de Python llamado **sample.py**. Edítelo para que contenga el siguiente código y reemplace \<your-unique-keyvault-name\> por el nombre de su almacén de claves:
 
 ```python
 from azure.keyvault.secrets import SecretClient

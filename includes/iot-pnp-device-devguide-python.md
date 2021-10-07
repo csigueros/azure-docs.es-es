@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
 ms.date: 11/19/2020
-ms.openlocfilehash: 0fdee151d746e19323921dddbb409e0816cb014b
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 14522e6395e40e93c0eb558597ad090521a480a3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122397876"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128580532"
 ---
 ## <a name="model-id-announcement"></a>Anuncio del id. de modelo
 
@@ -46,7 +46,7 @@ Como se describe en [Descripción de componentes de los modelos de IoT Plug and 
 
 ## <a name="telemetry"></a>Telemetría
 
-Un componente predeterminado no necesita ninguna propiedad especial.
+Un componente predeterminado no necesita ninguna propiedad especial agregada al mensaje de telemetría.
 
 Cuando se usan componentes anidados, los dispositivos deben establecer una propiedad de mensaje con el nombre del componente:
 
@@ -79,7 +79,7 @@ El dispositivo gemelo se actualiza con la siguiente propiedad notificada:
 }
 ```
 
-Al usar componentes anidados, se deben crear propiedades dentro del nombre del componente:
+Al usar componentes anidados, se deben crear propiedades dentro del nombre del componente e incluir un marcador:
 
 ```python
 inner_dict = {}
@@ -107,6 +107,8 @@ El dispositivo gemelo se actualiza con la siguiente propiedad notificada:
 ## <a name="writable-properties"></a>Propiedades editables
 
 Estas propiedades pueden establecerse por el dispositivo o actualizarse por la solución. Si la solución actualiza una propiedad, el cliente recibe una notificación como una devolución de llamada en `IoTHubDeviceClient` o `IoTHubModuleClient`. Para seguir las convenciones de IoT Plug and Play, el dispositivo debe informar al servicio de que la propiedad se ha recibido correctamente.
+
+Si el tipo de propiedad es `Object`, el servicio debe enviar un objeto completo al dispositivo incluso si solo actualiza un subconjunto de los campos del objeto. La confirmación que envía el dispositivo también debe ser un objeto completo.
 
 ### <a name="report-a-writable-property"></a>Notificación de una propiedad editable
 
@@ -178,7 +180,7 @@ El dispositivo gemelo se actualiza con la siguiente propiedad notificada:
 
 ### <a name="subscribe-to-desired-property-updates"></a>Suscripción a las actualizaciones de propiedades deseadas
 
-Los servicios pueden actualizar las propiedades deseadas que desencadenan una notificación en los dispositivos conectados. Esta notificación incluye las propiedades deseadas actualizadas, incluido el número de versión que identifica la actualización. Los dispositivos deben responder con el mismo mensaje `ack` que las propiedades notificadas.
+Los servicios pueden actualizar las propiedades deseadas que desencadenan una notificación en los dispositivos conectados. Esta notificación incluye las propiedades deseadas actualizadas, incluido el número de versión que identifica la actualización. Los dispositivos deben incluir este número de versión en el mensaje `ack` que se devuelve al servicio.
 
 Los componentes predeterminados ven la propiedad única y crean el mensaje `ack` notificado con la versión recibida:
 
@@ -205,7 +207,7 @@ async def execute_property_listener(device_client):
         await device_client.patch_twin_reported_properties(prop_dict)
 ```
 
-El dispositivo gemelo muestra la propiedad en las secciones desired y reported:
+El dispositivo gemelo de un componente anidado muestra las secciones de propiedades deseadas y notificadas de la siguiente manera:
 
 ```json
 {

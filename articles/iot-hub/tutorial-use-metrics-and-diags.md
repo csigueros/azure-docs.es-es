@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: beab67a209c177c91a1c4fcfa44934234b6dbc06
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 139244b8519dcbbc02800b8e22e9c438d1cc2b80
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114294816"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458934"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>Tutorial: Configuración y uso de métricas y registros con un centro de IoT
 
@@ -319,7 +319,7 @@ En la sección [Configurar recursos](#set-up-resources), ha registrado una ident
 >
 > Las alertas pueden tardar hasta 10 minutos en configurarse y habilitarse completamente mediante IoT Hub. Espere al menos 10 minutos entre que configura la última alerta y ejecuta la aplicación de dispositivo simulado.
 
-Descargue la solución para la [simulación de un dispositivo IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Este vínculo descarga un repositorio que contiene varias aplicaciones; la que busca está en iot-hub/Quickstarts/simulated-device/.
+Descargue la solución para la [simulación de un dispositivo IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip). Este vínculo descarga un repositorio que contiene varias aplicaciones; la que busca está en iot-hub/Quickstarts/simulated-device/.
 
 1. En una ventana del terminal local, vaya a la carpeta raíz de la solución. A continuación, vaya a la carpeta **iot-hub\Quickstarts\simulated-device**.
 

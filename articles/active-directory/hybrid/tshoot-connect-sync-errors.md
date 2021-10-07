@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fe6c04cf29a4c45436948eaea6fc8d0276ec16f
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: ff1b95ac26be1697e5211c024bc148222823e36d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111895791"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128622101"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Solución de errores durante la sincronización
 Pueden producirse errores cuando se sincronizan datos de identidad de Windows Server Active Directory (AD DS) con Azure Active Directory (Azure AD). En este artículo se proporciona información general sobre los distintos tipos de errores de sincronización, algunos de los posibles escenarios que provocan dichos errores y las posibles maneras de corregirlos. También se incluyen los tipos de error comunes, pero puede que no cubra todos los posibles errores.
@@ -180,6 +180,15 @@ a. Asegúrese de que el atributo userPrincipalName tiene caracteres compatibles 
 
 #### <a name="related-articles"></a>Artículos relacionados
 * [Preparación del aprovisionamiento de usuarios a Microsoft 365 mediante la sincronización de directorios](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
+
+## <a name="deletion-access-violation-and-password-access-violation-errors"></a>Errores de infracción de acceso de eliminación y de contraseña
+
+Azure Active Directory previene que los objetos exclusivos de la nube se actualicen mediante Azure AD Connect. Aunque no es posible actualizar estos objetos mediante de Azure AD Connect, se pueden realizar llamadas directamente al back-end de la nube de AADConnect para intentar cambiar objetos exclusivos de la nube. Al hacerlo, se pueden devolver los siguientes errores:
+
+* Esta operación de sincronización, Eliminar, no es válida. Póngase en contacto con el soporte técnico.
+* No se puede procesar esta actualización porque en la solicitud actual solo se incluye la actualización de credenciales de uno o varios usuarios exclusivos de la nube.
+* No se admite la eliminación de un objeto exclusivo de la nube. Póngase en contacto con el servicio de atención al cliente de Microsoft.
+* La solicitud de cambio de contraseña no se puede ejecutar porque contiene cambios en uno o varios objetos de usuario exclusivos de la nube y esto no se admite. Póngase en contacto con el servicio de atención al cliente de Microsoft.
 
 ## <a name="largeobject"></a>LargeObject
 ### <a name="description"></a>Descripción

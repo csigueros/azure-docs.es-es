@@ -1,20 +1,27 @@
 ---
 title: 'Azure AD Connect: Cuando ya tiene una cuenta de Azure AD | Microsoft Docs'
 description: En este tema se describe cómo utilizar Connect si ya tiene un inquilino de Azure AD.
+services: active-directory
+documentationcenter: ''
 author: billmath
+manager: daveba
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: how-to
 ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61785fbdf4fe3e79b2c36a5ffa6a9ccb43259666
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 6d7c00ed7d0f48901a44a3df4d96fbd7bc54a894
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129272821"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632944"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existing-tenant"></a>Azure AD Connect: Si tiene un inquilino existente
 En la mayoría de los temas sobre cómo usar Azure AD Connect se da por supuesto que empieza con un nuevo inquilino de Azure AD sin objetos ni usuarios. Sin embargo, si ha empezado con un inquilino de Azure AD, rellenado con usuarios y otros objetos, y ahora desea utilizar Connect, eche un vistazo a este tema.
@@ -49,7 +56,7 @@ Si hay una coincidencia parcial de objetos, el atributo **sourceAnchor** se agre
 ### <a name="hard-match-vs-soft-match"></a>Diferencias entre la coincidencia parcial y la exacta
 En una instalación nueva de Connect, apenas las hay. La diferencia reside en los escenarios de recuperación ante desastres. Si su servidor ha perdido la conexión con Azure AD Connect, puede volver a instalar una nueva instancia sin perder datos. Un objeto con un atributo sourceAnchor se envía a Connect durante la instalación inicial. Después, el cliente (Azure AD Connect) puede evaluar la coincidencia, con lo que el proceso es más mucho rápido que se si hace en Azure AD. Las coincidencias exactas las evalúan Connect y Azure AD, y las parciales, Azure AD.
 
- Hemos agregado una opción de configuración para deshabilitar la característica de coincidencia parcial en Azure AD Connect. Recomendamos a los clientes que deshabiliten la coincidencia parcial a menos que la necesiten para admitir cuentas exclusivas de la nube. En [este artículo](/powershell/module/msonline/set-msoldirsyncfeature) se explica cómo deshabilitar la coincidencia parcial.
+ Hemos agregado una opción de configuración para deshabilitar la característica de coincidencia parcial en Azure AD Connect. Recomendamos a los clientes que deshabiliten la coincidencia parcial a menos que la necesiten para admitir cuentas exclusivas de la nube. En [este artículo](https://docs.microsoft.com/powershell/module/msonline/set-msoldirsyncfeature?view=azureadps-1.0) se explica cómo deshabilitar la coincidencia parcial.
 
 ### <a name="other-objects-than-users"></a>Otros objetos distintos a los usuarios
 Para grupos y contactos habilitados para correo electrónico, puede hacer una coincidencia parcial en función de las direcciones de proxy. La coincidencia exacta no es aplicable porque solo puede actualizar el sourceAnchor o inmutableID (mediante PowerShell) en los usuarios. Para grupos que no están habilitados para correo, no se admiten actualmente la coincidencia parcial ni la coincidencia exacta.
@@ -57,10 +64,10 @@ Para grupos y contactos habilitados para correo electrónico, puede hacer una co
 ### <a name="admin-role-considerations"></a>Consideraciones sobre el rol de administrador
 Para evitar que los usuarios de confianza locales coincidan con un usuario en la nube que tenga cualquier rol de administrador, Azure AD Connect no hará coincidir objetos de usuario locales con objetos que tengan un rol de administrador. Esto se aplica de manera predeterminada. Para resolver este comportamiento, puede hacer lo siguiente:
 
-1.    Quitar los roles de directorio del objeto de usuario solo de nube.
-2.    Eliminar de forma permanente el objeto en cuarentena en la nube si se produjo un error en el intento de sincronización de usuario.
-3.    Desencadenar una sincronización.
-4.    Opcionalmente, agregar los roles de directorio al objeto de usuario en la nube una vez que la coincidencia se haya producido.
+1.  Quitar los roles de directorio del objeto de usuario solo de nube.
+2.  Eliminar de forma permanente el objeto en cuarentena en la nube si se produjo un error en el intento de sincronización de usuario.
+3.  Desencadenar una sincronización.
+4.  Opcionalmente, agregar los roles de directorio al objeto de usuario en la nube una vez que la coincidencia se haya producido.
 
 
 

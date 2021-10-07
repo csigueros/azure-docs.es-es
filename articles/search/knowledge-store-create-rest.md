@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/02/2021
-ms.openlocfilehash: acad54727ecb441cce64021ecba395d41820659a
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: a19fd4aad4ee8e5bac7dc7cde2a5be4609a346fc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123535276"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124796578"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>Creación de un almacén de conocimiento mediante REST y Postman
 
@@ -380,7 +380,7 @@ Cada tabla se genera con los identificadores necesarios para la vinculación cru
 
    :::image type="content" source="media/knowledge-store-create-rest/knowledge-store-tables.png" alt-text="Captura de pantalla de las tablas del almacén de conocimiento en el Explorador de Storage" border="true":::
 
-En este tutorial, el almacén de conocimiento se compone de varias tablas que muestran diferentes maneras de formar y estructurar una tabla. El primer conjunto de tres muestra tablas que usan la salida de una aptitud de conformador para determinar las columnas y filas. El segundo conjunto muestra comandos de modelado insertados, introducidos dentro de la propia proyección. Puede usar cualquiera de los enfoques para lograr el mismo resultado.
+En este tutorial, el almacén de conocimiento se compone de varias tablas que muestran diferentes maneras de formar y estructurar una tabla. De la tabla uno a la tabla tres se usa la salida de una aptitud de conformador para determinar las columnas y filas. Las tablas cuatro, cinco y seis están creadas a partir de instrucciones de modelado insertado, integradas dentro de la propia proyección. Puede usar cualquiera de los enfoques para lograr el mismo resultado.
 
 | Tabla | Descripción |
 |-------|-------------|

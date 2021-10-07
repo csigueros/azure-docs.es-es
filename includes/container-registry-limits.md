@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/12/2021
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 5e633bc71da050f3d580a6f0d0a4db25102ac360
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 43baf554bda4c2b3ae9bda9d79b46035e073cead
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122014630"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582347"
 ---
 | Recurso | Básico | Estándar | Premium |
 |---|---|---|---|
@@ -33,6 +33,7 @@ ms.locfileid: "122014630"
 | &bull; Puntos de conexión privados | N/D | N/D | 10 |
 | Reglas de red IP pública | N/D | N/D | 100 |
 | Acceso a red virtual del punto de conexión de servicio | N/D | N/D | [Versión preliminar][vnet] |
+| &bull; Reglas de red virtual | N/D | N/D | 100 |
 | Claves administradas por el cliente | N/D | N/D | [Compatible][cmk] |
 | Permisos de ámbito de repositorio | N/D | N/D | [Versión preliminar][token]|
 | &bull; Tokens | N/D | N/D | 20.000 |

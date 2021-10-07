@@ -5,48 +5,48 @@ metadata:
   ms.service: marketplace
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: conceptual
-  ms.date: 11/10/2020
   author: smannepalle
   ms.author: smannepalle
   ms.reviewer: sroy
-  ms.openlocfilehash: 7402fd17b8e91016bae3d64ab278544140d907ee
-  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+  ms.date: 09/27/2021
+  ms.openlocfilehash: 683676b4787d22426e3fddf97ee41be1f6988586
+  ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/13/2021
-  ms.locfileid: "121748303"
+  ms.lasthandoff: 09/27/2021
+  ms.locfileid: "129081498"
 title: Preguntas comunes sobre análisis de Marketplace comercial
 summary: En este artículo se abordan las preguntas más frecuentes sobre los mensajes de análisis en el Centro de partners.
 sections:
 - name: Omitido
   questions:
   - question: >
-      Why am I unable to view my analytics data in Partner Center?
+      ¿Por qué no puedo ver mis datos de análisis en el Centro de partners?
     answer: >
-      When I access the analytics pages, I see the following message.
+      Cuando se accede a las páginas de análisis, aparece el siguiente mensaje.
 
 
-      [![No data for your offers yet.](./media/analytics-faq-no-data.png)](./media/analytics-faq-no-data.png#lightbox)
+      [![Todavía no hay datos para las ofertas.](./media/analytics-faq-no-data.png)](./media/analytics-faq-no-data.png#lightbox)
 
 
-      Why you may be seeing this message:
+      Por qué podría ver este mensaje:
 
 
-      - No acquisitions currently exist for your published offers in the commercial marketplace. This can mean that your offers are live in the commercial marketplace and customers are viewing your product listing pages, but customers haven't yet taken action to purchase and deploy them.
+      - Actualmente no existe ninguna adquisición para las ofertas publicadas en Marketplace comercial. Esto puede significar que las ofertas están activas en Marketplace comercial y obtienen vistas de los clientes en las páginas de presentación del producto, pero que los clientes aún no han realizado acciones para comprarlas e implementarlas.
 
-      - Your offer might be in the process of being published but isn't live yet. Only live offers can be acquired by customers. To check the status of your offers, see the **Summary** page in the [Analyze dashboard](https://go.microsoft.com/fwlink/?linkid=2165765). For more information, see [Summary dashboard in commercial marketplace analytics](summary-dashboard.md).
+      - La oferta podría estar en proceso de publicación pero no estar activa aún. Los clientes solo pueden adquirir ofertas en directo. Para comprobar el estado de las ofertas, consulte la página [Resumen](https://go.microsoft.com/fwlink/?linkid=2165765) del Centro de partners. Para más información, consulte [Panel Resumen del análisis de Marketplace comercial](summary-dashboard.md).
 
-      - Your offers may be listed as **Contact Me**, which are list-only offers and cannot be purchased by customers in the commercial marketplace. Although these offers generate leads and are shared with you, orders aren't created for these offers as they cannot be purchased. To check your offer listing type, go to the setup page for your offer.
+      - Sus ofertas pueden aparecer como **Ponerse en contacto conmigo**, que son ofertas solo de anuncio y no pueden ser adquiridas por los clientes en Marketplace comercial. Aunque estas ofertas generan clientes potenciales y se comparten con usted, no se crean pedidos para estas ofertas, ya que no se pueden comprar. Para consultar el tipo de anuncio de la oferta, vaya a la página de configuración de la oferta.
   - question: >
-      I know I have analytics data, so why does the No Analytics Available message appear?
+      Sé que tengo datos de análisis, ¿por qué aparece el mensaje No hay ningún análisis disponible?
     answer: >
-      [![No data for your offers yet.](./media/analytics-faq-no-data.png)](./media/analytics-faq-no-data.png#lightbox)
+      [![Todavía no hay datos para las ofertas.](./media/analytics-faq-no-data.png)](./media/analytics-faq-no-data.png#lightbox)
 
 
-      Why you might be seeing this message:
+      Por qué podría ver este mensaje:
 
 
-      - If you're receiving this message, it means you have analytics data but there isn't data for the computation period that you have selected. Select a different computation period or month range to view any data since 2010.
+      - Si recibe este mensaje, significa que tiene datos de análisis pero no hay datos para el período de cálculo que ha seleccionado. Seleccione otro período de cálculo o un intervalo de meses para ver los datos desde 2010.
 
-      - If you have selected one or more categories from the various dimensions in the filter selection, you may not have analytics data for the selection. Try resetting the filter or make different selections from the filter.
-additionalContent: "\n## Next steps\n\n- For an overview of analytics reports available in Partner Center, see [Access analytics reports for the commercial marketplace in Partner Center](analytics.md).\n- For information about your orders in a graphical and downloadable format, see  [Orders dashboard in commercial marketplace analytics](orders-dashboard.md).\n- For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage dashboard in commercial marketplace analytics](usage-dashboard.md).\n- For detailed information about your customers, including growth trends, see [Customers dashboard in commercial marketplace analytics](customer-dashboard.md).\n- For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](downloads-dashboard.md).\n- To see a consolidated view of customer feedback for offers on Azure Marketplace and Microsoft AppSource, see [Ratings & reviews analytics dashboard in Partner Center](ratings-reviews.md)."
+      - Si ha seleccionado una o más categorías de las distintas dimensiones de la selección de filtro, es posible que no tenga datos de análisis para la selección. Intente restablecer el filtro o realizar otras selecciones del filtro.
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\n- Para más información sobre los informes de análisis disponibles en el Centro de partners, consulte [Acceso a los informes de análisis de marketplace comercial en el Centro de partners](analytics.md).\n- Para información sobre los pedidos en un formato gráfico que se pueda descargar, consulte [Panel Pedidos de los análisis de Marketplace comercial](orders-dashboard.md).\n- Para información sobre las métricas de uso y facturación de las ofertas de máquina virtual, consulte [Panel Uso de los análisis de marketplace comercial](usage-dashboard.md).\n- Para información detallada sobre los clientes, incluidas las tendencias de crecimiento, consulte [Panel Cliente de los análisis de marketplace comercial](customer-dashboard.md).\n- Para obtener una lista de las solicitudes de descarga de los últimos 30 días, consulte [Panel Descargas de los análisis de marketplace comercial](downloads-dashboard.md).\n- Para obtener una vista consolidada con los comentarios de los clientes sobre las ofertas de Azure Marketplace y Microsoft AppSource, consulte [Panel de análisis de Calificaciones y opiniones del Centro de partners](ratings-reviews.md).\n"

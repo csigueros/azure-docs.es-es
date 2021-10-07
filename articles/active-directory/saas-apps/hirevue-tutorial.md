@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con HireVue | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con HireVue'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y HireVue.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/03/2021
+ms.date: 09/13/2021
 ms.author: jeedes
-ms.openlocfilehash: e5305a5abbddc6db68925d1c5a7abffb5e949193
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 073b6bde981bd9395470aca9e77e44674d2a546f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572248"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128573925"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hirevue"></a>Tutorial: Integración de Azure Active Directory con HireVue
+# <a name="tutorial-azure-ad-sso-integration-with-hirevue"></a>Tutorial: Integración del inicio de sesión único de Azure AD con HireVue
 
 En este tutorial, obtendrá información sobre cómo integrar HireVue con Azure Active Directory (Azure AD). Al integrar HireVue con Azure AD, puede hacer lo siguiente:
 
@@ -32,6 +32,9 @@ Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 * Una suscripción habilitada para el inicio de sesión único en HireVue.
+
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 

@@ -8,12 +8,12 @@ metadata:
   ms.topic: article
   ms.date: 04/22/2020
   ms.author: errobin
-  ms.openlocfilehash: 0a855bf66c705e07d556831b60f7f4ec391e29fd
-  ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+  ms.openlocfilehash: 65fdc072fed31da0ad452a3ef5426b6e53f9c47f
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/29/2021
-  ms.locfileid: "129272310"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128556317"
 title: Preguntas frecuentes sobre Load Balancer
 summary: ''
 sections:
@@ -72,7 +72,7 @@ sections:
   - question: >
       ¿Puedo acceder al front-end del equilibrador de carga interno desde la máquina virtual del grupo de back-end participante?
     answer: >
-      No, Azure Load Balancer admite este escenario. Para obtener más información sobre este tema, visite nuestra [página de solución de problemas](load-balancer-troubleshoot-backend-traffic.md#cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm).
+      No, Azure Load Balancer admite este escenario. Para obtener más información sobre este tema, visite nuestra [página de solución de problemas](https://docs.microsoft.com/azure/load-balancer/load-balancer-troubleshoot-backend-traffic#cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm).
   - question: >
       ¿Cuáles son los procedimientos recomendados con respecto a la conectividad de salida?
     answer: "Standard Load Balancer y la IP pública estándar presentan capacidades nuevas y comportamientos diferentes en la conectividad saliente. No son lo mismo que las SKU de nivel Básico. Si quiere conectividad saliente al trabajar con las SKU de nivel Estándar, debe definirlas con las direcciones IP públicas estándar o con la instancia pública de Load Balancer estándar. Esto incluye establecer conectividad saliente cuando se usa una instancia interna de Standard Load Balancer. Se recomienda que use siempre las reglas de salida en una instancia pública de Load Balancer estándar. Esto significa que cuando se usa una instancia interna de Standard Load Balancer, es necesario seguir los pasos para establecer la conectividad saliente para las máquinas virtuales en el grupo de back-end si se quiere contar con conectividad saliente. En el contexto de la conectividad saliente, una máquina virtual independiente, todas las máquinas virtuales de un conjunto de disponibilidad y todas las instancias de un conjunto de escalado de máquinas virtuales se comportan como un grupo. Es decir que, si una máquina virtual en un conjunto de disponibilidad está asociada con una SKU de nivel Estándar, todas las instancias de máquina virtual dentro de dicho conjunto de disponibilidad ahora siguen las mismas reglas que están asociadas con la SKU de nivel Estándar, incluso si una instancia individual no está directamente asociada con ella. Este comportamiento también se observa en el caso de una máquina virtual independiente con varias tarjetas de interfaz de red conectadas a un equilibrador de carga. Si una NIC se agrega como independiente, tendrá el mismo comportamiento. Revise cuidadosamente todo el documento para entender los conceptos generales, consulte [Standard Load Balancer](./load-balancer-overview.md) para conocer las diferencias entre las SKU y consulte las [reglas de salida](load-balancer-outbound-connections.md#outboundrules).\nAl usar las reglas de salida, obtiene un control avanzado de todos los aspectos de la conectividad saliente.\n \n"

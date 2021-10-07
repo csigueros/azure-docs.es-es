@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/06/2021
+ms.date: 08/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 1d6e1c99bd70cedd678cbf3dcef4ef66a594d969
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 631d65b7119d071961b6fd48bd13e152ac7f2321
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728428"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128661554"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-checkproof"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con CheckProof
 
@@ -38,6 +38,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * CheckProof admite el inicio de sesión único iniciado por **IDP**.
+* CheckProof admite el [aprovisionamiento automatizado de usuarios](checkproof-provisioning-tutorial.md).
 
 ## <a name="add-checkproof-from-the-gallery"></a>Incorporación de CheckProof desde la galería
 
@@ -135,13 +136,16 @@ En esta sección, va a permitir que B.Simon acceda a CheckProof mediante el inic
 
     ![Página Crear usuario de CheckProof.](./media/checkproof-tutorial/user.png)
 
+> [!NOTE]
+>CheckProof también admite el aprovisionamiento automático de usuarios. [Aquí](./checkproof-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurarlo.
+
 ## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 
 * Haga clic en Probar esta aplicación en Azure Portal; debería iniciar sesión automáticamente en la instancia de CheckProof para la que configuró el inicio de sesión único.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de CheckProof en Aplicaciones, se debería iniciar sesión automáticamente en la versión de CheckProof para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de CheckProof en Aplicaciones, se debería iniciar sesión automáticamente en la versión de CheckProof para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

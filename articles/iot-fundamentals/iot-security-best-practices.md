@@ -7,19 +7,17 @@ services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: 61ddad58a9f61589aae137fb66ad75b37a0cbbe9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c1316f151ef98635eb66898755ea55a68d4fb79e
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "73931171"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233962"
 ---
 # <a name="security-best-practices-for-internet-of-things-iot"></a>Procedimientos recomendados de seguridad para Internet de las cosas (IoT)
 
 [!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 
 ## <a name="see-also"></a>Consulte también
-
-Para más información acerca de cómo proteger una solución creada por un acelerador de soluciones de IoT, consulte [Secure your IoT deployment](iot-security-deployment.md) (Protección de su implementación IoT).
 
 Puede informarse sobre la seguridad en IoT Hub en [Control del acceso a IoT Hub](../iot-hub/iot-hub-devguide-security.md) en la Guía del desarrollador de IoT Hub.

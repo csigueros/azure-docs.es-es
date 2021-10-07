@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/17/2021
+ms.date: 09/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 474bb5582011c9e701a188f227a54238a9f19b57
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: f41736ac221ee7d7cdce5ac776e70f96aa16536e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112285578"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128575102"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión para Azure Active Directory multiinquilino mediante directivas personalizadas en Azure Active Directory B2C
 
@@ -42,9 +42,9 @@ En este artículo se muestra cómo habilitar el inicio de sesión de los usuario
 
 Para habilitar el inicio de sesión para los usuarios con una cuenta de Azure AD en Azure Active Directory B2C (Azure AD B2C), tiene que crear una aplicación en [Azure Portal](https://portal.azure.com). Para más información, consulte [Registro de una aplicación con la plataforma de identidad de Microsoft](../active-directory/develop/quickstart-register-app.md).
 
-
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD de la organización (por ejemplo, contoso.com). Seleccione el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene la suscripción.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD de la organización (por ejemplo, Contoso). Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD en la lista **Nombre de directorio** y, después, seleccione **Cambiar**.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Registros de aplicaciones**.
 1. Seleccione **Nuevo registro**.
 1. Escriba el **nombre** de la aplicación. Por ejemplo, `Azure AD B2C App`.
@@ -84,7 +84,8 @@ La [comprobación del editor](../active-directory/develop/publisher-verification
 
 Debe almacenar la clave de la aplicación que creó en el inquilino de Azure AD B2C.
 
-1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 1. En **Directivas**, seleccione **Identity Experience Framework**.
 1. Seleccione **Claves de directiva** y luego **Agregar**.

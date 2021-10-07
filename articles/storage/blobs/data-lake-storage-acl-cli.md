@@ -10,12 +10,12 @@ ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fe26f8f61acbbf454cd2eb2928fdcab0f0bc7e47
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 84410ee16080c338e40c026326ef2a2945ba0e3c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866972"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128555808"
 ---
 # <a name="use-azure-cli-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Uso de la CLI de Azure para administrar listas de control de acceso (ACL) en Azure Data Lake Storage Gen2
 
@@ -27,7 +27,7 @@ La herencia de ACL ya está disponible para los nuevos elementos secundarios que
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- Suscripción a Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- Suscripción a Azure. Para obtener más información, vea [Obtención de una evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 - Una cuenta de almacenamiento que tenga habilitado un espacio de nombres jerárquico. Siga [estas](create-data-lake-storage-account.md) instrucciones para crear uno.
 
@@ -35,10 +35,10 @@ La herencia de ACL ya está disponible para los nuevos elementos secundarios que
 
 - Uno de los siguientes permisos de seguridad:
 
-  - Una [entidad de seguridad](../../role-based-access-control/overview.md#security-principal) aprovisionada de Azure Active Directory (Azure AD) a la que se haya asignado el rol [Propietario de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) en el ámbito del contenedor de destino, el grupo de recursos primario o la suscripción.  
+  - Una [entidad de seguridad](../../role-based-access-control/overview.md#security-principal) aprovisionada de Azure Active Directory (Azure AD) a la que se haya asignado el rol [Propietario de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) en el ámbito del contenedor de destino, el grupo de recursos primario o la suscripción.
 
   - El usuario propietario del contenedor o directorio de destino al que va a aplicar la configuración de ACL. Para establecer listas de control de acceso de forma recursiva, se incluyen todos los elementos secundarios en el contenedor o el directorio de destino.
-  
+
   - Clave de la cuenta de almacenamiento.
 
 ## <a name="ensure-that-you-have-the-correct-version-of-azure-cli-installed"></a>Asegúrese de que tiene instalada la versión correcta de la CLI de Azure.
@@ -51,7 +51,7 @@ La herencia de ACL ya está disponible para los nuevos elementos secundarios que
     az --version
    ```
 
-   Si la versión de la CLI de Azure es anterior a `2.14.0`, instale una versión posterior. Consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
+   Si la versión de la CLI de Azure es anterior a `2.14.0`, instale una versión posterior. Para más información, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 ## <a name="connect-to-the-account"></a>Conexión con la cuenta
 
@@ -88,7 +88,7 @@ En este ejemplo se obtiene la ACL de un directorio y luego se imprime la ACL en 
 az storage fs access show -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-Obtenga los permisos de acceso de un **archivo** mediante el comando [az storage fs access show](/cli/azure/storage/fs#az_storage_fs_show). 
+Obtenga los permisos de acceso de un **archivo** mediante el comando [az storage fs access show](/cli/azure/storage/fs#az_storage_fs_show).
 
 En este ejemplo se obtiene la ACL de un archivo y luego se imprime la ACL en la consola.
 
@@ -104,7 +104,7 @@ En este ejemplo, el usuario propietario tiene permisos de lectura, escritura y e
 
 ## <a name="set-acls"></a>Establecimiento de listas de control de acceso
 
-Cuando *establece* una ACL, debe **reemplazar** toda la ACL, incluidas todas sus entradas. Si quiere cambiar el nivel de permiso de una entidad de seguridad o agregar una nueva entidad de seguridad a la ACL sin que esto afecte a otras entradas existentes, debe *actualizar* la ACL en su lugar. Para actualizar una ACL en lugar de reemplazarla, consulte la sección [Actualización de ACL](#update-acls) de este artículo.  
+Cuando *establece* una ACL, debe **reemplazar** toda la ACL, incluidas todas sus entradas. Si quiere cambiar el nivel de permiso de una entidad de seguridad o agregar una nueva entidad de seguridad a la ACL sin que esto afecte a otras entradas existentes, debe *actualizar* la ACL en su lugar. Para actualizar una ACL en lugar de reemplazarla, consulte la sección [Actualización de ACL](#update-acls) de este artículo.
 
 Si elige *establecer* la lista de control de acceso, debe agregar una entrada para el usuario propietario, otra para el grupo propietario y una tercera para los demás usuarios. Para más información sobre el usuario propietario, el grupo propietario y el resto de usuarios, consulte [Usuarios e identidades](data-lake-storage-access-control.md#users-and-identities).
 
@@ -115,7 +115,7 @@ Esta sección le muestra cómo:
 
 ### <a name="set-an-acl"></a>Establecimiento de una ACL
 
-Use el comando [az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set) para establecer la ACL de un **directorio**. 
+Use el comando [az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set) para establecer la ACL de un **directorio**.
 
 En este ejemplo se establece la ACL en un directorio del usuario propietario, el grupo propietario o de otros usuarios, y luego se imprime la ACL en la consola.
 
@@ -129,7 +129,7 @@ En este ejemplo, se establece la ACL *predeterminada* en un directorio del usuar
 az storage fs access set --acl "default:user::rw-,group::rw-,other::-wx" -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-Use el comando [az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set) para establecer la ACL de un **archivo**. 
+Use el comando [az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set) para establecer la ACL de un **archivo**.
 
 En este ejemplo se establece la ACL en un archivo del usuario propietario, el grupo propietario o de otros usuarios, y luego se imprime la ACL en la consola.
 
@@ -161,7 +161,7 @@ az storage fs access set-recursive --acl "user::rwx,group::r-x,other::---,user:x
 
 ## <a name="update-acls"></a>Actualización de ACL
 
-Cuando *actualiza* una ACL, modifica la ACL en lugar de reemplazarla. Por ejemplo, puede agregar una nueva entidad de seguridad a la ACL sin que esto afecte a otras entidades de seguridad que se enumeran en la ACL.  Para reemplazar la ACL en lugar de actualizarla, consulte la sección [Establecimiento de listas de control de acceso](#set-acls) de este artículo.
+Cuando *actualiza* una ACL, modifica la ACL en lugar de reemplazarla. Por ejemplo, puede agregar una nueva entidad de seguridad a la ACL sin que esto afecte a otras entidades de seguridad que se enumeran en la ACL. Para reemplazar la ACL en lugar de actualizarla, consulte la sección [Establecimiento de listas de control de acceso](#set-acls) de este artículo.
 
 Para actualizar una ACL, cree un nuevo objeto ACL con la entrada de la ACL que quiera actualizar y, a continuación, use ese objeto en la operación para actualizar la ACL. No debe obtener la ACL existente, simplemente proporcione las entradas de la ACL que se vayan a actualizar.
 
@@ -172,7 +172,7 @@ Esta sección le muestra cómo:
 
 ### <a name="update-an-acl"></a>Actualización de una ACL
 
-Otra manera de establecer este permiso es usar el comando [az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set). 
+Otra manera de establecer este permiso es usar el comando [az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set).
 
 Actualice la ACL de un directorio o archivo estableciendo el parámetro `-permissions` en el formato abreviado de una ACL.
 
@@ -199,7 +199,7 @@ En este ejemplo se cambia el propietario de un directorio.
 az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-En este ejemplo se cambia el propietario de un archivo. 
+En este ejemplo se cambia el propietario de un archivo.
 
 ```azurecli
 az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
@@ -225,7 +225,7 @@ Puede quitar una o varias entradas de ACL de forma recursiva. Para quitar una en
 
 Quite las entradas de ACL mediante el comando [az storage fs access remove-recursive](/cli/azure/storage/fs/access#az_storage_fs_access_remove_recursive).
 
-En este ejemplo se quita una entrada de ACL del directorio raíz del contenedor.  
+En este ejemplo se quita una entrada de ACL del directorio raíz del contenedor.
 
 ```azurecli
 az storage fs access remove-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" -p my-parent-directory/ -f my-container --account-name mystorageaccount --auth-mode login

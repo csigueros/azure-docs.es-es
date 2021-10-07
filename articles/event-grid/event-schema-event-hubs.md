@@ -3,12 +3,12 @@ title: Azure Event Hubs como origen de Event Grid
 description: Describe las propiedades que se proporcionan para los eventos de Event Hubs con Azure Event Grid
 ms.topic: conceptual
 ms.date: 09/15/2021
-ms.openlocfilehash: 48d982e27d9da83d16bfbaad1a24ad1c8991a065
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b29f7f104ca0616a27abb5009e5ec27262169f00
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128647430"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129358818"
 ---
 # <a name="azure-event-hubs-as-an-event-grid-source"></a>Azure Event Hubs como origen de Event Grid
 
@@ -126,6 +126,7 @@ El objeto data tiene las siguientes propiedades:
 | `lastSequenceNumber` | integer | Último número de secuencia de la cola. |
 | `firstEnqueueTime` | string | Primera vez desde la cola. |
 | `lastEnqueueTime` | string | Última vez desde la cola. |
+
 
 ## <a name="tutorials-and-how-tos"></a>Tutoriales y procedimientos
 

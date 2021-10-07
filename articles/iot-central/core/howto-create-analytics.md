@@ -1,18 +1,18 @@
 ---
 title: Análisis de los datos del dispositivo en la aplicación de Azure IoT Central | Microsoft Docs
 description: Analice los datos del dispositivo en la aplicación de Azure IoT Central.
-author: ankitscribbles
-ms.author: ankitgup
+author: dominicbetts
+ms.author: dobett
 ms.date: 08/16/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 1a664ac69ba05cc44aba9d18ffc436a98dbab154
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: ad16a831b22097e98bd02b606e3a6596cf4e48f5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123431122"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124810940"
 ---
 # <a name="how-to-use-analytics-to-analyze-device-data"></a>Cómo usar análisis para analizar los datos del dispositivo
 
@@ -23,6 +23,9 @@ Azure IoT Central ofrece funcionalidad de análisis enriquecida para analizar 
 La interfaz de usuario de Analytics consta de tres componentes principales:
 
 - **Panel de configuración de datos:** en el panel de configuración de datos, seleccione el grupo de dispositivos cuyos datos quiere analizar. A continuación, seleccione la telemetría que quiere analizar y el método de agregación para cada telemetría. El control **Group By** (Agrupar por) ayuda a agrupar los datos al usar las propiedades del dispositivo como dimensiones.
+
+    > [!TIP]
+    > Si el dispositivo usa organizaciones, los grupos de dispositivos que vea dependen de su pertenencia a la organización.
 
 - **Time control** (Control de tiempo): utilice el control de tiempo para seleccionar la duración para la que desea analizar los datos. Puede arrastrar cualquier extremo del control deslizante de tiempo para seleccionar el intervalo de tiempo. El control de tiempo también tiene un control deslizante de **Tamaño de intervalo** que controla el cubo o el tamaño del intervalo usado para agregar los datos.
 

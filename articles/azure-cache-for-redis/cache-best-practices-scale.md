@@ -1,5 +1,5 @@
 ---
-title: Procedimientos recomendados para escalar una instancia de Azure Cache for Redis
+title: Procedimientos recomendados de escalado
 titleSuffix: Azure Cache for Redis
 description: Obtenga información sobre cómo escalar su instancia de Azure Cache for Redis.
 author: shpathak-msft
@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/25/2021
 ms.author: shpathak
-ms.openlocfilehash: 01fbebb06ba408232add1f0f05c5b715816e9e69
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 7aa65bbddc03eaf7c80717aa83fe41054617d116
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123114386"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128598677"
 ---
 # <a name="scaling"></a>Ampliación
 
@@ -33,3 +33,8 @@ Inicie el escalado antes de que la carga o el uso de memoria del servidor sean d
 Si usa TLS y tiene un gran número de conexiones, considere la posibilidad de escalar horizontalmente para poder distribuir la carga entre más núcleos. Algunos tamaños de caché se hospedan en máquinas virtuales con cuatro o más núcleos.
 
 Distribuya el cifrado o descifrado de TLS y las cargas de trabajo de conexión o desconexión de TLS en varios núcleos para reducir el uso general de la CPU en las máquinas virtuales de caché. Para obtener más información, consulte los [detalles sobre los tamaños y núcleos de las máquinas virtuales](./cache-planning-faq.yml#azure-cache-for-redis-performance).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- [Configuración de la opción maxmemory-reserved](cache-best-practices-memory-management.md#configure-your-maxmemory-reserved-setting)
+- [Escalado de una instancia de Azure Cache for Redis](cache-how-to-scale.md)

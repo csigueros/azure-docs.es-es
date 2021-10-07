@@ -8,12 +8,12 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: f7bd58361a4943ce295ab0f0b78f386079f0bba6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 34484c501a95379194ad2147fbcb553bf3f06980
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128577868"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129277696"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introducción a Azure Data Lake Storage Gen2
 
@@ -70,7 +70,7 @@ A continuación, se muestran las entidades equivalentes, tal como se describen e
 
 ## <a name="supported-blob-storage-features"></a>Características de Blob Storage compatibles
 
-Las características de Blob Storage, como el [registro de diagnóstico](../common/storage-analytics-logging.md), los [niveles de acceso](storage-blob-storage-tiers.md) y las [directivas de administración del ciclo de vida de Blob Storage](./lifecycle-management-overview.md) están disponibles en su cuenta. La mayoría de las características de Blob Storage son totalmente compatibles, pero algunas solo se admiten en el nivel de versión preliminar o aún no se admiten.
+Las características de Blob Storage, como el [registro de diagnóstico](../common/storage-analytics-logging.md), los [niveles de acceso](access-tiers-overview.md) y las [directivas de administración del ciclo de vida de Blob Storage](./lifecycle-management-overview.md) están disponibles en su cuenta. La mayoría de las características de Blob Storage son totalmente compatibles, pero algunas solo se admiten en el nivel de versión preliminar o aún no se admiten.
 
 Para ver cómo se admite cada característica de Blob Storage con Data Lake Storage Gen2, consulte [Compatibilidad con características de Blob Storage en cuentas de Azure Storage](storage-feature-support-in-storage-accounts.md).
 

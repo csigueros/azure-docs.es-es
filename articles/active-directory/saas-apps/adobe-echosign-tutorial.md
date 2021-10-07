@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Adobe Sign | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con Adobe Sign | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Adobe Sign.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/19/2021
+ms.date: 09/08/2021
 ms.author: jeedes
-ms.openlocfilehash: 7162c38aae2fec4ea21aae56fa8c3649f7a55425
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 62791850857770cba44eabf54719176e80cea48b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101649986"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124803387"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Tutorial: integración de Azure Active Directory con Adobe Sign
+# <a name="tutorial-azure-ad-sso-integration-with-adobe-sign"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Adobe Sign
 
 En este tutorial, obtendrá información sobre cómo integrar Adobe Sign con Azure Active Directory (Azure AD). Al integrar Adobe Sign con Azure AD, puede hacer lo siguiente:
 
@@ -26,7 +26,7 @@ En este tutorial, obtendrá información sobre cómo integrar Adobe Sign con Azu
 * Permitir que los usuarios inicien sesión automáticamente en Adobe Sign con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
  
@@ -37,7 +37,7 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Adobe Sign admite el inicio de sesión único iniciado por **SP**
+* Adobe Sign admite el inicio de sesión único iniciado por **SP**.
 
 ## <a name="add-adobe-sign-from-the-gallery"></a>Adición de Adobe Sign desde la galería
 
@@ -64,7 +64,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Adobe Sign
     1. **[Creación de un usuario de prueba de Adobe Sign](#create-adobe-sign-test-user)** : para tener un homólogo de Britta Simon en Adobe Sign que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
@@ -119,7 +119,7 @@ En esta sección, va a permitir que B.Simon acceda a Adobe Sign mediante el inic
 1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="configure-adobe-sign-sso"></a>Configuración del inicio de sesión único en Adobe Sign
+## <a name="configure-adobe-sign-sso"></a>Configuración del inicio de sesión único en Adobe Sign
 
 1. Antes de la configuración, póngase en contacto con el [equipo de soporte técnico al cliente de Adobe Sign](https://helpx.adobe.com/in/contact/support.html) para incluir su dominio en la lista de permitidos de Adobe Sign. Aquí se muestra cómo agregar el dominio:
 
@@ -144,13 +144,13 @@ En esta sección, va a permitir que B.Simon acceda a Adobe Sign mediante el inic
 
 1. En el menú SAML, seleccione **Configuración de cuenta** > **Configuración de SAML**.
 
-    ![Captura de pantalla de la página Adobe Sign SAML Settings (Configuración de SAML de Adobe Sign)](./media/adobe-echosign-tutorial/settings.png "Cuenta")
+    ![Captura de pantalla de la página Adobe Sign SAML Settings (Configuración de SAML de Adobe Sign).](./media/adobe-echosign-tutorial/settings.png "Cuenta")
 
 1. En la sección **SAML Settings** (Configuración de SAML), realice los pasos siguientes:
 
-    ![Captura de pantalla que resalta la configuración de SAML, incluido SAML Mandatory (SAML obligatorio).](./media/adobe-echosign-tutorial/saml1.png "Configuración de SAML")
+    ![Captura de pantalla que resalta la configuración de SAML, incluido SAML Mandatory (SAML obligatorio).](./media/adobe-echosign-tutorial/profile.png "Configuración de SAML")
 
-   ![Captura de pantalla de SAML Settings (Configuración de SAML)](./media/adobe-echosign-tutorial/saml.png "Configuración de SAML")
+   ![Captura de pantalla de SAML Settings (Configuración de SAML).](./media/adobe-echosign-tutorial/certificate.png "Configuración de SAML")
 
    a. En **SAML Mode** (Modo de SAML), seleccione **SAML Mandatory** (SAML obligatorio).
 
@@ -200,7 +200,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya directamente a la dirección URL de inicio de sesión de Adobe Sign e inicie el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Adobe Sign en Aplicaciones, debería iniciar sesión automáticamente en la instancia de Adobe Sign para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Adobe Sign en Aplicaciones, debería iniciar sesión automáticamente en la instancia de Adobe Sign para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

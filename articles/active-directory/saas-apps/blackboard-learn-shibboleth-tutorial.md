@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/04/2021
 ms.author: jeedes
-ms.openlocfilehash: 8c6fef9319416c902f9c334453bd4a3a2fe4f93a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 936398f324448abfa46b381fc19154117b8d4771
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124809975"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232553"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn---shibboleth"></a>Tutorial: Integración de Azure Active Directory con Blackboard Learn - Shibboleth
 
@@ -86,7 +86,7 @@ Para configurar el inicio de sesión único de Azure AD con Blackboard Learn - S
     c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<yourblackoardlearnserver>.blackboardlearn.com/Shibboleth.sso/SAML2/POST`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Póngase en contacto con [el equipo de soporte al cliente de Blackboard Learn - Shibboleth](https://www.blackboard.com/forms/contact-us_form.aspx) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Póngase en contacto con [el equipo de soporte al cliente de Blackboard Learn - Shibboleth](https://www.blackboard.com/contact-us) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
@@ -127,7 +127,7 @@ Para configurar el inicio de sesión único de Blackboard Learn - Shibboleth, co
 
 ### <a name="create-blackboard-learn---shibboleth-test-user"></a>Creación de un usuario de prueba en Blackboard Learn - Shibboleth
 
-En esta sección, creará un usuario llamado Britta Simon en Blackboard Learn - Shibboleth. Trabaje con el [equipo de soporte técnico de Blackboard Learn - Shibboleth](https://www.blackboard.com/forms/contact-us_form.aspx) para agregar los usuarios a la plataforma de Blackboard Learn - Shibboleth. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Blackboard Learn - Shibboleth. Trabaje con el [equipo de soporte técnico de Blackboard Learn - Shibboleth](https://www.blackboard.com/contact-us) para agregar los usuarios a la plataforma de Blackboard Learn - Shibboleth. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ## <a name="test-sso"></a>Prueba de SSO
 

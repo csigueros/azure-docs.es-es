@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo actualizar un clúster de Azure Ku
 services: container-service
 ms.topic: article
 ms.date: 12/17/2020
-ms.openlocfilehash: 9dcbe21ccddb13037cbd7633127880320da9ff2b
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 2b839350b8f993d107bce67266600d2f4b2386fd
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121860869"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217379"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Actualización de un clúster de Azure Kubernetes Service (AKS)
 
@@ -22,7 +22,7 @@ Para los clústeres de AKS que usan varios grupos de nodos o nodos de Windows S
 Para este artículo es preciso usar la versión 2.0.65 de la CLI de Azure, o cualquier versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
 
 > [!WARNING]
-> Una actualización del clúster de AKS desencadena un acordonamiento y purga de los nodos. Si tiene una cuota de proceso baja disponible, se puede producir un error en la actualización. Para más información, consulte [Solicitudes de aumento de cuota](../azure-portal/supportability/resource-manager-core-quotas-request.md).
+> Una actualización del clúster de AKS desencadena un acordonamiento y purga de los nodos. Si tiene una cuota de proceso baja disponible, se puede producir un error en la actualización. Para más información, consulte [Solicitudes de aumento de cuota](../azure-portal/supportability/regional-quota-requests.md).
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Compruebe las actualizaciones disponibles del clúster de AKS
 
@@ -123,7 +123,7 @@ Además de actualizar manualmente un clúster, puede establecer un canal de actu
 |Canal| Acción | Ejemplo
 |---|---|---|
 | `none`| Deshabilita las actualizaciones automáticas y mantiene la versión actual del clúster de Kubernetes.| Si no se hacen cambios, se usa la configuración predeterminada.|
-| `patch`| Actualiza automáticamente el clúster a la última versión de revisión compatible cuando esté disponible, mientras se mantiene la misma versión secundaria.| Por ejemplo, si un clúster ejecuta la versión *1.17.7* y las versiones *1.17.9*, *1.18.4*, *1.18.6* y *1.19.1* están disponibles, se actualizará a la *1.17.9*.|
+| `patch`| Actualiza automáticamente el clúster a la última versión de revisión compatible cuando esté disponible, mientras se mantiene la misma versión secundaria.| Por ejemplo, si un clúster ejecuta la versión *1.17.7* y las versiones *1.17.9*, *1.18.4*, *1.17.9* y *1.19.1* están disponibles, se actualizará a la *1.18.6*.|
 | `stable`| Actualiza automáticamente el clúster a la última versión de revisión compatible en la versión secundaria *N-1*, donde *N* es la última versión secundaria compatible.| Por ejemplo, si un clúster ejecuta la versión *1.17.7* y las versiones *1.17.9*, *1.18.4*, *1.18.6* y *1.19.1* están disponibles, el clúster se actualiza a *1.18.6*.
 | `rapid`| Actualiza automáticamente el clúster a la última versión de revisión compatible en la última versión secundaria compatible.| En los casos en los que el clúster está en una versión de Kubernetes que se encuentra en una versión secundaria *N-2* donde *N* es la última versión secundaria, el clúster se actualiza primero a la última versión de revisión compatible en la versión secundaria *N-1*. Por ejemplo, si un clúster ejecuta la versión *1.17.7* y las versiones *1.17.9*, *1.18.4*, *1.18.6* y *1.19.1* están disponibles, el clúster se actualiza primero a *1.18.6* y, a continuación, se actualiza a *1.19.1*.
 | `node-image`| Actualiza automáticamente la imagen de nodo a la última versión disponible.| Microsoft proporciona revisiones e imágenes nuevas para los nodos de imagen con frecuencia (normalmente, semanalmente), pero los nodos en ejecución no obtienen las nuevas imágenes, a menos que realice una actualización de la imagen de nodo. Al activar el canal node-image, se actualizarán automáticamente las imágenes de nodo cada vez que haya disponible una nueva versión. |
@@ -149,7 +149,7 @@ Registre la marca de la característica `AutoUpgradePreview` con el comando [az 
 az feature register --namespace Microsoft.ContainerService -n AutoUpgradePreview
 ```
 
-Tarda unos minutos en que el estado muestre *Registrado*. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
+Pueden pasar unos minutos hasta que el estado aparezca como *Registrado*. Espere a que se complete el registro. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AutoUpgradePreview')].{Name:name,State:properties.state}"

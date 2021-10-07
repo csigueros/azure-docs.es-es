@@ -3,12 +3,12 @@ title: 'Solución de problemas de Azure Video Analyzer: Azure'
 description: En este artículo se tratan los pasos de solución de problemas de Azure Video Analyzer.
 ms.topic: troubleshooting
 ms.date: 07/15/2021
-ms.openlocfilehash: 0d3a089fee6d374dd8109f2430cfdb9fec19bc30
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: be8bbe61bd9d33557184b11c722141cfbc880fed
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123429359"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563626"
 ---
 # <a name="troubleshoot-azure-video-analyzer"></a>Solución de problemas de Azure Video Analyzer
 
@@ -155,6 +155,17 @@ Para recopilar los registros significativos que se deben agregar al vale, siga l
 1. [Configure el módulo Video Analyzer para que recopile registros detallados](#configure-video-analyzer-module-to-collect-verbose-logs).
 1. [Active los registros de depuración](#video-analyzer-debug-logs).
 1. Reproduzca el problema
+1. Reinicie el módulo perimetral de Video Analyzer. 
+    > [!NOTE]
+    > Este paso es necesario para finalizar correctamente el módulo perimetral y obtener todos los archivos de registro en un formato utilizable sin quitar ningún evento.   
+    
+    En el dispositivo IoT Edge, use el comando siguiente después de reemplazar `<avaedge>` por el nombre del módulo perimetral de Video Analyzer:
+    
+    ```cmd
+    sudo iotedge restart <avaedge>
+    ```
+
+   También puede reiniciar los módulos de forma remota desde Azure Portal. Para más información, consulte [Supervisión y solución de problemas de dispositivos IoT Edge desde Azure Portal](../../iot-edge/troubleshoot-in-portal.md).
 1. Conéctese a la máquina virtual desde la página **IoT Hub** del portal.
 
    1. Comprima todos los archivos de la carpeta _debugLogs_.

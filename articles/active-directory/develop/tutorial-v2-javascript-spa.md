@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/06/2020
+ms.date: 09/09/2021
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 6d900cafff52ec42a11a0a8537ed1e878a59944a
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 77e1a54bcd863261e7575a818f5ba5ed75198a63
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113356552"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129229646"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Tutorial: Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única (SPA) de JavaScript
 
@@ -266,7 +266,7 @@ Ahora tiene un servidor simple para dar servicio a la SPA. La estructura de carp
 Antes de continuar con la autenticación, registre la aplicación en **Azure Active Directory**.
 
 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
-1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
+1. Si tiene acceso a varios inquilinos, use el filtro **Directorios y suscripciones** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para ir al inquilino en el que quiere registrar la aplicación.
 1. Busque y seleccione **Azure Active Directory**.
 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
 1. Escriba el **nombre** de la aplicación. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
@@ -298,7 +298,7 @@ Cree un nuevo archivo .js llamado `authConfig.js`, que contendrá los parámetro
   const msalConfig = {
     auth: {
       clientId: "Enter_the_Application_Id_Here",
-      authority: "Enter_the_Cloud_Instance_Id_HereEnter_the_Tenant_Info_Here",
+      authority: "Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here",
       redirectUri: "Enter_the_Redirect_Uri_Here",
     },
     cache: {
@@ -318,13 +318,14 @@ Cree un nuevo archivo .js llamado `authConfig.js`, que contendrá los parámetro
   };
 ```
 
- Donde:
- - *\<Enter_the_Application_Id_Here>* es el **identificador de aplicación (cliente)** de la aplicación que registró.
- - *\<Enter_the_Cloud_Instance_Id_Here>* es la instancia de la nube de Azure. En el caso de la nube de Azure principal o global, simplemente escriba *https://login.microsoftonline.com* . Para nubes **nacionales** (por ejemplo, China), consulte [Nubes nacionales](./authentication-national-cloud.md).
- - *\<Enter_the_Tenant_info_here>* se establece en una de las opciones siguientes:
-   - Si la aplicación admite *solo las cuentas de este directorio organizativo*, reemplace este valor por el **identificador de inquilino** o el **nombre de inquilino** (por ejemplo, *contoso.microsoft.com*).
-   - Si la aplicación admite *cuentas en cualquier directorio organizativo*, reemplace este valor por **organizaciones**.
-   - Si la aplicación admite *cuentas en cualquier directorio organizativo y cuentas Microsoft personales*, reemplace este valor por **común**. Para restringir la compatibilidad a *Personal Microsoft accounts only* (Solo cuentas Microsoft personales), reemplace este valor por **consumidores**.
+Modifique los valores de la sección `msalConfig` como se describe aquí:
+
+- *\<Enter_the_Application_Id_Here>* es el **identificador de aplicación (cliente)** de la aplicación que registró.
+- *\<Enter_the_Cloud_Instance_Id_Here>* es la instancia de la nube de Azure. En el caso de la nube principal o global de Azure, escriba *https://login.microsoftonline.com* . Para nubes **nacionales** (por ejemplo, China), consulte [Nubes nacionales](./authentication-national-cloud.md).
+- Configure *\<Enter_the_Tenant_info_here>* en una de las siguientes opciones:
+  - Si la aplicación admite *solo las cuentas de este directorio organizativo*, reemplace este valor por el **identificador de inquilino** o el **nombre de inquilino** (por ejemplo, *contoso.microsoft.com*).
+  - Si la aplicación admite *cuentas en cualquier directorio organizativo*, reemplace este valor por **organizaciones**.
+  - Si la aplicación admite *cuentas en cualquier directorio organizativo y cuentas Microsoft personales*, reemplace este valor por **común**. Para restringir la compatibilidad a *Personal Microsoft accounts only* (Solo cuentas Microsoft personales), reemplace este valor por **consumidores**.
 
 
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Uso de la biblioteca de autenticación de Microsoft (MSAL) para iniciar la sesión del usuario

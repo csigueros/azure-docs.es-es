@@ -4,19 +4,19 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 07/20/2020
 ms.author: msmbaldwin
-ms.openlocfilehash: a87fbbb276fd8813492cc293bc08b958ee3d6b7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d3c7cdcebc244aefb6ef5b2ceb7b931344a8960
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99070289"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593726"
 ---
 Use el comando [az keyvault create](/cli/azure/keyvault#az_keyvault_create) de la CLI de Azure para crear un almacén de claves en el grupo de recursos del paso anterior. Tendrá que proporcionar algo de información:
 
 - Nombre del almacén de claves: cadena de entre 3 y 24 caracteres que puede contener solo números (0-9), letras (a-z, A-Z) y guiones (-).
 
   > [!Important]
-  > Cada almacén de claves debe tener un nombre único. Reemplace <nombre-almacén de claves-único> por el nombre del almacén de claves en los ejemplos siguientes.
+  > Cada almacén de claves debe tener un nombre único. Reemplace \<your-unique-keyvault-name\> por el nombre del almacén de claves en los ejemplos siguientes.
 
 - Nombre del grupo de recursos: **myResourceGroup**.
 - Ubicación: **EastUS**.

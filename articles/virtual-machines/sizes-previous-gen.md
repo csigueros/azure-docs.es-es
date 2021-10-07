@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/01/2020
 ms.author: mimckitt
-ms.openlocfilehash: 6b2a2370f6b98184a48c370c929b948ebc72a84e
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 762ab1e62adc81ba4e4098167c65e19e405890d7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698676"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624792"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Generaciones anteriores de tamaños de máquina virtual
 
@@ -85,7 +85,7 @@ Cada GPU de las instancias de NVv2 viene con una licencia de GRID. Esta licencia
 
 En esta sección se proporciona información sobre las generaciones anteriores de tamaños de máquina virtual. Estos tamaños todavía se admiten, pero no recibirán capacidad adicional. Hay tamaños alternativos o versiones más recientes que están disponibles con carácter general. Consulte [Tamaños de las máquinas virtuales en Azure](./sizes.md) para elegir los tamaños de máquina virtual que mejor se ajusten a sus necesidades.  
 
-Para más información sobre cómo cambiar el tamaño de una máquina virtual Linux, consulte [Cambio de tamaño de una máquina virtual Linux](linux/change-vm-size.md).  
+Para obtener más información sobre cómo cambiar el tamaño de una máquina virtual Linux, consulte [Cambio de tamaño de una máquina virtual](resize-vm.md).  
 
 <br>
 
@@ -163,7 +163,7 @@ Los tamaños A8-A11 los de la serie H también se conocen como *instancias de pr
 | Standard_A10 | 8  | 56  | 382 | 32 | 32x500 | 2 |
 | Standard_A11 | 16 | 112 | 382 | 64 | 64x500 | 4 |
 
-<sup>1</sup>Para las aplicaciones MPI, la red de back-end RDMA dedicada está habilitada por la red InfiniBand FDR, que ofrece una latencia sumamente baja y un alto ancho de banda.  
+<sup>1</sup> Para las aplicaciones MPI, la red de back-end RDMA dedicada está habilitada por la red InfiniBand FDR, que ofrece una latencia sumamente baja y un alto ancho de banda.  
 
 > [!NOTE]
 > Está [previsto que las VM A8-A11 se retiren en marzo de 2021](https://azure.microsoft.com/updates/a8-a11-azure-virtual-machine-sizes-will-be-retired-on-march-1-2021/). Se recomienda encarecidamente no crear ninguna máquina virtual A8-A11 nueva. Migre todas las máquinas virtuales A8-A11 existentes a tamaños de máquina virtual de informática de alto rendimiento más recientes y eficaces, como H, HB, HC, HBv2, así como tamaños de máquina virtual de proceso de uso general, como D, E y F, para obtener un mejor rendimiento del precio. Para obtener más información, consulte la [guía de migración de HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
@@ -411,7 +411,7 @@ La configuración NC24rs v2 proporciona una interfaz de red de baja latencia y a
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 
-> Para esta serie de máquinas virtuales, la cuota de vCPU (núcleo) en su suscripción está establecida inicialmente en 0 en cada región. [Solicite un aumento de cuota de vCPU](../azure-portal/supportability/resource-manager-core-quotas-request.md) para esta serie en una [región donde esté disponible](https://azure.microsoft.com/regions/services/).
+> Para esta serie de máquinas virtuales, la cuota de vCPU (núcleo) en su suscripción está establecida inicialmente en 0 en cada región. [Solicite un aumento de cuota de vCPU](../azure-portal/supportability/regional-quota-requests.md) para esta serie en una [región donde esté disponible](https://azure.microsoft.com/regions/services/).
 >
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | GPU | Memoria de GPU: GiB | Discos de datos máx. | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Nº máx. NIC |
 |---|---|---|---|---|---|---|---|---|
@@ -437,7 +437,7 @@ Las máquinas virtuales de serie ND son una novedad incorporada a la familia GPU
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
 
-> Para esta serie de máquinas virtuales, la cuota de vCPU (núcleo) por región en su suscripción está establecida inicialmente en 0. [Solicite un aumento de cuota de vCPU](../azure-portal/supportability/resource-manager-core-quotas-request.md) para esta serie en una [región donde esté disponible](https://azure.microsoft.com/regions/services/).
+> Para esta serie de máquinas virtuales, la cuota de vCPU (núcleo) por región en su suscripción está establecida inicialmente en 0. [Solicite un aumento de cuota de vCPU](../azure-portal/supportability/regional-quota-requests.md) para esta serie en una [región donde esté disponible](https://azure.microsoft.com/regions/services/).
 >
 | Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | GPU | Memoria de GPU: GiB | Discos de datos máx. | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/Mbps | Nº máx. NIC |
 |---|---|---|---|---|---|---|---|---|

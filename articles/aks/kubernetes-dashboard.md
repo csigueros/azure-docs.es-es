@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: 0d872a60c4aea89e621fe25ade45697244a74fa8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: e7356319a875f3289531c24e5a053e745a543c0a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779730"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124830139"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Acceso al panel web de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -21,10 +21,9 @@ Para más información sobre el panel de Kubernetes, consulte la información so
 
 > [!WARNING]
 > **El complemento del panel de AKS está programado para quedar en desuso. Use la [vista de recursos de Kubernetes en Azure Portal (versión preliminar)][kubernetes-portal] en su lugar.** 
-> * El panel de Kubernetes está habilitado de forma predeterminada para los clústeres que ejecutan una versión de Kubernetes inferior a la 1.18.
-> * El complemento de panel se deshabilitará de forma predeterminada para todos los nuevos clústeres creados en Kubernetes 1.18 o posterior. 
- > * A partir de Kubernetes 1.19 en versión preliminar, AKS ya no admitirá la instalación del complemento administrado kube-dashboard. 
- > * Los clústeres actuales con el complemento habilitado no se verán afectados. Los usuarios seguirán pudiendo instalar manualmente el panel de código abierto como software instalado por el usuario.
+> * El complemento de panel se deshabilitará de forma predeterminada para todos los nuevos clústeres.
+> * A partir de Kubernetes 1.19 en versión preliminar, AKS ya no admitirá la instalación del complemento administrado kube-dashboard. 
+> * Los clústeres actuales con el complemento habilitado no se verán afectados. Los usuarios seguirán pudiendo instalar manualmente el panel de código abierto como software instalado por el usuario.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -34,32 +33,11 @@ También es preciso que esté instalada y configurada la versión 2.6.0 de la CL
 
 ## <a name="disable-the-kubernetes-dashboard"></a>Deshabilitación del panel de Kubernetes
 
-El complemento kube-dashboard está **habilitado de forma predeterminada en los clústeres anteriores a K8s 1.18**. El complemento se puede deshabilitar ejecutando el siguiente comando.
+El complemento se puede deshabilitar ejecutando el siguiente comando.
 
 ``` azurecli
 az aks disable-addons -g myRG -n myAKScluster -a kube-dashboard
 ```
-
-## <a name="start-the-kubernetes-dashboard"></a>Inicio del panel de Kubernetes
-
-> [!WARNING]
-> El complemento del panel de AKS está en desuso para las versiones 1.19 +. Use la [vista de recursos de Kubernetes en Azure Portal (versión preliminar)][kubernetes-portal] en su lugar. 
-> * El siguiente comando abrirá ahora la vista de recursos de Azure Portal en lugar del panel de Kubernetes para las versiones 1.19 y posteriores.
-
-Para iniciar el panel de Kubernetes en un clúster, use el comando [az aks browse][az-aks-browse]. Este comando requiere la instalación del complemento kube-dashboard en el clúster, que se incluye de forma predeterminada en los clústeres que ejecutan cualquier versión anterior a Kubernetes 1.18.
-
-El ejemplo siguiente abre el panel para el clúster denominado *myAKSCluster* en el grupo de recursos denominado *myResourceGroup*:
-
-```azurecli
-az aks browse --resource-group myResourceGroup --name myAKSCluster
-```
-
-Este comando crea a un proxy entre el sistema de desarrollo y la API de Kubernetes y abre un explorador web en el panel de Kubernetes. Si un explorador web no se abre en el panel de Kubernetes, copie y pegue la dirección URL que anotó en la CLI de Azure, normalmente `http://127.0.0.1:8001`.
-
-> [!NOTE]
-> Si no ve el panel en `http://127.0.0.1:8001`, puede enrutar manualmente a las siguientes direcciones. Los clústeres que ejecutan la versión 1.16 o posterior usan HTTPS y requieren un punto de conexión independiente.
-> * K8s 1.16 o posterior: `http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
-> * K8s 1.15 y anterior: `http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard:/proxy`
 
 <!--
 ![The login page of the Kubernetes web dashboard](./media/kubernetes-dashboard/dashboard-login.png)

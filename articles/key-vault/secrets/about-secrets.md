@@ -9,12 +9,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 232a3293d6529955a768ed8d7700289ddbed5177
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+ms.openlocfilehash: e32e6ecacb2de646314be237c6b7bce973a0ed4e
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113136371"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213484"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Acerca de los secretos de Azure Key Vault
 
@@ -119,18 +119,18 @@ Los siguientes permisos pueden usarse al autorizar a una entidad de seguridad de
 
 Para más información, vea las [operaciones para cuentas de almacenamiento en la referencia de la API REST de Key Vault](/rest/api/keyvault). Para obtener información sobre cómo establecer permisos, vea [Almacenes: crear o actualizar](/rest/api/keyvault/vaults/createorupdate) y [Almacenes: actualizar directiva de acceso](/rest/api/keyvault/vaults/updateaccesspolicy).
 
-Guías de procedimientos para controlar el acceso en Key Vault:
-- [Asignación de una directiva de acceso de Key Vault mediante la CLI](../general/assign-access-policy-cli.md)
-- [Asignación de una directiva de acceso de Key Vault mediante PowerShell](../general/assign-access-policy-powershell.md)
-- [Asignación de una directiva de acceso de Key Vault mediante Azure Portal](../general/assign-access-policy-portal.md)
-- [Acceso a las claves, los certificados y los secretos de Key Vault con un control de acceso basado en rol de Azure](../general/rbac-guide.md)
+## <a name="usage-scenarios"></a>Escenarios de uso
 
+| Cuándo se usa | Ejemplos |
+|--------------|-------------|
+|Almacene las credenciales, administre su ciclo de vida y supervíselas de forma segura para la comunicación de servicio a servicio, como contraseñas, claves de acceso y secretos de cliente de entidad de servicio.  | - [Uso de Azure Key Vault con una máquina virtual](../general/tutorial-net-virtual-machine.md)<br> - [Uso de Azure Key Vault con una aplicación web de Azure](../general/tutorial-net-create-vault-azure-web-app.md) |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- [Procedimientos recomendados para la administración de secretos en Key Vault](secrets-best-practices.md)
 - [Acerca de Key Vault](../general/overview.md)
 - [Información acerca de claves, secretos y certificados](../general/about-keys-secrets-certificates.md)
-- [Información acerca de las claves](../keys/about-keys.md)
-- [Información acerca de los certificados](../certificates/about-certificates.md)
+- [Asignación de una directiva de acceso de Key Vault](../general/assign-access-policy.md)
+- [Acceso a las claves, los certificados y los secretos de Key Vault con un control de acceso basado en rol de Azure](../general/rbac-guide.md)
 - [Protección del acceso a un almacén de claves](../general/security-features.md)
 - [Guía del desarrollador de Key Vault](../general/developers-guide.md)

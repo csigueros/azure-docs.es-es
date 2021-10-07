@@ -2,13 +2,13 @@
 title: Alta disponibilidad y recuperación ante desastres
 description: Aprenda a diseñar la aplicación de Batch para una interrupción regional.
 ms.topic: how-to
-ms.date: 12/30/2020
-ms.openlocfilehash: eb3d0cb218e607e38b7478b7cc7956963e450f46
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/08/2021
+ms.openlocfilehash: 5ba56d769344b930cdc3c6500d42456214b32a71
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730197"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124799156"
 ---
 # <a name="design-your-batch-application-for-high-availability"></a>Diseño de la aplicación de Batch para una alta disponibilidad
 
@@ -35,6 +35,7 @@ Tenga en cuenta lo siguiente a la hora de diseñar una solución con conmutació
 - Use scripts o plantillas para automatizar la implementación de la aplicación en una región.
 - Mantenga actualizados los archivos binarios de aplicación y los datos de referencia en todas las regiones. Mantenerlos actualizados garantizará que la región se pueda conectar rápidamente sin necesidad de esperar a que los archivos se carguen y se implementen. Por ejemplo, si una aplicación personalizada que se va a instalar en los nodos de grupo se almacena mediante paquetes de aplicación de Batch y se hace referencia a ella mediante los mismos, cuando se genere una nueva versión de dicha aplicación, la configuración de grupo deberá cargarla a cada cuenta de Batch y hacer referencia a ella (o la nueva versión tendrá que establecerse como versión predeterminada).
 - En la aplicación que realice llamadas a Batch, al almacenamiento y a cualquier otro servicio, cambie los clientes o la carga con facilidad a regiones distintas.
+- Cuando corresponda, considere la posibilidad de [crear grupos en Availability Zones](create-pool-availability-zones.md).
 - Considere la posibilidad de cambiar con frecuencia a una región alternativa como parte del funcionamiento normal. Por ejemplo, si tiene dos implementaciones en regiones distintas, cambie a la región alternativa cada mes.
 
 ## <a name="next-steps"></a>Pasos siguientes

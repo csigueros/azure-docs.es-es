@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 4ef7d0146d1636a863941f4deb317149aeb48faf
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.openlocfilehash: fb276979530fccfb95fd9d34655573a04391e524
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122830941"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129219180"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Las características son información acerca de las acciones y del contexto
 
@@ -68,10 +68,10 @@ A continuación encontrará ejemplos de espacios de nombres de características 
 Al asignar nombres a los espacios de nombres de las características puede seguir sus propias convenciones, siempre sean claves JSON válidas. Los espacios de nombres se usan para organizar características en conjuntos distintos y para eliminar la ambigüedad de las características con nombres similares. Los espacios de nombres se pueden considerar como un "prefijo" que se agrega a los nombres de las características. Los espacios de nombres no se pueden anidar.
 
 
-En el siguiente JSON, `user`, `state` y `device` son espacios de nombres de características. 
+En el siguiente JSON, `user`, `environment`, `device` y `activity` son espacios de nombres de características. 
 
 > [!Note]
-> Actualmente, le recomendamos que use nombres para los espacios de nombres de características que se basen en el formato UTF-8 y comiencen por letras diferentes. Por ejemplo, los términos `user`, `state` y `device` empiezan por `u`, `s` y `d`. Actualmente, el uso de espacios de nombres con los mismos caracteres iniciales puede provocar colisiones en los índices usados para el aprendizaje automático.
+> Actualmente, le recomendamos que use nombres para los espacios de nombres de características que se basen en el formato UTF-8 y comiencen por letras diferentes. Por ejemplo, los términos `user`, `environment`, `device` y `activity` empiezan por `u`, `e`, `d` y `a`. Actualmente, el uso de espacios de nombres con los mismos caracteres iniciales puede provocar colisiones en los índices usados para el aprendizaje automático.
 
 Los objetos JSON pueden incluir objetos JSON anidados y propiedades y valores simples. Solo se puede incluir una matriz si los elementos de la matriz son números. 
 
@@ -99,7 +99,7 @@ Los objetos JSON pueden incluir objetos JSON anidados y propiedades y valores si
             }
         },
         {
-            "userActivity" : {
+            "activity" : {
                 "itemsInCart": 3,
                 "cartValue": 250,
                 "appliedCoupon": true
