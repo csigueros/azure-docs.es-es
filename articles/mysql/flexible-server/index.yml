@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/10/2021
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: fb312b511123cb23722d2daa6ea945e8d153e424
-  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+  ms.openlocfilehash: 876bdc57f2d97cf4254cc0c4bba381df812bdda5
+  ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/24/2021
-  ms.locfileid: "128621345"
+  ms.lasthandoff: 10/06/2021
+  ms.locfileid: "129616652"
 landingContent:
 - title: Acerca de un servidor flexible (versión preliminar)
   linkLists:
@@ -57,8 +57,8 @@ landingContent:
       url: how-to-manage-server-portal.md
     - text: Detención o inicio de servidor
       url: how-to-stop-start-server-portal.md
-    - text: Configuración y acceso a los registros
-      url: how-to-configure-slow-query-logs-portal.md
+    - text: Información de rendimiento de consultas
+      url: tutorial-query-performance-insights.md
     - text: Programación del mantenimiento
       url: how-to-maintenance-portal.md
 - title: Continuidad empresarial

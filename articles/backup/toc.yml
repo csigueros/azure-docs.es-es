@@ -256,6 +256,14 @@
               href: backup-managed-disks-cli.md
             - name: Restauración
               href: restore-managed-disks-cli.md
+        - name: Con API REST
+          items:
+            - name: Directiva
+              href: backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md
+            - name: Copia de seguridad
+              href: backup-azure-dataprotection-use-rest-api-backup-disks.md
+            - name: Restauración
+              href: backup-azure-dataprotection-use-rest-api-restore-disks.md
     - name: Copia de seguridad de blobs de Azure
       items:
         - name: Información general
@@ -280,7 +288,7 @@
               href: restore-blobs-storage-account-cli.md
         - name: Con API REST
           items:
-            - name: Directiva de blobs
+            - name: Directiva
               href: backup-azure-dataprotection-use-rest-api-create-update-blob-policy.md
             - name: Copia de seguridad
               href: backup-azure-dataprotection-use-rest-api-backup-blobs.md

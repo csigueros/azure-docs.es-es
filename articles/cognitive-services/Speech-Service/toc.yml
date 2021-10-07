@@ -31,6 +31,8 @@
           displayName: 'codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk'
         - name: Selección de un dispositivo de entrada de micrófono específico
           href: how-to-select-audio-input-devices.md
+        - name: Identificación del idioma
+          href: language-identification.md
         - name: Uso de la identificación del idioma
           href: how-to-automatic-language-detection.md
         - name: Uso de la API de transcripciones de Azure Batch
@@ -330,8 +332,6 @@
       href: keyword-recognition-guidelines.md
     - name: Regiones admitidas
       href: keyword-recognition-region-support.md
-- name: Identificación del idioma
-  href: language-identification.md
 - name: Profundización en el escenario
   items:
     - name: Escenarios de conversación
