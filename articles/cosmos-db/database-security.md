@@ -4,14 +4,14 @@ description: Obtenga información sobre cómo Azure Cosmos DB proporciona protec
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/16/2021
 ms.author: mjbrown
-ms.openlocfilehash: ee5b5421ea0cb43371f790eecc31f22cc4ae7142
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 818c380d1ec2b3d7095eccec94b8e6f324cb45d0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123257919"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615023"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Seguridad en Azure Cosmos DB: introducción
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -99,7 +99,7 @@ Las claves principal y secundaria se incluyen en dos versiones: de lectura y esc
 
 ### <a name="key-rotation-and-regeneration"></a><a id="key-rotation"></a> Rotación y regeneración de claves
 
-El proceso de rotación y regeneración de claves es sencillo. En primer lugar, asegúrese de que **la aplicación usa de forma coherente la clave principal o la secundaria** para acceder a la cuenta de Azure Cosmos DB. Después, siga los pasos que se describen a continuación.
+El proceso de rotación y regeneración de claves es sencillo. En primer lugar, asegúrese de que **la aplicación usa de forma coherente la clave principal o la clave secundaria** para acceder a la cuenta de Azure Cosmos DB. Después, siga los pasos que se describen a continuación. Si desea supervisar la regeneración y actualizaciones de clave, consulte el artículo sobre cómo [supervisar las actualizaciones de clave con métricas y alertas](monitor-account-key-updates.md).
 
 # <a name="sql-api"></a>[SQL API](#tab/sql-api)
 
@@ -109,7 +109,7 @@ El proceso de rotación y regeneración de claves es sencillo. En primer lugar, 
 
 1. Seleccione **Claves** en el menú de la izquierda y después **Regenerar clave secundaria** en los puntos suspensivos situados a la derecha de la clave secundaria.
 
-    :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo regenerar la clave secundaria" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="Captura de pantalla de Azure Portal en la que muestra se cómo regenerar la clave secundaria" border="true":::
 
 1. Compruebe que la nueva clave secundaria funciona de forma coherente con la cuenta de Azure Cosmos DB. La regeneración de claves puede tardar entre un minuto y varias horas, en función del tamaño de la cuenta de Cosmos DB.
 
@@ -151,7 +151,7 @@ El proceso de rotación y regeneración de claves es sencillo. En primer lugar, 
 
 1. Vuelva a Azure Portal y desencadene la regeneración de la clave principal.
 
-    :::image type="content" source="./media/database-security/regenerate-primary-key-mongo.png" alt-text="Captura de pantalla de Azure Portal en la que muestra se cómo regenerar la clave principal" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-primary-key-mongo.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo regenerar la clave principal" border="true":::
 
 #### <a name="if-your-application-is-currently-using-the-secondary-key"></a>Si la aplicación usa actualmente la clave secundaria
 
@@ -169,7 +169,7 @@ El proceso de rotación y regeneración de claves es sencillo. En primer lugar, 
 
     :::image type="content" source="./media/database-security/regenerate-secondary-key-mongo.png" alt-text="Captura de pantalla de Azure Portal en la que muestra se cómo regenerar la clave secundaria" border="true":::
 
-# <a name="cassandra-api"></a>[Cassandra API](#tab/Cassandra-api)
+# <a name="cassandra-api"></a>[Cassandra API](#tab/cassandra-api)
 
 #### <a name="if-your-application-is-currently-using-the-primary-key"></a>Si la aplicación usa actualmente la clave principal
 
@@ -211,7 +211,7 @@ El proceso de rotación y regeneración de claves es sencillo. En primer lugar, 
 
 1. Seleccione **Claves** en el menú de la izquierda y después **Regenerar clave secundaria** en los puntos suspensivos situados a la derecha de la clave secundaria.
 
-    :::image type="content" source="./media/database-security/regenerate-secondary-key-gremlin.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo regenerar la clave secundaria" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-gremlin.png" alt-text="Captura de pantalla de Azure Portal en la que muestra se cómo regenerar la clave secundaria" border="true":::
 
 1. Compruebe que la nueva clave secundaria funciona de forma coherente con la cuenta de Azure Cosmos DB. La regeneración de claves puede tardar entre un minuto y varias horas, en función del tamaño de la cuenta de Cosmos DB.
 
@@ -269,9 +269,24 @@ El proceso de rotación y regeneración de claves es sencillo. En primer lugar, 
 
 1. Vuelva a Azure Portal y desencadene la regeneración de la clave secundaria.
 
-    :::image type="content" source="./media/database-security/regenerate-secondary-key-table.png" alt-text="Captura de pantalla de Azure Portal en la que se muestra cómo regenerar la clave secundaria" border="true":::
+    :::image type="content" source="./media/database-security/regenerate-secondary-key-table.png" alt-text="Captura de pantalla de Azure Portal en la que muestra se cómo regenerar la clave secundaria" border="true":::
 
 ---
+
+## <a name="track-the-status-of-key-regeneration"></a>Seguimiento del estado de regeneración de claves
+
+Después de girar o regenerar una clave, puede realizar un seguimiento de su estado desde el registro de actividad. Use los pasos siguientes para supervisar el estado:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) y vaya a la cuenta de Azure Cosmos DB.
+
+1. Abra el panel **Registro de actividad** y establezca los filtros siguientes:
+
+   * Establezca el **Tipo de recurso** en **Cuentas de Azure Cosmos DB**.
+   * Establezca la **operación** en **Girar claves**.
+
+   :::image type="content" source="./media/database-security/track-key-regeneration-status.png" alt-text="Estado de regeneración de claves desde el registro de actividad" border="true":::
+
+1. Debería ver los eventos de regeneración de claves junto con el estado, la hora a la que se emitió la operación y la información del usuario que inició la regeneración de claves. La operación de generación de claves se inicia con el estado **Aceptado**, a continuación, cambia a **Iniciado** y, cuando se completa la operación, a **Correcto**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

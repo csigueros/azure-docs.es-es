@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/18/2021
+ms.date: 09/15/2021
 ms.author: justinha
-ms.openlocfilehash: 0d7c3eeb184f7ceb09541ca9533203f4b45194bb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 10cf2da31aa65714516797b478ab00f6759b0aff
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730829"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128561788"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Funcionamiento de las relaciones de confianza para los bosques de recursos en Azure Active Directory Domain Services
 
@@ -155,6 +155,9 @@ Si la cuenta no existe en la base de datos, el controlador de dominio utiliza la
 Cuando dos bosques están conectados mediante una confianza de bosque, las solicitudes de autenticación realizadas con los protocolos Kerberos V5 o NTLM se pueden enrutar entre los bosques para proporcionar acceso a los recursos de ambos.
 
 Cuando se establece una confianza de bosque por primera vez, cada bosque recopila todos los espacios de nombres de confianza del bosque asociado y almacena la información en un [objeto de dominio de confianza](#trusted-domain-object) (TDO). Los espacios de nombres de confianza incluyen los nombres de los árboles de dominio, los sufijos de nombre principal de usuario (UPN), los sufijos de nombre de entidad de seguridad de servicio (SPN) y los espacios de nombres de identificador de seguridad (SID) usados en el otro bosque. Los objetos TDO se replican en el catálogo global.
+
+>[!NOTE]
+>No se admiten sufijos UPN alternativos en las confianzas. Si un dominio local usa el mismo sufijo UPN que Azure AD DS, el inicio de sesión debe usar **sAMAccountName**.  
 
 Para que los protocolos de autenticación puedan seguir la ruta de acceso de confianza del bosque, el nombre de entidad de seguridad de servicio (SPN) del equipo de recursos debe resolverse en una ubicación del otro bosque. Este SPN puede ser uno de los siguientes nombres:
 

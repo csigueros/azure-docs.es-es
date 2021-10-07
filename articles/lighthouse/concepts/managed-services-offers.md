@@ -1,14 +1,14 @@
 ---
 title: Ofertas de servicios administrados en Azure Marketplace
 description: Ofrezca sus servicios de administración de Azure Lighthouse a los clientes a través de ofertas de servicios administrados en Azure Marketplace.
-ms.date: 05/11/2021
+ms.date: 09/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 10b32445fcf6d014219dd8559c9c1ac9b2905044
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 5d96a23f1dbdba74eefbf4f483a441c25e2dd47b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114391682"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124732922"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Ofertas de servicios administrados en Azure Marketplace
 
@@ -18,7 +18,7 @@ En este artículo se describe el tipo de oferta **Servicio administrado** de [Az
 
 Las ofertas de servicio administrado simplifican el proceso de incorporación de clientes a Azure Lighthouse. Cuando un cliente compre una oferta en Azure Marketplace, podrá especificar los suscripciones o grupos de recursos que deben incorporarse.
 
-Después, los usuarios de la organización podrán trabajar con esos recursos desde dentro del inquilino administrador mediante la [Administración de recursos delegados de Azure](architecture.md), en función del acceso que se haya definido al crear la oferta. Esto se realiza mediante un manifiesto que especifica los usuarios, grupos y entidades de servicio de Azure Active Directory (Azure AD) que tendrán acceso a los recursos del cliente, junto con los [roles](tenants-users-roles.md) que definen su nivel de acceso.
+Para cada oferta, se define el acceso que tendrán los usuarios de su organización para trabajar en los recursos del inquilino del cliente. Esto se realiza mediante un manifiesto que especifica los usuarios, grupos y entidades de servicio de Azure Active Directory (Azure AD) que tendrán acceso a los recursos del cliente, junto con los [roles](tenants-users-roles.md) que definen su nivel de acceso.
 
 > [!NOTE]
 > Es posible que las ofertas de servicios administrados no estén disponibles en Azure Government y otras nubes nacionales.

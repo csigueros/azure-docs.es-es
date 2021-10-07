@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/18/2020
-ms.openlocfilehash: 22804015ebf0344c00e60c88f780fe22ba440b52
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: deb10f2b3e4e2b5e7d911992a601f66e1e557268
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107774996"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211658"
 ---
 # <a name="apache-hadoop-clusters-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Clústeres de Apache Hadoop con cuentas de almacenamiento de transferencia segura en Azure HDInsight
 
@@ -38,6 +38,21 @@ Para actualizar una cuenta de almacenamiento existente con PowerShell, consulte 
 Para el comando [az storage account create](/cli/azure/storage/account#az_storage_account_create) de la CLI de Azure, asegúrese de que el parámetro `--https-only` está establecido en `true`.
 
 Para actualizar una cuenta de almacenamiento existente con la CLI de Azure, consulte [Requisito de transferencia segura con la CLI de Azure](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-azure-cli).
+
+### <a name="secure-transfer-errors"></a>Errores de transferencia segura
+
+
+Si ha habilitado accidentalmente la opción "Requerir transferencia segura" después de crear el clúster de HDInsight, es posible que vea mensajes de error como los siguientes:
+
+`com.microsoft.azure.storage.StorageException: The account being accessed does not support http.`
+
+Solo en el caso de los clústeres de Hbase, puede probar los pasos siguientes para restaurar la funcionalidad del clúster:
+1. Detenga HBase desde Ambari.
+2. Detenga HDFS desde Ambari.
+3. En Ambari, vaya a HDFS --> Configs --> Advanced --> fs.defaultFS (HDFS --> Configuración --> Avanzada --> fs.defaultFS).
+4. Cambie el valor "wasb" a "wasbs" y guarde.
+5. Si usa la característica Escrituras aceleradas, "hbase.rootDir" en las configuraciones de Hbase también debe cambiarse de "wasb" a "wasbs".
+6. Reinicie todos los servicios necesarios.
 
 ## <a name="add-additional-storage-accounts"></a>Adición de cuentas de almacenamiento adicionales
 

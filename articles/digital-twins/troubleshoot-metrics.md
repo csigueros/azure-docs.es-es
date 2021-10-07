@@ -4,19 +4,19 @@ titleSuffix: Azure Digital Twins
 description: Consulte cómo ver las métricas de Azure Digital Twins en Azure Monitor.
 author: baanders
 ms.author: baanders
-ms.date: 8/4/2020
+ms.date: 9/16/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8dc18662431e750301db7e3d2c4e56d5fbaea674
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 107c9e5dd3d548e3e07cd9b037162cca36aa1c8a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770937"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128637201"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Solución de problemas de Azure Digital Twins: Métricas
 
-Las métricas descritas en este artículo ofrecen información sobre el estado de los recursos de Azure Digital Twins en la suscripción de Azure. Las métricas de Azure Digital Twins le ayudan a evaluar el estado general del servicio Azure Digital Twins y los recursos conectados a él. Estas estadísticas orientadas al usuario ayudan a ver lo que está ocurriendo con su instancia de Azure Digital Twins y a analizar las causas raíz de los problemas sin necesidad de ponerse en contacto con el Soporte técnico de Azure.
+Las métricas descritas en este artículo ofrecen información sobre el estado de los recursos de Azure Digital Twins en la suscripción de Azure. Las métricas de Azure Digital Twins le ayudan a evaluar el estado general del servicio Azure Digital Twins y los recursos conectados a este. Estas estadísticas orientadas al usuario ayudan a ver lo que está ocurriendo con su instancia de Azure Digital Twins y a analizar las causas raíz de los problemas sin necesidad de ponerse en contacto con el Soporte técnico de Azure.
 
 Las métricas están habilitadas de forma predeterminada. Puede ver las métricas de Azure Digital Twins desde [Azure Portal](https://portal.azure.com).
 

@@ -2,14 +2,14 @@
 title: Eliminación del grupo de recursos y los recursos
 description: Se describe cómo eliminar grupos de recursos y recursos. También se describe cómo Azure Resource Manager ordena la eliminación de recursos al eliminar un grupo de recursos. Describe los códigos de respuesta y cómo Resource Manager los controla para determinar si la eliminación se realizó correctamente.
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 09/28/2021
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: ccf5a9b1fac50dbf96d648acbf625b360bafb249
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 7995539ededec882b0b69e5ba3d1c5ef42adbcdc
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315244"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211240"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Eliminación de grupos de recursos y recursos en Azure Resource Manager
 
@@ -119,13 +119,13 @@ az resource delete \
 
 ---
 
-## <a name="required-access"></a>Acceso necesario
+## <a name="required-access-and-deletion-failures"></a>Errores de acceso y eliminación necesarios
 
 Para eliminar un grupo de recursos, debe tener acceso a la acción de eliminación para el recurso **Microsoft.Resources/subscriptions/resourceGroups**. También debe eliminar todos los recursos del grupo de recursos.
 
 Para obtener una lista de las operaciones, consulte [Operaciones del proveedor de recursos de Azure](../../role-based-access-control/resource-provider-operations.md). Para ver una lista de los roles integrados, consulte [Roles integrados de Azure](../../role-based-access-control/built-in-roles.md).
 
-Si tiene el acceso necesario, pero se produce un error en la solicitud de eliminación, puede deberse a la existencia de un [bloqueo](lock-resources.md) en el grupo de recursos.
+Si tiene el acceso necesario, pero se produce un error en la solicitud de eliminación, puede deberse a la existencia de un [bloqueo en el recurso o grupo de recursos](lock-resources.md). Aunque no haya bloqueado manualmente un grupo de recursos, es posible que [un servicio relacionado lo haya bloqueado automáticamente](lock-resources.md#managed-applications-and-locks). También se puede producir un error en la eliminación si los recursos están conectados a recursos de otros grupos de recursos que no se van a eliminar. Por ejemplo, no se puede eliminar una red virtual con subredes que todavía usa una máquina virtual.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

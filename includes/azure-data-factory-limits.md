@@ -1,19 +1,19 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: data-factory
 author: chez-charlie
 ms.service: data-factory
 ms.topic: include
-ms.date: 11/16/2020
+ms.date: 09/21/2021
 ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: 6c991188c266d2e169a7a1d50f4c2ea61f3a51f3
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 5fceaa3dcf4f89df754e0081d9cb9e7d2b4505a6
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111350684"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129096083"
 ---
 Azure Data Factory es un servicio multiinquilino que tiene los siguientes límites predeterminados para asegurarse de que las suscripciones de cliente están protegidas frente a las cargas de trabajo de los demás. Para elevar los límites al máximo de la suscripción, póngase en contacto con el servicio de soporte técnico.
 
@@ -27,7 +27,7 @@ Azure Data Factory es un servicio multiinquilino que tiene los siguientes límit
 | Ejecuciones de actividades externas simultáneas por suscripción por [región de Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br><small>Las actividades externas se administran en el entorno de ejecución de integración, pero se ejecutan en servicios vinculados, incluidos Databricks, procedimiento almacenado, la web, etc. Este límite no se aplica al entorno de ejecución de integración autohospedado.</small> | 3,000 | 3,000 |
 | Ejecuciones de actividades de canalización simultáneas por suscripción por [región de Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location) <br><small>Las actividades de canalización se ejecutan en el entorno de ejecución de integración, lo que incluye Lookup, GetMetadata y Delete. Este límite no se aplica al entorno de ejecución de integración autohospedado.</small> | 1,000 | 1,000                                                        |
 | Operaciones de creación simultáneas por suscripción por [región de Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br><small>Se incluye la prueba de la conexión, el examen de las listas de carpetas y tablas y la vista previa de los datos. Este límite no se aplica al entorno de ejecución de integración autohospedado.</small> | 200 | 200                                                          |
-| Uso de unidades de integración de datos simultáneas<sup>1</sup> por suscripción por [región de Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Grupo de regiones 1<sup>2</sup>: 6,000<br>Grupo de regiones 2<sup>2</sup>: 3000<br>Grupo de regiones 3<sup>2</sup>: 1500 | Grupo de regiones 1<sup>2</sup>: 6,000<br/>Grupo de regiones 2<sup>2</sup>: 3000<br/>Grupo de regiones 3<sup>2</sup>: 1500 |
+| Uso de unidades de integración de datos simultáneas<sup>1</sup> por suscripción por [región de Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Grupo de regiones 1<sup>2</sup>: 6,000<br>Grupo de regiones 2<sup>2</sup>: 3000<br>Grupo de regiones 3<sup>2</sup>: 1500<br>Red virtual administrada<sup>2</sup>: 2,400 | Grupo de regiones 1<sup>2</sup>: 6,000<br/>Grupo de regiones 2<sup>2</sup>: 3000<br/>Grupo de regiones 3<sup>2</sup>: 1500<br>Red virtual administrada: [Ponerse en contacto con soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Número máximo de actividades por canalización, lo que incluye actividades internas de contenedores | 40 | 40 |
 | Número máximo de entornos vinculados de ejecución de integración que pueden crearse en un único entorno de ejecución de integración autohospedado | 100 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Parámetros máximos por canalización | 50 | 50 |
@@ -35,7 +35,7 @@ Azure Data Factory es un servicio multiinquilino que tiene los siguientes límit
 | Paralelismo de ForEach | 20 | 50 |
 | Número máximo de ejecuciones en cola por canalización | 100 | 100 |
 | Caracteres por expresión | 8192 | 8192 |
-| Intervalo mínimo del desencadenador de ventana de saltos de tamaño constante | 15 minutos | 15 minutos |
+| Intervalo mínimo del desencadenador de ventana de saltos de tamaño constante | 5 min | 15 minutos |
 | Número máximo de tiempos de expiración de ejecuciones de actividad de canalización | 7 días | 7 días |
 | Bytes por objeto para objetos de canalización<sup>3</sup> | 200 KB | 200 KB |
 | Bytes por objeto para objetos de conjunto de datos y de servicio vinculados<sup>3</sup> | 100 KB | 2000 KB |
@@ -46,6 +46,7 @@ Azure Data Factory es un servicio multiinquilino que tiene los siguientes límit
 | Supervisión de consultas por minuto | 1,000 | 1,000 |
 | Tiempo máximo de la sesión de depuración de flujo de datos | 8 h | 8 h |
 | Número simultáneo de flujos de datos por entorno de ejecución de integración | 50 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Número simultáneo de flujos de datos por entorno de ejecución de integración en vNet administrada| 20 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Número simultáneo de sesiones de depuración de flujo de datos por usuario y fábrica | 3 | 3 |
 | Límite de TTL de Azure IR de flujo de datos | 4 h |  4 h |
 | Límite de tamaño de la entidad de metadatos en una fábrica | 2 GB | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
@@ -59,6 +60,8 @@ Azure Data Factory es un servicio multiinquilino que tiene los siguientes límit
 | Grupo de regiones 1 | Centro de EE. UU., Este de EE. UU., Este de EE. UU. 2, Norte de Europa, Oeste de Europa, Oeste de EE. UU., Oeste de EE. UU. 2 |
 | Grupo de regiones 2 | Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de la India, Este de Japón, Centro-norte de EE. UU., Centro-sur de EE. UU., Sudeste de Asia, Centro-oeste de EE. UU. |
 | Grupo de regiones 3 | Otras regiones |
+
+Si la red virtual administrada está habilitada, la unidad de integración de datos (DIU) en todos los grupos de regiones es 2400.
 
 <sup>3</sup> Los objetos de canalización, de conjunto de datos y de servicio vinculado representan una agrupación lógica de la carga de trabajo. Los límites de estos objetos no se corresponden con la cantidad de datos que se pueden mover y procesar con Azure Data Factory. Data Factory está diseñado para escalarse a fin de manejar petabytes de datos.
 

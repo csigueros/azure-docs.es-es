@@ -5,19 +5,16 @@ services: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 06/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: c0b3984629376f11692b727bb28b34c15708c596
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dc44fc58b8832c30ed1b740eb6637f1fc8ed1413
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733479"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129454969"
 ---
 # <a name="deploy-startstop-vms-v2-preview"></a>Implementación de Start/Stop VMs v2 (versión preliminar)
 
 Siga la secuencia de pasos que aparecen en este tema para instalar la característica Start/Stop VMs v2 (versión preliminar). Después de completar el proceso de instalación, configure las programaciones para personalizar esta característica según sus necesidades.
-
-> [!NOTE]
-> Si tiene problemas durante la implementación, se produce un problema al usar Start/Stop VMs v2 (versión preliminar), o bien si tiene una pregunta relacionada, puede enviar una incidencia en [GitHub](https://github.com/microsoft/startstopv2-deployments/issues). La apertura de una incidencia de soporte técnico de Azure desde el [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) no está disponible para esta versión preliminar. 
 
 ## <a name="permissions-considerations"></a>Consideraciones sobre permisos
 Tenga en cuenta lo siguiente antes y durante la implementación:
@@ -32,6 +29,10 @@ Para administrar su administración y eliminación, se recomienda implementar la
 
 > [!NOTE]
 > Actualmente, esta versión preliminar no le permite especificar una cuenta de almacenamiento ni un recurso de Application Insights.
+
+
+> [!NOTE]
+> El formato de nomenclatura de la aplicación de funciones y la cuenta de almacenamiento ha cambiado. Para garantizar la unicidad global, ahora se anexa una cadena aleatoria y única a los nombres de estos recursos.
 
 1. Abra el explorador y vaya a la [organización de GitHub](https://github.com/microsoft/startstopv2-deployments/blob/main/README.md) Start/Stop VMs v2.
 1. Seleccione la opción de implementación correspondiente al entorno de nube de Azure en el que se crean las máquinas virtuales de Azure. Se abrirá la página de implementación de Azure Resource Manager personalizada en Azure Portal.
@@ -57,9 +58,6 @@ Para administrar su administración y eliminación, se recomienda implementar la
 1. Seleccione **Ir al grupo de recursos** desde el panel de notificación. Debería ver una pantalla parecida a:
 
     :::image type="content" source="media/deploy/deployment-results-resource-list.png" alt-text="Lista de recursos de implementación de plantillas de Start/Stop VMs":::
-
-> [!NOTE]
-> El formato de nomenclatura de la aplicación de funciones y la cuenta de almacenamiento ha cambiado. Para garantizar la unicidad global, ahora se anexa una cadena aleatoria y única a los nombres de estos recursos.
 
 > [!NOTE]
 > Recopilamos datos de telemetría de operaciones y latidos para ofrecerle una asistencia mayor cuando se ponga en contacto con el equipo de soporte técnico para solucionar problemas. También recopilamos el historial de eventos de la máquina virtual para comprobar cuándo ha actuado el servicio en una máquina virtual y cuánto tiempo se ha pospuesto una máquina virtual para determinar la eficacia del servicio.
@@ -190,8 +188,11 @@ En cada escenario, puede dirigir la acción a una o varias suscripciones, a uno 
           "/subscriptions/11111111-0000-1111-2222-444444444444/resourceGroups/rg2/providers/Microsoft.ClassicCompute/virtualMachines/vm30"
           
         ]
+      }
     }
     ```
+
+1. En el panel de información general de la aplicación lógica, seleccione **Habilitar**.  
 
 ## <a name="sequenced-start-and-stop-scenario"></a>Escenario de inicio y detención secuenciados
 

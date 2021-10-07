@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: mimckitt
-ms.openlocfilehash: 1fc0b3b628256f5ecbc0361ee2294e70e1619160
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: e75b06655fc6fe34be24b295be3d9255bc2b27fc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698352"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128600254"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Uso del cliente Windows en Azure para escenarios de desarrollo y pruebas
 
@@ -33,7 +33,7 @@ Algunas imágenes de clientes Windows están disponibles en Azure Marketplace. L
 En la tabla siguiente se muestran los detalles de los id. de oferta idóneos para implementar imágenes de clientes Windows a través de Azure Marketplace. Las imágenes de clientes Windows solo son visibles para las ofertas siguientes. 
 
 > [!NOTE]
-> Las ofertas de imágenes se encuentran en el **cliente de Windows** en Azure Marketplace. Use el **cliente de Windows** al buscar imágenes de cliente disponibles para los suscriptores de Visual Studio. 
+> Las ofertas de imágenes se encuentran en el **cliente de Windows** en Azure Marketplace. Use el **cliente de Windows** al buscar imágenes de cliente disponibles para los suscriptores de Visual Studio. Si necesita comprar una suscripción a Visual Studio, consulte las distintas opciones en [Comprar Visual Studio](https://visualstudio.microsoft.com/vs/pricing/?tab=business).
 
 | Nombre de la oferta | Número de la oferta | Imágenes de cliente disponibles | 
 |:--- |:---:|:---:|
@@ -41,7 +41,6 @@ En la tabla siguiente se muestran los detalles de los id. de oferta idóneos par
 | [Suscriptores de Visual Studio Enterprise (MPN)](https://azure.microsoft.com/offers/ms-azr-0029p/) |0029P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N con SP1 (x64) |
 | [Suscriptores de Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/) |0059P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N con SP1 (x64) |
 | [Suscriptores de Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/) |0060P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N con SP1 (x64) |
-| [Visual Studio Premium con MSDN (ventaja)](https://azure.microsoft.com/offers/ms-azr-0061p/) |0061P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N con SP1 (x64) |
 | [Suscriptores de Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) |0063P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N con SP1 (x64) |
 | [Suscriptores de Visual Studio Enterprise (BizSpark)](https://azure.microsoft.com/offers/ms-azr-0064p/) |0064P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N con SP1 (x64) |
 | [Desarrollo/pruebas - Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) |0148P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N con SP1 (x64) |

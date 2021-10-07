@@ -1,25 +1,25 @@
 ---
-title: Copiar datos de Hive con Azure Data Factory
+title: Copia de datos de Hive
+description: Aprenda a copiar datos de Hive en almacenes de datos receptores compatibles mediante una actividad de copia en una canalización de Azure Data Factory o Synapse Analytics.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre cómo copiar datos de Hive en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: db88b0250a52ea96a116097469e43e1f0c26ece2
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 5f7dc8a3c872214ace79993fd618bfc7ee2b7afd
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123306054"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831752"
 ---
 # <a name="copy-and-transform-data-from-hive-using-azure-data-factory"></a>Copia y transformación de datos de Hive con Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de Hive. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
+En este artículo se explica cómo usar la actividad de copia en una canalización de Azure Data Factory o Synapse Analytics para copiar datos de Hive. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -30,7 +30,7 @@ Este conector de Hive es compatible con las actividades siguientes:
 
 Puede copiar datos de Hive en cualquier almacén de datos de receptor compatible. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
-Azure Data Factory proporciona un controlador integrado para habilitar la conectividad. Por lo tanto, no es necesario instalar manualmente ningún controlador mediante este conector.
+El servicio proporciona un controlador integrado para habilitar la conectividad. Por lo tanto, no es necesario instalar manualmente ningún controlador mediante este conector.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -48,7 +48,7 @@ Siga estos pasos para crear un servicio vinculado a Hive en la interfaz de usuar
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un servicio vinculado con la interfaz de usuario de Azure Data Factory":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -84,7 +84,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Hive:
 | zooKeeperNameSpace | Espacio de nombres en ZooKeeper en el que se agregan nodos de Hive Server 2.  | No |
 | useNativeQuery | Especifica si el controlador usa las consultas nativas de HiveQL o las convierte en un formato equivalente en HiveQL.  | No |
 | username | Nombre de usuario que utiliza para acceder al servidor de Hive.  | No |
-| password | Contraseña que corresponde al usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| password | Contraseña que corresponde al usuario. Marque este campo como SecureString para almacenarlo de forma segura, o bien [haga referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | httpPath | Dirección URL parcial correspondiente al servidor de Hive.  | No |
 | enableSsl | Especifica si las conexiones al servidor se cifran mediante TLS. El valor predeterminado es false.  | No |
 | trustedCertPath | Ruta de acceso completa del archivo .pem que contiene certificados de CA de confianza para comprobar el servidor al conectarse a través de TLS. Esta propiedad solo puede establecerse al utilizar TLS en IR autohospedados. El valor predeterminado es el archivo cacerts.pem instalado con el IR.  | No |
@@ -214,7 +214,7 @@ En la tabla siguiente se indican las propiedades que admite un origen de Hive. P
 
 A continuación se muestra un ejemplo de una configuración de origen de Hive:
 
-![Ejemplo de origen de Hive](media/data-flow/hive-source.png "[Ejemplo de origen de Hive")
+:::image type="content" source="media/data-flow/hive-source.png" alt-text="Ejemplo de origen de Hive":::
 
 Esta configuración se traduce en el siguiente script de flujo de datos:
 
@@ -243,4 +243,4 @@ Para obtener información detallada sobre las propiedades, consulte [Actividad d
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

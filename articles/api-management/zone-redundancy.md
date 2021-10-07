@@ -5,14 +5,14 @@ author: dlepow
 ms.service: api-management
 ms.topic: how-to
 ms.date: 08/11/2021
-ms.author: apimpm
+ms.author: danlep
 ms.custom: references_regions
-ms.openlocfilehash: 2415a07a215c99a1775593aae403af6f84b308fa
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d43d6e7b04e117e4144356ac22ea2858408405df
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121752475"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582849"
 ---
 # <a name="availability-zone-support-for-azure-api-management"></a>Compatibilidad con la zona de disponibilidad para Azure API Management 
 
@@ -42,7 +42,7 @@ La configuración de API Management para la redundancia de zona se admite actual
 * Norte de Sudáfrica (*)
 * Centro-sur de EE. UU.
 * Sudeste de Asia
-* Sur de Reino Unido 2
+* Sur de Reino Unido
 * Oeste de Europa
 * Oeste de EE. UU. 2
 * Oeste de EE. UU. 3
@@ -63,7 +63,7 @@ En el portal también tiene la opción de habilitar la redundancia de zona cuand
 1. Seleccione una ubicación existente o **+ Agregar** en la barra superior. La ubicación debe [admitir zonas de disponibilidad](#supported-regions).
 1. Seleccione el número de **[unidades](upgrade-and-scale.md)** de escalado de la ubicación.
 1. En **Zonas de disponibilidad**, seleccione una o varias zonas. El número de unidades seleccionadas debe distribuirse uniformemente entre las zonas de disponibilidad. Por ejemplo, si seleccionó tres unidades, seleccione tres zonas para que cada zona hospede una unidad.
-1. Si la instancia de API Management se implementó en una [red virtual](api-management-using-with-vnet.md), configure las siguientes opciones de la red virtual en la ubicación. Seleccione una red virtual, una subred y una dirección IP pública existentes que estén disponibles en la ubicación.
+1. Si la instancia de API Management se implementa en una [red virtual](api-management-using-with-vnet.md), configure los valores de red virtual en la ubicación seleccionando una red virtual, una subred y una dirección IP pública existentes que estén disponibles en la ubicación. En el caso de una ubicación existente, la red virtual y la subred deben configurarse desde la hoja Red virtual.
 1. Seleccione **Aplicar** y, luego, **Guardar**.
 
 :::image type="content" source="media/zone-redundancy/add-location-zones.png" alt-text="Habilitación de la redundancia de zona":::

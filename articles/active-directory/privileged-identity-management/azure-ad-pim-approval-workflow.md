@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/03/2021
+ms.date: 09/10/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ffb9e53172835ddcec574802f10a4a4bbbea0e1
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 4153e46df308a6682d3d21e509570a610ab61da7
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112233068"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128707928"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Aprobación o rechazo de solicitudes para los roles de Azure AD en Privileged Identity Management
 
@@ -41,6 +41,62 @@ Como aprobador delegado, recibirá una notificación por correo electrónico cua
 
     En la sección **Solicitudes de activación de roles**, verá una lista de solicitudes pendientes de su aprobación.
 
+## <a name="view-pending-requests-using-graph-api"></a>Visualización de solicitudes pendientes mediante Graph API
+
+### <a name="http-request"></a>Solicitud HTTP
+
+````HTTP
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentScheduleRequests/filterByCurrentUser(on='approver')?$filter=status eq 'PendingApproval' 
+````
+
+### <a name="http-response"></a>Respuesta HTTP
+
+````HTTP
+{ 
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#Collection(unifiedRoleAssignmentScheduleRequest)", 
+    "value": [ 
+        { 
+            "@odata.type": "#microsoft.graph.unifiedRoleAssignmentScheduleRequest", 
+            "id": "9f2b5ddb-a50e-44a1-a6f4-f616322262ea", 
+            "status": "PendingApproval", 
+            "createdDateTime": "2021-07-15T19:57:17.76Z", 
+            "completedDateTime": "2021-07-15T19:57:17.537Z", 
+            "approvalId": "9f2b5ddb-a50e-44a1-a6f4-f616322262ea", 
+            "customData": null, 
+            "action": "SelfActivate", 
+            "principalId": "d96ea738-3b95-4ae7-9e19-78a083066d5b", 
+            "roleDefinitionId": "88d8e3e3-8f55-4a1e-953a-9b9898b8876b", 
+            "directoryScopeId": "/", 
+            "appScopeId": null, 
+            "isValidationOnly": false, 
+            "targetScheduleId": "9f2b5ddb-a50e-44a1-a6f4-f616322262ea", 
+            "justification": "test", 
+            "createdBy": { 
+                "application": null, 
+                "device": null, 
+                "user": { 
+                    "displayName": null, 
+                    "id": "d96ea738-3b95-4ae7-9e19-78a083066d5b" 
+                } 
+            }, 
+            "scheduleInfo": { 
+                "startDateTime": null, 
+                "recurrence": null, 
+                "expiration": { 
+                    "type": "afterDuration", 
+                    "endDateTime": null, 
+                    "duration": "PT5H30M" 
+                } 
+            }, 
+            "ticketInfo": { 
+                "ticketNumber": null, 
+                "ticketSystem": null 
+            } 
+        } 
+    ] 
+} 
+````
+
 ## <a name="approve-requests"></a>Aprobar solicitudes
 
 1. Busque y seleccione la solicitud que desea aprobar. Aparece una página aprobar o denegar.
@@ -51,7 +107,58 @@ Como aprobador delegado, recibirá una notificación por correo electrónico cua
 
 1. Seleccione **Aprobar**. Recibirá una notificación de Azure de su aprobación.
 
-    ![Notificación de aprobación que muestra que se ha aprobado la solicitud](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png))
+    ![Notificación de aprobación que muestra que se ha aprobado la solicitud](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+
+## <a name="approve-pending-requests-using-graph-api"></a>Aprobación de solicitudes pendientes mediante Graph API
+
+### <a name="get-ids-for-the-steps-that-require-approval"></a>Obtención de los id. para los pasos que requieren aprobación
+
+En el caso de una solicitud de activación específica, este comando obtiene todos los pasos de aprobación que es necesario aprobar. Actualmente no se admiten aprobaciones de varios pasos.
+
+#### <a name="http-request"></a>Solicitud HTTP
+
+````HTTP
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentApprovals/<request-ID-GUID> 
+````
+
+#### <a name="http-response"></a>Respuesta HTTP
+
+````HTTP
+{ 
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleAssignmentApprovals/$entity", 
+    "id": "<request-ID-GUID>",
+    "steps@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleAssignmentApprovals('<request-ID-GUID>')/steps", 
+    "steps": [ 
+        { 
+            "id": "<approval-step-ID-GUID>", 
+            "displayName": null, 
+            "reviewedDateTime": null, 
+            "reviewResult": "NotReviewed", 
+            "status": "InProgress", 
+            "assignedToMe": true, 
+            "justification": "", 
+            "reviewedBy": null 
+        } 
+    ] 
+} 
+````
+
+### <a name="approve-the-activation-request-step"></a>Aprobación del paso de solicitud de activación
+
+#### <a name="http-request"></a>Solicitud HTTP
+
+````HTTP
+PATCH 
+https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentApprovals/<request-ID-GUID>/steps/<approval-step-ID-GUID> 
+{ 
+    "reviewResult": "Approve", 
+    "justification": "abcdefg" 
+} 
+ ````
+
+#### <a name="http-response"></a>Respuesta HTTP
+
+Las llamadas PATCH correctas generan una respuesta vacía.
 
 ## <a name="deny-requests"></a>Denegar solicitudes
 

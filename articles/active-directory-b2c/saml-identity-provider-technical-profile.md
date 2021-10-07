@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/25/2021
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 29e9341427b74c2395288ac85ee98d8ff44bd02e
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: e0376e13c0519920a30229eafdc8fc66fb7c242f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122968206"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128585565"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de proveedor de identidades de SAML en una directiva personalizada en Azure Active Directory B2C
 
@@ -156,7 +156,7 @@ El elemento **OutputClaimsTransformations** puede contener una colección de ele
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| PartnerEntity | Sí | URL de los metadatos del proveedor de identidades SAML. Copie los metadatos del proveedor de identidades y agréguelo en el elemento CDATA `<![CDATA[Your IDP metadata]]>` |
+| PartnerEntity | Sí | URL de los metadatos del proveedor de identidades SAML. O copie los metadatos del proveedor de identidades e insértelo en el elemento CDATA `<![CDATA[Your IDP metadata]]>`. No se recomienda insertar los metadatos del proveedor de identidades. El proveedor de identidades puede cambiar la configuración o actualizar el certificado. Si se han cambiado los metadatos del proveedor de identidades, obtenga los nuevos metadatos y actualice la directiva con ellos. |
 | WantsSignedRequests | No | Indica si el perfil técnico requiere que todas las solicitudes de autenticación de salida estén firmadas. Valores posibles: `true` o `false`. El valor predeterminado es `true`. Cuando el valor se establece en `true`, hay que especificar la clave criptográfica **SamlMessageSigning** y todas las solicitudes de autenticación de salida deben estar firmadas. Si el valor se establece en `false`, se omiten los parámetros **SigAlg** y **Signature** (cadena de consulta o parámetro posterior) de la solicitud. Estos metadatos también controlan el atributo **AuthnRequestsSigned** de los metadatos, que se recogen en los metadatos del perfil técnico de Azure AD B2C que se comparte con el proveedor de identidades. Azure AD B2C no firma la solicitud si el valor de **WantsSignedRequests** en los metadatos del perfil técnico se establece en `false` y los metadatos del proveedor de identidades **WantAuthnRequestsSigned** están establecidos en `false` o no se han especificado. |
 | XmlSignatureAlgorithm | No | El método que Azure AD B2C usa para firmar la solicitud SAML. Estos metadatos controlan el valor del parámetro **SigAlg** (cadena de consulta o parámetro posterior) en la solicitud SAML. Valores posibles: `Sha256`, `Sha384`, `Sha512` o `Sha1` (valor predeterminado). Asegúrese de configurar el algoritmo de firma en ambos lados con el mismo valor. Use solo el algoritmo que admite el certificado. |
 | WantsSignedAssertions | No | Indica si el perfil técnico requiere que todas las aserciones entrantes estén firmadas. Valores posibles: `true` o `false`. El valor predeterminado es `true`. Si el valor se establece en `true`, la sección `saml:Assertion` de todas las aserciones enviadas por el proveedor de entidades a Azure AD B2C debe estar firmada. Si el valor se establece en `false`, no es necesario que el proveedor de identidades firme las aserciones, pero aunque lo haga, Azure AD B2C no validará la firma. Estos metadatos también controlan la marca de metadatos **WantsAssertionsSigned**, que se recoge en los metadatos del perfil técnico de Azure AD B2C que se comparte con el proveedor de identidades. Si deshabilita la validación de las aserciones, también puede interesarle deshabilitar la validación de la firma de respuesta (para obtener más información, vea **ResponsesSigned**). |

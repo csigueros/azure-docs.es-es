@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/27/2021
 ms.author: hirsin
 ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 594b04c96ddbc166c7c3f95b7b04ebc1b1a3784b
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: ecbb461e45b19630319622e978ad3bd49a376e74
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223432"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092744"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>La Plataforma de identidad de Microsoft y el flujo de credenciales de cliente de OAuth 2.0
 
@@ -58,7 +58,7 @@ Este tipo de autorización es común para las cuentas de servicio y los demonios
 
 Para habilitar este patrón de autorización basado en ACL, Azure AD no requiere que las aplicaciones estén autorizadas para obtener tokens para otra aplicación. Por lo tanto, los tokens de solo aplicación se pueden emitir sin una notificación `roles`. Las aplicaciones que exponen las API deben implementar comprobaciones de permisos para aceptar tokens.
 
-Si quiere impedir que las aplicaciones obtengan tokens de acceso de solo aplicación sin roles para la aplicación, [asegúrese de que los requisitos de asignación de usuario están habilitados para la aplicación](../manage-apps/assign-user-or-group-access-portal.md#configure-an-application-to-require-user-assignment). Esto impedirá que los usuarios y las aplicaciones sin roles asignados puedan obtener un token para esta aplicación. 
+Si quiere impedir que las aplicaciones obtengan tokens de acceso de solo aplicación sin roles para la aplicación, [asegúrese de que los requisitos de asignación de usuario están habilitados para la aplicación](../manage-apps/assign-user-or-group-access-portal.md). Esto impedirá que los usuarios y las aplicaciones sin roles asignados puedan obtener un token para esta aplicación. 
 
 ### <a name="application-permissions"></a>Permisos de aplicación
 
@@ -69,13 +69,13 @@ En lugar de usar las ACL, puede usar las API para exponer un conjunto de **permi
 * Enviar correo como cualquier usuario
 * Leer datos de directorio
 
-Para usar permisos de aplicación con su propia API (en lugar de Microsoft Graph), primero debe [exponer la API](quickstart-configure-app-expose-web-apis.md) mediante la definición de ámbitos en el registro de la aplicación de la API en Azure Portal. A continuación, para [configurar el acceso a la API](quickstart-configure-app-access-web-apis.md), seleccione esos permisos en el registro de aplicaciones de la aplicación cliente. Si no ha expuesto ningún ámbito en el registro de la aplicación de la API, no podrá especificar permisos de aplicación para esa API en el registro de aplicaciones de la aplicación cliente en Azure Portal.
+Para usar permisos de aplicación con su propia API (en lugar de Microsoft Graph), primero debe [exponer la API](howto-add-app-roles-in-azure-ad-apps.md) mediante la definición de ámbitos en el registro de la aplicación de la API en Azure Portal. A continuación, para [configurar el acceso a la API](howto-add-app-roles-in-azure-ad-apps.md#assign-app-roles-to-applications), seleccione esos permisos en el registro de aplicaciones de la aplicación cliente. Si no ha expuesto ningún ámbito en el registro de la aplicación de la API, no podrá especificar permisos de aplicación para esa API en el registro de aplicaciones de la aplicación cliente en Azure Portal.
 
-Al realizar la autenticación como una aplicación, en lugar de hacerlo con un usuario, no se pueden usar *permisos delegados* (ámbitos concedidos por un usuario). Debe usar permisos de aplicación, también conocidos como roles, que un administrador (o la API web mediante autorización previa) concede para la aplicación.
+Al realizar la autenticación como una aplicación, en lugar de hacerlo con un usuario, no se pueden usar *permisos delegados* (ámbitos concedidos por un usuario), ya que no hay ningún usuario en nombre del cual la aplicación pueda actuar. Debe usar permisos de aplicación, también conocidos como roles, que un administrador (o la API web mediante autorización previa) concede para la aplicación.
 
 Para obtener más información acerca de los permisos de aplicación, consulte los [Permisos y consentimiento](v2-permissions-and-consent.md#permission-types).
 
-#### <a name="recommended-sign-the-user-into-your-app"></a>Se recomienda: Iniciar la sesión del usuario en la aplicación
+#### <a name="recommended-sign-the-admin-into-your-app-to-have-app-roles-assigned"></a>Se recomienda: Iniciar la sesión del administrador en la aplicación para asignar los roles
 
 Habitualmente, cuando compila una aplicación que usa permisos de aplicación, la aplicación requiere una página o vista en la que el administrador aprueba los permisos de la aplicación. Esta página puede ser parte del flujo de inicio de sesión de la aplicación o de la configuración de la aplicación, o bien puede ser un flujo de "conexión" dedicado. En muchos casos, tiene sentido que la aplicación muestre esta vista de conexión solo después de que un usuario haya iniciado sesión con una cuenta Microsoft profesional o educativa.
 
@@ -114,7 +114,7 @@ En este momento, Azure AD exige que solo un administrador de inquilino pueda in
 Si el administrador aprueba los permisos para la aplicación, la respuesta correcta tendrá un aspecto similar al siguiente:
 
 ```HTTP
-GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=12345&admin_consent=True
+GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
 | Parámetro | Descripción |

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: banders
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: eb6608e03debb7811497a1347c718bb2845cf87c
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: c7bc61691f0035c9f1aa0361ae3439cfb1e1485e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110688192"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128604405"
 ---
 # <a name="link-a-partner-id-to-your-power-apps-accounts"></a>Vinculación de un identificador de asociado a cuentas de Power Apps
 
@@ -39,7 +39,7 @@ Cuando tenga acceso a los recursos del cliente, use Azure Portal, PowerShell o l
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Vaya al [vínculo a un identificador de partner](https://portal.azure.com/#blade/Microsoft_Azure_Billing/managementpartnerblade) en Azure Portal.
-1. Escriba el identificador de [Microsoft Partner Network](https://partner.microsoft.com/) de su organización. Asegúrese de utilizar el **identificador de MPN asociado** que se muestra en su perfil de asociado.  
+1. Escriba el identificador de [Microsoft Partner Network](https://partner.microsoft.com/) de su organización. Asegúrese de utilizar el **id. de MPN asociado** que se muestra en su perfil de asociado. Este se conoce normalmente como [id. de MPN de la cuenta de ubicación del asociado](/partner-center/account-structure).  
     :::image type="content" source="./media/link-partner-id-power-apps-accounts/link-partner-id.png" alt-text="Captura de pantalla que muestra la ventana Vincular a un id. de partner." lightbox="./media/link-partner-id-power-apps-accounts/link-partner-id.png" :::
 1. Para vincular un identificador de asociado a otro cliente, cambie de directorio. En **Cambiar directorio**, seleccione el directorio apropiado.  
     :::image type="content" source="./media/link-partner-id-power-apps-accounts/switch-directory.png" alt-text="Captura de pantalla que muestra la ventana Directorio y suscripción, donde puede cambiar de directorio." lightbox="./media/link-partner-id-power-apps-accounts/switch-directory.png" :::

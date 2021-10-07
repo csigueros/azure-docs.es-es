@@ -12,12 +12,12 @@ ms.date: 07/15/2021
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bef4e1b8f4524e9b883bfe4aa5ef7b2a0e2bcf83
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: df71173837075c786d7c8f9907e0ed3cac576b16
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121746086"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128676264"
 ---
 # <a name="azure-active-directory-security-operations-guide"></a>Guía de operaciones de seguridad de Azure Active Directory
 
@@ -92,7 +92,7 @@ Microsoft tiene muchos productos y servicios que le permiten personalizar su ent
 
    * [Investigación de riesgos en Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-investigate-risk.md) 
 
-   * [Conexión de datos de Azure AD Identity Protection a Azure Sentinel.](../../sentinel/connect-azure-ad-identity-protection.md)
+   * [Conexión de datos de Azure AD Identity Protection a Azure Sentinel.](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection)
 
 * Active Directory Domain Services (AD DS)
 
@@ -110,15 +110,15 @@ Los archivos de registro que usa para la investigación y supervisión son:
 
 * [Registros de inicio de sesión](../reports-monitoring/concept-all-sign-ins.md)
 
-* [Registros de auditoría de Microsoft 365](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide)
+* [Registros de auditoría de Microsoft 365](/microsoft-365/compliance/auditing-solutions-overview)
 
 * [Registros de Azure Key Vault](../../key-vault/general/logging.md?tabs=Vault)
 
 En Azure Portal, puede ver los registros de auditoría de Azure AD y descargarlos como archivos de valores separados por comas (CSV) o notación de objetos JavaScript (JSON). Azure Portal tiene varias maneras de integrar los registros de Azure AD con otras herramientas que permiten una mayor automatización de la supervisión y las alertas:
 
-* **[Azure Sentinel](../../sentinel/overview.md)** : permite el análisis de seguridad inteligente en el nivel empresarial proporcionando funcionalidades de Administración de eventos e información de seguridad (SIEM). 
+* **[Azure Sentinel](../../sentinel/overview.md)** : permite el análisis de seguridad inteligente en el nivel empresarial al ofrecer funcionalidades de administración de eventos e información de seguridad (SIEM). 
 
-* **[Azure Monitor](../../azure-monitor/overview.md)** : permite la supervisión automatizada y las alertas de diversas condiciones. Puede crear o usar libros para combinar datos de orígenes diferentes.
+* **[Azure Monitor](../../azure-monitor/overview.md)** : permite la supervisión y la generación de alertas automatizadas de diversas condiciones. Puede crear o usar libros para combinar datos de orígenes diferentes.
 
 * **[Azure Event Hubs](../../event-hubs/event-hubs-about.md) (integrado con SIEM)** - [: los registros de Azure AD se pueden integrar con otras instancias de SIEM](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md), como Splunk, ArcSight, QRadar y Sumo Logic a través de la integración de Azure Event Hubs.
 
@@ -158,7 +158,7 @@ Como parte de un entorno híbrido de Azure, lo siguiente se debe tomar como refe
 
 * **Motor de sincronización de Azure AD Connect**: el componente local, también denominado el motor de sincronización. Para información sobre la característica, consulte [Características del servicio de sincronización de Azure AD Connect](../hybrid/how-to-connect-syncservice-features.md).
 
-* **Agente de controlador de dominio de protección de contraseñas**: el agente de controlador de dominio de protección de contraseñas de Azure se usa para ayudar a supervisar e informar de los mensajes del registro de eventos. Para obtener información, consulte ../authentication/concept-password-ban-bad-on-premises.md.
+* **Agente de controlador de dominio de protección de contraseñas**: el agente de controlador de dominio de protección de contraseñas de Azure se usa para ayudar a supervisar e informar de los mensajes del registro de eventos. Para obtener información, consulte [Aplicación de la Protección con contraseña de Azure AD local en Active Directory Domain Services](../authentication/concept-password-ban-bad-on-premises.md). 
 
 * **DLL de filtro de contraseña**: la DLL del agente de controlador de dominio del filtro de contraseña recibe las solicitudes de validación de contraseña de usuario desde el sistema operativo. El filtro las reenvía al servicio DC Agent que se ejecuta localmente en el controlador de dominio. Para información sobre el uso de la DLL, consulte [Aplicación de Protección con contraseña de Azure AD local en Active Directory Domain Services](../authentication/concept-password-ban-bad-on-premises.md). 
 
@@ -216,7 +216,7 @@ Como parte de un entorno basado en la nube de Azure, lo siguiente se debe tomar 
 
 Consulte estos artículos de la guía de operaciones de seguridad:
 
-[Información general de operaciones de seguridad de Azure AD](security-operations-introduction.md)
+[Introducción a las operaciones de seguridad de Azure AD](security-operations-introduction.md)
 
 [Operaciones de seguridad para cuentas de usuario](security-operations-user-accounts.md)
 

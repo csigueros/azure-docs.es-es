@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
-ms.date: 06/10/2020
-ms.openlocfilehash: 8c0cba39c2fe299a2cc822309b0063d2d4fe2f71
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.date: 09/27/2021
+ms.openlocfilehash: ff4600cd1b107fb041123191f80f9da4f50af5ac
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113431526"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081189"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>Servicio de detección de anomalías para la facturación de uso medido
 
@@ -67,7 +67,26 @@ Si se aplica uno de los siguientes casos, puede ajustar la cantidad de uso en el
 
 Para enviar una incidencia de soporte técnico relacionada con las anomalías de facturación de uso medido:
 
-1. Inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165290) con su cuenta profesional.
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home) con su cuenta profesional.
+1. En la página principal, seleccione el icono **Ayuda y soporte técnico**.
+
+    [![Muestra el icono "Ayuda y soporte técnico" en la página principal del Centro de partners.](../media/workspaces/partner-center-help-support-tile.png) ](../media/workspaces/partner-center-help-support-tile.png#lightbox)
+
+1. En **Mis solicitudes de soporte técnico**, seleccione **+ Nueva solicitud**.
+1. En el cuadro **Resumen del problema**, escriba **facturación de uso medido**.
+1. En el cuadro **Tipo de problema**, seleccione uno de los siguientes:
+    - **Commercial Marketplace > Metered Billing > Wrong usage sent for Azure Applications offer** (Marketplace comercial > Facturación según uso > Uso incorrecto enviado para oferta de aplicaciones de Azure)
+    - **Commercial Marketplace > Metered Billing > Wrong usage sent for Azure Applications offer** (Marketplace comercial > Facturación según uso > Uso incorrecto enviado para oferta de SaaS)
+1. En **Paso siguiente**, seleccione **Review solutions** (Revisar soluciones).
+1. Revise los documentos recomendados, si los hay, o seleccione **Provide issue details** (Proporcionar detalles del problema) para enviar una incidencia de soporte técnico.
+
+Para ver más opciones de soporte técnico para editores, consulte [Soporte técnico para el programa Marketplace comercial en el Centro de partners](../support.md).
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
+
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home) con su cuenta profesional.
 1. En el menú que se encuentra en la parte superior derecha de la página, seleccione el icono **Soporte técnico**. El panel **Ayuda y soporte técnico** aparece en el lado derecho de la página.
 1. Para ayuda con el marketplace comercial, seleccione **Marketplace comercial**.
    ![Se muestra el panel de soporte técnico.](../media/support/commercial-marketplace-support-pane.png)
@@ -79,6 +98,8 @@ Para enviar una incidencia de soporte técnico relacionada con las anomalías de
 1. Revise los documentos recomendados, si los hay, o seleccione **Provide issue details** (Proporcionar detalles del problema) para enviar una incidencia de soporte técnico.
 
 Para ver más opciones de soporte técnico para editores, consulte [Soporte técnico para el programa Marketplace comercial en el Centro de partners](../support.md).
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,12 +3,12 @@ title: Consideraciones de almacenamiento de Azure Functions
 description: Conozca los requisitos de almacenamiento de Azure Functions y aprenda a cifrar los datos almacenados.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: ad9e7979eddac3fc102d9fddae68c230a7418762
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: dfbaf2947dd3eaacd155a240541a6abae3894b35
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259560"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599988"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Consideraciones de almacenamiento de Azure Functions
 
@@ -78,7 +78,7 @@ Si Azure Files no se usa, debe tener en cuenta lo siguiente:
 * La aplicación no puede usar el runtime de Functions v1
 * Las experiencias de streaming de registros en clientes como Azure Portal tienen como valor predeterminado los registros del sistema de archivos. En su lugar, deben basarse en registros de Application Insights.
 
-Si lo anterior se tiene en cuenta correctamente, puede crear la aplicación sin Azure Files. Cree la aplicación de función sin especificar la configuración de la aplicación `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` y `WEBSITE_CONTENTSHARE`.
+Si lo anterior se tiene en cuenta correctamente, puede crear la aplicación sin Azure Files. Cree la aplicación de función sin especificar la configuración de la aplicación `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` y `WEBSITE_CONTENTSHARE`. Para ello, genere una plantilla de ARM para realizar una implementación estándar, quite estos dos valores y, a continuación, implemente la plantilla. 
 
 ## <a name="mount-file-shares"></a>Montaje de recursos compartidos de archivos
 

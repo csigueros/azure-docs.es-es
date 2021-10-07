@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/27/2021
 ms.author: b-juche
-ms.openlocfilehash: 0b05b934b4dc57b4db941755cfcfb2f8d21fc2c6
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 4a97b89957a4f451aaa9c7305535f87980234db2
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824986"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094298"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Límites de recursos para Azure NetApp Files
 
@@ -29,7 +29,7 @@ Entender los límites de recursos de Azure NetApp Files ayuda a administrar los 
 
 En la tabla siguiente se describen los límites de recursos de Azure NetApp Files:
 
-|  Resource  |  Límite predeterminado  |  Ajustable a través de la solicitud de soporte técnico  |
+|  Recurso  |  Límite predeterminado  |  Ajustable a través de la solicitud de soporte técnico  |
 |----------------|---------------------|--------------------------------------|
 |  [Cuota de capacidad regional por suscripción](#regional-capacity-quota)   |  25 TiB  |  Sí  |
 |  Número de cuentas de NetApp por región de Azure por suscripción  |  10    |  Sí   |
@@ -50,7 +50,11 @@ En la tabla siguiente se describen los límites de recursos de Azure NetApp File
 |  Número máximo de reglas de directiva de exportación por volumen     |    5  |    No    | 
 |  Rendimiento mínimo asignado para un volumen de QoS manual     |    1 MiB/s   |    No    |    
 |  Rendimiento máximo asignado para un volumen de QoS manual     |    4500 MiB/s    |    No    |    
-|  Número de volúmenes de protección de datos de replicación entre regiones (volúmenes de destino)     |    5    |    Sí    |     
+|  Número de volúmenes de protección de datos de replicación entre regiones (volúmenes de destino)     |    10    |    Sí    |     
+|  Número máximo de copias de seguridad basadas en directivas (programadas) por volumen  | <ul><li> Recuento de retención diaria: de 1 (mínimo) a 1019 (máximo) </li> <li> Recuento de retención semanal: de 1 (mínimo) a 1019 (máximo) </li> <li> Recuento de retención mensual: de 1 (mínimo) a 1019 (máximo) </ol></li> <br> El máximo de los recuentos de retención de copia de seguridad diaria, semanal y mensual *combinados* es de 1019.  |  N  |
+|  Tamaño máximo del volumen protegido  |  100 TiB  |  N  |
+|  Número máximo de volúmenes de los que se puede realizar una copia de seguridad por suscripción   |  5  |  esté  |
+|  Número máximo de copias de seguridad manuales por volumen al día |  5  |  esté  |
 
 Para más información, consulte [Preguntas más frecuentes sobre la administración de la capacidad](azure-netapp-files-faqs.md#capacity-management-faqs).
 

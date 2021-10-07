@@ -9,18 +9,18 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: ffdb6dd0d998cfe12b50dab85f49f06e30903d6f
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: f4a03a73a85fa265517b421c2179a077d73a75be
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122270953"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128600349"
 ---
 # <a name="calculate-blob-count-and-total-size-per-container-using-azure-storage-inventory"></a>Cálculo del recuento de blobs y su tamaño total por contenedor mediante el inventario de Azure Storage
 
 En este artículo se usa la característica de inventario de Azure Blob Storage y Azure Synapse para calcular el recuento de blobs y su tamaño total por contenedor. Estos valores son útiles al optimizar el uso de blobs por contenedor.
 
-Los metadatos de blob no se incluyen en este método. La característica de inventario de Azure Blob Storage usa la API de REST para [List Blobs](/rest/api/storageservices/list-blobs) con parámetros predeterminados. Así pues, el ejemplo no admite instantáneas, contenedores '$', etc.
+Los metadatos de blob no se incluyen en este método. La característica de inventario de Azure Blob Storage usa la API de REST para [List Blobs](/rest/api/storageservices/list-blobs) con parámetros predeterminados. Así pues, el ejemplo no admite instantáneas, contenedores "$", etc.
 
 ## <a name="enable-inventory-reports"></a>Habilitación de informes de inventario
 
@@ -50,7 +50,7 @@ Después de crear el área de trabajo de Azure Synapse, siga estos pasos.
     En el parámetro `bulk`, utilice la dirección URL del archivo CSV de informe de inventario que desea analizar.
 
     ```sql
-    SELECT LEFT([Name], CHARINDEX('/', [Name]) - 1) AS Container, 
+    SELECT LEFT([Name], CHARINDEX('/', [Name]) - 1) AS Container,
             COUNT(*) As TotalBlobCount,
             SUM([Content-Length]) As TotalBlobSize
     FROM OPENROWSET(

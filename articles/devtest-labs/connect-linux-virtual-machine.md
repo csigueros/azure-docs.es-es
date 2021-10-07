@@ -1,14 +1,14 @@
 ---
-title: Conexión a las máquinas virtuales Linux en Azure DevTest Labs
+title: Conexión a las máquinas virtuales Linux
 description: Obtenga información sobre cómo conectarse a las máquinas virtuales Linux en un laboratorio (Azure DevTest Labs)
 ms.topic: how-to
 ms.date: 07/17/2020
-ms.openlocfilehash: 52fe245f85034a4c6300615ad8fb6040c1168298
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 956c27235dcdf9d57c908ce2e840e3c77518875b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86528269"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128676055"
 ---
 # <a name="connect-to-a-linux-vm-in-your-lab-azure-devtest-labs"></a>Conexión a una máquina virtual Linux en el laboratorio (Azure DevTest Labs)
 En este artículo se muestra cómo conectarse a máquina virtual Linux en el laboratorio. 

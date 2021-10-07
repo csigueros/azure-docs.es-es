@@ -1,25 +1,25 @@
 ---
-title: Copia de datos de QuickBooks Online con Azure Data Factory (versión preliminar)
+title: Copia de datos de QuickBooks Online (versión preliminar)
+description: Obtenga información sobre cómo copiar datos de QuickBooks Online en almacenes de datos receptores compatibles a través de una actividad de copia en una canalización de Azure Data Factory o Synapse Analytics.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre cómo copiar datos de QuickBooks Online en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 36f4d4001d04436fda748b24318ab359e698d450
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: 0d4cc79dd15e799d213fe89e85992883584af2e4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123316873"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820139"
 ---
-# <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Copia de datos de QuickBooks Online con Azure Data Factory (versión preliminar)
+# <a name="copy-data-from-quickbooks-online-using-azure-data-factory-or-synapse-analytics-preview"></a>Copia de datos de QuickBooks Online con Azure Data Factory o Synapse Analytics (versión preliminar)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de QuickBooks One. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
+En este artículo se explica cómo usar la actividad de copia en una canalización de Azure Data Factory o Synapse Analytics para copiar datos de QuickBooks Online. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 > [!IMPORTANT]
 > Este conector está actualmente en versión preliminar. Puede probarlo y enviarnos sus comentarios. Si desea depender de los conectores de versión preliminar en la solución, póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/).
@@ -78,8 +78,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado de QuickBoo
 | endpoint | Punto de conexión del servidor de QuickBooks Online. (es decir, quickbooks.api.intuit.com)  | Sí |
 | companyId | Id. de empresa de la compañía de QuickBooks que se debe autorizar. Para obtener información sobre cómo buscar el identificador de empresa, consulte [Cómo encontrar el identificador de mi empresa](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Sí |
 | consumerKey | El identificador de cliente de la aplicación en línea QuickBooks para la autenticación OAuth 2.0. Puede obtener más información sobre esto [aquí](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app). | Sí |
-| consumerSecret | El secreto de cliente de la aplicación en línea QuickBooks para la autenticación OAuth 2.0. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
-| refreshToken | El token de actualización de OAuth 2,0 asociado a la aplicación de QuickBooks. Puede obtener más información sobre esto [aquí](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app). Tenga en cuenta que el token de actualización expirará pasados 180 días. El cliente debe actualizar periódicamente el token de actualización. <br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md).| Sí |
+| consumerSecret | El secreto de cliente de la aplicación en línea QuickBooks para la autenticación OAuth 2.0. Marque este campo como SecureString para almacenarlo de forma segura, o bien [haga referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| refreshToken | El token de actualización de OAuth 2,0 asociado a la aplicación de QuickBooks. Puede obtener más información sobre esto [aquí](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app). Tenga en cuenta que el token de actualización expirará pasados 180 días. El cliente debe actualizar periódicamente el token de actualización. <br/>Marque este campo como SecureString para almacenarlo de forma segura, o bien [haga referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md).| Sí |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | No |
 
 **Ejemplo**:
@@ -183,7 +183,7 @@ Para copiar datos de QuickBooks Online, establezca el tipo de origen de la activ
 ```
 ## <a name="copy-data-from-quickbooks-desktop"></a>Copia de datos de QuickBooks Desktop
 
-La actividad de copia en Azure Data Factory no puede copiar datos directamente desde Quickbooks Desktop. Para copiar datos desde Quickbooks Desktop, exporte los datos de Quickbooks en un archivo de valores separados por comas (CSV) y, a continuación, cargue el archivo en Azure Blob Storage. Desde ahí puede usar Data Factory para copiar los datos al receptor que prefiera.
+La actividad de copia en el servicio no puede copiar datos directamente desde Quickbooks Desktop. Para copiar datos desde Quickbooks Desktop, exporte los datos de Quickbooks en un archivo de valores separados por comas (CSV) y, a continuación, cargue el archivo en Azure Blob Storage. Desde ahí puede usar el servicio para copiar los datos al receptor que prefiera.
 
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
 
@@ -191,4 +191,4 @@ Para obtener información detallada sobre las propiedades, consulte [Actividad d
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

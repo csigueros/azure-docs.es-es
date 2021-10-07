@@ -6,15 +6,15 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/30/2021
-ms.openlocfilehash: 1a4bd560603b16a1a2b9fe0a66bc4f1adce25a73
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.date: 09/27/2021
+ms.openlocfilehash: 72505a4e3c9003032c29b55e8cfa2152617bc928
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867476"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129080114"
 ---
-# <a name="how-to-create-a-dynamics-365-for-customer-engagement--power-apps-offer"></a>Creación de una oferta de Dynamics 365 for Customer Engagement & Power Apps
+# <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Creación de una oferta de Dynamics 365 for Customer Engagement y PowerApps
 
 En este artículo se explica cómo crear una oferta de Dynamics 365 for Customer Engagement & Power Apps. Todas las ofertas de Dynamics 365 deben pasar por nuestro proceso de certificación. La experiencia de evaluación permite a los usuarios implementar la solución en un entorno de Dynamics 365 en vivo.
 
@@ -26,6 +26,24 @@ Revise el artículo [Planeamiento de una oferta de Dynamics 365](marketplace-dy
 
 ## <a name="create-a-new-offer"></a>Crear una nueva oferta
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
+1. En la página principal, seleccione el elemento **Ofertas de Marketplace**.
+
+    [ ![Muestra el elemento Ofertas de Marketplace en la página principal del Centro de partners.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. En la página "Ofertas de Marketplace", seleccione **+ Nueva oferta** > **Dynamics 365 for Customer Engagement & Power Apps**.
+
+    [ ![Muestra el botón "Nueva oferta" con el tipo de oferta Customer Engagement & Power Apps seleccionado.](./media/dynamics-365/new-offer-dynamics-365-customer-engagement-workspaces.png) ](./media/dynamics-365/new-offer-dynamics-365-customer-engagement-workspaces.png#lightbox)
+
+> [!IMPORTANT]
+> Una vez publicada la oferta, las modificaciones que realice en ella en el Centro de partners aparecerán en Microsoft AppSource solo después de volver a publicarla. Asegúrese de volver a publicar siempre una oferta después de cambiarla.
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
+
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
 2. En el menú de navegación izquierdo, seleccione **Marketplace comercial** > **Información general**.
 3. En la página de información general, seleccione **+ Nueva oferta** > **Dynamics 365 for Customer Engagement & Power Apps**.
@@ -34,6 +52,8 @@ Revise el artículo [Planeamiento de una oferta de Dynamics 365](marketplace-dy
 
 > [!IMPORTANT]
 > Una vez publicada la oferta, las modificaciones que realice en ella en el Centro de partners aparecerán en Microsoft AppSource solo después de volver a publicarla. Asegúrese de volver a publicar siempre una oferta después de cambiarla.
+
+---
 
 ## <a name="new-offer"></a>Nueva oferta
 

@@ -13,12 +13,12 @@ ms.date: 01/25/2021
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b4eb89c9c30915f72f45ebe9a26e063c8a44bce2
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 518fc85aff920ffece511e383b2322d8e81266ee
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108164424"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091870"
 ---
 # <a name="logging-in-msalnet"></a>Registro en MSAL.NET
 
@@ -26,11 +26,11 @@ ms.locfileid: "108164424"
 
 ## <a name="configure-logging-in-msalnet"></a>Configuración del registro en MSAL.NET
 
-En MSAL 3.x, el registro se establece por aplicación en el momento de crear la aplicación mediante el modificador de generador `.WithLogging`. Este método toma parámetros opcionales:
+En MSAL, el registro se establece en el momento de crear la aplicación mediante el modificador de generador `.WithLogging`. Este método toma parámetros opcionales:
 
 - `Level` le permite decidir el nivel de registro deseado. Si se establece en Errors solo se reciben errores.
-- `PiiLoggingEnabled` permite registrar datos personales y organizativos si se establece en true. De forma predeterminada, se establece en false, por lo que la aplicación no registra datos personales.
-- `LogCallback` establece en un delegado que realiza el registro. Si `PiiLoggingEnabled` es true, este método recibirá los mensajes dos veces: una con el parámetro `containsPii` igual a false y el mensaje sin datos personales y una segunda con el parámetro `containsPii` igual a true y el mensaje podría contener datos personales. En algunos casos (cuando el mensaje no contiene datos personales), el mensaje será el mismo.
+- `PiiLoggingEnabled` le permite registrar datos personales y organizativos si se establece en true. De forma predeterminada, se establece en false, por lo que la aplicación no registra datos personales.
+- `LogCallback` establece en un delegado que realiza el registro. Si `PiiLoggingEnabled` se establece en true, este método recibirá mensajes que pueden tener datos personales, en cuyo caso la marca `containsPii` se establecerá en true.
 - `DefaultLoggingEnabled` habilita el registro predeterminado para la plataforma. De forma predeterminada, es "false". Si se establece en true se usa el seguimiento de eventos en aplicaciones de escritorio o UWP, NSLog en iOS y logcat en Android.
 
 ```csharp

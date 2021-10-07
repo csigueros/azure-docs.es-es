@@ -12,12 +12,12 @@ author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
 ms.date: 10/13/2020
-ms.openlocfilehash: 4e4f1ba5d15921f30319b001474351d637a0e338
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: e3ff2d28aa3e2b54a43c65057f59a21534806e87
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413760"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658818"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-sql-database--sql-managed-instance"></a>Ahorro de costos para los recursos con capacidad reservada: Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)] 
@@ -58,7 +58,7 @@ Por ejemplo, supongamos que ejecuta un grupo elástico de propósito general Gen
     | Campo      | Descripción|
     |------------|--------------|
     |Suscripción|Suscripción que se usa para pagar la reserva de capacidad. Los costos anticipados de la reserva se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser un contrato Enterprise (número de la oferta: MS-AZR-0017P o MS-AZR-0148P) o un contrato individual con precio de pago por uso (número de la oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción Enterprise, los cargos se deducen del pago por adelantado de Azure (antes conocido como saldo de compromiso monetario) de la inscripción, o se cobran como uso por encima del límite. Para una suscripción individual con precios de pago por uso, los cargos se cobran en el método de pago de la factura o la tarjeta de crédito de la suscripción.|
-    |Ámbito       |El ámbito de la reserva de núcleos virtuales puede cubrir una suscripción o varias (ámbito compartido). Si selecciona: <br/><br/>**Compartido**: el descuento por la reserva de núcleos virtuales se aplica a la base de datos o la instancia administrada en ejecución en cualquiera de las suscripciones en el contexto de facturación. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.<br/><br/>**Suscripción única**: el descuento por la reserva de núcleos virtuales se aplica a las bases de datos o las instancias administradas de esta suscripción. <br/><br/>**Grupo de recursos único**: el descuento de reserva se aplica a las instancias de bases de datos o las instancias administradas de la suscripción seleccionada y al grupo de recursos seleccionado de esa suscripción.|
+    |Ámbito       |El ámbito de la reserva de núcleos virtuales puede cubrir una suscripción o varias (ámbito compartido). Si selecciona: <br/><br/>**Compartido**: el descuento por la reserva de núcleos virtuales se aplica a la base de datos o la instancia administrada en ejecución en cualquiera de las suscripciones en el contexto de facturación. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.<br/><br/>**Suscripción única**: el descuento por la reserva de núcleos virtuales se aplica a las bases de datos o las instancias administradas de esta suscripción. <br/><br/>**Grupo de recursos único**: el descuento de reserva se aplica a las instancias de bases de datos o las instancias administradas de la suscripción seleccionada y al grupo de recursos seleccionado de esa suscripción.</br></br>**Grupo de administración**: se aplica el descuento por reserva al recurso correspondiente de la lista de suscripciones que forman parte del grupo de administración y el ámbito de facturación.|
     |Region      |Región de Azure que está cubierta por la reserva de capacidad.|
     |Tipo de implementación|El tipo de recurso de SQL para el que desea adquirir la reserva.|
     |Nivel de rendimiento|Nivel de servicio para las bases de datos o las instancias administradas. |
@@ -79,7 +79,7 @@ La flexibilidad de tamaño del núcleo virtual le ayuda a escalar o reducir vert
 
 ## <a name="limitation"></a>Limitación
 
-No se pueden reservar bases de datos basadas en DTU (básicas, estándar o prémium) en SQL Database.
+No se pueden reservar bases de datos basadas en DTU (básicas, estándar o prémium) en SQL Database. Los precios de capacidad reservada solo se admiten para características y productos que se encuentran en estado de disponibilidad general. 
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Ponerse en contacto con nosotros
 

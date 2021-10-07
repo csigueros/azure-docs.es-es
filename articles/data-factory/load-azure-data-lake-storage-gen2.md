@@ -8,12 +8,12 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/22/2021
-ms.openlocfilehash: edc3005a462777ce7cf873b4098a17af215e308b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4ed42f5ea6aa5acda8234aab31b26c99057ed6b9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637838"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124819997"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Carga de datos en Azure Data Lake Storage Gen2 con Azure Data Factory
 
@@ -40,7 +40,7 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
 
 1. En el menú de la izquierda, seleccione **Crear un recurso** > **Integración** > **Data Factory**:
    
-   ![Selección de la factoría de datos en el panel Nuevo](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Selección de Data Factory en el panel &quot;Nuevo&quot;":::
 
 2. En la página **New data factory** (Nueva factoría de datos), proporcione valores para los siguientes campos:
  
@@ -64,11 +64,11 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
 
 2. En la página **Propiedades**, elija **Built-in copy task** (Tarea de copia integrada) en **Tipo de tarea** y elija **Run once now** (Ejecutar una vez ahora) en **Task cadence or task schedule** (Cadencia de tareas o programación de tareas). A continuación, seleccione **Siguiente**.
 
-    ![Página de propiedades](./media/load-azure-data-lake-storage-gen2/copy-data-tool-properties-page.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2/copy-data-tool-properties-page.png" alt-text="Página de propiedades":::
 3. En la página **Almacén de datos de origen**, realice los pasos siguientes:
     1. Seleccione **+ Nueva conexión**. Seleccione **Amazon S3** en la galería de conectores y seleccione **Continue** (Continuar).
     
-        ![Página del almacén de datos de origen S3](./media/load-azure-data-lake-storage-gen2/source-data-store-page-s3.png)
+        :::image type="content" source="./media/load-azure-data-lake-storage-gen2/source-data-store-page-s3.png" alt-text="Página del almacén de datos de origen S3":::
     
     1. En la página **New connection (Amazon S3)** (Nueva conexión [Amazon S3]), haga lo siguiente:
 
@@ -76,7 +76,7 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
         1. Especifique el valor de **Secret Access Key** (Clave de acceso secreta).
         1. Seleccione **Probar conexión** para validar la configuración y, después, seleccione **Crear**.
     
-          ![Especificación de la cuenta de Amazon S3](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
+          :::image type="content" source="./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png" alt-text="Especificación de la cuenta de Amazon S3":::
 
     1. En la página **Source data store** (Almacén de datos de origen), asegúrese de que la conexión de Amazon S3 recién creada está seleccionada en el bloque **Conexión**. 
     1. En la sección **Archivo o carpeta**, vaya a la carpeta y el archivo que quiera copiar. Seleccione la carpeta o el archivo, y, después, seleccione **OK** (Aceptar).
@@ -87,11 +87,11 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
 4. En la página **Destination data store** (Almacén de datos de destino), haga lo siguiente:
     1. En la página **+ New connection** (+ Nueva conexión), seleccione **Azure Data Lake Storage Gen2** y, luego, **Continuar**.
 
-        ![Página Destination data store (Almacén de datos de destino)](./media/load-azure-data-lake-storage-gen2/destination-data-storage-page.png)
+        :::image type="content" source="./media/load-azure-data-lake-storage-gen2/destination-data-storage-page.png" alt-text="Página Destination data store (Almacén de datos de destino)":::
     
     1. En la página **New connection (Azure Data Lake Storage Gen2)** (Nueva conexión [Azure Data Lake Storage Gen2]), seleccione la cuenta con capacidad para Data Lake Storage Gen2 de la lista desplegable Storage account name (Nombre de la cuenta de almacenamiento) y seleccione **Crear** para crear la conexión. 
 
-        ![Especificación de una cuenta de Azure Data Lake Storage Gen2](./media/load-azure-data-lake-storage-gen2/specify-azure-data-lake-storage.png)
+        :::image type="content" source="./media/load-azure-data-lake-storage-gen2/specify-azure-data-lake-storage.png" alt-text="Especificación de una cuenta de Azure Data Lake Storage Gen2":::
 
     1. En la página **Destination data store** (Almacén de datos de destino), seleccione la conexión recién creada en el bloque **Conexión**. Luego, en **Ruta de la carpeta**, escriba **copyfroms3** como nombre de la carpeta de salida y seleccione **Siguiente**. ADF creará el sistema de archivos y subcarpetas correspondientes de ADLS Gen2 durante la copia, si no existen.
 
@@ -99,23 +99,23 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
     
 5. En la página **Configuración**, especifique **CopyFromAmazonS3ToADLS** en el campo **Nombre de la tarea** y seleccione **Siguiente** para usar la configuración predeterminada.
 
-    ![Página Configuración](./media/load-azure-data-lake-storage-gen2/copy-settings.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2/copy-settings.png" alt-text="Página de configuración":::
 
 6. En la página **Resumen**, revise la configuración y seleccione **Siguiente**.
 
-    ![Página de resumen](./media/load-azure-data-lake-storage-gen2/copy-summary.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2/copy-summary.png" alt-text="Página de resumen":::
 
 7. En la página **Deployment** (Implementación), seleccione **Monitor** (Supervisión) para supervisar la canalización (tarea). 
  
 8. Cuando la ejecución de la canalización se complete correctamente, verá una ejecución de canalización que se desencadena mediante un desencadenador manual. Puede usar los vínculos de la columna **Nombre de la canalización** para ver los detalles de la actividad y volver a ejecutar la canalización.
 
-    ![La supervisión de la canalización se ejecuta](./media/load-azure-data-lake-storage-gen2/monitor-pipeline-runs.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2/monitor-pipeline-runs.png" alt-text="Supervisión de las ejecuciones de canalización":::
 
 9. Para ver las ejecuciones de actividad asociadas a la ejecución de la canalización, seleccione el vínculo **CopyFromAmazonS3ToADLS** en la columna **Nombre de canalización**. Para más información sobre la operación de copia, seleccione el vínculo **Details** (Detalles) (icono de gafas) en la columna **Activity name** (Nombre de actividad). Puede supervisar detalles como el volumen de datos copiados desde el origen al receptor, el rendimiento de los datos, los pasos de ejecución con su duración correspondiente y las configuraciones que se utilizan.
  
-    ![Supervisión de las ejecuciones de actividad](./media/load-azure-data-lake-storage-gen2/monitor-activity-runs.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2/monitor-activity-runs.png" alt-text="Supervisión de las ejecuciones de actividad":::
     
-    ![Detalles de la supervisión de la ejecución de actividad](./media/load-azure-data-lake-storage-gen2/monitor-activity-run-details.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2/monitor-activity-run-details.png" alt-text="Detalles de la supervisión de la ejecución de actividad":::
 
 10. Para actualizar la vista, seleccione **Refresh** (Actualizar). Para volver a la vista de ejecuciones de canalización, seleccione **Todas las ejecuciones de la canalización** arriba.
 

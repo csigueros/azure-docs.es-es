@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: reference
-ms.date: 08/16/2021
-ms.openlocfilehash: 74bfdabbbd145e7409d070e9bb432ad4f62759d5
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.date: 09/09/2021
+ms.openlocfilehash: f1b4efafd7868d4c42528ce7de5eae56051dcb83
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866585"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124736650"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guía de referencia para usar las funciones en las expresiones para Azure Logic Apps y Power Automate
 
@@ -1188,15 +1188,6 @@ Y devuelve estos resultados:
 
 Combina dos o más cadenas y devuelve la cadena combinada.
 
-> [!NOTE]
-> Azure Logic Apps realiza de forma automática o implícita la codificación y descodificación Base64, por lo que no tiene que realizar estas conversiones manualmente cuando use la función `concat()` con los datos que necesitan codificación y descodificación:
-> 
-> * `concat('data:;base64,',<value>)`
-> * `concat('data:,',encodeUriComponent(<value>))`
-> 
-> Sin embargo, si usa esta función en el diseñador, puede experimentar comportamientos de representación inesperados en el diseñador. Estos comportamientos solo afectan a la visibilidad de la función y no a su efecto a menos que se modifiquen los valores de los parámetros de la función, lo que quita la función y su efecto del código. 
-> Para obtener más información, consulte [Codificación y descodificación en Base64](#base64-encoding-decoding).
-
 ```
 concat('<text1>', '<text2>', ...)
 ```
@@ -1208,8 +1199,16 @@ concat('<text1>', '<text2>', ...)
 
 | Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
-| <*texto1texto2...* > | String | Cadena que se crea a partir de las cadenas de entrada combinadas |
+| <*texto1texto2...* > | String | Cadena que se crea a partir de las cadenas de entrada combinadas. <p><p>**Nota**: La longitud del resultado no debe superar 104 857 600 caracteres. |
 ||||
+
+> [!NOTE]
+> Azure Logic Apps realiza de forma automática o implícita la codificación y descodificación Base64, por lo que no tiene que realizar estas conversiones manualmente cuando use la función `concat()` con los datos que necesitan codificación y descodificación:
+>
+> * `concat('data:;base64,',<value>)`
+> * `concat('data:,',encodeUriComponent(<value>))`
+>
+> Sin embargo, si usa esta función en el diseñador, puede experimentar comportamientos de representación inesperados en el diseñador. Estos comportamientos solo afectan a la visibilidad de la función y no a su efecto a menos que se modifiquen los valores de los parámetros de la función, lo que quita la función y su efecto del código. Para obtener más información, consulte [Codificación y descodificación en Base64](#base64-encoding-decoding).
 
 *Ejemplo*
 
@@ -1220,9 +1219,6 @@ concat('Hello', 'World')
 ```
 
 Y devuelve este resultado: `"HelloWorld"`
-  
-> [!NOTE]
-> La longitud del resultado no debe superar 104 857 600 caracteres.
 
 <a name="contains"></a>
 
@@ -1912,8 +1908,7 @@ Asimismo, devuelven estos resultados:
 
 ### <a name="float"></a>FLOAT
 
-Convierte una versión de cadena de un número de punto flotante a un número de punto flotante real.
-Solo puede usar esta función al pasar parámetros personalizados a una aplicación, por ejemplo, una aplicación lógica o un flujo.
+Convierte una versión de cadena de un número de punto flotante a un número de punto flotante real. Solo puede usar esta función al pasar parámetros personalizados a una aplicación, por ejemplo, una aplicación lógica o un flujo.
 
 ```
 float('<value>')
@@ -1921,12 +1916,12 @@ float('<value>')
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Sí | String | Cadena que contiene un número de punto flotante válido que se va a convertir |
+| <*value*> | Sí | String | Cadena que contiene un número de punto flotante válido que se va a convertir. Los valores mínimo y máximo son los mismos que los límites del tipo de datos float. |
 |||||
 
 | Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
-| <*valor-de-tipo-float*> | Float | Número de punto flotante a partir de la cadena especificada |
+| <*valor-de-tipo-float*> | Float | Número de punto flotante a partir de la cadena especificada. Los valores mínimo y máximo son los mismos que los límites del tipo de datos float. |
 ||||
 
 *Ejemplo*
@@ -2352,7 +2347,7 @@ Y devuelve este resultado: `6`
 
 ### <a name="int"></a>int
 
-Devuelve la versión como número entero de una cadena.
+Convierta la versión de cadena de un entero en un número entero real.
 
 ```
 int('<value>')
@@ -2360,12 +2355,12 @@ int('<value>')
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Sí | String | Cadena que se va a convertir |
+| <*value*> | Sí | String | Versión de cadena para el entero que se convertirá. Los valores mínimo y máximo son los mismos que los límites del tipo de datos entero. |
 |||||
 
 | Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
-| <*resultado-de-número-entero*> | Entero | Versión como número entero de la cadena especificada. |
+| <*resultado-de-número-entero*> | Entero | Versión como número entero de la cadena especificada. Los valores mínimo y máximo son los mismos que los límites del tipo de datos entero. |
 ||||
 
 *Ejemplo*
@@ -2688,7 +2683,7 @@ join([<collection>], '<delimiter>')
 
 | Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
-| <*carácter1*><*delimitador*><*carácter2*><*delimitador*>... | String | Cadena resultante creada a partir de todos los elementos de la matriz especificada |
+| <*carácter1*><*delimitador*><*carácter2*><*delimitador*>... | String | Cadena resultante creada a partir de todos los elementos de la matriz especificada. <p><p>**Nota**: La longitud del resultado no debe superar 104 857 600 caracteres. |
 ||||
 
 *Ejemplo*
@@ -2700,9 +2695,6 @@ join(createArray('a', 'b', 'c'), '.')
 ```
 
 Y devuelve este resultado: `"a.b.c"`
-  
-> [!NOTE]
-> La longitud del resultado no debe superar 104 857 600 caracteres.
 
 <a name="last"></a>
 
@@ -3307,7 +3299,7 @@ range(<startIndex>, <count>)
 | Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*startIndex*> | Sí | Entero | Valor entero que inicia la matriz como el primer elemento |
-| <*recuento*> | Sí | Entero | Número de enteros de la matriz |
+| <*recuento*> | Sí | Entero | El número de enteros en la matriz. El valor del parámetro `count` debe ser un entero positivo que no supere los 100 000. <p><p>**Nota**: La suma de los valores `startIndex` y `count` no debe superar 2 147 483 647. |
 |||||
 
 | Valor devuelto | Tipo | Descripción |
@@ -3324,9 +3316,6 @@ range(1, 4)
 ```
 
 Y devuelve este resultado: `[1, 2, 3, 4]`
-  
-> [!NOTE]
-> El valor del parámetro `count` debe ser un entero positivo que no supere los 100 000. La suma de los valores `startIndex` y `count` no debe superar 2 147 483 647.
 
 <a name="replace"></a>
 

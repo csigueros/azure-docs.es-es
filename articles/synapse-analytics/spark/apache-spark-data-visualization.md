@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 09/13/2020
-ms.openlocfilehash: 20d5dc867455d46cd7f06f7c436c20430a09b1e5
-ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
+ms.openlocfilehash: b52f599dd3430f963b03b5fdba41f71abf11ee43
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113486219"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128707676"
 ---
 # <a name="visualize-data"></a>Visualización de datos
 Azure Synapse es un servicio de análisis integrado que acelera el tiempo necesario para obtener información de los sistemas de almacenamiento de datos y de análisis de macrodatos. La visualización de datos es un componente clave para poder obtener información sobre los datos. Igualmente, facilita la comprensión de los macrodatos y otros datos de pequeño tamaño a los usuarios. También facilita la detección de patrones, tendencias y valores atípicos en grupos de datos. 
@@ -39,7 +39,7 @@ Para obtener acceso a las opciones del gráfico:
    |--|--| 
    | Tipo de gráfico | La función ```display``` admite una amplia gama de tipos de gráficos, como gráficos de barras, gráficos de dispersión, gráficos de líneas, etc. |
    | Clave | Especificar el rango de valores para el eje x.|
-   | Valor | Especificar el rango de valores para los valores del eje y. |
+   | Value | Especificar el rango de valores para los valores del eje y. |
    | Grupo de series | Se usa para determinar los grupos de la agregación. | 
    | Agregación | Método para agregar datos en la visualización.| 
    
@@ -53,7 +53,7 @@ Para obtener acceso a las opciones del gráfico:
 Puede usar <code>display(df, summary = true)</code> para comprobar el resumen de las estadísticas de una instancia de DataFrame de Apache Spark determinada que incluya el nombre de columna, el tipo de columna, los valores únicos y los valores que faltan en cada columna. También puede seleccionar una columna específica para ver el valor mínimo, el valor máximo, el valor medio y la desviación estándar.
     ![built-in-charts-summary](./media/apache-spark-development-using-notebooks/synapse-built-in-charts-summary.png#lightbox)
    
-### <a name="displayhtmldf-option"></a>Opción displayHTML(df)
+### <a name="displayhtml-option"></a>displayHTML() option
 Los cuadernos de Azure Synapse Analytics admiten gráficos HTML gracias a la función ```displayHTML```.
 
 La imagen siguiente es un ejemplo de creación de visualizaciones mediante [D3.js](https://d3js.org/).
@@ -254,14 +254,30 @@ h = plotly.offline.plot(fig, output_type='div')
 # display this html
 displayHTML(h)
 ```
+### <a name="pandas"></a>Pandas
+
+Puede ver la salida HTML del dataframe de Pandas como la salida predeterminada. El cuaderno mostrará automáticamente el contenido HTML con estilo. 
+
+   ![Ejemplo de gráfico de Pandas.](./media/apache-spark-data-viz/support-panda.png#lightbox)
+
+```python
+import pandas as pd 
+import numpy as np 
+
+df = pd.DataFrame([[38.0, 2.0, 18.0, 22.0, 21, np.nan],[19, 439, 6, 452, 226,232]], 
+
+                  index=pd.Index(['Tumour (Positive)', 'Non-Tumour (Negative)'], name='Actual Label:'), 
+
+                  columns=pd.MultiIndex.from_product([['Decision Tree', 'Regression', 'Random'],['Tumour', 'Non-Tumour']], names=['Model:', 'Predicted:'])) 
+
+df 
+```
 
 
 ### <a name="additional-libraries"></a>Bibliotecas adicionales 
 Además de estas bibliotecas, el entorno de tiempo de ejecución de Azure Synapse Analytics también incluye el siguiente conjunto de bibliotecas que se suelen usar para la visualización de datos:
-- [Matplotlib](https://matplotlib.org/)
-- [Bokeh](https://bokeh.org/)
+
 - [Seaborn](https://seaborn.pydata.org/) 
-- [Plotly](https://plotly.com/)
 
 Puede visitar la [documentación](./spark/../apache-spark-version-support.md) del entorno de tiempo de ejecución de Azure Synapse Analytics para obtener la información más actualizada acerca de las bibliotecas y las versiones disponibles.
 

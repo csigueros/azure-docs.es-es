@@ -5,12 +5,12 @@ services: container-service
 ms.service: container-service
 ms.topic: article
 ms.date: 10/19/2020
-ms.openlocfilehash: f46a421ae2ad1a4d9c590c7e0b47784760ebcb9f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c943db2577de8fc1e4adc0e9cfbf408bffb5f2c6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782808"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128585379"
 ---
 # <a name="add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>Incorporación de un grupo de nodos de Spot a un clúster de Azure Kubernetes Service (AKS)
 
@@ -69,7 +69,7 @@ De forma predeterminada, al crear un clúster con varios grupos de nodos, se cre
 El comando también habilita el [escalador automático de clúster][cluster-autoscaler], recomendado para los grupos de nodos de Spot. En función de las cargas de trabajo que se ejecuten en el clúster, el escalador automático de clúster escala y reduce verticalmente el número de nodos del grupo. En el caso de los grupos de nodos de Spot, el escalador automático de clúster escala verticalmente el número de nodos después de una expulsión si aún se necesitan nodos adicionales. Si cambia el máximo de nodos que puede tener un grupo, también debe ajustar el valor de `maxCount` relativo al escalador automático de clúster. Si no usa un escalador automático de clúster, en la expulsión el grupo de Spot disminuirá a cero y requerirá una operación manual para recibir nodos de Spot adicionales.
 
 > [!Important]
-> Programe solo las cargas de trabajo en grupos de nodos de Spot que puedan controlar las interrupciones, como los trabajos de procesamiento por lotes y los entornos de prueba. Se recomienda que configure los valores de [taint y toleration][taints-tolerations] en el grupo de nodos de Spot para asegurarse de que en un grupo de nodos de Spot solo estén programadas las cargas de trabajo que pueden controlar las expulsiones de nodos. Por ejemplo, el comando anterior agrega de forma predeterminada un valor taint de *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* para que solo se programen los pods con el valor toleration correspondiente en este nodo.
+> Programe solo las cargas de trabajo en grupos de nodos de Spot que puedan controlar las interrupciones, como los trabajos de procesamiento por lotes y los entornos de prueba. Se recomienda que configure los valores de [taint y toleration][taints-tolerations] en el grupo de nodos de Spot para asegurarse de que en un grupo de nodos de Spot solo estén programadas las cargas de trabajo que pueden controlar las expulsiones de nodos. Por ejemplo, el comando anterior agrega de forma predeterminada el valor taint *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* para que, en este nodo, solo se programen los pods con el valor de tolerancia correspondiente.
 
 ## <a name="verify-the-spot-node-pool"></a>Comprobación del grupo de nodos de Spot
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/27/2021
-ms.openlocfilehash: fc7c9bceb32797d620a865d08c8b02cd2ab533c7
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.date: 09/22/2021
+ms.openlocfilehash: af7069aae9412f7964cca82c034d0e0966220ada
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123471667"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081137"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>¿Qué es una instancia de proceso de Azure Machine Learning?
 
@@ -39,15 +39,17 @@ Una instancia de proceso es una estación de trabajo totalmente administrada bas
 
 |Ventajas principales|Descripción|
 |----|----|
-|Productividad|Puede compilar e implementar modelos con cuadernos integrados y las siguientes herramientas en Azure Machine Learning Studio:<br/>-  Jupyter<br/>-  JupyterLab<br/>-  VS Code (versión preliminar)<br/>-RStudio (versión preliminar)<br/>La instancia de proceso está totalmente integrada con el área de trabajo y estudio de Azure Machine Learning. Puede compartir cuadernos y datos con otros científicos de datos en el área de trabajo.<br/> También puede usar [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) con las instancias de proceso.
-|Administrada y segura|Reduzca la superficie de seguridad y agregue compatibilidad con los requisitos de seguridad empresariales. Las instancias de proceso proporcionan directivas de administración sólidas y configuraciones de red seguras, como:<br/><br/>- Aprovisionamiento automático a partir de plantillas de Resource Manager o del SDK de Azure Machine Learning<br/>- [Control de acceso basado en rol de Azure (RBAC de Azure)](../role-based-access-control/overview.md)<br/>- [Compatibilidad con redes virtuales](./how-to-secure-training-vnet.md#compute-instance)<br/>- Directiva SSH para habilitar o deshabilitar el acceso SSH<br/>TLS 1.2 habilitado |
+|Productividad|Puede compilar e implementar modelos con cuadernos integrados y las siguientes herramientas en Azure Machine Learning Studio:<br/>-  Jupyter<br/>-  JupyterLab<br/>-  VS Code (versión preliminar)<br/>-RStudio (versión preliminar)<br/>La instancia de proceso está totalmente integrada con el área de trabajo y estudio de Azure Machine Learning. Puede compartir cuadernos y datos con otros científicos de datos en el área de trabajo.<br/> También puede usar VS Code con las instancias de proceso.
+|Administrada y segura|Reduzca la superficie de seguridad y agregue compatibilidad con los requisitos de seguridad empresariales. Las instancias de proceso proporcionan directivas de administración sólidas y configuraciones de red seguras, como:<br/><br/>- Aprovisionamiento automático a partir de plantillas de Resource Manager o del SDK de Azure Machine Learning<br/>- [Control de acceso basado en rol de Azure (RBAC de Azure)](../role-based-access-control/overview.md)<br/>- [Compatibilidad con redes virtuales](./how-to-secure-training-vnet.md#compute-cluster)<br/> - Directiva SSH para habilitar o deshabilitar el acceso SSH<br/>La opción - [Ninguna dirección IP pública](./how-to-secure-training-vnet.md#no-public-ip) ofrece la capacidad de habilitar una solución de conectividad segura sin depender de una dirección IP pública.</br>- TLS 1.2 habilitado |
 |Preconfigurado &nbsp;para&nbsp;ML|Ahorre tiempo en las tareas de configuración con paquetes de ML preconfigurados y actualizados, marcos de aprendizaje profundo y controladores de GPU.|
 |Totalmente personalizable|La amplia compatibilidad con los tipos de máquina virtual de Azure, incluidas las GPU y la personalización de bajo nivel persistente, como la instalación de paquetes y controladores, hace que los escenarios avanzados sean muy sencillos. |
 
+* Proteja la instancia de proceso con la opción **[Ninguna dirección IP pública (versión preliminar)](./how-to-secure-training-vnet.md#no-public-ip)** .
 * La instancia de proceso también es un destino de proceso de entrenamiento seguro similar a los clústeres de proceso, pero es un solo nodo.
 * Puede [crear una instancia de proceso](how-to-create-manage-compute-instance.md?tabs=python#create) o bien un administrador puede **[crear una instancia de proceso en su nombre](how-to-create-manage-compute-instance.md?tabs=python#on-behalf)** .
 * También puede **[usar un script de configuración (versión preliminar)](how-to-create-manage-compute-instance.md#setup-script)** para disponer de una manera automatizada de personalizar y configurar la instancia de proceso según sus necesidades.
 * Para ahorrar costos, **[cree una programación (versión preliminar)](how-to-create-manage-compute-instance.md#schedule)** para iniciar y detener automáticamente la instancia de proceso.
+
 
 ## <a name="tools-and-environments"></a><a name="contents"></a>Herramientas y entornos
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/24/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a7f066a350eae18b9c847d206310cfc3ab8bd57
-ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
+ms.openlocfilehash: 4e980417c2c48455e43143fb2f870a63d6395f94
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112913390"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546213"
 ---
 # <a name="operating-system-upgrade"></a>Actualización del sistema operativo
 En este artículo, se describen los detalles de las actualizaciones del sistema operativo (SO) en HANA Instancias grandes (HLI), también conocidas como infraestructura baremetal.
@@ -28,7 +28,7 @@ En este artículo, se describen los detalles de las actualizaciones del sistema 
 >La actualización del sistema operativo es su responsabilidad. El soporte técnico de operaciones de Microsoft puede guiarle en las áreas clave de la actualización, pero consulte también al proveedor del sistema operativo al planear una actualización.
 
 Durante el aprovisionamiento de HLI, el equipo de operaciones de Microsoft instala el sistema operativo.
-Es necesario que mantenga el sistema operativo. Por ejemplo, debe realizar la aplicación de revisiones, la optimización y la actualización, entre otras, en HLI. Antes de realizar cambios importantes en el sistema operativo, por ejemplo, la actualización de SP1 a SP2, abra una incidencia de soporte técnico para ponerse en contacto con el equipo de operaciones de Microsoft. De este modo, podrán consultarle. Se recomienda abrir esta incidencia de soporte técnico al menos una semana antes de la actualización. 
+Es necesario que mantenga el sistema operativo. Por ejemplo, debe realizar la aplicación de revisiones, la optimización y la actualización, entre otras, en HLI. Antes de realizar cambios importantes en el sistema operativo, por ejemplo, la actualización de SP1 a SP2, abra una incidencia de soporte técnico para ponerse en contacto con el equipo de operaciones de Microsoft. Se pondrán en contacto con usted. Se recomienda abrir esta incidencia de soporte técnico al menos una semana antes de la actualización. 
 
 El vale incluye:
 

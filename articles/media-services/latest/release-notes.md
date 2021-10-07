@@ -12,12 +12,12 @@ ms.custom: references_regions
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 46ebdd1f5cb3093b0c1c1a5bc3273cf1aa1afd8f
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 4a2c4959d6a84e8561ac23924207744b6c65f88b
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634832"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129053489"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -30,15 +30,50 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 * Corrección de errores
 * Funciones obsoletas
 
+## <a name="september-2021"></a>Septiembre de 2021
+
+
+### <a name="improved-scale-management-and-monitoring-for-a-streaming-endpoint-in-the-portal"></a>Mejora de la administración y la supervisión del escalado de un punto de conexión de streaming en el portal
+
+La página del portal del punto de conexión de streaming ahora proporciona una manera sencilla de administrar la capacidad de salida y calcular el alcance de la audiencia con y sin un CDN configurado.  Basta con ajustar la velocidad de bits de entrega y el porcentaje de aciertos de la caché de la CDN previsto para obtener estimaciones rápidas del tamaño de su audiencia y ayudarle a determinar si necesita escalar verticalmente a más puntos de conexión de streaming prémium.
+
+   [ ![Escalado y supervisión de los puntos de conexión de streaming en el portal](./media/release-notes/streaming-endpoint-monitor-inline.png) ](./media/release-notes/streaming-endpoint-monitor.png#lightbox)
+
+### <a name="streaming-endpoint-portal-page-now-shows-cpu-egress-and-latency-metrics"></a>La página del portal "Punto de conexión de streaming" muestra ahora las métricas de CPU, salida y latencia
+
+Ahora puede visualizar la carga de CPU, el ancho de banda de salida y las métricas de latencia completas de sus puntos de conexión de streaming en Azure Portal. Ahora puede crear alertas de supervisión basadas en las métricas de CPU, salida o latencia directamente en el portal mediante la potencia de Azure Monitor.
+
+### <a name="user-assigned-managed-identities-support-for-media-services-accounts"></a>Compatibilidad con identidades administradas asignadas por el usuario en cuentas de Media Services
+
+Con las identidades administradas asignadas por el usuario, los clientes ahora podrán permitir una mejor seguridad de sus cuentas de almacenamiento y los almacenes de claves asociados. El acceso a la cuenta de almacenamiento del cliente y a los almacenes de claves se limitará a la identidad administrada asignada por el usuario.  Tendrá control total sobre la duración de las identidades administradas por el usuario y podrá revocar fácilmente el acceso de la cuenta de servicio multimedia a cualquier cuenta de almacenamiento específica según sea necesario.
+
+### <a name="media-services-storage-accounts-page-in-the-portal-now-support-both-uami-and-sami"></a>La página de cuentas de almacenamiento de Media Services del portal ahora admite UAMI y SAMI.
+
+Ahora puede asignar y administrar identidades administradas asignadas por el usuario (UAMI) o identidades administradas asignadas por el sistema (SAMI) para las cuentas de almacenamiento directamente en Azure Portal para Media Services.
+
+### <a name="bring-your-own-key-page-now-also-supports-both-uami-and-sami"></a>La página "Bring your own key" ahora también admite UAMI y SAMI.
+La página del portal de administración de claves de Media Services ahora admite la configuración y la administración de identidades administradas asignadas por el usuario (UAMI) o de identidades administradas asignadas por el sistema (SAMI).
+
+   [ ![Traer sus propias claves para el cifrado de las cuentas](./media/release-notes/byok-managed-identity.png)](./media/release-notes/byok-managed-identity.png)
+
+
+### <a name="private-link-support-for-media-services"></a>Compatibilidad con Private Link en Media Services
+Ahora puede restringir el acceso público a los eventos en directo, los puntos de conexión de streaming y el punto de conexión de servicios de entrega de claves para la protección de contenido y la administración de derechos digitales mediante la creación de un punto de conexión privado para cada uno de los servicios. De esta forma, se limitará el acceso público a cada uno de estos servicios. Solo el tráfico que se origina en la red virtual (VNET) configurada en el punto de conexión privado podrá acceder a estos puntos de conexión.
+
+### <a name="ip-allow-list-for-key-service"></a>Lista de direcciones IP permitidos para el servicio de claves
+Ahora puede optar por permitir que determinadas direcciones IP públicas tengan acceso al servicio de entrega de claves para la protección de contenido y la administración de derechos digitales. Los puntos de conexión de streaming y de eventos en directo ya admiten la configuración de la lista de direcciones IP permitidas en sus respectivas páginas.
+
+Ahora también dispone de una marca de características de nivel de cuenta para permitir o bloquear el acceso a la cuenta de Media Services desde la red pública de Internet.
+
 ## <a name="july-2021"></a>Julio de 2021
 
-### <a name="net-sdk-microsoftazuremanagementmedia--500-release-available-in-nuget-coming-soon---early-september-2021"></a>SDK de .NET (Microsoft.Azure.Management.Media) versión 5.0.0 disponible en NuGet (próximamente: a principios de septiembre de 2021)
+### <a name="net-sdk-microsoftazuremanagementmedia--500-release-available-in-nuget"></a>Versión del SDK de .NET (Microsoft.Azure.Management.Media ) 5.0.0 disponible en NuGet
 
 La versión 5.0.0 del SDK de .NET [Microsoft.Azure.Management.Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/5.0.0) ya se ha publicado en NuGet. Esta versión se genera para funcionar con la versión [estable 2021-06-01](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2021-06-01) de la API REST de ARM de Open API (Swagger).
 
 Para más información sobre los cambios de la versión 4.0.0, consulte el [registro de cambios](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/mediaservices/Microsoft.Azure.Management.Media/CHANGELOG.md).
 
-#### <a name="changes-in-the-500-net-sdk-release-coming-soon---early-september-2021"></a>Cambios en la versión 5.0.0 del SDK de .NET (próximamente: a principios de septiembre de 2021)
+#### <a name="changes-in-the-500-net-sdk-release"></a>Cambios de la versión del SDK de .NET 5.0.0
 
 * La cuenta de Media Services ahora admite identidades administradas asignadas por el usuario y por el sistema.
 * Se ha agregado la opción **PublicNetworkAccess** para cuentas de Media Services. Esta opción se puede usar con la característica Private Link para permitir solo el acceso desde redes privadas, bloqueando todo el acceso a la red pública.
@@ -48,8 +83,9 @@ Para más información sobre los cambios de la versión 4.0.0, consulte el [reg
 #### <a name="breaking-changes-in-tht-500-net-sdk-release"></a>Cambios importantes en la versión 5.0.0 del SDK de .NET
 
 * **ApiErrorException** se ha reemplazado por **ErrorResponseException** para ser coherente con todos los demás SDK de Azure. El cuerpo de la excepción no ha cambiado.
+* Todas las llamadas que devuelven 404 No encontrado ahora inician una excepción **ErrorResponseException** en lugar de devolver un valor Null. Este cambio se realizó por coherencia con otros SDK de Azure.
 * El constructor del servicio multimedia tiene un nuevo parámetro PublicNetworkAccess opcional después del parámetro KeyDelivery.
-* La propiedad Type de MediaServiceIdentity se ha cambiado de enumeración ManagedIdentityType a cadena, para dar cabida a varios tipos separados por comas. Las cadenas válidas para el tipo son SystemAssigned o SystemAssigned, UserAssigned o UserAssigned.
+* La propiedad Type de **MediaServiceIdentity** ha cambiado de enumeración ManagedIdentityType a cadena, para dar cabida a varios valores separados por comas. Las cadenas válidas son **SystemAssigned** o **UserAssigned**.
 
 ## <a name="june-2021"></a>Junio de 2021
 
@@ -71,9 +107,9 @@ Para más información sobre cómo usar Media Services con vínculos privados, c
 
 La región Oeste de EE. UU. 3 ahora tiene disponibilidad general y está disponible para que los clientes la usen al crear nuevas cuentas de Media Services.
 
-### <a name="key-delivery-supports-ip-allowlist-restrictions"></a>La entrega de claves admite restricciones de lista de direcciones IP permitidas.
+### <a name="key-delivery-supports-ip-allow-list-restrictions"></a>La entrega de claves admite restricciones de lista de direcciones IP permitidas.
 
-Las cuentas de Media Services se pueden configurar ahora con restricciones de lista de direcciones IP permitidas en la entrega de claves. La nueva configuración de la lista de permitidos está disponible en el recurso de la cuenta de Media Services mediante el SDK, así como en el portal y la CLI.
+Las cuentas de Media Services ahora se pueden configurar con restricciones de lista de direcciones IP permitidas en la entrega de claves. La nueva configuración de la lista de permitidos está disponible en el recurso de la cuenta de Media Services mediante el SDK, así como en el portal y la CLI.
 Esto permite a los operadores restringir la entrega de licencias DRM y claves de contenido AES-128 a intervalos IPv4 específicos.
 
 Esta característica también se puede usar para interrumpir toda entrega de licencias DRM o claves AES-128 desde la red pública de Internet y restringir la entrega a un punto de conexión de red privado.
@@ -161,6 +197,8 @@ La versión 3 proporciona:
 - Compatibilidad ininterrumpida con eventos en directo
 - API de REST de ARM y SDK de cliente para .NET Core, Node.js, Python, Java, Go y Ruby.
 - Claves administradas por el cliente, integración de almacenamiento de confianza, compatibilidad con vínculos privados, [ etc.](./migrate-v-2-v-3-migration-benefits.md)
+
+Como parte de la actualización a la API y los SDK de la versión 3, las unidades reservadas de multimedia (MRU) ya no son necesarias en las cuentas de Media Services, ya que el sistema se escalará y reducirá verticalmente de forma automática en función de la carga. Consulte la [guía de migración de MRU](./migrate-v-2-v-3-migration-scenario-based-media-reserved-units.md) para más información.
 
 #### <a name="action-required"></a>Acción requerida
 

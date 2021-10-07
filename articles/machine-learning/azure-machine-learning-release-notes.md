@@ -9,18 +9,57 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 08/18/2021
-ms.openlocfilehash: 1f3ed6e3c661e0238b6a29284a2da7254edab6c4
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: f4c7c43c0406ed7a6c05c3d83e467bc335c43093
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824844"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128628116"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
 
 En este artículo conocerá las versiones de Azure Machine Learning.  Para obtener el contenido completo de referencia del SDK, visite la página de referencia del [**SDK principal para Python**](/python/api/overview/azure/ml/intro) de Azure Machine Learning.
 
 __Fuente RSS__: reciba notificaciones cuando esta página se actualice copiando y pegando la siguiente dirección URL en su lector de fuentes: `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+## <a name="2021-09-07"></a>07-09-2021
+
+### <a name="azure-machine-learning-sdk-for-python-v1340"></a>SDK de Azure Machine Learning para Python v1.34.0
+  + **azureml-automl-core**
+    + Permite reajustar una canalización de previsión previamente entrenada.
+    + Permite obtener predicciones sobre los datos de entrenamiento (predicción dentro de la muestra) para hacer previsiones.
+  + **azureml-automl-runtime**
+    + Permite devolver probabilidades de predicción desde un punto de conexión implementado de un modelo clasificador de AutoML.
+    + Se ha agregado una opción de previsión para que los usuarios especifiquen que todas las predicciones deben ser enteros.
+    + El nombre de la columna de destino se ha quitado de los nombres de las características de explicación del modelo en los experimentos locales con training_data_label_column_name
+    + como entrada del conjunto de datos.
+    + Permite reajustar una canalización de previsión previamente entrenada.
+    + Permite obtener predicciones sobre los datos de entrenamiento (predicción dentro de la muestra) para hacer previsiones.
+  + **azureml-core**
+    + Permite establecer el tipo de columna de flujo, así como montar y descargar columnas de flujo en el conjunto de datos tabular.
+    + Se han agregado nuevos campos opcionales a Kubernetes.attach_configuration(identity_type=None e identity_ids=None), que permiten asociar KubernetesCompute con una identidad SystemAssigned o una identidad UserAssigned. Se van a incluir nuevos campos de identidad al llamar a print(compute_target) o compute_target.serialize(): identity_type, identity_id, principal_id y tenant_id/client_id.
+  + **azureml-dataprep**
+    + Permite establecer el tipo de columna de flujo del conjunto de datos tabular. Permite montar y descargar columnas de flujo del conjunto de datos tabular.
+  + **azureml-defaults**
+    + La dependencia `azureml-inference-server-http==0.3.1` se ha agregado a `azureml-defaults`.
+  + **azureml-mlflow**
+    + Permite la paginación de list_experiments API agregando los parámetros opcionales `max_results` y `page_token`. Para obtener documentación, consulte los documentos oficiales de MLflow.
+  + **azureml-sdk**
+    + Se ha reemplazado la dependencia de un paquete en desuso (azureml-train) de azureml-sdk.
+    + Se ha agregado azureml-responsibleai a algunos extras de azureml-sdk
+  + **azureml-train-automl-client**
+    + Expone los parámetros `test_data` y `test_size` en `AutoMLConfig`. Estos parámetros se pueden usar para iniciar automáticamente una serie de pruebas una vez completada 
+    + la fase de entrenamiento del modelo. La serie de pruebas calculará las predicciones con el mejor modelo y generará métricas con arreglo a estas predicciones.
+
+## <a name="2021-08-24"></a>2021-08-24
+
+### <a name="azure-machine-learning-experimentation-user-interface"></a>Interfaz de usuario de Experimentación de Azure Machine Learning
+  + **Run Delete**
+    + Run Delete es una nueva funcionalidad que permite a los usuarios eliminar una o varias ejecuciones de su área de trabajo.
+    + Esta funcionalidad puede ayudarles a reducir los costos de almacenamiento y a administrar la capacidad de almacenamiento eliminando periódicamente ejecuciones y experimentos directamente desde la interfaz de usuario.
+  + **Batch Cancel Run**
+    + Batch Cancel Run es una nueva funcionalidad que permite a los usuarios seleccionar una o varias ejecuciones para cancelarlas en la lista de ejecuciones. 
+    + Esta funcionalidad puede ayudar a los usuarios a cancelar varias ejecuciones en cola y a liberar espacio en el clúster.
 
 ## <a name="2021-08-18"></a>18-08-2021
 
@@ -2367,7 +2406,7 @@ En el momento en que se publica este artículo, se admiten los siguientes explor
   + El rendimiento de `read_parquet` ha mejorado cuando se ejecuta en Spark.
   + Se ha corregido un problema en que se producía un error `column_type_builder` en el caso de una sola columna con formatos de fecha ambiguos.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 + **Característica en vista previa**
   + El streaming de archivos de registro y de salida ahora está disponible para las páginas de detalles de la ejecución. Los archivos transmitirán las actualizaciones en tiempo real cuando se active la alternancia de la vista previa.
   + Se ofrece en versión preliminar la capacidad de establecer la cuota en el nivel de área de trabajo. Las cuotas de AmlCompute se asignan en el nivel de suscripción, pero ahora puede distribuir esa cuota entre las áreas de trabajo y asignarla con el fin de conseguir un uso compartido y una gobernanza equitativos. Solo tiene que hacer clic en la hoja **Usages+Quotas** (Usos y cuotas) de la barra de navegación izquierda del área de trabajo y seleccionar la pestaña **Configure Quotas** (Configurar cuotas). Debe ser administrador de la suscripción para poder establecer cuotas en el nivel de área de trabajo, ya que se trata de una operación entre áreas de trabajo.
@@ -2646,7 +2685,7 @@ SDK de Azure Machine Learning para Python v1.0.30.
 
 ## <a name="2019-04-15"></a>2019-04-15
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
   + Ahora puede volver a enviar un ciclo de script existente de un clúster de proceso remoto existente.
   + Ahora puede ejecutar una canalización publicada con parámetros nuevos en la pestaña Canalizaciones.
   + Los detalles de la ejecución ahora admiten un nuevo visor de archivos de instantánea. Puede ver una instantánea del directorio cuando envió una ejecución concreta. También puede descargar el cuaderno que se envió para iniciar la ejecución.
@@ -2704,7 +2743,7 @@ SDK de Azure Machine Learning para Python v1.0.30.
 + **Mejoras y correcciones de errores**
   + Se ha agregado compatibilidad en las canalizaciones de Azure Machine Learning con el establecimiento de la propiedad source_directory_data_store en un almacén de datos deseado (como un almacenamiento de blobs) en [RunConfigurations](/python/api/azureml-core/azureml.core.runconfig.runconfiguration) que se suministran a [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep). De forma predeterminada los pasos utilizan el almacén de Azure File como el almacén de datos de respaldo, lo que provocar problemas de limitación cuando un gran número de pasos se ejecutan simultáneamente.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 + **Nuevas características:**
   + Nueva experiencia de arrastrar y soltar el editor de tablas en informes. Los usuarios pueden arrastrar una columna desde el cuadro al área de la tabla en la que se mostrará una vista previa de la tabla. Las columnas se pueden reorganizar.

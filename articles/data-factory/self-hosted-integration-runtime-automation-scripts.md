@@ -8,12 +8,12 @@ author: lrtoyou1223
 ms.author: lle
 ms.custom: seo-lt-2019
 ms.date: 05/09/2020
-ms.openlocfilehash: c64f71e6cdd008efa74d7279e3dc275bd24825f0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a1a05322a43f791ad9058659ea6e0cd53839196c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738124"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124814766"
 ---
 # <a name="automating-self-hosted-integration-runtime-installation-using-local-powershell-scripts"></a>Automatización de la instalación del entorno de ejecución de integración autohospedado mediante scripts locales de PowerShell
 Para automatizar la instalación del entorno de ejecución de integración autohospedado en máquinas locales (que no sean VM de Azure en las que podamos aprovechar la plantilla de Resource Manager en su lugar), puede usar scripts locales de PowerShell. En este artículo se presentan dos scripts que puede usar.
@@ -31,9 +31,9 @@ Para automatizar la instalación del entorno de ejecución de integración autoh
 > Estos scripts se crean mediante la [utilidad de línea de comandos documentada](./create-self-hosted-integration-runtime.md#set-up-an-existing-self-hosted-ir-via-local-powershell) en el entorno de ejecución de integración autohospedado. Si es necesario, puede personalizar estos scripts como corresponda para adaptarlos a sus necesidades de automatización.
 > Los scripts deben aplicarse por nodo, por lo que debe asegurarse de ejecutarlo en todos los nodos en caso de una configuración de alta disponibilidad (2 o más nodos).
 
-* Para automatizar la configuración: instale y registre un nuevo nodo de entorno de ejecución de integración autohospedado mediante **[InstallGatewayOnLocalMachine.ps1](https://github.com/nabhishek/SelfHosted-IntegrationRuntime_AutomationScripts/blob/master/InstallGatewayOnLocalMachine.ps1)** : el script se puede usar para instalar el nodo del entorno de ejecución de integración autohospedado y registrarlo con una clave de autenticación. El script acepta dos argumentos: el **primero** especifica la ubicación del [entorno de ejecución de integración autohospedado](https://www.microsoft.com/download/details.aspx?id=39717) en un disco local y el **segundo** especifica la **clave de autenticación** (para registrar el nodo de IR autohospedado).
+* Para automatizar la configuración: instale y registre un nuevo nodo de entorno de ejecución de integración autohospedado mediante **[InstallGatewayOnLocalMachine.ps1](https://github.com/Azure/Azure-DataFactory/blob/main/SamplesV2/SelfHostedIntegrationRuntime/AutomationScripts/InstallGatewayOnLocalMachine.ps1)** : el script se puede usar para instalar el nodo del entorno de ejecución de integración autohospedado y registrarlo con una clave de autenticación. El script acepta dos argumentos: el **primero** especifica la ubicación del [entorno de ejecución de integración autohospedado](https://www.microsoft.com/download/details.aspx?id=39717) en un disco local y el **segundo** especifica la **clave de autenticación** (para registrar el nodo de IR autohospedado).
 
-* Para automatizar las actualizaciones manuales: actualice el nodo de IR autohospedado con una versión específica o a la versión más reciente **[script-update-gateway.ps1](https://github.com/nabhishek/SelfHosted-IntegrationRuntime_AutomationScripts/blob/master/script-update-gateway.ps1)** . Esto también se admite en caso de que haya desactivado la actualización automática o quiera tener más control sobre las actualizaciones. El script se puede usar para actualizar el nodo del entorno de ejecución de integración autohospedado a la versión más reciente o a una versión superior especificada (el cambio a una versión anterior no funciona). Acepta un argumento para especificar el número de versión (ejemplo: -version 3.13.6942.1). Cuando no se especifica ninguna versión, siempre actualiza la instancia de IR autohospedada a la última versión que se encuentra en las [descargas](https://www.microsoft.com/download/details.aspx?id=39717).
+* Para automatizar las actualizaciones manuales: actualice el nodo de IR autohospedado con una versión específica o a la versión más reciente **[script-update-gateway.ps1](https://github.com/Azure/Azure-DataFactory/blob/main/SamplesV2/SelfHostedIntegrationRuntime/AutomationScripts/script-update-gateway.ps1)** . Esto también se admite en caso de que haya desactivado la actualización automática o quiera tener más control sobre las actualizaciones. El script se puede usar para actualizar el nodo del entorno de ejecución de integración autohospedado a la versión más reciente o a una versión superior especificada (el cambio a una versión anterior no funciona). Acepta un argumento para especificar el número de versión (ejemplo: -version 3.13.6942.1). Cuando no se especifica ninguna versión, siempre actualiza la instancia de IR autohospedada a la última versión que se encuentra en las [descargas](https://www.microsoft.com/download/details.aspx?id=39717).
     > [!NOTE]
     > Solo se pueden especificar las tres últimas versiones. Idealmente, esto se usa para actualizar un nodo existente a la versión más reciente. **SE ASUME QUE TIENE UN IR AUTOHOSPEDADO REGISTRADO**. 
 
@@ -52,10 +52,10 @@ Para automatizar la instalación del entorno de ejecución de integración autoh
     > Reemplace "username" por su nombre de usuario.
     > Especifique la ubicación del archivo "InstallGatewayOnLocalMachine.ps1" al ejecutar el script. En este ejemplo, se ha almacenado en el escritorio.
 
-1. Si hay una instancia de IR autohospedado preinstalado en la máquina, el script la desinstalará automáticamente y, a continuación, configurará una nueva. Verá la ventana siguiente: ![configurar entorno de ejecución de integración](media/self-hosted-integration-runtime-automation-scripts/integration-runtime-configure.png)
+1. Si hay una instancia de IR autohospedado preinstalado en la máquina, el script la desinstalará automáticamente y, a continuación, configurará una nueva. Verá la ventana siguiente: :::image type="content" source="media/self-hosted-integration-runtime-automation-scripts/integration-runtime-configure.png" alt-text="configurar entorno de ejecución de integración":::
 
 1. Cuando se complete la instalación y el registro de claves, verá los resultados *Succeed to install gateway* (Puerta de enlace instalada correctamente) y *Succeed to register gateway* (Puerta de enlace registrada correctamente) en la instancia local de PowerShell.
-        [![resultado de la ejecución del script 1](media/self-hosted-integration-runtime-automation-scripts/script-1-run-result.png)](media/self-hosted-integration-runtime-automation-scripts/script-1-run-result.png#lightbox)
+        [:::image type="content" source="media/self-hosted-integration-runtime-automation-scripts/script-1-run-result.png#lightbox" alt-text="resultado de ejecución del script 1](media/self-hosted-integration-runtime-automation-scripts/script-1-run-result.png)":::
 
 ### <a name="for-automating-manual-updates"></a>Para automatizar las actualizaciones manuales
 Este script se usa para actualizar o instalar y registrar la versión más reciente del entorno de ejecución de integración autohospedado. La ejecución del script sigue los pasos que se describen a continuación:
@@ -76,4 +76,4 @@ Puede seguir el siguiente ejemplo de línea de comandos para usar este script:
    PS C:\windows\system32> C:\Users\username\Desktop\script-update-gateway.ps1 -version 3.13.6942.1
    ``` 
    Si la versión actual ya es la más reciente, verá el resultado siguiente, lo que sugiere que no se requiere ninguna actualización.   
-    [![resultado de la ejecución del script 2](media/self-hosted-integration-runtime-automation-scripts/script-2-run-result.png)](media/self-hosted-integration-runtime-automation-scripts/script-2-run-result.png#lightbox)
+    [:::image type="content" source="media/self-hosted-integration-runtime-automation-scripts/script-2-run-result.png#lightbox" alt-text="resultado de ejecución del script 2](media/self-hosted-integration-runtime-automation-scripts/script-2-run-result.png)":::

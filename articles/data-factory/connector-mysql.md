@@ -1,29 +1,29 @@
 ---
-title: Copia de datos desde MySQL mediante Azure Data Factory
+title: Copia de datos de MySQL
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre el conector MySQL de Azure Data Factory que permite copiar los datos desde una base de datos MySQL a un almacén de datos admitido como receptor.
+description: Obtenga información sobre el conector MySQL de Azure Data Factory y Synapse Analytics que permite copiar los datos desde una base de datos MySQL a un almacén de datos admitido como receptor.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 56a52c597de5715bf0ca1761a9ae88554deed162
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 98211fd52546f0301552641fc57badddc92fcae3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123315712"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831711"
 ---
-# <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copia de datos desde MySQL mediante Azure Data Factory
+# <a name="copy-data-from-mysql-using-azure-data-factory-or-synapse-analytics"></a>Copia de datos de MySQL con Azure Data Factory o Synapse Analytics
 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-onprem-mysql-connector.md)
 > * [Versión actual](connector-mysql.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde una base de datos MySQL. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
+En este artículo se resume el uso de la actividad de copia en canalizaciones de Azure Data Factory y Synapse Analytics para copiar datos de una base de datos MySQL. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 >[!NOTE]
 >Para copiar datos en el servicio [Azure Database for MySQL](../mysql/overview.md), o desde este servicio, use el [conector específico para Azure Database for MySQL](connector-azure-database-for-mysql.md).
@@ -57,7 +57,7 @@ Siga estos pasos para crear un servicio vinculado a MySQL en la interfaz de usua
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un servicio vinculado con la interfaz de usuario de Azure Data Factory":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -244,9 +244,9 @@ Si estaba usando un origen de tipo `RelationalSource`, todavía se admite tal cu
 
 ## <a name="data-type-mapping-for-mysql"></a>Asignación de tipos de datos de MySQL
 
-Al copiar datos desde MySQL, se utilizan las siguientes asignaciones de tipos de datos de MySQL en los tipos de datos provisionales de Azure Data Factory. Consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md) para información sobre cómo la actividad de copia asigna el tipo de datos y el esquema de origen al receptor.
+Al copiar datos desde MySQL, se utilizan las siguientes asignaciones de tipos de datos de MySQL a los tipos de datos provisionales usados internamente por el servicio. Consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md) para información sobre cómo la actividad de copia asigna el tipo de datos y el esquema de origen al receptor.
 
-| Tipo de datos de MySQL | Tipo de datos provisionales de Data Factory |
+| Tipo de datos de MySQL | Tipo de datos de servicio provisional |
 |:--- |:--- |
 | `bigint` |`Int64` |
 | `bigint unsigned` |`Decimal` |
@@ -295,4 +295,4 @@ Al copiar datos desde MySQL, se utilizan las siguientes asignaciones de tipos de
 Para obtener información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

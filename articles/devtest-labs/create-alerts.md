@@ -1,14 +1,14 @@
 ---
-title: Creación de alertas del registro de actividad para laboratorios en Azure DevTest Labs
+title: Creación de alertas del registro de actividad para laboratorios
 description: En este artículo se indican los pasos para crear alertas del registro de actividad para laboratorios en Azure DevTest Labs.
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: f774e3291961c58f55a9ed24026535e076235b98
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ebb5ae118d6485afd697ff9b5db7113a101b358
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100588760"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128628173"
 ---
 # <a name="create-activity-log-alerts-for-labs-in-azure-devtest-labs"></a>Creación de alertas del registro de actividad para laboratorios en Azure DevTest Labs
 En este artículo se explica cómo crear alertas del registro de actividad para laboratorios en Azure DevTest Labs (por ejemplo, cuando se crea o elimina una VM).
@@ -79,4 +79,3 @@ En este ejemplo, creará una alerta para todas las operaciones administrativas d
 - Para más información sobre la creación de grupos de acciones con distintos tipos de acción, consulte [Creación y administración de grupos de acciones en Azure Portal](../azure-monitor/alerts/action-groups.md).
 - Para obtener más información sobre los registros de actividad, consulte [Registro de actividad de Azure](../azure-monitor/essentials/activity-log.md).
 - Para obtener información sobre cómo configurar alertas en los registros de actividad, consulte [Alertas de registro de actividad](../azure-monitor/alerts/activity-log-alerts.md).
-

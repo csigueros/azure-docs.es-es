@@ -1,26 +1,26 @@
 ---
 title: Copia de datos desde la API de Azure Cosmos DB para MongoDB
+description: Obtenga información sobre cómo copiar datos de almacenes de datos de origen compatibles desde o hacia la API de Azure Cosmos DB para MongoDB para almacenes de receptor admitidos mediante canalizaciones de Azure Data Factory o Synapse Analytics.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre cómo copiar datos de almacenes de datos de origen compatibles desde o hacia la API de Azure Cosmos DB para MongoDB para almacenes de receptor admitidos mediante Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 0147782482308ac8b625926e51c59315f084237d
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: 6720bcfdd4e0ce804bfd15803e1ed186d94e5181
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123304675"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124762101"
 ---
-# <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Copia de datos desde o hacia la API de Azure Cosmos DB para MongoDB mediante Azure Data Factory
+# <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-using-azure-data-factory-or-synapse-analytics"></a>Copia de datos desde o hacia la API de Azure Cosmos DB para MongoDB mediante Azure Data Factory o Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo, se describe cómo usar Copiar actividad en Azure Data Factory para copiar datos desde y hacia la API de Azure Cosmos DB para MongoDB. El artículo se basa en [Actividad de copia en Azure Data Factory](copy-activity-overview.md), en el que se ofrece información general acerca de la actividad de copia.
+En este artículo se resume el uso de la actividad de copia en canalizaciones de Azure Data Factory y Synapse Analytics para copiar datos con la API de Azure Cosmos DB como origen y destino para MongoDB. El artículo se basa en [Actividad de copia](copy-activity-overview.md), en el que se ofrece información general acerca de la actividad de copia.
 
 >[!NOTE]
 >Este conector solo admite la copia de datos desde y hacia la API de Azure Cosmos DB para MongoDB. Para la API de SQL, vea [Conector de API de SQL de Cosmos DB](connector-azure-cosmos-db.md). Actualmente, no se admiten otros tipos de API.
@@ -47,7 +47,7 @@ Siga estos pasos para crear un servicio vinculado a la API de Azure Cosmos DB p
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un servicio vinculado con la interfaz de usuario de Azure Data Factory":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -193,7 +193,7 @@ La sección **sink** de la actividad de copia admite las siguientes propiedades:
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad **type** del receptor “Copy Activity” (Actividad de copia) tiene que establecerse en **CosmosDbMongoDbApiSink**. |Sí |
-| writeBehavior |Describe cómo escribir datos en Azure Cosmos DB. Valores permitidos: **insert** y **upsert**.<br/><br/>El comportamiento de **upsert** consiste en reemplazar el documento si ya existe un documento con el mismo `_id`; en caso contrario, inserta el documento.<br /><br />**Nota**: Data Factory genera automáticamente un `_id` para un documento si no se especifica un `_id` en el documento original o mediante la asignación de columnas. Esto significa que debe asegurarse de que, para que **upsert** funcione según lo esperado, el documento tenga un identificador. |No<br />(el valor predeterminado es **insert**) |
+| writeBehavior |Describe cómo escribir datos en Azure Cosmos DB. Valores permitidos: **insert** y **upsert**.<br/><br/>El comportamiento de **upsert** consiste en reemplazar el documento si ya existe un documento con el mismo `_id`; en caso contrario, inserta el documento.<br /><br />**Nota**: El servicio genera automáticamente un `_id` para un documento si no se especifica un `_id` en el documento original o mediante la asignación de columnas. Esto significa que debe asegurarse de que, para que **upsert** funcione según lo esperado, el documento tenga un identificador. |No<br />(el valor predeterminado es **insert**) |
 | writeBatchSize | La propiedad **writeBatchSize** controla el tamaño de los documentos que se escribirán en cada lote. Puede intentar aumentar el valor de **writeBatchSize** para mejorar el rendimiento y reducir el valor si el documento tiene un tamaño grande. |No<br />(el valor predeterminado es **10 000**) |
 | writeBatchTimeout | Tiempo que se concede a la operación de inserción por lotes para que finalice antes de que se agote el tiempo de espera. El valor permitido es TimeSpan. | No<br/>(El valor predeterminado es **00:30:00** [30 minutos]). |
 
@@ -237,7 +237,7 @@ La sección **sink** de la actividad de copia admite las siguientes propiedades:
 Puede utilizar este conector de Azure Cosmos DB para hacer lo siguiente con facilidad:
 
 * Copiar documentos entre dos colecciones de Azure Cosmos DB tal cual.
-* Importar documentos JSON desde varios orígenes a Azure Cosmos DB, incluidos MongoDB, Azure Blob Storage, Azure Data Lake Store y otros almacenes basados en archivos compatibles con Azure Data Factory.
+* Importar documentos JSON desde varios orígenes a Azure Cosmos DB, incluido MongoDB, Azure Blob Storage, Azure Data Lake Store y otros almacenes basados en archivos compatibles con el servicio.
 * Exportar documentos JSON de una colección de Azure Cosmos DB a varios almacenes basados en archivos.
 
 Para lograr una copia independiente del esquema:
@@ -251,16 +251,16 @@ Para copiar datos de la API de Azure Cosmos DB para MongoDB en un receptor tabul
 
 En concreto, para escribir en Cosmos DB y asegurarse de rellenar Cosmos DB con el identificador de objeto correcto de los datos de origen (por ejemplo, si tiene una columna “id” en la tabla de la base de datos SQL y quiere usar el valor como el identificador del documento en MongoDB para inserción/upsert), necesita establecer la asignación de esquemas correcta según la definición de modo estricto de MongoDB (`_id.$oid`), como se indica a continuación:
 
-![Asignar identificador en receptor de MongoDB](./media/connector-azure-cosmos-db-mongodb-api/map-id-in-mongodb-sink.png)
+:::image type="content" source="./media/connector-azure-cosmos-db-mongodb-api/map-id-in-mongodb-sink.png" alt-text="Asignar identificador en receptor de MongoDB":::
 
 Después de ejecutar “Copiar actividad”, a continuación se genera el elemento ObjectId de JSON en el receptor:
 
 ```json
 {
-    "_id&quot;: ObjectId(&quot;592e07800000000000000000")
+    "_id": ObjectId("592e07800000000000000000")
 }
 ``` 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver una lista de los almacenes de datos que la actividad de copia admite como orígenes y receptores en Azure Data Factory, consulte los [almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obtener una lista de los almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats).

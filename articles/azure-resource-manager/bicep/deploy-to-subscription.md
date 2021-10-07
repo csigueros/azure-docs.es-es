@@ -3,12 +3,12 @@ title: Uso de Bicep para implementar recursos en la suscripción
 description: Describe cómo crear un archivo de Bicep que implementa recursos en el ámbito de la suscripción de Azure. Muestra cómo crear un grupo de recursos.
 ms.topic: conceptual
 ms.date: 07/19/2021
-ms.openlocfilehash: a683e0c46547be3ecb48a20a88f9a95a5b6c8ef8
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: df9938e209e163b19e666a26dec4176e83fc79e6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114453432"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124793747"
 ---
 # <a name="subscription-deployments-with-bicep-files"></a>Implementaciones de suscripción con archivos de Bicep
 
@@ -18,6 +18,10 @@ Para simplificar la administración de recursos, puede implementar recursos en e
 
 > [!NOTE]
 > Puede implementar en 800 grupos de recursos distintos en una implementación de nivel de suscripción.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Para obtener más información sobre los ámbitos de implementación y para obtener instrucciones prácticas, consulte [Implementación de recursos en suscripciones, grupos de administración e inquilinos mediante Bicep](/learn/modules/deploy-resources-scopes-bicep/) en **Microsoft Learn**.
 
 ## <a name="supported-resources"></a>Recursos compatibles
 

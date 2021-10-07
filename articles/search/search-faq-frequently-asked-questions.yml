@@ -8,17 +8,17 @@ metadata:
   ms.author: heidist
   ms.service: cognitive-search
   ms.topic: conceptual
-  ms.date: 04/10/2020
-  ms.openlocfilehash: 2bfa41d8a68d9640995ae6989ebd79a4b44c7c24
-  ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+  ms.date: 09/24/2021
+  ms.openlocfilehash: 782c8d8801935779222903f52d3ffaa6ba6f7007
+  ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/03/2021
-  ms.locfileid: "123449090"
+  ms.lasthandoff: 09/29/2021
+  ms.locfileid: "129210919"
 title: 'Azure Cognitive Search: preguntas más frecuentes (P+F)'
 summary: Encuentre respuestas a preguntas habituales sobre conceptos, código y escenarios relacionados con Azure Cognitive Search.
 sections:
-- name: Plataforma
+- name: Servicio de búsqueda
   questions:
   - question: >
       ¿En qué se diferencia Azure Cognitive Search de la búsqueda de texto completo de mi DBMS?
@@ -49,7 +49,7 @@ sections:
   - question: >
       ¿Se puede restringir el acceso al índice de búsqueda según la identidad del usuario?
     answer: >
-      Puede implementar [filtros de seguridad](./search-security-trimming-for-azure-search.md) con el filtro `search.in()`. El filtro se integra bien con [servicios de administración de identidades como Azure Active Directory (AAD)](./search-security-trimming-for-azure-search-with-aad.md) para recortar los resultados de la búsqueda en función de la pertenencia a un grupo de usuarios definido. También se puede registrar para el [acceso basado en roles](search-security-rbac.md), actualmente en versión preliminar pública.
+      Puede implementar [filtros de seguridad](./search-security-trimming-for-azure-search.md) con el filtro `search.in()`. El filtro se integra bien con [servicios de administración de identidades como Azure Active Directory (Azure AD)](./search-security-trimming-for-azure-search-with-aad.md) para recortar los resultados de la búsqueda en función de la pertenencia a un grupo de usuarios definido. También se puede registrar para el [acceso basado en roles](search-security-rbac.md), actualmente en versión preliminar pública.
   - question: >
       ¿Por qué hay cero coincidencias en términos que sé que son válidos?
     answer: >
@@ -60,7 +60,7 @@ sections:
   - question: >
       Mis búsquedas con comodín son lentas.
     answer: >
-      La mayoría de las consultas de búsqueda con comodín, como las que llevan prefijo, las aproximadas y regex, se reescriben internamente con términos de coincidencia en el índice de búsqueda. Este procesamiento adicional de exploración del índice de búsqueda se agrega a la latencia. Además, las consultas de búsqueda amplias, como, por ejemplo, `a*`, que suelen reescribirse con muchos términos, pueden ser muy lentas. Para que las búsquedas con comodín tengan mayor rendimiento, considere la posibilidad de definir un [analizador personalizado](/rest/api/searchservice/custom-analyzers-in-azure-search).
+      La mayoría de las consultas de búsqueda con comodín, como las que llevan prefijo, las aproximadas y regex, se reescriben internamente con términos de coincidencia en el índice de búsqueda. Este proceso adicional aumenta la latencia. Además, las consultas de búsqueda amplias, como, por ejemplo, `a*`, que suelen reescribirse con muchos términos, pueden ser muy lentas. Para que las búsquedas con comodín tengan mayor rendimiento, considere la posibilidad de definir un [analizador personalizado](/rest/api/searchservice/custom-analyzers-in-azure-search).
   - question: >
       ¿Por qué el rango de búsqueda es una clasificación igual o constante de 1.0 para cada acierto?
     answer: >

@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 88ac65c35b29c2113576594788f820973331d64b
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 5f92ecca8ccecda0f4ba6e7e87dc0287c75ed41b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122515012"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124761626"
 ---
 # <a name="migrate-from-vault-access-policy-to-an-azure-role-based-access-control-permission-model"></a>Migración desde la directiva de acceso de almacén a un modelo de permisos de control de acceso basado en rol de Azure
 
@@ -31,7 +31,7 @@ Ventajas clave de Azure RBAC en comparación con las directivas de acceso de alm
 
 Desventajas de Azure RBAC:
 - Latencia de las asignaciones de roles: las asignaciones de roles pueden tardar varios minutos en aplicarse. Las directivas de acceso de almacén se asignan al instante.
-- Número limitado de asignaciones de roles: 2000 asignaciones de roles por suscripción frente a 1024 directivas de acceso por instancia de Key Vault.
+- Número limitado de asignaciones de roles: Azure RBAC solo permite 2000 asignaciones de roles en todos los servicios por suscripción frente a 1024 directivas de acceso por instancia de Key Vault.
 
 ## <a name="access-policies-to-azure-roles-mapping"></a>Directivas de acceso para la asignación de roles de Azure
 

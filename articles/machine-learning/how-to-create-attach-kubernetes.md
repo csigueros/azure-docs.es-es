@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Obtenga información sobre cómo crear un nuevo clúster de Azure Kubernetes Service a través de Azure Machine Learning, o cómo conectar un clúster de AKS existente al área de trabajo.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 04/08/2021
-ms.openlocfilehash: 62e7f1b770db05f4dcd5d84cdc5f6a769566a4bd
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.date: 09/16/2021
+ms.openlocfilehash: f7e2a3311f9540413880d20839f56a4932519f1c
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867593"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129426366"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Creación y conexión de un clúster de Azure Kubernetes Service
 
@@ -44,7 +44,7 @@ Azure Machine Learning puede implementar modelos de Machine Learning entrenados 
 
     Los intervalos IP autorizados solo funcionan con Standard Load Balancer.
 
-- > Para conectar un clúster de AKS desde una __suscripción de Azure diferente__, es necesario que se haya concedido a su cuenta de Azure AD el rol **Colaborador** en el clúster de AKS. Compruebe el acceso en [Azure Portal](https://ms.portal.azure.com/).
+- Para conectar un clúster de AKS desde una __suscripción de Azure diferente__, es necesario que se haya concedido a su cuenta de Azure AD el rol **Colaborador** en el clúster de AKS. Compruebe el acceso en [Azure Portal](https://ms.portal.azure.com/).
 
 - Si quiere usar un clúster de AKS privado (mediante Azure Private Link), primero debe crear el clúster y, a continuación, **adjuntarlo** al área de trabajo. Para obtener más información, consulte [Creación de un clúster privado de Azure Kubernetes Service](../aks/private-clusters.md).
 
@@ -57,9 +57,7 @@ Azure Machine Learning puede implementar modelos de Machine Learning entrenados 
     > [!IMPORTANT]
     > Un clúster de __desarrollo y pruebas__ no es adecuado para un tráfico de nivel de producción y puede aumentar los tiempos de inferencia. Los clústeres de desarrollo y pruebas tampoco garantizan la tolerancia a errores.
 
-- Al crear o adjuntar un clúster, si se va a usar para __producción__, debe contener al menos 12 __CPU virtuales__. El número de CPU virtuales se puede calcular multiplicando el __número de nodos__ en el clúster por el __número de núcleos__ proporcionados por el tamaño de máquina virtual seleccionado. Por ejemplo, si usa un valor de VM de "Standard_D3_v2", que tiene 4 CPU virtuales, debe seleccionar un número de nodos de 3 o más.
-
-    Para los clústeres de __desarrollo y pruebas__, se recomiendan al menos dos CPU virtuales.
+- Al crear o adjuntar un clúster, si se va a usar para __producción__, debe contener al menos __tres nodos__. Los clústeres de __desarrollo y pruebas__ deben contener al menos un nodo.
 
 - El SDK de Azure Machine Learning no admite escalar un clúster de AKS. Para escalar los nodos en el clúster, use la interfaz de usuario para el clúster de AKS en Azure Machine Learning Studio. Solo puede cambiar el número de nodos, no el tamaño de máquina virtual del clúster. Para más información acerca del escalado de nodos en un clúster de AKS, consulte los artículos siguientes:
 
@@ -85,9 +83,6 @@ Cuando **crea** un clúster de Azure Kubernetes Service con uno de los métodos 
 Estos métodos de creación de un clúster de AKS usan la versión __predeterminada__ del clúster. *La versión predeterminada cambia con el tiempo* a medida que están disponibles las nuevas versiones de Kubernetes.
 
 Cuando **adjunta** un clúster de AKS existente, se admiten todas las versiones de AKS compatibles actualmente.
-
-> [!IMPORTANT]
-> Actualmente, Azure Machine Learning no admite la implementación de modelos en la versión **1.21.x** de Azure Kubernetes Service.
 
 > [!IMPORTANT]
 > Azure Kubernetes Service usa el [controlador Blobfuse FlexVolume](https://github.com/Azure/kubernetes-volume-drivers/blob/master/flexvolume/blobfuse/README.md) en las versiones hasta la 1.16 y el [controlador Blob CSI](https://github.com/kubernetes-sigs/blob-csi-driver/blob/master/README.md), en las versiones a partir de 1.17. Por eso es importante que, después de actualizar el clúster, se vuelva a implementar o a [actualizar el servicio web](how-to-deploy-update-web-service.md) para implementar en el método blobfuse adecuado a la versión del clúster.

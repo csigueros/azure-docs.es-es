@@ -9,18 +9,22 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/29/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 7cfa2059cc03b96db39183cfa5056c9934a02290
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 0461228678762adbc4db936c35849f16a482c1a9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107814359"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605513"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Procedimientos recomendados para utilizar Key Vault
 
 ## <a name="use-separate-key-vaults"></a>Uso de instancias de Key Vault independientes
 
 Nuestra recomendación es usar un almacén por cada aplicación y cada entorno (desarrollo, preproducción y producción). Esto ayuda a no compartir secretos entre los entornos y, también, a reducir la amenaza en el caso de infracción.
+
+### <a name="why-we-recommend-separate-key-vaults"></a>Motivos para recomendar almacenes de claves independientes
+
+Las directivas de Acceso son un concepto de "todo o nada" en Azure Key Vault. Si una identidad tiene un permiso específico (por ejemplo, **Get**), la identidad puede obtener *cualquier* secreto, clave o certificado en el almacén. Esto significa que la agrupación de datos confidenciales en el mismo almacén aumenta el *radio del impacto* de un evento de seguridad, ya que los ataques podrían tener acceso a información confidencial. Para reducir esta posibilidad, tenga en cuenta a qué información confidencial *debería* tener acceso una aplicación concreta y, después, separe los almacenes de claves en función de esta delineación. La separación de almacenes de claves por aplicación es el límite más común.
 
 ## <a name="control-access-to-your-vault"></a>Controlar el acceso al almacén
 
@@ -57,3 +61,6 @@ Asegúrese de hacer copias de seguridad del almacén periódicamente, cuando act
 
 1. Active la [eliminación temporal](soft-delete-overview.md).
 2. Active la protección de purgas si quiere tener protección frente a posibles eliminaciones forzadas de secretos o del almacén, incluso con la eliminación temporal activada.
+
+## <a name="learn-more"></a>Más información
+- [Procedimientos recomendados para la administración de secretos en Key Vault](../secrets/secrets-best-practices.md)

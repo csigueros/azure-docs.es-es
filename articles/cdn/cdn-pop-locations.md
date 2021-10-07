@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/18/2021
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: f51ca01988a090c4c61b821c16ec67f20d2c679f
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: 9355ddc7b84d2b120ee4c453fe21f0b820ea60a3
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112417008"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129093238"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Cobertura de Azure CDN según Metro 
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "112417008"
 >
 
 
-En este artículo se enumeran áreas metropolitanas que contienen ubicaciones de punto de presencia (POP) actuales, ordenadas por región, para los productos de Azure Content Delivery Network (CDN). Cada área metropolitana puede contener más de una ubicación POP. Por ejemplo, Azure CDN de Microsoft tiene 116 ubicaciones POP en 100 ciudades metropolitanas. 
+En este artículo se enumeran áreas metropolitanas que contienen ubicaciones de punto de presencia (POP) actuales, ordenadas por región, para los productos de Azure Content Delivery Network (CDN). Cada área metropolitana puede contener más de una ubicación POP. Por ejemplo, Azure CDN de Microsoft tiene 117 ubicaciones POP en 100 ciudades metropolitanas. 
 
 > [!IMPORTANT]
 > Cada producto de Azure CDN tiene una manera distinta de crear sus infraestructuras de CDN, por lo que Microsoft recomienda no usar ubicaciones POP para decidir qué producto de Azure CDN usar. En su lugar, debe considerar sus características y el rendimiento del usuario final. Pruebe el rendimiento con cada producto de Azure CDN para elegir el producto adecuado para sus usuarios. 
@@ -59,4 +59,4 @@ En este artículo se enumeran áreas metropolitanas que contienen ubicaciones de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener las últimas direcciones IP para agregarlas a la lista de permitidos, consulte la [API de nodos perimetrales de Azure CDN](/rest/api/cdn/cdn/edgenodes).
+* Para obtener las últimas direcciones IP para agregarlas a la lista de permitidos, consulte la [API de nodos perimetrales de Azure CDN](/rest/api/cdn/edge-nodes/list).

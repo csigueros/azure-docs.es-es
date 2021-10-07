@@ -1,19 +1,18 @@
 ---
 title: Creación de certificados para Azure Stack Edge Pro con GPU mediante la herramienta Azure Stack Hub Readiness Checker
 description: Describe cómo crear solicitudes de certificado y, después, obtener e instalar certificados en un dispositivo Azure Stack Edge Pro con GPU mediante la herramienta Azure Stack Hub Readiness Checker.
-services: Azure Stack Edge Pro
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 7b167efdc0b1edaa1f09b0b85a1abbf86ef77037
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 08201fafa3f69803e15a02c1535159101a1ecfea
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113353943"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128661001"
 ---
 # <a name="create-certificates-for-your-azure-stack-edge-pro-gpu-using-azure-stack-hub-readiness-checker-tool"></a>Creación de certificados para Azure Stack Edge Pro con GPU mediante la herramienta Azure Stack Hub Readiness Checker 
 
@@ -118,7 +117,7 @@ Siga estos pasos para preparar los certificados de dispositivo Azure Stack Edge 
     |A partir de `wildcard`     |Solicitud de certificado de almacenamiento de blobs. Contiene un carácter comodín porque abarca todas las cuentas de almacenamiento que se pueden crear en el dispositivo.          |
     |A partir de `AzureStackEdgeVPNCertificate`     |Solicitud de certificado de cliente VPN.         |
 
-    También verá una carpeta INF. Contiene un archivo de información de <edge-nombrededispositivo> en texto no cifrado que explica los detalles del certificado.  
+    También verá una carpeta INF. Contiene una administración.\<edge-devicename\> archivo de información en texto no cifrado que explica los detalles del certificado.  
 
 
 6. Envíe estos archivos a su entidad de certificación (ya sea interna o pública). Asegúrese de que la entidad de certificación genere certificados con su solicitud generada que cumple los requisitos de certificados de Azure Stack Edge Pro para [certificados de nodos](azure-stack-edge-gpu-certificates-overview.md#node-certificates), [certificados de puntos de conexión](azure-stack-edge-gpu-certificates-overview.md#endpoint-certificates) y [certificados de interfaces de usuario locales](azure-stack-edge-gpu-certificates-overview.md#local-ui-certificates).

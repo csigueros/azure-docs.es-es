@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 09/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 418f0797343a64728c4e48084b09bd0e426cec62
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0954f438f21229b16800847f5d248909a61df051
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101686417"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128573961"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalización de idioma en Azure Active Directory B2C
 
@@ -37,6 +37,10 @@ Quizás no necesite ese nivel de control sobre los idiomas que ve el cliente. Si
 
 > [!NOTE]
 > Si va a usar atributos de usuario personalizados, debe proporcionar sus propias traducciones. Para más información, consulte [Personalización de las cadenas](#customize-your-strings).
+
+Vea este vídeo para saber cómo buscar o personalizar el idioma mediante Azure AD B2C.
+
+>[!Video https://www.youtube.com/embed/yqrX5_tA7Ms]
 
 ::: zone pivot="b2c-custom-policy"
 
@@ -184,7 +188,7 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 
 ## <a name="add-custom-languages"></a>Incorporación de idiomas personalizados
 
-También puede agregar idiomas para los que Microsoft no proporciona actualmente traducciones. Deberá proporcionar las traducciones para todas las cadenas del flujo de usuario. Los idiomas y los códigos de configuración regional se limitan a los indicados en la norma ISO 639-1. El formato de código de configuración regional debe ser "ISO_639-1_code"-"CountryCode", por ejemplo `en-GB`. Para obtener más información sobre los formatos de ID de configuración regional, consulte https://docs.microsoft.com/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a
+También puede agregar idiomas para los que Microsoft no proporciona actualmente traducciones. Deberá proporcionar las traducciones para todas las cadenas del flujo de usuario. Los idiomas y los códigos de configuración regional se limitan a los indicados en la norma ISO 639-1. El formato de código de configuración regional debe ser "ISO_639-1_code"-"CountryCode", por ejemplo `en-GB`. Para obtener más información, consulte [Formatos de Id. de la configuración regional](/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a).
 
 1. En el inquilino de Azure AD B2C, seleccione **Flujos de usuario**.
 2. Haga clic en el flujo de usuario donde desea agregar idiomas personalizados y, luego, haga clic en **Idiomas**.
@@ -416,12 +420,13 @@ En el ejemplo siguiente, las cadenas personalizadas inglés (en) y español (es)
 </ContentDefinitions>
 ```
 
-##  <a name="upload-and-test-your-updated-custom-policy"></a>Carga y prueba de la directiva personalizada actualizada
+## <a name="upload-and-test-your-updated-custom-policy"></a>Carga y prueba de la directiva personalizada actualizada
 
 ### <a name="upload-the-custom-policy"></a>Carga de la directiva personalizada
 
 1. Guarde el archivo de extensiones.
-1. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Busque y seleccione **Azure AD B2C**.
 1. En **Directivas**, seleccione **Identity Experience Framework**.
 1. Seleccione **Cargar directiva personalizada**.

@@ -2,13 +2,13 @@
 title: Acciones con el Centro de copias de seguridad
 description: En este artículo se explica cómo realizar acciones con el Centro de copias de seguridad.
 ms.topic: conceptual
-ms.date: 09/07/2020
-ms.openlocfilehash: 8c21475e5a52cdce7e38bbeb9d00df3c3ac3a752
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/22/2021
+ms.openlocfilehash: e8b357c19caeb20c2a50d9a05f9d8d583bd8f640
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102506497"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083627"
 ---
 # <a name="perform-actions-using-backup-center"></a>Acciones con el Centro de copias de seguridad
 
@@ -76,7 +76,7 @@ Siga las instrucciones siguientes que correspondan al tipo de origen de datos qu
 
     ![Seleccionar el origen de datos para restaurar el servidor de Azure Database for PostgreSQL](./media/backup-center-actions/restore-select-datasource-postgresql.png)
 
-3. Elija una instancia de copia de seguridad y seleccione **Continuar**. Esto le lleva al área de configuración de restauraciones, idéntica al área a la que se accede desde un almacén de Recovery Services. [Obtenga más información sobre cómo restaurar servidores de Azure Database for PostgreSQL con un almacén de Backup](backup-azure-database-postgresql.md#restore).
+3. Elija una instancia de copia de seguridad y seleccione **Continuar**. Esto le lleva al área de configuración de restauraciones, idéntica al área a la que se accede desde un almacén de Recovery Services. [Obtenga más información sobre cómo restaurar servidores de Azure Database for PostgreSQL con un almacén de Backup](restore-azure-database-postgresql.md).
 
 ## <a name="create-a-new-vault"></a>Crear un nuevo almacén
 
@@ -116,25 +116,32 @@ Siga las instrucciones siguientes que correspondan al tipo de origen de datos de
 
 El Centro de copias de seguridad permite buscar instancias de copia de seguridad en todo el conjunto de copias de seguridad y ejecutar operaciones de copia de seguridad a petición.
 
-Para desencadenar una copia de seguridad a petición, vaya al Centro de copias de seguridad y seleccione el elemento de menú **Instancias de copia de seguridad**. Si selecciona esta opción, podrá ver los detalles de todas las instancias de copia de seguridad a las que tenga acceso. Puede buscar la instancia de copia de seguridad de la que desea realizar la copia de seguridad. Al hacer clic con el botón secundario en un elemento de la cuadrícula, se abre una lista de acciones disponibles. Seleccione la opción **Hacer copia de seguridad ahora** para ejecutar una copia de seguridad a petición.
+Vaya al Centro de copias de seguridad y seleccione el elemento de menú **Instancias de Backup**. Si selecciona esta opción, podrá ver los detalles de todas las instancias de copia de seguridad a las que tenga acceso. Puede buscar la instancia de copia de seguridad de la que desea realizar la copia de seguridad. Al hacer clic con el botón secundario en un elemento de la cuadrícula, se abre una lista de acciones disponibles. Seleccione la opción **Hacer copia de seguridad ahora** para ejecutar una copia de seguridad a petición.
 
 ![Copia de seguridad a petición](./media/backup-center-actions/backup-center-on-demand-backup.png)
 
 [Más información sobre la realización de copias de seguridad a petición para máquinas virtuales de Azure](backup-azure-manage-vms.md#run-an-on-demand-backup)
 
-[Más información sobre la realización de copias de seguridad a petición para servidores de Azure Database for PostgreSQL](backup-azure-database-postgresql.md#on-demand-backup)
+[Más información sobre la realización de copias de seguridad a petición para servidores de Azure Database for PostgreSQL](backup-azure-database-postgresql.md)
 
 ## <a name="stop-backup-for-a-backup-instance"></a>Detención de la copia de seguridad de una instancia de copia de seguridad
 
 Pueden darse casos en los que desee detener la copia de seguridad de una instancia de copia de seguridad; por ejemplo, cuando el recurso subyacente del que se realiza esa copia ya no existe.
 
-Para desencadenar una copia de seguridad a petición, vaya al Centro de copias de seguridad y seleccione el elemento de menú **Instancias de copia de seguridad**. Si selecciona esta opción, podrá ver los detalles de todas las instancias de copia de seguridad a las que tenga acceso. Puede buscar la instancia de copia de seguridad de la que desea realizar la copia de seguridad. Al hacer clic con el botón secundario en un elemento de la cuadrícula, se abre una lista de acciones disponibles. Seleccione la opción **Detener copia de seguridad** para detener la copia de seguridad de la instancia.
+Vaya al Centro de copias de seguridad y seleccione el elemento de menú **Instancias de Backup**. Si selecciona esta opción, podrá ver los detalles de todas las instancias de copia de seguridad a las que tenga acceso. Puede buscar la instancia de copia de seguridad de la que desea realizar la copia de seguridad. Al hacer clic con el botón secundario en un elemento de la cuadrícula, se abre una lista de acciones disponibles. Seleccione la opción **Detener copia de seguridad** para detener la copia de seguridad de la instancia.
 
 ![Detener protección](./media/backup-center-actions/backup-center-stop-protection.png)
 
-[Más información sobre cómo detener la copia de seguridad de máquinas virtuales de Azure](backup-azure-manage-vms.md#stop-protecting-a-vm)
+- [Más información](backup-azure-manage-vms.md#stop-protecting-a-vm) sobre cómo detener la copia de seguridad de máquinas virtuales de Azure.
+- [Más información](manage-azure-managed-disks.md#stop-protection-preview) sobre cómo detener la copia de seguridad de un disco.
+- [Más información](manage-azure-database-postgresql.md#stop-protection-preview) sobre cómo detener la copia de seguridad de servidores de Azure Database for PostgreSQL.
 
-[Más información sobre cómo detener la copia de seguridad de servidores de Azure Database for PostgreSQL](backup-azure-database-postgresql.md#stop-protection)
+## <a name="resume-backup"></a>Reanudar copia de seguridad
+
+Puede reanudar la copia de seguridad de las cargas de trabajo si ha retenido los datos durante la **protección de la detección**.
+
+- [Más información](manage-azure-database-postgresql.md#resume-protection) sobre la reanudación de la protección del disco.
+- [Más información](manage-azure-managed-disks.md#resume-protection) sobre la reanudación de la protección de servidores de Azure Database for PostgreSQL.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

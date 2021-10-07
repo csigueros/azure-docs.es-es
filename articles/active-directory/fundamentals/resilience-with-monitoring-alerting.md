@@ -13,16 +13,20 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a834d4d30c40b618b1601a7f8901c68143ef4912
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ccb3876799c0a1473f06c1838536df17eab03398
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101648524"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754388"
 ---
 # <a name="resilience-through-monitoring-and-analytics"></a>Resistencia mediante la supervisión y el análisis
 
 La supervisión maximiza la disponibilidad y el rendimiento de las aplicaciones y los servicios. Ofrece una solución completa para recopilar, analizar y actuar en la telemetría desde la infraestructura y las aplicaciones. Las alertas le notifican de forma proactiva cuando se detectan problemas con el servicio o las aplicaciones. Le permiten identificar y solucionar los problemas antes de que los usuarios finales del servicio puedan verlos. [Log Analytics de Azure AD](https://azure.microsoft.com/services/monitor/?OCID=AID2100131_SEM_6d16332c03501fc9c1f46c94726d2264:G:s&ef_id=6d16332c03501fc9c1f46c94726d2264:G:s&msclkid=6d16332c03501fc9c1f46c94726d2264#features) le ayuda a analizar, buscar los registros de auditoría y los registros de inicio de sesión, y crear vistas personalizadas.
+
+Vea este vídeo para aprender a configurar la supervisión y los informes en Azure AD B2C mediante Azure Monitor.
+
+>[!Video https://www.youtube.com/embed/Mu9GQy-CbXI]
 
 ## <a name="monitor-and-get-notified-through-alerts"></a>Supervisión y recepción de notificaciones mediante alertas
 

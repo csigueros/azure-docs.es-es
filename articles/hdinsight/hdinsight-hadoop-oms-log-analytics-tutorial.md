@@ -4,13 +4,13 @@ description: Aprenda a usar los registros de Azure Monitor para supervisar traba
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurepowershell, references_regions
-ms.date: 08/02/2021
-ms.openlocfilehash: 0627cbb6c590178c5f393cfd519fb4a4504d050f
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.date: 09/21/2021
+ms.openlocfilehash: c4fc351105c82213549fdb357d19b480c5a51ed4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122180491"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648038"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Uso de los registros de Azure Monitor para supervisar clústeres de HDInsight
 
@@ -189,6 +189,8 @@ HDInsight admite la auditoría de clústeres con registros de Azure Monitor, med
 
 * Un área de trabajo de Log Analytics. Considere el área de trabajo como un entorno de registros de Azure Monitor único, con su propio repositorio de datos, sus propios orígenes de datos y sus propias soluciones. Para más instrucciones, consulte [Creación de un área de trabajo de Log Analytics](../azure-monitor/vm/monitor-virtual-machine.md).
 
+* Si piensa usar la integración de Azure Monitor en un clúster que se encuentra detrás de un firewall, complete los [requisitos previos para los clústeres que se encuentran detrás de un firewall](#oms-with-firewall).
+
 * Un clúster de HDInsight de Azure. Actualmente, puede usar los registros de Azure Monitor con los siguientes tipos de clúster de HDInsight:
 
   * Hadoop
@@ -285,6 +287,25 @@ Para deshabilitarlos, use el comando [`az hdinsight monitor disable`](/cli/azure
 ```azurecli
 az hdinsight monitor disable --name $cluster --resource-group $resourceGroup
 ```
+## <a name=""></a><a name="oms-with-firewall">Requisitos previos para los clústeres que se encuentran detrás de un firewall</a>
+
+Para poder configurar correctamente la integración de Azure Monitor con HDInsight detrás de un firewall, es posible que algunos clientes tengan que habilitar los siguientes puntos de conexión:
+
+|Recurso del agente | Puertos | Dirección | Omitir inspección de HTTPS |
+|---|---|---|---|
+| \*.ods.opinsights.azure.com | Puerto 443 | Salida | Sí |
+| \*.oms.opinsights.azure.com |Puerto 443 | Salida | Sí |
+| \*.azure-automation.net | Puerto 443 | Salida | Sí |
+
+Si tiene restricciones de seguridad relacionadas con la habilitación de puntos de conexión de almacenamiento con caracteres comodín, hay una opción alternativa. En su lugar, puede hacer lo siguiente:
+
+1. Creación de una cuenta de almacenamiento dedicada
+2. Configuración de la cuenta de almacenamiento dedicada en el área de trabajo de Log Analytics
+3. Habilitación de esa cuenta de almacenamiento dedicada en su firewall
+
+### <a name="data-collection-behind-a-firewall"></a>Recopilación de datos detrás de un firewall
+Una vez que la configuración se realiza correctamente, es importante habilitar los puntos de conexión necesarios para la ingesta de datos. Se recomienda habilitar el punto de conexión \*.blob.core.windows.net para que la ingesta de datos se pueda realizar correctamente.
+
 
 ## <a name="install-hdinsight-cluster-management-solutions"></a>Instalación de soluciones de administración de clústeres de HDInsight
 
@@ -317,6 +338,24 @@ HDInsight admite la auditoría de clústeres con registros de Azure Monitor, med
 * `log_auth_CL`: esta tabla proporciona registros SSH con intentos de inicio de sesión correctos y erróneos.
 * `log_ambari_audit_CL`: esta tabla proporciona registros de auditoría de Ambari.
 * `log_ranger_audti_CL`: esta tabla proporciona registros de auditoría de Apache Ranger en clústeres ESP.
+
+---
+
+## <a name="update-the-log-analytics-oms-agent-used-by-hdinsight-azure-monitor-integration"></a>Actualización del agente de Log Analytics (OMS) utilizado por la integración de HDInsight y Azure Monitor
+
+Cuando la integración de Azure Monitor está habilitada en un clúster, el agente de Log Analytics o el agente de Operations Management Suite (OMS) se instalan en el clúster y no se actualizan a menos que deshabilite y vuelva a habilitar la integración de Azure Monitor. Complete los pasos siguientes si necesita actualizar el agente de OMS en el clúster. Si está detrás de un firewall, es posible que tenga que completar los [requisitos previos para los clústeres que se encuentran detrás de un firewall](#oms-with-firewall) antes de completar estos pasos.
+
+1. En [Azure Portal](https://portal.azure.com/), seleccione su clúster. El clúster se abre en una nueva página del portal.
+1. En el menú de la izquierda, en **Supervisión**, seleccione **Azure Monitor**.
+1. Anote el nombre del área de trabajo actual de Log Analytics.
+1. En la vista principal, en **Integración de Azure Monitor**, deshabilite el botón de alternancia y, a continuación, seleccione **Guardar**. 
+1. Después de guardar la configuración, vuelva a habilitar el botón de alternancia **Integración de Azure Monitor**, asegúrese de que esté seleccionada la misma área de trabajo de Log Analytics y, a continuación, seleccione **Guardar**.
+
+Si ha habilitado la integración de Azure Monitor en un clúster, al actualizar el agente de OMS también se actualizará la versión de Open Management Infrastructure (OMI). Puede comprobar la versión de OMI del clúster mediante la ejecución del siguiente comando: 
+
+```
+ sudo /opt/omi/bin/omiserver –version
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

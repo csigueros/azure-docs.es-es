@@ -3,15 +3,15 @@ title: Iniciar máquina virtual al establecer la conexión - Azure
 description: Cómo configurar la característica Iniciar máquina virtual al establecer la conexión.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/06/2021
+ms.date: 09/17/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 301a2b0626b6dd40f90a8b693e3284c12d948fa1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 85110db5b3f9e11105fa27a9ed8767d3d7e9e2bd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728461"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128592249"
 ---
 # <a name="start-virtual-machine-on-connect"></a>Iniciar máquina virtual al establecer la conexión
 
@@ -51,10 +51,16 @@ Para usar Azure Portal para asignar un rol personalizado para Iniciar VM al esta
 
 3. A continuación, asigne un nombre al rol personalizado y agregue una descripción. Le recomendamos que le asigne el nombre "start VM on connect".
 
-4. En la pestaña **Permisos**, agregue los siguientes permisos a la suscripción a la que va a asignar el rol: 
+4. En la pestaña **Permisos**, agregue uno de los dos siguientes conjuntos de permisos a la suscripción a la que vaya a asignar el rol: 
  
    - Microsoft.Compute/virtualMachines/start/action
-   - Microsoft.Compute/virtualMachines/read
+   - Microsoft.Compute/virtualMachines/read 
+   - Microsoft.Compute/virtualMachines/instanceView/read 
+
+   También puede usar estos permisos en su lugar:
+
+   - Microsoft.Compute/virtualMachines/start/action
+   - Microsoft.Compute/virtualMachines/*/read 
 
 5. Cuando haya finalizado, seleccione **Aceptar**.
 
@@ -85,7 +91,7 @@ Si usa un archivo JSON para crear el rol personalizado, en el ejemplo siguiente 
   "Description": "Start VM on connect with AVD (Custom)",
   "Actions": [
     "Microsoft.Compute/virtualMachines/start/action",
-    "Microsoft.Compute/virtualMachines/read"
+    "Microsoft.Compute/virtualMachines/*/read"
   ],
   "NotActions": [],
   "DataActions": [],

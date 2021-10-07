@@ -1,22 +1,22 @@
 ---
-title: Copia de datos con almacenes de datos ODBC como origen y destino mediante Azure Data Factory
+title: Copia de datos con almacenes de datos ODBC
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre cómo copiar datos con almacenes de datos de ODBC como origen y destino mediante una actividad de copia de una canalización de Azure Data Factory.
+description: Obtenga información sobre cómo copiar datos con almacenes de datos de ODBC como origen y destino mediante una actividad de copia de una canalización de Azure Data Factory o Synapse Analytics.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/10/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 880f9f330ef11abef1573f52f355c0073b38d84c
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 7eccf28b0d8c5791fc8f23f6453f1b139291c890
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123311788"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124787838"
 ---
-# <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copia de datos con almacenes de datos ODBC como origen y destino mediante Azure Data Factory
+# <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory-or-synapse-analytics"></a>Copia de datos con almacenes de datos ODBC como origen y destino mediante Azure Data Factory o Synapse Analytics
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-odbc-connector.md)
 > * [Versión actual](connector-odbc.md)
@@ -33,7 +33,7 @@ Este conector ODBC es compatible con las actividades siguientes:
 
 Puede copiar datos desde un origen ODBC a cualquier almacén de datos de receptor o viceversa. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
-En concreto, este conector ODBC admite copiar datos con **cualquier almacén de datos compatible con ODBC** como origen o destino mediante la autenticación **básica** o **anónima**. Se requiere un **controlador ODBC de 64 bits**. En el caso del receptor ODBC, ADF es compatible con la versión 2.0 de ODBC.
+En concreto, este conector ODBC admite copiar datos con **cualquier almacén de datos compatible con ODBC** como origen o destino mediante la autenticación **básica** o **anónima**. Se requiere un **controlador ODBC de 64 bits**. En el caso del receptor ODBC, el servicio es compatible con la versión 2.0 de ODBC.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -82,7 +82,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado ODBC:
 | connectionString | La cadena de conexión que excluye la parte de la credencial. Puede especificar la cadena de conexión con un patrón como `Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;` o utilizar el DSN (nombre de origen de datos) de sistema que se ha configurado en la máquina de Integration Runtime con `DSN=<name of the DSN on IR machine>;` (se necesita especificar la parte de la credencial en el servicio vinculado según corresponda).<br>También puede establecer una contraseña en Azure Key Vault y extraer la configuración de `password` de la cadena de conexión. Consulte el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) para obtener información detallada.| Sí |
 | authenticationType | Tipo de autenticación que se usa para conectarse al almacén de datos ODBC.<br/>Los valores permitidos son: **Basic** (básica) y **Anonymous** (anónima). | Sí |
 | userName | Especifique el nombre de usuario si usa la autenticación básica. | No |
-| password | Especifique la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| password | Especifique la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura, o bien [haga referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | credencial | La parte de la credencial de acceso de la cadena de conexión especificada en formato de valor de propiedad específico del controlador. Ejemplo: `"RefreshToken=<secret refresh token>;"`. Marque este campo como SecureString. | No |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
 
@@ -273,4 +273,4 @@ Para solucionar problemas de conexión, use la pestaña **Diagnósticos** de **I
 5. Haga clic en **Probar conexión** para probar la conexión con el almacén de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

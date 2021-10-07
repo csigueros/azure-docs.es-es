@@ -6,12 +6,12 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: bwren
 ms.author: bwren
 ms.date: 05/07/2021
-ms.openlocfilehash: 741f2cc4176914417b02bacc9911988a41c5827d
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: eb5766214fff67bf7e45998c9f89c640433bbe99
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123427307"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652460"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportación de datos del área de trabajo de Log Analytics en Azure Monitor (versión preliminar)
 La exportación de datos del área de trabajo de Log Analytics en Azure Monitor permite exportar continuamente los datos de las tablas seleccionadas del área de trabajo de Log Analytics en una cuenta de Azure Storage o Azure Event Hubs a medida que se recopilan. En este artículo se ofrecen detalles sobre esta característica y pasos para configurar la exportación de datos en las áreas de trabajo.
@@ -51,33 +51,41 @@ Actualmente no hay cargos adicionales por la característica de exportación de 
 
 ## <a name="export-destinations"></a>Destinos de la exportación
 
+El destino de exportación de datos debe crearse antes de crear la regla de exportación en el área de trabajo. El destino no tiene que estar en la misma suscripción que el área de trabajo. Al usar Azure Lighthouse, también es posible que los datos se envíen a un destino en otro inquilino de Azure Active Directory.
+
 ### <a name="storage-account"></a>Cuenta de almacenamiento
-Los datos se envían a las cuentas de almacenamiento cuando llegan a Azure Monitor y se almacenan en blobs en anexos cada hora. La configuración de la exportación de datos crea un contenedor para cada tabla de la cuenta de almacenamiento con el nombre *am-* seguido del nombre de la tabla. Por ejemplo, la tabla *SecurityEvent* se enviaría a un contenedor denominado *am-SecurityEvent*.
 
-La ruta de acceso a los blobs de la cuenta de almacenamiento es *WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/\<resource-group\>/providers/microsoft.operationalinsights/workspaces/\<workspace\>/y=\<four-digit numeric year\>/m=\<two-digit numeric month\>/d=\<two-digit numeric day\>/h=\<two-digit 24-hour clock hour\>/m=00/PT1H.json*. Dado que los blobs en anexos están limitados a 50 000 escrituras en el almacenamiento, el número de blobs exportados puede ampliarse si el número de anexos es elevado. El patrón de nomenclatura de los blobs sería PT1H_#.json en este caso, donde # corresponde al incremento del número de blobs.
+Debe tener permisos de "escritura" en el área de trabajo y el destino para poder configurar la regla de exportación de datos. Recuerde que no debe usar una cuenta de almacenamiento existente que tenga otros datos que no sean de supervisión almacenados en ella, para poder controlar mejor el acceso a esos datos y evitar alcanzar el límite de la tasa de ingestión de almacenamiento. 
 
-El formato de los datos de la cuenta de almacenamiento es en [líneas JSON](../essentials/resource-logs-blob-format.md). Esto significa que todos los registros se delimitan mediante una nueva línea, sin matrices de registros exteriores y sin comas entre los registros JSON. 
+Para enviar los datos al almacenamiento inmutable, establezca la directiva de inmutabilidad para la cuenta de almacenamiento, tal como se escribe en [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](../../storage/blobs/immutable-policy-configure-version-scope.md). Debe seguir todos los pasos que aparecen en este artículo, incluida la habilitación de las escrituras de blobs en anexos protegidos.
+
+La cuenta de almacenamiento debe tener la versión StorageV1 u otra superior y estar en la misma región que el área de trabajo. Si tiene que replicar los datos en otras cuentas de almacenamiento de otras regiones, puede usar cualquiera de las [opciones de redundancia de Azure Storage](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region), incluidos GRS y GZRS.
+
+Los datos se envían a las cuentas de almacenamiento cuando llegan a Azure Monitor y se almacenan en blobs en anexos cada hora. La configuración de la regla de exportación crea un contenedor para cada tabla en la cuenta de almacenamiento denominada *am-* seguido del nombre de la tabla. Por ejemplo, la tabla *SecurityEvent* se enviaría a un contenedor denominado *am-SecurityEvent*.
+
+A partir del 15 de octubre de 2021, los blobs se almacenan en carpetas de 5 minutos en la siguiente estructura de ruta de acceso: *WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/\<resource-group\>/providers/microsoft.operationalinsights/workspaces/\<workspace\>/y=\<four-digit numeric year\>/m=\<two-digit numeric month\>/d=\<two-digit numeric day\>/h=\<two-digit 24-hour clock hour\>/m=\<two-digit 60-minute clock minute\>/PT05M.json*. Dado que los blobs en anexos están limitados a 50 000 escrituras en el almacenamiento, el número de blobs exportados puede ampliarse si el número de anexos es elevado. El patrón de nomenclatura de los blobs es PT05M_#.json en este caso, donde # corresponde al incremento del número de blobs.
+
+El formato de los datos de la cuenta de almacenamiento está en [líneas JSON](../essentials/resource-logs-blob-format.md). Esto significa que cada registro se delimita mediante una nueva línea, sin matrices de registros exteriores y sin comas entre los registros JSON. 
 
 [![Datos de ejemplo de almacenamiento](media/logs-data-export/storage-data.png)](media/logs-data-export/storage-data.png#lightbox)
 
-La exportación de datos de Log Analytics puede escribir blobs en anexos en cuentas de almacenamiento inmutables cuando las directivas de retención con una duración definida tienen habilitada la opción *allowProtectedAppendWrites*. Esto permite escribir nuevos bloques en un blob en anexos al tiempo que se mantienen la protección y el cumplimiento de la inmutabilidad. Consulte [Permitir escrituras de blobs en anexos protegidos](../../storage/blobs/immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes).
-
 ### <a name="event-hub"></a>Centro de eventos
-Los datos se envían al centro de eventos prácticamente en tiempo real a medida que llegan a Azure Monitor. Se crea un centro de eventos para cada tipo de datos que se exporta con el nombre *am-* seguido del nombre de la tabla. Por ejemplo, la tabla *SecurityEvent* se enviaría a un centro de eventos denominado *am-SecurityEvent*. Si quiere que los datos exportados lleguen a un centro de eventos específico, o si tiene una tabla con un nombre que supere el límite de 47 caracteres, puede proporcionar el nombre de su propio centro de eventos y exportar todos los datos para las tablas definidas en él.
+
+Debe tener permisos de "escritura" en el área de trabajo y el destino para poder configurar la regla de exportación de datos. La directiva de acceso compartido del espacio de nombres del centro de eventos, define los permisos que tiene el mecanismo de transmisión. Para realizar una transmisión a un centro de eventos, necesita tener permisos de administración, envío y escucha. Para actualizar la regla de exportación, debe tener el permiso ListKey en esa regla de autorización de Event Hubs.
+
+El espacio de nombres del centro de eventos debe estar en la misma región que su área de trabajo.
+
+Los datos se envían al centro de eventos a medida que llegan a Azure Monitor. Se crea un centro de eventos para cada tipo de datos que se exporta con el nombre *am-* seguido del nombre de la tabla. Por ejemplo, la tabla *SecurityEvent* se enviaría a un centro de eventos denominado *am-SecurityEvent*. Si quiere que los datos exportados lleguen a un centro de eventos específico, o si tiene una tabla con un nombre que supere el límite de 47 caracteres, puede proporcionar el nombre de su propio centro de eventos y exportar todos los datos para las tablas definidas en él.
 
 > [!IMPORTANT]
 > El [número de centros de eventos admitidos por los niveles de espacios de nombres "Básico" y "Estándar"](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers) es 10. Si exporta más de 10 tablas, divida las tablas entre varias reglas de exportación en distintos espacios de nombres del centro de eventos o proporcione el nombre del centro de eventos en la regla de exportación y exporte todas las tablas a ese centro de eventos.
 
-Consideraciones:
-1. La SKU del centro de eventos "básico" admite un [límite](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers) de tamaño de evento inferior; algunos registros del área de trabajo pueden superarlo y quitarse. Recomendamos que se use el centro de eventos "estándar" o "dedicado" como destino de exportación.
+Consideraciones para el espacio de nombres del centro de eventos:
+1. La SKU del centro de eventos "básico" admite un [límite](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers) de tamaño de evento inferior; tenga en cuenta que algunos registros del área de trabajo pueden superarlo y quitarse. Recomendamos que se use el centro de eventos "estándar" o "dedicado" como destino de exportación.
 2. El volumen de los datos exportados suele aumentar con el tiempo, y es necesario aumentar la escala del centro de eventos para administrar velocidades de transferencia mayores, así como para evitar escenarios de límite de ancho de banda y latencia de datos. Debe usar la característica de inflado automático de Event Hubs para escalar verticalmente y aumentar el número de unidades de procesamiento de forma automática y, de este modo, satisfacer las necesidades de uso. Consulte [Escalado vertical y automático de las unidades de procesamiento de Azure Event Hubs](../../event-hubs/event-hubs-auto-inflate.md) para obtener más información.
 
-## <a name="prerequisites"></a>Requisitos previos
-A continuación se indican los requisitos previos que hay que cumplir para poder configurar la exportación de datos de Log Analytics:
-
-- Los destinos deben crearse antes de la configuración de la regla de exportación y deben estar en la misma región que el área de trabajo de Log Analytics. Si tiene que replicar los datos en otras cuentas de almacenamiento, puede usar cualquiera de las [opciones de redundancia de Azure Storage](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region), incluidos GRS y GZRS.
-- La cuenta de almacenamiento debe ser StorageV1 o superior. No se admite el almacenamiento clásico.
-- Si ha configurado la cuenta de almacenamiento para permitir el acceso desde las redes seleccionadas, tiene que agregar una excepción en la configuración de la cuenta de almacenamiento para permitir que Azure Monitor escriba en el almacenamiento.
+> [!NOTE]
+> La exportación de datos de Azure Monitor no puede acceder a los recursos del centro de eventos cuando las redes virtuales están habilitadas. Tiene que habilitar la opción para permitir que los servicios de confianza de Microsoft puedan omitir este firewall en la instancia de Event Hubs para que la exportación de datos de Azure Monitor obtenga acceso a los recursos de Event Hubs. 
 
 ## <a name="enable-data-export"></a>Habilitación de la exportación de datos
 Para habilitar la exportación de datos de Log Analytics, hay que seguir los pasos que se detallan a continuación. Consulte las siguientes secciones para obtener más información sobre cada uno de ellos.

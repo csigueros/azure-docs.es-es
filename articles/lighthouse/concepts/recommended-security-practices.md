@@ -1,14 +1,14 @@
 ---
 title: Procedimientos de seguridad recomendados
 description: Al usar Azure Lighthouse, es importante tener en cuenta la seguridad y el control de acceso.
-ms.date: 03/12/2021
+ms.date: 09/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 897f09c41d550d6200cc3d78743bb3b010f2c402
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 52bc5301633f8e9d92aeaeee22ecf34b6458fccb
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113768258"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124782373"
 ---
 # <a name="recommended-security-practices"></a>Procedimientos de seguridad recomendados
 
@@ -44,6 +44,9 @@ Por ejemplo, puede que quiera usar una estructura como la siguiente:
 Una vez que se hayan creado estos grupos, puede asignarles usuarios según sea necesario. Agregue solo los usuarios que realmente necesitan tener acceso. Asegúrese de revisar la pertenencia a grupos con regularidad y quite los usuarios que ya no sean adecuados o que no sea necesario incluir.
 
 Tenga en cuenta que al [incorporar clientes a través de una oferta pública de servicios administrados](../how-to/publish-managed-services-offers.md), cualquier grupo (o entidad de servicio o usuario) que incluya tendrá los mismos permisos para todos los clientes que compren el plan. A fin de asignar grupos diferentes con el objetivo de que trabajen con cada cliente, tendrá que publicar un plan privado independiente exclusivo para cada cliente o incorporar los clientes individualmente mediante plantillas de Resource Manager. Por ejemplo, podría publicar un plan público que tenga un acceso muy limitado y, después, trabajar con el cliente directamente para incorporar sus recursos para obtener acceso adicional mediante una plantilla de recursos de Azure personalizada que concede acceso adicional según sea necesario.
+
+> [!TIP]
+> También puede crear *autorizaciones aptas* que permitan a los usuarios del inquilino de administración tener un rol superior temporalmente. Con el uso de autorizaciones válidas, puede minimizar el número de asignaciones permanentes de usuarios a roles con privilegios, lo que ayuda a reducir los riesgos de seguridad relacionados con el acceso con privilegios por parte de los usuarios del inquilino. Esta característica está actualmente en una versión preliminar pública y tiene requisitos de licencia específicos. Para obtener más información, vea [Creación de autorizaciones aptas](../how-to/create-eligible-authorizations.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

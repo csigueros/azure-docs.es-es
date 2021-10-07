@@ -8,12 +8,12 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/30/2019
-ms.openlocfilehash: 41c2a1fd7bccb6a43a9b5f3a8ad979fca90e8749
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6175447ddb249e04a939219caa722c55dae65749
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738222"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124749080"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-your-data-lake-or-data-warehouse-to-azure"></a>Uso de Azure Data Factory para migrar datos del lago de datos y el almacenamiento de datos a Azure
 
@@ -49,7 +49,8 @@ Hay tres consideraciones importantes a la hora de elegir entre un método de mig
 
 Por ejemplo, suponga que tiene previsto usar Azure Data Factory para completar la migración de datos en un plazo de dos semanas (su *plazo de migración*). Observe la línea de corte rosa/azul en la tabla siguiente. La celda de color rosa inferior de cualquier columna determinada muestra el emparejamiento de ancho de banda de red o tamaño de datos cuyo plazo de migración es más próximo e inferior a dos semanas. (Cualquier emparejamiento de tamaño/ancho de banda en una celda azul tiene un plazo de migración en línea de más de dos semanas). 
 
-![Conexión frente a sin conexión](media/data-migration-guidance-overview/online-offline.png) Esta tabla le ayuda a determinar si puede hacer frente al plazo de migración deseado de la migración en línea (Azure Data Factory) en función del tamaño de los datos y el ancho de banda de red disponible. Si el plazo de migración en línea es superior a dos semanas, querrá usar la migración sin conexión.
+:::image type="content" source="media/data-migration-guidance-overview/online-offline.png" alt-text="en línea frente a sin conexión":::
+Esta tabla le ayuda a determinar si puede hacer frente al plazo de migración deseado de la migración en línea (Azure Data Factory) en función del tamaño de los datos y el ancho de banda de red disponible. Si el plazo de migración en línea es superior a dos semanas, querrá usar la migración sin conexión.
 
 > [!NOTE]
 > Con el enfoque de migración en línea, puede lograr la carga de datos históricos y las fuentes incrementales de un extremo a otro con una única herramienta.  Con este enfoque, los datos se pueden mantener sincronizados entre el almacén existente y el nuevo almacén durante todo el plazo de migración. Esto significa que puede volver a generar la lógica de ETL en el nuevo almacén con los datos actualizados.

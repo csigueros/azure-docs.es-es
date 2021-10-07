@@ -2,13 +2,13 @@
 title: Acerca de la copia de seguridad de bases de datos SAP HANA en máquinas virtuales de Azure
 description: En este artículo obtendrá información sobre cómo realizar copias de seguridad de bases de datos SAP HANA que se ejecutan en máquinas virtuales de Azure.
 ms.topic: conceptual
-ms.date: 12/11/2019
-ms.openlocfilehash: efb9c3f786e429df404e261f053a9c9a9b032e11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/27/2021
+ms.openlocfilehash: 053d57518e91292105475753279e6fefec19e7a4
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96296461"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081042"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Acerca de la copia de seguridad de bases de datos SAP HANA en máquinas virtuales de Azure
 
@@ -29,13 +29,15 @@ Para ver los escenarios de copia de seguridad y restauración que se admiten en 
 
 ## <a name="backup-architecture"></a>Arquitectura de copia de seguridad
 
+Puede realizar copias de seguridad de las bases de datos de SAP HANA que se ejecutan en una máquina virtual de Azure y transmitir los datos de las copias de seguridad directamente al almacén de Azure Recovery Services.
+
 ![Diagrama de la arquitectura de copia de seguridad](./media/sap-hana-db-about/backup-architecture.png)
 
 * El proceso de copia de seguridad comienza por la [creación de un almacén de Recovery Services](./tutorial-backup-sap-hana-db.md#create-a-recovery-services-vault) en Azure. Este almacén se usará para almacenar las copias de seguridad y los puntos de recuperación creados con el tiempo.
-* La máquina virtual de Azure que ejecuta el servidor SAP HANA se registra con el almacén y se [detectan](./tutorial-backup-sap-hana-db.md#discover-the-databases) las bases de datos de las que se va a realizar la copia de seguridad. A fin de habilitar el servicio Azure Backup para que detecte las bases de datos, se debe ejecutar un [script de preregistro](https://aka.ms/scriptforpermsonhana) en el servidor HANA como usuario raíz.
-* Este script crea el usuario de base de datos **AZUREWLBACKUPHANAUSER** y una clave correspondiente con el mismo nombre en **hdbuserstore**. Consulte la sección [Qué hace el script de registro previo](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) para más información sobre lo que hace el script.
+* La máquina virtual de Azure que ejecuta el servidor SAP HANA se registra con el almacén y se [detectan](./tutorial-backup-sap-hana-db.md#discover-the-databases) las bases de datos de las que se va a realizar la copia de seguridad. A fin de habilitar el servicio Azure Backup para que detecte las bases de datos, se debe ejecutar un [script de preregistro](https://go.microsoft.com/fwlink/?linkid=2173610) en el servidor HANA como usuario raíz.
+* Este script crea el usuario de base de datos **AZUREWLBACKUPHANAUSER** o utiliza el usuario de copia de seguridad personalizado que ya ha creado y, a continuación, crea una clave correspondiente con el mismo nombre en **hdbuserstore**. [Obtenga más información](/azure/backup/tutorial-backup-sap-hana-db#what-the-pre-registration-script-does) sobre la funcionalidad del script.
 * Ahora el servicio Azure Backup instala el **complemento de Azure Backup para HANA** en el servidor SAP HANA registrado.
-* El **complemento de Azure Backup para HANA** utiliza el usuario de base de datos **AZUREWLBACKUPHANAUSER** creado por el script de preregistro para realizar todas las operaciones de copia de seguridad y restauración. Si intenta configurar la copia de seguridad de las bases de datos de SAP HANA sin ejecutar este script, es posible que reciba el error siguiente: **UserErrorHanaScriptNotRun**.
+* El **complemento de Azure Backup para HANA** utiliza el usuario de base de datos **AZUREWLBACKUPHANAUSER** creado por el script de registro previo o el usuario de copia de seguridad personalizado que ha creado (y agregado como entrada al script de registro previo) para realizar todas las operaciones de copia de seguridad y restauración. Si intenta configurar la copia de seguridad de las bases de datos de SAP HANA sin ejecutar este script, es posible que reciba el error **UserErrorHanaScriptNotRun**.
 * Para [configurar la copia de seguridad](./tutorial-backup-sap-hana-db.md#configure-backup) en las bases de datos que se han detectado, elija la directiva de copia de seguridad necesaria y habilite las copias de seguridad.
 
 * Una vez que se haya configurado la copia de seguridad, el servicio Azure Backup configura los parámetros de Backint siguientes en el nivel de base de datos del servidor de SAP HANA protegido:

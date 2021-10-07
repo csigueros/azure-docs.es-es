@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 08/26/2021
+ms.date: 09/13/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: devx-track-js
-ms.openlocfilehash: 27b051a54fc17b0d7d65fff4d7f02e806baa3fd0
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 8e609268258142875ebbe924f3cfbdebc94911f8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123033320"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601733"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Administración de la indexación en la API de Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -23,11 +23,9 @@ La API de Azure Cosmos DB para MongoDB aprovecha las funcionalidades de adminis
 
 ## <a name="indexing-for-mongodb-server-version-36-and-higher"></a>Indexación del servidor de MongoDB versión 3.6 y superiores
 
-La API de Azure Cosmos DB para el servidor MongoDB versión 3.6 indexa automáticamente el campo `_id`, que no se puede quitar. Aplica automáticamente la unicidad del campo `_id` por clave de partición. En la API de Azure Cosmos DB para MongoDB, el particionamiento y la indexación son conceptos independientes. No tiene que indexar su clave de partición. Sin embargo, al igual que con cualquier otra propiedad del documento, si esta propiedad es un filtro común en las consultas, se recomienda indexar la clave de partición.
+La API de Azure Cosmos DB para el servidor de MongoDB versión 3.6 o posterior indexa automáticamente el campo `_id` y la clave de partición (solo en colecciones particionadas). La API aplica automáticamente la unicidad del campo `_id` por clave de partición. 
 
-Para indexar campos adicionales, se aplican los comandos de administración de índices de MongoDB. Como en MongoDB, la API de Azure Cosmos DB para MongoDB indexa automáticamente solo el campo `_id`. Esta directiva de indexación predeterminada difiere de la API SQL de Azure Cosmos DB, que indexa todos los campos de manera predeterminada.
-
-Para aplicar una ordenación a una consulta, debe crear un índice en los campos utilizados en la operación de ordenación.
+La API para MongoDB se comporta de forma diferente a la API SQL de Azure Cosmos DB, que indexa todos los campos de manera predeterminada.
 
 ### <a name="editing-indexing-policy"></a>Edición de la directiva de indexación
 
@@ -51,11 +49,13 @@ Puede crear el mismo índice de campo único en `name` en Azure Portal:
 
 :::image type="content" source="./media/mongodb-indexing/add-index.png" alt-text="Agregar un índice de nombres en el editor de directivas de indexación":::
 
-Una consulta utiliza varios índices de campo único, siempre que estén disponibles. Puede crear hasta 500 índices de un solo campo por contenedor.
+Una consulta utiliza varios índices de campo único, siempre que estén disponibles. Puede crear hasta 500 índices de un solo campo por colección.
 
 ### <a name="compound-indexes-mongodb-server-version-36"></a>Índices compuestos (servidor de MongoDB versión 3.6 y superiores)
+En la API para MongoDB, los índices compuestos son **obligatorios** si su consulta necesita la capacidad de ordenar varios campos a la vez. En el caso de las consultas con varios filtros que no es necesario ordenar, cree varios índices de campo único en lugar de un índice compuesto para ahorrar en costes de indexación. 
 
-La API de Azure Cosmos DB para MongoDB admite índices compuestos para las cuentas que usan el protocolo de conexión de la versión 3.6 y  4.0. Puede incluir hasta ocho campos en un índice compuesto. A diferencia de MongoDB, debe crear un índice compuesto solo si es necesario ordenar de manera eficaz la consulta en varios campos a la vez. En el caso de las consultas con varios filtros que no es necesario ordenar, cree varios índices de campo único en lugar de un único índice compuesto. 
+Tanto un índice compuesto como los índices de campo único para cada campo del índice compuesto producen el mismo rendimiento con vistas al filtrado en consultas.
+
 
 > [!NOTE]
 > No se pueden crear índices compuestos en matrices o propiedades anidadas.
@@ -438,6 +438,6 @@ Si quiere crear un índice de caracteres comodín, [actualice a la versión 4.0
 * [Indexación en Azure Cosmos DB](../index-policy.md)
 * [Expiración automática de los datos de Azure Cosmos DB con período de vida](../time-to-live.md)
 * Para información sobre la relación entre las particiones y la indexación, consulte el artículo [Consulta de un contenedor de Azure Cosmos](../how-to-query-container.md).
-* ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Para ello, puede usar información sobre el clúster de base de datos existente.
+* ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Para ello, puede usar información sobre el clúster de bases de datos existente.
     * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
-    * Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-capacity-planner.md).
+    * Si conoce las velocidades de solicitud típicas de la carga de trabajo de base de datos actual, lea sobre el [cálculo de las unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-capacity-planner.md).

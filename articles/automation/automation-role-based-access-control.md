@@ -1,20 +1,19 @@
 ---
 title: Administración de seguridad y permisos de roles en Azure Automation
 description: En este artículo se explica cómo usar el control de acceso basado en rol de Azure (RBAC de Azure), que permite la administración del acceso a los recursos de Azure.
-keywords: automatización de rbac, control de acceso basado en roles, rbac de azure
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 08/26/2021
-ms.topic: conceptual
+ms.date: 09/10/2021
+ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 30bc4a306eecf8be3177fb045f9904d775cab9bd
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: 67f7076852ffe810e213fcc7d8cb6188d6db405d
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123215012"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129057859"
 ---
-# <a name="manage-role-permissions-and-security"></a>Administración de seguridad y permisos de roles
+# <a name="manage-role-permissions-and-security-in-automation"></a>Administración de seguridad y permisos de roles en Azure Automation
 
 El control de acceso basado en rol de Azure (RBAC de Azure) permite la administración del acceso a los recursos de Azure. Con [RBAC de Azure](../role-based-access-control/overview.md) se pueden separar las tareas dentro del equipo y conceder a los usuarios, los grupos y las aplicaciones únicamente el nivel de acceso que necesitan para realizar su trabajo. El acceso basado en rol se puede conceder a los usuarios mediante Azure Portal, las herramientas de la línea de comandos de Azure o las API de administración de Azure.
 
@@ -80,6 +79,12 @@ Un Colaborador de Automation puede administrar todos los recursos de la cuenta d
 |Microsoft.Resources/deployments/*|Crear y administrar implementaciones de grupos de recursos.|
 |Microsoft.Resources/subscriptions/resourceGroups/read|Leer implementaciones de grupos de recursos.|
 |Microsoft.Support/*|Crear y administrar incidencias de soporte técnico.|
+|Microsoft.Insights/ActionGroups/*|Leer, escribir o eliminar grupos de acción.|
+|Microsoft.Insights/ActivityLogAlerts/*|Leer, escribir o eliminar alertas de registro de actividad.|
+|Microsoft.Insights/diagnosticSettings/*|Configuración de diagnóstico de lectura, escritura y eliminación.|
+|Microsoft.Insights/MetricAlerts/*|Leer, escribir o eliminar alertas de métricas casi en tiempo real.|
+|Microsoft.Insights/ScheduledQueryRules/*|Lea, escriba o elimine alertas de registro en Azure Monitor.|
+|Microsoft.OperationalInsights/workspaces/sharedKeys/action|Enumerar las claves de un área de trabajo de Log Analytics.|
 
 > [!NOTE]
 > El rol Colaborador de Automation se puede usar para acceder a cualquier recurso mediante la identidad administrada, si se establecen los permisos adecuados en el recurso de destino, o mediante una cuenta de ejecución. De manera predeterminada, está configurada una cuenta de ejecución de Automation con derechos de colaborador en la suscripción. Siga el principio de privilegios mínimos y asigne cuidadosamente solo los permisos necesarios para ejecutar el runbook. Por ejemplo, si la cuenta de Automation solo es necesaria para iniciar o detener una VM de Azure, los permisos asignados a la cuenta de ejecución o a la identidad administrada solo deben ser para iniciar o detener la VM. De manera similar, si un runbook lee del almacenamiento de blobs, asigne permisos de solo lectura.
@@ -290,15 +295,15 @@ Siga estos pasos para crear un rol personalizado de Azure Automation en Azure Po
 
    ```json
    {
-    "properties": {
-        "roleName": "Automation Account Contributor (Custom)",
-        "description": "Allows access to manage Azure Automation and its resources",
-        "assignableScopes": [
+    "properties": {
+        "roleName": "Automation Account Contributor (Custom)",
+        "description": "Allows access to manage Azure Automation and its resources",
+        "assignableScopes": [
             "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX"
         ],
-        "permissions": [
+        "permissions": [
             {
-                "actions": [
+                "actions": [
                     "Microsoft.Authorization/*/read",
                     "Microsoft.Insights/alertRules/*",
                     "Microsoft.Insights/metrics/read",
@@ -308,9 +313,9 @@ Siga estos pasos para crear un rol personalizado de Azure Automation en Azure Po
                     "Microsoft.Automation/automationAccounts/*",
                     "Microsoft.Support/*"
                 ],
-                "notActions": [],
-                "dataActions": [],
-                "notDataActions": []
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
             }
         ]
       }
@@ -330,28 +335,28 @@ Siga estos pasos para crear el rol personalizado de Azure Automation con PowerSh
 
 1. Copie y pegue la siguiente sintaxis JSON en un archivo. Guarde el archivo en la máquina local o en una cuenta de almacenamiento de Azure. En el archivo JSON, reemplace el valor de la propiedad **AssignableScopes** por el GUID de la suscripción.
 
-    ```json
-    { 
-        "Name": "Automation account Contributor (custom)",
-        "Id": "",
-        "IsCustom": true,
-        "Description": "Allows access to manage Azure Automation and its resources",
-        "Actions": [
-            "Microsoft.Authorization/*/read",
-            "Microsoft.Insights/alertRules/*",
-            "Microsoft.Insights/metrics/read",
-            "Microsoft.Insights/diagnosticSettings/*",
-            "Microsoft.Resources/deployments/*",
-            "Microsoft.Resources/subscriptions/resourceGroups/read",
-            "Microsoft.Automation/automationAccounts/*",
-            "Microsoft.Support/*"
-        ],
-        "NotActions": [],
-        "AssignableScopes": [
-            "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX"
-        ] 
-    } 
-    ```
+   ```json
+   { 
+       "Name": "Automation account Contributor (custom)",
+       "Id": "",
+       "IsCustom": true,
+       "Description": "Allows access to manage Azure Automation and its resources",
+       "Actions": [
+           "Microsoft.Authorization/*/read",
+           "Microsoft.Insights/alertRules/*",
+           "Microsoft.Insights/metrics/read",
+           "Microsoft.Insights/diagnosticSettings/*",
+           "Microsoft.Resources/deployments/*",
+           "Microsoft.Resources/subscriptions/resourceGroups/read",
+           "Microsoft.Automation/automationAccounts/*",
+           "Microsoft.Support/*"
+       ],
+       "NotActions": [],
+       "AssignableScopes": [
+           "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX"
+       ] 
+   } 
+   ```
 
 1. Complete los pasos restantes como se describe en [Creación o actualización de roles personalizados de Azure mediante Azure PowerShell](./../role-based-access-control/custom-roles-powershell.md#create-a-custom-role-with-json-template). El rol personalizado puede tardar unos minutos en aparecer en todas partes.
 

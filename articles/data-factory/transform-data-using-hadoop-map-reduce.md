@@ -1,22 +1,22 @@
 ---
 title: Transformación de datos mediante la actividad Hadoop MapReduce
+description: Aprenda a procesar datos mediante la ejecución de programas Hadoop MapReduce en un clúster de HDInsight con Azure Data Factory o Synapse Analytics.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Aprenda a procesar datos mediante la ejecución de programas Hadoop MapReduce en un clúster de HDInsight de Azure desde una factoría de datos de Azure.
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 05/08/2020
-ms.openlocfilehash: 20ac921650f980127f24a48a5dc4e80602b5ef91
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.date: 09/09/2021
+ms.openlocfilehash: 7b4cc518b078565735b987ca4a13fc582e16a493
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122272034"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806156"
 ---
-# <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de Hadoop MapReduce en Azure Data Factory
+# <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory-or-synapse-analytics"></a>Transformación de datos mediante la actividad Hadoop MapReduce en Azure Data Factory o Synapse Analytics
 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-map-reduce.md)
@@ -24,9 +24,9 @@ ms.locfileid: "122272034"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-La actividad MapReduce de HDInsight en una [canalización](concepts-pipelines-activities.md) de Data Factory invoca el programa MapReduce en [su propio](compute-linked-services.md#azure-hdinsight-linked-service) clúster de HDInsight o en un clúster [a petición](compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Este artículo se basa en el artículo sobre [actividades de transformación de datos](transform-data.md) , que presenta información general de la transformación de datos y las actividades de transformación admitidas.
+La actividad MapReduce de HDInsight en una [canalización](concepts-pipelines-activities.md) de Azure Data Factory o Synapse Analytics invoca el programa MapReduce en [su propio](compute-linked-services.md#azure-hdinsight-linked-service) clúster de HDInsight o en un clúster [a petición](compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Este artículo se basa en el artículo sobre [actividades de transformación de datos](transform-data.md) , que presenta información general de la transformación de datos y las actividades de transformación admitidas.
 
-Si no está familiarizado con Azure Data Factory, vea [Introducción a Azure Data Factory](introduction.md) y siga el tutorial sobre la [Transformación de datos](tutorial-transform-data-spark-powershell.md) antes de leer este artículo.
+Para obtener más información, vea los artículos de introducción a [Azure Data Factory](introduction.md) y [Synapse Analytics](../synapse-analytics/overview-what-is.md) y siga el [tutorial de transformación de datos](tutorial-transform-data-spark-powershell.md) antes de leer este artículo.
 
 Consulte [Pig](transform-data-using-hadoop-pig.md) y [Hive](transform-data-using-hadoop-hive.md) para obtener detalles sobre la ejecución de scripts de Pig/Hive en un clúster de HDInsight desde una canalización mediante actividades de Pig y Hive para HDInsight.
 
@@ -66,7 +66,7 @@ Consulte [Pig](transform-data-using-hadoop-pig.md) y [Hive](transform-data-using
 | name              | Nombre de la actividad                     | Sí      |
 | description       | Texto que describe para qué se usa la actividad. | No       |
 | type              | Para la actividad MapReduce, el tipo de actividad es HDinsightMapReduce. | Sí      |
-| linkedServiceName | Referencia al clúster de HDInsight registrado como servicio vinculado en Data Factory. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | Sí      |
+| linkedServiceName | Referencia al clúster de HDInsight registrado como servicio vinculado. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | Sí      |
 | className         | Nombre de la clase que se va a ejecutar         | Sí      |
 | jarLinkedService  | Referencia a un servicio vinculado de Azure Storage que se usa para almacenar los archivos Jar. En este caso solo se admiten servicios vinculados a **[Azure Blob Storage](./connector-azure-blob-storage.md)** y **[ADLS Gen2](./connector-azure-data-lake-storage.md)** . Si no se especifica este servicio vinculado, se usará el servicio vinculado de Azure Storage definido en el servicio vinculado de HDInsight. | No       |
 | jarFilePath       | Proporcione la ruta de acceso a los archivos Jar almacenados en el almacenamiento de Azure Storage al que hace referencia jarLinkedService. El nombre del archivo distingue mayúsculas de minúsculas. | Sí      |
@@ -122,5 +122,5 @@ Vea los siguientes artículos, en los que se explica cómo transformar datos de 
 * [Actividad de streaming de Hadoop](transform-data-using-hadoop-streaming.md)
 * [Actividad de Spark](transform-data-using-spark.md)
 * [Actividad personalizada de .NET](transform-data-using-dotnet-custom-activity.md)
-* [Actividad de ejecución de lotes de Azure Machine Learning Studio (clásico)](transform-data-using-machine-learning.md)
+* [Actividad de ejecución por lotes de ML Studio (clásico)](transform-data-using-machine-learning.md)
 * [Actividad de procedimiento almacenado](transform-data-using-stored-procedure.md)

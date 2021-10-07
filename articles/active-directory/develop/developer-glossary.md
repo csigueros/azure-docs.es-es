@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/24/2020
+ms.date: 09/27/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: 930341b60f785c2c618be4ee235225519a08aaa6
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: f1797ce848793e8f0d129039f00bb491c09e8308
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530053"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153926"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glosario para desarrolladores de la plataforma de identidad de Microsoft
 
@@ -34,7 +34,7 @@ A veces se conoce a los tokens de acceso como "Aplicación y usuario" o "Solo ap
 * La [concesión de autorización del "código de autorización"](#authorization-grant), el usuario final se autentica primero como propietario del recurso, delegando la autorización al cliente para acceder al recurso. Después, el cliente se autentica al obtener el token de acceso. El token a veces se conoce más específicamente como token "Aplicación y usuario", ya que representa tanto al usuario que ha autorizado la aplicación cliente como a la aplicación.
 * [La concesión de autorización de "Credenciales de cliente"](#authorization-grant), el cliente proporciona la autenticación única, que funciona sin la autorización o autenticación del propietario del recurso, por lo que a veces el token puede conocerse como un token "Solo aplicación".
 
-Para más información, consulte la [referencia de tokens de acceso de plataforma de identidad de Microsoft][AAD-Tokens-Claims].
+Consulte la [referencia de tokens de acceso][AAD-Tokens-Claims] para más información.
 
 ## <a name="application-id-client-id"></a>Identificador de aplicación (id. del cliente)
 
@@ -113,7 +113,7 @@ Consulte el [marco de consentimiento](consent-framework.md) para más informaci�
 
 Un [token de seguridad](#security-token) de [OpenID Connect][OpenIDConnect-ID-Token] proporcionado por un [punto de conexión de autorización](#authorization-endpoint) del [servidor de autorización](#authorization-server), que contiene las [notificaciones](#claim) que pertenecen a la autenticación de un [propietario de recursos](#resource-owner) de usuario final. Al igual que un token de acceso, los tokens de identificador también se representan como [JSON Web Token (JWT)][JWT] firmados digitalmente. Sin embargo, a diferencia de un token de acceso, las notificaciones de token de identificador no se usan para fines relacionados con el acceso a los recursos y específicamente con el control de acceso.
 
-Para más información, consulte la [referencia de tokens de acceso de plataforma de identidad de Microsoft][AAD-Tokens-Claims].
+Consulte la [referencia de tokens de identificador](id-tokens.md) para más información.
 
 ## <a name="microsoft-identity-platform"></a>Plataforma de identidad de Microsoft
 
@@ -145,6 +145,8 @@ Las solicitudes de permisos se configuran en la pestaña **Permisos de API** de 
 Un tipo de [token de seguridad](#security-token) emitido por un [servidor de autorización](#authorization-server) y usado por una [aplicación cliente](#client-application) para solicitar un nuevo [token de acceso](#access-token) antes de que expire el token de acceso. Normalmente en forma de [JSON Web Token (JWT)][JWT].
 
 A diferencia de los tokens de acceso, los tokens de actualización se pueden revocar. Si una aplicación cliente intenta solicitar un nuevo token de acceso con un token de actualización que ha sido revocado, el servidor de autorización denegará la solicitud y la aplicación cliente dejará de tener permiso de acceso al [servidor de recursos](#resource-server) en nombre del [propietario del recurso](#resource-owner).
+
+Consulte los [tokens de actualización](refresh-tokens.md) para más información.
 
 ## <a name="resource-owner"></a>propietario del recurso
 

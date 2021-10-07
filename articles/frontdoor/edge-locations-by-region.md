@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 05/25/2021
 ms.author: duau
 ms.custom: references_regions
-ms.openlocfilehash: 9fde9f99792fd450d38cbd0e1935cdb7feaf9585
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: d4e383b1bb0287d0a5fc9d8b72d3af4440dab4ae
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110483252"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091296"
 ---
 # <a name="azure-front-door-edge-locations-by-metro"></a>Ubicaciones perimetrales de Azure Front Door por área metropolitana
 > [!div class="op_single_selector"]
@@ -22,7 +22,7 @@ ms.locfileid: "110483252"
 > * [Ubicaciones perimetrales por abreviatura](edge-locations-abbreviation.md)
 > 
 
-En este artículo se enumeran las áreas metropolitanas actuales que contienen ubicaciones perimetrales, ordenadas por región, para Azure Front Door. Cada área metropolitana puede contener más de una ubicación perimetral. Actualmente, Azure Front Door tiene 116 ubicaciones perimetrales en 100 ciudades metropolitanas.
+En este artículo se enumeran las áreas metropolitanas actuales que contienen ubicaciones perimetrales, ordenadas por región, para Azure Front Door. Cada área metropolitana puede contener más de una ubicación perimetral. Actualmente, Azure Front Door tiene 117 ubicaciones perimetrales en 100 ciudades metropolitanas.
 
 ## <a name="microsoft-edge-locations"></a>Ubicaciones perimetrales de Microsoft
 
@@ -31,5 +31,5 @@ En este artículo se enumeran las áreas metropolitanas actuales que contienen u
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Consulte las [Ubicaciones perimetrales de Azure Front Door por abreviatura](edge-locations-abbreviation.md).
-* Para obtener la lista más reciente de nodos perimetrales para Azure Front Door, consulte [Lista de nodos perimetrales: API REST](/rest/api/cdn/cdn/edgenodes/list).
+* Para obtener la lista más reciente de nodos perimetrales para Azure Front Door, consulte [Lista de nodos perimetrales: API REST](/rest/api/cdn/edge-nodes/list).
 * Aprenda a [crear un perfil de Azure Front Door](quickstart-create-front-door.md).

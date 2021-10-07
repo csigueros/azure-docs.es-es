@@ -4,15 +4,15 @@ description: En este artículo se explican los exámenes y la ingesta en Azure P
 author: nayenama
 ms.author: nayenama
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 08/18/2021
-ms.openlocfilehash: 85509f1500936dfaa0d308b01912ce927f3f380f
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 42162519e9e8f3835498d8955adbd7c254775dd9
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122825231"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211722"
 ---
 # <a name="scans-and-ingestion-in-azure-purview"></a>Exámenes e ingesta en Azure Purview
 
@@ -23,6 +23,16 @@ En este artículo se proporciona información general sobre las características
 Una vez [registrados](manage-data-sources.md) los orígenes de datos en la cuenta de Purview, el siguiente paso es proceder a su examen. El proceso de examen establece una conexión con el origen de datos y captura metadatos técnicos, como nombres, tamaño de archivo, columnas, etc. También extrae el esquema de los orígenes de datos estructurados, aplica clasificaciones en esquemas y [aplica etiquetas de confidencialidad si la cuenta de Purview está conectada a un Centro de seguridad y cumplimiento de Microsoft 365 (SCC)](create-sensitivity-label.md). El proceso de examen se puede desencadenar para ejecutarse inmediatamente o se puede programar para ejecutarse periódicamente para mantener actualizada la cuenta de Purview.
 
 En cada examen hay personalizaciones que puede aplicar para que solo se analicen los orígenes en busca de la información que necesita.
+
+### <a name="choose-an-authentication-method-for-your-scans"></a>Elección de un método de autenticación para los exámenes
+
+Purview es un servicio seguro de manera predeterminada. No se almacenan contraseñas ni secretos directamente en Purview, por lo que deberá elegir un método de autenticación para los orígenes. Hay cuatro maneras posibles de autenticar la cuenta de Purview, pero no todos los métodos son compatibles con todos los orígenes de datos.
+ - Identidad administrada
+ - Entidad de servicio
+ - Autenticación de SQL
+ - Clave de cuenta o autenticación básica
+
+Siempre que sea posible, una identidad administrada es el método de autenticación preferido, porque elimina la necesidad de almacenar y administrar credenciales de orígenes de datos individuales. Así se puede reducir considerablemente el tiempo que usted y su equipo dedican a configurar y solucionar problemas de autenticación para los exámenes. Al habilitar una identidad administrada para la cuenta de Purview, se crea una identidad en Azure Active Directory y se vincula al ciclo de vida de la cuenta. 
 
 ### <a name="scope-your-scan"></a>Ámbito del examen
 
@@ -36,6 +46,10 @@ Un conjunto de reglas de examen determina los tipos de información que buscará
 
 Ya hay [conjuntos de reglas de examen del sistema](create-a-scan-rule-set.md#system-scan-rule-sets) disponibles para muchos tipos de orígenes de datos, pero también puede [crear sus propios conjuntos de reglas de examen](create-a-scan-rule-set.md) para adaptar los exámenes a su organización.
 
+### <a name="schedule-your-scan"></a>Programación del examen
+
+Purview le ofrece la opción de examinar semanal o mensualmente en un momento específico que elija. Los exámenes semanales pueden ser adecuados para orígenes de datos con estructuras que están en desarrollo de forma activa o cambian con frecuencia. El examen mensual es más adecuado para los orígenes de datos que cambian con poca frecuencia. Un procedimiento recomendado es trabajar con el administrador del origen que desea examinar para identificar un momento en el que las demandas de proceso del origen sean bajas.
+
 ### <a name="how-scans-detect-deleted-assets"></a>Cómo detectan los exámenes los recursos eliminados
 
 Un catálogo de Azure Purview conoce el estado de un almacén de datos solo cuando lo examina. Para que el catálogo determine si se ha eliminado un archivo, una tabla o un contenedor, compara la última salida del examen con la salida del examen actual. Por ejemplo, supongamos que la última vez que examinó una cuenta de Azure Data Lake Storage Gen2, incluía una carpeta llamada *carpeta1*. Al volver a examinar la misma cuenta, *folder1* ya no está. Por lo tanto, el catálogo supone que la carpeta se ha eliminado.
@@ -48,7 +62,10 @@ Para mantener los archivos eliminados fuera del catálogo, es importante realiza
 
 Al enumerar almacenes de datos de gran tamaño, como Data Lake Storage Gen2, es posible que se omita información de varias maneras (como errores de enumeración y eventos eliminados). Un examen determinado podría pasar por alto un archivo creado o eliminado. Por lo tanto, a menos que el catálogo tenga la seguridad de que se ha eliminado un archivo, no lo eliminará del catálogo. Esta estrategia implica que podría haber errores cuando un archivo que no existe en el almacén de datos examinado todavía existe en el catálogo. En algunos casos, es posible que sea necesario examinar un almacén de datos dos o tres veces antes de que se detecten determinados recursos eliminados.
 
-## <a name="ingestion"></a>Ingesta
+> [!NOTE]
+> Los recursos marcados para su eliminación se eliminan tras un examen correcto. Los recursos eliminados pueden seguir estando visibles en el catálogo durante un tiempo antes de que se procesen y se quiten.
+
+## <a name="ingestion"></a>Ingesta de datos
 
 Los metadatos o las clasificaciones técnicos identificados en el proceso de examen se envían a ingesta. El proceso de ingesta es responsable de rellenar el mapa de datos y lo administra Purview.  La ingesta analiza la entrada del examen, [aplica patrones de conjunto de recursos](concept-resource-sets.md#how-azure-purview-detects-resource-sets), rellena la información de [linaje](concept-data-lineage.md) disponible y, luego, carga automáticamente el mapa de datos. Los recursos o esquemas solo se pueden detectar o mantener una vez completada la ingesta. Por lo tanto, si el examen se ha completado, pero no ha visto los recursos en el mapa o el catálogo de datos, tendrá que esperar a que finalice el proceso de ingesta.
 

@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 7ea57756eb272da42470fa60af2e4a0d5cd1abea
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b94ceb3bc190f57e3e5190e89e1018fc8a6e77f6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637786"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831152"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Uso de secretos de Azure Key Vault en actividades de canalización
 
@@ -28,19 +28,19 @@ Esta característica se basa en la identidad administrada de Data Factory.  Obte
 
 1. Abra las propiedades de la factoría de datos y copie el valor Id. de aplicación de identidad administrada.
 
-    ![Valor de identidad administrada](media/how-to-use-azure-key-vault-secrets-pipeline-activities/managedidentity.png)
+    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/managedidentity.png" alt-text="Valor de identidad administrada":::
 
 2. Abra las directivas de acceso del almacén de claves y agregue los permisos de identidad administrada para obtener y enumerar los secretos.
 
-    ![Captura de pantalla que muestra la página "Directivas de acceso" con la acción "Agregar directiva de acceso" resaltada.](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies.png)
+    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies.png" alt-text="Captura de pantalla que muestra la página &quot;Directivas de acceso&quot; con la acción &quot;Agregar directiva de acceso&quot; resaltada.":::
 
-    ![Directivas de acceso de Key Vault](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png)
+    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png" alt-text="Directivas de acceso de Key Vault":::
 
     Haga clic en **Agregar** y luego en **Guardar**.
 
 3. Navegue hasta el secreto de Key Vault y copie el identificador secreto.
 
-    ![Identificador secreto](media/how-to-use-azure-key-vault-secrets-pipeline-activities/secretidentifier.png)
+    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/secretidentifier.png" alt-text="Identificador secreto":::
 
     Anote el URI del secreto que quiera obtener durante la ejecución de la canalización de factoría de datos.
 
@@ -54,7 +54,7 @@ Esta característica se basa en la identidad administrada de Data Factory.  Obte
     |Authentication     |MSI         |
     |Resource        |https://vault.azure.net       |
 
-    ![Actividad web](media/how-to-use-azure-key-vault-secrets-pipeline-activities/webactivity.png)
+    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/webactivity.png" alt-text="Actividad web":::
 
     > [!IMPORTANT]
     > Debe agregar **?api-version=7.0** al final del URI del secreto.  
@@ -64,7 +64,7 @@ Esta característica se basa en la identidad administrada de Data Factory.  Obte
 
 5. Para usar el valor en otra actividad, utilice la expresión de código siguiente **@activity("Web1").output.value**.
 
-    ![Expresión de código](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
+    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png" alt-text="Expresión de código":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

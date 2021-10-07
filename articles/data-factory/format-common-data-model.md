@@ -1,34 +1,34 @@
 ---
 title: Formato Common Data Model
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Transformación de datos mediante el sistema de metadatos de Common Data Model
+description: Transforme datos mediante el sistema de metadatos de Common Data Model en canalizaciones de Azure Data Factory y Synapse Analytics.
 author: kromerm
 ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 09/09/2021
 ms.author: makromer
-ms.openlocfilehash: 612faa714f6a31bb464d30cc5b30766734782d41
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5e97bb5a51bc636cf8f2227473f090e51bb49c1c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637754"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124787705"
 ---
-# <a name="common-data-model-format-in-azure-data-factory"></a>Formato de Common Data Model en Azure Data Factory
+# <a name="common-data-model-format-in-azure-data-factory-and-synapse-analytics"></a>Formato Common Data Model en Azure Data Factory y Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 El sistema de metadatos de Common Data Model (CDM) permite que los datos y su significado se compartan fácilmente entre las aplicaciones y los procesos empresariales. Para obtener más información, consulte la información general de [Common Data Model](/common-data-model/).
 
-En Azure Data Factory, los usuarios pueden transformar datos las entidades CDM tanto en model.json como en formato de manifiesto almacenadas en [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) mediante flujo de datos de asignación. También puede recibir datos en formato CDM mediante referencias de entidad CDM que van a colocar los datos en formato CSV o Parquet en las carpetas con particiones. 
+En las canalizaciones de Azure Data Factory y Synapse, los usuarios pueden transformar datos de entidades CDM tanto en model.json como en formato de manifiesto almacenadas en [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) mediante flujos de datos de asignación. También puede recibir datos en formato CDM mediante referencias de entidad CDM que van a colocar los datos en formato CSV o Parquet en las carpetas con particiones. 
 
 ## <a name="mapping-data-flow-properties"></a>Propiedades de Asignación de instancias de Data Flow
 
 Common Data Model está disponible como [conjunto de datos en línea](data-flow-source.md#inline-datasets) en el flujo de datos de asignación como origen y receptor.
 
 > [!NOTE]
-> Al escribir entidades CDM, debe tener una definición de entidad CDM existente (esquema de metadatos) ya definida para usarla como referencia. El receptor de flujo de datos de ADF leerá ese archivo de entidad CDM e importará el esquema en el receptor para la asignación de campos.
+> Al escribir entidades CDM, debe tener una definición de entidad CDM existente (esquema de metadatos) ya definida para usarla como referencia. El receptor de flujo de datos leerá ese archivo de entidad CDM e importará el esquema en el receptor para la asignación de campos.
 
 ### <a name="source-properties"></a>Propiedades de origen
 
@@ -53,32 +53,32 @@ En la tabla siguiente se enumeran las propiedades que admite un origen CDM. Pued
 
 Al seleccionar "Referencia de entidad" en las transformaciones de origen y receptor, puede seleccionar entre estas tres opciones para la ubicación de la referencia de entidad:
 
-* La opción local usa la entidad definida en el archivo de manifiesto que el ADF usa.
-* La opción personalizada le pedirá que apunte a un archivo de manifiesto de entidad diferente del archivo de manifiesto que el ADF usa.
+* La opción local usa la entidad definida en el archivo de manifiesto que el servicio usa.
+* La opción personalizada le pedirá que apunte a un archivo de manifiesto de entidad diferente del archivo de manifiesto que el servicio usa.
 * La opción estándar usará una referencia de entidad de la biblioteca estándar de entidades CDM mantenidas en ```Github```.
 
 ### <a name="sink-settings"></a>Configuración del receptor
 
 * Seleccione el archivo de referencia de la entidad CDM que contiene la definición de la entidad que quiere escribir.
 
-![entity settings](media/data-flow/common-data-model-111.png "Referencia de entidad")
+:::image type="content" source="media/data-flow/common-data-model-111.png" alt-text="entity settings":::
 
-* Defina la ruta de acceso de la partición y el formato de los archivos de salida que desea que ADF use para escribir las entidades.
+* Defina la ruta de acceso de la partición y el formato de los archivos de salida que desea que el servicio use para escribir las entidades.
 
-![entity format](media/data-flow/common-data-model-222.png "Formato de entidad")
+:::image type="content" source="media/data-flow/common-data-model-222.png" alt-text="entity format":::
 
 * Establezca la ubicación del archivo de salida y la ubicación y el nombre del archivo de manifiesto.
 
-![cdm location](media/data-flow/common-data-model-333.png "Ubicación CDM")
+:::image type="content" source="media/data-flow/common-data-model-333.png" alt-text="cdm location":::
 
 
 #### <a name="import-schema"></a>Importar esquema
 
 CDM solo está disponible como un conjunto de datos insertado y, de forma predeterminada, no tiene un esquema asociado. Para obtener los metadatos de columna, haga clic en el botón **Importar esquema** en la pestaña **Proyección**. Esto le permitirá hacer referencia a los nombres de columna y los tipos de datos especificados por corpus. Para importar el esquema, una [sesión de depuración de flujo de datos](concepts-data-flow-debug-mode.md) debe estar activa y debe tener un archivo de definición de entidad CDM existente al que apuntar.
 
-Al asignar columnas de flujo de datos a las propiedades de entidad en la transformación del receptor, haga clic en la pestaña "Asignación" y seleccione "Importar esquema". ADF leerá la referencia a la entidad a la que apunta en las opciones del receptor, permitiéndole asignar al esquema CDM de destino.
+Al asignar columnas de flujo de datos a las propiedades de entidad en la transformación del receptor, haga clic en la pestaña "Asignación" y seleccione "Importar esquema". El servicio leerá la referencia a la entidad a la que apunta en las opciones del receptor, permitiéndole asignar al esquema CDM de destino.
 
-![Configuración del receptor CDM](media/data-flow/common-data-model-444.png "Asignación CDM")
+:::image type="content" source="media/data-flow/common-data-model-444.png" alt-text="Configuración del receptor CDM":::
 
 > [!NOTE]
 >  Cuando se usa el tipo de origen model.json que se origina en Power BI o en los flujos de datos de Power Platform, es posible que se produzcan errores de "la ruta de acceso de Corpus es null o está vacía" de la transformación de origen. Esto se debe probablemente a problemas de formato de la ruta de acceso de la partición en el archivo model.json. Para solucionarlo, siga estos pasos. 
@@ -162,4 +162,4 @@ CDMSource sink(allowSchemaDrift: true,
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Cree una [transformación de origen](data-flow-source.md) en flujo de datos de asignación.
+Cree una [Transformación de origen](data-flow-source.md) en flujo de datos de asignación.

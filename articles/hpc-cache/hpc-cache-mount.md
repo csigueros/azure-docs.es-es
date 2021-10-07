@@ -4,14 +4,14 @@ description: Conexión de clientes a un servicio de Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 09/20/2021
 ms.author: v-erkel
-ms.openlocfilehash: 7f1d8d34d6351fc344fdb101ac8e9a96678df9d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e3c2a336d58e90bc446c77b164148359f9588fd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91651435"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128675917"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Montaje de la instancia de Azure HPC Cache
 
@@ -91,6 +91,8 @@ Siga este procedimiento para crear el comando de montaje.
 
    ![Captura de pantalla del campo del comando prototype mount, que muestra el texto que aparece al pasar el cursor por encima del botón "Copiar en portapapeles"](media/mount-command-copy.png)
 
+   Más adelante se muestran comandos de montaje alternativos, que tienen la misma ruta de acceso de cliente y de espacio de nombres, pero que usan direcciones de montaje de caché diferentes. Para obtener el mejor rendimiento, debe montar los clientes uniformemente en todas las direcciones disponibles en la instancia de HPC Cache.
+
 1. Use el comando mount copiado en la máquina cliente para conectarla a Azure HPC Cache. Puede emitir el comando directamente desde la línea de comandos del cliente o incluir el comando mount en un script o una plantilla de instalación del cliente.
 
 ## <a name="understand-mount-command-syntax"></a>Descripción de la sintaxis del comando mount
@@ -135,6 +137,13 @@ Las rutas de acceso del espacio de nombres virtual se muestran en la página de 
 
 ![Captura de pantalla de la página del portal Configuración > Espacio de nombres con un cuadro de resaltado alrededor de la primera columna de la tabla: "Ruta de acceso del espacio de nombres"](media/view-namespace-paths.png)
 
+## <a name="use-all-available-mount-addresses"></a>Uso de todas las direcciones de montaje disponibles
+
+Debe repartir el tráfico de cliente entre todas las direcciones IP enumeradas para la memoria caché. Si monta todos los clientes en una sola dirección, el rendimiento de la memoria caché se verá afectado.
+
+Puede seleccionar direcciones de montaje diferentes para distintos clientes manualmente o mediante la creación de un script. También puede usar un servidor DNS configurado para DNS de tipo round robin (RRDNS) para rotar automáticamente los montajes de cliente entre todas las direcciones disponibles. Lea [Equilibrio de carga del tráfico de HPC Cache](client-load-balancing.md) para obtener más información.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
+* Obtenga más información sobre cómo usar todo el rendimiento de la caché [equilibrando la carga del cliente](client-load-balancing.md).
 * Para mover datos a los destinos de almacenamiento de la caché, lea [Rellenado del nuevo almacenamiento de blobs de Azure](hpc-cache-ingest.md).

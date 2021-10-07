@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/18/2021
+ms.date: 09/16/2021
 ms.author: justinha
-ms.openlocfilehash: 935abb1a1eae362e3036c323da35aa5fd7b9b018
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: a02dbe66e255cd56865a0ce75310260fd690b069
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114707968"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546999"
 ---
 # <a name="administer-dns-and-create-conditional-forwarders-in-an-azure-active-directory-domain-services-managed-domain"></a>Administración de DNS y creación de reenviadores condicionales en un dominio administrado de Azure Active Directory Domain Services
 
@@ -28,7 +28,7 @@ En un entorno híbrido, las zonas DNS y los registros configurados en otros espa
 En este artículo se muestra cómo se instalan las herramientas del servidor DNS y cómo se usa la consola DNS para administrar registros y crear reenviadores condicionales en Azure AD DS.
 
 >[!NOTE]
->No se admite la creación o el cambio de reenviadores DNS de nivel de servidor, lo que provocará problemas para el dominio administrado de Azure AD DS.
+>No se admite la creación o el cambio de sugerencias de raíz o reenviadores DNS de nivel de servidor, lo que provocará problemas para el dominio administrado de Azure AD DS. 
 
 ## <a name="before-you-begin"></a>Antes de empezar
 

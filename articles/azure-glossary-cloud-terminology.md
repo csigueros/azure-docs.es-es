@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2017
+ms.date: 08/22/2021
 ms.author: monicar
-ms.openlocfilehash: a97726498adc89a8453d88bef9a61aa343da2c5e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e57dd133a9145356c64faa3854a121834fbdb2ae
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111956436"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645158"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glosario de Microsoft Azure: un diccionario de terminología de la nube sobre la plataforma de Azure
 
@@ -28,6 +28,7 @@ El glosario de Microsoft Azure es un breve diccionario de terminología de la nu
 
 * [Microsoft Azure y Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/): definiciones de los servicios de Azure y sus equivalentes de AWS.<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
 * [Términos de informática en la nube](https://azure.microsoft.com/overview/cloud-computing-dictionary/): términos generales sobre informática en la nube.
+* [Conceptos básicos de Azure](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts): Microsoft Cloud Adoption Framework para Azure.
 
 ## <a name="account"></a>account
 Una cuenta que se usa para acceder y administrar una suscripción de Azure. A menudo se hace referencia a ella como una cuenta de Azure, aunque puede ser una cuenta de Microsoft profesional, una cuenta educativa o una cuenta personal existente. También puede crear una cuenta para administrar una suscripción de Azure al registrarse para la [evaluación gratuita](https://azure.microsoft.com).  

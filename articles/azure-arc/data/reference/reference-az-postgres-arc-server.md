@@ -9,12 +9,12 @@ ms.date: 07/30/2021
 ms.topic: reference
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.openlocfilehash: c58819707eb5987bddeb0d8983c29e7519b69818
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 12252e0bfa9d52da1b70de15b42a0b7014183202
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780482"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124794583"
 ---
 # <a name="az-postgres-arc-server"></a>az postgres arc-server
 ## <a name="commands"></a>Comandos:
@@ -25,7 +25,7 @@ ms.locfileid: "121780482"
 [az postgres arc-server delete](#az-postgres-arc-server-delete) | Elimine un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc.
 [az postgres arc-server show](#az-postgres-arc-server-show) | Muestre los detalles de un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc.
 [az postgres arc-server list](#az-postgres-arc-server-list) | Enumere los grupos de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc.
-[az postgres arc-server endpoint](reference-az-postgres-arc-server-endpoint.md) | Permite administrar los puntos de conexión de un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc.
+[az postgres arc-server endpoint](reference-az-postgres-arc-server-endpoint.md) | Administre los puntos de conexión de un grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc.
 ## <a name="az-postgres-arc-server-create"></a>az postgres arc-server create
 Para establecer la contraseña del grupo de servidores, establezca la variable de entorno AZDATA_PASSWORD.
 ```bash
@@ -99,17 +99,17 @@ az postgres arc-server create -n pg1 --memory-limit "coordinator=2Gi,w=1Gi" --wo
 Nombre del grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc.
 ### <a name="optional-parameters"></a>Parámetros opcionales
 #### `--path`
-Ruta de acceso al archivo de código fuente json para el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc. Esta información es opcional.
+Ruta de acceso al archivo de código fuente JSON para el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc. Esto es opcional.
 #### `--k8s-namespace -k`
-El espacio de nombres de Kubernetes donde se implementa el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc. Si no se especifica ningún espacio de nombres, se utilizará el espacio de nombres definido en kubeconfig.
+Espacio de nombres de Kubernetes donde se implementa el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc. Si no se especifica ningún espacio de nombres, se utilizará el espacio de nombres definido en kubeconfig.
 #### `--cores-limit`
-Número máximo de núcleos de CPU para el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc que se puede usar por nodo. Se pueden usar núcleos fraccionarios. Opcionalmente, se puede especificar una lista separada por comas de roles con valores en el formato <role>=<value>. Los roles válidos son "coordinator" o "c" y "worker" o "w". Si no se especifica ningún rol, la configuración se aplicará a todos los nodos del grupo de servidores PostgreSQL de hiperescala.
+Número máximo de núcleos de CPU para el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc que se puede usar por nodo. Se pueden usar núcleos fraccionarios. Opcionalmente, se puede especificar una lista separada por comas de roles con valores en el formato \<role\>=\<value\>. Los roles válidos son "coordinator" o "c" y "worker" o "w". Si no se especifica ningún rol, la configuración se aplicará a todos los nodos del grupo de servidores PostgreSQL de hiperescala.
 #### `--cores-request`
-Número mínimo de núcleos de CPU que debe haber disponibles por nodo para programar el servicio. Se pueden usar núcleos fraccionarios. Opcionalmente, se puede especificar una lista separada por comas de roles con valores en el formato <role>=<value>. Los roles válidos son "coordinator" o "c" y "worker" o "w". Si no se especifica ningún rol, la configuración se aplicará a todos los nodos del grupo de servidores PostgreSQL de hiperescala.
+Número mínimo de núcleos de CPU que debe haber disponibles por nodo para programar el servicio. Se pueden usar núcleos fraccionarios. Opcionalmente, se puede especificar una lista separada por comas de roles con valores en el formato \<role\>=\<value\>. Los roles válidos son "coordinator" o "c" y "worker" o "w". Si no se especifica ningún rol, la configuración se aplicará a todos los nodos del grupo de servidores PostgreSQL de hiperescala.
 #### `--memory-limit`
-Límite de memoria para el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc como un número seguido de Ki (kilobytes), Mi (megabytes) o Gi (gigabytes). Opcionalmente, se puede especificar una lista separada por comas de roles con valores en el formato <role>=<value>. Los roles válidos son "coordinator" o "c" y "worker" o "w". Si no se especifica ningún rol, la configuración se aplicará a todos los nodos del grupo de servidores PostgreSQL de hiperescala.
+Límite de memoria para el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc como un número seguido de Ki (kilobytes), Mi (megabytes) o Gi (gigabytes). Opcionalmente, se puede especificar una lista separada por comas de roles con valores en el formato \<role\>=\<value\>. Los roles válidos son "coordinator" o "c" y "worker" o "w". Si no se especifica ningún rol, la configuración se aplicará a todos los nodos del grupo de servidores PostgreSQL de hiperescala.
 #### `--memory-request`
-Solicitud de memoria para el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc como un número seguido de Ki (kilobytes), Mi (megabytes) o Gi (gigabytes). Opcionalmente, se puede especificar una lista separada por comas de roles con valores en el formato <role>=<value>. Los roles válidos son "coordinator" o "c" y "worker" o "w". Si no se especifica ningún rol, la configuración se aplicará a todos los nodos del grupo de servidores PostgreSQL de hiperescala.
+Solicitud de memoria para el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc como un número seguido de Ki (kilobytes), Mi (megabytes) o Gi (gigabytes). Opcionalmente, se puede especificar una lista separada por comas de roles con valores en el formato \<role\>=\<value\>. Los roles válidos son "coordinator" o "c" y "worker" o "w". Si no se especifica ningún rol, la configuración se aplicará a todos los nodos del grupo de servidores PostgreSQL de hiperescala.
 #### `--storage-class-data`
 Clase de almacenamiento que se va a usar en los volúmenes persistentes de datos.
 #### `--storage-class-logs`
@@ -117,7 +117,7 @@ Clase de almacenamiento que se va a usar en los volúmenes persistentes de regis
 #### `--storage-class-backups`
 Clase de almacenamiento que se va a usar en los volúmenes persistentes de copia de datos.
 #### `--volume-claim-mounts`
-Lista separada por comas de montajes de notificación de volumen. Un montaje de notificación de volumen es un par formado por una notificación de volumen persistente existente (en el mismo espacio de nombres) y el tipo de volumen (y metadatos opcionales según el tipo de volumen) separados por dos puntos. El volumen persistente se puede montar en cada pod para el grupo de servidores de PostgreSQL. La ruta de acceso de montaje puede depender del tipo de volumen.
+Lista separada por comas de montajes de notificación de volumen. Un montaje de notificación de volumen es un par formado por una notificación de volumen persistente existente (en el mismo espacio de nombres) y el tipo de volumen (y metadatos opcionales según el tipo de volumen) separados por dos puntos. El volumen persistente se montará en cada pod del grupo de servidores de PostgreSQL. La ruta de acceso de montaje puede depender del tipo de volumen.
 #### `--extensions`
 Lista separada por comas de las extensiones de Postgres que deben cargarse en el inicio. Vea la documentación de Postgres para obtener información sobre los valores admitidos.
 #### `--volume-size-data`
@@ -138,7 +138,7 @@ Opcional.
 #### `--no-wait`
 Si se especifica, el comando no esperará a que la instancia esté en un estado listo antes de volver.
 #### `--engine-settings`
-Lista separada por comas de los valores del motor de Postgres con el formato '"key1=val1, key2=val2".
+Lista separada por comas de los valores del motor de Postgres con el formato "key1=val1, key2=val2".
 #### `--coordinator-settings`
 Lista separada por comas de la configuración del motor de Postgres con el formato "key1=val1, key2=val2" que se aplicará al rol de nodo "coordinator". Si se establece la configuración específica del rol de nodo, la configuración predeterminada se omitirá y se sustituirá por la configuración proporcionada aquí.
 #### `--worker-settings`
@@ -212,19 +212,19 @@ az postgres arc-server edit -n pg1 --engine-settings "key1=val1" --replace-setti
 Nombre del grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc que se está editando. El nombre con el que se implementa la instancia no se puede cambiar.
 ### <a name="optional-parameters"></a>Parámetros opcionales
 #### `--k8s-namespace -k`
-El espacio de nombres de Kubernetes donde se implementa el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc. Si no se especifica ningún espacio de nombres, se utilizará el espacio de nombres definido en kubeconfig.
+Espacio de nombres de Kubernetes donde se implementa el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc. Si no se especifica ningún espacio de nombres, se utilizará el espacio de nombres definido en kubeconfig.
 #### `--path`
-Ruta de acceso al archivo de código fuente json para el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc. Esta información es opcional.
+Ruta de acceso al archivo de código fuente JSON para el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc. Esta información es opcional.
 #### `--workers -w`
 Número de nodos de trabajo que se aprovisionarán en un grupo de servidores. En la versión preliminar no se admite la reducción del número de nodos de trabajo. Consulte la documentación para obtener más información.
 #### `--cores-limit`
-Número máximo de núcleos de CPU para el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc que se pueden usar por nodo, con compatibilidad con núcleos fraccionarios. Para quitar los límites de núcleos, especifique su valor como una cadena vacía. Opcionalmente, se puede especificar una lista separada por comas de roles con valores en el formato <role>=<value>. Los roles válidos son "coordinator" o "c" y "worker" o "w". Si no se especifica ningún rol, la configuración se aplicará a todos los nodos del grupo de servidores PostgreSQL de hiperescala.
+Número máximo de núcleos de CPU para el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc que se pueden usar por nodo, con compatibilidad con núcleos fraccionarios. Para quitar los límites de núcleos, especifique su valor como una cadena vacía. Opcionalmente, se puede especificar una lista separada por comas de roles con valores en el formato \<role\>=\<value\>. Los roles válidos son "coordinator" o "c" y "worker" o "w". Si no se especifica ningún rol, la configuración se aplicará a todos los nodos del grupo de servidores PostgreSQL de hiperescala.
 #### `--cores-request`
-Número mínimo de núcleos de CPU que debe haber disponibles por nodo para programar el servicio. Se pueden usar núcleos fraccionarios. Para quitar las solicitudes de núcleos, especifique su valor como una cadena vacía. Opcionalmente, se puede especificar una lista separada por comas de roles con valores en el formato <role>=<value>. Los roles válidos son "coordinator" o "c" y "worker" o "w". Si no se especifica ningún rol, la configuración se aplicará a todos los nodos del grupo de servidores PostgreSQL de hiperescala.
+Número mínimo de núcleos de CPU que debe haber disponibles por nodo para programar el servicio. Se pueden usar núcleos fraccionarios. Para quitar las solicitudes de núcleos, especifique su valor como una cadena vacía. Opcionalmente, se puede especificar una lista separada por comas de roles con valores en el formato \<role\>=\<value\>. Los roles válidos son "coordinator" o "c" y "worker" o "w". Si no se especifica ningún rol, la configuración se aplicará a todos los nodos del grupo de servidores PostgreSQL de hiperescala.
 #### `--memory-limit`
-Límite de memoria para el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc como un número seguido de Ki (kilobytes), Mi (megabytes) o Gi (gigabytes). Para quitar los límites de memoria, especifique su valor como una cadena vacía. Opcionalmente, se puede especificar una lista separada por comas de roles con valores en el formato <role>=<value>. Los roles válidos son "coordinator" o "c" y "worker" o "w". Si no se especifica ningún rol, la configuración se aplicará a todos los nodos del grupo de servidores PostgreSQL de hiperescala.
+Límite de memoria para el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc como un número seguido de Ki (kilobytes), Mi (megabytes) o Gi (gigabytes). Para quitar los límites de memoria, especifique su valor como una cadena vacía. Opcionalmente, se puede especificar una lista separada por comas de roles con valores en el formato \<role\>=\<value\>. Los roles válidos son "coordinator" o "c" y "worker" o "w". Si no se especifica ningún rol, la configuración se aplicará a todos los nodos del grupo de servidores PostgreSQL de hiperescala.
 #### `--memory-request`
-Solicitud de memoria para el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc como un número seguido de Ki (kilobytes), Mi (megabytes) o Gi (gigabytes). Para quitar la solicitud de memoria, especifique su valor como una cadena vacía. Opcionalmente, se puede especificar una lista separada por comas de roles con valores en el formato <role>=<value>. Los roles válidos son "coordinator" o "c" y "worker" o "w". Si no se especifica ningún rol, la configuración se aplicará a todos los nodos del grupo de servidores PostgreSQL de hiperescala.
+Solicitud de memoria para el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc como un número seguido de Ki (kilobytes), Mi (megabytes) o Gi (gigabytes). Para quitar la solicitud de memoria, especifique su valor como una cadena vacía. Opcionalmente, se puede especificar una lista separada por comas de roles con valores en el formato \<role\>=\<value\>. Los roles válidos son "coordinator" o "c" y "worker" o "w". Si no se especifica ningún rol, la configuración se aplicará a todos los nodos del grupo de servidores PostgreSQL de hiperescala.
 #### `--extensions`
 Lista separada por comas de las extensiones de Postgres que deben cargarse en el inicio. Vea la documentación de Postgres para obtener información sobre los valores admitidos.
 #### `--port`
@@ -232,7 +232,7 @@ Opcional.
 #### `--no-wait`
 Si se especifica, el comando no esperará a que la instancia esté en un estado listo antes de volver.
 #### `--engine-settings`
-Lista separada por comas de los valores del motor de Postgres con el formato '"key1=val1, key2=val2". La configuración proporcionada se combinará con la configuración existente. Para quitar una configuración, indique un valor vacío, como "removedKey=". Si se cambia una configuración de motor que requiere un reinicio, el servicio se reiniciará para aplicar la configuración inmediatamente.
+Lista separada por comas de los valores del motor de Postgres con el formato "key1=val1, key2=val2". La configuración proporcionada se combinará con la configuración existente. Para quitar una configuración, indique un valor vacío, como "removedKey=". Si se cambia una configuración de motor que requiere un reinicio, el servicio se reiniciará para aplicar la configuración inmediatamente.
 #### `--replace-settings`
 Cuando se especifica con --engine-settings, reemplazará toda la configuración de motor personalizada existente por el nuevo conjunto de valores y configuraciones.
 #### `--coordinator-settings`
@@ -276,7 +276,7 @@ az postgres arc-server delete -n pg1 --k8s-namespace namespace --use-k8s
 Nombre del grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc.
 ### <a name="optional-parameters"></a>Parámetros opcionales
 #### `--k8s-namespace -k`
-El espacio de nombres de Kubernetes donde se implementa el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc. Si no se especifica ningún espacio de nombres, se utilizará el espacio de nombres definido en kubeconfig.
+Espacio de nombres de Kubernetes donde se implementa el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc. Si no se especifica ningún espacio de nombres, se utilizará el espacio de nombres definido en kubeconfig.
 #### `--force -f`
 Fuerce la eliminación del grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc sin confirmación.
 #### `--use-k8s`
@@ -314,7 +314,7 @@ az postgres arc-server show -n pg1 --k8s-namespace namespace --use-k8s
 Nombre del grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc.
 ### <a name="optional-parameters"></a>Parámetros opcionales
 #### `--k8s-namespace -k`
-El espacio de nombres de Kubernetes donde se implementa el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc. Si no se especifica ningún espacio de nombres, se utilizará el espacio de nombres definido en kubeconfig.
+Espacio de nombres de Kubernetes donde se implementa el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc. Si no se especifica ningún espacio de nombres, se utilizará el espacio de nombres definido en kubeconfig.
 #### `--path`
 Ruta de acceso donde se debe escribir la especificación completa del grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc. Si se omite, la especificación se escribe en la salida estándar.
 #### `--use-k8s`
@@ -345,7 +345,7 @@ az postgres arc-server list --k8s-namespace namespace --use-k8s
 ```
 ### <a name="optional-parameters"></a>Parámetros opcionales
 #### `--k8s-namespace -k`
-El espacio de nombres de Kubernetes donde se implementan los grupos de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc. Si no se especifica ningún espacio de nombres, se utilizará el espacio de nombres definido en kubeconfig.
+Espacio de nombres de Kubernetes donde se implementan los grupos de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc. Si no se especifica ningún espacio de nombres, se utilizará el espacio de nombres definido en kubeconfig.
 #### `--use-k8s`
 Use las API de Kubernetes locales para realizar esta acción.
 ### <a name="global-arguments"></a>Argumentos globales

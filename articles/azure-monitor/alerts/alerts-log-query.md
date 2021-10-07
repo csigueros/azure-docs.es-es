@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: e15b3f81cf5f29efa739939fe29df25f338187cc
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 82f40d33d0465a7981105472ccd0487e7e24da80
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475264"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128635135"
 ---
 # <a name="optimizing-log-alert-queries"></a>Optimización de consultas de alerta de registro
 En este artículo se describe cómo escribir y convertir las consultas de [alerta de registro](./alerts-unified-log.md) para lograr un rendimiento óptimo. Las consultas optimizadas reducen la latencia y la carga de alertas, que se ejecutan con frecuencia.
@@ -47,7 +47,7 @@ Las [consultas de registro de Azure Monitor](../logs/log-query-overview.md) comi
 
 Las consultas para las reglas de alertas de registro siempre deben empezar con una tabla que defina un ámbito claro, que mejore el rendimiento de las consultas y la pertinencia de los resultados. Las consultas de las reglas de alertas se ejecutan con frecuencia, por lo que el uso de `search` y `union` puede producir una sobrecarga excesiva que suma latencia a la alerta, ya que requiere el examen de varias tablas. Estos operadores también reducen la capacidad del servicio de alertas para optimizar la consulta.
 
-No se admite la creación o modificación de reglas de alertas de registro que utilicen operadores `search` o `union`, excepto en consultas entre recursos.
+No se admite la creación o modificación de reglas de alertas de registro que utilicen los operadores `search` o `union`, excepto en consultas entre recursos.
 
 Por ejemplo, la siguiente consulta de alertas tiene como ámbito la tabla _SecurityEvent_ y busca un identificador de evento específico. Es la única tabla que debe procesar la consulta.
 

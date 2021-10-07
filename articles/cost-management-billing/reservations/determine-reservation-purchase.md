@@ -2,18 +2,18 @@
 title: Determinación de qué reserva de Azure se debe comprar
 description: Este artículo le ayuda a determinar qué reserva debe comprar.
 author: bandersmsft
-ms.reviewer: yashar
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 09/20/2021
 ms.author: banders
-ms.openlocfilehash: 80c0627cdc2169ce3301ee56a449442387d8f6e1
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 7482835f09ec5de0beff6b97b190c5eedfb11b7f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110481109"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128604329"
 ---
 # <a name="determine-what-reservation-to-purchase"></a>Determinación de qué reserva comprar
 
@@ -86,6 +86,7 @@ Tenga en cuenta los siguientes puntos:
 - Las recomendaciones se calculan para tamaños individuales, no para la familia de tamaños de la instancia.
 - La cantidad recomendada para un ámbito se reduce el mismo día en que se compran las reservas para este.
     - Sin embargo, una actualización para la recomendación de la cantidad de reserva entre ámbitos puede tardar hasta 25 días. Por ejemplo, si compra según las recomendaciones de ámbito compartido, las recomendaciones de ámbito de una sola suscripción pueden tardar hasta 25 días en ajustarse.
+- Actualmente, Azure no genera recomendaciones para el ámbito del grupo de administración.
 
 ## <a name="recommendations-in-the-azure-portal"></a>Recomendaciones en Azure Portal
 

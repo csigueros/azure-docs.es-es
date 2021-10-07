@@ -5,15 +5,16 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2568fc2ea133a0cdd49e0a2577ce1e580056a74c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8dc93266244c6dd806d7ab7457893d6d2c89ce13
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104783139"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128637655"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Procesamiento de conjuntos de datos a gran escala mediante Data Factory y Batch
 > [!NOTE]
@@ -60,7 +61,7 @@ También puede crear actividades personalizadas de .NET para mover o procesar da
 
 En el diagrama se ilustra cómo Data Factory organiza el movimiento y procesamiento de los datos. También se muestra cómo Batch procesa los datos en paralelo. Descargue e imprima el diagrama para facilitar su consulta (11 x 17 pulgadas o tamaño A3). Para acceder al diagrama para que se pueda imprimir, vea [HPC and data orchestration by using Batch and Data Factory](https://go.microsoft.com/fwlink/?LinkId=717686) (Orquestación de datos y HPC con Batch y Data Factory).
 
-[![Diagrama de procesamiento de datos de gran escala](./media/data-factory-data-processing-using-batch/image1.png)](https://go.microsoft.com/fwlink/?LinkId=717686)
+[:::image type="content" alt-text="Diagrama de procesamiento de datos de gran escala." source="./media/data-factory-data-processing-using-batch/large-scale-data-processing-diagram.png":::
 
 La lista siguiente proporciona los pasos básicos del proceso. La solución incluye código y explicaciones para compilar la solución completa.
 
@@ -125,7 +126,7 @@ Use el [Explorador de Azure Storage 6](https://azurestorageexplorer.codeplex.com
 
 1. Si usa CloudXplorer, cree carpetas y subcarpetas con la estructura siguiente:
 
-   ![Estructura de carpetas y subcarpetas](./media/data-factory-data-processing-using-batch/image3.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image3.png" alt-text="Estructura de carpetas y subcarpetas":::
 
    `Inputfolder` y `outputfolder` son carpetas de nivel superior en `mycontainer`. La carpeta `inputfolder` tiene subcarpetas con marcas de fecha y hora (AAAA-MM-DD-HH).
 
@@ -135,7 +136,7 @@ Use el [Explorador de Azure Storage 6](https://azurestorageexplorer.codeplex.com
 
 1. Cargue el archivo a las siguientes carpetas de entrada en Blob Storage:
 
-   ![Carpetas de entrada](./media/data-factory-data-processing-using-batch/image4.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image4.png" alt-text="Carpetas de entrada":::
 
    Si usa el Explorador de Storage, cargue el archivo **file.txt** en **mycontainer**. Seleccione **Copiar** en la barra de herramientas para crear una copia del blob. En el cuadro de diálogo **Copy Blob** (Copiar blob), cambie el **nombre del blob de destino** a `inputfolder/2015-11-16-00/file.txt`. Repita este paso para crear `inputfolder/2015-11-16-01/file.txt`, `inputfolder/2015-11-16-02/file.txt`, `inputfolder/2015-11-16-03/file.txt`, `inputfolder/2015-11-16-04/file.txt`, etc. Esta acción crea automáticamente las carpetas.
 
@@ -397,7 +398,7 @@ El método tiene algunos componentes clave que debe conocer:
 
 1. Cree un archivo ZIP **MyDotNetActivity.zip** que contenga todos los archivos binarios en la carpeta **\\bin\\Debug**. Puede incluir el archivo MyDotNetActivity.**pdb** para obtener detalles adicionales, como el número de línea en el código fuente que causó el problema, en caso de error.
 
-   ![Lista de la carpeta bin\Debug](./media/data-factory-data-processing-using-batch/image5.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image5.png" alt-text="Lista de la carpeta bin\Debug":::
 
 1. Cargue **MyDotNetActivity.zip** como blob en el contenedor de blobs `customactivitycontainer` en la instancia de Blob Storage que usa el servicio vinculado StorageLinkedService de ADFTutorialDataFactory. Cree el contenedor de blobs `customactivitycontainer` si aún no existe.
 
@@ -541,7 +542,7 @@ En el siguiente tutorial, se proporcionan más detalles.
 
 1. Tras crear correctamente la factoría de datos, se ve la página de **Data Factory**, que muestra el contenido de la misma.
 
-   ![Página Data Factory](./media/data-factory-data-processing-using-batch/image6.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image6.png" alt-text="Página Data Factory":::
 
 #### <a name="step-2-create-linked-services"></a>Paso 2: Crear servicios vinculados
 Los servicios vinculados vinculan almacenes de datos o servicios de proceso con una factoría de datos. En este paso, vinculará la cuenta de almacenamiento y la cuenta de Batch con su factoría de datos.
@@ -551,13 +552,13 @@ Los servicios vinculados vinculan almacenes de datos o servicios de proceso con 
 
 1. Seleccione **Nuevo almacén de datos** en la barra de comandos y elija **Azure Storage**. El script JSON que usa para crear un servicio vinculado de Storage aparece en el editor.
 
-   ![Nuevo almacén de datos](./media/data-factory-data-processing-using-batch/image7.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image7.png" alt-text="Nuevo almacén de datos":::
 
 1. Reemplace **account name** por el nombre de su cuenta de almacenamiento. Reemplace **account key** por la clave de acceso de la cuenta de almacenamiento. Para aprender a obtener la clave de acceso de almacenamiento, consulte [Administración de claves de acceso de la cuenta de almacenamiento](../../storage/common/storage-account-keys-manage.md).
 
 1. Seleccione **Implementar** en la barra de comandos para implementar el servicio vinculado.
 
-   ![Implementación](./media/data-factory-data-processing-using-batch/image8.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image8.png" alt-text="Implementar":::
 
 #### <a name="create-an-azure-batch-linked-service"></a>Creación de un servicio vinculado de Azure Batch
 En este paso, creará un servicio vinculado para su cuenta de Batch que se usará para ejecutar la actividad personalizada de Data Factory.
@@ -577,7 +578,7 @@ En este paso, creará un servicio vinculado para su cuenta de Batch que se usar�
       > [!IMPORTANT]
       > La dirección URL de la hoja **Cuenta de Batch** tiene el formato siguiente: `<accountname>.<region>.batch.azure.com`. Para la propiedad `batchUri` en el script JSON, necesita quitar `<accountname>.` de la dirección URL. Un ejemplo es `"batchUri": "https://eastus.batch.azure.com"`.
 
-      ![Hoja Cuenta de Batch](./media/data-factory-data-processing-using-batch/image9.png)
+      :::image type="content" source="./media/data-factory-data-processing-using-batch/image9.png" alt-text="Hoja Cuenta de Batch":::
 
       En la propiedad **poolName**, también puede especificar el identificador del grupo, en lugar del nombre del grupo.
 
@@ -805,27 +806,27 @@ En este paso, probará la canalización colocando archivos en las carpetas de en
 
 1. En la hoja **Data Factory** de Azure Portal, seleccione **Diagrama**.
 
-   ![Diagrama](./media/data-factory-data-processing-using-batch/image10.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image10.png" alt-text="Diagrama":::
 
 1. En la vista de **diagrama**, haga doble clic en el conjunto de datos de entrada **InputDataset**.
 
-   ![InputDataset](./media/data-factory-data-processing-using-batch/image11.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image11.png" alt-text="InputDataset":::
 
 1. La hoja **InputDataset** se abre con los cinco segmentos listos. Observe los valores de **HORA DE INICIO DE SEGMENTO** y **HORA DE FINALIZACIÓN DE SEGMENTO** para cada segmento.
 
-   ![Horas de inicio y finalización del segmento de entrada](./media/data-factory-data-processing-using-batch/image12.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image12.png" alt-text="Horas de inicio y finalización del segmento de entrada":::
 
 1. En la vista **Diagrama**, seleccione **OutputDataset**.
 
 1. Los cinco segmentos de salida aparecen con el estado **Listo** si se han generado.
 
-   ![Horas de inicio y finalización del segmento de salida](./media/data-factory-data-processing-using-batch/image13.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image13.png" alt-text="Horas de inicio y finalización del segmento de salida":::
 
 1. Use Azure Portal para ver las tareas asociadas con los segmentos y para comprobar en qué máquina virtual se ejecuta cada segmento. Para más información, vea la sección [Integración de Data Factory y Batch](#data-factory-and-batch-integration).
 
 1. Los archivos de salida aparecen en `mycontainer` en `outputfolder` en Blob Storage.
 
-   ![Archivos de salida de Storage](./media/data-factory-data-processing-using-batch/image15.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image15.png" alt-text="Archivos de salida de Storage":::
 
    Se enumeran cinco archivos de salida, uno para cada segmento de entrada. Cada archivo de salida tiene un contenido similar a la siguiente salida:
 
@@ -834,7 +835,7 @@ En este paso, probará la canalización colocando archivos en las carpetas de en
     ```
    En el siguiente diagrama, se ilustra cómo los segmentos de Data Factory se asignan a tareas de Batch. En este ejemplo, un segmento tiene solo una ejecución.
 
-   ![Diagrama de asignación de segmentos](./media/data-factory-data-processing-using-batch/image16.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image16.png" alt-text="Diagrama de asignación de segmentos":::
 
 1. Ahora, pruebe con varios archivos en una carpeta. Cree los archivos **file2.txt**, **file3.txt**, **file4.txt** y **file5.txt** con el mismo contenido que file.txt en la carpeta **2015-11-06-01**.
 
@@ -842,7 +843,7 @@ En este paso, probará la canalización colocando archivos en las carpetas de en
 
 1. En la hoja **OutputDataset**, haga clic con el botón derecho en el segmento con el valor de **HORA DE INICIO DE SEGMENTO** establecido en **11/16/2015 01:00:00 AM**. Seleccione **Ejecutar** para volver a ejecutar o procesar el segmento. Ahora, el segmento tiene cinco archivos en lugar de uno.
 
-    ![Ejecute](./media/data-factory-data-processing-using-batch/image17.png)
+    :::image type="content" source="./media/data-factory-data-processing-using-batch/image17.png" alt-text="Run":::
 
 1. Una vez que se ejecuta el segmento y su estado es **Listo**, compruebe el contenido del archivo de salida para este segmento (**2015-11-16-01.txt**). El archivo de salida aparece en `mycontainer` en `outputfolder` en Blob Storage. Debería aparecer una línea para cada archivo del segmento.
 
@@ -862,7 +863,7 @@ En este paso, probará la canalización colocando archivos en las carpetas de en
 #### <a name="data-factory-and-batch-integration"></a>Integración de Data Factory y Batch
 El servicio Data Factory crea un trabajo en Batch llamado `adf-poolname:job-xxx`.
 
-![Trabajos por lotes](media/data-factory-data-processing-using-batch/data-factory-batch-jobs.png)
+:::image type="content" source="media/data-factory-data-processing-using-batch/data-factory-batch-jobs.png" alt-text="Trabajos por lotes":::
 
 Se crea una tarea en el trabajo para cada ejecución de actividad de un segmento. Si hay diez segmentos listos para procesarse, se crean diez tareas en este trabajo. Si el grupo tiene varios nodos de procesos, puede haber más de un segmento en ejecución en paralelo. Si el número máximo de tareas por nodo de ejecución está establecido en más de una, significa que se puede ejecutar más de un segmento en el mismo proceso.
 
@@ -870,14 +871,14 @@ En este ejemplo, hay cinco segmentos y, por tanto, cinco tareas en Batch. Ahora 
 
 Use el portal para ver el trabajo de Batch y las tareas que están asociadas con los segmentos y para comprobar en qué máquina virtual se ejecuta cada segmento.
 
-![Tareas de trabajos por lotes](media/data-factory-data-processing-using-batch/data-factory-batch-job-tasks.png)
+:::image type="content" source="media/data-factory-data-processing-using-batch/data-factory-batch-job-tasks.png" alt-text="Tareas de trabajos por lotes":::
 
 ### <a name="debug-the-pipeline"></a>Depuración de la canalización
 La depuración se compone de varias técnicas básicas.
 
 1. Si el segmento de entrada no está establecido en **Listo**, confirme que la estructura de la carpeta de entrada es correcta y que file.txt se encuentra en las carpetas de entrada.
 
-   ![Estructura de carpetas de entrada](./media/data-factory-data-processing-using-batch/image3.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image3.png" alt-text="Estructura de carpetas de entrada":::
 
 1. En el método **Execute** de la actividad personalizada, use el objeto **IActivityLogger** para registrar información que ayude a solucionar problemas. Los mensajes registrados se mostrarán en el archivo user\_0.log.
 
@@ -885,11 +886,11 @@ La depuración se compone de varias técnicas básicas.
 
    Al seleccionar la ejecución de actividad, verá la hoja **Detalles de la ejecución de actividad** con una lista de archivos de registro. Los mensajes registrados se encuentran en el archivo user\_0.log. Si se produce un error, verá tres ejecuciones de actividad, ya que el número de reintentos está establecido en 3 en la canalización o actividad JSON. Al seleccionar la ejecución de actividad, verá los archivos de registro que puede revisar para solucionar el error.
 
-   ![Hojas OutputDataset y Segmento de datos](./media/data-factory-data-processing-using-batch/image18.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image18.png" alt-text="Hojas OutputDataset y Segmento de datos":::
 
    En la lista de archivos de registro, seleccione **user-0.log**. En el panel derecho, aparecen los resultados del uso del método **IActivityLogger.Write**.
 
-   ![Hoja Detalles de la ejecución de actividad](./media/data-factory-data-processing-using-batch/image19.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image19.png" alt-text="Hoja Detalles de la ejecución de actividad":::
 
    Compruebe system-0.log para ver si hay alguna excepción o mensaje de error del sistema.
 
@@ -906,13 +907,13 @@ La depuración se compone de varias técnicas básicas.
 
 1. Todos los archivos incluidos en el archivo ZIP de la actividad personalizada deben estar en el nivel superior; no debe haber subcarpetas.
 
-   ![Lista de archivos ZIP de la actividad personalizada](./media/data-factory-data-processing-using-batch/image20.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image20.png" alt-text="Lista de archivos ZIP de la actividad personalizada":::
 
 1. Asegúrese de que en **assemblyName** (MyDotNetActivity.dll), **entryPoint** (MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity.zip) y **packageLinkedService** (debe apuntar a la instancia de Blob Storage que contiene el archivo ZIP) se han establecido los valores correctos.
 
 1. Si corrigió algún error y desea volver a procesar el segmento, haga clic con el botón derecho en el segmento en la hoja **OutputDataset** y seleccione **Ejecutar**.
 
-   ![Opción Ejecutar de la hoja OutputDataset](./media/data-factory-data-processing-using-batch/image21.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image21.png" alt-text="Opción Ejecutar de la hoja OutputDataset":::
 
    > [!NOTE]
    > En la instancia de Blob Storage se almacena un contenedor llamado `adfjobs`. Este contenedor no se elimina automáticamente, pero puede eliminarlo de forma segura cuando termine de probar la solución. De la misma forma, la solución de Data Factory crea un trabajo de Batch llamado `adf-\<pool ID/name\>:job-0000000001`. Puede eliminarlo después de probar la solución, si lo desea.

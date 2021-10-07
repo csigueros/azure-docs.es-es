@@ -149,6 +149,8 @@
               href: azure-netapp-files-configure-export-policy.md
             - name: Configuración de permisos de Unix y cambio del modo de propiedad
               href: configure-unix-permissions-change-ownership-mode.md
+            - name: Configuración de las características de red de un volumen
+              href: configure-network-features.md
         - name: Montaje o desmontaje de un volumen
           items:
             - name: Montaje o desmontaje de un volumen
@@ -221,6 +223,8 @@
           href: troubleshoot-capacity-pools.md
         - name: Solución de problemas de la replicación entre regiones
           href: troubleshoot-cross-region-replication.md
+        - name: Solución de problemas de volúmenes
+          href: troubleshoot-volumes.md
         - name: Solución de problemas de SMB o de volúmenes de dos protocolos
           href: troubleshoot-dual-protocol-volumes.md
         - name: Solución de problemas de los volúmenes NFSv4.1 de Kerberos

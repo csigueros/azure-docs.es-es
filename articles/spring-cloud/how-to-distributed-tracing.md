@@ -8,14 +8,14 @@ ms.date: 10/06/2019
 ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 8eaac1c68c9cff329fcc7b2c408063f01762169b
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: bacf4f808a7e963c11e8790636dabe1f3f4e4a47
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122014570"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129044196"
 ---
-# <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Uso del seguimiento distribuido con Azure Spring Cloud
+# <a name="use-distributed-tracing-with-azure-spring-cloud-deprecated"></a>Uso del seguimiento distribuido con Azure Spring Cloud (en desuso)
 
 Con las herramientas de seguimiento distribuido de Azure Spring Cloud, puede depurar y supervisar fácilmente problemas complejos. Azure Spring Cloud integra [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) con [Application Insights](../azure-monitor/app/app-insights-overview.md) de Azure. Esta integración proporciona una funcionalidad eficaz de seguimiento distribuido desde Azure Portal.
 

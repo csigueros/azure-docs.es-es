@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/30/2021
-ms.openlocfilehash: 4a0ebea8d0fb8d5b9ae5fa78004c071a348615e4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 5da6232a9bedeeb8228caecc79c7a7160630a8cd
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121731205"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129080828"
 ---
 # <a name="create-a-saas-offer"></a>Creación de una oferta SaaS
 
@@ -28,11 +28,38 @@ Si aún no lo ha hecho, lea cómo [planear una oferta de SaaS](plan-saas-offer.m
 
 ## <a name="create-a-saas-offer"></a>Creación de una oferta SaaS
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
+
+1. En la página principal, seleccione el elemento **Ofertas de Marketplace**.
+
+    [ ![Muestra el elemento Ofertas de Marketplace en la página principal del Centro de partners.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. En la página "Ofertas de Marketplace", seleccione **+ Nueva oferta** > **Software como servicio**.
+
+    [ ![Muestra la opción "Oferta de SaaS" en la lista "Nueva oferta".](./media/new-offer-saas-workspaces.png) ](./media/new-offer-saas-workspaces.png#lightbox)
+
+1. En el cuadro de diálogo **New Software as a Service** (Nuevo software como servicio) escriba un **Id. de oferta**. Este identificador es visible en la dirección URL de la oferta del marketplace comercial y de las plantillas de Azure Resource Manager, si procede. Por ejemplo, si escribe **test-offer-1** en este cuadro, la dirección web de la oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+   + Cada oferta de su cuenta debe tener un identificador único.
+   + Use solo letras minúsculas y números. Puede incluir guiones y caracteres de subrayado, pero no espacios, y está limitado a 50 caracteres.
+   + El identificador de oferta no se puede cambiar después de seleccionar **Crear**.
+
+1. Escriba un **Alias de la oferta**. Este es el nombre que se usa para la oferta en el Centro de partners.
+
+   + No está visible en el marketplace comercial y es diferente del nombre de la oferta y otros valores que se muestran a los clientes.
+   + El alias de la oferta no se puede cambiar después de seleccionar **Crear**.
+1. Para generar la oferta y continuar, seleccione **Crear**.
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
+
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
 1. En el menú de navegación izquierdo, seleccione **Marketplace comercial** > **Información general**.
 1. En la pestaña **Información general**, seleccione **+ Nueva oferta** > **Software como servicio**.
 
-   :::image type="content" source="media/new-offer-saas.png" alt-text="Se muestra el menú de navegación izquierdo y la lista de nuevas ofertas.":::
+   :::image type="content" source="./media/new-offer-saas.png" alt-text="Se muestra el menú de navegación izquierdo y la lista de nuevas ofertas.":::
 
 1. En el cuadro de diálogo **Nueva oferta**, escriba un valor para **Id. de oferta**. Este identificador es visible en la dirección URL de la oferta del marketplace comercial y de las plantillas de Azure Resource Manager, si procede. Por ejemplo, si escribe **test-offer-1** en este cuadro, la dirección web de la oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
    + Cada oferta de su cuenta debe tener un identificador único.
@@ -44,6 +71,8 @@ Si aún no lo ha hecho, lea cómo [planear una oferta de SaaS](plan-saas-offer.m
    + No está visible en el marketplace comercial y es diferente del nombre de la oferta y otros valores que se muestran a los clientes.
    + El alias de la oferta no se puede cambiar después de seleccionar **Crear**.
 1. Para generar la oferta y continuar, seleccione **Crear**.
+
+---
 
 ## <a name="configure-your-saas-offer-setup-details"></a>Configuración de los detalles de configuración de la oferta de SaaS
 
@@ -67,8 +96,8 @@ Una versión de prueba es una excelente manera de exhibir la oferta a posibles c
 
 ### <a name="to-enable-a-test-drive"></a>Habilitación de una versión de prueba
 
-1.  En **Versión de prueba**, active la casilla **Habilitar una versión de prueba**.
-1.  En la lista que aparece, seleccione el tipo de versión de prueba.
+1. En **Versión de prueba**, active la casilla **Habilitar una versión de prueba**.
+1. En la lista que aparece, seleccione el tipo de versión de prueba.
 
 ## <a name="configure-lead-management"></a>Configuración de la administración de clientes potenciales
 
@@ -88,7 +117,7 @@ Puede aclarar la [detección y entrega unificadas](plan-SaaS-offer.md) de la ofe
 ### <a name="integrate-with-microsoft-api"></a>Integración con Microsoft API
 
 1. Si la oferta de SaaS no se integra con Microsoft Graph API, seleccione **No**. Continúe para vincular los clientes de consumo de aplicaciones de Microsoft 365 publicados.  
-1. Si la oferta de SaaS se integra con Microsoft Graph API, seleccione **Sí** y, a continuación, proporcione el identificador de aplicación de Azure Active Directory que ha creado y registrado para integrarlo con Microsoft Graph API. 
+1. Si la oferta de SaaS se integra con Microsoft Graph API, seleccione **Sí** y, a continuación, proporcione el identificador de aplicación de Azure Active Directory que ha creado y registrado para integrarlo con Microsoft Graph API.
 
 ### <a name="link-published-microsoft-365-app-consumption-clients"></a>Vinculación de los clientes de consumo de aplicaciones de Microsoft 365 publicados
 

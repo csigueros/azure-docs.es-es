@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 119540738ac2703afd79891d9bf8a4a9ff0c7472
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 47215f936ebc43b7aa720bc68f2caba294f03d46
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952769"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595358"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Solución de problemas con la herramienta What If en el acceso condicional
 
@@ -67,6 +67,9 @@ Solo puede seleccionar un usuario. Este es el único campo obligatorio.
 ### <a name="cloud-apps"></a>Aplicaciones de nube
 
 El valor predeterminado de esta configuración es **Todas las aplicaciones en la nube**. Con el valor predeterminado se realiza una evaluación de todas las directivas disponibles en el entorno. Puede restringir el ámbito a directivas que afecten aplicaciones en la nube específicas.
+
+> [!NOTE]
+> Cuando se usa la herramienta What If, no se prueban las [dependencias del servicio de acceso condicional](service-dependencies.md). Por ejemplo, si usa What If para probar una directiva de acceso condicional para Microsoft Teams, el resultado no tendrá en cuenta ninguna directiva que se aplique a Office 365 Exchange Online, una dependencia del servicio de acceso condicional para Microsoft Teams.
 
 ### <a name="ip-address"></a>Dirección IP
 

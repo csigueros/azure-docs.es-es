@@ -1,29 +1,29 @@
 ---
 title: Copia de datos con MongoDB como origen o destino
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre cómo copiar datos desde MongoDB a almacenes de datos receptores compatibles, o bien desde almacenes de datos de origen compatibles a MongoDB, a través de una actividad de copia de una canalización de Azure Data Factory.
-ms.author: chez
-author: chez-charlie
+description: Obtenga información sobre cómo copiar datos desde MongoDB a almacenes de datos receptores compatibles, o bien desde almacenes de datos de origen compatibles a MongoDB, a través de una actividad de copia de una canalización de Azure Data Factory o Synapse Analytics.
+author: jianleishen
+ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 6788de24c3e8fc74ac69f73b5e91c13b56843eda
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: 5642577cf8b8e1edf741c09bf4e1968d5cd69770
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123307326"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831732"
 ---
-# <a name="copy-data-from-or-to-mongodb-by-using-azure-data-factory"></a>Copia de datos con MongoDB como origen o destino mediante Azure Data Factory
+# <a name="copy-data-from-or-to-mongodb-using-azure-data-factory-or-synapse-analytics"></a>Copia de datos de MongoDB con Azure Data Factory o Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde una base de datos MongoDB y hacia esa base de datos. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
+En este artículo se describe el uso de la actividad de copia en una canalización de Azure Data Factory o Synapse Analytics para copiar datos con una base de datos de MongoDB como origen y destino. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 >[!IMPORTANT]
->ADF publica esta nueva versión del conector de MongoDB que proporciona una mejor compatibilidad nativa con MongoDB. Si usa la versión anterior del conector de MongoDB en la solución, lo cual se admite tal cual en el caso de la compatibilidad con versiones anteriores, consulte el artículo [MongoDB connector (legacy)](connector-mongodb-legacy.md) [Conector de MongoDB (heredado)].
+>El nuevo conector de MongoDB proporciona compatibilidad nativa mejorada con MongoDB. Si usa la versión heredada del conector de MongoDB en la solución, que se admite tal cual solo en el caso de la compatibilidad con versiones anteriores, consulte el artículo [Conector de MongoDB (heredado)](connector-mongodb-legacy.md).
 
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
@@ -50,7 +50,7 @@ Siga estos pasos para crear un servicio vinculado en MongoDB en la interfaz de u
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Cree un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un servicio vinculado con la interfaz de usuario de Azure Data Factory":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -147,7 +147,7 @@ Se admiten las siguientes propiedades en la sección **source** de la actividad 
 | batchSize | Especifica el número de documentos a devolver en cada lote de la respuesta de la instancia de MongoDB. En la mayoría de los casos, modificar el tamaño del lote no afectará al usuario ni a la aplicación. Cosmos DB limita el tamaño de cada lote a 40 MB como máximo, que es la suma de los números de batchSize del tamaño de los documentos, por lo que debe reducir este valor si el tamaño del documento es mayor. | No<br/>(el valor predeterminado es **100**) |
 
 >[!TIP]
->ADF admite el consumo de documentos BSON en **modo strict**. Asegúrese de que la consulta de filtro está en modo strict en lugar de en modo Shell. Para obtener una descripción más detallada, vea el [manual de MongoDB](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html).
+>El servicio admite el consumo de documentos BSON en **modo strict**. Asegúrese de que la consulta de filtro está en modo strict en lugar de en modo Shell. Para obtener una descripción más detallada, vea el [manual de MongoDB](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html).
 
 **Ejemplo**:
 
@@ -194,7 +194,7 @@ La sección **sink** de la actividad de copia admite las siguientes propiedades:
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad **type** del receptor de la actividad de copia se debe establecer en **MongoDbV2Sink**. |Sí |
-| writeBehavior |Describe cómo escribir datos en MongoDB. Valores permitidos: **insert** y **upsert**.<br/><br/>El comportamiento de **upsert** consiste en reemplazar el documento si ya existe un documento con el mismo `_id`; en caso contrario, inserta el documento.<br /><br />**Nota**: Data Factory genera automáticamente un `_id` para un documento si no se especifica un `_id` en el documento original o mediante la asignación de columnas. Esto significa que debe asegurarse de que, para que **upsert** funcione según lo esperado, el documento tenga un identificador. |No<br />(el valor predeterminado es **insert**) |
+| writeBehavior |Describe cómo escribir datos en MongoDB. Valores permitidos: **insert** y **upsert**.<br/><br/>El comportamiento de **upsert** consiste en reemplazar el documento si ya existe un documento con el mismo `_id`; en caso contrario, inserta el documento.<br /><br />**Nota**: El servicio genera automáticamente un `_id` para un documento si no se especifica un `_id` en el documento original o mediante la asignación de columnas. Esto significa que debe asegurarse de que, para que **upsert** funcione según lo esperado, el documento tenga un identificador. |No<br />(el valor predeterminado es **insert**) |
 | writeBatchSize | La propiedad **writeBatchSize** controla el tamaño de los documentos que se escribirán en cada lote. Puede intentar aumentar el valor de **writeBatchSize** para mejorar el rendimiento y reducir el valor si el documento tiene un tamaño grande. |No<br />(el valor predeterminado es **10 000**) |
 | writeBatchTimeout | Tiempo que se concede a la operación de inserción por lotes para que finalice antes de que se agote el tiempo de espera. El valor permitido es TimeSpan. | No<br/>(El valor predeterminado es **00:30:00** [30 minutos]). |
 
@@ -238,7 +238,7 @@ La sección **sink** de la actividad de copia admite las siguientes propiedades:
 Puede usar este conector de MongoDB para hacer fácilmente lo siguiente:
 
 * Copiar documentos entre dos colecciones de MongoDB tal cual.
-* Importar documentos JSON desde varios orígenes a MongoDB, incluidos Azure Cosmos DB, Azure Blob Storage, Azure Data Lake Store y otros almacenes basados en archivos compatibles con Azure Data Factory.
+* Importar documentos JSON desde varios orígenes a MongoDB, incluidos Azure Cosmos DB, Azure Blob Storage, Azure Data Lake Store y otros almacenes basados en archivos compatibles.
 * Exportar documentos JSON de una colección de MongoDB a varios almacenes basados en archivos.
 
 Para lograr esa copia independiente del esquema, omita la sección “structure” (estructura, también denominada *schema*) en el conjunto de datos y la asignación de esquemas en la actividad de copia.
@@ -250,4 +250,4 @@ Para copiar datos desde MongoDB en un receptor tabular o invertido, consulte la 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

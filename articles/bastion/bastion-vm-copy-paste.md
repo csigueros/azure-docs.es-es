@@ -1,22 +1,22 @@
 ---
-title: 'Copiado y pegado entre máquinas virtuales: Azure Bastion'
-description: Aprenda a copiar y pegar entre máquinas virtuales de Azure al usar Bastion.
+title: 'Copiado y pegado desde máquinas virtuales Windows: Azure Bastion'
+description: Aprenda a copiar y pegar entre máquinas virtuales Windows mediante Bastion.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 08/30/2021
 ms.author: cherylmc
-ms.openlocfilehash: b8c90e3c8bea7f6471a60804f546957f5236b70b
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 5ce8faa76e1ddbd8d1d1adb52759dba0afe9c737
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110536019"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629623"
 ---
-# <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Copiado y pegado entre máquinas virtuales: Azure Bastion
+# <a name="copy-and-paste-to-a-windows-virtual-machine-azure-bastion"></a>Copiado y pegado a máquinas virtuales Windows: Azure Bastion
 
-Este artículo le ayuda a copiar y pegar texto entre máquinas virtuales cuando se usa Azure Bastion. Antes de trabajar con una máquina virtual, asegúrese de que ha seguido los pasos indicados en [Creación de un host de Bastion](./tutorial-create-host-portal.md). Después, conéctese a la máquina virtual con la que quiere trabajar mediante [RDP](bastion-connect-vm-rdp.md) o [SSH](bastion-connect-vm-ssh.md).
+Este artículo le ayuda a copiar y pegar texto entre máquinas virtuales cuando se usa Azure Bastion. Antes de trabajar con una máquina virtual, asegúrese de que ha seguido los pasos indicados en [Creación de un host de Bastion](./tutorial-create-host-portal.md). Después, conéctese a la máquina virtual con la que quiere trabajar mediante [RDP](bastion-connect-vm-rdp-windows.md) o [SSH](bastion-connect-vm-ssh-windows.md).
 
 En exploradores que admiten el acceso avanzado de la API de Portapapeles, puede copiar y pegar texto entre el dispositivo local y la sesión remota de la misma manera que copia y pega entre aplicaciones en el dispositivo local. En otros exploradores, puede utilizar la paleta de herramientas de acceso al Portapapeles de Bastion.
 

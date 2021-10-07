@@ -9,12 +9,12 @@ ms.author: hirshah
 ms.reviewer: mimckitt
 ms.date: 2/08/2021
 ms.custom: ''
-ms.openlocfilehash: ef2d8b68d6fb56f5d9b3508d550303aa9d9526d1
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 1542a8dd6c36c2a623f11179c0871a9fef2e3619
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121860486"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665518"
 ---
 # <a name="migrate-azure-cloud-services-classic-to-azure-cloud-services-extended-support"></a>Migración de Azure Cloud Services (clásico) a Azure Cloud Services (soporte extendido)
 
@@ -63,7 +63,7 @@ Un nuevo servicio de Cloud Services (soporte extendido) se puede implementar dir
 La migración compatible con la plataforma proporciona las siguientes ventajas principales:
 
 - Permite una migración fluida orquestada por la plataforma sin tiempo de inactividad para la mayoría de los escenarios. Obtenga más información sobre los [escenarios compatibles](in-place-migration-technical-details.md).  
-- Migra los servicios en la nube existentes en tres sencillos pasos: validar, preparar, confirmar (o anular). Obtenga más información sobre cómo [funciona la herramienta de migración]in-place-migration-overview.md#migration-steps).
+- Migra los servicios en la nube existentes en tres sencillos pasos: validar, preparar, confirmar (o anular). Más información sobre cómo [funciona la herramienta de migración](in-place-migration-overview.md#migration-steps).
 - Proporciona la capacidad de probar las implementaciones migradas después de una preparación correcta. Confirma y finaliza la migración, mientras que la anulación cancela la migración.
 
 La herramienta de migración emplea las mismas API y tiene la misma experiencia que la [migración de Virtual Machines (clásico)](../virtual-machines/migration-classic-resource-manager-overview.md). 

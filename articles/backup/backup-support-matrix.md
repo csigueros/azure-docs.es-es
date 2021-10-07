@@ -2,14 +2,14 @@
 title: Matriz de compatibilidad de Azure Backup
 description: Proporciona un resumen de opciones de compatibilidad y limitaciones para el servicio Azure Backup.
 ms.topic: conceptual
-ms.date: 08/23/2021
+ms.date: 09/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: f6101485f7dfab8d956a552edc2e77d85a6e2d9e
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 7448b8c5fa4882f9579b60d7d723d88e98ca7683
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123425871"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658628"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de compatibilidad para Azure Backup
 
@@ -163,7 +163,7 @@ La comprobación del estado de los recursos funciona en las condiciones siguient
 |     |     |
 | --- | --- |
 | **Recursos compatibles** | Almacén de Recovery Services |
-| **Regiones admitidas** | Este de EE. UU. 2, Centro de EE. UU., Norte de Europa, Centro de Francia, Este de Asia, Japón Oriental, Japón Occidental, Este de Australia, Norte de Sudáfrica. |
+| **Regiones admitidas** | Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro y sur de EE. UU., Centro y norte de EE. UU., Centro-oeste de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Oeste de EE. UU. 3, Este de Canadá, Centro de Canadá, Norte de Europa, Oeste de Europa, Oeste de Reino Unido, Sur de Reino Unido, Centro de Francia, Sur de Francia, Centro de Suecia, Sur de Suecia, Asia Pacífico, Sudeste de Asia, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Este de Australia, Centro de Australia, Centro de Australia 2, Sudeste de Australia, Norte de Sudáfrica, Oeste de Sudáfrica, Norte de Emiratos Árabes, Centro de Emiratos Árabes Unidos, Sudeste de Brasil, Sur de Brasil, Norte de Suiza, Oeste de Suiza, Este de Noruega, Oeste de Noruega, Norte de Alemania, Centro-oeste de Alemania, India occidental, Centro de la India, India meridional, JIO de India occidental, JIO de India Central. |
 | **Para regiones no admitidas** | El estado de mantenimiento del recurso se muestra como "Desconocido". |
 
 

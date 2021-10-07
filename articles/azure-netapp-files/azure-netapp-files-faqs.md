@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/01/2021
+ms.date: 09/27/2021
 ms.author: b-juche
-ms.openlocfilehash: 119cf21f90102f7ebccd8e4e06cd5e5dee3c4bfe
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 01a483e43429f45562cbb464e2b595023bd2ad5f
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123427991"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091034"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Preguntas más frecuentes acerca de Azure NetApp Files
 
@@ -54,9 +54,9 @@ No. La asignación de direcciones IP a volúmenes de Azure NetApp Files es diná
 
 No, actualmente Azure NetApp Files no admite la red virtual de pila dual (IPv4 e IPv6).  
 
-### <a name="is-the-number-of-the-ip-addresses-using-azure-vmware-solutions-for-guest-os-mounts-limited-to-1000"></a>¿Está [limitado a 1000](azure-netapp-files-resource-limits.md#resource-limits) el número de direcciones IP que usa Azure VMWare Solutions para los montajes de sistemas operativos invitados?
+### <a name="is-the-number-of-the-ip-addresses-using-azure-vmware-solutions-for-guest-os-mounts-limited-to-1000"></a>¿Está [limitado a 1000](azure-netapp-files-resource-limits.md#resource-limits) el número de direcciones IP que usan Azure VMware Solutions para los montajes de sistemas operativos invitados?
 
-No. Azure VMWare Solutions (AVS) está detrás de una puerta de enlace de ER, lo que hace que se comporte de forma similar a los sistemas locales. El número de "hosts" e "invitados" de AVS no es visible para Azure NetApp Files, y el límite de 1000 direcciones IP no es aplicable.
+No. Azure VMware Solutions está detrás de una puerta de enlace de ER, lo que hace que se comporte de forma similar a los sistemas locales. El número de "hosts" e "invitados" de AVS no es visible para Azure NetApp Files, y el límite de 1000 direcciones IP no es aplicable.
  
 ## <a name="security-faqs"></a>Preguntas más frecuentes de seguridad
 
@@ -277,7 +277,7 @@ Size: 4096            Blocks: 8          IO Block: 65536  directory
 Sí, la [capacidad de instantáneas consumida](azure-netapp-files-cost-model.md#capacity-consumption-of-snapshots) cuenta para el espacio aprovisionado del volumen. En caso de que el volumen se llene, considere la posibilidad de tomar las siguientes medidas:
 
 * [Cambie el tamaño del volumen](azure-netapp-files-resize-capacity-pools-or-volumes.md).
-* [Quite las instantáneas más antiguas](azure-netapp-files-manage-snapshots.md#delete-snapshots) para liberar espacio en el volumen de hospedaje. 
+* [Quite las instantáneas más antiguas](snapshots-delete.md) para liberar espacio en el volumen de hospedaje. 
 
 ### <a name="does-azure-netapp-files-support-auto-grow-for-volumes-or-capacity-pools"></a>¿Azure NetApp Files admite el crecimiento automático en los volúmenes o grupos de capacidad?
 
@@ -317,7 +317,7 @@ De forma predeterminada, los datos permanecen dentro de la región donde se impl
     
 Azure NetApp Files proporciona volúmenes SMB y NFS.  Cualquier herramienta de copia basada en archivos puede usarse para replicar datos entre regiones de Azure. 
 
-La funcionalidad de [replicación entre regiones](cross-region-replication-introduction.md) permite replicar datos de forma asincrónica desde un volumen de Azure NetApp Files (origen) de una región en otro volumen de Azure NetApp Files (destino) de otra región.  Además, puede [crear un nuevo volumen mediante una instantánea de un volumen existente](azure-netapp-files-manage-snapshots.md#restore-a-snapshot-to-a-new-volume).
+La funcionalidad de [replicación entre regiones](cross-region-replication-introduction.md) permite replicar datos de forma asincrónica desde un volumen de Azure NetApp Files (origen) de una región en otro volumen de Azure NetApp Files (destino) de otra región.  Además, puede [crear un nuevo volumen mediante una instantánea de un volumen existente](snapshots-restore-new-volume.md).
 
 NetApp ofrece una solución basada en SaaS, [NetApp Cloud Sync](https://cloud.netapp.com/cloud-sync-service).  La solución le permite replicar datos de NFS o SMB en los recursos compartidos de SMB o exportaciones de NFS de Azure NetApp Files. 
 
@@ -336,6 +336,34 @@ No. En la actualidad, Azure Data Box no es compatible con Azure NetApp Files.
 ### <a name="is-migration-with-azure-importexport-service-supported"></a>¿Se admite la migración con el servicio Azure Import/Export?
 
 No. En la actualidad, el servicio Azure Import/Export no es compatible con Azure NetApp Files.
+
+## <a name="azure-netapp-files-backup-faqs"></a>Preguntas frecuentes sobre la copia de seguridad de archivos de Azure NetApp Files
+
+En esta sección se responden preguntas sobre la característica de [copia de seguridad de Azure NetApp Files](backup-introduction.md). 
+
+### <a name="when-do-my-backups-occur"></a>¿Cuándo se producen mis copias de seguridad?   
+
+Las copias de seguridad de Azure NetApp Files se inician dentro de un período de tiempo aleatorio después de que se especifique la frecuencia de una directiva de copia de seguridad. Por ejemplo, las copias de seguridad semanales se inician el domingo dentro de un intervalo asignado aleatoriamente después de las 12:00 a.m., medianoche. Los usuarios no pueden modificar este intervalo en este momento. La copia de seguridad de la línea base se inicia en cuanto se asigna la directiva de copia de seguridad al volumen.
+
+### <a name="what-happens-if-a-backup-operation-encounters-a-problem"></a>¿Qué ocurre si surge un problema en una operación de copia de seguridad?
+
+Si se produce un problema durante una operación de copia de seguridad, la copia de seguridad de Azure NetApp Files reintenta la operación automáticamente, sin necesidad de la interacción del usuario. Si los reintentos siguen sin funcionar, la copia de seguridad de Azure NetApp Files informará del error de la operación.
+
+### <a name="can-i-change-the-location-or-storage-tier-of-my-backup-vault"></a>¿Puedo cambiar la ubicación o el nivel de almacenamiento de mi almacén de copia de seguridad?
+
+No, Azure NetApp Files administra automáticamente la ubicación de los datos de copia de seguridad en Azure Storage y el usuario no puede modificar esta ubicación ni el nivel de acceso de Azure.
+
+### <a name="what-types-of-security-are-provided-for-the-backup-data"></a>¿Qué tipos de seguridad se proporcionan para los datos de copia de seguridad?
+
+Azure NetApp Files el cifrado AES de 256 bits durante la codificación de los datos de copia de seguridad recibidos. Además, los datos cifrados se transmiten de forma segura a Azure Storage mediante conexiones HTTPS TLSv1.2. La copia de seguridad de Azure NetApp Files depende de la funcionalidad en reposo del cifrado integrado de la cuenta de Azure Storage para almacenar los datos de copia de seguridad.
+
+### <a name="what-happens-to-the-backups-when-i-delete-a-volume-or-my-netapp-account"></a>¿Qué ocurre con las copias de seguridad cuando se elimina un volumen o una cuenta de NetApp? 
+
+ Al eliminar un volumen de Azure NetApp Files, se conservan las copias de seguridad. Si no desea que se conserven las copias de seguridad, deshabilítelas antes de eliminar el volumen. Cuando se elimina una cuenta de NetApp, las copias de seguridad se conservan y se muestran en otras cuentas de NetApp de la misma suscripción, por lo que sigue estando disponible para la restauración. Si elimina todas las cuentas de NetApp de una suscripción, debe asegurarse de deshabilitar las copias de seguridad antes de eliminar todos los volúmenes de todas las cuentas de NetApp.
+
+### <a name="whats-the-systems-maximum-backup-retries-for-a-volume"></a>¿Cuál es el número máximo de reintentos de copia de seguridad del sistema para un volumen?  
+
+El sistema realiza diez reintentos al procesar un trabajo de copia de seguridad programado. Si se produce un error en el trabajo, el sistema genera un error en la operación de copia de seguridad. En el caso de las copias de seguridad programadas (basadas en la directiva configurada), el sistema intenta hacer una copia de seguridad de los datos una vez cada hora. Si hay nuevas instantáneas disponibles que no se han transferido (o no se han podido realizar en el último intento), esas instantáneas se considerarán para la transferencia. 
 
 ## <a name="product-faqs"></a>Preguntas más frecuentes sobre productos
 

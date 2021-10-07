@@ -7,12 +7,12 @@ ms.reviewer: estfan, azla
 ms.topic: article
 ms.date: 06/25/2021
 ms.custom: devx-track-azurepowershell, subject-rbac-steps
-ms.openlocfilehash: 76edcac6b77b70928cb2d6cd378b421b68b3d3ef
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 884decde4df80f6e8837245faad0136fe715371f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121731315"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124775208"
 ---
 # <a name="authenticate-access-to-azure-resources-using-managed-identities-in-azure-logic-apps"></a>Autenticación del acceso a los recursos de Azure mediante identidades administradas en Azure Logic Apps
 
@@ -30,16 +30,12 @@ En este artículo se muestra cómo configurar ambos tipos de identidades adminis
 
 Azure Logic Apps admite [identidades administradas *asignadas por el sistema*](../active-directory/managed-identities-azure-resources/overview.md) e [identidades administradas *asignadas por el usuario*](../active-directory/managed-identities-azure-resources/overview.md), que puede compartir entre un grupo de aplicaciones lógicas, en función de dónde se ejecuten los flujos de trabajo de la aplicación lógica:
 
-* Una aplicación lógica basada en varios inquilinos (plan de consumo) admite tanto la identidad asignada por el sistema como una identidad *única* asignada por el usuario. Sin embargo, en el nivel de aplicación lógica o en el nivel de conexión, solo puede usar un tipo de identidad administrada porque no puede habilitar los dos tipos al mismo tiempo.
-
-  Actualmente, una aplicación lógica basada en un solo inquilino (plan estándar) solo admite la identidad asignada por el sistema.
-
-  Para obtener más información sobre los entornos multiinquilino (plan de consumo) y de inquilino único (plan estándar), revise la documentación [Comparación de las opciones de un solo inquilino, multiinquilino y entorno del servicio de integración](single-tenant-overview-compare.md).
+* El tipo de recurso **Aplicación lógica (consumo)** admite el uso de la identidad asignada por el sistema o una *única* identidad asignada por el usuario. Sin embargo, en el nivel de aplicación lógica o en el nivel de conexión, solo puede usar un tipo de identidad administrada porque no puede habilitar los dos tipos al mismo tiempo. Actualmente, el tipo de recurso **Aplicación lógica (estándar)** solo admite la identidad asignada por el sistema, que se habilita automáticamente y no la identidad asignada por el usuario. Para más información sobre los diferentes tipos de recursos de aplicación lógica, revise la documentación, [Comparación de las opciones de un solo inquilino, multiinquilino y entorno del servicio de integración](single-tenant-overview-compare.md).
 
 <a name="built-in-managed-identity"></a>
 <a name="managed-connectors-managed-identity"></a>
 
-* Solo las operaciones de conectores integrados y administrados específicas que admiten la autenticación abierta de Azure AD pueden usar una identidad administrada para la autenticación. En la tabla siguiente solo se proporciona una *selección de ejemplo*. Para obtener una lista más completa, consulte [Tipos de autenticación para desencadenadores y acciones que admiten la autenticación](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
+* Solo las operaciones de conectores integrados y administrados específicas que admiten la autenticación abierta de Azure AD (Azure AD OAuth) pueden usar una identidad administrada para la autenticación. En la tabla siguiente solo se proporciona una *selección de ejemplo*. Para obtener una lista más completa, consulte [Tipos de autenticación para desencadenadores y acciones que admiten la autenticación](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
   | Tipo de operación | Operaciones compatibles |
   |----------------|----------------------|
@@ -56,6 +52,12 @@ Azure Logic Apps admite [identidades administradas *asignadas por el sistema*](.
 * El recurso de Azure de destino al que quiere acceder. En este recurso, agregará un rol para la identidad administrada, lo que ayuda a la aplicación lógica a autenticar el acceso al recurso de destino.
 
 * La aplicación lógica en la que desea usar el [desencadenador o las acciones que admiten identidades administradas](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
+
+  | Tipo de recurso de aplicación lógica | Compatibilidad con identidad administrada |
+  |-------------------------|--------------------------|
+  | **Aplicación lógica (consumo)** | Asignada por el sistema o por el usuario |
+  | **Aplicación lógica (estándar)** | Identidad asignada por el sistema (habilitada automáticamente) |
+  |||
 
 ## <a name="enable-managed-identity"></a>Habilitación de una entidad administrada
 
@@ -90,7 +92,7 @@ A diferencia de las identidades asignadas por el usuario, no tiene que crear man
 
    ![Identificador de objeto para la identidad asignada por el sistema](./media/create-managed-service-identity/object-id-system-assigned-identity.png)
 
-   | Propiedad | Valor | Descripción |
+   | Propiedad | Value | Descripción |
    |----------|-------|-------------|
    | **Id. de objeto** | <*identity-resource-ID*> | Identificador único global (GUID) que representa la identidad asignada por el sistema de la aplicación lógica en un inquilino de Azure AD. |
    ||||

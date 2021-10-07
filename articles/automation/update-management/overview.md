@@ -3,14 +3,14 @@ title: Introducción a Update Management en Azure Automation
 description: En este artículo se ofrece información general de la característica Update Management que implementa las actualizaciones de las máquinas Windows y Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 06/24/2021
+ms.date: 09/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0190d5501b95c0c70606978586edf30ff3d39b79
-ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
+ms.openlocfilehash: fed1ce7f236b568458f1eb1b25ce5420c2ad5501
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112676615"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092174"
 ---
 # <a name="update-management-overview"></a>Introducción a Update Management
 
@@ -30,19 +30,21 @@ Antes de implementar Update Management y habilitar las máquinas para su adminis
 
 El siguiente diagrama muestra cómo Update Management evalúa y aplica las actualizaciones de seguridad a todos los servidores Windows Server y Linux conectados.
 
-![Flujo de trabajo de Update Management](./media/overview/update-mgmt-updateworkflow.png)
+![Flujo de trabajo de Update Management](./media/overview/update-mgmt-workflow.png)
 
-Update Management se integra en los registros de Azure Monitor para almacenar las evaluaciones de las actualizaciones y los resultados de la implementación de actualizaciones como datos de registro, desde máquinas asignadas de Azure y no de Azure. Para recopilar estos datos, la cuenta de Automation y el área de trabajo de Log Analytics se vinculan entre sí, y se necesita el agente de Log Analytics para Windows y Linux en la máquina, configurado para informar a esta área de trabajo. Update Management permite recopilar información sobre las actualizaciones del sistema de los agentes de un grupo de administración de System Center Operations Manager que esté conectado al área de trabajo. No se permite tener registrada una máquina para Update Management en más de un área de trabajo de Log Analytics (también conocido como hospedaje múltiple).
+Update Management se integra en los registros de Azure Monitor para almacenar las evaluaciones de las actualizaciones y los resultados de la implementación de actualizaciones como datos de registro, desde máquinas asignadas de Azure y no de Azure. Para recopilar estos datos, la cuenta de Automation y el área de trabajo de Log Analytics se vinculan entre sí, y se necesita el agente de Log Analytics para Windows y Linux en la máquina, configurado para informar a esta área de trabajo. 
+
+Update Management permite recopilar información sobre las actualizaciones del sistema de los agentes de un grupo de administración de System Center Operations Manager que esté conectado al área de trabajo. No se permite tener registrada una máquina para Update Management en más de un área de trabajo de Log Analytics (también conocido como hospedaje múltiple).
 
 En la tabla siguiente se resumen los orígenes conectados que se admiten con Update Management.
 
 | Origen conectado | Compatible | Descripción |
 | --- | --- | --- |
-| Windows |Sí |Update Management recopila información acerca de las actualizaciones del sistema de las máquinas Windows con el agente de Log Analytics y la instalación de las actualizaciones necesarias. |
-| Linux |Sí |Update Management recopila información acerca de las actualizaciones del sistema de las máquinas Linux con el agente de Log Analytics y la instalación de las actualizaciones necesarias en las distribuciones admitidas. |
+| Windows |Sí |Update Management recopila información acerca de las actualizaciones del sistema de las máquinas Windows con el agente de Log Analytics y la instalación de las actualizaciones necesarias.<br> Las máquinas deben informar a Microsoft Update o Windows Server Update Services (WSUS). |
+| Linux |Sí |Update Management recopila información acerca de las actualizaciones del sistema de las máquinas Linux con el agente de Log Analytics y la instalación de las actualizaciones necesarias en las distribuciones admitidas.<br> Las máquinas deben informar a un repositorio local o remoto. |
 | Grupo de administración de Operations Manager |Sí |Update Management recopila información sobre las actualizaciones de software de los agentes de un grupo de administración conectado.<br/><br/>No se requiere ninguna conexión directa entre el agente de Operations Manager y los registros de Azure Monitor. Los datos de registro se reenvían desde el grupo de administración al área de trabajo de Log Analytics. |
 
-Las máquinas asignadas a Update Management informan de su actualización en función del origen con el que tienen configurada la sincronización. Las máquinas Windows se pueden configurar para informar a Windows Server Update Services o Microsoft Update, y las máquinas Linux se pueden configurar para informar a un repositorio local o público. También puede usar Update Management con Microsoft Endpoint Configuration Manager. Para obtener más información, consulte [Integración de Update Management con Windows Endpoint Configuration Manager](mecmintegration.md). 
+Las máquinas asignadas a Update Management informan de su actualización en función del origen con el que tienen configurada la sincronización. Las máquinas Windows tienen que estar configuradas para informar a [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) o [Microsoft Update](https://www.update.microsoft.com), y las máquinas Linux, para informar a un repositorio local o público. También puede usar Update Management con Microsoft Endpoint Configuration Manager. Para obtener más información, consulte [Integración de Update Management con Windows Endpoint Configuration Manager](mecmintegration.md). 
 
 Si el agente de Windows Update (WUA) en la máquina Windows está configurado para informar a WSUS, los resultados pueden diferir de lo que se muestra en Microsoft Update en función de cuándo WSUS se sincronizó por última vez con Microsoft Update. Este comportamiento es el mismo para las máquinas Linux que están configuradas para informar a un repositorio local en lugar de a un repositorio público. En una máquina Windows, el examen de cumplimiento se ejecuta cada 12 horas de forma predeterminada. En una máquina Linux, el examen de cumplimiento se realiza cada hora de manera predeterminada. Si se reinicia el agente de Log Analytics, se inicia un examen de cumplimiento al cabo de 15 minutos. Después de que una máquina finalice un examen de cumplimiento de actualizaciones, el agente reenvía la información de forma masiva a los registros de Azure Monitor. 
 
@@ -77,6 +79,14 @@ Después de habilitar Update Management, las máquinas Windows conectadas direc
 Cada máquina Windows administrada por Update Management se muestra en el panel Grupos de Hybrid Worker como un grupo Hybrid Worker del sistema para la cuenta de Automation. Los grupos usan la convención de nomenclatura `Hostname FQDN_GUID`. No puede usar estos grupos como destino con runbooks de su cuenta. Si lo intenta, se producirá un error. Estos grupos están diseñados únicamente para admitir Update Management. Para más información sobre la visualización de la lista de máquinas Windows configuradas como Hybrid Runbook Worker, consulte [Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md#view-system-hybrid-runbook-workers).
 
 Puede agregar la máquina Windows a un grupo de Hybrid Runbook Worker de usuario en la cuenta de Automation para admitir runbooks de Automation si usa la misma cuenta para Update Management y la pertenencia a grupos de Hybrid Runbook Worker. Esta funcionalidad se agregó en la versión 7.2.12024.0 de Hybrid Runbook Worker.
+
+### <a name="external-dependencies"></a>Dependencias externas
+
+La solución Update Management de Azure Automation depende de las siguientes dependencias externas para ofrecer actualizaciones de software.
+
+* Se necesita Windows Server Update Services (WSUS) o Microsoft Update para los paquetes de actualizaciones de software y para el análisis de su aplicabilidad en máquinas basadas en Windows.
+* Se necesita el cliente de Agente de Windows Update (WUA) para que las máquinas basadas en Windows puedan conectarse al servidor de WSUS o a Microsoft Update.
+* Un repositorio local o remoto para recuperar e instalar las actualizaciones del sistema operativo en máquinas basadas en Linux.
 
 ### <a name="management-packs"></a>Módulos de administración
 
@@ -151,7 +161,7 @@ Cuando se programa una actualización para que se ejecute en una máquina Linux 
 La categorización se realiza para las actualizaciones de Linux en función de las clasificaciones **Seguridad** u **Otras**, según los archivos OVAL, y estas clasificaciones incluyen las actualizaciones que tratan problemas de seguridad o vulnerabilidades. Sin embargo, cuando se ejecuta la programación de actualización, lo hace en la máquina Linux mediante el administrador de paquetes adecuado, como YUM, APT o ZYPPER, para instalarlas. El administrador de paquetes para la distribución de Linux puede tener un mecanismo diferente para clasificar las actualizaciones, donde los resultados pueden diferir de los que se obtienen de los archivos OVAL mediante Update Management. Para comprobar manualmente la máquina y saber qué actualizaciones son de seguridad relevantes para el administrador de paquetes, consulte [Solución de problemas de implementación de actualizaciones de Linux](../troubleshoot/update-management.md#updates-linux-installed-different).
 
 >[!NOTE]
-> Es posible que la implementación de actualizaciones por clasificación de actualizaciones no funcione correctamente para las distribuciones de Linux compatibles con Update Management. Esto se debe a un problema identificado con el esquema de nomenclatura del archivo OVAL, que esto impide que Update Management establezca correctamente la coincidencia de las clasificaciones en función de las reglas de filtrado. Debido a la lógica diferente que se usa en las evaluaciones de las actualizaciones de seguridad, los resultados pueden diferir de las actualizaciones de seguridad que se aplican durante la implementación. Si ha establecido la clasificación como **Crítico** y **Seguridad**, la implementación de actualizaciones funcionará según lo previsto. Solo se ve afectada la *clasificación de las actualizaciones* durante una evaluación.
+> Es posible que la implementación de actualizaciones por clasificación de actualizaciones no funcione correctamente para las distribuciones de Linux compatibles con Update Management. Esto se debe a un problema identificado con el esquema de nomenclatura del archivo OVAL, lo que impide que Update Management establezca correctamente la coincidencia de las clasificaciones en función de las reglas de filtrado. Dada la lógica diferente que se usa en las evaluaciones de las actualizaciones de seguridad, los resultados pueden diferir de las actualizaciones de seguridad que se aplican durante la implementación. Si ha establecido la clasificación como **Crítico** y **Seguridad**, la implementación de actualizaciones funcionará según lo previsto. Solo se ve afectada la *clasificación de las actualizaciones* durante una evaluación.
 >
 > Update Management para máquinas con Windows Server no se ve afectado; la clasificación de actualizaciones y las implementaciones no cambian.
 

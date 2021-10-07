@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 7/30/2021
+ms.date: 9/7/2021
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50ddfbbcf86459c21d5a61ad2b8282da9c76208b
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 59597fefe4d3cb0032f8c9ccfbf317c593fd34a9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123429089"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124748521"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>¿Cuáles son las novedades de Azure Active Directory?
 
@@ -38,6 +38,184 @@ En Azure AD se realizan mejoras de forma continua. Para mantenerse al día de lo
 Esta página se actualiza mensualmente, por lo que se recomienda visitarla con frecuencia. Si busca elementos que tengan más de seis meses, puede encontrarlos en el [Archivo de novedades de Azure Active Directory](whats-new-archive.md).
 
 ---
+## <a name="august-2021"></a>Agosto de 2021
+
+### <a name="new-major-version-of-aadconnect-available"></a>Nueva versión principal de AADConnect disponible
+
+**Tipo:** Corregido  
+**Categoría del servicio:** AD Connect  
+**Funcionalidad del producto:** Administración del ciclo de vida de la identidad
+ 
+Hemos publicado una nueva versión principal de Azure Active Directory Connect. Esta versión contiene varias actualizaciones de componentes fundamentales a las versiones más recientes y se recomienda para todos los clientes que usan Azure AD Connect. [Más información](../hybrid/whatis-azure-ad-connect-v2.md).
+ 
+---
+
+### <a name="public-preview---azure-ad-single-sign-on-and-device-based-conditional-access-support-in-firefox-on-windows-10"></a>Versión preliminar pública: inicio de sesión único de Azure AD y compatibilidad con el acceso condicional basado en dispositivos en Firefox en Windows 10
+
+**Tipo:** Nueva característica  
+**Categoría del servicio:** Autenticaciones (inicios de sesión)  
+**Funcionalidad del producto:** SSO
+ 
+
+Ahora se admite el inicio de sesión único (SSO) nativo y el acceso condicional basado en dispositivos al explorador Firefox en Windows 10 y Windows Server 2019. La compatibilidad está disponible en Firefox versión 91. [Más información](../conditional-access/require-managed-devices.md#prerequisites).
+ 
+---
+
+### <a name="public-preview---beta-ms-graph-apis-for-azure-ad-access-reviews-returns-list-of-contacted-reviewer-names"></a>Versión preliminar pública: las Graph API de MS beta para las revisiones de acceso de Azure AD devuelven la lista de nombres de revisores contactados
+
+**Tipo:** Nueva característica  
+**Categoría del servicio:** Revisiones de acceso  
+**Funcionalidad del producto:** Identity Governance
+ 
+
+Hemos publicado la Graph API de MS beta para revisiones de acceso de Azure AD. La API tiene métodos para devolver una lista de nombres de revisor contactados además del tipo de revisor. [Más información](/graph/api/resources/accessreviewinstance?view=graph-rest-beta).
+ 
+---
+
+### <a name="general-availability---register-or-join-devices-user-action-in-conditional-access"></a>Disponibilidad general: acción de usuario "Registro o unión de dispositivos" en el acceso condicional
+
+**Tipo:** Nueva característica  
+**Categoría del servicio:** Acceso condicional  
+**Funcionalidad del producto:** Seguridad y protección de la identidad
+ 
+
+La acción de usuario "Registro o unión de dispositivos" está disponible con carácter general en Acceso condicional. Esta acción de usuario le permite controlar directivas de autenticación multifactor (MFA) para el registro de dispositivos de Azure Active Directory (AD). Actualmente, esta acción del usuario solo permite habilitar MFA como un control cuando los usuarios registran o unen dispositivos a Azure AD. Otros controles que dependan del registro de dispositivos de Azure AD o que no se apliquen a estos permanecerán deshabilitados con esta acción de usuario. [Más información](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions).
+
+---
+
+### <a name="general-availability---customers-can-scope-reviews-of-privileged-roles-to-eligible-or-permanent-assignments"></a>Disponibilidad general: los clientes pueden establecer el ámbito de las revisiones de roles con privilegios en asignaciones elegibles o permanentes
+
+**Tipo:** Nueva característica  
+**Categoría del servicio:** Revisiones de acceso  
+**Funcionalidad del producto:** Identity Governance
+ 
+Los administradores ahora pueden crear revisiones de acceso de solo asignaciones permanentes o aptas a roles de recursos de Azure AD o de Azure. [Más información](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md).
+ 
+--- 
+
+### <a name="general-availability---assign-roles-to-azure-active-directory-ad-groups"></a>Disponibilidad general: asignación de roles a grupos de Azure Active Directory (AD)
+
+**Tipo:** Nueva característica  
+**Categoría del servicio:** RBAC  
+**Funcionalidad del producto:** Control de acceso
+ 
+
+La asignación de roles a grupos de Azure AD ya está disponible con carácter general. Esta característica puede simplificar la administración de las asignaciones de roles en Azure AD con los administradores globales y los administradores de roles con privilegios. [Más información](../roles/groups-concept.md). 
+ 
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-application-gallery---aug-2021"></a>Nuevas aplicaciones federadas disponibles en la galería de aplicaciones de Azure AD, agosto de 2021
+
+**Tipo:** Nueva característica  
+**Categoría del servicio:** Aplicaciones empresariales  
+**Funcionalidad del producto:** Integración de terceros
+ 
+En agosto de 2021 se han agregado las siguientes 46 aplicaciones nuevas a la galería de aplicaciones con compatibilidad con la federación:
+
+[Siriux Customer Dashboard](https://portal.siriux.tech/login), [STRUXI](https://struxi.app/), [Autodesk Construction Cloud - Meetings](https://acc.autodesk.com/), [Eccentex AppBase para Azure](../saas-apps/eccentex-appbase-for-azure-tutorial.md), [Bookado](https://adminportal.bookado.io/), [FilingRamp](https://app.filingramp.com/login), [BenQ IAM](../saas-apps/benq-iam-tutorial.md), [Rhombus Systems](../saas-apps/rhombus-systems-tutorial.md), [CorporateExperience](../saas-apps/corporateexperience-tutorial.md), [TutorOcean](../saas-apps/tutorocean-tutorial.md), [Bookado Device](https://adminportal.bookado.io/), [HiFives-AD-SSO](https://app.hifives.in/login/azure), [Darzin](https://au.darzin.com/), [Simply Stakeholders](https://au.simplystakeholders.com/), [KACTUS HCM - Smart People](https://kactusspc.digitalware.co/), [Five9 UC Adapter para Microsoft Teams V2](https://uc.five9.net/?vendor=msteams), [Automation Center](https://automationcenter.cognizantgoc.com/portal/boot/signon), [Cirrus Identity Bridge para Azure AD](../saas-apps/cirrus-identity-bridge-for-azure-ad-tutorial.md), [ShiftWizard SAML](../saas-apps/shiftwizard-saml-tutorial.md), [Safesend Returns](https://www.safesendwebsites.com/), [Brushup](../saas-apps/brushup-tutorial.md), [directprint.io Cloud Print Administration](../saas-apps/directprint-io-cloud-print-administration-tutorial.md), [plain-x](https://app.plain-x.com/#/login),[X-point Cloud](../saas-apps/x-point-cloud-tutorial.md), [SmartHub INFER](../saas-apps/smarthub-infer-tutorial.md), [Fresh Relevance](../saas-apps/fresh-relevance-tutorial.md), [FluentPro G.A. Suite](https://gas.fluentpro.com/Account/SSOLogin?provider=Microsoft), [Clockwork Recruiting](../saas-apps/clockwork-recruiting-tutorial.md), [WalkMe SAML2.0](../saas-apps/walkme-saml-tutorial.md), [Sideways 6](https://app.sideways6.com/account/login?ReturnUrl=/), [Kronos Workforce Dimensions](../saas-apps/kronos-workforce-dimensions-tutorial.md), [SysTrack Cloud Edition](https://cloud.lakesidesoftware.com/Cloud/Account/Login), [mailworx Dynamics CRM Connector](https://www.mailworx.info/), [Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service](../saas-apps/palo-alto-networks-cloud-identity-engine---cloud-authentication-service-tutorial.md), [Peripass](https://accounts.peripass.app/v1/sso/challenge), [JobDiva](https://www.jobssos.com/index_azad.jsp?SSO=AZURE&ID=1), [Sanebox For Office365](https://sanebox.com/login), [Tulip](../saas-apps/tulip-tutorial.md), [HP Wolf Security](https://bec-pocda37b439.bromium-online.com/gui/), [Genesys Engage cloud Email](https://login.microsoftonline.com/common/oauth2/authorize?prompt=consent&accessType=offline&state=07e035a7-6fb0-4411-afd9-efa46c9602f9&resource=https://graph.microsoft.com/&response_type=code&redirect_uri=https://iwd.api01-westus2.dev.genazure.com/iwd/v3/emails/oauth2/microsoft/callback&client_id=36cd21ab-862f-47c8-abb6-79facad09dda), [Meta Wiki](https://meta.dunkel.eu/), [Palo Alto Networks Cloud Identity Engine Directory Sync](https://directory-sync.us.paloaltonetworks.com/directory?instance=L2qoLVONpBHgdJp1M5K9S08Z7NBXlpi54pW1y3DDu2gQqdwKbyUGA11EgeaDfZ1dGwn397S8eP7EwQW3uyE4XL), [Valarea](https://www.valarea.com/en/download), [LanSchool Air](../saas-apps/lanschool-air-tutorial.md), [Catalyst](https://www.catalyst.org/sso-login/), [Webcargo](../saas-apps/webcargo-tutorial.md)
+
+También puede consultar la documentación de todas ellas aquí: https://aka.ms/AppsTutorial.
+
+Para incluir su aplicación en la galería de aplicaciones de Azure AD, lea los detalles aquí: https://aka.ms/AzureADAppRequest.
+
+---
+
+### <a name="new-provisioning-connectors-in-the-azure-ad-application-gallery---august-2021"></a>Conectores de aprovisionamiento nuevos disponibles en la galería de aplicaciones de Azure AD, agosto de 2021
+
+**Tipo:** Nueva característica  
+**Categoría del servicio:** Aprovisionamiento de aplicaciones  
+**Funcionalidad del producto:** Integración de terceros
+ 
+Ahora, puede automatizar la creación, actualización y eliminación de cuentas de usuario para estas aplicaciones recién integradas:
+
+- [Chatwork](../saas-apps/chatwork-provisioning-tutorial.md)
+- [FreshService](../saas-apps/freshservice-provisioning-tutorial.md)
+- [InviteDesk](../saas-apps/invitedesk-provisioning-tutorial.md)
+- [Maptician](../saas-apps/maptician-provisioning-tutorial.md)
+
+Para más información acerca de cómo proteger mejor una organización mediante el aprovisionamiento automatizado de cuentas de usuario, consulte Automatización del aprovisionamiento de usuarios para aplicaciones SaaS con Azure AD.
+ 
+---
+
+### <a name="multi-factor-mfa-fraud-report--new-audit-event"></a>Informe de fraude multifactor (MFA): nuevo evento de auditoría
+
+**Tipo:** Característica modificada  
+**Categoría del servicio:** MFA  
+**Funcionalidad del producto:** Seguridad y protección de la identidad
+ 
+
+Para ayudar a los administradores a comprender que sus usuarios están bloqueados para MFA como resultado de un informe de fraude, hemos agregado un nuevo evento de auditoría. Se realiza un seguimiento de este evento de auditoría cuando el usuario informa de fraude. El registro de auditoría está disponible además de la información existente en los registros de inicio de sesión sobre el informe de fraude. Para más información sobre cómo obtener el informe de auditoría, vea [Alerta de fraude de autenticación multifactor](../authentication/howto-mfa-mfasettings.md#fraud-alert).
+
+---
+
+### <a name="improved-low-risk-detections"></a>Detecciones de riesgo bajo mejoradas
+
+**Tipo:** Característica modificada  
+**Categoría del servicio:** Protección de identidad  
+**Funcionalidad del producto:** Seguridad y protección de la identidad
+
+Para mejorar la calidad de las alertas de riesgo bajo que emite Identity Protection, hemos modificado el algoritmo para emitir menos inicios de sesión de riesgo bajo. Es posible que las organizaciones vean una reducción significativa en el inicio de sesión de riesgo bajo en su entorno. [Más información](../identity-protection/concept-identity-protection-risks.md).
+ 
+---
+
+### <a name="non-interactive-risky-sign-ins"></a>Inicios de sesión de riesgo no interactivos
+
+**Tipo:** Característica modificada  
+**Categoría del servicio:** Protección de identidad  
+**Funcionalidad del producto:** Seguridad y protección de la identidad
+ 
+Identity Protection ahora emite inicios de sesión de riesgo en inicios de sesión no interactivos. Los administradores pueden encontrar estos inicios de sesión de riesgo mediante el filtro de **tipo de inicio de sesión** en el informe de inicios de sesión de riesgo. [Más información](../identity-protection/howto-identity-protection-investigate-risk.md).
+ 
+---
+
+### <a name="change-from-user-administrator-to-identity-governance-administrator-in-entitlement-management"></a>Cambio de Administrador de usuarios a Administrador de Identity Governance en Administración de derechos 
+
+**Tipo:** Característica modificada  
+**Categoría del servicio:** Roles  
+**Funcionalidad del producto:** Identity Governance
+ 
+Las asignaciones de permisos para administrar paquetes de acceso y otros recursos de La administración de derechos se mueven del rol Administrador de usuarios al rol administrador de Identity Governance. 
+
+Los usuarios a los que se les haya asignado el rol Administrador de usuarios ya no podrán crear catálogos ni administrar paquetes de acceso en un catálogo que no sea de su propiedad. Si a los usuarios de la organización se les asignó el rol Administrador de usuarios para configurar catálogos, paquetes de acceso o directivas en la administración de derechos, necesitarán una nueva asignación. En su lugar, debe asignar a estos usuarios el rol de administrador de Identity Governance. [Más información](../governance/entitlement-management-delegate.md)
+
+---
+
+### <a name="windows-azure-active-directory-connector-is-deprecated"></a>El conector Windows Azure Active Directory está en desuso
+
+**Tipo:** Obsoleto  
+**Categoría del servicio:** Microsoft Identity Manager  
+**Funcionalidad del producto:** Administración del ciclo de vida de la identidad
+ 
+El conector Windows Azure AD para FIM está inmovilizado y en desuso. Se ha reemplazado la solución de uso de FIM y del conector Azure AD. Las implementaciones existentes deben migrar a [Azure AD Connect](../hybrid/whatis-hybrid-identity.md), la sincronización de Azure AD Connect o el [conector de Microsoft Graph](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-connector-graph), ya que las interfaces internas usadas por el conector Azure AD para FIM se van a quitar de Azure AD. [Más información](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-deprecated-features).
+
+---
+
+### <a name="retirement-of-older-azure-ad-connect-versions"></a>Retirada de versiones anteriores de Azure AD Connect
+
+**Tipo:** Obsoleto  
+**Categoría del servicio:** AD Connect  
+**Funcionalidad del producto:** User Management
+ 
+A partir del 31 de agosto de 2022, todas las versiones V1 Azure AD Connect se retirarán. Si aún no lo ha hecho, debe actualizar el servidor a Azure AD Connect V2.0. Debe asegurarse de que está ejecutando una versión reciente de Azure AD Connect para lograr una experiencia de soporte técnico óptima.
+
+Si ejecuta una versión retirada de Azure AD Connect, es posible que deje de funcionar de forma inesperada. Es posible que tampoco tenga las últimas correcciones de seguridad, mejoras de rendimiento, solución de problemas y herramientas de diagnóstico y mejoras de servicio. Asimismo, si necesita soporte técnico, no podemos proporcionarle el nivel de servicio que requiere su organización.
+
+Consulte [Azure Active Directory Connect V2.0](../hybrid/whatis-azure-ad-connect-v2.md), lo que ha cambiado en V2.0 y cómo le afecta este cambio.
+
+---
+
+### <a name="retirement-of-support-for-installing-mim-on-windows-server-2008-r2-or-sql-server-2008-r2"></a>Retirada del soporte técnico para instalar MIM en Windows Server 2008 R2 o SQL Server 2008 R2
+
+**Tipo:** Obsoleto  
+**Categoría del servicio:** Microsoft Identity Manager  
+**Funcionalidad del producto:** Administración del ciclo de vida de la identidad
+ 
+La implementación de la sincronización de MIM, el servicio, el portal o CM en Windows Server 2008 R2, o mediante SQL Server 2008 R2 como base de datos subyacente, está en desuso, ya que estas plataformas ya no están en soporte estándar. Se recomienda instalar la sincronización de MIM y otros componentes en Windows Server 2016 o versiones posteriores, y con SQL Server 2016 o posterior.
+
+La implementación de MIM para Privileged Access Management con un controlador de dominio de Windows Server 2012 R2 en el bosque PRIV está en desuso. Use Windows Server 2016 o Active Directory posterior con nivel funcional de Windows Server 2016 para el dominio de bosque PRIV. El nivel funcional de Windows Server 2012 R2 todavía se permite para el dominio de un bosque CORP. [Más información](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-supported-platforms).
+
+---
+
 ## <a name="july-2021"></a>Julio de 2021
 
 ### <a name="new-google-sign-in-integration-for-azure-ad-b2c-and-b2b-self-service-sign-up-and-invited-external-users-will-stop-working-starting-july-12-2021"></a>La nueva integración de inicio de sesión de Google para Azure AD B2C y el registro de autoservicio y los usuarios externos invitados de B2B dejarán de funcionar a partir del 12 de julio de 2021
@@ -85,7 +263,7 @@ Para obtener más información sobre los escenarios afectados conocidos y la exp
 - Antes, la presencia del banner que recomienda el uso de colecciones provocaba que el contenido se desplazara detrás del encabezado. El problema se ha solucionado. 
 - Antes, había otro problema al agregar aplicaciones a una colección, en virtud de cual las aplicaciones de la colección Todas las aplicaciones se reordenaban de manera aleatoria. Este problema también se ha solucionado. 
 
-Para obtener más información sobre Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+Para obtener más información sobre Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ---
 
@@ -149,7 +327,7 @@ El tipo de recurso onPremisesPublishing incluye ahora la propiedad "isBackendCer
  
 Los usuarios ahora pueden usar los métodos de autenticación de que ya disponen para iniciar sesión directamente en la aplicación de Microsoft Authenticator con el fin de configurar sus credenciales. Los usuarios ya no necesitan digitalizar un código QR y pueden usar un Pase de acceso temporal (TAP) o una contraseña + SMS (u otro método de autenticación) para configurar su cuenta en la aplicación de Authenticator.
 
-De este modo, se mejora el proceso de aprovisionamiento de credenciales de usuario de la aplicación de Microsoft Authenticator y se proporciona al usuario final un método de autoservicio para aprovisionarla. [Más información](../user-help/user-help-auth-app-add-work-school-account.md#sign-in-with-your-credentials).
+De este modo, se mejora el proceso de aprovisionamiento de credenciales de usuario de la aplicación de Microsoft Authenticator y se proporciona al usuario final un método de autoservicio para aprovisionarla. [Más información](https://support.microsoft.com/account-billing/add-your-work-or-school-account-to-the-microsoft-authenticator-app-43a73ab5-b4e8-446d-9e54-2a4cb8e4e93c#sign-in-with-your-credentials).
  
 ---
 
@@ -266,7 +444,7 @@ En el caso de los informes de usuarios de riesgo, inicios de sesión de riesgo y
 **Categoría del servicio:** Revisiones de acceso  
 **Funcionalidad del producto:** Identity Governance
  
- Puede usar las revisiones de acceso de Azure AD para revisar el acceso de entidades de servicio a los roles de recurso con privilegios de Azure AD y Azure. [Más información](../privileged-identity-management/pim-how-to-start-security-review.md#open-access-reviews).
+ Puede usar las revisiones de acceso de Azure AD para revisar el acceso de entidades de servicio a los roles de recurso con privilegios de Azure AD y Azure. [Más información](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md#create-access-reviews).
  
 ---
 
@@ -286,7 +464,7 @@ Ahora los propietarios de grupos de Azure AD pueden crear y administrar revision
 **Categoría del servicio:** Revisiones de acceso  
 **Funcionalidad del producto:** Identity Governance
  
-Cuando los administradores crean revisiones de acceso de asignaciones a roles con privilegios, pueden establecer el ámbito de las revisiones solo en usuarios asignados de forma válida o solo en asignados de forma activa. [Más información](../privileged-identity-management/pim-how-to-start-security-review.md).
+Cuando los administradores crean revisiones de acceso de asignaciones a roles con privilegios, pueden establecer el ámbito de las revisiones solo en usuarios asignados de forma válida o solo en asignados de forma activa. [Más información](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md).
  
 ---
 
@@ -1042,213 +1220,5 @@ Ahora está disponible con carácter general la compatibilidad nativa del proxy 
 El servidor SMS bidireccional para el servidor de MFA se dejó de utilizar originalmente en 2018, y ya no tiene soporte técnico desde el 24 de febrero de 2021. Los administradores deben habilitar otro método para los usuarios que siguen usando el SMS bidireccional.
 
 Se enviaron notificaciones por correo electrónico y de Service Health en Azure Portal a los administradores afectados el 8 de diciembre de 2020 y el 28 de enero de 2021. Las alertas se dirigieron a los roles RBAC de propietario, copropietario, administrador y administrador de servicios vinculados a las suscripciones. [Más información](../authentication/how-to-authentication-two-way-sms-unsupported.md).
- 
----
- 
-## <a name="february-2021"></a>Febrero de 2021
-
-### <a name="email-one-time-passcode-authentication-on-by-default-starting-october-2021"></a>La autenticación con código de acceso de un solo uso por correo electrónico estará activada de manera predeterminada a partir de octubre de 2021
-
-**Tipo:** Plan de cambio  
-**Categoría del servicio:** B2B  
-**Funcionalidad del producto:** B2B/B2C
- 
-
-A partir del 31 de octubre de 2021, la [autenticación con código de acceso de un solo uso por correo electrónico](../external-identities/one-time-passcode.md) de Microsoft Azure Active Directory se convertirá en el método predeterminado para invitar a cuentas e inquilinos en escenarios de colaboración B2B. En ese momento, Microsoft ya no permitirá el canje de invitaciones mediante cuentas de Azure Active Directory no administradas. 
-
----
-
-### <a name="unrequested-but-consented-permissions-will-no-longer-be-added-to-tokens-if-they-would-trigger-conditional-access"></a>Los permisos no solicitados pero consentidos ya no se agregarán a los tokens si esto supone desencadenar el acceso condicional
-
-**Tipo:** Plan de cambio  
-**Categoría del servicio:** Autenticaciones (inicios de sesión)  
-**Funcionalidad del producto:** plataforma
- 
-Actualmente, las aplicaciones que usan [permisos dinámicos](../develop/v2-permissions-and-consent.md#requesting-individual-user-consent) reciben todos los permisos a los que se les consiente el acceso. Esto incluye las aplicaciones que no se han solicitado, incluso si desencadenan el acceso condicional. Por ejemplo, esto puede dar lugar a que una aplicación que solicite únicamente el permiso `user.read` y tenga también el consentimiento para el permiso `files.read` deba pasar el acceso condicional asignado al permiso `files.read`. 
-
-Para reducir el número de mensajes de acceso condicional innecesarios, Azure AD está cambiando la forma en que se proporcionan los ámbitos no solicitados a las aplicaciones. Las aplicaciones solo desencadenarán el acceso condicional correspondiente al permiso que solicitan explícitamente. Para obtener más información, consulte [Novedades en la autenticación](../develop/reference-breaking-changes.md#conditional-access-will-only-trigger-for-explicitly-requested-scopes).
- 
----
- 
-### <a name="public-preview----use-a-temporary-access-pass-to-register-passwordless-credentials"></a>Versión preliminar pública: uso de un Pase de acceso temporal para registrar credenciales sin contraseña
-
-**Tipo:** Nueva característica  
-**Categoría del servicio:** MFA  
-**Funcionalidad del producto:** Seguridad y protección de la identidad
-
-El pase de acceso temporal es un código de acceso de tiempo limitado que sirve como credencial segura y permite la incorporación de credenciales sin contraseña y su recuperación cuando un usuario ha perdido u olvidado su factor de autenticación sólida (por ejemplo, una clave de seguridad FIDO2 o la aplicación Microsoft Authenticator) y debe iniciar sesión para registrar nuevos métodos de autenticación sólida. [Más información](../authentication/howto-authentication-temporary-access-pass.md).
-
----
-
-### <a name="public-preview----keep-me-signed-in-kmsi-in-next-generation-of-user-flows"></a>Versión preliminar pública: mantenimiento de la sesión iniciada (KMSI) en la nueva generación de flujos de usuario
-
-**Tipo:** Nueva característica  
-**Categoría del servicio:** B2C: administración de identidades de consumidor  
-**Funcionalidad del producto:** B2B/B2C
-
-La próxima generación de flujos de usuario de B2C ahora es compatible con la funcionalidad de [mantenimiento de la sesión iniciada (KMSI)](../../active-directory-b2c/session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) que permite a los clientes ampliar la duración de la sesión de los usuarios de sus aplicaciones web y nativas mediante el uso de una cookie persistente.  La característica mantiene la sesión activa incluso cuando el usuario cierra y vuelve a abrir el explorador y la revoca cuando el usuario cierra sesión.
-
----
-
-### <a name="public-preview----reset-redemption-status-for-a-guest-user"></a>Versión preliminar pública: restablecimiento del estado de canje de un usuario invitado
-
-**Tipo:** Nueva característica  
-**Categoría del servicio:** B2B  
-**Funcionalidad del producto:** B2B/B2C
- 
-Ahora los clientes pueden volver a invitar a los usuarios externos invitados existentes a restablecer su estado de canje, lo que permite que la cuenta de usuario invitado se mantenga sin que se pierda ningún acceso. [Más información](../external-identities/reset-redemption-status.md).
- 
----
-
-### <a name="public-preview----synchronization-provisioning-apis-now-support-application-permissions"></a>Versión preliminar pública: las API de sincronización (aprovisionamiento) ahora admiten permisos de aplicación
-
-**Tipo:** Nueva característica  
-**Categoría del servicio:** Aprovisionamiento de aplicaciones  
-**Funcionalidad del producto:** Administración del ciclo de vida de la identidad
- 
-Ahora los clientes pueden usar application.readWrite.ownedby como permiso de aplicación para llamar a las API de sincronización. Tenga en cuenta que esta opción solo se admite para el aprovisionamiento de Azure AD a aplicaciones de terceros (por ejemplo, AWS, Data Bricks, etc.). Actualmente no se admite en el aprovisionamiento de recursos humanos (WorkDay/SuccessFactors) ni en la sincronización en la nube (AD a Azure AD). [Más información](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta&preserve-view=true).
- 
----
-
-### <a name="general-availability---authentication-policy-administrator-built-in-role"></a>Disponibilidad general: rol integrado "Administrador de directivas de autenticación"
-
-**Tipo:** Nueva característica  
-**Categoría del servicio:** RBAC  
-**Funcionalidad del producto:** Control de acceso
- 
-Los usuarios con este rol pueden configurar la directiva de métodos de autenticación, la configuración de MFA para todos los inquilinos y la directiva de protección de contraseñas. Este rol concede permiso para administrar la configuración de protección de contraseñas: configuraciones de bloqueo inteligente y actualización de la lista de contraseñas prohibidas personalizadas. [Más información](../roles/permissions-reference.md#authentication-policy-administrator).
-
----
-
-### <a name="general-availability---user-collections-on-my-apps-are-available-now"></a>Disponibilidad general: ahora las colecciones de los usuarios están disponibles en Mis aplicaciones
-
-**Tipo:** Nueva característica  
-**Categoría del servicio:** Mis aplicaciones  
-**Funcionalidad del producto:** Experiencias de usuario final
- 
-Ahora los usuarios pueden crear sus propias agrupaciones de aplicaciones en el iniciador Mis aplicaciones. También pueden reordenar y ocultar colecciones compartidas con ellos por su administrador. [Más información](../user-help/my-apps-portal-user-collections.md).
-
----
-
-### <a name="general-availability---autofill-in-authenticator"></a>Disponibilidad general: autorrellenado en Authenticator
-
-**Tipo:** Nueva característica  
-**Categoría de servicio:** Aplicación Microsoft Authenticator  
-**Funcionalidad del producto:** Seguridad y protección de la identidad
- 
-Microsoft Authenticator proporciona funciones de autenticación multifactor (MFA) y de administración de cuentas. Además, ahora también rellenará automáticamente las contraseñas de los sitios y las aplicaciones que los usuarios visiten en sus dispositivos móviles (iOS y Android). 
-
-Para usar el autorrellenado en Authenticator, los usuarios deben agregar sus cuenta de Microsoft personales en esta aplicación y usarla para sincronizar las contraseñas. Por el momento, no se pueden usar las cuentas profesionales ni educativas para sincronizar contraseñas. [Más información](../user-help/user-help-auth-app-faq.md#autofill-for-it-admins).
-
----
-
-### <a name="general-availability---invite-internal-users-to-b2b-collaboration"></a>Disponibilidad general: invitación a usuarios internos para la colaboración B2B
-
-**Tipo:** Nueva característica  
-**Categoría del servicio:** B2B  
-**Funcionalidad del producto:** B2B/B2C
- 
-Ahora los clientes pueden invitar a los invitados internos a usar la colaboración B2B en lugar de enviar una invitación a una cuenta interna existente. Esto permite a los clientes mantener el identificador de objeto, el UPN, la pertenencia a grupos y las asignaciones de aplicaciones del usuario. [Más información](../external-identities/invite-internal-users.md).
-
----
-
-### <a name="general-availability---domain-name-administrator-built-in-role"></a>Disponibilidad general: rol integrado "Administrador de nombres de dominio"
-
-**Tipo:** Nueva característica  
-**Categoría del servicio:** RBAC  
-**Funcionalidad del producto:** Control de acceso
- 
-Los usuarios con este rol pueden administrar (leer, agregar, comprobar, actualizar y eliminar) los nombres de dominio. También pueden leer información de directorio sobre usuarios, grupos y aplicaciones, ya que estos objetos tienen dependencias de dominio. 
-
-En entornos locales, los usuarios con este rol pueden configurar nombres de dominio para la federación, de modo que los usuarios asociados siempre se autentiquen de forma local. Estos usuarios pueden iniciar sesión en servicios basados en Azure AD con sus contraseñas locales a través del inicio de sesión único. La configuración de federación se debe sincronizar a través de Azure AD Connect, por lo que los usuarios también tienen permisos para administrar Azure AD Connect. [Más información](../roles/permissions-reference.md#domain-name-administrator).
- 
----
-
-### <a name="new-federated-apps-available-in-azure-ad-application-gallery---february-2021"></a>Nuevas aplicaciones federadas disponibles en la galería de aplicaciones de Azure AD (febrero de 2021)
-
-**Tipo:** Nueva característica  
-**Categoría del servicio:** Aplicaciones empresariales  
-**Funcionalidad del producto:** Integración de terceros
- 
-En febrero de 2021, agregamos 37 aplicaciones nuevas a la galería de aplicaciones con compatibilidad de federación:
-
-[Extensión de Loop Messenger](https://loopworks.com/loop-flow-messenger/), [Adaptador de Silverfort para Azure AD](http://www.silverfort.com/), [Interplay Learning](https://skilledtrades.interplaylearning.com/#login), [Nura Space](https://dashboard.nuraspace.com/login), [Yooz EU](https://eu1.getyooz.com/?kc_idp_hint=microsoft), [UXPressia](https://uxpressia.com/users/sign-in), [introDus Pre- and Onboarding Platform](http://app.introdus.dk/login), [Happybot](https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize?client_id=34353e1e-dfe5-4d2f-bb09-2a5e376270c8&response_type=code&redirect_uri=https://api.happyteams.io/microsoft/integrate&response_mode=query&scope=offline_access%20User.Read%20User.Read.All), [LeaksID](https://app.leaksid.com/), [ShiftWizard](http://www.shiftwizard.com/), [PingFlow SSO](https://app.pingview.io/), [Swiftlane](https://admin.swiftlane.com/login), [Quasydoc SSO](https://www.quasydoc.eu/login), [Fenwick Gold Account](https://businesscentral.dynamics.com/), [SeamlessDesk](https://www.seamlessdesk.com/login), [Learnsoft LMS y TMS](http://www.learnsoft.com/), [P-TH+](https://p-th.jp/), [myViewBoard](https://api.myviewboard.com/auth/microsoft/), [Tartabit IoT Bridge](https://bridge-us.tartabit.com/), [AKASHI](../saas-apps/akashi-tutorial.md), [Rewatch](../saas-apps/rewatch-tutorial.md), [Zuddl](../saas-apps/zuddl-tutorial.md), [Parkalot - Car park management](../saas-apps/parkalot-car-park-management-tutorial.md), [HSB ThoughtSpot](../saas-apps/hsb-thoughtspot-tutorial.md), [IBMid](../saas-apps/ibmid-tutorial.md), [SharingCloud](../saas-apps/sharingcloud-tutorial.md), [PoolParty Semantic Suite](../saas-apps/poolparty-semantic-suite-tutorial.md), [GlobeSmart](../saas-apps/globesmart-tutorial.md), [Samsung Knox and Business Services](../saas-apps/samsung-knox-and-business-services-tutorial.md), [Penji](../saas-apps/penji-tutorial.md), [Kendis- Scaling Agile Platform](../saas-apps/kendis-scaling-agile-platform-tutorial.md), [Maptician](../saas-apps/maptician-tutorial.md), [Olfeo SAAS](../saas-apps/olfeo-saas-tutorial.md), [Sigma Computing](../saas-apps/sigma-computing-tutorial.md), [plataforma de administración de permisos de CloudKnox](../saas-apps/cloudknox-permissions-management-platform-tutorial.md), [Klaxoon SAML](../saas-apps/klaxoon-saml-tutorial.md), [Enablon](../saas-apps/enablon-tutorial.md)
-
-También puede consultar la documentación de todas ellas aquí: https://aka.ms/AppsTutorial.
-
-Para incluir su aplicación en la galería de aplicaciones de Azure AD, lea los detalles aquí: https://aka.ms/AzureADAppRequest.
-
---- 
-
-### <a name="new-provisioning-connectors-in-the-azure-ad-application-gallery---february-2021"></a>Nuevos conectores de aprovisionamiento en la galería de aplicaciones de Azure AD (febrero de 2021)
-
-**Tipo:** Nueva característica  
-**Categoría del servicio:** Aprovisionamiento de aplicaciones  
-**Funcionalidad del producto:** Integración de terceros
- 
-
-Ahora, puede automatizar la creación, actualización y eliminación de cuentas de usuario para estas aplicaciones recién integradas:
-
-- [Atea](../saas-apps/atea-provisioning-tutorial.md)
-- [Getabstract](../saas-apps/getabstract-provisioning-tutorial.md)
-- [HelloID](../saas-apps/helloid-provisioning-tutorial.md)
-- [Hoxhunt](../saas-apps/hoxhunt-provisioning-tutorial.md)
-- [Iris Intranet](../saas-apps/iris-intranet-provisioning-tutorial.md)
-- [Preciate](../saas-apps/preciate-provisioning-tutorial.md)
-
-Para más información, consulte [Qué es el aprovisionamiento automatizado de usuarios de aplicaciones SaaS en Azure AD](../app-provisioning/user-provisioning.md).
-
----
-
-### <a name="general-availability---10-azure-active-directory-roles-now-renamed"></a>Disponibilidad general: cambio de nombre de diez roles de Azure Active Directory
-
-**Tipo:** Característica modificada  
-**Categoría del servicio:** RBAC  
-**Funcionalidad del producto:** Control de acceso
- 
-Se ha cambiado el nombre de 10 roles integrados de Azure AD para que estén alineados en el [centro de administración de Microsoft 365](/microsoft-365/admin/microsoft-365-admin-center-preview), [el portal de Azure AD](https://portal.azure.com/) y [Microsoft Graph](https://developer.microsoft.com/graph/). Para más información sobre los nuevos roles, consulte [Permisos de roles de administrador en Azure Active Directory](../roles/permissions-reference.md#all-roles).
-
-![Tabla que muestra los nombres de rol en MS Graph API y Azure Portal, y el nombre final propuesto en la API, Azure Portal y Mac.](media/whats-new/roles-table-rbac.png)
-
----
-
-### <a name="new-company-branding-in-mfasspr-combined-registration"></a>Nueva personalización de marca de la empresa en el registro combinado de MFA/SSPR
-
-**Tipo:** Característica modificada  
-**Categoría de servicio:** Experiencia y administración de usuarios  
-**Funcionalidad del producto:** Experiencias de usuario final
- 
-En el pasado, no se usaban los logotipos de empresa en las páginas de inicio de sesión de Azure Active Directory. Ahora, la personalización de marca de la empresa se encuentra en la parte superior izquierda del registro combinado de MFA/SSPR. La personalización de marca de la empresa también se incluye en Mis inicios de sesión y en la página de información de seguridad. [Más información](../fundamentals/customize-branding.md).
-
----
-
-### <a name="general-availability---second-level-manager-can-be-set-as-alternate-approver"></a>Disponibilidad general: el administrador de segundo nivel se puede establecer como aprobador alternativo
-
-**Tipo:** Característica modificada  
-**Categoría del servicio:** Administración de acceso de usuarios  
-**Funcionalidad del producto:** Administración de derechos
- 
-Ahora, en la administración de derechos, se encuentra disponible una opción adicional al seleccionar aprobadores. Si selecciona "Administrador como aprobador" para el primer aprobador, tendrá otra opción disponible para elegir en el campo de aprobador alternativo, "Administrador de segundo nivel como aprobador alternativo". Si selecciona esta opción, debe agregar un aprobador de reserva al que reenviar la solicitud en caso de que el sistema no encuentre el administrador de segundo nivel. [Más información](../governance/entitlement-management-access-package-approval-policy.md#alternate-approvers).
- 
----
-
-### <a name="authentication-methods-activity-dashboard"></a>Panel Actividad de los métodos de autenticación
-
-**Tipo:** Característica modificada  
-**Categoría del servicio:** Notificación  
-**Funcionalidad del producto:** Supervisión e informes
- 
-
-El panel Actividad de los métodos de autenticación actualizado proporciona a los administradores una visión general de la actividad de registro y uso de los métodos de autenticación en su inquilino. El informe resume el número de usuarios registrados para cada método y los métodos que se usan durante el inicio de sesión y el restablecimiento de contraseña. [Más información](../authentication/howto-authentication-methods-activity.md).
- 
----
-
-### <a name="refresh-and-session-token-lifetimes-configurability-in-configurable-token-lifetime-ctl-are-retired"></a>Se retira la capacidad de configuración de la vigencia de los tokens de sesión y actualización en la directiva de vigencia configurable del token
-
-**Tipo:** Obsoleto  
-**Categoría del servicio:** Otros  
-**Funcionalidad del producto:** Autenticación de usuarios
- 
-Se retira la capacidad de configuración de la vigencia de los tokens de sesión y actualización en la directiva de vigencia configurable del token. Azure Active Directory ya no respeta la configuración de los tokens de actualización y de sesión en las directivas existentes. [Más información](../develop/active-directory-configurable-token-lifetimes.md#token-lifetime-policies-for-refresh-tokens-and-session-tokens).
  
 ---

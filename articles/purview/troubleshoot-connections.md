@@ -4,15 +4,15 @@ description: En este artículo se explican los pasos para solucionar problemas c
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 06/04/2021
-ms.openlocfilehash: 586c6988372d6ae6310367ba6a3c0c2f0fa4d9e0
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.date: 09/27/2021
+ms.openlocfilehash: cfcac68bfc09a4c3b6d4794469734d0634b3ad0c
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113090554"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213465"
 ---
 # <a name="troubleshoot-your-connections-in-azure-purview"></a>Solución de problemas de las conexiones en Azure Purview
 
@@ -35,7 +35,7 @@ Existen instrucciones específicas para cada tipo de origen:
 - [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#setting-up-authentication-for-a-scan)
 - [SQL Server](register-scan-on-premises-sql-server.md#setting-up-authentication-for-a-scan)
 - [Power BI](register-scan-power-bi-tenant.md)
-- [Amazon S3](register-scan-amazon-s3.md#create-a-purview-credential-for-your-aws-bucket-scan)
+- [Amazon S3](register-scan-amazon-s3.md#create-a-purview-credential-for-your-aws-s3-scan)
 
 ## <a name="verifying-azure-role-based-access-control-to-enumerate-azure-resources-in-azure-purview-studio"></a>Comprobación del control de acceso basado en roles de Azure para enumerar los recursos de Azure en Azure Purview Studio
 
@@ -63,7 +63,7 @@ Si el punto de conexión público está restringido en los orígenes de datos, p
 > [!IMPORTANT]
 > Se produciría un error si examina varios orígenes de datos que contienen bases de datos de Azure SQL con _Denegar acceso desde red pública_. Para examinar estos orígenes de datos mediante un punto de conexión privado, use en su lugar la opción para registrar un único origen de datos.
 
-Para obtener más información sobre cómo configurar un entorno de ejecución de integración autohospedado, consulte el apartado sobre los [puntos de conexión privados de ingesta y el examen de orígenes](catalog-private-link.md#ingestion-private-endpoints-and-scanning-sources).
+Para obtener más información sobre cómo configurar un entorno de ejecución de integración autohospedado, consulte el apartado sobre los [puntos de conexión privados de ingesta y el examen de orígenes](catalog-private-link-ingestion.md#deploy-self-hosted-integration-runtime-ir-and-scan-your-data-sources).
 
 Para más información sobre cómo crear una credencial en Azure Purview, consulte [Credenciales para la autenticación de origen en Azure Purview](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
 
@@ -76,7 +76,7 @@ Compruebe si es así mediante los pasos siguientes:
 1. Vaya a su instancia de Key Vault.
 1. Seleccione **Configuración** > **Secretos**.
 1. Seleccione el secreto que va a usar para autenticarse en el origen de datos para realizar exámenes.
-1. Seleccione la versión que desea usar y compruebe que la contraseña o la clave de la cuenta sean correctas. Para ello, haga clic en **Mostrar el valor secreto**. 
+1. Seleccione la versión que desea usar y compruebe que la contraseña o la clave de la cuenta sean correctas. Para ello, seleccione **Mostrar el valor secreto**. 
 
 ## <a name="verify-permissions-for-the-purview-managed-identity-on-your-azure-key-vault"></a>Compruebe los permisos para la identidad administrada de Purview en la instancia de Azure Key Vault
 

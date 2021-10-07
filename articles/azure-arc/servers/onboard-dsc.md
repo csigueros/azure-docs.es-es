@@ -3,12 +3,12 @@ title: Instalación del agente de Connected Machine mediante DSC de Windows Powe
 description: En este artículo, obtendrá información sobre cómo conectar máquinas a Azure mediante servidores habilitados para Azure Arc con DSC de Windows PowerShell.
 ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0a6e955df43e3589c97091cb111699ce402723d0
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 357d89a989efbc3b8deded193808d47753b722d9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323799"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124789092"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Instalación del agente de Connected Machine mediante DSC de Windows PowerShell
 
@@ -20,7 +20,7 @@ Con [Introducción a la configuración de estado deseado (DSC) para Windows](/po
 
 - El módulo de DSC [AzureConnectedMachineDsc](https://www.powershellgallery.com/packages/AzureConnectedMachineDsc)
 
-- Una entidad de servicio para conectar las máquinas a servidores habilitados para Azure Arc de forma no interactiva. Siga los pasos descritos en la sección [Creación de una entidad de servicio para la incorporación a gran escala](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) si aún no ha creado una entidad de servicio para servidores habilitados para Arc.
+- Una entidad de servicio para conectar las máquinas a servidores habilitados para Azure Arc de forma no interactiva. Siga los pasos descritos en la sección [Creación de una entidad de servicio para la incorporación a gran escala](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) si aún no ha creado una entidad de servicio para los servidores habilitados para Azure Arc.
 
 ## <a name="install-the-connectedmachine-dsc-module"></a>Instalación del módulo DSC ConnectedMachine
 

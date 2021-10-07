@@ -1,144 +1,207 @@
 ---
 title: Procedimientos recomendados de Azure Functions
-description: Información acerca de los procedimientos recomendados y los patrones de Azure Functions.
+description: Conozca los procedimientos recomendados para diseñar, implementar y mantener la eficacia del código de función que se ejecuta en Azure.
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5783f8092a6435b43ab8720df18cc5200e390d46
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/30/2021
+ms.openlocfilehash: f2efa490a9788f0e52b4dfb19b4359f247a671e9
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100378254"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129057726"
 ---
-# <a name="best-practices-for-performance-and-reliability-of-azure-functions"></a>Procedimientos recomendados para aumentar el rendimiento y la confiabilidad de Azure Functions
+# <a name="best-practices-for-reliable-azure-functions"></a>Procedimientos recomendados para la creación de funciones de Azure confiables
 
-En este artículo se proporcionan instrucciones para mejorar el rendimiento y la confiabilidad de sus aplicaciones de función [sin servidor](https://azure.microsoft.com/solutions/serverless/).  
+Azure Functions es una experiencia de proceso a petición basada en eventos que amplía la plataforma de aplicaciones Azure App Service existente con funcionalidades para implementar código desencadenado por eventos que tienen lugar en Azure, en servicios de terceros y en sistemas locales. Functions permite crear soluciones mediante la conexión a orígenes de datos o soluciones de mensajería, lo que facilita el procesamiento de los eventos y la reacción a ellos. Functions se ejecuta en centros de datos de Azure, que son complejos con muchos componentes integrados. En un entorno de nube hospedado, se espera que las máquinas virtuales se reinicien o muevan ocasionalmente y que se produzcan actualizaciones de los sistemas. Es probable que las aplicaciones de funciones también dependan de API externas, servicios de Azure y otras bases de datos, que también son propensas a la falta de confiabilidad periódica. 
 
-Éstos son los procedimientos recomendados para crear y diseñar las soluciones sin servidor mediante Azure Functions.
+En este artículo se detallan algunos procedimientos recomendados para diseñar e implementar aplicaciones de funciones eficaces que mantengan un estado correcto y funcionen bien en un entorno basado en la nube.
 
-## <a name="avoid-long-running-functions"></a>Evitar funciones de ejecución prolongada
+## <a name="choose-the-correct-hosting-plan"></a>Elección del plan de hospedaje correcto 
 
-Las funciones grandes de ejecución prolongada pueden causar problemas de tiempo de espera inesperados. Para más información sobre los tiempos de expiración de un plan de hospedaje determinado, consulte [Duración del tiempo de tiempo de expiración de una aplicación de funciones](functions-scale.md#timeout).
+Cuando crea una aplicación de funciones en Azure, debe elegir un plan de hospedaje para su aplicación. El plan que elija repercutirá en el rendimiento, la confiabilidad y el costo. Hay tres planes de hospedaje básicos disponibles para Functions: 
 
-Una función puede llegar a ser grande debido a sus numerosas dependencias de Node.js. La importación de las dependencias también puede provocar mayores tiempos de carga que dan lugar a tiempos de expiración inesperados. Las dependencias se cargan explícita e implícitamente. Un módulo único cargado por el código puede cargar sus propios módulos adicionales.
++ [Plan de consumo](consumption-plan.md)
++ [Plan Premium](functions-premium-plan.md)
++ [Plan Dedicado (App Service)](dedicated-plan.md)
 
-Siempre que sea posible, refactorice funciones grandes en conjuntos más pequeños de funciones que trabajen juntos y devuelvan respuestas rápidas. Por ejemplo, un webhook o una función de desencadenador HTTP podría requerir una respuesta de confirmación en un determinado período de tiempo. Es habitual que los webhooks requieran una respuesta inmediata. Puede pasar la carga útil de desencadenador HTTP a una cola para ser procesada por una función de desencadenador de cola. Este enfoque permite aplazar el trabajo real y devolver una respuesta inmediata.
+Todos los planes de hospedaje están disponibles con carácter general (GA) al ejecutar Linux o Windows.
 
-## <a name="cross-function-communication"></a>Comunicación entre funciones
+En el contexto de la plataforma App Service, el plan Premium que se usa para hospedar dinámicamente las funciones es el plan Elástico Premium (EP). Hay otros planes dedicados (App Service) denominados Premium. Para más información, consulte el artículo [Plan Premium](functions-premium-plan.md).
 
-[Durable Functions](durable/durable-functions-overview.md) y [Azure Logic Apps](../logic-apps/logic-apps-overview.md) se han creado para administrar las transiciones de estado y las comunicaciones entre varias funciones.
+El plan de hospedaje que elija determina los comportamientos siguientes:
 
-Si no usa Durable Functions ni Logic Apps para integrar varias funciones, es mejor usar colas de almacenamiento para la comunicación entre funciones. La razón principal es que las colas de almacenamiento son más baratas y mucho más fáciles de aprovisionar que otras opciones de almacenamiento.
++   Cómo se escala la aplicación de funciones según la demanda y cómo se administra la asignación de instancias.
++   Los recursos disponibles para cada instancia de aplicación de funciones.
++   Compatibilidad con funcionalidad avanzada, como la conectividad con Azure Virtual Network.
 
-Los mensajes individuales de una cola de almacenamiento tienen un límite de tamaño de 64 KB. Si tiene que pasar mensajes más grandes entre funciones, se podría usar una cola de Azure Service Bus para admitir tamaños de mensaje de hasta 256 KB en el nivel Estándar y hasta 1 MB en el nivel Premium.
+Para más información sobre cómo elegir el plan de hospedaje correcto y para obtener una comparación detallada entre los planes, consulte [Opciones de hospedaje de Azure Functions](functions-scale.md).
 
-Temas de Service Bus son útiles si necesita filtrado de mensajes antes del procesamiento.
+Al crear la aplicación de funciones, es importante que elija el plan correcto. Functions proporciona una capacidad limitada para cambiar de plan de hospedaje, principalmente entre los planes de Consumo y Elástico Premium. Para más información, consulte [Migración del plan](functions-how-to-use-azure-function-app-settings.md?tabs=portal#plan-migration). 
 
-Los concentradores de eventos son útiles para admitir comunicaciones de gran volumen.
+## <a name="configure-storage-correctly"></a>Configuración correcta del almacenamiento
 
-## <a name="write-functions-to-be-stateless"></a>Escritura de funciones para que no tengan estado
+Functions requiere la asociación de una cuenta de almacenamiento a la aplicación de funciones. El host de Functions usa la conexión de la cuenta de almacenamiento para operaciones como la administración de desencadenadores y el registro de ejecuciones de funciones. Esta conexión también se usa al escalar dinámicamente las aplicaciones de funciones. Para más información, consulte [Consideraciones de almacenamiento de Azure Functions](storage-considerations.md).
 
-Si es posible, las funciones no deben tener estado y ser idempotentes. Asociar cualquier información de estado necesaria con los datos. Por ejemplo, un pedido para procesar probablemente tendría un miembro `state` asociado. Una función podría procesar un pedido en función de ese estado mientras que la propia función permanece sin estado.
+Un sistema de archivos o una cuenta de almacenamiento mal configurados en la aplicación de funciones puede afectar al rendimiento y la disponibilidad de las funciones. Para obtener ayuda con la solución de problemas de cuentas de almacenamiento que no se han configurado correctamente, consulte el artículo de [solución de problemas de almacenamiento](functions-recover-storage-account.md). 
 
-Las funciones idempotentes se recomiendan especialmente con desencadenadores de temporizador. Por ejemplo, si tiene algo que debe ejecutarse una vez al día obligatoriamente, escríbalo para poder ejecutarse en cualquier momento durante el día con los mismos resultados. La función puede salir cuando no haya ningún trabajo para un día determinado. Asimismo, si una ejecución anterior no se pudo completar, la siguiente ejecución debe continuar donde se quedó.
+### <a name="storage-connection-settings"></a>Configuración de la conexión de almacenamiento
 
-## <a name="write-defensive-functions"></a>Escritura de funciones defensivas
+Las aplicaciones de funciones que se escalan dinámicamente se pueden ejecutar desde un punto de conexión de Azure Files de la cuenta de almacenamiento o desde los servidores de archivos asociados a las instancias con escalado horizontal. Este comportamiento se controla mediante la siguiente configuración de la aplicación:
 
-Suponga que la función podría encontrarse con una excepción en cualquier momento. Diseñe las funciones con la capacidad de continuar a partir de un punto de error anterior durante la siguiente ejecución. Considere un escenario que requiere las siguientes acciones:
++ [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](functions-app-settings.md#website_contentazurefileconnectionstring)
++ [WEBSITE_CONTENTSHARE](functions-app-settings.md#website_contentshare)
 
-1. Consulta de 10 000 filas en una base de datos.
-2. Cree un mensaje de cola para cada una de esas filas para procesar más abajo la línea.
+Esta configuración solo se admite cuando trabaja con un plan Premium o un plan de Consumo en Windows.
 
-Dependiendo de lo complejo que sea el sistema, es posible que haya servicios de bajada implicados con un comportamiento incorrecto, interrupciones de red, límites de cuota alcanzados, etc. Todo esto puede afectar a su función en cualquier momento. Debe diseñar las funciones para que estén preparadas para ello.
+Cuando se crea la aplicación de funciones en Azure Portal o mediante la CLI de Azure o Azure PowerShell, esta configuración se crea para la aplicación de funciones cuando es necesario. Al crear los recursos a partir de una plantilla de Azure Resource Manager (plantilla de ARM), también debe incluir `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` en la plantilla. 
 
-¿Cómo reacciona el código si se produce un error después de insertar 5000 de esos elementos en una cola para su procesamiento? Realice un seguimiento de elementos de un conjunto que ha completado. En caso contrario, podría insertarlos la próxima vez. Esta doble inserción puede afectar seriamente al flujo de trabajo, por lo que debe [hacer que las funciones sean idempotentes](functions-idempotent.md). 
+En la primera implementación con una plantilla de ARM, no incluya `WEBSITE_CONTENTSHARE`, ya que se genera automáticamente.   
 
-Si ya se ha procesado un elemento de la cola, permita que la función sea no operativa.
+Puede usar los siguientes ejemplos de plantilla de ARM para ayudar a configurar correctamente estas opciones:
 
-Aproveche las medidas defensivas ya proporcionadas para los componentes que se usa en la plataforma de Azure Functions. Por ejemplo, vea la información sobre el **tratamiento de mensajes dudosos en la cola** en la documentación de [desencadenadores y enlaces de cola de Azure Storage](functions-bindings-storage-queue-trigger.md#poison-messages).
++ [Plan de consumo](https://azure.microsoft.com/resources/templates/function-app-create-dynamic/)
++ [Plan dedicado](https://azure.microsoft.com/resources/templates/function-app-create-dedicated/)
++ [Plan Premium con integración de red virtual](https://azure.microsoft.com/resources/templates/function-premium-vnet-integration/)
++ [Plan de consumo con una ranura de implementación](https://azure.microsoft.com/resources/templates/function-app-create-dynamic-slot/)
 
-## <a name="function-organization-best-practices"></a>Procedimientos recomendados de la organización de funciones
+### <a name="storage-account-configuration"></a>Configuración de la cuenta de almacenamiento
 
-Como parte de la solución, puede desarrollar y publicar varias funciones. Estas funciones suelen combinarse en una única aplicación de funciones, pero también se pueden ejecutar en aplicaciones de funciones independientes. En los planes de hospedaje Premium y dedicado (App Service), varias aplicaciones de funciones también pueden compartir los mismos recursos al ejecutarse en el mismo plan. La forma de agrupar las funciones y las aplicaciones de funciones puede afectar al rendimiento, el escalado, la configuración, la implementación y la seguridad de la solución global. No hay reglas que se apliquen a todos los escenarios, por lo que debe tener en cuenta la información de esta sección al planear y desarrollar las funciones.
+Al crear una aplicación de funciones, debe crear o vincular una cuenta de Azure Storage de uso general compatible con Blob, Queue y Table Storage. Functions depende de Azure Storage para determinadas operaciones; por ejemplo, para administrar los desencadenadores y registrar las ejecuciones de funciones. La cadena de conexión de la cuenta de almacenamiento de la aplicación de funciones se encuentra en los valores de configuración de la aplicación `AzureWebJobsStorage` y `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`.
 
-### <a name="organize-functions-for-performance-and-scaling"></a>Organización de funciones para rendimiento y escalado
+Al crear esta cuenta de almacenamiento, tenga en cuenta lo siguiente: 
 
-Cada función que se crea tiene una superficie de memoria. Aunque esta superficie suele ser pequeña, tener demasiadas funciones en una aplicación de funciones puede dar lugar a un inicio más lento de la aplicación en nuevas instancias. También significa que el uso de memoria general de la aplicación de funciones puede ser mayor. Es difícil decir cuántas funciones deben estar en una única aplicación, lo que depende de la carga de trabajo concreta. Sin embargo, si la función almacena una gran cantidad de datos en la memoria, considere la posibilidad de tener menos funciones en una única aplicación.
++ Para reducir la latencia, cree la cuenta de almacenamiento en la misma región que la aplicación de funciones.
 
-Si ejecuta varias aplicaciones de funciones en un plan Premium único o en un plan dedicado (App Service), todas estas aplicaciones se escalan juntas. Si tiene una aplicación de funciones que tiene un requisito de memoria mucho mayor que las demás, usa una cantidad desproporcionada de recursos de memoria en cada instancia en la que se implementa la aplicación. Dado que esto podría dejar menos memoria disponible para las demás aplicaciones en cada instancia, es posible que quiera ejecutar una aplicación de funciones que use mucha memoria, como esta, en su propio plan de hospedaje independiente.
++ Para mejorar el rendimiento en producción, use una cuenta de almacenamiento distinta para cada aplicación de funciones. Esto es especialmente cierto con Durable Functions y las funciones desencadenadas por el centro de eventos. 
 
-> [!NOTE]
-> Al usar el [Plan de consumo](./functions-scale.md), se recomienda colocar siempre cada aplicación en su propio plan, ya que las aplicaciones se escalan de forma independiente de todos modos.
++ Con las funciones desencadenadas por el centro de eventos, no use una cuenta con [Data Lake Storage habilitado](https://github.com/Azure/azure-functions-eventhubs-extension/issues/81).
 
-Considere si quiere agrupar funciones con distintos perfiles de carga. Por ejemplo, si tiene una función que procesa muchos miles de mensajes de cola, y otra a la que solo se llama ocasionalmente, pero tiene requisitos de memoria elevados, es posible que quiera implementarlas en aplicaciones de funciones independientes para que obtengan sus propios conjuntos de recursos y se escalen de forma independiente entre sí.
+### <a name="handling-large-data-sets"></a>Administración de grandes conjuntos de datos
 
-### <a name="organize-functions-for-configuration-and-deployment"></a>Organización de funciones para configuración e implementación
+Si trabaja en Linux, puede montar un recurso compartido de archivos para agregar almacenamiento adicional. El montaje de un recurso compartido es una manera cómoda de que una función procese un conjunto de datos de gran tamaño existente. Para más información, consulte [Montaje de recursos compartidos de archivos](storage-considerations.md#mount-file-shares).
 
-Las aplicaciones de funciones tienen un archivo `host.json`, que se usa para configurar el comportamiento avanzado de los desencadenadores de funciones y Azure Functions Runtime. Los cambios en el archivo `host.json` se aplican a todas las funciones de la aplicación. Si tiene algunas funciones que necesitan configuraciones personalizadas, considere la posibilidad de moverlas a su propia aplicación de funciones.
+## <a name="organize-your-functions"></a>Organización de las funciones 
 
-Todas las funciones de un proyecto local se implementan juntas como conjunto de archivos en la aplicación de funciones en Azure. Es posible que tenga que implementar funciones individuales por separado o usar características como [ranuras de implementación](./functions-deployment-slots.md) para algunas funciones y no para otras. En tales casos, debe implementar estas funciones (en proyectos de código independientes) en diferentes aplicaciones de funciones.
+Como parte de la solución, es probable que desarrolle y publique varias funciones. Estas funciones suelen combinarse en una única aplicación de funciones, pero también se pueden ejecutar en aplicaciones de funciones independientes. En los planes de hospedaje Premium y Dedicado (App Service), varias aplicaciones de funciones también pueden compartir los mismos recursos si se usa el mismo plan. La forma de agrupar las funciones y las aplicaciones de funciones puede afectar al rendimiento, el escalado, la configuración, la implementación y la seguridad de la solución global. 
 
-### <a name="organize-functions-by-privilege"></a>Organización de funciones por privilegio
+En los planes de Consumo y Premium, todas las funciones de una aplicación de funciones se escalan de forma dinámica.
 
-Las cadenas de conexión y otras credenciales almacenadas en la configuración de la aplicación proporcionan a todas las funciones de la aplicación de funciones el mismo conjunto de permisos en el recurso asociado. Considere la posibilidad de minimizar el número de funciones con acceso a credenciales específicas moviendo las funciones que no las utilizan a una aplicación de funciones independiente. Siempre puede usar técnicas como el [encadenamiento de funciones](/learn/modules/chain-azure-functions-data-using-bindings/) para pasar datos entre funciones de diferentes aplicaciones de funciones.  
+Para más información sobre cómo organizar las funciones, consulte [Procedimientos recomendados de la organización de funciones](performance-reliability.md#function-organization-best-practices).
 
-## <a name="scalability-best-practices"></a>Procedimientos recomendados de escalabilidad
+## <a name="optimize-deployments"></a>Optimización de las implementaciones
 
-Hay una serie de factores que afectan a cómo se escalan las instancias de la aplicación de función. Se proporcionan más detalles en la documentación sobre [escalado de funciones](functions-scale.md).  A continuación se indican algunos procedimientos recomendados para garantizar una escalabilidad óptima de una aplicación de función.
+Al implementar una aplicación de funciones, es importante tener en cuenta que la unidad de implementación de las funciones en Azure es la aplicación de funciones. Todas las funciones de una aplicación de funciones se implementan al mismo tiempo, normalmente desde el mismo paquete de implementación.  
 
-### <a name="share-and-manage-connections"></a>Compartir y administrar conexiones
+Para que la implementación se realice correctamente, tenga en cuenta lo siguiente:
 
-Vuelva a usar las conexiones con los recursos externos, siempre que le sea posible. Consulte [Administración de conexiones en Azure Functions](./manage-connections.md).
++  Las funciones deben ejecutarse desde el paquete de implementación. Este [enfoque de ejecución desde paquete](run-functions-from-deployment-package.md) proporciona las siguientes ventajas:
 
-### <a name="avoid-sharing-storage-accounts"></a>Evitar compartir cuentas de almacenamiento
+    + Se reduce el riesgo de problemas de bloqueo de copia de archivos. 
+    + Se puede implementar directamente en una aplicación de producción, lo que desencadena un reinicio. 
+    + Se sabe que todos los archivos del paquete están disponibles para la aplicación. 
+    + Mejora el rendimiento de las implementaciones de plantillas de ARM.
+    + Puede reducir los tiempos de arranque en frío, especialmente para las funciones de JavaScript con árboles de paquete de npm grandes.
 
-Al crear una aplicación de función, debe asociarla a una cuenta de almacenamiento. La conexión de la cuenta de almacenamiento se mantiene en [el ajuste de la aplicación AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage).
++ Considere la posibilidad de usar la [implementación continua](functions-continuous-deployment.md) para conectar las implementaciones a la solución de control de código fuente. Las implementaciones continuas también permiten ejecutar las funciones desde el paquete de implementación.
 
-[!INCLUDE [functions-shared-storage](../../includes/functions-shared-storage.md)]
++ En el [plan de hospedaje Premium](functions-premium-plan.md), considere la posibilidad de agregar un desencadenador de preparación para reducir la latencia cuando se agreguen nuevas instancias. Para más información, consulte [Desencadenador de preparación de Azure Functions](functions-bindings-warmup.md). 
 
-### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>No mezclar código de prueba y producción en la misma aplicación de función
+## <a name="write-robust-functions"></a>Escritura de funciones sólidas
 
-Las funciones dentro de una aplicación de función compartan recursos. Por ejemplo, la memoria se comparte. Si usa una aplicación de función en producción, no agregue recursos y funciones relacionados con pruebas a ella. Se podría producir una sobrecarga inesperada durante la ejecución de código de producción.
+Hay varios principios de diseño que puede seguir al escribir código de función que ayudan con el rendimiento general y la disponibilidad de las funciones. Estos principios incluyen:
+ 
++ [Evitar funciones de larga duración.](performance-reliability.md#avoid-long-running-functions) 
++ [Planear la comunicación entre funciones.](performance-reliability.md#cross-function-communication) 
++ [Escribir funciones que no tengan estado.](performance-reliability.md#write-functions-to-be-stateless)
++ [Escribir funciones defensivas.](performance-reliability.md#write-defensive-functions)
 
-Asegúrese de cargar en las aplicaciones de función de producción. La memoria se promedia entre cada función de la aplicación.
+Dado que en la informática en la nube es común la aparición de errores transitorios, debe usar un [patrón de reintento](/azure/architecture/patterns/retry) al acceder a recursos basados en la nube. Muchos desencadenadores y enlaces ya implementan el reintento. 
 
-Si tiene un ensamblado compartido al que se hace referencia en varias funciones. NET, colóquelo en una carpeta compartida común. En caso contrario, podría implementar accidentalmente varias versiones del mismo binario que se comporten de manera diferente entre funciones.
+## <a name="design-for-security"></a>Diseño para seguridad
 
-No use el registro detallado en el código de producción, ya que afecta negativamente al rendimiento.
+La seguridad se debe tener en cuenta durante la fase de planeamiento y no después de que las funciones estén listas para usarse. Para aprender a desarrollar e implementar funciones de forma segura, consulte [Protección de Azure Functions](security-concepts.md).  
 
-### <a name="use-async-code-but-avoid-blocking-calls"></a>Uso del código asincrónico pero evitar las llamadas de bloqueo
+## <a name="consider-concurrency"></a>Consideración sobre la simultaneidad
 
-La programación asincrónica es un procedimiento recomendado, especialmente cuando implica operaciones de bloqueo de E/S.
+A medida que la demanda aumenta en su aplicación de funciones como resultado de los eventos entrantes, las aplicaciones de funciones que se ejecutan en los planes de Consumo y Premium se escalan horizontalmente. Es importante entender cómo responde la aplicación de funciones a la carga y cómo se pueden configurar los desencadenadores para administrar los eventos entrantes. Puede encontrar información general al respecto en [Escalado basado en eventos en Azure Functions](event-driven-scaling.md).
 
-En C#, evite siempre las referencias a la propiedad `Result` o las llamadas al método `Wait` en una instancia `Task`. Este enfoque puede provocar el agotamiento de subprocesos.
+En los planes Dedicados (App Service), debe proporcionar el escalado horizontal de las aplicaciones de funciones. 
 
-[!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
+### <a name="worker-process-count"></a>Recuento de procesos de trabajo
 
-### <a name="use-multiple-worker-processes"></a>Uso de varios procesos de trabajo
+En algunos casos, es más eficaz controlar la carga mediante la creación de varios procesos, denominados procesos de trabajo de lenguaje, en la instancia antes del escalado horizontal. El número máximo de procesos de trabajo de lenguaje permitidos se controla mediante el valor [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count). El valor predeterminado de esta configuración es `1`, lo que significa que no se usan varios procesos. Una vez alcanzado el número máximo de procesos, la aplicación de funciones se escala horizontalmente a más instancias para controlar la carga. Esta configuración no se aplica a las [funciones de la biblioteca de clases de C#](functions-dotnet-class-library.md), que se ejecutan en el proceso de host.
 
-De forma predeterminada, cualquier instancia de host de Functions utiliza un único proceso de trabajo. Para mejorar el rendimiento, especialmente con los tiempos de ejecución de un solo subproceso, como Python, use [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) para aumentar el número de procesos de trabajo por host (hasta 10). Al hacerlo, Azure Functions intenta distribuir uniformemente las invocaciones de función simultáneas en estos trabajos.
+Al usar `FUNCTIONS_WORKER_PROCESS_COUNT` en un plan Premium o en un plan Dedicado (App Service), tenga en cuenta el número de núcleos que proporciona el plan. Por ejemplo, el plan Premium `EP2` proporciona dos núcleos, por lo que debe empezar con un valor de `2` y aumentar en dos según sea necesario, hasta el máximo.
 
-FUNCTIONS_WORKER_PROCESS_COUNT se aplica a cada host que Functions crea al escalar horizontalmente la aplicación para satisfacer la demanda.
+### <a name="trigger-configuration"></a>Configuración del desencadenador
 
-### <a name="receive-messages-in-batch-whenever-possible"></a>Recepción de mensajes en lotes siempre que sea posible
+Al planear el rendimiento y el escalado, es importante comprender cómo los distintos tipos de desencadenadores procesan los eventos. Algunos desencadenadores permiten controlar los comportamientos de procesamiento por lotes y administrar la simultaneidad. Frecuentemente, el ajustar los valores de estas opciones puede hacer que cada instancia se escale adecuadamente para satisfacer la demanda de las funciones que se invocan. Estas opciones de configuración se aplican a todos los desencadenadores de una aplicación de funciones y se mantienen en el archivo host.json de la aplicación. Consulte la sección Configuración de la referencia al desencadenador específico para obtener detalles sobre la configuración.
 
-Algunos desencadenadores como Event Hubs permiten la recepción de un lote de mensajes en una única invocación.  El procesamiento de mensajes por lotes tiene un rendimiento mucho mejor.  Puede configurar el tamaño de lote máximo en el archivo `host.json` tal como se detalla en la [documentación de referencia sobre host.json](functions-host-json.md)
+Para más información sobre cómo Functions procesa los flujos de mensajes, consulte [Procesamiento de eventos confiable de Azure Functions](functions-reliable-event-processing.md).
 
-Para las funciones de C#, puede cambiar el tipo a una matriz fuertemente tipada.  Por ejemplo, en lugar de `EventData sensorEvent` la signatura del método podría ser `EventData[] sensorEvent`.  Para otros idiomas debe establecer explícitamente la propiedad de cardinalidad de `function.json` en `many` para habilitar el procesamiento por lotes [tal y como se muestra aquí](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
+### <a name="plan-for-connections"></a>Planeamiento de conexiones
 
-### <a name="configure-host-behaviors-to-better-handle-concurrency"></a>Configuración de los comportamientos de host para controlar mejor la simultaneidad
+Las aplicaciones de funciones que se ejecutan en el [plan de Consumo](consumption-plan.md) están sujetas a límites de conexión. Estos límites se aplican por instancia. Debido a estos límites, y como procedimiento recomendado general, debe optimizar las conexiones salientes en el código de función. Para más información, consulte [Administración de conexiones en Azure Functions](manage-connections.md). 
 
-El archivo `host.json` de la aplicación de función permite la configuración de comportamientos del sistema de tiempo de ejecución y de desencadenadores del host.  Además de los comportamientos del procesamiento por lotes, puede administrar la simultaneidad para varios desencadenadores. Frecuentemente, el ajustar los valores de estas opciones puede hacer que cada instancia se escale adecuadamente para satisfacer la demanda de las funciones que se invocan.
+### <a name="language-specific-considerations"></a>Consideraciones específicas sobre el lenguaje
 
-La configuración del archivo host.json se aplica a todas las funciones de la aplicación, dentro de una *única instancia* de la función. Por ejemplo, si tuviera una aplicación de funciones con dos funciones HTTP y solicitudes [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) establecidas en 25, una solicitud a cualquiera de los desencadenadores HTTP contaría las 25 solicitudes simultáneas compartidas.  Cuando esa aplicación de funciones se escala a 10 instancias, las diez funciones permiten eficazmente 250 solicitudes simultáneas (10 instancias * 25 solicitudes simultáneas por cada instancia). 
+A la hora de elegir el lenguaje, tenga en cuenta lo siguiente:
 
-En el [artículo de configuración de host.json](functions-host-json.md) hay otras opciones de configuración de host.
+# <a name="c"></a>[C#](#tab/csharp)
+
++ [Use el código asincrónico, pero evite las llamadas de bloqueo](performance-reliability.md#use-async-code-but-avoid-blocking-calls).
+
++ [Use tokens de cancelación](functions-dotnet-class-library.md?#cancellation-tokens) (solo en proceso).
+
+# <a name="java"></a>[Java](#tab/java)
+
++ En el caso de aplicaciones que son una combinación de operaciones enlazadas a CPU y a E/S, considere la posibilidad de usar [más procesos de trabajo](functions-app-settings.md#functions_worker_process_count).
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
++ [Use `async` y `await`](functions-reference-node.md#use-async-and-await).
+
++ [Use varios procesos de trabajo para aplicaciones enlazadas a CPU](functions-reference-node.md?tabs=v2#scaling-and-concurrency).
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
++ [Revise las consideraciones sobre simultaneidad](functions-reference-powershell.md#concurrency).
+
+# <a name="python"></a>[Python](#tab/python)
+
++ [Mejora del rendimiento de las aplicaciones de Python en Azure Functions](python-scale-performance-reference.md)
+
+---
+
+## <a name="maximize-availability"></a>Maximizar la disponibilidad
+
+El inicio en frío es uno de los aspectos clave que se deben tener en cuenta en las arquitecturas sin servidor. Para más información, consulte [Inicios en frío](event-driven-scaling.md#cold-start). Si el inicio en frío es motivo de preocupación en su escenario, puede encontrar más información en la publicación [Descripción del inicio en frío sin servidor](https://azure.microsoft.com/blog/understanding-serverless-cold-start/). 
+
+El plan Premium es el plan recomendado para reducir los inicios en frío, pero sin perder la escala dinámica. Puede usar las instrucciones siguientes para reducir los inicios en frío y mejorar la disponibilidad en los tres planes de hospedaje. 
+
+| Planear | Instrucciones |
+| --- | --- | 
+| **Plan Premium** | • [Implementar un desencadenador de preparación en la aplicación de funciones](functions-bindings-warmup.md)<br/>• [Establecer los valores de las instancias Always-Ready y el límite máximo de ráfaga](functions-premium-plan.md#plan-and-sku-settings)<br/>• [Usar la compatibilidad con desencadenadores de red virtual cuando se emplean desencadenadores que no son HTTP en una red virtual](functions-networking-options.md#premium-plan-with-virtual-network-triggers)|
+| **Planes dedicados** | • [Trabajar en al menos dos instancias con la comprobación de estado de Azure App Service habilitada](../app-service/monitor-instances-health-check.md)<br/>• [Implementar el escalado automático](/azure/architecture/best-practices/auto-scaling)|
+| **Plan de consumo** | • Revisar el uso de patrones singleton y la configuración de simultaneidad de enlaces y desencadenadores para evitar colocar artificialmente límites en el modo en que se escala la aplicación de función<br/>• [Revisar el valor de configuración `functionAppScaleLimit`, que puede limitar el escalado horizontal](event-driven-scaling.md#limit-scale-out)<br/>• Comprobar que existe un límite de cuota de uso diario (GB-s) establecido durante las fases de desarrollo y prueba. Considere la posibilidad de quitar este límite en entornos de producción. |
+
+## <a name="monitor-effectively"></a>Supervisión eficaz
+
+Azure Functions ofrece integración de fábrica con Azure Application Insights para supervisar la ejecución de funciones y los seguimientos escritos con el código. Para más información, consulte [Supervisión de Azure Functions](functions-monitoring.md). Azure Monitor también proporciona utilidades para supervisar el estado de la propia aplicación de funciones. Para obtener más información, vea [Uso de métricas de Azure Monitor con Azure Functions](monitor-metrics.md).
+
+Al usar Application Insights para supervisar las funciones, debe tener en cuenta los siguientes aspectos:
+
++ Asegúrese de que se ha quitado la configuración de la aplicación [AzureWebJobsDashboard](functions-app-settings.md#azurewebjobsdashboard). Esta configuración se admite en versiones anteriores de Functions. Si existe, al quitar `AzureWebJobsDashboard` se mejora el rendimiento de las funciones. 
+
++  Revise los [registros de Application Insights](analyze-telemetry-data.md). Si faltan datos que esperaba encontrar, puede ajustar la configuración de muestreo para capturar mejor su escenario de supervisión. Puede usar el valor de configuración `excludedTypes` para excluir determinados tipos del muestreo, como `Request` o `Exception`. Para más información, consulte [Configuración del muestreo](configure-monitoring.md?tabs=v2#configure-sampling).
+
+Azure Functions también permite [enviar registros generados por el sistema y generados por el usuario a los registros de Azure Monitor](functions-monitor-log-analytics.md). La integración con registros de Azure Monitor está actualmente en versión preliminar pública. 
+
+## <a name="build-in-redundancy"></a>Creación de redundancia
+
+Las necesidades empresariales pueden exigir que las funciones estén siempre disponibles, incluso durante una interrupción del centro de datos. Para aprender a usar un enfoque multirregional a fin de mantener siempre en ejecución las funciones críticas, consulte [Recuperación ante desastres geográfica y alta disponibilidad de Azure Functions](functions-geo-disaster-recovery.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información, consulte los siguientes recursos:
-
-* [Administración de conexiones en Azure Functions](manage-connections.md)
-* [Procedimientos recomendados de Azure App Service](../app-service/app-service-best-practices.md)
+[Administración de la aplicación de funciones](functions-how-to-use-azure-function-app-settings.md)

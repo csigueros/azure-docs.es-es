@@ -1,26 +1,26 @@
 ---
-title: Copia de datos de IBM Informix como origen y destino mediante Azure Data Factory
+title: Copia de datos con IBM Informix como origen o destino
+description: Obtenga información sobre cómo copiar datos con IBM Informix como origen o destino mediante una actividad de copia de una canalización de Azure Data Factory o Synapse Analytics.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre cómo copiar datos con IBM Informix como origen o destino mediante una actividad de copia de una canalización de Azure Data Factory.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 7fe423c487bfba377290cd65e4a46125768ab094
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 442bf95401f4816a192940191c3bee96aed4aa97
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123309016"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124827330"
 ---
-# <a name="copy-data-from-and-to-ibm-informix-using-azure-data-factory"></a>Copia de datos de IBM Informix como origen y destino mediante Azure Data Factory
+# <a name="copy-data-from-and-to-ibm-informix-using-azure-data-factory-or-synapse-analytics"></a>Copia de datos con IBM Informix como origen o destino mediante Azure Data Factory o Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se resume el uso de la actividad de copia de Azure Data Factory para copiar datos con un almacén de datos de IBM Informix como origen o destino. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
+En este artículo se describe el uso de la actividad de copia en una canalización de Azure Data Factory o Synapse Analytics para copiar datos desde un almacén de datos de IBM Informix. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -80,7 +80,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Informix
 | connectionString | La cadena de conexión ODBC que excluye la parte de la credencial. Puede especificar la cadena de conexión o utilizar el DSN (nombre de origen de datos) de sistema que se ha configurado en la máquina de Integration Runtime (se necesita especificar la parte de la credencial en el servicio vinculado según corresponda). <br> También puede establecer una contraseña en Azure Key Vault y extraer la configuración de `password` de la cadena de conexión. Consulte el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) para obtener información detallada.| Sí |
 | authenticationType | Tipo de autenticación que se usa para conectarse al almacén de datos de Informix.<br/>Los valores permitidos son: **Basic** (básica) y **Anonymous** (anónima). | Sí |
 | userName | Especifique el nombre de usuario si usa la autenticación básica. | No |
-| password | Especifique la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| password | Especifique la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura, o bien [haga referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | credencial | La parte de la credencial de acceso de la cadena de conexión especificada en formato de valor de propiedad específico del controlador. Marque este campo como SecureString. | No |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
 
@@ -231,4 +231,4 @@ Para obtener información detallada sobre las propiedades, consulte [Actividad d
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

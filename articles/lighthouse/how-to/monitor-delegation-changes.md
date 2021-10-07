@@ -1,15 +1,15 @@
 ---
 title: Supervisión de los cambios en la delegación en el inquilino de administración
 description: Aprenda a supervisar toda la actividad de delegación de Azure Lighthouse en el inquilino de administración.
-ms.date: 05/11/2021
+ms.date: 09/08/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2472e7519a6c45ff62fb0c0280f0886b4aa0ff4d
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 7eb38ac8ac7f86fd179663fe7bfb3aa1fb4e8830
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077707"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124819582"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Supervisión de los cambios en la delegación en el inquilino de administración
 
@@ -41,7 +41,9 @@ Después de elevar los privilegios de acceso, la cuenta tendrá el rol Administr
 Una vez que haya elevado el acceso, puede asignar los permisos adecuados a una cuenta para que pueda consultar los datos del registro de actividad en el nivel de inquilino. Será necesario asignar el rol integrado de Azure [Lector de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-reader) a esta cuenta en el ámbito raíz del inquilino administrador.
 
 > [!IMPORTANT]
-> La concesión de una asignación de roles en el ámbito raíz significa que los mismos permisos se aplicarán a todos los recursos del inquilino. Dado que se trata de un nivel de acceso amplio, puede que desee [asignar este rol a una cuenta de entidad de servicio y usar esa cuenta para consultar los datos](#use-a-service-principal-account-to-query-the-activity-log). También puede asignar el rol Lector de supervisión en el ámbito raíz a usuarios individuales o a grupos de usuarios para que puedan [ver información de delegación directamente en Azure Portal](#view-delegation-changes-in-the-azure-portal). Si lo hace, tenga en cuenta que se trata de un amplio nivel de acceso que se debe limitar al menor número posible de usuarios.
+> La concesión de una asignación de roles en el ámbito raíz significa que los mismos permisos se aplicarán a todos los recursos del inquilino. Dado que se trata de un nivel de acceso amplio, se recomienda [asignar este rol a una cuenta de entidad de servicio y usar esa cuenta para consultar los datos](#use-a-service-principal-account-to-query-the-activity-log).
+> 
+> También puede asignar el rol Lector de supervisión en el ámbito raíz a usuarios individuales o a grupos de usuarios para que puedan [ver información de delegación directamente en Azure Portal](#view-delegation-changes-in-the-azure-portal). Si lo hace, tenga en cuenta que se trata de un amplio nivel de acceso que se debe limitar al menor número posible de usuarios.
 
 Use uno de los métodos siguientes para realizar la asignación en el ámbito raíz.
 

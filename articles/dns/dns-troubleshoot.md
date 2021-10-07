@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: rohink
-ms.openlocfilehash: fae63c61949302e25c9dee2899577fa4f0d2a975
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e4621b73c8b71ba3bb4b42801de5e306cfa3562e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94965585"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128573112"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Guía de solución de problemas de Azure DNS
 
@@ -72,6 +72,33 @@ La resolución de nombres de DNS es un proceso de varios pasos que puede generar
 * [Delegación de un dominio en DNS de Azure](dns-domain-delegation.md)
 
 
+## <a name="unhealthy-dns-zones"></a>Zonas DNS con estado incorrecto
+
+Los errores de configuración pueden hacer que las zonas DNS no tengan un estado correcto. Estos son los escenarios que pueden dar lugar a este comportamiento:
+
+* **Delegación incorrecta**: una zona contiene registros de delegación *NS* que le permiten delegar el tráfico de la zona principal a la secundaria. Si alguno de los registros de *NS* está presente en la zona primaria, se supone que el servidor DNS enmascara otros registros de la delegación, excepto los registros de adherencia. Sin embargo, si la zona contiene otros registros en la delegación, la zona se marcará como incorrecta.
+
+    En la tabla siguiente se proporcionan escenarios y sus resultados de mantenimiento de zona correspondientes, cuando una zona contiene el registro de delegación de NS.
+
+    | Escenario | ¿La zona contiene</br>un registro de delegación de NS? | ¿La zona contiene</br>registros adheridos? | ¿La zona contiene otros</br>registros en la</br>delegación? | Mantenimiento de la zona |
+    |----------|-------------------------------------|-----------------------------|--------------------------------------------------|-------------|
+    | 1        | No                                  | -                           | -                                                | Healthy     |
+    | 2        | Sí                                 | Sí                         | No                                               | Healthy     |
+    | 3        | Sí                                 | No                          | No                                               | Healthy     |
+    | 4        | Sí                                 | No                          | Sí                                              | Unhealthy (Incorrecto)   |
+    | 5        | Sí                                 | Sí                         | Sí                                              | Unhealthy (Incorrecto)   |
+
+    **Recomendación:** elimine todos los registros excepto los registros de adherencia que estén en los registros de delegación en sus zonas.
+
+* **TTL cero**: TTL (tiempo de vida) es una configuración que indica al solucionador de DNS cuánto tiempo debe almacenar en caché una consulta antes de solicitar una nueva. Una vez hecho esto, la información recopilada se almacena en la memoria caché del solucionador recursivo o local durante el TLL, antes de que vuelva a recopilar detalles nuevos y actualizados.
+
+    Si el TTL se establece en 0 en la configuración, puede experimentar uno de los siguientes problemas:
+
+    * Respuesta larga.
+    * Aumento del tráfico y el costo de DNS.
+    * Propensión a ataques DDoS.
+
+    **Recomendación**: asegúrese de que el valor TTL no esté establecido en *0*. 
 
 ## <a name="how-do-i-specify-the-service-and-protocol-for-an-srv-record"></a>¿Cómo puedo especificar el "servicio" y el "protocolo" para un registro SRV?
 

@@ -1,28 +1,28 @@
 ---
 title: Copia de datos desde SAP ECC
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre cómo copiar datos desde SAP ECC en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
+description: Aprenda a copiar datos de SAP ECC en almacenes de datos receptores compatibles mediante una actividad de copia en una canalización de Azure Data Factory o Synapse Analytics.
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/28/2020
-ms.openlocfilehash: bf20bc4b3e796f118b829cc979af1ff4ac75a0c6
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: 47e7b51a75569ea1c23910b78a1b5396759381f7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123316843"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124764077"
 ---
-# <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Copia de datos de SAP ECC mediante Azure Data Factory
+# <a name="copy-data-from-sap-ecc-using-azure-data-factory-or-synapse-analytics"></a>Copia de datos de SAP ECC con Azure Data Factory o Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de SAP Enterprise Central Component (ECC). Para obtener más información, consulte la [información general sobre la actividad de copia](copy-activity-overview.md).
 
 >[!TIP]
->Para obtener información sobre la compatibilidad general de ADF con el escenario de integración de datos de SAP, consulte el [informe técnico sobre la integración de datos de SAP mediante Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) que contiene una introducción detallada con comparaciones y una guía sobre cada conector de SAP.
+>Para obtener información sobre la compatibilidad general con el escenario de integración de datos de SAP, consulte el [informe técnico sobre la integración de datos de SAP mediante Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) que contiene una introducción detallada con comparaciones y una guía sobre cada conector de SAP.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -50,7 +50,7 @@ La versión 7.0 o posterior hace referencia a la versión de SAP NetWeaver en l
 1. Use la GUI de SAP para conectarse al sistema de SAP. 
 2. Vaya a **System** -> **Status**. 
 3. Compruebe la versión de SAP_BASIS, asegúrese de que sea mayor o igual que 701.  
-      ![Comprobar SAP_BASIS](./media/connector-sap-table/sap-basis.png)
+      :::image type="content" source="./media/connector-sap-table/sap-basis.png" alt-text="Comprobar SAP_BASIS":::
 
 >[!TIP]
 >Para copiar datos de SAP ECC a través de una tabla o una vista de SAP, use el conector de [tabla de SAP](connector-sap-table.md), que es más rápido y escalable.
@@ -212,9 +212,9 @@ Se admiten las siguientes propiedades en la sección `source` de la actividad de
 
 ## <a name="data-type-mappings-for-sap-ecc"></a>Asignaciones de tipos de datos para SAP ECC
 
-Al copiar datos de SAP ECC, se usan las siguientes asignaciones de tipos de datos de OData para los datos de SAP ECC en los tipos de datos provisionales de Azure Data Factory. Consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md) para más información sobre cómo la actividad de copia asigna el tipo de datos y el esquema de origen al receptor.
+Al copiar datos de SAP ECC, se usan las siguientes asignaciones de tipos de datos de OData para los datos de SAP ECC en los tipos de datos provisionales que el servicio usa internamente. Consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md) para más información sobre cómo la actividad de copia asigna el tipo de datos y el esquema de origen al receptor.
 
-| Tipo de datos de OData | Tipo de datos provisionales de Data Factory |
+| Tipo de datos de OData | Tipo de datos de servicio provisional |
 |:--- |:--- |
 | `Edm.Binary` | `String` |
 | `Edm.Boolean` | `Bool` |
@@ -241,4 +241,4 @@ Para obtener información detallada sobre las propiedades, consulte [Actividad d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte [Almacenes de datos y formatos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

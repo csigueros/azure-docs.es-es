@@ -1,25 +1,25 @@
 ---
 title: Copia de datos de Square (versión preliminar)
+description: Obtenga información sobre cómo copiar datos de Square en almacenes de datos receptores compatibles a través de una actividad de copia en una canalización de Azure Data Factory o Synapse Analytics.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre cómo copiar datos de Square en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 2d69f55189174cc11e4808be063ddf3b1dbd6a28
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: b15fb7fce767d5d17e80d2f265f295b1e3aff5bd
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123304605"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820114"
 ---
-# <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Copiar datos de Square con Azure Data Factory (versión preliminar)
+# <a name="copy-data-from-square-using-azure-data-factory-or-synapse-analytics-preview"></a>Copia de datos de Square con Azure Data Factory o Synapse Analytics (versión preliminar)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de Square. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
+En este artículo se explica cómo usar la actividad de copia en una canalización de Azure Data Factory o Synapse Analytics para copiar datos de Square. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 > [!IMPORTANT]
 > Este conector está actualmente en versión preliminar. Puede probarlo y enviarnos sus comentarios. Si desea depender de los conectores de versión preliminar en la solución, póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/).
@@ -33,7 +33,7 @@ Este conector Square es compatible con las actividades siguientes:
 
 Puede copiar datos de Square en cualquier almacén de datos de receptor admitido. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
-Azure Data Factory proporciona un controlador integrado para habilitar la conectividad. Por lo tanto, no es necesario instalar manualmente ningún controlador mediante este conector.
+El servicio proporciona un controlador integrado para habilitar la conectividad. Por lo tanto, no es necesario instalar manualmente ningún controlador mediante este conector.
 
 ## <a name="getting-started"></a>Introducción
 
@@ -77,9 +77,9 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Square:
 | ***En`connectionProperties`:*** | | |
 | host | Dirección URL de la instancia de Square. (es decir, mystore.mysquare.com)  | Sí |
 | clientId | Id. de cliente asociado a la aplicación Square.  | Sí |
-| clientSecret | Secreto de cliente asociado a la aplicación Square. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
-| accessToken | Token de acceso obtenido de Square. Concede acceso limitado a una cuenta de Square solicitando permisos explícitos a un usuario autenticado. Los tokens de acceso de OAuth expiran 30 días después de emitirse, pero los tokens de actualización no expiran. Los tokens de acceso se pueden actualizar mediante un token de actualización.<br>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md).  | Sí |
-| refreshToken | Token de actualización obtenido de Square. Se usa para obtener nuevos tokens de acceso cuando expira el actual.<br>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| clientSecret | Secreto de cliente asociado a la aplicación Square. Marque este campo como SecureString para almacenarlo de forma segura, o bien [haga referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| accessToken | Token de acceso obtenido de Square. Concede acceso limitado a una cuenta de Square solicitando permisos explícitos a un usuario autenticado. Los tokens de acceso de OAuth expiran 30 días después de emitirse, pero los tokens de actualización no expiran. Los tokens de acceso se pueden actualizar mediante un token de actualización.<br>Marque este campo como SecureString para almacenarlo de forma segura, o bien [haga referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md).  | Sí |
+| refreshToken | Token de actualización obtenido de Square. Se usa para obtener nuevos tokens de acceso cuando expira el actual.<br>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory, o bien [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | No |
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de TLS. El valor predeterminado es true.  | No |
 | usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de TLS. El valor predeterminado es true.  | No |
@@ -89,7 +89,7 @@ Square admite dos tipos de tokens de acceso: **personal** y **OAuth**.
 - Los tokens de acceso personal se usan para que Connect API tenga acceso ilimitado a los recursos de su propia cuenta de Square.
 - Los tokens de acceso de OAuth se usan para que Connect API tenga acceso autenticado y por ámbito a cualquier cuenta de Square. Úselos cuando la aplicación acceda a recursos de otras cuentas de Square en nombre de los propietarios de la cuenta. Los tokens de acceso de OAuth también se pueden usar para acceder a recursos de su propia cuenta de Square.
 
-En Data Factory, la autenticación mediante el token de acceso personal solo necesita `accessToken`, mientras que la autenticación mediante OAuth necesita `accessToken` y `refreshToken`. Obtenga información sobre cómo recuperar el token de acceso [aquí](https://developer.squareup.com/docs/build-basics/access-tokens).
+La autenticación mediante el token de acceso personal solo necesita `accessToken`, mientras que la autenticación mediante OAuth necesita `accessToken` y `refreshToken`. Obtenga información sobre cómo recuperar el token de acceso [aquí](https://developer.squareup.com/docs/build-basics/access-tokens).
 
 **Ejemplo**:
 
@@ -201,4 +201,4 @@ Si va a copiar datos de Square, establezca el tipo de origen de la actividad de 
 Para obtener información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

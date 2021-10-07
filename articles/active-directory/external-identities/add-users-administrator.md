@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/23/2021
+ms.date: 09/10/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c93b0199acf36666fb4c2801f44f21fe314a571b
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: aa19fffae56825b6ed9a5ca7f39abbcf2999d6e3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114227954"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124780744"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Incorporación de usuarios de colaboración B2B de Azure Active Directory en Azure Portal
 
@@ -64,14 +64,24 @@ Si necesita agregar manualmente usuarios de colaboración B2B a un grupo, siga e
 2. Busque y seleccione **Azure Active Directory** en cualquier página.
 3. En **Administrar**, seleccione **Grupos**.
 4. Seleccione un grupo (o seleccione **Nuevo grupo** para crear uno). Es una buena idea incluir en la descripción del grupo que el grupo contiene los usuarios invitados B2B.
-5. Seleccione el vínculo debajo de **Miembros**.
-6. Realice una de las siguientes acciones:
+5. En **Administrar**, seleccione **Miembros**.
+6. Seleccione **Agregar miembros**.
+7. Realice una de las siguientes acciones:
 
-     - Si el usuario invitado ya existe en el directorio, busque el usuario B2B. Seleccione el usuario y, luego, seleccione **Seleccionar** para agregar el usuario al grupo.
-     - Si el usuario invitado no existe ya en el directorio, invítelo al grupo; para ello, escriba su dirección de correo electrónico en el cuadro de búsqueda, escriba un mensaje personal opcional y, a continuación, elija **Invitar**. La invitación se dirige automáticamente al usuario invitado.
-   
-![Adición del botón Invitar para agregar miembros invitados](./media/add-users-administrator/group-invite.png)
- 
+   - *Si el usuario invitado ya está en el directorio:*
+      
+       a. En la página **Agregar miembros**, comience a escribir el nombre o la dirección de correo electrónico del usuario invitado.
+       
+       b. En los resultados de la búsqueda, elija el usuario y, a continuación, **Seleccionar**.
+
+   - *Si el usuario invitado no está actualmente en el directorio:*
+      
+       a. En la página **Agregar miembros**, escriba la dirección de correo electrónico del usuario en el cuadro de búsqueda, escriba un **Mensaje personal** (opcional), y elija **Invitar** para enviar una invitación.
+       
+       b. Elija **Seleccionar**.
+       
+       c. Ahora, agregue el usuario al grupo: en la página **Miembros**, elija **Agregar miembros**. Escriba el nombre o la dirección de correo electrónico del usuario en el cuadro de búsqueda, elija el usuario en los resultados y, a continuación, elija **Seleccionar**.
+
 También puede utilizar grupos dinámicos con colaboración B2B de Azure AD. Para más información, consulte [Grupos dinámicos y colaboración B2B de Azure Active Directory](use-dynamic-groups.md).
 
 ## <a name="add-guest-users-to-an-application"></a>Adición de usuarios invitados a una aplicación
@@ -83,19 +93,38 @@ Para agregar usuarios de colaboración B2B a una aplicación, siga estos pasos:
 3. En **Administrar**, seleccione **Aplicaciones empresariales**.
 4. En la página **Todas las aplicaciones**, seleccione la aplicación a la que quiere agregar usuarios invitados.
 5. En **Administrar**, seleccione **Usuarios y grupos**.
-6. Seleccione **Agregar usuario**.
-7. En **Agregar asignación**, seleccione **Usuarios y grupos**.
+6. Seleccione **Agregar usuario o grupo**.
+7. Después, en la página **Agregar asignación**, seleccione el vínculo en **Usuarios**.
 8. Realice una de las siguientes acciones:
-   - Si el usuario invitado ya existe en el directorio, busque el usuario B2B. Seleccione el usuario, elija **Seleccionar** y luego seleccione **Asignar** para agregar el usuario a la aplicación.
-   - Si el usuario invitado no existe en el directorio, en **Seleccione un miembro o invite a un usuario externo**, escriba la dirección de correo electrónico del usuario. En el cuadro de mensaje, escriba un mensaje personal opcional. Debajo del cuadro de mensaje, seleccione **Invitar**.
-               ![Captura de pantalla que resalta dónde agregar la dirección de correo electrónico del usuario, el mensaje personalizado y también resalta el botón Invitar.](./media/add-users-administrator/app-invite-users.png)
 
-10.  El usuario invitado aparece en la lista **Usuarios y grupos** de la aplicación con el rol asignado de **Acceso predeterminado**. Si la aplicación proporciona roles diferentes, y usted quiere cambiar el rol del usuario, haga lo siguiente:
-   - Active la casilla situada junto al usuario invitado y, a continuación, seleccione el botón **Editar**. 
-   - En la página **Editar asignación**, elija el vínculo en **Seleccionar un rol** y seleccione el rol que quiere asignar al usuario.
-   - Elija **Seleccionar**.
-   - Seleccione **Asignar**.
- 
+   - *Si el usuario invitado ya está en el directorio:*
+      
+       a. En la página **Usuarios**, comience a escribir el nombre o la dirección de correo electrónico del usuario invitado.
+      
+       b. En los resultados de la búsqueda, elija el usuario y, a continuación, **Seleccionar**.
+       
+       c. En la página **Agregar asignación**, elija **Asignar** para agregar el usuario a la aplicación.
+
+   - *Si el usuario invitado no está actualmente en el directorio:*
+      
+       a. En la página **Usuarios**, especifique la dirección de correo electrónico del usuario en el cuadro de búsqueda, escriba un **Mensaje personal** (opcional), y elija **Invitar**.
+       
+       b. Elija **Seleccionar**.
+       
+       c. Ahora, agregue el usuario invitado a la aplicación: en la página **Agregar asignación**, elija el vínculo en **Usuarios**. Escriba el nombre o la dirección de correo electrónico del usuario invitado en el cuadro de búsqueda, elija el usuario en los resultados y, a continuación, elija **Seleccionar**.
+       
+       d. En la página **Agregar asignación**, seleccione **Asignar**.
+
+9. El usuario invitado aparece en la lista **Usuarios y grupos** de la aplicación con el rol asignado de **Acceso predeterminado**. Si la aplicación proporciona roles diferentes, y usted quiere cambiar el rol del usuario, haga lo siguiente:
+
+    a. Active la casilla situada junto al usuario invitado y, a continuación, seleccione el botón **Editar**. 
+    
+    b. En la página **Editar asignación**, elija el vínculo en **Seleccionar un rol** y seleccione el rol que quiere asignar al usuario.
+    
+    c. Elija **Seleccionar**.
+    
+    d. Seleccione **Asignar**.
+
 ## <a name="resend-invitations-to-guest-users"></a>Reenvío de invitaciones a usuarios invitados
 
 Si un usuario invitado todavía no ha canjeado su invitación, puede volver a enviarle el correo electrónico de invitación.

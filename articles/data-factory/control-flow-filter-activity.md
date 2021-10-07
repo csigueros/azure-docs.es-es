@@ -1,7 +1,7 @@
 ---
-title: Actividad de filtro en Azure Data Factory
+title: Actividad de filtro
 titleSuffix: Azure Data Factory & Azure Synapse
-description: La actividad de filtro filtra las entradas.
+description: La actividad de filtro filtra las entradas para canalizaciones de Azure Data Factory y Synapse Analytics.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
@@ -9,15 +9,15 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/04/2018
-ms.openlocfilehash: 2ec871aeb6fb7146e66c3d3124ed8bba3400d4c8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: d5a78ca89841abc1d6f060a2f84b7db5ec3758e0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638894"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831624"
 ---
-# <a name="filter-activity-in-azure-data-factory"></a>Actividad de filtro en Azure Data Factory
+# <a name="filter-activity-in-azure-data-factory-and-synapse-analytics-pipelines"></a>Actividad de filtro en canalizaciones de Azure Data Factory y Synapse Analytics
 Puede usar una actividad de filtro en una canalización para aplicar una expresión de filtro a una matriz de entrada. 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -40,7 +40,7 @@ Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
 name | Nombre de la actividad `Filter`. | String | Sí
 type | Se debe establecer en **filter**. | String | Sí
-condición | Condición que se usará para filtrar la entrada. | Expression | Sí
+condición | Condición que se usará para filtrar la entrada. | Expression | Yes
 items | Matriz de entrada en la que se debe aplicar el filtro. | Expression | Sí
 
 ## <a name="example"></a>Ejemplo
@@ -112,7 +112,7 @@ En este ejemplo, la canalización tiene dos actividades: **Filtro** y **Para cad
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte otras actividades de flujo de control compatibles con Data Factory: 
+Vea otras actividades de flujo de control admitidas: 
 
 - [Actividad If Condition](control-flow-if-condition-activity.md)
 - [Actividad de ejecución de canalización](control-flow-execute-pipeline-activity.md)

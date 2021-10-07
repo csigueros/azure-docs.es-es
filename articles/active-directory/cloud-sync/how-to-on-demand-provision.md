@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 09/10/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5048b78c7d59b3358dbffe2e3e6eedf41decabb8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 20719182a9b97bc783ef2bdc16ccad327dba79aa
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102554282"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124742571"
 ---
 # <a name="on-demand-provisioning-in-azure-ad-connect-cloud-sync"></a>Aprovisionamiento a petición en la sincronización en la nube de Azure AD Connect
 
@@ -24,6 +24,10 @@ Puede usar la característica de sincronización en la nube de Azure Active Dire
 
 > [!IMPORTANT] 
 > Cuando se usa el aprovisionamiento a petición, los filtros de ámbito no se aplican al usuario seleccionado. Puede usar el aprovisionamiento a petición en los usuarios que están fuera de las unidades de organización que especificó.
+
+Para obtener información adicional y ver un ejemplo, observe el vídeo siguiente.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWK5mW]
 
 ## <a name="validate-a-user"></a>Validación de un usuario
 Para usar el aprovisionamiento a petición, siga estos pasos:

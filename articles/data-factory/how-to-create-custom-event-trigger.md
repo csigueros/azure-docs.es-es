@@ -8,12 +8,12 @@ ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 05/07/2021
-ms.openlocfilehash: 046d94202769845f58c7f528bddb37e29e0c312a
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: dcad59c6434f6751cba8633868a9dc9969ffc0ac
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122514429"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128610548"
 ---
 # <a name="create-a-custom-event-trigger-to-run-a-pipeline-in-azure-data-factory"></a>Creación de un desencadenador de eventos personalizado para ejecutar una canalización en Azure Data Factory
 
@@ -96,7 +96,7 @@ Data Factory espera que los eventos sigan el [esquema de eventos de Event Grid](
 
 ## <a name="advanced-filtering"></a>Filtrado avanzado
 
-El desencadenador de eventos personalizado admite funcionalidades de filtrado avanzadas, de forma similar al [Filtrado avanzado de Event Grid](../event-grid/event-filtering.md#advanced-filtering). Estos filtros condicionales permiten que las canalizaciones se desencadenen en función de los _valores_ de la carga del evento. Por ejemplo, puede tener un campo en la carga del evento, denominado _Department, y la canalización solo debe desencadenarse si _Department_ es igual a _Finance_. También puede especificar una lógica compleja, como el campo _date_ en la lista [1, 2, 3, 4, 5], el campo _month_ que __no__ está en la lista [11, 12], el campo _tag_ contiene cualquiera de los valores ["Fiscal Year 2021", "FiscalYear2021", "FY2021"].
+El desencadenador de eventos personalizado admite funcionalidades de filtrado avanzadas, de forma similar al [Filtrado avanzado de Event Grid](../event-grid/event-filtering.md#advanced-filtering). Estos filtros condicionales permiten que las canalizaciones se desencadenen en función de los _valores_ de la carga del evento. Por ejemplo, puede tener un campo en la carga del evento, denominado _Departamento_, y la canalización solo debe desencadenarse si el valor de _Departamento_ es igual al de _Finanzas_. También puede especificar una lógica compleja, como el campo _date_ en la lista [1, 2, 3, 4, 5], el campo _month_ que __no__ está en la lista [11, 12], el campo _tag_ contiene cualquiera de los valores ["Fiscal Year 2021", "FiscalYear2021", "FY2021"].
 
  :::image type="content" source="media/how-to-create-custom-event-trigger/custom-event-5-advanced-filters.png" alt-text="Captura de pantalla de la configuración de filtros avanzados para el desencadenador de eventos del cliente":::
 

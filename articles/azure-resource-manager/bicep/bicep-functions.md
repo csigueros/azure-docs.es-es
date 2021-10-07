@@ -2,13 +2,13 @@
 title: Funciones de Bicep
 description: Describe las funciones que se van a usar en un archivo de Bicep para recuperar valores, trabajar con cadenas y valores numéricos y recuperar información de implementación.
 ms.topic: conceptual
-ms.date: 06/16/2021
-ms.openlocfilehash: dcc0e71917431ac2a181ae87374499a89a27482c
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: bd697d6c1a1eaac7877341ffbbc10b1027882dd6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123303992"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124794033"
 ---
 # <a name="bicep-functions"></a>Funciones de Bicep
 
@@ -52,6 +52,13 @@ Las siguientes funciones están disponibles para obtener valores relacionados co
 
 * [deployment](./bicep-functions-deployment.md#deployment)
 * [environment](./bicep-functions-deployment.md#environment)
+
+## <a name="file-functions"></a>Funciones de archivo
+
+Las siguientes funciones están disponibles para cargar el contenido de archivos externos en el archivo Bicep.
+
+* [loadFileAsBase64](bicep-functions-files.md#loadfileasbase64)
+* [loadTextContent](bicep-functions-files.md#loadtextcontent)
 
 ## <a name="logical-functions"></a>Funciones lógicas
 

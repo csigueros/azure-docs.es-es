@@ -9,12 +9,12 @@ ms.subservice: flexible-scale-sets
 ms.date: 08/11/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-ms.openlocfilehash: bf52db4950fd14e15cbd52d94b2e4ffbb9d225bb
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: dc687c2f3d14c2da02fa3ce5b3a3357292977771
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123314555"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648969"
 ---
 # <a name="preview-flexible-orchestration-for-virtual-machine-scale-sets-in-azure"></a>Versión preliminar: Orquestación flexible para conjuntos de escalado de máquinas virtuales
 
@@ -54,9 +54,7 @@ Para poder implementar conjuntos de escalado de máquinas virtuales en el modo d
 
 ### <a name="azure-portal"></a>Azure portal
 
-Durante el modo de orquestación flexible de versión preliminar de conjuntos de escalado, use la *característica en vista previa* de Azure Portal cuyo vínculo encontrará en los siguientes pasos. 
-
-1. Inicie sesión en Azure Portal en https://preview.portal.azure.com.
+1. Inicie sesión en Azure Portal en https://portal.azure.com.
 1. Vaya a **Suscripciones**.
 1. Vaya a la página de detalles de la suscripción en la que quiere crear un conjunto de escalado en modo de orquestación flexible y seleccione el nombre de dicha suscripción.
 1. En el menú bajo **Configuración**, seleccione **Características en vista previa**.
@@ -86,6 +84,12 @@ El registro de la característica puede tardar hasta 15 minutos. Para comprobar
 Get-AzProviderFeature -FeatureName VMOrchestratorMultiFD -ProviderNamespace Microsoft.Compute
 ```
 
+Una vez que la característica se ha registrado para su suscripción, complete el proceso de participación mediante la propagación del cambio en el proveedor de recursos de Compute.
+
+```azurepowershell-interactive
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
+```
+
 ### <a name="azure-cli-20"></a>CLI de Azure 2.0
 Utilice [az feature register](/cli/azure/feature#az_feature_register) para habilitar la versión preliminar de su suscripción.
 
@@ -102,6 +106,11 @@ El registro de la característica puede tardar hasta 15 minutos. Para comprobar
 az feature show --namespace Microsoft.Compute --name VMOrchestratorMultiFD
 ```
 
+Una vez que la característica se ha registrado para su suscripción, complete el proceso de participación mediante la propagación del cambio en el proveedor de recursos de Compute.
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute
+```
 
 ## <a name="get-started-with-flexible-orchestration-mode"></a>Introducción al modo de orquestación flexible
 
@@ -123,6 +132,11 @@ Los conjuntos de escalado de máquinas virtuales con orquestación flexible func
 
     Al crear una máquina virtual, puede especificar opcionalmente que se agrega a un conjunto de escalado de máquinas virtuales. Una máquina virtual solo se puede agregar a un conjunto de escalado en el momento de la creación de la máquina virtual.
 
+El modo de orquestación flexible se puede usar con SKU de VM que admiten [actualizaciones de conservación de memoria o migración en vivo](../virtual-machines/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot), lo que incluye el 90 % de todas las VM de IaaS que se implementan en Azure. En general, esto incluye familias de tamaños de uso general, como VM de las series B-, D-, E- y F-. Actualmente, el modo Flexible no se puede organizar sobre las SKU de VM o las familias que no admiten actualizaciones que conservan la memoria, incluidas las VM de las series G-, H-, L-, M- y N-. Puede usar la [API de SKU de los recursos del proceso](/rest/api/compute/resource-skus/list) para determinar si se admite una SKU de VM específica.
+
+```azurecli-interactive
+az vm list-skus -l eastus --size standard_d2s_v3 --query "[].capabilities[].[name, value]" -o table
+```
 
 ## <a name="explicit-network-outbound-connectivity-required"></a>Se requiere conectividad de salida de red explícita 
 
@@ -137,7 +151,7 @@ Con máquinas virtuales de instancia única y conjuntos de escalado de máquinas
 
 Entre los escenarios comunes que requieren conectividad de salida explícita se incluyen: 
 
-- La activación de una máquina virtual Windows requiere que se haya definido la conectividad de salida desde la instancia de máquina virtual al Servicio de administración de claves (KMS) de activación de Windows. Vea [Solución de problemas de activación de máquinas virtuales Windows](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems) para obtener más información.  
+- La activación de una máquina virtual Windows requiere que se haya definido la conectividad de salida desde la instancia de máquina virtual al Servicio de administración de claves (KMS) de activación de Windows. Vea [Solución de problemas de activación de máquinas virtuales Windows](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems) para obtener más información.  
 - Acceda a cuentas de almacenamiento o Key Vault. La conectividad con los servicios de Azure también se puede establecer por medio de [Private Link](../private-link/private-link-overview.md). 
 
 Vea [Acceso de salida predeterminado en Azure](https://aka.ms/defaultoutboundaccess) para obtener más detalles sobre cómo definir conexiones de salida seguras.

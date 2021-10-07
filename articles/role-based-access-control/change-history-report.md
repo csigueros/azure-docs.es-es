@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 03/01/2021
 ms.author: rolyon
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
-ms.openlocfilehash: de71203ab8b61aa3c81d610b231deedab4c63baa
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 43ee281bc9696740c7909ef6b6758d4542808721
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110693665"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755215"
 ---
 # <a name="view-activity-logs-for-azure-rbac-changes"></a>Visualización de los registros de actividad de los cambios de RBAC de Azure
 
@@ -47,7 +47,7 @@ El registro de actividad del portal tiene varios filtros. Estos son los filtros 
 | Categoría de eventos | <ul><li>Administrativo</li></ul> |
 | Operación | <ul><li>Creación de asignaciones de roles</li><li>Eliminación de asignaciones de roles</li><li>Creación o actualización de definiciones de roles personalizadas</li><li>Eliminación de definiciones de roles personalizadas</li></ul> |
 
-Para más información sobre los registros de actividad, consulte [Visualización de registros de actividad para supervisar acciones sobre recursos](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
+Para obtener más información sobre los registros de actividad, consulte [Registro de actividad de Azure](../azure-monitor/essentials/activity-log.md).
 
 
 ## <a name="interpret-a-log-entry"></a>Interpretación de una entrada del registro
@@ -235,5 +235,5 @@ AzureActivity
 ![Captura de pantalla Registros de actividad mediante el portal Advanced Analytics](./media/change-history-report/azure-log-analytics.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Visualización de registros de actividad para supervisar acciones sobre recursos](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
+* [Visualización de registros de actividad para supervisar acciones sobre recursos](../azure-monitor/essentials/activity-log.md)
 * [Supervisión de la actividad de suscripción con Azure Activity Log](../azure-monitor/essentials/platform-logs-overview.md)

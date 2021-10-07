@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: b0643f0245a208d2011d7508b4b7593e81e6d510
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
+ms.openlocfilehash: a75ea7e9f3659b45e79748fdead7be9aa8ca4f94
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112964219"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128649480"
 ---
 # <a name="azure-load-balancer-components"></a>Componentes de Azure Load Balancer
 
@@ -70,7 +70,7 @@ La instancia de Load Balancer Básico no admite sondeos HTTPS. Además, cierra t
 
 ## <a name="load-balancing-rules"></a>Reglas de equilibrio de carga
 
-Las reglas de Load Balancer se usan para definir cómo se distribuye el tráfico entrante a **todas** las instancias del grupo de back-end. Las reglas de equilibrio de carga asignan una configuración de IP de front-end y un puerto determinados a varios puertos y direcciones IP de back-end.
+Se usa una regla de equilibrio de carga para definir cómo se distribuye el tráfico entrante a **todas** las instancias del grupo de back-end. Las reglas de equilibrio de carga asignan una configuración de IP de front-end y un puerto determinados a varios puertos y direcciones IP de back-end.
 
 Por ejemplo, use una regla de equilibrio de carga para el puerto 80 para enrutar el tráfico de la dirección IP de front-end al puerto 80 de las instancias de back-end.
 

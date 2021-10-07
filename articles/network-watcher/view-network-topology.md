@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: damendo
-ms.openlocfilehash: f20fa22dac3fba4d01cbc5e398bafa4113e94a96
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 26d9b36ec6633f08acfbcc14c6a2fa5a93eb17ae
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780306"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128666257"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Visualización de la topología de una red virtual de Azure
 
@@ -144,6 +144,10 @@ Todos los recursos que se devuelven en una topología tienen las siguientes prop
     - **AssociationType**: hace referencia a la relación entre los objetos secundario y principal. Los valores válidos son *Contains* o *Associated*.
     - **Name**: nombre del recurso al que se hace referencia.
     - **ResourceId**: identificador URI del recurso al que se hace referencia en la asociación.
+
+## <a name="supported-resources"></a>Recursos compatibles
+
+La topología de Network Watcher es compatible con un conjunto limitado de recursos. Son las instancias de Virtual Network, las subredes, las interfaces de red, el grupo de seguridad de red, Load Balancer, el sondeo de estado de Load Balancer, la IP pública, el emparejamiento de red virtual, la puerta de enlace de red virtual, la conexión de VPN Gateway, la máquina virtual y el conjunto de escalado de máquinas virtuales.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

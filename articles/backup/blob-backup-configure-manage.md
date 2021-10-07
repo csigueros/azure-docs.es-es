@@ -2,13 +2,13 @@
 title: Configuración de la copia de seguridad operativa para blobs de Azure
 description: Aprenda a configurar y administrar la copia de seguridad operativa para blobs de Azure.
 ms.topic: conceptual
-ms.date: 08/06/2021
-ms.openlocfilehash: b437aa0df073267b07b3e74bc3a778e7aa274031
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/28/2021
+ms.openlocfilehash: 24a0f31a35342b53835563fdcca9754abd5d57ee
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121722678"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153907"
 ---
 # <a name="configure-operational-backup-for-azure-blobs"></a>Configuración de la copia de seguridad operativa para blobs de Azure
 
@@ -139,7 +139,7 @@ Para iniciar la configuración de la copia de seguridad:
 
     1. Seleccione **Revisar y crear** para crear la directiva de copia de seguridad.
 
-1. Elija las cuentas de almacenamiento necesarias para configurar la protección de blobs. Puede elegir varias cuentas de almacenamiento a la vez y elegir Seleccionar.<br></br>Sin embargo, asegúrese de que el almacén que ha elegido tiene asignado el rol RBAC necesario para configurar la copia de seguridad en las cuentas de almacenamiento. Más información sobre cómo [conceder permisos al almacén de Backup en cuentas de almacenamiento](#grant-permissions-to-the-backup-vault-on-storage-accounts).<br></br>Si el rol no está asignado, puede asignarlo al configurar la copia de seguridad. Consulte el paso 7.
+1. Elija las cuentas de almacenamiento necesarias para configurar la protección de blobs. Puede elegir varias cuentas de almacenamiento a la vez y elegir Seleccionar.<br></br>Sin embargo, asegúrese de que el almacén que ha elegido tiene asignado el rol de control de acceso basado en roles (Azure RBAC) necesario para configurar la copia de seguridad en las cuentas de almacenamiento. Más información sobre cómo [conceder permisos al almacén de Backup en cuentas de almacenamiento](#grant-permissions-to-the-backup-vault-on-storage-accounts).<br></br>Si el rol no está asignado, puede asignarlo al configurar la copia de seguridad. Consulte el paso 7.
 
     ![Verificación de permisos en el almacén](./media/blob-backup-configure-manage/verify-vault-permissions.png)
 

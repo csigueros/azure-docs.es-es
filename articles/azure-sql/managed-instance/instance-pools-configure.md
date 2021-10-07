@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: mathoma
 ms.date: 09/05/2019
-ms.openlocfilehash: 60afa287a96425ec0a3aead7e5affa6e046b7cbd
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: a003370180471e02f4801bffd2477f0c50faa99d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110689711"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128676568"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>Implementación de Instancia administrada de Azure SQL en un grupo de instancias
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -26,20 +26,24 @@ En este artículo se proporcionan detalles sobre cómo crear un [grupo de instan
 
 ## <a name="instance-pool-operations"></a>Operaciones de grupos de instancias
 
-En la tabla siguiente se muestran las operaciones disponibles relacionadas con los grupos de instancias y su disponibilidad en Azure Portal y PowerShell.
+En la tabla siguiente se muestran las operaciones disponibles relacionadas con los grupos de instancias y su disponibilidad en Azure Portal, PowerShell y la CLI de Azure.
 
-|Get-Help|Azure portal|PowerShell|
-|:---|:---|:---|
-|Creación de un grupo de instancias|No|Sí|
-|Actualización de un grupo de instancias (número limitado de propiedades)|No |Sí |
-|Comprobación del uso de un grupo de instancias y sus propiedades|No|Sí |
-|Eliminación de un grupo de instancias|No|Sí|
-|Creación de una instancia administrada dentro de un grupo de instancias|No|Sí|
-|Actualización del uso de un recurso para una instancia administrada|Sí |Sí|
-|Comprobación del uso y las propiedades de una instancia administrada|Sí|Sí|
-|Eliminación de una instancia administrada del grupo|Sí|Sí|
-|Creación de una base de datos en una instancia dentro del grupo|Sí|Sí|
-|Eliminación de una base de datos en Instancia administrada de SQL|Sí|Sí|
+|Get-Help|Azure portal|PowerShell|Azure CLI|
+|:---|:---|:---|:---|
+|Creación de un grupo de instancias|No|Sí|Sí|
+|Actualización de un grupo de instancias (número limitado de propiedades)|No |Sí | Sí|
+|Comprobación del uso de un grupo de instancias y sus propiedades|No|Sí | Sí |
+|Eliminación de un grupo de instancias|No|Sí|Sí|
+|Creación de una instancia administrada dentro de un grupo de instancias|No|Sí|No|
+|Actualización del uso de un recurso para una instancia administrada|Sí |Sí|No|
+|Comprobación del uso y las propiedades de una instancia administrada|Sí|Sí|No|
+|Eliminación de una instancia administrada del grupo|Sí|Sí|No|
+|Creación de una base de datos en una instancia dentro del grupo|Sí|Sí|No|
+|Eliminación de una base de datos en Instancia administrada de SQL|Sí|Sí|No|
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Para usar PowerShell, [instale la versión más reciente de PowerShell Core](/powershell/scripting/install/installing-powershell#powershell) y siga las instrucciones para [instalar el módulo de Azure PowerShell](/powershell/azure/install-az-ps).
 
 [Comandos de PowerShell](/powershell/module/az.sql/) disponibles:
 
@@ -51,10 +55,24 @@ En la tabla siguiente se muestran las operaciones disponibles relacionadas con l
 |[Remove-AzSqlInstancePool](/powershell/module/az.sql/remove-azsqlinstancepool/) | Quita un grupo de instancias en Instancia administrada de SQL. |
 |[Get-AzSqlInstancePoolUsage](/powershell/module/az.sql/get-azsqlinstancepoolusage/) | Devuelve información sobre el uso de grupos de Instancia administrada de SQL. |
 
-
-Para usar PowerShell, [instale la versión más reciente de PowerShell Core](/powershell/scripting/install/installing-powershell#powershell) y siga las instrucciones para [instalar el módulo de Azure PowerShell](/powershell/azure/install-az-ps).
-
 En el caso de las operaciones relacionadas con instancias dentro de grupos e instancias únicas, use los [comandos de instancia administrada](api-references-create-manage-instance.md#powershell-create-and-configure-managed-instances) estándar, pero la propiedad de *nombre del grupo de instancias* se debe rellenar al usar estos comandos para una instancia de un grupo.
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Prepare el entorno para la CLI de Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Comandos de la [CLI de Azure](/cli/azure/sql) disponibles:
+
+|Cmdlet |Descripción |
+|:---|:---|
+|[az sql instance-pool create](/cli/azure/sql/instance-pool#az_sql_instance_pool_create) | Crea un grupo de Instancia administrada de SQL. |
+|[az sql instance-pool show](/cli/azure/sql/instance-pool#az_sql_instance_pool_show) | Devuelve información sobre un grupo de instancias. |
+|[az sql instance-pool update](/cli/azure/sql/instance-pool#az_sql_instance_pool_update) | Establece o actualiza las propiedades de un grupo de instancias en Azure SQL Managed Instance. |
+|[az sql instance-pool delete](/cli/azure/sql/instance-pool#az_sql_instance_pool_delete) | Quita un grupo de instancias en Instancia administrada de SQL. |
+
+---
 
 ## <a name="deployment-process"></a>Proceso de implementación
 
@@ -85,6 +103,8 @@ Las restricciones siguientes se aplican a los grupos de instancias:
 > [!IMPORTANT]
 > La implementación de un grupo de instancias es una operación de larga duración que tarda aproximadamente 4,5 horas.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
 Para obtener parámetros de red:
 
 ```powershell
@@ -105,6 +125,37 @@ $instancePool = New-AzSqlInstancePool `
   -ComputeGeneration "Gen5" `
   -Location "westeurope"
 ```
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Para obtener los parámetros de la red virtual:
+
+```azurecli
+az network vnet show --resource-group MyResourceGroup --name miPoolVirtualNetwork
+```
+
+Para obtener los parámetros de la subred virtual:
+
+```azurecli
+az network vnet subnet show --resource group MyResourceGroup --name miPoolSubnet --vnet-name miPoolVirtualNetwork
+```
+
+Para crear un grupo de instancias:
+
+```azurecli
+az sql instance-pool create
+    --license-type LicenseIncluded 
+    --location westeurope
+    --name mi-pool-name
+    --capacity 8
+    --tier GeneralPurpose
+    --family Gen5 
+    --resrouce-group myResourceGroup
+    --subnet miPoolSubnet
+    --vnet-name miPoolVirtualNetwork
+```
+
+---
 
 > [!IMPORTANT]
 > Dado que la implementación de un grupo de instancias es una operación de larga duración, debe esperar hasta que se complete antes de ejecutar cualquiera de los pasos siguientes descritos en este artículo.

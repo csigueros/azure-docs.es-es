@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 09/10/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 660d233c4fc0690799e8ec25e6a07e516035a90b
-ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
+ms.openlocfilehash: 11428df3662bb03d7d74decbd7230be0fdffa44f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113506338"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124742654"
 ---
 # <a name="install-the-azure-ad-connect-provisioning-agent"></a>Instalación del agente de aprovisionamiento de Azure AD Connect
 Este artículo le guía en el proceso de instalación del agente de aprovisionamiento de Azure Active Directory (Azure AD) Connect y en el modo de configurarlo inicialmente en Azure Portal.
@@ -26,6 +26,10 @@ Este artículo le guía en el proceso de instalación del agente de aprovisionam
 
 >[!NOTE]
 >En este artículo se habla de la instalación del agente de aprovisionamiento mediante el asistente. Para información sobre cómo instalar el agente de aprovisionamiento de Azure AD Connect mediante una interfaz de línea de comandos (CLI), consulte [Instalación del agente de aprovisionamiento de Azure AD Connect mediante una interfaz de línea de comandos (CLI) y PowerShell](how-to-install-pshell.md).
+
+Para obtener información adicional y ver un ejemplo, vea el vídeo siguiente.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWK5mR]
 
 ## <a name="group-managed-service-accounts"></a>Cuentas de servicio administradas de grupo
 Una cuenta de servicio administrado (gMSA) de grupo es una cuenta de dominio administrada que proporciona administración automática de contraseñas, administración simplificada de nombres de entidad de seguridad de servicio (SPN) y la posibilidad de delegar la administración a otros administradores. También amplía esta funcionalidad a varios servidores. Azure AD Connect Cloud Sync admite y recomienda el uso de una cuenta de servicio administrada de grupo para ejecutar el agente. Para más información sobre las cuentas de servicio administradas de grupo, consulte [Cuentas de servicio administradas de grupo](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).

@@ -1,15 +1,15 @@
 ---
-author: ccompy
+author: madsd
 ms.service: app-service-web
 ms.topic: include
 ms.date: 10/01/2020
-ms.author: ccompy
-ms.openlocfilehash: 1c3542332fbdad13d56a141d677e91b68f7e99d0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.author: madsd
+ms.openlocfilehash: 8d4c2968e3b21269d233f584747856804f8ff9c6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728080"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128641942"
 ---
 * Los sistemas multiinquilino que admiten todos los planes de precios, excepto Aislado.
 * App Service Environment, que se implementa en la VNet y admite aplicaciones de planes de precios aislados.
@@ -19,7 +19,7 @@ La característica Integración con red virtual se usa en aplicaciones multiinqu
 Integración con red virtual proporciona a la aplicación el acceso a los recursos de la VNet, pero no concede el acceso privado de entrada a la aplicación desde la VNet. El acceso privado a sitios se refiere a que solo se puede acceder a la aplicación desde una red privada; por ejemplo, desde dentro de una red virtual de Azure. Integración con red virtual solo se usa para realizar llamadas de salida desde la aplicación a la VNet. La característica Integración con red virtual se comporta de forma diferente cuando se usa con las VNet de la misma región y con las VNet de otras regiones. Esta característica tiene dos variantes:
 
 * **Integración con red virtual regional**: cuando se conecta a redes virtuales de Azure Resource Manager en la misma región, debe tener una subred dedicada en la VNet con la que se va a realizar la integración.
-* **Integración con red virtual con requisito de puerta de enlace**: para conectarse a las VNet de otras regiones o a una red virtual clásica de la misma región, necesita una puerta de enlace de Azure Virtual Network aprovisionada en la VNet de destino.
+* **Integración con red virtual con requisito de puerta de enlace**: para conectarse a las redes virtuales de otras regiones o a una red virtual clásica de la misma región, necesita una puerta de enlace de Azure Virtual Network aprovisionada en la red virtual de destino.
 
 Integración con red virtual tiene las siguientes características:
 

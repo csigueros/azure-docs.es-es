@@ -4,20 +4,17 @@ description: Describe las funciones que se usarán en un archivo de Bicep para t
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 3f8715dd0dc1931e9086fd94e99661fb9cfda2d1
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 09/10/2021
+ms.openlocfilehash: 45e0180a11209b39b4c37f16f9940686c042ee89
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111027124"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124794127"
 ---
 # <a name="date-functions-for-bicep"></a>Funciones de fecha para Bicep
 
-Resource Manager ofrece las siguientes funciones para trabajar con fechas en el archivo de Bicep:
-
-* [dateTimeAdd](#datetimeadd)
-* [utcNow](#utcnow)
+En este artículo se describen las funciones de Bicep para trabajar con fechas.
 
 ## <a name="datetimeadd"></a>dateTimeAdd
 

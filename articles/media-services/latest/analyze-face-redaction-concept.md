@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/25/2021
 ms.author: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 977dcbed29f74e97de3e61842b1b559a05ad8fdb
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 2c434720863a7ecff4192720874547f6f8c2e8ed
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111955475"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128621421"
 ---
 # <a name="find-and-redact-blur-faces-with-the-face-detector-preset"></a>Búsqueda y censura (desenfoque) de caras con el valor preestablecido de Face Detector
 
@@ -31,7 +31,7 @@ En este artículo se proporcionan detalles sobre el **Valor preestablecido de Fa
 
 ## <a name="compliance-privacy-and-security"></a>Cumplimiento, privacidad y seguridad
 
-Como recordatorio importante, debe cumplir todas las leyes aplicables en el uso del análisis en Azure Media Services. No debe usar Azure Media Services ni ningún otro servicio de Azure de forma que infrinja los derechos de los demás. Antes de cargar vídeos que incluyan datos biométricos en el servicio Azure Media Services para procesarlos y almacenarlos, debe tener todos los derechos apropiados (por ejemplo, todos los consentimientos adecuados) de las personas del vídeo. Para información sobre el cumplimiento, la privacidad y la seguridad de Azure Media Services, consulte [Términos de Azure Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). En lo que respecta a las obligaciones de privacidad de Microsoft y al control de los datos, consulte la [declaración de privacidad](https://privacy.microsoft.com/PrivacyStatement), los [Términos de los Servicios en Línea](https://www.microsoft.com/licensing/product-licensing/products) (OST) y el [anexo de procesamiento de datos](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA") de Microsoft. Puede encontrar información adicional sobre la privacidad, como la retención, eliminación o destrucción de los datos, en los términos de OST y [aquí](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.md). Al usar Azure Media Services, acepta las obligaciones de los Términos de Cognitive Services, OST, DPA y la declaración de privacidad.
+Como recordatorio importante, debe cumplir todas las leyes aplicables en el uso del análisis en Azure Media Services. No debe usar Azure Media Services ni ningún otro servicio de Azure de forma que infrinja los derechos de los demás. Antes de cargar vídeos que incluyan datos biométricos en el servicio Azure Media Services para procesarlos y almacenarlos, debe tener todos los derechos apropiados (por ejemplo, todos los consentimientos adecuados) de las personas del vídeo. Para información sobre el cumplimiento, la privacidad y la seguridad de Azure Media Services, consulte [Términos de Azure Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). En lo que respecta a las obligaciones de privacidad de Microsoft y al control de los datos, consulte la [declaración de privacidad](https://privacy.microsoft.com/PrivacyStatement), los [Términos de los Servicios en Línea](https://www.microsoft.com/licensing/product-licensing/products) (OST) y el [anexo de procesamiento de datos](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA") de Microsoft. Puede encontrar información adicional sobre la privacidad, como la retención, eliminación o destrucción de los datos, en los términos de OST y [aquí](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.yml). Al usar Azure Media Services, acepta las obligaciones de los Términos de Cognitive Services, OST, DPA y la declaración de privacidad.
 
 ## <a name="face-redaction-modes"></a>Modos de censura de rostros
 
@@ -54,12 +54,13 @@ Esto genera un archivo de vídeo MP4 censurado en un solo paso sin que sea neces
 ### <a name="analyze-mode"></a>Modo Analyze (Análisis)
 
 El paso **Analizar** del flujo de trabajo de dos pasos toma una entrada de vídeo y genera un archivo JSON con una lista de ubicaciones de caras, id. de caras e imágenes jpg de cada cara detectada.
+Tenga en cuenta que no está garantizado que los identificadores de las caras sean los mismos en las ejecuciones posteriores del paso de análisis.
 
 | Fase | Nombre de archivo | Notas |
 | --- | --- | --- |
 | Recurso de entrada |"ignite-sample.mp4" |Vídeo en formato WMV, MOV o MP4 |
 | Configuración de valor preestablecido |Configuración de Face Detector |**modo**: FaceRedactorMode.Analyze, **resolución**: AnalysisResolution.SourceResolution|
-| Recurso de salida |ignite-sample_annotations.json |Datos de anotación de ubicaciones de rostros en formato JSON. El usuario puede editarlo para modificar los rectángulos de selección para el difuminado. Vea el ejemplo a continuación. |
+| Recurso de salida |ignite-sample_annotations.json |Datos de anotación de ubicaciones de rostros en formato JSON. No está garantizado que los identificadores de las caras sean los mismos en las ejecuciones posteriores del paso de análisis. El usuario puede editarlo para modificar los rectángulos de selección para el difuminado. Vea el ejemplo a continuación. |
 | Recurso de salida |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |Un jpg recortado de cada rostro detectado, donde el número indica el identificador (labelId) de la cara |
 
 #### <a name="output-example"></a>Ejemplo de salida
@@ -132,6 +133,7 @@ El resultado de la fase de análisis no incluye el vídeo original. El vídeo ti
 #### <a name="example-output"></a>Salida de ejemplo
 
 Este es el resultado de una lista de identificadores con un identificador seleccionado.
+No está garantizado que los identificadores de las caras sean los mismos en las ejecuciones posteriores del paso de análisis.
 
 foo_IDList.txt de ejemplo
 

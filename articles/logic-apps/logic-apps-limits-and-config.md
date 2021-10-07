@@ -1,26 +1,26 @@
 ---
 title: Guía de referencia de límites y configuración
-description: Guía de referencia sobre información de límites y configuración para Azure Logic Apps
+description: Guía de referencia sobre información de límites y configuración para Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, rarayudu, azla
 ms.topic: reference
-ms.date: 08/30/2021
-ms.openlocfilehash: da7c4b159111165b1dabb6ff3ca45715b442daba
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.date: 09/16/2021
+ms.openlocfilehash: 77bbfb886f04c7917154ee5817b21ee1b2053d79
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123219918"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128675808"
 ---
 # <a name="limits-and-configuration-reference-for-azure-logic-apps"></a>Referencia de límites y configuración para Azure Logic Apps
 
-> Para Power Automate, consulte [Límites y configuración en Power Automate](/power-automate/limits-and-config).
+> En cuanto a Power Automate, consulte [Límites y configuración en Power Automate](/power-automate/limits-and-config).
 
 En este artículo se describe la información de límites y configuración para Azure Logic Apps y recursos relacionados. Para crear flujos de trabajo de aplicación lógica, elija el tipo de recurso **Logic Apps** en función del escenario, los requisitos de la solución, las funcionalidades que desea y el entorno donde quiere ejecutar los flujos de trabajo.
 
 > [!NOTE]
-> Muchos límites son los mismos en estos entornos de host, pero se observan diferencias en los casos que ya existen. Si los escenarios que requieren límites diferentes, [póngase en contacto con el equipo de Logic Apps](mailto://logicappspm@microsoft.com) para analizar sus requisitos.
+> Muchos límites son los mismos en los entornos disponibles donde Azure Logic Apps se ejecuta, pero se observan diferencias según su ubicación. 
 
 En la tabla siguiente se resumen brevemente las diferencias entre el tipo de recurso original **Logic Apps (consumo)** y el tipo de recurso **Logic Apps (estándar)** . También aprenderá en qué se diferencia el entorno de *inquilino único* del entorno *multiinquilino* y el *Entorno del servicio de integración (ISE)* para implementar, hospedar y ejecutar los flujos de trabajo de la aplicación lógica.
 
@@ -359,13 +359,14 @@ En la tabla siguiente se enumeran los valores de una única definición de flujo
 
 ## <a name="custom-connector-limits"></a>Límites de conector personalizado
 
-Solo para entornos de servicios de integración y multiinquilino, puede crear y usar conectores [administrados personalizados](/connectors/custom-connectors), que son contenedores en torno a una API REST o una API SOAP existentes. Solo para un inquilino único, puede crear y usar [conectores integrados personalizados](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
+Puede crear y usar [conectores administrados personalizados](/connectors/custom-connectors) (que son contenedores en torno a una API de REST o una API SOAP existentes) solo en entornos de servicios de integración y Azure Logic Apps de multiinquilino. Puede crear y usar [conectores integrados personalizados](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272) en un inquilino único de Azure Logic Apps.
 
 En la tabla siguiente se muestran los valores disponibles para los conectores personalizados:
 
 | Nombre | Multiinquilino | Inquilino único | entorno de servicio de integración | Notas |
 |------|--------------|---------------|---------------------------------|-------|
 | Conectores personalizados | 1000 por cada suscripción de Azure | Sin límite | 1000 por cada suscripción de Azure ||
+| Conectores personalizados: número de API | Basado en SOAP: 50 | No aplicable | Basado en SOAP: 50 ||
 | Solicitudes por minuto para un conector personalizado | 500 solicitudes por minuto por conexión | Según la implementación | 2000 solicitudes por minuto por *conector personalizado* ||
 | Tiempo de espera de la conexión | 2 min | Conexión inactiva: <br>4 minutos <p><p>Conexión activa: <br>10 min | 2 min ||
 ||||||
@@ -507,7 +508,7 @@ Antes de configurar el firewall con direcciones IP, revise estas consideraciones
 
 * Si sus aplicaciones lógicas tienen problemas de acceso a cuentas de almacenamiento de Azure que usan [firewalls y reglas de firewall](../storage/common/storage-network-security.md), dispone de [otras tantas opciones para habilitar el acceso](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
-  Por ejemplo, las aplicaciones lógicas no pueden acceder directamente a cuentas de almacenamiento que usen reglas de firewall y que se encuentren en la misma región. Sin embargo, si permite las [direcciones IP de salida para los conectores administrados de la región](../logic-apps/logic-apps-limits-and-config.md#outbound), las aplicaciones lógicas pueden acceder a las cuentas de almacenamiento de una región diferente excepto cuando se usan los conectores de Azure Table Storage o de Azure Queue Storage. Para acceder a Table Storage o Queue Storage, puede usar el desencadenador HTTP y las acciones en su lugar. Para otras opciones, consulte [Access storage accounts behind firewalls](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls) (Acceso a cuentas de almacenamiento detrás de firewalls).
+  Por ejemplo, las aplicaciones lógicas no pueden acceder directamente a cuentas de almacenamiento que usen reglas de firewall y que se encuentren en la misma región. Sin embargo, si permite las [direcciones IP de salida para los conectores administrados de la región](/connectors/common/outbound-ip-addresses), las aplicaciones lógicas pueden acceder a las cuentas de almacenamiento de una región diferente excepto cuando se usan los conectores de Azure Table Storage o de Azure Queue Storage. Para acceder a Table Storage o Queue Storage, puede usar el desencadenador HTTP y las acciones en su lugar. Para otras opciones, consulte [Access storage accounts behind firewalls](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls) (Acceso a cuentas de almacenamiento detrás de firewalls).
 
 <a name="inbound"></a>
 
@@ -589,7 +590,10 @@ En esta sección se enumeran las direcciones IP entrantes solo para el servicio 
 
 ### <a name="outbound-ip-addresses"></a>Direcciones IP salientes
 
-En esta sección se enumeran las direcciones IP salientes para el servicio Azure Logic Apps. Si usa Azure Government, consulte [Azure Government: direcciones IP salientes](#azure-government-outbound).
+En esta sección se enumeran las direcciones IP salientes para el servicio Azure Logic Apps. Si usa Azure Government, consulte [Azure Government: direcciones IP salientes](#azure-government-outbound). Si el flujo de trabajo usa [conectores administrados](../connectors/managed.md), como el conector de Outlook de Office 365 o el conector de SQL, o emplea [conectores personalizados](/connectors/custom-connectors/), el firewall también debe permitir el acceso a *todas* las [direcciones IP de salida del conector administrado](/connectors/common/outbound-ip-addresses) en la región de Azure de la aplicación lógica. Si el flujo de trabajo usa conectores personalizados que acceden a recursos locales a través del [recurso de puerta de enlace de datos local en Azure](logic-apps-gateway-connection.md), debe configurar la instalación de la puerta de enlace para permitir el acceso a las [direcciones IP de salida de *conectores administrados*](/connectors/common/outbound-ip-addresses) correspondientes. Para obtener más información sobre cómo configurar las opciones de comunicación en la puerta de enlace, revise los siguientes temas:
+
+* [Ajuste de la configuración de comunicación para la puerta de enlace de datos local](/data-integration/gateway/service-gateway-communication)
+* [Configuración de los valores del proxy para la puerta de enlace de datos local](/data-integration/gateway/service-gateway-proxy)
 
 > [!TIP]
 > Para ayudar a reducir la complejidad al crear reglas de seguridad, tiene la opción de usar la [etiqueta de servicio](../virtual-network/service-tags-overview.md) **LogicApps**, en lugar de especificar prefijos de dirección IP salientes de Logic Apps para cada región. Opcionalmente, también puede usar la etiqueta de servicio **AzureConnectors** para los conectores administrados que realizan llamadas de salida a los servicios correspondientes, como Azure Storage o Azure Event Hubs, en lugar de especificar prefijos de direcciones IP de conectores administrados de salida para cada región. Estas etiquetas funcionan en las regiones en las que está disponible el servicio Logic Apps.

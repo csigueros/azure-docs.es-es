@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 548dcc59ae0303022f4807add5764b55b313f683
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 275013b82866b7cb49488edfc0e63e71a04e364a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123438955"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128670355"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guía del desarrollador de Azure Key Vault
 
@@ -104,22 +104,17 @@ El acceso a las claves, los secretos y los certificados se controla mediante el 
 |[Referencia](/cli/azure/keyvault/secret)<br>[Guía de inicio rápido](../secrets/quick-create-cli.md)|[Referencia](/powershell/module/az.keyvault/)<br>[Guía de inicio rápido](../secrets/quick-create-powershell.md)|[Referencia](/rest/api/keyvault/#secret-operations)|[Referencia](/azure/templates/microsoft.keyvault/vaults/secrets)<br>[Guía de inicio rápido](../secrets/quick-create-template.md)|[Referencia](/dotnet/api/azure.security.keyvault.secrets)<br>[Guía de inicio rápido](../secrets/quick-create-net.md)|[Referencia](/python/api/overview/azure/keyvault-secrets-readme)<br>[Guía de inicio rápido](../secrets/quick-create-python.md)|[Referencia](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-secrets/4.2.0/index.html)<br>[Guía de inicio rápido](../secrets/quick-create-java.md)|[Referencia](/javascript/api/@azure/keyvault-secrets/)<br>[Guía de inicio rápido](../secrets/quick-create-node.md)|
 
 ### <a name="secrets-usage"></a>Uso de secretos
-El componente de secretos de Azure Key Vault solo se debe usar para almacenar secretos para las aplicaciones. Para los objetos que no son secretos, debe usar [Azure App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/overview).
+Los secretos de Azure Key Vault solo se deben usarse para almacenar secretos para las aplicaciones. 
 
-- Ejemplos de secretos que se deben almacenar en Key Vault:
+Ejemplos de secretos que se deben almacenar en Key Vault:
     - Secretos de aplicación cliente
     - Cadenas de conexión
     - Contraseñas
     - Claves de acceso compartidas
     - Claves SSH
 
-- Ejemplos de objetos que no son secretos que se deben almacenar en App Configuration:
-    - Identificadores de aplicación cliente
-    - Direcciones IP
-    - Puntos de conexión del servicio
-    - Parámetros de configuración del servicio
-    - Nombres de usuario
-
+Asimismo, cualquier información relacionada con los secretos, como los nombres de usuario o los id. de aplicaciones, se puede almacenar como una etiqueta en el secreto. Para realizar cualquier otra configuración de información confidencial, debe usar [Azure App Configuration](../../azure-app-configuration/overview.md).
+ 
 ### <a name="references"></a>Referencias 
 
 Consulte las [Bibliotecas de cliente](client-libraries.md) para ver los paquetes de instalación y el código fuente.
@@ -135,17 +130,17 @@ En escenarios básicos, hay otras soluciones para un uso simplificado con soport
 
 ##### <a name="certificates"></a>Certificates:
 - La extensión de máquina virtual de Key Vault proporciona la actualización automática de los certificados almacenados en una instancia de Azure Key Vault. 
-    - [Extensión de máquina virtual de Key Vault para Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows)
-    - [Extensión de máquina virtual de Key Vault para Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)
-    - [Extensión de máquina virtual de Key Vault para servidores habilitados para Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#azure-key-vault-vm-extension)
+    - [Extensión de máquina virtual de Key Vault para Windows](../../virtual-machines/extensions/key-vault-windows.md)
+    - [Extensión de máquina virtual de Key Vault para Linux](../../virtual-machines/extensions/key-vault-linux.md)
+    - [Extensión de máquina virtual de Key Vault para servidores habilitados para Azure Arc](../../azure-arc/servers/manage-vm-extensions.md#azure-key-vault-vm-extension)
  - Integración con certificados de Key Vault de Azure App Service, que puede importar y actualizar automáticamente certificados desde Key Vault
      - [Implementar un certificado de Azure Web App mediante Key Vault](../../app-service/configure-ssl-certificate.md#import-a-certificate-from-key-vault).
 
 ##### <a name="secrets"></a>Secretos:
 - Uso de secretos de Key Vault con la configuración de la aplicación de App Service
-    - [Uso de referencias de Key Vault para App Service y Azure Functions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references)
+    - [Uso de referencias de Key Vault para App Service y Azure Functions](../../app-service/app-service-key-vault-references.md)
 - Uso de secretos de Key Vault con el servicio App Configuration para aplicaciones hospedadas en máquinas virtuales de Azure
-    - [Configuración de aplicaciones con App Configuration y Key Vault](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/app-secrets-configuration/)
+    - [Configuración de aplicaciones con App Configuration y Key Vault](/samples/azure/azure-sdk-for-net/app-secrets-configuration/)
 
 ## <a name="code-examples"></a>Ejemplos de código
 

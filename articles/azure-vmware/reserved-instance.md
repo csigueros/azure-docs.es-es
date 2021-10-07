@@ -3,12 +3,12 @@ title: Instancias reservadas de Azure VMware Solution
 description: Obtenga información sobre cómo comprar una instancia reservada para Azure VMware Solution. Las instancias reservadas solo cubren la parte del uso dedicada a los procesos y tienen costos de licencias de software.
 ms.topic: how-to
 ms.date: 05/13/2021
-ms.openlocfilehash: 6204e7cade66ee60885db20226981980f4741a76
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: edb4136039624ceef8bd6a419a8b617798b611ae
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323671"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643175"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Ahorro de costos con Azure VMware Solution
 
@@ -55,7 +55,7 @@ Estos requisitos se aplican a la compra de una instancia reservada de host dedic
    | Campo        |  Descripción |
    | ------------ | ------------ |
    | Subscription | Suscripción que se usa para pagar la reserva. Los costos de la reserva se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o Contrato de cliente de Microsoft o una suscripción individual con tarifas de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Los cargos se deducirán del saldo de prepago de Azure (anteriormente llamado compromiso monetario) si hay fondos disponibles o se cobrarán como parte del uso por encima del límite. En una suscripción con tarifas de pago por uso, los cargos se facturan a la tarjeta de crédito de la suscripción o un método de pago de factura. |
-   | Ámbito        | El ámbito de la reserva puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona:<br><ul><li>El ámbito <b>Grupo de recursos único</b>: el descuento por reserva se aplica a los recursos coincidentes solo del grupo de recursos seleccionado.</li><li>El ámbito <b>Suscripción única</b>: el descuento por reserva se aplica a los recursos coincidentes de la suscripción seleccionada.</li><li>El ámbito <b>Compartido</b>: el descuento por reserva se aplica a los recursos coincidentes en suscripciones válidas que están en el contexto de facturación. Para los clientes de EA, el contexto de facturación es la inscripción. Por lo tanto, en el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.</li></ul>       |
+   | Ámbito        | El ámbito de la reserva puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona:<br><ul><li>El ámbito <b>Grupo de recursos único</b>: el descuento por reserva se aplica a los recursos coincidentes solo del grupo de recursos seleccionado.</li><li>El ámbito <b>Suscripción única</b>: el descuento por reserva se aplica a los recursos coincidentes de la suscripción seleccionada.</li><li>El ámbito <b>Compartido</b>: el descuento por reserva se aplica a los recursos coincidentes en suscripciones válidas que están en el contexto de facturación. Para los clientes de EA, el contexto de facturación es la inscripción. Por lo tanto, en el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.<li>**Grupo de administración**: aplica el descuento de reserva al recurso correspondiente en la lista de suscripciones que forman parte del grupo de administración y del ámbito de facturación.</li></li></ul>       |
    | Region       | Región de Azure que está cubierta por la reserva.   |
    | Tamaño de host    | AV36    |
    | Término         | Un año o tres años.  |
@@ -84,7 +84,7 @@ Los CSP que desean comprar instancias reservadas para sus clientes deben usar el
    | Campo        |  Descripción |
    | ------------ | ------------ |
    | Suscripción | Suscripción que financia la reserva. Los costos de la reserva se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser válido, que en este caso es una suscripción de CSP.|
-   | Ámbito        | El ámbito de la reserva puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona:<br><ul><li>El ámbito <b>Grupo de recursos único</b>: el descuento por reserva se aplica a los recursos coincidentes solo del grupo de recursos seleccionado.</li><li>El ámbito <b>Suscripción única</b>: el descuento por reserva se aplica a los recursos coincidentes de la suscripción seleccionada.</li><li>El ámbito <b>Compartido</b>: el descuento por reserva se aplica a los recursos coincidentes en suscripciones válidas que están en el contexto de facturación. Para los clientes de EA, el contexto de facturación es la inscripción. Por lo tanto, en el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.</li></ul>       |
+   | Ámbito        | El ámbito de la reserva puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona:<br><ul><li>El ámbito <b>Grupo de recursos único</b>: el descuento por reserva se aplica a los recursos coincidentes solo del grupo de recursos seleccionado.</li><li>El ámbito <b>Suscripción única</b>: el descuento por reserva se aplica a los recursos coincidentes de la suscripción seleccionada.</li><li>El ámbito <b>Compartido</b>: el descuento por reserva se aplica a los recursos coincidentes en suscripciones válidas que están en el contexto de facturación. Para los clientes de EA, el contexto de facturación es la inscripción. Por lo tanto, en el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.<li>**Grupo de administración**: aplica el descuento de reserva al recurso correspondiente en la lista de suscripciones que forman parte del grupo de administración y del ámbito de facturación.</li></li></ul>       |
    | Region       | Región de Azure que está cubierta por la reserva.   |
    | Tamaño de host    | AV36    |
    | Término         | Un año o tres años.  |

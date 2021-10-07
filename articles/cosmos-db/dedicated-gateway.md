@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/17/2021
 ms.author: tisande
-ms.openlocfilehash: 8c253abdfc8ded8ab5507d482640d78e6d4469c8
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 74a3bb89b10a48d5485df29797e891f80839047f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123226597"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614852"
 ---
 # <a name="azure-cosmos-db-dedicated-gateway---overview-preview"></a>Puerta de enlace dedicada de Azure Cosmos DB: información general (versión preliminar)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -98,8 +98,9 @@ Al igual que los nodos de un clúster, los nodos de puerta de enlace dedicada en
 La puerta de enlace dedicada tiene las siguientes limitaciones durante la versión preliminar pública:
 
 - Las puertas de enlace dedicadas solo se admiten en cuentas de API de SQL.
-- No se puede aprovisionar una puerta de enlace dedicada en las cuentas de Azure Cosmos DB con [firewalls de IP](how-to-configure-firewall.md) o [Private Link](how-to-configure-private-endpoints.md) configurados.
-- No se puede aprovisionar una puerta de enlace dedicada en las cuentas de Azure Cosmos DB con [zonas de disponibilidad](high-availability.md#availability-zone-support) habilitadas.
+- No se puede conectar una puerta de enlace dedicada en las cuentas de Azure Cosmos DB con [firewalls de IP](how-to-configure-firewall.md) o [Private Link](how-to-configure-private-endpoints.md) configurados.
+- No se puede conectar a una puerta de enlace dedicada en una cuenta de Azure Cosmos DB en una [red virtual (Vnet)](how-to-configure-vnet-service-endpoint.md)
+- No se puede conectar a una puerta de enlace dedicada en las cuentas de Azure Cosmos DB con [zonas de disponibilidad](high-availability.md#availability-zone-support) habilitadas.
 - No se puede usar el [control de acceso basado en roles (RBAC)](how-to-setup-rbac.md) paraautenticar las solicitudes del plano de datos enrutadas a través de la puerta de enlace dedicada.
 
 ## <a name="supported-regions"></a>Regiones admitidas
@@ -130,6 +131,6 @@ Obtenga más información sobre el uso de la puerta de enlace dedicada en los ar
 - [Caché integrada](integrated-cache.md)
 - [Configuración de la memoria caché integrada](how-to-configure-integrated-cache.md)
 - [Preguntas más frecuentes sobre la caché integrada](integrated-cache-faq.md)
-- ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Puede usar información sobre el clúster de bases de datos existente para planear la capacidad.
+- ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Para ello, puede usar información sobre el clúster de bases de datos existente.
     - Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
-    - Si conoce las velocidades de solicitud típicas de la carga de trabajo de la base de datos actual, lea sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).
+    - Si conoce las velocidades de solicitud típicas de la carga de trabajo de base de datos actual, lea sobre el [cálculo de las unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).

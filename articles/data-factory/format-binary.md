@@ -1,28 +1,28 @@
 ---
-title: Formato binario en Azure Data Factory
+title: Formato binario
 titleSuffix: Azure Data Factory & Azure Synapse
-description: En este tema se describe cómo tratar con el formato binario en Azure Data Factory.
+description: En este tema se describe cómo administrar el formato binario en Azure Data Factory y Synapse Analytics.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/29/2020
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: be1407d9b8efe16dea3546161125e7c68213da11
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: b1000d83f674614213ad26aa9b926f6c9255720b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123254985"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124779661"
 ---
-# <a name="binary-format-in-azure-data-factory"></a>Formato binario en Azure Data Factory
+# <a name="binary-format-in-azure-data-factory-and-synapse-analytics"></a>Formato binario en Azure Data Factory y Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 El formato binario se admite para los conectores siguientes: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [blob de Azure](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [sistema de archivos](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) y [SFTP](connector-sftp.md).
 
-Puede utilizar un conjunto de datos binarios en la [actividad de copia](copy-activity-overview.md), la [actividad GetMetadata](control-flow-get-metadata-activity.md) o la [actividad de eliminación](delete-activity.md). Cuando se usa un conjunto de datos binario, ADF no analiza el contenido del archivo, sino que lo trata tal cual. 
+Puede utilizar un conjunto de datos binarios en la [actividad de copia](copy-activity-overview.md), la [actividad GetMetadata](control-flow-get-metadata-activity.md) o la [actividad de eliminación](delete-activity.md). Cuando se usa un conjunto de datos binario, el servicio no analiza el contenido del archivo, sino que lo trata tal cual. 
 
 >[!NOTE]
 >Al utilizar un conjunto de archivos binario en la actividad de copia, solo puede copiar de un conjunto de datos binario a un conjunto de datos binario.
@@ -87,8 +87,8 @@ En la sección ***\*source\**** de la actividad de copia se admiten las siguient
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | El tipo de formatSettings debe establecerse en **BinaryReadSettings**. | Sí      |
 | compressionProperties | Un grupo de propiedades sobre cómo descomprimir datos para un códec de compresión determinado. | No       |
-| preserveZipFileNameAsFolder<br>(*en `compressionProperties`->`type` como `ZipDeflateReadSettings`* ) | Se aplica cuando el conjunto de datos de entrada se configura con compresión **ZipDeflate**. Indica si se debe conservar el nombre del archivo ZIP de origen como estructura de carpetas durante la copia.<br>- Cuando se establece en **true (valor predeterminado)** , Data Factory escribe archivos descomprimidos en `<path specified in dataset>/<folder named as source zip file>/`.<br>- Cuando se establece en **false**, Data Factory escribe los archivos descomprimidos directamente en `<path specified in dataset>`. Asegúrese de que no tenga nombres de archivo duplicados en distintos archivos ZIP de origen para evitar comportamientos acelerados o inesperados.  | No |
-| preserveCompressionFileNameAsFolder<br>(*en `compressionProperties`->`type` como `TarGZipReadSettings` o `TarReadSettings`* ) | Se aplica cuando el conjunto de datos de entrada está configurado con la compresión **TarGzip**/**Tar**. Indica si se debe conservar el nombre del archivo de origen comprimido como estructura de carpetas durante la copia.<br>- Cuando se establece en **true (valor predeterminado)** , Data Factory escribe los archivos descomprimidos en `<path specified in dataset>/<folder named as source compressed file>/`. <br>- Cuando se establece en **false**, Data Factory escribe los archivos descomprimidos directamente en `<path specified in dataset>`. Asegúrese de que no haya nombres de archivo duplicados en distintos archivos de origen para evitar comportamientos acelerados o inesperados. | No |
+| preserveZipFileNameAsFolder<br>(*en `compressionProperties`->`type` como `ZipDeflateReadSettings`* ) | Se aplica cuando el conjunto de datos de entrada se configura con compresión **ZipDeflate**. Indica si se debe conservar el nombre del archivo ZIP de origen como estructura de carpetas durante la copia.<br>- Cuando se establece en **true (valor predeterminado)** , el servicio escribe los archivos descomprimidos en `<path specified in dataset>/<folder named as source zip file>/`.<br>- Cuando se establece en **false**, el servicio escribe los archivos descomprimidos directamente en `<path specified in dataset>`. Asegúrese de que no tenga nombres de archivo duplicados en distintos archivos ZIP de origen para evitar comportamientos acelerados o inesperados.  | No |
+| preserveCompressionFileNameAsFolder<br>(*en `compressionProperties`->`type` como `TarGZipReadSettings` o `TarReadSettings`* ) | Se aplica cuando el conjunto de datos de entrada está configurado con la compresión **TarGzip**/**Tar**. Indica si se debe conservar el nombre del archivo de origen comprimido como estructura de carpetas durante la copia.<br>- Cuando se establece en **true (valor predeterminado)** , el servicio escribe los archivos descomprimidos en `<path specified in dataset>/<folder named as source compressed file>/`. <br>- Cuando se establece en **false**, el servicio escribe los archivos descomprimidos directamente en `<path specified in dataset>`. Asegúrese de que no haya nombres de archivo duplicados en distintos archivos de origen para evitar comportamientos acelerados o inesperados. | No |
 
 ```json
 "activities": [

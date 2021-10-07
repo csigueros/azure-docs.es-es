@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/21/2021
 ms.author: cherylmc
-ms.openlocfilehash: e3772f3583e4487c8c508136537ab213413865e7
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: adccd5873030adcc5c286ed8d23326796c27ab9c
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112464758"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129080985"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Trabajo con acceso a grupos de seguridad de red y Azure Bastion
 
@@ -52,7 +52,7 @@ Azure Bastion se implementa específicamente en ***AzureBastionSubnet***.
 
 * **Tráfico de salida:**
 
-   * **Tráfico de salida a máquinas virtuales de destino:** Azure Bastion se comunicará con las máquinas virtuales de destino a través de la dirección IP privada. Los grupos de seguridad de red tienen que permitir el tráfico de salida a otras subredes de máquinas virtuales de destino para el puerto 3389 y 22.
+   * **Tráfico de salida a máquinas virtuales de destino:** Azure Bastion se comunicará con las máquinas virtuales de destino a través de la dirección IP privada. Los grupos de seguridad de red tienen que permitir el tráfico de salida a otras subredes de máquinas virtuales de destino para el puerto 3389 y 22. Si usa la característica de puerto personalizado como parte de la SKU estándar, los NSG tendrán que permitir el tráfico de salida a otras subredes de máquina virtual de destino para los valores personalizados que ha abierto en las máquinas virtuales de destino.
    * **Tráfico de salida al plano de datos de Azure Bastion:** Para la comunicación del plano de datos entre los componentes subyacentes de Azure Bastion, habilite los puertos 8080 y 5701 de salida desde la etiqueta de servicio **VirtualNetwork** a la etiqueta de servicio **VirtualNetwork**. Esto permite que los componentes de Azure Bastion se comuniquen entre sí.
    * **Salida del tráfico a otros puntos de conexión públicos de Azure:** Azure Bastion debe ser capaz de conectarse a varios puntos de conexión públicos dentro de Azure (por ejemplo, para almacenar registros de diagnóstico y los registros de medición). Por esta razón, Azure Bastion necesita una salida hacia 443 para la etiqueta de servicio **AzureCloud**.
    * **Tráfico de salida a Internet:** Azure Bastion debe ser capaz de comunicarse con Internet para la validación de la sesión y el certificado. Por esta razón, se recomienda habilitar el puerto 80 de salida a **Internet.**
@@ -63,7 +63,7 @@ Azure Bastion se implementa específicamente en ***AzureBastionSubnet***.
 ### <a name="target-vm-subnet"></a>Subred de máquina virtual de destino
 Se trata de una subred que contiene la máquina virtual de destino a la que quiere conectarse mediante RDP/SSH.
 
-   * **Tráfico de entrada procedente de Azure Bastion:** Azure Bastion se comunicará con la máquina virtual de destino a través de la dirección IP privada. Los puertos RDP/SSH (puertos 3389/22, respectivamente) tienen que abrirse en la máquina virtual de destino a través de la dirección IP privada. Como procedimiento recomendado, puede agregar el intervalo de direcciones IP de la subred de Azure Bastion en esta regla para permitir que solo Bastion pueda abrir estos puertos en las máquinas virtuales de destino de la subred de la máquina virtual de destino.
+   * **Tráfico de entrada procedente de Azure Bastion:** Azure Bastion se comunicará con la máquina virtual de destino a través de la dirección IP privada. Los puertos RDP/SSH (puertos 3389/22, respectivamente, o los valores de puerto personalizados si usa la característica de puerto personalizado como parte de la SKU estándar) deben abrirse del lado de la máquina virtual de destino a través de una dirección IP privada. Como procedimiento recomendado, puede agregar el intervalo de direcciones IP de la subred de Azure Bastion en esta regla para permitir que solo Bastion pueda abrir estos puertos en las máquinas virtuales de destino de la subred de la máquina virtual de destino.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

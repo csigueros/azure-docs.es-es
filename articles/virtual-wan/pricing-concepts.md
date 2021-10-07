@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/02/2021
 ms.author: cherylmc
 ms.custom: references_pricing
-ms.openlocfilehash: 88a9c96cd2888f738251439df4d5da5343e8bf1d
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 853005cdc9e44357661cdb0b3b50e7f6ba5a0bbf
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123451344"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124730091"
 ---
 # <a name="about-virtual-wan-pricing"></a>Acerca de los precios de Virtual WAN
 
@@ -179,7 +179,7 @@ Virtual WAN se ofrece en dos variedades:
 
 * Una **WAN virtual básica**, donde los usuarios pueden implementar varios centros y usar la conectividad VPN de sitio a sitio. La WAN virtual básica no tiene funcionalidades avanzadas, como los centros totalmente en malla, la conectividad de ExpressRoute, la conectividad de VPN de punto a sitio y VPN de usuario, la conectividad transitiva de red virtual a red virtual, la conectividad de tránsito de VPN y ExpressRoute, o Azure Firewall. No hay ninguna cuota de procesamiento de datos o cuota base para los centros en una WAN virtual básica.
 
-* Una **WAN virtual estándar** proporciona funcionalidades avanzadas, como centros totalmente en malla, conectividad de ExpressRoute, VPN de usuario y conectividad VPN de punto a sitio, conectividad transitiva de red virtual a red virtual, conectividad de tránsito de ExpressRoute y VPN, y Azure Firewall. Todo el enrutamiento del centro virtual se proporciona mediante un enrutador que permite varios servicios en un centro virtual. Hay una cuota base para el centro, con un precio de 0,25 USD por hora. También hay un cargo por el procesamiento de datos en el enrutador del centro virtual para la conectividad de tránsito de red virtual a red virtual. El cargo por procesamiento de datos en el enrutador del centro virtual no es aplicable a las transferencias de rama a rama (escenarios 2 y 3) ni a las transferencias de red virtual a rama mediante el mismo centro de vWAN (escenario 1) de este artículo. 
+* Una **WAN virtual estándar** proporciona funcionalidades avanzadas, como centros totalmente en malla, conectividad de ExpressRoute, VPN de usuario y conectividad VPN de punto a sitio, conectividad transitiva de red virtual a red virtual, conectividad de tránsito de ExpressRoute y VPN, y Azure Firewall. Todo el enrutamiento del centro virtual se proporciona mediante un enrutador que permite varios servicios en un centro virtual. Hay una cuota base para el centro, con un precio de 0,25 USD por hora. También hay un cargo por el procesamiento de datos en el enrutador del centro virtual para la conectividad de tránsito de red virtual a red virtual. El cargo por procesamiento de datos en el enrutador del centro virtual no es aplicable a las transferencias de rama a rama (escenarios 2, 2' y 3) ni a las transferencias de red virtual a rama mediante el mismo centro de vWAN (escenarios 1 y 1') como se muestra en [Componentes de precios](#pricing). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

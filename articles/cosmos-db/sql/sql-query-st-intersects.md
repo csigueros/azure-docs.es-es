@@ -5,15 +5,15 @@ author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 09/21/2021
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8529eae920fdef90c5dd36fc39f0e99635478adf
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: ac3ba6ec00dc617d434026a6693c6c4554421140
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122206724"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128647783"
 ---
 # <a name="st_intersects-azure-cosmos-db"></a>ST_INTERSECTS (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -57,6 +57,9 @@ WHERE ST_INTERSECTS(a.location, {
 ## <a name="remarks"></a>Observaciones
 
 Esta función del sistema se beneficiará de un [índice geoespacial](../index-policy.md#spatial-indexes), excepto en las consultas con agregados.
+
+> [!NOTE]
+> La especificación GeoJSON requiere que los puntos dentro de un polígono se especifiquen en sentido contrario a las agujas del reloj. Un elemento Polygon cuyos puntos se hayan especificado en el sentido de las agujas del reloj representa el inverso de la región dentro de él.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

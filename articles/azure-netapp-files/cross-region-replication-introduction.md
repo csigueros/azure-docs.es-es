@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/16/2021
+ms.date: 09/27/2021
 ms.author: b-juche
 ms.custom: references_regions
-ms.openlocfilehash: 625df6ed5147b77a9829b6e7b3396f4855068d62
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: f97e4ec774dc9ed703a41cdd75fb88747fb627e5
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122253856"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129090920"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replicación entre regiones de volúmenes de Azure NetApp Files
 
@@ -35,30 +35,36 @@ La replicación de volúmenes de Azure NetApp Files se admite entre varios no pa
 
 ### <a name="azure-regional-pairs"></a>Pares regionales de Azure
 
-* Este de EE. UU. y Oeste de EE. UU.
-* Este de EE. UU. 2 y Centro de EE. UU.
-* Este de Australia y Sudeste de Australia
-* Centro de Canadá y Este de Canadá
-* Sur de la India y Centro de la India 
-* Centro-oeste de Alemania y Norte de Alemania
-* Japón Oriental y Japón Occidental
-* Norte de Europa y Oeste de Europa
-* Sur de Reino Unido y Oeste de Reino Unido
-* Norte de Emiratos Árabes Unidos y Centro de Emiratos Árabes Unidos
-* Este de Noruega y Oeste de Noruega
+| Geography | Par regional A | Par regional B  |
+|:--- |:--- |:--- |
+| Australia | Este de Australia | Sudeste de Australia |
+| Canadá | Centro de Canadá | Este de Canadá |
+| Europa | Norte de Europa | Oeste de Europa |
+| Alemania | Centro-oeste de Alemania | Norte de Alemania |
+| India | Centro de la India |Sur de la India |
+| Japón | Japón Oriental | Japón Occidental |
+| Norteamérica | Este de EE. UU. | Oeste de EE. UU. |
+| Norteamérica | Este de EE. UU. 2 | Centro de EE. UU. |
+| Norteamérica | Centro-Norte de EE. UU | Centro-sur de EE. UU.|
+| Noruega | Este de Noruega | Oeste de Noruega |
+| Reino Unido | Sur de Reino Unido | Oeste de Reino Unido |
+| Emiratos Árabes Unidos | Norte de Emiratos Árabes Unidos | Centro de Emiratos Árabes Unidos |
+| US Gov | US Gov - Virginia | US Gov Texas |
 
 ### <a name="azure-regional-non-standard-pairs"></a>Pares no estándar regionales de Azure
 
-*   Oeste de EE. UU. 2 y Este de EE. UU.
-*   Centro y Sur de EE. UU. y Centro de EE. UU.
-*   Centro y Sur de EE. UU. y Este de EE. UU.
-*   Centro y Sur de EE. UU. y Este de EE. UU. 2
-*   Este de EE. UU. y Este de EE. UU. 2
-*   Este de EE. UU. 2 y Oeste de EE. UU. 2
-*   Este de Australia y Sudeste de Asia 
-*   Centro-oeste de Alemania y Sur de Reino Unido
-*   Centro-oeste de Alemania y Oeste de Europa
-*   Centro-oeste de Alemania y Centro de Francia
+| Geography | Par regional A | Par regional B  |
+|:--- |:--- |:--- |
+| Australia/Sudeste de Asia | Este de Australia | Sudeste de Asia |
+| Alemania/Reino Unido | Centro-oeste de Alemania | Sur de Reino Unido |
+| Alemania/Europa | Centro-oeste de Alemania | Oeste de Europa | 
+| Alemania/Francia | Centro-oeste de Alemania | Centro de Francia |
+| Norteamérica | Este de EE. UU. | Este de EE. UU. 2 |
+| Norteamérica | Este de EE. UU. 2| Oeste de EE. UU. 2 |
+| Norteamérica | Centro-sur de EE. UU. | Este de EE. UU. |
+| Norteamérica | Centro-sur de EE. UU. | Este de EE. UU. 2 |
+| Norteamérica | Centro-sur de EE. UU. | Centro de EE. UU. |
+| Norteamérica | Oeste de EE. UU. 2 | Este de EE. UU. |
 
 ## <a name="service-level-objectives"></a>Objetivos de nivel de servicio
 

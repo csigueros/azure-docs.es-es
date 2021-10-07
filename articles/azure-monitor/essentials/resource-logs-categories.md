@@ -2,13 +2,13 @@
 title: Servicios y categorías admitidos de los registros de recursos de Azure Monitor
 description: Referencia de Azure Monitor para conocer el esquema de los eventos y servicios admitidos para los registros de recursos de Azure.
 ms.topic: reference
-ms.date: 08/04/2021
-ms.openlocfilehash: 2cbe701f3fbedacf29124c823743966be1f7ba32
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.date: 09/10/2021
+ms.openlocfilehash: c92f20d4a757ef69d334345619bdc2d585648d5d
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122183895"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211259"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Categorías admitidas en los registros de recursos de Azure
 
@@ -19,7 +19,7 @@ Los [registros de recursos de Azure Monitor](../essentials/platform-logs-overvie
 
 Los registros de recurso se conocían anteriormente como registros de diagnóstico. El nombre se cambió en octubre de 2019, dado que los tipos de registros recopilados por Azure Monitor evolucionaron para incluir algo más que tan solo el recurso de Azure.
 
-Una combinación del tipo de recurso (disponible en la propiedad `resourceId`) y la `category` identifica un esquema de forma única. Hay un esquema común para todos los registros de recursos con campos específicos de servicio que se han agregado para distintas categorías de registros. Para obtener más información, consulte [Esquema específico de servicio y común para los registros de recursos de Azure]().
+Una combinación del tipo de recurso (disponible en la propiedad `resourceId`) y la `category` identifica un esquema de forma única. Hay un esquema común para todos los registros de recursos con campos específicos de servicio que se han agregado para distintas categorías de registros. Para obtener más información, consulte [Esquema específico de servicio y común para los registros de recursos de Azure](/azure/azure-monitor/essentials/resource-logs-schema).
 
 ## <a name="costs"></a>Costos
 
@@ -58,6 +58,18 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |Inicio de sesión|Inicio de sesión|Sí|
 
 
+## <a name="microsoftagfoodplatformfarmbeats"></a>Microsoft.AgFoodPlatform/farmBeats
+
+|Category|Nombre para mostrar de categoría|Costos de exportación|
+|---|---|---|
+|ApplicationAuditLogs|Registros de auditoría de aplicación|Yes|
+|FarmManagementLogs|Registros de administración de granja|Yes|
+|FarmOperationLogs|Registros de operaciones de granja|Yes|
+|ProviderAuthLogs|Registros de autenticación de proveedor|Yes|
+|SatelliteLogs|Registros de satélite|Yes|
+|WeatherLogs|Registros meteorológicos|Sí|
+
+
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
@@ -71,6 +83,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
 |GatewayLogs|Registros relacionados con la puerta de enlace de ApiManagement|No|
+|WebSocketConnectionLogs|Registros relacionados con las conexiones de Websocket|Yes|
 
 
 ## <a name="microsoftappconfigurationconfigurationstores"></a>Microsoft.AppConfiguration/configurationStores
@@ -86,6 +99,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
 |ApplicationConsole|Consola de aplicación|No|
+|IngressLogs|Registros de entrada|Yes|
 |SystemLogs|Registros del sistema|No|
 
 
@@ -103,9 +117,10 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
-|DscNodeStatus|Estado del nodo de DSC|No|
-|JobLogs|Registros de trabajo|No|
-|JobStreams|Flujos de trabajo|No|
+|AuditEvent|AuditEvent|Yes|
+|DscNodeStatus|DscNodeStatus|No|
+|JobLogs|JobLogs|No|
+|JobStreams|JobStreams|No|
 
 
 ## <a name="microsoftautonomousdevelopmentplatformaccounts"></a>Microsoft.AutonomousDevelopmentPlatform/accounts
@@ -117,11 +132,26 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |Solicitud|Solicitud|Sí|
 
 
+## <a name="microsoftavsprivateclouds"></a>microsoft.avs/privateClouds
+
+|Category|Nombre para mostrar de categoría|Costos de exportación|
+|---|---|---|
+|vmwaresyslog|VMware VCenter Syslog|Sí|
+
+
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
 |ServiceLog|Registros de servicios|No|
+
+
+## <a name="microsoftbatchaiworkspaces"></a>Microsoft.BatchAI/workspaces
+|Category|Nombre para mostrar de categoría|Costos de exportación|
+|---|---|---|
+|BaiClusterEvent|BaiClusterEvent|No|
+|BaiClusterNodeEvent|BaiClusterNodeEvent|No|
+|BaiJobEvent|BaiJobEvent|No|
 
 
 ## <a name="microsoftblockchainblockchainmembers"></a>Microsoft.Blockchain/blockchainMembers
@@ -146,6 +176,13 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
 |BotRequest|Solicitudes de los canales al bot|No|
+
+
+## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis
+
+|Category|Nombre para mostrar de categoría|Costos de exportación|
+|---|---|---|
+|ConnectedClientList|Lista de clientes conectados|Yes|
 
 
 ## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft.Cdn/cdnwebapplicationfirewallpolicies
@@ -396,6 +433,13 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |Administración|Administración|No|
 
 
+## <a name="microsoftdesktopvirtualizationscalingplans"></a>Microsoft.DesktopVirtualization/scalingplans
+
+|Category|Nombre para mostrar de categoría|Costos de exportación|
+|---|---|---|
+|Escalado automático|Registros de escalado automático|Yes|
+
+
 ## <a name="microsoftdesktopvirtualizationworkspaces"></a>Microsoft.DesktopVirtualization/workspaces
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
@@ -535,7 +579,16 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
+|ExPCompute|ExPCompute|Sí|
 |Solicitud|Solicitud|No|
+
+
+## <a name="microsofthealthcareapisservices"></a>Microsoft.HealthcareApis/services
+
+|Category|Nombre para mostrar de categoría|Costos de exportación|
+|---|---|---|
+|AuditLogs|Registros de auditoría|No|
+|DiagnosticLogs|Registros de diagnóstico|Yes|
 
 
 ## <a name="microsofthealthcareapisworkspacesdicomservices"></a>Microsoft.HealthcareApis/workspaces/dicomservices
@@ -598,6 +651,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |Comando|Comando|No|
 |FailedIngestion|Operaciones de ingesta con error|No|
 |IngestionBatching|Procesamiento por lotes de ingesta|No|
+|Diario|Diario|Sí|
 |Consultar|Consultar|No|
 |SucceededIngestion|Operaciones de ingesta correctas|No|
 |TableDetails|Detalles de tabla|No|
@@ -656,6 +710,14 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |---|---|---|
 |KeyDeliveryRequests|Solicitudes de entrega de clave|No|
 |MediaAccount|Estado de mantenimiento de la cuenta multimedia|Sí|
+
+
+## <a name="microsoftmediavideoanalyzers"></a>Microsoft.Media/videoanalyzers
+
+|Category|Nombre para mostrar de categoría|Costos de exportación|
+|---|---|---|
+|PipelineDiagnostics|Registros de diagnóstico de canalización|Yes|
+|PipelineOperational|Registros operativos de canalización|Sí|
 
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationgateways
@@ -768,6 +830,13 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |TunnelDiagnosticLog|Registros de diagnóstico de túnel|No|
 
 
+## <a name="microsoftnetworkfunctionazuretrafficcollectors"></a>Microsoft.NetworkFunction/azureTrafficCollectors
+
+|Category|Nombre para mostrar de categoría|Costos de exportación|
+|---|---|---|
+|ExpressRouteCircuitIpfix|Registros de flujo IPFIX del circuito de ExpressRoute|Yes|
+
+
 ## <a name="microsoftnotificationhubsnamespaces"></a>Microsoft.NotificationHubs/namespaces
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
@@ -787,6 +856,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
 |Motor|Motor|No|
+
 
 ## <a name="microsoftpowerbitenantsworkspaces"></a>Microsoft.PowerBI/tenants/workspaces
 
@@ -808,6 +878,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |---|---|---|
 |DataSensitivityLogEvent|DataSensitivity|Sí|
 |ScanStatusLogEvent|ScanStatus|No|
+|Seguridad|PurviewAccountAuditEvents|Yes|
 
 
 ## <a name="microsoftrecoveryservicesvaults"></a>Microsoft.RecoveryServices/Vaults
@@ -845,6 +916,14 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |OperationLogs|Registros de operaciones|No|
 
 
+## <a name="microsoftsecurityinsightssettings"></a>microsoft.securityinsights/settings
+
+|Category|Nombre para mostrar de categoría|Costos de exportación|
+|---|---|---|
+|Análisis|Análisis|Yes|
+|DataConnectors|Recopilación de datos: conectores|Yes|
+
+
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
@@ -863,7 +942,9 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
-|AllLogs|Registros del servicio Azure Web PubSub.|Sí|
+|ConnectivityLogs|Registros de conectividad para el servicio Azure Web PubSub|Yes|
+|HttpRequestLogs|Registros de solicitudes HTTP para el servicio Azure Web PubSub|Yes|
+|MessagingLogs|Registros de mensajería para el servicio Azure Web PubSub|Sí|
 
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances

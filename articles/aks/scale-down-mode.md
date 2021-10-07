@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/01/2021
 ms.author: qpetraroia
 author: qpetraroia
-ms.openlocfilehash: 2d14a624b62e47a7abbbb1718efbe3be350b110a
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 6bd1f4c70d9c427d7f6487040453e7ecae199717
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123440247"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124800125"
 ---
 # <a name="use-scale-down-mode-to-deletedeallocate-nodes-in-azure-kubernetes-service-aks-preview"></a>Uso del modo de reducción vertical para eliminar o desasignar nodos en Azure Kubernetes Service (AKS) (versión preliminar)
 
@@ -91,6 +91,9 @@ Para eliminar los nodos desasignados, puede cambiar el modo de reducción vertic
 ```azurecli-interactive
 az aks nodepool update --scale-down-mode Delete --name nodepool2 --cluster-name myAKSCluster --resource-group myResourceGroup
 ```
+
+> [!NOTE]
+> Al cambiar el modo de reducción vertical de `Deallocate` a `Delete` y, después, de nuevo a `Deallocate`, se eliminarán todos los nodos desasignados mientras se mantiene el grupo de nodos en modo de reducción vertical `Deallocate`.
 
 ## <a name="using-scale-down-mode-to-delete-nodes-on-scale-down"></a>Uso del modo de reducción vertical para eliminar nodos al reducir verticalmente
 

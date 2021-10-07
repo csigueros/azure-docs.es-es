@@ -3,7 +3,7 @@ title: Conectividad de dispositivos en Azure IoT Central | Microsoft Docs
 description: En este artículo se presentan conceptos clave relacionados con la conectividad de dispositivos en Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 1/15/2020
+ms.date: 09/07/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -11,12 +11,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 0609b2e39576850665937246afa6954f2580d195
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: bf35868d67dab2cb48aee5c85b964f86abd912e3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123449610"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653785"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conexión a Azure IoT Central
 
@@ -189,6 +189,16 @@ Puede ver el [modelo de thermostat](https://github.com/Azure/iot-plugandplay-mod
 ```json
 "@id": "dtmi:com:example:Thermostat;1"
 ```
+
+Use la siguiente carga de DPS para asociar el dispositivo a una plantilla de dispositivo:
+
+```json
+{
+  "modelId":"dtmi:com:example:TemperatureController;2"
+}
+```
+
+Para más información sobre la carga de DPS, consulte el código de ejemplo que se usa en [Tutorial: Creación y conexión de un aplicación cliente a la aplicación de Azure IoT Central](tutorial-connect-device.md).
 
 ## <a name="device-status-values"></a>Valores de estado del dispositivo
 

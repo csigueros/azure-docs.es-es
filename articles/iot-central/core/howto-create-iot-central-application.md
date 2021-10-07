@@ -7,12 +7,12 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 05/11/2021
 ms.topic: how-to
-ms.openlocfilehash: c9f9dec23209d8bc401313a7213239dff52a1023
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: 70567f3cb1a80c7d23d19bf7de43c80723af0dfe
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113586210"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094010"
 ---
 # <a name="create-an-iot-central-application"></a>Creación de una aplicación de IoT Central
 
@@ -68,7 +68,7 @@ Si elige uno de los planes estándar, debe proporcionar información de facturac
 
 - La suscripción a Azure que está usando.
 - El directorio que contiene la suscripción que está usando.
-- La ubicación en la que se hospedará la aplicación. IoT Central usa zonas geográficas de Azure como ubicaciones: Estados Unidos, Europa, Asia Pacífico, Australia, Reino Unido o Japón.
+- La ubicación en la que se hospedará la aplicación. IoT Central utiliza regiones de Azure como ubicaciones: Este de Australia, Centro de EE. UU., Este de EE. UU., Este de EE. UU. 2, Japón Oriental, Norte de Europa, Sudeste Asiático, Sur de Reino Unido, Oeste de Europa, Oeste de EE. UU.
 
 ## <a name="azure-iot-central-site"></a>Sitio de Azure IoT Central
 

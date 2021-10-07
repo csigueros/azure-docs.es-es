@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: 4cfa90e2863583cf920df333fd2e5dbd7d7b46c6
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: ee18a405ca6c6a9d2e6a3a6cceb5c0ff89b5cf73
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113084613"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124748595"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Selección de la opción adecuada de MySQL Server en Azure
 
@@ -31,44 +31,98 @@ Cuando tome la decisión, tenga en cuenta las dos siguientes opciones:
 
   - [Servidor flexible (versión preliminar)](flexible-server/overview.md) es un servicio de base de datos totalmente administrado diseñado para proporcionar un control más granular y una mayor flexibilidad sobre las funciones de administración de bases de datos y las opciones de configuración. En general, el servicio proporciona más flexibilidad y personalizaciones de configuración del servidor en comparación con la implementación de servidor único en función de los requisitos del usuario. La arquitectura de servidor flexible permite a los usuarios optar por la alta disponibilidad dentro de una única zona de disponibilidad o entre varias. Los servidores flexibles también proporcionan mejores controles de optimización de costes con la capacidad de iniciar o detener el servidor, y SKU flexibles, idóneas para cargas de trabajo que no necesitan una capacidad de proceso completa de forma continuada.
 
-  Los servidores flexibles son idóneos para:
+Los servidores flexibles son idóneos para:
 
   - Desarrollo de aplicaciones que necesitan un mejor control y personalizaciones del motor de MySQL.
   - Alta disponibilidad con redundancia de zona
   - Ventanas de mantenimiento administradas
-
-- **MySQL en máquinas virtuales de Azure**. Esta opción pertenece a la categoría del sector de IaaS. Con este servicio, puede ejecutar MySQL Server dentro de una máquina virtual administrada en la plataforma en la nube de Azure. Todas las versiones y ediciones recientes de MySQL se pueden instalar en la máquina virtual.
+ 
+  - **MySQL en máquinas virtuales de Azure**. Esta opción pertenece a la categoría del sector de IaaS. Con este servicio, puede ejecutar MySQL Server dentro de una máquina virtual administrada en la plataforma en la nube de Azure. Todas las versiones y ediciones recientes de MySQL se pueden instalar en la máquina virtual.
 
 ## <a name="comparing-the-mysql-deployment-options-in-azure"></a>Comparación de las opciones de implementación de MySQL en Azure
 
 Las principales diferencias entre estas opciones se mencionan en la siguiente tabla:
 
-| Atributo          | Azure Database for MySQL<br/>Servidor único |Azure Database for MySQL<br/>Servidor flexible  |MySQL en máquinas virtuales de Azure                      |
-|:-------------------|:-------------------------------------------|:---------------------------------------------|:---------------------------------------|
-| Compatibilidad con versiones de MySQL | 5.6, 5.7 y 8.0| 5.7 y 8.0 | Cualquier versión|
+| Atributo          | Azure Database for MySQL<br/>Servidor único |Azure Database for MySQL<br/>Servidor flexible  |MySQL en máquinas virtuales de Azure |
+|:-------------------|:-------------------------------------------|:---------------------------------------------|:------------------|
+| [**General**](flexible-server/overview.md)  | | | |
+| Disponibilidad general | GA desde 2018 | Vista previa pública | GA |
+| Acuerdo de Nivel de Servicio (SLA) | Acuerdo de Nivel de Servicio con disponibilidad del 99,99 % |No hay Acuerdo de Nivel de Servicio en la versión preliminar| 99.99 % con Availability Zones|
+| Sistema operativo subyacente | Windows | Linux  | Administrado por el usuario |
+| Edición de MySQL | Community Edition | Community Edition | Community o Enterprise Edition |
+| Compatibilidad con versiones de MySQL | 5.6 (retirado), 5.7 y 8.0| 5.7 y 8.0 | Cualquier versión|
+| Selección de zona de disponibilidad para la coubicación de aplicaciones | No | Sí | Sí |
+| Nombre de usuario en la cadena de conexión | `<user_name>@server_name`. Por ejemplo, `mysqlusr@mypgServer`. | Solo nombre de usuario. Por ejemplo, `mysqlusr`. | Solo nombre de usuario. Por ejemplo, `mysqlusr`. | 
+| [**Escalado de almacenamiento y proceso**](flexible-server/concepts-compute-storage.md) | | | |
+| Niveles de proceso | Básico, De uso general y Optimizado para memoria | Ampliable, De uso general y Optimizado para memoria | Ampliable, De uso general y Optimizado para memoria |
 | Escalado de proceso | Compatible (no se admite el escalado desde y hasta el nivel Básico)| Compatible | Compatible|
 | Tamaño de almacenamiento | De 5 GiB a 16 TiB| De 20 GiB a 16 TiB | De 32 GiB a 32 767 GiB|
 | Escalado de almacenamiento en línea | Compatible| Compatible| No compatible|
 | Escalado de almacenamiento automático | Compatible| Compatible| No compatible|
-| Escalado de IOPS adicional | No compatible| Compatible| No compatible|
+| Escalado de IOPS | No compatible| Compatible| No compatible|
+| [**Optimización de costos**](https://azure.microsoft.com/pricing/details/mysql/flexible-server/) | | | |
+| Precios de instancias reservadas | Compatible | Compatible | Compatible |
+| Detener o iniciar el servidor para el desarrollo | El servidor se puede detener hasta 7 días | El servidor se puede detener hasta 30 días | Compatible |
+| SKU ampliable de bajo costo | No compatible | Compatible | Compatible |
+| [**Redes y seguridad**](concepts-security.md) | | | |
 | Conectividad de red | - Puntos de conexión públicos con firewall de servidor.<br/> - Acceso privado con compatibilidad con Private Link.|- Puntos de conexión públicos con firewall de servidor.<br/> - Acceso privado con integración de Virtual Network.| - Puntos de conexión públicos con firewall de servidor.<br/> - Acceso privado con compatibilidad con Private Link.|
-| Acuerdo de Nivel de Servicio (SLA) | Acuerdo de Nivel de Servicio con disponibilidad del 99,99 % |No hay Acuerdo de Nivel de Servicio en la versión preliminar| 99.99 % con Availability Zones|
-| Aplicación de revisiones del sistema operativo| Automático  | Automático con control de ventana de mantenimiento personalizado | Administrado por los usuarios finales |
-| Aplicación de revisiones de MySQL     | Automático  | Automático con control de ventana de mantenimiento personalizado | Administrado por los usuarios finales |
-| Alta disponibilidad | Alta disponibilidad integrada dentro de una sola zona de disponibilidad| Alta disponibilidad integrada dentro y entre zonas de disponibilidad | Administración personalizada mediante agrupación en clústeres, replicación, etc.|
-| Redundancia de zona | No compatible | Compatible | Compatible|
-| Colocación de zona | No compatible | Compatible | Compatible|
-| Escenarios híbridos | Compatible con [Replicación de datos de entrada](./concepts-data-in-replication.md)| Compatible con [Replicación de datos de entrada](./flexible-server/concepts-data-in-replication.md) | Administrado por los usuarios finales |
-| Réplicas de lectura | Compatible (hasta 5 réplicas)| Compatible (hasta 10 réplicas)| Administrado por los usuarios finales |
-| Backup | Automatizado con retención de 7-35 días | Automatizado con retención de 1-35 días | Administrado por los usuarios finales |
-| Supervisión de las operaciones de base de datos | Compatible | Compatible | Administrado por los usuarios finales |
-| Recuperación ante desastres | Compatible con el almacenamiento de copia de seguridad con redundancia geográfica y las réplicas de lectura entre regiones | Próximamente| Administración personalizada con tecnologías de replicación |
-| Información del rendimiento de las consultas | Compatible | No disponible en versión preliminar| Administrado por los usuarios finales |
-| Precios de instancias reservadas | Compatible | Próximamente | Compatible |
-| Autenticación de Azure AD | Compatible | No disponible en versión preliminar | No compatible|
-| Cifrado de datos en reposo | Compatible con claves administradas por el cliente | Compatible con claves administradas por el servicio | No compatible|
 | SSL/TLS | Habilitado de forma predeterminada con compatibilidad con TLS v1.2, 1.1 y 1.0 | Habilitado de forma predeterminada con compatibilidad con TLS v1.2, 1.1 y 1.0| Compatible con TLS v1.2, 1.1 y 1.0 |
+| Cifrado de datos en reposo | Compatible con claves administradas por el cliente (BYOK) | Compatible con claves administradas por el servicio | No compatible|
+| Autenticación de Azure AD | Compatible | No compatible | No compatible|
+| Compatibilidad con Azure Defender | Sí | No | No |
+| Auditoría de servidor | Compatible | Compatible | Administrado por el usuario |
+| [**Aplicación de revisión y mantenimiento**](flexible-server/concepts-maintenance.md) | | |
+| Aplicación de revisiones del sistema operativo| Automático  | Automático  | Usuario administrado |
+| Actualización de la versión secundaria de MySQL  | Automático  | Automático | Usuario administrado |
+| Actualización local de la versión principal de MySQL | Compatible de 5.6 a 5.7 | No compatible | Administrado por el usuario |
+| Control de mantenimiento | Administrada por el sistema | Administrado por el cliente | Usuario administrado |
+| Ventana de mantenimiento | En cualquier momento en un plazo de 15 horas | Período de 1 hora | Usuario administrado |
+| Notificación de mantenimiento planeado | 3 días | 5 días | Usuario administrado |
+| [**Alta disponibilidad**](flexible-server/concepts-high-availability.md) | | | |
+| Alta disponibilidad | Alta disponibilidad integrada (sin espera activa)| Alta disponibilidad integrada (sin espera activa), alta disponibilidad con redundancia de zona y de misma zona con espera activa | Usuario administrado |
+| Redundancia de zona | No compatible | Compatible | Compatible|
+| Colocación de zona en espera | No compatible | Compatible | Compatible|
+| Conmutación por error automática | Sí (gira otro servidor)| Sí | Administrado por el usuario|
+| conmutación por error forzada | No | Sí | Administrado por el usuario |
+| Conmutación por error transparente de la aplicación | Sí | Sí | Administrado por el usuario|
+| [**Replicación**](flexible-server/concepts-read-replicas.md) | | | |
+| Compatibilidad para réplicas de lectura | Sí | Sí | Administrado por el usuario |
+| Número de réplicas de lectura compatibles | 5 | 10 | Administrado por el usuario |
+| Modo de replicación | Asincrónica | Asincrónica | Administrado por el usuario |
+| Compatibilidad de GTID para réplicas de lectura | Compatible | Compatible | Administrado por el usuario |
+| Compatibilidad entre regiones (replicación geográfica) | Yes | No compatible | Administrado por el usuario |
+| Escenarios híbridos | Compatible con [Replicación de datos de entrada](./concepts-data-in-replication.md)| Compatible con [Replicación de datos de entrada](./flexible-server/concepts-data-in-replication.md) | Administrado por el usuario |
+| Compatibilidad de GTID con la replicación de datos de entrada | Compatible | No compatible | Administrado por el usuario |
+| Replicación de datos de salida | No compatible | En versión preliminar | Compatible |
+| [**Copia de seguridad y recuperación**](flexible-server/concepts-backup-restore.md) | | | |
+| Copias de seguridad automatizadas | Sí | Sí | No |
+| Retención de copias de seguridad | Entre 7 y 35 días | 1-35 días | Administrado por el usuario |
+| Retención a largo plazo de copias de seguridad | Administrado por el usuario | Administrado por el usuario | Administrado por el usuario |
+| Exportación de copias de seguridad | Compatible con copias de seguridad lógicas | Compatible con copias de seguridad lógicas | Compatible |
+| Funcionalidad de recuperación a un momento dado en cualquier momento dentro del período de retención | Sí | Sí | Administrado por el usuario |
+| Capacidad de restauración en una zona diferente | No compatible | Sí | Sí |
+| Capacidad de restauración en una red virtual diferente | No | Sí | Sí |
+| Capacidad de restauración a una región diferente | Sí (Con redundancia geográfica) | No | Administrado por el usuario |
+| Capacidad de restaurar un servidor eliminado | Sí | No | No |
+| [**Recuperación ante desastres**](flexible-server/concepts-business-continuity.md) | | | | 
+| DR en todas las regiones de Azure | Uso entre regiones de réplicas de lectura, copia de seguridad con redundancia geográfica | No compatible | Administrado por el usuario |
+| Conmutación por error automática | No | No compatible | No |
+| Puede usar el mismo punto de conexión de l/e | No | No compatible | No |
+| [**Supervisión**](flexible-server/concepts-monitoring.md) | | | |
+| Integración y alertas de Azure Monitor | Compatible | Compatible | Administrado por el usuario |
+| Supervisión de las operaciones de base de datos | Compatible | Compatible | Administrado por el usuario |
+| Información del rendimiento de las consultas | Compatible | No compatible | Administrado por el usuario |
+| Registros del servidor | Compatible | Compatible (mediante registros de diagnóstico) | Administrado por el usuario |
+| Registros de auditoría | Compatible | Compatible | Compatible | 
+| Registros de errores | No compatible | Compatible | Compatible |
+| Soporte técnico de Azure Advisor | Compatible | No compatible | No compatible |
+| **Complementos** | | | |
+| validate_password | No compatible | En versión preliminar | Compatible |
+| caching_sha2_password | No compatible | En versión preliminar | Compatible |
+| [**Productividad de los desarrolladores**](flexible-server/quickstart-create-server-cli.md) | | | |
 | Administración de flota | Compatible con la CLI de Azure, PowerShell, REST y Azure Resource Manager | Compatible con la CLI de Azure, PowerShell, REST y Azure Resource Manager  | Compatible para máquinas virtuales con la CLI de Azure, PowerShell, REST y Azure Resource Manager |
+| Compatibilidad con Terraform | Compatible | No compatible | Compatible |
+| Acciones de GitHub | Compatible | Compatible | Administrado por el usuario |
 
 ## <a name="business-motivations-for-choosing-paas-or-iaas"></a>Motivaciones empresariales para elegir PaaS o IaaS
 

@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cc06556c72a992efd9f0ebd48a1a2c8585b172c7
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 884f70367c7e7edaf546b65b4e0e2825dacf0a07
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110664972"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128577942"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Impedir el acceso de lectura público anónimo a contenedores y blobs
 
@@ -55,7 +55,7 @@ Siga estos pasos para crear una métrica que realice el seguimiento de las solic
 1. En el cuadro de diálogo **Filtro**, especifique los valores siguientes:
     1. Establezca el valor **Propiedad** en *Autenticación*.
     1. Establezca el campo **Operador** en el signo igual (=).
-    1. Establezca el campo **Valores** en *Anónimos*.
+    1. Establezca el campo **Valores** en *Anónimo* seleccionándolo en la lista desplegable o escribiéndolo.
 1. En la esquina superior derecha, seleccione el intervalo de tiempo del que desea ver la métrica. También puede indicar lo pormenorizada que debe ser la agregación de las solicitudes, especificando intervalos en cualquier punto entre 1 minuto y 1 mes.
 
 Una vez configurada la métrica, las solicitudes anónimas comenzarán a aparecer en el gráfico. En la imagen siguiente se muestran las solicitudes anónimas agregadas en los últimos treinta minutos.

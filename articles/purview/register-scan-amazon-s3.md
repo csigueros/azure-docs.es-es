@@ -1,19 +1,19 @@
 ---
 title: Multi-Cloud Scanning Connector de Amazon S3 para Azure Purview
-description: En esta guía de procedimientos se describen los detalles sobre cómo examinar cubos de Amazon S3.
+description: En esta guía paso a paso se describen los detalles sobre cómo examinar cubos de Amazon S3 en Azure Purview.
 author: batamig
 ms.author: bagol
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 06/17/2021
+ms.date: 09/27/2021
 ms.custom: references_regions
-ms.openlocfilehash: ad62ff0c7d3e6249ecb8497953501466b5152265
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 738ee7b01831574af32c44dd00c8b1d9b56513c3
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122445735"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129210161"
 ---
 # <a name="amazon-s3-multi-cloud-scanning-connector-for-azure-purview"></a>Multi-Cloud Scanning Connector de Amazon S3 para Azure Purview
 
@@ -77,58 +77,28 @@ Asegúrese de que ha completado los siguientes requisitos previos antes de agreg
 > [!div class="checklist"]
 > * Tenga en cuenta que debe ser Administrador de orígenes de datos de Azure Purview.
 > * [Cree una cuenta de Purview](#create-a-purview-account) si aún no tiene una.
-> * [Creación de una credencial de Purview para el examen del cubo de AWS](#create-a-purview-credential-for-your-aws-bucket-scan)
 > * [Cree un nuevo rol de AWS para usar con Purview](#create-a-new-aws-role-for-purview).
+> * [Creación de una credencial de Purview para el examen del cubo de AWS](#create-a-purview-credential-for-your-aws-s3-scan)
 > * [Configure el examen de cubos de Amazon S3 cifrados](#configure-scanning-for-encrypted-amazon-s3-buckets), si corresponde.
 > * Al agregar los cubos como recursos de Purview, necesitará los valores del [ARN de AWS](#retrieve-your-new-role-arn), el [nombre de cubo](#retrieve-your-amazon-s3-bucket-name) y, en ocasiones, el [identificador de cuenta de AWS](#locate-your-aws-account-id).
 
 ### <a name="create-a-purview-account"></a>Creación de una cuenta de Purview
 
-- **Si ya tiene una cuenta de Purview,** puede continuar con las configuraciones necesarias para la compatibilidad con AWS S3. Comience por [Creación de una credencial de Purview para el examen del cubo de AWS](#create-a-purview-credential-for-your-aws-bucket-scan).
+- **Si ya tiene una cuenta de Purview,** puede continuar con las configuraciones necesarias para la compatibilidad con AWS S3. Comience por [Creación de una credencial de Purview para el examen del cubo de AWS](#create-a-purview-credential-for-your-aws-s3-scan).
 
 - **Si necesita crear una cuenta de Purview,** siga las instrucciones descritas en [Creación de una cuenta de Azure Purview en Azure Portal](create-catalog-portal.md). Después de crear la cuenta, vuelva aquí para completar la configuración y comenzar a usar el conector de Purview para Amazon S3.
 
-### <a name="create-a-purview-credential-for-your-aws-bucket-scan"></a>Creación de una credencial de Purview para el examen del cubo de AWS
-
-En este procedimiento se describe cómo crear una nueva credencial de Purview para usarla al examinar los cubos de AWS.
-
-> [!TIP]
-> También puede crear una nueva credencial en medio del proceso, durante la [configuración del examen](#create-a-scan-for-one-or-more-amazon-s3-buckets). En ese caso, en el campo **Credential** (Credencial), seleccione **New** (Nuevo).
->
-
-1. En Purview, vaya a **Management Center** (Centro de administración) y, en **Security and access** (Seguridad y acceso), seleccione **Credentials** (Credenciales).
-
-1. Seleccione **New** (Nuevo) y, en el panel **New credential** (Nueva credencial) que aparece a la derecha, use los campos siguientes para crear la credencial de Purview:
-
-    |Campo |Descripción  |
-    |---------|---------|
-    |**Nombre**     |Escriba un nombre descriptivo para esta credencial o utilice el valor predeterminado.        |
-    |**Descripción**     |Escriba una descripción opcional para esta credencial, como `Used to scan the tutorial S3 buckets`.         |
-    |**Método de autenticación**     |Seleccione **Role ARN** (ARN de rol), ya que va a usar un ARN de rol para acceder al cubo.         |
-    |**Id. de cuenta Microsoft**     |Haga clic para copiar este valor en el portapapeles. Use este valor para **Microsoft account ID** (Id. de cuenta Microsoft) al [crear el ARN de rol en AWS](#create-a-new-aws-role-for-purview).           |
-    |**Id. externo**     |Haga clic para copiar este valor en el portapapeles. Use este valor para **External ID** (Id. externo) al [crear el ARN de rol en AWS](#create-a-new-aws-role-for-purview).        |
-    |**ARN de rol**     | Una vez que haya [creado el rol de IAM de Amazon](#create-a-new-aws-role-for-purview), vaya al rol en el área IAM, copie el valor de **Role ARN** (ARN de rol) y escríbalo aquí. Por ejemplo: `arn:aws:iam::284759281674:role/S3Role`. <br><br>Para más información, consulte [Recuperación del nuevo ARN de rol](#retrieve-your-new-role-arn). |
-    | | |
-
-    Seleccione **Create** (Crear) cuando termine de crear la credencial.
-
-1. Si aún no lo ha hecho, copie y pegue los valores del **identificador de la cuenta Microsoft** y del **identificador externo** para usarlos al [crear un rol de AWS para Purview](#create-a-new-aws-role-for-purview), que es el siguiente paso.
-
-Para más información sobre las credenciales de Purview, consulte [Credenciales para la autenticación de origen en Azure Purview](manage-credentials.md).
-
 ### <a name="create-a-new-aws-role-for-purview"></a>Creación de un nuevo rol de AWS para Purview
 
-Este procedimiento requiere que escriba los valores del identificador de la cuenta de Azure y del identificador externo al crear el rol de AWS.
-
-Si no tiene estos valores, búsquelos primero en la [credencial de Purview.](#create-a-purview-credential-for-your-aws-bucket-scan)
+En este procedimiento se describe cómo buscar los valores de un identificador de cuenta de Azure y de un identificador externo, crear un rol de AWS y, después, escribir el valor del ARN de rol en Purview.
 
 **Para buscar el identificador de la cuenta Microsoft y el identificador externo**:
 
 1. En Purview, vaya a **Management Center** > **Security and access** > **Credentials** (Centro de administración > Seguridad y acceso > Credenciales).
 
-1. Seleccione la credencial que [creó para el examen del cubo de AWS](#create-a-purview-credential-for-your-aws-bucket-scan) y, después, en la barra de herramientas, seleccione **Editar**.
+1. Seleccione **New** (Nueva) para crear una credencial.
 
-1. En el panel **Editar credencial** que aparece a la derecha, copie los valores de **identificador de la cuenta Microsoft** y de **identificador externo** en un archivo independiente, o bien téngalos a mano para pegarlos en el campo correspondiente de AWS.
+    En el panel **New credential** (Nueva credencial) que aparece a la derecha, copie los valores de **identificador de cuenta Microsoft** y de **identificador externo** en un archivo independiente, o bien téngalos a mano para pegarlos en el campo correspondiente de AWS.
 
     Por ejemplo:
 
@@ -145,7 +115,7 @@ Si no tiene estos valores, búsquelos primero en la [credencial de Purview.](#cr
 
     |Campo  |Descripción  |
     |---------|---------|
-    |**Id. de cuenta**     |    Escriba el identificador de la cuenta de Microsoft. Por ejemplo: `615019938638`     |
+    |**Id. de cuenta**     |    Escriba el identificador de la cuenta de Microsoft. Por ejemplo: `181328463391`     |
     |**Id. externo**     |   En opciones, seleccione **Require external ID...** (Requerir id. externo...) y, a continuación, escriba el identificador externo en el campo designado. <br>Por ejemplo: `e7e2b8a3-0a9f-414f-a065-afaf4ac6d994`     |
     | | |
 
@@ -181,6 +151,37 @@ Si no tiene estos valores, búsquelos primero en la [credencial de Purview.](#cr
     Por ejemplo:
 
     ![Revise los detalles antes de crear el rol.](./media/register-scan-amazon-s3/review-role.png)
+
+
+### <a name="create-a-purview-credential-for-your-aws-s3-scan"></a>Creación de una credencial de Purview para un examen AWS S3
+
+En este procedimiento se describe cómo crear una nueva credencial de Purview para usarla al examinar los cubos de AWS.
+
+> [!TIP]
+> Si continúa directamente desde [Creación de un nuevo rol de AWS para Purview](#create-a-new-aws-role-for-purview),es posible que ya tenga abierto el panel **New credential** (Nueva credencial) en Purview.
+>
+> También puede crear una nueva credencial en medio del proceso, durante la [configuración del examen](#create-a-scan-for-one-or-more-amazon-s3-buckets). En ese caso, en el campo **Credential** (Credencial), seleccione **New** (Nuevo).
+>
+
+1. En Purview, vaya a **Management Center** (Centro de administración) y, en **Security and access** (Seguridad y acceso), seleccione **Credentials** (Credenciales).
+
+1. Seleccione **New** (Nuevo) y, en el panel **New credential** (Nueva credencial) que aparece a la derecha, use los campos siguientes para crear la credencial de Purview:
+
+    |Campo |Descripción  |
+    |---------|---------|
+    |**Nombre**     |Escriba un nombre descriptivo para esta credencial.        |
+    |**Descripción**     |Escriba una descripción opcional para esta credencial, como `Used to scan the tutorial S3 buckets`.         |
+    |**Método de autenticación**     |Seleccione **Role ARN** (ARN de rol), ya que va a usar un ARN de rol para acceder al cubo.         |
+    |**Id. de cuenta Microsoft**     |Selecciónelo para copiar este valor en el Portapapeles. Use este valor para **Microsoft account ID** (Id. de cuenta Microsoft) al [crear el ARN de rol en AWS](#create-a-new-aws-role-for-purview).           |
+    |**Id. externo**     |Selecciónelo para copiar este valor en el Portapapeles. Use este valor para **External ID** (Id. externo) al [crear el ARN de rol en AWS](#create-a-new-aws-role-for-purview).        |
+    |**ARN de rol**     | Una vez que haya [creado el rol de IAM de Amazon](#create-a-new-aws-role-for-purview), vaya al mismo en el área IAM de AWS, copie el valor de **ARN de rol** y escríbalo aquí. Por ejemplo: `arn:aws:iam::181328463391:role/S3Role`. <br><br>Para más información, consulte [Recuperación del nuevo ARN de rol](#retrieve-your-new-role-arn). |
+    | | |
+
+    Seleccione **Create** (Crear) cuando termine de crear la credencial.
+
+1. Si aún no lo ha hecho, copie y pegue los valores del **identificador de la cuenta Microsoft** y del **identificador externo** para usarlos al [crear un rol de AWS para Purview](#create-a-new-aws-role-for-purview), que es el siguiente paso.
+
+Para más información sobre las credenciales de Purview, consulte [Credenciales para la autenticación de origen en Azure Purview](manage-credentials.md).
 
 
 ### <a name="configure-scanning-for-encrypted-amazon-s3-buckets"></a>Configuración del examen de cubos de Amazon S3 cifrados
@@ -248,13 +249,13 @@ Deberá anotar el ARN de rol de AWS y copiarlo en Purview al [crear un examen pa
 
 **Para recuperar el ARN de rol:**
 
-1. En el área **Identity and Access Management (IAM)**  > **Roles** (Administración de identidad y acceso > Roles) de AWS, busque y seleccione el nuevo rol que [creó para Purview](#create-a-purview-credential-for-your-aws-bucket-scan).
+1. En el área **Identity and Access Management (IAM)**  > **Roles** (Administración de identidad y acceso > Roles) de AWS, busque y seleccione el nuevo rol que [creó para Purview](#create-a-purview-credential-for-your-aws-s3-scan).
 
 1. En la página **Summary** (Resumen) del rol, seleccione el botón **Copy to clipboard** (Copiar al portapapeles) a la derecha del valor de **ARN de rol** (ARN de rol).
 
     ![Copie el valor del ARN de rol en el portapapeles.](./media/register-scan-amazon-s3/aws-copy-role-purview.png)
 
-1. Pegue este valor en una ubicación segura, lista para su uso al [crear un examen para el cubo de Amazon S3](#create-a-scan-for-one-or-more-amazon-s3-buckets).
+En Purview, puede editar la credencial de AWS S3 y pegar el rol recuperado en el campo **ARN de rol**. Para más información, vaya a [Creación de un examen para uno o varios cubos de Amazon S3](#create-a-scan-for-one-or-more-amazon-s3-buckets).
 
 ### <a name="retrieve-your-amazon-s3-bucket-name"></a>Recuperación del nombre del cubo de Amazon S3
 
@@ -276,8 +277,10 @@ Necesitará el nombre del cubo de Amazon S3 para copiarlo en Purview al [crear u
 
     Por ejemplo: `s3://purview-tutorial-bucket`
 
-> [!NOTE]
+> [!TIP]
 > Solo se admite el nivel raíz del cubo como origen de datos de Purview. Por ejemplo, *no* se admite la siguiente dirección URL, que incluye una subcarpeta: `s3://purview-tutorial-bucket/view-data`.
+>
+> Sin embargo, si configura un examen para un cubo de S3 concreto, puede seleccionar una o varias carpetas específicas para el examen. Para más información, consulte el paso para el [ámbito del examen](#create-a-scan-for-one-or-more-amazon-s3-buckets).
 >
 
 ### <a name="locate-your-aws-account-id"></a>Búsqueda del identificador de cuenta de AWS
@@ -295,7 +298,7 @@ Por ejemplo:
 
 Use este procedimiento si solo tiene un único cubo de S3 que desee registrar en Purview como origen de datos, o si tiene varios cubos en la cuenta de AWS, pero no desea registrarlos todos en Purview.
 
-**Para agregar un cubo**: 
+**Para agregar un cubo**:
 
 1. Inicie el portal de Purview con la dirección URL dedicada del conector de Purview para Amazon S3. Esta dirección URL se la proporcionó el equipo de administración del producto del conector de Purview de Amazon S3.
 
@@ -314,7 +317,7 @@ Use este procedimiento si solo tiene un único cubo de S3 que desee registrar en
     |Campo  |Descripción  |
     |---------|---------|
     |**Nombre**     |Escriba un nombre descriptivo o utilice el valor predeterminado proporcionado.         |
-    |**Dirección URL del cubo**     | Escriba la dirección URL del cubo de AWS con la siguiente sintaxis: `s3://<bucketName>`     <br><br>**Nota**: Asegúrese de usar solo el nivel de raíz del cubo, sin ninguna subcarpeta. Para más información, consulte [Recuperación del nombre del cubo de Amazon S3](#retrieve-your-amazon-s3-bucket-name). |
+    |**Dirección URL del cubo**     | Escriba la dirección URL del cubo de AWS con la siguiente sintaxis: `s3://<bucketName>`     <br><br>**Nota**: Asegúrese de usar solo el nivel de raíz del cubo. Para más información, consulte [Recuperación del nombre del cubo de Amazon S3](#retrieve-your-amazon-s3-bucket-name). |
     |**Selección de una colección** |Si ha seleccionado registrar un origen de datos desde una colección, esa colección ya aparece en la lista. <br><br>Seleccione una colección diferente según sea necesario, **None** (Ninguna) para no asignar ninguna colección o **New** (Nueva) para crear una nueva colección ahora. <br><br>Para más información sobre las colecciones de Purview, consulte [Administración de orígenes de datos en Azure Purview (versión preliminar)](manage-data-sources.md#manage-collections).|
     | | |
 
@@ -358,7 +361,7 @@ Vaya a [Creación de un examen para uno o varios cubos de Amazon S3](#create-a-s
 
 Una vez que haya agregado los cubos como orígenes de datos de Purview, puede configurar un examen para que se ejecute a intervalos programados o inmediatamente.
 
-1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de Purview Studio y, luego, siga uno de los procedimientos a continuación:
+1. Seleccione la pestaña **Mapa de datos** del panel izquierdo de [Purview Studio](https://web.purview.azure.com/resource/) y, luego, realice uno de los siguientes procedimientos:
 
     - En **Map view** (Vista de mapa), seleccione **New scan** (Nuevo examen) ![Icono Nuevo examen.](./media/register-scan-amazon-s3/new-scan-button.png) en el cuadro del origen de datos.
     - En **List view** (Vista de lista), mantenga el puntero sobre la fila del origen de datos y seleccione **New scan** (Nuevo examen) ![Icono Nuevo examen.](./media/register-scan-amazon-s3/new-scan-button.png).
@@ -369,7 +372,7 @@ Una vez que haya agregado los cubos como orígenes de datos de Purview, puede co
     |---------|---------|
     |**Nombre**     |  Escriba un nombre descriptivo para el examen o utilice el valor predeterminado.       |
     |**Tipo** |Solo se muestra si ha agregado la cuenta de AWS, con todos los cubos incluidos. <br><br>Las opciones actuales incluyen únicamente **All** > **Amazon S3** (Todos > Amazon S3). Manténgase atento sobre más opciones para seleccionar a medida que se amplíe la matriz de compatibilidad de Purview. |
-    |**Credential:**     |  Seleccione una credencial de Purview con el ARN de rol. <br><br>**Sugerencia**: Si desea crear una credencial nueva en este momento, seleccione **New** (Nueva). Para más información, consulte [Creación de una credencial de Purview para el examen del cubo de AWS](#create-a-purview-credential-for-your-aws-bucket-scan).     |
+    |**Credential:**     |  Seleccione una credencial de Purview con el ARN de rol. <br><br>**Sugerencia**: Si desea crear una credencial nueva en este momento, seleccione **New** (Nueva). Para más información, consulte [Creación de una credencial de Purview para el examen del cubo de AWS](#create-a-purview-credential-for-your-aws-s3-scan).     |
     | **Amazon S3**    |   Solo se muestra si ha agregado la cuenta de AWS, con todos los cubos incluidos. <br><br>Seleccione uno o varios cubos para examinarlos, o bien elija **Seleccionar todos** para examinar todos los cubos de su cuenta.      |
     | | |
 
@@ -378,6 +381,10 @@ Una vez que haya agregado los cubos como orígenes de datos de Purview, puede co
     > [!TIP]
     > Para especificar valores diferentes y probar la conexión antes de continuar, seleccione **Test connection** (Probar la conexión) en la parte inferior derecha antes de seleccionar **Continue** (Continuar).
     >
+
+1. <a name="scope-your-scan"></a>En el panel **Scope your scan** (Ámbito del examen),seleccione los cubos o carpetas concretos que desea incluir en el examen.
+
+    Al crear un examen de toda una cuenta de AWS, puede seleccionar los cubos específicos que desea que se examinen. Al crear un examen de un cubo S3 de AWS específico, puede seleccionar las carpetas concretas que desea que se examinen.
 
 1. En el panel **Select a scan rule set** (Seleccionar un conjunto de reglas de examen), seleccione el conjunto de reglas predeterminado **AmazonS3** o seleccione **New scan rule set** (Nuevo conjunto de reglas de examen) para crear un nuevo conjunto de reglas personalizado. Una vez que haya seleccionado el conjunto de reglas, seleccione **Continue** (Continuar).
 

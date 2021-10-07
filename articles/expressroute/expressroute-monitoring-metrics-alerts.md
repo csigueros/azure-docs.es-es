@@ -4,14 +4,14 @@ description: Obtenga información sobre la supervisión, las métricas y las ale
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 04/07/2021
+ms.date: 09/14/2021
 ms.author: duau
-ms.openlocfilehash: abcec496f6bf3fdcd42dcffa66ecfb67533c7052
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: ebb661500fdf14d19218704906d24f391389bec8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123449502"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667224"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Supervisión, métricas y alertas de ExpressRoute
 
@@ -27,9 +27,14 @@ Para ver **Métricas**, vaya a la página *Azure Monitor* y seleccione *Métrica
 
 Una vez seleccionada una métrica, se aplicará la agregación predeterminada. Opcionalmente, puede aplicar la división, que mostrará la métrica con diferentes dimensiones.
 
+> [!IMPORTANT]
+> Cuando consulte las métricas de ExpressRoute en Azure Portal, seleccione una granularidad temporal de **5 minutos o superior** para obtener los mejores resultados posibles.
+> 
+> :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/metric-granularity.png" alt-text="Instantánea de las opciones de granularidad temporal.":::
+
 ### <a name="aggregation-types"></a>Tipos de agregación:
 
-El Explorador de métricas admite SUM, MAX, MIN, AVG y COUNT como [tipos de agregación](../azure-monitor/essentials/metrics-charts.md#aggregation). Debe usar el tipo de agregación recomendado al revisar la información de cada métrica de ExpressRoute.
+El Explorador de métricas admite SUM, MAX, MIN, AVG y COUNT como [tipos de agregación](../azure-monitor/essentials/metrics-charts.md#aggregation). Debe usar el tipo de agregación recomendado al revisar la información detallada de cada métrica de ExpressRoute.
 
 * Suma: la suma de todos los valores capturados durante el intervalo de agregación. 
 * Recuento: el número de medidas capturadas durante el intervalo de agregación. 
@@ -37,33 +42,59 @@ El Explorador de métricas admite SUM, MAX, MIN, AVG y COUNT como [tipos de agre
 * Mínimo: el menor valor capturado durante el intervalo de agregación. 
 * Máximo: el mayor valor capturado durante el intervalo de agregación. 
 
-### <a name="available-metrics"></a>Métricas disponibles
+### <a name="expressroute-circuit"></a>Circuito ExpressRoute
 
-|**Métrica**|**Categoría**|**Dimensiones**|**Características**|
-| --- | --- | --- | --- |
-|Disponibilidad de ARP|Disponibilidad|<ul><li>Par (enrutador de ExpressRoute principal y secundario)</li><li> Tipo de emparejamiento (privado, público o Microsoft)</li></ul>|ExpressRoute|
-|Disponibilidad de BGP|Disponibilidad|<ul><li> Par (enrutador de ExpressRoute principal y secundario)</li><li> Tipo de emparejamiento</li></ul>|ExpressRoute|
-|BitsInPerSecond|Tráfico|<ul><li> Tipo de emparejamiento (ExpressRoute)</li><li>Vínculo (ExpressRoute Direct)</li></ul>|<ul><li>ExpressRoute</li><li>ExpressRoute Direct</li><li>Conexión de puerta de enlace de ExpressRoute</li></ul>|
-|BitsOutPerSecond|Tráfico| <ul><li>Tipo de emparejamiento (ExpressRoute)</li><li> Vínculo (ExpressRoute Direct)</li></ul> |<ul><li>ExpressRoute</li><li>ExpressRoute Direct</li><li>Conexión de puerta de enlace de ExpressRoute</li></ul>|
-|Uso de CPU|Rendimiento| <ul><li>Instancia</li></ul>|Puerta de enlace de red virtual de ExpressRoute|
-|Paquetes por segundo|Rendimiento| <ul><li>Instancia</li></ul>|Puerta de enlace de red virtual de ExpressRoute.|
-|Recuento de rutas anunciadas al par |Disponibilidad| <ul><li>Instancia</li></ul>|Puerta de enlace de red virtual de ExpressRoute.|
-|Recuento de rutas aprendidas del par |Disponibilidad| <ul><li>Instancia</li></ul>|Puerta de enlace de red virtual de ExpressRoute.|
-|Frecuencia de cambio de rutas |Disponibilidad| <ul><li>Instancia</li></ul>|Puerta de enlace de red virtual de ExpressRoute.|
-|Número de máquinas virtuales en la red virtual |Disponibilidad| N/D |Puerta de enlace de red virtual de ExpressRoute.|
-|GlobalReachBitsInPerSecond|Tráfico|<ul><li>Skey de circuito emparejado (clave de servicio)</li></ul>|Global Reach|
-|GlobalReachBitsOutPerSecond|Tráfico|<ul><li>Skey de circuito emparejado (clave de servicio)</li></ul>|Global Reach|
-|AdminState|Conectividad física|Vínculo|ExpressRoute Direct|
-|LineProtocol|Conectividad física|Vínculo|ExpressRoute Direct|
-|RxLightLevel|Conectividad física|<ul><li>Vínculo</li><li>Carril</li></ul>|ExpressRoute Direct|
-|TxLightLevel|Conectividad física|<ul><li>Vínculo</li><li>Carril</li></ul>|ExpressRoute Direct|
+| Métrica | Category | Unidad | Tipo de agregación | Descripción | Dimensions |  ¿Se puede exportar con la configuración de diagnóstico? | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| [Disponibilidad de ARP](#arp) | Disponibilidad | Percent | Average | Disponibilidad de ARP de MSEE a todos los elementos del mismo nivel. | PeeringType, Peer |  Yes | 
+| [Disponibilidad de BGP](#bgp) | Disponibilidad | Percent | Average | Disponibilidad de BGP de MSEE a todos los elementos del mismo nivel. | PeeringType, Peer |  Yes | 
+| [BitsInPerSecond](#circuitbandwidth) | Tráfico | BitsPerSecond | Average | Bits que ingresan a Azure por segundo | PeeringType | No | 
+| [BitsOutPerSecond](#circuitbandwidth) | Tráfico | BitsPerSecond | Average | Bits que egresan de Azure por segundo | PeeringType | No | 
+| DroppedInBitsPerSecond | Tráfico | BitsPerSecond | Average | Bits de entrada de datos descartados por segundo | Tipo de emparejamiento | Sí | 
+| DroppedOutBitsPerSecond | Tráfico | BitPerSecond | Average | Bits de salida de datos descartados por segundo | Tipo de emparejamiento | Yes | 
+| GlobalReachBitsInPerSecond | Tráfico | BitsPerSecond | Average | Bits que ingresan a Azure por segundo | PeeredCircuitSKey | No | 
+| GlobalReachBitsOutPerSecond | Tráfico | BitsPerSecond | Average | Bits que egresan de Azure por segundo | PeeredCircuitSKey | No | 
+
 >[!NOTE]
 >El uso de *GlobalGlobalReachBitsInPerSecond* y *GlobalGlobalReachBitsOutPerSecond* solo será visible si se ha establecido al menos una conexión Global Reach.
 >
 
+### <a name="expressroute-gateways"></a>Puertas de enlace de ExpressRoute
+
+| Métrica | Category | Unidad | Tipo de agregación | Descripción | Dimensions | ¿Se puede exportar con la configuración de diagnóstico? | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| [Uso de CPU](#cpu) | Rendimiento | Count | Average | Uso de CPU de la puerta de enlace de ExpressRoute | roleInstance | Yes | 
+| [Paquetes por segundo](#packets) | Rendimiento | CountPerSecond | Average | Recuento de paquetes de puerta de enlace de ExpressRoute | roleInstance | No | 
+| [Número de rutas anunciadas al nodo del mismo nivel](#advertisedroutes) | Disponibilidad | Count | Máxima | Recuento de rutas anunciadas al par por ExpressRouteGateway | roleInstance | Yes | 
+| [Número de rutas aprendidas del nodo del mismo nivel](#learnedroutes)| Disponibilidad | Count | Máxima | Recuento de rutas aprendidas del par por ExpressRouteGateway | roleInstance | Yes | 
+| [Frecuencia de cambio de rutas](#frequency) | Disponibilidad | Count | Total | Frecuencia de cambio de rutas en la puerta de enlace de ExpressRoute | roleInstance | No | 
+| [Número de máquinas virtuales en la red virtual](#vm) | Disponibilidad | Count | Máxima | Número de máquinas virtuales en la red virtual | Sin dimensiones | No | 
+
+### <a name="expressroute-gateway-connections"></a>Conexiones de puerta de enlace de ExpressRoute
+
+| Métrica | Category | Unidad | Tipo de agregación | Descripción | Dimensions | ¿Se puede exportar con la configuración de diagnóstico? | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| [BitsInPerSecond](#connectionbandwidth) | Tráfico | BitsPerSecond | Average | Bits que ingresan a Azure por segundo | ConnectionName | No | 
+| [BitsOutPerSecond](#connectionbandwidth) | Tráfico | BitsPerSecond | Average | Bits que egresan de Azure por segundo | ConnectionName | No | 
+| DroppedInBitsPerSecond | Tráfico | BitsPerSecond | Average | Bits de entrada de datos descartados por segundo | ConnectionName | Sí | 
+| DroppedOutBitsPerSecond | Tráfico | BitPerSecond | Average | Bits de salida de datos descartados por segundo | ConnectionName | Yes | 
+
+### <a name="expressroute-direct"></a>ExpressRoute Direct
+
+| Métrica | Category | Unidad | Tipo de agregación | Descripción | Dimensions | ¿Se puede exportar con la configuración de diagnóstico? | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| [BitsInPerSecond](#directin) | Tráfico | BitsPerSecond | Average | Bits que ingresan a Azure por segundo | Vínculo | Yes | 
+| [BitsOutPerSecond](#directout) | Tráfico | BitsPerSecond | Average | Bits que egresan de Azure por segundo | Vínculo | Sí | 
+| DroppedInBitsPerSecond | Tráfico | BitsPerSecond | Average | Bits de entrada de datos descartados por segundo | Link | Sí | 
+| DroppedOutBitsPerSecond | Tráfico | BitPerSecond | Average | Bits de salida de datos descartados por segundo | Link  | Yes | 
+| [AdminState](#admin) | Conectividad física | Count | Average | Estado de administración del puerto | Vínculo | Yes | 
+| [LineProtocol](#line) | Conectividad física | Count | Average | Estado del protocolo de línea del puerto | Vínculo | Yes | 
+| [RxLightLevel](#rxlight) | Conectividad física | Count | Average | Nivel de iluminación de recepción en dBm | Link, Lane | Yes | 
+| [TxLightLevel](#txlight) | Conectividad física | Count | Average | Nivel de iluminación de transmisión en dBm | Link, Lane | Yes |
+
 ## <a name="circuits-metrics"></a>Métricas de circuito
 
-### <a name="bits-in-and-out---metrics-across-all-peerings"></a>Bits dentro y fuera: métricas de todos los emparejamientos
+### <a name="bits-in-and-out---metrics-across-all-peerings"></a><a name = "circuitbandwidth"></a>Bits dentro y fuera: métricas de todos los emparejamientos
 
 Tipo de agregación: *Avg*
 
@@ -79,7 +110,7 @@ Puede ver las métricas de emparejamiento público, privado y de Microsoft en bi
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg" alt-text="métricas por emparejamiento":::
 
-### <a name="bgp-availability---split-by-peer"></a>Disponibilidad de BGP: división por par  
+### <a name="bgp-availability---split-by-peer"></a><a name = "bgp"></a>Disponibilidad de BGP: dividido por nodo del mismo nivel  
 
 Tipo de agregación: *Avg*
 
@@ -87,7 +118,7 @@ Puede ver la disponibilidad casi en tiempo real de BGP (conectividad de nivel 3)
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erBgpAvailabilityMetrics.jpg" alt-text="Disponibilidad de BGP por par":::
 
-### <a name="arp-availability---split-by-peering"></a>Disponibilidad de ARP: división por emparejamiento  
+### <a name="arp-availability---split-by-peering"></a><a name = "arp"></a>Disponibilidad de ARP: dividido por emparejamiento  
 
 Tipo de agregación: *Avg*
 
@@ -97,7 +128,7 @@ Puede ver la disponibilidad casi en tiempo real de [ARP](./expressroute-troubles
 
 ## <a name="expressroute-direct-metrics"></a>Métricas directas de ExpressRoute
 
-### <a name="admin-state---split-by-link"></a>Estado de administración: dividido por vínculo
+### <a name="admin-state---split-by-link"></a><a name = "admin"></a>Estado de administración: dividido por vínculo
 
 Tipo de agregación: *Avg*
 
@@ -105,7 +136,7 @@ Puede ver el estado del administrador para cada vínculo del par de puertos de E
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/adminstate-per-link.jpg" alt-text="Estado de administrador ER directo":::
 
-### <a name="bits-in-per-second---split-by-link"></a>Bits por segundo: divido por vínculo
+### <a name="bits-in-per-second---split-by-link"></a><a name = "directin"></a>Bits de entrada por segundo: dividido por vínculo
 
 Tipo de agregación: *Avg*
 
@@ -113,7 +144,7 @@ Puede ver los bits por segundo en ambos enlaces del par de puertos directos de E
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/bits-in-per-second-per-link.jpg" alt-text="ER bits directos por segundo":::
 
-### <a name="bits-out-per-second---split-by-link"></a>Bits de salida por segundo: divido por vínculo
+### <a name="bits-out-per-second---split-by-link"></a><a name = "directout"></a>Bits de salida por segundo: dividido por vínculo
 
 Tipo de agregación: *Avg*
 
@@ -121,7 +152,7 @@ También puede ver los bits por segundo en ambos enlaces del par de puertos dire
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/bits-out-per-second-per-link.jpg" alt-text="ER bits directos por segundo":::
 
-### <a name="line-protocol---split-by-link"></a>Protocolo de línea: división por vínculo
+### <a name="line-protocol---split-by-link"></a><a name = "line"></a>Protocolo de línea: dividido por vínculo
 
 Tipo de agregación: *Avg*
 
@@ -129,7 +160,7 @@ Puede ver el protocolo de línea en cada enlace del par de puertos directos de E
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/line-protocol-per-link.jpg" alt-text="Protocolo ER de línea directa":::
 
-### <a name="rx-light-level---split-by-link"></a>Nivel de luz de RX: división por vínculo
+### <a name="rx-light-level---split-by-link"></a><a name = "rxlight"></a>Nivel de luz de Rx: dividido por vínculo
 
 Tipo de agregación: *Avg*
 
@@ -137,7 +168,7 @@ Puede ver el nivel de luz de Rx (el nivel de luz que el puerto directo de Expres
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg" alt-text="Nivel de luz de recepción de línea directa de ER":::
 
-### <a name="tx-light-level---split-by-link"></a>Nivel de luz de RX: división por vínculo
+### <a name="tx-light-level---split-by-link"></a><a name = "txlight"></a>Nivel de luz de Tx: dividido por vínculo
 
 Tipo de agregación: *Avg*
 
@@ -160,7 +191,7 @@ Al implementar una puerta de enlace de ExpressRoute, Azure administra el proceso
 
 Se recomienda encarecidamente establecer alertas para cada una de estas métricas para saber cuándo la puerta de enlace puede estar experimentando problemas de rendimiento.
 
-### <a name="cpu-utilization---split-instance"></a>Uso de CPU: división de instancia
+### <a name="cpu-utilization---split-instance"></a><a name = "cpu"></a>Uso de CPU: división de instancia
 
 Tipo de agregación: *Avg*
 
@@ -168,7 +199,7 @@ Puede ver el uso de CPU de cada una de las instancias de la puerta de enlace. El
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/cpu-split.jpg" alt-text="Captura de pantalla del uso de CPU: métricas de división.":::
 
-### <a name="packets-per-second---split-by-instance"></a>Paquetes por segundo: división por instancia
+### <a name="packets-per-second---split-by-instance"></a><a name = "packets"></a>Paquetes por segundo: dividido por instancia
 
 Tipo de agregación: *Avg*
 
@@ -176,7 +207,7 @@ Esta métrica captura el número de paquetes entrantes que atraviesan la puerta 
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/pps-split.jpg" alt-text="Captura de pantalla de paquetes por segundo: métricas de división.":::
 
-### <a name="count-of-routes-advertised-to-peer---split-by-instance"></a>Recuento de rutas anunciadas al par: división por instancia
+### <a name="count-of-routes-advertised-to-peer---split-by-instance"></a><a name = "advertisedroutes"></a>Número de rutas anunciadas al nodo del mismo nivel: dividido por instancia
 
 Tipo de agregación: *Count*
 
@@ -184,7 +215,7 @@ Esta métrica es el recuento del número de rutas que la puerta de enlace de Exp
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/count-of-routes-advertised-to-peer.png" alt-text="Captura de pantalla del recuento de rutas anunciadas al par.":::
 
-### <a name="count-of-routes-learned-from-peer---split-by-instance"></a>Recuento de rutas aprendidas del par: división por instancia
+### <a name="count-of-routes-learned-from-peer---split-by-instance"></a><a name = "learnedroutes"></a>Número de rutas aprendidas del nodo del mismo nivel: dividido por instancia
 
 Tipo de agregación: *Max*
 
@@ -192,7 +223,7 @@ Esta métrica muestra el número de rutas que la puerta de enlace de ExpressRout
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/count-of-routes-learned-from-peer.png" alt-text="Captura de pantalla del recuento de rutas aprendidas del par.":::
 
-### <a name="frequency-of-routes-change---split-by-instance"></a>Frecuencia de cambio de rutas: división por instancia
+### <a name="frequency-of-routes-change---split-by-instance"></a><a name = "frequency"></a>Frecuencia de cambio de rutas: dividido por instancia
 
 Tipo de agregación: *Sum*
 
@@ -200,7 +231,7 @@ Esta métrica muestra la frecuencia de las rutas que se aprenden de pares remoto
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/frequency-of-routes-changed.png" alt-text="Captura de pantalla de la métrica de frecuencia de cambios en las rutas.":::
 
-### <a name="number-of-vms-in-the-virtual-network"></a>Número de máquinas virtuales en la red virtual
+### <a name="number-of-vms-in-the-virtual-network"></a><a name = "vm"></a>Número de máquinas virtuales en la red virtual
 
 Tipo de agregación: *Max*
 
@@ -208,7 +239,7 @@ Esta métrica muestra el número de máquinas virtuales que usan la puerta de en
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/number-of-virtual-machines-virtual-network.png" alt-text="Captura de pantalla de la métrica del número de máquinas virtuales en la red virtual.":::
 
-## <a name="expressroute-gateway-connections-in-bitsseconds"></a>Conexiones de puerta de enlace de ExpressRoute en bits por segundo
+## <a name="expressroute-gateway-connections-in-bitsseconds"></a><a name = "connectionbandwidth"></a>Conexiones de puerta de enlace de ExpressRoute en bits por segundo
 
 Tipo de agregación: *Avg*
 
@@ -245,14 +276,14 @@ En **Criterios de alerta**, puede seleccionar **Registro de actividad** para el 
 
 También puede ver las métricas de ExpressRoute navegando hasta el recurso del circuito de ExpressRoute y seleccionando la pestaña *Registros*. Para cualquier métrica que consulte, la salida contendrá las columnas siguientes.
 
-|**Columna**|**Tipo**|**Descripción**|
-| --- | --- | --- |
-|TimeGrain|string|PT1M (los valores de métricas se insertan cada minuto)|
-|Count|real|Normalmente es igual a 2 (cada MSEE inserta un solo valor de métrica cada minuto)|
-|Mínima|real|El mínimo de los dos valores de métrica insertados por los dos MSEE|
-|Máxima|real|El máximo de los dos valores de métrica insertados por los dos MSEE|
-|Average|real|Igual a (mínimo + máximo)/2|
-|Total|real|Suma de los dos valores de métrica de ambos MSEE (el valor principal en el que se centrará para la métrica consultada)|
+| **Columna** | **Tipo** | **Descripción** | 
+|  ---  |  ---  |  ---  | 
+| TimeGrain | string | PT1M (los valores de métricas se insertan cada minuto) | 
+| Count | real | Normalmente es igual a 2 (cada MSEE inserta un solo valor de métrica cada minuto) | 
+| Mínima | real | El mínimo de los dos valores de métrica insertados por los dos MSEE | 
+| Máxima | real | El máximo de los dos valores de métrica insertados por los dos MSEE | 
+| Average | real | Igual a (mínimo + máximo)/2 | 
+| Total | real | Suma de los dos valores de métrica de ambos MSEE (el valor principal en el que se centrará para la métrica consultada) | 
   
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -4,22 +4,22 @@ titleSuffix: Azure Digital Twins
 description: Obtenga información sobre cómo usar la biblioteca del analizador para analizar los modelos de DTDL.
 author: baanders
 ms.author: baanders
-ms.date: 8/13/2021
+ms.date: 9/2/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 584d4ba9de922cd035a70850f723550b02863e16
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: e77fc64277cd0210a4741bc6828b5f1f72cf0e73
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122606600"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831005"
 ---
 # <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>Análisis y validación de modelos con la biblioteca del analizador de DTDL
 
 Los [modelos](concepts-models.md) de Azure Digital Twins se definen con el lenguaje de definición de gemelos digitales (DTDL) basado en JSON-LD. **Se recomienda validar los modelos sin conexión antes de cargarlos en la instancia de Azure Digital Twins**.
 
-Para facilitar esta tarea, se proporciona una biblioteca de análisis de DTDL del lado cliente de .NET en NuGet: [Microsoft.Azure.DigitalTwins.Parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). 
+Para ayudarle a validar los modelos, se proporciona una biblioteca de análisis de DTDL del lado cliente de .NET en NuGet: [Microsoft.Azure.DigitalTwins.Parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). 
 
 Puede usar la biblioteca del analizador directamente en el código de C#, o bien usar el proyecto de ejemplo de código independiente del lenguaje que se basa en la biblioteca del analizador: [Ejemplo de validador de DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator).
 

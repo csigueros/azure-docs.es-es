@@ -8,21 +8,21 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 08/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 824f1f06171e83381b46a6df99d70e3003f08f7d
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 0a684cec230766119345b8fd8acd3df53cc3f25a
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123473053"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213021"
 ---
 # <a name="create-and-manage-collections-in-azure-purview"></a>Creación y administración de colecciones en Azure Purview
 
 > [!NOTE]
-> En este momento, esta guía solo se aplica a las instancias de Purview creadas el **18 de agosto de 2021 o después**. Las instancias creadas antes del 18 de agosto pueden crear colecciones, pero no administran permisos a través de esas colecciones. Para más información sobre cómo crear una colección para una instancia de Purview creada antes del 18 de agosto, consulte nuestra [**guía de colecciones heredada**](#legacy-collection-guide) en la parte inferior de la página.
+> En este momento, esta guía solo se aplica a las instancias de Azure Purview creadas el **18 de agosto de 2021 o después**. Las instancias creadas antes del 18 de agosto pueden crear colecciones, pero no administran permisos a través de esas colecciones. Para más información sobre cómo crear una colección para una instancia de Purview creada antes del 18 de agosto, consulte nuestra [**guía de colecciones heredada**](#legacy-collection-guide) en la parte inferior de la página.
 >
-> Todas las cuentas heredadas se actualizarán automáticamente en las próximas semanas. Recibirá una notificación por correo electrónico cuando se actualice la cuenta de Purview. Para más información sobre lo que cambiará cuando se actualice la cuenta, consulte nuestra [guía de cuentas actualizadas](concept-account-upgrade.md).
+> Todas las cuentas heredadas se actualizarán automáticamente en las próximas semanas. Recibirá una notificación por correo electrónico cuando se actualice la cuenta de Purview. Para más información sobre los cambios que se producirán al actualizar la cuenta, consulte nuestra [guía de cuentas actualizadas](concept-account-upgrade.md).
 
-Las colecciones de Purview se pueden usar para organizar recursos y orígenes según el flujo del negocio, pero también son la herramienta que se usa para administrar el acceso a través de Purview. Esta guía le orientará sobre la creación y administración de estas colecciones, así como sobre los pasos para registrar orígenes y agregar recursos a las colecciones.
+Las colecciones de Azure Purview se pueden usar para organizar recursos y orígenes según el flujo del negocio, pero también son la herramienta que se usa para administrar el acceso a través de Purview. Esta guía le orientará sobre la creación y administración de estas colecciones, así como sobre los pasos para registrar orígenes y agregar recursos a las colecciones.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -34,7 +34,7 @@ Las colecciones de Purview se pueden usar para organizar recursos y orígenes se
 
 ### <a name="check-permissions"></a>Compruebe los permisos.
 
-Para crear y administrar colecciones en Purview, deberá ser un **administrador de colecciones** en Purview. Podemos comprobar estos permisos en [Purview Studio](use-purview-studio.md). Para encontrar Studio, vaya al recurso de Purview en [Azure Portal](https://portal.azure.com) y seleccione el icono Open Purview Studio (Abrir Purview Studio) en la página de información general.
+Para crear y administrar colecciones en Purview, deberá ser un **administrador de colecciones** en Purview. Podemos comprobar estos permisos en [Purview Studio](https://web.purview.azure.com/resource/). Para encontrar Studio, vaya al recurso de Purview en [Azure Portal](https://portal.azure.com) y seleccione el icono Open Purview Studio (Abrir Purview Studio) en la página de información general.
 
 1. Seleccione Mapa de datos > Colecciones en el panel izquierdo para abrir la página de administración de colecciones.
 

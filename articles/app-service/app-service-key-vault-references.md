@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/11/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 15b5974aff53303ca0245fc6100ea22eebc70c6d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 381cc0d1114e60cbb9678c0df9a66176f3b51e99
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121752472"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627603"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Uso de referencias de Key Vault para App Service y Azure Functions
 
@@ -42,6 +42,9 @@ Si el almacén está configurado con [restricciones de red](../key-vault/general
     ```
 
 2. Asegúrese de que la configuración del almacén tenga en cuenta la red o la subred mediante la que cual la aplicación tendrá acceso.
+
+> [!NOTE]
+> El contenedor de Windows no admite actualmente referencias de Key Vault a través de la integración con red virtual.
 
 ### <a name="access-vaults-with-a-user-assigned-identity"></a>Acceso a los almacenes con una identidad asignada por el usuario
 

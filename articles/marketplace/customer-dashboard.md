@@ -7,13 +7,13 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 11/09/2020
-ms.openlocfilehash: 43332c559c309bc99754467994a4718ece78d3cc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 9/27/2021
+ms.openlocfilehash: 7d665b34a112328a742e2ba4ed9816406a58fa30
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121731208"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129082975"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>Panel Clientes de los análisis de marketplace comercial
 
@@ -38,17 +38,45 @@ En el [panel Clientes](https://go.microsoft.com/fwlink/?linkid=2166011) se muest
 > [!NOTE]
 > La latencia máxima entre la adquisición de clientes y la generación de informes en el Centro de partners es de 48 horas.
 
+## <a name="access-the-customers-dashboard"></a>Acceso al panel Clientes
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
+1. En la página principal, seleccione el icono **Información**.
+
+    [ ![Se muestra el icono Información en la página principal del Centro de partners.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. En el menú izquierdo, seleccione **Clientes**.
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
+
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
+1. En el menú de navegación de la izquierda, seleccione **Marketplace comercial** > **Analizar** > **Clientes**.
+
+---
+
 ## <a name="elements-of-the-customers-dashboard"></a>Elementos del panel Clientes
 
 En las secciones siguientes se describe cómo usar el panel Clientes y cómo leer los datos.
 
-Para obtener acceso al panel Clientes en el Centro de partners, vaya a **Marketplace comercial** y seleccione **[Analizar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Clientes**.
-
 ### <a name="month-range"></a>Intervalo mensual
+
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+
+Puede encontrar una selección del intervalo mensual en la esquina superior derecha de cada página. Puede personalizar la salida de los gráficos de la página **Clientes** seleccionando un intervalo mensual basado en los últimos 6 o 12 meses, o seleccionando un intervalo mensual personalizado con una duración máxima de 12 meses. El intervalo mensual predeterminado (período de cálculo) es de seis meses.
+
+[ ![Muestra los filtros del mes en la página Clientes.](./media/customer-dashboard/customers-workspace-filters.png) ](./media/customer-dashboard/customers-workspace-filters.png#lightbox)
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
 
 Puede encontrar una selección del intervalo mensual en la esquina superior derecha de cada página. Puede personalizar la salida de los gráficos de la página **Clientes** seleccionando un intervalo mensual basado en los últimos 6 o 12 meses, o seleccionando un intervalo mensual personalizado con una duración máxima de 12 meses. El intervalo mensual predeterminado (período de cálculo) es de seis meses.
 
 :::image type="content" source="./media/customer-dashboard/month-range-filters.png" alt-text="Muestra los filtros del mes en la página Clientes.":::
+
+---
 
 > [!NOTE]
 > Todas las métricas de los widgets de visualización y los informes de exportación respetan el período de cálculo seleccionado por el usuario.
@@ -81,7 +109,7 @@ En esta sección, encontrará la tendencia y el recuento de todos los clientes, 
 
 El gráfico **Clientes por pedidos o uso** tiene tres pestañas: Pedidos, Uso normalizado y Uso sin procesar. Seleccione la pestaña **Pedidos** para mostrar detalles de pedido.
 
-:::image type="content" source="./media/customer-dashboard/customers-by-orders-usage.png" alt-text="Muestra la pestaña Pedidos del widget Clientes por pedidos y uso en la página Clientes.":::
+[ ![Muestra la pestaña Pedidos del widget Clientes por pedidos y uso en la página Clientes.](./media/customer-dashboard/customers-by-orders-usage.png) ](./media/customer-dashboard/customers-by-orders-usage.png#lightbox)
 
 Tenga en cuenta lo siguiente:
 

@@ -4,34 +4,17 @@ description: Describe las funciones que se usarán en un archivo de Bicep para t
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
-ms.date: 06/01/2021
-ms.openlocfilehash: e782ec0d77930651346cc0fc97e52d5c473b9245
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 09/10/2021
+ms.openlocfilehash: 69a937a68e2f73eaf911f2cb80cf09bab7d78eed
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111027125"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124794108"
 ---
 # <a name="array-functions-for-bicep"></a>Funciones de matriz para Bicep
 
-Resource Manager ofrece varias funciones para trabajar con matrices en Bicep:
-
-* [array](#array)
-* [concat](#concat)
-* [contains](#contains)
-* [empty](#empty)
-* [first](#first)
-* [intersection](#intersection)
-* [last](#last)
-* [length](#length)
-* [max](#max)
-* [min](#min)
-* [range](#range)
-* [skip](#skip)
-* [take](#take)
-* [union](#union)
-
-Para obtener una matriz de valores de cadena delimitada por un valor, consulte [split](./bicep-functions-string.md#split).
+En este artículo se describen las funciones de Bicep para trabajar con matrices.
 
 ## <a name="array"></a>array
 
@@ -85,7 +68,7 @@ Combina varias matrices y devuelve la matriz concatenada.
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |array |La primera matriz para la concatenación. |
-| argumentos adicionales |No |array |Matrices adicionales en orden secuencial para la concatenación. |
+| más argumentos |No |array |Más matrices en orden secuencial para la concatenación. |
 
 Esta función toma cualquier número de matrices y las combina.
 
@@ -259,11 +242,11 @@ Devuelve una única matriz u objeto con los elementos comunes de los parámetros
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz u objeto |El primer valor que se utilizará para buscar elementos comunes. |
 | arg2 |Sí |matriz u objeto |El segundo valor que se utilizará para buscar elementos comunes. |
-| argumentos adicionales |No |matriz u objeto |Valores adicionales que se utilizarán para buscar elementos comunes. |
+| más argumentos |No |matriz u objeto |Más valores que se utilizarán para buscar elementos comunes. |
 
 ### <a name="return-value"></a>Valor devuelto
 
-Una matriz o un objeto con los elementos comunes.
+Una matriz o un objeto con los elementos comunes. El orden de los elementos viene determinado por el primer parámetro de matriz.
 
 ### <a name="example"></a>Ejemplo
 
@@ -303,6 +286,40 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
+
+El primer parámetro de matriz determina el orden de los elementos intersectados. En el ejemplo siguiente se muestra cómo el orden de los elementos devueltos se basa en qué matriz es la primera.
+
+```bicep
+var array1 = [
+  1
+  2
+  3
+  4
+]
+
+var array2 = [
+  3
+  2
+  1
+]
+
+var array3 = [
+  4
+  1
+  3
+  2
+]
+
+output commonUp array = intersection(array1, array2, array3)
+output commonDown array = intersection(array2, array3, array1)
+```
+
+El resultado del ejemplo anterior es:
+
+| Nombre | Tipo | Value |
+| ---- | ---- | ----- |
+| commonUp | array | [1, 2, 3] |
+| commonDown | array | [3, 2, 1] |
 
 ## <a name="last"></a>last
 
@@ -476,7 +493,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 `range(startIndex, count)`
 
-Crea una matriz de enteros a partir de un entero de inicio y contiene un número de elementos.
+Crea una matriz de enteros a partir de un entero de inicio y contiene el número de elementos.
 
 ### <a name="parameters"></a>Parámetros
 
@@ -602,7 +619,7 @@ Devuelve una única matriz u objeto con todos los elementos de los parámetros. 
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz u objeto |El primer valor que se utiliza para unir elementos. |
 | arg2 |Sí |matriz u objeto |El segundo valor que se utiliza para unir elementos. |
-| argumentos adicionales |No |matriz u objeto |Valores adicionales que se utilizan para unir elementos. |
+| más argumentos |No |matriz u objeto |Más valores que se utilizan para unir elementos. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -649,4 +666,4 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Puede encontrar una descripción de las secciones de un archivo de Bicep en [Nociones sobre la estructura y la sintaxis de los archivos de Bicep](./file.md).
+* Para obtener una matriz de valores de cadena delimitada por un valor, consulte [split](./bicep-functions-string.md#split).

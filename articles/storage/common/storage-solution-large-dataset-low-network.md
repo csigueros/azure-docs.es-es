@@ -8,15 +8,15 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 9b83ba106b35a0a3abd035e85f60c4c39bbadd3b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 326b5393e8db24e175282af9bf7670e32047de9e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98704647"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582240"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Transferencia de datos para grandes conjuntos de datos con poco o ningún ancho de banda de red
- 
+
 En este artículo encontrará información general sobre las soluciones para la transferencia de datos cuando ha limitado el ancho de banda de red a un valor nulo en su entorno y va a transferir grandes conjuntos de datos. En el artículo también se describen las opciones recomendadas de transferencia de datos y la matriz de funcionalidades clave para este escenario.
 
 Para una visión general de todas las opciones de transferencia de datos disponibles, vaya a [Choose an Azure data transfer solution](storage-choose-data-transfer-solution.md) (Elección de una solución de transferencia de datos de Azure).
@@ -30,7 +30,7 @@ Grandes conjuntos de datos implican que tiene a algunos TB a algunos PB de los d
 
 En todas las instancias anteriores, use un dispositivo físico para realizar una transferencia de datos masiva de un solo uso. Elija entre dispositivos Data Box Disk, Data Box, Data Box Heavy proporcionados por Microsoft o Import/Export con sus propios discos.
 
-Para confirmar si un dispositivo físico es la opción más adecuada, utilice la siguiente tabla. Muestra el tiempo previsto para la transferencia de datos de red, para diversos anchos de banda disponibles (suponiendo un uso del 90 %). Si está previsto que la transferencia de red sea demasiado lenta, debe usar un dispositivo físico.  
+Para confirmar si un dispositivo físico es la opción más adecuada, utilice la siguiente tabla. Muestra el tiempo previsto para la transferencia de datos de red, para diversos anchos de banda disponibles (suponiendo un uso del 90 %). Si está previsto que la transferencia de red sea demasiado lenta, debe usar un dispositivo físico.
 
 ![Transferencia de red o transferencia sin conexión](media/storage-solution-large-dataset-low-network/storage-network-or-offline-transfer.png)
 
@@ -38,7 +38,7 @@ Para confirmar si un dispositivo físico es la opción más adecuada, utilice la
 
 Las opciones disponibles en este escenario son dispositivos para la transferencia sin conexión de Azure Data Box o Azure Import/Export.
 
-- **Familia Azure Data Box para transferencias sin conexión**: use los dispositivos Data Box que proporciona Microsoft para mover grandes cantidades de datos a Azure cuando tenga límites de tiempo, de disponibilidad de red o de costos. Copie los datos locales con herramientas como Robocopy. Según el tamaño de los datos previstos para la transferencia, puede elegir entre Data Box Disk, Data Box o Data Box Heavy.
+- **Familia Azure Data Box para transferencias sin conexión:** use los dispositivos Data Box que proporciona Microsoft para mover grandes volúmenes de datos a Azure cuando tenga limitación de tiempo, disponibilidad de red o costes. Copie los datos locales con herramientas como Robocopy. Según el tamaño de los datos previstos para la transferencia, puede elegir entre Data Box Disk, Data Box o Data Box Heavy.
 - **Azure Import/Export**: use el servicio Azure Import/Export para enviar sus propias unidades de disco y así importar de forma segura grandes cantidades de datos a Azure Blob Storage y Azure Files. También se puede usar este servicio para transferir datos desde Azure Blob Storage hasta las unidades de disco y enviarlas al sitio local.
 
 ## <a name="comparison-of-key-capabilities"></a>Comparación de funcionalidades clave
@@ -61,11 +61,10 @@ En la siguiente tabla se resumen las diferencias de las funcionalidades clave.
 | **Uso cuando se mueven los datos**     |Dentro de un límite de comercio|Dentro de un límite de comercio|Dentro de un límite de comercio|Traspasando fronteras geográficas; por ejemplo, de EE. UU. a la UE|
 |    **Precios**                      |    [Precios](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Precios](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Precios](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Precios](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Aprenda a
 
-    - [Transferir datos con Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
-    - [Transferir datos con Data Box](../../databox/data-box-quickstart-portal.md).
-    - [Transferir datos con Import/Export](../../import-export/storage-import-export-data-to-blobs.md).
+  - [Transferir datos con Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
+  - [Transferir datos con Data Box](../../databox/data-box-quickstart-portal.md).
+  - [Transferir datos con Import/Export](../../import-export/storage-import-export-data-to-blobs.md).

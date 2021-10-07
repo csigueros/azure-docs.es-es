@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 08/04/2021
-ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: b4b7f35173b4f1d6d83d9b7ffd937704750f5502
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.date: 09/24/2021
+ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions
+ms.openlocfilehash: 1bb8066af887005848f711437d33257ae2118e46
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122603978"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129093485"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Protección de un entorno de entrenamiento de Azure Machine Learning con redes virtuales
 
@@ -50,7 +50,7 @@ En este artículo aprenderá a proteger los siguientes recursos de proceso de en
 
 + Para implementar recursos en una red virtual o subred, la cuenta de usuario debe tener permisos para realizar las siguientes acciones en los controles de acceso basados en roles de Azure (Azure RBAC):
 
-    - "Microsoft.Network/virtualNetworks/*/read" en el recurso de red virtual. Esto no es necesario para las implementaciones de plantillas de ARM.
+    - "Microsoft.Network/virtualNetworks/*/read" en el recurso de red virtual. Esto no es necesario para las implementaciones de plantillas de Azure Resource Manager (ARM).
     - "Microsoft.Network/virtualNetworks/subnet/join/action" en el recurso de subred.
 
     Para obtener más información sobre Azure RBAC con redes, consulte los [roles integrados de redes](../role-based-access-control/built-in-roles.md#networking).
@@ -63,12 +63,13 @@ En este artículo aprenderá a proteger los siguientes recursos de proceso de en
     * Un clúster de proceso puede modificar la escala dinámicamente. Si no hay suficientes direcciones IP sin asignar, el clúster se asignará parcialmente.
     * Una instancia de proceso solo requiere una dirección IP.
 
-* Asegúrese de que no hay directivas de seguridad ni bloqueos que restrinjan los permisos para administrar la red virtual. Al comprobar si hay directivas o bloqueos, busque la suscripción y el grupo de recursos de la red virtual.
+* Para crear una instancia de proceso [sin una dirección IP pública](#no-public-ip) (una característica en vista previa), el área de trabajo debe usar un punto de conexión privado para conectarse a la red virtual. Para obtener más información, consulte [Configuración de un punto de conexión privado para un área de trabajo de Azure Machine Learning](how-to-configure-private-link.md).
+* Asegúrese de que no hay directivas de seguridad ni bloqueos que restrinjan los permisos para administrar la red virtual. Al comprobar si hay directivas o bloqueos, busque en la suscripción y el grupo de recursos de la red virtual.
 * Compruebe si sus directivas de seguridad o bloqueos del grupo de recursos o la suscripción de la red virtual restringen los permisos para administrar las redes virtuales. 
 * Si tiene previsto proteger la red virtual restringiendo el tráfico, vea la sección [Acceso obligatorio a una red de Internet pública](#required-public-internet-access).
 * La subred que se usa para implementar la instancia o el clúster de proceso no se debe delegar a ningún otro servicio. Por ejemplo, no debe delegarse a ACI.
 
-### <a name="azure-databricks"></a>Azure Databricks
+### <a name="azure-databricks"></a>Azure Databricks
 
 * La red virtual debe estar en la misma suscripción y región que el área de trabajo de Azure Machine Learning.
 * Si las cuentas de Azure Storage del área de trabajo también están protegidas en una red virtual, deben estar en la misma red virtual que el clúster de proceso de Azure Databricks.
@@ -88,7 +89,13 @@ En este artículo aprenderá a proteger los siguientes recursos de proceso de en
 
         :::image type="content" source="./media/how-to-secure-training-vnet/compute-instance-cluster-network-security-group.png" alt-text="Captura de pantalla de un NSG":::
 
-    * Una dirección IP pública. Si tiene asignaciones de Azure Policy que prohíben la creación de la dirección IP pública, se producirá un error en la implementación del clúster o de las instancias.
+
+        > [!TIP]
+        > Si la instancia de proceso no usa una dirección IP pública (una característica en vista previa), estas reglas de NSG de entrada no son necesarias. Si también usa un clúster de proceso, el clúster seguirá necesitando estas reglas.
+    * En el caso de los clústeres de proceso, una dirección IP pública. Si tiene asignaciones de Azure Policy que prohíben la creación de la dirección IP pública, se producirá un error en la implementación del proceso.
+
+    * En el caso de la instancia de proceso, ahora es posible quitar la dirección IP pública (una característica en vista previa). Si tiene asignaciones de Azure Policy que prohíben la creación de la dirección IP pública, la implementación de la instancia de proceso se realizará correctamente.
+
     * Un equilibrador de carga
 
     En el caso de los clústeres de proceso, estos recursos se eliminan cada vez que se reduce el clúster verticalmente hasta 0 nodos y se crean al escalar verticalmente.
@@ -109,6 +116,7 @@ En este artículo aprenderá a proteger los siguientes recursos de proceso de en
 * Cuando el área de trabajo usa un punto de conexión privado, solo se puede acceder a la instancia de proceso desde dentro de la red virtual. Si usa un DNS personalizado o un archivo de hosts, agregue una entrada para `<instance-name>.<region>.instances.azureml.ms`. Asigne esta entrada a la dirección IP privada del punto de conexión privado del área de trabajo. Para más información, consulte el artículo [DNS personalizado](./how-to-custom-dns.md).
 * Las directivas de punto de conexión de servicio de red virtual no funcionan para las cuentas de almacenamiento del sistema de la instancia o el clúster de proceso.
 * Si el almacenamiento y la instancia de proceso se encuentran en regiones diferentes, es posible que vea tiempos de espera intermitentes.
+* Si la instancia de Azure Container Registry del área de trabajo usa un punto de conexión privado para conectarse a la red virtual, no puede usar una identidad administrada para la instancia de proceso. Para usar una identidad administrada con la instancia de proceso, no ponga el registro de contenedor en la red virtual.
 * Si quiere usar Jupyter Notebooks en una instancia de proceso:
 
     * No deshabilite la comunicación de websocket. Asegúrese de que la red permite la comunicación de websocket con `*.instances.azureml.net` y `*.instances.azureml.ms`.
@@ -117,12 +125,14 @@ En este artículo aprenderá a proteger los siguientes recursos de proceso de en
 * Los __clústeres de proceso__ se pueden crear en una región diferente a la del área de trabajo. Esta función está en __versión preliminar__ y solo está disponible para __clústeres de proceso__, no para instancias de proceso. Cuando se usa una región diferente para el clúster, se aplican las siguientes limitaciones:
 
     * Si los recursos asociados al área de trabajo, como el almacenamiento, se encuentran en una red virtual diferente a la del clúster, configure el emparejamiento de red virtual global entre las redes. Para más información, consulte [Emparejamiento de redes virtuales](../virtual-network/virtual-network-peering-overview.md).
-    * Si usa un área de trabajo habilitada para un punto de conexión privado, __no se admite__ la creación del clúster en otra región.
     * Es posible que vea un aumento de la latencia de red y de los costos de transferencia de datos. La latencia y los costos pueden producirse al crear el clúster y al ejecutar trabajos en él.
 
     Instrucciones como el uso de reglas de NSG, rutas definidas por el usuario y requisitos de entrada/salida, se aplican de la forma habitual cuando se usa una región diferente a la del área de trabajo.
 
-### <a name="azure-databricks"></a>Azure Databricks
+    > [!WARNING]
+    > Si usa un __área de trabajo habilitada para un punto de conexión privado__, __no se admite__ la creación del clúster en otra región.
+
+### <a name="azure-databricks"></a>Azure Databricks
 
 * Además de las subredes __databricks-private__ y __databricks-public__ utilizadas por Azure Databricks, también se requiere la subred __predeterminada__ creada para la red virtual.
 * Azure Databricks no usa un punto de conexión privado para comunicarse con la red virtual.
@@ -139,7 +149,7 @@ Para obtener más información sobre el uso de Azure Databricks en una red virtu
 
 Para obtener información sobre el uso de una solución de firewall, vea [Uso de un firewall con Azure Machine Learning](how-to-access-azureml-behind-firewall.md).
 
-## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>Clústeres e instancias de proceso 
+## <a name="compute-clusters"></a><a name="compute-cluster"></a>Clústeres de proceso
 
 Use las pestañas siguientes para seleccionar cómo tiene previsto crear un clúster de proceso:
 
@@ -158,10 +168,11 @@ Siga los pasos siguientes para crear un clúster de proceso en Estudio de Azure 
 
 1. En la sección __Parámetros de configuración__, establezca los valores de __Nombre del proceso__, __Red virtual__ y __Subred__.
 
+    :::image type="content" source="media/how-to-enable-virtual-network/create-compute-cluster-config.png" alt-text="Captura de pantalla que muestra la definición del nombre del proceso, la red virtual y la subred.":::
+
     > [!TIP]
     > Si el área de trabajo usa un punto de conexión privado para conectarse a la red virtual, el campo de selección __Red virtual__ está atenuado.
-
-    :::image type="content" source="./media/how-to-enable-virtual-network/create-compute-cluster-config.png" alt-text="Captura de pantalla de la configuración de la red virtual":::
+    > 
 
 1. Seleccione __Crear__ para crear el clúster de proceso.
 
@@ -210,13 +221,32 @@ Cuando finaliza el proceso de creación, el modelo se entrena mediante el clúst
 
 [!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
-### <a name="inbound-traffic"></a>Tráfico entrante
+## <a name="compute-instance"></a>Instancia de proceso
+
+Para obtener los pasos sobre cómo crear una instancia de proceso implementada en una red virtual, consulte [Creación y administración de una instancia de proceso de Azure Machine Learning](how-to-create-manage-compute-instance.md).
+
+### <a name="no-public-ip-for-compute-instances-preview"></a><a name="no-public-ip"></a>Ninguna dirección IP pública para instancias de proceso (versión preliminar)
+
+Al habilitar la opción **Ninguna dirección IP pública**, la instancia de proceso no usa una dirección IP pública para la comunicación con ninguna dependencia. En su lugar, se comunica únicamente dentro de la red virtual mediante un ecosistema de Azure Private Link y puntos de conexión privados o del servicio, de modo que se elimina la necesidad de una dirección IP pública por completo. La opción Ninguna dirección IP pública quita el acceso y la detectabilidad del nodo de la instancia de proceso de Internet. De esta forma, se elimina un vector de amenaza significativo. Las instancias de proceso también realizarán el filtrado de paquetes para rechazar cualquier tráfico de fuera de la red virtual. Las instancias de la opción **Ninguna dirección IP pública** dependen de [Azure Private Link](how-to-configure-private-link.md) para el área de trabajo de Azure Machine Learning. 
+
+Para que las **conexiones de salida** funcionen, debe configurar un firewall de salida, como Azure Firewall, con rutas definidas por el usuario. Por ejemplo, puede usar un firewall definido con la [configuración de entrada o salida](how-to-access-azureml-behind-firewall.md) y enrutar el tráfico a él. Para ello, defina una tabla de rutas en la subred en la que se implementa la instancia de proceso. La entrada de la tabla de rutas puede configurar el próximo salto de la dirección IP privada del firewall con el prefijo de dirección 0.0.0.0/0.
+
+Una instancia de proceso con la opción **Ninguna dirección IP pública** habilitada **no tiene requisitos de comunicación entrantes** de la red pública de Internet, en comparación con los de la instancia de proceso de la IP pública. En concreto, no se requiere ninguna regla de NSG de entrada (`BatchNodeManagement`, `AzureMachineLearning`).
+
+Una instancia de proceso con la opción **Ninguna dirección IP pública** también requiere que deshabilite las directivas de red de los puntos de conexión privados y las directivas de red del servicio Private Link. Estos requisitos proceden de los puntos de conexión privados y del servicio Azure Private Link y no son específicos de Azure Machine Learning. Siga las instrucciones indicadas en [Deshabilitación de directivas de red para la dirección IP de origen del servicio Private Link](../private-link/disable-private-link-service-network-policy.md) para establecer los parámetros `disable-private-endpoint-network-policies` y `disable-private-link-service-network-policies` en la subred de la red virtual.
+
+Para crear una instancia de proceso sin dirección IP pública (una característica en vista previa) en Studio, marque la casilla **Ninguna dirección IP pública** en la sección de la red virtual.
+También puede crear una instancia de proceso sin dirección IP pública mediante una plantilla de ARM. En la plantilla de ARM, establezca el parámetro enableNodePublicIP en false.
+
+[!INCLUDE [no-public-ip-info](../../includes/machine-learning-no-public-ip-availibility.md)]
+
+## <a name="inbound-traffic"></a>Tráfico entrante
 
 [!INCLUDE [udr info for computes](../../includes/machine-learning-compute-user-defined-routes.md)]
 
 A fin de obtener más información sobre los requisitos de tráfico de entrada y salida para Azure Machine Learning, vea [Uso de un área de trabajo detrás de un firewall](how-to-access-azureml-behind-firewall.md).
 
-## <a name="azure-databricks"></a>Azure Databricks
+## <a name="azure-databricks"></a>Azure Databricks
 
 Para obtener información específica sobre el uso de Azure Databricks con una red virtual, consulte [Implementar Azure Databricks en su red virtual de Azure](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
 

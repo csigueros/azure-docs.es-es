@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/17/2021
 ms.custom: references_regions
-ms.openlocfilehash: 89cb9122da21887165b2330f75dd316c184de823
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: bb061fb11fbc770d751f60e15c81ce31c6a07440
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121781076"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128666331"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de lectura en Azure Database for MySQL
 
@@ -25,7 +25,7 @@ Las réplicas son nuevos servidores que se administran de forma similar a los se
 Para más información sobre los problemas y las características de replicación de MySQL, consulte la [documentación de replicación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
 > [!NOTE]
-> Este artículo contiene referencias al término _esclavo_, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
+> Este artículo contiene referencias al término *esclavo*, un término que Microsoft ya no usa. Cuando se elimine el término del software, se eliminará también de este artículo.
 >
 
 ## <a name="when-to-use-a-read-replica"></a>Casos en los que utilizar las réplicas de lectura
@@ -44,7 +44,7 @@ Puede crear una réplica de lectura en una región distinta a la del servidor de
 
 Puede tener un servidor de origen en cualquier [región de Azure Database for MySQL](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  Un servidor de origen puede tener una réplica en su región emparejada o en las regiones de réplica universales. En la imagen siguiente se muestran las regiones de réplica disponibles en función de la región de origen.
 
-[ :::image type="content" source="media/concepts-read-replica/read-replica-regions.png" alt-text="Regiones de réplica de lectura":::](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[:::image type="content" source="media/concepts-read-replica/read-replica-regions.png" alt-text="Regiones de réplica de lectura":::](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>Regiones de réplica universal
 
@@ -72,7 +72,7 @@ Puede crear una réplica de lectura en cualquiera de las siguientes regiones, co
 | Sur de Reino Unido | :heavy_check_mark: | 
 | Oeste de Reino Unido | :heavy_check_mark: | 
 | Centro-Oeste de EE. UU. | :heavy_check_mark: | 
-| Oeste de EE. UU. | :heavy_check_mark: | 
+| Oeste de EE. UU. | :heavy_check_mark: | 
 | Oeste de EE. UU. 2 | :heavy_check_mark: | 
 | Oeste de Europa | :heavy_check_mark: | 
 | Centro de la India* | :heavy_check_mark: | 
@@ -99,9 +99,9 @@ Sin embargo, existen limitaciones que deben considerarse:
 ## <a name="create-a-replica"></a>Creación de una réplica
 
 > [!IMPORTANT]
-> La característica de réplica de lectura solo está disponible para servidores de Azure Database for MySQL en los planes de tarifa De uso general u Optimizada para memoria. Asegúrese de que el servidor de origen esté en uno de estos planes de tarifa.
+> * La característica de réplica de lectura solo está disponible para servidores de Azure Database for MySQL en los planes de tarifa De uso general u Optimizada para memoria. Asegúrese de que el servidor de origen esté en uno de estos planes de tarifa.
+> * Si el servidor de origen no tiene servidores de réplica existentes, es posible que el servidor de origen necesite reiniciarse para prepararse para la replicación en función del almacenamiento usado (v1/v2). Considere la posibilidad de reiniciar el servidor y realizar esta operación durante las horas de menos actividad. Consulte [Reinicio del servidor de origen](./concepts-read-replicas.md#source-server-restart) para obtener más detalles. 
 
-Si un servidor de origen no tiene ningún servidor de réplica existente, el origen se reiniciará primero a fin de prepararse para la replicación.
 
 Cuando se inicia el flujo de trabajo de creación de la réplica, se crea un servidor Azure Database for MySQL en blanco. El nuevo servidor se rellena con los datos que estaban en el servidor de origen. El tiempo de creación depende de la cantidad de datos en el origen y del tiempo transcurrido desde la última copia de seguridad completa semanal. Puede oscilar desde unos minutos hasta varias horas. El servidor de réplica siempre se crea en el mismo grupo de recursos y en la misma suscripción que el servidor de origen. Si desea crear un servidor réplica en otro grupo de recursos o en una suscripción diferente, puede [mover el servidor réplica](../azure-resource-manager/management/move-resource-group-and-subscription.md) después de la creación.
 
@@ -198,7 +198,9 @@ Actualmente, las réplicas de lectura solo están disponibles en los planes de t
 
 ### <a name="source-server-restart"></a>Reinicio del servidor de origen
 
-Cuando se crea la réplica de origen que no tiene réplicas existentes, el origen se reiniciará primero a fin de prepararse para la replicación. Téngalo en cuenta y realice estas operaciones durante un período de poca actividad.
+El parámetro `log_bin` estará desactivado de forma predeterminada en el servidor que tenga un almacenamiento de uso general (v1). El valor se desactivará al crear la primera réplica de lectura. Si un servidor de origen no tiene ningún servidor de réplica de lectura existente, ese servidor se reiniciará primero a fin de prepararse para la replicación. Considere la posibilidad de reiniciar el servidor y realizar esta operación durante las horas de menos actividad.
+
+El parámetro `log_bin` estará activado de manera predeterminada en el servidor de origen que tenga un almacenamiento de uso general (v2), y no es necesario reiniciarlo cuando se agrega una réplica de lectura. 
 
 ### <a name="new-replicas"></a>Nuevas réplicas
 

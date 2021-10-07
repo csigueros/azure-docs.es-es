@@ -8,17 +8,17 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 08/26/2021
+ms.date: 09/21/2021
 ms.subservice: hybrid
-ms.author: billmath
+ms.author: rodejo
 ms.custom: has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3336ead4259c12b2eb6f7f87d5e21fe39765e817
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 2238916ec3ea13abd342ca0156271c1e87f5ed9c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122968800"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128659103"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historial de lanzamiento de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -34,7 +34,7 @@ Permisos necesarios | Para más información sobre los permisos necesarios para 
 
 
 >[!IMPORTANT]
-> **El 31 de agosto de 2022, se retirarán todas las versiones 1.x de Azure Active Directory (Azure AD) Connect porque incluyen componentes de SQL Server 2012 que ya no se admiten.** Actualice a la versión más reciente de Azure AD Connect (versión 2.x) en esa fecha o [evalúe y cambie a la sincronización en la nube de Azure AD](https://docs.microsoft.com/azure/active-directory/cloud-sync/what-is-cloud-sync).
+> **El 31 de agosto de 2022, se retirarán todas las versiones 1.x de Azure Active Directory (Azure AD) Connect porque incluyen componentes de SQL Server 2012 que ya no se admiten.** Actualice a la versión más reciente de Azure AD Connect (versión 2.x) en esa fecha o [evalúe y cambie a la sincronización en la nube de Azure AD](../cloud-sync/what-is-cloud-sync.md).
 > 
 > Debe asegurarse de que está ejecutando una versión reciente de Azure AD Connect para lograr una experiencia de soporte técnico óptima. 
 > 
@@ -57,16 +57,65 @@ Sin embargo, si quiere obtener las características y actualizaciones más recie
 
 
 ## <a name="download-links"></a>Vínculos de descarga
-Si usa Windows Server 2016 o posterior, debe usar Azure AD Connect V2.0. Para descargar la versión más reciente de Azure AD Connect 2.0, utilice [este vínculo](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
-Si sigue usando una versión anterior de Windows Server, debe usar Azure AD Connect V1.6. Puede descargar la versión más reciente de Azure AD Connect 1.6, utilice [este vínculo](https://www.microsoft.com/download/details.aspx?id=103336).
+ - Si usa Windows Server 2016 o posterior, debe usar Azure AD Connect V2.0. Para descargar la versión más reciente de Azure AD Connect 2.0, utilice [este vínculo](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+ - Si sigue usando una versión anterior de Windows Server, debe usar Azure AD Connect V1.6. Puede descargar la versión más reciente de Azure AD Connect V1 mediante [este vínculo](https://www.microsoft.com/download/details.aspx?id=103336). 
+ - A partir de ahora solo se aplican cambios críticos a las versiones V1, y es posible que no encuentre algunas de las características y correcciones de V2 en los lanzamientos V1, por lo que debe actualizar a la versión V2 lo antes posible.
+
+## <a name="16142"></a>1.6.14.2
+>[!NOTE] 
+>Este es un lanzamiento de actualización de Azure AD Connect. Esta versión está pensada para los clientes que ejecutan una versión anterior de Windows Server y no pueden actualizar su servidor a Windows Server 2016 o a una versión posterior en estos momentos. No puede usar esta versión para actualizar un servidor de Azure AD Connect V2.0.
+>Comenzaremos por actualizar automáticamente los inquilinos aptos cuando esta versión esté disponible para su descarga; la actualización automática tardará unas semanas en completarse.
+
+### <a name="release-status"></a>Estado de la versión
+21/9/2021: publicado para descarga y actualización automática.
+
+### <a name="functional-changes"></a>Cambios funcionales
+ - Hemos agregado las versiones más recientes de los conectores MIM (1.1.1610.0). Puede encontrar más información en la [página del historial de lanzamientos de los conectores MIM](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#1116100-september-2021).
+ - Hemos agregado una opción de configuración para deshabilitar la característica de coincidencia parcial en Azure AD Connect. Recomendamos a los clientes que deshabiliten la coincidencia parcial a menos que la necesiten para admitir cuentas exclusivas de la nube. En [este artículo](https://docs.microsoft.com/powershell/module/msonline/set-msoldirsyncfeature?view=azureadps-1.0#example-2--block-soft-matching-for-the-tenant) se explica cómo deshabilitar la coincidencia parcial.
+
+### <a name="bug-fixes"></a>Corrección de errores
+ - Se ha corregido un error por el que la configuración de DesktopSSO no se conservaba después de la actualización desde una versión anterior.
+ - Se ha corregido un error que provocaba un error en los cmdlets Set-ADSync\*Permission.
+
+## <a name="20251"></a>2.0.25.1
+
+>[!NOTE] 
+> Esto es una versión de actualización de revisión de Azure AD Connect. Este lanzamiento requiere Windows Server 2016 o posterior y corrige un problema de seguridad que está presente en la versión 2.0 de Azure AD Connect, así como otras correcciones de errores.
+
+### <a name="release-status"></a>Estado de la versión
+14/09/2021: publicado solo para descargas, no está disponible para actualización automática.
+
+### <a name="bug-fixes"></a>Corrección de errores
+
+ - Se ha corregido un problema de seguridad en el que se usaba una ruta de acceso sin comillas para apuntar al servicio de Azure AD Connect. Esta ruta de acceso es ahora una ruta de acceso entre comillas.
+ - Se ha corregido un problema de configuración de importación con la escritura diferida habilitada cuando se utiliza la cuenta del conector de AD existente.
+ - Se ha corregido un problema en Set-ADSyncExchangeHybridPermissions y otros cmdlets relacionados, que estaban rotos desde la versión 1.6 debido a un tipo de herencia no válido.
+ - El cmdlet que publicamos en un lanzamiento anterior para establecer la versión de TLS tenía un problema por el que sobrescribía las claves, lo que destruía los valores que había en ellas. Esto se ha corregido mediante la creación de una clave nueva solo si aún no hay una. También se ha agregado una advertencia para que los usuarios sepan que los cambios del registro TLS no son exclusivos de Azure AD Connect y que pueden afectar también a otras aplicaciones en el mismo servidor.
+ - Se ha agregado una comprobación para aplicar la actualización automática a V2.0 y que requiera Windows Server 2016 o posterior.
+ - Hemos agregado el permiso "Replicar cambios de directorio" en el cmdlet Set-ADSyncBasicReadPermissions.
+ - Hemos realizado un cambio para evitar que UseExistingDatabase y la configuración de importación se utilicen juntos, ya que podrían contener opciones de configuración en conflicto.
+ - Hemos realizado un cambio para permitir que un usuario con el rol de administrador de la aplicación cambie la configuración del servicio de proxy de aplicación.
+ - Hemos quitado la etiqueta "(Preview)" de las etiquetas de la configuración de Import/Export: esta funcionalidad ha estado en disponibilidad general desde hace ya un tiempo.
+ - Cambiamos algunas etiquetas que todavía hacen referencia a "Administrador de empresa": ahora utilizamos el nombre de rol "Administrador global".
+ - Hemos creado nuevos cmdlets de PowerShell de Kerberos de AAD "\*-AADKerberosServer" para agregar una regla de transformación de notificaciones a la entidad de servicio de AAD.
+
+### <a name="functional-changes"></a>Cambios funcionales
+ - Hemos agregado las versiones más recientes de los conectores MIM (1.1.1610.0). Puede encontrar más información en la [página del historial de lanzamientos de los conectores MIM](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#1116100-september-2021).
+ - Hemos agregado una opción de configuración para deshabilitar la característica de coincidencia parcial en Azure AD Connect. Recomendamos a los clientes que deshabiliten la coincidencia parcial a menos que la necesiten para admitir cuentas exclusivas de la nube. En [este artículo](https://docs.microsoft.com/powershell/module/msonline/set-msoldirsyncfeature?view=azureadps-1.0#example-2--block-soft-matching-for-the-tenant) se explica cómo deshabilitar la coincidencia parcial.
 
 ## <a name="20100"></a>2.0.10.0
+
+### <a name="release-status"></a>Estado de la versión
+19/08/2021: publicada solo para descargas, no está disponible para actualización automática.
 
 >[!NOTE] 
 >Esto es una versión de actualización de revisión de Azure AD Connect. Esta versión requiere Windows Server 2016 o posterior. Esta revisión soluciona un problema que está presente en la versión 2.0, así como en Azure AD Connect versión 1.6. Si está ejecutando Azure AD Connect en un servidor de Windows anterior, debe instalar la compilación [1.6.13.0](#16130) en su lugar.
 
 ### <a name="release-status"></a>Estado de la versión
 19/08/2021: publicada solo para descargas, no está disponible para actualización automática.
+
+### <a name="known-issues"></a>Problemas conocidos
+ - En determinadas circunstancias, el instalador de esta versión mostrará un error que menciona que TLS 1.2 no está habilitado y detendrá la instalación. Esto se debe a un error en el código que comprueba la configuración del Registro para TLS 1.2. Lo vamos a corregir en un lanzamiento futuro. Los clientes que ven este problema deben seguir las instrucciones para habilitar TLS 1.2, que se pueden encontrar en el artículo "[Aplicar TLS 1.2 para Azure AD Connect](reference-connect-tls-enforcement.md)".
 
 ### <a name="bug-fixes"></a>Corrección de errores
 

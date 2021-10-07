@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: bonova, mathoma, danil
-ms.date: 08/26/2021
-ms.openlocfilehash: 451dd198b5507b99400d4e1c8e1670e596016af1
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/21/2021
+ms.openlocfilehash: 1b503462b7ff6abd1000e96fa2f3cfd6f15d33fc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123308300"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658970"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Comparación de características: Azure SQL Database e Instancia administrada de Azure SQL
 
@@ -52,7 +52,7 @@ En la tabla siguiente se enumeran las características principales de SQL Server
 | [Funciones integradas](/sql/t-sql/functions/functions) | La mayoría; consulte las funciones. | S; consulte el artículo sobre las [diferencias de procedimientos almacenados, funciones y desencadenadores](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) |
 | [Instrucción BULK INSERT](/sql/relational-databases/import-export/import-bulk-data-by-using-bulk-insert-or-openrowset-bulk-sql-server) | Sí, pero solo con Azure Blob Storage como origen. | Sí, pero solo con Azure Blob Storage como origen. Consulte las [diferencias](../managed-instance/transact-sql-tsql-differences-sql-server.md#bulk-insert--openrowset). |
 | [Certificados y claves asimétricas](/sql/relational-databases/security/sql-server-certificates-and-asymmetric-keys) | Sí, sin acceso al sistema de archivos para las operaciones `BACKUP` y `CREATE`. | Sí, sin acceso al sistema de archivos para las operaciones `BACKUP` y `CREATE`. Consulte las [diferencias de certificados](../managed-instance/transact-sql-tsql-differences-sql-server.md#certificates). |
-| [Captura de datos modificados: CDC](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | No | Sí |
+| [Captura de datos modificados: CDC](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Sí (versión preliminar) para el nivel S3 y superiores. No se admiten los niveles Básico, S0, S1 y S2. | Sí |
 | [Intercalación: servidor/instancia](/sql/relational-databases/collations/set-or-change-the-server-collation) | No, se utiliza siempre la intercalación predeterminada del servidor `SQL_Latin1_General_CP1_CI_AS`. | Sí, se puede establecer cuando [se crea la instancia](../managed-instance/create-template-quickstart.md) y no se puede actualizar después. |
 | [Índices de almacén de columnas](/sql/relational-databases/indexes/columnstore-indexes-overview) | Sí: [niveles Premium, Estándar - S3 y superior, De uso general, Crítico para la empresa e Hiperescala](/sql/relational-databases/indexes/columnstore-indexes-overview) |Sí |
 | [Common Language Runtime: CLR](/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | No | Sí, pero sin acceso al sistema de archivos en la instrucción `CREATE ASSEMBLY`. Consulte las [diferencias de CLR](../managed-instance/transact-sql-tsql-differences-sql-server.md#clr). |

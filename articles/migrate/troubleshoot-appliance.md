@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 07/01/2020
-ms.openlocfilehash: c67ad02737fc8a40895f99cd3acf05ba98e7643e
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: d6d87d7503a68091e72f1aa84703966ab28f32b5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123305902"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128654525"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance"></a>Solución de problemas con el dispositivo Azure Migrate
 
@@ -275,10 +275,7 @@ Aparece el error "El servicio WS-Management no puede procesar la solicitud. El s
 
 - Si recibe este error, asegúrese de que la cuenta de usuario proporcionada (dominio/local) en el administrador de configuración del dispositivo se haya agregado a estos grupos: "Usuarios de administración remota", "Usuarios de Monitor de rendimiento" y "Usuarios del registro de rendimiento".
 - Si no aparece el grupo "Usuarios de administración remota", agregue la cuenta de usuario al grupo: WinRMRemoteWMIUsers_.
-- También puede comprobar si el protocolo WS-Management está habilitado en el servidor ejecutando el siguiente comando en el símbolo del sistema del servidor de destino:
-    
-    ```` winrm qc ````
-
+- También puede comprobar si el protocolo WS-Management está habilitado en el servidor ejecutando el siguiente comando en el símbolo del sistema del servidor de destino: `winrm qc`
 - Si persiste el problema, asegúrese de que la cuenta de usuario tenga permisos de acceso al espacio de nombres CIMV2 y a los subespacios de nombres en panel de control de WMI. Siga estos pasos para establecer el acceso:
 
     1. Vaya al servidor con el error de validación en el dispositivo.

@@ -4,13 +4,13 @@ description: Utilice bucles y matrices en un archivo de Bicep para implementar v
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/30/2021
-ms.openlocfilehash: 1b044b4ae3f5d73ad535d44153ea3d47023aeaaa
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.date: 09/23/2021
+ms.openlocfilehash: adb05c5af042e0c9f54e925f82097a1721f40073
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225314"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662103"
 ---
 # <a name="resource-iteration-in-bicep"></a>Iteración de recursos en Bicep
 
@@ -19,6 +19,10 @@ En este artículo, se muestra cómo crear varias instancias de un recurso en el 
 También puede usar un bucle con [módulos](loop-modules.md), [propiedades](loop-properties.md), [variables](loop-variables.md) y [salidas](loop-outputs.md).
 
 Si tiene que especificar si un recurso se implementa, consulte [Elemento condition](conditional-resource-deployment.md).
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Para más información sobre los bucles y para obtener una práctica guía, consulte [Creación de plantillas de Bicep flexibles mediante condiciones y bucles](/learn/modules/build-flexible-bicep-templates-conditions-loops/) en **Microsoft Learn**.
 
 ## <a name="syntax"></a>Sintaxis
 
@@ -32,7 +36,7 @@ Los bucles se pueden usar para declarar varios recursos al:
   }]
   ```
 
-  Para obtener más información, vea [Índice de bucles](#loop-index).
+  Para obtener más información, consulte [Índice de bucles](#loop-index).
 
 - Iteración en una matriz.
 
@@ -42,7 +46,7 @@ Los bucles se pueden usar para declarar varios recursos al:
   }]
   ```
 
-  Para obtener más información, vea [Matriz de bucles](#loop-array).
+  Para obtener más información, consulte [Matriz de bucles](#loop-array).
 
 - Iteración en una matriz y un índice.
 
@@ -56,7 +60,11 @@ Los bucles se pueden usar para declarar varios recursos al:
 
 ## <a name="loop-limits"></a>Límites del bucle
 
-Las iteraciones de bucle del archivo Bicep no pueden ser un número negativo ni superar las 800 iteraciones.
+El bucle Bicep tiene estas limitaciones:
+
+- No se puede realizar un bucle de un recurso con recursos secundarios anidados. Debe cambiar los recursos secundarios a recursos de nivel superior.  Consulte [Iteración para un recurso secundario](#iteration-for-a-child-resource).
+- No se puede realizar un bucle en varios niveles de propiedades. Consulte [Iteración de propiedades en Bicep](./loop-properties.md).
+- Las iteraciones de bucle no pueden ser un número negativo ni superar las 800 iteraciones.
 
 ## <a name="loop-index"></a>Índice de bucles
 

@@ -2,22 +2,17 @@
 title: 'Funciones de Bicep: scopes'
 description: Describe las funciones que se usarán en un archivo de Bicep para recuperar valores sobre la implementación.
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 2bf09aef4e3b59f6718a96c6ce2650d508872106
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 09/10/2021
+ms.openlocfilehash: 4432aa528dbdd565128a15eb79d4b4c01572c924
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111027100"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124827453"
 ---
 # <a name="scope-functions-for-bicep"></a>Funciones de ámbito para Bicep
 
-Resource Manager ofrece las siguientes funciones para obtener valores de ámbito en el archivo de Bicep:
-
-* [managementGroup](#managementgroup)
-* [resourceGroup](#resourcegroup)
-* [suscripción](#subscription)
-* [tenant](#tenant)
+En este artículo se describen las funciones de Bicep para obtener valores de ámbito.
 
 ## <a name="managementgroup"></a>managementGroup
 

@@ -7,14 +7,17 @@ ms.topic: conceptual
 ms.date: 08/30/2021
 ms.author: denisgun
 ms.service: virtual-desktop
-ms.openlocfilehash: ddf70a56d3a787387d1364c88f26cd0faa5df6b3
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: ec7efa35e6b6f036935e6a81f01348f3633f83be
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123219890"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627853"
 ---
 # <a name="screen-capture-protection"></a>Protección de la captura de pantalla
+
+>[!IMPORTANT]
+>La protección de captura de pantalla aún no es compatible con Microsoft 365 Government (GCC), GCC-High y Microsoft 365 DoD.
 
 La característica de protección de capturas de pantalla evita que se capture información confidencial en los puntos de conexión de cliente. Al habilitar esta característica, el contenido remoto se bloqueará o se ocultará automáticamente en las capturas de pantalla y los recursos compartidos de pantalla. Además, el cliente Escritorio remoto ocultará el contenido del software malintencionado que pueda capturar la pantalla.
 

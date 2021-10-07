@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/22/2021
-ms.openlocfilehash: 4d0197e76659e864ab0f5553317b64b2d74b867d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/20/2021
+ms.openlocfilehash: ae45647369cde2cc0b427fe128f4fea44de79bf4
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725469"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129058925"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Niveles de coherencia en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -45,7 +45,7 @@ La coherencia de lectura se aplica a una sola operación de lectura limitada a u
 Puede configurar el nivel de coherencia predeterminado de su cuenta de Azure Cosmos en cualquier momento. El nivel de coherencia predeterminado configurado en su cuenta se aplica a todas las bases de datos y contenedores de bases de datos de Azure Cosmos de esa cuenta. Todas las operaciones de lectura y consulta que se emitan con arreglo a un contenedor o una base de datos usan el nivel de coherencia especificado de forma predeterminada. Para más información, consulte cómo [configurar el nivel de coherencia predeterminado](how-to-manage-consistency.md#configure-the-default-consistency-level). También puede invalidar el nivel de coherencia predeterminado para una solicitud específica. Para obtener más información, consulte el artículo [Invalidación del nivel de coherencia predeterminado](how-to-manage-consistency.md?#override-the-default-consistency-level).
 
 > [!TIP]
-> La invalidación del nivel de coherencia predeterminado solo se aplica a las lecturas dentro del cliente del SDK. Una cuenta configurada para una coherencia fuerte de forma predeterminada seguirá escribiendo y replicando datos de forma sincrónica en todas las regiones de la cuenta. Cuando la instancia o solicitud del cliente del SDK invalida esta configuración con el valor De sesión o uno más débil, las lecturas se realizan con una única réplica. Para obtener más detalles, consulte [Rendimiento y niveles de coherencia](consistency-levels.md#consistency-levels-and-throughput).
+> La invalidación del nivel de coherencia predeterminado solo se aplica a las lecturas dentro del cliente del SDK. Una cuenta configurada para una coherencia fuerte, de manera predeterminada sigue escribiendo y replicando datos de forma sincrónica en todas las regiones de la cuenta. Cuando la instancia o solicitud del cliente del SDK invalida esta configuración con el valor De sesión o uno más débil, las lecturas se realizan con una única réplica. Para obtener más detalles, consulte [Rendimiento y niveles de coherencia](consistency-levels.md#consistency-levels-and-throughput).
 
 > [!IMPORTANT]
 > Es necesario volver a crear cualquier instancia de SDK después de cambiar el nivel de coherencia predeterminado. Para ello, reinicie la aplicación. Esto garantiza que el SDK usa el nuevo nivel de coherencia predeterminado.
@@ -96,6 +96,7 @@ Los clientes que están fuera de la sesión que realiza escrituras verán las ga
 - Coherencia para clientes de distintas regiones para una cuenta con región de escritura única = De prefijo coherente
 - Coherencia para clientes que escriben en una sola región para una cuenta con varias regiones de escritura = De prefijo coherente
 - Coherencia para clientes que escriben en varias regiones para una cuenta con varias regiones de escritura = Posible
+- Coherencia para clientes que usan la [caché integrada de Azure Cosmos DB](integrated-cache.md) = Final
 
   La coherencia de la sesión es el nivel de coherencia más usado para regiones únicas, así como para aplicaciones distribuidas globalmente. Proporciona latencias de escritura, disponibilidad y rendimiento de lectura equiparables a los de la coherencia final, pero también proporciona las garantías de coherencia que satisfacen las necesidades de aplicaciones escritas para funcionar en el contexto de un usuario. En el gráfico siguiente se ilustra la coherencia de la sesión con notas musicales. El "escritor de Oeste de EE. UU. 2" y el "lector de Oeste de EE. UU. 2" usan la misma sesión (sesión A), por lo que ambos leen los mismos datos al mismo tiempo. Sin embargo, la región "Este de Australia" usa la "sesión B", por lo que recibe los datos más tarde pero en el mismo orden en que se escriben.
 
@@ -154,7 +155,7 @@ La latencia de RTT exacta depende de la distancia a la velocidad de la luz y la 
 
 - En el caso de la obsolescencia fuerte y limitada, las lecturas se realizan en dos réplicas en un conjunto de cuatro réplicas (cuórum minoritario) para proporcionar garantías de coherencia. Los niveles de sesión, prefijo coherente y posible realizan lecturas de réplica única. El resultado es que, para el mismo número de unidades de solicitud, el rendimiento de lectura para la obsolescencia fuerte y limitada es la mitad de los demás niveles de coherencia.
 
-- Para un tipo determinado de operación de escritura (por ejemplo, Insert, Replace, Upsert o Delete), el rendimiento de escritura de las unidades de solicitud es idéntico para todos los niveles de coherencia.
+- Para un tipo determinado de operación de escritura (por ejemplo, Insert, Replace, Upsert o Delete), el rendimiento de escritura de las unidades de solicitud es idéntico para todos los niveles de coherencia. Para una coherencia fuerte, los cambios deben estar confirmados en todas las regiones (mayoría global), mientras que para todos los demás niveles de coherencia, se usa la mayoría local (tres réplicas en un conjunto de cuatro réplicas). 
 
 |**Nivel de coherencia**|**Lecturas de cuórum**|**Escrituras de cuórum**|
 |--|--|--|

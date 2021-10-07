@@ -6,24 +6,22 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 07/23/2021
-ms.openlocfilehash: 6c51a118b0581759f456b243b6dde25890b36f39
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.date: 09/24/2021
+ms.openlocfilehash: d1d15fb4ff3bc2d820311b4f847c21236d83b6f3
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114668482"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708769"
 ---
 # <a name="understanding-resource-sets"></a>Descripción de los conjuntos de recursos
 
 Este artículo le ayuda a entender cómo Azure Purview usa conjuntos de recursos para asignar recursos de datos a recursos lógicos.
 ## <a name="background-info"></a>Información de contexto
 
-Los sistemas de procesamiento de datos a escala normalmente almacenan una sola tabla en un disco en varios archivos. Este concepto se representa en Azure Purview mediante conjuntos de recursos. Un conjunto de recursos es un único objeto del catálogo que representa una gran cantidad de recursos en almacenamiento.
+Los sistemas de procesamiento de datos a escala normalmente almacenan una sola tabla en un almacenamiento en varios archivos. En el catálogo de datos de Azure Purview, este concepto se representa mediante conjuntos de recursos. Un conjunto de recursos es un único objeto del catálogo que representa una gran cantidad de recursos en almacenamiento.
 
 Por ejemplo, supongamos que el clúster de Spark ha conservado un dataframe en un origen de datos de Azure Data Lake Storage (ADLS) Gen2. Aunque en Spark la tabla parece un único recurso lógico, en el disco es probable que haya miles de archivos de Parquet, cada uno de los cuales representa una partición del contenido total de un dataframe. Los datos de IoT y los datos de registro web presentan el mismo reto. Imagine que tiene un sensor que genera archivos de registro varias veces por segundo. No tardará mucho en tener cientos de miles de archivos de registro de ese único sensor.
-
-Para abordar el reto de asignar un gran número de recursos de datos a un único recurso lógico, Azure Purview emplea conjuntos de recursos.
 
 ## <a name="how-azure-purview-detects-resource-sets"></a>Cómo detecta Azure Purview conjuntos de recursos
 
@@ -41,23 +39,44 @@ Con esta estrategia, Azure Purview asignaría los siguientes recursos al mismo c
 - `https://myaccount.blob.core.windows.net/mycontainer/weblogs/cy_gb/234.json`
 - `https://myaccount.blob.core.windows.net/mycontainer/weblogs/de_Ch/23434.json`
 
-## <a name="file-types-that-azure-purview-will-not-detect-as-resource-sets"></a>Tipos de archivo que Azure Purview no detectará como conjuntos de recursos
+### <a name="file-types-that-azure-purview-will-not-detect-as-resource-sets"></a>Tipos de archivo que Azure Purview no detectará como conjuntos de recursos
 
 Purview no intenta clasificar a propósito la mayoría de los tipos de archivo de documento, como Word, Excel o PDF, como conjuntos de recursos. La excepción es el formato CSV, ya que es un formato de archivo común con particiones.
 
 ## <a name="how-azure-purview-scans-resource-sets"></a>Cómo Azure Purview examina los conjuntos de recursos
 
-Cuando Azure Purview detecta recursos que considera forman parte de un conjunto de recursos, cambia de un examen completo a un examen de muestra. En un examen de muestra, se abre solo un subconjunto de los archivos que considera que están en el conjunto de recursos. Para cada archivo que se abre, usa su esquema y ejecuta sus clasificadores. A continuación, Azure Purview busca el recurso más reciente entre los recursos abiertos y usa el esquema y las clasificaciones de ese recurso con el conjunto de recursos completo del catálogo en la entrada.
+Cuando Azure Purview detecta recursos que considera forman parte de un conjunto de recursos, cambia de un examen completo a un examen de muestra. Un examen de muestra abre solo un subconjunto de los archivos que considera que están en el conjunto de recursos. En cada archivo que abre, usa su esquema y ejecuta sus clasificadores. A continuación, Azure Purview busca el recurso más reciente entre los recursos abiertos y usa el esquema y las clasificaciones de ese recurso con el conjunto de recursos completo del catálogo en la entrada.
 
-## <a name="what-azure-purview-stores-about-resource-sets"></a>Qué almacena Azure Purview sobre los conjuntos de recursos
+## <a name="advanced-resource-sets"></a>Conjuntos de recursos avanzados
 
-Además de los esquemas y las clasificaciones, Azure Purview almacena la siguiente información sobre los conjuntos de recursos:
+De forma predeterminada, Azure Purview determina el esquema y las clasificaciones de los conjuntos de recursos en función de las [reglas de muestreo de archivos del conjunto de recursos](sources-and-scans.md#resource-set-file-sampling). Azure Purview puede personalizar y enriquecer aún más los recursos del conjunto de recursos a través de la funcionalidad **Conjuntos de recursos avanzados**. Cuando se habilitan los conjuntos de recursos avanzados, Azure Purview ejecuta agregaciones adicionales para calcular la siguiente información sobre los recursos del conjunto de recursos:
 
-- Datos del recurso de partición más reciente que examinó en profundidad.
-- Información agregada sobre los recursos de partición que constituyen el conjunto de recursos.
-- Un recuento de particiones que muestra cuántos recursos de partición encontró.
-- Un recuento de esquemas que muestra el número de esquemas únicos que encontró en el conjunto de muestra que examinó en profundidad. Este valor es un número entre 1 y 5 o valores mayores que 5, 5+.
+- El esquema y las clasificaciones más actualizados para reflejar con precisión el desfase de esquema de los cambiantes metadatos.
+- Una ruta de acceso de ejemplo desde un archivo que compone el conjunto de recursos.
+- Un número de particiones que muestra el número de archivos que forma el conjunto de recursos. 
+- Un número de esquemas que muestra el número de esquemas únicos que se han encontrado. Este valor es un número entre 1 y 5 o valores mayores que 5, 5+.
 - Una lista de tipos de partición cuando se incluye más de un único tipo de partición en el conjunto de recursos. Por ejemplo, un sensor de IoT puede generar archivos XML y JSON, aunque ambos forman parte del mismo conjunto de recursos de manera lógica.
+- El tamaño total de todos los archivos que componen el conjunto de recursos. 
+
+Estas propiedades se pueden encontrar en la página de detalles del recurso del conjunto de recursos.
+
+:::image type="content" source="media/concept-resource-sets/resource-set-properties.png" alt-text="Las propiedades calculadas cuando los conjuntos de recursos avanzados están activos" border="true":::
+
+La habilitación de conjuntos de recursos avanzados también permite la creación de [reglas de patrones de conjuntos de recursos](how-to-resource-set-pattern-rules.md) que personalizan la forma en que Azure Purview agrupa los conjuntos de recursos durante el examen. 
+
+### <a name="turning-on-advanced-resource-sets"></a>Activación de conjuntos de recursos avanzados
+
+Los conjuntos de recursos avanzados están desactivados de forma predeterminada en todas las instancias nuevas de Azure Purview. Los conjuntos de recursos avanzados se pueden habilitar desde la **información de la cuenta** en el centro de administración.
+
+> [!NOTE]
+> Todas las instancias de Purview creadas antes del 19 de agosto de 2021 tienen el conjunto de recursos avanzado activado de forma predeterminada.
+
+:::image type="content" source="media/concept-resource-sets/advanced-resource-set-toggle.png" alt-text="Active el conjuntos de recursos avanzados." border="true":::
+
+Después de habilitar los conjuntos de recursos avanzados, los enriquecimientos adicionales se producirán en todos los recursos recién ingeridos. El equipo de Azure Purview recomienda esperar una hora antes de examinar los nuevos datos del lago de datos después de activar la característica.
+
+> [!IMPORTANT]
+> La habilitación de conjuntos de recursos avanzados afectará a la tasa de actualización de la información de la clasificación y los recursos. Cuando los conjuntos de recursos avanzados están activos, la información de la clasificación y los recursos solo se actualizará dos veces al día.
 
 ## <a name="built-in-resource-set-patterns"></a>Patrones de conjuntos de recursos integrados
 
@@ -80,7 +99,7 @@ Azure Purview admite los siguientes patrones de conjunto de recursos. Estos patr
 | Date(yyyy/mm/dd)InPath  | {Año}/{mes}/{día} | Patrón de año/mes/día que abarca varias carpetas |
 
 
-## <a name="how-resource-sets-are-displayed-in-the-azure-purview-catalog"></a>Cómo se muestran los conjuntos de recursos en el catálogo de Azure Purview
+## <a name="how-resource-sets-are-displayed-in-the-azure-purview-data-catalog"></a>Cómo se muestran los conjuntos de recursos en el catálogo de datos de Azure Purview
 
 Cuando Azure Purview coincide con un grupo de activos en un conjunto de recursos, intenta extraer la información más útil para usarla como nombre para mostrar en el catálogo. Algunos ejemplos de la convención de nomenclatura predeterminada aplicada: 
 

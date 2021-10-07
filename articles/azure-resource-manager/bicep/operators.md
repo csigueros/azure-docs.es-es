@@ -4,13 +4,13 @@ description: Describe los operadores de Bicep disponibles para las implementacio
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/30/2021
-ms.openlocfilehash: 80fc9e4e1285d86858a476feba30621a7afe1c79
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.date: 09/10/2021
+ms.openlocfilehash: 13591112171919d6c58959c40dffa1340f3e8ebd
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123221037"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124764321"
 ---
 # <a name="bicep-operators"></a>Operadores de Bicep
 
@@ -38,7 +38,9 @@ Los operadores siguientes se enumeran en orden descendente de precedencia (cuant
 | `?` `:` | Expresión condicional (ternaria) | De derecha a izquierda
 | `??` | Coalesce | De izquierda a derecha
 
-Encerrar una expresión entre `(` y `)` permite invalidar la precedencia predeterminada del operador Bicep. Por ejemplo, la expresión x + y/z evalúa primero la división y, después, la suma. Sin embargo, la expresión (x + y)/z evalúa la suma primero y la división después.
+## <a name="parentheses"></a>Paréntesis
+
+Encerrar una expresión entre paréntesis permite invalidar la precedencia predeterminada del operador Bicep. Por ejemplo, la expresión `x + y / z` evalúa primero la división y, después, la suma. Sin embargo, la expresión`(x + y) / z` evalúa la suma primero y la división después.
 
 ## <a name="accessor"></a>Descriptor de acceso
 
@@ -74,7 +76,7 @@ Los operadores lógicos evalúan valores booleanos, devuelven valores que no son
 | ---- | ---- | ---- |
 | `&&` | [Y](./operators-logical.md#and-) | Devuelve `true` si todos los valores son TRUE. |
 | `||`| [O](./operators-logical.md#or-) | Devuelve `true` si alguno de los valores es TRUE. |
-| `!` | [Not](./operators-logical.md#not-) | Niega un valor booleano. |
+| `!` | [Not](./operators-logical.md#not-) | Niega un valor booleano. Toma un operando. |
 | `??` | [Fusionar](./operators-logical.md#coalesce-) | Devuelve el primer valor que no es NULL. |
 | `?` `:` | [Expresión condicional](./operators-logical.md#conditional-expression--) | Determina si una condición es TRUE o FALSE y devuelve un valor. |
 
@@ -88,8 +90,8 @@ Los operadores numéricos usan enteros para realizar cálculos y devolver valore
 | `/` | [Dividir](./operators-numeric.md#divide-) | Divide un entero por otro. |
 | `%` | [Módulo](./operators-numeric.md#modulo-) | Divide un entero por otro y devuelve el resto. |
 | `+` | [Add (Agregar)](./operators-numeric.md#add-) | Suma dos enteros. |
-| `-` | [Restar](./operators-numeric.md#subtract--) | Resta un entero de otro. |
-| `-` | [Menos](./operators-numeric.md#minus--) | Multiplica un entero por `-1`. |
+| `-` | [Restar](./operators-numeric.md#subtract--) | Resta un entero de otro entero. Toma dos operandos. |
+| `-` | [Menos](./operators-numeric.md#minus--) (unario) | Multiplica un entero por `-1`. Toma un operando. |
 
 > [!NOTE]
 > "Restar" y "Menos" utilizan el mismo operador. La funcionalidad es diferente porque "Restar" utiliza dos operandos, mientras que "Menos" solo utiliza uno.

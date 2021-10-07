@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/25/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b9a0d2b785f98555d723c81c6beecaa85313881e
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 0adc8638eeffedf1f8b2b31357b43fc38e67773f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114728663"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546340"
 ---
 # <a name="azure-security-baseline-for-azure-virtual-desktop"></a>Línea base de seguridad de Azure para Azure Virtual Desktop
 
@@ -40,7 +40,7 @@ En el caso de los grupos de seguridad de red asociados a las subredes de las má
 
 - [Protección de red adaptable en Azure Security Center](../security-center/security-center-adaptive-network-hardening.md) 
 
-- [Azure Firewall para Azure Virtual Desktop ](../firewall/protect-windows-virtual-desktop.md)
+- [Azure Firewall para Azure Virtual Desktop ](../firewall/protect-azure-virtual-desktop.md)
 
 - [Creación de un grupo de seguridad de red con reglas de seguridad](../virtual-network/tutorial-filter-network-traffic.md)
 
@@ -640,9 +640,7 @@ Los orígenes de datos para la investigación incluyen los orígenes de registro
 
 Azure Sentinel proporciona amplios análisis de datos en prácticamente cualquier origen de registro y un portal de administración de casos para administrar todo el ciclo de vida de los incidentes. La información de inteligencia durante una investigación puede asociarse a un incidente con fines de seguimiento e informes. 
 
-- [Instantánea del disco de una máquina Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
-
-- [Instantánea del disco de una máquina Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+- [Instantánea del disco de una máquina](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 
 - [Recopilación del volcado de memoria e información de diagnóstico del servicio de soporte técnico de Microsoft Azure](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 
 

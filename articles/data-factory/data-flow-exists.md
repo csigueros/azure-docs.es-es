@@ -1,7 +1,7 @@
 ---
 title: Transformación Existe en flujo de datos de asignación
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Busque filas existentes mediante la transformación Existe en el flujo de datos de asignación de Azure Data Factory.
+description: Busque filas existentes mediante la transformación Existe en el flujo de datos de asignación de Azure Data Factory y Synapse Analytics
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,17 +9,19 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/07/2020
-ms.openlocfilehash: 7ad68638862c8ff348538b2cf9d73a533854f984
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: 747a873e64bd143d988173f236f27d7246f6deeb
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638075"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129058741"
 ---
 # <a name="exists-transformation-in-mapping-data-flow"></a>Transformación Existe en flujo de datos de asignación
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 La transformación Existe es una transformación de filtrado de filas que comprueba si los datos existen en otro origen o flujo. El flujo de salida incluye todas las filas del flujo izquierdo que, o bien existen, o bien no existen en el flujo derecho. La transformación Existe es similar a ```SQL WHERE EXISTS``` y ```SQL WHERE NOT EXISTS```.
 
@@ -32,7 +34,7 @@ La transformación Existe es una transformación de filtrado de filas que compru
 1. Seleccione si quiere o no una **expresión personalizada**.
 1. Elija las columnas de clave que desea comparar como condiciones de existencia. De forma predeterminada, el flujo de datos busca la igualdad entre una columna de cada flujo. Para comparar a través de un valor de proceso, mantenga el mouse sobre la lista desplegable y seleccione **Columna calculada**.
 
-![Configuración de Existe](media/data-flow/exists.png "existe 1")
+:::image type="content" source="media/data-flow/exists.png" alt-text="Configuración de Existe":::
 
 ### <a name="multiple-exists-conditions"></a>Varias condiciones Existe
 
@@ -44,11 +46,11 @@ Para comparar varias columnas de cada flujo, agregue una nueva condición de exi
 
 Para crear una expresión de forma libre que contenga operadores distintos de "y" e "igual a", seleccione el campo **Custom expression** (Expresión personalizada). Escriba una expresión personalizada mediante el generador de expresiones de flujo de datos haciendo clic en el cuadro azul.
 
-![Configuración personalizada de Existe](media/data-flow/exists1.png "existe personalizado")
+:::image type="content" source="media/data-flow/exists1.png" alt-text="Configuración personalizada de Existe":::
 
 ## <a name="broadcast-optimization"></a>Optimización de difusión
 
-![Combinación de difusión](media/data-flow/broadcast.png "Combinación de difusión")
+:::image type="content" source="media/data-flow/broadcast.png" alt-text="Combinación de difusión":::
 
 En las combinaciones, búsquedas y transformaciones Existe, si uno o ambos flujos de datos caben en la memoria del nodo de trabajo, puede optimizar el rendimiento al habilitar la opción **Difusión**. De forma predeterminada, el motor de Spark decidirá automáticamente si difundir o no una parte. Para elegir manualmente la parte que se va a difundir, seleccione **Fijo**.
 
@@ -71,9 +73,9 @@ No se recomienda deshabilitar la difusión a través de la opción **Desactivado
 
 El ejemplo siguiente es una transformación Existe denominada `checkForChanges` que toma el flujo izquierdo `NameNorm2` y el flujo derecho `TypeConversions`.  La condición Existe es la expresión `NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region` que devuelve true si coinciden las columnas `EMPID` y `Region` de cada flujo. Mientras se comprueba la existencia, `negate` es false. No se habilita ninguna difusión en la pestaña Optimize (Optimizar), por lo que `broadcast` tiene el valor `'none'`.
 
-En la experiencia de usuario de Data Factory, esta transformación es similar a la siguiente imagen:
+En la experiencia de la interfaz de usuario, esta transformación es similar a la siguiente imagen:
 
-![Ejemplo de Existe](media/data-flow/exists-script.png "Ejemplo de Existe")
+:::image type="content" source="media/data-flow/exists-script.png" alt-text="Ejemplo de Existe":::
 
 En el siguiente fragmento de código se muestra el script del flujo de datos para esta transformación:
 

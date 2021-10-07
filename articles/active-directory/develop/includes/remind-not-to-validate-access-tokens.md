@@ -12,12 +12,12 @@ ms.date: 06/25/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ab38a17f96bf10d5ae6745ede5c89c90eb47fda7
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: e3dad40f1e4c1e8c463217720a190fd0e961334f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113432088"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128908500"
 ---
 > [!WARNING]
-> No intente validar ni leer tokens para ninguna API de su propiedad, incluidos los tokens de este ejemplo, en el código.  Los tokens de los servicios de Microsoft pueden usar un formato especial que no se validará como un JWT y también se pueden cifrar para los usuarios consumidores (cuenta Microsoft). Aunque la lectura de tokens es una herramienta útil de depuración y aprendizaje, no tome dependencias de esto en el código ni asuma detalles sobre los tokens que no son para una API que controle.
+> No intente validar ni leer tokens para ninguna API de su propiedad, incluidos los tokens de este ejemplo, en el código. Los tokens de los servicios de Microsoft pueden usar un formato especial que no se validará como un JWT y también se pueden cifrar para los usuarios consumidores (cuenta Microsoft). Aunque la lectura de tokens es una herramienta útil de depuración y aprendizaje, no tome dependencias de esto en el código ni asuma detalles sobre los tokens que no son para una API que controle.

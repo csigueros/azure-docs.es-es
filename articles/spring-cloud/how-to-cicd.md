@@ -4,16 +4,16 @@ description: Describe cómo usar la tarea de Azure Spring Cloud para Azure Pipel
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 09/13/2021
 ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 2ac965e54a66eb2489ae7a4bfa9cac363f494b4f
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: b3e5520f91301471bfc9df6bbd4a9cd4a8bc6a6a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122182511"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128666069"
 ---
 # <a name="automate-application-deployments-to-azure-spring-cloud"></a>Automatización de implementaciones de aplicaciones en Azure Spring Cloud
 
@@ -27,17 +27,15 @@ En el vídeo siguiente se describe la automatización de un extremo a otro media
 
 > [!VIDEO https://www.youtube.com/embed/D2cfXAbUwDc?list=PLPeZXlCR7ew8LlhnSH63KcM0XhMKxT1k_]
 
+::: zone pivot="programming-language-csharp"
+
 ## <a name="create-an-azure-resource-manager-service-connection"></a>Creación de una conexión de servicio de Azure Resource Manager
 
-Lea [este artículo](/azure/devops/pipelines/library/connect-to-azure) para aprender a crear una conexión de servicio de Azure Resource Manager con su proyecto de Azure DevOps. Asegúrese de seleccionar la misma suscripción que usa para la instancia de servicio de Azure Spring Cloud.
+Primero, cree una conexión de servicio de Azure Resource Manager para el proyecto de Azure DevOps. Para obtener instrucciones, consulte [Conexión a Microsoft Azure](/azure/devops/pipelines/library/connect-to-azure). Asegúrese de seleccionar la misma suscripción que usa para la instancia de servicio de Azure Spring Cloud.
 
 ## <a name="build-and-deploy-apps"></a>Compilación e implementación de aplicaciones
 
-::: zone pivot="programming-language-csharp"
-
-### <a name="deploy-artifacts"></a>Implementación de artefactos
-
-Puede compilar e implementar los proyectos mediante una serie de tareas. Este fragmento de código define variables, una tarea de .NET Core para compilar la aplicación y una tarea de Azure Spring Cloud para implementar la aplicación.
+Ya puede compilar e implementar los proyectos mediante una serie de tareas. La siguiente plantilla de Azure Pipelines define variables, una tarea de .NET Core para compilar la aplicación y una tarea de Azure Spring Cloud para implementarla.
 
 ```yaml
 variables:
@@ -47,7 +45,6 @@ variables:
   planetAppName: 'planet-weather-provider'
   solarAppName: 'solar-system-weather'
   serviceName: '<your service name>'
-
 
 steps:
 # Restore, build, publish and package the zipped planet app
@@ -90,33 +87,65 @@ steps:
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
-### <a name="deploy-artifacts"></a>Implementación de artefactos
+## <a name="set-up-an-azure-spring-cloud-instance-and-an-azure-devops-project"></a>Configuración de una instancia Azure Spring Cloud y un proyecto de Azure DevOps
 
-#### <a name="to-production"></a>En producción
+En primer lugar, siga estos pasos para configurar una instancia de Azure Spring Cloud existente para usarla con Azure DevOps.
 
-Puede compilar e implementar los proyectos mediante una serie de tareas. En primer lugar, este fragmento de código define una tarea de Maven para compilar la aplicación, seguida de una segunda tarea que implementa el archivo JAR mediante la tarea de Azure Spring Cloud para Azure Pipelines.
+1. Vaya a la instancia de Azure Spring Cloud y, a continuación, cree una aplicación nueva. 
+1. Vaya al portal de Azure DevOps y, a continuación, cree un proyecto en la organización elegida. Si no tiene una organización de Azure DevOps, puede crear una gratis.
+1. Seleccione **Repositorio** y, a continuación, importe el [código de demostración de Spring Boot](https://github.com/spring-guides/gs-spring-boot) en el repositorio.
 
-```yaml
-steps:
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-- task: AzureSpringCloud@0
-  inputs:
-    azureSubscription: '<your service connection name>'
-    Action: 'Deploy'
-    AzureSpringCloud: <your Azure Spring Cloud service>
-    AppName: <app-name>
-    UseStagingDeployment: false
-    DeploymentName: 'default'
-    Package: ./target/your-result-jar.jar
-```
+## <a name="create-an-azure-resource-manager-service-connection"></a>Creación de una conexión de servicio de Azure Resource Manager
 
-#### <a name="blue-green-deployments"></a>Implementaciones azul-verde
+A continuación, cree una conexión de servicio de Azure Resource Manager para el proyecto de Azure DevOps. Para obtener instrucciones, consulte [Conexión a Microsoft Azure](/azure/devops/pipelines/library/connect-to-azure). Asegúrese de seleccionar la misma suscripción que usa para la instancia de servicio de Azure Spring Cloud.
 
-La implementación que se muestra en la sección anterior recibe inmediatamente el tráfico de la aplicación tras la implementación. A veces, los desarrolladores quieren probar sus aplicaciones en el entorno de producción, pero antes de que la aplicación reciba cualquier tráfico de cliente.
+## <a name="build-and-deploy-apps"></a>Compilación e implementación de aplicaciones
 
-El fragmento de código siguiente crea la aplicación de la misma manera que la anterior y, a continuación, la implementa en una implementación de almacenamiento provisional. En este ejemplo, la implementación de almacenamiento provisional ya debe existir. Para obtener un enfoque alternativo, consulte [Estrategias de implementación azul-verde](concepts-blue-green-deployment-strategies.md).
+Ya puede compilar e implementar los proyectos mediante una serie de tareas. En las secciones siguientes se muestran varias opciones para implementar la aplicación mediante Azure DevOps.
+
+### <a name="deploy-using-a-pipeline"></a>Implementación mediante una canalización
+
+Para realizar una implementación mediante una canalización, siga estos pasos:
+
+1. Seleccione **Canalizaciones** y cree una nueva canalización con una plantilla de Maven.
+1. Edite el archivo *azure-pipelines.yml* para establecer el campo `mavenPomFile` en *'complete/pom.xml'* .
+1. Seleccione la opción **Mostrar el asistente** que está a la derecha y, a continuación, seleccione la plantilla **Azure Spring Cloud**.
+1. Seleccione la conexión de servicio que creó para la suscripción de Azure y, a continuación, seleccione la instancia de Spring Cloud y la instancia de la aplicación. 
+1. Deshabilite la opción **Usar implementación provisional**.
+1. Establezca el valor de la opción **Paquete o carpeta** como *complete/target/spring-boot-complete-0.0.1-SNAPSHOT.jar*.
+1. Seleccione **Agregar** para agregar esta tarea a la canalización.
+  
+   La configuración de la canalización debe coincidir con la siguiente imagen.
+
+   :::image type="content" source="media/spring-cloud-how-to-cicd/pipeline-task-setting.jpg" alt-text="Captura de pantalla de la configuración de canalización." lightbox="media/spring-cloud-how-to-cicd/pipeline-task-setting.jpg":::
+
+   También puede compilar e implementar los proyectos mediante la siguiente plantilla de canalización. En primer lugar, este ejemplo define una tarea de Maven para compilar la aplicación, seguida de una segunda tarea que implementa el archivo JAR mediante la tarea de Azure Spring Cloud para Azure Pipelines.
+
+   ```yaml
+   steps:
+   - task: Maven@3
+     inputs:
+       mavenPomFile: 'complete/pom.xml'
+   - task: AzureSpringCloud@0
+     inputs:
+       azureSubscription: '<your service connection name>'
+       Action: 'Deploy'
+       AzureSpringCloud: <your Azure Spring Cloud service>
+       AppName: <app-name>
+       UseStagingDeployment: false
+       DeploymentName: 'default'
+       Package: ./target/your-result-jar.jar
+   ```
+
+3. Seleccione **Guardar y ejecutar** y espere a que finalice el trabajo.
+
+### <a name="blue-green-deployments"></a>Implementaciones azul-verde
+
+La implementación que se muestra en la sección anterior recibe inmediatamente el tráfico de la aplicación tras la implementación. Esto le permite probar la aplicación en el entorno de producción antes de recibir cualquier tráfico del cliente.
+
+#### <a name="edit-the-pipeline-file"></a>Edición del archivo de canalización
+
+Para compilar la aplicación de la misma manera que se mostró anteriormente y agregarla a una implementación provisional, use la plantilla siguiente. En este ejemplo, la implementación de almacenamiento provisional ya debe existir. Para obtener un enfoque alternativo, consulte [Estrategias de implementación azul-verde](concepts-blue-green-deployment-strategies.md).
 
 ```yaml
 steps:
@@ -140,9 +169,49 @@ steps:
     UseStagingDeployment: true
 ```
 
+#### <a name="use-the-releases-section"></a>Uso de la sección Versiones
+
+Los siguientes pasos le muestran cómo habilitar una implementación azul-verde desde la sección **Versiones**.
+
+1. Seleccione **Canalizaciones** y cree una nueva canalización para su artefacto de compilación y publicación de Maven.
+   1. Seleccione el **GIT de Azure Repos** para obtener la ubicación del código.
+   1. Seleccione el repositorio donde se encuentre el código.
+   1. Seleccione la plantilla **Maven** y modifique el archivo para establecer el campo `mavenPomFile` en *`complete/pom.xml`* .
+   1. Seleccione la opción **Mostrar el asistente** que está en el lado derecho y, a continuación, seleccione la plantilla **Publicar artefactos de compilación**.
+   1. Establezca la **Ruta de acceso para publicar** como *complete/target/spring-boot-complete-0.0.1-SNAPSHOT.jar*.
+   1. Seleccione **Guardar y ejecutar**.
+
+1. Seleccione **Versiones** y **Crear versión**.
+1. Agregue una nueva canalización y seleccione **Trabajo vacío** para crear un trabajo.
+1. En **Fases**, seleccione la línea **1 trabajo, 0 tarea**
+
+   :::image type="content" source="media/spring-cloud-how-to-cicd/create-new-job.jpg" alt-text="Captura de pantalla que indica la opción que debe seleccionar para agregar una tarea a un trabajo.":::
+
+   1. Seleccione **+** para agregar una tarea al trabajo.
+   1. Busque la plantilla **Azure Spring Cloud** y seleccione **Agregar** para agregar la tarea al trabajo.
+   1. Seleccione **Implementación de Azure Spring Cloud:** para editar la tarea.
+   1. Complete la tarea con la información de la aplicación y deshabilite **Usar implementación provisional**.
+   1. Habilite **Crear una nueva implementación provisional si no existe una** y escriba un nombre en **Implementación**.
+   1. Seleccione **Guardar** para guardar la tarea.
+   1. Seleccione **Aceptar**.
+1. Seleccione **Canalización** y, a continuación, seleccione **Agregar un artefacto**.
+   1. En **Origen (canalización de compilación)** , seleccione la canalización que creó anteriormente.
+   1. Seleccione **Aceptar** y, a continuación, **Guardar**.
+1. Seleccione **1 trabajo, 1 tarea** en **Fases**.
+1. Vaya a la tarea **Implementación de Azure Spring Cloud** en la **Fase 1** y seleccione los puntos suspensivos que están junto a la opción **Paquete o carpeta**.
+1. Seleccione *spring-boot-complete-0.0.1-SNAPSHOT.jar* en el cuadro de diálogo y, a continuación, seleccione **Aceptar**.
+
+   :::image type="content" source="media/spring-cloud-how-to-cicd/change-artifact-path.jpg" alt-text="Captura de pantalla del cuadro de diálogo &quot;Seleccionar un archivo o carpeta&quot;.":::
+
+1. Seleccione **+** para agregar otra tarea de **Azure Spring Cloud** al trabajo.
+2. Cambie la acción a **Establecer la implementación de producción**.
+3. Seleccione **Guardar** y luego **Crear versión** para iniciar automáticamente la implementación. 
+
+Para comprobar el estado actual de la versión de la aplicación, seleccione **Ver versión**. Una vez finalizada esta tarea, visite Azure Portal para comprobar el estado de la aplicación.
+
 ### <a name="deploy-from-source"></a>Implementación desde el origen
 
-Se puede implementar directamente en Azure sin un paso de compilación independiente.
+Para realizar una implementación directamente en Azure sin tener que usar un paso de compilación independiente, use la siguiente plantilla de canalización.
 
 ```yaml
 - task: AzureSpringCloud@0

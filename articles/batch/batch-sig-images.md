@@ -4,12 +4,12 @@ description: Los grupos de imágenes personalizadas son una manera eficaz de con
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: ab3affbfff9039689354763080abfb1dc5b15af2
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 19a6168c2d6d2a37458dbbe9d8917f6e679da47f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450240"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124827495"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Uso de Shared Image Gallery para crear un grupo de imágenes personalizadas
 
@@ -81,7 +81,7 @@ Siga estas instrucciones al crear máquinas virtuales.
 
 ### <a name="create-a-vm-snapshot"></a>Creación de una instantánea de máquina virtual
 
-Una instantánea es una copia completa de solo lectura de un disco duro virtual. Para crear una instantánea del sistema operativo de una máquina virtual o de los discos de datos, puede usar Azure Portal o herramientas de la línea de comandos. En cuanto a pasos y opciones de creación de una instantánea, consulte la guía para máquinas virtuales [Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md) o [Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md).
+Una instantánea es una copia completa de solo lectura de un disco duro virtual. Para crear una instantánea del sistema operativo de una máquina virtual o de los discos de datos, puede usar Azure Portal o herramientas de la línea de comandos. En cuanto a pasos y opciones de creación de una instantánea, consulte la guía para [máquinas virtuales](../virtual-machines/snapshot-copy-managed-disk.md).
 
 ### <a name="create-an-image-from-one-or-more-snapshots"></a>Creación de una imagen a partir de una o varias instantáneas
 

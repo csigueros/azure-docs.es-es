@@ -8,14 +8,21 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 08/06/2021
 ms.author: cherylmc
-ms.openlocfilehash: 1f57d48d2fecded727e4087a138fa67c514bea0e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e570e5f06af814a6d0cbb581275d1c70ebf0df8a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121781136"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124780801"
 ---
 # <a name="scenario-bgp-peering-with-a-virtual-hub-preview"></a>Escenario: emparejamiento BGP con un centro virtual (versión preliminar)
+
+> [!IMPORTANT]
+> El emparejamiento BGP con la característica de centro de Virtual WAN está actualmente en versión preliminar pública. Si está interesado en probar esta característica, envíe un correo electrónico a **previewbgpwithvhub@microsoft.com** junto con el identificador de recurso de su recurso Virtual WAN. Después de recibir la confirmación de la habilitación de la característica, consulte la siguiente [página](create-bgp-peering-hub-portal.md) de la documentación para conocer los aspectos clave y una guía de configuración detallada. 
+>
+> Para localizar el id. del recurso, abra Azure Portal, vaya al recurso de Virtual WAN y seleccione **Configuración > Propiedades > Id. del recurso**.<br> Ejemplo: `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualWans/<virtualWANname>`
+>
+
 
 El enrutador del centro de Azure Virtual WAN, también llamado enrutador del centro virtual, actúa como administrador de rutas y proporciona simplificación en las operaciones de enrutamiento dentro y entre centros virtuales. En otras palabras, el enrutador del centro virtual hace lo siguiente:
 

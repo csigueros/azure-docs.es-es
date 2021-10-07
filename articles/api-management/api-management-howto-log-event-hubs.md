@@ -3,7 +3,7 @@ title: Registro de eventos en Azure Event Hubs en API Management de Azure
 description: Aprenda a registrar eventos en Azure Event Hubs en Azure API Management. Event Hubs es un servicio de entrada de datos muy escalable.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: ''
 ms.assetid: 88f6507d-7460-4eb2-bffd-76025b73f8c4
@@ -12,18 +12,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: apimpm
-ms.openlocfilehash: dc36caf8e00a3f23928b95eedc2574072f9c474d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.author: danlep
+ms.openlocfilehash: 80a518b7db0f28e92a421189d111bde2e82875ec
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741577"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591888"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Cómo registrar eventos en Azure Event Hubs en Azure API Management
 Azure Event Hubs es un servicio de introducción de datos altamente escalable que permite la introducción de millones de eventos por segundo para que pueda procesar y analizar grandes cantidades de datos generados por los dispositivos y aplicaciones conectados. Event Hubs actúa como la "puerta principal" de una canalización de eventos y, una vez que los datos se recopilan en un centro de eventos, se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes/almacenamiento. Event Hubs desacopla la producción de un flujo de eventos desde el consumo de los eventos, para que los consumidores de eventos pueden tener acceso a los eventos según su propia programación.
 
-Este artículo es un complemento del vídeo [Integración de Azure API Management con Event Hubs](https://azure.microsoft.com/documentation/videos/integrate-azure-api-management-with-event-hubs/) y describe cómo registrar eventos de API Management mediante Azure Event Hubs.
+En este artículo se describe cómo registrar eventos de API Management mediante Azure Event Hubs.
 
 ## <a name="create-an-azure-event-hub"></a>Crear un centro de eventos de Azure
 

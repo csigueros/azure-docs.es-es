@@ -1,14 +1,14 @@
 ---
-title: Uso de identidades administradas de Azure para crear entornos en DevTest Labs | Microsoft Docs
+title: Uso de identidades administradas de Azure para crear entornos
 description: Obtenga más información sobre el uso de identidades administradas en Azure para implementar entornos en un laboratorio de Azure DevTest Labs.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 4a8afd74014cb940be17d9a84168e8bfe7daff67
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 29ebda2920dc6fce5596d9b8b535ef014fd2240e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854691"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595973"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Uso de identidades administradas de Azure para implementar entornos en un laboratorio 
 

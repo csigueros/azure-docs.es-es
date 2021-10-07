@@ -5,18 +5,22 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 08/30/2021
-ms.openlocfilehash: 67c4a99dbdb370202e4bbf080f32c626b71093b1
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: 28aa16d5f65891df063db7b43211e466855dfeec
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123213828"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124832054"
 ---
 # <a name="output-iteration-in-bicep"></a>Iteración de la salida en Bicep
 
 En este artículo, se muestra cómo puede crear más de un valor para una salida en el archivo Bicep. Puede agregar un bucle a la sección `output` del archivo y devolver dinámicamente varios elementos durante la implementación.
 
 También puede usar un bucle con [módulos](loop-modules.md), [recursos](loop-resources.md), [propiedades de un recurso](loop-properties.md) y [variables](loop-variables.md).
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Para más información sobre los bucles y para obtener una práctica guía, consulte [Creación de plantillas de Bicep flexibles mediante condiciones y bucles](/learn/modules/build-flexible-bicep-templates-conditions-loops/) en **Microsoft Learn**.
 
 ## <a name="syntax"></a>Sintaxis
 
@@ -30,7 +34,7 @@ Los bucles se pueden usar para devolver elementos durante la implementación med
   }]
   ```
 
-  Para obtener más información, vea [Índice de bucles](#loop-index).
+  Para obtener más información, consulte [Índice de bucles](#loop-index).
 
 - Iteración en una matriz.
 

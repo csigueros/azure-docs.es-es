@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 07/25/2021
-ms.openlocfilehash: 01b5e9930353078406751001300a1baa3c23cf00
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: b6131e3ebe4ce7612d1a9c245605df2e29970257
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114690561"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652403"
 ---
 # <a name="transform-json-and-xml-using-liquid-templates-as-maps-in-azure-logic-apps"></a>Transformación de JSON y XML usando plantillas de Liquid como asignaciones en Azure Logic Apps
 
@@ -36,7 +36,7 @@ En este artículo se muestra cómo completar estas tareas:
 
 * Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
-* Conocimientos básicos sobre el [lenguaje de plantilla de Liquid](https://shopify.github.io/liquid/)
+* Conocimientos básicos sobre el [lenguaje de plantilla de Liquid](https://shopify.github.io/liquid/). Azure Logic Apps usa DotLiquid 2.0.361.
 
   > [!NOTE]
   > La acción **Transform JSON to JSON - Liquid** (Transformar de JSON a JSON: Liquid) sigue la [implementación DotLiquid para Liquid](https://github.com/dotliquid/dotliquid), que, en determinados casos, difiere de la [implementación Shopify para Liquid](https://shopify.github.io/liquid). Para más información, consulte [Consideraciones sobre las plantillas de Liquid](#liquid-template-considerations).
@@ -86,7 +86,7 @@ En este artículo se muestra cómo completar estas tareas:
 
 1. En el panel **Asignaciones**, seleccione **Agregar** y proporcione estos detalles para la asignación:
 
-   | Propiedad | Valor | Descripción |
+   | Propiedad | Value | Descripción |
    |----------|-------|-------------|
    | **Nombre** | `JsonToJsonTemplate` | Nombre de la asignación, que es "JsonToJsonTemplate" en este ejemplo |
    | **Tipo de asignación** | **liquid** | Tipo de la asignación. Para la transformación de JSON a JSON, debe seleccionar **liquid**. |

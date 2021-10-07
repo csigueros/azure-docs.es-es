@@ -16,12 +16,12 @@ ms.date: 06/30/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 936351dd9f2b19fab4ea95012b118d00d0c87299
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1c53899c8a513d623fc11d7494c3473cf2878d71
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749058"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609923"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>PowerShell para roles de Azure AD en Privileged Identity Management
 
@@ -49,7 +49,7 @@ En este artículo se incluyen instrucciones para usar los cmdlets de PowerShell 
     ![Busque el id. de organización en las propiedades de la organización de Azure AD](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
 > [!Note]
-> Las secciones siguientes son ejemplos sencillos que pueden ayudarlo a ponerse en marcha. Puede encontrar documentación más detallada sobre los cmdlets siguientes en [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management). Sin embargo, debe reemplazar "azureResources" en el parámetro providerID por "aadRoles". También debe recordar usar el id. de inquilino de la organización de Azure AD como el parámetro resourceId.
+> Las secciones siguientes son ejemplos sencillos que pueden ayudarlo a ponerse en marcha. Encontrará documentación más detallada sobre los siguientes cmdlets en [/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management). Sin embargo, debe reemplazar "azureResources" en el parámetro providerID por "aadRoles". También debe recordar usar el id. de inquilino de la organización de Azure AD como el parámetro resourceId.
 
 ## <a name="retrieving-role-definitions"></a>Recuperación de las definiciones de roles
 
@@ -112,10 +112,16 @@ $schedule.endDateTime = "2020-07-25T20:49:11.770Z"
 
 ## <a name="activate-a-role-assignment"></a>Activación de una asignación de roles
 
-Use el cmdlet siguiente para activar una asignación elegible.
+Use el siguiente cmdlet para activar una asignación que cumpla los requisitos necesarios en el contexto de un usuario normal:
 
 ```powershell
-Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId '926d99e7-117c-4a6a-8031-0cc481e9da26' -RoleDefinitionId 'f55a9a68-f424-41b7-8bee-cee6a442d418' -SubjectId 'f7d1887c-7777-4ba3-ba3d-974488524a9d' -Type 'UserAdd' -AssignmentState 'Active' -schedule $schedule -reason "dsasdsas"
+Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId '926d99e7-117c-4a6a-8031-0cc481e9da26' -RoleDefinitionId 'f55a9a68-f424-41b7-8bee-cee6a442d418' -SubjectId 'f7d1887c-7777-4ba3-ba3d-974488524a9d' -Type 'UserAdd' -AssignmentState 'Active' -Schedule $schedule -Reason "Business Justification for the role assignment"
+``` 
+
+Si necesita activar una asignación que cumpla los requisitos necesarios como administrador, en el parámetro `Type`, especifique `adminAdd`:
+
+```powershell
+Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId '926d99e7-117c-4a6a-8031-0cc481e9da26' -RoleDefinitionId 'f55a9a68-f424-41b7-8bee-cee6a442d418' -SubjectId 'f7d1887c-7777-4ba3-ba3d-974488524a9d' -Type 'adminAdd' -AssignmentState 'Active' -Schedule $schedule -Reason "Business Justification for the role assignment"
 ``` 
 
 Este cmdlet es casi idéntico al cmdlet para crear una asignación de roles. La diferencia clave entre los cmdlets es que, para el parámetro –Type, la activación es "userAdd" en lugar de "adminAdd". La otra diferencia es que el parámetro –AssignmentState es "Active" (Activo) en lugar de "Eligible" (Elegible).

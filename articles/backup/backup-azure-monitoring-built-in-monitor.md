@@ -4,12 +4,12 @@ description: En este artículo se obtiene información sobre las funcionalidades
 ms.topic: conceptual
 ms.date: 08/06/2021
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 4b20448896de05e888de33b2a680623b662b5e5a
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: ca99be06934c9eca8a762b4990e89d8818ac3f5c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122178442"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627242"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Supervisión de cargas de trabajo de Azure Backup
 
@@ -155,6 +155,14 @@ Para optar por las alertas de Azure Monitor para escenarios de error de copia d
 3. Haga clic en **Registrar** para habilitar esta característica para su suscripción.
     > [!NOTE]
     > El registro puede tardar hasta 24 horas en surtir efecto. Para habilitar esta característica para varias suscripciones, repita el proceso anterior seleccionando la suscripción correspondiente en la parte superior de la pantalla. También se recomienda volver a registrar la marca de versión preliminar si se ha creado un nuevo recurso en la suscripción después del registro inicial para seguir recibiendo alertas.
+
+4. Como procedimiento recomendado, también se recomienda registrar el proveedor de recursos para asegurarse de que la información de registro de características se sincroniza con el servicio de Azure Backup según lo previsto. Para registrar el proveedor de recursos, ejecute el siguiente comando de PowerShell en la suscripción para la que ha registrado la marca de características.
+
+```powershell
+Register-AzResourceProvider -ProviderNamespace <ProviderNamespace>
+```
+
+Para recibir alertas para almacenes de Recovery Services, use el valor _Microsoft.RecoveryServices_ para el parámetro _ProviderNamespace_. Para recibir alertas para almacenes de Backup, use el valor _Microsoft.DataProtection_.
 
 ### <a name="viewing-fired-alerts-in-the-azure-portal"></a>Visualización de alertas desencadenadas en Azure Portal 
 

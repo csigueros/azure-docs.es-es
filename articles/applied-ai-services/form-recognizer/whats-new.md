@@ -9,18 +9,26 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/01/2021
 ms.author: lajanuar
-ms.openlocfilehash: 2efc4d2c546cff172164b9416cbe5a0772167631
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: d575af739fa299cc32576bd2798eeb8165fe37c2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122326587"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590045"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
 # <a name="whats-new-in-azure-form-recognizer"></a>Novedades en Azure Form Recognizer
 
 El servicio Form Recognizer se actualiza de forma continuada. Marque esta página para mantenerse al día con las notas de la versión, las mejoras de características y las actualizaciones de documentación.
+
+## <a name="september-2021"></a>Septiembre de 2021
+
+"Corrección de la extracción de nombres inexacta en los id. precompilados (licencia del controlador) cuando hay unb sufijo o punto en el nombre."
+
+[Características avanzadas del explorador de métricas de Azure](/azure/azure-monitor/essentials/metrics-charts) disponibles en la página de descripción general de recursos de Form Recognizer en Azure Portal. 
+
+:::image type="content" source="media/portal-metrics.png" alt-text="Captura de pantalla: gráficos de métricas en Azure Portal.":::
 
 ## <a name="july-2021"></a>Julio de 2021
 
@@ -405,7 +413,7 @@ Paquete pip, versión 3.1.0b4
 * **Mejoras en la calidad**: mejoras en la extracción, lo que incluye mejoras en la extracción de dígitos individuales.
 * **Nueva característica para realizar pruebas en las herramientas de etiquetado y de ejemplo de Form Recognizer**: mediante la herramienta de etiquetado de ejemplo de Form Recognizer se pueden probar los modelos de factura, recibo y tarjeta de presentación precompilados y la API Layout. Vea cómo se extraen los datos sin escribir código.
 
-  [**Pruebe la herramienta de etiquetado de ejemplo de Form Recognizer.** ](https://fott-2-1.azurewebsites.net)
+  [**Pruebe la herramienta de etiquetado de ejemplo de Form Recognizer.**](https://fott-2-1.azurewebsites.net)
 
   ![Captura de pantalla: herramienta de etiquetado de ejemplo](./media/ui-preview.jpg)
 

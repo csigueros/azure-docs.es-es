@@ -25,6 +25,8 @@
   items:
     - name: Configuración de la evaluación gratuita de Azure Defender para IoT
       href: tutorial-onboarding.md
+    - name: Integración de ClearPass
+      href: tutorial-clearpass.md
     - name: Integración de CyberArk
       href: tutorial-cyberark.md
     - name: Integración de Forescout

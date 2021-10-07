@@ -3,12 +3,12 @@ title: Configuración de la red para clústeres administrados de Service Fabric
 description: Información sobre cómo configurar el clúster administrado de Service Fabric para las reglas de grupos de seguridad de red, el acceso a puertos RDP, las reglas de equilibrio de carga, etc.
 ms.topic: how-to
 ms.date: 8/23/2021
-ms.openlocfilehash: d953e9cd96c509a2410087588125b023613b380c
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 432246ca0550e4fab678a3a190221de88ce04478
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867375"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638450"
 ---
 # <a name="configure-network-settings-for-service-fabric-managed-clusters"></a>Configuración de la red para clústeres administrados de Service Fabric
 
@@ -199,7 +199,9 @@ Use Azure Portal para buscar el clúster administrado creado por las reglas NAT 
 
    ![Reglas NAT de entrada][Inbound-NAT-Rules]
 
-   De forma predeterminada, para los clústeres de Windows, el puerto de front-end está en el intervalo de 50000 y superiores, y el puerto de destino es el puerto 3389, que se asigna al servicio RDP en el nodo de destino.
+   De forma predeterminada, para los clústeres de Windows, la asignación del puerto de front-end empieza a 50000 y el puerto de destino es el puerto 3389, que se asigna al servicio RDP en el nodo de destino.
+   >[!NOTE]
+   > Si usa la característica BYOLB y desea RDP, debe configurar un grupo NAT por separado para hacerlo. Esto no creará automáticamente ninguna regla NAT para esos tipos de nodo.
 
 4. Conéctese de forma remota al nodo específico (instancia del conjunto de escalado). Puede usar el nombre de usuario y la contraseña que estableció cuando creó el clúster u otras credenciales que haya configurado.
 
@@ -315,7 +317,7 @@ Los clústeres administrados no habilitan IPv6 de forma predeterminada. Esta car
             }
    ```
 
-2. Implemente el clúster administrado habilitado para IPv6. Personalice la [plantilla de ejemplo](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-IPv6/AzureDeploy.json) según lo necesite o cree la suya propia.
+2. Implemente el clúster administrado habilitado para IPv6. Personalice la [plantilla de ejemplo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-IPv6) según lo necesite o cree la suya propia.
    En el siguiente ejemplo, crearemos un grupo de recursos llamado `MyResourceGroup` en `westus` e implementaremos un clúster con esta característica habilitada.
    ```powershell
     New-AzResourceGroup -Name MyResourceGroup -Location westus
@@ -403,7 +405,7 @@ Esta característica permite a los clientes usar una red virtual existente, espe
    > [!NOTE]
    > VNetRoleAssignmentID debe ser un [GUID](../azure-resource-manager/templates/template-functions-string.md#examples-16). Si vuelve a implementar una plantilla que incluya esta asignación de roles, asegúrese de que el GUID es el mismo que el que usó originalmente. Se recomienda ejecutar este recurso aislado o quitarlo de la plantilla de clúster tras la implementación, ya que solo debe crearse una vez.
 
-   Este es un ejemplo completo de una [plantilla de Azure Resource Manager (ARM) que crea una subred de red virtual y realiza una asignación de roles](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-BYOVNET/SFMC-VNet-RoleAssign.json) que puede usar en este paso.
+   Este es un ejemplo completo de una [plantilla de Azure Resource Manager (ARM) que crea una subred de red virtual y realiza una asignación de roles](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Standard-SKU-2-NT-BYOVNET/createVNet-assign-role.json) que puede usar en este paso.
 
 3. Configure la propiedad `subnetId` para la implementación del clúster después de configurar el rol como se muestra aquí:
 
@@ -419,7 +421,7 @@ Esta característica permite a los clientes usar una red virtual existente, espe
             ...
             }
    ```
-   Consulte esta [plantilla de ejemplo para traer su propio clúster de red virtual](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-BYOVNET/AzureDeploy.json) o personalice la suya propia.
+   Consulte esta [plantilla de ejemplo para traer su propio clúster de red virtual](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-BYOVNET) o personalice la suya propia.
 
 4. Implemente la plantilla de Azure Resource Manager (ARM) de clúster administrado que ha configurado.
 
@@ -437,7 +439,7 @@ Los clústeres administrados crean una instancia de Azure Load Balancer y un nom
 
 * Usar una dirección IP estática de Load Balancer configurada previamente para el tráfico público o privado
 * Asignar una instancia de Load Balancer a un tipo de nodo específico
-* Configurar reglas de grupo de seguridad de red por tipo de nodo, porque cada tipo de nodo se implementa en su propia red virtual
+* Configure reglas de grupo de seguridad de red por tipo de nodo porque cada tipo de nodo se implementa en su propia subred con un NSG único. 
 * Mantener las directivas y los controles existentes que pueda tener implementados
 
 > [!NOTE]
@@ -445,7 +447,7 @@ Los clústeres administrados crean una instancia de Azure Load Balancer y un nom
 
 **Requisitos de la característica**
  * Se admiten tipos de SKU estándar y básicas de Azure Load Balancer.
- * Debe haber grupos de NAT y back-end configurados en la instancia de Azure Load Balancer existente. Vea un [ejemplo completo de cómo crear y asignar roles aquí](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-BYOLB/createlb-and-assign-role). 
+ * Debe haber grupos de NAT y back-end configurados en la instancia de Azure Load Balancer existente. Vea un [ejemplo completo de cómo crear y asignar roles aquí](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Standard-SKU-2-NT-BYOLB/createlb-and-assign-role.json). 
 
 Estos son un par de escenarios de ejemplo en los que los clientes pueden hacer uso de esto:
 
@@ -532,7 +534,7 @@ Para configurar para traer su propio equilibrador de carga:
 
 5. Opcionalmente, configure las reglas de grupo de seguridad de red del clúster administrado aplicadas al tipo de nodo para permitir cualquier tráfico necesario que se haya configurado en la instancia de Azure Load Balancer o el tráfico se bloqueará.
 
-   Consulte la [plantilla de ejemplo para traer su propio equilibrador de carga de Azure Resource Manager (ARM)](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-BYOLB/AzureDeploy.json) para ver un ejemplo sobre cómo abrir reglas de entrada.
+   Consulte la [plantilla de ejemplo para traer su propio equilibrador de carga de Azure Resource Manager (ARM)](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-BYOLB) para ver un ejemplo sobre cómo abrir reglas de entrada.
 
 6. Implementación de la plantilla de ARM de clúster administrado configurada
 

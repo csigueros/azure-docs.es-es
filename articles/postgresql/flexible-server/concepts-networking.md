@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/08/2021
-ms.openlocfilehash: 3d35eed46082d162afed5a2c9685265812b1e2d7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 768645614035afa852e5d9195666748df9116368
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745111"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128577961"
 ---
 # <a name="networking-overview-for-azure-database-for-postgresql---flexible-server-preview"></a>Información general sobre redes para Azure Database for PostgreSQL con la opción Servidor flexible (versión preliminar)
 
@@ -74,7 +74,7 @@ Estos son algunos conceptos que debe conocer al usar redes virtuales con servido
   En este momento, no admitimos los NSG donde un ASG forma parte de la regla mediante Azure Database for PostgreSQL con la opción Servidor flexible. Actualmente se recomienda usar el [filtrado de origen o de destino basado en IP](../../virtual-network/network-security-groups-overview.md#security-rules) en un NSG. 
 
   > [!IMPORTANT]
-  > Las características de Azure Database for PostgreSQL con la opción Servidor flexible requieren la capacidad de enviar el tráfico saliente a los puertos de destino 5432 y 6432. Si crea grupos de seguridad de red (NSG) para denegar el tráfico saliente desde la instancia de Azure Database for PostgreSQL con la opción Servidor flexible, asegúrese de permitir el tráfico a estos puertos de destino. 
+  > Las características de alta disponibilidad de la opción de servidor flexible de Azure Database for PostgreSQL requieren la capacidad de enviar y recibir tráfico a los puertos de destino 5432 y 6432 dentro de la subred de la red virtual de Azure donde se ha implementado el servidor flexible de Azure Database for PostgreSQL, así como a Azure Storage para el archivado de registros. Si crea [grupos de seguridad de red (NSG)](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) para denegar el flujo de tráfico hacia o desde el servidor flexible de Azure Database for PostgreSQL dentro de la subred donde se implementó, asegúrese de permitir el tráfico a los puertos de destino 5432 y 6432 dentro de la subred y también a Azure Storage mediante la [etiqueta de servicio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) de Azure Storage como destino. 
 
 * **Integración de la zona DNS privada**. La integración de la zona DNS privada de Azure permite resolver el DNS privado dentro de la red virtual actual o en cualquier red virtual emparejada en la región en la que esté vinculada la zona DNS privada. 
 
@@ -83,6 +83,10 @@ Estos son algunos conceptos que debe conocer al usar redes virtuales con servido
 Si usa Azure Portal o la CLI de Azure para crear servidores flexibles con una red virtual, se aprovisiona automáticamente una nueva zona DNS privada para cada servidor de la suscripción mediante el nombre de servidor que proporcionó. 
 
 Si usa una API de Azure, una plantilla de Azure Resource Manager (plantilla de ARM) o Terraform, cree zonas DNS privadas que terminen con `postgres.database.azure.com`. Use esas zonas al configurar servidores flexibles con acceso privado. Para más información, vea la [información general sobre las zonas DNS privadas](../../dns/private-dns-overview.md).
+
+
+ Al usar el acceso de red privada con la red virtual de Azure, proporcionar la información de la zona DNS privada es obligatorio en varias interfaces, como la API, ARM y Terraform.  Por lo tanto, para la nueva creación de un servidor flexible de Azure Database for PostgreSQL mediante el acceso de red privada con la API, ARM o Terraform, cree zonas DNS privadas y úselas al configurar los servidores flexibles con acceso privado. Consulte más información sobre las [Especificaciones de la API REST para Microsoft Azure](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/preview/2021-06-01-preview/postgresql.json). Si usa [Azure Portal](./how-to-manage-virtual-network-portal.md) o la [CLI de Azure](./how-to-manage-virtual-network-cli.md) para crear servidores flexibles, puede proporcionar un nombre de zona DNS privada que haya creado previamente en la misma suscripción o en otra, o bien se crea automáticamente una zona DNS privada predeterminada en la suscripción.
+
 
 
 ### <a name="integration-with-a-custom-dns-server"></a>Integración con un servidor DNS personalizado
@@ -163,7 +167,10 @@ Azure Database for PostgreSQL con la opción Servidor flexible aplica la conexi�
 
 Azure Database for PostgreSQL admite TLS 1.2 y versiones posteriores. En [RFC 8996](https://datatracker.ietf.org/doc/rfc8996/), el Grupo de tareas de ingeniería de Internet (IETF) indica explícitamente que no se deben usar TLS 1.0 ni TLS 1.1. Ambos protocolos quedaron en desuso a finales de 2019.
 
-Se denegarán todas las conexiones entrantes que usan versiones anteriores del protocolo TLS, como TLS 1.0 y TLS 1.1.
+Se denegarán de manera predeterminada todas las conexiones entrantes que usen versiones anteriores del protocolo TLS, como TLS 1.0 y TLS 1.1. 
+
+> [!NOTE]
+> Los certificados SSL y TLS certifican que la conexión está protegida con protocolos de cifrado de última generación. Al cifrar la conexión en directo, se evita el acceso no autorizado a los datos mientras están en tránsito. Este es el motivo por el que se recomienda usar las versiones más recientes de TLS para cifrar las conexiones al servidor flexible de Azure Database for PostgreSQL. Aunque no se recomienda, si es necesario, tiene la opción de deshabilitar TLS\SSL para las conexiones al servidor flexible de Azure Database for PostgreSQL mediante la actualización del parámetro de servidor **require_secure_transport** a OFF. También puede establecer la versión de TLS; para ello, establezca los parámetros de servidor **ssl_min_protocol_version** y **ssl_max_protocol_version**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

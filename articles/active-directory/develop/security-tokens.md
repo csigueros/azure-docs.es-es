@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/11/2020
+ms.date: 09/27/2021
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 6d9f5538d377be1414089e591559344bde4f381a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2567a75c0accd7e2bb932d8578e1a225518f5ce3
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98795639"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092763"
 ---
 # <a name="security-tokens"></a>Tokens de seguridad
 
@@ -26,7 +26,7 @@ Un proveedor de identidades centralizado es especialmente útil para las aplicac
 
 **Token de acceso**: un token de acceso es un token de seguridad emitido por un [servidor de autorización](developer-glossary.md#authorization-server) como parte de un flujo de [OAuth 2.0](active-directory-v2-protocols.md). Contiene información sobre el usuario y el recurso para el que está previsto el token. La información se puede usar para tener acceso a las API web y a otros recursos protegidos. Los recursos validan los tokens de acceso para conceder acceso a una aplicación cliente. Para más información sobre cómo emite la Plataforma de identidad de Microsoft los tokens de acceso, consulte [Tokens de acceso](access-tokens.md).
 
-**Token de actualización**: Dado que los tokens de acceso solo son válidos durante un breve período de tiempo, los servidores de autorización a veces emiten un token de actualización al mismo tiempo que se emite el token de acceso. La aplicación cliente puede intercambiar este token de actualización por un nuevo token de acceso cuando es necesario. Para más información sobre cómo usa la Plataforma de identidad de Microsoft los tokens de actualización para revocar permisos, consulte [Revocación de tokens](access-tokens.md#token-revocation).
+**Token de actualización**: Dado que los tokens de acceso solo son válidos durante un breve período de tiempo, los servidores de autorización a veces emiten un token de actualización al mismo tiempo que se emite el token de acceso. La aplicación cliente puede intercambiar este token de actualización por un nuevo token de acceso cuando es necesario. Para más información sobre cómo usa la plataforma de identidad de Microsoft los tokens de actualización para revocar permisos, consulte [Tokens de actualización](refresh-tokens.md).
 
 **Token de id.** : Los tokens de id. se envían a la aplicación cliente como parte de un flujo de [OpenID Connect](v2-protocols-oidc.md). Se pueden enviar junto o en lugar de un token de acceso. El cliente usa los tokens de id. para autenticar al usuario. Para más información sobre cómo emite la Plataforma de identidad de Microsoft los tokens de id., consulte [Tokens de id](id-tokens.md).
 

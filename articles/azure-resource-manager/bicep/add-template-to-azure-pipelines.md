@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.author: jgao
 ms.date: 06/23/2021
-ms.openlocfilehash: 28050d926bf5b4042ceb5b94796550bc517eb977
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 1c8817fcc6a0cf24a0983f2df60f02cc42b79200
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114289201"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124764381"
 ---
 # <a name="integrate-bicep-with-azure-pipelines"></a>Integración de Bicep con Azure Pipelines
 
@@ -87,5 +87,6 @@ Una tarea de la CLI de Azure toma las siguientes entradas:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* Para obtener más información sobre el uso de Bicep con Azure Pipelines y para obtener instrucciones prácticas, consulte [Compilación de la primera canalización de implementación de Bicep mediante Azure Pipelines](/learn/modules/build-first-bicep-deployment-pipeline-using-azure-pipelines/) en **Microsoft Learn**.
 * Para usar la operación what-if en una canalización, consulte [Prueba de plantillas de Resource Manager con What-If en una canalización](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/).
 * Para más información sobre el uso del archivo Bicep con Acciones de GitHub, consulte [Implementación de archivos Bicep mediante Acciones de GitHub](./deploy-github-actions.md).

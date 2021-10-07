@@ -1,15 +1,15 @@
 ---
-title: Solución de problemas con artefactos en Azure DevTest Labs | Microsoft Docs
+title: Solución de problemas con artefactos
 description: Obtenga información acerca de cómo solucionar los problemas que se producen al aplicar artefactos en una máquina virtual de Azure DevTest Labs.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6258c2e85b708ea9dac1371a40e83a8a6f8e1911
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 0b07ac6191895454c0ffe25b8ff6fb465272a580
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123031772"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673832"
 ---
 # <a name="troubleshoot-issues-when-applying-artifacts-in-an-azure-devtest-labs-virtual-machine"></a>Solución de problemas al aplicar artefactos en una máquina virtual de Azure DevTest Labs
 Se puede producir un error en la aplicación de artefactos en una máquina virtual por varias razones. Este artículo le guía en algunos de los métodos para ayudar a identificar las posibles causas.

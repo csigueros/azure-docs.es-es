@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/28/2021
 ms.author: mitagaki
-ms.openlocfilehash: db50dba270157aa6365be359da6c9aa189c8f614
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 0f540025561b6e452371a74093133bf3e1183b1b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123439968"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744117"
 ---
-# <a name="backup-and-recover-speech-customization-resources"></a>Copia de seguridad y recuperación de recursos de personalización de voz
+# <a name="back-up-and-recover-speech-customization-resources"></a>Copia de seguridad y recuperación de recursos de personalización de voz
 
-El servicio Voz está [disponible en distintas regiones](/azure/cognitive-services/speech-service/regions). Las claves de suscripción del servicio están vinculadas a una sola región. Al adquirir una clave, se selecciona una región específica donde residen los datos, el modelo y las implementaciones.
+El servicio Voz está [disponible en distintas regiones](./regions.md). Las claves de suscripción del servicio están vinculadas a una sola región. Al adquirir una clave, se selecciona una región específica donde residen los datos, el modelo y las implementaciones.
 
 Los conjuntos de datos para los recursos de datos creados por el cliente, como los modelos de voz personalizados y las fuentes de voz personalizadas, también están **disponibles solo dentro de la región implementada por el servicio**. Estos recursos son:
 
@@ -44,14 +44,14 @@ Si usa nuestros puntos de conexión predeterminados, debe configurar el código 
 
 Siga estos pasos para configurar el cliente para que supervise si hay errores:
 
-1.  Busque la [lista de puntos de conexión disponibles regionalmente en nuestra documentación](/azure/cognitive-services/speech-service/rest-speech-to-text).
+1.  Busque la [lista de puntos de conexión disponibles regionalmente en nuestra documentación](./rest-speech-to-text.md).
 2.  Seleccione en la lista una región primaria y una o varias regiones secundarias o de copia de seguridad.
 3. Desde Azure Portal, cree recursos del servicio Voz para cada región.
-    -  Si ha establecido una cuota específica, también puede considerar la posibilidad de establecer la misma cuota en las regiones de copia de seguridad. Puede encontrar más detalles en [Cuotas y límites del servicio de voz](/azure/cognitive-services/speech-service/speech-services-quotas-and-limits).
+    -  Si ha establecido una cuota específica, también puede considerar la posibilidad de establecer la misma cuota en las regiones de copia de seguridad. Puede encontrar más detalles en [Cuotas y límites del servicio de voz](./speech-services-quotas-and-limits.md).
 
 4.  Tenga en cuenta que cada región tiene su propio servicio de token STS. Para la región primaria y las regiones de reserva, el archivo de configuración de cliente debe conocer lo siguiente:
     -  Puntos de conexión del servicio Voz regional
-    -  [Clave de suscripción regional y código de región](/azure/cognitive-services/speech-service/rest-speech-to-text)
+    -  [Clave de suscripción regional y código de región](./rest-speech-to-text.md)
 
 5.  Configure el código para supervisar los errores de conectividad (normalmente, los tiempos de espera de conexión y los errores de falta de disponibilidad del servicio). Este es el código de ejemplo en C#: [GitHub: Agregar ejemplo para mostrar un posible candidato para cambiar de región](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/fa6428a0837779cbeae172688e0286625e340942/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#L965).
 
@@ -72,8 +72,8 @@ El servicio Habla personalizada no admite la conmutación automática por error.
 
 1.  Cree el modelo personalizado en una región principal (primaria).
 2.  Ejecute la [API de copia de modelos](https://eastus2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) para replicar el modelo personalizado en todas las regiones preparadas (secundarias).
-3.  Vaya a Speech Studio para cargar el modelo copiado y crear un nuevo punto de conexión en la región secundaria. Vea cómo implementar un nuevo modelo en [Entrenamiento e implementación de un modelo de Habla personalizada](/azure/cognitive-services/speech-service/how-to-custom-speech-train-model).
-    -  Si ha establecido una cuota específica, considere también la posibilidad de establecer la misma cuota en las regiones de copia de seguridad. Puede encontrar más detalles en [Cuotas y límites del servicio de voz](/azure/cognitive-services/speech-service/speech-services-quotas-and-limits).
+3.  Vaya a Speech Studio para cargar el modelo copiado y crear un nuevo punto de conexión en la región secundaria. Vea cómo implementar un nuevo modelo en [Entrenamiento e implementación de un modelo de Habla personalizada](./how-to-custom-speech-train-model.md).
+    -  Si ha establecido una cuota específica, considere también la posibilidad de establecer la misma cuota en las regiones de copia de seguridad. Puede encontrar más detalles en [Cuotas y límites del servicio de voz](./speech-services-quotas-and-limits.md).
 4.  Configure el cliente para conmutar por error en errores persistentes como con el uso de puntos de conexión predeterminados.
 
 El código de cliente puede supervisar la disponibilidad de los modelos implementados en la región primaria y redirigir el tráfico de audio a la región secundaria cuando se produce un error en la región primaria. Si no necesita una conmutación por error en tiempo real, puede seguir estos pasos para prepararse para una conmutación por error manual.
@@ -82,7 +82,7 @@ El código de cliente puede supervisar la disponibilidad de los modelos implemen
 
 Si no necesita una conmutación por error en tiempo real, puede decidir importar los datos o crear e implementar los modelos en la región secundaria más adelante, con el conocimiento de que estas tareas tardarán tiempo en completarse.
 
-#### <a name="failover-tests"></a>Pruebas de conmutación por error
+#### <a name="failover-time-requirements"></a>Requisitos de tiempo de conmutación por error
 
 En esta sección se proporcionan instrucciones generales sobre el tiempo. Los tiempos se registraron para calcular la conmutación por error sin conexión mediante un [conjunto de datos de prueba representativo](https://github.com/microsoft/Cognitive-Custom-Speech-Service).
 
@@ -103,7 +103,7 @@ Voz personalizada no admite la conmutación automática por error. Controle los 
 
 Cuando se produce un error en la síntesis de voz personalizada en tiempo real, conmute por error a una voz pública (código de ejemplo de cliente: [GitHub: conmutación por error de voz personalizada a voz pública](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_samples.cs#L899)).
 
-Compruebe las [voces públicas disponibles](/azure/cognitive-services/speech-service/language-support#neural-voices). También puede cambiar el código de ejemplo anterior si desea conmutar por error a una voz diferente o a otra región.
+Compruebe las [voces públicas disponibles](./language-support.md#neural-voices). También puede cambiar el código de ejemplo anterior si desea conmutar por error a una voz diferente o a otra región.
 
 **Opción 2: Conmutación por error a una voz personalizada en otra región.**
 

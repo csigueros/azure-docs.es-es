@@ -4,19 +4,22 @@ description: En esta guía paso a paso se describe cómo ver y usar los informes
 author: batamig
 ms.author: bagol
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-insights
 ms.topic: how-to
-ms.date: 01/17/2021
-ms.openlocfilehash: f581594e6830efcf849f4ba51b218ce849bf3f9c
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.date: 09/27/2021
+ms.openlocfilehash: 706c27603233369836368239645cf28222da8eaa
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122396957"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208548"
 ---
 # <a name="file-extension-insights-about-your-data-from-azure-purview"></a>Conclusiones de extensión de archivo sobre los datos en Azure Purview 
 
 En esta guía paso a paso se describe cómo acceder a las conclusiones sobre las extensiones de archivo o los tipos de archivo que se encuentran en los datos. En la guía también se describe cómo ver y filtrar esas conclusiones.
+
+> [!IMPORTANT]
+> Azure Purview Insights se encuentra actualmente en versión preliminar. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
 Los orígenes de datos compatibles incluyen: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2 y cubos de Amazon S3
 
@@ -26,18 +29,18 @@ En esta guía paso a paso, aprenderá a:
 > - Ver conclusiones de extensión de archivo en los datos.
 > - Explorar en profundidad para obtener más detalles de extensión de archivo de los datos.
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar con las conclusiones de Purview, asegúrese de que ha completado los pasos siguientes:
 
 - Configurar los recursos de Azure y rellenar las cuentas pertinentes con los datos de prueba.
 
-- Configurar y completar un examen de los datos de prueba en cada origen de datos. Para más información, consulte [Administración de orígenes de datos en Azure Purview (versión preliminar)](manage-data-sources.md) y [Creación de un conjunto de reglas de examen](create-a-scan-rule-set.md).
+- Configurar y completar un examen de los datos de prueba en cada origen de datos. Para más información, consulte [Administración de orígenes de datos en Azure Purview](manage-data-sources.md) y [Creación de un conjunto de reglas de examen](create-a-scan-rule-set.md).
 
 - Ha iniciado sesión en Purview con una cuenta con el [rol de lector o conservador de datos](catalog-permissions.md#roles).
 
 
-Para más información, consulte [Administración de orígenes de datos en Azure Purview (versión preliminar)](manage-data-sources.md).
+Para más información, consulte [Administración de orígenes de datos en Azure Purview](manage-data-sources.md).
 
 ## <a name="use-purview-file-extension-insights"></a>Uso de las conclusiones de extensión de archivo de Purview
 

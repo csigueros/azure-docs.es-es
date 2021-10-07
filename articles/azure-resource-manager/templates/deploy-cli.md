@@ -1,18 +1,20 @@
 ---
-title: Implementación de recursos con una plantilla y la CLI de Azure
-description: Use Azure Resource Manager y la CLI de Azure para implementar recursos en Azure. Los recursos se definen en una plantilla de Resource Manager.
+title: 'Plantillas de implementación de Azure con la CLI de Azure : Azure Resource Manager | Microsoft Docs'
+description: Use Azure Resource Manager y la CLI de Azure para crear e implementar grupos de recursos en Azure. Los recursos se definen en una plantilla de implementación de Azure.
 ms.topic: conceptual
-ms.date: 07/15/2021
-ms.openlocfilehash: 8ecb8bb2e6b24571d91e97157ff91ba931b0719d
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.date: 09/17/2021
+ms.custom: devx-track-azurecli, seo-azure-cli
+keywords: cli azure implementar plantilla arm, crear grupo recursos azure, plantilla implementación azure, recursos implementación, plantilla arm, plantilla azure arm
+ms.openlocfilehash: 5b7734e3b91f7e842f17888f3f3c67d05655fc97
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114296779"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128585021"
 ---
-# <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Implementación de recursos con plantillas de ARM y la CLI de Azure
+# <a name="how-to-use-azure-resource-manager-arm-deployment-templates-with-azure-cli"></a>Procedimientos para el uso de plantillas de implementación de Azure Resource Manager (ARM) con la CLI de Azure
 
-En este artículo, se explica el uso de la CLI de Azure con plantillas de Azure Resource Manager (ARM) para implementar los recursos en Azure. Si no está familiarizado con los conceptos de implementación y administración de las soluciones de Azure, vea [Información general sobre plantillas](overview.md).
+En este artículo, se explica el uso de la CLI de Azure con plantillas de Azure Resource Manager (ARM) para implementar los recursos en Azure.  Si no está familiarizado con los conceptos de implementación y administración de las soluciones de Azure, vea [Información general sobre plantillas](overview.md).
 
 Los comandos de implementación cambiaron en la CLI de Azure, versión 2.2.0. Los ejemplos de este artículo requieren la [CLI de Azure, versión 2.20.0 o posterior](/cli/azure/install-azure-cli).
 
@@ -22,7 +24,7 @@ Si no tiene instalada la CLI de Azure, puede usar Azure Cloud Shell. Para obtene
 
 ## <a name="deployment-scope"></a>Ámbito de la implementación
 
-La implementación puede tener como destino un grupo de recursos, una suscripción, un grupo de administración o un inquilino. Según el ámbito de la implementación, usará comandos diferentes.
+La plantilla de implementación de Azure puede tener como destino un grupo de recursos, una suscripción, un grupo de administración o un inquilino. Según el ámbito de la implementación, usará comandos diferentes.
 
 * Para implementar en un **grupo de recursos**, use [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create):
 
@@ -58,7 +60,7 @@ Para cada ámbito, el usuario que implementa la plantilla debe tener permisos pa
 
 ## <a name="deploy-local-template"></a>Implementar una plantilla local
 
-Puede implementar una plantilla desde la máquina local o una que esté almacenada externamente. En esta sección se describe la implementación de una plantilla local.
+Puede implementar una plantilla de ARM desde la máquina local o una que esté almacenada externamente. En esta sección se describe la implementación de una plantilla local.
 
 Si va a realizar la implementación en un grupo de recursos que no existe, cree el grupo de recursos. El nombre del grupo de recursos solo puede incluir caracteres alfanuméricos, puntos, guiones bajos, guiones y paréntesis. Puede tener hasta 90 caracteres. El nombre no puede terminar con un punto.
 
@@ -76,7 +78,7 @@ az deployment group create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-La implementación puede demorar unos minutos en completarse. Cuando termine, verá un mensaje que incluye el resultado:
+La plantilla de implementación de Azure puede tardar unos minutos en completarse. Cuando termine, verá un mensaje que incluye el resultado:
 
 ```output
 "provisioningState": "Succeeded",
@@ -118,9 +120,9 @@ az deployment group create \
 
 Para obtener más información, vea [Uso de rutas de acceso relativas para plantillas vinculadas](./linked-templates.md#linked-template).
 
-## <a name="deployment-name"></a>Nombre de implementación
+## <a name="azure-deployment-template-name"></a>Nombre de la plantilla de implementación de Azure
 
-Al implementar una plantilla de Resource Manager, puede asignarle un nombre a la implementación. Este nombre puede ayudarle a recuperar la implementación del historial de implementaciones. Si no especifica un nombre para la implementación, se utilizará el nombre del archivo de la plantilla. Por ejemplo, si implementa una plantilla llamada _azuredeploy.json_ y no especifica ningún nombre para la implementación, el nombre que se asignará será `azuredeploy`.
+Al implementar una plantilla de ARM, puede asignarle un nombre a la plantilla de implementación de Azure. Este nombre puede ayudarle a recuperar la implementación del historial de implementaciones. Si no especifica un nombre para la implementación, se utilizará el nombre del archivo de la plantilla. Por ejemplo, si implementa una plantilla llamada _azuredeploy.json_ y no especifica ningún nombre para la implementación, el nombre que se asignará será `azuredeploy`.
 
 Cada vez que se ejecuta una implementación, se agrega una entrada al historial de implementación del grupo de recursos con el nombre de la implementación. Si ejecuta otra implementación y le asigna el mismo nombre, la entrada anterior se reemplazará por la implementación actual. Si desea que todas las entradas del historial de implementaciones sean diferentes, asigne un nombre único a cada implementación.
 
@@ -175,7 +177,7 @@ Para más información, vea [Especificaciones de plantilla de Azure Resource Man
 
 ## <a name="preview-changes"></a>Vista previa de los cambios
 
-Antes de implementar la plantilla, puede obtener una vista previa de los cambios que la plantilla realizará en su entorno. Use la [operación Y si](./deploy-what-if.md) para comprobar que la plantilla realiza los cambios esperados. La operación y si también valida que la plantilla no tenga errores.
+Antes de implementar la plantilla de ARM, puede obtener una vista previa de los cambios que la plantilla realizará en su entorno. Use la [operación Y si](./deploy-what-if.md) para comprobar que la plantilla realiza los cambios esperados. La operación y si también valida que la plantilla no tenga errores.
 
 ## <a name="parameters"></a>Parámetros
 
@@ -247,7 +249,7 @@ az deployment group create \
   --parameters $params
 ``` 
 
-Si usa la CLI de Azure con el símbolo del sistema (CMD) de Windows o PowerShell, establezca la variable en una cadena JSON. Incluya las comillas: `$params = '{ \"prefix\": {\"value\":\"start\"}, \"suffix\": {\"value\":\"end\"} }'`.
+Sin embargo, si usa CLI de Azure con el símbolo del sistema (CMD) de Windows o PowerShell, establezca la variable en una cadena JSON. Incluya las comillas: `$params = '{ \"prefix\": {\"value\":\"start\"}, \"suffix\": {\"value\":\"end\"} }'`.
 
 ### <a name="parameter-files"></a>Archivos de parámetros
 

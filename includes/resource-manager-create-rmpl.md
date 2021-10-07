@@ -2,14 +2,14 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 07/29/2021
+ms.date: 09/20/2021
 ms.author: tomfitz
-ms.openlocfilehash: 735f19f1c9f66db6d311c42528b36a44bf924ec0
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 0375a43e2cee9c973a957d96a9f74353d9f1ac2c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123227312"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128910349"
 ---
 Los vínculos privados permiten acceder a los servicios de Azure a través de un punto de conexión privado en la red virtual. Al combinar los vínculos privados con las operaciones de Azure Resource Manager, se bloquea a los usuarios que no están en el punto de conexión específico para la administración de recursos. Si un usuario malintencionado obtiene las credenciales de una cuenta de la suscripción, este no podrá administrar los recursos si no está en el punto de conexión específico.
 
@@ -17,6 +17,9 @@ Un vínculo privado proporciona las ventajas de seguridad siguientes:
 
 * **Acceso privado**: los usuarios pueden administrar recursos desde una red privada a través de un punto de conexión privado.
 * **Filtración de datos**: se deniega a los usuarios el acceso a los recursos no incluidos en el ámbito.
+
+> [!NOTE]
+> Azure Kubernetes Service (AKS) no admite actualmente la implementación del punto de conexión privado de ARM.
 
 ## <a name="understand-architecture"></a>Descripción de la arquitectura
 

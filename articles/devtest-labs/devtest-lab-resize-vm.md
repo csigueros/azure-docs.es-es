@@ -1,14 +1,14 @@
 ---
-title: Cambio de tamaño de una máquina virtual en un laboratorio de Azure DevTest Labs
+title: Cambio de tamaño de una VM en un laboratorio
 description: Obtenga información sobre cómo cambiar el tamaño de una máquina virtual (VM) en Azure DevTest Labs en función de sus necesidades de CPU, red o rendimiento de disco.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 592be0862bc33ead86fe43d37753fb72fde120c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 03339a1d500611bde31ebfa14101a0dbd7d1da08
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85482027"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128649499"
 ---
 # <a name="resize-a-vm-in-a-lab-in-azure-devtest-labs"></a>Cambio de tamaño de una máquina virtual en un laboratorio de Azure DevTest Labs
 Una de las características importantes de Azure Virtual Machines es que permite cambiar el tamaño de una máquina virtual (VM) en función de sus necesidades de CPU, red o rendimiento de disco. Ahora, Azure DevTest Labs admite esta característica para las máquinas virtuales en un laboratorio. La característica de cambio de tamaño se ajusta a la directiva de laboratorio para los tamaños de máquina virtual permitidos en el laboratorio. Es decir, se puede cambiar el tamaño de una máquina virtual, pero solo a los tamaños permitidos en el laboratorio. 
@@ -40,5 +40,3 @@ Para cambiar el tamaño de una máquina virtual en un laboratorio de Azure DevTe
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener información detallada acerca de la característica de cambio de tamaño compatible con máquinas virtuales de Azure, consulte [Resize virtual machines](https://azure.microsoft.com/blog/resize-virtual-machines/) (Cambio de tamaño de las máquinas virtuales).
-
-

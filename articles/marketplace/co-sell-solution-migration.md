@@ -7,13 +7,13 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 07/13/2021
-ms.openlocfilehash: 6ca8c75e5cf6f5290736cf01a20db63a8fb2d077
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.date: 09/27/2021
+ms.openlocfilehash: d80063eeb46938d3f8006f777a3209bc34d7cfcb
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114389089"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083198"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>Migración de soluciones de venta conjunta de OCP GTM al marketplace comercial
 
@@ -67,11 +67,11 @@ Siga estos pasos antes de importar las soluciones de OCP GTM:
 ## <a name="begin-the-migration-of-your-solutions-from-ocp-gtm"></a>Inicio de la migración de las soluciones desde OCP GTM
 
 1. Comience con la migración [aquí](https://go.microsoft.com/fwlink/?linkid=2165807).
-2. Seleccione la página **Overview** (Información general) y, después, en **Click here to get started** (Haga clic aquí para empezar).
+1. Seleccione la página **Overview** (Información general) y, después, en **Click here to get started** (Haga clic aquí para empezar).
 
     :::image type="content" source="media/co-sell-migrate/welcome-overveiw.png" alt-text="Muestra la página de información general":::
 
-3. Para empezar la migración, seleccione la pestaña **Solutions** (Soluciones), que muestra todas las soluciones asociadas a los identificadores de MPN.
+1. Para empezar la migración, seleccione la pestaña **Solutions** (Soluciones), que muestra todas las soluciones asociadas a los identificadores de MPN.
 
     :::image type="content" source="media/co-sell-migrate/solutions-tab.png" alt-text="Página Overview (Información general) del Centro de partners; pestaña Solutions (Soluciones).":::
 
@@ -80,7 +80,7 @@ Siga estos pasos antes de importar las soluciones de OCP GTM:
 
     Para obtener más información sobre el estado de la solución, revise la información sobre herramientas. Todas las soluciones pendientes de acción aparecen en **Acción** (Acción).<a name="beginmigration"></a>
 
-4. Seleccione **Begin migration** (Iniciar migración) (vea la imagen anterior) de la solución que desea migrar y, a continuación, seleccione una de las siguientes opciones:
+1. Seleccione **Begin migration** (Iniciar migración) (vea la imagen anterior) de la solución que desea migrar y, a continuación, seleccione una de las siguientes opciones:
 
     :::image type="content" source="media/co-sell-migrate/migration-options.png" alt-text="Las tres opciones de migración.":::
 
@@ -93,6 +93,52 @@ Siga estos pasos antes de importar las soluciones de OCP GTM:
 Si tiene una solución en OCP GTM que desea migrar al Centro de partners puede elegir entre dos escenarios. Al final de este proceso de combinación, la oferta conservará la canalización de referencia, el material adjunto, el estado de la venta conjunta y los incentivos.
 
 #### <a name="step-1-similar-offer-does-not-exist-in-commercial-marketplace-please-follow-these-steps"></a>Paso 1: No existe una oferta similar en marketplace comercial. Siga estos pasos.
+
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+
+Si aún no tiene una oferta en el marketplace comercial para combinar una solución en OCP GTM, primero deberá crearla Y PUBLICARLA el marketplace comercial (esto permitirá conservar el estado de la venta conjunta, los incentivos y la canalización de referencia).
+
+1. Cree un borrador de la oferta en el marketplace comercial.
+
+   1. En la página Información general del marketplace comercial, seleccione **+ Nueva oferta** y, a continuación, seleccione el tipo de oferta que desee.
+
+        [ ![Captura de pantalla del botón Nueva oferta en la página Ofertas de Marketplace.](media/co-sell-migrate/new-offer-workspaces.png) ](media/co-sell-migrate/new-offer-workspaces.png#lightbox)
+
+   2. Complete la información requerida en cada pestaña.
+      - Los vínculos **Learn more** (Más información) y la información sobre herramientas lo guiarán a través de los requisitos y los detalles.
+      - Si lo desea, puede completar la página **Resell through CSP** (Revender a través de CSP) (en el menú de navegación a la izquierda de abajo) para revender a través del programa Proveedor de soluciones en la nube (CSP).
+
+        [ ![Muestra la página Configuración de la oferta con las opciones de información general resaltadas.](media/co-sell-migrate/offer-setup-nav-workspaces.png) ](media/co-sell-migrate/offer-setup-nav-workspaces.png#lightbox)
+
+   3. Seleccione **Guardar borrador**.
+        - Para obtener instrucciones detalladas sobre la información que debe proporcionar antes de que se pueda publicar su oferta, lea la [guía de publicación](./publisher-guide-by-offer-type.md) correspondiente.
+        - Revise los requisitos de idoneidad en el artículo correspondientes para el tipo de oferta para finalizar la selección y la configuración de la oferta.
+        - Revise los patrones de publicación por tienda en línea para ver ejemplos de cómo la solución se asigna a un tipo de oferta y configuración.
+        - [Procedimientos recomendados para la publicación de ofertas: marketplace comercial de Microsoft | Microsoft Docs](./gtm-offer-listing-best-practices.md)
+
+    > [!TIP]
+    > Se recomienda *no rellenar* los datos de la pestaña **Venta conjunta con Microsoft**. Para ahorrarle tiempo, nos encargaremos de rellenar estos datos en su lugar con la documentación y materiales adjuntos existentes en OCP GTM durante el proceso de combinación.
+
+    Una vez completada la combinación, puede volver a la pestaña Venta conjunta con Microsoft y realizar actualizaciones si es necesario. Para más información, consulte [Configuración de la venta conjunta para una oferta del marketplace comercial](./co-sell-configure.md).
+1. Cuando haya terminado, seleccione **Review and publish** (Revisar y publicar).
+
+    [ ![Se muestra la página Venta conjunta con Microsoft con las opciones resaltadas.](media/co-sell-migrate/co-sell-with-ms-workspaces.png) ](media/co-sell-migrate/co-sell-with-ms-workspaces.png#lightbox)
+
+1. Después de revisar toda la información enviada, seleccione **Publish** (Publicar) para enviar el borrador de oferta a la fase de revisión de certificación. [Más información sobre la fase de certificación](./review-publish-offer.md).
+
+    [ ![Se muestra la página Revisar y publicar.](media/co-sell-migrate/review-and-publish-workspaces.png) ](media/co-sell-migrate/review-and-publish-workspaces.png#lightbox)
+
+1. Realice un seguimiento del estado de su envío en la pestaña Overview (Información general).
+
+    [ ![Muestra el estado de publicación de una oferta en el Centro de partners. Se muestra el botón Publicar. El vínculo Ver informe de validación también se muestra en Validación automatizada.](./media/review-publish-offer/publish-status-saas.png) ](./media/review-publish-offer/publish-status-saas.png#lightbox)
+
+1. Se le notificará cuando se complete la revisión de certificación. Si proporcionamos comentarios útiles, haga clic en ellos y, a continuación, seleccione **Publish** (Publicar) para iniciar una recertificación.
+
+1. Una vez que la oferta pase la certificación, obtenga una vista previa de la oferta con el vínculo proporcionado y realice los ajustes finales que desee. Cuando lo tengo todo listo, seleccione **Go Live** (Activar) (vea el botón arriba) para publicar la oferta en los escaparates del marketplace comercial pertinentes.
+
+1. **Continúe con el escenario 2 a continuación para completar el proceso de combinación.**
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
 
 Si aún no tiene una oferta en el marketplace comercial para combinar una solución en OCP GTM, primero deberá crearla Y PUBLICARLA el marketplace comercial (esto permitirá conservar el estado de la venta conjunta, los incentivos y la canalización de referencia).
 
@@ -128,6 +174,8 @@ Si aún no tiene una oferta en el marketplace comercial para combinar una soluci
 1. Una vez que la oferta pase la certificación, obtenga una vista previa de la oferta con el vínculo proporcionado y realice los ajustes finales que desee. Cuando lo tengo todo listo, seleccione **Go Live** (Activar) (vea el botón arriba) para publicar la oferta en los escaparates del marketplace comercial pertinentes.
 
 1. **Continúe con el escenario 2 a continuación para completar el proceso de combinación.**
+
+---
 
 #### <a name="scenario-2-similar-offer-exists-in-commercial-marketplace-please-follow-these-steps"></a>Escenario 2: Existe una oferta similar en el marketplace comercial. Siga estos pasos.
 

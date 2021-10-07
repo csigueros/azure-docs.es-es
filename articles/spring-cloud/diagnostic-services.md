@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: e2d903f781e86670139347930289599bec6ee7e7
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 8a462809ca7be524e0e5149808bdcbe28f49dd77
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122015554"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128649045"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Análisis de registros y métricas con la configuración de diagnóstico
 
@@ -35,6 +35,7 @@ Elija la categoría de registro y la categoría de métrica que desea supervisar
 |----|----|
 | **ApplicationConsole** | Registro de la consola de todas las aplicaciones del cliente. |
 | **SystemLogs** | Actualmente, solo el [servidor de configuración de Spring Cloud](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) mantiene registros en esta categoría. |
+| **IngressLogs** | [Registros de entrada](#show-ingress-log-entries-containing-a-specific-host) de todas las aplicaciones del cliente, solo registros de acceso. |
 
 ## <a name="metrics"></a>Métricas
 
@@ -179,13 +180,37 @@ AppPlatformLogsforSpring
 | render piechart
 ```
 
+### <a name="show-ingress-log-entries-containing-a-specific-host"></a>Visualización de las entradas de registro de entrada que contienen un host específico
+
+Para revisar las entradas de registro generadas por un host específico, ejecute la consulta siguiente:
+
+```sql
+AppPlatformIngressLogs
+| where TimeGenerated > ago(1h) and Host == "ingress-asc.test.azuremicroservices.io" 
+| project TimeGenerated, RemoteIP, Host, Request, Status, BodyBytesSent, RequestTime, ReqId, RequestHeaders
+| sort by TimeGenerated
+```
+
+Use esta consulta para buscar respuestas sobre `Status`, `RequestTime` y otras propiedades de los registros de entrada de este host específico. 
+
+### <a name="show-ingress-log-entries-for-a-specific-requestid"></a>Visualización de las entradas de registro de entrada que contienen un host específico
+
+Para revisar las entradas de registro de un valor de `requestId` *específico \<request_ID>* , ejecute la siguiente consulta:
+
+```sql
+AppPlatformIngressLogs
+| where TimeGenerated > ago(1h) and ReqId == "<request_ID>" 
+| project TimeGenerated, RemoteIP, Host, Request, Status, BodyBytesSent, RequestTime, ReqId, RequestHeaders
+| sort by TimeGenerated
+```
+
 ### <a name="learn-more-about-querying-application-logs"></a>Más información sobre la consulta de registros de aplicaciones
 
 Azure Monitor proporciona buen soporte técnico para consultar los registros de aplicaciones mediante Log Analytics. Para más información sobre este servicio, consulte [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/logs/get-started-queries.md). Para más información sobre la compilación de consultas para analizar los registros de aplicaciones, consulte [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="frequently-asked-questions-faq"></a>Preguntas más frecuentes
 
-### <a name="how-to-convert-multi-line-java-stack-traces-into-a-single-line"></a>¿Cómo se convierten los seguimientos de la pila de Java de varias líneas en una única línea?
+### <a name="how-do-i-convert-multi-line-java-stack-traces-into-a-single-line"></a>¿Cómo se convierten los seguimientos de la pila de Java de varias líneas en una única línea?
 
 Hay una solución alternativa para convertir los seguimientos de la pila de varias líneas en una única línea. Puede modificar la salida del registro de Java para volver a dar formato a los mensajes de seguimiento de la pila, reemplazando los caracteres de nueva línea por un token. Si usa la biblioteca Logback de Java, puede volver a dar formato a los mensajes de seguimiento de la pila con la adición de `%replace(%ex){'[\r\n]+', '\\n'}%nopex` como se indica a continuación:
 
@@ -204,7 +229,7 @@ Hay una solución alternativa para convertir los seguimientos de la pila de vari
 </configuration>
 ```
 
-Y después puede reemplazar el token por caracteres de nueva línea en Log Analytics como se indica a continuación:
+Puede reemplazar el token por caracteres de nueva línea en Log Analytics como se indica a continuación:
 
 ```sql
 AppPlatformLogsforSpring

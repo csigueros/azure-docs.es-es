@@ -2,13 +2,13 @@
 title: Restricciones de nomenclatura de recursos
 description: Muestra las reglas y las restricciones de nomenclatura de recursos de Azure.
 ms.topic: conceptual
-ms.date: 09/03/2021
-ms.openlocfilehash: 4af873a5e39286997272a492457374ca86349084
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.date: 09/27/2021
+ms.openlocfilehash: 12d589088f17e3eeb3bda0fecbb2c1fc24b65203
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123478471"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129084101"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reglas y restricciones de nomenclatura para los recursos de Azure
 
@@ -26,6 +26,9 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 * **a** a la **z** (letras minúsculas)
 * **A** a la **Z** (letras mayúsculas)
 * **0** a **9** (números)
+
+> [!NOTE]
+> No todos los recursos con un punto de conexión público pueden incluir palabras reservadas o marcas comerciales en el nombre. Para ver una lista de las palabras bloqueadas, consulte [Resolución de errores en los nombres de recursos reservados](../templates/error-reserved-resource-name.md).
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 
@@ -192,7 +195,7 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > [!div class="mx-tableFixed"]
 > | Entidad | Ámbito | Length | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | communicationServices | global | 1-63 | Caracteres alfanuméricos, de subrayado y guiones. |
+> | communicationServices | global | 1-63 | Caracteres alfanuméricos y guiones.<br><br>No se pueden usar caracteres de subrayado. |
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
@@ -389,7 +392,7 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | clusters | resource group | 6-50 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra. Termine con una letra o un número. |
 > | espacios de nombres | global | 6-50 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra. Termine con una letra o un número. |
 > | namespaces/AuthorizationRules | espacio de nombres | 1-50 | Caracteres alfanuméricos, de subrayado, guiones y puntos.<br><br>Comience y termine con una letra o un número. |
-> | namespaces/disasterRecoveryConfigs | espacio de nombres | 1-50 | Caracteres alfanuméricos, de subrayado, guiones y puntos.<br><br>Comience y termine con una letra o un número. |
+> | namespaces/disasterRecoveryConfigs | global | 6-50 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra. Termine con un carácter alfanumérico. |
 > | namespaces/eventhubs | espacio de nombres | 1-50 | Caracteres alfanuméricos, de subrayado, guiones y puntos.<br><br>Comience y termine con una letra o un número. |
 > | namespaces/eventhubs/authorizationRules | centro de eventos | 1-50 | Caracteres alfanuméricos, de subrayado, guiones y puntos.<br><br>Comience y termine con una letra o un número. |
 > | namespaces/eventhubs/consumergroups | centro de eventos | 1-50 | Caracteres alfanuméricos, de subrayado, guiones y puntos.<br><br>Comience y termine con una letra o un número. |
@@ -622,6 +625,30 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | tagNames/tagValues | nombre de etiqueta | 1-256 | Todos los caracteres. |
 > | templateSpecs | resource group | 1-90 | Caracteres alfanuméricos, de subrayado, puntos, guiones y paréntesis. |
 
+## <a name="microsoftsecurity"></a>Microsoft.Security
+
+> [!div class="mx-tableFixed"]
+> | Entidad | Ámbito | Length | Caracteres válidos |
+> | --- | --- | --- | --- |
+> | advancedThreatProtectionSettings | resource group | ver valor | Debe ser `current` |
+> | alertsSuppressionRules | subscription | 1-260 | Caracteres alfanuméricos, de subrayado y guiones. |
+> | assessmentMetadata | Tipo de evaluación | 1-260 | Caracteres alfanuméricos, de subrayado y guiones. |
+> | assessments | Tipo de evaluación | 1-260 | Caracteres alfanuméricos, de subrayado y guiones. |
+> | automations | resource group | 1-260 | Caracteres alfanuméricos, de subrayado y guiones. |
+> | autoProvisioningSettings | subscription | 1-260 | Caracteres alfanuméricos, de subrayado y guiones. |
+> | conectores | subscription | 1-260 | Caracteres alfanuméricos, de subrayado y guiones. |
+> | deviceSecurityGroups | resource group | 1-260 | Caracteres alfanuméricos, de subrayado y guiones. |
+> | informationProtectionPolicies | resource group | ver valores | Elija uno:<br>`custom`<br>`effective` | 
+> | iotSecuritySolutions | resource group | 1-260 | Caracteres alfanuméricos, de subrayado y guiones. |
+> | locations/applicationwhitelistings | subscription | 1-260 | Caracteres alfanuméricos, de subrayado y guiones. |
+> | locations/jitnetworkaccesspolicies | resource group | 1-260 | Caracteres alfanuméricos, de subrayado y guiones. |
+> | ingestionSettings | subscription | 1-260 | Caracteres alfanuméricos, de subrayado y guiones. |
+> | pricings | subscription | 1-260 | Caracteres alfanuméricos, de subrayado y guiones. |
+> | securityContacts | subscription | 1-260 | Caracteres alfanuméricos, de subrayado y guiones. |
+> | configuración | subscription | ver valores | Elija uno:<br>`MCAS`<br>`Sentinel`<br>`WDATP`<br>`WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW` |
+> | serverVulnerabilityAssessments | tipo de recurso | ver valor | Debe ser `Default` |
+> | sqlVulnerabilityAssessments/baselineRules | Evaluación de vulnerabilidades | 1-260 | Caracteres alfanuméricos, de subrayado y guiones. |
+
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
 > [!div class="mx-tableFixed"]
@@ -734,4 +761,6 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener recomendaciones sobre cómo asignar nombre a los recursos, consulte [Prepárese: Convenciones recomendadas de nomenclatura y etiquetado](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+* Para obtener recomendaciones sobre cómo asignar nombre a los recursos, consulte [Prepárese: Convenciones recomendadas de nomenclatura y etiquetado](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+
+* No todos los recursos con un punto de conexión público pueden incluir palabras reservadas o marcas comerciales en el nombre. Para ver una lista de las palabras bloqueadas, consulte [Resolución de errores en los nombres de recursos reservados](../templates/error-reserved-resource-name.md).

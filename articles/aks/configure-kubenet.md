@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 59eb3874a7f0de9eba1f5b75204618c887cb9bb2
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: d206e92eeea06b8e8a95a74c7a253eae5280eb5f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122184117"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128607812"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Uso de redes kubenet con intervalos de direcciones IP propios en Azure Kubernetes Service (AKS)
 
@@ -224,6 +224,8 @@ Limitaciones:
 * Una tabla de rutas personalizada debe estar asociada a la subred antes de que cree el clúster de AKS.
 * El recurso de la tabla de rutas asociado no se puede actualizar después de crear el clúster. Aunque no se puede actualizar el recurso de la tabla de rutas, se pueden modificar las reglas personalizadas en la tabla de rutas.
 * Cada clúster de AKS debe usar una única tabla de rutas para todas las subredes asociadas con el clúster. No se puede reutilizar una tabla de rutas con varios clústeres debido a la posibilidad de que se superpongan los CIDR de pod y las reglas de enrutamiento en conflicto.
+* No puede proporcionar su propia subred y tabla de rutas con una identidad administrada asignada por el sistema. Para proporcionar su propia subred y tabla de rutas, debe utilizar una [identidad administrada asignada por el usuario][user-assigned managed identity], asignar permisos antes de la creación del clúster y asegurarse de que la identidad asignada por el usuario tenga permisos de escritura para la subred personalizada y la tabla de rutas personalizada.
+* No se admite el uso de la misma tabla de rutas con varios clústeres de AKS.
 
 Después de crear una tabla de rutas personalizada y asociarla a la subred de la red virtual, puede crear un nuevo clúster de AKS que use la tabla de rutas.
 Debe usar el identificador de subred desde el que tiene previsto implementar el clúster de AKS. Esta subred también debe estar asociada a la tabla de rutas personalizada.
@@ -267,3 +269,4 @@ Con un clúster de AKS implementado en la subred de red virtual existente, ahora
 [express-route]: ../expressroute/expressroute-introduction.md
 [network-comparisons]: concepts-network.md#compare-network-models
 [custom-route-table]: ../virtual-network/manage-route-table.md
+[user-assigned managed identity]: use-managed-identity.md#bring-your-own-control-plane-mi

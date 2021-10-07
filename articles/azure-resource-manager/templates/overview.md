@@ -3,12 +3,12 @@ title: Introducción a las plantillas
 description: Describe las ventajas del uso de plantillas de Azure Resource Manager (plantillas de ARM) para la implementación de recursos.
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 6c576b7e18d60a858f5f29bde0e674160610223b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 02731a2f37fda2758c9b9e9980b56a5017ed3506
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121727186"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128637582"
 ---
 # <a name="what-are-arm-templates"></a>¿Qué son las plantillas de Resource Manager?
 
@@ -36,7 +36,7 @@ Si intenta decidir entre usar plantillas de Resource Manager o una de las demás
 
    ![Comparación de la implementación de plantillas](./media/overview/template-processing.png)
 
-* **Archivos modulares**: Puede dividir las plantillas en componentes más pequeños y reutilizables y vincularlos en el momento de la implementación. También puede anidar una plantilla dentro de otras plantillas.
+* **Archivos modulares**: Puede dividir las plantillas en componentes más pequeños y reutilizables y vincularlos en el momento de la implementación. También puede anidar una plantilla dentro de otra.
 
 * **Cree cualquier recurso de Azure**: Puede usar inmediatamente los nuevos servicios y características de Azure en las plantillas. En cuanto un proveedor de recursos introduce nuevos recursos, puede implementarlos a través de plantillas. No tiene que esperar a que se actualicen las herramientas o los módulos antes de usar los nuevos servicios.
 

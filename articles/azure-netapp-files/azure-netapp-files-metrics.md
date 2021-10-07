@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 09/27/2021
 ms.author: b-juche
-ms.openlocfilehash: 13a63da9abf37f57842b34f32c3ff442f4214062
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: b4ea507087bbed2ee3ac49f3c58d81bbac24c90b
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114402781"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094279"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Métricas de Azure NetApp Files
 
@@ -122,6 +122,22 @@ Puede consultar las métricas para un grupo de capacidad o un volumen si selecci
 * *Otro rendimiento*   
     Otro rendimiento (que no sea de lectura ni escritura) expresado en bytes por segundo.
 
+## <a name="volume-backup-metrics"></a>Métricas de copia de seguridad de los volúmenes  
+
+* *Is Volume Backup Enabled*  (¿Está habilitada la copia de seguridad del volumen?)  
+    Muestra si está habilitada la copia de seguridad del volumen. `1` se ha habilitado. `0` indica que se deshabilitan.
+
+* *Is Volume Backup Operation Complete*  (¿Se ha completado la operación de copia de seguridad del volumen?)  
+    Muestra si la última operación de copia de seguridad o restauración del volumen se completó correctamente.  `1` es correcta. `0` no es correcta.
+
+* *Is Volume Backup Suspended*  (¿Se ha suspendido la copia de seguridad del volumen?)  
+    Muestra si la directiva de copia de seguridad está suspendida para el volumen.  `1` no está suspendida. `0` está suspendida.
+
+* *Volume Backup Bytes*  (Bytes de la copia de seguridad del volumen)  
+    Total de bytes en la copia de seguridad de este volumen.
+
+* *Volume Backup Last Transferred Bytes*  (Bytes transferidos en la última copia de seguridad del volumen)  
+    El total de bytes transferidos en la última operación de copia de seguridad o restauración.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

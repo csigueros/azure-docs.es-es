@@ -3,16 +3,17 @@ title: Asistente para copia de Azure Data Factory
 description: Obtenga información sobre cómo utilizar el Asistente para copia de Azure Data Factory para copiar datos de orígenes de datos admitidos en receptores.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0f95b0d62bc81a8dddc72239491a05ca78945490
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82ad8dbec999b1e65eb5b9d866eacaf95c8647d2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100393384"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128649594"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Asistente para copia de Azure Data Factory
 
@@ -21,12 +22,12 @@ ms.locfileid: "100393384"
 
 El Asistente para copia de Azure Data Factory simplifica el proceso de ingesta de datos, que normalmente es el primer paso en un escenario de integración de datos de un extremo a otro. Para aprender el uso del Asistente para copia de Azure Data Factory no es preciso conocer las definiciones de JSON de servicios vinculados, conjuntos de datos y canalizaciones. El asistente crea automáticamente una canalización para copiar datos del origen de datos seleccionado al destino seleccionado. Además, el Asistente para copia le ayuda a validar los datos que se ingieren en el momento de la creación. Esto le permite ahorrar tiempo, especialmente cuando ingiere datos por primera vez desde el origen de datos. Si quiere iniciar el Asistente para copia, haga clic en el icono **Copiar datos** de la página principal de Data Factory.
 
-![Asistente para copia](./media/data-factory-copy-wizard/copy-data-wizard.png)
+:::image type="content" source="./media/data-factory-copy-wizard/copy-data-wizard.png" alt-text="Asistente para copia":::
 
 ## <a name="designed-for-big-data"></a>Diseñado para macrodatos
 Este asistente permite mover fácilmente los datos de una gran variedad de orígenes a distintos destinos en cuestión de minutos. Después de pasar por el asistente, se crea automáticamente una canalización con una actividad de copia, junto con las entidades de Data Factory dependientes (servicios vinculados y conjuntos de datos). No se requieren más pasos para crear la canalización.   
 
-![Selección de origen de datos](./media/data-factory-copy-wizard/select-data-source-page.png)
+:::image type="content" source="./media/data-factory-copy-wizard/select-data-source-page.png" alt-text="Selección de origen de datos":::
 
 > [!NOTE]
 > Para ver instrucciones detalladas para crear una canalización de ejemplo para copiar datos desde un blob de Azure a una tabla de una base de datos de Azure SQL, consulte el [tutorial del Asistente para copia](data-factory-copy-data-wizard-tutorial.md).
@@ -36,7 +37,7 @@ El asistente está diseñado pensando en los macrodatos desde el principio, con 
 ## <a name="automatic-data-preview"></a>Vista previa de datos automática
 Puede obtener una vista previa de la parte de los datos del origen de datos seleccionado para validar si los datos son los que desea copiar. Además, si los datos de origen están en un archivo de texto, el Asistente para copia analiza dicho archivo para obtener más información sobre el esquema y los delimitadores de columna y fila automáticamente.
 
-![Configuración del formato de archivo](./media/data-factory-copy-wizard/file-format-settings.png)
+:::image type="content" source="./media/data-factory-copy-wizard/file-format-settings.png" alt-text="Configuración del formato de archivo":::
 
 ## <a name="schema-capture-and-mapping"></a>Captura y asignación de esquema
 En algunos casos, es posible que el esquema de datos de entrada no coincida con el esquema de datos de salida. En este escenario, es preciso asignar columnas del esquema de origen a columnas del esquema de destino.
@@ -46,7 +47,7 @@ En algunos casos, es posible que el esquema de datos de entrada no coincida con 
 
 Use una lista desplegable para seleccionar una columna del esquema de origen para asignar a una columna en el esquema de destino. El Asistente para copia intenta entender el patrón para la asignación de columnas. Se aplica el mismo patrón para el resto de las columnas, por lo que no debe seleccionar cada una de las columnas individualmente para completar la asignación de esquema. Si lo prefiere, puede invalidar estas asignaciones mediante el uso de las listas desplegables para asignar las columnas una por una. El patrón se vuelve más preciso a medida que asigna más columnas. El Asistente para copia actualiza el patrón constantemente y, en última instancia, alcanza el patrón correcto para la asignación de columnas que desea conseguir.     
 
-![Asignación de esquemas](./media/data-factory-copy-wizard/schema-mapping.png)
+:::image type="content" source="./media/data-factory-copy-wizard/schema-mapping.png" alt-text="Asignación de esquemas":::
 
 ## <a name="filtering-data"></a>Filtrado de datos
 Puede filtrar los datos de origen para seleccionar solo aquellos que deben copiarse en el almacén de datos receptor. El filtrado reduce el volumen de los datos se copian en el almacén de datos del receptor, por lo que mejora el rendimiento de la operación de copia. Proporciona una manera flexible de filtrar los datos de una base de datos relacional mediante el lenguaje de consulta SQL, o archivos en una carpeta de blobs de Azure mediante [Funciones y variables de Data Factory](data-factory-functions-variables.md).   
@@ -54,7 +55,7 @@ Puede filtrar los datos de origen para seleccionar solo aquellos que deben copia
 ### <a name="filtering-of-data-in-a-database"></a>Filtrado de datos de una base de datos
 La siguiente captura de pantalla muestra una consulta SQL con la función `Text.Format` y la variable `WindowStart`.
 
-![Validación de expresiones](./media/data-factory-copy-wizard/validate-expressions.png)
+:::image type="content" source="./media/data-factory-copy-wizard/validate-expressions.png" alt-text="Validación de expresiones":::
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Filtrar datos en una carpeta de blobs de Azure
 Puede usar variables en la ruta de acceso de la carpeta para copiar datos desde una carpeta que se determina en el runtime según las [variables del sistema](data-factory-functions-variables.md#data-factory-system-variables). Estas son las variables que se admiten: **{year}** , **{month}** , **{day}** , **{hour}** , **{minute}** y **{custom}** . Por ejemplo: carpetaDeEntrada/{year}/{month}/{day}.
@@ -70,25 +71,25 @@ Supongamos que tiene carpetas de entrada con el siguiente formato:
 
 Haga clic en el botón **Examinar** de **Archivo o carpeta**, vaya a una de estas carpetas (por ejemplo, 2016->03->01->02) y haga clic en **Elegir**. En el cuadro de texto, debería aparecer `2016/03/01/02`. Sustituya **2016** por **{year}** , **03** por **{month}** , **01** por **{day}** y **02** por **{hour}** y presione la tecla **Tabulación**. Aparecerán listas desplegables en las que podrá seleccionar el formato de estas cuatro variables:
 
-![Uso de variables del sistema](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
+:::image type="content" source="./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png" alt-text="Uso de variables del sistema":::   
 
 Como se muestra en la siguiente captura de pantalla, también puede usar una variable **personalizada** y cualquier [cadena de formato admitida](/dotnet/standard/base-types/custom-date-and-time-format-strings). Para seleccionar una carpeta con esa estructura, utilice primero el botón **Examinar** . A continuación, reemplace un valor por **{custom}** y presione la tecla **Tabulación** para ver el cuadro de texto donde puede escribir la cadena de formato.     
 
-![Uso de la variable personalizada](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
+:::image type="content" source="./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png" alt-text="Uso de la variable personalizada":::
 
 ## <a name="scheduling-options"></a>Opciones de programación
 Puede ejecutar la operación de copia una vez o de forma periódica (cada hora, día, etc.). Estas opciones se pueden utilizar para los distintos conectores en los diferentes entornos, ya sean locales y en la nube, así como para la copia del escritorio local.
 
 Una operación de copia única permite el movimiento de datos desde un origen a un destino solamente una vez. Se aplica a los datos de cualquier tamaño y en cualquier formato admitido. La copia programada permite copiar datos con una frecuencia prescrita. Puede utilizar las opciones avanzadas (como el reintento, el tiempo de espera y las alertas) para configurar la copia programada.
 
-![Propiedades de programación](./media/data-factory-copy-wizard/scheduling-properties.png)
+:::image type="content" source="./media/data-factory-copy-wizard/scheduling-properties.png" alt-text="Propiedades de programación":::
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
 En esta sección se exploran métodos comunes de solución de problemas del Asistente para copia en Azure Data Factory.
 
 > [!NOTE] 
-> Estas sugerencias para la solución de problemas se aplican al Asistente para copia de la versión 1 de Data Factory. Para Data Factory v2, consulte la guía de solución de problemas en [Solución de problemas con la experiencia de usuario de Azure Data Factory](../data-factory-ux-troubleshoot-guide.md).
+> Estas sugerencias para la solución de problemas se aplican al Asistente para copia de la versión 1 de Data Factory. En Data Factory v2, consulte la guía de solución de problemas en [Solución de problemas con de Azure Data Factory Studio](../data-factory-ux-troubleshoot-guide.md).
 
 ### <a name="error-code-unable-to-validate-in-copy-wizard"></a>Código de error: No se puede validar en el Asistente para copia
 

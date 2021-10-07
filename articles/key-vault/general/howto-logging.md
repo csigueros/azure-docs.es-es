@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 75e5100c12940083626d94367bb70b280a49711b
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: c537e9a9dd733d84161e59999ff17b8b0251f623
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110665165"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129061188"
 ---
 # <a name="enable-key-vault-logging"></a>Habilitación del registro de Key Vault
 
@@ -229,12 +229,9 @@ Para descargar blobs de forma selectiva, utilice caracteres comodín. Por ejempl
 
 ## <a name="use-azure-monitor-logs"></a>Uso de registros de Azure Monitor
 
-Puede utilizar la solución Key Vault en registros de Azure Monitor para revisar los registros `AuditEvent` de Key Vault. En los registros de Azure Monitor, las consultas de los registros se usan para analizar los datos y obtener la información que necesita.
-
-Para más información, incluido cómo configurar esta opción, consulte [Azure Key Vault en Azure Monitor](../../azure-monitor/insights/key-vault-insights-overview.md).
+Puede utilizar la solución Key Vault en registros de Azure Monitor para revisar los registros `AuditEvent` de Key Vault. En los registros de Azure Monitor, las consultas de los registros se usan para analizar los datos y obtener la información que necesita.  Para obtener más información, consulte [Supervisión de Key Vault](monitor-key-vault.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información conceptual, incluido cómo interpretar los registros de Key Vault, consulte [Registro de Azure Key Vault](logging.md).
-- Para ver un tutorial que use Azure Key Vault en una aplicación web .NET, consulte [Uso de Azure Key Vault desde una aplicación web](tutorial-net-create-vault-azure-web-app.md).
-- Para conocer las referencias de programación, consulte la [Guía del desarrollador de Azure Key Vault](developers-guide.md).
+- Para obtener más información sobre el uso de Azure Monitor en el almacén de claves, consulte [Supervisión de Key Vault](monitor-key-vault.md).

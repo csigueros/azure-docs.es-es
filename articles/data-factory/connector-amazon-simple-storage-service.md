@@ -1,22 +1,22 @@
 ---
 title: Copia de datos de Amazon Simple Storage Service (S3)
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre cómo copiar datos desde Amazon Simple Storage Service (S3) a almacenes de datos de receptor compatibles mediante Azure Data Factory.
+description: Aprenda a copiar datos de Amazon Simple Storage Service (S3) en almacenes de datos de receptor compatibles mediante canalizaciones de Azure Data Factory o Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 16b157e9a26a1a512d4d0ef94db1816210f8cf16
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: baaf601ce6ab21a524cbabc7188de24231002ffd
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123304669"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124762096"
 ---
-# <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Copia de datos desde Amazon Simple Storage Service mediante Azure Data Factory
+# <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory-or-synapse-analytics"></a>Copia de datos de Amazon Simple Storage Service con Azure Data Factory o Synapse Analytics
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que esté usando:"]
 >
 > * [Versión 1](v1/data-factory-amazon-simple-storage-service-connector.md)
@@ -24,10 +24,10 @@ ms.locfileid: "123304669"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se describe cómo copiar datos desde Amazon Simple Storage Service (Amazon S3). Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
+En este artículo se describe cómo copiar datos desde Amazon Simple Storage Service (Amazon S3). Para obtener más información, lea los artículos de introducción para [Azure Data Factory](introduction.md) y [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 >[!TIP]
->Más información sobre el escenario de migración de datos de Amazon S3 a Azure Storage, consulte el artículo [Uso de Azure Data Factory para migrar datos de Amazon S3 a Azure Storage](data-migration-guidance-s3-azure-storage.md).
+>Para más información sobre el escenario de migración de datos de Amazon S3 a Azure Storage, consulte el artículo [Migración de datos de Amazon S3 a Azure Storage](data-migration-guidance-s3-azure-storage.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -90,8 +90,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Amazon S
 | type | La propiedad **type** debe establecerse en **AmazonS3**. | Sí |
 | authenticationType | Especifique el tipo de autenticación empleado para conectarse a Amazon S3. Puede optar por usar las claves de acceso para una cuenta de administración de identidades y acceso (IAM) de AWS o [credenciales de seguridad temporales](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html).<br>Los valores permitidos son: `AccessKey` (valor predeterminado) y `TemporarySecurityCredentials`. |No |
 | accessKeyId | Id. de la clave de acceso secreta. |Sí |
-| secretAccessKey | La propia clave de acceso secreta. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. |Sí |
-| SessionToken | Se aplica cuando se usa la autenticación con [credenciales de seguridad temporales](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html). Obtenga información sobre cómo [solicitar credenciales de seguridad temporales](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken) de AWS.<br>Tenga en cuenta que la credencial temporal de AWS expira al cabo de entre 15 minutos y 36 horas en función de la configuración. Asegúrese de que la credencial es válidas cuando se ejecuta la actividad, especialmente en el caso de la carga de trabajo operativa; por ejemplo, puede actualizarla periódicamente y almacenarla en Azure Key Vault.<br>Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. |No |
+| secretAccessKey | La propia clave de acceso secreta. Marque este campo como **SecureString** para almacenarlo de forma segura, o bien haga [referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
+| SessionToken | Se aplica cuando se usa la autenticación con [credenciales de seguridad temporales](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html). Obtenga información sobre cómo [solicitar credenciales de seguridad temporales](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken) de AWS.<br>Tenga en cuenta que la credencial temporal de AWS expira al cabo de entre 15 minutos y 36 horas en función de la configuración. Asegúrese de que la credencial es válidas cuando se ejecuta la actividad, especialmente en el caso de la carga de trabajo operativa; por ejemplo, puede actualizarla periódicamente y almacenarla en Azure Key Vault.<br>Marque este campo como **SecureString** para almacenarlo de forma segura, o bien haga [referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |No |
 | serviceUrl | Especifique el punto de conexión S3 personalizado `https://<service url>`. | No |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Se puede usar Azure Integration Runtime o un entorno de ejecución de integración autohospedado (si el almacén de datos está en una red privada). Si no se especifica esta propiedad, el servicio usa el valor predeterminado de Azure Integration Runtime. |No |
 
@@ -274,7 +274,7 @@ En esta sección se describe el comportamiento resultante de usar una ruta de ac
 
 Suponga que tiene la siguiente estructura de carpetas de origen y quiere copiar los archivos en negrita:
 
-| Estructura de origen de ejemplo                                      | Contenido de FileListToCopy.txt                             | Configuración de Data Factory                                            |
+| Estructura de origen de ejemplo                                      | Contenido de FileListToCopy.txt                             | Configuración |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
 | bucket<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadatos<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **En el conjunto de datos:**<br>- Cubo: `bucket`<br>- Ruta de acceso de la carpeta: `FolderA`<br><br>**En el origen de la actividad de copia:**<br>- Ruta de acceso de la lista de archivos: `bucket/Metadata/FileListToCopy.txt` <br><br>La ruta de acceso de la lista de archivos apunta a un archivo de texto en el mismo almacén de datos que incluye una lista de los archivos que se quieren copiar, con un archivo por línea, con la ruta de acceso relativa a la ruta de acceso configurada en el conjunto de datos. |
 
@@ -297,7 +297,7 @@ Para información detallada sobre las propiedades, consulte [Actividad de elimin
 ## <a name="legacy-models"></a>Modelos heredados
 
 >[!NOTE]
->Estos modelos siguen siendo compatibles con versiones anteriores. Se recomienda usar el nuevo modelo mencionado anteriormente. La interfaz de usuario de creación en Data Factory ha cambiado para generar el nuevo modelo.
+>Estos modelos siguen siendo compatibles con versiones anteriores. Se recomienda usar el nuevo modelo mencionado anteriormente. La interfaz de usuario de creación se ha cambiado para generar el nuevo modelo.
 
 ### <a name="legacy-dataset-model"></a>Modelo de conjunto de datos heredado
 
@@ -420,4 +420,4 @@ Para información detallada sobre las propiedades, consulte [Actividad de elimin
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para ver una lista de los almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores, consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obtener una lista de los almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats).

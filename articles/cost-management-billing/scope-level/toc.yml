@@ -1,0 +1,30 @@
+- name: Documentación de Ventaja híbrida de Azure del nivel de ámbito
+  href: index.yml?toc=/azure/cost-management-billing/scope-level/toc.json
+- name: Información general
+  expanded: true
+  items:
+    - name: ¿Qué es la administración del nivel de ámbito de Ventaja híbrida de Azure?
+      href: overview-azure-hybrid-benefit-scope.md?toc=/azure/cost-management-billing/scope-level/toc.json
+- name: Tutoriales
+  expanded: true
+  items:
+    - name: Optimización de Ventaja híbrida de Azure de nivel de ámbito
+      href: tutorial-azure-hybrid-benefits-sql.md?toc=/azure/cost-management-billing/scope-level/toc.json
+- name: Conceptos
+  expanded: false
+  items:
+    - name: Aplicación por parte de Azure de las licencias asignadas
+      href: manage-licenses-centrally.md?toc=/azure/cost-management-billing/scope-level/toc.json
+    - name: Alta disponibilidad y recuperación ante desastres de SQL Server frente a Ventaja híbrida de Azure
+      href: sql-server-hadr-licenses.md?toc=/azure/cost-management-billing/scope-level/toc.json
+- name: Guías paso a paso
+  expanded: false
+  items:
+    - name: Creación de asignaciones de licencias de SQL Server
+      href: create-sql-license-assignments.md?toc=/azure/cost-management-billing/scope-level/toc.json
+    - name: Transición a Ventaja híbrida de Azure de nivel de ámbito
+      href: transition-existing.md?toc=/azure/cost-management-billing/scope-level/toc.json
+- name: Recursos
+  items:
+    - name: Preguntas más frecuentes
+      href: faq-azure-hybrid-benefit-scope.yml?toc=/azure/cost-management-billing/scope-level/toc.json

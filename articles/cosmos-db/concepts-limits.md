@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/26/2021
-ms.openlocfilehash: 17ec535c03cd007a44fdd0b9633667f0e4343181
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.date: 09/23/2021
+ms.openlocfilehash: 80cc94941331a024a183e19c383ee20b900251ea
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123034540"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128707643"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cuotas de servicio de Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Después de crear una cuenta de Azure Cosmos DB en su suscripción a Azure, pued
 
 ### <a name="provisioned-throughput"></a>Rendimiento aprovisionado
 
-Puede aprovisionar el rendimiento en un nivel de contenedor o de base de datos en términos de [unidades de solicitud (RU/s o RU)](request-units.md). En la tabla siguiente se enumeran los límites de almacenamiento y rendimiento por contenedor y base de datos.
+Puede aprovisionar el rendimiento en un nivel de contenedor o de base de datos en términos de [unidades de solicitud (RU/s o RU)](request-units.md). En la tabla siguiente se enumeran los límites de almacenamiento y rendimiento por contenedor y base de datos. El almacenamiento hace referencia a la cantidad combinada de almacenamiento de índices y datos.
 
 | Recurso | Límite predeterminado |
 | --- | --- |
@@ -56,7 +56,7 @@ Para calcular el rendimiento mínimo necesario de un contenedor con un rendimien
 
 * 400 RU/s 
 * Almacenamiento actual en GB * 10 RU/s
-* El mayor valor de RU/s aprovisionado en el contenedor / 100
+* El valor de RU/s más alto que nunca aprovisionado en el contenedor / 100
 
 Ejemplo: Supongamos que tiene un contenedor aprovisionado con 400 RU/s y 0 GB de almacenamiento. Aumente el rendimiento a 50 000 RU/s e importe 20 GB de datos. El valor mínimo de RU/s ahora es `MAX(400, 20 * 10 RU/s per GB, 50,000 RU/s / 100)` = 500 RU/s. Con el tiempo, el almacenamiento crece hasta 200 GB. El valor mínimo de RU/s ahora es `MAX(400, 200 * 10 RU/s per GB, 50,000 / 100)` = 2000 RU/s. 
 
@@ -67,7 +67,7 @@ Para calcular el rendimiento mínimo necesario de una base de datos de rendimien
 
 * 400 RU/s 
 * Almacenamiento actual en GB * 10 RU/s
-* El mayor valor de RU/s aprovisionado en la base de datos / 100
+* El valor de RU/s más alto que nunca aprovisionado en la base de datos / 100
 * 400 + MAX (cantidad de contenedores: 25, 0) * 100 RU/s
 
 Ejemplo: Supongamos que tiene una base de datos aprovisionada con 400 RU/s, 15 GB de almacenamiento y 10 contenedores. El valor mínimo de RU/s es `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 RU/s. Si hubiera 30 contenedores en la base de datos, el valor mínimo de RU/s sería `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 RU/s. 
@@ -116,16 +116,16 @@ Cosmos DB crea automáticamente copias de seguridad de los datos a intervalos re
 
 | Resource | Límite predeterminado |
 | --- | --- |
-| Número máximo de bases de datos | Sin límite |
+| Número máximo de bases de datos | 500 |
 | Número máximo de contenedores por base de datos con rendimiento compartido |25 |
-| Número máximo de contenedores por base de datos o cuenta con rendimiento dedicado  |sin límite |
+| Número máximo de contenedores por base de datos o cuenta con rendimiento dedicado  | 500 |
 | Número máximo de regiones | Sin límite (todas las regiones de Azure) |
 
 ### <a name="serverless"></a>Sin servidor
 
 | Resource | Límite |
 | --- | --- |
-| Número máximo de bases de datos | Sin límite |
+| Número máximo de bases de datos | 500 |
 | Número máximo de contenedores por cuenta  | 100 |
 | Número máximo de regiones | 1 (cualquier región de Azure) |
 
@@ -284,7 +284,7 @@ Comience a usar Azure Cosmos DB con una de nuestras guías rápidas:
 * [Introducción a la API Cassandra de Azure Cosmos DB](cassandra/manage-data-dotnet.md)
 * [Introducción a Gremlin API de Azure Cosmos DB](create-graph-dotnet.md)
 * [Introducción a Table API de Azure Cosmos DB](table/create-table-dotnet.md)
-* ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Para ello, puede usar información sobre el clúster de base de datos existente.
+* ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Para ello, puede usar información sobre el clúster de bases de datos existente.
     * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
     * Si conoce la velocidad que suelen tener las solicitudes de la carga de trabajo de la base de datos actual, lea este artículo para [calcular las unidades de solicitud utilizando la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).
 

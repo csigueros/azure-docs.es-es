@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/09/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 3937e0a6c00de78acfa774ab6446d2b3d8e68206
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 6c454c23eec0bb5b0fef1ceca3ad8f8e4c52493d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110377130"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124812594"
 ---
 # <a name="configure-an-aks-cluster"></a>Configuración de un clúster de AKS
 
@@ -19,62 +19,11 @@ Como parte de la creación de un clúster de AKS, puede que tenga que personaliz
 
 ## <a name="os-configuration"></a>Configuración del sistema operativo
 
-AKS ahora es compatible con Ubuntu 18.04 como sistema operativo de nodo predeterminado (SO) en disponibilidad general (GA) para clústeres de versiones de Kubernetes superiores a 1.18. Para versiones inferiores a esa, AKS Ubuntu 16.04 sigue siendo la imagen base predeterminada. A partir de Kubernetes v1.18 y posteriores, la base predeterminada es AKS Ubuntu 18.04.
-
-> [!IMPORTANT]
-> Los grupos de nodos creados en Kubernetes v1.18 o versiones posteriores tienen una imagen de nodo `AKS Ubuntu 18.04` de forma predeterminada. Los grupos de nodos de una versión de Kubernetes compatible inferior a la versión 1.18 reciben `AKS Ubuntu 16.04` como la imagen de nodo, pero se actualizarán a `AKS Ubuntu 18.04` una vez que la versión Kubernetes del grupo de nodos se actualice a la versión 1.18 o posteriores.
-> 
-> Es muy recomendable que pruebe sus cargas de trabajo en los grupos de nodos de AKS Ubuntu 18.04 antes de usar los clústeres en la versión 1.18 o posteriores.
-
-
-### <a name="use-aks-ubuntu-1804-ga-on-new-clusters"></a>Uso de AKS Ubuntu 18.04 (GA) en clústeres nuevos
-
-Los clústeres creados en Kubernetes v1.18 o versiones posteriores tienen una imagen de nodo `AKS Ubuntu 18.04` de forma predeterminada. Los grupos de nodos en versiones de Kubernetes compatibles anteriores a la versión 1.18 seguirán recibiendo `AKS Ubuntu 16.04` como imagen de nodo, pero se actualizarán a `AKS Ubuntu 18.04` una vez que la versión de Kubernetes del clúster o del grupo de nodos se actualice a la versión 1.18 o posteriores.
-
-Es muy recomendable que pruebe sus cargas de trabajo en los grupos de nodos de AKS Ubuntu 18.04 antes de usar los clústeres en la versión 1.18 o posteriores.
-
-Para crear un clúster con la imagen de nodo `AKS Ubuntu 18.04`, solo tiene que crear un clúster que ejecute kubernetes v1.18 o una versión posterior, tal como se muestra a continuación:
-
-```azurecli
-az aks create --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
-```
-
-### <a name="use-aks-ubuntu-1804-ga-on-existing-clusters"></a>Uso de AKS Ubuntu 18.04 (GA) en clústeres existentes
-
-Los clústeres creados en Kubernetes v1.18 o versiones posteriores tienen una imagen de nodo `AKS Ubuntu 18.04` de forma predeterminada. Los grupos de nodos en versiones de Kubernetes compatibles anteriores a la versión 1.18 seguirán recibiendo `AKS Ubuntu 16.04` como imagen de nodo, pero se actualizarán a `AKS Ubuntu 18.04` una vez que la versión de Kubernetes del clúster o del grupo de nodos se actualice a la versión 1.18 o posteriores.
-
-Es muy recomendable que pruebe sus cargas de trabajo en los grupos de nodos de AKS Ubuntu 18.04 antes de usar los clústeres en la versión 1.18 o posteriores.
-
-Si los clústeres o grupos de nodos están listos para la imagen de nodo `AKS Ubuntu 18.04`, simplemente puede actualizarlos a una versión 1.18 o posterior, tal como se muestra a continuación.
-
-```azurecli
-az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
-```
-
-Si solo quiere actualizar un grupo de nodos:
-
-```azurecli
-az aks nodepool upgrade -name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
-```
-
-### <a name="test-aks-ubuntu-1804-ga-on-existing-clusters"></a>Prueba de AKS Ubuntu 18.04 (GA) en clústeres existentes
-
-Los grupos de nodos creados en Kubernetes v1.18 o versiones posteriores tienen una imagen de nodo `AKS Ubuntu 18.04` de forma predeterminada. Los grupos de nodos en versiones de Kubernetes compatibles anteriores a la versión 1.18 seguirán recibiendo `AKS Ubuntu 16.04` como imagen de nodo, pero se actualizarán a `AKS Ubuntu 18.04` una vez que la versión de Kubernetes del grupo de nodos se actualice a la versión 1.18 o posteriores.
-
-Es muy recomendable probar las cargas de trabajo en los grupos de nodos de AKS Ubuntu 18.04 antes de actualizar los grupos de nodos de producción.
-
-Para crear un grupo de nodos con la imagen de nodo `AKS Ubuntu 18.04`, solo tiene que crear un grupo de nodos que ejecute kubernetes v1.18 o una versión posterior. El plano de control del clúster tiene que estar como mínimo en la versión 1.18 o una versión posterior, pero los demás grupos de nodos pueden permanecer en una versión anterior de Kubernetes.
-En el ejemplo siguiente, primero se actualiza el plano de control y luego se crea un nuevo grupo de nodos con la versión 1.18 que recibirá la versión del sistema operativo de la nueva imagen de nodo.
-
-```azurecli
-az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14 --control-plane-only
-
-az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
-```
+AKS es compatible con Ubuntu 18.04 como el sistema operativo del nodo (SO) predeterminado en disponibilidad general para clústeres.
 
 ## <a name="container-runtime-configuration"></a>Configuración del entorno de ejecución de contenedor
 
-Un entorno de ejecución de contenedor es un software que ejecuta contenedores y administra imágenes de contenedor en un nodo. El entorno de ejecución ayuda a abstraer la funcionalidad específica del sistema operativo o de sys-call para ejecutar contenedores en Linux o Windows. En el caso de los grupos de nodos de Linux, se usa `containerd` para los grupos de nodos con Kubernetes versión 1.19 y posteriores, y se usa Docker para los grupos de nodos con Kubernetes 1.18 y versiones anteriores. En el caso de los grupos de nodos de Windows Server 2019, `containerd` está disponible en versión preliminar y se puede usar en grupos de nodos con Kubernetes 1.20 y versiones posteriores, pero Docker todavía se usa de forma predeterminada.
+Un entorno de ejecución de contenedor es un software que ejecuta contenedores y administra imágenes de contenedor en un nodo. El entorno de ejecución ayuda a abstraer la funcionalidad específica del sistema operativo o de sys-call para ejecutar contenedores en Linux o Windows. En el caso de los grupos de nodos de Linux, `containerd` se usa para los grupos de nodos con la versión 1.19 de Kubernetes y versiones posteriores. En el caso de los grupos de nodos de Windows Server 2019, `containerd` está disponible en versión preliminar y se puede usar en grupos de nodos con Kubernetes 1.20 y versiones posteriores, pero Docker todavía se usa de forma predeterminada.
 
 [`Containerd`](https://containerd.io/) es un entorno de ejecución de contenedor básico compatible con [OCI](https://opencontainers.org/) (Open Container Initiative) que proporciona el conjunto mínimo de funciones necesarias para ejecutar contenedores y administrar imágenes en un nodo. Fue [donado](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) a la Cloud Native Compute Foundation (CNCF) en marzo de 2017. La versión actual de Moby (Docker ascendente) que AKS ya usa se basa en `containerd` y ya aprovecha sus ventajas, como se mostró anteriormente.
 

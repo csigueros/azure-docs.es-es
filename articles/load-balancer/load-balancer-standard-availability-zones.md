@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: dfec3e6305b6b955cfb7b2cfd787507db36ff6ba
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 87a7d10c9748a2e173d8f43dcca3611666277792
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113213604"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653712"
 ---
 # <a name="load-balancer-and-availability-zones"></a>Load Balancer y Availability Zones
 
@@ -57,6 +57,10 @@ En el caso de un servidor front-end de equilibrador de carga público, se agrega
 
 En el caso de un servidor front-end de equilibrador de carga interno, se agrega un parámetro de **zonas** a la configuración IP del front-end del recurso de equilibrador de carga interno. Un servidor front-end zonal garantiza una dirección IP en una subred a una zona específica.
 
+## <a name="non-zonal"></a>No zonal
+
+Los equilibradores de carga también se pueden crear en una configuración no zonal mediante un front-end "sin zona" (dirección IP pública o prefijo de dirección IP pública).  Esta opción no ofrece una garantía de redundancia. Tenga en cuenta que todas las direcciones IP públicas que [se actualicen](https://docs.microsoft.com/azure/virtual-network/public-ip-upgrade-portal) de una SKU Básica a otra Estándar serán de tipo "sin zona".
+
 ## <a name="design-considerations"></a><a name="design"></a> Consideraciones de diseño
 
 Ahora que ya conoce las propiedades relacionadas con las zonas de Standard Load Balancer, las consideraciones de diseño siguientes pueden ayudarle a la hora de diseñar para lograr una alta disponibilidad.
@@ -67,6 +71,14 @@ Ahora que ya conoce las propiedades relacionadas con las zonas de Standard Load 
 - Un front-end **zonal** es una reducción del servicio a una única zona y comparte el mismo destino que la zona correspondiente. Si la zona en la que se encuentra la implementación deja de estar activa, la implementación no sobrevivirá a este error.
 
 Se recomienda usar Load Balancer con redundancia de zona para las cargas de trabajo de producción.
+
+### <a name="multiple-frontends"></a>Varios servidores front-end
+
+El uso de varios front-ends le permite equilibrar la carga del tráfico en más de un puerto o dirección IP.  Al diseñar la arquitectura, es importante tener en cuenta la forma en la que pueden interactuar la redundancia de zona y varios front-ends.  Tenga en cuenta que si el objetivo es hacer que cada front-end sea resistente a errores, todas las direcciones IP que se usan asignadas como front-ends deben tener redundancia de zona.   Si un conjunto de front-ends está pensado para asociarse a una sola zona, todas las direcciones IP de ese conjunto se deben asociar a esa zona específica.  No es necesario tener un equilibrador de carga para cada zona; en su lugar, cada front-end zonal (o conjunto de front-ends zonales) se podría asociar con máquinas virtuales del grupo de back-end que forman parte de esa zona de disponibilidad específica.
+
+### <a name="transition-between-regional-zonal-models"></a>Transición entre modelos zonales regionales
+
+En el caso de que una región se amplíe para que tenga [zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview), las direcciones IP de front-end existentes permanecerán no zonales. Para asegurarse de que la arquitectura puede aprovechar las ventajas de las nuevas zonas, se recomienda crear nuevas direcciones IP de front-end y replicar las reglas y configuraciones adecuadas para usar estas nuevas direcciones IP públicas.
 
 ### <a name="control-vs-data-plane-implications"></a>Implicaciones de los planos de control frente a los planos de datos
 
@@ -79,7 +91,6 @@ Revise [los patrones de diseño en la nube de Azure](/azure/architecture/pattern
 ## <a name="limitations"></a>Limitaciones
 
 * Las zonas no se pueden cambiar, actualizar ni crear para el recurso después de su creación.
-
 * Los recursos no se pueden actualizar de zonal a con redundancia de zona y viceversa después de su creación.
 
 ## <a name="next-steps"></a>Pasos siguientes

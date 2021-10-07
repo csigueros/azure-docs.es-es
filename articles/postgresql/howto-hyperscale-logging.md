@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 8/20/2021
-ms.openlocfilehash: c65d2947e6e0f9505f1827ec8dbb32f59855d332
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.date: 9/13/2021
+ms.openlocfilehash: 72996a44892d17a44ea58405e92bb9ac6cc52c68
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122633904"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546444"
 ---
 # <a name="logs-in-azure-database-for-postgresql---hyperscale-citus"></a>Registros en Hiperescala (Citus) para Azure Database for PostgreSQL
 
@@ -55,6 +55,15 @@ AzureDiagnostics
 ```
 
 Reemplace el nombre del servidor en el ejemplo anterior por el nombre de su servidor. El nombre del nodo de coordinación tiene el sufijo `-c` y los nodos de trabajo se nombran con un sufijo de `-w0`, `-w1`, etc.
+
+Hay varias formas de filtrar los registros de Azure. Aquí se muestra cómo buscar registros del último día cuyos mensajes coinciden con una expresión regular.
+
+```kusto
+AzureDiagnostics
+| where TimeGenerated > ago(24h)
+| order by TimeGenerated desc
+| where Message matches regex ".*error.*"
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

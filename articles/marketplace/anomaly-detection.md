@@ -4,15 +4,15 @@ description: Obtenga información sobre cómo la detección automática de anoma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 5/03/2021
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 1226a66a68c9ee8163e1a786cba8f1107c84c2b1
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.date: 9/27/2021
+ms.openlocfilehash: 5d253ab72d2915145444485c98131027555efdbc
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112414636"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081665"
 ---
 # <a name="manage-metered-billing-anomalies-in-partner-center"></a>Administración de las anomalías de facturación de uso medido en el Centro de partners
 
@@ -27,6 +27,52 @@ Microsoft confía en usted, el asociado, para notificar el uso por encima del l�
 Para asegurarse de que se factura a los clientes correctamente, use la característica de **detección de anomalías** tanto para las aplicaciones SaaS como para los planes de la aplicación administrada de la aplicación de Azure. Esta característica supervisa de forma proactiva la utilización de la facturación de uso medido y predice el valor esperado de uso dentro del intervalo esperado. Si el uso está fuera del intervalo esperado, se trata como inesperado (una anomalía), de modo que recibirá una notificación de alerta en la página Información general de la oferta en el programa de marketplace comercial del Centro de partners. Puede realizar un seguimiento diario del uso por parte de sus clientes de cada dimensión de medidor personalizada que haya definido.
 
 ## <a name="view-and-manage-metered-usage-anomalies"></a>Visualización y administración de anomalías de uso medido
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
+1. En la página principal, seleccione el icono **Información**.
+
+    [ ![Se muestra el icono "Información" en la página principal del Centro de partners.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. En el menú de la izquierda, seleccione **Uso**.
+1. Seleccione la pestaña **Anomalías de uso medido**.
+
+    [![Muestra la pestaña Anomalías de uso medido en la página Uso.](./media/anomaly-detection/metered-usage-anomalies-workspaces.png)](./media/anomaly-detection/metered-usage-anomalies-workspaces.png#lightbox)<br>
+    ***Figura 1: Pestaña Anomalías de uso medido***
+
+1. En el caso de las anomalías de uso detectadas en la facturación de uso medido, como publicador, se le pedirá que investigue y confirme si la anomalía es verdadera o no. Seleccione **Marcar como anomalía** para confirmar el diagnóstico.
+
+     [![Muestra el cuadro de diálogo Marcar como anomalía.](./media/anomaly-detection/mark-as-anomaly-workspaces.png)](./media/anomaly-detection/mark-as-anomaly-workspaces.png#lightbox)<br>
+    ***Figura 2: Cuadro de diálogo Marcar como anomalía***
+
+1. Si cree que la anomalía de uso por encima del límite que detectamos no es auténtica, puede proporcionar esos comentarios seleccionando **No es una anomalía** para la anomalía marcada del Centro de partners en el uso por encima del límite en particular.
+
+    [![Muestra el cuadro de diálogo ¿Por qué no es una anomalía?](./media/anomaly-detection/why-is-it-not-an-anomaly-workspaces.png)](./media/anomaly-detection/why-is-it-not-an-anomaly-workspaces.png#lightbox)
+    ***Figura 3: Cuadro de diálogo ¿Por qué no es una anomalía?***
+
+1. Puede desplazarse hacia abajo en la página para ver una lista de inventario de anomalías no confirmadas. La lista proporciona un inventario de anomalías que no ha confirmado. Puede elegir marcar cualquiera de las anomalías marcadas del Centro de partners como auténtica o falsa.
+
+   [![Muestra la lista de anomalías no confirmadas del Centro de partners en la página Uso.](./media/anomaly-detection/unacknowledged-anomalies-workspaces.png)](./media/anomaly-detection/unacknowledged-anomalies-workspaces.png#lightbox)<br>
+    ***Ilustración 4: Lista de anomalías no confirmadas del Centro de partners***
+
+    De forma predeterminada, las anomalías marcadas que tienen un impacto financiero estimado superior a 100 USD se muestran en el Centro de partners. Sin embargo, puede seleccionar la opción **Todos** de la lista **Impacto financiero estimado de anomalías** para ver todas las anomalías marcadas.
+
+    [ ![Captura de pantalla de todas las anomalías de uso medido para la oferta seleccionada.](./media/anomaly-detection/all-anomalies.png) ](./media/anomaly-detection/all-anomalies.png#lightbox)
+
+1. También vería un registro de acciones de anomalías que muestra las acciones que realizó en los usos por encima del límite. En el registro de acciones, podrá ver qué eventos de uso por encima del límite se marcaron como auténticos o falsos.
+
+   [![Muestra el registro de acciones de anomalías en la página Uso.](./media/anomaly-detection/anomaly-action-log-workspaces.png)](./media/anomaly-detection/anomaly-action-log-workspaces.png#lightbox)<br>
+   ***Figura 5: Registro de acciones de anomalías***
+
+1. El análisis del Centro de partners no admitirá la redefinición eventos de uso por encima del límite en los informes de exportación. El Centro de partners le permite escribir el uso por encima del límite para una anomalía y los detalles se pasan a Microsoft Teams para su investigación. En función de la investigación, Microsoft emitirá reembolsos de crédito al cliente sobrecargado, según corresponda. Al seleccionar cualquiera de las anomalías marcadas, puede seleccionar **Marcar como anomalía** para marcar la anomalía de uso por encima del límite como genuina.
+
+   [![Muestra el cuadro de diálogo Marcar como anomalía.](./media/anomaly-detection/mark-as-anomaly-workspaces.png)](./media/anomaly-detection/mark-as-anomaly-workspaces.png#lightbox)<br>
+   ***Figura 6: Cuadro de diálogo Marcar como anomalía***
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
 
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
 1. En el menú de navegación de la izquierda, seleccione **Marketplace comercial** > **Analizar** > **Uso**.
@@ -64,6 +110,8 @@ Para asegurarse de que se factura a los clientes correctamente, use la caracter�
    [![Muestra el cuadro de diálogo Marcar como anomalía.](./media/anomaly-detection/new-reported-usage.png)](./media/anomaly-detection/new-reported-usage.png#lightbox)<br>
    ***Figura 6: Cuadro de diálogo Marcar como anomalía***
 
+---
+
 La primera vez que se marque un uso por encima del límite como irregular en el Centro de partners, obtendrá una ventana de 30 días de esa instancia para marcar la anomalía como auténtica o falsa. Después del período de 30 días, como publicador, no podría actuar sobre las anomalías.
 
 > [!IMPORTANT]
@@ -80,6 +128,8 @@ Después de marcar un uso por encima del límite como anomalía o reconocer un m
 
 > [!IMPORTANT]
 > Puede volver a enviar los usos por encima del límite en caso de situaciones de sobrecarga.
+
+---
 
 ## <a name="see-also"></a>Consulte también
 - [Facturación según uso mediante el servicio de medición de marketplace comercial](./partner-center-portal/saas-metered-billing.md)

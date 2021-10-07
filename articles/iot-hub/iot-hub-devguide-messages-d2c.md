@@ -11,12 +11,12 @@ ms.author: nehsin
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: d7f6030e8d4d2807084d212713df8630f2d7a17a
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: cfa6865ee7facdc00303f725de78a3e523ff301d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110191722"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596011"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Uso del enrutamiento de mensajes de IoT Hub para enviar mensajes del dispositivo a la nube a distintos puntos de conexión
 
@@ -24,13 +24,13 @@ ms.locfileid: "110191722"
 
 El enrutamiento de mensajes le permite enviar mensajes desde los dispositivos a los servicios en la nube de forma automatizada, escalable y confiable. El enrutamiento de mensajes se puede usar para: 
 
-* **Enviar mensajes de telemetría y eventos del dispositivo**, es decir, eventos del ciclo de vida del dispositivo, eventos de cambio de dispositivo gemelo, eventos de cambio de gemelo digital y eventos de estado de conexión del dispositivo al punto de conexión integrado y los puntos de conexión personalizados. Obtenga información sobre los [puntos de conexión de enrutamiento](#routing-endpoints). Para más información acerca de los eventos enviados desde los dispositivos de IoT Plug and Play, consulte [Información de Digital Twins de IoT Plug and Play](../iot-pnp/concepts-digital-twin.md).
+* **Enviar mensajes de telemetría y eventos del dispositivo**, es decir, eventos del ciclo de vida del dispositivo, eventos de cambio de dispositivo gemelo, eventos de cambio de gemelo digital y eventos de estado de conexión del dispositivo al punto de conexión integrado y los puntos de conexión personalizados. Obtenga información sobre los [puntos de conexión de enrutamiento](#routing-endpoints). Para más información acerca de los eventos enviados desde los dispositivos de IoT Plug and Play, consulte [Información de Digital Twins de IoT Plug and Play](../iot-develop/concepts-digital-twin.md).
 
 * **Filtrar los datos antes de enrutarlos a los diferentes puntos de conexión** mediante la aplicación de consultas enriquecidas. El enrutamiento de mensajes le permite realizar consultas sobre las propiedades de los mensajes y el cuerpo del mensaje, así como las etiquetas del dispositivo gemelo y las propiedades del dispositivo gemelo. Más información sobre el uso de [consultas en el enrutamiento de mensajes](iot-hub-devguide-routing-query-syntax.md).
 
-IoT Hub necesita acceso de escritura a estos puntos de conexión de servicio para que el enrutamiento de mensajes funcione. Si configura los puntos de conexión a través de Azure Portal, se agregan los permisos necesarios automáticamente. Asegúrese de configurar los servicios para admitir el rendimiento esperado. Por ejemplo, si usa Event Hubs como punto de conexión personalizado, debe configurar las **unidades de procesamiento** para ese centro de eventos de forma que pueda controlar la entrada de eventos que planea enviar a través del enrutamiento de mensajes de IoT Hub. Del mismo modo, cuando se usa una cola de Service Bus como punto de conexión, debe configurar el **tamaño máximo** para asegurarse de que la cola puede contener todos los datos ingresados, hasta que los consumidores los extraigan. Al configurar la solución de IoT por primera vez, es posible que deba supervisar los puntos de conexión adicionales y realizar los ajustes necesarios para la carga real.
+IoT Hub necesita acceso de escritura a estos puntos de conexión de servicio para que el enrutamiento de mensajes funcione. Si configura los puntos de conexión a través de Azure Portal, se agregan los permisos necesarios automáticamente. Asegúrese de configurar los servicios para admitir el rendimiento esperado. Por ejemplo, si usa Event Hubs como punto de conexión personalizado, debe configurar las **unidades de procesamiento** para ese centro de eventos de forma que pueda controlar la entrada de eventos que planea enviar a través del enrutamiento de mensajes de IoT Hub. Del mismo modo, cuando se usa una cola de Service Bus como punto de conexión, debe configurar el **tamaño máximo** para asegurarse de que la cola puede contener todos los datos ingresados, hasta que los consumidores los extraigan. Al configurar la solución de IoT por primera vez, es posible que deba supervisar los demás puntos de conexión y realizar los ajustes necesarios para la carga real.
 
-IoT Hub define un [formato común](iot-hub-devguide-messages-construct.md) para todos los mensajes del dispositivo a la nube a fin de generar interoperabilidad entre protocolos. Si un mensaje coincide con varias rutas que señalan al mismo punto de conexión, IoT Hub entrega el mensaje a ese punto de conexión solo una vez. Por lo tanto, no es necesario configurar la desduplicación en la cola o el tema de Service Bus. En las colas con particiones, la afinidad de partición garantiza el orden de los mensajes. Use este tutorial para aprender a [configurar el enrutamiento de mensajes](tutorial-routing.md).
+IoT Hub define un [formato común](iot-hub-devguide-messages-construct.md) para todos los mensajes del dispositivo a la nube a fin de generar interoperabilidad entre protocolos. Si un mensaje coincide con varias rutas que señalan al mismo punto de conexión, IoT Hub entrega el mensaje a ese punto de conexión solo una vez. Por lo tanto, no es necesario configurar la desduplicación en la cola o el tema de Service Bus. Use este tutorial para aprender a [configurar el enrutamiento de mensajes](tutorial-routing.md).
 
 ## <a name="routing-endpoints"></a>Puntos de conexión de enrutamiento
 
@@ -57,7 +57,7 @@ Hay dos servicios de almacenamiento a los que IoT Hub puede enrutar mensajes: a 
 
 IoT Hub admite la escritura de datos en Azure Storage con los formatos [Apache Avro](https://avro.apache.org/) y JSON. El valor predeterminado es AVRO. Cuando se usa la codificación JSON, debe establecer contentType en **application/json** y contentEncoding en **UTF-8** en las [propiedades del sistema](iot-hub-devguide-routing-query-syntax.md#system-properties) del mensaje. Ambos valores no distinguen mayúsculas de minúsculas. Si no está establecida la codificación del contenido, IoT Hub escribirá los mensajes en formato codificado de base 64.
 
-El formato de codificación solo se puede establecer cuando se configura el punto de conexión de Blob Storage. No se puede editar desde un punto de conexión existente. Para cambiar los formatos de codificación de un punto de conexión existente, debe eliminar y volver a crear el punto de conexión personalizado con el formato que quiera. Una estrategia útil podría ser crear un nuevo punto de conexión personalizado con el formato de codificación deseado y agregar una ruta paralela a ese punto de conexión. De esta manera, puede comprobar los datos antes de eliminar el punto de conexión existente.
+El formato de codificación solo se puede establecer cuando se configura el punto de conexión de Blob Storage. No se puede editar desde un punto de conexión existente. Para cambiar los formatos de codificación de un punto de conexión existente, debe eliminar y volver a crear el punto de conexión con el formato que quiera. Una estrategia útil podría ser crear un nuevo punto de conexión personalizado con el formato de codificación deseado y agregar una ruta paralela a ese punto de conexión. De esta manera, puede comprobar los datos antes de eliminar el punto de conexión existente.
 
 Puede seleccionar el formato de codificación mediante la API REST Crear o actualizar de IoT Hub, específicamente [RoutingStorageContainerProperties](/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), [Azure Portal](https://portal.azure.com), la [CLI de Azure](/cli/azure/iot/hub/routing-endpoint) o [Azure PowerShell](/powershell/module/az.iothub/add-aziothubroutingendpoint). En la siguiente imagen se muestra cómo seleccionar el formato de codificación en Azure Portal.
 
@@ -107,7 +107,7 @@ Para configurar una ruta, siga este [tutorial](tutorial-routing.md).
 
 Use los siguientes tutoriales para obtener información sobre cómo leer mensajes de un punto de conexión.
 
-* Lectura desde el [punto de conexión integrado](quickstart-send-telemetry-node.md)
+* Lectura desde el [punto de conexión integrado](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)
 
 * Lectura desde [Blob Storage](../storage/blobs/storage-blob-event-quickstart.md)
 
@@ -126,7 +126,7 @@ Puede habilitar o deshabilitar la ruta de reserva en Azure Portal -> hoja Enruta
 
 ## <a name="non-telemetry-events"></a>Eventos que no son de telemetría
 
-Además de los datos de telemetría del dispositivo, el enrutamiento de mensajes también permite enviar eventos de cambio de dispositivo gemelo, eventos del ciclo de vida del dispositivo, eventos de cambio de gemelo digital y eventos de estado de conexión del dispositivo. Por ejemplo, si se crea una ruta con el origen de datos establecido en **eventos de cambio de dispositivo gemelo**, IoT Hub envía mensajes al punto de conexión que contienen el cambio en el dispositivo gemelo. De forma similar, si se crea una ruta con el origen de datos establecido en **eventos del ciclo de vida del dispositivo**, IoT Hub enviará un mensaje que indica si el dispositivo se ha eliminado o se ha creado. Como parte de [Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md), un desarrollador puede crear rutas con el origen de datos establecido en **eventos de cambio de gemelo digital** e IoT Hub enviará mensajes siempre que se establezca o cambie una propiedad de gemelo digital, se sustituya un gemelo digital o se produzca un evento de cambio para el dispositivo gemelo subyacente. Finalmente, si se crea una ruta con el origen de datos establecido en **eventos de estado de conexión del dispositivo**, IoT Hub enviará un mensaje que indica si el dispositivo se ha conectado o desconectado.
+Además de los datos de telemetría del dispositivo, el enrutamiento de mensajes también permite enviar eventos de cambio de dispositivo gemelo, eventos del ciclo de vida del dispositivo, eventos de cambio de gemelo digital y eventos de estado de conexión del dispositivo. Por ejemplo, si se crea una ruta con el origen de datos establecido en **eventos de cambio de dispositivo gemelo**, IoT Hub envía mensajes al punto de conexión que contienen el cambio en el dispositivo gemelo. De forma similar, si se crea una ruta con el origen de datos establecido en **eventos del ciclo de vida del dispositivo**, IoT Hub enviará un mensaje que indica si el dispositivo se ha eliminado o se ha creado. Como parte de [Azure IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md), un desarrollador puede crear rutas con el origen de datos establecido en **eventos de cambio de gemelo digital** e IoT Hub enviará mensajes siempre que se establezca o cambie una propiedad de gemelo digital, se sustituya un gemelo digital o se produzca un evento de cambio para el dispositivo gemelo subyacente. Finalmente, si se crea una ruta con el origen de datos establecido en **eventos de estado de conexión del dispositivo**, IoT Hub enviará un mensaje que indica si el dispositivo se ha conectado o desconectado.
 
 
 [IoT Hub también se integra con Azure Event Grid](iot-hub-event-grid.md) para publicar los eventos de dispositivo con el fin de admitir integraciones en tiempo real y la automatización de flujos de trabajo basados en estos eventos. Consulte las [diferencias principales entre el enrutamiento de mensajes y Event Grid](iot-hub-event-grid-routing-comparison.md) para obtener información sobre la mejor opción para su escenario.
@@ -142,12 +142,6 @@ Si el estado de conexión del dispositivo cambia continuamente, lo que significa
 ## <a name="testing-routes"></a>Prueba de las rutas
 
 Al crear una ruta nueva o al modificar una ruta existente, debe probar la consulta de ruta con un mensaje de ejemplo. Puede probar rutas individuales o probar todas las rutas a la vez y no se enruta ningún mensaje a los puntos de conexión durante la prueba. Puede usar Azure Portal, Azure Resource Manager, Azure PowerShell y la CLI de Azure para realizar las pruebas. Los resultados ayudan a identificar si el mensaje de ejemplo coincide con la consulta, el mensaje no coincide con la consulta o no se pudo ejecutar la prueba porque la sintaxis del mensaje de ejemplo o de la consulta son incorrectas. Para más información, consulte [Prueba de una ruta](/rest/api/iothub/iothubresource/testroute) y [Prueba de todas las rutas](/rest/api/iothub/iothubresource/testallroutes).
-
-## <a name="ordering-guarantees-with-at-least-once-delivery"></a>Garantías de orden con al menos una entrega
-
-El enrutamiento de mensajes de IoT Hub garantiza al menos una entrega ordenada de mensajes a los puntos de conexión. De este modo, puede haber mensajes duplicados y puede retransmitirse una serie de mensajes que respete el orden de mensajes original. Por ejemplo, si el orden de los mensajes original es [1,2,3,4], podría recibir una secuencia de mensajes como [1,2,1,2,3,1,2,3,4]. La garantía de ordenación consiste en que, si alguna vez recibe el mensaje [1], siempre irá seguido de [2,3,4].
-
-Para controlar mensajes duplicados, se recomienda marcar un identificador único en las propiedades de aplicación del mensaje en el punto de origen, que suele ser un dispositivo o un módulo. El servicio que consume los mensajes puede controlar los mensajes duplicados con este identificador.
 
 ## <a name="latency"></a>Latencia
 
@@ -167,6 +161,6 @@ Use la[ guía de solución de problemas del enrutamiento](troubleshoot-message-r
 
 * Para aprender a crear rutas de mensajes, consulte [Procesamiento de mensajes del dispositivo a la nube de IoT Hub mediante rutas](tutorial-routing.md).
 
-* [Envío de mensajes de dispositivo a nube](quickstart-send-telemetry-node.md).
+* [Envío de mensajes de dispositivo a nube](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs).
 
 * Para obtener información sobre los SDK que puede utilizar para enviar mensajes del dispositivo a la nube, consulte [SDK de Azure IoT](iot-hub-devguide-sdks.md).

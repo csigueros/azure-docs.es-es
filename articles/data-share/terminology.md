@@ -6,12 +6,12 @@ author: joannapea
 ms.author: joanpo
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 33532380d8f98df44029eeea998130d1da5fdafd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a02624f4e5cf3ebbcd2f476372707f58c1d99f69
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "73468557"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664074"
 ---
 # <a name="azure-data-share-concepts"></a>Conceptos de Azure Data Share 
 
@@ -27,7 +27,7 @@ Un consumidor de datos es la organización que recibe datos de un proveedor. Pue
 
 ## <a name="data-share"></a>Recurso compartido de datos
 
-Un recurso compartido de datos es un grupo de conjuntos de datos que se comparten como una sola entidad. Los conjuntos de datos pueden proceder de varios orígenes de datos de Azure que son compatibles con Azure Data Share. Actualmente, Azure Data Share es compatible con Azure Blob Storage y Azure Data Lake Store. 
+Un recurso compartido de datos es un grupo de conjuntos de datos que se comparten como una sola entidad. Los conjuntos de datos pueden proceder de varios orígenes de datos de Azure que son compatibles con Azure Data Share. Azure Data Share [admite almacenes de datos](supported-data-stores.md#supported-data-stores) en la actualidad. 
 
 ## <a name="share-subscription"></a>Suscripción a un recurso compartido 
 

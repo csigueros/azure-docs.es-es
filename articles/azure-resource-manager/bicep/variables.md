@@ -4,13 +4,13 @@ description: Describe cómo definir variables en Bicep
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/02/2021
-ms.openlocfilehash: a652d2efb3f97791d075f078637801e4d20aad47
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 09/10/2021
+ms.openlocfilehash: 040e40d20fe81bb72493f087c9d0583a911b1ee7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123425064"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124733345"
 ---
 # <a name="variables-in-bicep"></a>Variables de Bicep
 
@@ -49,6 +49,8 @@ El ejemplo siguiente no implementa ningún recurso. Muestra cómo declarar varia
 
 :::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/variables/variables.bicep":::
 
+Puede usar bucles para declarar una variable de matriz que tenga un número dinámico de elementos. Para más información, consulte [Iteración de variables en Bicep](loop-variables.md).
+
 ## <a name="use-variable"></a>Uso de la variable
 
 En el ejemplo siguiente se muestra cómo usar la variable para una propiedad de recurso. Se hace referencia al valor de la variable al proporcionar el nombre de la variable: `storageName`.
@@ -83,3 +85,4 @@ Puede definir variables que contengan valores relacionados para configurar un en
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información sobre las propiedades disponibles para variables, consulte [Nociones sobre la estructura y la sintaxis de los archivos de Bicep](file.md).
+- Para obtener información sobre el uso de bucles con la declaración de variables, consulte [Iteración de variables en Bicep](loop-variables.md).

@@ -7,20 +7,24 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 09/10/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffdd27b67a122f82cc5fdb5568f11c85387955e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a1a8602b18c4ec68eacc37faca941211ee83fd63
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98660803"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124742633"
 ---
 # <a name="create-a-new-configuration-for-azure-ad-connect-cloud-sync"></a>Creación de una nueva configuración para la sincronización en la nube de Azure AD Connect
 
-Una vez instalado el agente de aprovisionamiento de Azure AD Connect, debe iniciar sesión en Azure Portal y configurarlo. Siga los pasos que se indican a continuación para habilitar el agente.
+El siguiente documento le guiará a través de la configuración de Azure AD Connect Cloud Sync. Para obtener información adicional y un ejemplo de cómo configurar la sincronización en la nube, consulte el vídeo siguiente.
+
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWKact]
+
 
 ## <a name="configure-provisioning"></a>Configuración del aprovisionamiento
 Para configurar el aprovisionamiento, siga estos pasos.

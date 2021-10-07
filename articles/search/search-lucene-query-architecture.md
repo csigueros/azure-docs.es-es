@@ -1,26 +1,26 @@
 ---
 title: Arquitectura del motor de indexación y consulta de texto completo (Lucene)
 titleSuffix: Azure Cognitive Search
-description: Se examinan los conceptos de recuperación de documentos y procesamiento de consultas de Lucene para la búsqueda de texto completo, tal y como se relacionan con Azure Cognitive Search.
+description: Explore los conceptos de recuperación de documentos y procesamiento de consultas de Lucene para la búsqueda de texto completo, tal y como se relacionan con Azure Cognitive Search.
 manager: nitinme
 author: yahnoosh
 ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 50a1656fcb92d9777d4a9476ef2a4c1fd2f2efc6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/28/2021
+ms.openlocfilehash: b070cc197de1a3e4390d3957cda5b2bd65c754f3
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96002755"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129210428"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Búsqueda de texto completo en Azure Cognitive Search
 
 Este artículo está dirigido a los desarrolladores que necesitan un conocimiento más profundo sobre cómo funciona la búsqueda de texto completo de Lucene en Azure Cognitive Search. Para las consultas de texto, Azure Cognitive Search ofrecerá íntegramente los resultados esperados en la mayoría de los escenarios, pero en ocasiones, podría obtener un resultado que parezca erróneo de algún modo. En estas situaciones, tener experiencia en las cuatro fases de ejecución de la consulta de Lucene (análisis de consulta, análisis léxico, coincidencia de búsqueda y puntuación) puede ayudar a identificar los cambios específicos en la configuración del índice y los parámetros de la consulta que proporcionarán el resultado deseado. 
 
 > [!Note] 
-> Azure Cognitive Search usa Lucene para la búsqueda de texto completo, pero la integración con Lucene no es completa. Se expondrá y ampliará selectivamente la funcionalidad de Lucene para permitir los escenarios importantes en Azure Cognitive Search. 
+> Azure Cognitive Search usa [Apache Lucene](https://lucene.apache.org/) para la búsqueda de texto completo, pero la integración con Lucene no es completa. Se expondrá y ampliará selectivamente la funcionalidad de Lucene para permitir los escenarios importantes en Azure Cognitive Search. 
 
 ## <a name="architecture-overview-and-diagram"></a>Introducción a la arquitectura y diagrama
 

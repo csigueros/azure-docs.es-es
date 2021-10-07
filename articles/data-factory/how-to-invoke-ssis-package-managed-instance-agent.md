@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: lle
 author: lrtoyou1223
 ms.date: 04/14/2020
-ms.openlocfilehash: 4bcce019e5b659f7af4056e861631a7a6ed31efb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b16cc04837fef57d5510d9c34be94f76dd87033d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733028"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124730772"
 ---
 # <a name="run-ssis-packages-by-using-azure-sql-managed-instance-agent"></a>Ejecución de paquetes SSIS con el agente de Instancia administrada de Azure SQL
 
@@ -36,17 +36,17 @@ En este procedimiento, se usa el agente de Instancia administrada de SQL para in
 1. En la versión más reciente de SSMS, conéctese a la Instancia administrada de SQL.
 1. Cree un trabajo del agente nuevo y un paso de trabajo nuevo. En **Agente SQL Server**, haga clic con el botón derecho en la carpeta **Trabajos** y seleccione **Nuevo trabajo**.
 
-   ![Selecciones para crear un nuevo trabajo del agente](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png" alt-text="Selecciones para crear un nuevo trabajo del agente":::
 
 1. En la página **Nuevo paso de trabajo**, seleccione el tipo **Paquete de SQL Server Integration Services**.
 
-   ![Selecciones para crear un nuevo paso de trabajo de SSIS](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png" alt-text="Selecciones para crear un nuevo paso de trabajo de SSIS":::
 
 1. En la pestaña **Paquete**, seleccione **Catálogo de SSIS** como la ubicación del paquete.
 1. Como SSISDB está en una instancia administrada de SQL, no necesita especificar la autenticación.
 1. Especifique un paquete SSIS del SSISDB.
 
-   ![Pestaña Paquete con selecciones para el tipo de origen del paquete](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb.png" alt-text="Pestaña Paquete con selecciones para el tipo de origen del paquete":::
 
 1. En la pestaña **Configuración**, puede:
   
@@ -54,7 +54,7 @@ En este procedimiento, se usa el agente de Instancia administrada de SQL para in
    - Invalidar los valores en **Administradores de conexión**.
    - Invalidar la propiedad y elegir el nivel de registro en **Avanzado**.
 
-   ![Pestaña Configuración con selecciones para el tipo de origen del paquete](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb-configuration.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb-configuration.png" alt-text="Pestaña Configuración con selecciones para el tipo de origen del paquete":::
 
 1. Seleccione **Aceptar** para guardar la configuración del trabajo del agente.
 1. Inicie el trabajo del Agente para ejecutar el paquete SSIS.
@@ -66,11 +66,11 @@ En este procedimiento, se usa el agente de Instancia administrada de SQL para ej
 1. En la versión más reciente de SSMS, conéctese a la Instancia administrada de SQL.
 1. Cree un trabajo del agente nuevo y un paso de trabajo nuevo. En **Agente SQL Server**, haga clic con el botón derecho en la carpeta **Trabajos** y seleccione **Nuevo trabajo**.
 
-   ![Selecciones para crear un nuevo trabajo del agente](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png" alt-text="Selecciones para crear un nuevo trabajo del agente":::
 
 1. En la página **Nuevo paso de trabajo**, seleccione el tipo **Paquete de SQL Server Integration Services**.
 
-   ![Selecciones para crear un nuevo paso de trabajo de SSIS](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png" alt-text="Selecciones para crear un nuevo paso de trabajo de SSIS":::
 
 1. En la pestaña **Paquete**:
 
@@ -80,7 +80,7 @@ En este procedimiento, se usa el agente de Instancia administrada de SQL para ej
 
       - Si el paquete se carga en Azure Files, seleccione **Recurso compartido de archivos de Azure**.
 
-        ![Opciones del tipo de origen del archivo](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-file-system.png)
+        :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-file-system.png" alt-text="Opciones del tipo de origen del archivo":::
 
         La ruta de acceso del paquete es **`\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`** .
 
@@ -111,11 +111,11 @@ En este procedimiento, se usa el agente de SQL Managed Instance para ejecutar un
 1. En la versión más reciente de SSMS, conéctese a la Instancia administrada de SQL.
 1. Cree un trabajo del agente nuevo y un paso de trabajo nuevo. En **Agente SQL Server**, haga clic con el botón derecho en la carpeta **Trabajos** y seleccione **Nuevo trabajo**.
 
-   ![Selecciones para crear un nuevo trabajo del agente](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png" alt-text="Selecciones para crear un nuevo trabajo del agente":::
 
 1. En la página **Nuevo paso de trabajo**, seleccione el tipo **Paquete de SQL Server Integration Services**.
 
-   ![Selecciones para crear un nuevo paso de trabajo de SSIS](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png" alt-text="Selecciones para crear un nuevo paso de trabajo de SSIS":::
 
 1. En la pestaña **Paquete**:
 
@@ -125,7 +125,7 @@ En este procedimiento, se usa el agente de SQL Managed Instance para ejecutar un
 
       La ruta de acceso del paquete es **`<package store name>\<folder name>\<package name>`** .
 
-      ![Opciones del tipo de almacén de paquetes](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-package-store.png)
+      :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-package-store.png" alt-text="Opciones del tipo de almacén de paquetes":::
 
    1. Si el archivo de paquete está cifrado con una contraseña, seleccione **Contraseña de cifrado** y escriba la contraseña.
 1. En la pestaña **Configuraciones**, escriba la ruta de acceso al archivo de configuración si necesita un archivo de configuración para ejecutar el paquete SSIS.
@@ -152,7 +152,7 @@ Para cancelar la ejecución del paquete desde un trabajo del agente de Instancia
    Si los paquetes SSIS están en SSISDB, use **ssisdb.internal.execution_parameter_values** como tabla para la ejecución del trabajo. Si los paquetes SSIS están en el sistema de archivos, use **ssisdb.internal.execution_parameter_values_noncatalog**.
 1. Haga clic con el botón derecho en el catálogo de SSISDB y, a continuación, seleccione **Operaciones activas**.
 
-   !["Operaciones activas" en el menú contextual del catálogo de SSISDB](./media/how-to-invoke-ssis-package-managed-instance-agent/catalog-active-operations.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-managed-instance-agent/catalog-active-operations.png" alt-text="&quot;Operaciones activas&quot; en el menú contextual del catálogo de SSISDB":::
 
 1. Detenga la operación correspondiente según **executionId**.
 

@@ -2,13 +2,13 @@
 title: Lenguaje Bicep para implementar recursos de Azure
 description: Describe el lenguaje Bicep para implementar la infraestructura en Azure. Ofrece una experiencia de creación mejorada sobre el uso de JSON para desarrollar plantillas.
 ms.topic: conceptual
-ms.date: 08/18/2021
-ms.openlocfilehash: 93aea8ee92d1f15ac45bd5978e7cbf68261e5a69
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.date: 09/09/2021
+ms.openlocfilehash: ace417bb8a71a277bbcb4ef178c6aaf24b97533b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122429111"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831944"
 ---
 # <a name="what-is-bicep"></a>¿Qué es Bicep?
 
@@ -110,10 +110,9 @@ Siguen funcionando exactamente como siempre lo han hecho. No es necesario hacer 
 
 Cuando esté listo, puede [descompilar los archivos JSON en Bicep](./decompile.md).
 
-## <a name="known-limitations"></a>Restricciones conocidas
+## <a name="known-limitations"></a>Limitaciones conocidas
 
-- No se admiten matrices ni objetos de una sola línea. Por ejemplo, `['a', 'b', 'c']` no es compatible. Para obtener más información, consulte [Matrices](data-types.md#arrays) y [Objetos](data-types.md#objects).
-- No se admite la separación de líneas largas en varias líneas. Por ejemplo:
+- Bicep diferencia las nuevas líneas. Por ejemplo:
 
     ```bicep
     resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {

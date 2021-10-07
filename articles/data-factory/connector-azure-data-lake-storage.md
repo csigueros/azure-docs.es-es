@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: e568c2c8056c0d33be5fe1f748092ae2639be360
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: abd839bdc15430b3b4936fe1d2b65826ae792da8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123314713"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128592553"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory-or-azure-synapse-analytics"></a>Copia y transformación de datos en Azure Data Lake Storage Gen2 mediante Azure Data Factory o Azure Synapse Analytics
 
@@ -271,7 +271,7 @@ Estas propiedades son compatibles con el servicio vinculado:
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **AzureBlobFS**. |Sí |
 | url | Punto de conexión de Data Lake Storage Gen2 con el patrón de `https://<accountname>.dfs.core.windows.net`. | Sí |
-| credentials | Especifique la identidad administrada asignada por el usuario como el objeto de credencial. | Sí |
+| credentials | Especifique la identidad administrada asignada por el usuario como objeto de credencial. | Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si el almacén de datos está en una red privada, se puede usar Azure Integration Runtime o un entorno de ejecución de integración autohospedado. Si no se especifica, se usa el valor predeterminado de Azure Integration Runtime. |No |
 
 **Ejemplo**:
@@ -544,7 +544,7 @@ La configuración específica de formato se encuentra en la documentación de es
 
 En la transformación de origen, puede leer de un contenedor, una carpeta o un archivo individual en Azure Data Lake Storage Gen2. La pestaña **Opciones de origen** permite administrar cómo se leen los archivos. 
 
-![Opciones de origen](media/data-flow/sourceOptions1.png "Opciones de origen")
+:::image type="content" source="media/data-flow/sourceOptions1.png" alt-text="Opciones de origen":::
 
 **Ruta de acceso de comodín:** El uso de un patrón de caracteres comodín indicará a ADF que recorra todos los archivos y carpetas que coincidan en una única transformación del origen. Se trata de una manera eficaz de procesar varios archivos en un único flujo. Agregue varios patrones de coincidencia de caracteres comodín con el signo + que aparece al desplazar el puntero sobre el patrón de caracteres comodín existente.
 
@@ -566,11 +566,11 @@ Ejemplos de caracteres comodín:
 
 En primer lugar, establezca un comodín que incluya todas las rutas de acceso que sean carpetas con particiones y, además, los archivos de hoja que desee leer.
 
-![Configuración del archivo de origen de partición](media/data-flow/partfile2.png "Configuración del archivo de partición")
+:::image type="content" source="media/data-flow/partfile2.png" alt-text="Configuración del archivo de origen de partición":::
 
 Use el valor de Partition Root Path (Ruta de acceso de la raíz de la partición) para definir cuál es el nivel superior de la estructura de carpetas. Cuando vea el contenido de los datos mediante una vista previa, verá que ADF agregará las particiones resueltas que se encuentran en cada uno de los niveles de las carpetas.
 
-![Ruta de acceso raíz de la partición](media/data-flow/partfile1.png "Vista previa de la ruta de acceso raíz de la partición")
+:::image type="content" source="media/data-flow/partfile1.png" alt-text="Ruta de acceso raíz de la partición":::
 
 **Lista de archivos**: Se trata de un conjunto de archivos. Cree un archivo de texto que incluya una lista de archivos de ruta de acceso relativa para procesar. Apunte a este archivo de texto.
 
@@ -582,15 +582,15 @@ Para mover archivos de origen a otra ubicación posterior al procesamiento, prim
 
 Si tiene una ruta de acceso de origen con un comodín, su sintaxis será como esta:
 
-```/data/sales/20??/**/*.csv```
+`/data/sales/20??/**/*.csv`
 
 puede especificar "from" como
 
-```/data/sales```
+`/data/sales`
 
 y "to" como
 
-```/backup/priorSales```
+`/backup/priorSales`
 
 En este caso, todos los subdirectorios cuyo origen se encuentra en /data/sales se mueven a /backup/priorSales.
 
@@ -603,7 +603,7 @@ En este caso, todos los subdirectorios cuyo origen se encuentra en /data/sales s
 
 En la transformación del receptor, puede escribir en un contenedor o una carpeta en Azure Data Lake Storage Gen2. La pestaña **Configuración** le permite administrar cómo se escriben los archivos.
 
-![Opciones del receptor](media/data-flow/file-sink-settings.png "opciones de receptor")
+:::image type="content" source="media/data-flow/file-sink-settings.png" alt-text="Opciones del receptor":::
 
 **Clear the folder** (Borrar la carpeta): determina si se borra o no la carpeta de destino antes de escribir los datos.
 
@@ -615,6 +615,34 @@ En la transformación del receptor, puede escribir en un contenedor o una carpet
    * **Salida en un solo archivo**: combine los archivos de salida con particiones en un solo archivo con nombre. La ruta de acceso es relativa a la carpeta del conjunto de datos. Tenga en cuenta que la operación de combinación probablemente produzca un error en función del tamaño del nodo. Esta opción no se recomienda para conjuntos de datos de gran tamaño.
 
 **Quote all** (Entrecomillar todo): determina si se deben entrecomillar todos los valores.
+    
+### ```umask```
+
+Opcionalmente, puede configurar ```umask``` para los archivos que usan marcas de lectura, escritura y ejecución de POSIX para propietarios, usuarios y grupos.
+    
+### <a name="pre-processing-and-post-processing-commands"></a>Comandos previos y posteriores al procesamiento
+    
+Opcionalmente, puede ejecutar comandos del sistema de archivos de Hadoop antes o después de escribir en el receptor de ADLS Gen2. Se admiten los siguientes comandos:
+    
+* ```cp```
+* ```mv```
+* ```rm```
+* ```mkdir```
+
+Ejemplos:
+
+* ```mkdir /folder1```
+* ```mkdir -p folder1```
+* ```mv /folder1/*.* /folder2/```
+* ```cp /folder1/file1.txt /folder2```
+* ```rm -r /folder1```
+
+Los parámetros también se admiten a través del generador de expresiones, por ejemplo:
+
+`mkdir -p {$tempPath}/commands/c1/c2`
+`mv {$tempPath}/commands/*.* {$tempPath}/commands/c1/c2`
+
+De forma predeterminada, las carpetas se crean como usuario o raíz. Consulte el contenedor de nivel superior que tiene "/".
 
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
 
@@ -643,7 +671,7 @@ Para información detallada sobre las propiedades, consulte [Actividad de elimin
 | modifiedDatetimeStart | Filtro de archivos basado en el atributo Last Modified. Los archivos se seleccionan si la hora de su última modificación está dentro del intervalo de tiempo entre `modifiedDatetimeStart` y `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato "2018-12-01T05:00:00Z". <br/><br/> El rendimiento general del movimiento de datos se ve afectado si habilita esta configuración cuando quiere filtrar archivos con grandes cantidades de archivos. <br/><br/> Las propiedades pueden ser NULL, lo que significa que no se aplica ningún filtro de atributo de archivo al conjunto de datos. Cuando `modifiedDatetimeStart` tiene un valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora. Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora.| No |
 | modifiedDatetimeEnd | Filtro de archivos basado en el atributo Last Modified. Los archivos se seleccionan si la hora de su última modificación está dentro del intervalo de tiempo entre `modifiedDatetimeStart` y `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato "2018-12-01T05:00:00Z". <br/><br/> El rendimiento general del movimiento de datos se ve afectado si habilita esta configuración cuando quiere filtrar archivos con grandes cantidades de archivos. <br/><br/> Las propiedades pueden ser NULL, lo que significa que no se aplica ningún filtro de atributo de archivo al conjunto de datos. Cuando `modifiedDatetimeStart` tiene un valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora. Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora.| No |
 | format | Si desea copiar los archivos tal cual entre los almacenes basados en archivos (copia binaria), omita la sección de formato en las definiciones de los conjuntos de datos de entrada y salida.<br/><br/>Si quiere analizar o generar archivos con un formato concreto, se admiten los siguientes tipos de formato de archivo: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Establezca la propiedad **type** en **format** en uno de los siguientes valores. Para más información, consulte las secciones [Formato de texto](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Formato Json](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Formato Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Formato ORC](supported-file-formats-and-compression-codecs-legacy.md#orc-format) y [Formato Parquet](supported-file-formats-and-compression-codecs-legacy.md#parquet-format). |No (solo para el escenario de copia binaria) |
-| compression | Especifique el tipo y el nivel de compresión de los datos. Para más información, consulte el artículo sobre [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Los tipos admitidos son **GZip**, **Deflate**, **BZip2** y **ZipDeflate**.<br/>Niveles admitidos son **Optimal** y **Fastest**. |No |
+| compression | Especifique el tipo y el nivel de compresión de los datos. Para más información, consulte el artículo sobre [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Estos son los tipos que se admiten: ```**GZip**, **Deflate**, **BZip2**, and **ZipDeflate**```.<br/>Niveles admitidos son **Optimal** y **Fastest**. |No |
 
 >[!TIP]
 >Para copiar todos los archivos en una carpeta, especifique solo **folderPath**.<br>Para copiar un único archivo con un nombre determinado, especifique **folderPath** con un elemento de carpeta y **fileName** con un nombre de archivo.<br>Para copiar un subconjunto de archivos en una carpeta, especifique **folderPath** con un elemento de carpeta y **fileName** con un filtro de comodín. 

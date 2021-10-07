@@ -1,6 +1,7 @@
 ---
-title: Descripción del inicio de sesión vinculado en Azure Active Directory
-description: Comprenda el inicio de sesión vinculado en Azure Active Directory.
+title: Adición del inicio de sesión único vinculado a una aplicación
+description: Adición del inicio de sesión único vinculado a una aplicación en Azure Active Directory.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -8,49 +9,43 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/30/2020
+ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
-ms.openlocfilehash: dd5421eaf8dbb251c5df5bc4e1fd92fb8ed25243
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c8404b7ec361c90a6153cadc7ec6a71efb17fd1c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738817"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639629"
 ---
-# <a name="understand-linked-sign-on"></a>Descripción del inicio de sesión vinculado
+# <a name="add-linked-single-sign-on-to-an-application-in-azure-active-directory"></a>Adición del inicio de sesión único vinculado a una aplicación en Azure Active Directory
 
-En la [serie de guías de inicio rápido](view-applications-portal.md) sobre la administración de aplicaciones, aprendió a usar Azure AD como proveedor de identidades (IdP) para una aplicación. En la guía de inicio rápido, se configura SSO basado en SAML o en OIDC. Otra opción es **Vinculado**. Este artículo explica con más detalle la opción Vinculado.
+En este artículo se muestra cómo configurar el inicio de sesión único (SSO) basado en vínculo para la aplicación en Azure Active Directory (Azure AD). El inicio de sesión único basado en vínculo permite a Azure AD proporcionar inicio de sesión único a una aplicación que ya está configurada para el inicio de sesión único en otro servicio. La opción Vinculado permite configurar la ubicación de destino cuando un usuario selecciona la aplicación en el portal de Microsoft 365 o Aplicaciones de la organización.
 
-La opción **Vinculado** permite configurar la ubicación de destino cuando un usuario selecciona la aplicación en el portal de Office 365 o [Aplicaciones](https://myapps.microsoft.com/) de la organización.
+El inicio de sesión único basado en vínculo no proporciona la funcionalidad de inicio de sesión a través de Azure AD. La opción solo establece la ubicación a la que se envían los usuarios cuando seleccionen la aplicación en Aplicaciones o el portal Microsoft 365.
 
-Estos son algunos de los escenarios comunes en los que la opción de vínculo resulta de gran utilidad:
-
+Estos son algunos de los escenarios comunes en los que el inicio de sesión único basado en vínculo resulta de gran utilidad:
 - Incorporación de un vínculo a una aplicación web personalizada que actualmente use la federación, como Servicios de federación de Active Directory (AD FS).
-- Incorporación de vínculos profundos a páginas específicas de SharePoint o a otras páginas web que desee que aparezcan en los paneles de acceso de su usuario.
-- Incorporación de un vínculo a una aplicación que no requiera autenticación.
- La opción **Vinculado** no proporciona la funcionalidad de inicio de sesión a través de las credenciales de Azure AD. Sin embargo, puede seguir usando algunas de las otras características de las **aplicaciones empresariales**. Por ejemplo, puede usar registros de auditoría y agregar un logotipo personalizado y un nombre de la aplicación.
+- Incorporación de vínculos profundos a páginas web específicas que desea que aparezcan en las páginas de acceso de su usuario.
+- Incorporación de un vínculo a una aplicación que no requiera autenticación. La opción vinculada no proporciona funcionalidad de inicio de sesión con credenciales de Azure AD, aunque sí puede usar algunas de las otras características de las aplicaciones empresariales. Por ejemplo, puede usar registros de auditoría y agregar un logotipo personalizado y un nombre de la aplicación.
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="prerequisites"></a>Requisitos previos
 
-Para adquirir conocimientos rápidamente, consulte la [serie de guías de inicio rápido](view-applications-portal.md) sobre la administración de aplicaciones. En el inicio rápido, donde configura el inicio de sesión único, también encontrará la opción **Vinculado**.
+Para configurar el inicio de sesión único basado en vínculo en su inquilino de Azure AD, necesita lo siguiente:
+-   Una cuenta de Azure con una suscripción activa. [Cree su cuenta de forma gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+-   Uno de los siguientes roles: Administrador global, Administrador de aplicaciones en la nube, Administrador de aplicaciones o Propietario de la entidad de servicio.
+-   Una aplicación que admite el inicio de sesión único basado en vínculo.
 
-La opción **Vinculado** no proporciona la funcionalidad de inicio de sesión a través de Azure AD. La opción solo establece la ubicación a la que se enviarán los usuarios cuando seleccionen la aplicación en [Aplicaciones](https://myapps.microsoft.com/) o el iniciador de aplicaciones de Microsoft 365.  Como el inicio de sesión no proporciona la funcionalidad de inicio de sesión a través de Azure AD, el acceso condicional no está disponible para las aplicaciones configuradas con el inicio de sesión único vinculado.
+## <a name="configure-linked-based-single-sign-on"></a>Configure el inicio de sesión único basado en vínculo
 
-> [!IMPORTANT]
-> Hay escenarios en los que la opción **Inicio de sesión único** no estará al desplazarse por una aplicación en las **aplicaciones empresariales**.
->
-> Por ejemplo, si la aplicación se registró mediante **Registros de aplicaciones**, la funcionalidad de inicio de sesión único estará configurada para usar OAuth de OIDC de manera predeterminada. En este caso, la opción de **Inicio de sesión único** no se mostrará en la navegación en **Aplicaciones empresariales**. Cuando use **Registros de aplicaciones** para agregar su aplicación personalizada, configure las opciones en el archivo de manifiesto. Para obtener más información sobre el archivo de manifiesto, consulte [Manifiesto de aplicación de Azure Active Directory](../develop/reference-app-manifest.md). Para obtener más información sobre los estándares de SSO, consulte [Autenticación y autorización mediante la Plataforma de identidad de Microsoft](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-the-microsoft-identity-platform).
->
-> Otros escenarios en los que falta **inicio de sesión único** en la navegación incluyen cuándo se hospeda una aplicación en otro inquilino o si su cuenta no tiene los permisos necesarios (Administrador global, Administrador de aplicaciones en la nube, Administrador de la aplicación o propietario de la entidad de servicio). Los permisos también pueden provocar un escenario en el que puede abrir **Inicio de sesión único** pero no podrá guardar. Para más información sobre los roles administrativos de Azure AD, consulte [Roles integrados de Azure AD](../roles/permissions-reference.md).
-
-### <a name="configure-link"></a>Configuración de un vínculo
-
-A fin de establecer un vínculo para una aplicación, seleccione **Vinculado** en la página **Inicio de sesión único**. A continuación, escriba el vínculo y seleccione **Guardar**. ¿Necesita un recordatorio de dónde encontrar estas opciones? Consulte la [serie de guías de inicio rápido](view-applications-portal.md).
-
-Una vez que configure una aplicación, asigne usuarios y grupos a la misma. Al asignar usuarios, puede controlar cuándo aparecerá la aplicación en [Aplicaciones](https://myapps.microsoft.com/) o en el iniciador de aplicaciones de Microsoft 365.
+1.  Inicie sesión en [Azure Portal](https://portal.azure.com) con el rol adecuado.
+2.  Seleccione **Azure Active Directory** en Azure Services y, a continuación, **Aplicaciones empresariales**.
+3.  Busque y seleccione la aplicación a la que desea agregar el inicio de sesión único vinculado.
+4.  Seleccione **Inicio de sesión único** y, a continuación, **Agregar**.
+5.  Escriba la dirección URL de la página de inicio de sesión de la aplicación.
+6.  Seleccione **Guardar**. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Asignación de usuarios y grupos a la aplicación](./assign-user-or-group-access-portal.md)
-- [Configuración del aprovisionamiento automático de cuentas de usuario](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+- [Administración del acceso a aplicaciones](what-is-access-management.md)

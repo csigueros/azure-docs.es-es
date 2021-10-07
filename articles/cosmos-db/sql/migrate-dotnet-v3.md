@@ -1,18 +1,18 @@
 ---
-title: Migración de la aplicación para usar el SDK de .NET 3.0 de Azure Cosmos DB (com.azure.cosmos)
-description: Aprenda a actualizar la aplicación .NET existente del SDK v2 a la versión más reciente del SDK de .NET v3 (paquete com.azure.cosmos) para Core (SQL) API.
+title: Migración de la aplicación para usar el SDK de .NET 3.0 de Azure Cosmos DB (Microsoft.Azure.Cosmos)
+description: Aprenda a actualizar la aplicación .NET existente del SDK v2 a la versión más reciente del SDK de .NET v3 (paquete Microsoft.Azure.Cosmos) para Core (SQL) API.
 author: stefArroyo
 ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 08/26/2021
-ms.openlocfilehash: 65c2ab23c98ae9b3a2c57a71e52c1df37f182139
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 9ee782734baaf8947aa4e4f930cac874e32a5df6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123113777"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124788199"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-net-sdk-v3"></a>Migración de la aplicación para usar el SDK de .NET v3 de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -148,7 +148,7 @@ CosmosClient client = cosmosClientBuilder.Build();
 
 ### <a name="exceptions"></a>Excepciones
 
-Donde el SDK v2 usaba `DocumentClientException` para señalar errores durante las operaciones, el SDK v3 usa `CosmosClientException`, que expone los objetos `StatusCode` y `Diagnostics`, así como otros datos relacionados con la respuesta. Toda la información se serializa cuando se usa `ToString()`:
+Donde el SDK v2 usaba `DocumentClientException` para señalar errores durante las operaciones, el SDK v3 usa `CosmosClientException`, que expone los elementos `StatusCode` y `Diagnostics`, así como otros datos relacionados con la respuesta. Toda la información se serializa cuando se usa `ToString()`:
 
 ```csharp
 catch (CosmosClientException ex)
@@ -162,7 +162,7 @@ catch (CosmosClientException ex)
 
 ### <a name="diagnostics"></a>Diagnóstico
 
-Donde el SDK v2 tenía diagnósticos solo directos disponibles a través de la propiedad `ResponseDiagnosticsString`, el SDK v3 usa el objeto `Diagnostics` disponible en todas las respuestas y excepciones, que son más abundantes y no están restringidas al modo directo. Incluyen no solo el tiempo empleado en el SDK para la operación, sino también las regiones con las que ha contactado la operación:
+Donde el SDK v2 tenía diagnósticos solo directos disponibles mediante la propiedad `ResponseDiagnosticsString`, el SDK v3 usa el elemento `Diagnostics` disponible en todas las respuestas y excepciones, que son más abundantes y no están restringidas al modo directo. Incluyen no solo el tiempo empleado en el SDK para la operación, sino también las regiones con las que ha contactado la operación:
 
 ```csharp
 try
@@ -201,15 +201,15 @@ Algunas opciones de `ConnectionPolicy` han cambiado de nombre o se han reemplaza
 
 ### <a name="session-token"></a>Token de sesión
 
-Donde el SDK v2 exponía el token de sesión de una respuesta como `ResourceResponse.SessionToken` para los casos en los que se requería capturar el token de sesión, dado que el token de sesión es un encabezado, el SDK v3 expone ese valor en la propiedad `Headers.Session` de cualquier respuesta.
+Donde el SDK v2 exponía el token de sesión de una respuesta como `ResourceResponse.SessionToken` para los casos en los que se requería capturar el token de sesión, dado que el token de sesión es un encabezado, el SDK v3 expone ese valor en la propiedad `Headers.Session` de cualquier respuesta.
 
 ### <a name="timestamp"></a>Timestamp
 
-Donde el SDK v2 exponía la marca de tiempo de un documento a través de la propiedad `Timestamp`, dado que `Document` ya no está disponible, los usuarios pueden asignar la [propiedad del sistema](../account-databases-containers-items.md#properties-of-an-item) `_ts` a una propiedad de su modelo.
+Donde el SDK v2 exponía la marca de tiempo de un documento mediante la propiedad `Timestamp`, dado que `Document` ya no está disponible, los usuarios pueden asignar la [propiedad del sistema](../account-databases-containers-items.md#properties-of-an-item) `_ts` a una propiedad de su modelo.
 
 ### <a name="openasync"></a>OpenAsync
 
-Para los casos de uso en los que se usaba `OpenAsync()` para preparar el cliente del SDK v2, se puede usar `CreateAndInitializeAsync` para [crear y preparar](https://devblogs.microsoft.com/cosmosdb/improve-net-sdk-initialization/) un cliente del SDK v3.
+Para los casos de uso en los que se usaba `OpenAsync()` para preparar el cliente del SDK v2, se puede usar `CreateAndInitializeAsync` para [crear y preparar](https://devblogs.microsoft.com/cosmosdb/improve-net-sdk-initialization/) un cliente del SDK v3.
 
 ### <a name="using-the-change-feed-processor-apis-directly-from-the-v3-sdk"></a>Uso de las API de procesador de fuente de cambios directamente desde el SDK v3
 
@@ -711,4 +711,4 @@ private static async Task DeleteItemAsync(DocumentClient client)
 * Obtenga más información sobre [lo que puede hacer con el SDK v3](sql-api-dotnet-v3sdk-samples.md).
 * ¿Intenta planear la capacidad de una migración a Azure Cosmos DB?
     * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
-    * Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).
+    * Si conoce las velocidades de solicitud típicas de la carga de trabajo de base de datos actual, lea sobre el [cálculo de las unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).

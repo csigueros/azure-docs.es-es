@@ -8,12 +8,12 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/16/2021
-ms.openlocfilehash: fd0fb07ad96d9897859281ef368452c96798d542
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 68c43d149da28f7a140ac4f4fd32d76fe53f3e2d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123428657"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128663314"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Private Link para Azure Data Factory
 
@@ -116,7 +116,7 @@ Si no tiene una red virtual para usarla con el vínculo de punto de conexión pr
     | **Configuración**          | **Valor**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **Detalles del proyecto**  |                                                                 |
-    | Suscripción     | Selección de su suscripción a Azure                                  |
+    | Subscription     | Selección de su suscripción a Azure                                  |
     | Grupo de recursos   | Seleccione un grupo de recursos para la red virtual. |
     | **Detalles de instancia** |                                                                 |
     | Nombre             | Escriba un nombre para la red virtual. |
@@ -155,7 +155,7 @@ También debe crear o asignar una máquina virtual para ejecutar el entorno de e
     | Configuración | Value                                          |
     |-----------------------|----------------------------------|
     | **Detalles del proyecto** |  |
-    | Suscripción | Selección de su suscripción a Azure |
+    | Subscription | Selección de su suscripción a Azure |
     | Grupo de recursos | Selección de un grupo de recursos |
     | **Detalles de instancia** |  |
     | Nombre de la máquina virtual | Escriba un nombre para la máquina virtual. |
@@ -200,7 +200,7 @@ Por último, debe crear el punto de conexión privado en la factoría de datos.
     | Parámetro | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Selección de un grupo de recursos |
     | **Detalles de instancia** |  |
     | Nombre  | Escriba un nombre para el punto de conexión. |
@@ -241,7 +241,7 @@ Por último, debe crear el punto de conexión privado en la factoría de datos.
 > Deshabilitar el acceso a la red pública solo es aplicable al entorno de ejecución de integración autohospedado, no a Azure Integration Runtime ni a SQL Server Integration Services (SSIS) Integration Runtime.
 
 > [!NOTE]
-> Puede seguir accediendo al portal de Azure Data Factory a través de la red pública después de crear el punto de conexión privado para el portal.
+> Puede seguir accediendo al portal de Azure Data Factory mediante una red pública después de crear el punto de conexión privado para el portal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

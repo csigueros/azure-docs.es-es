@@ -2,7 +2,6 @@
 title: 'ID: Form Recognizer'
 titleSuffix: Azure Applied AI Services
 description: Conozca los conceptos relacionados con la extracción de datos de los documentos de identidad con la API de identificadores precompilados de Form Recognizer.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -10,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: bfa6cb13533a92c65369b8016971e0c1e37cdb61
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 528821649c0c212c869ac74f61a5e13e70f1671a
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122326543"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153850"
 ---
 # <a name="form-recognizer-prebuilt-identification-id-document-model"></a>Modelo de documento de identificación (ID) precompilado de Form Recognizer
 
@@ -62,10 +61,9 @@ El servicio de identificaciones precompiladas extrae los principales valores de 
 |  DocumentNumber | string | Número de pasaporte, número de permiso de conducir, etc. pertinente. | "340020013" |
 |  FirstName | string | Nombre extraído e inicial del segundo nombre, si procede. | "JENNIFER" |
 |  LastName | string | Apellido extraído | "BROOKS" |
-|  Nacionalidad | countryRegion | Código de país o región que se ajusta a la norma ISO 3166 estándar. | "USA" |
+|  Nacionalidad | countryRegion | Código de país o región que se ajusta a la norma ISO 3166 estándar (solo pasaporte). | "USA" |
 |  Sex | string | Los valores extraídos posibles son "M", "F" y "X". | "F" |
-|  MachineReadableZone | object | Zona de lectura automática del pasaporte extraída, incluidas dos líneas de 44 caracteres cada una. | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
-|  DocumentType | string | Tipo de documento, por ejemplo, pasaporte o permiso de conducir. | "passport" |
+|  MachineReadableZone | objeto | Zona de lectura automática del pasaporte extraída, incluidas dos líneas de 44 caracteres cada una (solo pasaporte). | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
 |  Dirección | string | Dirección extraída (solo permiso de conducir) | "123 STREET ADDRESS YOUR CITY WA 99999-1234"|
 |  Region | string | Valor extraído de región, estado, provincia, etc. (solo permiso de conducir) | "Washington" |
 
@@ -248,11 +246,6 @@ Vea el siguiente ejemplo de una respuesta JSON correcta (la salida se ha abrevia
               "#/readResults/0/lines/33/words/4",
               "#/readResults/0/lines/34/words/0"
             ]
-          },
-          "DocumentType": {
-            "type": "string",
-            "text": "passport",
-            "confidence": 0.995
           }
         }
       }

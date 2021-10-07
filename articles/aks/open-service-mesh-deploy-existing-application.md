@@ -6,18 +6,18 @@ ms.topic: article
 ms.date: 8/26/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
-ms.openlocfilehash: 570305de41d190852e5acaa178d838c21fba2347
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 092e42a5f9c1779fc5968b9fc733d260d405a90a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123440086"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128625912"
 ---
 # <a name="manage-an-existing-application-with-the-open-service-mesh-osm-azure-kubernetes-service-aks-add-on"></a>Administración de una aplicación existente con el complemento Open Service Mesh (OSM) de Azure Kubernetes Service (AKS)
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En los pasos que se detallan en este tutorial se supone que ya ha habilitado el complemento OSM de AKS para el clúster de AKS. Si no es así, revise el artículo [Implementación del complemento OSM de AKS](./open-service-mesh-deploy-add-on.md) antes de continuar. Además, el clúster de AKS debe ser de la versión Kubernetes `1.19+` o posterior, tener habilitado RBAC de Kubernetes y haber establecido una conexión `kubectl` con el clúster (si necesita ayuda con cualquiera de estos elementos, consulte el [inicio rápido de AKS](./kubernetes-walkthrough.md)), además de haber instalado el complemento OSM de AKS.
+En los pasos que se detallan en este tutorial se supone que ya ha habilitado el complemento OSM de AKS para el clúster de AKS. Si no es así, revise el artículo [Implementación del complemento OSM de AKS](./open-service-mesh-deploy-addon-az-cli.md) antes de continuar. Además, el clúster de AKS debe ser de la versión Kubernetes `1.19+` o posterior, tener habilitado RBAC de Kubernetes y haber establecido una conexión `kubectl` con el clúster (si necesita ayuda con cualquiera de estos elementos, consulte el [inicio rápido de AKS](./kubernetes-walkthrough.md)), además de haber instalado el complemento OSM de AKS.
 
 Debe tener instalados los siguientes recursos:
 
@@ -84,7 +84,7 @@ spec:
     useHTTPSIngress: false
 ```
 
-Si **enablePermissiveTrafficPolicyMode** está configurado en **true**, puede incorporar los espacios de nombres de forma segura sin que se produzca ninguna interrupción en las comunicaciones entre servicios. Si **enablePermissiveTrafficPolicyMode** está configurado en **false**, tendrá que asegurarse de que tiene los manifiestos de directiva de acceso de tráfico de [SMI](https://smi-spec.io/) correctos y de que tiene una cuenta de servicio que representa cada servicio implementado en el espacio de nombres. Para obtener más información sobre el modo de tráfico permisivo, visite y lea el artículo [Modo de directiva de tráfico permisivo](https://docs.openservicemesh.io/docs/guides/traffic_management/permissive_mode/).
+Si **enablePermissiveTrafficPolicyMode** está configurado en **true**, puede incorporar los espacios de nombres de forma segura sin que se produzca ninguna interrupción en las comunicaciones entre servicios. Si **enablePermissiveTrafficPolicyMode** está configurado en **false**, deberá asegurarse de que tiene implementados los manifiestos de directiva de acceso de tráfico [SMI](https://smi-spec.io/) correctos. También deberá asegurarse de que tiene una cuenta de servicio que representa cada servicio implementado en el espacio de nombres. Para obtener más información sobre el modo de tráfico permisivo, visite y lea el artículo [Modo de directiva de tráfico permisivo](https://docs.openservicemesh.io/docs/guides/traffic_management/permissive_mode/).
 
 ## <a name="onboard-existing-deployed-applications-with-open-service-mesh-osm-permissive-traffic-policy-configured-as-true"></a>Incorporación de aplicaciones implementadas existentes con la directiva de tráfico permisivo de Open Service Mesh (OSM) configurada como True
 
@@ -100,7 +100,7 @@ Debería ver la siguiente salida:
 Namespace [bookstore] successfully added to mesh [osm]
 ```
 
-A continuación, echaremos un vistazo a la implementación del pod actual en el espacio de nombres. Ejecute el siguiente comando para ver los pods en el espacio de nombres designado.
+A continuación, echaremos un vistazo a la implementación del pod actual en el espacio de nombres. Ejecute el siguiente comando para ver los pods en el espacio de nombres `bookbuyer`.
 
 ```azurecli-interactive
 kubectl get pod -n bookbuyer
@@ -198,7 +198,7 @@ Compruebe si tiene una cuenta de servicio de Kubernetes en el espacio de nombres
 kubectl get serviceaccounts -n bookbuyer
 ```
 
-En el siguiente, hay una cuenta de servicio denominada `bookbuyer` en el espacio de nombres de bookbuyer.
+En el siguiente, hay una cuenta de servicio denominada `bookbuyer` en el espacio de nombres `bookbuyer`.
 
 ```Output
 NAME        SECRETS   AGE
@@ -231,13 +231,13 @@ NAME        READY   UP-TO-DATE   AVAILABLE   AGE
 bookbuyer   1/1     1            1           25h
 ```
 
-Ahora describiremos la implementación como una comprobación para ver si hay una cuenta de servicio enumerada en la sección de plantilla de pod.
+Describiremos la implementación como una comprobación para ver si hay una cuenta de servicio enumerada en la sección de plantilla de pod.
 
 ```azurecli-interactive
 kubectl describe deployment bookbuyer -n bookbuyer
 ```
 
-En esta implementación en particular, puede ver que hay una cuenta de servicio asociada a la implementación enumerada en la sección de plantilla de pod. Esta implementación usa la cuenta de servicio bookbuyer. Si no ve la propiedad **Service Account:** , la implementación no está configurada para usar una cuenta de servicio.
+En esta implementación en particular, puede ver que hay una cuenta de servicio asociada a la implementación enumerada en la sección de plantilla de pod. Esta implementación usa la cuenta de servicio `bookbuyer`. Si no ve la propiedad **Service Account:** , la implementación no está configurada para usar una cuenta de servicio.
 
 ```Output
 Pod Template:
@@ -284,7 +284,7 @@ spec:
     namespace: bookbuyer
 ```
 
-En la especificación de TrafficTarget anterior, `destination` denota la cuenta de servicio que está configurada para el servicio de origen de destino. Recuerde que la cuenta de servicio que se agregó a la implementación anterior se usará para autorizar el acceso a la implementación a la que está asociada. La sección `rules`, en este ejemplo concreto, define el tipo de tráfico HTTP que se permite a través de la conexión. Puede configurar patrones regex precisos para que los encabezados HTTP sean específicos respecto al tráfico que se permite a través de HTTP. La sección `sources` es el servicio que origina las comunicaciones. Esta especificación lee que el elemento bookbuyer necesita comunicarse con bookstore.
+En la especificación de TrafficTarget anterior, `destination` denota la cuenta de servicio que está configurada para el servicio de origen de destino. Recuerde que la cuenta de servicio que se agregó a la implementación anterior se usará para autorizar el acceso a la implementación a la que está asociada. La sección `rules`, en este ejemplo concreto, define el tipo de tráfico HTTP que se permite a través de la conexión. Puede configurar patrones regex precisos para que los encabezados HTTP sean específicos respecto al tráfico que se permite a través de HTTP. La sección `sources` es el servicio que origina las comunicaciones. Esta especificación lee que el elemento `bookbuyer` necesita comunicarse con bookstore.
 
 El recurso HTTPRouteGroup se compone de una coincidencia o una matriz de ellas de la información del encabezado HTTP y es un requisito de la especificación TrafficTarget. En el ejemplo siguiente, puede ver que HTTPRouteGroup está autorizando tres acciones HTTP, dos GET y una POST.
 

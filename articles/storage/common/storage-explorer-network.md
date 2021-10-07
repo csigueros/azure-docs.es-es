@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/01/2021
 ms.author: marayerm
-ms.openlocfilehash: a4afdc8897e15fcb563812bda9da378c66ca4bd9
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 2731f4473b726e7433167fe15c9e1f29c775d9cb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113432435"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627888"
 ---
 # <a name="network-connections-in-storage-explorer"></a>Conexiones de red en el Explorador de Storage
 
@@ -20,31 +20,32 @@ Cuando no se conecta a un emulador local, el Explorador de Storage usa la red pa
 
 ## <a name="hostnames-accessed-by-storage-explorer"></a>Nombres de host a los que accede el Explorador de Storage
 
-El Explorador de Storage realiza solicitudes a varios puntos de conexión mientras está en uso. En la lista siguiente se detallan los nombres de host comunes a los que el Explorador de Storage realizará solicitudes:
+El Explorador de Storage realiza solicitudes a varios puntos de conexión mientras está en uso. En la lista siguiente se detallan los nombres de host comunes a los que el Explorador de Storage realiza solicitudes:
+
 - Puntos de conexión de ARM:
-    - `management.azure.com` (Azure global)
-    - `management.chinacloudapi.cn` (Azure China)
-    - `management.microsoftazure.de` (Azure Alemania)
-    - `management.usgovcloudapi.net` (Azure Gobierno de EE. UU.)
+  - `management.azure.com` (Azure global)
+  - `management.chinacloudapi.cn` (Azure China)
+  - `management.microsoftazure.de` (Azure Alemania)
+  - `management.usgovcloudapi.net` (Azure Gobierno de EE. UU.)
 - Puntos de conexión de inicio de sesión:
-    - `login.microsoftonline.com` (Azure global)
-    - `login.chinacloudapi.cn` (Azure China)
-    - `login.microsoftonline.de` (Azure Alemania)
-    - `login.microsoftonline.us` (Azure Gobierno de EE. UU.)
+  - `login.microsoftonline.com` (Azure global)
+  - `login.chinacloudapi.cn` (Azure China)
+  - `login.microsoftonline.de` (Azure Alemania)
+  - `login.microsoftonline.us` (Azure Gobierno de EE. UU.)
 - Puntos de conexión de Graph:
-    - `graph.windows.net` (Azure global)
-    - `graph.chinacloudapi.cn` (Azure China)
-    - `graph.cloudapi.de` (Azure Alemania)
-    - `graph.windows.net` (Azure Gobierno de EE. UU.)
+  - `graph.windows.net` (Azure global)
+  - `graph.chinacloudapi.cn` (Azure China)
+  - `graph.cloudapi.de` (Azure Alemania)
+  - `graph.windows.net` (Azure Gobierno de EE. UU.)
 - Puntos de conexión de Azure Storage:
-    - `(blob|file|queue|table|dfs).core.windows.net` (Azure global)
-    - `(blob|file|queue|table|dfs).core.chinacloudapi.net` (Azure China)
-    - `(blob|file|queue|table|dfs).core.cloudapi.net` (Azure Alemania)
-    - `(blob|file|queue|table|dfs).core.cloudapi.net` (Azure Gobierno de EE. UU.)
-- Actualización del Explorador de Storage: `storageexplorerpublish.blob.core.windows.net` 
+  - `(blob|file|queue|table|dfs).core.windows.net` (Azure global)
+  - `(blob|file|queue|table|dfs).core.chinacloudapi.cn` (Azure China)
+  - `(blob|file|queue|table|dfs).core.cloudapi.de` (Azure Alemania)
+  - `(blob|file|queue|table|dfs).core.usgovcloudapi.net` (Azure Gobierno de EE. UU.)
+- Actualización del Explorador de Storage: `storageexplorerpublish.blob.core.windows.net`
 - Reenvío de vínculos de Microsoft:
-    - `aka.ms`
-    - `go.microsoft.com`
+  - `aka.ms`
+  - `go.microsoft.com`
 - Dominios personalizados, vínculos privados o puntos de conexión específicos de instancia de Azure Stack, donde los recursos estén detrás
 - Nombres de host del emulador remoto
 
@@ -151,55 +152,55 @@ En la siguiente lista se muestran las características que admiten el **proxy de
 - Comprobación y descarga de actualizaciones
 - Enumeración de suscripciones
 - Características de la cuenta de Storage
-    - Lista
+  - Lista
 - Características de blob
-    - Contenedores
-        - Crear
-        - Lista
-        - Administración de directivas de acceso almacenadas
-        - Cambio del nivel de acceso público
-        - Arrendamiento
-        - Propiedades
-        - Eliminar
-    - Blobs
-        - Lista
-        - Estadísticas
-        - Deshacer eliminación
-    - Blobs de ADLS Gen2
-        - Lista
-        - Estadísticas
-        - Administración de listas ACL (solo visualización y modificación de entidades existentes)
-        - Propagación de listas ACL
-        - Move
-        - Cambiar nombre
-        - Crear carpeta
+  - Contenedores
+    - Crear
+    - Lista
+    - Administración de directivas de acceso almacenadas
+    - Cambio del nivel de acceso público
+    - Arrendamiento
+    - Propiedades
+    - Eliminar
+  - Blobs
+    - Lista
+    - Estadísticas
+    - Deshacer eliminación
+  - Blobs de ADLS Gen2
+    - Lista
+    - Estadísticas
+    - Administración de listas ACL (solo visualización y modificación de entidades existentes)
+    - Propagación de listas ACL
+    - Move
+    - Cambiar nombre
+    - Crear carpeta
 - Características de cola
-    - Queues
-        - Crear
-        - Lista
-        - Administración de directivas de acceso
-        - Propiedades
-        - Eliminar
-        - Borrar
-    - Mensajes de la cola
-        - Lista
-        - Move
-        - Sumar
-        - Quitar de la cola
+  - Queues
+    - Crear
+    - Lista
+    - Administración de directivas de acceso
+    - Propiedades
+    - Eliminar
+    - Borrar
+  - Mensajes de la cola
+    - Lista
+    - Move
+    - Sumar
+    - Quitar de la cola
 - Características de recursos compartidos de archivos
-    - Archivos y carpetas
-        - Nueva carpeta
-        - Propiedades
+  - Archivos y carpetas
+    - Nueva carpeta
+    - Propiedades
 - Características de disco
-    - Enumeración de grupos de recursos
-    - Enumeración de discos
-    - Carga de discos
-    - Descarga de discos
-    - Copia de discos
-    - Creación de instantáneas
-    - Eliminación de discos
+  - Enumeración de grupos de recursos
+  - Enumeración de discos
+  - Carga de discos
+  - Descarga de discos
+  - Copia de discos
+  - Creación de instantáneas
+  - Eliminación de discos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Solución de problemas de proxy](./storage-explorer-troubleshooting.md#proxy-issues)
-* [Solución de problemas de certificados](./storage-explorer-troubleshooting.md#ssl-certificate-issues)
+- [Solución de problemas de proxy](./storage-explorer-troubleshooting.md#proxy-issues)
+- [Solución de problemas de certificados](./storage-explorer-troubleshooting.md#ssl-certificate-issues)

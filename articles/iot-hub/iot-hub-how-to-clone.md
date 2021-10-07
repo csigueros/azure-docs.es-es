@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
-ms.openlocfilehash: 7f5553cc51927d878487b0875e72873451a3de3c
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 4e66c71dd274f6096113992d9584645d5622f1c1
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059588"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211137"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Procedimiento para clonar un centro de Azure IoT Hub en otra región
 
@@ -113,25 +113,31 @@ En esta sección se proporcionan instrucciones específicas para migrar el centr
 
 1. Seleccione **Exportar plantilla** en la lista de propiedades y opciones de configuración del centro. 
 
-   ![Captura de pantalla en la que se muestra el comando para exportar la plantilla de IoT Hub.](./media/iot-hub-how-to-clone/iot-hub-export-template.png)
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-export-template.png" alt-text="Captura de pantalla en la que se muestra el comando para exportar la plantilla de IoT Hub." border="true":::
 
 1. Seleccione **Descargar** para descargar la plantilla. Guarde el archivo en algún lugar donde pueda encontrarlo de nuevo. 
 
-   ![Captura de pantalla en la que se muestra el comando para descargar la plantilla de IoT Hub.](./media/iot-hub-how-to-clone/iot-hub-download-template.png)
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-download-template.png" alt-text="Captura de pantalla en la que se muestra el comando para descargar la plantilla de IoT Hub." border="true":::
 
 ### <a name="view-the-template"></a>Ver la plantilla 
 
-1. Vaya a la carpeta Descargas (o a la carpeta que haya usado al exportar la plantilla) y busque el archivo .zip. Abra el archivo .zip y busque el archivo denominado `template.json`. Selecciónelo y después pulse Ctrl+C para copiar la plantilla. Vaya a otra carpeta que no esté en el archivo .zip y pegue el archivo (Ctrl+V). Ya puede editarlo.
+1. Vaya a la carpeta Descargas (o a la carpeta que haya usado al exportar la plantilla) y busque el archivo .zip. Extraiga el archivo .zip y busque el archivo denominado `template.json`. Selecciónelo y cópielo. Vaya a una carpeta diferente y pegue el archivo de plantilla (CTRL+V). Ya puede editarlo.
  
-    El ejemplo siguiente es para un centro genérico sin configuración de enrutamiento. Es un centro de nivel S1 (con 1 unidad) denominado **ContosoTestHub29358** en la región **westus**. Esta es la plantilla exportada.
+    El ejemplo siguiente es para un centro genérico sin configuración de enrutamiento. Es un centro de nivel S1 (con una unidad) denominado **ContosoHub** en la región **westus**. Esta es la plantilla exportada.
 
     ``` json
     {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
-            "IotHubs_ContosoTestHub29358_name": {
-                "defaultValue": "ContosoTestHub29358",
+            "IotHubs_ContosoHub_connectionString": {
+                "type": "SecureString"
+            },
+            "IotHubs_ContosoHub_containerName": {
+                "type": "SecureString"
+            },
+            "IotHubs_ContosoHub_name": {
+                "defaultValue": "ContosoHub",
                 "type": "String"
             }
         },
@@ -139,47 +145,23 @@ En esta sección se proporcionan instrucciones específicas para migrar el centr
         "resources": [
             {
                 "type": "Microsoft.Devices/IotHubs",
-                "apiVersion": "2018-04-01",
-                "name": "[parameters('IotHubs_ContosoTestHub29358_name')]",
+                "apiVersion": "2021-07-01",
+                "name": "[parameters('IotHubs_ContosoHub_name')]",
                 "location": "westus",
                 "sku": {
                     "name": "S1",
                     "tier": "Standard",
                     "capacity": 1
                 },
+                "identity": {
+                    "type": "None"
+                },
                 "properties": {
-                    "operationsMonitoringProperties": {
-                        "events": {
-                            "None": "None",
-                            "Connections": "None",
-                            "DeviceTelemetry": "None",
-                            "C2DCommands": "None",
-                            "DeviceIdentityOperations": "None",
-                            "FileUploadOperations": "None",
-                            "Routes": "None"
-                        }
-                    },
                     "ipFilterRules": [],
                     "eventHubEndpoints": {
                         "events": {
                             "retentionTimeInDays": 1,
-                            "partitionCount": 2,
-                            "partitionIds": [
-                                "0",
-                                "1"
-                            ],
-                            "path": "contosotesthub29358",
-                            "endpoint": "sb://iothub-ns-contosotes-2227755-92aefc8b73.servicebus.windows.net/"
-                        },
-                        "operationsMonitoringEvents": {
-                            "retentionTimeInDays": 1,
-                            "partitionCount": 2,
-                            "partitionIds": [
-                                "0",
-                                "1"
-                            ],
-                            "path": "contosotesthub29358-operationmonitoring",
-                            "endpoint": "sb://iothub-ns-contosotes-2227755-92aefc8b73.servicebus.windows.net/"
+                            "partitionCount": 4
                         }
                     },
                     "routing": {
@@ -203,8 +185,8 @@ En esta sección se proporcionan instrucciones específicas para migrar el centr
                     "storageEndpoints": {
                         "$default": {
                             "sasTtlAsIso8601": "PT1H",
-                            "connectionString": "",
-                            "containerName": ""
+                            "connectionString": "[parameters('IotHubs_ContosoHub_connectionString')]",
+                            "containerName": "[parameters('IotHubs_ContosoHub_containerName')]"
                         }
                     },
                     "messagingEndpoints": {
@@ -224,7 +206,9 @@ En esta sección se proporcionan instrucciones específicas para migrar el centr
                             "maxDeliveryCount": 10
                         }
                     },
-                    "features": "None"
+                    "features": "None",
+                    "disableLocalAuth": false,
+                    "allowedFqdnList": []
                 }
             }
         ]
@@ -237,63 +221,47 @@ Tendrá que realizar algunos cambios antes de poder usar la plantilla para crear
 
 #### <a name="edit-the-hub-name-and-location"></a>Edición del nombre y la ubicación del centro
 
-1. Quite la sección de parámetros situada en la parte superior, ya que es mucho más sencillo usar simplemente el nombre del centro porque no va a haber varios parámetros. 
+1. Quite la sección del parámetro de nombre del contenedor en la parte superior. **ContosoHub** no tiene un contenedor asociado.
 
     ``` json
-        "parameters": {
-            "IotHubs_ContosoTestHub29358_name": {
-                "defaultValue": "ContosoTestHub29358",
-                "type": "String"
-            }
+    "parameters": {
+      ...
+        "IotHubs_ContosoHub_containerName": {
+            "type": "SecureString"
         },
+      ...
+    },
     ```
 
-1. Cambie el nombre para que use el nombre real (nuevo) en lugar de recuperarlo desde un parámetro (que ha quitado en el paso anterior). 
+1. Quite la propiedad **storageEndpoints**.
 
-    Para el nuevo centro, use el nombre del centro original más la cadena *clone* para crear el nuevo nombre. Para empezar, limpie el nombre y la ubicación del centro.
+    ```json
+    "properties": {
+      ...
+        "storageEndpoints": {
+        "$default": {
+            "sasTtlAsIso8601": "PT1H",
+            "connectionString": "[parameters('IotHubs_ContosoHub_connectionString')]",
+            "containerName": "[parameters('IotHubs_ContosoHub_containerName')]"
+        }
+      },
+      ...
     
+    ```
+
+1. En **recursos**, cambie la ubicación de "westus" a "eastus".
+
     Versión anterior:
 
     ``` json 
-    "name": "[parameters('IotHubs_ContosoTestHub29358_name')]",
     "location": "westus",
     ```
     
     Nueva versión: 
 
     ``` json 
-    "name": "ContosoTestHub29358clone",
     "location": "eastus",
     ```
-
-    Después, verá que los valores de **path** contienen el nombre del centro antiguo. Cámbielos para que usen el nuevo. Estos son los valores de la ruta de acceso en **eventHubEndpoints** denominados **events** y **OperationsMonitoringEvents**.
-
-    Cuando haya terminado, la sección de puntos de conexión del centro de eventos debe tener este aspecto:
-
-    ``` json
-    "eventHubEndpoints": {
-        "events": {
-            "retentionTimeInDays": 1,
-            "partitionCount": 2,
-            "partitionIds": [
-                "0",
-                "1"
-            ],
-            "path": "contosotesthub29358clone",
-            "endpoint": "sb://iothub-ns-contosotes-2227755-92aefc8b73.servicebus.windows.net/"
-        },
-        "operationsMonitoringEvents": {
-            "retentionTimeInDays": 1,
-            "partitionCount": 2,
-            "partitionIds": [
-                "0",
-                "1"
-            ],
-            "path": "contosotesthub29358clone-operationmonitoring",
-            "endpoint": "sb://iothub-ns-contosotes-2227755-92aefc8b73.servicebus.windows.net/"
-        }
-    ```
-
 #### <a name="update-the-keys-for-the-routing-resources-that-are-not-being-moved"></a>Actualización de las claves de los recursos de enrutamiento que no se van a trasladar
 
 Cuando exporte la plantilla de Resource Manager de un centro que tenga configurado el enrutamiento, verá que las claves de esos recursos no se proporcionan en la plantilla exportada, sino que su ubicación se indica mediante asteriscos. Para rellenarlos, debe ir a esos recursos en el portal y recuperar las claves **antes** de importar la plantilla del nuevo centro y crear el centro. 
@@ -351,35 +319,41 @@ Cree el nuevo centro en la nueva ubicación mediante la plantilla. Si tiene recu
 
 1. Seleccione **Crear un recurso**. 
 
-1. En el cuadro de búsqueda, escriba "template deployment" (implementación de plantillas) y seleccione Entrar.
+1. En el cuadro de búsqueda, escriba "template deployment" (implementación de plantillas) y seleccione "Entrar".
 
 1. Seleccione **Template deployment (deploy using custom templates)** (Implementación de plantillas [implementar mediante plantillas personalizadas]). Esto le lleva a la pantalla Template Deployment. Seleccione **Crear**. Verá esta pantalla:
 
-   ![Captura de pantalla en la que se muestra el comando para crear su propia plantilla](./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png)
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png" alt-text="Captura de pantalla en la que se muestra el comando para crear su propia plantilla":::
 
 1. Seleccione **Cree su propia plantilla en el editor**, lo que le permite cargar la plantilla desde un archivo. 
 
-1. Seleccione **Cargar archivo**. 
+1. Seleccione **Cargar archivo**.
 
-   ![Captura de pantalla en la que se muestra el comando para cargar un archivo de plantilla](./media/iot-hub-how-to-clone/iot-hub-upload-file.png)
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-upload-file.png" alt-text="Captura de pantalla en la que se muestra el comando para cargar un archivo de plantilla":::
 
 1. Busque la nueva plantilla que ha editado, selecciónela y después seleccione **Abrir**. La plantilla se carga en la ventana de edición. Seleccione **Guardar**. 
 
-   ![Captura de pantalla en la que se muestra la carga de la plantilla](./media/iot-hub-how-to-clone/iot-hub-loading-template.png)
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-uploaded-file.png" alt-text="Captura de pantalla en la que se muestra la carga de la plantilla":::
 
-1. Rellene los siguientes campos.
+1. Rellene los campos siguientes en la página de implementación personalizada.
 
-   **Suscripción**: seleccione la suscripción que va a usar.
+   **Suscripción**: seleccione la suscripción que vaya a usar.
 
-   **Grupo de recursos**: cree un grupo de recursos en una nueva ubicación. Si ya tiene uno nuevo configurado, puede seleccionarlo en lugar de crear otro.
+   **Grupo de recursos**: cree un grupo de recursos en una nueva ubicación. Si ya tiene uno configurado, puede seleccionarlo en lugar de crear otro.
 
-   **Ubicación**: si ha seleccionado un grupo de recursos que ya tiene, se rellena automáticamente con la ubicación de ese grupo de recursos. Si ha creado un grupo de recursos, esta será su ubicación.
+   **Región**: si ha seleccionado un grupo de recursos existente, la región se rellena automáticamente para coincidir con la ubicación de ese grupo de recursos. Si ha creado un grupo de recursos, esta será su ubicación.
 
-   **Casilla de aceptación**: básicamente indica que acepta pagar por los recursos que está creando.
+   **Cadena de conexión**: rellene la cadena de conexión del centro.
 
-1. Seleccione el botón **Comprar**.
+   **Nombre del centro**: asigne un nombre al nuevo centro de la nueva región.
 
-Ahora, el portal valida la plantilla e implementa el centro clonado. Si tiene datos de configuración de enrutamiento, se incluirán en el nuevo centro, pero apuntarán a los recursos de la ubicación anterior.
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-custom-deployment-create.png" alt-text="Captura de pantalla que muestra la página de implementación personalizada":::
+
+1. Seleccione el botón **Revisar y crear**.
+
+1. Seleccione el botón **Crear**. El portal valida la plantilla e implementa el centro clonado. Si tiene datos de configuración de enrutamiento, se incluirán en el nuevo centro, pero apuntarán a los recursos de la ubicación anterior.
+
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-custom-deployment-final.png" alt-text="Captura de pantalla que muestra la última página de implementación personalizada":::
 
 ## <a name="managing-the-devices-registered-to-the-iot-hub"></a>Administración de los dispositivos registrados en el centro de IoT Hub
 

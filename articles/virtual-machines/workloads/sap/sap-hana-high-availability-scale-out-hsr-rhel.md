@@ -1,26 +1,22 @@
 ---
 title: Escalabilidad horizontal de SAP HANA con HSR y Pacemaker en RHEL | Microsoft Docs
 description: Escalabilidad horizontal de SAP HANA con HSR y Pacemaker en RHEL
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/26/2021
+ms.date: 09/24/2021
 ms.author: radeltch
-ms.openlocfilehash: 75ab5bb14ad06a7396ee549ebb773328160754d1
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 36925ac45d4773407d28020b58ef4d7ac8b279e1
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110534502"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129053077"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Alta disponibilidad del sistema de escalabilidad horizontal de SAP HANA en Red Hat Enterprise Linux 
 
@@ -30,7 +26,6 @@ ms.locfileid: "110534502"
 
 [anf-azure-doc]:../../../azure-netapp-files/index.yml
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all 
-[anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
@@ -324,12 +319,13 @@ Configure y prepare el sistema operativo. Para ello, siga estos pasos:
 
 2. **[A]** Instale el paquete de cliente NFS.  
 
-    ```yum install nfs-utils ```
+   `yum install nfs-utils`
 
 
 3. **[AH]** Configuración de Red Hat para HANA.  
 
-    Configure RHEL tal como se describe en <https://access.redhat.com/solutions/2447641> y en las siguientes notas de SAP:  
+   Configure RHEL tal como se describe en <https://access.redhat.com/solutions/2447641> y en las siguientes notas de SAP:
+
    - [2292690 - SAP HANA DB: Recommended OS settings for RHEL 7](https://launchpad.support.sap.com/#/notes/2292690) (2292690 - SAP HANA DB: configuraciones de sistema operativo recomendadas para RHEL 7)
    - [2777782 - SAP HANA DB: Recommended OS settings for RHEL 8](https://launchpad.support.sap.com/#/notes/2777782) (SAP HANA DB: configuración recomendada del sistema operativo para RHEL 8).
    - [2455582 - Linux: Running SAP applications compiled with GCC 6.x](https://launchpad.support.sap.com/#/notes/2455582) (Nota de compatibilidad de SAP n.º 2455582 - Linux: Ejecución de aplicaciones SAP compiladas con GCC 6.x)
@@ -341,7 +337,7 @@ Configure y prepare el sistema operativo. Para ello, siga estos pasos:
 
 En este ejemplo, los sistemas de archivos de HANA compartidos se implementan en Azure NetApp Files y se montan en NFSv4.  
 
-1. **[AH]** Cree puntos de montaje para los volúmenes de bases de datos HANA.  
+1. **[AH]** Cree puntos de montaje para los volúmenes de bases de datos HANA.
 
     ```bash
     mkdir -p /hana/shared
@@ -621,11 +617,11 @@ En este ejemplo para implementar SAP HANA en la configuración de escalabilidad 
      * En **Enter Root User Name [root]** (Escriba el nombre de usuario raíz [raíz]): presione Entrar para aceptar el valor predeterminado.
      * En **Select roles for host 'hana-s1-db2' [1]** (Seleccione los roles para el host "hana-s1-db2" [1]): 1 (para trabajo)
      * En **Enter Host Failover Group for host 'hana-s1-db2' [default]** (Escriba el grupo de conmutación por error de host para el host "hana-s1-db2" [predeterminado]): presione Entrar para aceptar el valor predeterminado.
-     * En **Enter Storage Partition Number for host 'hana-s1-db2' [<<assign automatically>>]** (Escriba el número de partición de almacenamiento para el host "hana-s1-db2" [<>]): presione Entrar para aceptar el valor predeterminado.
+     * En **Enter Storage Partition Number for host 'hana-s1-db2' (Escriba el número de partición de almacenamiento para el host "hana-s1-db2") [\<\<assign automatically\>\>]** : presione Entrar para aceptar el valor predeterminado.
      * En **Enter Worker Group for host 'hana-s1-db2' [default]** (Escriba el grupo de trabajo para el host "hana-s1-db2" [predeterminado]): presione Entrar para aceptar el valor predeterminado.
      * En **Select roles for host 'hana-s1-db3' [1]** (Seleccione los roles para el host "hana-s1-db3" [1]): 1 (para trabajo)
      * En **Enter Host Failover Group for host 'hana-s1-db3' [default]** (Escriba el grupo de conmutación por error de host para el host "hana-s1-db3" [predeterminado]): presione Entrar para aceptar el valor predeterminado.
-     * En **Enter Storage Partition Number for host 'hana-s1-db3' [<<assign automatically>>]** (Escriba el número de partición de almacenamiento para el host "hana-s1-db3" [<>]): presione Entrar para aceptar el valor predeterminado.
+     * En **Enter Storage Partition Number for host 'hana-s1-db3' (Escriba el número de partición de almacenamiento para el host "hana-s1-db3") [\<\<assign automatically\>\>]** : presione Entrar para aceptar el valor predeterminado.
      * En **Enter Worker Group for host 'hana-s1-db3' [default]** (Escriba el grupo de trabajo para el host "hana-s1-db3" [predeterminado]): presione Entrar para aceptar el valor predeterminado.
      * En **System Administrator (hn1adm) Password** (Contraseña del administrador del sistema (hn1adm)): escriba la contraseña.
      * En **Enter SAP Host Agent User (sapadm) Password** [Escriba la contraseña del usuario del agente de host de SAP (sapadm)]: escriba la contraseña.
@@ -922,12 +918,13 @@ Incluya todas las máquinas virtuales, inclusive la que sirve para obtener la ma
 
 3. **[AH]** El clúster requiere la configuración de sudoers en el nodo de clúster para <sid\>adm. En este ejemplo, esto se consigue mediante la creación de un archivo nuevo. Ejecute los comandos como `root`.    
     ```bash
-    cat << EOF > /etc/sudoers.d/20-saphana
-    # SAPHanaSR-ScaleOut needs for srHook
-     Cmnd_Alias SOK = /usr/sbin/crm_attribute -n hana_hn1_glob_srHook -v SOK -t crm_config -s SAPHanaSR
-     Cmnd_Alias SFAIL = /usr/sbin/crm_attribute -n hana_hn1_glob_srHook -v SFAIL -t crm_config -s SAPHanaSR
-     hn1adm ALL=(ALL) NOPASSWD: SOK, SFAIL
-     EOF
+    sudo visudo -f /etc/sudoers.d/20-saphana
+    # Insert the following lines and then save
+    Cmnd_Alias HANA_S1_SOK   = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_HANA_S1 -v SOK -t crm_config -s SAPHanaSR
+    Cmnd_Alias HANA_S1_SFAIL = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_HANA_S1 -v SFAIL -t crm_config -s SAPHanaSR
+    Cmnd_Alias HANA_S2_SOK   = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_HANA_S2 -v SOK -t crm_config -s SAPHanaSR
+    Cmnd_Alias HANA_S2_SFAIL = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_HANA_S2 -v SFAIL -t crm_config -s SAPHanaSR
+    hn1adm ALL=(ALL) NOPASSWD: HANA_S1_SOK, HANA_S1_SFAIL, HANA_S2_SOK, HANA_S2_SFAIL
     ```
 
 4. **[1,2]** Inicie SAP HANA en ambos sitios de replicación. Ejecute como <sid\>adm.  

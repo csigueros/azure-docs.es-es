@@ -1,15 +1,15 @@
 ---
-title: Creación de nuevos recursos basados en área de trabajo de Application Insights de Azure Monitor | Microsoft Docs
+title: Creación de nuevos recursos basados en área de trabajo de Application Insights de Azure Monitor
 description: Obtenga información sobre los pasos necesarios para habilitar los nuevos recursos basados en área de trabajo de Application Insights de Azure Monitor.
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 21cf89c7d89e310f98fea4421076d298405b6fc3
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 42025ec3e2c509e2fcf7aa4874d9d5363f134a97
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464466"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128604500"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Recursos de Application Insights basados en áreas de trabajo
 
@@ -27,7 +27,7 @@ Application Insights basado en áreas de trabajo permite aprovechar las capacid
 * [Claves administradas por el cliente (CMK)](../logs/customer-managed-keys.md) proporciona cifrado en reposo para los datos con claves de cifrado a las que solo tiene acceso el usuario.
 * [Azure Private Link](../logs/private-link-security.md) le permite vincular de forma segura los servicios PaaS de Azure a la red virtual mediante puntos de conexión privados.
 * [Traiga su propio almacenamiento (BYOS) para Profiler y Snapshot Debugger](./profiler-bring-your-own-storage.md) le proporciona control total sobre la directiva de cifrado en reposo, la directiva de administración de la duración y el acceso a la red para todos los datos asociados a Application Insights Profiler y Snapshot Debugger. 
-* Los [niveles de compromiso](../logs/manage-cost-storage.md#pricing-model) permiten ahorrar hasta un 30 %, en comparación con el precio de Pago por uso. 
+* Los [niveles de compromiso](../logs/manage-cost-storage.md#pricing-model) permiten ahorrar hasta un 30 % en comparación con el precio de Pago por uso. 
 * Ingesta de datos más rápida gracias a la ingesta de streaming de Log Analytics.
 
 ## <a name="create-workspace-based-resource"></a>Creación de un recurso basado en áreas de trabajo
@@ -208,8 +208,7 @@ En el panel del recurso de Application Insights, seleccione **Propiedades** > **
 La funcionalidad de exportación continua heredada no es compatible con los recursos basados en área de trabajo. En su lugar, seleccione **Configuración de diagnóstico** > **Agregar configuración de diagnóstico** en el recurso de Application Insights. Puede seleccionar todas las tablas, o un subconjunto de tablas, para archivar en una cuenta de almacenamiento o para transmitir a un centro de eventos de Azure.
 
 > [!NOTE]
-> Actualmente no se cobran cargos adicionales por la exportación de telemetría. La información de precios de esta característica estará disponible en la [página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).  Antes del inicio de la facturación, se enviarán las notificaciones. Si decide seguir usando <feature name> después del período de aviso, se le facturará según la tarifa aplicable. 
- 
+> Actualmente no se cobran cargos adicionales por la exportación de telemetría. La información de precios de esta característica estará disponible en la [página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).  Antes del inicio de la facturación, se enviarán las notificaciones. Si decide seguir usando la exportación de la telemetría después del período de aviso, se le facturará según la tarifa aplicable. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

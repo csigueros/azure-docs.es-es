@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/12/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 80818386ccd47619ccb23323474ac76fa2240db2
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: b2501631c8ccdb6c61d4f31e9179a7e94c2276cb
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123427735"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129210409"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>¿Qué es el almacén analítico de Azure Cosmos DB?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -149,7 +149,7 @@ Las restricciones siguientes se aplican a los datos operativos de Azure Cosmos 
   * La eliminación de todos los documentos de una colección no restablece el esquema del almacén analítico.
   * No hay control de versiones de esquema. La última versión inferida del almacén de transacciones es lo que verá en el almacén analítico.
 
-* Actualmente, Azure Synapse Spark no puede leer propiedades que contengan en su nombre determinados caracteres especiales, que se enumeran a continuación. Si este es su caso, póngase en contacto con el [equipo de Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com) para obtener más información.
+* Actualmente, Azure Synapse Spark no puede leer propiedades que contengan en su nombre determinados caracteres especiales, que se enumeran a continuación. Azure Synapse SQL sin servidor no se ve afectado.
   * : (dos puntos)
   * ` (acento grave)
   * , (coma)
@@ -161,6 +161,21 @@ Las restricciones siguientes se aplican a los datos operativos de Azure Cosmos 
   * = (signo igual)
   * " (comillas dobles)
  
+* Si tiene nombres de propiedades con los caracteres enumerados anteriormente, las alternativas son:
+   * Cambie el modelo de datos de antemano para evitar estos caracteres.
+   * Dado que actualmente no se admite el restablecimiento del esquema, puede cambiar la aplicación para agregar una propiedad redundante con un nombre similar, evitando estos caracteres.
+   * Use la fuente de cambios para crear una vista materializada del contenedor sin estos caracteres en los nombres de propiedades.
+   * Use la nueva opción de Spark `dropColumn` para omitir las columnas afectadas al cargar los datos en un DataFrame. La sintaxis para quitar una columna hipotética llamada "FirstName,LastNAme", que contiene una coma, es:
+
+```Python
+df = spark.read\
+     .format("cosmos.olap")\
+     .option("spark.synapse.linkedService","<your-linked-service-name>")\
+     .option("spark.synapse.container","<your-container-name>")\
+     .option("spark.synapse.dropColumn","FirstName,LastName")\
+     .load()
+```
+
 * Ahora Azure Synapse Spark admite propiedades con espacios en blanco en sus nombres.
 
 ### <a name="schema-representation"></a>Representación del esquema

@@ -5,15 +5,14 @@ metadata:
   author: SunetraVirdi
   ms.author: suvirdi
   ms.service: purview
-  ms.subservice: purview-data-catalog
   ms.topic: conceptual
   ms.date: 05/08/2021
-  ms.openlocfilehash: 14a269e84f3b1241cda85c1849a9478ab8701071
-  ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+  ms.openlocfilehash: cdde004521c6f99136bfa75f33359f3599b675df
+  ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/16/2021
-  ms.locfileid: "122228699"
+  ms.lasthandoff: 09/29/2021
+  ms.locfileid: "129213448"
 title: Preguntas más frecuentes sobre Azure Purview
 summary: ''
 sections:
@@ -94,7 +93,7 @@ sections:
   - question: >
       Azure Purview, ¿examina y clasifica correos electrónicos, archivos PDF, etc., en mi SharePoint y OneDrive?
     answer: >
-      El examen de las bibliotecas y los sitios de SharePoint locales se proporciona mediante Azure Information Protection. El examen está disponible para su uso mediante la suscripción a Microsoft 365 de un cliente con las SKU siguientes: AIP P1, EMS E3 y M365 E3. Si tiene alguna de estas SKU, debe tener los derechos adecuados para empezar a usar el examen de Azure Information Protection.
+      El examen de las bibliotecas y los sitios de SharePoint locales se proporciona mediante Azure Information Protection. El examen está disponible para su uso mediante la suscripción a Microsoft 365 de un cliente con las SKU siguientes: AIP P1, EMS E3 y Microsoft 365 E3. Si tiene alguna de estas SKU, debe tener los derechos adecuados para empezar a usar el examen de Azure Information Protection.
   - question: >
       ¿Cuál es el proceso que se usa para el examen?
     answer: >
@@ -113,7 +112,7 @@ sections:
       Sí, puede crear varias cuentas de Azure Purview por suscripción y por inquilino. Puede revisar la página de límites [Administración y aumento de las cuotas para los recursos con Azure Purview](how-to-manage-quotas.md).
 
 
-      En nuestros [procedimientos recomendados de implementación de Azure Purview](deployment-best-practices.md) se incluyen otras recomendaciones sobre cuándo se debe o no tener varias cuentas.
+      En nuestros [procedimientos recomendados de implementación de Azure Purview](deployment-best-practices.md) se incluyen más recomendaciones sobre cuándo se debe o no tener varias cuentas.
   - question: >
       ¿Puedo registrar varios inquilinos en una sola cuenta de Azure Purview?
     answer: >

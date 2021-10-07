@@ -8,12 +8,12 @@ ms.author: srahaman
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 7b0ac0fdb6ee5b734d642612c1fea16665e07684
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 47d690b53b6e8fe9ccc2660e48283ce05e262d30
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123435517"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129154192"
 ---
 # <a name="best-practices-azure-communication-services-calling-sdks"></a>Procedimientos recomendados: SDK de llamada de Azure Communication Services
 En este artículo se proporciona información sobre los procedimientos recomendados relativos a los SDK de llamada de Azure Communication Services (ACS).
@@ -55,9 +55,16 @@ document.addEventListener("visibilitychange", function() {
 });
  ```
 
-### <a name="hang-up-the-call-on-microphonemuteunexpectedly-ufd"></a>Colgar la llamada con un evento UFD microphoneMuteUnexpectedly
-Cuando un usuario de iOS/Safari recibe una llamada RTC, Azure Communication Services pierde el acceso al micrófono. Azure Communication Services emitirá el evento de diagnóstico de llamada `microphoneMuteUnexpectedly` y, en este momento, Communication Services no podrá recuperar el acceso al micrófono.
-Cuando se produce esta situación, se recomienda colgar la llamada (`call.hangUp`).
+### <a name="handle-os-muting-call-when-phone-call-comes-in"></a>Controle el silenciamiento del sistema operativo cuando se reciba una llamada de teléfono.
+Mientras se realiza una llamada de ACS (para iOS y Android), si se recibe una llamada de teléfono en el sistema operativo, se silenciará automáticamente el micrófono y la cámara de los usuarios. En Android, el audio de la llamada se reactiva automáticamente y el vídeo se reinicia una vez que finaliza la llamada telefónica. En iOS, requiere la intervención del usuario para "reactivar el audio" e "iniciar el vídeo" de nuevo. Puede escuchar la notificación de que el micrófono se ha silenciado inesperadamente con el evento de calidad de `microphoneMuteUnexpectedly`. Tenga en cuenta que para poder volver a unirse correctamente a una llamada, deberá usar el SDK 1.2.2-beta.1 o superior.
+```JavaScript
+const latestMediaDiagnostic = call.api(SDK.Features.Diagnostics).media.getLatest();
+const isIosSafari = (getOS() === OSName.ios) && (getPlatformName() === BrowserName.safari);
+if (isIosSafari && latestMediaDiagnostic.microphoneMuteUnexpectedly && latestMediaDiagnostic.microphoneMuteUnexpectedly.value) {
+  // received a QualityEvent on iOS that the microphone was unexpectedly muted - notify user to unmute their microphone and to start their video stream
+}
+ ```
+La aplicación debe invocar `call.startVideo(localVideoStream);` para iniciar una secuencia de vídeo y debe usar `this.currentCall.unmute();` para reactivar el audio.
 
 ### <a name="device-management"></a>Administración de dispositivos
 Puede usar el SDK de Azure Communication Services para administrar los dispositivos y las operaciones multimedia.

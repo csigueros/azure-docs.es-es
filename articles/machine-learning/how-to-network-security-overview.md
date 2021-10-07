@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 06/11/2021
+ms.date: 09/24/2021
 ms.topic: how-to
 ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack, security
-ms.openlocfilehash: f68550d6e72f0c2bd162c10d1d5340edcca61f6f
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 1844d9a84714231aac7cb399239c31a6af62661c
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123039030"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129093523"
 ---
 <!-- # Virtual network isolation and privacy overview -->
 # <a name="secure-azure-machine-learning-workspace-resources-using-virtual-networks-vnets"></a>Protección de los recursos del área de trabajo de Azure Machine Learning con redes virtuales (VNet)
@@ -50,13 +50,13 @@ En la tabla siguiente se compara el modo en que los servicios acceden a diferent
 | Escenario | Área de trabajo |  Recursos asociados | Entrenamiento del entorno de proceso | Inferencia del entorno de proceso |
 |-|-|-|-|-|-|
 |**Sin red virtual**| Dirección IP pública | Dirección IP pública | Dirección IP pública | Dirección IP pública |
-|**Protección de recursos en una red virtual**| IP privada (punto de conexión privado) | IP pública (punto de conexión de servicio) <br> **- o -** <br> IP privada (punto de conexión privado) | Dirección IP privada | Dirección IP privada  | 
+|**Protección de recursos en una red virtual**| IP privada (punto de conexión privado) | IP pública (punto de conexión de servicio) <br> **- o -** <br> IP privada (punto de conexión privado) | Dirección IP pública | Dirección IP privada  | 
 
 * **Área de trabajo**: creación de un punto de conexión privado para su área de trabajo. El punto de conexión privado conecta el área de trabajo a la red virtual a través de varias direcciones IP privadas.
-* **Recurso asociado**: use puntos de conexión de servicio o puntos de conexión privados para conectarse a recursos del área de trabajo como Azure Storage, Azure Key Vault y Azure Container Services.
+* **Recurso asociado**: use puntos de conexión de servicio o puntos de conexión privados para conectarse a recursos del área de trabajo como Azure Storage o Azure Key Vault. En el caso de Azure Container Services, use un punto de conexión privado.
     * Los **puntos de conexión de servicio** proporcionan la identidad de la red virtual al servicio de Azure. Una vez que habilita puntos de conexión de servicio en su red virtual, puede agregar una regla de red virtual para proteger los recursos de los servicios de Azure en la red virtual. Los puntos de conexión de servicio usan direcciones IP públicas.
     * Los **puntos de conexión privados** son interfaces de red que le permiten conectarse de forma segura a un servicio con la tecnología de Azure Private Link. El punto de conexión privado usa una dirección IP privada de la red virtual, y coloca el servicio de manera eficaz en su red virtual.
-* **Acceso al proceso de entrenamiento**: acceda a destinos de proceso de entrenamiento como la instancia de proceso y los clústeres de proceso de Azure Machine Learning de forma segura con direcciones IP privadas. 
+* **Acceso al proceso de entrenamiento**: acceda a destinos de proceso de entrenamiento como la instancia y los clústeres de proceso de Azure Machine Learning de forma segura con direcciones IP públicas. 
 * **Acceso al proceso de inferencia**: acceda a los clústeres de proceso de Azure Kubernetes Services (AKS) con direcciones IP privadas.
 
 
@@ -74,12 +74,12 @@ Realice los pasos siguientes para proteger el área de trabajo y los recursos as
 
 1. Cree una [área de trabajo habilitada para Private Link](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) para habilitar la comunicación entre la red virtual y el área de trabajo.
 1. Agregue los siguientes servicios a la red virtual _ya sea_ mediante un __punto de conexión de servicio__ o mediante un __punto de conexión privado__. También debe permitir que los servicios de confianza de Microsoft accedan a estos servicios:
-    
+
     | Servicio | Información de punto de conexión | Información sobre los servicios de confianza permitidos |
     | ----- | ----- | ----- |
     | __Azure Key Vault__| [Punto de conexión de servicio](../key-vault/general/overview-vnet-service-endpoints.md)</br>[Punto de conexión privado](../key-vault/general/private-link-service.md) | [Permite que los servicios de Microsoft de confianza omitan este firewall](how-to-secure-workspace-vnet.md#secure-azure-key-vault) |
-    | __Cuenta de Azure Storage__ | [Punto de conexión de servicio](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints)</br>[Punto de conexión privado](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints) | [Concesión de acceso a servicios de Azure de confianza](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
-    | __Azure Container Registry__ | [Punto de conexión de servicio](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr)</br>[Punto de conexión privado](../container-registry/container-registry-private-link.md) | [Permitir servicios de confianza](../container-registry/allow-access-trusted-services.md) |
+    | __Cuenta de Azure Storage__ | [Punto de conexión privado y de servicio](how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts)</br>[Punto de conexión privado](how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts) | [Concesión de acceso a servicios de Azure de confianza](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
+    | __Azure Container Registry__ | [Punto de conexión privado](../container-registry/container-registry-private-link.md) | [Permitir servicios de confianza](../container-registry/allow-access-trusted-services.md) |
 
 
 ![Diagrama de arquitectura que muestra cómo el área de trabajo y los recursos asociados se comunican entre sí a través de puntos de conexión de servicio o puntos de conexión privados en una red virtual](./media/how-to-network-security-overview/secure-workspace-resources.png)
@@ -98,7 +98,7 @@ En esta sección, aprenderá a proteger el entorno de entrenamiento en Azure Mac
 
 Para proteger el entorno de entrenamiento, siga estos pasos:
 
-1. Cree una [instancia de proceso y un clúster de proceso](how-to-secure-training-vnet.md#compute-instance) de Azure Machine Learning en la red virtual para ejecutar el trabajo de entrenamiento.
+1. Cree una [instancia de proceso y un clúster de proceso](how-to-secure-training-vnet.md#compute-cluster) de Azure Machine Learning en la red virtual para ejecutar el trabajo de entrenamiento.
 1. [Permita la comunicación entrante](how-to-secure-training-vnet.md#required-public-internet-access) para que los servicios de administración puedan enviar trabajos a los recursos de proceso. 
 
 ![Diagrama de arquitectura que muestra cómo proteger las instancias y los clústeres de proceso administrados](./media/how-to-network-security-overview/secure-training-environment.png)

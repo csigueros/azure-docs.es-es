@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 08/02/2021
+ms.date: 09/28/2021
 ms.author: alkohli
-ms.openlocfilehash: a176b971d830fcabf3eba1767b9ac198a4418f0b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ab759cf81ce95ca7cf61a3777092fd92040baf6c
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751977"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208483"
 ---
 # <a name="azure-data-box-disk-limits"></a>Límites de Azure Data Box Disk
 
@@ -47,7 +47,8 @@ Para conocer la información más reciente sobre los límites del servicio de al
 - No copie los datos directamente en los discos. Copie los datos en las carpetas *BlockBlob*, *PageBlob* y *AzureFile* creadas previamente.
 - Una carpeta en las carpetas *BlockBlob* y *PageBlob* es un contenedor. Por ejemplo, los contenedores se crean como *BlockBlob/contenedor* y *PageBlob/contenedor*.
 - Si una carpeta tiene el mismo nombre que un contenedor existente, el contenido de la carpeta se combina con el contenido del contenedor. Los archivos o blobs que aún no están en la nube se agregan al contenedor. Si un archivo o blob tiene el mismo nombre que un archivo o blob que ya está en el contenedor, se sobrescribe el archivo o blob existente.
-- Todos los archivos escritos en los recursos compartidos *BlockBlob* y *PageBlob* se cargan como blob en bloques y blob en páginas, respectivamente.
+- Todos los archivos escritos en los recursos compartidos *BlockBlob* y *PageBlob* se cargan como blob en bloques y blob en páginas, respectivamente. 
+- La jerarquía de archivos se mantiene mientras se carga en la nube tanto para blobs como para Azure Files. Por ejemplo, copió un archivo en esta ruta de acceso: `<container folder>\A\B\C.txt`. Este archivo se carga en la misma ruta de acceso en la nube.
 - Todas las jerarquías de directorios vacías (sin archivos) que creó en las carpetas *BlockBlob* y *PageBlob* no se cargan.
 - Para mejorar el rendimiento durante las cargas de datos, se recomienda [habilitar recursos compartidos de archivos grandes en la cuenta de almacenamiento y aumentar la capacidad del recurso compartido a 100 TiB](../../articles/storage/files/storage-how-to-create-file-share.md#enable-large-files-shares-on-an-existing-account). Los recursos compartidos de archivos grandes solo se admiten para las cuentas de almacenamiento con almacenamiento con redundancia local (LRS).
 - Si se han producido errores al cargar datos en Azure, se crea un registro de errores en la cuenta de almacenamiento de destino. La ruta de acceso a este registro de errores está disponible en el portal cuando se completa la carga. Puede revisar el registro para realizar acciones correctivas. No elimine los datos del origen sin comprobar los datos cargados.

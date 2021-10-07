@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-hpc
 ms.topic: conceptual
 ms.date: 08/02/2021
 ms.author: amverma
-ms.openlocfilehash: 023fb8a352e1e02023fe0ce16afba9531625e370
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 98465066f79f93777255a3072c472d342b557bdc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122515840"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128600235"
 ---
 # <a name="migrate-your-h-and-h_promo-series-virtual-machines-by-august-31-2022"></a>Migración de las máquinas virtuales de la serie H_Promo antes del 31 de agosto de 2022
 Dado que Microsoft Azure ha introducido nuevas generaciones de máquinas virtuales de informática de alto rendimiento (HPC), de uso general y optimizadas para memoria, se recomienda migrar las cargas de trabajo de las máquinas virtuales originales de la serie H (incluidas las de promoción de la serie H) a nuestras ofertas más recientes.
@@ -27,7 +27,7 @@ La retirada de los tamaños de máquina virtual actuales solo afecta a los tama�
 
 ## <a name="what-actions-should-i-take"></a>¿Qué medidas debo tomar?  
 
-Tendrá que cambiar el tamaño o desasignar las máquinas virtuales de la serie H. Se recomienda migrar las cargas de trabajo de las máquinas virtuales originales de la serie H (incluidas las de promoción de la serie H) a nuestras ofertas más recientes.
+Deberá cambiar el tamaño o desasignar las máquinas virtuales de la serie H. Se recomienda migrar las cargas de trabajo de las máquinas virtuales originales de la serie H (incluidas las de promoción de la serie H) a nuestras ofertas más recientes.
 
 En el caso de las cargas de trabajo de HPC, las VM [HC](hc-series.md), [HBv2](hbv2-series.md) y [HBv3](hbv3-series.md) ofrecen niveles considerablemente mayores de rendimiento y rentabilidad de la carga de trabajo de HPC gracias a las enormes mejoras en la arquitectura de núcleos de CPU, un mayor ancho de banda de memoria, memorias caché L3 más grandes y compatibilidad mejorada de software y hardware de redes InfiniBand en comparación con la serie H. Como resultado, las series HC, HBv2 y HBv3 ofrecerán en general un rendimiento considerablemente mejor por unidad de costo (maximizando el rendimiento por una cantidad fija de gasto) y el costo por rendimiento (minimizando el costo por una cantidad fija de rendimiento). 
 
@@ -53,5 +53,5 @@ Si usa tamaños de VM de la serie H que exponen una interfaz de redes InfiniBand
 Siga la guía para [solicitar un aumento de la cuota de vCPU por familia de máquinas virtuales](../azure-portal/supportability/per-vm-quota-requests.md).
 
 
-### <a name="resize-the-current-virtual-machine"></a>Cambio del tamaño de la máquina virtual actual
-Puede [cambiar el tamaño de la máquina virtual mediante PowerShell](./windows/resize-vm.md), la [CLI de Azure](./linux/change-vm-size.md) o Azure Portal.
+### <a name="resize-the-current-virtual-machine"></a>Cambiar el tamaño de la máquina virtual actual
+Puede [cambiar el tamaño de la máquina virtual](resize-vm.md).

@@ -3,18 +3,22 @@ title: Uso de Bicep para implementar recursos en un grupo de administración
 description: Describe cómo crear un archivo de Bicep que implementa recursos en el ámbito del grupo de administración.
 ms.topic: conceptual
 ms.date: 07/19/2021
-ms.openlocfilehash: afa4a0f266eb7720a569df123c9828fd151d21e0
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 7c0e2f6682ff5da0e0cc2bd3b7f16b3ab23af476
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114453606"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128659899"
 ---
 # <a name="management-group-deployments-with-bicep-files"></a>Implementaciones de grupos de administración con archivos de Bicep
 
 En este artículo se describe cómo establecer el ámbito con Bicep al implementar en un grupo de administración.
 
 A medida que la organización madura, puede implementar un archivo de Bicep para crear recursos en el nivel de grupo de administración. Por ejemplo, es posible que deba definir y asignar [directivas](../../governance/policy/overview.md) o el [control de acceso basado en rol de Azure (RBAC de Azure)](../../role-based-access-control/overview.md) para un grupo de administración. Con las plantillas de nivel de grupo de administración, puede aplicar directivas y asignar roles mediante declaración en el nivel de grupo de administración.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Para obtener más información sobre los ámbitos de implementación y para obtener instrucciones prácticas, consulte [Implementación de recursos en suscripciones, grupos de administración e inquilinos mediante Bicep](/learn/modules/deploy-resources-scopes-bicep/) en **Microsoft Learn**.
 
 ## <a name="supported-resources"></a>Recursos compatibles
 
@@ -269,7 +273,7 @@ param allowedLocations array = [
   'australiacentral'
 ]
 
-resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2019-09-01' = {
+resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2020-09-01' = {
   name: 'locationRestriction'
   properties: {
     policyType: 'Custom'
@@ -289,7 +293,7 @@ resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2019-09-01'
   }
 }
 
-resource policyAssignment 'Microsoft.Authorization/policyAssignments@2019-09-01' = {
+resource policyAssignment 'Microsoft.Authorization/policyAssignments@2020-09-01' = {
   name: 'locationAssignment'
   properties: {
     policyDefinitionId: policyDefinition.id

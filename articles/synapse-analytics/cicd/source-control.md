@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 10df7f8db2a787300787f8995ac0ea3a33736e68
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5b03a7c713203dd61eb95fd5422b3002939e9011
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745054"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208744"
 ---
 # <a name="source-control-in-synapse-studio"></a>Control de código fuente en Synapse Studio
 
@@ -23,6 +23,9 @@ En este artículo se describe cómo configurar un área de trabajo de Synapse y 
 
 > [!NOTE]
 > La integración de Git de Synapse Studio no está disponible en la nube de Azure Government.
+
+## <a name="prerequisites"></a>Requisitos previos
+Los usuarios deben tener el rol de colaborador de Azure (RBAC de Azure) o superior en el área de trabajo de Synapse para configurar, editar la configuración y desconectar un repositorio de Git con Synapse. 
 
 ## <a name="configure-git-repository-in-synapse-studio"></a>Configuración del repositorio de Git en Synapse Studio 
 
@@ -39,9 +42,6 @@ En la barra global de Synapse Studio, seleccione el menú desplegable **Synapse 
 Vaya al centro de administración de Synapse Studio. Seleccione **Configuración de Git** en la sección **Control de código fuente**. Si no tiene ningún repositorio conectado, haga clic en **Configurar**.
 
 ![Configuración del repositorio de código en el centro de administración](media/configure-repo-2.png)
-
-> [!NOTE]
-> Los usuarios a los que se les ha concedido el rol de colaborador del área de trabajo, propietario o roles de nivel superior, pueden configurar, editar la configuración y desconectar el repositorio de Git en Azure Synapse Studio. 
 
 Puede conectar el repositorio de Git de Azure DevOps o GitHub en el área de trabajo.
 
@@ -161,9 +161,13 @@ Los sistemas de control de versiones (también conocidos como _control de códig
 
 ### <a name="creating-feature-branches"></a>Creación de ramas de características
 
-Tan pronto como cada repositorio de Git se asocia a una instancia de Synapse Studio, tiene una rama de colaboración. (`main` o `master` es la rama de colaboración predeterminada). Los usuarios también pueden crear ramas de características; para ello, pueden hacer clic en **+ New Branch** (+ Nueva rama) en la lista desplegable de ramas. Cuando aparezca el panel de nueva rama, escriba el nombre de la rama de características.
+Tan pronto como cada repositorio de Git se asocia a una instancia de Synapse Studio, tiene una rama de colaboración. (`main` o `master` es la rama de colaboración predeterminada). Los usuarios también pueden crear ramas de características; para ello, pueden hacer clic en **+ New Branch** (+ Nueva rama) en la lista desplegable de ramas. 
 
-![Creación de una rama](media/create-new-branch.png)
+![Creación de nueva rama](media/create-new-branch.png)
+
+Una vez que aparezca el panel de la nueva rama, escriba el nombre de la rama de características y seleccione una rama en la que se basará el trabajo.
+
+![Creación de una rama basada en una rama privada ](media/create-branch-from-private-branch.png)
 
 Cuando esté listo para combinar los cambios de su rama de características con la rama de colaboración, haga clic en la lista desplegable de ramas y seleccione **Create pull request** (Crear solicitud de incorporación de cambios). Esto le llevará al proveedor de Git, donde podrá generar la solicitud de incorporación de cambios, revisar el código y combinar los cambios en su rama de colaboración. Solo tiene permitido publicar en el servicio Synapse de la rama de colaboración. 
 
@@ -243,4 +247,4 @@ Si la rama de publicación no está sincronizada con la rama de colaboración y 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para implementar la integración e implementación continuas, consulte [Integración y entrega continuas (CI/CD)](continuous-integration-deployment.md).
+* Para implementar la integración e implementación continuas, consulte [Integración y entrega continuas (CI/CD)](continuous-integration-delivery.md).

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: be45eaa692b0b8235541c798cf82ca26b14b9f3f
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: ec68ca976b52c50c09bf86c90c56304f05051b66
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691570"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124740270"
 ---
 # <a name="tutorial-configure-security-analytics-for-azure-active-directory-b2c-data-with-azure-sentinel"></a>Tutorial: configuración del análisis de seguridad de datos de Azure Active Directory B2C con Azure Sentinel
 
@@ -40,7 +40,7 @@ En este tutorial, obtendrá información sobre cómo:
 
 Habilite la **configuración de diagnóstico** en Azure AD en el inquilino de Azure AD B2C para definir dónde se deben enviar los registros y las métricas de un recurso.
 
-A continuación, [configure Azure AD B2C para enviar registros a Azure Monitor](https://docs.microsoft.com/azure/active-directory-b2c/azure-monitor).
+A continuación, [configure Azure AD B2C para enviar registros a Azure Monitor](./azure-monitor.md).
 
 ## <a name="deploy-an-azure-sentinel-instance"></a>Implementación de una instancia de Azure Sentinel
 
@@ -73,13 +73,13 @@ Una vez que haya configurado la instancia de Azure Active Directory B2C para env
 
 Ahora que ha habilitado Azure Sentinel, recibirá notificaciones cuando se produzca algo sospechoso en su inquilino de Azure AD B2C.
 
-Puede crear [reglas de análisis personalizadas](../sentinel/tutorial-detect-threats-custom.md) para detectar amenazas y comportamientos anómalos presentes en el entorno. Estas reglas buscan eventos específicos o conjuntos de eventos y le avisan cuando se alcanzan determinados umbrales de eventos o se cumplen determinadas condiciones. A continuación, generan incidentes para su posterior investigación.
+Puede crear [reglas de análisis personalizadas](../sentinel/detect-threats-custom.md) para detectar amenazas y comportamientos anómalos presentes en el entorno. Estas reglas buscan eventos específicos o conjuntos de eventos y le avisan cuando se alcanzan determinados umbrales de eventos o se cumplen determinadas condiciones. A continuación, generan incidentes para su posterior investigación.
 
 En el ejemplo siguiente, se explica el escenario en el que se recibe una notificación si alguien intenta forzar el acceso a su entorno pero no se realiza correctamente. Podría significar un ataque por fuerza bruta. Puede recibir una notificación para dos o más inicios de sesión no correctos en un plazo de 60 segundos.
 
 1. En el menú de navegación de Azure Sentinel, seleccione **Análisis**.
 
-2. En la barra de acciones de la parte superior, seleccione **+ Crear** y elija **Regla de consulta programada**. Se abrirá el **Asistente para reglas de Analytics**.
+2. En la barra de acciones de la parte superior, seleccione **+ Crear** y elija **Regla de consulta programada**. Se abrirá el **Asistente para reglas de análisis**.
 
 ![imagen que muestra la selección para crear una regla de consulta programada](./media/azure-sentinel/create-scheduled-rule.png)
 
@@ -116,7 +116,7 @@ En la sección Query scheduling (Programación de consultas), establezca los sig
 8. Vea los resultados de la nueva regla de inicios de sesión incorrectos de Azure AD B2C. Vaya a la página **Incidentes**, donde puede realizar la evaluación de prioridades, investigar y corregir las amenazas. Un incidente puede incluir varias alertas, a modo de agregado de todas las pruebas relevantes en una investigación en concreto. Puede establecer propiedades como la gravedad y el estado en el nivel de incidente.
 
 >[!Note]
->Una característica clave de Azure Sentinel es la [investigación de incidentes](../sentinel/tutorial-investigate-cases.md).
+>Una característica clave de Azure Sentinel es la [investigación de incidentes](../sentinel/investigate-cases.md).
 
 9. Para iniciar la investigación, seleccione un incidente específico. A la derecha, puede ver información detallada del incidente, como su gravedad, las entidades implicadas, los eventos sin procesar que lo han desencadenado y su identificador único.
 

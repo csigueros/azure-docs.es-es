@@ -10,13 +10,13 @@ ms.custom: devx-track-azurecli, references_regions
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
-ms.date: 08/30/2021
-ms.openlocfilehash: cad2ac9319eb674cb8022ff5ce3d2df2a57df648
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.date: 09/22/2021
+ms.openlocfilehash: 4897b557626be5071a21d2cc1a6a8194eaed8994
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224700"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129154287"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Creación y administración de una instancia de proceso de Azure Machine Learning
 
@@ -123,10 +123,11 @@ Para más información, vea la referencia de [az ml computetarget create compute
 1. <a name="advanced-settings"></a> Seleccione **Siguiente: Configuración avanzada** si desea:
 
     * Habilitar el acceso de SSH.  Siga las [instrucciones de acceso SSH detalladas](#enable-ssh) que se indican a continuación.
-    * Habilite la red virtual. Especifique el **Grupo de recursos**, **Red virtual** y **Subred** para crear la instancia de proceso dentro de una Azure Virtual Network (vnet). Para más información, consulte estos [requisitos de red](./how-to-secure-training-vnet.md) para la red virtual. 
+    * Habilite la red virtual. Especifique el **Grupo de recursos**, **Red virtual** y **Subred** para crear la instancia de proceso dentro de una Azure Virtual Network (vnet). Puede seleccionar __Ninguna dirección IP pública__ (versión preliminar) para impedir que se cree una dirección IP pública, lo que requiere un área de trabajo de vínculo privado. Para configurar la red virtual, también debe cumplir estos [requisitos de red](./how-to-secure-training-vnet.md). 
     * Asigne el equipo a otro usuario. Para más información sobre la asignación a otros usuarios, consulte [Creación en nombre de alguien](#on-behalf).
     * Aprovisionamiento con un script de instalación (versión preliminar): para más información sobre cómo crear y usar un script de instalación, consulte [Personalización de la instancia de proceso con un script](#setup-script).
     * Agregue una programación (versión preliminar). Programe horas para que la instancia de proceso se inicie o apague automáticamente. Consulte [Detalles de la programación](#schedule) a continuación.
+
 
 ---
 
@@ -265,8 +266,50 @@ A continuación, use expresiones de cron o LogicApps para definir la programaci�
     // the ranges shown above or two numbers in the range separated by a 
     // hyphen (meaning an inclusive range). 
     ```
-
+### <a name="azure-policy-support-to-default-a-schedule"></a>Compatibilidad de Azure Policy para establecer una programación predeterminada
 Use Azure Policy para que se aplique una programación de apagado para cada instancia de proceso de una suscripción o una programación predeterminada si no existe nada.
+A continuación, se muestra una directiva de ejemplo para establecer una programación de apagado predeterminada en las 10 p. m. PST.
+```json
+{
+    "mode": "All",
+    "policyRule": {
+     "if": {
+      "allOf": [
+       {
+        "field": "Microsoft.MachineLearningServices/workspaces/computes/computeType",
+        "equals": "ComputeInstance"
+       },
+       {
+        "field": "Microsoft.MachineLearningServices/workspaces/computes/schedules",
+        "exists": "false"
+       }
+      ]
+     },
+     "then": {
+      "effect": "append",
+      "details": [
+       {
+        "field": "Microsoft.MachineLearningServices/workspaces/computes/schedules",
+        "value": {
+         "computeStartStop": [
+          {
+           "triggerType": "Cron",
+           "cron": {
+            "startTime": "2021-03-10T21:21:07",
+            "timeZone": "Pacific Standard Time",
+            "expression": "0 22 * * *"
+           },
+           "action": "Stop",
+           "status": "Enabled"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    }
+}    
+```
 
 ## <a name="customize-the-compute-instance-with-a-script-preview"></a><a name="setup-script"></a> Personalización de la instancia de proceso con un script (versión preliminar)
 

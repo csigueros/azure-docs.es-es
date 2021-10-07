@@ -7,13 +7,13 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 03/23/2021
-ms.openlocfilehash: a4bd78c15d2015eabf95926e2b4bcf43d6cbcdcb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: a8ee69e0c9c196f42a733c4cb6c3079228238b21
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121735047"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129082937"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Panel Información de marketplace de los análisis de marketplace comercial
 
@@ -36,17 +36,45 @@ El panel de información de Marketplace se proporciona información de la secuen
 > [!NOTE]
 > La latencia máxima entre los usuarios que visitan ofertas en Azure Marketplace o AppSource y los que presentan informes en el Centro de partners es de 48 horas.
 
+## <a name="access-the-marketplace-insights-dashboard"></a>Acceso al panel de información de Marketplace
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
+1. En la página principal, seleccione el icono **Información**.
+
+    [ ![Se muestra el icono Información en la página principal del Centro de partners.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. En el menú izquierdo, seleccione **Información de Marketplace**.
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
+
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
+1. En el menú de navegación izquierdo, seleccione **Marketplace comercial** > **Analizar** > **Información de Marketplace**.
+
+---
+
 ## <a name="elements-of-the-marketplace-insights-dashboard"></a>Elementos del panel Información de Marketplace
 
 En el panel Información de Marketplace se muestran los detalles de telemetría web para Azure Marketplace y AppSource en dos pestañas independientes. En las secciones siguientes se describe cómo usar el panel Marketplace Insights y cómo leer los datos.
 
-Para acceder al panel **Información de Marketplace** en el Centro de partners, en Marketplace comercial, seleccione **[Analizar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Información de Marketplace**.
-
 ### <a name="month-range"></a>Intervalo mensual
+
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+
+Puede encontrar una selección del intervalo mensual en la esquina superior derecha de cada página. Puede personalizar la salida de los gráficos de la página **Información de Marketplace** seleccionando un intervalo mensual basado en los últimos 6 o 12 meses, o seleccionando un intervalo mensual personalizado con una duración máxima de 12 meses. El intervalo mensual predeterminado (período de cálculo) es de seis meses.
+
+[ ![Ilustra los filtros del mes en el panel de Información de Marketplace.](./media/insights-dashboard/marketplace-insights-filters.png) ](./media/insights-dashboard/marketplace-insights-filters.png#lightbox)
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
 
 Puede encontrar una selección del intervalo mensual en la esquina superior derecha de cada página. Puede personalizar la salida de los gráficos de la página **Información de Marketplace** seleccionando un intervalo mensual basado en los últimos 6 o 12 meses, o seleccionando un intervalo mensual personalizado con una duración máxima de 12 meses. El intervalo mensual predeterminado (período de cálculo) es de seis meses.
 
 :::image type="content" source="./media/insights-dashboard/month-filters.png" alt-text="Ilustra los filtros del mes en el panel Información de Marketplace.":::
+
+---
 
 > [!NOTE]
 > Todas las métricas de los widgets de visualización y los informes de exportación respetan el período de cálculo seleccionado por el usuario.
@@ -63,29 +91,39 @@ En el gráfico **Visitantes** de Información de Marketplace se muestra un recue
 
 ### <a name="call-to-actions-trend"></a>Tendencia de llamada a acciones
 
-Este número representa el recuento de clics en el botón **Llamada a la acción** completados en la página de descripción de la oferta (página de detalles del producto). Las _llamadas a la acción_ se cuentan cuando los usuarios seleccionan los botones **Obtener ahora**, **Prueba gratuita**, **Contacto** o **Versión de prueba**.
+Este número representa el recuento de clics en el botón **Llamada a la acción** completados en la página de descripción de la oferta (página de detalles del producto). Las _llamadas a la acción_ se cuentan cuando los usuarios seleccionan los botones **Obtener ahora**, **Prueba gratuita**, **Contacto** o **Versión de prueba**. El *consentimiento dado* representa el recuento total de clics para el consentimiento proporcionado por el cliente para Microsoft o el asociado, y es igual al número de clientes adquiridos para sus ofertas. En los dos ejemplos siguientes se muestra dónde aparecen los clics *dados por consentimiento*:
 
-[![Ilustra el gráfico Llamada a la acción en el panel Información de Marketplace.](./media/insights-dashboard/call-to-actions-trend.png)](./media/insights-dashboard/call-to-actions-trend.png#lightbox)
+:::image type="content" source="./media/insights-dashboard/consent-screen.png" alt-text="Muestra una ubicación donde se selecciona un botón de consentimiento.":::
 
-### <a name="page-visits-and-call-to-actions-against-offers-referral-domains-and-campaign-ids"></a>Visitas a la página y llamada a acciones frente a ofertas, dominios de referencia e identificadores de campaña
+En el gráfico siguiente se muestra la métrica *CTA* frente al *consentimiento dado*:
 
-**Dominios de referencia**: Al seleccionar un dominio de referencia específico, se muestra la tendencia mensual de las visitas a la página y las llamadas a la acción en el gráfico de la derecha.
+:::image type="content" source="./media/insights-dashboard/consent-given-graph.png" alt-text="Muestra un gráfico de ejemplo de Llamadas a la acción frente al consentimiento dado.":::
 
-:::image type="content" source="./media/insights-dashboard/referral-domain.png" alt-text="Ilustra el gráfico Dominio de referencia en el panel Información de Marketplace.":::
+### <a name="page-visits-and-call-to-actions-against-offers-referral-domains-and-campaign-ids"></a>Visitas a la página y llamada a acciones frente a ofertas, dominios de referencia e id. de campaña
 
-**Ofertas**: seleccione una oferta específica para ver la tendencia mensual de las visitas a la página y las llamadas a la acción en el gráfico de la derecha.
+#### <a name="offers"></a>Ofertas
 
-:::image type="content" source="./media/insights-dashboard/offer-alias.png" alt-text="Ilustra el gráfico Alias de la oferta en el panel Información de Marketplace.":::
+Seleccione una oferta específica para ver la tendencia mensual de las visitas a la página, las llamadas a la acción y los clics de consentimiento dado en el gráfico.
 
-**Identificadores de campaña**: al seleccionar un identificador de campaña específico, debería poder comprender el éxito de la campaña. En cada campaña, debería poder ver la tendencia mensual de las visitas a la página y las llamadas a la acción en el gráfico de la derecha.
+:::image type="content" source="./media/insights-dashboard/offers-funnel-graph.png" alt-text="Muestra un gráfico de embudo de ejemplo de ofertas.":::
 
-:::image type="content" source="./media/insights-dashboard/campaign.png" alt-text="Ilustra el gráfico Campaña en el panel Información de Marketplace.":::
+#### <a name="referral-domains"></a>Dominios de referencia
+
+Al seleccionar un dominio de referencia específico, se muestra la tendencia mensual de las visitas a la página, las llamadas a la acción y los clics con consentimiento en el gráfico de la derecha. Además, hay una columna para Plataforma: sitio web y cliente, que solo se muestra para las ofertas de AppSource. La vista de embudo muestra las tasas de conversiones entre vistas de página, llamadas a la acción y clics con consentimiento dado en el gráfico.
+
+:::image type="content" source="./media/insights-dashboard/referral-domains-funnel-graph.png" alt-text="Muestra un gráfico de embudo de ejemplo de dominios de referencia.":::
+
+#### <a name="campaign-ids"></a>Identificadores de campaña
+
+al seleccionar un identificador de campaña específico, debería poder comprender el éxito de la campaña. En cada campaña, debería poder ver la tendencia mensual de las visitas a la página, las llamadas a la acción y los clics con consentimiento dado en el gráfico.
+
+:::image type="content" source="./media/insights-dashboard/campaign-id-funnel-graph.png" alt-text="Ilustra el gráfico Campaña en el panel Información de Marketplace.":::
 
 ### <a name="marketplace-insights-by-geography"></a>Información de Marketplace por geografía
 
 Durante el período de cálculo seleccionado, en el mapa térmico se muestra el recuento de visitas a la página, visitantes únicos y llamadas a la acción (CTA). El tono del color de claro a oscuro del mapa representa el número de visitantes únicos de bajo a alto. Seleccione un registro de la tabla para acercar un país o región.
 
-:::image type="content" source="./media/insights-dashboard/geographical-spread.png" alt-text="Ilustra el gráfico Diseminación geográfica en el panel Información de Marketplace.":::
+[ ![Ilustra el gráfico Diseminación geográfica en el panel Información de Marketplace.](./media/insights-dashboard/geographical-spread.png) ](./media/insights-dashboard/geographical-spread.png#lightbox)
 
 Tenga en cuenta lo siguiente:
 
@@ -117,6 +155,8 @@ En esta tabla se proporciona una vista de lista de las visitas a la página y la
 | Versión de prueba | Versión de prueba | Número de clics en la llamada a la acción "Versión de prueba" de la página de la oferta para una fecha determinada. | TestDrive |
 | Versión de prueba gratuita | Versión de prueba gratuita | Número de clics en la llamada a la acción "Versión de prueba gratuita" de la página de la oferta para una fecha determinada. | FreeTrial |
 | Campaña | El nombre de la campaña. | Capacidad de comprender la telemetría web (visita de páginas y clics de llamadas a la acción) con el nombre de la campaña. | Campaña |
+| Consentimiento dado | Consentimiento dado | Recuento total de clics para el consentimiento proporcionado por el cliente a Microsoft o al asociado | consentGivenCount |
+| Plataforma | Plataforma | Indica el sitio web o cliente (en el almacén del producto) como origen de vista de página, CTA o clics de consentimiento | plataformas |
 | N/D | Sitio | El nombre del escaparate desde el que se produjo la visita a la página o el clic en la llamada a la acción. Los valores posibles son:<br><ul><li>AZUREMARKETPLACE<li>APPSOURCE</ul> | Sitio |
 |
 

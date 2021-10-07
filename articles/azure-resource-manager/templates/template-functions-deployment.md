@@ -2,13 +2,13 @@
 title: 'Funciones de plantilla: implementación'
 description: Se describen las funciones que se pueden usar en una plantilla de Azure Resource Manager para recuperar información de implementación.
 ms.topic: conceptual
-ms.date: 05/13/2021
-ms.openlocfilehash: 27b800510da7bed15d6853683a026704e2b45698
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.date: 09/09/2021
+ms.openlocfilehash: 12f449cd70f0ccbeeb0d232299f38fb814a8cb24
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123449079"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124733323"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Funciones de implementación para plantillas de ARM
 
@@ -142,21 +142,9 @@ Si vuelve a implementar una plantilla desde el historial de implementación en e
 
 ### <a name="example"></a>Ejemplo
 
-La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deployment.json) siguiente devuelve el objeto de implementación:
+El ejemplo siguiente devuelve un objeto de implementación.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "deploymentOutput": {
-      "type": "object",
-      "value": "[deployment()]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/deployment/deployment.json":::
 
 El ejemplo anterior devuelve el objeto siguiente:
 
@@ -183,7 +171,9 @@ El ejemplo anterior devuelve el objeto siguiente:
 }
 ```
 
-Para una implementación de suscripción, esta [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json) devuelve el objeto de implementación.
+Para una implementación de la suscripción, en el ejemplo siguiente se devuelve un objeto de implementación.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/deployment/deploymentsubscription.json":::
 
 ## <a name="environment"></a>Environment
 
@@ -233,19 +223,7 @@ Esta función devuelve las propiedades del entorno de Azure actual. En el ejempl
 
 La plantilla de ejemplo siguiente devuelve el objeto de entorno.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "environmentOutput": {
-      "type": "object",
-      "value": "[environment()]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/deployment/environment.json":::
 
 En el ejemplo anterior se devuelve el objeto siguiente cuando se implementa en Azure global:
 
@@ -322,63 +300,9 @@ Por lo general, se usan parámetros para establecer los valores de recurso. En e
 
 ### <a name="example"></a>Ejemplo
 
-En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json) siguiente se muestra un uso simplificado de la función de los parámetros.
+En el ejemplo siguiente se muestra un uso simplificado de la función de los parámetros.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "stringParameter": {
-      "type": "string",
-      "defaultValue": "option 1"
-    },
-    "intParameter": {
-      "type": "int",
-      "defaultValue": 1
-    },
-    "objectParameter": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b"
-      }
-    },
-    "arrayParameter": {
-      "type": "array",
-      "defaultValue": [ 1, 2, 3 ]
-    },
-    "crossParameter": {
-      "type": "string",
-      "defaultValue": "[parameters('stringParameter')]"
-    }
-  },
-  "variables": {},
-  "resources": [],
-  "outputs": {
-    "stringOutput": {
-      "value": "[parameters('stringParameter')]",
-      "type": "string"
-    },
-    "intOutput": {
-      "value": "[parameters('intParameter')]",
-      "type": "int"
-    },
-    "objectOutput": {
-      "value": "[parameters('objectParameter')]",
-      "type": "object"
-    },
-    "arrayOutput": {
-      "value": "[parameters('arrayParameter')]",
-      "type": "array"
-    },
-    "crossOutput": {
-      "value": "[parameters('crossParameter')]",
-      "type": "string"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/deployment/parameters.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -437,43 +361,9 @@ Por lo general, para simplificar la plantilla se usan variables para crear valor
 
 ### <a name="example"></a>Ejemplo
 
-La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json) siguiente devuelve distintos valores de variable.
+En el ejemplo siguiente se devuelven distintos valores de variable.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {
-    "var1": "myVariable",
-    "var2": [ 1, 2, 3, 4 ],
-    "var3": "[ variables('var1') ]",
-    "var4": {
-      "property1": "value1",
-      "property2": "value2"
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "exampleOutput1": {
-      "value": "[variables('var1')]",
-      "type": "string"
-    },
-    "exampleOutput2": {
-      "value": "[variables('var2')]",
-      "type": "array"
-    },
-    "exampleOutput3": {
-      "value": "[variables('var3')]",
-      "type": "string"
-    },
-    "exampleOutput4": {
-      "value": "[variables('var4')]",
-      "type": "object"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/deployment/variables.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 

@@ -1,16 +1,16 @@
 ---
 title: Evaluación de servidores habilitados para Azure Arc con una máquina virtual de Azure
 description: Aprenda a evaluar servidores habilitados para Azure Arc mediante una máquina virtual de Azure.
-ms.date: 09/02/2021
+ms.date: 09/20/2021
 ms.topic: conceptual
-ms.openlocfilehash: 81c82ad05b715e7d0243585d3bce0abd44f00670
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 8f32fee62e98730a391c3f025a96259358b027d1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123424391"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645310"
 ---
-# <a name="evaluate-arc-enabled-servers-on-an-azure-virtual-machine"></a>Evaluación de servidores habilitados para Arc en una máquina virtual de Azure
+# <a name="evaluate-azure-arc-enabled-servers-on-an-azure-virtual-machine"></a>Evaluación de servidores habilitados para Azure Arc en una máquina virtual de Azure
 
 Los servidores habilitados para Azure Arc están diseñados para ayudarle a conectar a Azure los servidores que se ejecutan en el entorno local o en otras nubes. Lo habitual es no usar servidores habilitados para Azure Arc en máquinas virtuales de Azure porque las mismas funcionalidades están disponibles de forma nativa para estas máquinas virtuales, incluida una representación de la máquina virtual en Azure Resource Manager, extensiones de máquina virtual, identidades administradas y Azure Policy. Si intenta instalar servidores habilitados para Azure Arc en una máquina virtual de Azure, recibirá un mensaje de error que indica que no se admite y se cancelará la instalación del agente.
 
@@ -19,16 +19,16 @@ Aunque no puede instalar servidores habilitados para Azure Arc en una máquina v
 ## <a name="prerequisites"></a>Requisitos previos
 
 * La cuenta debe tener asignado el rol [Colaborador de la máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
-* La máquina virtual de Azure ejecuta un [sistema operativo compatible con servidores habilitados para Arc](agent-overview.md#supported-operating-systems). Si no tiene una máquina virtual de Azure, puede implementar una [máquina virtual Windows simple](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.compute%2fvm-simple-windows%2fazuredeploy.json) o una [máquina virtual Ubuntu Linux 18.04 LTS](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.compute%2fvm-simple-windows%2fazuredeploy.json).
+* La máquina virtual de Azure ejecuta un [sistema operativo compatible con servidores habilitados para Azure Arc](agent-overview.md#supported-operating-systems). Si no tiene una máquina virtual de Azure, puede implementar una [máquina virtual Windows simple](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.compute%2fvm-simple-windows%2fazuredeploy.json) o una [máquina virtual Ubuntu Linux 18.04 LTS](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.compute%2fvm-simple-windows%2fazuredeploy.json).
 * La máquina virtual de Azure puede comunicarse de forma externa para descargar el paquete del agente Azure Connected Machine para Windows desde el [Centro de descarga de Microsoft](https://aka.ms/AzureConnectedMachineAgent) y para Linux desde el [repositorio de paquetes](https://packages.microsoft.com/) de Microsoft. Si la conectividad saliente a Internet está restringida siguiendo la directiva de seguridad de TI, deberá descargar manualmente el paquete del agente y copiarlo en una carpeta de la máquina virtual de Azure.
 * Una cuenta con privilegios elevados (es decir, un administrador o como raíz) en la máquina virtual y acceso RDP o SSH a la máquina virtual.
-* Para registrar y administrar la máquina virtual de Azure con servidores habilitados para Arc, debe ser miembro del rol [Administrador de recursos de Azure Connected Machine](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator) o [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) del grupo de recursos.
+* Para registrar y administrar la VM de Azure con servidores habilitados para Azure Arc, debe ser miembro del rol [Administrador de recursos de Azure Connected Machine](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator) o [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) del grupo de recursos.
 
-## <a name="plan"></a>Plan
+## <a name="plan"></a>Planear
 
-Para empezar a administrar la máquina virtual de Azure como un servidor habilitado para Arc, debe realizar los siguientes cambios en la máquina virtual de Azure para poder instalar y configurar servidores habilitados para Arc.
+Para empezar a administrar la VM de Azure como un servidor habilitado para Azure Arc, debe realizar los siguientes cambios en la VM de Azure para poder instalar y configurar servidores habilitados para Azure Arc.
 
-1. Quite las extensiones de máquina virtual implementadas en la máquina virtual de Azure, como el agente de Log Analytics. Aunque los servidores habilitados para Arc admiten muchas de las mismas extensiones que las máquinas virtuales de Azure, el agente de servidores habilitados para Arc no puede administrar las extensiones de máquina virtual ya implementadas en la máquina virtual.
+1. Quite las extensiones de máquina virtual implementadas en la máquina virtual de Azure, como el agente de Log Analytics. Aunque los servidores habilitados para Azure Arc admiten muchas de las mismas extensiones que las VM de Azure, el agente de servidores habilitados para Azure Arc no puede administrar las extensiones de VM ya implementadas en la VM.
 
 2. Deshabilite el agente invitado de Windows o Linux de Azure. El agente invitado de máquina virtual de Azure tiene un propósito similar al del agente de maquina conectada de servidores habilitados para Azure Arc. Para evitar conflictos entre los dos, es necesario deshabilitar el agente de máquina virtual de Azure. Una vez deshabilitado, no puede usar extensiones de máquina virtual ni algunos servicios de Azure.
 
@@ -36,7 +36,7 @@ Para empezar a administrar la máquina virtual de Azure como un servidor habilit
 
 Después de realizar estos cambios, la máquina virtual de Azure se comporta como cualquier máquina o servidor fuera de Azure y es el punto de partida necesario para instalar y evaluar los servidores habilitados para Azure Arc.
 
-Cuando los servidores habilitados para Arc estén configurados en la máquina virtual, verá dos representaciones de ella en Azure. Una es el recurso de máquina virtual de Azure, con un tipo de recurso `Microsoft.Compute/virtualMachines`, y la otra es un recurso de Azure Arc, con un tipo de recurso `Microsoft.HybridCompute/machines`. Dado que se impide la administración del sistema operativo invitado desde el servidor host físico compartido, la mejor manera de considerar los dos recursos es que el recurso de máquina virtual de Azure es el hardware virtual de la máquina virtual y vamos a controlar el estado de energía y ver información sobre sus configuraciones de SKU, red y almacenamiento. El recurso de Azure Arc administra el sistema operativo invitado de esa máquina virtual y se puede usar para instalar extensiones, ver los datos de cumplimiento de Azure Policy y completar cualquier otra tarea compatible con servidores habilitados para Arc.
+Cuando los servidores habilitados para Azure Arc estén configurados en la VM, verá dos representaciones de ella en Azure. Una es el recurso de máquina virtual de Azure, con un tipo de recurso `Microsoft.Compute/virtualMachines`, y la otra es un recurso de Azure Arc, con un tipo de recurso `Microsoft.HybridCompute/machines`. Dado que se impide la administración del sistema operativo invitado desde el servidor host físico compartido, la mejor manera de considerar los dos recursos es que el recurso de máquina virtual de Azure es el hardware virtual de la máquina virtual y vamos a controlar el estado de energía y ver información sobre sus configuraciones de SKU, red y almacenamiento. El recurso de Azure Arc administra el sistema operativo invitado de esa VM y se puede usar para instalar extensiones, ver los datos de cumplimiento de Azure Policy y completar cualquier otra tarea compatible con servidores habilitados para Azure Arc.
 
 ## <a name="reconfigure-azure-vm"></a>Reconfiguración de la máquina virtual de Azure
 
@@ -58,9 +58,11 @@ Cuando los servidores habilitados para Arc estén configurados en la máquina vi
    En Linux, ejecute los siguientes comandos:
 
    ```bash
+   current_hostname=$(hostname)
    sudo service walinuxagent stop
    sudo waagent -deprovision -force
    sudo rm -rf /var/lib/waagent
+   sudo hostnamectl set-hostname $current_hostname
    ```
 
 3. Bloquee el acceso al punto de conexión IMDS de Azure.
@@ -80,14 +82,6 @@ Cuando los servidores habilitados para Arc estén configurados en la máquina vi
    sudo ufw deny out from any to 169.254.169.254
    sudo ufw default allow incoming
    ```
-   Para realizar una configuración genérica de iptables, ejecute el siguiente comando:
-
-   ```bash
-   iptables -A OUTPUT -d 169.254.169.254 -j DROP
-   ```
-
-   > [!NOTE]
-   > Esta configuración debe establecerse después de cada reinicio, a menos que se utilice una solución iptables persistente.
 
    Si la máquina virtual de Azure ejecuta CentOS, Red Hat o SUSE Linux Enterprise Server (SLES), realice los pasos siguientes para configurar firewalld:
 
@@ -96,12 +90,22 @@ Cuando los servidores habilitados para Arc estén configurados en la máquina vi
    firewall-cmd --reload
    ```
 
-4. Instale y configure el agente de servidores habilitados para Azure Arc.
+   Para otras distribuciones, consulte los documentos de firewall o configure una regla genérica de tipo "iptables" con el siguiente comando:
 
-   La máquina virtual ya está lista para empezar a evaluar los servidores habilitados para Arc. Para instalar y configurar el agente de servidores habilitados para Arc, consulte [Conexión de máquinas híbridas mediante Azure Portal](onboard-portal.md) y siga los pasos para generar un script de instalación e instalarlo mediante el método generado por script.
+   ```bash
+   iptables -A OUTPUT -d 169.254.169.254 -j DROP
+   ```
 
    > [!NOTE]
-   > Si la conectividad saliente a Internet está restringida desde la máquina virtual de Azure, deberá descargar el paquete del agente manualmente. Copie el paquete del agente en la máquina virtual de Azure y modifique el script de instalación de servidores habilitados para Arc para hacer referencia a la carpeta de origen.
+   > La configuración de tipo "iptables" debe establecerse después de cada reinicio, a menos que se utilice una solución iptables persistente.
+
+
+4. Instale y configure el agente de servidores habilitados para Azure Arc.
+
+   La VM ya está lista para empezar a evaluar los servidores habilitados para Azure Arc. Para instalar y configurar el agente de servidores habilitados para Azure Arc, consulte [Conexión de máquinas híbridas mediante Azure Portal](onboard-portal.md) y siga los pasos para generar un script de instalación e instalarlo mediante el método generado por script.
+
+   > [!NOTE]
+   > Si la conectividad saliente a Internet está restringida desde la máquina virtual de Azure, deberá descargar el paquete del agente manualmente. Copie el paquete del agente en la VM de Azure y modifique el script de instalación de servidores habilitados para Azure Arc para hacer referencia a la carpeta de origen.
 
 Si se perdió uno de los pasos, el script de instalación detecta que se está ejecutando en una máquina virtual de Azure y finaliza con un error. Compruebe que ha completado los pasos 1 a 3 y, luego, vuelva a ejecutar el script.
 
@@ -117,4 +121,4 @@ Después de instalar y configurar el agente para que se registre en los servidor
 
 * Aprenda sobre las [extensiones de máquina virtual de Azure compatibles](manage-vm-extensions.md) disponibles para simplificar la implementación con otros servicios de Azure, como Automation, KeyVault y otros para su máquina Windows o Linux.
 
-* Cuando haya terminado de realizar las pruebas, consulte [Eliminación del agente de servidores habilitados para Arc](manage-agent.md#remove-the-agent).
+* Cuando haya terminado de realizar las pruebas, consulte [Eliminación del agente de servidores habilitados para Azure Arc](manage-agent.md#remove-the-agent).

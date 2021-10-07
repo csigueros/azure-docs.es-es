@@ -1,20 +1,15 @@
 ---
 title: Detección de efectos de audio
-titleSuffix: Azure Video Analyzer
 description: La detección de efectos de audio es una de las funcionalidades de la inteligencia artificial de Azure Video Analyzer for Media. Puede detectar varios eventos acústicos y clasificarlos en categorías acústicas diferentes (por ejemplo, disparos, gritos y reacciones de la multitud, entre otros).
-author: Juliako
-manager: femila
-ms.service: azure-video-analyzer
-ms.subservice: azure-video-analyzer-media
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/12/2021
 ms.author: juliako
-ms.openlocfilehash: d576408cc0d65cc908a24b27ae2a6a50ed7aa9ee
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: 689abf9c61c0b1a462cfafe02c461906626e516b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112121563"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632545"
 ---
 #  <a name="audio-effects-detection-preview"></a>Detección de efectos de audio (versión preliminar)
 
@@ -35,7 +30,7 @@ La **detección de efectos de audio** puede detectar y clasificar 8 categorías
 
 |Tipo de indexación |Indexación estándar| Indexación avanzada|
 |---|---|---|
-|**Nombre del valor preestablecido** |**"Solo audio”** <br/>**"Vídeo + audio"** |**"Audio avanzado"**<br/> **"Vídeo + audio avanzados"**|
+|**Nombre del valor preestablecido** |**"Solo audio"** <br/>**"Vídeo y audio"** |**"Audio avanzado"**<br/> **"Vídeo y audio avanzados"**|
 |**Aparecer en el panel de información**|| V|
 |Reacción de una multitud |V| V|
 | Silencio| V| V|
@@ -109,7 +104,7 @@ Cuando los efectos de audio se recuperan en los archivos de subtítulos, se recu
 |---|---|
 |SRT |00:00:00,000  00:00:03,671<br/>[Disparo]|
 |VTT |00:00:00.000  00:00:03.671<br/>[Disparo]|
-|TTML|Confianza: 0.9047 <br/> <p begin="00:00:00.000" end="00:00:03.671">[Disparo]</p>|
+|TTML|Confianza: 0.9047 <br/> `<p begin="00:00:00.000" end="00:00:03.671">[Gunshot]</p>`|
 |TXT |[Disparo]|
 |CSV |0.9047,00:00:00.000,00:00:03.671, [Disparo]|
 

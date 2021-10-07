@@ -3,14 +3,14 @@ title: Planificación e implementación de servidores habilitados para Azure Arc
 description: Aprenda a habilitar un gran número de máquinas en servidores habilitados para Azure Arc a fin de simplificar la configuración de las funcionalidades esenciales de seguridad, administración y supervisión de Azure.
 ms.date: 08/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0a31a886d4eb687c92d73c39617a6993e4b3f835
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: a7494bb45eeed9392a44aef400483cd9cfcfb091
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123104925"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124788940"
 ---
-# <a name="plan-and-deploy-arc-enabled-servers"></a>Planificación e implementación de servidores habilitados para Arc
+# <a name="plan-and-deploy-azure-arc-enabled-servers"></a>Planificación e implementación de servidores habilitados para Azure Arc
 
 La implementación de un servicio de infraestructura de TI o de una aplicación empresarial es un reto para cualquier empresa. Para llevarla a cabo correctamente y evitar sorpresas imprevistas y costos no planeados, debe planearla minuciosamente para asegurarse de que está lo más preparado posible. Para planificar la implementación de servidores habilitados para Azure Arc a cualquier escala, debe abarcar los criterios de diseño e implementación que tienen que cumplirse para completar correctamente las tareas.
 
@@ -35,7 +35,7 @@ Para más información sobre nuestras recomendaciones de implementación a escal
 
 * Las máquinas ejecutan un [sistema operativo compatible](agent-overview.md#supported-operating-systems) para el agente de Connected Machine.
 * Los equipos tienen conectividad desde la red local u otro entorno de nube a recursos de Azure, ya sea directamente o a través de un servidor proxy.
-* Para instalar y configurar el agente de Connected Machine de los servidores habilitados para Arc, una cuenta con privilegios elevados (es decir, un administrador o como raíz) en las máquinas.
+* Para instalar y configurar el agente de Connected Machine de los servidores habilitados para Azure Arc, una cuenta con privilegios elevados (es decir, un administrador o como raíz) en las máquinas.
 * Para incorporar máquinas, debe ser miembro del rol **Incorporación de Azure Connected Machine**.
 * Para leer, modificar y eliminar una máquina, debe ser miembro del rol **Administrador de recursos de Azure Connected Machine**.
 
@@ -56,22 +56,22 @@ Establezca un plan formal que describa el ámbito y los detalles de la prueba pi
 
 ## <a name="phase-1-build-a-foundation"></a>Fase 1: Creación de una base
 
-En esta fase, los ingenieros de sistemas o los administradores habilitan las características principales en la suscripción de Azure de sus organizaciones para iniciar la base antes de habilitar las máquinas para la administración por parte de los servidores habilitados para Arc y otros servicios de Azure.
+En esta fase, los ingenieros de sistemas o los administradores habilitan las características principales en la suscripción de Azure de sus organizaciones para iniciar la base antes de habilitar las máquinas para la administración por parte de los servidores habilitados para Azure Arc y otros servicios de Azure.
 
 |Tarea |Detail |Duration |
 |-----|-------|---------|
-| [Cree un grupo de recursos](../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) | Un grupo de recursos dedicado para incluir solo servidores habilitados para Arc y centralizar la administración y supervisión de estos recursos. | Una hora |
-| Aplique [etiquetas](../../azure-resource-manager/management/tag-resources.md) para ayudar a organizar las máquinas. | Evalúe y desarrolle una [estrategia de etiquetado](/azure/cloud-adoption-framework/decision-guides/resource-tagging/) alineada con el equipo de TI que pueda ayudar a reducir la complejidad de la administración de los servidores habilitados para Arc y a simplificar la toma de decisiones de administración. | Un día |
+| [Cree un grupo de recursos](../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) | Un grupo de recursos dedicado para incluir solo servidores habilitados para Azure Arc y centralizar la administración y supervisión de estos recursos. | Una hora |
+| Aplique [etiquetas](../../azure-resource-manager/management/tag-resources.md) para ayudar a organizar las máquinas. | Evalúe y desarrolle una [estrategia de etiquetado](/azure/cloud-adoption-framework/decision-guides/resource-tagging/) alineada con el equipo de TI que pueda ayudar a reducir la complejidad de la administración de los servidores habilitados para Azure Arc y a simplificar la toma de decisiones de administración. | Un día |
 | Diseño e implementación de [registros de Azure Monitor](../../azure-monitor/logs/data-platform-logs.md) | Evalúe las [consideraciones de diseño e implementación](../../azure-monitor/logs/design-logs-deployment.md) para determinar si su organización debe usar un área de trabajo de Log Analytics existente o implementar otro para almacenar los datos de registro recopilados de máquinas y servidores híbridos.<sup>1</sup> | Un día |
 | Desarrollo de un plan de gobernanza de [Azure Policy](../../governance/policy/overview.md) | Determine cómo implementará la gobernanza de las máquinas y los servidores híbridos en el ámbito de la suscripción o del grupo de recursos con Azure Policy. | Un día |
-| Configuración del [control de acceso basado en rol](../../role-based-access-control/overview.md) (RBAC) | Desarrolle un plan para controlar quién tiene acceso a la administración de los servidores habilitados para Arc y la capacidad de ver sus datos desde otros servicios y soluciones de Azure. | Un día |
+| Configuración del [control de acceso basado en rol](../../role-based-access-control/overview.md) (RBAC) | Desarrolle un plan para controlar quién tiene acceso a la administración de los servidores habilitados para Azure Arc y la capacidad de ver sus datos desde otros servicios y soluciones de Azure. | Un día |
 | Identificación de las máquinas con el agente de Log Analytics ya instalado | Ejecute la siguiente consulta de registro en [Log Analytics](../../azure-monitor/logs/log-analytics-overview.md) para admitir la conversión de las implementaciones del agente de Log Analytics existentes en un agente administrado por extensiones:<br> Latido <br> &#124; where TimeGenerated > ago(30d) <br> &#124; where ResourceType == "machines" and (ComputerEnvironment == "Non-Azure") <br> &#124; summarize by Computer, ResourceProvider, ResourceType, ComputerEnvironment | Una hora |
 
 <sup>1</sup> Una consideración importante en el marco de la evaluación del diseño del área de trabajo de Log Analytics es la integración con Azure Automation para la compatibilidad con sus características Update Management y Seguimiento de cambios e inventario, así como con Azure Security Center y Azure Sentinel. Si su organización ya tiene una cuenta de Automation y ha habilitado sus características de administración vinculadas a un área de trabajo Log Analytics, evalúe si puede centralizar y optimizar las operaciones de administración, así como minimizar el costo, mediante el uso de los recursos existentes en lugar de duplicar una cuenta, un área de trabajo, etc.
 
-## <a name="phase-2-deploy-arc-enabled-servers"></a>Fase 2: Implementación de servidores habilitados para Arc
+## <a name="phase-2-deploy-azure-arc-enabled-servers"></a>Fase 2: implementación de servidores habilitados para Azure Arc
 
-A continuación, se usará la base establecida en la fase 1 para preparar e implementar los servidores habilitados para Arc con el agente de Connected Machine.
+A continuación, se usará la base establecida en la fase 1 para preparar e implementar los servidores habilitados para Azure Arc con el agente de Connected Machine.
 
 |Tarea |Detail |Duration |
 |-----|-------|---------|
@@ -88,7 +88,7 @@ En la fase 3, los administradores o ingenieros de sistemas permiten la automati
 |Creación de una alerta de Resource Health |Si un servidor deja de enviar latidos a Azure durante más de 15 minutos, puede significar que está sin conexión, que la conexión de red se ha bloqueado o que el agente no se está ejecutando. Desarrolle un plan sobre cómo responderá a estos incidentes y cómo los investigará, así como sobre el uso de [alertas de Resource Health](../..//service-health/resource-health-alert-monitor-guide.md) para recibir notificaciones cuando se inicien.<br><br> Especifique lo siguiente al configurar la alerta:<br> **Tipo de recurso** = **Servidores habilitados para Azure Arc**<br> **Estado de recurso actual** = **No disponible**<br> **Estado de recurso previo** = **No disponible** | Una hora |
 |Creación de una alerta de Azure Advisor | Para obtener la mejor experiencia y las correcciones de seguridad y errores más recientes, se recomienda mantener actualizado el agente de los servidores habilitados para Azure Arc. Los agentes no actualizados se identificarán con una [alerta de Azure Advisor](../../advisor/advisor-alerts-portal.md).<br><br> Especifique lo siguiente al configurar la alerta:<br> **Tipo de recomendación** = **Actualización a la versión más reciente del agente de Azure Connected Machine** | Una hora |
 |[Asignación de las directivas de Azure](../../governance/policy/assign-policy-portal.md) al ámbito de la suscripción o del grupo de recursos |Asigne la [directiva](../../azure-monitor/vm/vminsights-enable-policy.md) **Habilitar Azure Monitor para VM** (y otras que satisfagan sus necesidades) al ámbito de suscripción o grupo de recursos. Azure Policy permite asignar definiciones de directivas que instalan los agentes necesarios para Información de máquinas virtuales en el entorno.| Varía |
-|[Habilitación de Update Management para los servidores habilitados para Arc](../../automation/update-management/enable-from-automation-account.md) |Configure Update Management en Azure Automation para administrar las actualizaciones del sistema operativo de las máquinas virtuales Windows y Linux registradas con servidores habilitados para Arc. | 15 minutos |
+|[Habilitación de Update Management para los servidores habilitados para Azure Arc](../../automation/update-management/enable-from-automation-account.md) |Configure Update Management en Azure Automation para administrar las actualizaciones del sistema operativo de las máquinas virtuales Windows y Linux registradas con servidores habilitados para Azure Arc. | 15 minutos |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

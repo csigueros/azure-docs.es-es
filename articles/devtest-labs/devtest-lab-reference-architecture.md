@@ -1,15 +1,15 @@
 ---
-title: Arquitectura de referencia empresarial para Azure DevTest Labs
+title: Arquitectura de referencia empresarial
 description: Este artículo proporciona orientaciones sobre una arquitectura de referencia para Azure DevTest Labs en una empresa.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 2a7c98784e230292afdb5cd217c2f0455034ad70
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: e76219222db1dbe6aa7cdc7d7a2ef5be995109e1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111814591"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652365"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>Arquitectura de referencia de Azure DevTest Labs para empresas
 Este artículo proporciona una arquitectura de referencia para ayudarle a implementar una solución basada en Azure DevTest Labs en una empresa. Incluye lo siguiente:

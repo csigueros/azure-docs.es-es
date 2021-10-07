@@ -13,12 +13,12 @@ ms.author: absinh
 ms.reviewer: rolyon
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ed1a0906e31691cae86547f165d5b44ac6e1f7c
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 58647d37da29066c14457ae6624763c800e6f123
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862802"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776427"
 ---
 # <a name="list-azure-ad-role-assignments-for-a-user"></a>Enumeración de las asignaciones de roles de Azure AD de un usuario
 
@@ -28,7 +28,7 @@ Un rol se puede asignar a un usuario de forma directa o transitiva a través de 
 
 - Módulo de AzureADPreview al usar PowerShell
 - Módulo Microsoft.Graph cuando se usa PowerShell
-- Consentimiento del administrador al usar Probador de Graph para Microsoft Graph API
+- Consentimiento del administrador al usar el Probador de Graph de Microsoft Graph API
 
 Para más información, consulte [Requisitos previos para usar PowerShell o Probador de Graph](prerequisites.md).
 

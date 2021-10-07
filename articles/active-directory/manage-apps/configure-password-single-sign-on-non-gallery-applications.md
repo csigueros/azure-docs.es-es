@@ -1,90 +1,72 @@
 ---
-title: Descripción del inicio de sesión único (SSO) basado en contraseña para aplicaciones en Azure Active Directory
-description: Descripción del inicio de sesión único (SSO) basado en contraseña para aplicaciones en Azure Active Directory
+title: Adición del inicio de sesión único basado en contraseña a una aplicación
+description: Agregue el inicio de sesión único basado en contraseña a una aplicación en Azure Active Directory.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.workload: identity
+ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
-ms.openlocfilehash: 40c2e4ae14e2b50a26ed3ff25846d15b129e2916
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6ed7241e62b037a2d0ebd5303bd18e3c859d93f0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738809"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639667"
 ---
-# <a name="understand-password-based-single-sign-on"></a>Inicio de sesión único basado en contraseña
+# <a name="add-password-based-single-sign-on-to-an-application-in-azure-active-directory"></a>Adición del inicio de sesión único basado en contraseña a una aplicación en Azure Active Directory
 
-En la [serie de guías de inicio rápido](view-applications-portal.md) sobre la administración de aplicaciones, aprendió a usar Azure AD como proveedor de identidades (IdP) para una aplicación. En la guía de inicio rápido, se configura SSO basado en SAML o en OIDC. Otra opción es el SSO basado en contraseña. Este artículo explica con más detalle la opción SSO basado en contraseña.
+En este artículo, se muestra cómo configurar el inicio de sesión único (SSO) basado en contraseña en Azure Active Directory (Azure AD). Con el inicio de sesión único basado en contraseña, un usuario inicia sesión en la aplicación con un nombre de usuario y una contraseña la primera vez que accede. Después del primer inicio de sesión, Azure AD envía el nombre de usuario y la contraseña a la aplicación. 
 
-Esta opción está disponible para cualquier sitio web con una página de inicio de sesión HTML. El SSO basado en contraseña también se conoce como almacenamiento de contraseñas. El SSO basado en contraseña permite administrar el acceso y las contraseñas de los usuarios en aplicaciones web que no admiten la federación de identidades. También es útil cuando varios usuarios necesitan compartir una sola cuenta, como las cuentas de aplicaciones de redes sociales de la organización.
+El inicio de sesión único basado en contraseña usa el proceso de autenticación existente que proporciona la aplicación. Cuando se habilita el inicio de sesión único basado en contraseña para una aplicación, Azure AD recopila y almacena de forma segura los nombres de usuario y contraseñas de la aplicación. Las credenciales de usuario se almacenan en un estado cifrado en el directorio. Se admite el inicio de sesión único basado en contraseña para cualquier aplicación basada en la nube cuya página de inicio de sesión esté basada en HTML.
 
-El SSO basado en contraseña representa una excelente manera de empezar a integrar aplicaciones en Azure AD rápidamente, y le permite lo siguiente:
-
-- Habilitar el inicio de sesión único para los usuarios almacenando y reproduciendo de forma segura los nombres de usuario y contraseñas
-
-- Admitir aplicaciones que requieren varios campos de inicio de sesión para aplicaciones que no solo requieren los campos de nombre de usuario y contraseña para iniciar sesión
-
-- Personalizar las etiquetas de los campos de nombre de usuario y contraseña que los usuarios ven en la página [Aplicaciones](../user-help/my-apps-portal-end-user-access.md) cuando escriben sus credenciales
-
-- Permitir a los usuarios proporcionar sus propios nombres de usuario y contraseñas para las cuentas de aplicación existentes que están escribiendo manualmente
-
-- Permitir que un miembro del grupo de negocios especifique los nombres de usuario y contraseñas que se asignan a un usuario mediante el uso de la característica [Acceso de autoservicio a las aplicaciones](./manage-self-service-access.md).
-
-- Permitir que un administrador especifique un nombre de usuario y una contraseña que usarán los usuarios o grupos al iniciar sesión en la aplicación mediante la característica Actualizar credenciales.
-
-## <a name="before-you-begin"></a>Antes de empezar
-
-El uso de Azure AD como proveedor de identidades (IdP) y la configuración del inicio de sesión único (SSO) pueden ser algo sencillo o complejo en función de la aplicación utilizada. Algunas aplicaciones se pueden configurar con pocos pasos. Otras exigen una configuración detallada. Para adquirir conocimientos rápidamente, consulte la [serie de guías de inicio rápido](view-applications-portal.md) sobre la administración de aplicaciones. Si la aplicación que va a añadir es sencilla, probablemente no necesite leer este artículo. Si la aplicación que va a añadir requiere una configuración personalizada y tiene que usar SSO basado en contraseña, este artículo es para usted.
-
-> [!IMPORTANT]
-> Hay escenarios en los que la opción **Inicio de sesión único** no estará al desplazarse por una aplicación en las **aplicaciones empresariales**.
->
-> Por ejemplo, si la aplicación se registró mediante **Registros de aplicaciones**, la característica de inicio de sesión único estará configurada para usar OAuth de OIDC de forma predeterminada. En este caso, la opción de **Inicio de sesión único** no se mostrará en la navegación en **Aplicaciones empresariales**. Cuando use **Registros de aplicaciones** para agregar su aplicación personalizada, configure las opciones en el archivo de manifiesto. Para obtener más información sobre el archivo de manifiesto, consulte [Manifiesto de aplicación de Azure Active Directory](../develop/reference-app-manifest.md). Para obtener más información sobre los estándares de SSO, consulte [Autenticación y autorización mediante la Plataforma de identidad de Microsoft](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-the-microsoft-identity-platform).
->
-> Otros escenarios en los que falta **inicio de sesión único** en la navegación incluyen cuándo se hospeda una aplicación en otro inquilino o si su cuenta no tiene los permisos necesarios (Administrador global, Administrador de aplicaciones en la nube, Administrador de la aplicación o propietario de la entidad de servicio). Los permisos también pueden provocar un escenario en el que puede abrir **Inicio de sesión único** pero no podrá guardar. Para más información acerca de los roles administrativos de Azure AD, consulte (https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
-
-## <a name="basic-configuration"></a>Configuración básica
-
-En la [serie de guías de inicio rápido](view-applications-portal.md), ha aprendido a agregar una aplicación al inquilino, lo que permite saber a Azure AD que se usa como proveedor de identidades (IdP) de la aplicación. Algunas aplicaciones ya están preconfiguradas y aparecen en la galería de Azure AD. Otras aplicaciones no están en la galería y tiene que crear una aplicación genérica y configurarla manualmente. Dependiendo de la aplicación, es posible que la opción SSO basado en contraseña no esté disponible. Si no ve la lista de opciones basadas en contraseña en la página de inicio de sesión único de la aplicación, no estará disponible.
-
-> [!IMPORTANT]
-> La extensión del navegador Aplicaciones es necesaria para el inicio de sesión único basado en contraseña. Para más información, consulte [Planeamiento de una implementación de Aplicaciones](my-apps-deployment-plan.md).
+Elija el inicio de sesión único basado en contraseña cuando:
+- Una aplicación no admita el protocolo SAML de inicio de sesión único.
+- Una aplicación se autentica con un nombre de usuario y una contraseña en lugar de con tokens de acceso y encabezados.
 
 La página de configuración para SSO basado en contraseña es sencilla. Incluye solo la dirección URL de la página de inicio de sesión que usa la aplicación. Esta cadena debe ser la página que incluye el campo de entrada del nombre de usuario.
 
-Después de escribir la dirección URL, seleccione **Guardar**. Azure AD analiza el código HTML de la página de inicio de sesión para los campos de entrada de nombre de usuario y contraseña. Si el intento se realiza correctamente, habrá terminado.
-El siguiente paso será la [Asignación de usuarios y grupos a la aplicación](./assign-user-or-group-access-portal.md). Después de asignar usuarios y grupos, puede proporcionar las credenciales que se usarán para un usuario cuando inicie sesión en la aplicación. Seleccione **Usuarios y grupos**, active la casilla correspondiente a la fila del usuario o del grupo y, después, seleccione **Actualizar credenciales**. Por último, escriba el nombre de usuario y la contraseña que se usarán para el usuario o grupo. Si no lo hace, se solicitará a los usuarios que especifiquen ellos mismos las credenciales al inicio.
+## <a name="prerequisites"></a>Requisitos previos
+
+Para configurar el inicio de sesión único basado en contraseña en el inquilino de Azure AD, necesita lo siguiente:
+-   Una cuenta de Azure con una suscripción activa. [Cree su cuenta de forma gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+-   Uno de los siguientes roles: Administrador global, Administrador de aplicaciones en la nube, Administrador de aplicaciones o Propietario de la entidad de servicio.
+-   Una aplicación que admita el inicio de sesión único basado en contraseña.
+
+## <a name="configure-password-based-single-sign-on"></a>Configuración del inicio de sesión único basado en contraseña
+
+1.  Inicie sesión en [Azure Portal](https://portal.azure.com) con el rol adecuado.
+1.  Seleccione **Azure Active Directory** en Servicios de Azure y, a continuación, **Aplicaciones empresariales**.
+1.  Busque y seleccione la aplicación a la que desea agregar el inicio de sesión único basado en contraseña.
+1.  Seleccione **Inicio de sesión único** y, a continuación, **Basado en contraseña**.
+1.  Escriba la dirección URL de la página de inicio de sesión de la aplicación.
+1.  Seleccione **Guardar**. 
+
+Azure AD analiza el código HTML de la página de inicio de sesión para los campos de entrada de nombre de usuario y contraseña. Si el intento se realiza correctamente, habrá terminado. El siguiente paso es la [asignación de usuarios o grupos](add-application-portal-assign-users.md) a la aplicación. 
+
+Después de asignar usuarios y grupos, puede proporcionar las credenciales que se usarán para un usuario cuando inicie sesión en la aplicación. 
+
+1. Seleccione **Usuarios y grupos**, active la casilla correspondiente a la fila del usuario o del grupo y, después, seleccione **Actualizar credenciales**. 
+1. Escriba el nombre de usuario y la contraseña que se usarán para el usuario o grupo. Si no lo hace, se solicitará a los usuarios que especifiquen ellos mismos las credenciales al inicio.
 
 ## <a name="manual-configuration"></a>Configuración manual
 
 Si se produce un error en el intento de análisis de Azure AD, puede configurar el inicio de sesión manualmente.
 
-1. En **\<application name> Configuración**, seleccione  **Configurar\<application name> Establecer configuración de inicio de sesión único con contraseña** para mostrar la página **Configurar inicio de sesión**.
-
-2. Seleccione **Detectar campos de inicio de sesión manualmente**. Aparecen instrucciones adicionales que describen la detección manual de los campos de inicio de sesión.
-
-   ![Configuración manual del inicio de sesión único con contraseña](./media/configure-password-single-sign-on/password-configure-sign-on.png)
-3. Seleccione **Capturar campos de inicio de sesión**. Se abre una página de estado de la captura en una nueva pestaña, que muestra el mensaje **Actualmente la captura de metadatos está en curso**.
-
-4. Si aparece la casilla **My Apps Extension Required** (Se requiere la extensión Aplicaciones) en una nueva pestaña, seleccione **Instalar ahora** para instalar la extensión del explorador **Extensión de inicio de sesión seguro de mis aplicaciones**. (La extensión del explorador requiere Microsoft Edge, Chrome o Firefox). A continuación, instale, inicie y active la extensión, y actualice la página de estado de la captura.
-
-   La extensión del explorador abre otra pestaña que muestra la dirección URL especificada.
-5. En la pestaña con la dirección URL especificada, recorra el proceso de inicio de sesión. Rellene los campos de nombre de usuario y contraseña e intente iniciar sesión. (No es necesario proporcionar la contraseña correcta).
-
-   Se le pedirá que guarde los campos de inicio de sesión capturados.
-6. Seleccione **Aceptar**. La extensión del explorador actualiza la página de estado de la captura con el mensaje **Los metadatos se han actualizado para la aplicación**. La pestaña del explorador se cierra.
-
-7. En la página **Configurar inicio de sesión** de Azure AD, seleccione **Bien. Pude iniciar sesión en la aplicación correctamente**.
-
-8. Seleccione **Aceptar**.
+1. Seleccione **Establecer configuración de inicio de sesión único con contraseña de {nombreDeAplicación}** para mostrar la página **Configurar inicio de sesión**.
+1. Seleccione **Detectar campos de inicio de sesión manualmente**. Aparecerán más instrucciones que describen la detección manual de los campos de inicio de sesión.
+1. Seleccione **Capturar campos de inicio de sesión**. Se abre una página de estado de la captura en una nueva pestaña, que muestra el mensaje Actualmente la captura de metadatos está en curso.
+1. Si aparece la casilla **My Apps Extension Required** (Se requiere la extensión Aplicaciones) en una nueva pestaña, seleccione **Instalar ahora** para instalar la extensión del explorador Extensión de inicio de sesión seguro de mis aplicaciones. (La extensión del explorador requiere Microsoft Edge, Chrome o Firefox). A continuación, instale, inicie y active la extensión, y actualice la página de estado de la captura. La extensión del explorador abre otra pestaña que muestra la dirección URL especificada.
+1. En la pestaña con la dirección URL especificada, recorra el proceso de inicio de sesión. Rellene los campos de nombre de usuario y contraseña e intente iniciar sesión. (No tiene que proporcionar la contraseña correcta). Un mensaje le pide que guarde los campos de inicio de sesión capturados.
+1. Seleccione **Aceptar**. La extensión del explorador actualiza la página de estado de la captura con el mensaje **Los metadatos se han actualizado para la aplicación**. La pestaña del explorador se cierra.
+1. En la página Configurar inicio de sesión de Azure AD, seleccione **Bien. Pude iniciar sesión en la aplicación correctamente**.
+1. Seleccione **Aceptar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Asignación de usuarios y grupos a la aplicación](./assign-user-or-group-access-portal.md)
-- [Configuración del aprovisionamiento automático de cuentas de usuario](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+- [Administración del acceso a aplicaciones](what-is-access-management.md)

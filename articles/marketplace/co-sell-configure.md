@@ -7,13 +7,13 @@ ms.topic: how-to
 author: sharath-satish-msft
 ms.author: shsatish
 ms.reviewer: stmummer
-ms.date: 09/03/2021
-ms.openlocfilehash: 39212b2e9ef5456ecc4f1343cc51fd83064a8840
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.date: 09/27/2021
+ms.openlocfilehash: c01e7d909e3227fe672047bca897bfa9d9978f85
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123535660"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129082158"
 ---
 # <a name="configure-co-sell-for-a-commercial-marketplace-offer"></a>Configuración de la venta conjunta para una oferta del marketplace comercial
 
@@ -35,6 +35,30 @@ La opción de venta conjunta está disponible para los siguientes tipos de ofert
 
 ## <a name="go-to-the-co-sell-with-microsoft-tab"></a>Desplazamiento a la pestaña Venta conjunta con Microsoft
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vista Áreas de trabajo](#tab/workspaces-view)
+
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
+
+1. En la página principal, seleccione el icono **Ofertas de Marketplace**.
+
+     [ ![Muestra la página principal del Centro de partners.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+    > [!TIP]
+    > Si no ve el icono de **ofertas de marketplace**, [cree una cuenta de marketplace comercial en el Centro de partners](create-account.md) y asegúrese de que su cuenta esté inscrita en el programa de marketplace comercial.
+
+1. En la página de ofertas de Marketplace, seleccione la oferta cuya venta conjunta desee realizar.
+
+    > [!NOTE]
+    > Puede configurar la venta conjunta para una nueva oferta que aún no se ha publicado o para una oferta que ya está publicada.
+
+1. En el menú de la izquierda, seleccione **Venta conjunta con Microsoft**.
+
+    [ ![Muestra la página Venta en colaboración con Microsoft.](./media/co-sell/co-sell-with-microsoft-tab-workspaces.png) ](./media/co-sell/co-sell-with-microsoft-tab-workspaces.png#lightbox)
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
+
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
 1. En el menú de navegación izquierdo, seleccione **Marketplace comercial** > **Información general**.
     > [!TIP]
@@ -46,6 +70,8 @@ La opción de venta conjunta está disponible para los siguientes tipos de ofert
 1. En el menú de la izquierda, seleccione **Venta conjunta con Microsoft**.
 
     [![Muestra el vínculo Venta conjunta con Microsoft en el panel de navegación izquierdo.](./media/co-sell/co-sell-with-microsoft-tab.png)](./media/co-sell/co-sell-with-microsoft-tab.png#lightbox)
+
+---
 
 ## <a name="co-sell-listings"></a>Listas de venta conjunta
 

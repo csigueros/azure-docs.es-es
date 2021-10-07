@@ -8,12 +8,12 @@ ms.reviewer: spelluru
 ms.subservice: iot-edge
 ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: d3f353693aeafb3093a2a8edce017cc24c0aca49
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d9e634597d82b6cac52237f0c800cdfc33bc883a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110370691"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128635420"
 ---
 # <a name="rest-api"></a>API DE REST
 En este artículo se describen las API REST de Azure Event Grid en IoT Edge
@@ -29,26 +29,26 @@ Event Grid en IoT Edge tiene las siguientes API expuestas a través de HTTP (pue
 ### <a name="request-query-string"></a>Cadena de consulta de la solicitud
 Todas las solicitudes de API requieren el parámetro de cadena de consulta siguiente:
 
-```?api-version=2019-01-01-preview```
+`?api-version=2019-01-01-preview`
 
 ### <a name="request-content-type"></a>Tipo de contenido de la solicitud
 Todas las solicitudes de API deben tener un elemento **Content-Type**.
 
 En el caso de **EventGridSchema** o **CustomSchema**, el valor de Content-Type puede ser uno de los siguientes valores:
 
-```Content-Type: application/json```
+`Content-Type: application/json`
 
-```Content-Type: application/json; charset=utf-8```
+`Content-Type: application/json; charset=utf-8`
 
 En el caso de **CloudEventSchemaV1_0**, el valor de Content-Type puede ser uno de los siguientes valores:
 
-```Content-Type: application/cloudevents+json```
+`Content-Type: application/cloudevents+json`
     
-```Content-Type: application/cloudevents+json; charset=utf-8```
+`Content-Type: application/cloudevents+json; charset=utf-8`
     
-```Content-Type: application/cloudevents-batch+json```
+`Content-Type: application/cloudevents-batch+json`
     
-```Content-Type: application/cloudevents-batch+json; charset=utf-8```
+`Content-Type: application/cloudevents-batch+json; charset=utf-8`
 
 En el caso de **CloudEventSchemaV1_0** en modo binario, consulte la [documentación](https://github.com/cloudevents/spec/blob/master/http-protocol-binding.md) para obtener más detalles.
 
@@ -760,19 +760,19 @@ Para realizar la publicación en una cola de almacenamiento, configure `endpoint
 * queueName: nombre de la cola de almacenamiento en la que va a realizar la publicación.
 * connectionString: cadena de conexión de la cuenta de almacenamiento en la que se encuentra la cola de almacenamiento.
 
-    >[!NOTE]
-    > Event Hubs en línea, colas de Service Bus y temas de Service Bus: la cadena de conexión usada para las colas de almacenamiento no es específica de la entidad. En su lugar, debe ser la cadena de conexión de la cuenta de almacenamiento.
+  >[!NOTE]
+  > Al contrario que sucede con Event Hubs, las colas de Service Bus y los temas de Service Bus, la cadena de conexión que se usa para las colas de almacenamiento no es específica de la entidad. En su lugar, debe ser la cadena de conexión de la cuenta de almacenamiento.
 
-    ```json
-        {
-          "properties": {
-            "destination": {
-              "endpointType": "storageQueue",
-              "properties": {
-                "queueName": "<your-storage-queue-name>",
-                "connectionString": "<your-storage-account-connection-string>"
-              }
-            }
-          }
+  ```json
+  {
+    "properties": {
+      "destination": {
+        "endpointType": "storageQueue",
+        "properties": {
+          "queueName": "<your-storage-queue-name>",
+          "connectionString": "<your-storage-account-connection-string>"
         }
-    ```
+      }
+    }
+  }
+  ```

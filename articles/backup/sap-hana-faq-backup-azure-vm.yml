@@ -4,13 +4,13 @@ metadata:
   description: En este artículo, descubra las respuestas a preguntas comunes sobre la copia de seguridad de bases de datos de SAP HANA con el servicio Azure Backup.
   ms.topic: article
   ms.service: backup
-  ms.date: 09/01/2021
-  ms.openlocfilehash: f216b4b9015f90a388ecbea04e514cbaf1f196d6
-  ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+  ms.date: 09/27/2021
+  ms.openlocfilehash: 2b1a7e39c1cf4a7e6c5b1da6f748c7e143608104
+  ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/03/2021
-  ms.locfileid: "123426319"
+  ms.lasthandoff: 09/27/2021
+  ms.locfileid: "129080701"
 title: 'Preguntas frecuentes: copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure'
 summary: Este artículo responde preguntas comunes sobre la copia de seguridad de bases de datos de SAP HANA con el servicio Azure Backup.
 sections:
@@ -34,9 +34,16 @@ sections:
     answer: >
       Actualmente, los trabajos de copia de seguridad correctos no generan alertas. Solo se generan alertas para los trabajos de copia de seguridad con errores. [Obtenga información](backup-azure-monitoring-built-in-monitor.md) sobre cómo usar Azure Portal para ver alertas de copias de seguridad.
   - question: >
+      ¿Cómo puedo comprobar si la copia de seguridad (programada o a petición) se ha ejecutado correctamente?
+    answer: "Puede comprobar el estado de las copias de seguridad (programadas o a petición) desde cualquiera de las siguientes ubicaciones:\n\n1. **Trabajos de copia de seguridad**: Azure Backup muestra todos los trabajos desencadenados manualmente en la sección \"Trabajos de copia de seguridad\" de Azure Portal.  <br><br>   Los trabajos que ve en Azure Portal incluyen operaciones de detección y registro de bases de datos, y operaciones de copia de seguridad y restauración. Los trabajos programados, incluidas las copias de seguridad de registros, no se muestran en esta sección. Las copias de seguridad desencadenadas manualmente desde los clientes nativos de SAP HANA (Studio/Cockpit/DBA Cockpit) tampoco se muestran aquí.\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/manually-triggered-jobs.png\" alt-text=\"Captura de pantalla que muestra los trabajos desencadenados manualmente en la sección &quot;Trabajos de copia de seguridad&quot; de Azure Portal.\":::\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/jobs-and-operations-list.png\" alt-text=\"Captura de pantalla que muestra trabajos con operaciones de detección y registro de bases de datos y de copia de seguridad y restauración.\":::\n \n1. **Alertas de copia de seguridad**: las alertas le ayudan a supervisar las copias de seguridad de las bases de datos de SAP HANA. De esta forma, puede centrarse en los eventos necesarios, lo que elimina el esfuerzo de comprobar con frecuencia la gran cantidad de eventos que genera una copia de seguridad. Para obtener más información, consulte [Visualización de alertas de copia de seguridad](/azure/backup/sap-hana-db-manage#view-backup-alerts).\n\n1. **Informes de copia de seguridad**: los informes son otra manera de ver el estado de los trabajos de copia de seguridad. Los informes serán como los que se muestran a continuación:\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/backup-reports.png\" alt-text=\"Captura de pantalla que muestra un tipo de informe en Azure Portal.\":::\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/backup-reports-mabs.png\" alt-text=\"Captura de pantalla que muestra el otro tipo de informe en Azure Portal.\":::\n\n   Obtenga más información sobre la [configuración de informes de Azure Backup](/azure/backup/configure-reports).\n\n1. **Clientes nativos de SAP HANA**: si es un cliente SAP HANA, también puede usar HANA Studio, uno de los clientes de HANA más comunes. En este cliente, vaya a la **Consola de copias de seguridad** -> **Catálogo de copias de seguridad** para comprobar el **Estado de copia de seguridad**.\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/sap-hana-native-client-reports.png\" alt-text=\"Captura de pantalla que muestra informes en los clientes nativos de SAP HANA.\":::\n"
+  - question: >
       ¿Se pueden ver los trabajos de copia de seguridad programados en el menú de Trabajos de copia de seguridad?
     answer: >
       En el menú "Trabajos de copia de seguridad" solo se mostrarán los trabajos de copia de seguridad a petición que estén en curso, se hayan completado correctamente o hayan dado error. Para los trabajos programados, use [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
+  - question: >
+      ¿Cuál es el período de retención de las copias de seguridad completas de recuperación automática desencadenadas debido a los errores LSNValidation?
+    answer: >
+      Azure Backup no establece un período de retención explícito en las copias de seguridad completas de recuperación automática. Esta copia de seguridad se conserva hasta el momento en que se conserven las copias de seguridad delta (diferenciales o incrementales) y las copias de seguridad de registros dependientes. Una vez eliminada la última copia de seguridad dependiente de esta copia de seguridad de recuperación automática, también se elimina la copia de seguridad de recuperación automática.
   - question: >
       ¿Las bases de datos futuras se agregan automáticamente para copia de seguridad?
     answer: >
@@ -106,7 +113,7 @@ sections:
 
       - [Detener la protección](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) (con conservación de datos) en el nodo principal
 
-      - Ejecutar el [script de registro previo](https://aka.ms/scriptforpermsonhana) en el nodo secundario
+      - Ejecutar el [script de registro previo](https://go.microsoft.com/fwlink/?linkid=2173610) en el nodo secundario
 
       - [Detectar las bases de datos](tutorial-backup-sap-hana-db.md#discover-the-databases) en el nodo secundario y [configurar las copias de seguridad](tutorial-backup-sap-hana-db.md#configure-backup) en ellas
 
@@ -148,7 +155,33 @@ sections:
 
       >[!Note]
 
-      >[La ejecución del script previo al registro](/azure/backup/tutorial-backup-sap-hana-db#prerequisites) con el usuario de copia de seguridad personalizado como entrada podría ayudarle a administrar mejor las copias de seguridad de HSR. Esto se debe a que garantiza que ambos nodos de la configuración de HSR tienen la misma clave de copia de seguridad, lo que reduce los problemas de sincronización y los errores de copia de seguridad.
+      >[La ejecución del script previo al registro](./tutorial-backup-sap-hana-db.md#prerequisites) con el usuario de copia de seguridad personalizado como entrada podría ayudarle a administrar mejor las copias de seguridad de HSR. Esto se debe a que garantiza que ambos nodos de la configuración de HSR tienen la misma clave de copia de seguridad, lo que reduce los problemas de sincronización y los errores de copia de seguridad.
+  - question: >
+      ¿Qué ocurre si no detengo la protección (con conservación de los datos) del nodo secundario o inactivo en la configuración de HSR?
+    answer: >
+      1. En el caso de la replicación del sistema HANA (HSR), el nodo secundario no acepta ninguna conexión. Una vez configurada la copia de seguridad, el servicio de Azure Backup hace ping periódicamente y produce un error. A veces estos intentos con errores se reflejan en el nodo principal. Después de varios errores, el usuario se bloquea y, a continuación, el nodo principal comienza a producir un error con _ODBCConnectionError_.   <br><br>Hemos observado que no todos los usuarios experimentan esta incidencia. Se recomienda que usted o SAP investiguen la causa del bloqueo de los usuarios en el nodo principal cuando se produce un error en la conexión del usuario del nodo secundario.
+
+
+      1. Una vez ejecutado el script de registro previo, la información del usuario se actualiza con una nueva contraseña en el nodo principal. A continuación, se volverá a establecer la conexión para intentar realizar la copia de seguridad. No obstante, es posible que vuelva a experimentar el mismo escenario.
+
+
+      1. Además, las copias de seguridad (copias de seguridad completas) que no se pueden realizar en el nodo secundario crean alertas.
+
+
+      Para evitar los problemas anteriores, se recomienda detener la protección de un nodo cuando se convierta en secundario (para que las conexiones no se intenten y el usuario no se bloquee) y reanudar la protección una vez que se convierta en principal. Si no se enfrenta a esta situación de bloqueo en sus configuraciones de HSR y se encuentra cómodo con las alertas que se están generando, puede configurar las copias de seguridad en ambos nodos para que el servicio administre la toma de control y la conmutación por recuperación.
+  - question: >
+      ¿Cuál es el rendimiento de copia de seguridad y restauración que Azure Backup proporciona y cómo puedo configurar el sistema HANA para usar este rendimiento máximo?
+    answer: >
+      Consulte el [rendimiento de las copias de seguridad y restauraciones](/azure/backup/tutorial-backup-sap-hana-db#understanding-backup-and-restore-throughput-performance) que ofrece Azure Backup para las cargas de trabajo de HANA. <br><br> Para configurar el sistema HANA a fin de aprovechar el rendimiento mejorado, use los siguientes recursos:
+
+       - [Selección de un tipo de disco para máquinas virtuales IaaS de Azure: discos administrados](/azure/virtual-machines/disks-types#premium-ssd)
+       - [Niveles de rendimiento de discos administrados de Azure](/azure/virtual-machines/disks-change-performance)
+       - [Serie M](/azure/virtual-machines/m-series)
+       - [Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines)
+
+      >[!Note]
+
+      >También puede limitar el rendimiento de la copia de seguridad. [Más información](/azure/backup/tutorial-backup-sap-hana-db#limiting-backup-throughput-performance).
 - name: Restauración
   questions:
   - question: >

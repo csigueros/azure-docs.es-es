@@ -1,26 +1,26 @@
 ---
 title: Ejecución de canalizaciones de Azure Machine Learning
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Aprenda a ejecutar canalizaciones de Azure Machine Learning en las canalizaciones de Azure Data Factory.
+description: Aprenda a ejecutar canalizaciones de Azure Machine Learning en las canalizaciones de Azure Data Factory y Synapse Analytics.
 ms.service: data-factory
 ms.subservice: tutorials
 ms.custom: synapse
 ms.topic: conceptual
 ms.author: abnarain
 author: nabhishek
-ms.date: 07/16/2020
-ms.openlocfilehash: 19456f33e13a9a472b5c42afc0a3cb3c5041efd2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: 0d7fe523b7300634df6c876525b1ffe47a49c205
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638128"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806322"
 ---
-# <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Ejecución de canalizaciones de Azure Machine Learning en Azure Data Factory
+# <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory-and-synapse-analytics"></a>Ejecución de canalizaciones de Azure Machine Learning en Azure Data Factory y Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Ejecute canalizaciones de Azure Machine Learning en las canalizaciones de Azure Data Factory como un paso más. La actividad de ejecución de canalización de Machine Learning posibilita escenarios de predicción por lotes, como la identificación de posibles impagos de préstamos, la determinación de opiniones y el análisis de los patrones de comportamiento de los clientes.
+Ejecute canalizaciones de Azure Machine Learning como paso en las canalizaciones de Azure Data Factory y Synapse Analytics. La actividad de ejecución de canalización de Machine Learning posibilita escenarios de predicción por lotes, como la identificación de posibles impagos de préstamos, la determinación de opiniones y el análisis de los patrones de comportamiento de los clientes.
 
 En el vídeo siguiente se muestra una introducción de seis minutos y una demostración de esta característica.
 
@@ -62,7 +62,7 @@ dataPathAssignments | Diccionario que se usa para cambiar las rutas de acceso a 
 continueOnStepFailure | Puede decidir si se continúa la ejecución del resto de pasos de la ejecución de la canalización de Machine Learning si se produce un error en un paso. | boolean | No
 
 > [!NOTE]
-> Para rellenar los elementos desplegables del nombre y el identificador de la canalización de Machine Learning, el usuario debe tener permiso para enumerar las canalizaciones de ML. La experiencia de usuario de ADF llama a las API de AzureMLService directamente con las credenciales del usuario que ha iniciado sesión.  
+> Para rellenar los elementos desplegables del nombre y el identificador de la canalización de Machine Learning, el usuario debe tener permiso para enumerar las canalizaciones de ML. La interfaz de usuario llama a las API de AzureMLService directamente con las credenciales del usuario que ha iniciado sesión.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea los siguientes artículos, en los que se explica cómo transformar datos de otras maneras:

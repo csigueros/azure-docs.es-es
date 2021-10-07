@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 02/05/2021
-ms.openlocfilehash: 7b0d43cec561040e98688a216165d7a4ed88c3d2
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: b4b953c527010cb4ec15f0adf52df6bb3b0d7db0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122635180"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128674953"
 ---
 # <a name="access-a-compute-instance-terminal-in-your-workspace"></a>Acceso a un terminal de instancia de proceso en el área de trabajo
 
@@ -81,7 +81,7 @@ O puede instalar paquetes directamente en Jupyter Notebook o en RStudio:
 ## <a name="add-new-kernels"></a>Incorporación de nuevos kernels
 
 > [!WARNING]
->  Durante la personalización de la instancia de proceso, asegúrese de no eliminar los entornos de Conda **azureml_py36** ni **azureml_py38**.  Además, no elimine los kernel **Python 3.6: AzureML** ni **Python 3.8: AzureML**. Esto es necesario para la funcionalidad de Jupyter/JupyterLab.
+>  Durante la personalización de la instancia de proceso, asegúrese de no eliminar los entornos de Conda **azureml_py36** ni **azureml_py38**.  Además, no elimine los kernel **Python 3.6: AzureML** ni **Python 3.8: AzureML**. Esto es necesario para la funcionalidad de Jupyter/JupyterLab.
 
 Para agregar un kernel nuevo de Jupyter a la instancia de proceso:
 

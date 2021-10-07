@@ -10,12 +10,12 @@ ms.date: 8/05/2021
 ms.author: ronytho
 ms.reviewer: jrasnick, wiassaf
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 6a604c4e2a3b1f12fa5d296558023be9bc31cd96
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 513b2edd432a274f155e79362e715fbc426a9f9e
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862244"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081517"
 ---
 # <a name="how-to-set-up-access-control-for-your-azure-synapse-workspace"></a>Procedimiento para configurar el control de acceso para el área de trabajo de Azure Synapse 
 
@@ -139,7 +139,7 @@ Para ejecutar canalizaciones y realizar tareas del sistema, Azure Synapse necesi
     
     | Configuración | Valor |
     | --- | --- |
-    | Role | Colaborador de Storage Blob |
+    | Role | Colaborador de datos de blobs de almacenamiento |
     | Asignar acceso a | MANAGEDIDENTITY |
     | Miembros | Nombre de la identidad administrada  |
 
@@ -181,16 +181,16 @@ El creador del área de trabajo se configura automáticamente como el administra
 
 ## <a name=&quot;step-7-grant-access-to-sql-pools&quot;></a>PASO 7: Concesión de acceso a grupos de SQL
 
-De forma predeterminada, a todos los usuarios a los que se asigna el rol Administrador de Synapse también se les asigna el rol `db_owner` de SQL en el grupo de SQL sin servidor, &quot;Integrado&quot;, y todas sus bases de datos.
+De forma predeterminada, a todos los usuarios a los que se asigna el rol de administrador de Synapse también se les asigna el rol `db_owner` de SQL en el grupo de SQL dedicado y sin servidor del área de trabajo.
 
 El acceso a los grupos de SQL para otros usuarios y para las identidades administradas para recursos de Azure del área de trabajo se controla mediante permisos SQL.  La asignación de permisos de SQL requiere que los scripts de SQL se ejecuten en cada base de datos SQL después de la creación.  Hay tres casos en los que es necesario ejecutar estos scripts:
 1. Al conceder a otros usuarios acceso al grupo de SQL sin servidor, &quot;Integrado&quot;, y sus bases de datos
-2. Al conceder acceso a cualquier usuario a bases de datos de grupos dedicados
+2. Al conceder acceso a cualquier usuario a bases de datos de grupos de SQL dedicados
 3. Al conceder acceso a las identidades de servicio administradas del área de trabajo a una base de datos de grupo de SQL a fin de habilitar canalizaciones que requieran el acceso al grupo de SQL para ejecutarse correctamente.
 
 A continuación, se incluyen scripts SQL de ejemplo.
 
-Para conceder acceso a una base de datos de grupo de SQL dedicado, el creador del área de trabajo o cualquier miembro del grupo `workspace1_SQLAdmins` puede ejecutar los scripts.  
+Para conceder acceso a una base de datos de grupo de SQL dedicado, el creador del área de trabajo o cualquier miembro de los grupos `workspace1_SQLAdmins` o `workspace1_SynapseAdministrators` puede ejecutar los scripts.  
 
 Para conceder acceso al grupo de SQL sin servidor (&quot;Integrado"), cualquier miembro del grupo `workspace1_SQLAdmins` o del grupo `workspace1_SynapseAdministrators` puede ejecutar los scripts. 
 

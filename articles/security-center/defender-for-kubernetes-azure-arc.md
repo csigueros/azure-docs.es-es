@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 04/06/2021
+ms.date: 09/14/2021
 ms.author: memildin
-ms.openlocfilehash: e11d455238f4a4e8c128a6cda83a145adaf149e9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fa7076882370b404ea7b1e04cb5c364f22c35fae
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745105"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648475"
 ---
 # <a name="defend-azure-arc-enabled-kubernetes-clusters-running-in-on-premises-and-multi-cloud-environments"></a>Protección de clústeres de Kubernetes habilitados para Azure Arc que se ejecutan en entornos locales y de varias nubes
 
@@ -29,7 +29,7 @@ La extensión puede proteger también los clústeres de Kubernetes en otros prov
 |--------|---------|
 | Estado de la versión | **Versión preliminar**<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
 | Roles y permisos necesarios | El [administrador de seguridad](../role-based-access-control/built-in-roles.md#security-admin) puede descartar las alertas.<br>El [Lector de seguridad](../role-based-access-control/built-in-roles.md#security-reader) puede ver los resultados. |
-| Precios | Requiere [Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md) |
+| Precios | Gratis (durante la versión preliminar) |
 | Distribuciones de Kubernetes admitidas | [Azure Kubernetes Service en Azure Stack HCl](/azure-stack/aks-hci/overview)<br>[Kubernetes](https://kubernetes.io/docs/home/)<br> [AKS Engine](https://github.com/Azure/aks-engine)<br> [Red Hat OpenShift en Azure](https://azure.microsoft.com/services/openshift/)<br> [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (versión 4.6 o posterior)<br> [VMware Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid)<br> [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/) |
 | Limitaciones | Kubernetes habilitado para Azure Arc y la extensión de Azure Defender **no admiten** las ofertas de Kubernetes administrado, como Google Kubernetes Engine y Elastic Kubernetes Service. [Azure Defender está disponible de forma nativa para Azure Kubernetes Service (AKS)](defender-for-kubernetes-introduction.md) y no requiere conectar el clúster a Azure Arc. |
 | Entornos y regiones | La disponibilidad de esta extensión es la misma que la de [Kubernetes habilitado para Azure Arc](../azure-arc/kubernetes/overview.md).|
@@ -46,9 +46,18 @@ En este diagrama se muestra la interacción entre Azure Defender para Kubernetes
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Azure Defender para Kubernetes está [habilitado en su suscripción](enable-azure-defender.md)
-- El clúster de Kubernetes está [conectado a Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md)
-- Ha cumplido los requisitos previos incluidos en la [documentación acerca de las extensiones de clúster genéricas](../azure-arc/kubernetes/extensions.md#prerequisites).
+Antes de implementar la extensión, asegúrese de que:
+- [Conecta el clúster de Kubernetes a Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md).
+- Cumple los [requisitos previos incluidos en la documentación acerca de las extensiones de clúster genéricas](../azure-arc/kubernetes/extensions.md#prerequisites).
+- Configura el **puerto 443** en los siguientes puntos de conexión para el acceso saliente:
+    - En cuanto a los clústeres en la nube de Azure Government:
+        - *.ods.opinsights.azure.us
+        - *.oms.opinsights.azure.us
+        - :::no-loc text="login.microsoftonline.us":::
+    - En el caso de los clústeres en otras implementaciones en la nube de Azure:
+        - *.ods.opinsights.azure.com
+        - *.oms.opinsights.azure.com
+        - :::no-loc text="login.microsoftonline.com":::
 
 ## <a name="deploy-the-azure-defender-extension"></a>Implementación de la extensión de Azure Defender
 
@@ -150,7 +159,7 @@ Si quiere usar la API REST para implementar la extensión de Azure Defender, nec
 
     Para la **autenticación**, el encabezado debe tener un token de portador (como sucede con otras API de Azure). Para obtener un token de portador, ejecute el siguiente comando:
 
-    ```az account get-access-token --subscription <your-subscription-id>``` Use la siguiente estructura para el cuerpo del mensaje:
+    `az account get-access-token --subscription <your-subscription-id>` Use la siguiente estructura para el cuerpo del mensaje:
     ```json
     { 
     "properties": { 

@@ -1,25 +1,25 @@
 ---
-title: Copia de datos de Marketo con Azure Data Factory (versión preliminar)
+title: Copia de datos de Marketo (versión preliminar)
+description: Aprenda a copiar datos de Marketo en almacenes de datos receptores compatibles mediante una actividad de copia en una canalización de Azure Data Factory o Synapse Analytics.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Aprenda a copiar datos de Marketo en almacenes de datos receptores compatibles con una actividad de copia de una canalización de Azure Data Factory.
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: chez
 author: chez-charlie
-ms.openlocfilehash: 195b99bc9c64c986a0a6e17cb82deae2fb360fda
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 16353c131f87118bb64d3be7b4d5dd36744c2a10
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123306359"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743975"
 ---
-# <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Copia de datos de Marketo con Azure Data Factory (versión preliminar)
+# <a name="copy-data-from-marketo-using-azure-data-factory-or-synapse-analytics-preview"></a>Copia de datos de Marketo con Azure Data Factory o Synapse Analytics (versión preliminar)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de Marketo. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
+En este artículo se explica cómo usar la actividad de copia en una canalización de Azure Data Factory o Synapse Analytics para copiar datos de Marketo. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 > [!IMPORTANT]
 > Este conector está actualmente en versión preliminar. Puede probarlo y enviarnos sus comentarios. Si desea depender de los conectores de versión preliminar en la solución, póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/).
@@ -78,7 +78,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Marketo:
 | type | La propiedad type debe establecerse en: **Marketo** | Sí |
 | endpoint | Punto de conexión del servidor de Marketo (es decir, 123-ABC-321.mktorest.com).  | Sí |
 | clientId | Identificador de cliente del servicio Marketo.  | Sí |
-| clientSecret | Secreto de cliente del servicio Marketo. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| clientSecret | Secreto de cliente del servicio Marketo. Marque este campo como SecureString para almacenarlo de forma segura, o bien [haga referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | No |
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de TLS. El valor predeterminado es true.  | No |
 | usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de TLS. El valor predeterminado es true.  | No |
@@ -181,4 +181,4 @@ Para obtener información detallada sobre las propiedades, consulte [Actividad d
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

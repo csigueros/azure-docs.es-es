@@ -7,13 +7,13 @@ ms.topic: conceptual
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 08/06/2021
-ms.openlocfilehash: b9b3a1e651e6207cc037ab8e4c70f81a176c3d82
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: ebf0a77eb4b0e79931af4f33a8adad4f6c115c22
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121747263"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081550"
 ---
 # <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Panel Resumen de los análisis de marketplace comercial
 
@@ -31,17 +31,45 @@ El [panel Resumen](https://go.microsoft.com/fwlink/?linkid=2165765) presenta inf
 - Uso de las ofertas por parte de los clientes
 - Visitas a las páginas de Azure Marketplace y AppSource por parte de los clientes
 
+## <a name="access-the-summary-dashboard"></a>Acceso al panel Resumen
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
+1. En la página principal, seleccione el icono **Información**.
+
+    [ ![Se muestra el icono "Información" en la página principal del Centro de partners.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. En el menú de la izquierda, seleccione **Resumen**.
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
+
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
+1. En el menú de navegación izquierdo, seleccione **Marketplace comercial** > **Analizar** > **Resumen**.
+
+---
+
 ## <a name="elements-of-the-summary-dashboard"></a>Elementos del panel Resumen
 
 En las secciones siguientes se describe cómo usar el panel Resumen y cómo leer los datos.
 
-Para acceder al panel de resumen en el Centro de partners, vaya a **Marketplace comercial** y seleccione **[Analizar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  > **Resumen**.
-
 ### <a name="month-range"></a>Intervalo mensual
+
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+
+Puede encontrar una selección del intervalo mensual en la esquina superior derecha de cada página. Para personalizar la salida de los gráficos de la página **Resumen**, seleccione un intervalo mensual basado en el número especificado de meses anteriores o seleccione un intervalo mensual personalizado con una duración máxima de 12 meses. El intervalo mensual predeterminado (período de cálculo) es de seis meses.
+
+[ ![Muestra las opciones de intervalos mensuales en el panel de resumen.](./media/summary-dashboard/summary-dashboard-filters.png) ](./media/summary-dashboard/summary-dashboard-filters.png#lightbox)
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
 
 Puede encontrar una selección del intervalo mensual en la esquina superior derecha de cada página. Puede personalizar salida de los gráficos de la página **Resumen** si selecciona un intervalo mensual basado en los últimos 3, 6 o 12 meses, o bien si selecciona un intervalo mensual personalizado con una duración máxima de 12 meses. El intervalo mensual predeterminado (período de cálculo) es de seis meses.
 
 :::image type="content" source="./media/summary-dashboard/summary-dashboard.png" alt-text="Muestra las opciones de intervalo mensual en el panel de resumen.":::
+
+---
 
 > [!NOTE]
 > Todas las métricas de los widgets de visualización y los informes de exportación respetan el período de cálculo seleccionado por el usuario.

@@ -2,18 +2,18 @@
 title: Adquisición de una reserva de Azure
 description: Para comprar una reserva de Azure, es importante que conozca algunos aspectos importantes.
 author: bandersmsft
-ms.reviewer: yashar
+ms.reviewer: primattal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 04/12/2021
+ms.date: 09/20/2021
 ms.author: banders
-ms.openlocfilehash: d9de6322ac84a86902b5ef218df9abe8528b95a9
-ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
+ms.openlocfilehash: bbd57ed54171785ab8f2aedea93fa8c56cc0319c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113231492"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653383"
 ---
 # <a name="buy-a-reservation"></a>Adquisición de una reserva
 
@@ -41,16 +41,18 @@ Tiene tres opciones para limitar el ámbito de una reserva, según sus necesidad
     - Para los clientes con Contrato Enterprise, el contexto de facturación es la inscripción. El ámbito compartido de la reserva incluiría varios inquilinos de Active Directory en una inscripción.
     - En el caso de los clientes con contrato Microsoft Customer Agreement, el ámbito de facturación es el perfil de facturación.
     - En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.
+- **Grupo de administración**: aplica el descuento de reserva al recurso correspondiente en la lista de suscripciones que forman parte del grupo de administración y del ámbito de facturación. Si desea comprar una reserva para un grupo de administración, debe tener como mínimo permiso de lectura en el grupo de administración y ser el propietario o comprador de la reserva de la suscripción de facturación.
 
 Al aplicar los descuentos por reserva sobre su uso, Azure procesa la reserva en el orden siguiente:
 
 1. Reservas con un ámbito de grupo de recursos único
 2. Reservas con un ámbito de suscripción única
-3. Reservas con un ámbito compartido (varias suscripciones), descritas anteriormente
+3. Reservas cuyo ámbito es un grupo de administración
+4. Reservas con un ámbito compartido (varias suscripciones), descritas anteriormente
 
 También puede actualizar el ámbito después de comprar una reserva. Para ello, vaya a la reserva, haga clic en **Configuración** y limite de nuevo el ámbito de la reserva. Volver a limitar el ámbito de una reserva no es una transacción comercial. No se cambian las condiciones de la reserva. Para más información sobre cómo actualizar el ámbito, consulte [Update the scope after you purchase a reservation](manage-reserved-vm-instance.md#change-the-reservation-scope) (Actualización del ámbito después de comprar una reserva).
 
-![Ejemplo que muestra un cambio en el ámbito de la reserva](./media/prepare-buy-reservation/rescope-reservation-resource-group.png)
+:::image type="content" source="./media/prepare-buy-reservation/rescope-reservation-management-group.png" alt-text="Ejemplo que muestra un cambio en el ámbito de la reserva" lightbox="./media/prepare-buy-reservation/rescope-reservation-management-group.png" :::
 
 ## <a name="discounted-subscription-and-offer-types"></a>Tipos de ofertas y suscripciones con descuento
 

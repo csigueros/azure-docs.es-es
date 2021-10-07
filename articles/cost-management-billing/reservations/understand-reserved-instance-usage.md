@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: f6aad15d70157dda110fce233fbdafb7f3d896ad
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 0636e09e4dc955f887086085a5c0cc5c941d32ee
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055066"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646201"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Descripción del uso de reservas para su suscripción individual de pago por uso
 
@@ -54,7 +54,7 @@ Filtre por **Información adicional** y escriba su **Identificador de reserva**.
 1. **ReservationId** en el campo **Información adicional** es la reserva que se aplicó a la máquina virtual.
 2. **ConsumptionMeter** es el identificador del medidor de la máquina virtual.
 3. En **Instancias reservadas de VM base**, la línea **Meter Subcategory** (Subcategoría de medidor) representa el costo de 0 $ en la sección de instrucciones. El costo de la ejecución de esta máquina virtual ya lo cubre la reserva.
-4. **Id. de medidor** es el identificador del medidor de la reserva. El costo del medidor es de 0 $. Este identificador de medidor aparece para cualquier máquina virtual apta para el descuento de reserva.
+4. **Id. de medidor** es el identificador del medidor de la reserva. El costo del medidor es de 0 $. Este identificador de medidor aparece con las máquinas virtuales aptas para el descuento de reserva.
 5. Standard_DS1_v2 es una máquina virtual de vCPU y se implementa sin la Ventaja híbrida de Azure. Por lo tanto, este medidor cubre el costo extra del software de Windows. Para buscar el medidor correspondiente a la máquina virtual de 1 núcleo de serie D, consulte [Costos del software de Windows de las instancias de máquina virtual de reserva de Azure](reserved-instance-windows-software-costs.md). Si tiene la Ventaja híbrida de Azure, no se aplicará este cargo adicional.
 
 ## <a name="usage-for-sql-database--cosmos-db-reservations"></a>Uso de reservas para SQL Database y Cosmos DB

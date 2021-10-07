@@ -1,14 +1,14 @@
 ---
 title: Ver y administrar clientes y recursos delegados en Azure Portal
 description: Como proveedor de servicio o empresa que usa Azure Lighthouse, puede ver todos los recursos y suscripciones delegados desde la sección Mis clientes de Azure Portal.
-ms.date: 08/12/2021
+ms.date: 09/17/2021
 ms.topic: how-to
-ms.openlocfilehash: a29f34983bc42d74efd65a45605bb99944897345
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 4cce38b435ee2613b885dfad959871579579ddce
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121861009"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673641"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources-in-the-azure-portal"></a>Ver y administrar clientes y recursos delegados en Azure Portal
 
@@ -72,14 +72,18 @@ Puede trabajar directamente en el contexto de una suscripción delegada en Azure
 
 1. Seleccione el icono **Directory + subscriptions** (Directorio y suscripciones) o **Configuración** cerca de la parte superior de Azure Portal.
 1. En la página de configuración de [Directories + subscriptions (Directorios y suscripciones)](../../azure-portal/set-preferences.md#directories--subscriptions), asegúrese de que el botón de alternancia **Filtros avanzados** está [desactivado](../../azure-portal/set-preferences.md#subscription-filters).
-1. En la sección **Filtro de suscripción predeterminada**, seleccione el directorio y la suscripción adecuados.
+1. En la sección **Filtro de suscripción predeterminada**, seleccione el directorio y la suscripción adecuados. (Si se le ha concedido acceso a uno o varios grupos de recursos, en lugar de obtener acceso a una suscripción completa, seleccione la suscripción a la que pertenece ese grupo de recursos. A continuación, trabajará en el contexto de esa suscripción, pero solo podrá acceder a los grupos de recursos designados.)
 
-:::image type="content" source="../media/subscription-filter-delegated.png" alt-text="Captura de pantalla de un filtro que muestra una suscripción delegada.":::
+:::image type="content" source="../media/subscription-filter-delegated.png" alt-text="Captura de pantalla del filtro de suscripción predeterminado con una suscripción delegada seleccionada.":::
 
-Si después accede a un servicio que admite [experiencias de administración entre inquilinos](../concepts/cross-tenant-management-experience.md), el servicio adoptará de forma predeterminada el contexto de la suscripción delegada que incluyó en el filtro. Para cambiarlo, siga los pasos anteriores y active la casilla **Seleccionar todo** (o elija una o más suscripciones para trabajar en su lugar).
+Después de esto, cuando acceda a un servicio que admite las [experiencias de administración entre inquilinos](../concepts/cross-tenant-management-experience.md), el servicio adoptará de forma predeterminada el contexto de la suscripción delegada que incluyó en el filtro.
 
-> [!NOTE]
-> Si se le ha concedido acceso a uno o varios grupos de recursos, en lugar de acceso a una suscripción completa, seleccione la suscripción a la que pertenece ese grupo de recursos. Después, trabajará en el contexto de esa suscripción, pero solo podrá acceder a los grupos de recursos designados.
+Puede cambiar la suscripción predeterminada en cualquier momento siguiendo los pasos anteriores y eligiendo una suscripción diferente o seleccionando varias suscripciones. También puede seleccionar **Todos los directorios** y, a continuación, seleccionar la casilla **Seleccionar todo** si quiere que el filtro incluya todas las suscripciones a las que tiene acceso.
+
+:::image type="content" source="../media/subscription-filter-all.png" alt-text="Captura de pantalla del filtro de suscripción predeterminado con todos los directorios y suscripciones seleccionados.":::
+
+> [!IMPORTANT]
+> Al seleccionar la casilla **Seleccionar todo**, se configura el filtro para mostrar todas las suscripciones a las que *actualmente* tiene acceso. Si más adelante obtiene acceso a suscripciones adicionales (por ejemplo, después de incorporar un nuevo cliente a Azure Lighthouse), estas suscripciones no se agregarán automáticamente al filtro. Para ello, deberá volver a **Directorios y suscripciones** y seleccionar las suscripciones adicionales (o desactivar y volver a seleccionar **Seleccionar todo**).
 
 También puede acceder a la funcionalidad relacionada con las suscripciones o grupos de recursos delegados desde los servicios que admiten experiencias de administración entre inquilinos seleccionando la suscripción o el grupo de recursos desde un servicio.
 

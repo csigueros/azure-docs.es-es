@@ -1,18 +1,18 @@
 ---
 title: Características de red
 description: Obtenga información sobre las características de red de Azure App Service y aprenda qué características necesita para seguridad u otras funcionalidades.
-author: ccompy
+author: madsd
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 03/26/2021
-ms.author: ccompy
+ms.date: 09/20/2021
+ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 80c60f0bf875a49f184dab1d5d02f34a3d211350
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: aa54c96864476cfd42d1d91e61ce293e919f9069
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123428099"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128592705"
 ---
 # <a name="app-service-networking-features"></a>Características de redes de App Service
 
@@ -51,7 +51,7 @@ Para un caso de uso determinado, podría haber varias maneras de solucionar el p
 | Compatibilidad con las necesidades de SSL basado en IP de la aplicación | Dirección asignada a las aplicaciones |
 | Compatibilidad con la dirección entrante dedicada no compartida para la aplicación | Dirección asignada a las aplicaciones |
 | Restricción del acceso a la aplicación desde un conjunto de direcciones bien definidas | Restricciones de acceso              |
-| Restricción del acceso a la aplicación desde los recursos en una red virtual | Puntos de conexión del servicio </br> ASE de ILB </br> Puntos de conexión privados |
+| Restricción del acceso a la aplicación desde los recursos en una red virtual | Puntos de conexión del servicio </br> ASE del equilibrador de carga interno (ILB) </br> Puntos de conexión privados |
 | Exposición de la aplicación en una dirección IP privada de la red virtual | ASE de ILB </br> Puntos de conexión privados </br> Dirección IP privada para el tráfico de entrada en una instancia de Application Gateway con puntos de conexión de servicio |
 | Protección de la aplicación con un firewall de aplicaciones web (WAF) | Application Gateway y ASE de ILB </br> Application Gateway con puntos de conexión privados </br> Application Gateway con puntos de conexión de servicio </br> Azure Front Door con restricciones de acceso |
 | Equilibrio de la carga del tráfico a las aplicaciones en diferentes regiones | Azure Front Door con restricciones de acceso | 
@@ -62,7 +62,7 @@ Los siguientes casos de uso de salida sugieren cómo usar las características d
 | Caso de uso de salida | Característica |
 |---------------------|-------------------|
 | Acceso a los recursos de una red virtual de Azure en la misma región | Integración con red virtual </br> ASE |
-| Acceso a los recursos de una red virtual de Azure en una región diferente | Integración con red virtual con requisito de puerta de enlace </br> ASE y emparejamiento de red virtual |
+| Acceso a los recursos de una red virtual de Azure en una región diferente | Integración con red virtual y emparejamiento de redes virtuales </br> Integración con red virtual con requisito de puerta de enlace </br> ASE y emparejamiento de red virtual |
 | Acceso a los recursos protegidos por puntos de conexión de servicio | Integración con red virtual </br> ASE |
 | Acceso a los recursos de una red privada que no está conectada a Azure | conexiones híbridas |
 | Acceso a los recursos mediante circuitos de Azure ExpressRoute | Integración con red virtual </br> ASE | 
@@ -122,7 +122,10 @@ Para obtener información sobre cómo habilitar esta característica, consulte [
 
 #### <a name="access-restriction-rules-based-on-service-endpoints"></a>Reglas de restricciones de acceso basadas en puntos de conexión de servicio 
 
-Los puntos de conexión de servicio le permiten bloquear el acceso *entrante* a la aplicación, de modo que la dirección de origen debe proceder de un conjunto de subredes que haya seleccionado. Esta característica funciona en conjunto con las restricciones de acceso IP. Los puntos de conexión de servicio no son compatibles con la depuración remota. Si quiere usar la depuración remota con la aplicación, el cliente no puede estar en una subred que tenga los puntos de conexión de servicio habilitados. El proceso para establecer los puntos de conexión de servicio es similar al proceso para establecer las restricciones de acceso basadas en IP. Puede crear una lista de reglas de acceso tipo permitir/denegar que incluya las direcciones públicas y subredes de sus redes virtuales. 
+Los puntos de conexión de servicio le permiten bloquear el acceso *entrante* a la aplicación, de modo que la dirección de origen debe proceder de un conjunto de subredes que haya seleccionado. Esta característica funciona en conjunto con las restricciones de acceso IP. Los puntos de conexión de servicio no son compatibles con la depuración remota. Si quiere usar la depuración remota con la aplicación, el cliente no puede estar en una subred que tenga los puntos de conexión de servicio habilitados. El proceso para establecer los puntos de conexión de servicio es similar al proceso para establecer las restricciones de acceso basadas en IP. Puede crear una lista de reglas de acceso tipo permitir/denegar que incluya las direcciones públicas y subredes de sus redes virtuales.
+
+> [!NOTE]
+> Las reglas de restricción de acceso basadas en los puntos de conexión del servicio no son compatibles con las aplicaciones que usan SSL basado en IP ([dirección asignada por la aplicación](#app-assigned-address)).
 
 Los siguientes son algunos casos de uso para esta característica:
 
@@ -153,7 +156,7 @@ Algunos casos de uso del filtrado de encabezados HTTP son:
 
 ### <a name="private-endpoint"></a>Punto de conexión privado
 
-Un punto de conexión privado es una interfaz de red que le conecta de manera privada y segura a la aplicación web con Azure Private Link. El punto de conexión privado usa una dirección IP privada de la red virtual para incorporar la aplicación web de manera eficaz a su red virtual. Esta característica es solo para flujos *entrantes* en la aplicación web.
+Un punto de conexión privado es una interfaz de red que le conecta de forma privada y segura a la aplicación web con Azure Private Link. El punto de conexión privado usa una dirección IP privada de la red virtual para incorporar la aplicación web de manera eficaz a su red virtual. Esta característica es solo para flujos *entrantes* en la aplicación web.
 Para obtener más información, consulte [Uso de puntos de conexión privados para una aplicación web de Azure][privateendpoints].
 
 Los siguientes son algunos casos de uso para esta característica:
@@ -196,23 +199,25 @@ La integración con red virtual de App Service requerida por la puerta de enlace
 
 Esta característica soluciona el problema de acceso a los recursos de otras redes virtuales. Incluso se puede usar para conectarse a través de una red virtual a otras redes virtuales o entornos locales. No funciona con redes virtuales conectadas mediante ExpressRoute, aunque funciona con ñas redes conectadas mediante VPN de sitio a sitio. Normalmente, no es adecuado usar esta característica desde una aplicación en un entorno de App Service Environment (ASE), porque la instancia de ASE ya está en su red virtual. Casos de uso para esta característica:
 
-* Acceso a los recursos en direcciones IP privadas de sus redes virtuales de Azure. 
-* Acceso a los recursos locales si hay una conexión VPN de sitio a sitio. 
-* Acceso a recursos en redes virtuales emparejadas. 
+* Acceso a los recursos en direcciones IP privadas de sus redes virtuales clásicas.
+* Acceso a los recursos locales si hay una conexión VPN de sitio a sitio.
+* Acceso a los recursos en redes virtuales entre regiones que no están emparejadas con una red virtual de la región. 
 
 Cuando esta característica está habilitada, la aplicación usará el servidor DNS configurado en la red virtual de destino. Para obtener más información sobre esta característica, consulte [Integración con red virtual de App Service][vnetintegrationp2s]. 
 
-### <a name="vnet-integration"></a>Integración con red virtual
+### <a name="regional-vnet-integration"></a>Integración con red virtual regional
 
 La integración con red virtual requerida por la puerta de enlace es útil, pero no resuelve el problema de acceso a los recursos a través de ExpressRoute. Más allá de la necesidad de conexiones a través de ExpressRoute, las aplicaciones necesitan la capacidad de realizar llamadas a servicios protegidos por puntos de conexión de servicio. Otra funcionalidad de integración con red virtual puede satisfacer estas necesidades. 
 
-La nueva característica Integración con red virtual le permite colocar el back-end de la aplicación en una subred de una red virtual de Resource Manager en la misma región que la aplicación. Esta característica no está disponible desde un entorno de App Service Environment, que ya se encuentra en una red virtual. Casos de uso para esta característica:
+La característica regional de Integración con red virtual le permite colocar el back-end de la aplicación en la subred de una red virtual de Resource Manager en la misma región que la aplicación. Esta característica no está disponible desde un entorno de App Service Environment, que ya se encuentra en una red virtual. Casos de uso para esta característica:
 
 * Acceso a recursos en redes virtuales de Resource Manager de la misma región.
+* Acceso a recursos en redes virtuales emparejadas, incluidas las conexiones entre regiones.
 * Acceso a los recursos que están protegidos por puntos de conexión de servicio. 
 * Acceso a recursos que son accesibles a través de conexiones ExpressRoute o VPN.
-* Ayuda para proteger todo el tráfico saliente. 
-* Tunelización forzada de todo el tráfico saliente. 
+* Acceso a los recursos de redes privadas sin necesidad de una puerta de enlace de Virtual Network ni tener que costearla.
+* Ayuda para proteger todo el tráfico saliente.
+* Tunelización forzada de todo el tráfico saliente.
 
 ![Diagrama que muestra la integración con red virtual.](media/networking-features/vnet-integration.png)
 
@@ -226,20 +231,18 @@ Un entorno de App Service Environment (ASE) es una implementación de inquilino 
 * Acceso a recursos a través de ExpressRoute.
 * Exposición de las aplicaciones con una dirección privada en la red virtual. 
 * Acceso a los recursos a través de puntos de conexión de servicio. 
+* Acceso a los recursos a través de puntos de conexión privados. 
 
-Con un entorno de ASE, no es necesario utilizar características como la integración con red virtual o los puntos de conexión de servicio, porque la instancia de ASE ya está en la red virtual. Si quiere acceder a recursos como SQL o Azure Storage mediante puntos de conexión de servicio, habilite puntos de conexión de servicio en la subred de ASE. Si quiere acceder a los recursos de la red virtual, no es necesario realizar ninguna configuración adicional. Si quiere acceder a recursos a través de ExpressRoute, ya está en la red virtual y no es necesario configurar nada en el entorno de ASE ni en las aplicaciones en él. 
+Con un entorno de ASE, no es necesario utilizar la integración con red virtual, porque la instancia de ASE ya está en la red virtual. Si quiere acceder a recursos como SQL o Azure Storage mediante puntos de conexión de servicio, habilite puntos de conexión de servicio en la subred de ASE. Si quiere acceder a los recursos o a los puntos de conexión privados de la red virtual, no necesita realizar ninguna configuración adicional. Si quiere acceder a recursos a través de ExpressRoute, ya está en la red virtual y no es necesario configurar nada en el entorno de ASE ni en las aplicaciones en él. 
 
 Dado que las aplicaciones de un ASE de ILB pueden exponerse en una dirección IP privada, puede agregar fácilmente dispositivos WAF para exponer solo las aplicaciones que quiera a Internet y ayudar a proteger el resto. Esta característica puede ayudar a facilitar el desarrollo de aplicaciones de varios niveles. 
 
 Actualmente, algunos elementos no son posibles desde el servicio multiinquilino, aunque lo son desde un ASE. A continuación se muestran algunos ejemplos:
 
-* Exponer las aplicaciones en una dirección IP privada.
-* Ayudar a proteger todo el tráfico saliente con controles de red que no forman parte de la aplicación.
 * Hospedar sus aplicaciones en un servicio de inquilino único. 
 * Escalar verticalmente a muchas más instancias de las posibles en el servicio multiinquilino. 
 * Cargar certificados de cliente de entidad de certificación privada para que las aplicaciones con puntos de conexión protegidos por entidad de certificación privada los usen.
 * Uso forzado de TLS 1.1 en todas las aplicaciones hospedadas en el sistema sin ninguna posibilidad de deshabilitarlo en el nivel de aplicación. 
-* Proporcionar una dirección de salida dedicada para todas las aplicaciones del entorno de ASE que no se comparten con los clientes. 
 
 ![Diagrama que muestra un entorno de ASE en una red Virtual.](media/networking-features/app-service-environment.png)
 
@@ -308,7 +311,7 @@ Si examina App Service, encontrará varios puertos que se exponen para las conex
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  Administración | 454, 455 |
-|  FTP/FTPS    | 21, 990, 10001-10020 |
+|  FTP/FTPS    | 21, 990, 10001-10300 |
 |  Depuración remota en Visual Studio  |  4020, 4022, 4024 |
 |  Servicio Web Deploy | 8172 |
 |  Uso de la infraestructura | 7654, 1221 |

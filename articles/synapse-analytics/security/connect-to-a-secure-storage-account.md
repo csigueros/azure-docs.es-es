@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 02/10/2021
 ms.author: seshin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 11127453c67a41dd4b5f8677d02a10f749f516f9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 103aaa913511c8d61e8e2a28ede81973fca98d1a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745042"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124774656"
 ---
 # <a name="connect-to-a-secure-azure-storage-account-from-your-synapse-workspace"></a>Conexión a una cuenta de almacenamiento de Azure segura desde un área de trabajo de Synapse
 
@@ -29,7 +29,13 @@ Al crear un área de trabajo de Synapse, puede elegir habilitar una red virtual 
 ## <a name="access-a-secured-storage-account"></a>Acceso a una cuenta de almacenamiento protegida
 Synapse funciona desde redes que no se pueden incluir en las reglas de red. Debe hacer lo siguiente para permitir el acceso desde el área de trabajo a la cuenta de almacenamiento segura.
 
-* Cree un área de trabajo de Azure Synapse con una red virtual administrada asociada a ella y, a partir de esta, cree puntos de conexión privados administrados a la cuenta de almacenamiento segura.
+* Cree un área de trabajo de Azure Synapse con una red virtual administrada asociada a ella y, a partir de esta, cree puntos de conexión privados administrados a la cuenta de almacenamiento segura. 
+
+    Si usa Azure Portal para crear el área de trabajo, puede habilitar la red virtual administrada en la pestaña **Redes**, como se muestra a continuación. Si habilita la red virtual administrada o Synapse determina que la cuenta de almacenamiento principal es una cuenta de almacenamiento segura, tiene la opción de crear una solicitud de conexión de punto de conexión privado administrado a la cuenta de almacenamiento segura, como se muestra a continuación. El propietario de la cuenta de almacenamiento deberá aprobar la solicitud de conexión para establecer el vínculo privado. Como alternativa, Synapse aprobará esta solicitud de conexión si el usuario que crea un grupo de Apache Spark en el área de trabajo tiene privilegios suficientes para aprobar la solicitud de conexión.
+![Habilitación de la red virtual administrada y el punto de conexión privado administrado](./media/connect-to-a-secure-storage-account/enable-managed-virtual-network-managed-private-endpoint.png) 
+    
+
+
 * Conceda a su área de trabajo de Azure Synapse acceso a su cuenta de almacenamiento segura como servicio de Azure de confianza. Como servicio de confianza, Azure Synapse usará una autenticación sólida para conectarse a su cuenta de almacenamiento de forma segura.   
 
 ### <a name="create-a-synapse-workspace-with-a-managed-virtual-network-and-create-managed-private-endpoints-to-your-storage-account"></a>Creación de un área de trabajo de Synapse con una red virtual administrada y creación de puntos de conexión privados administrados a la cuenta de almacenamiento

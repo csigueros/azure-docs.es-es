@@ -7,13 +7,13 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 06/10/2021
-ms.openlocfilehash: 6998005024bdbf61fb941ae3ff778be55dc5bb26
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 40323124846bd825b2d0c51d16f7dfa7dc67511f
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121729773"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129082700"
 ---
 # <a name="license-dashboard-in-commercial-marketplace-analytics"></a>Panel de licencias de análisis de marketplace comercial
 
@@ -27,11 +27,31 @@ En este artículo se proporciona información sobre el panel Licencia del progra
 
 ## <a name="check-license-usage"></a>Comprobación del uso de licencias
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+
 Para comprobar el uso de licencias de las aplicaciones de ISV en el Centro de partners, haga lo siguiente:
+
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
+1. En la página principal, seleccione el icono **Información**.
+
+    [ ![Se muestra el icono Información en la página principal del Centro de partners.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. En el menú de la izquierda, seleccione **Licencia**.
+
+    [ ![Captura de pantalla del panel Licencia en el Centro de partners.](./media/license-dashboard/license-dashboard-workspaces.png) ](./media/license-dashboard/license-dashboard-workspaces.png#lightbox)
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
+
+Para comprobar el uso de licencias de las aplicaciones de ISV en el Centro de partners, haga lo siguiente:
+
 1. Inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2165507).
 1. En el menú de navegación izquierdo, seleccione **Marketplace comercial** > **Analizar** > **Licencia**.
 
 :::image type="content" source="./media/license-dashboard/license-dashboard.png" alt-text="Captura de pantalla del panel Licencia en el Centro de partners.":::
+
+---
 
 ## <a name="elements-of-the-license-dashboard"></a>Elementos del panel Licencia
 
@@ -41,7 +61,15 @@ En las secciones siguientes se describe cómo usar el panel Licencia y cómo lee
 
 Puede encontrar una selección de intervalo mensual en la esquina superior derecha de la página. Para personalizar la salida de los widgets en la página, seleccione un intervalo mensual basado en los últimos 6 o 12 meses, o bien un intervalo mensual personalizado con una duración máxima de 12 meses. El intervalo mensual predeterminado (período de cálculo) es de seis meses.
 
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view) 
+
+[ ![Captura de pantalla de las selecciones de intervalo mensual en el panel Licencia del Centro de partners.](./media/license-dashboard/license-workspace-filters.png) ](./media/license-dashboard/license-workspace-filters.png#lightbox)
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view) 
+
 :::image type="content" source="./media/license-dashboard/month-range.png" alt-text="Captura de pantalla de las selecciones de intervalo mensual en el panel Licencia del Centro de partners.":::
+
+---
 
 ## <a name="customers-widget"></a>Widget Clientes
 

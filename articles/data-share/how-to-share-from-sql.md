@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 02/24/2021
-ms.openlocfilehash: ef8c1a50cd3568c6cec9bdb053b02e6e14741eb0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 09/10/2021
+ms.openlocfilehash: 7dcf326ea0834bdf644e2b717517f67d41d330e0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644671"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743280"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Uso compartido y recepción de datos de Azure SQL Database y Azure Synapse Analytics
 
@@ -259,6 +259,8 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
    Para abrir la invitación desde el correo electrónico, compruebe la bandeja de entrada para ver si hay una invitación de su proveedor de datos. La invitación es de Microsoft Azure y su título es **Azure Data Share invitation from <yourdataprovider@domain.com>** (Invitación para Azure Data Share de yourdataprovider@domain.com). Haga clic en **Ver invitación** para ver su invitación en Azure. 
 
    Para abrir la invitación desde Azure Portal directamente, busque **Invitaciones de recurso compartido de datos** en Azure Portal. Este paso le lleva a la lista de invitaciones de Data Share.
+
+   Si es un usuario invitado de un inquilino, se le pedirá que compruebe la dirección de correo electrónico del inquilino antes de ver la invitación de Data Share por primera vez. Una vez comprobado, será válido durante 12 meses.
 
    ![Lista de invitaciones](./media/invitations.png "Lista de invitaciones") 
 

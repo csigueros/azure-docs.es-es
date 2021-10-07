@@ -1,13 +1,9 @@
 ---
 title: Escalabilidad horizontal de SAP HANA con modo de espera mediante Azure NetApp Files en SLES | Microsoft Docs
 description: Aprenda a implementar un sistema de escalabilidad horizontal de SAP HANA con nodos en espera en máquinas virtuales de Azure mediante Azure NetApp Files en SUSE Linux Enterprise Server.
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-sap
 ms.topic: article
@@ -15,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/06/2021
 ms.author: radeltch
-ms.openlocfilehash: 37a3923abf32259499d876074ceda29c27e87d3c
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: a4e3d2b2c6b7c56771ebfddd60bb5ec13ab78d28
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551975"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643638"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Implementación de un sistema de escalabilidad horizontal de SAP HANA con nodo en espera en VM de Azure mediante Azure NetApp Files en SUSE Linux Enterprise Server 
 
@@ -28,9 +24,8 @@ ms.locfileid: "106551975"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[anf-azure-doc]:https://docs.microsoft.com/azure/azure-netapp-files/
+[anf-azure-doc]:/azure/azure-netapp-files/
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all 
-[anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
@@ -119,25 +114,21 @@ Azure NetApp Files está disponible en varias [regiones de Azure](https://azure.
 
 Para obtener información sobre la disponibilidad de Azure NetApp Files según la región de Azure, consulte [Disponibilidad de Azure NetApp Files por región de Azure][anf-avail-matrix].  
 
-Antes de implementar Azure NetApp Files, solicite la incorporación a este servicio de acuerdo con las [instrucciones para registrarse en Azure NetApp Files][anf-register]. 
-
 ### <a name="deploy-azure-netapp-files-resources"></a>Implementación de recursos de Azure NetApp Files  
 
 En las siguientes instrucciones se supone que ya ha implementado la [red virtual de Azure](../../../virtual-network/virtual-networks-overview.md). Los recursos de Azure NetApp Files y las VM en las que esos recursos se montarán se deben implementar en la misma red virtual de Azure o en redes virtuales de Azure emparejadas.  
 
-1. Si aún no implementó los recursos, solicite la [incorporación a Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-register.md).  
+1. Cree una cuenta de NetApp en la región de Azure seleccionada. Para ello, siga las instrucciones en [Creación de una cuenta de NetApp](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).  
 
-2. Cree una cuenta de NetApp en la región de Azure seleccionada. Para ello, siga las instrucciones en [Creación de una cuenta de NetApp](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).  
-
-3. Configure el grupo de capacidad de Azure NetApp Files según disponibles en [Configuración en un grupo de capacidad de Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).  
+2. Configure el grupo de capacidad de Azure NetApp Files según disponibles en [Configuración en un grupo de capacidad de Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).  
 
    La arquitectura de HANA que se presenta en este artículo utiliza un único grupo de capacidad de Azure NetApp Files, el nivel de *servicio Ultra*. Para las cargas de trabajo HANA en Azure, se recomienda usar el [nivel de servicio](../../../azure-netapp-files/azure-netapp-files-service-levels.md) *Ultra* o *Premium* de Azure NetApp Files.  
 
-4. Delegue una subred en Azure NetApp Files tal como se describe en las instrucciones de [Delegación de una subred en Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).  
+3. Delegue una subred en Azure NetApp Files tal como se describe en las instrucciones de [Delegación de una subred en Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).  
 
-5. Implemente los volúmenes de Azure NetApp Files según las instrucciones de [Creación de un volumen de NFS para Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md).  
+4. Implemente los volúmenes de Azure NetApp Files según las instrucciones de [Creación de un volumen de NFS para Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md).  
 
-   Cuando vaya a implementar los volúmenes, asegúrese de seleccionar la versión **NFSv 4.1**. Actualmente, el acceso a NFS, versión 4.1, debe agregarse a una lista de permitidos. Implemente los volúmenes en la [subred](/rest/api/virtualnetwork/subnets) de Azure NetApp Files designada. Las direcciones IP de los volúmenes de Azure NetApp se asignan automáticamente. 
+   Cuando vaya a implementar los volúmenes, asegúrese de seleccionar la versión **NFSv 4.1**. Actualmente, para acceder a NFSv 4.1 es necesario agregarlo a una lista de permitidos. Implemente los volúmenes en la [subred](/rest/api/virtualnetwork/subnets) de Azure NetApp Files designada. Las direcciones IP de los volúmenes de Azure NetApp se asignan automáticamente. 
    
    Tenga en cuenta que los recursos de Azure NetApp Files y las VM de Azure deben estar en la misma red virtual de Azure o en redes virtuales de Azure emparejadas. Por ejemplo **HN1**-data-mnt00001, **HN1**-log-mnt00001, etc. son los nombres de los volúmenes y nfs://10.23.1.5/**HN1**-data-mnt00001, nfs://10.23.1.4/**HN1**-log-mnt00001, etc. son las rutas de acceso para los volúmenes de Azure NetApp Files.  
 
@@ -565,7 +556,7 @@ En este ejemplo para implementar SAP HANA en la configuración de escalabilidad 
      * En **Root User Password** (Contraseña de usuario raíz): escriba la contraseña del usuario raíz.
      * Para los roles de host hanadb2: escriba **1** (para el rol de trabajo)
      * En **Host Failover Group** (Grupo de conmutación por error de host) para el host hanadb2 [valor predeterminado]: presione Entrar para aceptar el valor predeterminado.
-     * En **Storage Partition Number** (Número de partición de almacenamiento) para el host hanadb2 [<<assign automatically>>]: presione Entrar para aceptar el valor predeterminado.
+     * En **Storage Partition Number**  for host hanadb2 (Número de partición de almacenamiento para el host hanadb2) [\<\<assign automatically\>\>]: presione Entrar para aceptar el valor predeterminado.
      * En **Worker Group** (Grupo de roles de trabajo) para el host hanadb2 [valor predeterminado]: presione Entrar para aceptar el valor predeterminado.
      * En **Select roles** (Seleccionar roles) para host hanadb3: escriba **2** (para el modo de espera).
      * En **Host Failover Group** (Grupo de conmutación por error de host) para el host hanadb3 [valor predeterminado]: presione Entrar para aceptar el valor predeterminado.

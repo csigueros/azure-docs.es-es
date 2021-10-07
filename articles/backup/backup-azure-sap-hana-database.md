@@ -2,13 +2,13 @@
 title: Copia de seguridad de una base de datos de SAP HANA a Azure con Azure Backup
 description: En este artículo, aprenderá a realizar copias de seguridad de una base de datos de SAP HANA en máquinas virtuales de Azure con el servicio Azure Backup.
 ms.topic: conceptual
-ms.date: 05/28/2021
-ms.openlocfilehash: 9267a3a27823249116e74c6aba9321cfdfd0e338
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.date: 09/27/2021
+ms.openlocfilehash: 9b78a6ed1e36b925bc5d0205effc00eb1b868f5f
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110681354"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129084177"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -25,11 +25,7 @@ En este artículo, aprenderá a:
 > * Ejecutar un trabajo de copia de seguridad a petición.
 
 >[!NOTE]
->A partir del 1 de agosto de 2020, la copia de seguridad de SAP HANA para RHEL (7.4, 7.6, 7.7 y 8.1) está disponible con carácter general.
-
->[!NOTE]
->**La eliminación temporal de SQL Server en máquinas virtuales de Azure y la eliminación temporal de SAP HANA en cargas de trabajo de máquinas virtuales de Azure** están ahora disponible en versión preliminar.<br>
->Para suscribirse a la versión preliminar, escriba a [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+Consulte la [matriz de compatibilidad de copia de seguridad de SAP HANA](sap-hana-backup-support-matrix.md) para más información sobre las configuraciones y los escenarios admitidos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -48,6 +44,8 @@ En la tabla siguiente se enumeran las distintas alternativas que se pueden usar 
 | Etiquetas de FQDN de Azure Firewall          | Más facilidad de administración, ya que los FQDN necesarios se administran automáticamente | Solo se puede usar con Azure Firewall.                         |
 | Permite el acceso a los FQDN/IP del servicio | Sin costos adicionales.   <br><br>  Funciona con todos los firewalls y dispositivos de seguridad de red | Es posible que sea necesario acceder a un amplio conjunto de direcciones IP o FQDN   |
 | Usar un servidor proxy HTTP                 | Un único punto de acceso a Internet para las máquinas virtuales.                       | Costos adicionales de ejecutar una máquina virtual con el software de proxy.         |
+| [Punto de conexión de servicio de red virtual](/azure/virtual-network/virtual-network-service-endpoints-overview)    |     Se puede usar con Azure Storage (= almacén de Recovery Services).     <br><br>     Proporciona una gran ventaja para optimizar el rendimiento del tráfico del plano de datos.          |         No se puede usar con Azure AD ni el servicio Azure Backup.    |
+| Aplicación virtual de red      |      Se puede usar con Azure Storage, Azure AD y el servicio Azure Backup. <br><br> **Plano de datos**   <ul><li>      Azure Storage: `*.blob.core.windows.net`, `*.queue.core.windows.net`  </li></ul>   <br><br>     **Plano de administración**  <ul><li>  Azure AD: permitir el acceso a los FQDN mencionados en las secciones 56 y 59 de [Microsoft 365 Common y Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). </li><li>   Servicio Azure Backup: `.backup.windowsazure.com` </li></ul> <br>Más información sobre las [etiquetas del servicio Azure Firewall](/azure/firewall/fqdn-tags#:~:text=An%20FQDN%20tag%20represents%20a%20group%20of%20fully,the%20required%20outbound%20network%20traffic%20through%20your%20firewall.).       |  Agrega sobrecarga al tráfico del plano de datos y reduce el rendimiento.  |
 
 A continuación se proporcionan más detalles sobre el uso de estas opciones:
 
@@ -95,6 +93,12 @@ Al hacer una copia de seguridad de una base de datos SAP HANA que se ejecuta en 
 > No hay compatibilidad con el proxy de nivel de servicio. Es decir, no se admite el tráfico a través del proxy solo desde algunos servicios o desde los seleccionados (servicios de Azure Backup). Todos los datos o el tráfico se pueden enrutar por proxy o no.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
+
+## <a name="enable-cross-region-restore"></a>Habilitación de la restauración entre regiones
+
+En el almacén de Recovery Services, puede habilitar la restauración entre regiones. Debe activar la restauración entre regiones antes de configurar y proteger las copias de seguridad de las bases de datos de HANA. Más información sobre [cómo activar la restauración entre regiones](/azure/backup/backup-create-rs-vault#set-cross-region-restore).
+
+[Más información](/azure/backup/backup-azure-recovery-services-vault-overview) sobre la restauración entre regiones.
 
 ## <a name="discover-the-databases"></a>Detección de bases de datos
 

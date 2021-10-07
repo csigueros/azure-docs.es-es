@@ -13,12 +13,12 @@ ms.reviewer: martinco
 ms.date: 4/26/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8baa5cc0188c590f639135d2a0baeea4f2efa8b
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 20eafed03b9dd63bf6c59445d744d7a3c67c5614
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112454859"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601755"
 ---
 # <a name="configure-azure-active-directory-to-meet-fedramp-high-impact-level"></a>Configuración de Azure Active Directory para cumplir el nivel de alto impacto de FedRAMP High
 
@@ -54,7 +54,7 @@ La siguiente es una lista de recursos de FedRAMP:
 
 * [Ofertas de cumplimiento de Azure](https://aka.ms/azurecompliance)
 
-* [Descripción general del ejemplo de plano técnico con un nivel de impacto alto de FedRAMP](../../governance/blueprints/samples/fedramp-h/index.md)
+* [Definición de iniciativas integradas de Azure Policy FedRAMP High](../../governance/policy/samples/fedramp-high.md)
 
 * [Centro de cumplimiento de Microsoft 365](/microsoft-365/compliance/microsoft-365-compliance-center)
 

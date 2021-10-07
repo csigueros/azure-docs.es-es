@@ -2,13 +2,13 @@
 title: 'Funciones de plantillas: numérico'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager (plantilla de ARM) para trabajar con números.
 ms.topic: conceptual
-ms.date: 05/13/2021
-ms.openlocfilehash: 9f9959c07f936fc800fac836553fb0f37f4f4e83
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 09/09/2021
+ms.openlocfilehash: ccfed6794b81b7910310cc5a9fd02dcf0cdb0e0f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959654"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820434"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>Funciones numéricas para plantillas de ARM
 
@@ -46,38 +46,9 @@ Un entero que contiene la suma de los parámetros.
 
 ### <a name="example"></a>Ejemplo
 
-La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/add.json) siguiente agrega dos parámetros.
+El ejemplo siguiente agrega dos parámetros.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "first": {
-      "type": "int",
-      "defaultValue": 5,
-      "metadata": {
-        "description": "First integer to add"
-      }
-    },
-    "second": {
-      "type": "int",
-      "defaultValue": 3,
-      "metadata": {
-        "description": "Second integer to add"
-      }
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "addResult": {
-      "type": "int",
-      "value": "[add(parameters('first'), parameters('second'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/add.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -115,36 +86,7 @@ Para más información sobre el uso de la copia, consulte:
 
 En el ejemplo siguiente se muestra un bucle de copia y el valor de índice incluido en el nombre.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageCount": {
-      "type": "int",
-      "defaultValue": 2
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": {},
-      "copy": {
-        "name": "storagecopy",
-        "count": "[parameters('storageCount')]"
-      }
-    }
-  ],
-  "outputs": {}
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/copyindex.json":::
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -171,38 +113,9 @@ Un entero que representa la división.
 
 ### <a name="example"></a>Ejemplo
 
-En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/div.json) siguiente se divide un parámetro entre otro.
+En el ejemplo siguiente se divide un parámetro por otro.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "first": {
-      "type": "int",
-      "defaultValue": 8,
-      "metadata": {
-        "description": "Integer being divided"
-      }
-    },
-    "second": {
-      "type": "int",
-      "defaultValue": 3,
-      "metadata": {
-        "description": "Integer used to divide"
-      }
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "divResult": {
-      "type": "int",
-      "value": "[div(parameters('first'), parameters('second'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/div.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -216,7 +129,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Convierte el valor en un número de punto flotante. Solo use esta función al pasar parámetros personalizados a una aplicación, como una aplicación lógica.
 
-La función `float` no se admite en Bicep.
+La función `float` no es compatible con Bicep.
 
 ### <a name="parameters"></a>Parámetros
 
@@ -232,19 +145,7 @@ Un número de punto flotante.
 
 En el ejemplo siguiente se muestra cómo usar float para pasar parámetros a una aplicación lógica:
 
-```json
-{
-  "type": "Microsoft.Logic/workflows",
-  "properties": {
-    ...
-    "parameters": {
-      "custom1": {
-        "value": "[float('3.0')]"
-      },
-      "custom2": {
-        "value": "[float(3)]"
-      },
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/float.json":::
 
 ## <a name="int"></a>int
 
@@ -264,28 +165,9 @@ Un entero del valor convertido.
 
 ### <a name="example"></a>Ejemplo
 
-En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/int.json) siguiente se convierte el valor del parámetro proporcionado por el usuario en entero.
+En la plantilla de ejemplo siguiente se convierte el valor del parámetro proporcionado por el usuario en entero.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "stringToConvert": {
-      "type": "string",
-      "defaultValue": "4"
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "intResult": {
-      "type": "int",
-      "value": "[int(parameters('stringToConvert'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/int.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -311,31 +193,9 @@ Un entero que representa el valor máximo de la colección.
 
 ### <a name="example"></a>Ejemplo
 
-En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json) siguiente se muestra cómo utilizar max con una matriz y una lista de enteros:
+En el ejemplo siguiente se muestra cómo utilizar "max" con una matriz y una lista de enteros.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ 0, 3, 2, 5, 4 ]
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayOutput": {
-      "type": "int",
-      "value": "[max(parameters('arrayToTest'))]"
-    },
-    "intOutput": {
-      "type": "int",
-      "value": "[max(0,3,2,5,4)]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/max.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -362,31 +222,9 @@ Un entero que representa el valor mínimo de la colección.
 
 ### <a name="example"></a>Ejemplo
 
-En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json) siguiente se muestra cómo utilizar min con una matriz y una lista de enteros:
+En el ejemplo siguiente se muestra cómo utilizar "min" con una matriz y una lista de enteros.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ 0, 3, 2, 5, 4 ]
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayOutput": {
-      "type": "int",
-      "value": "[min(parameters('arrayToTest'))]"
-    },
-    "intOutput": {
-      "type": "int",
-      "value": "[min(0,3,2,5,4)]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/min.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -401,7 +239,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Devuelve el resto de la división de enteros de los dos enteros especificados.
 
-La función `mod` no se admite en Bicep. En su lugar, utilice el [operador %](../bicep/operators-numeric.md#modulo-).
+La función `mod` no es compatible con Bicep. En su lugar, utilice el [operador %](../bicep/operators-numeric.md#modulo-).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -416,38 +254,9 @@ Un entero que representa el resto.
 
 ### <a name="example"></a>Ejemplo
 
-En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mod.json) siguiente se devuelve el resultado de dividir un parámetro por otro.
+En el ejemplo siguiente se devuelve el resultado de dividir un parámetro por otro.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "first": {
-      "type": "int",
-      "defaultValue": 7,
-      "metadata": {
-        "description": "Integer being divided"
-      }
-    },
-    "second": {
-      "type": "int",
-      "defaultValue": 3,
-      "metadata": {
-        "description": "Integer used to divide"
-      }
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "modResult": {
-      "type": "int",
-      "value": "[mod(parameters('first'), parameters('second'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/mod.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -461,7 +270,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Devuelve la multiplicación de los dos enteros especificados.
 
-La función `mul` no se admite en Bicep. En su lugar, utilice el [operador *](../bicep/operators-numeric.md#multiply-).
+La función `mul` no es compatible con Bicep. En su lugar, utilice el [operador *](../bicep/operators-numeric.md#multiply-).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -476,38 +285,9 @@ Un entero que representa la multiplicación.
 
 ### <a name="example"></a>Ejemplo
 
-En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mul.json) siguiente se multiplica un parámetro por otro.
+En el ejemplo siguiente se multiplica un parámetro por otro.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "first": {
-      "type": "int",
-      "defaultValue": 5,
-      "metadata": {
-        "description": "First integer to multiply"
-      }
-    },
-    "second": {
-      "type": "int",
-      "defaultValue": 3,
-      "metadata": {
-        "description": "Second integer to multiply"
-      }
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "mulResult": {
-      "type": "int",
-      "value": "[mul(parameters('first'), parameters('second'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/mul.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
@@ -534,38 +314,9 @@ Un entero que representa la resta.
 
 ### <a name="example"></a>Ejemplo
 
-En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/sub.json) siguiente se resta un parámetro de otro.
+En el ejemplo siguiente se resta un parámetro de otro.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "first": {
-      "type": "int",
-      "defaultValue": 7,
-      "metadata": {
-        "description": "Integer subtracted from"
-      }
-    },
-    "second": {
-      "type": "int",
-      "defaultValue": 3,
-      "metadata": {
-        "description": "Integer to subtract"
-      }
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "subResult": {
-      "type": "int",
-      "value": "[sub(parameters('first'), parameters('second'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/sub.json":::
 
 La salida del ejemplo anterior con el valor predeterminado es:
 

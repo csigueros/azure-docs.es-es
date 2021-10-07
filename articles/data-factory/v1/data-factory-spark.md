@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 73e20cfcdd0c56f2136b4ce658f7d2d2bed53022
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 65d7a45ab8e0432fa62d5e298fe50be50580804e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122397317"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667262"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocación de programas Spark desde canalizaciones de Azure Data Factory
 
@@ -83,7 +84,7 @@ Para crear una factoría de datos, siga estos pasos:
 
 1. Tras crear la factoría de datos, se ve la página de la **factoría de datos**, que muestra su contenido. Si no ve la página de la **factoría de datos**, seleccione el icono de la factoría de datos en el panel.
 
-    ![Hoja de la Factoría de datos](./media/data-factory-spark/data-factory-blade.png)
+    :::image type="content" source="./media/data-factory-spark/data-factory-blade.png" alt-text="Hoja de la Factoría de datos":::
 
 ### <a name="create-linked-services"></a>Crear servicios vinculados
 En este paso, creará dos servicios vinculados. Un servicio vincula su clúster de Spark a su factoría de datos y el otro vincula el almacenamiento a la factoría de datos.
@@ -95,11 +96,11 @@ En este paso, vinculará su cuenta de almacenamiento con su factoría de datos. 
 
 1. Seleccione **Nuevo almacén de datos** y elija **Azure Storage**.
 
-   ![Nuevo almacén de datos](./media/data-factory-spark/new-data-store-azure-storage-menu.png)
+   :::image type="content" source="./media/data-factory-spark/new-data-store-azure-storage-menu.png" alt-text="Nuevo almacén de datos":::
 
 1. El script JSON que usa para crear un servicio vinculado de Storage aparece en el editor.
 
-   ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
+   :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png" alt-text="AzureStorageLinkedService":::
 
 1. Reemplace **nombre de cuenta** y **clave de cuenta** por el nombre y la clave de acceso de su cuenta de almacenamiento. Para aprender a obtener la clave de acceso de almacenamiento, consulte [Administración de claves de acceso de la cuenta de almacenamiento](../../storage/common/storage-account-keys-manage.md).
 
@@ -110,7 +111,7 @@ En este paso, se crea un servicio vinculado de HDInsight para vincular el clúst
 
 1. En Data Factory Editor, seleccione **Más** > **Nuevo proceso** > **Clúster de HDInsight**.
 
-    ![Creación del servicio vinculado de HDInsight](media/data-factory-spark/new-hdinsight-linked-service.png)
+    :::image type="content" source="media/data-factory-spark/new-hdinsight-linked-service.png" alt-text="Creación del servicio vinculado de HDInsight":::
 
 1. Copie y pegue el fragmento de código siguiente en la ventana Borrador-1. En el editor de JSON, realice los siguientes pasos:
 
@@ -232,13 +233,13 @@ En este paso, crea una canalización con una actividad de HDInsightSpark. Actual
 ### <a name="monitor-a-pipeline"></a>Supervisión de una canalización
 1. En la hoja **Factoría de datos**, seleccione **Supervisión y administración** para iniciar la aplicación de supervisión en otra pestaña.
 
-    ![Icono Supervisión y administración](media/data-factory-spark/monitor-and-manage-tile.png)
+    :::image type="content" source="media/data-factory-spark/monitor-and-manage-tile.png" alt-text="Icono Supervisión y administración":::
 
 1. Cambie el filtro **Start time** (Hora de inicio) en la parte superior por **2/1/2017** y seleccione **Apply** (Aplicar).
 
 1. Solo se mostrará una ventana de actividad, ya que solo hay un día entre las horas de inicio (2017-02-01) y fin (2017-02-02) de la canalización. Confirme que el estado del segmento de datos es **Ready** (Listo).
 
-    ![Supervisar la canalización](media/data-factory-spark/monitor-and-manage-app.png)
+    :::image type="content" source="media/data-factory-spark/monitor-and-manage-app.png" alt-text="Supervisar la canalización":::
 
 1. En la lista de **ventanas de actividad**, seleccione una ejecución de actividad para ver información sobre ella. Si se produce un error, puede ver detalles sobre él en el panel derecho.
 
@@ -248,7 +249,7 @@ En este paso, crea una canalización con una actividad de HDInsightSpark. Actual
 
 1. Seleccione **Nuevo** > **PySpark** para iniciar una nueva instancia de Notebook.
 
-    ![Nuevo Jupyter Notebook](media/data-factory-spark/jupyter-new-book.png)
+    :::image type="content" source="media/data-factory-spark/jupyter-new-book.png" alt-text="Nuevo Jupyter Notebook":::
 
 1. Ejecute el siguiente comando; para ello, copie y pegue el texto y presione Mayús + Entrar al final de la segunda instrucción:
 
@@ -259,7 +260,7 @@ En este paso, crea una canalización con una actividad de HDInsightSpark. Actual
     ```
 1. Confirme que ve los datos de la tabla hvac.
 
-    ![Resultados de la consulta Jupyter](media/data-factory-spark/jupyter-notebook-results.png)
+    :::image type="content" source="media/data-factory-spark/jupyter-notebook-results.png" alt-text="Resultados de la consulta Jupyter":::
 
 <!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
 Para obtener instrucciones detalladas, consulte la sección [Ejecución de una consulta de Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
@@ -272,15 +273,15 @@ Para solucionar problemas, realice los pasos siguientes:
 
 1. Ir a `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`.
 
-    ![Aplicación de IU de YARN](media/data-factory-spark/yarnui-application.png)
+    :::image type="content" source="media/data-factory-spark/yarnui-application.png" alt-text="Aplicación de IU de YARN":::
 
 1. Seleccione **Registros** para uno de los intentos de ejecución.
 
-    ![Página de aplicación](media/data-factory-spark/yarn-applications.png)
+    :::image type="content" source="media/data-factory-spark/yarn-applications.png" alt-text="Página de aplicación":::
 
 1. Verá información adicional sobre el error en la página de registro:
 
-    ![Error de registro](media/data-factory-spark/yarnui-application-error.png)
+    :::image type="content" source="media/data-factory-spark/yarnui-application-error.png" alt-text="Error de registro":::
 
 En las secciones siguientes se proporciona información sobre las entidades de factoría de datos para usar un clúster de Spark y una actividad de Spark en su factoría de datos.
 

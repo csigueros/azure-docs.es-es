@@ -1,25 +1,25 @@
 ---
 title: Copia de datos de Oracle Eloqua (versión preliminar)
+description: Obtenga información sobre cómo copiar datos de Oracle Eloqua en almacenes de datos receptores compatibles a través de una actividad de copia en una canalización de Synapse Analytics o Azure Data Factory.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre cómo copiar datos de Oracle Eloqua en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 7bc1dc9d1b7eb11f5db09f8095015c97cbd691f0
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: e987244624939a5582523317b732527d99d5a2e0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123311819"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831692"
 ---
-# <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>Copiar datos de Oracle Eloqua con Azure Data Factory (versión preliminar)
+# <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-or-synapse-analytics-preview"></a>Copia de datos de Oracle Eloqua con Azure Data Factory o Synapse Analytics (versión preliminar)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de Oracle Eloqua. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
+En este artículo se explica cómo usar la actividad de copia en una canalización de Azure Data Factory o Synapse Analytics para copiar datos de Oracle Eloqua. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 > [!IMPORTANT]
 > Este conector está actualmente en versión preliminar. Puede probarlo y enviarnos sus comentarios. Si desea depender de los conectores de versión preliminar en la solución, póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/).
@@ -33,7 +33,7 @@ Este conector de Oracle Eloqua es compatible con las actividades siguientes:
 
 Puede copiar datos de Oracle Eloqua en cualquier almacén de datos de receptor compatible. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
-Azure Data Factory proporciona un controlador integrado para habilitar la conectividad. Por lo tanto, no es necesario instalar manualmente ningún controlador mediante este conector.
+El servicio proporciona un controlador integrado para habilitar la conectividad. Por lo tanto, no es necesario instalar manualmente ningún controlador mediante este conector.
 
 ## <a name="getting-started"></a>Introducción
 
@@ -75,7 +75,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Oracle E
 | type | La propiedad type debe establecerse en: **Eloqua** | Sí |
 | endpoint | Punto de conexión del servidor de Eloqua. Eloqua admite varios centros de datos; para determinar su punto de conexión, inicie sesión en https://login.eloqua.com mediante sus credenciales, y copie la porción de la **URL base** de la URL redirigida con el patrón de `xxx.xxx.eloqua.com`. | Sí |
 | username | Nombre del sitio y del usuario de la cuenta de Eloqua con el siguiente formato: `SiteName\Username`por ejemplo, `Eloqua\Alice`.  | Sí |
-| password | Contraseña que corresponde al nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| password | Contraseña que corresponde al nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura, o bien [haga referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | No |
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de TLS. El valor predeterminado es true.  | No |
 | usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de TLS. El valor predeterminado es true.  | No |
@@ -178,4 +178,4 @@ Para obtener información detallada sobre las propiedades, consulte [Actividad d
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para ver una lista de los datos compatibles almacenados por Azure Data Factory, consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obtener una lista de los almacenes de datos que admite el servicio, consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats).

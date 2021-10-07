@@ -3,19 +3,19 @@ title: Administración de los scripts previos y posteriores en la implementació
 description: En este artículo se describe cómo configurar y administrar los scripts previos y posteriores a las implementaciones de actualizaciones.
 services: automation
 ms.subservice: update-management
-ms.date: 07/20/2021
+ms.date: 09/16/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 57a8158dca53f4f60bc4405e1b95aa0ad9d2cf9b
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f94a21268625adf3df4dda2f022868f7cc40f72f
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114472100"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060327"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Administración de scripts previos y posteriores
 
-Los scripts previos y posteriores son runbooks para ejecutar en la cuenta de Azure Automation antes (antes de la tarea) y después (después de la tarea) de la implementación de una actualización. Los scripts previos y posteriores se ejecutan en el contexto de Azure, no de forma local. Los scripts previos se ejecutan al principio de la implementación de actualizaciones. Los scripts posteriores se ejecutan al final de la implementación y después de todos reinicios que estén configurados.
+Los scripts previos y posteriores son runbooks para ejecutar en la cuenta de Azure Automation antes (antes de la tarea) y después (después de la tarea) de la implementación de una actualización. Los scripts previos y posteriores se ejecutan en el contexto de Azure, no de forma local. Los scripts previos se ejecutan al principio de la implementación de actualizaciones. En Windows, los scripts posteriores se ejecutan al final de la implementación y después de todos los reinicios que estén configurados. En el caso de Linux, los scripts posteriores se ejecutan tras finalizar la implementación, no después de que se reinicie la máquina. 
 
 ## <a name="pre-script-and-post-script-requirements"></a>Requisitos de scripts previos y posteriores
 
@@ -181,7 +181,7 @@ Los scripts previos y los scripts posteriores se ejecutan como runbooks en la cu
 
 Las tareas previas y posteriores se ejecutan como runbooks y no se ejecutan de manera nativa en las VM de Azure de la implementación. Para interactuar con las máquinas virtuales de Azure, debe tener estos elementos:
 
-* Una cuenta de ejecución
+* Una [identidad administrada](../automation-security-overview.md#managed-identities-preview) o una cuenta de ejecución
 * Un runbook que quiera ejecutar
 
 Para interactuar con máquinas de Azure, debe usar el cmdlet [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) para interactuar con las VM de Azure. Para un ejemplo de cómo hacerlo, consulte el ejemplo de runbook [Update Management: ejecutar script con el comando de ejecución](https://github.com/azureautomation/update-management-run-script-with-run-command).
@@ -190,7 +190,7 @@ Para interactuar con máquinas de Azure, debe usar el cmdlet [Invoke-AzVMRunComm
 
 Las tareas previas y posteriores se ejecutan en el contexto de Azure y no tienen acceso a máquinas que no son de Azure. Para poder interactuar con máquinas que no son de Azure, debe tener los siguientes elementos:
 
-* Una cuenta de ejecución
+* Una [identidad administrada](../automation-security-overview.md#managed-identities-preview) o una cuenta de ejecución
 * Hybrid Runbook Worker instalado en la máquina
 * Un runbook que desea ejecutar localmente
 * Un runbook principal
@@ -242,7 +242,7 @@ Todos los ejemplos se basan en la plantilla básica que se define en el ejemplo 
 
 .DESCRIPTION
   This script is intended to be run as a part of Update Management pre/post-scripts.
-  It requires a RunAs account.
+  It requires the Automation account's system-assigned managed identity.
 
 .PARAMETER SoftwareUpdateConfigurationRunContext
   This is a system variable which is automatically passed in by Update Management during a deployment.
@@ -251,21 +251,20 @@ Todos los ejemplos se basan en la plantilla básica que se define en el ejemplo 
 param(
     [string]$SoftwareUpdateConfigurationRunContext
 )
+
 #region BoilerplateAuthentication
-#This requires a RunAs account
-$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
+# Ensures you do not inherit an AzContext in your runbook
+Disable-AzContextAutosave -Scope Process
 
-Add-AzAccount `
-    -ServicePrincipal `
-    -TenantId $ServicePrincipalConnection.TenantId `
-    -ApplicationId $ServicePrincipalConnection.ApplicationId `
-    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+# Connect to Azure with system-assigned managed identity
+$AzureContext = (Connect-AzAccount -Identity).context
 
-$AzureContext = Select-AzSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+# set and store context
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
 #endregion BoilerplateAuthentication
 
 #If you wish to use the run context, it must be converted from JSON
-$context = ConvertFrom-Json  $SoftwareUpdateConfigurationRunContext
+$context = ConvertFrom-Json $SoftwareUpdateConfigurationRunContext
 #Access the properties of the SoftwareUpdateConfigurationRunContext
 $vmIds = $context.SoftwareUpdateConfigurationSettings.AzureVirtualMachines | Sort-Object -Unique
 $runId = $context.SoftwareUpdateConfigurationRunId
@@ -285,6 +284,11 @@ Set-AutomationVariable -Name $runId -Value $vmIds
 $variable = Get-AutomationVariable -Name $runId
 #>
 ```
+
+Si desea que el runbook se ejecute con la identidad administrada asignada por el sistema, deje el código tal y como está. Si prefiere usar una identidad administrada asignada por el usuario, haga lo siguiente:
+1. Desde la línea 22, quite `$AzureContext = (Connect-AzAccount -Identity).context`.
+1. Reemplace el valor por `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`.
+1. Escriba el id. de cliente.
 
 > [!NOTE]
 > En el caso de los runbooks de PowerShell no gráficos, `Add-AzAccount` y `Add-AzureRMAccount` son alias de [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Puede usar estos cmdlets o bien [actualizar los módulos](../automation-update-azure-modules.md) de la cuenta de Automation a las versiones más recientes. Es posible que deba actualizar los módulos incluso si acaba de crear una nueva cuenta de Automation.

@@ -11,12 +11,12 @@ ms.date: 06/25/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: cbbaf7d3698a1027ae310f73041e906a55117258
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a67cdd9ba92e3c78c5cb29a827cf537ba2e372ae
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121723218"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124740200"
 ---
 # <a name="enable-authentication-in-your-own-web-api-by-using-azure-ad-b2c"></a>Habilitación de la autenticación en su propia API web mediante Azure Active Directory B2C
 
@@ -533,6 +533,10 @@ Abra un explorador y vaya a `http://localhost:6000/public`. En la ventana del ex
 Intente llamar al punto de conexión de API web protegido sin un token de acceso. Abra un explorador y vaya a `http://localhost:6000/hello`. La API devolverá un mensaje de error HTTP no autorizado, que confirmará que la API web está protegida con un token de portador.
 
 Siga configurando la aplicación para llamar a la API web. Para obtener instrucciones, consulte la sección [Requisitos previos](#prerequisites).
+
+Vea este vídeo para obtener información sobre algunos procedimientos recomendados al integrar Azure AD B2C con una API.
+
+>[!Video https://www.youtube.com/embed/wuUu71RcsIo]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

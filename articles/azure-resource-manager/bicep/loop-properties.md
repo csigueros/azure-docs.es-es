@@ -4,13 +4,13 @@ description: Use un bucle de propiedades Bicep para iterar al crear una propieda
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/30/2021
-ms.openlocfilehash: 6e9d41136401b28cf330bc828947d35a67c69a43
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.date: 09/23/2021
+ms.openlocfilehash: a845ab0b650b6b22459b3dace90bbc09a98de0a4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225957"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128625608"
 ---
 # <a name="property-iteration-in-bicep"></a>Iteración de propiedades en Bicep
 
@@ -19,6 +19,10 @@ En este artículo, se muestra cómo crear más de una instancia de una propiedad
 Solo se puede usar un bucle con recursos de nivel superior, incluso cuando se aplica el bucle a una propiedad. Para obtener información sobre cómo cambiar un recurso secundario a un recurso de nivel superior, vea [Iteración para un recurso secundario](loop-resources.md#iteration-for-a-child-resource).
 
 También puede usar un bucle con [módulos](loop-modules.md), [recursos](loop-resources.md), [variables](loop-variables.md) y [salidas](loop-outputs.md).
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Para más información sobre los bucles y para obtener una práctica guía, consulte [Creación de plantillas de Bicep flexibles mediante condiciones y bucles](/learn/modules/build-flexible-bicep-templates-conditions-loops/) en **Microsoft Learn**.
 
 ## <a name="syntax"></a>Sintaxis
 
@@ -40,9 +44,9 @@ Los bucles se pueden usar para declarar varias propiedades mediante:
   }]
   ```
 
-  Para obtener más información, vea [Matriz de bucles](#loop-array).
+  Para obtener más información, consulte [Matriz de bucles](#loop-array).
 
-- Iteración sobre una matriz e índice.
+- Iteración de una matriz y un índice.
 
   ```bicep
   <property-name>: [for (<item>, <index>) in <collection>: {
@@ -52,7 +56,10 @@ Los bucles se pueden usar para declarar varias propiedades mediante:
 
 ## <a name="loop-limits"></a>Límites del bucle
 
-Las iteraciones de bucle del archivo Bicep no pueden ser un número negativo ni superar las 800 iteraciones. 
+El bucle Bicep tiene estas limitaciones:
+
+- No se puede realizar un bucle en varios niveles de propiedades.
+- Las iteraciones de bucle no pueden ser un número negativo ni superar las 800 iteraciones.
 
 ## <a name="loop-array"></a>Matriz de bucles
 

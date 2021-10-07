@@ -1,18 +1,18 @@
 ---
 title: Registro y examen de un servidor de SQL Server local
-description: En este tutorial se describe cómo examinar un servidor de SQL Server local mediante un entorno de ejecución de integración autohospedado.
+description: En este tutorial se describe cómo examinar un servidor de SQL Server local mediante un entorno de ejecución de integración autohospedado en Azure Purview.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/18/2020
-ms.openlocfilehash: 2f07ed4ca7bdb722a2563c5e81f7e30a57c79aeb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 4cef99adecadc73f105dfffcdc72163c8b622cc3
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121721939"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208682"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Registro y examen de un servidor de SQL Server local
 
@@ -48,16 +48,6 @@ Solo hay una manera de configurar la autenticación para la instancia local de S
 
 La cuenta de SQL debe tener acceso a la base de datos **maestra**. El motivo es que `sys.databases` está en la base de datos maestra. El examen de Purview debe enumerar `sys.databases` para buscar todas las instancias de SQL en el servidor.
 
-#### <a name="using-an-existing-server-administrator"></a>Uso del administrador del servidor existente
-
-Si tiene previsto utilizar un administrador del servidor (sa) existente para examinar el servidor local de SQL Server, asegúrese de lo siguiente:
-
-1. `sa` no es una cuenta de autenticación de Windows.
-
-2. El inicio de sesión de nivel de servidor que planee usar debe tener roles de servidor de tipo público y sysadmin. Para comprobarlo, vaya a SQL Server Management Studio (SSMS), conéctese al servidor, vaya a Seguridad, seleccione el inicio de sesión que planea usar, haga clic con el botón derecho en **Propiedades** y, luego, seleccione **Roles de servidor**.
-
-   :::image type="content" source="media/register-scan-on-premises-sql-server/server-level-login.png" alt-text="Inicio de sesión en el nivel de servidor.":::
-
 #### <a name="creating-a-new-login-and-user"></a>Creación de un inicio de sesión y un usuario nuevos
 
 Si quiere crear un nuevo inicio de sesión y un usuario para poder examinar el servidor de SQL Server, siga estos pasos:
@@ -65,7 +55,7 @@ Si quiere crear un nuevo inicio de sesión y un usuario para poder examinar el s
 > [!Note]
    > Todos los pasos siguientes se pueden ejecutar con el código proporcionado [aquí](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql).
 
-1. Vaya a SQL Server Management Studio (SSMS), conéctese al servidor, vaya a seguridad, haga clic con el botón derecho en Inicio de sesión y cree un nuevo inicio de sesión. Asegúrese de seleccionar la autenticación de SQL.
+1. Vaya a SQL Server Management Studio (SSMS), conéctese al servidor, vaya a Seguridad, haga clic con el botón derecho en Inicio de sesión y cree un nuevo inicio de sesión. Asegúrese de seleccionar la autenticación de SQL.
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/create-new-login-user.png" alt-text="Creación de un nuevo inicio de sesión y un usuario.":::
 
@@ -75,9 +65,9 @@ Si quiere crear un nuevo inicio de sesión y un usuario para poder examinar el s
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/user-mapping.png" alt-text="asignación de usuarios.":::
 
-4. Haga clic en Aceptar para guardarlo.
+4. Seleccione Aceptar para guardar.
 
-5. Vuelva al usuario que creó; para ello, haga clic con el botón derecho y seleccione **Propiedades**. Escriba una contraseña nueva y confírmela. Seleccione "Especificar la contraseña anterior" y escríbala. **Es necesario cambiar la contraseña en cuanto cree un nuevo inicio de sesión.**
+5. Vuelva al usuario que creó; para ello, selecciónelo y manténgalo presionado (o haga clic con el botón derecho) y seleccione **Propiedades**. Escriba una contraseña nueva y confírmela. Seleccione "Especificar la contraseña anterior" y escríbala. **Es necesario cambiar la contraseña en cuanto cree un nuevo inicio de sesión.**
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/change-password.png" alt-text="cambiar contraseña.":::
 
@@ -109,7 +99,7 @@ Si quiere crear un nuevo inicio de sesión y un usuario para poder examinar el s
 
 Para crear y ejecutar un nuevo examen, siga estos pasos:
 
-1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de Purview Studio.
+1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Seleccione el origen de SQL Server que ha registrado.
 

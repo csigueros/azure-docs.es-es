@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: frontdoor
 author: duongau
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2021
 ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: ded1479b6967d7cf3b9957e83b7bb38472ebcc0c
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 8dddf347cfa46b24e990365765e1587526fd084c
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110482883"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129096043"
 ---
 | Abreviatura | Location | Region |
 | --- | --- | --- |
@@ -54,6 +54,7 @@ ms.locfileid: "110482883"
 | GVA | Geneva, Suiza | Norte de Suiza, Europa |
 | HEL | Helsinki, Finlandia | Oeste de Europa |
 | HK  | Hong Kong, RAE de Hong Kong | Este de Asia |
+| HKB | Hong Kong, RAE de Hong Kong | Este de Asia |
 | HKG | Chai Wan, RAE de Hong Kong | Este de Asia |
 | HNL | Honolulu, Hawái, EE. UU. | Oeste de EE. UU., Estados Unidos |
 | HOU | Houston, Texas, EE. UU. | Centro de EE. UU., Estados Unidos |

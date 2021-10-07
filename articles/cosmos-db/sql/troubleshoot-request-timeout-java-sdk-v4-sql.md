@@ -8,12 +8,12 @@ ms.date: 10/28/2020
 ms.author: kuthapar
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 718a0aa96579b3234bfa242408565246602762a6
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 88eabcfa4b8b4eb4e3af4c366939693dc5c92ee1
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123113707"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092022"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-java-v4-sdk-request-timeout-exceptions"></a>Diagnóstico y solución de problemas de tiempo de espera de la solicitud del SDK de Azure Cosmos DB para Java v4
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -24,7 +24,7 @@ El error HTTP 408 se produce si el SDK no puede completar la solicitud antes de 
 La lista siguiente contiene las causas y las soluciones conocidas para las excepciones de tiempo de espera de solicitud.
 
 ### <a name="existing-issues"></a>Problemas existentes
-Si ve que las solicitudes se bloquean durante más tiempo o el tiempo de espera se agota con más frecuencia, actualice el SDK de Java v4 a la versión más reciente. NOTA: Se recomienda usar la versión 4.7.0 y versiones posteriores. Para más detalles, consulte las [notas de la versión del SDK de Java v4](sql-api-sdk-java-v4.md).
+Si ve que las solicitudes se bloquean durante más tiempo o el tiempo de espera se agota con más frecuencia, actualice el SDK de Java v4 a la versión más reciente. NOTA: Se recomienda usar la versión 4.18.0 y versiones posteriores. Para más detalles, consulte las [notas de la versión del SDK de Java v4](sql-api-sdk-java-v4.md).
 
 ### <a name="high-cpu-utilization"></a>Uso elevado de CPU
 El uso elevado de la CPU es el caso más común. Para lograr una latencia óptima, el uso de la CPU debe ser de aproximadamente el 40 por ciento. Use 10 segundos como intervalo para supervisar el uso máximo de la CPU (no el promedio). Los picos de CPU son más habituales con consultas entre particiones en las que se pueden realizar varias conexiones para una sola consulta.

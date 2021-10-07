@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 09/15/2021
 ms.author: alkohli
-ms.openlocfilehash: ab087747bbc6ee9edcb072223c2edf3465ba4cba
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 3fa49fdab111c60c9f73dad5703c39dbc33e1472
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110460554"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128554228"
 ---
 # <a name="return-your-azure-stack-edge-device"></a>Devolución del dispositivo de Azure Stack Edge
 
-[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
+[!INCLUDE [applies-to-pro-fpga](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-fpga-sku.md)]
 
 En este artículo se explica cómo borrar los datos y luego devolver el dispositivo Azure Stack Edge. Una vez que haya devuelto el dispositivo, también puede eliminar el recurso asociado al dispositivo.
 
@@ -50,7 +50,7 @@ Puede restablecer el dispositivo en la interfaz de usuario web local o en PowerS
 
 Para comenzar el proceso de devolución, siga los pasos siguientes.
 
-1. Vaya al recurso de Azure Stack Edge/Data Box Gateway en Azure Portal. En **Información general**, vaya a la barra de comandos en el panel derecho y seleccione **Devolver dispositivo**. 
+1. Vaya al recurso de Azure Stack Edge en Azure Portal. En **Información general**, vaya a la barra de comandos en el panel derecho y seleccione **Devolver dispositivo**. 
 
     ![Devolver dispositivo 1](media/azure-stack-edge-return-device/return-device-1.png)  
 
@@ -87,16 +87,31 @@ Para comenzar el proceso de devolución, siga los pasos siguientes.
 
 7. Una vez que el equipo de operaciones de Azure Stack Edge reciba el correo electrónico, le enviará una etiqueta de envío inverso. Cuando reciba esta etiqueta, puede programar la recogida del dispositivo con el transportista. 
 
+## <a name="pack-the-device"></a>Empaquetado del dispositivo
+
+Para empaquetar el dispositivo, realice los pasos siguientes.
+
+1. Apague el dispositivo. En la interfaz de usuario web local, vaya a **Mantenimiento > Configuración de encendido**.
+2. Seleccione **Apagar**. Cuando se le pida confirmación, haga clic en **Sí** para continuar. Para obtener más información, consulte [Administración de los cables de alimentación](../databox-online/azure-stack-edge-manage-access-power-connectivity-mode.md#manage-power).
+3. Desconecte los cables de alimentación y quite todos los cables de red del dispositivo.
+4. Prepare cuidadosamente el paquete de envío según las instrucciones siguientes:
+    1. Use la caja de envío que solicitó de Azure o la caja de envío original con su empaquetado de espuma. 
+    1. Coloque la pieza de espuma inferior en la caja.
+    1. Ponga el dispositivo encima de la espuma, teniendo cuidado de que quede colocada perfectamente en ella.
+    1. Coloque la pieza de espuma superior en el paquete.
+    1. Coloque los cables de alimentación en la bandeja de accesorios y los raíles en la pieza de espuma superior.
+    1. Selle la caja y coloque en el paquete la etiqueta de envío que ha recibido de Azure.
+    
+    > [!IMPORTANT]
+    > Si no se cumplen las directrices adecuadas para preparar el envío de devolución, el dispositivo podría dañarse y es posible que se apliquen honorarios por el dispositivo dañado. Revise los [términos del servicio del producto](https://www.microsoft.com/licensing/product-licensing/products) y los [preguntas más frecuentes sobre dispositivos perdidos o dañados](https://azure.microsoft.com/pricing/details/databox/edge/).
+ 
+
+
 ## <a name="schedule-a-pickup"></a>Programar una recogida
 
 Para programar una recogida, siga los pasos a continuación.
 
-1. Apague el dispositivo. En la interfaz de usuario web local, vaya a **Mantenimiento > Configuración de encendido**.
-2. Seleccione **Apagar**. Cuando se le pida confirmación, haga clic en **Sí** para continuar. Para obtener más información, consulte [Administración de los cables de alimentación](../databox-gateway/data-box-gateway-manage-access-power-connectivity-mode.md#manage-power).
-3. Desconecte los cables de alimentación y quite todos los cables de red del dispositivo.
-4. Prepare el paquete de envío con su propia caja o con la caja que ha recibido de Azure. Introduzca en la caja el dispositivo y los cables de alimentación que se han enviado con el dispositivo.
-5. Coloque en el paquete la etiqueta de envío que ha recibido de Azure.
-6. Programe una recogida con su transportista regional. Si devuelve el dispositivo en EE. UU., el transportista podría ser UPS o FedEx. Póngase en contacto con UPS para programar la recogida:
+1. Programe una recogida con su transportista regional. Si devuelve el dispositivo en EE. UU., el transportista podría ser UPS o FedEx. Póngase en contacto con UPS para programar la recogida:
 
     1. Llame a la oficina local de UPS (número gratuito específico del país o región).
     2. En la llamada, indique el número de seguimiento del envío inverso que se muestra en la etiqueta impresa.
@@ -109,7 +124,7 @@ Para programar una recogida, siga los pasos a continuación.
 Una vez recibido en el centro de datos de Azure, el dispositivo se inspecciona para detectar daños o signos de manipulación.
 
 - Si el dispositivo llega intacto y en buen estado, el medidor de facturación se detiene para ese recurso. El equipo de operaciones de Azure Stack Edge se pondrá en contacto con usted para confirmar que se ha devuelto el dispositivo. A continuación, puede eliminar el recurso asociado al dispositivo en Azure Portal.
-- Si el dispositivo llega significativamente dañado, es posible que se apliquen sanciones. Para obtener más información, consulte las [preguntas más frecuentes sobre dispositivos perdidos o dañados](https://azure.microsoft.com/pricing/details/databox/edge/) y los [términos del servicio del producto](https://www.microsoft.com/licensing/product-licensing/products).  
+- Si el dispositivo llega significativamente dañado, es posible que se apliquen cargos. Para obtener más información, consulte las [preguntas más frecuentes sobre dispositivos perdidos o dañados](https://azure.microsoft.com/pricing/details/databox/edge/) y los [términos del servicio del producto](https://www.microsoft.com/licensing/product-licensing/products).  
 
 
 Puede eliminar el dispositivo en Azure Portal:

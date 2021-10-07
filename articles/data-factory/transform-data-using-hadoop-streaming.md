@@ -1,31 +1,31 @@
 ---
 title: Transformación de datos mediante la actividad Streaming de Hadoop
+description: Obtenga información sobre cómo la actividad de Hadoop Streaming en canalizaciones de Azure Data Factory o Synapse Analytics para transformar datos mediante la ejecución de programas de Hadoop Streaming en un clúster de Hadoop.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Se explica cómo usar Hadoop Streaming Activity en Azure Data Factory para transformar datos mediante la ejecución de programas de Hadoop Streaming en un clúster de Hadoop.
 author: nabhishek
 ms.author: abnarain
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/08/2020
-ms.openlocfilehash: 4285ee6ae7c5799fa8b65df6bf5adfa79861e3c0
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.date: 09/09/2021
+ms.openlocfilehash: b1767a38cb7661ab074ad579d22f0512e5994eac
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122271201"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806015"
 ---
-# <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformación de datos mediante Hadoop Streaming Activity en Azure Data Factory
+# <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory-or-synapse-analytics"></a>Transformación de datos mediante la actividad de Hadoop Streaming en Azure Data Factory o Synapse Analytics
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-hadoop-streaming-activity.md)
 > * [Versión actual](transform-data-using-hadoop-streaming.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-La actividad de HDInsight Streaming en una [canalización](concepts-pipelines-activities.md) de Data Factory ejecuta programas de Hadoop Streaming en [su propio](compute-linked-services.md#azure-hdinsight-linked-service) clúster de HDInsight o en un clúster [a petición](compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Este artículo se basa en el artículo sobre [actividades de transformación de datos](transform-data.md) , que presenta información general de la transformación de datos y las actividades de transformación admitidas.
+La actividad de Hadoop Streaming en una [canalización](concepts-pipelines-activities.md) de Azure Data Factory o Synapse Analytics ejecuta programas de Hadoop Streaming en [su propio](compute-linked-services.md#azure-hdinsight-linked-service) clúster de HDInsight o en un clúster [a petición](compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Este artículo se basa en el artículo sobre [actividades de transformación de datos](transform-data.md) , que presenta información general de la transformación de datos y las actividades de transformación admitidas.
 
-Si no está familiarizado con Azure Data Factory, vea [Introduction to Azure Data Factory](introduction.md) (Introducción a Azure Data Factory) y siga el [tutorial de transformación de datos](tutorial-transform-data-spark-powershell.md) antes de leer este artículo. 
+Para obtener más información, vea los artículos de introducción a [Azure Data Factory](introduction.md) y [Synapse Analytics](../synapse-analytics/overview-what-is.md) y siga el [tutorial de transformación de datos](tutorial-transform-data-spark-powershell.md) antes de leer este artículo. 
 
 ## <a name="json-sample"></a>Ejemplo de JSON
 ```json
@@ -73,7 +73,7 @@ Si no está familiarizado con Azure Data Factory, vea [Introduction to Azure Dat
 | name              | Nombre de la actividad                     | Sí      |
 | description       | Texto que describe para qué se usa la actividad. | No       |
 | type              | En Hadoop Streaming Activity, el tipo de actividad es HDInsightStreaming | Sí      |
-| linkedServiceName | Referencia al clúster de HDInsight registrado como servicio vinculado en Data Factory. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | Sí      |
+| linkedServiceName | Referencia al clúster de HDInsight registrado como servicio vinculado. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | Sí      |
 | mapper            | Especifica el nombre del archivo ejecutable del asignador | Sí      |
 | reducer           | Especifica el nombre del archivo ejecutable del reductor | Sí      |
 | combiner          | Especifica el nombre del archivo ejecutable del combinador | No       |
@@ -94,5 +94,5 @@ Vea los siguientes artículos, en los que se explica cómo transformar datos de 
 * [Actividad de MapReduce](transform-data-using-hadoop-map-reduce.md)
 * [Actividad de Spark](transform-data-using-spark.md)
 * [Actividad personalizada de .NET](transform-data-using-dotnet-custom-activity.md)
-* [Actividad de ejecución por lotes de Azure Machine Learning Studio (clásico)](transform-data-using-machine-learning.md)
+* [Actividad de ejecución por lotes de ML Studio (clásico)](transform-data-using-machine-learning.md)
 * [Actividad de procedimiento almacenado](transform-data-using-stored-procedure.md)

@@ -3,14 +3,14 @@ title: Registro de las extensiones de enlace de Azure Functions
 description: Aprenda a registrar una extensión de enlace de Azure Functions basada en su entorno.
 author: craigshoemaker
 ms.topic: reference
-ms.date: 08/16/2020
+ms.date: 09/14/2020
 ms.author: cshoe
-ms.openlocfilehash: bfcefb23fa68e2aa70d4680fcca2462b24322014
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 262e0fc02632465a03391dbfeaa0902d1b6b9ec3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730520"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609771"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registro de las extensiones de enlace de Azure Functions
 
@@ -20,7 +20,7 @@ Las aplicaciones de funciones de la biblioteca de clases .NET usan enlaces que s
 
 En la tabla siguiente se indica cuándo y cómo registrar los enlaces.
 
-| Entorno de desarrollo |Registro<br/> en Functions 1.x  |Registro<br/> en Functions 3.x/2.x  |
+| Entorno de desarrollo |Registro<br/> en Functions 1.x  |Registro<br/> en Functions 2.x o posterior  |
 |-------------------------|------------------------------------|------------------------------------|
 |Portal de Azure|Automático|Automático<sup>*</sup>|
 |Lenguajes que no son .NET|Automático|Use [conjuntos de extensiones](#extension-bundles) (recomendado) o [instale las extensiones de forma explícita](#explicitly-install-extensions).|

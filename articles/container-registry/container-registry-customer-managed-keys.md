@@ -2,14 +2,14 @@
 title: Cifrado del registro con una clave administrada por el cliente
 description: Obtenga información sobre el cifrado en reposo de una instancia de Azure Container Registry y sobre cómo cifrar el registro Premium con una clave administrada por el cliente almacenada en Azure Key Vault
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 09/13/2021
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 399b1940ff3d87fa862e234948742a35d814f558
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: a5fd3140474b1d6d7c36d686c14f2dc4e6a9ef73
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634906"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128561610"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Cifrado del registro con una clave administrada por el cliente
 
@@ -546,7 +546,7 @@ Tampoco podrá cambiar (girar) la clave de cifrado. Los pasos de resolución dep
 
 **Identidad asignada por el usuario**
 
-Si aparece este problema con una identidad asignada por el usuario, reasigne primero la identidad mediante el comando [az acr identity assign](/cli/azure/acr/identity/#az_acr_identity_assign). Pase el identificador de recurso de la identidad o use el nombre de la identidad cuando esté en el mismo grupo de recursos que el registro. Por ejemplo:
+Si aparece este problema con una identidad asignada por el usuario, reasigne primero la identidad mediante el comando [az acr identity assign](/cli/azure/acr/identity/#az_acr_identity_assign). Pase el identificador de recurso de la identidad o use el nombre de la identidad cuando esté en el mismo grupo de recursos que el Registro. Por ejemplo:
 
 ```azurecli
 az acr identity assign -n myRegistry \
@@ -564,6 +564,12 @@ Si se produce este problema con una identidad asignada por el sistema, [cree una
 Si habilita una red virtual o un firewall del almacén de claves después de crear un registro cifrado, es posible que vea HTTP 403 u otros errores con la importación de imágenes o la rotación de claves automatizada. Para corregir este problema, vuelva a configurar la identidad administrada y la clave que usó inicialmente para el cifrado. Configure los pasos en [Rotar clave](#rotate-key). 
 
 Si el problema persiste, póngase en contacto con el Soporte técnico de Azure.
+
+### <a name="accidental-deletion-of-key-vault-or-key"></a>Eliminación accidental del almacén de claves o la clave
+
+La eliminación del almacén de claves, o de la clave, que se usa para cifrar un Registro con una clave administrada por el cliente hará que el contenido del Registro sea inaccesible. Si la [eliminación temporal](../key-vault/general/soft-delete-overview.md) está habilitada en el almacén de claves (la opción predeterminada), puede recuperar un almacén o un objeto del almacén de claves eliminados y reanudar las operaciones del Registro.
+
+Para ver los escenarios de eliminación y recuperación del almacén de claves, consulte [Administración de la recuperación de Azure Key Vault con eliminación temporal y protección contra purga](../key-vault/general/key-vault-recovery.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

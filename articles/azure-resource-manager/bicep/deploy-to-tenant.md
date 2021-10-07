@@ -3,16 +3,20 @@ title: Uso de Bicep para implementar recursos en el inquilino
 description: Se describe cómo implementar recursos en el ámbito de un inquilino en un archivo de Bicep.
 ms.topic: conceptual
 ms.date: 07/19/2021
-ms.openlocfilehash: 3f446670cd85daa5b541cc9b5858ab768ac8411d
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: fe5b8a1a17af47570bb2399172866a1e720b0bab
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114453415"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124793728"
 ---
 # <a name="tenant-deployments-with-bicep-file"></a>Implementaciones de inquilino con el archivo Bicep
 
 A medida que crece la organización, es posible que necesite definir y asignar [directivas](../../governance/policy/overview.md) o el [control de acceso basado en rol (RBAC de Azure)](../../role-based-access-control/overview.md) en el inquilino de Azure AD. Con las plantillas de nivel de inquilino, puede aplicar directivas y asignar roles a nivel global de forma declarativa.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Para obtener más información sobre los ámbitos de implementación y para obtener instrucciones prácticas, consulte [Implementación de recursos en suscripciones, grupos de administración e inquilinos mediante Bicep](/learn/modules/deploy-resources-scopes-bicep/) en **Microsoft Learn**.
 
 ## <a name="supported-resources"></a>Recursos compatibles
 

@@ -2,13 +2,13 @@
 title: Tipos de datos de Bicep
 description: Describe los tipos de datos disponibles en Bicep.
 ms.topic: conceptual
-ms.date: 08/30/2021
-ms.openlocfilehash: f520e314aff783a78e1656c16721f0fb8504215b
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.date: 09/22/2021
+ms.openlocfilehash: 936f17273a95ceb77030497b27f7f73defc37896
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123221689"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624405"
 ---
 # <a name="data-types-in-bicep"></a>Tipos de datos de Bicep
 
@@ -49,7 +49,7 @@ var mixedArray = [
 ]
 ```
 
-Las matrices de Bicep son de base 0. En el ejemplo siguiente, la expresión `exampleArray[0]` se evalúa en 1 y `exampleArray[2]` se evalúa en 3. El índice del indexador puede ser otra expresión. La expresión `exampleArray[index]` se evalúa en 2. Los indexadores enteros solo se permiten en la expresión de tipos de matriz.
+Las matrices de Bicep son de base cero. En el ejemplo siguiente, la expresión `exampleArray[0]` se evalúa en 1 y `exampleArray[2]` se evalúa en 3. El índice del indexador puede ser otra expresión. La expresión `exampleArray[index]` se evalúa en 2. Los indexadores enteros solo se permiten en la expresión de tipos de matriz.
 
 ```bicep
 var index = 1
@@ -77,7 +77,7 @@ Al especificar valores enteros, no use comillas.
 param exampleInt int = 1
 ```
 
-En el caso de los enteros pasados como parámetros en línea, el intervalo de valores puede estar limitado por el SDK o la herramienta de línea de comandos que use para la implementación. Por ejemplo, al usar PowerShell para implementar Bicep, los tipos de enteros pueden oscilar entre -2147483648 y 2147483647. Para evitar esta limitación, especifique valores enteros grandes en un [archivo de parámetros](parameter-files.md). Los tipos de recursos aplican sus propios límites para las propiedades de enteros.
+En Bicep, los enteros son enteros de 64 bits. Al pasarlos como parámetros en línea, el intervalo de valores puede estar limitado por el SDK o la herramienta de línea de comandos que use para la implementación. Por ejemplo, al usar PowerShell para implementar Bicep, los tipos de enteros pueden oscilar entre -2147483648 y 2147483647. Para evitar esta limitación, especifique valores enteros grandes en un [archivo de parámetros](parameter-files.md). Los tipos de recursos aplican sus propios límites para las propiedades de enteros.
 
 Actualmente no se admiten formatos de número de punto flotante, decimal o binario.
 
@@ -107,7 +107,7 @@ var a = {
   }
 }
 
-output result1 string = a.b // returns 'Dev' 
+output result1 string = a.b // returns 'Dev'
 output result2 int = a.c // returns 42
 output result3 bool = a.d.e // returns true
 ```
@@ -141,20 +141,20 @@ En la tabla siguiente se muestra el conjunto de caracteres reservados que se deb
 
 | Secuencia de escape | Valor representado | Notas |
 |:-|:-|:-|
-| \\ | \ ||
-| \' | ' ||
-| \n | Avance de línea (LF) ||
-| \r | Retorno de carro (CR) ||
-| \t | Carácter de tabulación ||
-| \u{x} | Punto de código Unicode *x* | *x* representa un valor de punto de código hexadecimal entre *0* y *10FFFF* (ambos inclusive). Se permiten ceros a la izquierda. Los puntos de código por encima de *FFFF* se emiten como un par suplente.
-| \$ | $ | Solo se debe escapar si va seguido de *{* . |
+| `\\` | `\` ||
+| `\'` | `'` ||
+| `\n` | Avance de línea (LF) ||
+| `\r` | Retorno de carro (CR) ||
+| `\t` | Carácter de tabulación ||
+| `\u{x}` | Punto de código Unicode `x` | **x** representa un valor de punto de código hexadecimal entre *0* y *10FFFF* (ambos inclusive). Se permiten ceros a la izquierda. Los puntos de código por encima de *FFFF* se emiten como un par suplente.
+| `\$` | `$` | La secuencia de escape solo está permitida cuando va seguida de `{`. |
 
 ```bicep
 // evaluates to "what's up?"
 var myVar = 'what\'s up?'
 ```
 
-Todas las cadenas de Bicep admiten la interpolación. Para insertar una expresión, debe rodearla por *${* y *}`. Las expresiones a las que se hace referencia no pueden abarcar varias líneas.
+Todas las cadenas de Bicep admiten la interpolación. Para insertar una expresión, debe rodearla por `${` y `}`. Las expresiones a las que se hace referencia no pueden abarcar varias líneas.
 
 ```bicep
 var storageName = 'storage${uniqueString(resourceGroup().id)}
@@ -162,7 +162,7 @@ var storageName = 'storage${uniqueString(resourceGroup().id)}
 
 ## <a name="multi-line-strings"></a>Cadenas de varias líneas
 
-En Bicep, las cadenas de varias líneas se definen entre 3 caracteres de comilla simple (`'''`) seguidos opcionalmente de una nueva línea (la secuencia de apertura) y 3 caracteres de comilla simple (`'''`: la secuencia de cierre). Los caracteres que se escriben entre las secuencias de apertura y cierre se leen textualmente y no es necesario ni posible el escape.
+En Bicep, las cadenas de varias líneas se definen entre tres caracteres de comilla simple (`'''`) seguidos opcionalmente de una nueva línea (la secuencia de apertura) y tres caracteres de comilla simple (`'''`: la secuencia de cierre). Los caracteres que se escriben entre las secuencias de apertura y cierre se leen textualmente y no es necesario ni posible el escape.
 
 > [!NOTE]
 > Dado que el analizador de Bicep lee todos los caracteres tal y como están, en función de los finales de línea del archivo Bicep, las nuevas líneas se pueden interpretar como `\r\n` o `\n`.
@@ -216,6 +216,27 @@ param password string
 @secure()
 param configValues object
 ```
+
+## <a name="data-type-assignability"></a>Capacidad de asignación de tipos de datos
+
+En Bicep, se puede asignar un valor de un tipo (tipo de origen) a otro tipo (tipo de destino). En la tabla siguiente se muestra qué tipo de origen (enumerado horizontalmente) se puede asignar o no a qué tipo de destino (enumerado verticalmente). En la tabla, `X` significa asignable, un espacio vacío significa que no se puede asignar y `?` indica solo si sus tipos son compatibles.
+
+| Tipos | `any` | `error` | `string` | `number` | `int` | `bool` | `null` | `object` | `array` | recurso con nombre | módulo con nombre | `scope` |
+|-|-|-|-|-|-|-|-|-|-|-|-|-|
+| `any`          |X| |X|X|X|X|X|X|X|X|X|X|
+| `error`        | | | | | | | | | | | | |
+| `string`       |X| |X| | | | | | | | | |
+| `number`       |X| | |X|X| | | | | | | |
+| `int`          |X| | | |X| | | | | | | |
+| `bool`         |X| | | | |X| | | | | | |
+| `null`         |X| | | | | |X| | | | | |
+| `object`       |X| | | | | | |X| | | | |
+| `array`        |X| | | | | | | |X| | | |
+| `resource`     |X| | | | | | | | |X| | |
+| `module`       |X| | | | | | | | | |X| |
+| `scope`        | | | | | | | | | | | |?|
+| **recurso con nombre** |X| | | | | | |?| |?| | |
+| **módulo con nombre**   |X| | | | | | |?| | |?| |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

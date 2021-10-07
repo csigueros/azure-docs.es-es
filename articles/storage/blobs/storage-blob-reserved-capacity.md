@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/17/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 5f130e2367ed2fa4c9095479e9ff9d9722b010e5
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 6bb24f33d93e58768af34359f4d803ca68cf4ac4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110098549"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645785"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Optimización de los costos de almacenamiento de blobs con capacidad reservada
 
@@ -34,7 +34,7 @@ Puede comprar capacidad reservada de Azure Storage en unidades de 100 TiB y 1 
 
 ### <a name="reservation-scope"></a>Ámbito de la reserva
 
-La capacidad reservada de Azure Storage está disponible en una suscripción única o para varias suscripciones (ámbito compartido). Cuando el ámbito es de una suscripción única, el descuento por reserva se aplica a la suscripción seleccionada únicamente. Cuando el ámbito es de varias suscripciones, el descuento de la reserva se comparte entre esas suscripciones según el contexto de facturación del cliente.
+La capacidad reservada de Azure Storage está disponible en una sola suscripción, varias suscripciones (ámbito compartido) y grupos de administración. Cuando el ámbito es de una suscripción única, el descuento por reserva se aplica a la suscripción seleccionada únicamente. Cuando el ámbito es de varias suscripciones, el descuento de la reserva se comparte entre esas suscripciones según el contexto de facturación del cliente. Cuando el ámbito es un grupo de administración, el descuento por reserva se comparte entre las suscripciones que forman parte del grupo de administración y del ámbito de facturación.
 
 Al comprar la capacidad reservada de Azure Storage, puede usar la reserva para los datos de blobs en bloques y de Azure Data Lake Storage Gen2. Una reserva se aplica al uso dentro del ámbito adquirido y no se puede limitar a una cuenta de almacenamiento, un contenedor o un objeto específico de la suscripción.
 
@@ -49,7 +49,7 @@ Todos los niveles de acceso (frecuente, esporádicoy de archivo) se admiten para
 Se admiten todos los tipos de redundancia para las reservas. Para más información sobre las opciones de redundancia, consulte [Redundancia de Azure Storage](../common/storage-redundancy.md).
 
 > [!NOTE]
-> La capacidad reservada de Azure Storage no está disponible para cuentas de almacenamiento prémium, cuentas de almacenamiento de uso general v1 (GPv1), Azure Data Lake Storage Gen1, blobs en páginas, Azure Queue Storage o Azure Table. Para más información sobre la capacidad reservada de Azure Files, consulte [Optimización de costos para Azure Files con capacidad reservada](../files/files-reserve-capacity.md).  
+> La capacidad reservada de Azure Storage no está disponible para cuentas de almacenamiento prémium, cuentas de almacenamiento de uso general v1 (GPv1), Azure Data Lake Storage Gen1, blobs en páginas, Azure Queue Storage o Azure Table. Para más información sobre la capacidad reservada de Azure Files, consulte [Optimización de costos para Azure Files con capacidad reservada](../files/files-reserve-capacity.md).
 
 ### <a name="security-requirements-for-purchase"></a>Requisitos de seguridad para la compra
 
@@ -61,7 +61,7 @@ Para adquirir capacidad reservada:
 
 ## <a name="determine-required-capacity-before-purchase"></a>Determinación de la capacidad necesaria antes de la compra
 
-Cuando compra una reserva de Azure Storage, debe elegir la opción de región, nivel de acceso y redundancia para la reserva. La reserva solo es válida para los datos almacenados en esa región, el nivel de acceso y el nivel de redundancia. Por ejemplo, supongamos que adquiere una reserva de datos en la región Oeste de EE. UU. para el nivel de acceso frecuente mediante el almacenamiento con redundancia de zona (ZRS). No se puede usar la misma reserva para datos en la región Este de EE. UU., datos en el nivel de archivo o datos en almacenamiento con redundancia geográfica (GRS). Sin embargo, puede adquirir otra reserva para sus necesidades adicionales.  
+Cuando compra una reserva de Azure Storage, debe elegir la opción de región, nivel de acceso y redundancia para la reserva. La reserva solo es válida para los datos almacenados en esa región, el nivel de acceso y el nivel de redundancia. Por ejemplo, supongamos que adquiere una reserva de datos en la región Oeste de EE. UU. para el nivel de acceso frecuente mediante el almacenamiento con redundancia de zona (ZRS). No se puede usar la misma reserva para datos en la región Este de EE. UU., datos en el nivel de archivo o datos en almacenamiento con redundancia geográfica (GRS). Sin embargo, puede adquirir otra reserva para sus necesidades adicionales.
 
 Las reservas están disponibles hoy para bloques de 100 TiB o 1 PiB, con descuentos superiores para los bloques de 1 PiB. Cuando se adquiere una reserva en Azure Portal, Microsoft puede proporcionarle recomendaciones basadas en el uso anterior para ayudar a determinar qué reserva debe comprar.
 
@@ -73,8 +73,8 @@ Para ayudar a identificar los términos de reserva adecuados para su escenario, 
 
 Siga estos pasos para adquirir la capacidad reservada:
 
-1. Vaya al panel [Comprar reservas](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Browse_AddCommand) en Azure Portal.  
-1. Seleccione **Azure Blob Storage** para comprar una reserva nueva.  
+1. Vaya al panel [Comprar reservas](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Browse_AddCommand) en Azure Portal.
+1. Seleccione **Azure Blob Storage** para comprar una reserva nueva.
 1. Rellene los campos obligatorios tal como se describe en la tabla siguiente:
 
     ![Captura de pantalla que muestra cómo comprar capacidad reservada](media/storage-blob-reserved-capacity/select-reserved-capacity.png)

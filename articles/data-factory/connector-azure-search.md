@@ -1,22 +1,22 @@
 ---
 title: Copia de los datos al índice de búsqueda
+description: Obtenga información sobre cómo insertar o copiar datos en un índice de Azure Search mediante la actividad de copia en una canalización de Azure Data Factory o Synapse Analytics.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre cómo insertar o copiar datos en un índice de Azure Search mediante la actividad de copia en una canalización de Azure Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: fbeeb112712afa5a47401d10b3f4b2d9f01d1713
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: 289a347e0007547b1fdba2ffd2b3a4674efb524d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123313763"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744093"
 ---
-# <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory"></a>Copia de datos a un índice de Azure Cognitive Search mediante Azure Data Factory
+# <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory-or-synapse-analytics"></a>Copia de datos a un índice de Azure Cognitive Search mediante Azure Data Factory o Synapse Analytics
 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-azure-search-connector.md)
@@ -24,7 +24,7 @@ ms.locfileid: "123313763"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se resume el uso de la actividad de copia de Azure Data Factory para copiar datos en un índice de Azure Cognitive Search. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
+En este artículo se describe el uso de la actividad de copia en una canalización de Azure Data Factory o Synapse Analytics para copiar datos en un índice de Azure Cognitive Search. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -69,7 +69,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Co
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **AzureSearch**. | Sí |
 | url | URL del servicio de búsqueda. | Sí |
-| key | Clave de administración del servicio de búsqueda. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| key | Clave de administración del servicio de búsqueda. Marque este campo como SecureString para almacenarlo de forma segura, o bien [haga referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |No |
 
 > [!IMPORTANT]
@@ -106,7 +106,7 @@ Para copiar datos en Azure Cognitive Search, se admiten las siguientes propiedad
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del conjunto de datos debe establecerse en: **AzureSearchIndex**. | Sí |
-| indexName | Nombre del índice de búsqueda. Data Factory no crea el índice. El índice debe existir en Azure Cognitive Search. | Sí |
+| indexName | Nombre del índice de búsqueda. El servicio no crea el índice. El índice debe existir en Azure Cognitive Search. | Sí |
 
 **Ejemplo**:
 
@@ -207,4 +207,4 @@ En la tabla siguiente se especifica si se admite o no un tipo de datos de Azure 
 Actualmente no se admiten otros tipos de datos, por ejemplo, ComplexType. Para obtener una lista completa de los tipos de datos que admite Azure Cognitive Search, consulte [Tipos de datos admitidos (Azure Cognitive Search)](/rest/api/searchservice/supported-data-types).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

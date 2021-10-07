@@ -4,16 +4,16 @@ description: Obtenga información sobre cómo administrar las reservas de Azure.
 ms.service: cost-management-billing
 ms.subservice: reservations
 author: bandersmsft
-ms.reviewer: yashesvi
+ms.reviewer: primittal
 ms.topic: how-to
-ms.date: 06/27/2021
+ms.date: 09/20/2021
 ms.author: banders
-ms.openlocfilehash: cee0acf851d82ba09867b8d66c09a17b21e7af45
-ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
+ms.openlocfilehash: cbfe1aae48f09330a025861a82cfd8caaa878e41
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112989064"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128621894"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Administración de reservas para los recursos de Azure
 
@@ -52,6 +52,8 @@ Para cambiar el ámbito de una reserva:
 Si cambia el ámbito para que pase de ser compartido a único, solo podrá seleccionar suscripciones de las que sea el propietario. Únicamente se pueden seleccionar las suscripciones que pertenezcan al mismo contexto de facturación que la reserva.
 
 El ámbito solo se aplica a suscripciones individuales con tarifas de pago por uso (ofertas MS-AZR-0003P o MS-AZR-0023P), la oferta Enterprise MS-AZR-0017P o MS-AZR-0148P o los tipos de suscripción CSP.
+
+Si todas las suscripciones se mueven fuera de un grupo de administración, el ámbito de la reserva se cambia automáticamente a Compartido.
 
 ## <a name="who-can-manage-a-reservation-by-default"></a>Quiénes pueden administrar una reservas de manera predeterminada
 

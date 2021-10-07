@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 12/03/2020
 ms.author: mbullwin
-ms.openlocfilehash: 0fd02fbdd8f6c02ce86a4e0c1ee3eabec69e56c3
-ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
+ms.openlocfilehash: 21dd554388616b2cd4882a5a550b4de74f5d9be3
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2021
-ms.locfileid: "113296728"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059217"
 ---
 # <a name="deploy-an-anomaly-detector-univariate-module-to-iot-edge"></a>Implementación del módulo univariante de Anomaly Detector en IoT Edge
 
@@ -58,7 +58,7 @@ Aprenda a implementar el módulo [Anomaly Detector](../anomaly-detector-containe
 
 6. Seleccione **Update** (Actualizar).
 
-7. Seleccione **Siguiente: Rutas** para definir la ruta. Especifique que todos los mensajes de todos los módulos vayan a Azure IoT Hub.
+7. Seleccione **Siguiente: Rutas** para definir la ruta. Especifique que todos los mensajes de todos los módulos vayan a Azure IoT Hub. Para obtener información sobre cómo declarar una ruta, consulte [Establecimiento de rutas en IoT Edge](../../../iot-edge/module-composition.md?view=iotedge-2020-11).
 
 8. Seleccione **Siguiente: Revisar y crear**. Podemos obtener una vista previa del archivo JSON que define todos los módulos que se van a implementar en nuestro dispositivo IoT Edge.
     

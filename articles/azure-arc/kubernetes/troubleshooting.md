@@ -6,14 +6,14 @@ ms.date: 05/21/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
-description: Solución de problemas comunes con los clústeres de Kubernetes habilitado para Arc
+description: Solución de problemas comunes con los clústeres de Kubernetes habilitado para Azure Arc.
 keywords: Kubernetes, Arc, Azure, containers
-ms.openlocfilehash: e1a04e95924f4a217cdceca383637bcee7ea368a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f6f29b30f3a62653c032b7aae40cac5afdcf96b9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121743826"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546516"
 ---
 # <a name="azure-arc-enabled-kubernetes-troubleshooting"></a>Solución de problemas de Kubernetes habilitado para Azure Arc
 
@@ -77,6 +77,19 @@ En todos los pods, el valor de `STATUS` debe ser `Running`, con `3/3` o `2/2` en
 
 Para conectar clústeres a Azure, es necesario tener acceso a una suscripción de Azure y a un clúster de destino con el rol `cluster-admin`. Si no puede establecer conexión con el clúster o los permisos no son suficientes, se producirá un error al conectar el clúster a Azure Arc.
 
+### <a name="azure-cli-is-unable-to-download-helm-chart-for-azure-arc-agents"></a>La CLI de Azure no puede descargar el gráfico de Helm para los agentes de Azure Arc
+
+Si utiliza la versión de Helm >= 3.7.0, se producirá el siguiente error cuando se ejecute `az connectedk8s connect` para conectar el clúster a Azure Arc:
+
+```console
+$ az connectedk8s connect -n AzureArcTest -g AzureArcTest
+
+Unable to pull helm chart from the registry 'mcr.microsoft.com/azurearck8s/batch1/stable/azure-arc-k8sagents:1.4.0': Error: unknown command "chart" for "helm"
+Run 'helm --help' for usage.
+```
+
+En este caso, deberá instalar una versión anterior de [Helm 3](https://helm.sh/docs/intro/install/), donde la versión &lt; 3.7.0. Después, vuelva a ejecutar el comando `az connectedk8s connect` para conectar el clúster a Azure Arc.
+
 ### <a name="insufficient-cluster-permissions"></a>Permisos de clúster insuficientes
 
 Si el archivo kubeconfig proporcionado no tiene permisos suficientes para instalar los agentes de Azure Arc, el comando de la CLI de Azure devolverá un error.
@@ -119,7 +132,7 @@ This operation might take a while...
 La versión `v3.3.0-rc.1` de Helm tiene un [problema](https://github.com/helm/helm/pull/8527) y es que la instalación/actualización de Helm (que se utiliza en la extensión `connectedk8s` de la CLI ) provoca la ejecución de todos los enlaces, lo que genera el siguiente error:
 
 ```console
-$ az connectedk8s connect -n shasbakstest -g shasbakstest
+$ az connectedk8s connect -n AzureArcTest -g AzureArcTest
 Ensure that you have the latest helm version installed before proceeding.
 This operation might take a while...
 
@@ -153,7 +166,7 @@ az k8s-configuration create <parameters> --debug
 
 ### <a name="create-configurations"></a>Creación de configuraciones
 
-Los permisos de escritura del recurso de Kubernetes habilitado para Azure Arc ( `Microsoft.Kubernetes/connectedClusters/Write` ) son necesarios y suficientes para crear configuraciones en ese clúster.
+Los permisos de escritura del recurso de Kubernetes habilitado para Azure Arc (`Microsoft.Kubernetes/connectedClusters/Write`) son necesarios y suficientes para crear configuraciones en ese clúster.
 
 ### <a name="configuration-remains-pending"></a>La configuración se mantiene como `Pending`
 
@@ -198,6 +211,7 @@ metadata:
   resourceVersion: ""
   selfLink: ""
 ```
+
 ## <a name="monitoring"></a>Supervisión
 
 Azure Monitor para contenedores requiere que su DaemonSet se ejecute en modo con privilegiado. Para configurar correctamente un clúster de Canonical Charmed Kubernetes para la supervisión, ejecute el siguiente comando:
@@ -229,7 +243,7 @@ La advertencia anterior se observa cuando se ha usado una entidad de servicio pa
         az connectedk8s connect -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId>   
         ```
 
-    - Si va a habilitar la característica de ubicaciones personalizadas en un clúster de Kubernetes existente habilitado para Arc, ejecute el siguiente comando:
+    - Si va a habilitar la característica de ubicaciones personalizadas en un clúster de Kubernetes existente habilitado para Azure Arc, ejecute el siguiente comando:
 
         ```console
         az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId> --features cluster-connect custom-locations
@@ -237,7 +251,7 @@ La advertencia anterior se observa cuando se ha usado una entidad de servicio pa
 
 Una vez que se concedan los permisos anteriores, podrá continuar con la [habilitación de la característica de ubicación personalizada](custom-locations.md#enable-custom-locations-on-cluster) en el clúster.
 
-## <a name="arc-enabled-open-service-mesh"></a>Open Service Mesh habilitado para Arc
+## <a name="azure-arc-enabled-open-service-mesh"></a>Open Service Mesh habilitado para Azure Arc
 
 Los siguientes pasos de solución de problemas proporcionan instrucciones sobre la validación de la implementación de todos los componentes de la extensión Open Service Mesh en el clúster.
 

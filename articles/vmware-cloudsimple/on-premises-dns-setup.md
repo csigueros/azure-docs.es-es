@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1f7537790c22bf09da89cd02ba213b1573f19d9c
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: a14d99a81aaad48c8daf0c0bf0d49b3a7e229f3d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108177429"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128600292"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Configuración de DNS para la resolución de nombres en el acceso a vCenter de la nube privada desde estaciones de trabajo en el entorno local
 
@@ -43,10 +43,10 @@ Puede configurar una zona como zona de rutas internas y apuntar a los servidores
 
 El archivo específico y los parámetros que se van a configurar pueden variar en función de la configuración de DNS individual.
 
-Por ejemplo, para la configuración predeterminada del servidor BIND, edite el archivo /etc/named.conf en el servidor DNS y agregue la siguiente información de zona.
+Por ejemplo, para la configuración predeterminada del servidor BIND, edite el archivo `/etc/named.conf` en el servidor DNS y agregue la siguiente información de zona.
 
 > [!NOTE]
->Este artículo contiene referencias al término esclavo, un término que Microsoft ya no usa. Cuando se quite el término del software, se quitará también del artículo.
+>Este artículo contiene referencias al término *esclavo*, un término que Microsoft ya no usa. Cuando se quite el término del software, se quitará también del artículo.
 
 ```
 zone "az.cloudsimple.io"

@@ -1,15 +1,14 @@
 ---
 title: Uso de identidades administradas en Azure Kubernetes Service
 description: Aprenda a utilizar identidades administradas en Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: article
 ms.date: 05/12/2021
-ms.openlocfilehash: d3d479730b88c80c627c3e6dad2ab8f80eb3aee6
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: e9a7a0a46e36d544a5b7d785da2b64ecde4f3faa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123431737"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128585309"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Uso de identidades administradas en Azure Kubernetes Service
 
@@ -83,10 +82,10 @@ az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 ```
 > [!NOTE]
 > Después de la actualización, el plano de control del clúster y los pods de complemento cambiarán para usar la identidad administrada, pero kubelet SEGUIRÁ USANDO LA ENTIDAD DE SERVICIO hasta que se actualice el grupo de agentes. Utilice `az aks nodepool upgrade --node-image-only` en los nodos para completar la actualización de la identidad administrada. 
-
-
-> Si el clúster usaba --attach-acr para extraer de la imagen de ACR, después de actualizar el clúster a Identidad administrada, debe volver a ejecutar "az aks update --attach-acr <ACR Resource ID>" para permitir que el kubelet recién creado que se usa para la identidad administrada obtenga el permiso para la extracción desde ACR. De lo contrario, no podrá realizar la extracción desde ACR después de la actualización.
-
+>
+> Si el clúster usaba --attach-acr para extraer de la imagen de Azure Container Registry, después de actualizar el clúster a identidad administrada, debe volver a ejecutar `az aks update --attach-acr <ACR Resource ID>` para permitir que el kubelet recién creado que se usa para la identidad administrada obtenga el permiso para la extracción desde ACR. De lo contrario, no podrá realizar la extracción desde ACR después de la actualización.
+>
+> La CLI de Azure garantizará que el permiso del complemento se ha configurado correctamente después de la migración. Si no usa la CLI de Azure para realizar la operación de migración, deberá controlar el permiso de la identidad del complemento por su cuenta. A continuación, verá un ejemplo de [ARM](../role-based-access-control/role-assignments-template.md). 
 
 ## <a name="obtain-and-use-the-system-assigned-managed-identity-for-your-aks-cluster"></a>Obtención y uso de la identidad administrada asignada por el sistema para el clúster de AKS
 
@@ -150,7 +149,7 @@ El resultado debería tener este aspecto:
   "principalId": "<principalId>",
   "resourceGroup": "myResourceGroup",                       
   "tags": {},
-  "tenantId": "<tenant-id>>",
+  "tenantId": "<tenant-id>",
   "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
 }
 ```

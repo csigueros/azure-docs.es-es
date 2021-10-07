@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: storsimple
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 09/14/2021
 ms.author: alkohli
-ms.openlocfilehash: 23ce17844a0113f63931c6ece7d36bfefedc2de5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 88ef9534c1a0048ef113ce0666ddcdd47171c234
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100552131"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589390"
 ---
 #### <a name="to-add-a-storsimple-backup-policy"></a>Para agregar una directiva de copia de seguridad de StorSimple
 
@@ -42,6 +42,9 @@ ms.locfileid: "100552131"
        4. Escriba una fecha y hora para que comience la directiva de copia de seguridad.
 
        5. Haga clic en **Aceptar** para definir la programación.
+       
+       > [!NOTE]
+       > Cuando llega a las 64 copias de seguridad de una programación y quiere conservarlas, puede [deshabilitar la programación](..\articles\storsimple\storsimple-8000-manage-backup-policies-u2.md#disable-a-schedule) y agregar una nueva que tenga una retención máxima de 64 copias de seguridad. Esta solución alternativa funcionará hasta que alcance el límite de 256 copias de seguridad por volumen. En ese momento, deberá eliminar las copias de seguridad anteriores para poder realizar otras nuevas.
 
    5. Haga clic en **Crear** para crear una directiva de copia de seguridad.
    

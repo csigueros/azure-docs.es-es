@@ -10,12 +10,12 @@ ms.date: 05/06/2021
 ms.author: santoshc
 ms.reviewer: jiacfan
 ms.subservice: common
-ms.openlocfilehash: 895f53ca3e8e1c68fa01ef44ffc47d88604bbea5
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 46be6327052aa280b9d23bc05764550a05739c5e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110070865"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627926"
 ---
 # <a name="security-considerations-for-azure-role-assignment-conditions-in-azure-storage-preview"></a>Aspectos de seguridad para las condiciones de asignación de roles de Azure en Azure Storage (versión preliminar)
 
@@ -28,7 +28,7 @@ Para proteger completamente los recursos mediante el [control de acceso basado e
 
 En este artículo se describen las consideraciones de seguridad que debe tener en cuenta en las condiciones de asignación de roles.
 
-## <a name="use-of-other-authorization-mechanisms"></a>Uso de otros mecanismos de autorización 
+## <a name="use-of-other-authorization-mechanisms"></a>Uso de otros mecanismos de autorización
 
 Las condiciones de asignación de roles solo se evalúan cuando se usa Azure RBAC para la autorización. Estas condiciones se pueden omitir si se permite el acceso mediante métodos de autorización alternativos:
 - Autorización de [clave compartida](/rest/api/storageservices/authorize-with-shared-key)
@@ -81,7 +81,7 @@ Cuando se usan etiquetas para consultar y filtrar los blobs de un contenedor, so
 
 ## <a name="roles-and-permissions"></a>Roles y permisos
 
-Si usa condiciones de asignación de roles para [roles integrados de Azure](../../role-based-access-control/built-in-roles.md), debe revisar cuidadosamente todos los permisos que el rol concede a una entidad de seguridad.
+Si usa condiciones de asignación de roles con los [roles integrados en Azure](../../role-based-access-control/built-in-roles.md), debe revisar detenidamente todos los permisos que conceda el rol a una entidad de seguridad.
 
 ### <a name="inherited-role-assignments"></a>Asignaciones de roles heredadas
 
@@ -116,4 +116,3 @@ No se aplican las condiciones para el acceso al blob especificado por el paráme
 - [Autorización del acceso a blobs mediante las condiciones de asignación de roles de Azure (versión preliminar)](storage-auth-abac.md)
 - [Acciones y atributos para las condiciones de asignación de roles de Azure en Azure Storage (versión preliminar)](storage-auth-abac-attributes.md)
 - [¿Qué es el control de acceso basado en atributos de Azure (ABAC de Azure) (versión preliminar)?](../../role-based-access-control/conditions-overview.md)
-

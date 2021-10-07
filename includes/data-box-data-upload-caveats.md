@@ -3,14 +3,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: include
-ms.date: 08/16/2021
+ms.date: 09/28/2021
 ms.author: alkohli
-ms.openlocfilehash: e73b49b92894d2871e474f42ad4ba31a7161677b
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: 3a0a63d68c5a63eeb4ac7855b3541471814a734b
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122264162"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129220680"
 ---
 - Contenedores, recursos compartidos y carpetas:
   - No copie los archivos directamente en ninguno de los recursos compartidos creados previamente. Debe crear una carpeta en el recurso compartido y, después, copiar los archivos en ella.
@@ -25,5 +25,5 @@ ms.locfileid: "122264162"
   - Para mejorar el rendimiento durante las cargas de datos, se recomienda [habilitar recursos compartidos de archivos grandes en la cuenta de almacenamiento y aumentar la capacidad del recurso compartido a 100 TiB](../articles/storage/files/storage-how-to-create-file-share.md#enable-large-files-shares-on-an-existing-account). Los recursos compartidos de archivos grandes solo se admiten para las cuentas de almacenamiento con almacenamiento con redundancia local (LRS).
   - Si se han producido errores al cargar datos en Azure, se crea un registro de errores en la cuenta de almacenamiento de destino. La ruta de acceso a este registro de errores está disponible cuando se completa la carga. Puede examinar el registro para realizar acciones correctivas. No elimine datos del origen sin comprobar los datos cargados.
   - Los metadatos de archivo y los permisos NTFS se pueden conservar cuando se cargan los datos en Azure Files mediante las instrucciones de [Conservación de las ACL de archivo, los atributos y las marcas de tiempo con Azure Data Box](../articles/databox/data-box-file-acls-preservation.md).
-  - La jerarquía de los archivos se mantiene durante la carga en la nube. Por ejemplo, copió un archivo en esta ruta de acceso: `<container folder>\A\B\C.txt`. Este archivo se carga en la misma ruta de acceso virtual en la nube.
+  - La jerarquía de los archivos se mantiene mientras se carga en la nube tanto para blobs como para Azure Files. Por ejemplo, copió un archivo en esta ruta de acceso: `<container folder>\A\B\C.txt`. Este archivo se carga en la misma ruta de acceso en la nube.
   

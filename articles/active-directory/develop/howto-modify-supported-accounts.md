@@ -13,12 +13,12 @@ ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: marsma, aragra, lenalepa, sureshja
-ms.openlocfilehash: c89cb9c43ae274170e0cedb01b1908a874b7317e
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 35415a42f6970a7a0aabc0fb210775a15fc1d481
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123039954"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128585453"
 ---
 # <a name="modify-the-accounts-supported-by-an-application"></a>Modificación de las cuentas compatibles con una aplicación
 
@@ -35,7 +35,7 @@ En las secciones siguientes, aprenderá a modificar el registro de la aplicació
 Para especificar una configuración diferente para los tipos de cuenta que admite el registro de aplicación existente:
 
 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
-1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
+1. Si tiene acceso a varios inquilinos, use el filtro **Directorios y suscripciones** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para ir al inquilino en el que está registrada la aplicación.
 1. Busque y seleccione **Azure Active Directory**.
 1. En **Administrar**, seleccione **Registros de aplicaciones** y, a continuación, seleccione la aplicación.
 1. Ahora, especifique qué personas pueden usar la aplicación. A veces, se conoce a estas personas como *público de inicio de sesión*.

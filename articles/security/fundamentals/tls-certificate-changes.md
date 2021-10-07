@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 11/10/2020
+ms.date: 09/13/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 9e4edbcfd9e4180e727cd885902d9f0150a967ca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01acde63371fea6a8c3f752caf31fa883e5e617e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100389406"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128641225"
 ---
 # <a name="azure-tls-certificate-changes"></a>Cambios en los certificados TLS de Azure  
 
@@ -28,13 +28,13 @@ Todos los servicios de Azure se ven afectados por este cambio. Estos son algunos
 
 - Los servicios de [Azure Active Directory](../../active-directory/index.yml) (Azure AD) comenzaron esta transición el 7 de julio de 2020.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) y [DPS](../../iot-dps/index.yml) permanecerán en la entidad de certificación raíz Baltimore CyberTrust, pero las entidades de certificación intermedias cambiarán. [Haga clic aquí para más información](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
-- [Azure Storage](../../storage/index.yml) permanecerá en la entidad de certificación raíz Baltimore CyberTrust, pero las entidades de certificación intermedias cambiarán. [Haga clic aquí para más información](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
+- Para [Azure Storage](../../storage/index.yml), [haga clic aquí para más información](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-critical-changes-are-almost-here-and-why-you/ba-p/2741581).
 - [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) permanecerá en la entidad de certificación raíz Baltimore CyberTrust, pero las entidades de certificación intermedias cambiarán. [Haga clic aquí para más información](../../azure-cache-for-redis/cache-whats-new.md).
 - Azure Instance Metadata Service permanecerá en la entidad de certificación raíz Baltimore CyberTrust, pero las entidades de certificación intermedias cambiarán. [Haga clic aquí para más información](/answers/questions/172717/action-required-for-attested-data-tls-with-azure-i.html).
 
 > [!IMPORTANT]
-> Es posible que los clientes necesiten actualizar sus aplicaciones después de este cambio, con el fin de evitar errores de conectividad al intentar conectarse a los servicios de Azure.
-
+> Es posible que los clientes necesiten actualizar sus aplicaciones después de este cambio, con el fin de evitar errores de conectividad al intentar conectarse a Azure Storage.
+https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-critical-changes-are-almost-here-and-why-you/ba-p/2741581
 ## <a name="what-is-changing"></a>¿Qué está cambiando?
 
 En la actualidad, la mayoría de los certificados TLS usados por los servicios de Azure se encadenan a la siguiente CA raíz:

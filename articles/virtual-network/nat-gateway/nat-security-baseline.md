@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 862c21e162ce43e6d7de6aa6485b01925edbe465
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 5edab35023afeca68cff20a82307afaf4bbad535
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114288184"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784249"
 ---
 # <a name="azure-security-baseline-for-virtual-network-nat"></a>Base de referencia de seguridad de Azure para Virtual Network NAT
 
@@ -28,9 +28,9 @@ Para ver cómo Virtual Network NAT se asigna por completo a Azure Security Bench
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1.2: Supervisión y registro de la configuración y el tráfico de redes virtuales, subredes y NIC
 
-**Guía**: Virtual Network NAT no admite el control del tráfico saliente con grupos de seguridad de red (NSG).  El tráfico de entrada solo se permite en respuesta a un flujo originado por la salida.
+**Guía**: Virtual Network NAT admite el control del tráfico saliente con grupos de seguridad de red (NSG).  El tráfico de entrada solo se permite en respuesta a un flujo originado por la salida.
 
-Sin embargo, los registros de flujo de los grupos de seguridad de red (NSG) se pueden usar con los recursos de puerta de enlace NAT para supervisar el tráfico originado por la salida.
+Los registros de flujo de los grupos de seguridad de red (NSG) también se pueden usar con los recursos de puerta de enlace NAT para supervisar el tráfico originado por la salida.
 
 Use Azure Security Center y siga las recomendaciones de protección de redes para ayudar a proteger sus recursos de red de Azure. Habilite los registros de flujo de los grupos de seguridad de red y envíe los registros a una cuenta de Azure Storage para su auditoría. También puede enviar los registros de flujo a un área de trabajo de Log Analytics y luego usar Análisis de tráfico para proporcionar información detallada sobre los patrones de tráfico en la nube de Azure. Algunas de las ventajas del Análisis de tráfico son la capacidad de visualizar la actividad de la red, identificar las zonas activas y las amenazas de seguridad, comprender los patrones de flujo de tráfico y detectar configuraciones de red incorrectas. 
 

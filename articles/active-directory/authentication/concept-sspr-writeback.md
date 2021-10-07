@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f27cee969d666d8605c0c87552eed1f305e1e4c3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2a48a9f4ded6386b4b5a4ea2d02d796b8e5ed4f7
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121744186"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213921"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>¿Cómo funciona la escritura diferida del autoservicio de restablecimiento de contraseña en Azure Active Directory?
 
@@ -105,7 +105,7 @@ La escritura diferida de contraseñas es un servicio muy seguro. Para garantizar
 Después de que un usuario envíe un restablecimiento de contraseña, la solicitud de restablecimiento pasa por varias pasos de cifrado antes de que llegue al entorno local. Estos pasos de cifrado garantizan una seguridad y confiabilidad máximas del servicio. A continuación se detalla la descripción de estos pasos:
 
 1. **Cifrado de contraseña con clave RSA de 2048 bits**: cuando el usuario envía una contraseña para que se escriba en diferido en el entorno local, se cifra la propia contraseña enviada con una clave RSA de 2048 bits.
-1. **Cifrado a nivel de paquete con AES-GCM**: todo el paquete (la contraseña y los metadatos necesarios) se cifra mediante AES-GCM. El cifrado evita que cualquier persona que tenga acceso directo al canal subyacente de Service Bus vea o manipule el contenido.
+1. **Cifrado de nivel de paquete con AES-GCM de 256 bits**: todo el paquete (la contraseña y los metadatos necesarios) se cifra mediante AES-GCM (con un tamaño de clave de 256 bits). El cifrado evita que cualquier persona que tenga acceso directo al canal subyacente de Service Bus vea o manipule el contenido.
 1. **Toda la comunicación se realiza a través de TLS/SSL**: Toda comunicación con Service Bus tiene lugar en un canal SSL/TLS. Este cifrado protege el contenido de terceras personas no autorizadas.
 1. **Sustitución de clave automática cada seis meses**: todas las claves se sustituyen cada seis meses, o cada vez que la escritura diferida de contraseñas se deshabilita y luego se vuelve a habilitar en Azure AD Connect, para garantizar la máxima seguridad y protección del servicio.
 

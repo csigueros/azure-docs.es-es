@@ -4,27 +4,17 @@ description: Describe las funciones que se usarán en un archivo de Bicep para r
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/16/2021
-ms.openlocfilehash: a83c0f442e88bc2fe0320fe8affe5b114a28a897
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/10/2021
+ms.openlocfilehash: 23d205f44b23b71f476f86d8d589f5d99a417a85
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123314333"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124827547"
 ---
 # <a name="resource-functions-for-bicep"></a>Funciones de recurso para Bicep
 
-Resource Manager ofrece las siguientes funciones para obtener valores de recursos en el archivo de Bicep:
-
-* [extensionResourceId](#extensionresourceid)
-* [getSecret](#getsecret)
-* [list*](#list)
-* [pickZones](#pickzones)
-* [providers (en desuso)](#providers)
-* [reference](#reference)
-* [resourceId](#resourceid)
-* [subscriptionResourceId](#subscriptionresourceid)
-* [tenantResourceId](#tenantresourceid)
+En este artículo se describen las funciones de Bicep para obtener valores de recurso.
 
 Para obtener valores de la implementación actual, consulte [Funciones con valores de implementación](./bicep-functions-deployment.md).
 
@@ -480,7 +470,7 @@ Puede usar la respuesta de pickZones para determinar si se debe proporcionar un 
 
 ## <a name="providers"></a>providers
 
-**La función providers está en desuso.** Por tanto, no se recomienda su uso. Si usó esta función para obtener una versión de API para el proveedor de recursos, se recomienda proporcionar una versión de API específica en la plantilla. El uso de una versión de API devuelta dinámicamente puede interrumpir la plantilla si las propiedades cambian entre versiones.
+**La función providers está en desuso.** Por tanto, no se recomienda utilizarla. Si usó esta función para obtener una versión de la API para el proveedor de recursos, se recomienda proporcionar una versión de API específica en la plantilla. El uso de una versión de API devuelta dinámicamente puede interrumpir la plantilla si las propiedades cambian entre versiones.
 
 ## <a name="reference"></a>reference
 
@@ -666,6 +656,5 @@ resource myPolicyAssignment 'Microsoft.Authorization/policyAssignments@2019-09-0
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Puede encontrar una descripción de las secciones de un archivo de Bicep en [Nociones sobre la estructura y la sintaxis de los archivos de Bicep](./file.md).
+* Para obtener valores de la implementación actual, consulte [Funciones con valores de implementación](./bicep-functions-deployment.md).
 * Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Implementación de varias instancias de recursos en Bicep](./loop-resources.md).
-* Para ver cómo implementar el archivo de Bicep que ha creado, consulte [Implementación de recursos con Bicep y Azure PowerShell](./deploy-powershell.md).

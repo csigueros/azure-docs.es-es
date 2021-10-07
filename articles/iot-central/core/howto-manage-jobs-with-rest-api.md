@@ -7,12 +7,12 @@ ms.date: 08/30/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 89dd9c60e28db55ad1cab65fd5554d77244ff777
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 47548b3c7e1fa7503e3f30c155755d6fe4f29031
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123480757"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667053"
 ---
 # <a name="how-to-use-the-iot-central-rest-api-to-create-and-manage-jobs"></a>Uso de la API REST de IoT Central para crear y administrar trabajos
 
@@ -29,7 +29,12 @@ En este artículo se explica cómo usar la API `/jobs/{job_id}` para controlar d
 
 Cada llamada API de REST de IoT Central requiere un encabezado de autorización. Para obtener más información, vea los [procedimientos de autenticación y autorización de llamadas a la API REST de IoT Central](howto-authorize-rest-api.md).
 
-Para obtener documentación de referencia sobre la API de REST de IoT Central, vea [Referencia de la API de REST de Azure IoT Central](/rest/api/iotcentral/).
+Para ver la documentación de referencia sobre la API REST de IoT Central, consulte [Referencia de la API REST de Azure IoT Central](/rest/api/iotcentral/).
+
+> [!TIP]
+> La [API de versión preliminar](/rest/api/iotcentral/1.1-previewdataplane/jobs) incluye compatibilidad con la nueva [característica de organizaciones](howto-create-organizations.md).
+
+Para obtener información sobre cómo crear y administrar trabajos en la interfaz de usuario, consulte [Administración de dispositivos de forma masiva en Azure IoT Central](howto-manage-devices-in-bulk.md).
 
 ## <a name="job-payloads"></a>Cargas de trabajo
 

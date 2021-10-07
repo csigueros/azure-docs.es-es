@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 1e64acd29e8b1e2e60b3ae1b855f8552e277e824
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 976ed2f1af2fe4481e8327e4e83b7ba6c5b61fa2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122653269"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128675789"
 ---
 # <a name="prepay-for-azure-database-for-mysql-compute-resources-with-reserved-capacity"></a>Pago por adelantado de recursos de proceso de Azure Database for MySQL con capacidad reservada
 
@@ -53,7 +53,7 @@ En la siguiente tabla se describen los campos obligatorios.
 | Campo | Descripción |
 | :------------ | :------- |
 | Subscription   | La suscripción usada para pagar la reserva de capacidad reservada de Azure Database for MySQL. Los costos anticipados por la reserva de capacidad reservada de Azure Database for MySQL se cobran mediante el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o un contrato individual con precios de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción Enterprise, los cargos se deducen del pago por adelantado de Azure (antes conocido como saldo de compromiso monetario) de la inscripción, o se cobran como uso por encima del límite. Para una suscripción individual con precios de pago por uso, los cargos se cobran en el método de pago de la factura o la tarjeta de crédito de la suscripción.
-| Ámbito | El ámbito de la reserva de núcleos virtuales puede cubrir una suscripción o varias (ámbito compartido). Si selecciona: </br></br> **Compartido**: el descuento por la reserva de núcleos virtuales se aplica a los servidores de Azure Database for MySQL en ejecución en cualquiera de las suscripciones en el contexto de facturación. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.</br></br> **Suscripción única**: el descuento por la reserva de núcleos virtuales se aplica a los servidores de Azure Database for MySQL de esta suscripción. </br></br> **Grupo de recursos único**: el descuento de reserva se aplica a los servidores de Azure Database for MySQL de la suscripción seleccionada y al grupo de recursos seleccionado de esa suscripción.
+| Ámbito | El ámbito de la reserva de núcleos virtuales puede cubrir una suscripción o varias (ámbito compartido). Si selecciona: </br></br> **Compartido**: el descuento por la reserva de núcleos virtuales se aplica a los servidores de Azure Database for MySQL en ejecución en cualquiera de las suscripciones en el contexto de facturación. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.</br></br>**Grupo de administración**: el descuento por reserva se aplica a los servidores de Azure Database for MySQL que se ejecutan en cualquier suscripción que forme parte tanto del grupo de administración como del ámbito de facturación.</br></br> **Suscripción única**: el descuento por la reserva de núcleos virtuales se aplica a los servidores de Azure Database for MySQL de esta suscripción. </br></br> **Grupo de recursos único**: el descuento de reserva se aplica a los servidores de Azure Database for MySQL de la suscripción seleccionada y al grupo de recursos seleccionado de esa suscripción.
 | Region | La región de Azure que abarca la reserva de capacidad reservada de Azure Database for MySQL.
 | Tipo de implementación | El tipo de recurso de Azure Database for MySQL para el que quiere comprar la reserva.
 | Nivel de rendimiento | El nivel de servicio de los servidores de Azure Database for MySQL.

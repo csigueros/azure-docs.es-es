@@ -1,14 +1,14 @@
 ---
 title: Arquitectura Azure Lighthouse
 description: Obtenga información sobre la relación entre los inquilinos de Azure Lighthouse y los recursos creados en el inquilino del cliente que habilitan esa relación.
-ms.date: 05/11/2021
+ms.date: 09/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: bdcd1057d4ba2adfe8ab312228acd562b384b09d
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 92890199b11da69fac58ec4ff2bccc1ab347d076
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109795622"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629130"
 ---
 # <a name="azure-lighthouse-architecture"></a>Arquitectura Azure Lighthouse
 
@@ -51,7 +51,7 @@ Se realiza un seguimiento de la actividad de los usuarios del inquilino del prov
 
 ## <a name="how-azure-lighthouse-works"></a>Funcionamiento de Azure Lighthouse
 
-En un nivel alto, este es el funcionamiento de Azure Lighthouse:
+En un nivel alto, este es el funcionamiento de Azure Lighthouse para el inquilino de administración:
 
 1. Identifique los [roles](tenants-users-roles.md#role-support-for-azure-lighthouse) que los grupos, las entidades de servicio o los usuarios necesitarán para administrar los recursos de Azure del cliente.
 2. Especifique este acceso e incorpore el cliente a Azure Lighthouse mediante la [publicación de una oferta de servicio administrado en Azure Marketplace](../how-to/publish-managed-services-offers.md) o mediante la [implementación de una plantilla de Azure Resource Manager](../how-to/onboard-customer.md). Este proceso de incorporación crea los dos recursos descritos anteriormente (definición de registro y asignación de registro) en el inquilino del cliente.
@@ -61,6 +61,6 @@ Aunque en la mayoría de los casos solo un proveedor de servicios administrará 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Revise la [CLI de Azure](/cli/azure/managedservices/assignment) y los comandos de [Azure PowerShell](/powershell/module/az.managedservices/new-azmanagedservicesdefinition) para trabajar con definiciones y asignaciones de registro.
+- Revise la [CLI de Azure](/cli/azure/managedservices) y los comandos de [Azure PowerShell](/powershell/module/az.managedservices) para trabajar con definiciones y asignaciones de registro.
 - Obtenga información sobre los [servicios y escenarios mejorados](cross-tenant-management-experience.md#enhanced-services-and-scenarios) para Azure Lighthouse.
 - Obtenga más información sobre cómo funcionan [los inquilinos, los usuarios y los roles](tenants-users-roles.md) con Azure Lighthouse.

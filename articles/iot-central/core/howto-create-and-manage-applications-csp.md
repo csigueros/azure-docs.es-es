@@ -7,12 +7,12 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 08/28/2021
 ms.topic: how-to
-ms.openlocfilehash: acbaa73fe51bd1de51084d0ec2752702ae96c66a
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: f0e0e947a91da29048144a94b9651e4584f26b41
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123469966"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094129"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Creación y administración de una aplicación de Azure IoT Central desde el portal de CSP
 
@@ -76,7 +76,7 @@ Para más información, consulte [Suscripciones de Azure](../../guides/developer
 
 ## <a name="location"></a>Location
 
-**Ubicación** es la [zona geográfica](https://azure.microsoft.com/global-infrastructure/geographies/) en la que desea crear la aplicación. Normalmente, se debe elegir la ubicación más cercana físicamente a los dispositivos para un rendimiento óptimo. Actualmente, se puede crear una aplicación de IoT Central en las zonas geográficas **Australia**, **Asia Pacífico**, **Europa**, **Estados Unidos**, **Reino Unido** y **Japón**. Una vez que elija una ubicación, no puede mover la aplicación a otra más adelante.
+**Ubicación** es el lugar en el que desea crear la aplicación. Normalmente, se debe elegir la ubicación más cercana físicamente a los dispositivos para un rendimiento óptimo. Actualmente, puede crear una aplicación de IoT Central en estas regiones: **Este de Australia**, **Centro de EE. UU.** , **Este de EE. UU.** , **Este de EE. UU. 2**, **Este de Japón**, **Norte de Europa**, **Sudeste de Asia**, **Sur de Reino Unido**, **Oeste de Europa** y **Oeste de EE. UU.** . Una vez que elija una ubicación, no puede mover la aplicación a otra más adelante.
 
 ## <a name="application-template"></a>Plantilla de la aplicación
 

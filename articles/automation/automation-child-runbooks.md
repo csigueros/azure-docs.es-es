@@ -3,17 +3,17 @@ title: Creación de runbooks modulares en Azure Automation
 description: En este artículo se indica cómo crear un runbook al que llama otro runbook.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/17/2019
-ms.topic: conceptual
+ms.date: 09/13/2021
+ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: eeca2c5ed3e1d428d7ab521160604f588e5b0b4a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: cbbf9be820d46875618cae76edb5f76bbfbb5e0f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725698"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128675371"
 ---
-# <a name="create-modular-runbooks"></a>Creación de runbooks modulares
+# <a name="create-modular-runbooks-in-automation"></a>Creación de runbooks modulares en Automation
 
 Un procedimiento recomendado en Azure Automation es escribir runbooks reutilizables y modulares con una función discreta a la que llamen otros runbooks. Con frecuencia, un runbook primario llama a uno o varios runbooks secundarios para realizar la funcionalidad necesaria. 
 
@@ -26,7 +26,7 @@ Existen dos maneras de llamar a un runbook secundario y hay varias diferencias q
 | **Salida** |El runbook primario puede obtener los resultados directamente del runbook secundario. |El runbook primario debe obtener los resultados directamente del trabajo de runbook secundario *o* el runbook primario puede obtener los resultados directamente del runbook secundario. |
 | **Parámetros** |Los valores de los parámetros del runbook secundario se especifican por separado y pueden usar cualquier tipo de datos. |Los valores de los parámetros del runbook secundario deben combinarse en una sola tabla hash. Esta tabla hash solo puede incluir tipos de datos simples, de matriz y de objeto que usen la serialización JSON. |
 | **Cuenta de Automation** |El runbook primario solo puede usar el runbook secundario en la misma cuenta de Automation. |Los runbooks primarios pueden usar un runbook secundario desde cualquier cuenta de Automation, desde la misma suscripción de Azure e incluso desde otra suscripción con la que se tenga conexión. |
-| **Publicación** |El runbook secundario debe publicarse antes de publicar el runbook primario. |El runbook secundario se publica en cualquier momento antes de iniciar el runbook primario. |
+| **Publicación** |El runbook secundario debe publicarse antes de publicar el runbook primario. |El runbook secundario se publica en cualquier momento antes de iniciar el primario. |
 
 ## <a name="invoke-a-child-runbook-using-inline-execution"></a>Invocación de un runbook secundario mediante la ejecución insertada
 
@@ -56,14 +56,14 @@ Cuando el runbook llama a un runbook secundario gráfico o de Flujo de trabajo d
 
 En el ejemplo siguiente se inicia un runbook secundario de prueba que acepta un objeto complejo, un valor entero y un valor booleano. Los resultados del runbook secundario se asignan a una variable. En este caso, el runbook secundario es un runbook de flujo de trabajo de PowerShell.
 
-```azurepowershell-interactive
+```powershell
 $vm = Get-AzVM -ResourceGroupName "LabRG" -Name "MyVM"
 $output = PSWF-ChildRunbook -VM $vm -RepeatCount 2 -Restart $true
 ```
 
 A continuación se muestra el mismo ejemplo con un runbook de PowerShell como elemento secundario.
 
-```azurepowershell-interactive
+```powershell
 $vm = Get-AzVM -ResourceGroupName "LabRG" -Name "MyVM"
 $output = .\PS-ChildRunbook.ps1 -VM $vm -RepeatCount 2 -Restart $true
 ```
@@ -91,20 +91,16 @@ Si los trabajos de una misma cuenta de Automation funcionan con varias suscripci
 
 En el ejemplo siguiente se inicia un runbook secundario con parámetros y se espera a que finalice mediante el cmdlet `Start-AzAutomationRunbook` con el parámetro `Wait`. Una vez completado, el ejemplo recopila la salida del cmdlet del runbook secundario. Para usar `Start-AzAutomationRunbook`, el script debe autenticarse en su suscripción de Azure.
 
-```azurepowershell-interactive
+```powershell
 # Ensure that the runbook does not inherit an AzContext
 Disable-AzContextAutosave -Scope Process
 
-# Connect to Azure with Run As account
-$ServicePrincipalConnection = Get-AzAutomationConnection -Name 'AzureRunAsConnection'
+# Connect to Azure with user-assigned managed identity
+Connect-AzAccount -Identity
+$identity = Get-AzUserAssignedIdentity -ResourceGroupName <ResourceGroupName> -Name <UserAssignedManagedIdentity>
+Connect-AzAccount -Identity -AccountId $identity.ClientId
 
-Connect-AzAccount `
-    -ServicePrincipal `
-    -Tenant $ServicePrincipalConnection.TenantId `
-    -ApplicationId $ServicePrincipalConnection.ApplicationId `
-    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
-
-$AzureContext = Set-AzContext -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+$AzureContext = Set-AzContext -SubscriptionId ($identity.id -split "/")[2]
 
 $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
 

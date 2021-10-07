@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 718648be0f4a5ec9dd3520127552138b8471d57c
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 31a65c31558940ba7e39e21c8b6e33ffa8e7c9b9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114710488"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633664"
 ---
 # <a name="troubleshoot-common-azure-virtual-desktop-agent-issues"></a>Solución de problemas comunes del agente de Azure Virtual Desktop
 
@@ -113,7 +113,7 @@ Para resolver este problema, compruebe que puede acceder a BrokerURI y BrokerURI
 Vaya a **Visor de eventos** > **Registros de Windows** > **Aplicación**. Si ve un evento con el identificador 3703, que indica "Dirección URL de puerta de enlace de Escritorio remoto: no es accesible" en la descripción, significa que el agente no puede tener acceso a las direcciones URL de puerta de enlace. Para conectarse correctamente al host de sesión y permitir que el tráfico de red a estos puntos de conexión omita las restricciones, debe desbloquear las direcciones URL de la [lista de direcciones URL requeridas](safe-url-list.md). Además, asegúrese de que el firewall o la configuración de proxy no bloqueen estas direcciones URL. El desbloqueo de estas direcciones URL es necesario para usar Azure Virtual Desktop.
 
 Para resolver este problema, compruebe que la configuración de firewall o DNS no está bloqueando estas direcciones URL:
-1. [Use Azure Firewall para proteger las implementaciones de Azure Virtual Desktop.](../firewall/protect-windows-virtual-desktop.md)
+1. [Use Azure Firewall para proteger las implementaciones de Azure Virtual Desktop.](../firewall/protect-azure-virtual-desktop.md)
 2. Defina la [configuración DNS de Azure Firewall](../firewall/dns-settings.md).
 
 ## <a name="error-3019"></a>Error: 3019
@@ -243,7 +243,7 @@ Para resolver este problema, reinstale la pila en paralelo:
 3. Vaya a **Panel de control** > **Programas** > **Programas y características**.
 4. Desinstale la versión más reciente de la **pila de red de Servicios de Escritorio remoto SxS** o la versión que aparece en **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **WinStations** en **ReverseConnectListener**.
 5. Abra una ventana de consola como administrador y vaya a **Archivos de programa** > **Microsoft RDInfra**.
-6. Seleccione el componente **SxSStack** o ejecute el comando **msiexec /i SxsStack-<version>.msi** para instalar el MSI.
+6. Seleccione el componente **SxSStack** o ejecute el comando **`msiexec /i SxsStack-<version>.msi`** para instalar MSI.
 8. Reinicie la máquina virtual.
 9. Vuelva al símbolo del sistema y ejecute el comando **qwinsta**.
 10. Compruebe que el componente de pila instalado en el paso 6 indica **Escuchar** junto a él.
@@ -381,5 +381,5 @@ Si el problema continúa, cree un caso de soporte técnico e incluya informació
 - Para solucionar problemas al usar PowerShell con Azure Virtual Desktop, consulte [PowerShell para Azure Virtual Desktop](troubleshoot-powershell.md).
 - Para más información sobre el servicio, consulte [Entorno de Azure Virtual Desktop](environment-setup.md).
 - Para realizar un tutorial de solución de problemas, consulte [Tutorial: Solución de problemas de las implementaciones de plantillas de Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
-- Para más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
+- Para más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](../azure-monitor/essentials/activity-log.md).
 - Si desea conocer más detalles sobre las acciones que permiten determinar los errores durante la implementación, consulte [Visualización de operaciones de implementación con el Portal de Azure](../azure-resource-manager/templates/deployment-history.md).

@@ -4,13 +4,13 @@ description: Describe el operador de acceso a recursos y el operador de acceso a
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/30/2021
-ms.openlocfilehash: b5eebb9b5dd6d39ae790b8fda7133e94ecd0cdb5
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.date: 09/10/2021
+ms.openlocfilehash: f3ed1ca46c2dfbcab8bfbdc720ff7ab448cbc742
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224288"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744448"
 ---
 # <a name="bicep-accessor-operators"></a>Operadores de descriptores de acceso de Bicep
 
@@ -25,11 +25,15 @@ Los operadores de descriptor de acceso se usan para acceder a recursos secundari
 
 ## <a name="index-accessor"></a>Descriptor de acceso de índice
 
-`array[index]`
+`array[integerIndex]`
 
-`object['index']`
+`object['stringIndex']`
 
-Para obtener un elemento de una matriz, use `[index]` y proporcione un entero para el índice.
+Use el descriptor de acceso del índice para obtener un elemento de una matriz o una propiedad de un objeto.
+
+En el caso de la **matriz**, proporcione el índice como un **entero**. El entero coincide con la posición de base cero del elemento que se va a recuperar.
+
+En el caso del **objeto**, proporcione el índice como una **cadena**. La cadena coincide con el nombre del objeto que se va a recuperar.
 
 En el ejemplo siguiente se obtiene un elemento de una matriz.
 
@@ -49,7 +53,7 @@ Salida del ejemplo:
 | ---- | ---- | ---- |
 | accessorResult | string | "Contoso" |
 
-También puede usar el descriptor de acceso de índice para obtener una propiedad de objeto por nombre. Debe usar una cadena para el índice, no un entero. En el ejemplo siguiente se obtiene una propiedad en un objeto.
+El siguiente ejemplo obtiene una propiedad de un objeto.
 
 ```bicep
 var environmentSettings = {

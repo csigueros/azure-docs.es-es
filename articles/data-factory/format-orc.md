@@ -1,22 +1,22 @@
 ---
-title: Formato ORC en Azure Data Factory
+title: Compatibilidad con formato ORC
+description: En este tema se describe cómo administrar el formato ORC en canalizaciones de Azure Data Factory y Synapse Analytics.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: En este tema se describe cómo tratar el formato ORC en Azure Data Factory.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 72c81c2e8eec02be96512ce4100e3b9c48b96318
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: f0bd3840d7c1b1d3fde7c93f11e39d236a954847
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123252976"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743791"
 ---
-# <a name="orc-format-in-azure-data-factory"></a>Formato ORC en Azure Data Factory
+# <a name="orc-format-in-azure-data-factory-and-synapse-analytics"></a>Formato ORC en Azure Data Factory y Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -159,7 +159,7 @@ OrcSource sink(
 > [!IMPORTANT]
 > En el caso de las copias autorizadas por el entorno de ejecución de integración (IR) autohospedado (por ejemplo, entre almacenes de datos locales y almacenes de datos en la nube), si no va a copiar archivos ORC **tal y como están**, tendrá que instalar **JRE (Java Runtime Environment) 8 de 64 bits u OpenJDK** y el **paquete Microsoft Visual C++ 2010 Redistributable** en la máquina de IR. Consulte el párrafo siguiente para más información.
 
-En el caso de las copias que se ejecutan en el IR autohospedado con la serialización o deserialización de archivos ORC, para encontrar el entorno de ejecución de Java, ADF consulta primero el Registro *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* de JRE; si no lo encuentra, comprueba la variable del sistema *`JAVA_HOME`* de OpenJDK.
+En el caso de las copias que se ejecutan en el IR autohospedado con la serialización o deserialización de archivos ORC, para buscar el entorno de ejecución de Java, el servicio consulta primero el Registro *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* en busca de JRE; si no lo encuentra, comprueba la variable del sistema *`JAVA_HOME`* de OpenJDK.
 
 - **Para usar JRE**: el IR de 64 bits necesita JRE de 64 bits. Puede encontrarlo [aquí](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **Para usar OpenJDK**: se admite desde la versión 3.13 de IR. Empaquete jvm.dll con todos los demás ensamblados de OpenJDK necesarios en la máquina del IR autohospedado y establezca la variable de entorno del sistema JAVA_HOME en el valor que corresponda.
@@ -168,9 +168,9 @@ En el caso de las copias que se ejecutan en el IR autohospedado con la serializa
 > [!TIP]
 > Si copia datos desde o hacia el formato ORC mediante el entorno de ejecución de integración autohospedado y recibe un error que indica que "Se produjo un error al invocar Java, mensaje: **Espacio en el montón java.lang.OutOfMemoryError:Java**", puede agregar una variable de entorno `_JAVA_OPTIONS` en la máquina que hospeda IR autohospedado para ajustar el tamaño del montón mínimo y máximo para JVM a fin de facilitar dicha copia y, a continuación, volver a ejecutar la canalización.
 
-![Establecimiento del tamaño del montón JVM en IR autohospedado](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
+:::image type="content" source="./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png" alt-text="Establecimiento del tamaño del montón JVM en IR autohospedado":::
 
-Ejemplo: establecimiento de la variable `_JAVA_OPTIONS` con el valor `-Xms256m -Xmx16g`. La marca `Xms` especifica el grupo de asignación de memoria inicial para una máquina virtual Java (JVM), mientras que `Xmx` especifica el grupo de asignación de memoria máxima. Esto significa que JVM se iniciará con la cantidad de memoria `Xms` y podrá utilizar `Xmx` como máximo. De forma predeterminada, ADF usa 64 MB como mínimo y 1 GB como máximo.
+Ejemplo: establecimiento de la variable `_JAVA_OPTIONS` con el valor `-Xms256m -Xmx16g`. La marca `Xms` especifica el grupo de asignación de memoria inicial para una máquina virtual Java (JVM), mientras que `Xmx` especifica el grupo de asignación de memoria máxima. Esto significa que JVM se iniciará con la cantidad de memoria `Xms` y podrá utilizar `Xmx` como máximo. De manera predeterminada, el servicio usa un mínimo de 64 MB y un máximo de 1G.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

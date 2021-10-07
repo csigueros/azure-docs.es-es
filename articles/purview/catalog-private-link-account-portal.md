@@ -6,20 +6,23 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/18/2021
-ms.openlocfilehash: 26b98ad9c4c042c1e6bf60889625a4d23090f6f5
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.date: 09/27/2021
+ms.openlocfilehash: 0da3f53c41296f3cb467c00bb13649288ebd53c6
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122515832"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213848"
 ---
 # <a name="connect-privately-and-securely-to-your-purview-account"></a>Conexión de forma privada y segura a la cuenta de Purview
-En esta guía, aprenderá a implementar puntos de conexión privados para su cuenta de Purview, lo que le permitirá conectarse a su cuenta de Azure Purview solo desde redes virtuales y privadas. Para lograr este objetivo, debe implementar una _cuenta_, un _portal_ y puntos de conexión privados de _ingesta_ para la cuenta de Azure Purview.
+En esta guía, aprenderá a implementar puntos de conexión privados para su cuenta de Purview, lo que le permitirá conectarse a su cuenta de Azure Purview solo desde redes virtuales y privadas. Para lograr este objetivo, debe implementar puntos de conexión privados de la _cuenta_ y del _portal_ para la cuenta de Azure Purview.
 
 El punto de conexión privado de la _cuenta_ de Azure Purview se usa para agregar una capa adicional de seguridad mediante la habilitación de escenarios en que solo las llamadas de cliente procedentes de la red virtual puedan acceder a dicha cuenta. Este punto de conexión privado también es un requisito previo para el punto de conexión privado del portal.
 
-El punto de conexión privado del _portal_ de Azure Purview es necesario para habilitar la conectividad a Azure Purview Studio mediante una red privada.
+El punto de conexión privado del _portal_ de Azure Purview es necesario para habilitar la conectividad a [Azure Purview Studio](https://web.purview.azure.com/resource/) mediante una red privada.
+
+> [!NOTE]
+> Si solo crea puntos de conexión privados de la _cuenta_ y del _portal_, no podrá ejecutar ningún examen. Para habilitar el examen en una red privada, deberá [crear también un punto de conexión privado de ingesta](catalog-private-link-end-to-end.md).
 
    :::image type="content" source="media/catalog-private-link/purview-private-link-account-portal.png" alt-text="Diagrama que muestra la arquitectura de Azure Purview y Private Link.":::
 
@@ -49,30 +52,32 @@ Con una de las opciones de implementación de esta guía, puede implementar una 
 
 3. Seleccione **Account and portal** (Cuenta y portal) seleccione **+ Agregar** para agregar un punto de conexión privado para la cuenta de Azure Purview.
 
-   :::image type="content" source="media/catalog-private-link/purview-pe-scenario-1-1.png" alt-text="Captura de pantalla que muestra cómo crear un punto de conexión privado para las selecciones de página de cuenta y portal.":::
+   :::image type="content" source="media/catalog-private-link/purview-pe-deploy-account-portal.png" alt-text="Captura de pantalla que muestra cómo crear un punto de conexión privado para las selecciones de página de cuenta y portal.":::
 
 4. En la página **Crear un punto de conexión privado**, en **Purview sub-resource** (Subrecurso de Purview), elija su ubicación, proporcione un nombre para el punto de conexión privado de la _cuenta_ y seleccione **cuenta**. En **Redes**, seleccione la red virtual y la subred y, opcionalmente, seleccione **Integrar con la zona DNS privada** para crear una nueva zona DNS privada de Azure. 
    
-   :::image type="content" source="media/catalog-private-link/purview-pe-scenario-1-2.png" alt-text="Captura de pantalla que muestra la página de creación de un punto de conexión privado de la cuenta.":::
+   :::image type="content" source="media/catalog-private-link/purview-pe-deploy-account.png" alt-text="Captura de pantalla que muestra la página de creación de un punto de conexión privado de la cuenta.":::
 
-
-   > [!NOTE]
-   > También puede usar las zonas DNS privadas de Azure existentes o crear registros de DNS en los servidores DNS manualmente más adelante. Para obtener más información, consulte [Configuración de la resolución de nombres DNS para puntos de conexión privados](./catalog-private-link-name-resolution.md).
+      > [!NOTE]
+      > También puede usar las zonas DNS privadas de Azure existentes o crear registros de DNS en los servidores DNS manualmente más adelante. Para obtener más información, consulte [Configuración de la resolución de nombres DNS para puntos de conexión privados](./catalog-private-link-name-resolution.md).
 
 5. Seleccione **Aceptar**.
    
 6. En el asistente **Create Purview account** (Crear cuenta de Purview), seleccione **+Agregar** de nuevo para agregar el punto de conexión privado del _portal_.
      
 7. En la **página Crear un punto de conexión privado**, en **Purview sub-resource** (Subrecurso de Purview), elija su ubicación, proporcione un nombre para el punto de conexión privado del _portal_ y seleccione **portal**. En **Redes**, seleccione la red virtual y la subred y, opcionalmente, seleccione **Integrar con la zona DNS privada** para crear una nueva zona DNS privada de Azure. 
+
+   :::image type="content" source="media/catalog-private-link/purview-pe-deploy-portal.png" alt-text="Captura de pantalla que muestra la página de creación de un punto de conexión privado del portal.":::
    
    > [!NOTE]
    > También puede usar las zonas DNS privadas de Azure existentes o crear registros de DNS en los servidores DNS manualmente más adelante. Para obtener más información, consulte [Configuración de la resolución de nombres DNS para puntos de conexión privados](./catalog-private-link-name-resolution.md).
 
 8.  Seleccione **Aceptar**.
    
-   :::image type="content" source="media/catalog-private-link/purview-pe-scenario-1-3.png" alt-text="Captura de pantalla que muestra la página de revisión de creación del punto de conexión privado.":::
-
 9.  Seleccione **Revisar + crear**. En la página **Revisar y crear**, Azure valida la configuración.
+      
+      :::image type="content" source="media/catalog-private-link/purview-pe-deploy-account-portal-2.png" alt-text="Captura de pantalla que muestra la página de revisión de creación del punto de conexión privado.":::
+
 
 10. Cuando vea el mensaje "Validación superada", seleccione **Crear**.
 
@@ -85,9 +90,9 @@ Hay dos maneras de agregar puntos de conexión privados de _cuenta_ y _portal_ d
 
 ### <a name="use-the-azure-portal-azure-purview-account"></a>Uso de Azure Portal (cuenta de Azure Purview)
 
-1. Vaya a [Azure Portal](https://portal.azure.com) y, a continuación, haga clic en su cuenta de Azure Purview. En **Configuración**, seleccione **Redes** y luego **Conexiones de punto de conexión privado**.
+1. Vaya a [Azure Portal](https://portal.azure.com) y, a continuación, seleccione su cuenta de Azure Purview. En **Configuración**, seleccione **Redes** y luego **Conexiones de punto de conexión privado**.
 
-    :::image type="content" source="media/catalog-private-link/pe-portal.png" alt-text="Captura de pantalla que muestra cómo crear un punto de conexión privado de la cuenta.":::
+    :::image type="content" source="media/catalog-private-link/purview-pe-add-to-existing.png" alt-text="Captura de pantalla que muestra cómo crear un punto de conexión privado de la cuenta.":::
 
 2. Seleccione **+ Punto de conexión privado** para crear uno.
 

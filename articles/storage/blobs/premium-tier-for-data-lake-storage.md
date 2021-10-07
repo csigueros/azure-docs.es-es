@@ -1,5 +1,5 @@
 ---
-title: Nivel Premium para Azure Data Lake Storage | Microsoft Docs
+title: Nivel Premium para Azure Data Lake Storage
 description: Use el nivel de rendimiento Premium con Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 06/21/2021
 ms.author: normesta
-ms.openlocfilehash: 22ed6d6e4c9280d79027918615a51da305f2457f
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 5e16a5c6f158b9223c3982b00daba258025f4d03
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112453923"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596990"
 ---
 # <a name="premium-tier-for-azure-data-lake-storage"></a>Nivel Premium para Azure Data Lake Storage
 
@@ -20,41 +20,41 @@ Azure Data Lake Storage Gen2 ahora admite el [nivel de rendimiento Premium](stor
 
 ## <a name="workloads-that-can-benefit-from-the-premium-performance-tier"></a>Cargas de trabajo que pueden beneficiarse del nivel de rendimiento Premium
 
-Entre las cargas de trabajo de ejemplo se incluyen cargas de trabajo interactivas, IoT, análisis de streaming, inteligencia artificial y aprendizaje automático. 
+Entre las cargas de trabajo de ejemplo se incluyen cargas de trabajo interactivas, IoT, análisis de streaming, inteligencia artificial y aprendizaje automático.
 
-**Cargas de trabajo interactivas** 
+**Cargas de trabajo interactivas**
 
-Estas cargas de trabajo requieren actualizaciones instantáneas y comentarios de los usuarios, como es el caso de las aplicaciones de comercio electrónico y de mapas, aplicaciones de vídeo interactivas, etc. Por ejemplo, en una aplicación de comercio electrónico, es probable que los elementos que se ven con menos frecuencia no estén almacenados en caché. Sin embargo, deben mostrarse al cliente a petición de forma instantánea. En otro ejemplo, los científicos de datos, analistas y desarrolladores pueden obtener información sujeta a limitaciones temporales incluso más rápido mediante la ejecución de consultas en los datos almacenados en una cuenta que use el nivel de rendimiento Premium. 
+Estas cargas de trabajo requieren actualizaciones instantáneas y comentarios de los usuarios, como es el caso de las aplicaciones de comercio electrónico y de mapas, aplicaciones de vídeo interactivas, etc. Por ejemplo, en una aplicación de comercio electrónico, es probable que los elementos que se ven con menos frecuencia no estén almacenados en caché. Sin embargo, deben mostrarse al cliente a petición de forma instantánea. En otro ejemplo, los científicos de datos, analistas y desarrolladores pueden obtener información sujeta a limitaciones temporales incluso más rápido mediante la ejecución de consultas en los datos almacenados en una cuenta que use el nivel de rendimiento Premium.
 
-**IoT/análisis de streaming** 
+**IoT/análisis de streaming**
 
-En un escenario de IoT, se podría insertar un gran número de operaciones más pequeñas en la nube cada segundo. Se podrían ingerir grandes cantidades de datos, agregarlos con fines de análisis y, finalmente, eliminarlos de forma casi inmediata. Las funcionalidades de alto nivel de ingesta del nivel de rendimiento Premium lo hacen especialmente eficaz para este tipo de carga de trabajo. 
+En un escenario de IoT, se podría insertar un gran número de operaciones más pequeñas en la nube cada segundo. Se podrían ingerir grandes cantidades de datos, agregarlos con fines de análisis y, finalmente, eliminarlos de forma casi inmediata. Las funcionalidades de alto nivel de ingesta del nivel de rendimiento Premium lo hacen especialmente eficaz para este tipo de carga de trabajo.
 
-**Inteligencia artificial y aprendizaje automático (IA y ML)** 
+**Inteligencia artificial y aprendizaje automático (IA y ML)**
 
-Este tema trata sobre el uso y procesamiento de diferentes tipos de datos como objetos visuales, voz y texto. Este tipo de informática de alto rendimiento de la carga de trabajo se ocupa de grandes cantidades de datos que requieren una respuesta rápida y tiempos de ingesta eficientes para el análisis de datos. 
+Este tema trata sobre el uso y procesamiento de diferentes tipos de datos como objetos visuales, voz y texto. Este tipo de informática de alto rendimiento de la carga de trabajo se ocupa de grandes cantidades de datos que requieren una respuesta rápida y tiempos de ingesta eficientes para el análisis de datos.
 
 ## <a name="cost-effectiveness"></a>Rentabilidad
 
 El nivel de rendimiento Premium tiene un costo de almacenamiento mayor, pero un costo de transacción menor en comparación con el nivel de rendimiento Estándar. Si las aplicaciones y las cargas de trabajo ejecutan un gran número de transacciones, el nivel de rendimiento Premium puede ser rentable.
 
-En la tabla siguiente se muestra la rentabilidad del nivel Premium para Azure Data Lake Storage. Cada columna representa el número de transacciones en un mes.  Cada fila representa el porcentaje de transacciones que son de lectura. Cada celda de la tabla muestra el porcentaje de reducción de costos asociado a un porcentaje de transacciones de lectura y al número de transacciones ejecutadas. 
+En la tabla siguiente se muestra la rentabilidad del nivel Premium para Azure Data Lake Storage. Cada columna representa el número de transacciones en un mes. Cada fila representa el porcentaje de transacciones que son de lectura. Cada celda de la tabla muestra el porcentaje de reducción de costos asociado a un porcentaje de transacciones de lectura y al número de transacciones ejecutadas.
 
 Por ejemplo, suponiendo que su cuenta se encuentra en la región Este de EE. UU. 2, el número de transacciones con su cuenta supera los 90 millones, y el 70 % de esas transacciones son de lectura, el nivel de rendimiento Premium es más rentable.
 
 > [!div class="mx-imgBorder"]
 > ![la imagen va aquí](./media/premium-tier-for-data-lake-storage/premium-performance-data-lake-storage-cost-analysis-table.png)
 
-> [!NOTE] 
+> [!NOTE]
 > Si prefiere evaluar la rentabilidad en función del número de transacciones por segundo para cada TB de datos, puede usar los encabezados de las columnas que aparecen en la parte inferior de la tabla.
 
 Para obtener más información sobre los precios, consulte la página [Precios de Azure Data Lake Storage Gen2](https://azure.microsoft.com/pricing/details/storage/data-lake/).
 
-## <a name="feature-availability"></a>Disponibilidad de características 
+## <a name="feature-availability"></a>Disponibilidad de características
 
-Es posible que algunas características de Blob Storage no estén disponibles o que solo tengan compatibilidad parcial con el nivel de rendimiento Premium. Para obtener una lista completa, consulte [Características de Blob Storage disponibles en Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md). Luego, revise una lista de [problemas conocidos](data-lake-storage-known-issues.md) para evaluar cualquier brecha que se produzca en la funcionalidad.
+Es posible que algunas características de Blob Storage no estén disponibles o que solo tengan compatibilidad parcial con el nivel de rendimiento Premium. Para obtener una lista completa, consulte [Características de Blob Storage disponibles en Azure Data Lake Storage Gen2](./storage-feature-support-in-storage-accounts.md). Luego, revise una lista de [problemas conocidos](data-lake-storage-known-issues.md) para evaluar cualquier brecha que se produzca en la funcionalidad.
 
-## <a name="enabling-the-premium-performance-tier"></a>Habilitación del nivel de rendimiento Premium 
+## <a name="enabling-the-premium-performance-tier"></a>Habilitación del nivel de rendimiento Premium
 
 Para usar el nivel Premium para Azure Data Lake Storage, puede crear una cuenta BlockBlobStorage con la opción **Espacio de nombres jerárquico** **habilitada**. Para obtener una guía completa, consulte [Creación de una cuenta BlockBlobStorage](../common/storage-account-create.md).
 
@@ -72,8 +72,8 @@ En la siguiente imagen se muestra esta configuración en la página **Crear cuen
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Use el nivel Premium para Azure Data Lake Storage con su servicio de análisis favorito, como Azure Databricks, Azure HDInsight y Azure Synapse Analytics. 
+Use el nivel Premium para Azure Data Lake Storage con su servicio de análisis favorito, como Azure Databricks, Azure HDInsight y Azure Synapse Analytics.
 
-- [Tutorial: Azure Data Lake Storage Gen2, Azure Databricks y Spark](data-lake-storage-use-databricks-spark.md) 
-- [Uso de Azure Data Lake Storage Gen2 con clústeres de Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md). Actualmente, HDInsight admite una cuenta que use el nivel de rendimiento Premium junto con un clúster de HBase que tenga habilitadas las escrituras aceleradas.
+- [Tutorial: Azure Data Lake Storage Gen2, Azure Databricks y Spark](data-lake-storage-use-databricks-spark.md)
+- [Uso de Data Lake Storage Gen2 con clústeres de Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md). Actualmente, HDInsight admite una cuenta que use el nivel de rendimiento Premium junto con un clúster de HBase que tenga habilitadas las escrituras aceleradas.
 - [Inicio rápido: Creación de un área de trabajo de Synapse](../../synapse-analytics/quickstart-create-workspace.md)

@@ -1,14 +1,14 @@
 ---
-title: Extender Azure DevTest Labs mediante Azure Functions | Microsoft Docs
+title: Extensión de Azure DevTest Labs mediante Azure Functions
 description: Obtenga información sobre cómo extender Azure DevTest Labs mediante Azure Functions.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: e8593453457bf7a077cf555e8d4f35b0c4b8f599
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 8a6200dbfce99ee7904dc1a65965e95d81e98471
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112300550"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128623653"
 ---
 # <a name="use-azure-functions-to-extend-devtest-labs"></a>Uso de Azure Functions para ampliar DevTest Labs
 Puede usar Azure Functions para admitir escenarios adicionales más allá de los que DevTest Labs ya admite. Azure Functions se puede usar para ampliar la funcionalidad integrada del servicio para satisfacer las necesidades específicas de su empresa. En la lista siguiente se proporcionan algunos de los escenarios posibles. En este artículo se muestra cómo implementar uno de estos escenarios de ejemplo.
@@ -108,11 +108,3 @@ Azure Functions puede ayudar a ampliar la funcionalidad de DevTest Labs más all
 - [Preguntas más frecuentes](devtest-lab-faq.yml)
 - [Escalado vertical de DevTest Labs](devtest-lab-guidance-scale.md)
 - [Automatización de DevTest Labs con PowerShell](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library/Tests)
-
-
-
-
-
-
-
-

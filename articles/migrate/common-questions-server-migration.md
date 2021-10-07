@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.openlocfilehash: 33e332b05cbb6c0d20b73a13134590ed3cda4f38
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 8d5feae71fc6b901f761e6a52805a7ac5fad04a4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112298788"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673547"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Azure Migrate Server Migration: Preguntas frecuentes
 
@@ -181,7 +181,7 @@ Tiempo necesario para completar la replicación inicial = {tamaño de los discos
 
 ### <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>¿Cómo puedo limitar la replicación en el uso del dispositivo de Azure Migrate para la replicación de VMware sin agente?  
 
-Se puede limitar mediante NetQosPolicy. Por ejemplo:
+Se puede limitar mediante NetQosPolicy. Tenga en cuenta que esta limitación solo es aplicable a las conexiones salientes desde el dispositivo de Azure Migrate. Por ejemplo:
 
 El elemento AppNamePrefix que se va a usar en NetQosPolicy es "GatewayWindowsService.exe". Se puede crear una directiva en el dispositivo de Azure Migrate para limitar el tráfico de replicación desde el dispositivo mediante la creación de una directiva como la siguiente:
 

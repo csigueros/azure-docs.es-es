@@ -8,12 +8,12 @@ ms.service: frontdoor
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: 24a925b0d16dc1650398e6211aaff42cd47620eb
-ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
+ms.openlocfilehash: a8adfef720d446c3ae2a45d27cee72a8135edb70
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112369418"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595054"
 ---
 # <a name="caching-with-azure-front-door-standardpremium-preview"></a>Almacenamiento en caché con Azure Front Door Estándar/Prémium (versión preliminar)
 
@@ -42,7 +42,7 @@ Front Door almacena en caché los fragmentos cuando se reciben, por lo que no es
 
 ## <a name="file-compression"></a>Compresión de archivos
 
-Vea cómo mejorar el rendimiento con la compresión de archivos en Azure Front Door.
+Consulte cómo [mejorar el rendimiento con la compresión de archivos](how-to-compression.md) en Azure Front Door.
 
 ## <a name="query-string-behavior"></a>Comportamiento de las cadenas de consulta
 
@@ -71,9 +71,20 @@ Los siguientes encabezados de solicitud no se reenviarán a un origen cuando se 
 * Content-Length
 * Transfer-Encoding
 
-## <a name="cache-duration"></a>Duración de la caché
+## <a name="cache-behavior-and-duration"></a>Duración y comportamiento de la caché
 
-La duración de la caché puede configurarse en el conjunto de reglas. La duración de la caché establecida a través del conjunto de reglas es una invalidación de la caché verdadera. Esto significa que se usará el valor de invalidación con independencia de cuál sea el encabezado de respuesta de origen.
+La duración y el comportamiento de la caché se pueden configurar tanto en la regla de enrutamiento del diseñador de Front Door como en el motor de reglas. La configuración del almacenamiento en caché del motor de reglas siempre invalida a la de la regla de enrutamiento del diseñador de Front Door.
+
+* Cuando el *almacenamiento en caché* está **deshabilitado**, Front Door no almacena en caché los contenidos de la respuesta, independientemente de las directivas de respuesta de origen.
+
+* Cuando el *almacenamiento en caché* está **habilitado**, el comportamiento de la caché es diferente según los distintos valores de *Usar duración de caché predeterminada*.
+    * Cuando *Usar duración de caché predeterminada* está establecido en **Sí**, Front Door siempre respeta la directiva de encabezado de respuesta de origen. Si falta la directiva de origen, Front Door almacena en caché el contenido entre uno y tres días.
+    * Cuando *Usar duración de caché predeterminada* está establecido en **No**, Front Door siempre invalida con la *duración de la caché* (campos obligatorios), lo que significa que almacena en caché el contenido durante la duración de la caché y omite los valores de las directivas de respuesta de origen. 
+
+> [!NOTE]
+> * La *duración de la caché* establecida en la regla de enrutamiento del diseñador de Front Door es la **duración de la caché mínima**. Esta invalidación no funciona si el encabezado de control de la caché del origen tiene un TTL mayor que el valor de invalidación.
+> * El contenido almacenado en caché se puede expulsar de Azure Front Door antes de que haya expirado si no se solicita con la frecuencia suficiente para acomodar el contenido solicitado con más frecuencia.
+>
 
 ## <a name="next-steps"></a>Pasos siguientes
 

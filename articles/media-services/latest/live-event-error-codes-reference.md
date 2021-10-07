@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: error-reference
 ms.date: 03/26/2021
 ms.author: inhenkel
-ms.openlocfilehash: 09859a953b0127733cbf1b0876c1d2ffa6082096
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: bd8a980d6f8cf7f71dbbfb5f099a12ca966be9ac
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279483"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128661647"
 ---
 # <a name="media-services-live-event-error-codes"></a>Códigos de error de eventos en directo de Media Services
 
@@ -48,7 +48,7 @@ Al suscribirse a los eventos de [Event Grid](../../event-grid/index.yml) para un
 >| Descripción |No se recibió la información de descripción de los elementos multimedia antes de que se entregaran los datos multimedia reales. |
 >| Solución propuesta|El evento LiveEvent no recibe la descripción del flujo (encabezado o etiqueta FLV) del codificador. Se trata de una infracción del protocolo. Póngase en contacto con el proveedor del codificador. |
 >|**MPE_INGEST_MEDIA_QUALITIES_EXCEEDED** ||
->| Descripción|El recuento de calidades para el tipo de audio o vídeo superó el límite máximo permitido. |
+>| Descripción| El recuento de niveles de calidad para el tipo de audio o vídeo superó el límite máximo permitido. El servicio omitió los niveles de calidad más allá del límite.|
 >| Solución propuesta|Si el modo Evento en directo es Live Encoding, el codificador debe insertar una sola velocidad de bits de vídeo y audio.  Tenga en cuenta que se permite una inserción redundante de la misma velocidad de bits. Compruebe la configuración de salida o el valor preestablecido del codificador para asegurarse de que genera un flujo de velocidad de bits único. |
 >|**MPE_INGEST_BITRATE_AGGREGATED_EXCEEDED** ||
 >| Descripción|La velocidad de bits entrante total en un servicio de canal o evento en directo superó el límite máximo permitido. |

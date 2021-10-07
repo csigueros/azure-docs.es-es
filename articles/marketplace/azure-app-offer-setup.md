@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 06/01/2021
-ms.openlocfilehash: 8d59aa45343c90520b416e9bf151e06e0339038b
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.date: 09/27/2021
+ms.openlocfilehash: c0226e8ffdd8445818313d6f21255752dc2e5616
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542914"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083279"
 ---
 # <a name="create-an-azure-application-offer"></a>Creación de una oferta de aplicación de Azure
 
@@ -22,6 +22,35 @@ Como editor del marketplace comercial, puede crear una oferta de Aplicación de 
 Si aún no lo ha hecho, lea la sección [Planeamiento de una oferta de Aplicación de Azure para el marketplace comercial](plan-azure-application-offer.md). Ahí encontrará recursos y ayuda para recopilar la información y los recursos que necesita al crear la oferta.
 
 ## <a name="create-a-new-offer"></a>Crear una nueva oferta
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vista Áreas de trabajo](#tab/workspaces-view)
+
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
+
+1. En la página principal, seleccione el icono **Ofertas de Marketplace**.
+
+    [ ![Muestra el icono de ofertas de Marketplace en la página principal del Centro de partners.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. En la página de ofertas de Marketplace, seleccione **+ Nueva oferta** > **Aplicación de Azure**.
+
+    [ ![Ilustra el botón Nueva oferta de la página de ofertas de Marketplace.](./media/create-new-azure-app-offer/new-offer-azure-app-workspaces.png) ](./media/create-new-azure-app-offer/new-offer-azure-app-workspaces.png#lightbox)
+
+1. En el cuadro de diálogo **New Azure Application** (Nueva aplicación de Azure), especifique un **Id. de oferta**. Se trata de un identificador único para cada oferta de su cuenta. Este identificador es visible en la dirección URL de la oferta del marketplace comercial y de las plantillas de Azure Resource Manager, si procede. Por ejemplo, si escribe test-offer-1 en este cuadro, la dirección web de la oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+
+     * Cada oferta de su cuenta debe tener un identificador único.
+     * Use solo letras minúsculas y números. Puede incluir guiones y caracteres de subrayado, pero no espacios, y está limitado a 50 caracteres.
+     * El identificador de oferta no se puede cambiar después de seleccionar **Crear**.
+
+1. Escriba un **Alias de la oferta**. Este es el nombre que se usa para la oferta en el Centro de partners.
+
+     * Este nombre solo es visible en el Centro de partners y es diferente del nombre de la oferta y otros valores que se muestran a los clientes.
+     * El alias de la oferta no se puede cambiar después de seleccionar **Crear**.
+
+1. Para generar la oferta y continuar, seleccione **Crear**.
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
 
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
 
@@ -43,6 +72,8 @@ Si aún no lo ha hecho, lea la sección [Planeamiento de una oferta de Aplicaci�
      * El alias de la oferta no se puede cambiar después de seleccionar **Crear**.
 
 1. Para generar la oferta y continuar, seleccione **Crear**.
+
+---
 
 ## <a name="configure-your-azure-application-offer-setup-details"></a>Configuración de los detalles de configuración de la oferta de Aplicación de Azure
 

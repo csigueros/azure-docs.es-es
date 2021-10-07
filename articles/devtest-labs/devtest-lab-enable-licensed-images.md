@@ -1,14 +1,14 @@
 ---
-title: Habilitación de una imagen con licencia en su laboratorio en Azure DevTest Labs | Microsoft Docs
+title: Habilitación de una imagen con licencia en el laboratorio
 description: Aprenda a habilitar una imagen con licencia en Azure DevTest Labs mediante Azure Portal
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 32ecbfc37d47835766d863b54d823be95fffb008
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4c96661688d7b64884f0a02e15eb2c7b208bdfba
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750899"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643961"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Habilitación de una imagen con licencia en su laboratorio en Azure DevTest Labs
 

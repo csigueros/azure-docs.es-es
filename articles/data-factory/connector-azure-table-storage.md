@@ -1,22 +1,22 @@
 ---
 title: Copia de datos hacia y desde Azure Table Storage
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Aprenda a copiar datos desde almacenes de origen compatibles a Azure Table Storage o desde Table Storage a almacenes de receptor compatibles mediante Data Factory.
+description: Aprenda a copiar datos desde almacenes de origen compatibles a Azure Table Storage o desde Table Storage a almacenes de receptor compatibles mediante canalizaciones de Azure Data Factory o Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell, synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: d61d2b7799ab715532b703b5c73ad045e8be6226
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: e88b4cfc2d49aa072021ed81dc4c1eb7105c6112
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123313984"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124811953"
 ---
-# <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copia de datos con Azure Table Storage como origen o destino mediante Azure Data Factory
+# <a name="copy-data-to-and-from-azure-table-storage-using-azure-data-factory-or-synapse-analytics"></a>Copia de datos con Azure Table Storage como origen o destino mediante Azure Data Factory o Synapse Analytics
 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-azure-table-connector.md)
@@ -24,7 +24,7 @@ ms.locfileid: "123313984"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos con Azure Table Storage como origen o destino. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de esta actividad.
+En este artículo se resume el uso de la actividad de copia en canalizaciones de Azure Data Factory y Synapse Analytics para copiar datos con Azure Table Storage como origen y destino. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de esta actividad.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -73,7 +73,7 @@ En las secciones siguientes se proporciona información sobre las propiedades qu
 
 ### <a name="use-an-account-key"></a>Uso de una clave de cuenta
 
-Puede crear un servicio vinculado de Azure Storage mediante la clave de cuenta. Esto proporciona a la factoría de datos acceso global a Storage. Se admiten las siguientes propiedades.
+Puede crear un servicio vinculado de Azure Storage mediante la clave de cuenta. Esto proporciona al servicio acceso global a Storage. Se admiten las siguientes propiedades.
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
@@ -130,12 +130,12 @@ Puede crear un servicio vinculado de Azure Storage mediante la clave de cuenta. 
 
 ### <a name="use-shared-access-signature-authentication"></a>Uso de la autenticación con firma de acceso compartido
 
-También puede crear un servicio vinculado de Storage mediante una firma de acceso compartido. Esto proporciona a la factoría de datos acceso restringido o limitado por el tiempo a todos los recursos o a algunos específicos del almacenamiento.
+También puede crear un servicio vinculado de Storage mediante una firma de acceso compartido. Esto proporciona al servicio acceso restringido o limitado por el tiempo a todos los recursos o a algunos específicos del almacenamiento.
 
 Una firma de acceso compartido ofrece acceso delegado a recursos en la cuenta de almacenamiento. Puede utilizarla para conceder a un cliente permisos limitados para objetos en su cuenta de almacenamiento durante un período específico y con un conjunto determinado de permisos. No tiene que compartir las claves de acceso de su cuenta. La firma de acceso compartido es un URI que incluye en sus parámetros de consulta toda la información necesaria para el acceso autenticado a un recurso de almacenamiento. Para obtener acceso a los recursos de almacenamiento con la firma de acceso compartido, el cliente solo tiene que pasar la firma de acceso compartido al método o constructor adecuados. Para obtener más información sobre las firmas de acceso compartido, consulte [Uso de firmas de acceso compartido (SAS): Comprender el modelo de firma de acceso compartido](../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
-> Data Factory ahora admite **firmas de acceso compartido de servicio** y **firmas de acceso compartido de cuenta**. Para obtener más información sobre las firmas de acceso compartido, consulte [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](../storage/common/storage-sas-overview.md). 
+> Ahora se admiten **firmas de acceso compartido de servicio** y **firmas de acceso compartido de cuenta**. Para obtener más información sobre las firmas de acceso compartido, consulte [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](../storage/common/storage-sas-overview.md). 
 
 > [!TIP]
 > Puede ejecutar los siguientes comandos de PowerShell para generar una firma de acceso compartido de servicio para la cuenta de almacenamiento. Reemplace los marcadores de posición y conceda el permiso necesario.
@@ -147,7 +147,7 @@ Para usar la autenticación con firma de acceso compartido, se admiten las sigui
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en **AzureTableStorage**. |Sí |
-| sasUri | Especifique el URI de SAS del URI de firma de acceso compartido a la tabla. <br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. También puede colocar el token de SAS en Azure Key Vault para aprovechar la rotación automática y quitar la parte del token. Consulte los siguientes ejemplos y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. | Sí |
+| sasUri | Especifique el URI de SAS del URI de firma de acceso compartido a la tabla. <br/>Marque este campo como SecureString para almacenarlo de forma segura. También puede colocar el token de SAS en Azure Key Vault para aprovechar la rotación automática y quitar la parte del token. Consulte los siguientes ejemplos y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. | Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Azure Integration Runtime autohospedado (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |No |
 
 >[!NOTE]
@@ -205,7 +205,7 @@ Para usar la autenticación con firma de acceso compartido, se admiten las sigui
 
 Cuando cree un URI de firma de acceso compartido, tenga en cuenta lo siguiente:
 
-- Establezca los permisos de lectura y escritura adecuados en los objetos, en función de cómo se utilizará el servicio vinculado (lectura, escritura, lectura y escritura) en la factoría de datos.
+- Establezca los permisos de lectura y escritura adecuados en los objetos, en función de cómo se use el servicio vinculado (lectura, escritura, lectura y escritura).
 - Establezca la **hora de expiración** adecuadamente. Asegúrese de que el acceso a los objetos de Storage no expirará durante el período activo de la canalización.
 - El URI debe crearse en el nivel correcto de la tabla en función de la necesidad.
 
@@ -240,12 +240,12 @@ Para copiar datos con Azure Table como origen o destino, establezca la propiedad
 }
 ```
 
-### <a name="schema-by-data-factory"></a>Esquema de Data Factory
+### <a name="schema-inference-by-the-service"></a>Inferencia de esquema por parte del servicio
 
-En los almacenes de datos sin esquemas como Azure Table, Data Factory deduce el esquema de una de las maneras siguientes:
+En los almacenes de datos sin esquemas como Azure Table, el servicio deduce el esquema de una de las maneras siguientes:
 
-* Si especifica la asignación de columnas en la actividad de copia, Data Factory usará la lista de columnas de origen para recuperar los datos. En este caso, si una fila no contiene un valor para una columna, se proporciona un valor nulo para ella.
-* Si no especifica la asignación de columnas en la actividad de copia, Data Factory deduce el esquema usando la primera fila de los datos. En este caso, si la primera fila no contiene el esquema completo (por ejemplo, algunas columnas tienen un valor nulo), algunas columnas se pierden en el resultado de la operación de copia.
+* Si especifica la asignación de columnas en la actividad de copia, el servicio usará la lista de columnas de origen para recuperar los datos. En este caso, si una fila no contiene un valor para una columna, se proporciona un valor nulo para ella.
+* Si no especifica la asignación de columnas en la actividad de copia, el servicio deduce el esquema usando la primera fila de los datos. En este caso, si la primera fila no contiene el esquema completo (por ejemplo, algunas columnas tienen un valor nulo), algunas columnas se pierden en el resultado de la operación de copia.
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
 
@@ -266,7 +266,7 @@ Si va a copiar datos desde Azure Table Storage, establezca el tipo de origen de 
 >[!NOTE]
 >Se agota el tiempo de espera de la operación de consulta de Azure Table en 30 segundos según [impone Azure Table service](/rest/api/storageservices/setting-timeouts-for-table-service-operations). Aprenda a optimizar la consulta en el artículo [Diseño de consulta](../storage/tables/table-storage-design-for-query.md).
 
-En Azure Data Factory, si quiere filtrar los datos por una columna de tipo DateTime, consulte este ejemplo:
+Si quiere filtrar los datos por una columna de tipo datetime, consulte este ejemplo:
 
 ```json
 "azureTableSourceQuery": "LastModifiedTime gt datetime'2017-10-01T00:00:00' and LastModifiedTime le datetime'2017-10-02T00:00:00'"
@@ -352,11 +352,11 @@ El valor "DivisionID" se especifica como clave de partición.
 
 ## <a name="data-type-mapping-for-azure-table"></a>Asignación de tipos de datos de Azure Table Storage
 
-Al copiar datos con Azure Table Storage como origen o destino, se utilizan las siguientes asignaciones de tipos de datos de Azure Table en los tipos de datos provisionales de Data Factory. Para más información acerca de la forma en que la actividad de copia asigna el tipo de datos y el esquema de origen al receptor, consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md).
+Al copiar datos con Azure Table Storage como origen o destino, se utilizan las siguientes asignaciones de tipos de datos de Azure Table en los tipos de datos provisionales usados internamente en el servicio. Para más información acerca de la forma en que la actividad de copia asigna el tipo de datos y el esquema de origen al receptor, consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md).
 
 Al mover datos a y desde Azure Table, se usan las siguientes [asignaciones definidas por Azure Table](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) desde tipos OData de Azure Table a tipos .NET y viceversa.
 
-| Tipo de datos de Azure Table Storage | Tipo de datos provisionales de Data Factory | Detalles |
+| Tipo de datos de Azure Table Storage | Tipo de datos de servicio provisional | Detalles |
 |:--- |:--- |:--- |
 | Edm.Binary |byte[] |Matriz de bytes de hasta 64 KB. |
 | Edm.Boolean |bool |Valor booleano. |
@@ -372,4 +372,4 @@ Al mover datos a y desde Azure Table, se usan las siguientes [asignaciones defin
 Para obtener información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para ver la lista de almacenes de datos que la actividad de copia de Data Factory admite como orígenes y receptores consulte [Almacenes de datos y formatos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

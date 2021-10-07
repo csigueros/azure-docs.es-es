@@ -135,7 +135,11 @@
     - name: Configuración del redireccionamiento multimedia (versión preliminar)
       href: multimedia-redirection.md
     - name: Instalación de paquetes de idioma
-      href: language-packs.md
+      items:
+        - name: "Imágenes de Windows\_10 para sesiones múltiples"
+          href: language-packs.md
+        - name: "Imágenes de Windows\_11 Enterprise"
+          href: windows-11-language-packs.md
     - name: Uso de Azure Advisor
       href: azure-advisor.md
     - name: Resolver recomendaciones

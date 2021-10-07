@@ -1,25 +1,25 @@
 ---
 title: Copia de datos de Oracle Service Cloud (versión preliminar)
+description: Aprenda a copiar datos de Oracle Service Cloud a almacenes de datos receptores compatibles mediante una actividad de copia en una canalización de Azure Data Factory o Synapse Analytics.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre cómo copiar datos de Oracle Service Cloud en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 4a74b89a2954c658a41eabb75d70941efc50a86a
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: f16487eb6483204c26a9ac96d2a42cff4c787629
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123311765"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124827125"
 ---
-# <a name="copy-data-from-oracle-service-cloud-using-azure-data-factory-preview"></a>Copia de datos de Oracle Service Cloud con Azure Data Factory (versión preliminar)
+# <a name="copy-data-from-oracle-service-cloud-using-azure-data-factory-or-synapse-analytics-preview"></a>Copia de datos de Oracle Service Cloud mediante Azure Data Factory o Synapse Analytics (versión preliminar)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se describe el uso de la actividad de copia de Azure Data Factory para copiar datos de Oracle Service Cloud. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
+En este artículo se describe el uso de la actividad de copia en una canalización de Synapse Analytics o Azure Data Factory para copiar datos de Oracle Service Cloud. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 > [!IMPORTANT]
 > Este conector está actualmente en versión preliminar. Puede probarlo y enviarnos sus comentarios. Si desea depender de los conectores de versión preliminar en la solución, póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/).
@@ -33,7 +33,7 @@ Este conector de Oracle Service Cloud es compatible con las actividades siguient
 
 Puede copiar datos de Oracle Service Cloud en cualquier almacén de datos de receptor compatible. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
-Azure Data Factory proporciona un controlador integrado para habilitar la conectividad. Por lo tanto, no es necesario instalar manualmente ningún controlador mediante este conector.
+El servicio proporciona un controlador integrado para habilitar la conectividad. Por lo tanto, no es necesario instalar manualmente ningún controlador mediante este conector.
 
 ## <a name="getting-started"></a>Introducción
 
@@ -47,7 +47,7 @@ Siga estos pasos para crear un servicio vinculado a Oracle Service Cloud en la i
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un servicio vinculado con la interfaz de usuario de Azure Data Factory":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -75,7 +75,7 @@ Las propiedades siguientes son compatibles con el servicio vinculado de Oracle S
 | type | La propiedad type debe establecerse en: **OracleServiceCloud** | Sí |
 | host | Dirección URL de la instancia de Oracle Service Cloud.  | Sí |
 | username | Nombre de usuario que se usa para acceder al servidor de Oracle Service Cloud.  | Sí |
-| password | Contraseña correspondiente al nombre de usuario que ha proporcionado en la clave de nombre de usuario. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia de ADF incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
+| password | Contraseña correspondiente al nombre de usuario que ha proporcionado en la clave de nombre de usuario. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en el servicio o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia del servicio incorpore los cambios desde allí al realizar la copia de datos. Más información en [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | No |
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de TLS. El valor predeterminado es true.  | No |
 | usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de TLS. El valor predeterminado es true.  | No |
@@ -183,4 +183,4 @@ Para obtener información detallada sobre las propiedades, consulte [Actividad d
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

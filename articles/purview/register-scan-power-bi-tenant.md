@@ -1,20 +1,20 @@
 ---
-title: Registro y examen de un inquilino de Power BI (versión preliminar)
+title: Registro y examen de un inquilino de Power BI
 description: Aprenda a usar el portal de Azure Purview para registrar y examinar un inquilino de Power BI.
 author: chanuengg
 ms.author: csugunan
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 07/28/2021
-ms.openlocfilehash: c29070f85fe0024113b6d5d4857733b23b522615
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.date: 09/27/2021
+ms.openlocfilehash: 8290c4c31cca383692a4ce5908d56e1b686c4213
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122271440"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211487"
 ---
-# <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registro y examen de un inquilino de Power BI (versión preliminar)
+# <a name="register-and-scan-a-power-bi-tenant"></a>Registro y examen de un inquilino de Power BI
 
 En este artículo se muestra cómo usar el portal de Azure Purview para registrar y examinar un inquilino de Power BI.
 
@@ -62,11 +62,14 @@ Para configurar la autenticación, cree un grupo de seguridad y agréguele la id
 
 1. Seleccione **Configuración de la API de administración** > **Mejora de las respuestas de las API de administración con metadatos detallados** > habilite el botón de alternancia para permitir que el Mapa de datos de Purview detecte automáticamente los metadatos detallados de los conjuntos de datos de Power BI como parte de sus exámenes.
 
+    > [!IMPORTANT]
+    > Después de actualizar la configuración de la API de administración en el inquilino de Power BI, espere unos 15 minutos antes de registrar una conexión de examen y prueba.
+
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-sub-artifacts.png" alt-text="Imagen que muestra la configuración del portal de administración de Power BI para habilitar el examen de subartefactos.":::
 
     > [!Caution]
     > Cuando permite que el grupo de seguridad que ha creado (que tiene como miembro la identidad administrada de Purview) use las API de administración de Power BI de solo lectura, también le permite acceder a los metadatos (por ejemplo, los nombres de los paneles y los informes, los propietarios, las descripciones, etc.) de todos los artefactos de Power BI de este inquilino. Una vez que los metadatos se han extraído en Azure Purview, los permisos de Purview, no los permisos de Power BI, determinan quién puede ver esos metadatos.
-
+  
     > [!Note]
     > Puede quitar el grupo de seguridad de la configuración del desarrollador, pero los metadatos extraídos previamente no se quitarán de la cuenta de Purview. Puede eliminarlo por separado, si quiere.
 
@@ -126,7 +129,7 @@ Considere la posibilidad de usar esta guía si el inquilino de Azure AD donde s
 
 1. Descargue los [módulos de exámenes administrados de PowerShell](https://github.com/Azure/Purview-Samples/blob/master/Cross-Tenant-Scan-PowerBI/ManagedScanningPowerShell.zip) y extraiga su contenido en la ubicación que prefiera.
 
-2. En el equipo, escriba **PowerShell** en el cuadro de búsqueda de la barra de tareas de Windows. En la lista de búsqueda, haga clic con el botón derecho en **Windows PowerShell** y seleccione **Ejecutar como administrador**.
+2. En el equipo, escriba **PowerShell** en el cuadro de búsqueda de la barra de tareas de Windows. En la lista de búsqueda, seleccione y mantenga presionado o haga clic con el botón derecho en **Windows PowerShell** y seleccione **Ejecutar como administrador**.
 
 
 3. Instale e importe el módulo en la máquina si aún no se ha instalado.
@@ -181,7 +184,7 @@ Considere la posibilidad de usar esta guía si el inquilino de Azure AD donde s
    
    4. Para crear una dirección URL de inicio de sesión específica del inquilino para la entidad de servicio, ejecute la siguiente dirección URL en el explorador web:
    
-     https://login.microsoftonline.com/<purview_tenant_id>/oauth2/v2.0/authorize?client_id=<client_id_to_delegate_the_pbi_admin>&scope=openid&response_type=id_token&response_mode=fragment&state=1234&nonece=67890
+     https://login.microsoftonline.com/<purview_tenant_id>/oauth2/v2.0/authorize?client_id=<client_id_to_delegate_the_pbi_admin>&scope=openid&response_type=id_token&response_mode=fragment&state=1234&nonce=67890
     
     Asegúrese de reemplazar los parámetros por la información correcta: <purview_tenant_id> es el identificador de inquilino (GUID) de Azure Active Directory donde se aprovisiona la cuenta de Azure Purview.
     <client_id_to_delegate_the_pbi_admin> es el identificador de aplicación correspondiente a la entidad de servicio.
@@ -224,6 +227,7 @@ Considere la posibilidad de usar esta guía si el inquilino de Azure AD donde s
 
 -   En el escenario entre inquilinos, no hay experiencia de usuario disponible actualmente para registrar y examinar el inquilino de Power BI.
 -   La edición del inquilino de Power BI entre inquilinos registrado con PowerShell mediante Purview Studio alterará el registro del origen de datos con un comportamiento de examen incoherente.
+-   Revise [Limitaciones del examen de metadatos de Power BI](/power-bi/admin/service-admin-metadata-scanning).
 
         
 ## <a name="next-steps"></a>Pasos siguientes

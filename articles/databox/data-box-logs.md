@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/10/2021
+ms.date: 08/24/2021
 ms.author: alkohli
-ms.openlocfilehash: d98141c52acc3cd0628943d17a89ec9822299d48
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 842a6572ca7daf3c0039b088f25d538f709a1df7
+ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738147"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "129208612"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Seguimiento y registro de eventos para un pedido de importación de Azure Data Box y Azure Data Box Heavy
 
@@ -24,7 +24,7 @@ En la tabla siguiente se proporciona un resumen de cada paso en el procesamiento
 | Fase del pedido de importación de Data Box| Herramienta de seguimiento y auditoría|
 |----------------------------|------------------------|
 | Crear pedido               | [Configuración del control de acceso en el pedido a través de RBAC de Azure](#set-up-access-control-on-the-order)                                                    |
-| Pedido procesado            | [Seguimiento del pedido](#track-the-order) a través de: <ul><li> Portal de Azure </li><li> Sitio web del transportista </li><li>Notificaciones por correo electrónico</ul> |
+| Pedido procesado            | [Seguimiento del pedido](#track-the-order) a través de: <ul><li> Azure portal </li><li> Sitio web del transportista </li><li>Notificaciones por correo electrónico</ul> |
 | Configuración de un dispositivo              | Registro del acceso de las credenciales del dispositivo en los [registros de actividad](#query-activity-logs-during-setup)                                              |
 | Copia de los datos a un dispositivo        | [Visualización de los archivos *error.xml*](#view-error-log-during-data-copy) para la copia de datos                                                             |
 | Preparación para el envío            | [Inspección de los archivos BOM](#inspect-bom-during-prepare-to-ship) o los archivo de manifiesto en el dispositivo                                      |
@@ -32,6 +32,9 @@ En la tabla siguiente se proporciona un resumen de cada paso en el procesamiento
 | Eliminación de datos del dispositivo   | [Visualización de los registros de la cadena de custodia](#get-chain-of-custody-logs-after-data-erasure), incluidos los registros de auditoría y el historial de pedidos                |
 
 En este artículo se describen de forma detallada los distintos mecanismos o herramientas disponibles para realizar el seguimiento de un pedido de importación de Data Box o Data Box Heavy y auditarlo. La información de este artículo se aplica a pedidos de importación tanto de Data Box como de Data Box Heavy. En las secciones posteriores, todas las referencias a Data Box también se aplican a Data Box Heavy.
+
+> [!NOTE]
+> [!INCLUDE [data-box-copy-logs-behind-firewall](../../includes/data-box-copy-logs-behind-firewall.md)]
 
 ## <a name="set-up-access-control-on-the-order"></a>Configuración del control de acceso en el pedido
 
@@ -79,7 +82,7 @@ Durante la copia de datos en Data Box o Data Box Heavy, se genera un archivo de 
 Asegúrese de que los trabajos de copia se hayan completado sin errores. Si hay errores durante el proceso de copia, descargue los registros de la página **Conectar y copiar**.
 
 - Si ha copiado un archivo que no tiene una alineación de 512 bytes a una carpeta de disco administrado en el dispositivo Data Box, el archivo no se carga como un blob en páginas en la cuenta de almacenamiento provisional. Verá un error en los registros. Quite el archivo y copie uno que tenga una alineación de 512 bytes.
-- Si ha copiado un archivo VHDX, VHD dinámico o VHD diferenciado (no se admiten estos tipos de archivos), verá un error en los registros.
+- Si copió un archivo VHDX, un VHD dinámico o un VHD diferenciado, verá un error en los registros. Estos tipos de archivos no son compatibles.
 
 Este es un ejemplo del archivo *error.xml* para los distintos errores al copiar a discos administrados.
 
@@ -210,6 +213,9 @@ De forma predeterminada, los registros se escriben en un contenedor denominado `
 La ruta de acceso del registro de copia también se muestra en la hoja **Información general** del portal.
 
 ![Ruta de acceso al registro de copia en la hoja Información general cuando se completa](media/data-box-logs/copy-log-path-1.png)
+
+> [!NOTE]
+> [!INCLUDE [data-box-copy-logs-behind-firewall](../../includes/data-box-copy-logs-behind-firewall.md)]
 
 ### <a name="upload-completed-successfully"></a>La carga se completó correctamente
 

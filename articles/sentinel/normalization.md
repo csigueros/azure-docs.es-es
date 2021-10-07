@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2021
 ms.author: bagol
-ms.openlocfilehash: e03f343444aed0c3aafac28deccb0f38c35e2478
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: e90171faf59daf70bde2150036fdf0a757e53979
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122515059"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128621402"
 ---
 # <a name="normalization-and-the-azure-sentinel-information-model-asim-public-preview"></a>Normalización y modelo de información de Azure Sentinel (ASIM) (versión preliminar pública)
 
@@ -91,7 +91,7 @@ El modelo de información de Azure Sentinel usa los siguientes términos:
 
 Para empezar a usar ASIM:
 
-1. Implemente los analizadores de ASIM desde el [repositorio de GitHub de Azure Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers), desde las carpetas que comienzan por `ASim*`.
+1. Implemente todos los analizadores ASIM rápidamente desde el [repositorio de GitHub de Azure Sentinel](https://aka.ms/AzSentinelASim).
 
 1. Active las plantillas de reglas de análisis que usan ASIM. Para más información, consulte la [lista del contenido del modelo de información de Azure Sentinel (ASIM)](normalization-content.md#builtin).
 
@@ -103,7 +103,7 @@ Para empezar a usar ASIM:
 
     - Habilite los datos personalizados para usar análisis integrados mediante la [escritura de analizadores](normalization-about-parsers.md) para sus orígenes personalizados y su [incorporación](normalization-about-parsers.md#include) al analizador independiente de origen correspondiente.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a><a name="next-steps"></a>Pasos siguientes
 
 En este artículo se describe la normalización en Azure Sentinel y el modelo de información de Azure Sentinel.
 

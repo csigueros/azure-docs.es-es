@@ -1,5 +1,6 @@
 ---
-title: Administración del acceso a aplicaciones con Azure AD
+title: Administración del acceso a aplicaciones
+titleSuffix: Azure AD
 description: Describe cómo Azure Active Directory permite a las organizaciones especificar las aplicaciones a las que cada usuario tiene acceso.
 services: active-directory
 author: davidmu1
@@ -8,19 +9,21 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/31/2021
+ms.date: 09/23/2021
 ms.author: davidmu
 ms.reviewer: alamaral
-ms.openlocfilehash: 584437c13168303630585c67ee853b135a2c09a5
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 89acfa0c1074d170dd0b0b9fb19f227a4e0c21ab
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123435229"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129061055"
 ---
-# <a name="managing-access-to-apps"></a>Administración del acceso a las aplicaciones
+# <a name="manage-access-to-apps-in-azure-active-directory"></a>Administración del acceso a aplicaciones en Azure Active Directory
 
-El acceso continuo a las aplicaciones, la evaluación del uso y la generación de informes siguen siendo un desafío después de que una aplicación se integra en el sistema de identidad de su organización. En muchos casos, el administrador de TI o el departamento de soporte técnico deben asumir un rol activo en la administración del acceso a las aplicaciones. En ocasiones, la asignación la realiza un equipo de TI general o departamental. En ocasiones, se pretende que la decisión de asignación se delegue en el responsable de la toma de decisiones, lo que requiere su aprobación antes de que TI realice la asignación.  Otras organizaciones invierten en integración con un sistema automatizado existente de administración de identidades y acceso, como Control de acceso basado en rol (RBAC) o Control de acceso basado en atributos (ABAC). Tanto la integración como el desarrollo de reglas tienden a ser procesos especializados y caros. La supervisión o la generación de informes en cualquier enfoque de administración requieren su propia inversión aparte que resulta costosa y compleja.
+El acceso continuo a las aplicaciones, la evaluación del uso y la generación de informes siguen siendo un desafío después de que una aplicación se integra en el sistema de identidad de su organización. En muchos casos, los administradores de TI o el departamento de soporte técnico deben asumir un rol activo continuo en la administración del acceso a las aplicaciones. En ocasiones, la asignación la realiza un equipo de TI general o departamental. En ocasiones, se pretende que la decisión de asignación se delegue en el responsable de la toma de decisiones, lo que requiere su aprobación antes de que TI realice la asignación.  
+
+Otras organizaciones invierten en integración con un sistema automatizado existente de administración de identidades y acceso, como Control de acceso basado en rol (RBAC) o Control de acceso basado en atributos (ABAC). Tanto la integración como el desarrollo de reglas tienden a ser procesos especializados y caros. La supervisión o la generación de informes en cualquier enfoque de administración requieren su propia inversión aparte que resulta costosa y compleja.
 
 ## <a name="how-does-azure-active-directory-help"></a>¿Cómo ayuda Azure Active Directory?
 
@@ -34,7 +37,10 @@ La asignación de aplicaciones de Azure AD se centra en dos modos de asignación
 
 * **Asignación individual** : un administrador de TI con permisos de administrador global de directorios puede seleccionar cuentas de usuario individuales y concederles acceso a la aplicación.
 
-* **Asignación basada en grupos (requiere Azure AD Premium P1 o P2)** : un administrador de TI con permisos de administrador global de directorios puede asignar un grupo a la aplicación. El acceso de usuarios específicos se determina en función de si son miembros del grupo al momento de intentar acceder a la aplicación. En otras palabras, un administrador puede crear en la práctica una regla de asignación que diga "cualquier miembro actual del grupo asignado tiene acceso a la aplicación". Con esta opción de asignación, los administradores pueden beneficiarse de cualquier opción de administración de grupos de Azure AD, incluidos [grupos dinámicos basados en atributos](../fundamentals/active-directory-groups-create-azure-portal.md), grupos externos del sistema (por ejemplo, Active Directory local o Workday) o grupos administrados por el administrador o por autoservicio. Un único grupo se puede asignar fácilmente a varias aplicaciones, lo que garantiza que las aplicaciones con afinidad de asignación puedan compartir reglas de asignación y así reducir la complejidad de la administración en general. Tenga en cuenta que no se admiten las pertenencias a grupos anidadas para la asignación basada en grupos a aplicaciones en este momento.
+* **Asignación basada en grupos (requiere Azure AD Premium P1 o P2)** : un administrador de TI con permisos de administrador global de directorios puede asignar un grupo a la aplicación. El acceso de usuarios específicos se determina en función de si son miembros del grupo al momento de intentar acceder a la aplicación. En otras palabras, un administrador puede crear en la práctica una regla de asignación que diga "cualquier miembro actual del grupo asignado tiene acceso a la aplicación". Con esta opción de asignación, los administradores pueden beneficiarse de cualquier opción de administración de grupos de Azure AD, incluidos [grupos dinámicos basados en atributos](../fundamentals/active-directory-groups-create-azure-portal.md), grupos externos del sistema (por ejemplo, Active Directory local o Workday) o grupos administrados por el administrador o por autoservicio. Un único grupo se puede asignar fácilmente a varias aplicaciones, lo que garantiza que las aplicaciones con afinidad de asignación puedan compartir reglas de asignación y así reducir la complejidad de la administración en general.
+
+>[!NOTE]
+>No se admiten las pertenencias a grupos para la asignación basada en grupos a aplicaciones en este momento.
 
 Con estos dos modos de asignación, los administradores pueden conseguir cualquier enfoque deseable de administración de asignaciones.
 
@@ -44,11 +50,11 @@ Con algunos tipos de aplicaciones, existe la opción de requerir que los usuario
 
 * Aplicaciones configuradas para el inicio de sesión único (SSO) federado con autenticación basada en SAML
 * Aplicaciones de proxy de aplicación que usan la autenticación previa de Azure Active Directory
-* Aplicaciones integradas en la plataforma de aplicaciones de Azure AD que usan la autenticación de OAuth 2.0 u OpenID Connect después de que un usuario o un administrador han dado su consentimiento a esa aplicación. Algunas aplicaciones empresariales ofrecen un control adicional sobre quién puede iniciar sesión.
+* Aplicaciones integradas en la plataforma de aplicaciones de Azure AD que usan la autenticación de OAuth 2.0 u OpenID Connect después de que un usuario o un administrador hayan dado su consentimiento en esa aplicación. Determinadas aplicaciones empresariales ofrecen más control sobre quién puede iniciar sesión.
 
-Cuando se requiere la asignación de usuarios, solo podrán iniciar sesión los usuarios que se asignen a la aplicación (ya sea a través de una asignación directa de usuarios o según la pertenencia a grupos). Estos pueden acceder a la aplicación desde su página Mis aplicaciones o a través de un vínculo directo.
+Cuando se requiere la asignación de usuarios, solo podrán iniciar sesión los usuarios que se asignen a la aplicación (ya sea a través de una asignación directa de usuarios o según la pertenencia a grupos). Estos pueden acceder a la aplicación desde el portal Mis aplicaciones o a través de un vínculo directo.
 
-Cuando la asignación de usuarios no es necesaria, los usuarios sin asignar no ven la aplicación en su página Aplicaciones, pero sí pueden iniciar sesión en la aplicación propiamente dicha (esto se conoce también como inicio de sesión iniciado por SP). Otra opción es usar la dirección que aparece en **URL de acceso de usuario** en la página **Propiedades** de la aplicación (esto se conoce también como inicio de sesión iniciado por IDP).
+Cuando la asignación de usuarios no es necesaria, los usuarios sin asignar no ven la aplicación en su página Aplicaciones, pero sí pueden iniciar sesión en la aplicación propiamente dicha (esto se conoce también como inicio de sesión iniciado por SP). Otra opción es usar la dirección que aparece en **URL de acceso de usuario** en la página **Propiedades** de la aplicación (esto se conoce también como inicio de sesión iniciado por IDP). Para obtener más información sobre cómo requerir configuraciones de asignación de usuarios, consulte [Configuración de una aplicación](add-application-portal-configure.md).
 
 Esto no afecta a si una aplicación aparece o no en Aplicaciones. Las aplicaciones aparecen en los paneles de acceso Mis aplicaciones de los usuarios en el momento en que un usuario o un grupo se asigna a la aplicación en cuestión.
 
@@ -81,7 +87,7 @@ Con Azure AD, las aplicaciones como Salesforce se pueden configurar previamente 
 
 * Para habilitar el mecanismo de excepciones, se podría crear un grupo de autoservicio para cada rol. Por ejemplo, el grupo de "excepción de marketing de Salesforce" se puede crear como un grupo de autoservicio. El grupo se puede asignar al rol de marketing de Salesforce y los integrantes del equipo de liderazgo de marketing se pueden convertir en propietarios. Los miembros del equipo de liderazgo de marketing podrían agregar o quitar usuarios, establecer una directiva de unión o incluso aprobar o rechazar solicitudes de unión de usuarios individuales. Este mecanismo es posible mediante una experiencia adecuada del trabajador de la información en la que los propietarios o miembros no necesitan aprendizaje especializado.
 
-En este caso, todos los usuarios asignados se aprovisionarían automáticamente a Salesforce, ya que como se agregan a diferentes grupos, su asignación de roles se actualizaría en Salesforce. Los usuarios podrán detectar Salesforce y acceder a esta aplicación mediante la página Aplicaciones, los clientes web de Office, o incluso navegando a su página de inicio de sesión organizativa de Salesforce. Los administradores podrán ver fácilmente el estado de uso y asignación mediante los informes de Azure AD.
+En este caso, todos los usuarios asignados se aprovisionarían automáticamente en Salesforce. Como se añaden a grupos diferentes, la asignación de roles se actualizaría en Salesforce. Los usuarios pueden detectar Salesforce y acceder a esta aplicación mediante el portal Mis aplicaciones, los clientes web de Office o navegando a su página de inicio de sesión organizativa de Salesforce. Los administradores pueden ver fácilmente el estado de uso y asignación mediante los informes de Azure AD.
 
 Los administradores pueden emplear el [acceso condicional de Azure AD](../conditional-access/concept-conditional-access-users-groups.md) para establecer directivas de acceso para roles específicos. Estas directivas pueden incluir si se permite el acceso fuera del entorno corporativo e incluso los requisitos de la autenticación multifactor o de los dispositivo para obtener acceso en diversos casos.
 
@@ -92,9 +98,9 @@ Las aplicaciones de Microsoft (como Exchange, SharePoint, Yammer, etc.) se asign
 Hay tres maneras principales en que un usuario puede acceder a una aplicación publicada por Microsoft.
 
 * En el caso de aplicaciones de Microsoft 365 u otros conjuntos de aplicaciones de pago, a los usuarios se les concede acceso mediante la **asignación de licencias** o mediante la funcionalidad de asignación de licencias basada en grupo.
-* En las aplicaciones que Microsoft o un tercero publica de manera gratuita para que todo el mundo las use, se puede conceder acceso a los usuarios por medio del [consentimiento del usuario](configure-user-consent.md). Esto significa que inician sesión en la aplicación con su cuenta profesional o educativa de Azure AD, que les permite tener acceso a un conjunto limitado de datos en sus cuentas.
+* En el caso de aplicaciones que Microsoft o un tercero publica de manera gratuita para que todo el mundo las use, a los usuarios se les puede conceder acceso mediante [consentimiento del usuario](configure-user-consent.md). Los usuarios inician sesión en la aplicación con su cuenta profesional o educativa de Azure AD, que les permite tener acceso a un conjunto limitado de datos en sus cuentas.
 
-* Además, para aplicaciones que Microsoft o un tercero publica de manera gratuita para que todo el mundo las use, a los usuarios se les puede conceder acceso mediante [consentimiento del administrador](manage-consent-requests.md). Esto significa que un administrador ha determinado que todos los miembros de la organización pueden usar la aplicación, por lo que inicia sesión en la aplicación con una cuenta de administrador global y concede acceso a todos ellos.
+* Además, en el caso de aplicaciones que Microsoft o un tercero publica de manera gratuita para que todo el mundo las use, a los usuarios se les puede conceder acceso mediante [consentimiento del administrador](manage-consent-requests.md). Esto significa que un administrador ha determinado que todos los miembros de la organización pueden usar la aplicación, por lo que inicia sesión en la aplicación con una cuenta de administrador global y concede acceso a todos ellos.
 
 Algunas aplicaciones combinan estos métodos. Por ejemplo, algunas aplicaciones de Microsoft forman parte de una suscripción a Microsoft 365, pero siguen requiriendo consentimiento.
 

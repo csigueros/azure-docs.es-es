@@ -3,12 +3,12 @@ title: Conexión de máquinas híbridas a Azure desde Windows Admin Center
 description: En este artículo, obtendrá información sobre cómo instalar el agente y conectar máquinas a Azure mediante servidores habilitados para Azure Arc desde Windows Admin Center.
 ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1abfe2e69a8f3e7b2ab1abcc2d34c79877b750d3
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: cc5e47c1f52f0a35048cc796015184d2a0d2dda7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323270"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124788959"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-windows-admin-center"></a>Conexión de máquinas híbridas a Azure desde Windows Admin Center
 
@@ -16,7 +16,7 @@ Puede habilitar servidores habilitados para Azure Arc para una o varias máquina
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Servidores habilitados para Arc: revise los [requisitos previos](agent-overview.md#prerequisites) y compruebe que su suscripción, su cuenta de Azure y sus recursos cumplen con los requisitos.
+* Servidores habilitados para Azure Arc: revise los [requisitos previos](agent-overview.md#prerequisites) y compruebe que su suscripción, su cuenta de Azure y sus recursos cumplen con los requisitos.
 
 * Windows Admin Center: revise los requisitos para [preparar el entorno](/windows-server/manage/windows-admin-center/deploy/prepare-environment) a fin de implementar y [configurar la integración de Azure](/windows-server/manage/windows-admin-center/azure/azure-integration).
 
@@ -30,7 +30,7 @@ Este método de implementación requiere que tenga derechos de administrador en 
 
 ## <a name="deploy"></a>Implementación
 
-Siga estos pasos para configurar el servidor Windows con servidores habilitados para Arc.
+Siga estos pasos para configurar el servidor Windows con servidores habilitados para Azure Arc.
 
 1. Inicie sesión en Windows Admin Center.
 

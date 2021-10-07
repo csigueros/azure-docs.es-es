@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 116b1e2afded3ceee0d249e326e721ca420dcf17
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7940d48edb94bfa89ccc3310172a09519ffc729a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638571"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831353"
 ---
 # <a name="dedupe-rows-and-find-nulls-by-using-data-flow-snippets"></a>Desduplicación de filas y búsqueda de valores NULL mediante fragmentos de código de flujo de datos
 
@@ -30,7 +30,7 @@ Si utiliza fragmentos de código en los flujos de datos de asignación, puede re
 
 1. Seleccione la pestaña **Configuración de origen**, agregue una transformación de origen y conéctela a uno de los conjuntos de datos.
 
-    ![Captura de pantalla del panel "Configuración de origen" para agregar un tipo de origen.](media/data-flow/snippet-adf-2.png)
+    :::image type="content" source="media/data-flow/snippet-adf-2.png" alt-text="Captura de pantalla del panel &quot;Configuración de origen&quot; para agregar un tipo de origen.":::
 
     Los fragmentos de código de desduplicación y comprobación de valores NULL emplean patrones genéricos que aprovechan las ventajas del desplazamiento del esquema de flujo de datos. Los fragmentos de código funcionan con cualquier esquema del conjunto de datos o con conjuntos de datos que no tienen ningún esquema predefinido.
 
@@ -38,7 +38,7 @@ Si utiliza fragmentos de código en los flujos de datos de asignación, puede re
 
 1. [Vaya a la página de documentación Script de flujo de datos y copie el fragmento de código de filas distintas](./data-flow-script.md#distinct-row-using-all-columns).
 
-    ![Captura de pantalla de un fragmento de código de origen.](media/data-flow/snippet-adf-3.png)
+    :::image type="content" source="media/data-flow/snippet-adf-3.png" alt-text="Captura de pantalla de un fragmento de código de origen.":::
 
 1. En el script, después de la definición de `source1`, presione Entrar y, luego, pegue el fragmento de código.
 
@@ -48,7 +48,7 @@ Si utiliza fragmentos de código en los flujos de datos de asignación, puede re
 
    * También puede conectar la transformación nueva en el diseñador seleccionando la secuencia entrante del nuevo nodo de transformación en el gráfico.
 
-     ![Captura de pantalla del panel "Conditional split settings" (Configuración de división condicional).](media/data-flow/snippet-adf-4.png)
+     :::image type="content" source="media/data-flow/snippet-adf-4.png" alt-text="Captura de pantalla del panel &quot;Configuración de división condicional&quot;.":::
 
    Ahora, el flujo de datos quitará las filas duplicadas del origen mediante la transformación de agregados, que agrupa todas las filas usando un hash general en todos los valores de columna.
     
@@ -60,7 +60,7 @@ Si utiliza fragmentos de código en los flujos de datos de asignación, puede re
 
    El gráfico de flujo de datos debería tener ahora un aspecto similar al siguiente:
 
-    ![Captura de pantalla del gráfico de flujo de datos.](media/data-flow/snippet-adf-1.png)
+    :::image type="content" source="media/data-flow/snippet-adf-1.png" alt-text="Captura de pantalla del gráfico de flujo de datos.":::
 
   Ahora ha creado un flujo de datos funcional con desduplicación y comprobación de valores NULL genéricos, para lo cual ha tomado fragmentos de código existentes de la biblioteca de scripts de flujo de datos y los ha agregado al diseño existente.
 

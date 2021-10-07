@@ -7,17 +7,17 @@ ms.reviewer: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 10/27/2020
-ms.openlocfilehash: e9a0b2fe883fa46010fda74c58908128d05919e6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/27/2021
+ms.openlocfilehash: af8e238d57d6168e8c9620177cbf8e97a7d08727
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92754270"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083032"
 ---
 # <a name="how-to-create-a-consulting-service-offer-in-the-commercial-marketplace"></a>Creación de una oferta de servicios de consultoría en el marketplace comercial
 
-En este artículo se explica cómo crear una oferta de servicios de consultoría para el marketplace comercial de Microsoft mediante el Centro de partners. 
+En este artículo se explica cómo crear una oferta de servicios de consultoría para el marketplace comercial de Microsoft mediante el Centro de partners.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -25,20 +25,46 @@ Para publicar una oferta de servicios de consultoría, debe cumplir ciertos requ
 
 ## <a name="create-a-new-consulting-service-offer"></a>Creación de una oferta de servicios de consultoría
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
-2.  En el menú de navegación izquierdo, seleccione **Marketplace comercial** > **Información general**.
-3.  En la pestaña Información general, seleccione **+ Nueva oferta** > **Servicio de consultoría**.
+1. En la página principal, seleccione el mosaico **Ofertas de Marketplace**.
 
-    ![Muestra el menú de navegación izquierdo.](./media/new-offer-consulting-service.png)
+    [ ![Muestra el icono Ofertas de Marketplace en la página principal del Centro de partners.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
-4. En el cuadro de diálogo **Nueva oferta**, escriba un valor para **Id. de oferta**. Este identificador se puede ver en la dirección URL de la oferta en el marketplace comercial. Por ejemplo, si escribe test-offer-1 en este cuadro, la dirección web de la oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+1. En la página Ofertas de Marketplace, seleccione **+ Nueva oferta** > **Servicio de consultoría**.
+
+    [ ![Ilustra la lista Nueva oferta de la página Ofertas de Marketplace.](./media/new-offer-consulting-service-workspaces.png) ](./media/new-offer-consulting-service-workspaces.png#lightbox)
+
+1. En el cuadro de diálogo **New Consulting service** (Nuevo servicio de consultoría), especifique un **Id. de oferta**. Este identificador se puede ver en la dirección URL de la oferta en el marketplace comercial. Por ejemplo, si escribe test-offer-1 en este cuadro, la dirección web de la oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 
     * Cada oferta de su cuenta debe tener un identificador único.
     * Use solo letras minúsculas y números. El id. de la oferta puede incluir guiones y caracteres de subrayado, pero no espacios, y está limitado a 50 caracteres.
     * El identificador de oferta no se puede cambiar después de seleccionar **Crear**.
 
-5. Escriba un **Alias de la oferta**. Este es el nombre que se usa para la oferta en el Centro de partners. No se puede ver en las tiendas en línea y es diferente del nombre de oferta que se muestra a los clientes.
-6. Para generar la oferta y continuar, seleccione **Crear**.
+1. Escriba un **Alias de la oferta**. Este es el nombre que se usa para la oferta en el Centro de partners. No se puede ver en las tiendas en línea y es diferente del nombre de oferta que se muestra a los clientes.
+1. Para generar la oferta y continuar, seleccione **Crear**.
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
+
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
+1. En el menú de navegación izquierdo, seleccione **Marketplace comercial** > **Información general**.
+1. En la pestaña Información general, seleccione **+ Nueva oferta** > **Servicio de consultoría**.
+
+    ![Muestra el menú de navegación izquierdo.](./media/new-offer-consulting-service.png)
+
+1. En el cuadro de diálogo **Nueva oferta**, escriba un valor para **Id. de oferta**. Este identificador se puede ver en la dirección URL de la oferta en el marketplace comercial. Por ejemplo, si escribe test-offer-1 en este cuadro, la dirección web de la oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+
+    * Cada oferta de su cuenta debe tener un identificador único.
+    * Use solo letras minúsculas y números. El id. de la oferta puede incluir guiones y caracteres de subrayado, pero no espacios, y está limitado a 50 caracteres.
+    * El identificador de oferta no se puede cambiar después de seleccionar **Crear**.
+
+1. Escriba un **Alias de la oferta**. Este es el nombre que se usa para la oferta en el Centro de partners. No se puede ver en las tiendas en línea y es diferente del nombre de oferta que se muestra a los clientes.
+1. Para generar la oferta y continuar, seleccione **Crear**.
+
+---
 
 ## <a name="configure-lead-management"></a>Configuración de la administración de clientes potenciales
 

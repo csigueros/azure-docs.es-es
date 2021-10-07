@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: pafarley
-ms.openlocfilehash: 83c3c4b9d3ab4f2497b919a2a929ad87f3cadbea
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 1f444ca13224c27918812c12f0a9e86a50e0b994
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123535570"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128644683"
 ---
 # <a name="create-and-use-your-voice-model"></a>Creación y uso de un modelo de voz
 
@@ -140,26 +140,43 @@ Si el tercer tipo de error que se enumera en la tabla siguiente no se corrige, a
 
 Una vez validados los archivos de datos, podrá usarlos para crear su modelo de voz neuronal personalizada.
 
-1. En la pestaña **Train model** (Entrenar modelo), haga clic en **Train model** (Entrenar modelo) para crear un modelo de voz con los datos que ha cargado.
+1. En la pestaña **Entrenar modelo**, haga clic en **Entrenar modelo** para crear un modelo de voz con los datos que haya cargado.
 
 2. Seleccione el método de entrenamiento neuronal para el modelo y el idioma de destino.
 
 De forma predeterminada, el modelo de voz se entrena en el mismo idioma de los datos de entrenamiento. También puede seleccionar crear un idioma secundario (versión preliminar) para el modelo de voz.  Compruebe los idiomas admitidos para la voz neuronal personalizada y la característica multilingüe: [idioma para la personalización](language-support.md#customization).
+
+El entrenamiento de voces neuronales personalizadas no es gratuito. Consulte los [precios](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) para obtener más información. Sin embargo, si tiene modelos estadísticos de voz paramétricos o concatenativos implementados antes del 31/3/2021 con recursos de voz S0, se ofrecen créditos de entrenamiento neuronal gratuitos para su suscripción de Azure, y que así pueda entrenar 5 versiones diferentes de voces neuronales de forma gratuita.
 
 3. A continuación, elija los datos que desea usar para el entrenamiento y especifique un archivo del hablante.
 
 >[!NOTE]
 >- Debe seleccionar al menos 300 expresiones para crear una voz neuronal personalizada.
 >- Para entrenar una voz neuronal, debe especificar un perfil de talento de voz con el archivo de consentimiento de audio del talento de voz al aceptar que se usen sus datos de voz para entrenar un modelo de voz personalizada. Voz neuronal personalizada está disponible con acceso limitado. Asegúrese de comprender los [requisitos de IA responsable](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) y [aplicar el acceso aquí](https://aka.ms/customneural).
->- En esta página también puede cargar su script para realizar pruebas. El script de prueba debe ser un archivo txt de menos de 1 MB. Entre los formatos de codificación compatibles se incluyen ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE o UTF-16-BE. Cada párrafo de la expresión dará como resultado un audio independiente. Si desea combinar todas las frases en un solo audio, reúnalas todas en un párrafo.
 
-4. A continuación, escriba los valores de **Nombre** y **Descripción** que le ayuden a identificar este modelo.
+4. A continuación, elija el script de prueba.
+
+Cada entrenamiento generará 100 audios de muestra automáticamente para ayudarle a probar el modelo con un script predeterminado. También puede proporcionar su propio script de prueba. Recuerde que el script de prueba debe excluir los nombres de archivo (el id. de cada expresión); de lo contrario, se mostrarán estos identificadores. A continuación, se muestra un ejemplo de cómo se organizan las expresiones en un archivo .txt:
+
+```
+This is the waistline, and it's falling.
+We have trouble scoring.
+It was Janet Maslin.
+```
+
+Cada párrafo de la expresión dará como resultado un audio independiente. Si desea combinar todas las frases en un solo audio, reúnalas todas en un párrafo.
+
+>[!NOTE]
+>- El script de prueba debe ser un archivo txt de menos de 1 MB. Entre los formatos de codificación compatibles se incluyen ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE o UTF-16-BE.  
+>- Los audios generados son una combinación del script de prueba cargado y el script de prueba predeterminado.
+
+5. Escriba los valores de **Nombre** y **Descripción** que le ayuden a identificar este modelo.
 
 Elija un nombre con cuidado. El nombre que escriba aquí será el nombre que use para especificar la voz en su solicitud de síntesis de voz como parte de la entrada de SSML. Solo se permiten letras, números y algunos signos de puntuación, como -, _ y (","). Use nombres diferentes para los modelos de voz neuronal diferentes.
 
 Un uso habitual del campo **Descripción** es registrar los nombres de los datos que se usaron para crear el modelo.
 
-5. Revise la configuración y seleccione **Submit** (Enviar) para empezar a entrenar el modelo.
+6. Revise la configuración y seleccione **Submit** (Enviar) para empezar a entrenar el modelo.
 
 > [!NOTE]
 > Los nombres de audio duplicados se quitarán del entrenamiento. Asegúrese de que los datos que seleccione no contengan los mismos nombres de audio en varios archivos ZIP.
@@ -172,22 +189,22 @@ El estado que se muestra refleja el proceso de convertir los datos en un modelo 
 | ----- | ------- |
 | Processing | Se está creando el modelo de voz. |
 | Correcto | El modelo de voz se ha creado y se puede implementar. |
-| Con error | El modelo de voz ha dado error en el entrenamiento por muchas razones, por ejemplo, problemas desapercibidos con los datos o problemas de red. |
+| Con error | El modelo de voz puede haber devuelto un error en el entrenamiento por muchas razones; por ejemplo, problemas con los datos que pasan desapercibidos o problemas de red. |
 
 La duración del entrenamiento varía en función de la cantidad de datos que se están entrenando. En entrenar una voz neuronal personalizada se tarda una media de 40 horas de proceso. 
 
 > [!NOTE]
-> El entrenamiento de voces neuronales personalizadas no es gratuito. Consulte aquí los [precios](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). En cambio, los usuarios que tengan una suscripción estándar (S0) pueden entrenar tres voces simultáneamente. Si alcanza el límite, espere hasta que al menos una de las fuentes de voz finalice el aprendizaje e inténtelo de nuevo. 
+> En cambio, los usuarios que tengan una suscripción estándar (S0) pueden entrenar tres voces simultáneamente. Si alcanza el límite, espere hasta que al menos uno de los modelos de voz finalice el aprendizaje e inténtelo de nuevo. 
 
-6. Cuando termine de entrenar el modelo correctamente, puede revisar los detalles de este.
+7. Cuando termine de entrenar el modelo correctamente, puede revisar los detalles de este.
 
-Cada entrenamiento generará 100 audios de muestra automáticamente para ayudarle a probar el modelo. Una vez que el modelo de voz se haya creado correctamente, podrá probarlo antes de implementarlo para su uso.
+Una vez que el modelo de voz se haya creado correctamente, puede usar los archivos de audio de muestra generados para probarlo antes de implementarlo para su uso.
 
 La calidad de la voz depende de muchos factores, como el tamaño de los datos de entrenamiento, la calidad de la grabación, la precisión del archivo de transcripción, el grado en que la voz grabada en los datos de entrenamiento coincide con la personalidad de la voz diseñada para el caso de uso previsto, etc. [Consulte aquí más información sobre las funcionalidades y los límites de nuestra tecnología y el procedimiento recomendado para mejorar la calidad del modelo](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext). 
 
 ## <a name="create-and-use-a-custom-neural-voice-endpoint"></a>Creación y uso de un punto de conexión de voz neuronal personalizada
 
-Una vez que haya creado y probado con éxito su modelo de voz, impleméntelo en un punto de conexión personalizado de Text to Speech. A continuación, use ese punto de conexión en lugar del punto de conexión habitual al realizar solicitudes de Text to Speech a través de la API de REST. Recuerde que solo se puede llamar al punto de conexión personalizado mediante la suscripción que utilizó para implementar la fuente.
+Una vez que haya creado y probado con éxito su modelo de voz, impleméntelo en un punto de conexión personalizado de Text to Speech. A continuación, use ese punto de conexión en lugar del punto de conexión habitual al realizar solicitudes de Text to Speech a través de la API de REST. Recuerde que solo se puede llamar al punto de conexión personalizado mediante la suscripción que utilizó para implementar el modelo.
 
 Para crear un punto de conexión de voz neuronal personalizado, haga lo siguiente.
 

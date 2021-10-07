@@ -1,29 +1,29 @@
 ---
 title: Transformación de datos mediante la actividad de Spark
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre cómo transformar datos mediante la ejecución de programas de Spark desde una canalización de Azure Data Factory mediante la actividad de Spark.
+description: Obtenga información sobre cómo transformar datos mediante la ejecución de programas de Spark desde una canalización de Azure Data Factory o Synapse Analytics mediante la actividad de Spark.
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 06/09/2021
-ms.openlocfilehash: 702c1a5208fae42e3704e345713f540b0e05d900
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.date: 09/09/2021
+ms.openlocfilehash: b5b877d27e04aa81e710b518d3923d438fe0afd2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122271980"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124805975"
 ---
-# <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de Spark en Azure Data Factory
+# <a name="transform-data-using-spark-activity-in-azure-data-factory-and-synapse-analytics"></a>Transformación de datos mediante la actividad de Spark en Azure Data Factory y Synapse Analytics
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-spark.md)
 > * [Versión actual](transform-data-using-spark.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-La actividad de Spark en una [canalización](concepts-pipelines-activities.md) de Data Factory ejecuta un programa de Spark en su clúster de HDInsight [propio](compute-linked-services.md#azure-hdinsight-linked-service) o [a petición](compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Este artículo se basa en el artículo sobre [actividades de transformación de datos](transform-data.md) , que presenta información general de la transformación de datos y las actividades de transformación admitidas. Cuando se usa un servicio vinculado a Spark a petición, Data Factory crea automáticamente un clúster Just-in-Time para procesar los datos y, luego, lo elimina una vez finalizado el procesamiento. 
+La actividad de Spark en [canalizaciones](concepts-pipelines-activities.md) de Data Factory y Synapse ejecuta un programa de Spark en su clúster de HDInsight de [su propiedad](compute-linked-services.md#azure-hdinsight-linked-service) o [a petición](compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Este artículo se basa en el artículo sobre [actividades de transformación de datos](transform-data.md) , que presenta información general de la transformación de datos y las actividades de transformación admitidas. Cuando se usa un servicio vinculado a Spark a petición, el servicio crea automáticamente un clúster Just-in-Time para procesar los datos y, luego, lo elimina una vez finalizado el procesamiento. 
 
 
 ## <a name="spark-activity-properties"></a>Propiedades de la actividad de Spark
@@ -76,9 +76,9 @@ En la siguiente tabla se describen las propiedades JSON que se usan en la defini
 ## <a name="folder-structure"></a>Estructura de carpetas
 Los trabajos de Spark son más extensibles que los de Pig y Hive. En los trabajos de Spark, puede proporcionar varias dependencias como paquetes JAR (ubicados en la CLASSPATH de Java), archivos de Python (ubicados en la ruta PYTHONPATH) y cualquier otro archivo.
 
-Cree la siguiente estructura de carpetas en la instancia de Azure Blob Storage a la que hace referencia el servicio vinculado de HDInsight. Luego, cargue los archivos dependientes en las subcarpetas adecuadas de la carpeta raíz que representa **entryFilePath**. Por ejemplo, cargue los archivos de Python en la subcarpeta pyFiles y los archivos JAR en la subcarpeta jars de la carpeta raíz. En el entorno de tiempo de ejecución, el servicio Data Factory espera la siguiente estructura de carpetas en Azure Blob Storage:     
+Cree la siguiente estructura de carpetas en la instancia de Azure Blob Storage a la que hace referencia el servicio vinculado de HDInsight. Luego, cargue los archivos dependientes en las subcarpetas adecuadas de la carpeta raíz que representa **entryFilePath**. Por ejemplo, cargue los archivos de Python en la subcarpeta pyFiles y los archivos JAR en la subcarpeta jars de la carpeta raíz. En el entorno de tiempo de ejecución, el servicio espera la siguiente estructura de carpetas en Azure Blob Storage:     
 
-| Path                  | Descripción                              | Obligatorio | Tipo   |
+| Ruta de acceso                  | Descripción                              | Obligatorio | Tipo   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
 | `.` (raíz)            | Ruta de acceso raíz del trabajo de Spark en el servicio vinculado de almacenamiento. | Sí      | Carpeta |
 | &lt;Definida por el usuario&gt; | Ruta de acceso que apunta al archivo de entrada del trabajo de Spark. | Sí      | Archivo   |
@@ -129,5 +129,5 @@ Vea los siguientes artículos, en los que se explica cómo transformar datos de 
 * [Actividad de streaming de Hadoop](transform-data-using-hadoop-streaming.md)
 * [Actividad de Spark](transform-data-using-spark.md)
 * [Actividad personalizada de .NET](transform-data-using-dotnet-custom-activity.md)
-* [Actividad de ejecución por lotes de Azure Machine Learning Studio (clásico)](transform-data-using-machine-learning.md)
+* [Actividad de ejecución por lotes de ML Studio (clásico)](transform-data-using-machine-learning.md)
 * [Actividad de procedimiento almacenado](transform-data-using-stored-procedure.md)

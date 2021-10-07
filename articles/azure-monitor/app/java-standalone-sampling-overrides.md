@@ -6,12 +6,12 @@ ms.date: 03/22/2021
 author: trask
 ms.custom: devx-track-java
 ms.author: trstalna
-ms.openlocfilehash: 7602392b78f53e5b896e92058836fca60de39d64
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: c0f6c1b0fce97bc835cb63a47d8827d7fab8ed56
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448889"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599836"
 ---
 # <a name="sampling-overrides-preview---azure-monitor-application-insights-for-java"></a>Invalidaciones de muestreo (versión preliminar): Azure Monitor Application Insights para Java
 
@@ -19,8 +19,8 @@ ms.locfileid: "106448889"
 > La característica de invalidaciones de muestreo está en versión preliminar, a partir de 3.0.3.
 
 Las invalidaciones de muestreo permiten invalidar el [porcentaje de muestreo predeterminado](./java-standalone-config.md#sampling), por ejemplo:
- * Establezca el porcentaje de muestreo en 0 (o algún valor pequeño) para las comprobaciones de estado ruidosas.
- * Establezca el porcentaje de muestreo en 0 (o algún valor pequeño) para las llamadas de dependencia ruidosas.
+ * Establezca el porcentaje de muestreo en cero (o algún valor pequeño) para las comprobaciones de estado irrelevantes.
+ * Establezca el porcentaje de muestreo en cero (o algún valor pequeño) para las llamadas de dependencia irrelevantes.
  * Establezca el porcentaje de muestreo en 100 para un tipo de solicitud importante (por ejemplo, `/login`) aunque tenga el muestreo predeterminado configurado en un valor inferior.
 
 ## <a name="terminology"></a>Terminología
@@ -189,9 +189,10 @@ En esta sección se enumeran algunos atributos de intervalo comunes que pueden u
 |---|---|---|
 | `http.method` | string | Método de solicitud HTTP.|
 | `http.url` | string | URL de solicitud HTTP completa con el formato `scheme://host[:port]/path?query[#fragment]`. Normalmente, el fragmento no se transmite a través de HTTP. Pero si el fragmento es conocido, se debe incluir.|
-| `http.status_code` | number | [Código de estado de respuesta HTTP](https://tools.ietf.org/html/rfc7231#section-6).|
 | `http.flavor` | string | Tipo de protocolo HTTP. |
 | `http.user_agent` | string | Valor del encabezado [User-Agent de HTTP](https://tools.ietf.org/html/rfc7231#section-5.5.3) enviado por el cliente. |
+
+Tenga en cuenta que `http.status_code` no se puede usar para tomar decisiones de muestreo porque no está disponible al principio del intervalo.
 
 ### <a name="jdbc-spans"></a>Intervalos de JDBC
 

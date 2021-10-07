@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 08/12/2021
+ms.date: 09/13/2021
 ms.author: absinh
 ms.reviewer: rolyon
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02c9e92d09ce929b47cd9a71559eabb4e7c40858
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 951431ca79bfeb182eb5d1252851edb767120039
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862817"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658248"
 ---
 # <a name="assign-azure-ad-roles-at-different-scopes"></a>Asignación de roles de Azure AD en distintos ámbitos
 
-En este artículo se describe cómo asignar roles de Azure AD en distintos ámbitos. Para comprender los ámbitos en Azure AD, consulte este documento: [Introducción al control de acceso basado en rol en Azure Active Directory](custom-overview.md). En general, debe estar dentro del ámbito al que quiera que se limite la asignación de roles. Por ejemplo, si quiere asignar el rol Administrador del departamento de soporte técnico en el ámbito de una [unidad administrativa](administrative-units.md), deberá ir a **Azure AD > Unidades administrativas > {unidad administrativa} > Roles y administradores** y, luego, realizar la asignación de roles. Esto creará una asignación de roles con ámbito en la unidad administrativa, no en todo el inquilino.
+En Azure Active Directory, normalmente se asignan roles de Azure AD para que se apliquen a todo el inquilino. Sin embargo, también puede asignar roles de Azure AD para diferentes recursos, como unidades administrativas o registros de aplicaciones. Por ejemplo, podría asignar el rol Administrador del departamento de soporte técnico para que solo se aplique a una unidad administrativa determinada y no a todo el inquilino. Los recursos a los que se aplica una asignación de roles también se denominan ámbito. En este artículo se describe cómo asignar roles de Azure AD en los ámbitos de inquilino, unidad administrativa y registro de aplicaciones. Para más información sobre el ámbito, consulte [Introducción al control de acceso basado en rol en Azure Active Directory](custom-overview.md#scope).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -38,13 +38,13 @@ En esta sección se describe cómo asignar roles en el ámbito del inquilino.
 
 ### <a name="azure-portal"></a>Azure portal
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) o en el [centro de administración de Azure AD](https://aad.portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) o en el [Centro de administración de Azure AD](https://aad.portal.azure.com).
 
-1. Seleccione **Azure Active Directory** > **Roles y administradores** para ver la lista de roles disponibles.
+1. Seleccione **Azure Active Directory** > **Roles y administradores** para ver la lista de roles disponibles.
 
-    ![Página Roles y administradores de Azure Active Directory](./media/manage-roles-portal/roles-and-administrators.png)
+    ![Página Roles y administradores de Azure Active Directory.](./media/manage-roles-portal/roles-and-administrators.png)
 
-1. Seleccione un rol para ver sus asignaciones. Para poder encontrar el rol que necesita, use **Agregar filtros** para filtrar los roles.
+1. Seleccione un rol para ver sus asignaciones. Para ayudarle a encontrar el rol que necesita, use **Agregar filtros** para filtrar los roles.
 
 1. Seleccione **Agregar asignaciones** y, a continuación, seleccione los usuarios que desea asignar a este rol.
 
@@ -122,6 +122,8 @@ Siga estas instrucciones para asignar un rol mediante la API de Microsoft Graph
     ```
 
 ## <a name="assign-roles-scoped-to-an-administrative-unit"></a>Asignación de roles con ámbito en una unidad administrativa
+
+En esta sección se describe cómo asignar roles en un ámbito de [unidad administrativa](administrative-units.md).
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -226,6 +228,8 @@ Siga estas instrucciones para asignar un rol en el ámbito de la unidad administ
 >Aquí, directoryScopeId se especifica como */administrativeUnits/foo* en lugar de */foo*. Esto es así de forma predeterminada. El ámbito */administrativeUnits/foo\* significa que la entidad de seguridad puede administrar los miembros de la unidad administrativa (en función del rol asignado), no la propia unidad administrativa. El ámbito de */foo* significa que la entidad de seguridad puede administrar ese mismo objeto de Azure AD. En la sección siguiente, verá que el ámbito es */foo*, ya que un rol con ámbito en un registro de aplicación concede el privilegio para administrar el propio objeto.
 
 ## <a name="assign-roles-scoped-to-an-app-registration"></a>Asignación de roles con ámbito en un registro de aplicación
+
+En esta sección se describe cómo asignar roles en un ámbito de registro de aplicación.
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -340,6 +344,6 @@ Siga estas instrucciones para asignar un rol en el ámbito de una aplicación me
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Enumeración de asignaciones de roles de Azure AD](view-assignments.md)
+* [Enumeración de asignaciones de roles de Azure AD](view-assignments.md).
 * [Asignación de roles de Azure AD a usuarios](manage-roles-portal.md)
 * [Asignación de roles de Azure AD a grupos](groups-assign-role.md)

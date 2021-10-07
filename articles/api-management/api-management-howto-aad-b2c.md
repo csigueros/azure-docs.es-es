@@ -3,37 +3,37 @@ title: Autorización de cuentas de desarrollador con Azure Active Directory B2C
 titleSuffix: Azure API Management
 description: Aprenda a autorizar a los usuarios del portal para desarrolladores de Azure API Management mediante Azure Active Directory B2C.
 services: api-management
-author: miaojiang
+author: dlepow
 ms.service: api-management
 ms.topic: how-to
-ms.date: 07/07/2021
-ms.author: apimpm
-ms.openlocfilehash: 6385f87eec00820d535845df21a44965e1708a55
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.date: 09/28/2021
+ms.author: danlep
+ms.openlocfilehash: 900692d5f38e0ed1796a3cac213407a3bec29660
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113568235"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212919"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Procedimiento para autorizar a las cuentas de desarrollador para que usen Azure Active Directory B2C en Azure API Management
 
 
 Azure Active Directory B2C es una solución de administración de identidades en la nube, destinada a aplicaciones móviles y web orientadas al consumidor. Puede usarla para administrar el acceso al portal para desarrolladores de API Management. 
 
-Esta guía le muestra la configuración que se necesita en el servicio de API Management para integrarse con Azure Active Directory B2C. Si usa el portal para desarrolladores heredado ya en desuso, algunos pasos difieren, como se indica en este artículo.
+En este tutorial, conocerá qué configuración debe tener el servicio de API Management para integrarse con Azure Active Directory B2C. Tal y como se especifica más adelante en este artículo, si usa el portal para desarrolladores heredado, que ya está en desuso, algunos pasos serán diferentes.
 
 Para más información sobre cómo habilitar el acceso al portal para desarrolladores con Azure Active Directory clásico, consulte [Procedimiento para autorizar a las cuentas de desarrollador para que usen Azure Active Directory](api-management-howto-aad.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un inquilino de Azure Active Directory B2C en el que crear una aplicación. Para más información, consulte [Introducción a Azure Active Directory B2C](../active-directory-b2c/overview.md).
-* Si no tiene una instancia del servicio API Management, realice el tutorial siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
+* Un inquilino de Azure Active Directory B2C en el que va a crear una aplicación. Para más información, consulte [Introducción a Azure Active Directory B2C](../active-directory-b2c/overview.md).
+* Una instancia de API Management Si aún no tiene una, consulte este artículo sobre la [creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 
 [!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
 ## <a name="configure-sign-up-and-sign-in-user-flow"></a>Configuración del flujo de usuario de registro e inicio de sesión
 
-En esta sección, creará un flujo de usuario en el inquilino de Azure Active Directory B2C que contenga directivas de registro e inicio de sesión. Para ver los pasos detallados, consulte [Creación de flujos de usuario y directivas personalizadas en Azure Active Directory B2C](../active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-us).
+En esta sección, va a crear un flujo de usuario en el inquilino de Azure Active Directory B2C que va a contener directivas de registro e inicio de sesión. Para ver los pasos detallados, consulte [Creación de flujos de usuario y directivas personalizadas en Azure Active Directory B2C](../active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-us).
 
 1. En [Azure Portal](https://portal.azure.com), acceda al inquilino de Azure Active Directory B2C.
 1. En **Directivas**, seleccione **Flujos de usuario** >  **+ Nuevo flujo de usuario**.
@@ -76,11 +76,11 @@ En esta sección, creará un flujo de usuario en el inquilino de Azure Active Di
    * Anote la clave en un lugar seguro. Este valor secreto no se volverá a mostrar una vez que abandone esta página.
 1. Vuelva a cambiar al panel **Agregar proveedor de identidades** de API Management y pegue la clave en el cuadro de texto **Secreto de cliente**.
 1. Vuelva al cambiar al registro de la aplicación B2C. En el menú izquierdo, en **Administrar**, seleccione **Autenticación**.
-    * En **Concesión implícita**, active la casilla **Tokens de acceso**.
+    * En **Flujos de concesión implícita e híbridos**, active las casillas **Tokens de acceso** y **Tokens de id**.
     * Seleccione **Guardar**.
 1. Vuelva a cambiar a la página **Agregar proveedor de identidades** de API Management.
     * En **Inquilino de inicio de sesión**, especifique el nombre de dominio del inquilino de Azure Active Directory B2C.
-    * El campo **Autoridad** le permite controlar la dirección URL de inicio de sesión de Azure AD B2C que se usará. Establezca el valor en **<nombre_de_su_inquilino_de_b2c>. b2clogin.com**.
+    * El campo **Autoridad** le permite controlar la dirección URL de inicio de sesión de Azure Active Directory B2C que se va a utilizar. Establezca el valor en **<nombre_de_su_inquilino_de_b2c>. b2clogin.com**.
     * Especifique la **directiva de registro** y la **directiva de inicio de sesión** en las directivas del inquilino de B2C.
     * Si lo desea, proporcione la **directiva de edición de perfil** y la **directiva de restablecimiento de contraseña**.
 
@@ -89,12 +89,12 @@ En esta sección, creará un flujo de usuario en el inquilino de Azure Active Di
 
 Una vez que se guardan los cambios, los desarrolladores podrán crear cuentas nuevas e iniciar sesión en el portal para desarrolladores con Azure Active Directory B2C.
 
-## <a name="developer-portal---add-azure-ad-b2c-account-authentication"></a>Portal para desarrolladores: incorporación de autenticación de cuenta de Azure AD B2C
+## <a name="developer-portal---add-azure-active-directory-b2c-account-authentication"></a>Portal para desarrolladores: incorporación de la autenticación de cuentas de Azure Active Directory B2C
 
 > [!IMPORTANT]
 > Debe [volver a publicar el portal para desarrolladores](api-management-howto-developer-portal-customize.md#publish) al crear o actualizar la configuración de Azure Active Directory B2C para que los cambios surtan efecto.
 
-En el portal para desarrolladores, inicie sesión con Azure AD B2C con el widget **Botón de inicio de sesión: OAuth**. El widget ya está incluido en la página de inicio de sesión del contenido predeterminado del portal para desarrolladores.
+En el portal para desarrolladores, puede iniciar sesión con Azure Active Directory B2C utilizando el widget **Botón de inicio de sesión: OAuth**. El widget ya está incluido en la página de inicio de sesión del contenido predeterminado del portal para desarrolladores.
 
 1. Para iniciar sesión mediante Azure Active Directory B2C, abra una nueva ventana del explorador y vaya al portal para desarrolladores. Haga clic en **Iniciar sesión**.
 
@@ -107,29 +107,35 @@ Una vez completado el registro, se le redirigirá de nuevo al portal para desarr
 
 :::image type="content" source="media/api-management-howto-aad-b2c/developer-portal-home.png" alt-text="Inicio de sesión en el portal para desarrolladores finalizado":::.
 
-Aunque se crea automáticamente una cuenta cada vez que un nuevo usuario inicia sesión con Azure AD B2C, puede considerar la idea de agregar el mismo widget a la página de registro.
+Aunque cada vez que un nuevo usuario inicie sesión con Azure Active Directory B2C se creará automáticamente una cuenta, puede considerar la posibilidad de agregar el mismo widget a la página de registro.
 
 El widget **Sign-up form: OAuth** (Formulario de inicio de sesión: OAuth) representa un formulario que se utiliza para registrarse con OAuth.
 
-## <a name="legacy-developer-portal---how-to-sign-up-with-azure-ad-b2c"></a>Portal para desarrolladores heredado: registro con Azure AD B2C
+## <a name="legacy-developer-portal---how-to-sign-up-with-azure-active-directory-b2c"></a>Portal para desarrolladores heredado: registro con Azure Active Directory B2C
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
-1. Para registrar una cuenta de desarrollador con Azure AD B2C, abra una nueva ventana del explorador y vaya al portal para desarrolladores heredado. Haga clic en el botón **Registrarse**.
+> [!NOTE]
+> Para integrar B2C correctamente por el portal para desarrolladores heredado, utilice flujos de usuarios **estándar v1** y habilite el [restablecimiento de contraseña](/active-directory-b2c/user-flow-self-service-password-reset.md) antes de registrarse o iniciar sesión en una cuenta de desarrollador con Azure Active Directory B2C. 
+
+1. Abra una nueva ventana del explorador y vaya al portal para desarrolladores heredado. Haga clic en el botón **Registrarse**.
 
     :::image type="content" source="media/api-management-howto-aad-b2c/b2c-dev-portal.png" alt-text="Registro en el portal para desarrolladores heredado":::
+
 1. Elija registrarse con **Azure Active Directory B2C**.
 
     :::image type="content" source="media/api-management-howto-aad-b2c/b2c-dev-portal-b2c-button.png" alt-text="Registro con Azure Active Directory B2C":::
 
-3. Se le redirigirá a la directiva de registro que configuró en la sección anterior. Elija registrarse con la dirección de correo electrónico o una de sus cuentas sociales existentes.
+1. Accederá automáticamente a la directiva de registro que configuró en la sección anterior. Elija registrarse con la dirección de correo electrónico o una de sus cuentas sociales existentes.
 
    > [!NOTE]
-   > Si Azure Active Directory B2C es la única opción habilitada en la pestaña **Identidades** del portal para editores, se le redirigirá a la directiva de registro de forma directa.
+   > Si Azure Active Directory B2C es la única opción habilitada en la pestaña **Identidades** del portal para editores, accederá directamente a la directiva de registro.
 
    :::image type="content" source="media/api-management-howto-aad-b2c/b2c-dev-portal-b2c-options.png" alt-text="Opciones de registro en el portal para desarrolladores heredado":::
 
    Una vez completado el registro, se le redirigirá de nuevo al portal para desarrolladores. Ahora ya inició sesión en el portal para desarrolladores de la instancia del servicio API Management.
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

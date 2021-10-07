@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/13/2021
-ms.openlocfilehash: 519181594bd98068cd66413a114a61d794b4d411
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.openlocfilehash: 79bb517faffdda7e9d7ddef45e7b52f5e81dc201
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122195622"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589689"
 ---
 # <a name="make-indexer-connections-through-a-private-endpoint"></a>Establecimiento de conexiones del indexador a través de un punto de conexión privado
 
@@ -43,6 +43,7 @@ En la siguiente tabla se enumeran los recursos de Azure para los que puede crear
 | Recurso de Azure | Identificador de grupo |
 | --- | --- |
 | Azure Storage: Blob | `blob`|
+| Azure Storage: Data Lake Storage Gen2 | `dfs` y `blob` |
 | Azure Storage: Tablas | `table`|
 | Azure Cosmos DB: SQL API | `Sql`|
 | Azure SQL Database | `sqlServer`|
@@ -53,6 +54,9 @@ En la siguiente tabla se enumeran los recursos de Azure para los que puede crear
 También puede consultar los recursos de Azure para los que se admiten conexiones de punto de conexión privado de salida mediante la [lista de API compatibles](/rest/api/searchmanagement/2021-04-01-preview/private-link-resources/list-supported).
 
 En el resto de este artículo, se usa una combinación de Azure Portal, o la [CLI de Azure](/cli/azure/), si lo prefiere, y [Postman](https://www.postman.com/), o cualquier otro cliente HTTP como [curl](https://curl.se/), si lo prefiere, para demostrar las llamadas API de REST.
+
+> [!NOTE]
+> Para crear una conexión de punto de conexión privado a Azure Data Lake Storage Gen2, debe crear dos puntos de conexión privados. Un punto de conexión privado con el valor de groupID de "dfs" y otro punto de conexión privado con el valor de groupID de "blob".
 
 ## <a name="set-up-indexer-connection-through-private-endpoint"></a>Configuración de una conexión del indexador a través de un punto de conexión privado
 

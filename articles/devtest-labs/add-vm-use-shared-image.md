@@ -1,19 +1,19 @@
 ---
-title: Incorporar una máquina virtual mediante una imagen compartida en Azure DevTest Labs | Microsoft Docs
+title: Incorporación de una VM mediante una imagen compartida
 description: Obtenga información sobre cómo agregar una máquina virtual (VM) mediante una imagen de la galería de imágenes compartidas adjunta en Azure DevTest Labs.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 9421a1e21be9446b0e59328bd9a3730b57655274
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7107fd22142f00e422e0f302520962537d65b10e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85483863"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128621818"
 ---
 # <a name="add-a-vm-using-an-image-from-the-attached-shared-image-gallery"></a>Incorporación de una máquina virtual mediante una imagen de la galería de imágenes compartidas adjunta
 Con Azure DevTest Labs, puede adjuntar una galería de imágenes compartidas a su laboratorio y, luego, usar las imágenes de la galería como bases para las máquinas virtuales que crea en el laboratorio. Para información sobre cómo adjuntar una galería de imágenes compartidas a un laboratorio, consulte [Configuración de una galería de imágenes compartidas en Azure DevTest Labs](configure-shared-image-gallery.md). En este artículo se muestra cómo agregar una máquina virtual al laboratorio mediante una imagen de la galería de imágenes compartidas adjunta como base. 
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure portal
 En esta sección, aprenderá a usar Azure Portal para agregar una máquina virtual a su laboratorio en función de una imagen de la galería de imágenes compartidas adjunta. En esta sección no se proporcionan instrucciones detalladas paso a paso para crear una máquina virtual con Azure Portal. Para ver esos detalles, consulte [Creación de una máquina virtual: Azure Portal](devtest-lab-add-vm.md). Solo resalta los pasos en los que se selecciona una imagen de la galería de imágenes compartidas adjunta y una versión de la imagen que quiere usar. 
 
 Cuando agrega una máquina virtual al laboratorio, puede seleccionar una imagen de la galería de imágenes compartidas adjunta como imagen base: 

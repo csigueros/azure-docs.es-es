@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 07/30/2021
-ms.openlocfilehash: f3c845757d6cd251905e39999c9858224ee67269
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: be7e52cb093eb9920be5b6e8e9971b7f882f7f06
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121724573"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124793842"
 ---
 # <a name="conditional-deployment-in-bicep"></a>Implementación condicional en Bicep
 
@@ -18,6 +18,10 @@ En algunas ocasiones, debe implementar un recurso o módulo en Bicep de manera c
 
 > [!NOTE]
 > La implementación condicional no se aplica en cascada a los [recursos secundarios](child-resource-name-type.md). Si desea implementar condicionalmente un recurso y sus recursos secundarios, debe aplicar la misma condición a cada tipo de recurso.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Para más información sobre las condiciones y para obtener una guía práctica, consulte [Creación de plantillas de Bicep flexibles mediante condiciones y bucles](/learn/modules/build-flexible-bicep-templates-conditions-loops/) en **Microsoft Learn**.
 
 ## <a name="deploy-condition"></a>Condición de implementación
 

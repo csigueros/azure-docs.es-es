@@ -1,75 +1,75 @@
 ---
-title: Azure Data Explorer Insights (ADX Insights) | Microsoft Docs
-description: En este artículo se describe Azure Data Explorer Insights (ADX Insights)
+title: Azure Data Explorer Insights | Microsoft Docs
+description: En este artículo se describe cómo usar Azure Data Explorer Insights
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/05/2021
 author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: 872c1e29b6c85f24c4e9841dca359a9429b92321
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: b522e510968b97d80917bc6fa4123d33e4480cbf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114458126"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662217"
 ---
 # <a name="azure-data-explorer-insights"></a>Azure Data Explorer Insights
 
 Azure Data Explorer Insights proporciona una supervisión completa de los clústeres, ya que ofrece una vista unificada de su rendimiento, operaciones, uso y errores.
+
+Ofrece lo siguiente:
+
+-    **Perspectiva a gran escala**. Muestra una instantánea de las métricas principales de los clústeres, con el fin de realizar un seguimiento sencillo del rendimiento de las consultas, la ingesta y las operaciones de exportación.
+-   **Análisis en profundidad**. Puede analizar en profundidad un clúster determinado de Azure Data Explorer para poder realizar análisis detallados.
+-    **Personalización**. Esta opción le permite cambiar las métricas que quiere ver y modificar, o establecer umbrales en consonancia con sus límites y guardar sus propios libros personalizados. Los gráficos de un libro se pueden anclar a los paneles de Azure.
+
 Este artículo le ayuda a saber cómo incorporar y usar Azure Data Explorer Insights.
-
-## <a name="introduction-to-azure-data-explorer-insights"></a>Introducción a Azure Data Explorer Insights
-
-Antes de saltar a la experiencia, debe entender cómo se presenta y se visualiza la información.
--    **Perspectiva a gran escala**, que muestra una instantánea de las métricas principales de los clústeres, con el fin de realizar un seguimiento sencillo del rendimiento de las consultas, la ingesta y las operaciones de exportación.
--   **Análisis en profundidad** de un clúster determinado de Azure Data Explorer para ayudar a realizar análisis detallados.
--    **Personalizable**, que le permite cambiar las métricas que quiere ver y modificar, o establecer umbrales en consonancia con sus límites y guardar sus propios libros personalizados. Los gráficos del libro se pueden anclar a los paneles de Azure.
 
 ## <a name="view-from-azure-monitor-at-scale-perspective"></a>Vista desde Azure Monitor (perspectiva a gran escala)
 
-En Azure Monitor, puede ver las métricas principales de rendimiento del clúster, como las métricas de consultas, ingesta y operaciones de exportación de varios clústeres de su suscripción, y ayudar a identificar los problemas de rendimiento.
+Desde Azure Monitor, puede ver las métricas de rendimiento principales del clúster. Estas métricas incluyen información sobre las consultas, la ingesta y las operaciones de exportación de varios clústeres de la suscripción. Asimismo, pueden ayudarle a identificar problemas de rendimiento.
 
 Para ver el rendimiento de los clústeres en todas las suscripciones, realice los pasos siguientes:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-2. Seleccione **Supervisión** en el panel izquierdo de Azure Portal y, en la sección Insights Hub (Centro de conclusiones), seleccione **Azure Data Explorer Clusters** (Clústeres de Azure Data Explorer).
+2. A continuación, seleccione **Supervisar** en el panel izquierdo. En **Centro de conclusiones**, seleccione **Clústeres de Azure Data Explorer**.
 
-![Captura de pantalla de la experiencia de información general con varios gráficos](./media/data-explorer/insights-hub.png)
+![Captura de pantalla de las selecciones para ver el rendimiento de los clústeres de Azure Data Explorer.](./media/data-explorer/insights-hub.png)
 
 ### <a name="overview-tab"></a>Pestaña Información general
 
 En la pestaña **Información general** de la suscripción seleccionada, la tabla muestra las métricas interactivas de los clústeres de Azure Data Explorer agrupadas dentro de la suscripción. Puede filtrar los resultados en función de las opciones que seleccione en las siguientes listas desplegables:
 
-* Suscripciones: solo se enumeran las suscripciones que tienen clústeres de Azure Data Explorer.
+* **Suscripciones**: solo se enumeran las suscripciones que tienen clústeres de Azure Data Explorer.
 
-* Clústeres de Azure Data Explorer: de forma predeterminada, solo se preseleccionan hasta cinco clústeres. Si selecciona todos los clústeres o varios de ellos en el selector de ámbitos, se devolverán como máximo 200 clústeres.
+* **Clústeres de Azure Data Explorer**: de forma predeterminada, solo se preseleccionan hasta cinco clústeres. Si selecciona todos los clústeres o varios de ellos en el selector de ámbitos, se devolverán como máximo 200 clústeres.
 
-* Intervalo de tiempo: de forma predeterminada, muestra las últimas veinticuatro horas de información en función de las selecciones correspondientes realizadas.
+* **Intervalo de tiempo**: de forma predeterminada, la tabla muestra las últimas 24 horas de información en función de las selecciones correspondientes realizadas.
 
-El icono de contador, que se encuentra bajo la lista desplegable, acumula el número total de clústeres de Azure Data Explorer de las suscripciones seleccionadas y refleja cuántas están seleccionadas. Hay códigos de colores condicionales para las columnas: Mantener conexión, CPU, Ingestion Utilization (Uso de ingesta) y Cache Utilization (Uso de caché). Las celdas con codificación naranja tienen valores que no son sostenibles para el clúster. 
+El icono de contador, que se encuentra bajo la lista desplegable, acumula el número total de clústeres de Azure Data Explorer de las suscripciones seleccionadas y refleja cuántas están seleccionadas. Hay codificaciones de color condicionales para las columnas: **Mantener activo**, **CPU**, **Uso de ingesta** y **Uso de caché**. Las celdas con codificación naranja tienen valores que no son sostenibles para el clúster. 
 
 Para comprender mejor lo que representa cada una de estas métricas, se recomienda leer la documentación sobre las [métricas de Azure Data Explorer](/azure/data-explorer/using-metrics#cluster-metrics).
 
 ### <a name="query-performance-tab"></a>Pestaña Rendimiento de las consultas
 
-Esta pestaña muestra la duración de las consultas, el número total de consultas simultáneas y el número total de consultas limitadas.
+En la pestaña **Rendimiento de consultas** se muestra la duración de las consultas, el número total de consultas simultáneas y el número total de consultas limitadas.
 
-![Captura de pantalla de la pestaña Rendimiento de las consultas](./media/data-explorer/query-performance.png)
+![Captura de pantalla de la pestaña Rendimiento de las consultas.](./media/data-explorer/query-performance.png)
 
 ### <a name="ingestion-performance-tab"></a>Pestaña Ingestion Performance (Rendimiento de ingesta)
 
-En esta pestaña se muestra la latencia de ingesta, los resultados de ingesta correctos, el volumen de ingesta y los eventos procesados para los centros de IoT o de eventos.
+En esta pestaña **Rendimiento de la ingesta** se muestra la latencia de la ingesta, los resultados de ingesta correctos, los resultados de ingesta con errores, el volumen de ingesta y los eventos procesados para los centros de IoT o de eventos.
 
-[![Captura de pantalla de la pestaña Ingestion Performance (Rendimiento de ingesta)](./media/data-explorer/ingestion-performance.png)](./media/data-explorer/ingestion-performance.png#lightbox)
+[![Captura de pantalla de la pestaña Rendimiento de la ingesta.](./media/data-explorer/ingestion-performance.png)](./media/data-explorer/ingestion-performance.png#lightbox)
 
 ### <a name="streaming-ingest-performance-tab"></a>Pestaña Streaming Ingest Performance (Rendimiento de ingesta de streaming)
 
-Esta pestaña proporciona información sobre la velocidad de datos media, la duración media y la tasa de solicitudes.
+La pestaña **Rendimiento de la ingesta de streaming** proporciona información sobre la velocidad de datos media, la duración media y la tasa de solicitudes.
 
 ### <a name="export-performance-tab"></a>Pestaña Export Performance (Rendimiento de exportación)
 
-Esta pestaña proporciona información sobre los registros exportados, la demora, el recuento pendiente y el porcentaje de uso de las operaciones de exportación continua.
+La pestaña **Rendimiento de exportación** proporciona información sobre los registros exportados, la demora, el recuento pendiente y el porcentaje de uso de las operaciones de exportación continua.
 
 ## <a name="view-from-an-azure-data-explorer-cluster-resource-drill-down-analysis"></a>Vista de un recurso de clúster de Azure Data Explorer (análisis en profundidad)
 
@@ -77,94 +77,110 @@ Para acceder a Azure Data Explorer Insights directamente desde un clúster de Az
 
 1. En Azure Portal, seleccione **Clústeres de Azure Data Explorer**.
 
-2. En la lista, elija un clúster de Azure Data Explorer. En la sección de supervisión, seleccione **Insights**.
+2. En la lista, elija un clúster de Azure Data Explorer. En la sección Supervisión, seleccione **Conclusiones**.
 
 También se puede acceder a estas vistas seleccionando el nombre del recurso de un clúster de Azure Data Explorer desde la vista de conclusiones de Azure Monitor.
 
-Azure Data Explorer Insights combina los registros y las métricas para proporcionar una solución de supervisión global. La inclusión de visualizaciones basadas en registros requiere que los usuarios [habiliten el registro de diagnóstico de su clúster de Azure Data Explorer y lo envíen a un área de trabajo de Log Analytics.](/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs). Los registros de diagnóstico que se deben habilitar son: **Command**, **Query**, **TableDetails** y **TableUsageStatistics**.
+> [!NOTE]
+> Azure Data Explorer Insights combina los registros y las métricas para proporcionar una solución de supervisión global. La inclusión de visualizaciones basadas en registros requiere que los usuarios [habiliten el registro de diagnóstico de su clúster de Azure Data Explorer y lo envíen a un área de trabajo de Log Analytics](/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs). Los registros de diagnóstico que deben habilitarse son **Comando**, **Consulta**, **SucceededIngestion**, **FailedIngestion**, **IngestionBatching**, **TableDetails** y **TableUsageStatistics**. (Tenga en cuenta que habilitar los registros **succeededIngestion** puede ser costoso. Por ello, habilítelos solo si necesita supervisar las ingestas correctas).
 
-![Captura de pantalla del botón azul que muestra el texto "Enable Logs for Monitoring" (Habilitar la supervisión de registros)](./media/data-explorer/enable-logs.png)
+![Captura de pantalla del botón para configurar registros para la supervisión.](./media/data-explorer/enable-logs.png)
 
+### <a name="overview-tab"></a>Pestaña Información general
 
- La pestaña **Información general** muestra:
+La pestaña **Información general** muestra:
 
-- Iconos de métricas que resaltan la disponibilidad y el estado general del clúster para evaluar rápidamente su estado.
+- Iconos de métricas que resaltan la disponibilidad y el estado general del clúster para realizar una evaluación rápida del estado.
 
-- Un resumen del estado activo de las [recomendaciones de Advisor](/azure/data-explorer/azure-advisor) y del [estado de los recursos](/azure/data-explorer/monitor-with-resource-health).
+- Un resumen del estado activo de las [recomendaciones de Azure Advisor](/azure/data-explorer/azure-advisor) y del [estado de los recursos](/azure/data-explorer/monitor-with-resource-health).
 
 - Gráficos que muestran los consumidores principales de CPU y memoria y el número de usuarios únicos a lo largo del tiempo.
 
+[![Captura de pantalla de la vista de un recurso de clúster de Azure Data Explorer.](./media/data-explorer/overview.png)](./media/data-explorer/overview.png#lightbox)
 
-[![Captura de pantalla de la vista de un recurso de clúster de Azure Data Explorer](./media/data-explorer/overview.png)](./media/data-explorer/overview.png#lightbox)
+### <a name="key-metrics-tab"></a>Pestaña de Métricas clave
 
-La pestaña **Key Metrics** (Métricas clave) muestra una vista unificada de algunas de las métricas del clúster, agrupadas por: métricas generales, relacionadas con consultas, relacionadas con la ingesta y relacionadas con la ingesta de streaming.
+La pestaña de **Métricas clave** muestra una vista unificada de algunas de las métricas del clúster. Se agrupan en métricas generales, métricas relacionadas con consultas, métricas relacionadas con la ingesta y métricas relacionadas con la ingesta de streaming.
 
-[![Captura de pantalla de la vista de errores](./media/data-explorer/key-metrics.png)](./media/data-explorer/key-metrics.png#lightbox)
+[![Captura de pantalla de gráficos en la pestaña Métricas clave.](./media/data-explorer/key-metrics.png)](./media/data-explorer/key-metrics.png#lightbox)
 
-La pestaña **Uso** permite a los usuarios profundizar en el rendimiento de los comandos y las consultas del clúster. En esta página, puede:
+### <a name="usage-tab"></a>Pestaña Uso
+
+La pestaña **Uso** permite a los usuarios profundizar en el rendimiento de los comandos y las consultas del clúster. En esta pestaña, puede:
  
- - Ver qué grupos de cargas de trabajo, usuarios y aplicaciones envían la mayoría de las consultas o consumen la mayor parte de la CPU y la memoria (para que pueda saber qué cargas de trabajo envían las consultas más pesadas que va a procesar el clúster).
- - Identificar los grupos de cargas de trabajo, usuarios y aplicaciones principales por consultas con error.
- - Identificar los cambios recientes en el número de consultas, en comparación con la media diaria histórica (en los últimos 16 días), por grupo de cargas de trabajo, usuario y aplicación.
- - Identificar las tendencias y los picos en el número de consultas y el consumo de memoria y CPU por grupo de cargas de trabajo, usuario, aplicación y tipo de comando.
+- Ver qué grupos de cargas de trabajo, usuarios y aplicaciones envían la mayoría de las consultas o consumen la mayor parte de la CPU y la memoria. A continuación, puede comprender qué cargas de trabajo envían las consultas más pesadas para que el clúster las procese.
+- Identificar los grupos de cargas de trabajo, usuarios y aplicaciones principales por consultas con error.
+- Identificar los cambios recientes en el número de consultas, en comparación con la media diaria histórica (en los últimos 16 días), por grupo de cargas de trabajo, usuario y aplicación.
+- Identificar las tendencias y los picos en el número de consultas y el consumo de memoria y CPU por grupo de cargas de trabajo, usuario, aplicación y tipo de comando.
 
-[![Captura de pantalla de la vista de operaciones con gráficos de anillos de las principales aplicaciones por recuento de comandos y consultas, principales entidades de seguridad por recuento de comandos y consultas y comandos principales por tipos de comandos](./media/data-explorer/usage.png)](./media/data-explorer/usage.png#lightbox)
+[![Captura de pantalla de la vista de operaciones con gráficos de anillos relacionados con comandos y consultas.](./media/data-explorer/usage.png)](./media/data-explorer/usage.png#lightbox)
 
-[![Captura de pantalla de la vista de operaciones con gráficos de líneas del recuento de consultas por aplicación, memoria total por aplicación y CPU total por aplicación](./media/data-explorer/usage-2.png)](./media/data-explorer/usage-2.png#lightbox)
+[![Captura de pantalla de la vista de operaciones con gráficos de líneas relacionados con las consultas y la memoria.](./media/data-explorer/usage-2.png)](./media/data-explorer/usage-2.png#lightbox)
 
-En la pestaña **Tablas** se muestran las propiedades históricas y más recientes de las tablas del clúster. Puede ver qué tablas consumen más espacio, realizar un seguimiento del historial de crecimiento por tamaño de tabla, los datos de acceso frecuente y el número de filas a lo largo del tiempo.
+### <a name="tables-tab"></a>Pestaña Tablas
 
-La pestaña **Caché** permite a los usuarios analizar los patrones de la ventana de recuperación de las consultas reales y compararlos con la directiva de caché configurada (para cada tabla). Puede identificar las tablas que usan la mayoría de las consultas y aquellas que no se consultan nunca, y adaptar la directiva de caché en consecuencia. Puede obtener recomendaciones específicas de la directiva de caché sobre tablas concretas de Azure Advisor (actualmente, las recomendaciones de caché solo están disponibles en el [panel principal de Azure Advisor](/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)) basadas en la ventana de recuperación de las consultas reales en los últimos 30 días y una directiva de caché no optimizada para al menos el 95 % de las consultas. Existen recomendaciones de reducción de la caché en Azure Advisor para los clústeres que están "enlazados por datos" (lo que significa que el clúster tiene un uso bajo de CPU y de ingesta, pero que, debido a su elevada capacidad de datos, no ha podido escalarse ni reducirse verticalmente).
+En la pestaña **Tablas** se muestran las propiedades históricas y más recientes de las tablas del clúster. Puede ver qué tablas consumen más espacio. Asimismo, también puede realizar un seguimiento del historial de crecimiento por tamaño de tabla, los datos de acceso frecuente y el número de filas a lo largo del tiempo.
 
-[![Captura de pantalla de detalles de la caché](./media/data-explorer/cache-tab.png)](./media/data-explorer/cache-tab.png#lightbox)
+### <a name="cache-tab"></a>Pestaña Caché
 
-La pestaña **cluster boundaries** (límites del clúster) muestra los límites del clúster en función de su uso. En esta pestaña puede inspeccionar el uso de la CPU, la ingesta y la caché. Los valores de estas métricas pueden ser como "Baja", "Media" o "Alta". Estas métricas y valores son importantes a la hora de decidir el número óptimo de SKU e instancias para el clúster, y se tienen en cuenta en la recomendación de tamaño y SKU de Azure Advisor. En esta pestaña puede seleccionar el icono de una métrica y profundizar para conocer su tendencia y cómo se decide su puntuación. También puede ver la recomendación de tamaño y SKU de Azure Advisor del clúster. Por ejemplo, en la siguiente imagen puede ver que los valores de todas las métricas son "Baja" y, por tanto, el clúster recibe una recomendación de costos, lo que le permite reducir o reducir horizontalmente y ahorrar costos.
+La pestaña **Caché** permite a los usuarios analizar los patrones de la ventana de recuperación de las consultas reales y compararlos con la directiva de caché configurada (para cada tabla). Puede identificar las tablas que usan la mayoría de las consultas y aquellas que no se consultan nunca, y adaptar la directiva de caché en consecuencia. 
+
+Puede obtener recomendaciones de directivas de caché en tablas específicas en Azure Advisor. Actualmente, las recomendaciones de caché solo están disponibles en el [panel principal de Azure Advisor](/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations). Se basan en la ventana de búsqueda de consultas reales de los últimos 30 días y en una directiva de caché sin optimizar para, al menos, el 95 % de las consultas. 
+
+Las recomendaciones de reducción de caché en Azure Advisor están disponibles para los clústeres que están "limitados por datos". Esto significa que el clúster tiene poca CPU y un uso de ingesta bajo, pero debido a la alta capacidad de datos, el clúster no se puede reducir horizontalmente ni verticalmente.
+
+[![Captura de pantalla de los detalles de la caché.](./media/data-explorer/cache-tab.png)](./media/data-explorer/cache-tab.png#lightbox)
+
+### <a name="cluster-boundaries-tab"></a>Pestaña Límites del clúster
+
+La pestaña **Límites del clúster** muestra los límites del clúster en función de su uso. En esta pestaña puede inspeccionar el uso de la CPU, la ingesta y la caché. Los valores de estas métricas pueden ser **Baja**, **Media** o **Alta**. Estas métricas y valores son importantes a la hora de decidir el número óptimo de SKU e instancias para el clúster. Asimismo, se tienen en cuenta en las recomendaciones de SKU o tamaño de Azure Advisor. 
+
+En esta pestaña puede seleccionar el icono de una métrica y profundizar para conocer su tendencia y cómo se decide su puntuación. También puede ver la recomendación de tamaño y SKU de Azure Advisor del clúster. Por ejemplo, en la siguiente imagen, puede ver que todas las métricas se puntúan como **Baja**. El clúster recibe una recomendación de costos que le permitirá reducirlos horizontalmente o verticalmente así y ahorrar dinero.
 
 > [!div class="mx-imgBorder"]
 > [![Captura de pantalla de los límites del clúster.](./media/data-explorer/cluster-boundaries.png)](./media/data-explorer/cluster-boundaries.png#lightbox)
 
-## <a name="pin-to-azure-dashboard"></a>Anclar al panel de Azure
+## <a name="pin-to-an-azure-dashboard"></a>Anclar a un panel de Azure
 
-Cualquiera de las secciones de métricas (de la perspectiva " a gran escala") se puede anclar a un panel de Azure; para ello, seleccione el icono de chincheta que se encuentra en la parte superior derecha de la sección.
+Cualquiera de las secciones de métricas (de la perspectiva "a gran escala") se puede anclar a un panel de Azure; para ello, seleccione el icono con forma de chincheta que se encuentra en la parte superior derecha de la sección.
 
-![Captura de pantalla del icono de chincheta seleccionado](./media/data-explorer/pin.png)
+![Captura de pantalla del icono con forma de chincheta seleccionado.](./media/data-explorer/pin.png)
 
 ## <a name="customize-azure-data-explorer-insights"></a>Personalización de Azure Data Explorer Insights
 
-En esta sección se resaltan los escenarios comunes para editar el libro y personalizarlo de acuerdo con sus necesidades de análisis de datos:
-* Definir el ámbito del libro para seleccionar siempre una suscripción o unos clústeres de Azure Data Explorer determinados
-* Cambiar las métricas de la cuadrícula
-* Cambiar los umbrales o la representación o codificación del color
+Puede editar el libro para personalizarlo en función de sus necesidades de análisis de datos:
+* Definir el ámbito del libro para seleccionar siempre una suscripción o unos clústeres de Azure Data Explorer determinados.
+* Cambiar las métricas de la cuadrícula.
+* Cambiar los umbrales o la representación o codificación del color.
 
-Puede iniciar las personalizaciones habilitando el modo de edición; para ello, seleccione el botón **Personalizar** de la barra de herramientas superior.
+Puede iniciar las personalizaciones; para ello, seleccione el botón **Personalizar** de la barra de herramientas superior.
 
-![Captura de pantalla del botón Personalizar](./media/data-explorer/customize.png)
+![Captura de pantalla del botón Personalizar.](./media/data-explorer/customize.png)
 
-Las personalizaciones se guardan en un libro personalizado para evitar sobrescribir la configuración predeterminada del libro publicado. Los libros se guardan en un recurso compartido, bien en la sección Mis informes, que es privada para usted, o en la sección Informes compartidos, a la que puede acceder cualquiera con acceso al grupo de recursos. Después de guardar el libro personalizado, debe ir a la galería de libros para iniciarlo.
+Las personalizaciones se guardan en un libro personalizado para evitar sobrescribir la configuración predeterminada del libro publicado. Los libros se guardan en un recurso compartido, bien en la sección **Mis informes** o en la sección **Informes compartidos** accesibles a cualquiera con acceso al grupo de recursos. Después de guardar el libro personalizado, vaya a la galería de libros para abrirlo.
 
-![Captura de pantalla de la galería de libros](./media/data-explorer/gallery.png)
+![Captura de pantalla de la galería de libros.](./media/data-explorer/gallery.png)
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
-Para obtener instrucciones generales para la solución de problemas, consulte el [artículo dedicado de solución de problemas](troubleshoot-workbooks.md) de conclusiones basadas en libros.
+Para obtener instrucciones generales sobre la solución de problemas, consulte el artículo dedicado a la [Solución de problemas de conclusiones basadas en libros](troubleshoot-workbooks.md).
 
-Esta sección le ayudará con el diagnóstico y la solución de algunos de los problemas habituales que pueden producirse al usar Azure Data Explorer Insights. Utilice la siguiente lista para buscar la información relacionada con el problema específico.
+Las secciones siguientes le ayudarán a diagnosticar y solucionar algunos de los problemas comunes que pueden surgir al usar Azure Data Explorer Insights.
 
 ### <a name="why-dont-i-see-all-my-subscriptions-in-the-subscription-picker"></a>¿Por qué veo todas mis suscripciones en el selector de suscripciones?
 
-Solo se muestran las suscripciones que contienen clústeres de Azure Data Explorer, que se eligen con el filtro de suscripciones seleccionado y que se seleccionan en la sección "Directorio + suscripción" en el encabezado de Azure Portal.
+Azure Data Explorer Insights solo muestra las suscripciones que contienen clústeres de Azure Data Explorer que se han seleccionado del filtro de suscripción indicado. Seleccione un filtro de suscripción en **Directorio y suscripción** en Azure Portal.
 
-![Captura de pantalla del filtro de suscripción](./media/key-vaults-insights-overview/Subscriptions.png)
+![Captura de pantalla de la selección de un filtro de suscripción.](./media/key-vaults-insights-overview/Subscriptions.png)
 
-### <a name="why-do-i-not-see-any-data-for-my-azure-data-explorer-cluster-under-the-usage-tables-or-cache-sections"></a>¿Por qué no veo ningún dato del clúster de Azure Data Explorer en las secciones Uso, Tablas o Caché?
+### <a name="why-dont-i-see-any-data-for-my-azure-data-explorer-cluster-under-the-usage-tables-or-cache-section"></a>¿Por qué no veo ningún dato del clúster de Azure Data Explorer en las secciones Uso, Tablas o Caché?
 
-Para ver los datos basados en registros, deberá [habilitar los registros de diagnóstico](/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs) para cada uno de los clústeres de Azure Data Explorer que quiera supervisar. Esto puede realizarse en la configuración de diagnóstico de cada clúster. Tendrá que enviar los datos a un área de trabajo de Log Analytics. Los registros de diagnóstico que se deben habilitar son: Command, Query, TableDetails y TableUsageStatistics.
+Para ver los datos basados en registros, debe [habilitar los registros de diagnóstico](/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs) para cada uno de los clústeres de Azure Data Explorer que quiera supervisar. Esto puede realizarse en la configuración de diagnóstico de cada clúster. Asimismo, tendrá que enviar los datos a un área de trabajo de Log Analytics. Los registros de diagnóstico que se deben habilitar son: **Command**, **Query**, **TableDetails** y **TableUsageStatistics**.
 
-### <a name="i-have-already-enabled-logs-for-my-azure-data-explorer-cluster-why-am-i-still-unable-to-see-my-data-under-commands-and-queries"></a>Ya he habilitado los registros del clúster de Azure Data Explorer, ¿por qué todavía no puedo ver mis datos en las secciones Comandos y Consultas?
+### <a name="ive-already-enabled-logs-for-my-azure-data-explorer-cluster-why-am-i-still-unable-to-see-my-data-under-commands-and-queries"></a>Ya he habilitado los registros del clúster de Azure Data Explorer. ¿Por qué todavía no puedo ver mis datos en las secciones Comandos y Consultas?
 
-Actualmente, los registros de diagnóstico no funcionan de forma retroactiva, por lo que los datos solo comenzarán a aparecer una vez que se hayan realizado acciones en Azure Data Explorer. Por lo tanto, pueden tardar algún tiempo, desde horas hasta un día, en función de la actividad que presente el clúster de Azure Data Explorer.
-
+Actualmente, los registros de diagnóstico no funcionan con carácter retroactivo. Los datos comenzarán a aparecer después de que se hayan realizado acciones en Azure Data Explorer. Por lo tanto, pueden tardar algún tiempo (desde horas hasta un día), en función de la actividad que presente el clúster de Azure Data Explorer.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Conozca los escenarios para los que están concebidos los libros, cómo crear informes y personalizar los ya existentes y otros muchos temas en el artículo [Crear informes interactivos con libros de Azure Monitor](../visualize/workbooks-overview.md).
+Conozca los escenarios para los que están concebidos los libros, cómo crear informes y personalizar los ya existentes y otros muchos temas en el artículo [Creación de informes interactivos con libros de Azure Monitor](../visualize/workbooks-overview.md).

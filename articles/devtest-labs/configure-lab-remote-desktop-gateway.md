@@ -1,14 +1,14 @@
 ---
-title: Configuración de un laboratorio para usar Puerta de enlace de Escritorio remoto en Azure DevTest Labs
+title: Configuración de un laboratorio para usar una puerta de enlace de Escritorio remoto
 description: Obtenga información sobre cómo configurar un laboratorio en Azure DevTest Labs con una puerta de enlace de Escritorio remoto para garantizar el acceso seguro a las máquinas virtuales de laboratorio sin tener que exponer el puerto RDP.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: b15d4d39199c1a30eae292ece67f4553b656f530
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fcafc9f035d57e7685ffc3646cecaf27b60684f8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105639597"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652422"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configuración del laboratorio de Azure DevTest Labs para usar una puerta de enlace de Escritorio remoto
 En Azure DevTest Labs, puede configurar una puerta de enlace de Escritorio remoto para el laboratorio con el fin de garantizar el acceso seguro a las máquinas virtuales (VM) del laboratorio sin tener que exponer el puerto RDP. El laboratorio proporciona un lugar central para que los usuarios del laboratorio vean todas las máquinas virtuales a las que tienen acceso y se conecten a ellas. El botón **Connect** (Conectar) de la página **Virtual Machine** (Máquina Virtual) crea un archivo RDP específico de la máquina que se puede abrir para conectarse a ella. Puede personalizar y proteger aún más la conexión RDP si conecta el laboratorio a una puerta de enlace de Escritorio remoto. 

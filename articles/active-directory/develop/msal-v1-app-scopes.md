@@ -12,12 +12,12 @@ ms.date: 11/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: 67273a5e0c29a8a3ba7b7fdfcc3ccba2e5105c7c
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: c1d9c88825dc8460c619131b8f69b5e802a8758b
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122429058"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129080757"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Ámbitos para una API web que acepta tokens de la versión 1.0
 
@@ -83,4 +83,6 @@ var scopes = [ ResourceId + "/.default"];
 
 ## <a name="scopes-to-request-for-a-client-credential-flowdaemon-app"></a>Ámbitos para solicitar el flujo de credenciales de un cliente o la aplicación Daemon
 
-En el caso de flujo de credenciales de cliente, el ámbito que se pasa también sería `/.default`. Esto indica a Azure AD: "todos los permisos de nivel de aplicación a los que el administrador ha dado su consentimiento para el registro de la aplicación".
+Para el flujo de credenciales de un cliente estándar, use `/.default`. Por ejemplo, `https://graph.microsoft.com/.default`.
+
+Azure AD incluirá automáticamente todos los permisos de nivel de aplicación que el administrador haya consentido en el token de acceso del flujo de credenciales de un cliente.

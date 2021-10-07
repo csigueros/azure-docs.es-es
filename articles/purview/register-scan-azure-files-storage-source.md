@@ -1,18 +1,18 @@
 ---
-title: Cómo examinar Azure Files
-description: En esta guía se describen los detalles de cómo examinar Azure Files.
+title: Registro y examen de Azure Files
+description: En esta guía de procedimientos, se describen los detalles de cómo examinar Azure Files en Azure Purview.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 06/22/2021
-ms.openlocfilehash: dbb29fea5253bbd00e66f0ed3d123ddc38533b8e
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 2db2b5343b8a55e29881bf0908fded0a48b90b78
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123256444"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209915"
 ---
 # <a name="register-and-scan-azure-files"></a>Registro y examen de Azure Files
 
@@ -77,7 +77,7 @@ En la pantalla **Register sources (Azure Files)** (Registrar orígenes [Azure Fi
 
 Para crear y ejecutar un nuevo examen, siga estos pasos:
 
-1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de Purview Studio.
+1. Seleccione la pestaña **Data Map** (Mapa de datos) en el panel izquierdo de [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Seleccione el origen de Azure Files que ha registrado.
 

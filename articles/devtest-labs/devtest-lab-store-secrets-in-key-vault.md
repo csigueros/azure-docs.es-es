@@ -1,14 +1,14 @@
 ---
-title: Almacenamiento de secretos en un almacén de claves en Azure DevTest Labs | Microsoft Docs
+title: Almacenamiento de secretos en un almacén de claves
 description: Aprenda a almacenar secretos en Azure Key Vault y a usarlos al crear una máquina virtual, una fórmula o un entorno.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 5714279ef183cb930d643575466dae3d6cb69bba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2aaa177c895b57a07ed94de48081de69beedcda8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85481653"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596030"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Almacenamiento de secretos en un almacén de claves en Azure DevTest Labs
 Puede que al usar Azure DevTest Labs deba escribir un secreto complejo: una contraseña para la máquina virtual Windows, una clave SSH pública para la máquina virtual Linux o un token de acceso personal para clonar el repositorio de Git mediante un artefacto. Los secretos son normalmente largos y tienen caracteres aleatorios. Por lo tanto, escribirlos puede ser complicado y supone un inconveniente, especialmente si se usa el mismo secreto varias veces.

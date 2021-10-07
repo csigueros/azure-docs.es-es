@@ -7,12 +7,12 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-develop
 services: iot-develop
-ms.openlocfilehash: 26ed060e7cc0ccf8bf4e35ddd5ab62b8ba8eef09
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: fc8992e8e602f4a92d870328b6da14dde06af087
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114406695"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128670830"
 ---
 # <a name="iot-plug-and-play-conventions"></a>Convenciones de IoT Plug and Play
 
@@ -188,9 +188,84 @@ Un dispositivo podría informar de un error como:
 }
 ```
 
+### <a name="object-type"></a>Tipo de objeto
+
+Si una propiedad grabable se define como un objeto, el servicio debe enviar un objeto completo al dispositivo. El dispositivo debe confirmar la actualización mediante el envío de información suficiente al servicio para que este comprenda cómo ha actuado el dispositivo en la actualización. Esta respuesta podría incluir:
+
+- Todo el objeto.
+- Solo los campos que ha actualizado el dispositivo.
+- Un subconjunto de los campos.
+
+En el caso de objetos grandes, considere la posibilidad de minimizar el tamaño del objeto que se incluye en la confirmación.
+
+En el ejemplo siguiente se muestra una propiedad grabable definida como `Object` con cuatro campos:
+
+DTDL:
+
+```json
+{
+  "@type": "Property",
+  "name": "samplingRange",
+  "schema": {
+    "@type": "Object",
+    "fields": [
+      {
+        "name": "startTime",
+        "schema": "dateTime"
+      },
+      {
+        "name": "lastTime",
+        "schema": "dateTime"
+      },
+      {
+        "name": "count",
+        "schema": "integer"
+      },
+      {
+        "name": "errorCount",
+        "schema": "integer"
+      }
+    ]
+  },
+  "displayName": "Sampling range"
+  "writable": true
+}
+```
+
+Para actualizar esta propiedad grabable, envíe un objeto completo desde el servicio que sea similar a lo siguiente:
+
+```json
+{
+  "samplingRange": {
+    "startTime": "2021-08-17T12:53:00.000Z",
+    "lastTime": "2021-08-17T14:54:00.000Z",
+    "count": 100,
+    "errorCount": 5
+  }
+}
+```
+
+El dispositivo responde con una confirmación similar a la siguiente:
+
+```json
+{
+  "samplingRange": {
+    "ac": 200,
+    "av": 5,
+    "ad": "Weighing status updated",
+    "value": {
+      "startTime": "2021-08-17T12:53:00.000Z",
+      "lastTime": "2021-08-17T14:54:00.000Z",
+      "count": 100,
+      "errorCount": 5
+    }
+  }
+}
+```
+
 ### <a name="sample-no-component-writable-property"></a>Propiedad editable sin componentes de ejemplo
 
-Cuando un dispositivo recibe varias propiedades comunicadas en una sola carga útil, puede enviar las respuestas de propiedad notificada mediante varias cargas.
+Cuando un dispositivo recibe varias propiedades deseadas en una sola carga, puede enviar las respuestas de propiedad notificadas entre varias cargas o combinar las respuestas en una sola carga.
 
 Un dispositivo o módulo puede enviar cualquier JSON válido que siga las reglas de DTDL v2:
 
@@ -205,6 +280,12 @@ DTDL:
     {
       "@type": "Property",
       "name": "targetTemperature",
+      "schema": "double",
+      "writable": true
+    },
+    {
+      "@type": "Property",
+      "name": "targetHumidity",
       "schema": "double",
       "writable": true
     }
@@ -249,13 +330,16 @@ Carga de segunda propiedad notificada de ejemplo:
 }
 ```
 
+> [!NOTE]
+> También puede optar por combinar estas dos cargas de propiedad notificadas en una sola carga.
+
 ### <a name="sample-multiple-components-writable-property"></a>Propiedad editable de varios componentes de ejemplo
 
 El dispositivo o módulo debe agregar el marcador `{"__t": "c"}` para indicar que el elemento hace referencia a un componente.
 
 El marcador solo se envía para las actualizaciones de las propiedades definidas en un componente. Las actualizaciones de las propiedades definidas en el componente predeterminado no incluyen el marcador; consulte [Propiedad editable sin componentes de ejemplo](#sample-no-component-writable-property).
 
-Cuando un dispositivo recibe varias propiedades comunicadas en una sola carga útil, puede enviar las respuestas de propiedad notificada mediante varias cargas.
+Cuando un dispositivo recibe varias propiedades notificadas en una sola carga, puede enviar las respuestas de propiedad notificadas entre varias cargas o combinar las respuestas en una sola carga.
 
 El dispositivo o módulo debe confirmar que recibió las propiedades mediante el envío de propiedades notificadas:
 
@@ -339,6 +423,9 @@ Carga de segunda propiedad notificada de ejemplo:
   }
 }
 ```
+
+> [!NOTE]
+> También puede optar por combinar estas dos cargas de propiedad notificadas en una sola carga.
 
 ## <a name="commands"></a>Comandos:
 

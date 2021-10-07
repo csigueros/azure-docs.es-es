@@ -2,13 +2,13 @@
 title: Estructura y sintaxis de un archivo Bicep
 description: Describe la estructura y las propiedades de un archivo Bicep mediante la sintaxis declarativa.
 ms.topic: conceptual
-ms.date: 07/02/2021
-ms.openlocfilehash: 5401aebb0b0a82a04a2b78f9af1dc6d133915c0b
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.date: 09/21/2021
+ms.openlocfilehash: f0fb7214d261c686273e275cb0d3d18b1d393f6b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113286635"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128654335"
 ---
 # <a name="understand-the-structure-and-syntax-of-bicep-files"></a>Nociones sobre la estructura y la sintaxis de los archivos Bicep
 
@@ -191,7 +191,7 @@ Para más información, consulte [Variables en Bicep](./variables.md).
 
 ## <a name="resource"></a>Recurso
 
-Use la palabra clave `resource` para definir un recurso que se va a implementar. La declaración de recursos incluye un nombre simbólico para el recurso. Usará este nombre simbólico en otras partes del archivo Bicep si necesita obtener un valor del recurso.
+Use la palabra clave `resource` para definir un recurso que se va a implementar. La declaración de recursos incluye un nombre simbólico para el recurso. Usará este nombre simbólico en otras partes del archivo Bicep si necesita obtener un valor del recurso. El nombre simbólico puede contener a-z, A-Z, 0-9 y "_"; no puede comenzar por un número.
 
 La declaración de recursos también incluye el tipo de recurso y la versión de la API.
 
@@ -261,7 +261,7 @@ module webModule './webApp.bicep' = {
 }
 ```
 
-El nombre simbólico le permite hacer referencia al módulo desde otro lugar del archivo. Por ejemplo, puede obtener un valor de salida de un módulo mediante el uso del nombre simbólico y el nombre del valor de salida.
+El nombre simbólico le permite hacer referencia al módulo desde otro lugar del archivo. Por ejemplo, puede obtener un valor de salida de un módulo mediante el uso del nombre simbólico y el nombre del valor de salida. El nombre simbólico puede contener a-z, A-Z, 0-9 y "_"; no puede comenzar por un número.
 
 Un módulo no puede tener el mismo nombre que un parámetro, una variable o un recurso.
 

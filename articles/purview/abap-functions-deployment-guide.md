@@ -6,13 +6,13 @@ ms.author: kchandra
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 11/13/2020
-ms.openlocfilehash: 9bd3c315fcc15317a9fa483289fdc326ca6aa47f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/27/2021
+ms.openlocfilehash: f235e4b293c47c9d2833732fa6333a350a1fd272
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102614367"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129210352"
 ---
 # <a name="deploy-the-metadata-extraction-abap-function-module-for-the-sap-r3-family-of-bridges"></a>Implementación del módulo de función de ABAP de extracción de metadatos para la familia de puentes de SAP R3
 
@@ -65,7 +65,7 @@ En el navegador de objetos, seleccione **Function Group** (Grupo de función) en
 
 1. Una vez creado el grupo de funciones, selecciónelo.
 
-2. Haga clic con el botón derecho en el nombre del grupo de funciones en el explorador del repositorio y seleccione **Create** (Crear) y **Function Module** (Módulo de función).
+2. Seleccione y mantenga presionado (o haga clic con el botón derecho) el nombre del grupo de funciones en el explorador del repositorio y seleccione **Crear** y **Módulo de función**.
 
 3. En el campo **Function Module** (Módulo de función), escriba `Z_MITI_DOWNLOAD`. Rellene la entrada de **Short text** (Texto corto) con la descripción adecuada.
 
@@ -112,7 +112,7 @@ Cuando se haya creado el módulo, especifique la información siguiente:
 
 7. Guarde la función (presione Ctrl+S o elija **Function Module** > **Save** [Módulo de función > Guardar] en el menú principal).
 
-8. Haga clic en el icono **Activate** (Activar) en la barra de herramientas (Ctrl+F3) y seleccione el botón **Continue** (Continuar) en la ventana del cuadro de diálogo. Si se le solicita, debe seleccionar las inclusiones generadas que se activarán junto con el módulo de función principal.
+8. Seleccione el icono **Activar** en la barra de herramientas (Ctrl+F3) y seleccione el botón **Continuar** en la ventana del cuadro de diálogo. Si se le solicita, debe seleccionar las inclusiones generadas que se activarán junto con el módulo de función principal.
 
 ### <a name="testing-the-function"></a>Prueba de la función
 

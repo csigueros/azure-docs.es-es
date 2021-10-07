@@ -7,12 +7,12 @@ ms.date: 06/29/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 4ec7c3640a242212010de68a9f08c4d6e3e27300
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 6e58548365be63ed13a8ac20c42cca81b66bc407
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694324"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593047"
 ---
 # <a name="reduce-costs-with-azure-disks-reservation"></a>Reducción de costos con la reserva de discos de Azure
 
@@ -71,7 +71,7 @@ Siga estos pasos para adquirir la capacidad reservada:
 
    |Elemento  |Descripción  |
    |---------|---------|
-   |**Ámbito**   |  Cuántas suscripciones pueden usar la ventaja de facturación asociada con la reserva. Este valor también especifica cómo se aplica la reserva a suscripciones concretas. <br/><br/> Si selecciona **Compartido**, el descuento de la reserva se aplica a la capacidad de Azure Storage en todas las suscripciones en el contexto de facturación. El contexto de facturación se basa en cómo se haya suscrito a Azure. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de pago por uso, el ámbito compartido incluye todas las suscripciones con tarifas de pago por uso creadas por el administrador de la cuenta.  <br/><br/>  Si selecciona **Suscripción única**, el descuento de reserva se aplica a la capacidad de Azure Storage de la suscripción seleccionada. <br/><br/> Si selecciona **Grupo de recursos único**, el descuento de reserva se aplica a la capacidad de Azure Storage de la suscripción seleccionada y al grupo de recursos seleccionado de esa suscripción. <br/><br/> Puede cambiar el ámbito de reserva después de comprar la reserva.  |
+   |**Ámbito**   |  Cuántas suscripciones pueden usar la ventaja de facturación asociada con la reserva. Este valor también especifica cómo se aplica la reserva a suscripciones concretas. <br/><br/> Si selecciona **Compartido**, el descuento de la reserva se aplica a la capacidad de Azure Storage en todas las suscripciones en el contexto de facturación. El contexto de facturación se basa en cómo se haya suscrito a Azure. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de pago por uso, el ámbito compartido incluye todas las suscripciones con tarifas de pago por uso creadas por el administrador de la cuenta. </br></br>Si selecciona **Grupo de administración**, el descuento por la reserva se aplica a la capacidad de Azure Storage en cada suscripción que forma parte del grupo de administración y del ámbito de facturación. <br/><br/>  Si selecciona **Suscripción única**, el descuento de reserva se aplica a la capacidad de Azure Storage de la suscripción seleccionada. <br/><br/> Si selecciona **Grupo de recursos único**, el descuento de reserva se aplica a la capacidad de Azure Storage de la suscripción seleccionada y al grupo de recursos seleccionado de esa suscripción. <br/><br/> Puede cambiar el ámbito de reserva después de comprar la reserva.  |
    |**Suscripción**  | La suscripción que se usa para pagar la reserva de Azure Storage. El método de pago en la suscripción seleccionada se usa al cargar los costos. La suscripción debe ser uno de los tipos siguientes:<br/><ul><li> Contrato Enterprise (números de oferta MS-AZR-0017P y MS-AZR-0148P). En el caso de una suscripción Enterprise, los cargos se deducirán del saldo de pago por adelantado de la inscripción de Azure (anteriormente llamado compromiso monetario) o se cobrarán como parte del uso por encima del límite.</li><br/><li>Suscripción individual con las tarifas de pago por uso (números de oferta MS-AZR-0003P y MS-AZR-0023P). en una suscripción individual con tarifas de pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.</li></ul>    |
    | **Discos** | La SKU que desea crear. |
    | **Región** | La región donde está en vigor la reserva. |

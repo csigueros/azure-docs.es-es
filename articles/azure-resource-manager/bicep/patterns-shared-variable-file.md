@@ -5,12 +5,12 @@ author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
 ms.date: 08/18/2021
-ms.openlocfilehash: 812cb0b861418d3bd3d13959cf074442d9a81538
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: eb9a24c0c5b6b7bd037fe5da13fe108878f55a15
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122446742"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648323"
 ---
 # <a name="shared-variable-file-pattern"></a>Patrón de archivo de variables compartido
 
@@ -24,7 +24,7 @@ Además, al trabajar con variables definidas como matrices, es posible que tenga
 
 ## <a name="solution"></a>Solución
 
-Cree un archivo JSON que incluya las variables que necesita compartir. Use las funciones `json()` y `loadTextContent()` de Bicep para cargar el archivo y acceder a las variables. Para las variables de matriz, use la función `concat()` para combinar los valores compartidos con cualquier valor personalizado para el recurso específico.
+Cree un archivo JSON que incluya las variables que necesita compartir. Use la función [`json()` ](bicep-functions-object.md#json) y la función [`loadTextContent()` ](bicep-functions-files.md#loadtextcontent) para cargar el archivo y acceder a las variables. Para las variables de matriz, use la función [`concat()` ](bicep-functions-array.md#concat) para combinar los valores compartidos con cualquier valor personalizado para el recurso específico.
 
 ## <a name="example-1-naming-prefixes"></a>Ejemplo 1: nomenclatura de prefijos
 

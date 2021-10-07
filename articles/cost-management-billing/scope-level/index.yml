@@ -1,0 +1,52 @@
+### YamlMime:Landing
+title: Administración del nivel de ámbito de Ventaja híbrida de Azure
+summary: Ventaja híbrida de Azure es una ventaja de licencia que le permite traer sus licencias de Windows Server y SQL Server basadas en núcleos locales con Software Assurance (o suscripción) activo a Azure. Ayuda a reducir considerablemente los costos que conlleva la ejecución de cargas de trabajo en la nube. En Azure Portal, ahora puede administrar su cuenta de Ventaja híbrida de Azure para SQL Server mediante la asignación de licencias al ámbito de una suscripción de Azure completa o una cuenta de facturación general.
+metadata:
+  title: Documentación de Ventaja híbrida de Azure
+  description: Ventaja híbrida de Azure es una ventaja de licencia que le permite traer sus licencias de Windows Server y SQL Server basadas en núcleos locales con Software Assurance (o suscripción) activo a Azure. Ayuda a reducir considerablemente los costos que conlleva la ejecución de cargas de trabajo en la nube. En Azure Portal, ahora puede administrar su cuenta de Ventaja híbrida de Azure para SQL Server mediante la asignación de licencias al ámbito de una suscripción de Azure completa o una cuenta de facturación general.
+  ms.service: cost-management-billing
+  ms.subservice: ahb
+  ms.topic: landing-page
+  ms.collection: collection
+  author: bandersmsft
+  ms.author: banders
+  ms.date: 09/30/2021
+  ms.openlocfilehash: ae18a0f65423219f6ba0035c8ebe7fe6df1aeba6
+  ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 10/05/2021
+  ms.locfileid: "129547172"
+landingContent:
+- title: Introducción
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es la administración de nivel de ámbito?
+      url: overview-azure-hybrid-benefit-scope.md?toc=/azure/cost-management-billing/scope-level/toc.json
+  - linkListType: tutorial
+    links:
+    - text: Optimización de Ventaja híbrida de Azure de nivel de ámbito
+      url: tutorial-azure-hybrid-benefits-sql.md?toc=/azure/cost-management-billing/scope-level/toc.json
+  - linkListType: how-to-guide
+    links:
+    - text: Creación de asignaciones de licencias de SQL Server
+      url: create-sql-license-assignments.md?toc=/azure/cost-management-billing/scope-level/toc.json
+- title: Administrar
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Transición a Ventaja híbrida de Azure de nivel de ámbito
+      url: transition-existing.md?toc=/azure/cost-management-billing/scope-level/toc.json
+  - linkListType: reference
+    links:
+    - text: Preguntas más frecuentes
+      url: faq-azure-hybrid-benefit-scope.yml?toc=/azure/cost-management-billing/scope-level/toc.json
+- title: Saber más
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Aplicación por parte de Azure de las licencias asignadas
+      url: manage-licenses-centrally.md?toc=/azure/cost-management-billing/scope-level/toc.json
+    - text: Alta disponibilidad y recuperación ante desastres de SQL Server frente a Ventaja híbrida de Azure
+      url: sql-server-hadr-licenses.md?toc=/azure/cost-management-billing/scope-level/toc.json

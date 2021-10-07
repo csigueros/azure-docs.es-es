@@ -10,17 +10,17 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: lajanuar
-ms.openlocfilehash: 13c4d39284fad293c945f8b7e31076dccee84fda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e64e0699be0c53a7f515574be63deb613d04bfe
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98896840"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750758"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Migración de Translator V2 a V3
 
 > [!NOTE]
-> V2 quedó en desuso el 30 de abril de 2018. Migre sus aplicaciones a V3 para aprovechar la nueva funcionalidad disponible exclusivamente en V3. V2 se retirará el 24 de mayo de 2021. 
+> V2 quedó en desuso el 30 de abril de 2018. Migre sus aplicaciones a V3 para aprovechar la nueva funcionalidad disponible exclusivamente en V3. V2 se retiró el 24 de mayo de 2021. 
 
 El equipo de Microsoft Translator ha lanzado la versión 3 (V3) de Translator. En esta versión se incluyen nuevas características, métodos en desuso y un nuevo formato para enviar y recibir datos del servicio Microsoft Translator. Este documento proporciona información para cambiar las aplicaciones para que usen V3. 
 

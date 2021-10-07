@@ -1,14 +1,14 @@
 ---
-title: Comparación de imágenes personalizadas y fórmulas en DevTest Labs | Microsoft Docs
+title: Comparación de imágenes personalizadas y fórmulas
 description: Obtenga más información sobre las diferencias entre las imágenes personalizadas y las fórmulas como bases de máquina virtual para que pueda decidir cuál se adapta mejor a su entorno.
 ms.topic: conceptual
 ms.date: 08/26/2021
-ms.openlocfilehash: f1fdb46decda2f72e64eff95cf57dba002168943
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: d78d6ba1f380b820fff9df7d82691334d40be8ce
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634008"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648513"
 ---
 # <a name="compare-custom-images-and-formulas-in-devtest-labs"></a>Comparación de imágenes personalizadas y fórmulas en DevTest Labs
 Se pueden usar [imágenes personalizadas](devtest-lab-create-template.md) y [fórmulas](devtest-lab-manage-formulas.md) como base para las [nuevas máquinas virtuales creadas](devtest-lab-add-vm.md).  La diferencia clave entre las fórmulas y las imágenes personalizadas estriba en que estas últimas son simplemente una imagen basada en un disco duro virtual, mientras que una fórmula es una imagen basada en un disco duro virtual *además de* opciones preconfiguradas, como el tamaño de la máquina virtual, la red virtual, la subred y los artefactos. Estas opciones preconfiguradas se configuran con valores predeterminados que se pueden reemplazar en el momento de creación de máquinas virtuales. 

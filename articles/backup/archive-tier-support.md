@@ -2,14 +2,14 @@
 title: Compatibilidad con el nivel de archivo
 description: Conozca más sobre la compatibilidad del nivel de acceso de archivo para Azure Backup.
 ms.topic: conceptual
-ms.date: 08/31/2021
+ms.date: 09/10/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 228ab85a0cde5ed37156a5821ad3ac2acd6a7209
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 0468e463caa6d589b22596d2fe845014e96e10b8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123260783"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632469"
 ---
 # <a name="archive-tier-support"></a>Compatibilidad con el nivel de archivo
 
@@ -76,7 +76,7 @@ Clientes compatibles:
 
     - Para SQL Server en máquinas virtuales de Azure:
 
-        `$bckItm = $BackupItemList | Where-Object {$_.Name -match '<dbName>' -and $_.ContainerName -match '<vmName>'}`
+        `$bckItm = $BackupItemList | Where-Object {$_.FriendlyName -eq '<dbName>' -and $_.ContainerName -match '<vmName>'}`
 
 1. Agregue el intervalo de fechas para el que desea ver los puntos de recuperación. Por ejemplo, si desea ver los puntos de recuperación de los últimos 124 días a los últimos 95 días, use el siguiente comando:
 
@@ -88,6 +88,16 @@ Clientes compatibles:
     >[!NOTE]
     >Para ver los puntos de recuperación de un intervalo de tiempo diferente, modifique las fechas de inicio y finalización en consecuencia.
 ## <a name="use-powershell"></a>Uso de PowerShell
+
+### <a name="check-the-archivable-status-of-all-the-recovery-points"></a>Comprobación del estado archivable de todos los puntos de recuperación
+
+Ya puede comprobar el estado archivable de todos los puntos de recuperación de un elemento de copia de seguridad mediante el siguiente cmdlet:
+
+```azurepowershell
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() 
+
+$rp | select RecoveryPointId, @{ Label="IsArchivable";Expression={$_.RecoveryPointMoveReadinessInfo["ArchivedRP"].IsReadyForMove}}, @{ Label="ArchivableInfo";Expression={$_.RecoveryPointMoveReadinessInfo["ArchivedRP"].AdditionalInfo}}
+```
 
 ### <a name="check-archivable-recovery-points"></a>Comprobación de los puntos de recuperación que se pueden archivar
 
@@ -149,7 +159,7 @@ $rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm
 
 En el caso de los puntos de recuperación en archivo, Azure Backup proporciona una metodología de restauración integrada.
 
-La restauración integrada es un proceso de dos pasos. El primer paso implica rehidratar los puntos de recuperación almacenados en el archivo y almacenarlos temporalmente en el nivel estándar del almacén durante un período (también conocido como "duración de rehidratación") de 10 a 30 días. El valor predeterminado es de 15 días. Hay dos prioridades diferentes de rehidratación: prioridad estándar y alta. Más información sobre la [prioridad de rehidratación](../storage/blobs/storage-blob-rehydration.md#rehydrate-an-archived-blob-to-an-online-tier).
+La restauración integrada es un proceso de dos pasos. El primer paso implica rehidratar los puntos de recuperación almacenados en el archivo y almacenarlos temporalmente en el nivel estándar del almacén durante un período (también conocido como "duración de rehidratación") de 10 a 30 días. El valor predeterminado es de 15 días. Hay dos prioridades diferentes de rehidratación: prioridad estándar y alta. Más información sobre la [prioridad de rehidratación](../storage/blobs/archive-rehydrate-overview.md#rehydration-priority).
 
 >[!NOTE]
 >
@@ -171,6 +181,17 @@ Para ver los trabajos de movimiento y restauración, use el siguiente cmdlet de 
 ```azurepowershell
 Get-AzRecoveryServicesBackupJob -VaultId $vault.ID
 ```
+
+### <a name="move-recovery-points-to-archive-tier-at-scale"></a>Traslado de puntos de recuperación al nivel de acceso de archivo a escala
+
+Ahora puede usar scripts de ejemplo para realizar operaciones a escala. [Obtenga más información](https://github.com/hiaga/Az.RecoveryServices/blob/master/README.md) sobre cómo ejecutar scripts de ejemplo. Puede descargar los scripts de [aquí](https://github.com/hiaga/Az.RecoveryServices).
+
+Puede realizar las siguientes operaciones mediante los scripts de ejemplo proporcionados por Azure Backup:
+
+- Mueva todos los puntos de recuperación aptos para una base de datos determinada o todas las bases de datos de un servidor SQL en la VM de Azure al nivel de archivo.
+- Mueva todos los puntos de recuperación recomendados para una máquina virtual de Azure determinada al nivel de archivo.
+ 
+También puede escribir un script según sus requisitos o modificar los scripts de ejemplo anteriores para capturar los elementos de copia de seguridad necesarios.
 
 ## <a name="use-the-portal"></a>Uso del portal
 
@@ -211,7 +232,7 @@ La detención de la protección y la eliminación de los datos eliminan todos lo
 
 | Cargas de trabajo | Vista previa | Disponibilidad general |
 | --- | --- | --- |
-| SQL Server en VM de Azure | Este de EE. UU., Centro-sur de EE. UU., Centro-norte de EE. UU., Oeste de Europa | Este de Australia, Centro de la India, Norte de Europa, Sudeste Asiático, Este de Asia, Sudeste de Australia, Centro de Canadá, Sur de Brasil, Este de Canadá, Centro de Francia, Sur de Francia, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Sur de la India, Oeste de Reino Unido, Sur de Reino Unido, Centro de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU. |
+| SQL Server en VM de Azure | Centro-sur de EE. UU., Centro-norte de EE. UU., Oeste de Europa | Este de Australia, Centro de la India, Norte de Europa, Sudeste Asiático, Este de Asia, Sudeste de Australia, Centro de Canadá, Sur de Brasil, Este de Canadá, Centro de Francia, Sur de Francia, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Sur de la India, Oeste de Reino Unido, Sur de Reino Unido, Centro de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU, Este de EE. UU. |
 | Azure Virtual Machines | Este de EE. UU., Este de EE. UU. 2, Centro-sur de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU., Centro-norte de EE. UU., Sur de Brasil, Este de Canadá, Centro de Canadá, Oeste de Europa, Sur de Reino Unido, Oeste de Reino Unido, Este de Asia, Este de Japón, Sur de la India, Sudeste de Asia, Este de Australia, Centro de la India, Norte de Europa, Sudeste de Australia, Centro de Francia, Sur de Francia, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur | Ninguno |
 
 ## <a name="error-codes-and-troubleshooting-steps"></a>Códigos de error y pasos de solución de problemas

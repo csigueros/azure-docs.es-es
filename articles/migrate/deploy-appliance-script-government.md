@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: 97980d07d7dc597b5bfb4b093495b2cb74c4569e
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: 84bb24daf4586f874c0caf3994bc59773e663337
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122777918"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129093599"
 ---
 # <a name="set-up-an-appliance-for-azure-government-cloud"></a>Configuración de un dispositivo para la nube de Azure Government
 
@@ -61,40 +61,40 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 
     **Descargar** | **Valor del código hash**
     --- | ---
-    [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140337) | CA8CEEE4C7AC13328ECA56AE9EB35137336CD3D73B1F867C4D736286EF61A234
+    [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140337) | BA84B58E88DDFE23E5D4CE73530227EBBC187B3634B66A3E0F0B3E5DF5F0A94F
 
 
 ### <a name="run-the-script"></a>Ejecute el script.
 
 1. Extraiga el archivo comprimido en la carpeta del servidor que hospedará el dispositivo.  No ejecute el script en un servidor con un dispositivo de Azure Migrate existente.
+
 2. Inicie PowerShell en el servidor anterior con privilegios administrativos (elevados).
+
 3. Cambie el directorio de PowerShell a la carpeta en la que se ha extraído el contenido del archivo comprimido descargado.
+
 4. Ejecute el script denominado **AzureMigrateInstaller.ps1** ejecutando el comando siguiente:
 
-    
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
+   `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 `
 
 5. Seleccione entre las opciones de escenario, nube y conectividad para implementar un dispositivo con la configuración deseada. Por ejemplo, la selección que se muestra a continuación configura un dispositivo para detectar, evaluar y migrar **servidores que se ejecutan en el entorno de VMware** a un proyecto de Azure Migrate con **conectividad predeterminada _(punto de conexión público)_** en la **nube de Azure Government**.
 
-    :::image type="content" source="./media/deploy-appliance-script-government/script-vmware-gov-inline.png" alt-text="Captura de pantalla que muestra cómo configurar un dispositivo con la configuración deseada para VMware" lightbox="./media/deploy-appliance-script-government/script-vmware-gov-expanded.png":::
+   :::image type="content" source="./media/deploy-appliance-script-government/script-vmware-gov-inline.png" alt-text="Captura de pantalla que muestra cómo configurar un dispositivo con la configuración deseada para VMware" lightbox="./media/deploy-appliance-script-government/script-vmware-gov-expanded.png":::
 
 6. El script del instalador hace lo siguiente:
 
-- Instala agentes y una aplicación web.
-- Instala los roles de Windows, incluido el servicio de activación de Windows, IIS y PowerShell ISE.
-- Descarga e instala un módulo de reescritura de IIS.
-- Actualiza una clave del registro (HKLM) con detalles de configuración persistentes para Azure Migrate.
-- Crea los siguientes archivos en la ruta de acceso:
-    - **Archivos de configuración**:%Programdata%\Microsoft Azure\Config
-    - **Archivos de registro**:%Programdata%\Microsoft Azure\Logs
+   - Instala agentes y una aplicación web.
+   - Instala los roles de Windows, incluido el servicio de activación de Windows, IIS y PowerShell ISE.
+   - Descarga e instala un módulo de reescritura de IIS.
+   - Actualiza una clave del registro (HKLM) con detalles de configuración persistentes para Azure Migrate.
+   - Crea los siguientes archivos en la ruta de acceso:
+     - **Archivos de configuración**:%Programdata%\Microsoft Azure\Config
+     - **Archivos de registro**:%Programdata%\Microsoft Azure\Logs
 
 Una vez que el script se haya ejecutado correctamente, el administrador de configuración del dispositivo se iniciará automáticamente.
-
 
 ### <a name="verify-access"></a>Comprobación del acceso
 
 Asegúrese de que el dispositivo pueda conectarse a las direcciones URL de Azure para las [nubes gubernamentales](migrate-appliance.md#government-cloud-urls).
-
 
 ## <a name="set-up-the-appliance-for-hyper-v"></a>Configuración del dispositivo para Hyper-V
 
@@ -122,17 +122,19 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 
     **Descargar** | **Valor del código hash**
     --- | ---
-    [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140424) | CA8CEEE4C7AC13328ECA56AE9EB35137336CD3D73B1F867C4D736286EF61A234
+    [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140424) | BA84B58E88DDFE23E5D4CE73530227EBBC187B3634B66A3E0F0B3E5DF5F0A94F
 
 ### <a name="run-the-script"></a>Ejecute el script.
 
 1. Extraiga el archivo comprimido en la carpeta del servidor que hospedará el dispositivo.  No ejecute el script en un servidor con un dispositivo de Azure Migrate existente.
+
 2. Inicie PowerShell en el servidor anterior con privilegios administrativos (elevados).
+
 3. Cambie el directorio de PowerShell a la carpeta en la que se ha extraído el contenido del archivo comprimido descargado.
+
 4. Ejecute el script denominado **AzureMigrateInstaller.ps1** ejecutando el comando siguiente:
 
-    
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
+   `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1`
 
 5. Seleccione entre las opciones de escenario, nube y conectividad para implementar un dispositivo con la configuración deseada. Por ejemplo, la selección que se muestra a continuación configura un dispositivo para detectar y evaluar **servidores que se ejecutan en el entorno de Hyper-V** a un proyecto de Azure Migrate con **conectividad predeterminada _(punto de conexión público)_** en la **nube de Azure Government**.
 
@@ -180,7 +182,7 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 
     **Descargar** | **Valor del código hash**
     --- | ---
-    [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140338) | CA8CEEE4C7AC13328ECA56AE9EB35137336CD3D73B1F867C4D736286EF61A234
+    [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140338) | BA84B58E88DDFE23E5D4CE73530227EBBC187B3634B66A3E0F0B3E5DF5F0A94F
 
 > [!NOTE]
 > El mismo script se puede usar para configurar el dispositivo físico para la nube de Azure Government con conectividad de punto de conexión privado o público.
@@ -188,12 +190,14 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 ### <a name="run-the-script"></a>Ejecute el script.
 
 1. Extraiga el archivo comprimido en la carpeta del servidor que hospedará el dispositivo.  No ejecute el script en un servidor con un dispositivo de Azure Migrate existente.
+
 2. Inicie PowerShell en el servidor anterior con privilegios administrativos (elevados).
+
 3. Cambie el directorio de PowerShell a la carpeta en la que se ha extraído el contenido del archivo comprimido descargado.
+
 4. Ejecute el script denominado **AzureMigrateInstaller.ps1** ejecutando el comando siguiente:
 
-    
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
+    `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 `
 
 5. Seleccione entre las opciones de escenario, nube y conectividad para implementar un dispositivo con la configuración deseada. Por ejemplo, la selección que se muestra a continuación configura un dispositivo y evalúa **servidores físicos** _(o servidores que se ejecutan en otras nubes, como AWS, GCP, Xen, etc.)_ en un proyecto de Azure Migrate con la **conectividad predeterminada _(punto de conexión público)_** en la **nube de Azure Government**.
 

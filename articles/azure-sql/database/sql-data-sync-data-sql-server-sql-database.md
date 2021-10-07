@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: MaraSteiu
 ms.author: masteiu
 ms.reviewer: mathoma
-ms.date: 08/20/2019
-ms.openlocfilehash: f0ec1d641fc78e4fde612f987ad319d62bd9eeaf
-ms.sourcegitcommit: fd83264abadd9c737ab4fe85abdbc5a216467d8b
+ms.date: 09/09/2021
+ms.openlocfilehash: de90958966fed08b33cf7236384c082e332719fd
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112914236"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059499"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>¿Qué es SQL Data Sync para Azure?
 
@@ -61,7 +61,7 @@ Data Sync no es la solución preferida en los siguientes escenarios:
 | Escenario | Algunas soluciones recomendadas |
 |----------|----------------------------|
 | Recuperación ante desastres | [Copias de seguridad con redundancia geográfica de Azure](automated-backups-overview.md) |
-| Escalado de lectura | [Uso de réplicas de solo lectura para equilibrar la carga de las cargas de trabajo de consultas de solo lectura](read-scale-out.md) |
+| Escalado de lectura | [Uso de réplicas de solo lectura para equilibrar las cargas de trabajo de las consultas de solo lectura](read-scale-out.md) |
 | ETL (OLTP a OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) o [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services) |
 | Migración de SQL Server a Azure SQL Database Sin embargo, se puede utilizar SQL Data Sync una vez completada la migración para asegurarse de que el origen y el destino se mantienen sincronizados.  | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
 |||
@@ -81,8 +81,8 @@ Data Sync no es la solución preferida en los siguientes escenarios:
 | **Ventajas** | - Compatibilidad activo-activo<br/>- Bidireccional entre el entorno local y Azure SQL Database | - Menor latencia<br/>- Coherencia transaccional<br/>- Reutilización de la topología existente después de la migración <br/>\- Compatibilidad con Instancia administrada de Azure SQL |
 | **Desventajas** | - Sin coherencia transaccional<br/>- Mayor impacto en el rendimiento | - No se puede publicar desde Azure SQL Database <br/>- Mayor costo de mantenimiento |
 
-## <a name="private-link-for-data-sync-preview"></a>Vínculo privado de Data Sync (versión preliminar)
-La nueva característica de vínculo privado (versión preliminar) le permite elegir un punto de conexión privado administrado por un servicio para establecer una conexión segura entre el servicio de sincronización y las bases de datos del miembro o centro de conectividad durante el proceso de sincronización de datos. Un punto de conexión privado administrado por un servicio es una dirección IP privada dentro de una red virtual y una subred específicas. En Data Sync, Microsoft crea el punto de conexión privado administrado por el servicio y lo usa exclusivamente el servicio Data Sync para una operación de sincronización determinada. Antes de configurar el vínculo privado, lea los [requisitos generales](sql-data-sync-data-sql-server-sql-database.md#general-requirements) de la característica. 
+## <a name="private-link-for-data-sync"></a>Vínculo privado para Data Sync
+La nueva característica de vínculo privado le permite elegir un punto de conexión privado administrado por un servicio para establecer una conexión segura entre el servicio de sincronización y las bases de datos centrales o de los miembros durante el proceso de sincronización de datos. Un punto de conexión privado administrado por un servicio es una dirección IP privada dentro de una red virtual y una subred específicas. En Data Sync, Microsoft crea el punto de conexión privado administrado por el servicio y lo usa exclusivamente el servicio Data Sync para una operación de sincronización determinada. Antes de configurar el vínculo privado, lea los [requisitos generales](sql-data-sync-data-sql-server-sql-database.md#general-requirements) de la característica. 
 
 ![Vínculo privado para Data Sync](./media/sql-data-sync-data-sql-server-sql-database/sync-private-link-overview.png)
 
@@ -137,7 +137,7 @@ El aprovisionamiento y desaprovisionamiento durante la creación, actualización
 
 - El aislamiento de instantánea debe estar habilitado tanto para el centro como para los miembros de sincronización. Para más información, consulte [Aislamiento de instantáneas en SQL Server](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
-- Para usar un vínculo privado con Data Sync, las bases de datos del miembro y del centro de conectividad deben estar hospedadas en Azure (en la misma región o en regiones diferentes) y en el mismo tipo de nube (por ejemplo, en la nube pública o en una nube gubernamental). Además, para usar un vínculo privado, los proveedores de recursos de Microsoft.Network deben estar registrados para las suscripciones que hospedan el servidor del centro de conectividad y el servidor miembro. Por último, debe aprobar manualmente el vínculo privado para Data Sync durante la configuración de la sincronización, en la sección "Conexiones de punto de conexión privado" de Azure Portal o mediante PowerShell. Para más información acerca de cómo aprobar el vínculo privado, consulte [Configuración de SQL Data Sync](./sql-data-sync-sql-server-configure.md). Una vez aprobado el punto de conexión privado administrado por el servicio, toda la comunicación entre el servicio de sincronización y las bases de datos del miembro o centro de conectividad se realizará a través del vínculo privado. Los grupos de sincronización existentes se pueden actualizar para habilitar esta característica.
+- Para usar un vínculo privado de Data Sync, las bases de datos centrales y las de los miembros deben estar hospedadas en Azure (en la misma región o en regiones diferentes) y en el mismo tipo de nube (por ejemplo, en la nube pública o en una nube gubernamental). Además, para usar un vínculo privado, los proveedores de recursos de Microsoft.Network deben estar registrados para las suscripciones que hospedan el servidor del centro de conectividad y el servidor miembro. Por último, debe aprobar manualmente el vínculo privado para Data Sync durante la configuración de la sincronización, en la sección "Conexiones de punto de conexión privado" de Azure Portal o mediante PowerShell. Para más información acerca de cómo aprobar el vínculo privado, consulte [Configuración de SQL Data Sync](./sql-data-sync-sql-server-configure.md). Una vez aprobado el punto de conexión privado administrado por el servicio, toda la comunicación entre el servicio de sincronización y las bases de datos del miembro o centro de conectividad se realizará a través del vínculo privado. Los grupos de sincronización existentes se pueden actualizar para habilitar esta característica.
 
 ### <a name="general-limitations"></a>Limitaciones generales
 
@@ -154,7 +154,6 @@ El aprovisionamiento y desaprovisionamiento durante la creación, actualización
 - El truncamiento de tablas no es una operación admitida por Data Sync (no se realiza un seguimiento de los cambios).
 - No se admiten bases de datos de hiperescala. 
 - No se admiten las tablas optimizadas para memoria.
-- Si las bases de datos de centro y miembro están en una red virtual, Data Sync no funcionará porque la aplicación de sincronización, que es responsable de ejecutar la sincronización entre el centro y los miembros, no admite el acceso a las bases de datos de centro o miembro dentro del vínculo privado de un cliente. Esta limitación todavía se aplica cuando el cliente también usa la característica Private Link de Data Sync. 
 
 #### <a name="unsupported-data-types"></a>Tipos de datos no admitidos
 
@@ -188,7 +187,7 @@ Data Sync no puede sincronizar las columnas de solo lectura o generadas por el s
 ### <a name="network-requirements"></a>Requisitos de red
 
 > [!NOTE]
-> Si usa el vínculo privado, no se aplican estos requisitos de red. 
+> Si usa el vínculo privado de sincronización, no se aplican estos requisitos de red. 
 
 Cuando se establece el grupo de sincronización, el servicio Data Sync debe conectarse a la base de datos central. En el momento en que establece el grupo de sincronización, el servidor Azure SQL debe tener los siguientes valores en la configuración de `Firewalls and virtual networks`:
 
@@ -224,10 +223,10 @@ No directamente. Sin embargo, es posible realizar una sincronización indirecta 
 
 ### <a name="can-i-use-data-sync-to-sync-between-databases-in-sql-database-that-belong-to-different-subscriptions"></a>¿Puedo usar Data Sync para sincronizar entre las bases de datos de SQL Database que pertenecen a distintas suscripciones?
 
-Sí. Puede sincronizar entre las bases de datos que pertenecen a los grupos de recursos de diferentes suscripciones.
+Sí. Puede sincronizar entre bases de datos que pertenecen a grupos de recursos que son propiedad de suscripciones diferentes, incluso si las suscripciones pertenecen a inquilinos distintos.
 
 - Si las suscripciones pertenecen al mismo inquilino y tiene permiso en todas las suscripciones, puede configurar el grupo de sincronización en Azure Portal.
-- De lo contrario, tendrá que usar PowerShell para agregar los miembros de sincronización que pertenecen a suscripciones diferentes.
+- De lo contrario, tendrá que usar PowerShell para agregar los miembros de sincronización.
 
 ### <a name="can-i-use-data-sync-to-sync-between-databases-in-sql-database-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china-21vianet"></a>¿Puedo usar data Sync para sincronizar entre bases de datos en SQL Database que pertenezcan a nubes diferentes (como la nube pública de Azure y Azure China 21Vianet)?
 

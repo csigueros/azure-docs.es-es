@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
-ms.date: 08/30/2021
-ms.openlocfilehash: 68c657b7e8e045b8756bc2db8de2b4024b7530b8
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.date: 09/14/2021
+ms.openlocfilehash: 71b2e494d8a570c38180f4dfc86bda87b23f4e95
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123256501"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128554592"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -222,7 +222,7 @@ Para ilustrar la secuencia de cambios, supondremos que el servidor A es el servi
 
 ## <a name="best-practices-for-sql-managed-instance"></a>Procedimientos recomendados para Instancia administrada de SQL
 
-El grupo de conmutación por error automática debe estar configurado en la instancia principal y se conectará a la instancia secundaria de una región de Azure diferente.  Todas las bases de datos de la instancia se replicarán en la instancia secundaria.
+El grupo de conmutación por error automática debe estar configurado en la instancia principal y se conectará a la instancia secundaria de una región de Azure diferente.  Todas las bases de datos de usuario de la instancia se replicarán en la instancia secundaria. Las bases de datos del sistema como _maestra_ y _msdb_ no se replicarán.
 
 En el siguiente diagrama se ilustra una configuración típica de una aplicación de nube con redundancia geográfica que usa instancia administrada y un grupo de conmutación por error automática.
 
@@ -320,12 +320,13 @@ Supongamos que la instancia A es la principal, la B es la instancia secundaria e
 > Cuando se elimina el grupo de conmutación por error, también se eliminan los registros de DNS de los puntos de conexión del agente de escucha. En ese momento, hay una probabilidad distinta de cero de otra persona cree un grupo de conmutación por error o un alias de servidor con el mismo nombre, lo que le impedirá volver a usarlo. Para minimizar el riesgo, no utilice nombres de grupo de conmutación por error genéricos.
 
 ### <a name="enable-scenarios-dependent-on-objects-from-the-system-databases"></a>Habilitación de escenarios que dependen de objetos de las bases de datos del sistema
-Las bases de datos del sistema no se replican en la instancia secundaria de un grupo de conmutación por error. Para habilitar escenarios que dependen de objetos de las bases de datos del sistema, asegúrese de crear los mismos objetos en la instancia secundaria. Por ejemplo, si tiene previsto utilizar los mismos inicios de sesión en la instancia secundaria, asegúrese de crearlos con el SID idéntico. 
+Las bases de datos del sistema **no** se replican en la instancia secundaria de un grupo de conmutación por error. Para habilitar escenarios que dependen de los objetos de las bases de datos del sistema, asegúrese de crear los mismos objetos en la instancia secundaria y mantenerlos sincronizados con la instancia principal. Por ejemplo, si tiene previsto utilizar los mismos inicios de sesión en la instancia secundaria, asegúrese de crearlos con el SID idéntico. 
 ```SQL
 -- Code to create login on the secondary instance
 CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 ``` 
-
+### <a name="synchronize-instance-properties-and-retention-policies-between-primary-and-secondary-instance"></a>Sincronización de las propiedades de instancia y las directivas de retención entre la instancia principal y la secundaria
+Las instancias del grupo de conmutación por error siguen siendo recursos de Azure independientes y ningún cambio que se realice en la configuración de la instancia principal se replicará automáticamente en la instancia secundaria. Por ello, asegúrese de realizar todos los cambios relevantes tanto en la instancia principal _como en la_ secundaria. Por ejemplo, si cambia la redundancia del almacenamiento de copia de seguridad o la directiva de retención de copias de seguridad a largo plazo en la instancia principal, asegúrese de cambiarla también en la instancia secundaria.
 
 ## <a name="failover-groups-and-network-security"></a>Grupos de conmutación por error y la seguridad de red
 

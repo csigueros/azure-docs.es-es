@@ -1,22 +1,22 @@
 ---
-title: Copia de datos de HDFS mediante Azure Data Factory
+title: Copia de datos de HDFS
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre cómo copiar datos desde un origen HDFS en la nube o en un entorno local a almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
+description: Obtenga información sobre cómo copiar datos desde un origen HDFS (en la nube o en un entorno local) a almacenes de datos receptores compatibles usando una actividad de copia en una canalización de Azure Data Factory o Synapse Analytics.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 8b02fb7fddd64bd9ce7bbc7cd7a64ae6dfef4681
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 8bf95b8f237cbaaa81f520c150154d93fbc0c173
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123308352"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124831781"
 ---
-# <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copia de datos desde un servidor HDFS mediante Azure Data Factory
+# <a name="copy-data-from-the-hdfs-server-using-azure-data-factory-or-synapse-analytics"></a>Copia de datos desde un servidor HDFS con Azure Data Factory o Synapse Analytics
 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que está usando:"]
 > * [Versión 1](v1/data-factory-hdfs-connector.md)
@@ -24,7 +24,7 @@ ms.locfileid: "123308352"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se describe cómo copiar datos desde el servidor del sistema de archivos distribuido de Hadoop (HDFS). Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
+En este artículo se describe cómo copiar datos desde el servidor del sistema de archivos distribuido de Hadoop (HDFS). Para obtener más información, lea los artículos de introducción para [Azure Data Factory](introduction.md) y [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -87,7 +87,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de HDFS:
 | url |Dirección URL a HDFS |Sí |
 | authenticationType | Los valores permitidos son *Anónima* o *Windows*. <br><br> Para configurar el entorno local, consulte la sección [Uso de la autenticación Kerberos para el conector HDFS](#use-kerberos-authentication-for-the-hdfs-connector). |Sí |
 | userName |Nombre de usuario para la autenticación de Windows. Para la autenticación Kerberos, especifique **\<username>@\<domain>.com**. |Sí (para la autenticación de Windows) |
-| password |Contraseña para la autenticación de Windows. Marque este campo como SecureString para almacenarlo de forma segura en la factoría de datos, o bien [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí (para la autenticación de Windows) |
+| password |Contraseña para la autenticación de Windows. Marque este campo como SecureString para almacenarlo de forma segura, o bien [haga referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí (para la autenticación de Windows) |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Para más información, consulte la sección [Requisitos previos](#prerequisites). Si no se especifica el entorno de ejecución de integración, el servicio usa la instancia predeterminada de Azure Integration Runtime. |No |
 
 **Ejemplo: Uso de autenticación anónima**
@@ -136,7 +136,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de HDFS:
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
-Si quiere ver una lista completa de las secciones y propiedades que están disponibles para definir conjuntos de datos, consulte [Conjuntos de datos en Azure Data Factory](concepts-datasets-linked-services.md). 
+Para ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte [Conjuntos de datos](concepts-datasets-linked-services.md). 
 
 [!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
@@ -176,7 +176,7 @@ Las propiedades siguientes se admiten para HDFS en la configuración `location` 
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
 
-Para ver una lista completa de las secciones y propiedades que están disponibles para definir actividades, consulte [Canalizaciones y actividades en Azure Data Factory](concepts-pipelines-activities.md). En esta sección se proporciona una lista de las propiedades que el origen HDFS admite.
+Para ver una lista completa de las secciones y propiedades que están disponibles para definir actividades, consulte [Canalizaciones y actividades](concepts-pipelines-activities.md). En esta sección se proporciona una lista de las propiedades que el origen HDFS admite.
 
 ### <a name="hdfs-as-source"></a>HDFS como origen
 
@@ -203,7 +203,7 @@ Las propiedades siguientes se admiten para HDFS en la configuración `storeSetti
 | ***Configuración de DistCp*** |  | |
 | distcpSettings | Grupo de propiedades que se va a usar al utilizar HDFS DistCp. | No |
 | resourceManagerEndpoint | Punto de conexión de YARN (Yet Another Resource Negotiator) | Sí, si se utiliza DistCp |
-| tempScriptPath | Ruta de acceso de carpeta que se usa para almacenar el script del comando DistCp temporal. Data Factory se encarga de crear el archivo de script que se eliminará después de que haya finalizado el trabajo de copia. | Sí, si se utiliza DistCp |
+| tempScriptPath | Ruta de acceso de carpeta que se usa para almacenar el script del comando DistCp temporal. El archivo de script se genera y se eliminará después de que haya finalizado el trabajo de copia. | Sí, si se utiliza DistCp |
 | distcpOptions | Opciones adicionales que se proporcionan al comando DistCp. | No |
 
 **Ejemplo**:
@@ -265,7 +265,7 @@ En esta sección se describe el comportamiento resultante si se usa un filtro de
 
 En esta sección se describe el comportamiento resultante de usar una ruta de acceso de la lista de archivos en el origen de la actividad de copia. Se asume que tiene la siguiente estructura de carpetas de origen y quiere copiar los archivos que están en negrita:
 
-| Estructura de origen de ejemplo                                      | Contenido de FileListToCopy.txt                             | Configuración de Azure Data Factory                                            |
+| Estructura de origen de ejemplo                                      | Contenido de FileListToCopy.txt                             | Configuración |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
 | root<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadatos<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **El conjunto de datos:**<br>- Ruta de acceso de la carpeta: `root/FolderA`<br><br>**En el origen de la actividad de copia:**<br>- Ruta de acceso de la lista de archivos: `root/Metadata/FileListToCopy.txt` <br><br>La ruta de acceso de la lista de archivos apunta a un archivo de texto en el mismo almacén de datos que incluye una lista de archivos que se quiere copiar (un archivo por línea, con la ruta de acceso relativa a la ruta de acceso configurada en el conjunto de datos). |
 
@@ -273,7 +273,7 @@ En esta sección se describe el comportamiento resultante de usar una ruta de ac
 
 [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) es una herramienta de línea de comandos nativa de Hadoop para realizar una copia distribuida en un clúster de Hadoop. Al ejecutar un comando en DistCp, dicho comando primero enumera todos los archivos que se van a copiar y luego crea varios trabajos de asignación en el clúster de Hadoop. Cada trabajo de asignación realiza una copia binaria desde el origen al receptor.
 
-La actividad de copia admite el uso de DistCp para copiar archivos tal cual en Azure Blob Storage (incluida la [copia almacenada provisionalmente](copy-activity-performance.md)) o en Azure Data Lake Store. En este caso, DistCp puede aprovechar la versatilidad del clúster en lugar de ejecutarse en el entorno de ejecución de integración autohospedado. El uso de DistCp proporciona el mejor rendimiento de la copia, sobre todo si el clúster es muy eficaz. En función de la configuración de la factoría de datos, la actividad de copia crea automáticamente un comando DistCp, lo envía a un clúster de Hadoop y supervisa el estado de la copia.
+La actividad de copia admite el uso de DistCp para copiar archivos tal cual en Azure Blob Storage (incluida la [copia almacenada provisionalmente](copy-activity-performance.md)) o en Azure Data Lake Store. En este caso, DistCp puede aprovechar la versatilidad del clúster en lugar de ejecutarse en el entorno de ejecución de integración autohospedado. El uso de DistCp proporciona el mejor rendimiento de la copia, sobre todo si el clúster es muy eficaz. En función de la configuración, la actividad de copia crea automáticamente un comando DistCp, lo envía a un clúster de Hadoop y supervisa el estado de la copia.
 
 ### <a name="prerequisites"></a>Requisitos previos
 
@@ -339,7 +339,7 @@ Para ambas opciones, asegúrese de activar webhdfs en el clúster de Hadoop:
 
 **En el servidor KDC:**
 
-Cree una entidad de seguridad para que Azure Data Factory la use y especifique la contraseña.
+Cree una entidad de seguridad y especifique la contraseña.
 
 > [!IMPORTANT]
 > El nombre de usuario no debe contener el nombre de host.
@@ -370,7 +370,7 @@ Kadmin> addprinc <username>@<REALM.COM>
         kdc = <your_kdc_server_address>
     ```
 
-**En la factoría de datos:**
+**En la factoría de datos o el área de trabajo de Synapse:**
 
 * Configure el conector HDFS mediante la autenticación de Windows junto con el nombre y la contraseña de la entidad de seguridad de Kerberos para conectarse al origen de datos de HDFS. Para conocer los detalles de la configuración, consulte la sección [Propiedades del servicio vinculado](#linked-service-properties).
 
@@ -459,7 +459,7 @@ Kadmin> addprinc <username>@<REALM.COM>
 
     c. Seleccione el algoritmo de cifrado que quiere usar cuando se conecte al servidor KDC. Puede seleccionar todas las opciones.
 
-    ![Captura de pantalla de "Seguridad de red: Configurar tipos de cifrado permitidos para Kerberos"](media/connector-hdfs/config-encryption-types-for-kerberos.png)
+    :::image type="content" source="media/connector-hdfs/config-encryption-types-for-kerberos.png" alt-text="Captura de pantalla del panel &quot;Seguridad de red: Configurar tipos de cifrado permitidos para Kerberos&quot;":::
 
     d. Use el comando `Ksetup` para especificar el algoritmo de cifrado que se usará en el dominio específico.
 
@@ -477,7 +477,7 @@ Kadmin> addprinc <username>@<REALM.COM>
 
     d. Agregue una entidad de seguridad del dominio Kerberos.
 
-       ![Panel "Asignación de identidad de seguridad"](media/connector-hdfs/map-security-identity.png)
+       :::image type="content" source="media/connector-hdfs/map-security-identity.png" alt-text="Captura de pantalla del panel &quot;Asignación de identidad de seguridad&quot;":::
 
 **En la máquina del entorno de ejecución de integración autohospedado:**
 
@@ -488,22 +488,22 @@ Kadmin> addprinc <username>@<REALM.COM>
    C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
    ```
 
-**En la factoría de datos:**
+**En la factoría de datos o el área de trabajo de Synapse:**
 
 * Configure el conector de HDFS mediante la autenticación de Windows en combinación con la cuenta de dominio o la entidad de seguridad de Kerberos para conectarse al origen de datos de HDFS. Para conocer los detalles de la configuración, consulte la sección [Propiedades del servicio vinculado](#linked-service-properties).
 
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
 
-Para obtener información sobre las propiedades de la actividad de búsqueda, consulte [Actividad de búsqueda en Azure Data Factory](control-flow-lookup-activity.md).
+Para obtener más información sobre las propiedades de la actividad de búsqueda, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
 
 ## <a name="delete-activity-properties"></a>Propiedades de la actividad de eliminación
 
-Para más información sobre las propiedades de la actividad de eliminación, consulte [Actividad de eliminación en Azure Data Factory](delete-activity.md).
+Para obtener más información sobre las propiedades de la actividad de eliminación, consulte [Actividad de eliminación](delete-activity.md).
 
 ## <a name="legacy-models"></a>Modelos heredados
 
 >[!NOTE]
->Estos modelos siguen siendo compatibles tal cuales con versiones anteriores. Se recomienda usar el nuevo modelo descrito anteriormente, ya que la UI de creación de Azure Data Factory ha cambiado para generar el nuevo modelo.
+>Estos modelos siguen siendo compatibles con versiones anteriores. Se recomienda usar el nuevo modelo descrito anteriormente, ya que la UI de creación ha cambiado para generar el nuevo modelo.
 
 ### <a name="legacy-dataset-model"></a>Modelo de conjunto de datos heredado
 
@@ -558,7 +558,7 @@ Para más información sobre las propiedades de la actividad de eliminación, co
 | recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Cuando recursive se establece en *true* y el receptor es un almacén basado en archivos, no se copiará ni creará una subcarpeta o carpeta vacía en el receptor.<br/>Los valores permitidos son: *True* (valor predeterminado) y *False*. | No |
 | distcpSettings | Grupo de propiedades cuando se usa la herramienta DistCp de HDFS. | No |
 | resourceManagerEndpoint | Punto de conexión de Resource Manager de YARN | Sí, si se utiliza DistCp |
-| tempScriptPath | Ruta de acceso de carpeta que se usa para almacenar el script del comando DistCp temporal. Data Factory se encarga de crear el archivo de script que se eliminará después de que haya finalizado el trabajo de copia. | Sí, si se utiliza DistCp |
+| tempScriptPath | Ruta de acceso de carpeta que se usa para almacenar el script del comando DistCp temporal. El archivo de script se genera y se eliminará después de que haya finalizado el trabajo de copia. | Sí, si se utiliza DistCp |
 | distcpOptions | Se proporcionan opciones adicionales para el comando DistCp. | No |
 | maxConcurrentConnections | Número máximo de conexiones simultáneas establecidas en el almacén de datos durante la ejecución de la actividad. Especifique un valor solo cuando quiera limitar las conexiones simultáneas.| No |
 
@@ -576,4 +576,4 @@ Para más información sobre las propiedades de la actividad de eliminación, co
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores.

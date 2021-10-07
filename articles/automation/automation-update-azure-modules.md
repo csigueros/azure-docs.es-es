@@ -3,17 +3,17 @@ title: Actualización de módulos de Azure PowerShell en Azure Automation
 description: En este artículo se describe cómo actualizar módulos comunes de Azure PowerShell proporcionados de forma predeterminada en Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/14/2019
+ms.date: 09/16/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c1632da35864fc6822b385adac06d7f124aea061
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: a2ff4799b335376f6f99004d45034ba6a4796059
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830419"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128654373"
 ---
-# <a name="update-azure-powershell-modules"></a>Actualización de módulos de Azure PowerShell
+# <a name="update-azure-automation-powershell-modules"></a>Actualización de módulos de PowerShell en Azure Automation
 
 Los módulos de PowerShell más comunes se proporcionan de forma predeterminada en cada cuenta de Automation. Consulte [Módulos predeterminados](shared-resources/modules.md#default-modules). Dado que el equipo de Azure actualiza los módulos de Azure con regularidad, pueden producirse cambios en los cmdlets incluidos. Estos cambios, como el cambio de nombre de un parámetro o dejar en desuso un cmdlet por completo, pueden afectar negativamente a los runbooks. 
 
@@ -24,7 +24,7 @@ Los módulos de PowerShell más comunes se proporcionan de forma predeterminada 
 
 Para evitar que incidan en los runbooks y los procesos que automatizan, asegúrese de probarlos y validarlos cuando realice actualizaciones. Si no tiene una cuenta de Automation dedicada pensada para este propósito, considere la posibilidad de crear una para que pueda probar muchos escenarios diferentes durante el desarrollo de los runbooks. Estas pruebas deben incluir cambios iterativos, por ejemplo, la actualización de los módulos de PowerShell.
 
-Asegúrese de que la cuenta de Automation tiene una [cuenta de ejecución de Azure](automation-security-overview.md#run-as-accounts) creada.
+Asegúrese de que la cuenta de Automation ha agregado una [identidad administrada asignada por el sistema o una identidad administrada asignada por el usuario](quickstarts/enable-managed-identity.md).
 
 Si desarrolla sus scripts de forma local, se recomienda tener localmente las mismas versiones del módulo que tiene en la cuenta de Automation al realizar pruebas, a fin de asegurarse de que obtendrá los mismos resultados. Una vez validados los resultados y aplicados los cambios necesarios, puede mover los cambios a producción.
 

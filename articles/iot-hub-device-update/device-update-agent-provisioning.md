@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/16/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: e0df727c93e5307e9b66ad5755c8218954a7ff7b
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: e65dc85dff7692f82118871ab93c628efe6cecf8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113552557"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128661685"
 ---
 # <a name="device-update-agent-provisioning"></a>Aprovisionamiento del agente de actualización de dispositivos
 
@@ -185,7 +185,7 @@ El agente de actualización de dispositivos también puede configurarse sin el s
        
     1. Debería ver una ventana abierta con texto. Elimine la cadena completa después de 'connection_String=' la primera vez que aprovisione el agente de actualización de dispositivos en el dispositivo IoT. Solo se coloca el texto de marcador.
     
-    1. En el terminal, reemplace <your-connection-string> por la cadena de conexión del dispositivo para la instancia del agente de actualización de dispositivos. Seleccione Entrar y, después, **Save** (Guardar). El resultado debería parecerse al de este ejemplo:
+    1. En el terminal, reemplace \<your-connection-string\> con la cadena de conexión del dispositivo para la instancia del agente de Device Update. Seleccione Entrar y, después, **Save** (Guardar). El resultado debería parecerse al de este ejemplo:
     
         ```text
         connection_string=<ADD CONNECTION STRING HERE>

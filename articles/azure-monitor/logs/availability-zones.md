@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 08/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: c01e83fbbf117c5491e9e12ac24aa0d5d2fa8b67
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 6e10ace3ca0932cf5803719429a68b89a4118dfa
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122446727"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059328"
 ---
 # <a name="availability-zones-in-azure-monitor"></a>Availability Zones en Azure Monitor
 
@@ -49,9 +49,9 @@ La transición a un nuevo clúster puede ser un proceso gradual. No quite el cl�
 Las consultas en el área de trabajo consultarán ambos clústeres según sea necesario para proporcionarle un único conjunto de resultados unificado. Esto significa que todas las características de Azure Monitor que dependen del área de trabajo, como los libros y paneles, seguirán obteniendo el conjunto de resultados completo y unificado basado en los datos de ambos clústeres.
 
 ## <a name="billing"></a>Facturación
-El uso de [un clúster dedicado tiene un costo](logs-dedicated-clusters.md#create-a-dedicated-cluster). Requiere una reserva de capacidad diaria de 1000 GB. Esta cantidad se reducirá el 4 de agosto de 2021 a 500 GB. 
+El uso de [un clúster dedicado tiene un costo](logs-dedicated-clusters.md#create-a-dedicated-cluster). Requiere una reserva de capacidad diaria de 500 GB. 
 
-Si ya tiene un clúster dedicado y decide conservarlo para acceder a sus datos, se le cobrará por ambos clústeres dedicados. A partir del 4 de agosto de 2021, la reserva de capacidad mínima necesaria para clústeres dedicados se reducirá a 500 GB/día, por lo que se recomienda aplicar ese mínimo al clúster anterior para reducir los cargos.
+Si ya tiene un clúster dedicado y decide conservarlo para acceder a sus datos, se le cobrará por ambos clústeres dedicados. A partir del 4 de agosto de 2021, la reserva de capacidad mínima necesaria para clústeres dedicados se reduce de 1000 GB/día a 500 GB/día, por lo que se recomienda aplicar ese mínimo al clúster anterior para reducir los cargos.
 
 El nuevo clúster no se factura durante su primer día para evitar la doble facturación durante la configuración. Solo los datos ingeridos antes de que finalice la migración se seguirán facturando en la fecha de migración. 
 

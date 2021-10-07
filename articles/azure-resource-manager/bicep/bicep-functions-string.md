@@ -4,51 +4,17 @@ description: Describe las funciones que se usarán en un archivo de Bicep para t
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 879ea209fd0d645ba0f5045002ee32cc288acd18
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 09/10/2021
+ms.openlocfilehash: d94f2b97a9ff78b715682052a647f02af6286af3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026909"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124794089"
 ---
 # <a name="string-functions-for-bicep"></a>Funciones de cadena para Bicep
 
-Resource Manager ofrece las siguientes funciones para trabajar con cadenas en el archivo de Bicep:
-
-* [base64](#base64)
-* [base64ToJson](#base64tojson)
-* [base64ToString](#base64tostring)
-* [concat](#concat)
-* [contains](#contains)
-* [dataUri](#datauri)
-* [dataUriToString](#datauritostring)
-* [empty](#empty)
-* [endsWith](#endswith)
-* [first](#first)
-* [format](#format)
-* [guid](#guid)
-* [indexOf](#indexof)
-* [json](#json)
-* [last](#last)
-* [lastIndexOf](#lastindexof)
-* [length](#length)
-* [newGuid](#newguid)
-* [padLeft](#padleft)
-* [replace](#replace)
-* [skip](#skip)
-* [split](#split)
-* [startsWith](#startswith)
-* [string](#string)
-* [substring](#substring)
-* [take](#take)
-* [toLower](#tolower)
-* [toUpper](#toupper)
-* [trim](#trim)
-* [uniqueString](#uniquestring)
-* [uri](#uri)
-* [uriComponent](#uricomponent)
-* [uriComponentToString](#uricomponenttostring)
+En este artículo se describen las funciones de Bicep para trabajar con cadenas.
 
 ## <a name="base64"></a>base64
 

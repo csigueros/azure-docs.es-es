@@ -2,13 +2,13 @@
 title: Alertas de seguridad de microagentes (versión preliminar)
 description: Obtenga información sobre las alertas de seguridad y la corrección recomendada mediante las características y el servicio del dispositivo de Defender para IoT.
 ms.topic: conceptual
-ms.date: 08/30/2021
-ms.openlocfilehash: 3208e872414e4a5727f507e51d464090566da840
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.date: 09/27/2021
+ms.openlocfilehash: 5b70a301f7d8c1508258d59c585e5f0d18bccbbe
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123214201"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083417"
 ---
 # <a name="micro-agent-security-alerts-preview"></a>Alertas de seguridad de microagentes (versión preliminar)
 
@@ -35,6 +35,7 @@ Para obtener más información, consulte las [alertas personalizables](concept-c
 | Web shell (Shell web) | Alto | Defender-IoT-micro-agent | Se ha detectado un posible shell web. Normalmente, los actores malintencionados cargan un shell web en una máquina en peligro para obtener persistencia o para una mayor explotación. | Revise con el usuario que ejecutó el comando si se trataba de una actividad legítima que espera ver en el dispositivo. Si no es así, escale la alerta al equipo de seguridad de la información. |
 | Behavior similar to ransomware detected (Detección de comportamiento similar a ransomware) | Alto | Defender-IoT-micro-agent | Ejecución de archivos similares a ransomware conocido que puede impedir que los usuarios accedan al sistema o a archivos personales, y puede solicitar el pago de un rescate para recuperar el acceso. | Revise con el usuario que ejecutó el comando si se trataba de una actividad legítima que espera ver en el dispositivo. Si no es así, escale la alerta al equipo de seguridad de la información. |
 | Crypto coin miner image (Imagen de minería de criptomoneda) | Alto | Defender-IoT-micro-agent | Se detectó la ejecución de un proceso que normalmente se asocia con la minería de datos de monedas digitales. | Verifique con el usuario que ejecutó el comando si se trataba de una actividad legítima en el dispositivo. Si no es así, escale la alerta al equipo de seguridad de la información. |
+| El sistema operativo (SO) de este dispositivo debe actualizarse a partir de la versión de fin de ciclo de vida actual. | Alto | Defender-IoT-micro-agent | Las versiones de final del ciclo de vida de los sistemas operativos carecen de actualizaciones de seguridad y hacen que los dispositivos sean vulnerables. | Actualice o reinstale una versión admitida del sistema operativo o aplique medidas de protección adicionales. |
 | Gravedad **media** |  |  |  |
 | Behavior similar to common Linux bots detected (Detección de comportamiento similar a bots comunes de Linux) | Media | Defender-IoT-micro-agent | Se ha detectado la ejecución de un proceso que normalmente se asocia con botnets comunes de Linux. | Revise con el usuario que ejecutó el comando si se trataba de una actividad legítima que espera ver en el dispositivo. Si no es así, escale la alerta al equipo de seguridad de la información. |
 | Behavior similar to Fairware ransomware detected (Detección de comportamiento similar a ransomware Fairware) | Media | Defender-IoT-micro-agent | Se detectó la ejecución de comandos rm -rf aplicados a ubicaciones sospechosas mediante el análisis de los datos del host. Dado que rm -rf elimina archivos de manera recursiva, normalmente solo se usa en carpetas independientes. En este caso, se usa en una ubicación que podría quitar una gran cantidad de datos. El ransomware Fairware es conocido por ejecutar comandos de rm -rf en esta carpeta. | Revise con el usuario que ejecutó el comando si se trataba de una actividad legítima que espera ver en el dispositivo. Si no es así, escale la alerta al equipo de seguridad de la información. |
@@ -57,8 +58,14 @@ Para obtener más información, consulte las [alertas personalizables](concept-c
 | Suspicious compilation detected (Detección de compilación sospechosa) | Media | Defender-IoT-micro-agent | Se ha detectado una compilación sospechosa. A menudo, los actores malintencionados compilan vulnerabilidades de seguridad en una máquina en peligro a fin de elevar los privilegios. | Revise con el usuario que ejecutó el comando si se trataba de una actividad legítima que espera ver en el dispositivo. Si no es así, escale la alerta al equipo de seguridad de la información. |
 | Suspicious file download followed by file run activity (Descarga de archivo sospechosa seguida de una actividad de ejecución de archivo) | Media | Defender-IoT-micro-agent | El análisis de los datos del host detectó la descarga y ejecución de un archivo en el mismo comando. Los actores malintencionados suelen usar esta técnica para obtener archivos infectados en equipos víctimas. | Revise con el usuario que ejecutó el comando si se trataba de una actividad legítima que espera ver en el dispositivo. Si no es así, escale la alerta al equipo de seguridad de la información. |
 | Suspicious IP address communication (Comunicación con dirección IP sospechosa) | Media | Defender-IoT-micro-agent | Se ha detectado una comunicación con una dirección IP sospechosa. | Compruebe si la conexión es legítima. Considere la posibilidad de bloquear la comunicación con la dirección IP sospechosa. |
+| Error de validación de línea base del sistema operativo (SO). | Media | Defender-IoT-micro-agent | Problemas de configuración del sistema identificados relacionados con la seguridad. | Revise las reglas con errores y corrija las vulnerabilidades de configuración de seguridad identificadas en los dispositivos. |
+| El dispositivo tiene puertos abiertos | Media | Defender-IoT-micro-agent | Se ha encontrado un punto de conexión de escucha en el dispositivo. | Revise los puertos abiertos en el dispositivo y asegúrese de que pertenecen a procesos legítimos y necesarios para que el dispositivo funcione correctamente. |
+| Directiva de firewall permisiva en una de las cadenas | Media | Defender-IoT-micro-agent | Se encontró una directiva de firewall permitida (ENTRADA/SALIDA). La directiva debe denegar todo el tráfico de manera predeterminada y definir reglas para permitir la comunicación necesaria hacia y desde el dispositivo. | Cambie la directiva de firewall para anular y agregar reglas específicas con el fin de permitir el acceso a conexiones legítimas desde y hacia el dispositivo. |
+| Regla de firewall permisiva en la cadena de entrada | Media | Defender-IoT-micro-agent | Se ha encontrado una regla de firewall de entrada que contiene un patrón permisivo para una amplia variedad de puertos o direcciones IP. | Revise las reglas de la recomendación y asegúrese de que solo se permita la entrada de los puertos o direcciones necesarios. |
+| Regla de firewall permisiva en la cadena de salida | Media | Defender-IoT-micro-agent | Se ha encontrado una regla de firewall de salida que contiene un patrón permisivo para una amplia variedad de puertos o direcciones IP. | Revise las reglas de la recomendación y asegúrese de que solo se permita la salida de los puertos o direcciones necesarios. |
 | Gravedad **baja** |  |  |  |
 | Bash history cleared (Historial de Bash borrado) | Bajo | Defender-IoT-micro-agent | El registro del historial de Bash se ha borrado. Los actores malintencionados suelen borrar el historial de Bash para ocultar sus propios comandos para que no aparezcan en los registros. | Revise con el usuario que ejecutó el comando la actividad de esta alerta para ver si usted la reconoce como actividad administrativa legítima. Si no es así, escale la alerta al equipo de seguridad de la información. |
+| El agente envía mensajes infrautilizados | Bajo | Defender-IoT-micro-agent | La capacidad del tamaño del mensaje del agente de IoT está actualmente infrautilizada, lo que provoca un aumento en el número de mensajes enviados. Ajuste de los intervalos de mensajes para una mejor utilización. | Para evitar demasiados mensajes infrautilizados, considere la posibilidad de ampliar los intervalos de envío de prioridad baja y alta. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

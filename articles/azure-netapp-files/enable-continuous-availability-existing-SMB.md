@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/18/2021
+ms.date: 09/28/2021
 ms.author: b-juche
-ms.openlocfilehash: d9af43bad8f6db6b50070368be732f20fb1fbde8
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 705cc540097ea41bc0039336d7cc9fdc025dd247
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122429848"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218391"
 ---
 # <a name="enable-continuous-availability-on-existing-smb-volumes"></a>Habilitación de la disponibilidad continua en volúmenes de SMB existentes
 
@@ -27,7 +27,7 @@ Puede habilitar la característica de disponibilidad continua (CA) de SMB al [cr
 
 ## <a name="considerations"></a>Consideraciones
 
-* La opción [**Ocultar ruta de acceso de instantánea**](azure-netapp-files-manage-snapshots.md#edit-the-hide-snapshot-path-option) actualmente no tiene ningún efecto en los volúmenes SMB habilitados para CA.  
+* La opción [**Ocultar ruta de acceso de instantánea**](snapshots-edit-hide-path.md) actualmente no tiene ningún efecto en los volúmenes SMB habilitados para CA.  
 
 * El directorio `~snapshot` (que se puede usar para recorrer en otros volúmenes SMB) no es visible para los volúmenes SMB habilitados para CA. Todavía puede escribir manualmente `~snapshot\<snapshotName>` para acceder a la instantánea.
 
@@ -38,7 +38,7 @@ Puede habilitar la característica de disponibilidad continua (CA) de SMB al [cr
 3. En la ventana Editar que aparece, seleccione la casilla **Habilitar disponibilidad continua**.   
     ![Instantánea que muestra la opción para habilitar la disponibilidad continua.](../media/azure-netapp-files/enable-continuous-availability.png)
 
-4. Reinicie el servidor.   
+4. Reinicie los sistemas Windows que se conectan al recurso compartido SMB existente.   
 
     > [!NOTE]
     > La selección de la opción **Habilitar disponibilidad continua** por sí sola no hace que las sesiones SMB existentes estén disponibles continuamente de forma automática. Después de seleccionar la opción, asegúrese de reiniciar el servidor para que el cambio surta efecto.  

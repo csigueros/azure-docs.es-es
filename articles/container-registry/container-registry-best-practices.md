@@ -2,13 +2,13 @@
 title: Procedimientos recomendados del registro
 description: Obtenga información sobre cómo de forma eficaz Azure Container Registry mediante los siguientes procedimientos recomendados.
 ms.topic: article
-ms.date: 01/07/2021
-ms.openlocfilehash: 0811cc4a5bffc21ffba19e64a3887eab6bc36fbb
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 08/13/2021
+ms.openlocfilehash: 1b713ac047b575c68cd8ed539187e3caac13a322
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784144"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626976"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Procedimientos recomendados para Azure Container Registry
 
@@ -74,28 +74,37 @@ Azure Container Registry admite prácticas de seguridad en su organización para
 
 Las restricciones de almacenamiento de cada [nivel de servicio del registro de contenedor][container-registry-skus] están diseñadas para adaptarse a un escenario típico: **Básico** para los primeros pasos, **Estándar** para la mayoría de las aplicaciones de producción y **Premium** para un rendimiento a gran escala y para la [replicación geográfica][container-registry-geo-replication]. Durante todo el ciclo de vida del registro, debe administrar su tamaño mediante la eliminación periódica del contenido sin usar.
 
-Use el comando [az acr show-usage][az-acr-show-usage] de la CLI de Azure para mostrar el tamaño actual del registro:
+Use el comando de la CLI de Azure [az acr show-usage][az-acr-show-usage] para mostrar el consumo actual de almacenamiento y otros recursos del registro:
 
 ```azurecli
 az acr show-usage --resource-group myResourceGroup --name myregistry --output table
 ```
 
-```output
-NAME      LIMIT         CURRENT VALUE    UNIT
---------  ------------  ---------------  ------
-Size      536870912000  185444288        Bytes
-Webhooks  100                            Count
+Salida del ejemplo:
+
+```
+NAME                        LIMIT         CURRENT VALUE    UNIT
+--------------------------  ------------  ---------------  ------
+Size                        536870912000  215629144        Bytes
+Webhooks                    500           1                Count
+Geo-replications            -1            3                Count
+IPRules                     100           1                Count
+VNetRules                   100           0                Count
+PrivateEndpointConnections  10            0                Count
 ```
 
-También puede encontrar el almacenamiento actual usado en **Información general** del registro en Azure Portal:
+También puede encontrar la utilización del almacenamiento actual en la **Información general** del registro en Azure Portal:
 
 ![Información del uso del registro en Azure Portal][registry-overview-quotas]
+
+> [!NOTE]
+> En un registro con [replicación geográfica](container-registry-geo-replication.md), se muestra la utilización del almacenamiento para la región principal. Multiplique por el número de replicaciones para el almacenamiento de registro total consumido.
 
 ### <a name="delete-image-data"></a>Eliminación de los datos de la imagen
 
 Azure Container Registry admite varios métodos para eliminar datos de imagen del registro de contenedor. Puede eliminar imágenes por etiqueta o síntesis de manifiesto o eliminar un repositorio entero.
 
-Para más información sobre cómo eliminar datos de imagen del registro, como imágenes no etiquetadas (a veces llamadas "pendientes" o "huérfanas"), consulte [Eliminación de imágenes de contenedor en Azure Container Registry](container-registry-delete.md).
+Para más información sobre cómo eliminar datos de imagen del registro, como imágenes no etiquetadas (a veces llamadas "pendientes" o "huérfanas"), consulte [Eliminación de imágenes de contenedor en Azure Container Registry](container-registry-delete.md). También puede establecer una [directiva de retención](container-registry-retention-policy.md) para manifiestos sin etiqueta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

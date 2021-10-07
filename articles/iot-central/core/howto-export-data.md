@@ -2,18 +2,18 @@
 title: Exportación de datos desde Azure IoT Central | Microsoft Docs
 description: Cómo usar la nueva exportación de datos para exportar los datos de IoT a Azure y a destinos en la nube personalizados.
 services: iot-central
-author: viv-liu
-ms.author: viviali
+author: dominicbetts
+ms.author: dobett
 ms.date: 06/04/2021
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: 0435fece7394c0a1494e51581bce263cbf1e068a
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 4006a144dfba6a0332c69d160943294b3447ae7f
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114461185"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153584"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exportación de datos de IoT a destinos en la nube mediante la característica de exportación de datos
 
@@ -140,14 +140,14 @@ Ahora que tiene un destino al que exportar los datos, configure la exportación 
     |--------------|------------------|
     |Telemetría|<ul><li>Filtrar por nombre de dispositivo, id. de dispositivo, plantilla de dispositivo y si el dispositivo está simulado</li><li>Filtrar el flujo para que solo contenga la telemetría que cumpla las condiciones de filtro</li><li>Filtrar el flujo para que solo contenga la telemetría de dispositivos con propiedades que coincidan con las condiciones de filtro</li><li>Filtrar el flujo para que solo contenga la telemetría que tenga *propiedades de mensaje* que cumplan la condición de filtro. Las *propiedades de mensaje* (también denominadas *propiedades de aplicación*) se envían en un contenedor de pares de clave-valor en cada mensaje de telemetría enviado opcionalmente por los dispositivos que usan los SDK de dispositivo. Para crear un filtro de propiedad de mensaje, escriba la clave de la propiedad de mensaje que busca y especifique una condición. Solo se exportarán los mensajes de telemetría con propiedades que coincidan con la condición de filtro especificada. [Obtenga más información sobre las propiedades de aplicaciones en la documentación de IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md). </li></ul>|
     |Cambios de la propiedad|<ul><li>Filtrar por nombre de dispositivo, id. de dispositivo, plantilla de dispositivo y si el dispositivo está simulado</li><li>Filtrar el flujo para que contenga solo los cambios de propiedad que cumplan las condiciones de filtro</li></ul>|
-    |Conectividad de dispositivos|<ul><li>Filtrar por nombre de dispositivo, id. de dispositivo, plantilla de dispositivo y si el dispositivo está simulado</li><li>Filtrar el flujo para que solo contenga los cambios de dispositivos con propiedades que coincidan con las condiciones de filtro</li></ul>|
+    |Conectividad de dispositivos|<ul><li>Filtrar por nombre de dispositivo, identificador de dispositivo, plantilla de dispositivo y si el dispositivo es simulado</li><li>Filtrar el flujo para que solo contenga los cambios de dispositivos con propiedades que coincidan con las condiciones de filtro</li></ul>|
     |Ciclo de vida del dispositivo|<ul><li>Filtrar por nombre de dispositivo, id. de dispositivo, plantilla de dispositivo y si el dispositivo está aprovisionado, habilitado o simulado</li><li>Filtrar el flujo para que solo contenga los cambios de dispositivos con propiedades que coincidan con las condiciones de filtro</li></ul>|
     |Ciclo de vida de plantillas de dispositivo|<ul><li>Filtrar por plantilla de dispositivo</li></ul>|
     
 1. Opcionalmente, puede enriquecer los mensajes exportados con metadatos adicionales de pares clave-valor. Están disponibles los enriquecimientos siguientes para los tipos de exportación de datos de telemetría, cambios de propiedad, conectividad de dispositivo y ciclo de vida de dispositivo: <a name="DataExportEnrichmnents"></a>
     - **Cadena personalizada**: agrega una cadena estática personalizada a cada mensaje. Escriba cualquier clave y especifique cualquier valor de cadena.
     - **Propiedad**, que agrega a cada mensaje:
-       - Metadatos del dispositivo, como el nombre del dispositivo, el nombre de la plantilla de dispositivo, si está habilitado, aprovisionado y simulado.
+       - Metadatos del dispositivo, como el nombre del dispositivo, el nombre de la plantilla de dispositivo, si está habilitado, las organizaciones, si está aprovisionado y si es simulado.
        - La propiedad notificada de dispositivo actual o el valor de propiedad de la nube a cada mensaje. Si el mensaje exportado procede de un dispositivo que no tiene la propiedad especificada, no obtendrá el enriquecimiento.
 
 1. Agregue un destino nuevo o uno que ya haya creado. Seleccione el vínculo **Create a new one** (Crear uno nuevo) y agregue la siguiente información:

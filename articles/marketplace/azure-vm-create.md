@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 04/08/2021
-ms.openlocfilehash: 6565fff19d68b42aa102431c6e1afe7bb4b3b4d7
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.date: 09/27/2021
+ms.openlocfilehash: f29e9a41872c64598d53ff2b6110e5ffffd5d690
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114601055"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083317"
 ---
 # <a name="create-a-virtual-machine-offer-on-azure-marketplace"></a>Cree una oferta de máquina virtual de Azure en Azure Marketplace.
 
@@ -25,6 +25,37 @@ Antes de comenzar, [cree una cuenta de marketplace comercial en el Centro de par
 Si todavía no lo ha hecho, revise [Planeación de una oferta de máquina virtual](marketplace-virtual-machines.md). Ahí se explican los requisitos técnicos de la máquina virtual y se enumera la información y los recursos que necesitará al crear la oferta.
 
 ## <a name="create-a-new-offer"></a>Crear una nueva oferta
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+
+1. Inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2166002).
+
+1. En la página principal, seleccione el icono **Ofertas de Marketplace**.
+
+    [ ![Muestra el icono Ofertas de Marketplace en la página principal del Centro de partners.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. En la página Ofertas de Marketplace, seleccione **+ Nueva oferta** > **Máquina virtual de Azure**.
+
+    [ ![Captura de pantalla que muestra las opciones de menú del panel izquierdo y el botón "Nueva oferta".](./media/create-vm/new-offer-azure-virtual-machine-workspaces.png) ](./media/create-vm/new-offer-azure-virtual-machine-workspaces.png#lightbox)
+
+> [!NOTE]
+> Una vez publicada la oferta, las modificaciones que realice en el Centro de partners aparecerán en Azure Marketplace solo después de volver a publicarla. Tras realizar cambios en la oferta, asegúrese siempre de volver a publicarla.
+
+Escriba un **Identificador de oferta**. Se trata de un identificador único para cada oferta de su cuenta.
+
+- Este identificador se muestra a los clientes en la dirección web de la oferta de Azure Marketplace y en Azure PowerShell y la CLI de Azure, si procede.
+- Use solo letras minúsculas y números. El identificador puede incluir guiones y caracteres de subrayado, pero no espacios, y está limitado a 50 caracteres. Por ejemplo, si escribe **test-offer-1**, la dirección web de la oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- El identificador de oferta no se puede cambiar después de seleccionar **Crear**.
+
+Escriba un **Alias de la oferta**. El alias de la oferta es el nombre que se usa para la oferta en el Centro de partners.
+
+- Este nombre no se utiliza en Azure Marketplace. Es diferente del nombre de la oferta y de otros valores que se muestran a los clientes.
+
+Seleccione **Crear** para generar la oferta y continuar. En el Centro de partners, abra la página **Configuración de la oferta**.
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
 
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
 2. En el panel izquierdo, seleccione **Marketplace comercial** > **Información general**.
@@ -46,6 +77,8 @@ Escriba un **Alias de la oferta**. El alias de la oferta es el nombre que se usa
 - Este nombre no se utiliza en Azure Marketplace. Es diferente del nombre de la oferta y de otros valores que se muestran a los clientes.
 
 Seleccione **Crear** para generar la oferta y continuar. En el Centro de partners, abra la página **Configuración de la oferta**.
+
+---
 
 ## <a name="test-drive-optional"></a>Versión de prueba (opcional)
 

@@ -1,15 +1,15 @@
 ---
 title: Implementación de Azure Policy en suscripciones delegadas a escala
 description: Azure Lighthouse permite implementar una definición de directivas y una asignación de directivas en varios inquilinos.
-ms.date: 05/11/2021
+ms.date: 06/13/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d1a14a7f4db1fe70949f0e1caf41479b159ac86c
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: e45feb45da482aa960516abec8c339d61016c758
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075536"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673585"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Implementación de Azure Policy en suscripciones delegadas a escala
 
@@ -22,7 +22,7 @@ En este tema se muestra cómo usar [Azure Policy](../../governance/policy/index.
 
 ## <a name="use-azure-resource-graph-to-query-across-customer-tenants"></a>Uso de Azure Resource Graph para consultar entre inquilinos de cliente
 
-Puede usar [Azure Resource Graph](../../governance/resource-graph/index.yml) para realizar consultas en todas las suscripciones de los inquilinos de cliente que administra. En este ejemplo, se identificarán todas las cuentas de almacenamiento de estas suscripciones que no requieran actualmente tráfico HTTPS.  
+Puede usar [Azure Resource Graph](../../governance/resource-graph/overview.md) para realizar consultas en todas las suscripciones de los inquilinos de cliente que administre. En este ejemplo, se identificarán todas las cuentas de almacenamiento de estas suscripciones que no requieran actualmente tráfico HTTPS.  
 
 ```powershell
 $MspTenant = "insert your managing tenantId here"

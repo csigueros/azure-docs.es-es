@@ -8,20 +8,19 @@ ms.date: 8/24/2021
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a09af98e613a7e57cc9a8060192e0e54c073cf95
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 0ba4fe4968a54be0ee9f19e2df6db242c149a7ee
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123256202"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129080582"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solución de problemas de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
 
 Este artículo está diseñado para ayudarle a solucionar problemas que podrían producirse con la implementación de Azure File Sync. Se describe cómo recopilar registros importantes del sistema si es necesario investigar los problemas en mayor profundidad. Si no encuentra una respuesta a su pregunta, póngase en contacto con nosotros mediante los siguientes canales (en orden incremental):
 
-- [Página de preguntas y respuestas de Microsoft sobre Azure Storage](/answers/products/azure?product=storage).
-- [UserVoice de Azure Files](https://feedback.azure.com/forums/217298-storage/category/180670-files).
+- [Página de preguntas de Microsoft Q&A sobre Azure Files](/answers/products/azure?product=storage).
 - Soporte técnico de Microsoft. Para crear una solicitud de soporte técnico, en Azure Portal, vaya a la pestaña **Ayuda**, seleccione el botón **Ayuda y soporte técnico** y elija **Nueva solicitud de soporte técnico**.
 
 ## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>Tengo un problema con Azure File Sync en mi servidor (sincronización, niveles en la nube, etc.). ¿Debería quitar y volver a crear el punto de conexión del servidor?
@@ -1149,7 +1148,7 @@ Los errores en la organización en niveles en la nube pueden producirse de dos f
 Hay dos clases principales de errores que pueden producirse de alguno de esos modos:
 
 - Errores de almacenamiento en la nube
-    - *Problemas transitorios de disponibilidad del servicio de almacenamiento*. Para más información, consulte el [Acuerdo de Nivel de Servicio (SLA) para Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
+    - *Problemas transitorios de disponibilidad del servicio de almacenamiento*. Para más información, consulte el [Acuerdo de Nivel de Servicio (SLA) para Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
     - *Recurso compartido de archivos de Azure inaccesible*. Este error normalmente ocurre al eliminarse el recurso compartido de archivos de Azure cuando sigue siendo un punto de conexión de nube en un grupo de sincronización.
     - *Cuenta de almacenamiento inaccesible*. Este error suele ocurrir cuando se elimina la cuenta de almacenamiento mientras aún tiene un recurso compartido de archivos de Azure que es un punto de conexión en la nube en un grupo de sincronización. 
 - Errores del servidor 

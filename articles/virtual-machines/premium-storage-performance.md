@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 6cd71daa43eb311316bb0da8b54bbef8733fb168
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 5c6530f138167cbd21ed1b40dee3b056ceb8c638
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694333"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124803863"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: diseño de alto rendimiento
 
@@ -311,7 +311,7 @@ En el caso de todas las SSD o discos Ultra Premium, es posible que pueda deshabi
 
 * Para **reiserFS**, use la opción barrier=none mount para deshabilitar las barreras.  Para habilitar de forma explícita las barreras, use barrier=flush.
 * Para **ext3/ext4**, use la opción barrier=0 mount para deshabilitar las barreras.  Para habilitar de forma explícita las barreras, use barrier=1.
-* Para **XFS**, utilice la opción nobarrier mount para deshabilitar las barreras.  Para habilitar de forma explícita las barreras, use barrier.  Tenga en cuenta que en versiones posteriores del kernel de Linux, el diseño del sistema de archivos XFS siempre garantiza la durabilidad, y la deshabilitación de barreras no tiene ningún efecto.  
+* Para **XFS**, utilice la opción nobarrier mount para deshabilitar las barreras.  Para habilitar de forma explícita las barreras, use barrier. A partir de la versión 4.10 del kernel de Linux de línea principal, el diseño del sistema de archivos XFS siempre garantiza la durabilidad. Deshabilitar barreras no tiene ningún efecto y la opción "nobarrier" está en desuso. Sin embargo, algunas distribuciones de Linux pueden haber incorporado los cambios a un lanzamiento de distribución con una versión anterior del kernel. Compruebe con su proveedor de distribución el estado de la distribución y la versión que está ejecutando.
 
 ## <a name="disk-striping"></a>Seccionamiento del disco
 

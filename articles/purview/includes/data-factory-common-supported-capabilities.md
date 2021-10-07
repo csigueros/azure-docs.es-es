@@ -4,13 +4,13 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: include
-ms.date: 08/25/2021
-ms.openlocfilehash: 61f0dc4bf556c992721b5cd7cd2859ef30d8cbb9
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.date: 09/27/2021
+ms.openlocfilehash: 8c4baccdbfb0f6162e666d6901e0080202a3b7e9
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123355524"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212352"
 ---
 ### <a name="copy-activity-support"></a>Compatibilidad de actividad de copia
 
@@ -33,21 +33,24 @@ ms.locfileid: "123355524"
 | Azure Table Storage | Sí |
 | Amazon S3 | Sí | 
 | Hive \* | Sí | 
+| Oracle \* | Sí |
 | Tabla de SAP *(cuando se conecta con SAP ECC o SAP S/4HANA)* | Sí |
 | SQL Server \* | Sí | 
 | Teradata \* | Sí |
 
 *\* Actualmente, Azure Purview no admite la consulta ni el procedimiento almacenado para el linaje o el examen. El linaje se limita a los orígenes de tabla y vista.*
 
-#### <a name="known-limitations-on-copy-activity-lineage"></a>Limitaciones conocidas en el linaje de la actividad de copia
+Si usa el entorno de ejecución de integración autohospedado, tenga en cuenta la versión mínima con compatibilidad con linaje para:
+- Copiar datos desde Oracle: versión 5.10 o posterior
+- Copiar datos en Azure Synapse Analytics mediante el comando COPY o PolyBase: versión 5.10 o posterior
+
+#### <a name="limitations-on-copy-activity-lineage"></a>Limitaciones en el linaje de la actividad de copia
 
 Actualmente, si usa las siguientes características de la actividad de copia, el linaje no se admite todavía:
 
 - Copia de datos en Azure Data Lake Storage Gen1 mediante el formato binario.
-- Copia de datos en Azure Synapse Analytics mediante PolyBase o la instrucción COPY.
 - Configuración de compresión para archivos binarios, de texto delimitado, de Excel, JSON y XML.
 - Opciones de partición de origen para Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server y la tabla de SAP.
-- Opción de detección de partición de origen para almacenes basados en archivos.
 - Copia de datos en un receptor basado en archivos con la configuración de número máximo de filas por archivo.
 
 Además del linaje, se indica el esquema de recursos de datos (que se muestra en la pestaña Recurso -> Esquema) para los siguientes conectores:
@@ -70,3 +73,7 @@ Además del linaje, se indica el esquema de recursos de datos (que se muestra en
 | Azure Synapse Analytics \* | Sí |
 
 *\* Actualmente, Azure Purview no admite la consulta ni el procedimiento almacenado para el linaje o el examen. El linaje se limita a los orígenes de tabla y vista.*
+
+#### <a name="limitations-on-data-flow-lineage"></a>Limitaciones en el linaje del flujo de datos
+
+Actualmente, el linaje del flujo de datos no se integra con el [conjunto de recursos](../concept-resource-sets.md) de Purview.

@@ -6,22 +6,22 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/21/2021
+ms.date: 09/23/2021
 ms.author: cherylmc
-ms.openlocfilehash: 3e8c2846b58499e5aabdec80f8fcd75cab3e6eb5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 92ec3349f5e2e2f06fdbe7f56468a7145452276d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121729497"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667072"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configuración de una conexión de VPN Gateway de red virtual a red virtual mediante Azure Portal
 
-Este artículo le ayuda a conectarse a redes virtuales mediante el tipo de conexión de red virtual a red virtual. Las redes virtuales pueden estar en distintas regiones y provenir de distintas suscripciones. Al conectar redes virtuales provenientes de distintas suscripciones, no es necesario que las suscripciones estén asociadas con el mismo inquilino de Active Directory. 
+Este artículo le ayuda a conectarse a redes virtuales mediante el tipo de conexión de red virtual a red virtual y Azure Portal. Las redes virtuales pueden estar en distintas regiones y provenir de distintas suscripciones. Al conectar redes virtuales provenientes de distintas suscripciones, no es necesario que las suscripciones estén asociadas con el mismo inquilino de Active Directory. Este tipo de configuración crea una conexión entre dos puertas de enlace de red virtual. El contenido de este artículo no se aplica al emparejamiento de redes virtuales. Si busca información sobre el emparejamiento de redes virtuales, consulte el artículo [Emparejamiento de redes virtuales](../virtual-network/virtual-network-peering-overview.md). 
 
 :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png" alt-text="Diagrama de red virtual a red virtual":::
 
-Los pasos descritos en este artículo se aplican al [modelo de implementación de Azure Resource Manager](../azure-resource-manager/management/deployment-models.md) y utilizan Azure Portal. Puede crear esta configuración con un modelo o una herramienta de implementación diferente a través de las opciones que se describen en estos artículos:
+Puede crear esta configuración mediante varias herramientas, en función del modelo de implementación de la red virtual. Los pasos descritos en este artículo se aplican al [modelo de implementación de Azure Resource Manager](../azure-resource-manager/management/deployment-models.md) y a Azure Portal. Para cambiar a otro modelo de implementación o a un artículo de método de implementación diferente, use la lista desplegable. 
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -41,7 +41,9 @@ En las secciones siguientes se describen las distintas formas de conectar redes 
 
 Configurar una conexión de red virtual a red virtual es una forma sencilla de conectar redes virtuales. Cuando conecta una red virtual a otra mediante el tipo de conexión entre redes virtuales (VNet2VNet) es parecida a la creación de una conexión IPsec de sitio a sitio en una ubicación local. Ambos tipos de conectividad usan una puerta de enlace de VPN para proporcionar un túnel seguro mediante IPsec/IKE y funcionan de la misma forma en lo relativo a la comunicación. Sin embargo, la manera en que se configura la puerta de enlace de red local es distinta. 
 
-Cuando se crea una conexión de red virtual a red virtual, el espacio de direcciones de la puerta de enlace de red local se crea y rellena automáticamente. Si actualiza el espacio de direcciones de una de las redes virtuales, la otra enruta automáticamente al espacio de direcciones actualizado. Por lo general, es más rápido y sencillo crear una conexión de red virtual a red virtual que una conexión de sitio a sitio.
+Cuando se crea una conexión de red virtual a red virtual, el espacio de direcciones de la puerta de enlace de red local se crea y rellena automáticamente. Si actualiza el espacio de direcciones de una de las redes virtuales, la otra enruta automáticamente al espacio de direcciones actualizado. Por lo general, es más rápido y sencillo crear una conexión de red virtual a red virtual que una conexión de sitio a sitio. Sin embargo, la puerta de enlace de red local no está visible en esta configuración. 
+* Si tiene la seguridad de que desea especificar espacios de direcciones adicionales para la puerta de enlace de red local o tiene previsto agregar conexiones adicionales más adelante y necesita ajustar la puerta de enlace de red local, debe crear la configuración mediante los pasos de sitio a sitio. 
+* La conexión de red virtual a red virtual no incluye el espacio de direcciones del grupo de clientes de punto a sitio. Si necesita enrutamiento transitivo para clientes de punto a sitio, cree una conexión de sitio a sitio entre las puertas de enlace de red virtual o use el emparejamiento de VNet.
 
 ### <a name="site-to-site-ipsec"></a>De sitio a sitio (IPsec)
 
@@ -49,7 +51,10 @@ Si trabaja con una configuración de red complicada, puede que, en su lugar, pre
 
 ### <a name="vnet-peering"></a>Emparejamiento de VNET
 
-También puede conectar las redes virtuales a través del emparejamiento de redes virtuales. El emparejamiento de VNET no utiliza una puerta de enlace de VPN y tiene distintas restricciones. Además, [los precios del emparejamiento de VNET](https://azure.microsoft.com/pricing/details/virtual-network) se calculan de forma diferente que los [precios de VPN Gateway entre redes virtuales](https://azure.microsoft.com/pricing/details/vpn-gateway). Para más información, consulte [Emparejamiento de VNET](../virtual-network/virtual-network-peering-overview.md).
+También puede conectar las redes virtuales a través del emparejamiento de redes virtuales.
+* El emparejamiento de VNET no utiliza una puerta de enlace de VPN y tiene distintas restricciones.
+* Los [precios del emparejamiento de VNET](https://azure.microsoft.com/pricing/details/virtual-network) se calculan de forma diferente que los [precios de VPN Gateway entre redes virtuales](https://azure.microsoft.com/pricing/details/vpn-gateway).
+* Para más información sobre el emparejamiento de redes virtuales, consulte el artículo [Emparejamiento de redes virtuales](../virtual-network/virtual-network-peering-overview.md).
 
 ## <a name="why-create-a-vnet-to-vnet-connection"></a>¿Por qué crear una conexión de red virtual a red virtual?
 

@@ -10,35 +10,35 @@ ms.topic: conceptual
 author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
-ms.date: 07/06/2021
-ms.openlocfilehash: f5822a3d5594388627858be22ca9bbc0a43c1739
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.date: 09/23/2021
+ms.openlocfilehash: 46cfef6e2a226e6eb3c369b46a1214943c998bc1
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113361088"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059271"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Uso de réplicas de solo lectura para descargar cargas de trabajo de consulta de solo lectura
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Como parte de la [arquitectura de alta disponibilidad](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability), cada base de datos única, base de datos de grupos elásticos e instancia administrada del nivel de servicio Premium y Crítico para la empresa se aprovisiona automáticamente con una réplica principal de lectura y escritura y varias réplicas secundarias de solo lectura. Las réplicas secundarias se aprovisionan con el mismo tamaño de proceso que la réplica principal. La característica *Escalado horizontal de lectura* le permite descargar las cargas de trabajo de solo lectura usando la capacidad de proceso de una de las réplicas de solo lectura, en lugar de ejecutarlas en la réplica de lectura y escritura. De este modo, algunas cargas de trabajo de solo lectura se pueden aislar de las cargas de trabajo principales de lectura y escritura sin que su rendimiento se vea afectado. La característica está diseñada para las aplicaciones que contienen cargas de solo lectura separadas de forma lógica; por ejemplo, análisis. En los niveles de servicio Premium y Crítico para la empresa, las aplicaciones podrían obtener ventajas de rendimiento gracias a esta capacidad sin costo adicional.
 
-La característica *Escalado horizontal de lectura* también está disponible en el nivel de servicio Hiperescala cuando se crea al menos una réplica secundaria. Se pueden usar varias réplicas secundarias para el equilibrio de carga de las cargas de trabajo de solo lectura que requieren más recursos de los disponibles en una réplica secundaria.
+La característica *Escalado horizontal de lectura* también está disponible en el nivel de servicio Hiperescala cuando se añade al menos una [réplica secundaria](service-tier-hyperscale-replicas.md). Las [réplicas con nombre](service-tier-hyperscale-replicas.md#named-replica-in-preview) secundarias de Hiperescala proporcionan escalado independiente, aislamiento de acceso, aislamiento de carga de trabajo, escalado horizontal de lectura masivo y otras ventajas. Se pueden usar varias [réplicas de alta disponibilidad](service-tier-hyperscale-replicas.md#high-availability-replica) secundarias para el equilibrio de carga de las cargas de trabajo de solo lectura que requieren más recursos de los disponibles en una réplica de alta disponibilidad secundaria. 
 
 La arquitectura de alta disponibilidad de los niveles de servicio Básico, Estándar y De uso general no incluye réplicas. La característica *Escalado horizontal de lectura* no está disponible en estos niveles de servicio.
 
-En el siguiente diagrama se ilustra esta característica.
+En el diagrama siguiente se muestra la característica de las instancias administradas y las bases de datos de nivel Premium y Crítico para la empresa.
 
 ![Réplicas de solo lectura](./media/read-scale-out/business-critical-service-tier-read-scale-out.png)
 
-La característica *Escalado horizontal de lectura* está habilitada de forma predeterminada en las nuevas bases de datos de nivel Premium, Crítico para la empresa e Hiperescala. En el caso de Hiperescala, se crea una réplica secundaria de forma predeterminada para las bases de datos nuevas. 
+La característica *Escalado horizontal de lectura* está habilitada de forma predeterminada en las nuevas bases de datos de nivel Premium, Crítico para la empresa e Hiperescala.
 
 > [!NOTE]
-> El escalado horizontal de lectura siempre está habilitado en el nivel de servicio Crítico para la empresa de la Instancia administrada.
+> El escalado horizontal de lectura siempre está habilitado en el nivel de servicio Crítico para la empresa de Instancia administrada y para las bases de datos de Hiperescala con al menos una réplica secundaria.
 
 Si la cadena de conexión SQL está configurada con `ApplicationIntent=ReadOnly`, la aplicación se redirigirá a una réplica de solo lectura de esa base de datos o instancia administrada. Para más información sobre la propiedad `ApplicationIntent`, consulte [Especificar el intento de la aplicación](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
-Si desea asegurarse de que la aplicación se conecta a la réplica principal sin tener en cuenta el valor `ApplicationIntent` de la cadena de conexión SQL, debe deshabilitar explícitamente el escalado horizontal de lectura cuando cree la base de datos o modifique su configuración. Por ejemplo, si actualiza una base de datos de nivel Estándar o De uso General al nivel Premium, Crítico para la empresa o Hiperescala y desea asegurarse de que todas las conexiones siguen estableciéndose con la réplica principal, deshabilite el escalado horizontal de lectura. Para más información acerca de cómo deshabilitarlo, consulte [Habilitar y deshabilitar el escalado horizontal de lectura](#enable-and-disable-read-scale-out).
+Si desea asegurarse de que la aplicación se conecta a la réplica principal sin tener en cuenta el valor `ApplicationIntent` de la cadena de conexión SQL, debe deshabilitar explícitamente el escalado horizontal de lectura cuando cree la base de datos o modifique su configuración. Por ejemplo, si actualiza una base de datos de nivel Estándar o De uso General al nivel Premium o Crítico para la empresa y desea asegurarse de que todas las conexiones siguen estableciéndose con la réplica principal, deshabilite el escalado horizontal de lectura. Para obtener información sobre cómo hacerlo, consulte [Habilitación y deshabilitación del escalado horizontal de lectura](#enable-and-disable-read-scale-out).
 
 > [!NOTE]
 > Las características Almacén de consultas y SQL Profiler no son compatibles con las réplicas de solo lectura. 
@@ -85,7 +85,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability');
 
 Cuando se conecta a una réplica de solo lectura, las vistas de administración dinámica (DMV) reflejan el estado de la réplica y se pueden consultar con fines de supervisión y solución de problemas. El motor de base de datos proporciona varias vistas para exponer una amplia variedad de datos de supervisión. 
 
-Las vistas que se usan con frecuencia son:
+Las vistas siguientes se usan normalmente para la supervisión y la solución de problemas de las réplicas:
 
 | Nombre | Propósito |
 |:---|:---|
@@ -117,12 +117,12 @@ En raras ocasiones, si una transacción de aislamiento de instantánea accede a 
 
 ### <a name="long-running-queries-on-read-only-replicas"></a>Consultas de ejecución prolongada en réplicas de solo lectura
 
-Las consultas que se ejecutan en réplicas de solo lectura necesitan tener acceso a los metadatos para los objetos a los que se hace referencia en la consulta (tablas, índices, estadísticas, etc.). En raras ocasiones, si se modifica un objeto de metadatos en la réplica principal mientras una consulta mantiene un bloqueo en el mismo objeto en la réplica de solo lectura, la consulta puede [bloquear](/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) el proceso que aplica los cambios de la réplica principal a la de solo lectura. Si este tipo de consulta se ejecutara durante mucho tiempo, haría que la réplica de solo lectura no estuviera sincronizada con la réplica principal.
+Las consultas que se ejecutan en réplicas de solo lectura deben tener acceso a los metadatos de los objetos a los que se hace referencia en la consulta (tablas, índices, estadísticas, etc.). En raras ocasiones, si se modifica un objeto de metadatos en la réplica principal mientras una consulta mantiene un bloqueo en el mismo objeto en la réplica de solo lectura, la consulta puede [bloquear](/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) el proceso que aplica los cambios de la réplica principal a la de solo lectura. Si este tipo de consulta se ejecutara durante mucho tiempo, haría que la réplica de solo lectura no estuviera sincronizada con la réplica principal. En el caso de las réplicas que son posibles destinos de conmutación por error (réplicas secundarias en los niveles de servicio Premium y Crítico para la empresa, réplicas de alta disponibilidad de Hiperescala y todas las réplicas geográficas), esto también retrasaría la recuperación de la base de datos si se produjese una conmutación por error, lo que provocaría un tiempo de inactividad mayor del esperado.
 
-Si una consulta de ejecución prolongada en una réplica de solo lectura produce este tipo de bloqueo, se terminará automáticamente. La sesión recibirá el error 1219, "Su sesión se ha desconectado debido a una operación DDL de elevada prioridad" o el error 3947, "Se ha anulado la transacción porque el proceso secundario no pudo ponerse al día. Vuelva a intentar la transacción".
+Si una consulta de ejecución prolongada en una réplica de solo lectura provoca directa o indirectamente este tipo de bloqueo, puede finalizarse automáticamente para evitar una latencia excesiva de datos y un posible efecto en la disponibilidad de la base de datos. La sesión recibirá el error 1219, "Su sesión se ha desconectado debido a una operación DDL de elevada prioridad" o el error 3947, "Se ha anulado la transacción porque el proceso secundario no pudo ponerse al día. Vuelva a intentar la transacción".
 
 > [!NOTE]
-> Si recibe el error 3961, 1219 o 3947 al ejecutar consultas en una réplica de solo lectura, vuelva a intentar la consulta.
+> Si recibe el error 3961, 1219 o 3947 al ejecutar consultas en una réplica de solo lectura, vuelva a intentar la consulta. Como alternativa, evite operaciones que modifiquen los metadatos de los objetos (cambios de esquema, mantenimiento de índices, actualizaciones de estadísticas, etc.) en la réplica principal mientras se ejecuten consultas de ejecución prolongada en las réplicas secundarias.
 
 > [!TIP]
 > En los niveles de servicio Prémium y Crítico para la empresa, cuando se conecta a una réplica de solo lectura, las columnas `redo_queue_size` y `redo_rate` de la vista de administración dinámica [sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) se pueden usar para supervisar el proceso de sincronización de datos, que sirven como indicadores de la latencia de propagación de datos en la réplica de solo lectura.
@@ -130,7 +130,7 @@ Si una consulta de ejecución prolongada en una réplica de solo lectura produce
 
 ## <a name="enable-and-disable-read-scale-out"></a>Habilitación y deshabilitación del escalado horizontal de lectura
 
-La característica Escalado horizontal de lectura está habilitada de forma predeterminada en los niveles de servicio Premium, Crítico para la empresa e Hiperescala. No se puede habilitar en los niveles de servicio Básico, Estándar o De uso general. Se deshabilita automáticamente en las bases de datos del nivel Hiperescala que no están configuradas con ninguna réplica.
+La característica Escalado horizontal de lectura está habilitada de forma predeterminada en los niveles de servicio Premium, Crítico para la empresa e Hiperescala. No se puede habilitar en los niveles de servicio Básico, Estándar o De uso general. Se deshabilita automáticamente en las bases de datos del nivel Hiperescala que no están configuradas con ninguna réplica secundaria.
 
 Puede deshabilitar y volver a habilitar la característica Escalado horizontal de lectura en las bases de datos únicas y las de grupos elásticos de los niveles de servicio Premium o Crítico para la empresa con los métodos siguientes.
 
@@ -186,16 +186,16 @@ Para más información, consulte [Bases de datos: crear o actualizar](/rest/api/
 
 ## <a name="using-the-tempdb-database-on-a-read-only-replica"></a>Uso de la base de datos `tempdb` en una réplica de solo lectura
 
-La base de datos `tempdb` de la réplica principal no se replica a las de solo lectura. Cada réplica tiene su propia base de datos `tempdb`, que se crea a la vez que lo hace la réplica. Esto garantiza que `tempdb` se puede actualizar y modificar durante la ejecución de consultas. Si la carga de trabajo de solo lectura depende del uso de objetos de `tempdb`, debe crear estos objetos como parte del script de la consulta.
+La base de datos `tempdb` de la réplica principal no se replica a las de solo lectura. Cada réplica tiene su propia base de datos `tempdb`, que se crea a la vez que lo hace la réplica. Esto garantiza que `tempdb` se puede actualizar y modificar durante la ejecución de consultas. Si la carga de trabajo de solo lectura depende del uso de objetos de `tempdb`, debe crear estos objetos como parte de la misma carga de trabajo mientras está conectado a una réplica de solo lectura.
 
 ## <a name="using-read-scale-out-with-geo-replicated-databases"></a>Uso del escalado horizontal de lectura con las bases de datos con replicación geográfica
 
 Las bases de datos secundarias con replicación geográfica tienen la misma arquitectura de alta disponibilidad que las principales. Si se conecta a la base de datos secundaria con replicación geográfica con el escalado horizontal de lectura habilitado, las sesiones con `ApplicationIntent=ReadOnly` se redirigirán a una de las réplicas de alta disponibilidad del mismo modo que se redirigen en la base de datos de escritura principal. Las sesiones sin `ApplicationIntent=ReadOnly` se enrutarán a la réplica principal de la secundaria con replicación geográfica, que también es de solo lectura. 
 
-De este modo, la creación de una réplica geográfica proporciona dos réplicas más de solo lectura para una base de datos principal de lectura y escritura y un total de tres réplicas de solo lectura. Cada réplica geográfica adicional proporciona otro par de réplicas de solo lectura. Las réplicas geográficas se pueden crear en cualquier región de Azure, incluida la región de la base de datos principal.
+De este modo, la creación de una réplica geográfica puede proporcionar varias réplicas de solo lectura adicionales para una base de datos principal de lectura y escritura. Cada réplica geográfica adicional proporciona otro conjunto de réplicas de solo lectura. Las réplicas geográficas se pueden crear en cualquier región de Azure, incluida la región de la base de datos principal.
 
 > [!NOTE]
-> No se permite aplicar el método round-robin ni ningún otro enrutamiento de carga equilibrada entre las réplicas de una base de datos secundaria con replicación geográfica.
+> No se permite aplicar el método round-robin ni ningún otro enrutamiento de carga equilibrada entre las réplicas de una base de datos secundaria con replicación geográfica, a excepción de una réplica geográfica de Hiperescala con más de una réplica de alta disponibilidad. En ese caso, las sesiones con intención de solo lectura se distribuyen entre todas las réplicas de alta disponibilidad de una réplica geográfica.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

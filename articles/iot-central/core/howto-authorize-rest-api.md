@@ -7,12 +7,12 @@ ms.date: 08/25/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 9ba337203aedbc2b9f27c2147f68c1d810f57d23
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 39c96be31a8a8be0cf1c2fc4f16fcbfa7468cb41
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123479857"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128584244"
 ---
 # <a name="how-to-authenticate-and-authorize-iot-central-rest-api-calls"></a>Autenticación y autorización de llamadas API de REST en IoT Central
 
@@ -63,13 +63,13 @@ Para obtener un token de portador para una entidad de servicio, consulte [Autent
 
 ## <a name="get-an-api-token"></a>Obtención de un token de API
 
-Para obtener un token de API, puede usar la interfaz de usuario de IoT Central o una llamada API de REST.
+Para obtener un token de API, puede usar la interfaz de usuario de IoT Central o una llamada API de REST. Los administradores asociados a la organización raíz y los usuarios asignados al rol correcto pueden crear tokens de API.
 
 En la interfaz de usuario de IoT Central:
 
 1. Vaya a **Administración > Tokens de API** .
 1. Seleccione **+ Crear token**.
-1. Escriba un nombre para el token y seleccione un rol.
+1. Escriba un nombre para el token y seleccione un rol y una [organización](howto-create-organizations.md).
 1. Seleccione **Generar**.
 1. IoT Central muestra el token similar al ejemplo siguiente:
 
@@ -77,7 +77,7 @@ En la interfaz de usuario de IoT Central:
 
     Esta pantalla es la única vez que puede ver el token de API; si lo pierde, debe generar uno nuevo.
 
-Un token de API es válido durante un año aproximadamente. Puede generar tokens para roles integrados y personalizados en la aplicación de IoT Central.
+Un token de API es válido durante un año aproximadamente. Puede generar tokens para roles integrados y personalizados en la aplicación de IoT Central. La organización que elija al crear el token de API determina a qué dispositivos tiene acceso la API. Los tokens de API creados antes de agregar organizaciones a la aplicación están asociados a la organización raíz.
 
 Puede eliminar tokens de API en la interfaz de usuario de IoT Central si necesita revocar el acceso.
 
@@ -146,6 +146,9 @@ Mediante la API de REST:
     Esta respuesta es la única vez que tiene acceso al token de API, si lo pierde, debe generar uno nuevo.
 
 Puede usar la API de REST para enumerar y eliminar tokens de API en una aplicación.
+
+> [!TIP]
+> La [API de versión preliminar](/rest/api/iotcentral/1.1-previewdataplane/api-tokens) incluye compatibilidad con la [característica de organizaciones](howto-create-organizations.md) nueva.
 
 ## <a name="use-a-bearer-token"></a>Uso de un token de portador
 

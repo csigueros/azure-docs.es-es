@@ -8,12 +8,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Kinect, sensor, viewer, external sync, phase delay, depth, RGB, camera, audio cable, recorder
-ms.openlocfilehash: 052f6f1ac9f90e764de25d1d4d1b25b3d50a848d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fd751c9979cf2dc1fa2698deff0e2b207fe518c5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "85276918"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124771391"
 ---
 # <a name="use-azure-kinect-recorder-with-external-synchronized-devices"></a>Uso de la grabadora de Azure Kinect con dispositivos sincronizados externos
 

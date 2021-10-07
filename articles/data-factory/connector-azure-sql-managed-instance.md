@@ -1,26 +1,26 @@
 ---
 title: Copia y transformación de datos en Azure SQL Managed Instance
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre cómo copiar y transformar datos en Azure SQL Managed Instance mediante Azure Data Factory.
+description: Obtenga información sobre cómo copiar y transformar datos en Azure SQL Managed Instance mediante canalizaciones de Azure Data Factory o Synapse Analytics.
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 2fe779877c42935977b5fecb26bd3fe2c1428a33
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: 1e56f1ecf0345ccb13e7e5899fb1602dcad666b2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123313976"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744033"
 ---
-# <a name="copy-and-transform-data-in-azure-sql-managed-instance-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure SQL Managed Instance mediante Azure Data Factory
+# <a name="copy-and-transform-data-in-azure-sql-managed-instance-using-azure-data-factory-or-synapse-analytics"></a>Copia y transformación de datos en Azure SQL Managed Instance mediante Azure Data Factory o canalizaciones de Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se explica el uso de la actividad de copia en Azure Data Factory para copiar datos con Azure SQL Managed Instance como origen y destino, y el uso de Data Flow para transformarlos en Azure SQL Managed Instance. Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
+En este artículo se explica el uso de la actividad de copia para copiar datos con Azure SQL Managed Instance como origen y destino, y el uso de Data Flow para transformarlos en Azure SQL Managed Instance. Para obtener más información, lea los artículos de introducción para [Azure Data Factory](introduction.md) y [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -39,7 +39,7 @@ Para la actividad de copia, este conector de Azure SQL Database admite estas fun
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para acceder al [punto de conexión público](../azure-sql/managed-instance/public-endpoint-overview.md) de Instancia administrada de SQL, puede usar un entorno de ejecución de integración de Azure administrado de Azure Data Factory. Asegúrese de habilitar el punto de conexión público y de permitir también el tráfico de punto de conexión público en el grupo de seguridad de red para que Azure Data Factory pueda conectarse a la base de datos. Para obtener más información, consulte [esta guía](../azure-sql/managed-instance/public-endpoint-configure.md).
+Para acceder al [punto de conexión público](../azure-sql/managed-instance/public-endpoint-overview.md) de SQL Managed Instance, puede usar un entorno de ejecución de integración de Azure administrado. Asegúrese de habilitar el punto de conexión público y de permitir también el tráfico de punto de conexión público en el grupo de seguridad de red para que el servicio pueda conectarse a la base de datos. Para obtener más información, consulte [esta guía](../azure-sql/managed-instance/public-endpoint-configure.md).
 
 Para acceder al punto de conexión privado de Instancia administrada de SQL, configure un [entorno de ejecución de integración autohospedado](create-self-hosted-integration-runtime.md) que pueda acceder a la base de datos. Si aprovisiona el entorno de ejecución de integración autohospedado en la misma red virtual que la instancia administrada, asegúrese de que la máquina del entorno de ejecución de integración está en una subred distinta a la de la instancia administrada. Si aprovisiona el entorno de ejecución de integración autohospedado en una red virtual distinta a la de la instancia administrada, puede usar un emparejamiento de redes virtuales o una conexión de red virtual a red virtual. Para obtener más información, vea [Conexión de una aplicación a Instancia administrada de SQL](../azure-sql/managed-instance/connect-application-instance.md).
 
@@ -82,11 +82,11 @@ Las siguientes propiedades se admiten en el servicio vinculado de Instancia admi
 | type | La propiedad type debe establecerse en **AzureSqlMI**. | Sí |
 | connectionString |Esta propiedad especifica la información de **connectionString** necesaria para conectarse a Instancia administrada de SQL mediante la autenticación de SQL. Para más información, vea los ejemplos siguientes. <br/>El puerto predeterminado es el 1433. Si usa Instancia administrada de SQL con un punto de conexión público, especifique explícitamente el puerto 3342.<br> También puede asignar una contraseña en Azure Key Vault. Si se trata de la autenticación de SQL, extraiga la configuración `password` de la cadena de conexión. Para obtener más información, vea el ejemplo de JSON debajo de la tabla y consulte el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
 | servicePrincipalId | Especifique el id. de cliente de la aplicación. | Sí, al utilizar la autenticación de Azure AD con una entidad de servicio |
-| servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Azure Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. | Sí, al utilizar la autenticación de Azure AD con una entidad de servicio |
+| servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como **SecureString** para almacenarlo de forma segura, o bien [haga referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí, al utilizar la autenticación de Azure AD con una entidad de servicio |
 | tenant | Especifique la información del inquilino, como el nombre de dominio o identificador de inquilino, en el que reside la aplicación. Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí, al utilizar la autenticación de Azure AD con una entidad de servicio |
-| azureCloudType | Para la autenticación de la entidad de servicio, especifique el tipo de entorno de nube de Azure en el que está registrada la aplicación de Azure AD. <br/> Los valores permitidos son **AzurePublic**, **AzureChina**, **AzureUsGovernment** y **AzureGermany**. De forma predeterminada, se usa el entorno de nube de la factoría de datos. | No |
+| azureCloudType | Para la autenticación de la entidad de servicio, especifique el tipo de entorno de nube de Azure en el que está registrada la aplicación de Azure AD. <br/> Los valores permitidos son **AzurePublic**, **AzureChina**, **AzureUsGovernment** y **AzureGermany**. De forma predeterminada, se usa el entorno de nube del servicio. | No |
 | alwaysEncryptedSettings | Especifique la información **alwaysencryptedsettings** necesaria para permitir que Always Encrypted proteja los datos confidenciales almacenados en un servidor SQL mediante una identidad administrada o una entidad de servicio. Para obtener más información, vea el ejemplo de JSON debajo de la tabla y consulte la sección [Uso de Always Encrypted](#using-always-encrypted). Si no se especifica, la configuración predeterminada Always Encrypted está deshabilitada. |No |
-| connectVia | Este [entorno de ejecución de integración](concepts-integration-runtime.md) se usa para conectarse al almacén de datos. Puede usar un entorno de ejecución de integración autohospedado o un entorno de ejecución de integración de Azure si la instancia administrada tiene un punto de conexión público y permite que Azure Data Factory acceda a él. Si no se especifica, se usa el valor predeterminado de Azure Integration Runtime. |Sí |
+| connectVia | Este [entorno de ejecución de integración](concepts-integration-runtime.md) se usa para conectarse al almacén de datos. Puede usar un entorno de ejecución de integración autohospedado o un entorno de ejecución de integración de Azure si la instancia administrada tiene un punto de conexión público y permite que el servicio acceda a él. Si no se especifica, se usa el valor predeterminado de Azure Integration Runtime. |Sí |
 
 > [!NOTE]
 > El flujo de datos no admite la característica [**Always Encrypted**](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15&preserve-view=true) de SQL Managed Instance. 
@@ -181,25 +181,25 @@ Para usar la autenticación de token de aplicación de Azure AD basada en la ent
     - Clave de la aplicación
     - Id. de inquilino
 
-3. [Cree inicios de sesión](/sql/t-sql/statements/create-login-transact-sql) para la identidad administrada de Azure Data Factory. En SQL Server Management Studio (SSMS), conéctese a la instancia administrada con una cuenta de SQL Server que sea **sysadmin**. En la base de datos **maestra**, ejecute el siguiente script T-SQL:
+3. [Cree inicios de sesión](/sql/t-sql/statements/create-login-transact-sql) para la identidad administrada. En SQL Server Management Studio (SSMS), conéctese a la instancia administrada con una cuenta de SQL Server que sea **sysadmin**. En la base de datos **maestra**, ejecute el siguiente script T-SQL:
 
     ```sql
     CREATE LOGIN [your application name] FROM EXTERNAL PROVIDER
     ```
 
-4. [Cree usuarios de bases de datos independientes](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities) para la identidad administrada de Azure Data Factory. Conéctese a la base de datos de origen o destino de copia de los datos y ejecute el siguiente script T-SQL: 
+4. [Cree usuarios de bases de datos independientes](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities) para la identidad administrada. Conéctese a la base de datos de origen o destino de copia de los datos y ejecute el siguiente script T-SQL: 
   
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER
     ```
 
-5. Conceda a la identidad administrada de Data Factory los permisos necesarios, tal como lo haría normalmente para los usuarios de SQL y otros usuarios. Ejecute el código siguiente: Para más opciones, consulte [este documento](/sql/t-sql/statements/alter-role-transact-sql).
+5. Conceda a la identidad administrada los permisos necesarios, tal como lo haría normalmente para los usuarios de SQL y otros usuarios. Ejecute el código siguiente: Para más opciones, consulte [este documento](/sql/t-sql/statements/alter-role-transact-sql).
 
     ```sql
     ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your application name]
     ```
 
-6. En Azure Data Factory, configure un servicio vinculado de Instancia administrada de SQL.
+6. Configure un servicio vinculado de SQL Managed Instance.
 
 **Ejemplo: uso de la autenticación de la entidad de servicio**
 
@@ -227,31 +227,31 @@ Para usar la autenticación de token de aplicación de Azure AD basada en la ent
 
 ### <a name="managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a> Identidades administradas para la autenticación de recursos de Azure
 
-Una factoría de datos se puede asociar con una [identidad administrada para recursos de Azure](data-factory-service-identity.md) que representa esa factoría de datos concreta. Esta identidad administrada se puede usar para la autenticación de Instancia administrada de SQL. Puede acceder a la factoría designada y copiar datos desde la base de datos o en la base de datos usando esta identidad.
+Un área de trabajo de Data Factory o de Synapse se puede asociar con una [identidad administrada para recursos de Azure](data-factory-service-identity.md) que represente el servicio para la autenticación en otros servicios de Azure. Esta identidad administrada se puede usar para la autenticación de Instancia administrada de SQL. Puede acceder al servicio designado y copiar datos desde la base de datos o en la base de datos usando esta identidad.
 
 Para usar la autenticación de identidad administrada, siga estos pasos.
 
 1. Siga los pasos que aparecen en [Aprovisionamiento de un administrador de Azure Active Directory para su instancia administrada](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
-2. [Cree inicios de sesión](/sql/t-sql/statements/create-login-transact-sql) para la identidad administrada de Azure Data Factory. En SQL Server Management Studio (SSMS), conéctese a la instancia administrada con una cuenta de SQL Server que sea **sysadmin**. En la base de datos **maestra**, ejecute el siguiente script T-SQL:
+2. [Cree inicios de sesión](/sql/t-sql/statements/create-login-transact-sql) para la identidad administrada. En SQL Server Management Studio (SSMS), conéctese a la instancia administrada con una cuenta de SQL Server que sea **sysadmin**. En la base de datos **maestra**, ejecute el siguiente script T-SQL:
 
     ```sql
-    CREATE LOGIN [your Data Factory name] FROM EXTERNAL PROVIDER
+    CREATE LOGIN [your_factory_or_workspace_ name] FROM EXTERNAL PROVIDER
     ```
 
-3. [Cree usuarios de bases de datos independientes](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities) para la identidad administrada de Azure Data Factory. Conéctese a la base de datos de origen o destino de copia de los datos y ejecute el siguiente script T-SQL: 
+3. [Cree usuarios de bases de datos independientes](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities) para la identidad administrada. Conéctese a la base de datos de origen o destino de copia de los datos y ejecute el siguiente script T-SQL: 
   
     ```sql
-    CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER
+    CREATE USER [your_factory_or_workspace_name] FROM EXTERNAL PROVIDER
     ```
 
-4. Conceda a la identidad administrada de Data Factory los permisos necesarios, tal como lo haría normalmente para los usuarios de SQL y otros usuarios. Ejecute el código siguiente: Para más opciones, consulte [este documento](/sql/t-sql/statements/alter-role-transact-sql).
+4. Conceda a la identidad administrada los permisos necesarios, tal como lo haría normalmente para los usuarios de SQL y otros usuarios. Ejecute el código siguiente: Para más opciones, consulte [este documento](/sql/t-sql/statements/alter-role-transact-sql).
 
     ```sql
-    ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your Data Factory name]
+    ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your_factory_or_workspace_name]
     ```
 
-5. En Azure Data Factory, configure un servicio vinculado de Instancia administrada de SQL.
+5. Configure un servicio vinculado de SQL Managed Instance.
 
 **Ejemplo: uso de autenticación de identidad administrada**
 
@@ -438,7 +438,7 @@ Para copiar datos a Instancia administrada de SQL, se admiten las siguientes pro
 | storedProcedureTableTypeParameterName |Nombre del parámetro del tipo de tabla especificado en el procedimiento almacenado.  |No |
 | sqlWriterTableType |Nombre del tipo de tabla que se usará en el procedimiento almacenado. La actividad de copia dispone que los datos que se mueven estén disponibles en una tabla temporal con este tipo de tabla. El código de procedimiento almacenado puede combinar los datos copiados con datos existentes. |No |
 | storedProcedureParameters |Parámetros del procedimiento almacenado.<br/>Los valores permitidos son pares de nombre y valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. | No |
-| writeBatchSize |Número de filas que se va a insertar en la tabla SQL *por lote*.<br/>Los valores permitidos son enteros para el número de filas. De forma predeterminada, Azure Data Factory determina dinámicamente el tamaño adecuado del lote en función del tamaño de fila.  |No |
+| writeBatchSize |Número de filas que se va a insertar en la tabla SQL *por lote*.<br/>Los valores permitidos son enteros para el número de filas. De manera predeterminada, el servicio determina dinámicamente el tamaño adecuado del lote en función del tamaño de fila.  |No |
 | writeBatchTimeout |Esta propiedad especifica el tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br/>Los valores permitidos son para el intervalo de tiempo. Un ejemplo es "00:30:00", que es 30 minutos. |No |
 | maxConcurrentConnections |Número máximo de conexiones simultáneas establecidas en el almacén de datos durante la ejecución de la actividad. Especifique un valor solo cuando quiera limitar las conexiones simultáneas.| No |
 
@@ -519,17 +519,17 @@ Para más información, vea [Invocación del procedimiento almacenado desde el r
 
 En la actividad de copia, el conector de Azure SQL Managed Instance proporciona creación de particiones de datos integrada para copiar los datos en paralelo. Puede encontrar las opciones de creación de particiones de datos en la pestaña **Origen** de la actividad de copia.
 
-![Captura de pantalla de las opciones de partición](./media/connector-sql-server/connector-sql-partition-options.png)
+:::image type="content" source="./media/connector-sql-server/connector-sql-partition-options.png" alt-text="Captura de pantalla de las opciones de partición":::
 
-Al habilitar la copia con particiones, la actividad de copia ejecuta consultas en paralelo en el origen de SQL Managed Instance para cargar los datos por particiones. El grado en paralelo se controla mediante el valor [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) de la actividad de copia. Por ejemplo, si establece `parallelCopies` en cuatro, Data Factory genera y ejecuta cuatro consultas de forma simultánea en función de la configuración y la opción de partición que se ha especificado, y cada consulta recupera una porción de datos de SQL Managed Instance.
+Al habilitar la copia con particiones, la actividad de copia ejecuta consultas en paralelo en el origen de SQL Managed Instance para cargar los datos por particiones. El grado en paralelo se controla mediante el valor [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) de la actividad de copia. Por ejemplo, si establece `parallelCopies` en cuatro, el servicio genera y ejecuta al mismo tiempo cuatro consultas de acuerdo con la configuración y la opción de partición que ha especificado, y cada consulta recupera una porción de datos de SQL MI.
 
 Se sugiere habilitar la copia en paralelo con la creación de particiones de datos, especialmente si se cargan grandes cantidades de datos de SQL Managed Instance. Estas son algunas configuraciones sugeridas para diferentes escenarios. Cuando se copian datos en un almacén de datos basado en archivos, se recomienda escribirlos en una carpeta como varios archivos (solo especifique el nombre de la carpeta), en cuyo caso el rendimiento es mejor que escribirlos en un único archivo.
 
 | Escenario                                                     | Configuración sugerida                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Carga completa de una tabla grande con particiones físicas.        | **Opción de partición**: particiones físicas de la tabla. <br><br/>Durante la ejecución, Data Factory detecta automáticamente las particiones físicas y copia los datos mediante particiones. <br><br/>Para comprobar si la tabla tiene una partición física o no, puede hacer referencia a [esta consulta](#sample-query-to-check-physical-partition). |
-| Carga completa de una tabla grande, sin particiones físicas, aunque con una columna de tipo entero o datetime para la creación de particiones de datos. | **Opciones de partición**: partición por rangos dinámica.<br>**Columna de partición** (opcional): especifique la columna usada para crear la partición de datos. Si no se especifica, se usa la columna de índice o clave principal.<br/>**Límite de partición superior** y **límite de partición inferior** (opcional): especifique si quiere determinar el intervalo de la partición. No es para filtrar las filas de la tabla, se crean particiones de todas las filas de la tabla y se copian. Si no se especifica, la actividad de copia detecta automáticamente los valores.<br><br>Por ejemplo, si la columna de partición "ID" tiene valores que van de 1 a 100 y establece el límite inferior en 20 y el superior en 80, con la copia en paralelo establecida en 4, Data Factory recupera los datos por 4 particiones: los id. del rango <=20, [21, 50], [51, 80] y >=81, respectivamente. |
-| Carga de grandes cantidades de datos mediante una consulta personalizada, sin particiones físicas, aunque con una columna de tipo entero o date/datetime para la creación de particiones de datos. | **Opciones de partición**: partición por rangos dinámica.<br>**Consulta**: `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Columna de partición**: especifique la columna usada para crear la partición de datos.<br>**Límite de partición superior** y **límite de partición inferior** (opcional): especifique si quiere determinar el intervalo de la partición. No es para filtrar las filas de la tabla, se crean particiones de todas las filas del resultado de la consulta y se copian. Si no se especifica, la actividad de copia detecta automáticamente el valor.<br><br>Durante la ejecución, Data Factory reemplaza `?AdfRangePartitionColumnName` por el nombre real de la columna y los rangos de valor de cada partición y se los envía a SQL Managed Instance. <br>Por ejemplo, si la columna de partición "ID" tiene valores que van de 1 a 100 y establece el límite inferior en 20 y el superior en 80, con la copia en paralelo establecida en 4, Data Factory recupera los datos por 4 particiones: los id. del rango <=20, [21, 50], [51, 80] y >=81, respectivamente. <br><br>A continuación se muestran más consultas de ejemplo para distintos escenarios:<br> 1. Consulta de la tabla completa: <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. Consulta de una tabla con selección de columnas y filtros adicionales de la cláusula where: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. Consulta con subconsultas: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. Consulta con partición en subconsulta: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
+| Carga completa de una tabla grande con particiones físicas.        | **Opción de partición**: particiones físicas de la tabla. <br><br/>Durante la ejecución, el servicio detecta automáticamente las particiones físicas y copia los datos por particiones. <br><br/>Para comprobar si la tabla tiene una partición física o no, puede hacer referencia a [esta consulta](#sample-query-to-check-physical-partition). |
+| Carga completa de una tabla grande, sin particiones físicas, aunque con una columna de tipo entero o datetime para la creación de particiones de datos. | **Opciones de partición**: partición por rangos dinámica.<br>**Columna de partición** (opcional): especifique la columna usada para crear la partición de datos. Si no se especifica, se usa la columna de índice o clave principal.<br/>**Límite de partición superior** y **límite de partición inferior** (opcional): especifique si quiere determinar el intervalo de la partición. No es para filtrar las filas de la tabla, se crean particiones de todas las filas de la tabla y se copian. Si no se especifica, la actividad de copia detecta automáticamente los valores.<br><br>Por ejemplo, si la columna de partición "ID" tiene valores que van de 1 a 100 y establece el límite inferior en 20 y el superior en 80, con la copia en paralelo establecida en 4, el servicio recupera los datos en 4 particiones: identificadores del rango <=20, del rango [21, 50], del rango [51, 80] y del rango >=81, respectivamente. |
+| Carga de grandes cantidades de datos mediante una consulta personalizada, sin particiones físicas, aunque con una columna de tipo entero o date/datetime para la creación de particiones de datos. | **Opciones de partición**: partición por rangos dinámica.<br>**Consulta**: `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Columna de partición**: especifique la columna usada para crear la partición de datos.<br>**Límite de partición superior** y **límite de partición inferior** (opcional): especifique si quiere determinar el intervalo de la partición. No es para filtrar las filas de la tabla, se crean particiones de todas las filas del resultado de la consulta y se copian. Si no se especifica, la actividad de copia detecta automáticamente el valor.<br><br>Durante la ejecución, el servicio reemplaza `?AdfRangePartitionColumnName` por el nombre real de la columna y los rangos de valores de cada partición y se los envía a SQL MI. <br>Por ejemplo, si la columna de partición "ID" tiene valores que van de 1 a 100 y establece el límite inferior en 20 y el superior en 80, con la copia en paralelo establecida en 4, el servicio recupera los datos en 4 particiones: identificadores del rango <=20, del rango [21, 50], del rango [51, 80] y del rango >=81, respectivamente. <br><br>A continuación se muestran más consultas de ejemplo para distintos escenarios:<br> 1. Consulta de la tabla completa: <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. Consulta de una tabla con selección de columnas y filtros adicionales de la cláusula where: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. Consulta con subconsultas: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. Consulta con partición en subconsulta: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
 |
 
 Procedimientos recomendados para cargar datos con la opción de partición:
@@ -580,7 +580,7 @@ WHERE s.name='[your schema]' AND t.name = '[your table name]'
 
 Si la tabla tiene una partición física, verá "HasPartition" como "yes" como en el caso siguiente.
 
-![Resultado de la consulta SQL](./media/connector-azure-sql-database/sql-query-result.png)
+:::image type="content" source="./media/connector-azure-sql-database/sql-query-result.png" alt-text="Resultado de la consulta SQL":::
 
 ## <a name="best-practice-for-loading-data-into-sql-managed-instance"></a>Procedimiento recomendado para cargar datos en Instancia administrada de SQL
 
@@ -591,11 +591,11 @@ Al copiar datos en Instancia administrada de SQL, puede requerir un comportamien
 - [Sobrescritura](#overwrite-the-entire-table): quiero volver a cargar toda la tabla de dimensiones cada vez.
 - [Escritura con lógica personalizada](#write-data-with-custom-logic): necesito un procesamiento adicional antes de la inserción final en la tabla de destino. 
 
-Consulte las secciones correspondientes sobre cómo configurar estas operaciones en Azure Data Factory y los procedimientos recomendados.
+Consulte las secciones correspondientes sobre cómo configurar estas operaciones y los procedimientos recomendados.
 
 ### <a name="append-data"></a>Anexión de datos
 
-La anexión de datos es el comportamiento predeterminado de este conector de receptor de Instancia administrada de SQL. Azure Data Factory realiza una inserción masiva para escribir en la tabla de forma eficaz. Puede configurar el origen y el receptor según corresponda en la actividad de copia.
+La anexión de datos es el comportamiento predeterminado de este conector de receptor de Instancia administrada de SQL. El servicio realiza una inserción masiva para escribir en la tabla de forma eficaz. Puede configurar el origen y el receptor según corresponda en la actividad de copia.
 
 ### <a name="upsert-data"></a>Actualización e inserción de datos
 
@@ -603,9 +603,9 @@ La anexión de datos es el comportamiento predeterminado de este conector de rec
 
 La actividad de copia actualmente no admite de forma nativa la carga de datos en una tabla temporal de base de datos. Hay una forma avanzada de configurarla con una combinación de varias actividades. Vea [Optimización de escenarios de upsert masivo de SQL Database](https://github.com/scoriani/azuresqlbulkupsert). A continuación se muestra un ejemplo de uso de una tabla permanente como almacenamiento provisional.
 
-Por ejemplo, en Azure Data Factory, puede crear una canalización con una **actividad de copia** encadenada con una **actividad de procedimiento almacenado**. La primera copia datos del almacén de origen en una tabla de almacenamiento provisional de Instancia administrada de Azure SQL, por ejemplo, **UpsertStagingTable**, como nombre de la tabla del conjunto de datos. Luego, la segunda invoca un procedimiento almacenado para combinar datos de origen de la tabla de almacenamiento provisional en la tabla de destino y limpiar la tabla de almacenamiento provisional.
+Por ejemplo, puede crear una canalización con una **actividad de copia** encadenada con una **actividad de procedimiento almacenado**. La primera copia datos del almacén de origen en una tabla de almacenamiento provisional de Instancia administrada de Azure SQL, por ejemplo, **UpsertStagingTable**, como nombre de la tabla del conjunto de datos. Luego, la segunda invoca un procedimiento almacenado para combinar datos de origen de la tabla de almacenamiento provisional en la tabla de destino y limpiar la tabla de almacenamiento provisional.
 
-![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
+:::image type="content" source="./media/connector-azure-sql-database/azure-sql-database-upsert.png" alt-text="Upsert":::
 
 En la base de datos, defina un procedimiento almacenado con la lógica MERGE, como en el ejemplo siguiente, al que se señala desde la actividad de procedimiento almacenado anterior. Suponga que el destino es la tabla **Marketing** con tres columnas: **ProfileID**, **State** y **Category**. Realice la operación upsert de acuerdo con la columna **ProfileID**.
 
@@ -630,7 +630,7 @@ END
 
 ### <a name="overwrite-the-entire-table"></a>Sobrescritura de toda la tabla
 
-Puede configurar la propiedad **preCopyScript** en un receptor de la actividad de copia. En este caso, Azure Data Factory ejecuta primero el script para cada actividad de copia que ejecute. Después, ejecuta la copia para insertar los datos. Por ejemplo, para sobrescribir toda la tabla con los datos más recientes, especifique un script para eliminar primero todos los registros antes de realizar la carga masiva de los nuevos datos desde el origen.
+Puede configurar la propiedad **preCopyScript** en un receptor de la actividad de copia. En este caso, para cada actividad de copia que se ejecuta, el servicio ejecuta primero el script. Después, ejecuta la copia para insertar los datos. Por ejemplo, para sobrescribir toda la tabla con los datos más recientes, especifique un script para eliminar primero todos los registros antes de realizar la carga masiva de los nuevos datos desde el origen.
 
 ### <a name="write-data-with-custom-logic"></a>Escritura de datos con lógica personalizada
 
@@ -671,7 +671,7 @@ En el ejemplo siguiente se muestra cómo usar un procedimiento almacenado para r
     END
     ```
 
-3. En Azure Data Factory, defina la sección del **receptor MI de SQL** en la actividad de copia como se indica a continuación:
+3. En la canalización, defina la sección del **receptor de SQL MI** en la actividad de copia como se indica a continuación:
 
     ```json
     "sink": {
@@ -755,9 +755,9 @@ Para información detallada sobre las propiedades, consulte [Actividad de obtenc
 
 ## <a name="data-type-mapping-for-sql-managed-instance"></a>Asignación de tipos de datos para Instancia administrada de SQL
 
-Al copiar datos desde y hacia SQL Managed Instance mediante la actividad de copia, se usan las siguientes asignaciones de los tipos de datos de SQL Managed Instance a los tipos de datos provisionales de Azure Data Factory. Consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md) para más información sobre cómo la actividad de copia asigna el tipo de datos y el esquema de origen al receptor.
+Al copiar datos desde y hacia SQL Managed Instance mediante la actividad de copia, se usan las siguientes asignaciones de los tipos de datos de SQL Managed Instance a los tipos de datos provisionales usados internamente en el servicio. Consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md) para más información sobre cómo la actividad de copia asigna el tipo de datos y el esquema de origen al receptor.
 
-| Tipo de datos de Instancia administrada de SQL | Tipo de datos provisionales de Azure Data Factory |
+| Tipo de datos de Instancia administrada de SQL | Tipo de datos de servicio provisional |
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
@@ -812,4 +812,4 @@ Al copiar datos desde o hacia SQL Server con [Always Encrypted](/sql/relational-
 >3. Los almacenes de datos de origen y receptores usan la misma entidad de servicio como tipo de autenticación del proveedor de claves.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

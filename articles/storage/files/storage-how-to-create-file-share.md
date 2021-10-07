@@ -9,12 +9,12 @@ ms.date: 07/27/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
-ms.openlocfilehash: f1eae19bda4fae0744483a647eed47104e366e52
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: ac4d4ba50b9da33040fc1da27775d72c0156cba2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867053"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128547774"
 ---
 # <a name="create-an-azure-file-share"></a>Creación de un recurso compartido de archivos de Azure
 Para crear un recurso compartido de archivos de Azure, debe responder a tres preguntas sobre cómo lo usará:
@@ -211,9 +211,9 @@ Los recursos compartidos de archivos estándar pueden implementarse en uno de lo
 
 La propiedad **quota** significa algo ligeramente distinto en los recursos compartidos de archivos premium y en los estándar:
 
-- En el caso de los recursos compartidos de archivos estándar, es un límite superior del recurso compartido de archivos de Azure, que los usuarios finales no pueden superar. Si no se especifica una cuota, el recurso compartido de archivos estándar puede abarcar hasta 100 TiB, o 5 TiB si no se establece la propiedad de recursos compartidos de archivos grandes para una cuenta de almacenamiento. Si no ha creado la cuenta de almacenamiento con recursos compartidos de archivos grandes habilitados, vea [Habilitación de recursos compartidos de archivos grandes en una cuenta existente](#enable-large-files-shares-on-an-existing-account) para obtener información sobre cómo habilitar recursos compartidos de archivos de 100 TiB. El rendimiento (IOPS o Mbps) que reciba depende de la cuota establecida.
+- En el caso de los recursos compartidos de archivos estándar, es un límite superior del recurso compartido de archivos de Azure, que los usuarios finales no pueden superar. Si no se especifica una cuota, el recurso compartido de archivos estándar puede abarcar hasta 100 TiB, o 5 TiB si no se establece la propiedad de recursos compartidos de archivos grandes para una cuenta de almacenamiento. Si no ha creado la cuenta de almacenamiento con recursos compartidos de archivos grandes habilitados, vea [Habilitación de recursos compartidos de archivos grandes en una cuenta existente](#enable-large-files-shares-on-an-existing-account) para obtener información sobre cómo habilitar recursos compartidos de archivos de 100 TiB. 
 
-- En el caso de recursos compartidos de archivos prémium, la cuota indica **tamaño aprovisionado**. El tamaño aprovisionado es la cantidad que se facturará, independientemente del uso real. Para obtener más información sobre cómo planear un recurso compartido de archivos prémium, consulte el tema sobre el [aprovisionamiento de recursos compartidos de archivos prémium](understanding-billing.md#provisioned-model).
+- En el caso de recursos compartidos de archivos prémium, la cuota indica **tamaño aprovisionado**. El tamaño aprovisionado es la cantidad que se facturará, independientemente del uso real. La IOPS y el rendimiento disponibles en un recurso compartido de archivos prémium se basan en el tamaño aprovisionado. Para obtener más información sobre cómo planear un recurso compartido de archivos prémium, consulte el tema sobre el [aprovisionamiento de recursos compartidos de archivos prémium](understanding-billing.md#provisioned-model).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Si acaba de crear la cuenta de almacenamiento, puede navegar a esta desde la pantalla de implementación. Para ello, seleccione **Ir al recurso**. Una vez en la cuenta de almacenamiento, seleccione **Recurso compartido de archivos** en la tabla de contenido de la cuenta de almacenamiento.

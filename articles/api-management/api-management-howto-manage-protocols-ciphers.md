@@ -3,25 +3,28 @@ title: Administración de protocolos y cifrados en Azure API Management | Micros
 description: Obtenga información sobre cómo administrar protocolos (TLS) y cifrados (DES) en Azure API Management.
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: dlepow
 manager: cfowler
 editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/29/2019
-ms.author: apimpm
-ms.openlocfilehash: 043a3d0b63dfc74f587b58b3c2ac42f1a084cc4a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/07/2021
+ms.author: danlep
+ms.openlocfilehash: 02442bf73d16486ce51b765e6922bbf434fb69f1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86250318"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609809"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>Administración de protocolos y cifrados en Azure API Management
 
-Azure API Management admite varias versiones del protocolo TLS para los lados cliente y back-end, así como el cifrado 3DES.
+Azure API Management admite varias versiones del protocolo de Seguridad de la capa de transporte (TLS):
+* En el cliente
+* En el back-end
+* Para el cifrado 3DES
 
 Esta guía muestra cómo administrar la configuración de los protocolos y cifrados en una instancia de Azure API Management.
 
@@ -29,18 +32,20 @@ Esta guía muestra cómo administrar la configuración de los protocolos y cifra
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para seguir los pasos de este artículo, debe tener:
-
-* Una instancia de API Management
+* Una instancia de API Management [Cree una suscripción si todavía no lo ha hecho](get-started-create-service-instance.md).
 
 ## <a name="how-to-manage-tls-protocols-and-3des-cipher"></a>Cómo administrar protocolos TLS y el cifrado 3DES
 
 1. Vaya a la instancia de **API Management** en Azure Portal.
-2. Seleccione **Configuración del protocolo** en el menú.  
-3. Habilite o deshabilite los protocolos o los cifrados que quiera.
-4. Haga clic en **Save**(Guardar). Los cambios se aplicarán en el plazo de una hora.  
+1. Desplácese a la sección **Seguridad** del menú lateral.
+1. En la sección Seguridad, seleccione **Protocols + ciphers** (Protocolos y cifrados).  
+1. Habilite o deshabilite los protocolos o los cifrados que quiera.
+1. Haga clic en **Save**(Guardar). Los cambios se aplicarán en el plazo de una hora.  
+
+> [!NOTE]
+> Algunos protocolos o conjuntos de cifrado (como TLS 1.2 en el back-end) no se pueden habilitar ni deshabilitar desde Azure Portal. En su lugar, deberá utilizar la llamada REST. Utilice la estructura `properties.customProperties` de este artículo sobre la [creación o actualización de la API REST de API Management](/rest/api/apimanagement/2020-06-01-preview/api-management-service/create-or-update#request-body).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información sobre [TLS (Seguridad de la capa de transporte)](/dotnet/framework/network-programming/tls).
+* Más información sobre [TLS](/dotnet/framework/network-programming/tls).
 * Consulte más [vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sobre la administración de API.

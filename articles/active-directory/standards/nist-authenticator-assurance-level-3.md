@@ -13,12 +13,12 @@ ms.reviewer: martinco
 ms.date: 4/26/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d95bfadd23e1a8e0d2db70952c81667d24dc4230
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: e8821d2c3390ddfd07c7230b20e27b46330e6229
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122771027"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124816148"
 ---
 # <a name="achieve-nist-authenticator-assurance-level-3-by-using-azure-active-directory"></a>Cómo alcanzar el nivel 3 de garantía del autenticador de NIST con Azure Active Directory
 
@@ -38,7 +38,7 @@ Microsoft ofrece métodos de autenticación que le permiten satisfacer los tipos
 | Clave de seguridad FIDO2<br>or<br> Tarjeta inteligente (Servicios de federación de Active Directory [AD FS])<br>or<br>Windows Hello para empresas con TPM de hardware| Hardware criptográfico multifactor |
 | **Otros métodos**|   |
 | Contraseña<br> y<br>(Azure AD híbrido unido2 con TPM de hardware <br>or <br> Azure AD unido con TPM de hardware| Secreto memorizado<br>y<br> Hardware criptográfico de un solo factor |
-| Contraseña <br>y<br>(Hardware de contraseña única de un solo factor [de un fabricante de OTP] <br>or<br>Azure AD híbrido unido con TPM de software <br>or <br> Azure AD unido con TPM de software <br>or<br> Dispositivo administrado compatible)| Secreto memorizado <br>y<br>Hardware de contraseña única de un solo factor<br> y<br>Software criptográfico de un solo factor |
+| Contraseña <br>y<br>Hardware de contraseña única de un solo factor (de un fabricante de OTP) <br>y<br>(Azure AD híbrido unido con TPM de software <br>or <br> Azure AD unido con TPM de software <br>or<br> Dispositivo administrado compatible)| Secreto memorizado <br>y<br>Hardware de contraseña única de un solo factor<br> y<br>Software criptográfico de un solo factor |
 
 ### <a name="our-recommendations"></a>Nuestras recomendaciones 
 

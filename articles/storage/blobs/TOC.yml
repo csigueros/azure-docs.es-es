@@ -18,7 +18,7 @@ items:
         items:
           - name: Uso de blobs
             items:
-              - name: Azure portal
+              - name: Azure Portal
                 href: storage-quickstart-blobs-portal.md
               - name: Explorador de Storage
                 href: quickstart-storage-explorer.md
@@ -293,6 +293,8 @@ items:
             href: storage-blob-pageblob-overview.md
           - name: Sitios web estáticos
             href: storage-blob-static-website.md
+          - name: Actualización de Data Lake Storage Gen2
+            href: upgrade-to-data-lake-storage-gen2.md
           - name: Compatibilidad de las características de Blob Storage
             href: storage-feature-support-in-storage-accounts.md
       - name: Procedimientos
@@ -550,6 +552,8 @@ items:
                     href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage
           - name: Traslado entre regiones
             href: ../common/storage-account-move.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: "Actualización a Data\_Lake\_Storage Gen2"
+            href: upgrade-to-data-lake-storage-gen2-how-to.md
           - name: Monitor
             items:
               - name: Escenarios y procedimientos recomendados
@@ -838,7 +842,7 @@ items:
                 href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Administración del control de acceso
             items:
-              - name: Azure portal
+              - name: Azure Portal
                 href: data-lake-storage-acl-azure-portal.md
               - name: Explorador de Storage
                 href: data-lake-storage-explorer-acl.md

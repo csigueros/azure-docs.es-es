@@ -1,26 +1,26 @@
 ---
-title: Actividad Until en Azure Data Factory
+title: Actividad Until
 titleSuffix: Azure Data Factory & Azure Synapse
-description: La actividad Until ejecuta un conjunto de actividades en un bucle hasta que la condición asociada a la actividad la evalúa como "true" o se agota el tiempo de espera.
+description: La actividad Until en canalizaciones de Azure Data Factory y Synapse Analytics ejecuta un conjunto de actividades en un bucle hasta que la condición asociada a la actividad la evalúa como "true" o se agota el tiempo de espera.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 09/09/2021
 ms.custom: devx-track-azurepowershell, synapse
-ms.openlocfilehash: 2191dd75f2dbf24a59dbb7c43f8ef9ec62705aee
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d31e6c5b5a21f3064abf16779bd0a44e877b2737
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637951"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124815002"
 ---
-# <a name="until-activity-in-azure-data-factory"></a>Actividad Until en Azure Data Factory
+# <a name="until-activity-in-azure-data-factory-and-synapse-analytics"></a>Actividad Until en Azure Data Factory y Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-La actividad Until proporciona la misma funcionalidad que una estructura de bucle Do-Until en lenguajes de programación. Ejecuta un conjunto de actividades en un bucle hasta que la condición asociada a la actividad la evalúa como "true". Puede especificar un valor de tiempo de espera para la actividad Until en Data Factory. 
+La actividad Until proporciona la misma funcionalidad que una estructura de bucle Do-Until en lenguajes de programación. Ejecuta un conjunto de actividades en un bucle hasta que la condición asociada a la actividad la evalúa como "true". Puede especificar un valor de tiempo de espera para la actividad Until. 
 
 ## <a name="syntax"></a>Sintaxis
 
@@ -58,15 +58,15 @@ name | Nombre de la actividad `Until`. | String | Sí
 type | Debe establecerse en **Until**. | String | Sí
 expresión | Expresión que debe evaluarse como "true" o "false" | Expresión.  | Sí
 timeout | El tiempo de espera del bucle Do-Until se agota transcurrido el tiempo especificado aquí. | String. `d.hh:mm:ss` (o) `hh:mm:ss`. El valor predeterminado es de 7 días. El valor máximo es 90 días. | No
-Actividades | Conjunto de actividades que se ejecutan hasta que la expresión se evalúa como `true`. | Matriz de actividades. |  Sí
+Actividades | Conjunto de actividades que se ejecutan hasta que la expresión se evalúa como `true`. | Matriz de actividades. |  Yes
 
 ## <a name="example-1"></a>Ejemplo 1
 
 > [!NOTE]
-> En esta sección se proporcionan definiciones JSON y comandos de PowerShell de ejemplo para ejecutarlos en la canalización. Para ver una guía con instrucciones paso a paso para crear una canalización de Data Factory con definiciones de JSON y Azure PowerShell, consulte [Tutorial: Creación de una factoría de datos y una canalización con PowerShell](quickstart-create-data-factory-powershell.md).
+> En esta sección se proporcionan definiciones JSON y comandos de PowerShell de ejemplo para ejecutarlos en la canalización. Para ver una guía con instrucciones paso a paso para crear una canalización con definiciones de JSON y Azure PowerShell, consulte [Tutorial: Creación de una factoría de datos mediante Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### <a name="pipeline-with-until-activity"></a>Canalización con actividad Until
-En este ejemplo, la canalización tiene dos actividades: **Until** y **Wait**. La actividad Wait espera durante el período de tiempo especificado antes de ejecutar la actividad Web en el bucle. Para obtener más información sobre las expresiones y funciones de Data Factory, consulte [Expresiones y funciones de Azure Data Factory](control-flow-expression-language-functions.md). 
+En este ejemplo, la canalización tiene dos actividades: **Until** y **Wait**. La actividad Wait espera durante el período de tiempo especificado antes de ejecutar la actividad Web en el bucle. Para obtener más información sobre las expresiones y funciones, consulte [Lenguaje de expresiones y funciones](control-flow-expression-language-functions.md). 
 
 ```json
 {
@@ -287,7 +287,7 @@ while ($True) {
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte otras actividades de flujo de control compatibles con Data Factory: 
+Vea otras actividades de flujo de control admitidas: 
 
 - [Actividad If Condition](control-flow-if-condition-activity.md)
 - [Actividad de ejecución de canalización](control-flow-execute-pipeline-activity.md)

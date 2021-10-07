@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: 3e7780f2214cd603bbf4bd7955a8be7bc7128b89
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: 4c770899c2673926b9db7a676958db56a8ae71be
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122777626"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092573"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configuración de un dispositivo para servidores físicos
 
@@ -62,7 +62,7 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 
     **Descargar** | **Valor del código hash**
     --- | ---
-    [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140334) | CA8CEEE4C7AC13328ECA56AE9EB35137336CD3D73B1F867C4D736286EF61A234
+    [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140334) | BA84B58E88DDFE23E5D4CE73530227EBBC187B3634B66A3E0F0B3E5DF5F0A94F
 
 > [!NOTE]
 > Se puede usar el mismo script para configurar el dispositivo físico para la nube pública de Azure o la nube de Azure Government.
@@ -74,8 +74,7 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 3. Cambie el directorio de PowerShell a la carpeta en la que se ha extraído el contenido del archivo comprimido descargado.
 4. Ejecute el script denominado **AzureMigrateInstaller.ps1** ejecutando el comando siguiente:
 
-    
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
+   `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1`
 
 5. Seleccione entre las opciones de escenario, nube y conectividad para implementar un dispositivo con la configuración deseada. Por ejemplo, la selección que se muestra a continuación configura un dispositivo y evalúa **servidores físicos** _(o servidores que se ejecutan en otras nubes, como AWS, GCP, Xen, etc.)_ en un proyecto de Azure Migrate con la conectividad **predeterminada _(punto de conexión público)_**  en la **nube pública de Azure**.
 

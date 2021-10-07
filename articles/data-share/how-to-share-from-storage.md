@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 04/20/2021
-ms.openlocfilehash: 59c1ca67c9e93b62890512cda647ffcdf7712f9a
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.date: 09/10/2021
+ms.openlocfilehash: 61189ba63c072f2c08acc55047d494b076288953
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107819275"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743248"
 ---
 # <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Uso compartido y recepción de datos de Azure Blob Storage y Azure Data Lake Storage
 
@@ -143,6 +143,8 @@ Puede abrir una invitación desde el correo electrónico o directamente en Azure
 1. Para abrir una invitación desde el correo electrónico, compruebe la bandeja de entrada para ver si hay una invitación de su proveedor de datos. La invitación de Microsoft Azure se titula *Azure Data Share invitation from \<yourdataprovider\@domain.com>* (Invitación para Azure Data Share de yourdataprovider@domain.com). Seleccione **View invitation** (Ver invitación) para ver su invitación en Azure. 
 
    Para abrir una invitación desde Azure Portal, busque *Data Share invitations* (Invitaciones de Data Share). Verá una lista de invitaciones de Data Share.
+
+   Si es un usuario invitado de un inquilino, se le pedirá que compruebe la dirección de correo electrónico del inquilino antes de ver la invitación de Data Share por primera vez. Una vez comprobada, será válida durante 12 meses.
 
    ![Captura de pantalla que muestra la lista de invitaciones en Azure Portal.](./media/invitations.png "Lista de invitaciones.") 
 

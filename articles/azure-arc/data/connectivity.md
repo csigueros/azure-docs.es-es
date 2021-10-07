@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 09/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0cd1d38bf2a96e8530c9647a6b09ad55893e569a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fa34a8e5e801080f354e13b632917a1a05eabf43
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121748742"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124832639"
 ---
 # <a name="connectivity-modes-and-requirements"></a>Modos de conectividad y requisitos
 
@@ -119,6 +119,34 @@ Sí
 
 Ninguno
 
+### <a name="helm-chart-used-to-create-data-controller-in-direct-connected-mode"></a>Gráfico de Helm que se usa para crear un controlador de datos en modo de conexión directa
+
+El gráfico de Helm que se usa para aprovisionar el programa previo del controlador de datos de Azure Arc y los objetos de nivel de clúster, como definiciones de recursos personalizados, roles de clúster y enlaces de rol de clúster, se extrae de una instancia de Azure Container Registry.
+
+#### <a name="connection-source"></a>Origen de la conexión
+
+El kubelet de Kubernetes de cada uno de los nodos de Kubernetes extrae las imágenes del contenedor.
+
+#### <a name="connection-target"></a>Destino de la conexión
+
+`arcdataservicesrow1.azurecr.io`
+
+#### <a name="protocol"></a>Protocolo
+
+HTTPS
+
+#### <a name="port"></a>Port
+
+443
+
+#### <a name="can-use-proxy"></a>Se puede usar servidor proxy
+
+Sí
+
+#### <a name="authentication"></a>Authentication
+
+Ninguno
+
 ### <a name="azure-resource-manager-apis"></a>API de Azure Resource Manager:
 Azure Data Studio y la CLI de Azure se conectan a las API de Azure Resource Manager para enviar y recuperar datos de Azure para algunas características.
 
@@ -195,4 +223,3 @@ Azure Active Directory
 > Por ahora, todas las conexiones HTTPS/443 del explorador al controlador de datos para ejecutar el comando `az arcdata dc export` y los paneles de Grafana y Kibana se cifran mediante SSL con certificados autofirmados.  En el futuro estará disponible una característica que le permitirá proporcionar sus propios certificados para el cifrado de estas conexiones SSL.
 
 La conectividad desde Azure Data Studio al servidor de API de Kubernetes usa el cifrado y la autenticación de Kubernetes que haya establecido.  Cada usuario que usa Azure Data Studio o la CLI debe tener una conexión autenticada a la API de Kubernetes para realizar muchas de las acciones relacionadas con los servicios de datos habilitados para Azure Arc.
-

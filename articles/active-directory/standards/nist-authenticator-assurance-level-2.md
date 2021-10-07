@@ -13,12 +13,12 @@ ms.reviewer: martinco
 ms.date: 4/26/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 168ea35d32a02d512ef088ace098d2938a57c022
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 30287957ca9d44c27f0d46efb6ae358db7d6ab44
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111889767"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662274"
 ---
 # <a name="achieve-nist-authenticator-assurance-level-2-with-azure-active-directory"></a>Logro del nivel 2 de seguridad del autenticador de NIST con Azure Active Directory
 
@@ -42,9 +42,11 @@ En la tabla siguiente, se proporcionan detalles sobre los tipos de autenticadore
 | **Otros métodos** |  |
 | Contraseña y teléfono (SMS) | Secreto memorizado + fuera de banda |
 | Contraseña + aplicación Microsoft Authenticator (OTP)<br>Contraseña + SF OTP | Secreto memorizado + contraseña única de un solo factor |
-| Contraseña + Azure AD unido al TPM de software <br>Contraseña + dispositivo móvil compatible<br>Contraseña + Azure AD híbrido unido al TPM de software <br>Contraseña + aplicación Microsoft Authenticator (notificación) | Secreto memorizado + SW de criptografía de factor único |
+| Contraseña + Azure AD unido al TPM de software <br>Contraseña + dispositivo móvil compatible<br>Contraseña + Azure AD híbrido unido al TPM de software <br>Contraseña + aplicación Microsoft Authenticator (notificación) | Secreto memorizado + software criptográfico de un solo factor |
 | Contraseña + Azure AD unido con TPM de hardware <br>Contraseña + unión a Azure AD híbrido con TPM de hardware | Secreto memorizado + hardware criptográfico de un solo factor |
 
+> [!NOTE]
+> En una directiva de acceso condicional, si necesita que un dispositivo esté marcado como conforme o unido a Azure AD híbrido, Authenticator actuará como barrera contra la suplantación del comprobador.
 
 ### <a name="our-recommendations"></a>Nuestras recomendaciones
 

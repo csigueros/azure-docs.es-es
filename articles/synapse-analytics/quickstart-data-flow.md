@@ -9,12 +9,12 @@ ms.subservice: pipeline
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/03/2020
-ms.openlocfilehash: 37696d2f4054e46125b39f3d5efa794ce54f94b5
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 481d4534f7213d55c795383d6112fd93f7997c9c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567730"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596873"
 ---
 # <a name="quickstart-transform-data-using-mapping-data-flows"></a>Inicio rápido: Transformación de datos mediante flujos de datos de asignación
 
@@ -109,11 +109,11 @@ Una vez creado el flujo de datos, se le enviará automáticamente al lienzo fluj
 
     En este inicio rápido, quiere filtrar las películas de género comedia que se estrenaron entre los años 1910 y 2000. Dado que el año es actualmente una cadena, debe convertirlo en un entero mediante la función ```toInteger()```. Use los operadores mayor o igual que (> =) y menor o igual que (< =) para comparar con los valores de año literal 1910 y 200-. Una estas expresiones junto con el operador and (&&). La expresión aparece como:
 
-    ```toInteger(year) >= 1910 && toInteger(year) <= 2000```
+    `toInteger(year) >= 1910 && toInteger(year) <= 2000`
 
-    Para averiguar qué películas son comedias, puede usar la función ```rlike()``` para buscar el patrón " comedia" en la columna de géneros. Una la expresión rlike con la comparación de año para obtener:
+    Para averiguar qué películas son comedias, puede usar la función `rlike()` para buscar el patrón " comedia" en la columna de géneros. Una la expresión `rlike` con la comparación de año para obtener:
 
-    ```toInteger(year) >= 1910 && toInteger(year) <= 2000 && rlike(genres, 'Comedy')```
+    `toInteger(year) >= 1910 && toInteger(year) <= 2000 && rlike(genres, 'Comedy')`
 
     ![Especificación de la condición de filtrado](media/quickstart-data-flow/visual-expression-builder.png)
 
@@ -137,7 +137,7 @@ Una vez creado el flujo de datos, se le enviará automáticamente al lienzo fluj
 
 1. Para obtener el promedio de la columna **Rating** (Clasificación), use la función de agregado ```avg()```. Como **Rating** (Clasificación) es una cadena y ```avg()``` toma una entrada numérica, debemos convertir el valor en un número a través de la función ```toInteger()```. Se trata de una expresión similar a la siguiente:
 
-    ```avg(toInteger(Rating))```
+    `avg(toInteger(Rating))`
 
     Haga clic en **Guardar y finalizar** cuando haya terminado.
 

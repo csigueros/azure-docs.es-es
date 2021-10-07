@@ -1,5 +1,5 @@
 ---
-title: Supervisión y alertas de Azure Key Vault | Microsoft Docs
+title: Alertas de Azure Key Vault
 description: Cree un panel para supervisar el estado de su almacén de claves y configurar alertas.
 services: key-vault
 author: msmbaldwin
@@ -9,14 +9,14 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 3229e8a3ee482067677cdd5af1fb98b120ef8dd0
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 4c1f63bdc13822b7eb48dc5410a990dc75f3453e
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110082115"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060789"
 ---
-# <a name="monitoring-and-alerting-for-azure-key-vault"></a>Supervisión y alertas de Azure Key Vault
+# <a name="alerting-for-azure-key-vault"></a>Alertas de Azure Key Vault
 
 ## <a name="overview"></a>Información general
 
@@ -27,63 +27,6 @@ Una vez que haya empezado a usar Key Vault para almacenar los secretos de produc
 + Creación de alertas en los umbrales especificados
 
 Azure Monitor para Key Vault combina los registros y las métricas para proporcionar una solución de supervisión global. [Obtenga más información acerca de Azure Monitor para Key Vault aquí](../../azure-monitor/insights/key-vault-insights-overview.md#introduction-to-key-vault-insights).
-
-## <a name="basic-key-vault-metrics-to-monitor"></a>Métricas básicas de Key Vault para supervisar
-
-+ Disponibilidad del almacén  
-+ Saturación del almacén 
-+ Latencia de la API de servicio 
-+ Total de visitas de la API de servicio (filtrar por tipo de actividad) 
-+ Códigos de error (filtrar por código de estado) 
-
-**Disponibilidad del almacén**: esta métrica siempre debe estar en el 100 %. Esta es una métrica importante para la supervisión ya que puede mostrar rápidamente si el almacén de claves ha sufrido una interrupción. 
-
-**Saturación del almacén**: el número de solicitudes por segundo que puede procesar un almacén de claves se basa en el tipo de operación que se realiza. Algunas operaciones del almacén tienen un umbral inferior de solicitudes por segundo. Esta métrica suma el uso total del almacén de claves de todos los tipos de operaciones para obtener un valor porcentual que indica el uso actual del almacén de claves. Para obtener una lista completa de los límites del servicio Key Vault, consulte el siguiente documento. [Límites de servicio de Azure Key Vault](service-limits.md)
-
-**Latencia de la API de servicio**: esta métrica muestra la latencia media de las llamadas al almacén de claves, que se mide en el servicio. No incluye el tiempo consumido por el cliente o por la red entre el cliente y el servicio.
-
-**Total de visitas de la API**: esta métrica muestra todas las llamadas realizadas al almacén de claves. Esto le ayudará a identificar qué aplicaciones realizan llamadas a su almacén de claves. 
-
-**Códigos de error**: esta métrica le mostrará si el almacén de claves está experimentando una cantidad de errores inusual. Para obtener una lista completa de los códigos de error y la guía de solución de problemas, consulte el siguiente documento. [Códigos de error de la API REST de Azure Key Vault](rest-error-codes.md)
-
-## <a name="how-to-configure-metrics-and-create-a-dashboard"></a>Configuración de las métricas y creación de un panel
-
-1. Inicie sesión en Azure Portal.
-2. Vaya a Key Vault.
-3. Seleccione **Métricas** en **Supervisión**. 
-
-> [!div class="mx-imgBorder"]
-> ![Captura de pantalla en la que se resalta la opción Métricas en la sección Supervisión.](../media/alert-1.png)
-
-4. Actualice el título del gráfico a aquel que desee ver en el panel. 
-5. Seleccione el ámbito. En este ejemplo, se seleccionará un único almacén de claves. 
-6. Seleccione la métrica **Disponibilidad total del almacén** y la agregación **Avg** (Promedio). 
-7. Actualice el intervalo de tiempo a las últimas 24 horas y actualice la granularidad de tiempo a 1 minuto. 
-
-> [!div class="mx-imgBorder"]
-> ![Captura de pantalla que muestra la métrica Disponibilidad total del almacén.](../media/alert-2.png)
-
-8. Repita los pasos anteriores para las métricas de saturación del almacén y latencia de la API de servicio. Seleccione **Anclar al panel** para guardar las métricas en un panel. 
-
-> [!IMPORTANT]
-> Seleccione "Anclar al panel" y guarde todas las métricas que configure. Si abandona la página y vuelve a ella sin haberlas guardado, se perderán los cambios de configuración. 
-
-9. Para supervisar todos los tipos de operaciones en el almacén de claves, use la métrica **Total de visitas de la API de servicio** y seleccione **Aplicar división por tipo de actividad**.
-
-> [!div class="mx-imgBorder"]
-> ![Captura de pantalla que muestra el botón Aplicar división.](../media/alert-3.png)
-
-10. Para supervisar los códigos de error en el almacén de claves, use la métrica **Número total de resultados de la API de servicio** y seleccione **Aplicar división por tipo de actividad**.
-
-> [!div class="mx-imgBorder"]
-> ![Captura de pantalla que muestra la métrica Número total de resultados de la API de servicio seleccionada.](../media/alert-4.png)
-
-Ahora tendrá un panel con el aspecto siguiente. Puede hacer clic en los tres puntos de la parte superior derecha de cada icono y puede reorganizar y cambiar el tamaño de los iconos según sea necesario. 
-
-Una vez que guarde y publique el panel, se creará un nuevo recurso en la suscripción de Azure. Podrá verlo en cualquier momento si busca "panel compartido". 
-
-> [!div class="mx-imgBorder"]
-> ![Captura de pantalla que muestra el panel publicado.](../media/alert-5.png)
 
 ## <a name="how-to-configure-alerts-on-your-key-vault"></a>Configuración de alertas en Key Vault 
 
@@ -210,4 +153,9 @@ Consulte los siguientes parámetros de configuración.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Enhorabuena, ha creado correctamente un panel de supervisión y configurado las alertas para el almacén de claves. Si ha seguido todos los pasos anteriores, debería recibir alertas por correo electrónico cuando el almacén de claves cumpla los criterios de alerta que ha configurado. A continuación se muestra un ejemplo. Use las herramientas que ha configurado en este artículo para supervisar activamente el estado de su almacén de claves.
+Enhorabuena, ha creado correctamente un panel de supervisión y configurado las alertas para el almacén de claves.
+
+Si ha seguido todos los pasos anteriores, debería recibir alertas por correo electrónico cuando el almacén de claves cumpla los criterios de alerta que ha configurado. A continuación se muestra un ejemplo. Use las herramientas que ha configurado en este artículo para supervisar activamente el estado de su almacén de claves.
+
+- [Supervisión de Key Vault](monitor-key-vault.md)
+- [Supervisión de la referencia de los datos de Key Vault](monitor-key-vault-reference.md)

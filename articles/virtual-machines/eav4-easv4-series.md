@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/13/2021
 ms.author: ayshak
 ms.reviewer: jushiman
-ms.openlocfilehash: c040c0d4d3c4d2492a866afbf86fdde52809cd45
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 5b27feeb6e185ce2ea4bd247a3251a6e3db7dc98
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691189"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153603"
 ---
 # <a name="eav4-and-easv4-series"></a>Series Eav4 y Easv4
 
@@ -64,17 +64,17 @@ Los tamaños de la serie Eav4 se basan en el procesador EPYC<sup>TM</sup> 7452 d
 
 Los tamaños de la serie Easv4 se basan en el procesador EPYC<sup>TM</sup> 7452 de AMD de 2,35 Ghz que pueden alcanzar una frecuencia máxima incrementada de 3,35 Ghz y usar SSD Premium. Los tamaños de la serie Easv4 son ideales para aplicaciones empresariales de uso intensivo de memoria.
 
-| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS / MBps | Rendimiento máximo del disco sin almacenamiento en la caché expandido: IOPS/MBps<sup>1</sup> | Nº máx. NIC | Ancho de banda de red esperado (Mbps) |
-|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-| Standard_E2as_v4<sup>3</sup>|2|16|32|4|4000/32 (50)|3200/48| 4000/200 |2 | 800 |
-| Standard_E4as_v4 <sup>2</sup>|4|32|64|8|8000/64 (100)|6400/96| 8000/200 |2 | 1600 |
-| Standard_E8as_v4 <sup>2</sup>|8|64|128|16|16000/128 (200)|12800/192| 16 000/400 |4 | 3200 |
-| Standard_E16as_v4 <sup>2</sup>|16|128|256|32|32 000 / 255 (400)|25600/384| 32 000/800 |8 | 6400 |
-| Standard_E20as_v4|20|160|320|32|40000 / 320 (500)|32000 / 480| 40000/1000 |8 | 8000 |
-| Standard_E32as_v4<sup>2</sup>|32|256|512|32|64 000 / 510 (800)|51200/768| 64 000/1600 |8 | 12800 |
-| Standard_E48as_v4|48|384|768|32|96000/1020 (1200)|76800/1148| 80000/2000 |8 | 19200 |
-| Standard_E64as_v4<sup>2</sup>|64|512|1024|32|128000/1020 (1600)|80000/1200| 80000/2000 |8 | 25 600 |
-| Standard_E96as_v4 <sup>2</sup>|96|672|1344|32|192000/1020 (2400)|80000/1200| 80000/2000 |8 | 32000 |
+| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Rendimiento máximo de almacenamiento en caché y almacenamiento temporal expandidos: IOPS/MBps<sup>1</sup> | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS / MBps | Rendimiento máximo del disco sin almacenamiento en la caché expandido: IOPS/MBps<sup>1</sup> | Nº máx. NIC | Ancho de banda de red esperado (Mbps) |
+|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+| Standard_E2as_v4<sup>3</sup>|2|16|32|4|4000/32 (50)| 4000/100 |3200/48| 4000/200 |2 | 800 |
+| Standard_E4as_v4 <sup>2</sup>|4|32|64|8|8000/64 (100)| 8000/200 |6400/96| 8000/200 |2 | 1600 |
+| Standard_E8as_v4 <sup>2</sup>|8|64|128|16|16000/128 (200)| 16 000/400 |12800/192| 16 000/400 |4 | 3200 |
+| Standard_E16as_v4 <sup>2</sup>|16|128|256|32|32 000 / 255 (400)| 32 000/800 |25600/384| 32 000/800 |8 | 6400 |
+| Standard_E20as_v4|20|160|320|32|40000 / 320 (500)| 40000/1000 |32000 / 480| 40000/1000 |8 | 8000 |
+| Standard_E32as_v4<sup>2</sup>|32|256|512|32|64 000 / 510 (800)| 64 000/1600 |51200/768| 64 000/1600 |8 | 12800 |
+| Standard_E48as_v4|48|384|768|32|96000/1020 (1200)| 96 000/2000 |76800/1148| 80000/2000 |8 | 19200 |
+| Standard_E64as_v4<sup>2</sup>|64|512|1024|32|128000/1020 (1600)| 128 000/2000 |80000/1200| 80000/2000 |8 | 25 600 |
+| Standard_E96as_v4 <sup>2</sup>|96|672|1344|32|192000/1020 (2400)| 192000/2000 |80000/1200| 80000/2000 |8 | 32000 |
 
 <sup>1</sup> Las máquinas virtuales de la serie Easv4 pueden [expandir](./disk-bursting.md) su rendimiento de disco y llegar a una expansión máxima de hasta 30 minutos cada vez. <br>
 <sup>2</sup> [Tamaños de núcleos restringidos disponibles](./constrained-vcpu.md). <br>

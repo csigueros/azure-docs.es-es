@@ -5,18 +5,22 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 09/02/2021
 ms.author: tomfitz
-ms.openlocfilehash: 70151d70c884432c92f49e0f4b3e5e3f873b57ac
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 697a72e33b4f03f7441e51085f2519fa32f88590
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123429341"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124793690"
 ---
 # <a name="bicep-deployment-what-if-operation"></a>Operación what-if de implementación de Bicep
 
 Antes de implementar un archivo Bicep, puede obtener una vista previa de los cambios que se producirán. Azure Resource Manager proporciona la operación what-if que le permite ver cómo cambiarán los recursos si implementa el archivo Bicep. La operación hipotética no realiza ningún cambio en los recursos existentes. En su lugar, predice los cambios si se implementa el archivo Bicep.
 
 Puede usar la operación what-if con Azure PowerShell, la CLI de Azure o las operaciones de la API REST. La operación what-if se admite en las implementaciones de grupos de recursos, nivel de suscripción, grupos de administración e inquilinos.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Para más información sobre la operación hipotética y para obtener una guía práctica, consulte el módulo [Vista previa de los cambios de implementación de Azure mediante el uso de hipótesis](/learn/modules/arm-template-whatif/) en **Microsoft Learn**.
 
 ## <a name="install-azure-powershell-module"></a>Instalación del módulo de Azure PowerShell
 

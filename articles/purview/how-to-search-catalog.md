@@ -6,13 +6,13 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 03/16/2021
-ms.openlocfilehash: 178604335968c3664bde51c144759c1c040c359d
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.date: 09/27/2021
+ms.openlocfilehash: 5581a19f001b4caee8ef0e0d93908bd6d98471a0
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107564920"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213607"
 ---
 # <a name="search-the-azure-purview-data-catalog"></a>Búsqueda en Azure Purview Data Catalog
 
@@ -26,11 +26,11 @@ En Azure Purview, la barra de búsqueda se encuentra en la parte superior de la 
 
 :::image type="content" source="./media/how-to-search-catalog/purview-search-bar.png" alt-text="Captura de pantalla que muestra la ubicación de la barra de búsqueda de Azure Purview" border="true":::
 
-Al hacer clic en la barra de búsqueda, puede ver el historial de búsquedas recientes y los recursos a los que se ha accedido recientemente. Seleccione "Ver todo" para ver todos los recursos que se han visto recientemente.
+Al seleccionar la barra de búsqueda, puede ver el historial de búsquedas recientes y los recursos a los que se ha accedido recientemente. Seleccione **Ver todo** para ver todos los recursos que se han visto recientemente.
 
 :::image type="content" source="./media/how-to-search-catalog/search-no-keywords.png" alt-text="Captura de pantalla que muestra la barra de búsqueda antes de que se hayan escrito las palabras clave" border="true":::
 
-Escriba las palabras clave que ayuden a identificar el recurso, como su nombre, tipo de datos, clasificaciones y términos del glosario. A medida que escribe palabras clave relacionadas con el recurso deseado, Azure Purview muestra sugerencias sobre qué buscar y posibles coincidencias de recursos. Para completar la búsqueda, haga clic en "Ver resultados de la búsqueda" o presione "Entrar".
+Escriba las palabras clave que ayuden a identificar el recurso, como su nombre, tipo de datos, clasificaciones y términos del glosario. A medida que escribe palabras clave relacionadas con el recurso deseado, Azure Purview muestra sugerencias sobre qué buscar y posibles coincidencias de recursos. Para completar la búsqueda, seleccione **Ver resultados de la búsqueda** o presione "Entrar".
 
 :::image type="content" source="./media/how-to-search-catalog/search-keywords.png" alt-text="Captura de pantalla que muestra la barra de búsqueda cuando un usuario escribe palabras clave" border="true":::
 
@@ -38,7 +38,7 @@ En la página resultados de la búsqueda se muestra una lista de los recursos qu
 
 :::image type="content" source="./media/how-to-search-catalog/search-results.png" alt-text="Captura de pantalla que muestra los resultados de una búsqueda" border="true":::
 
- Haga clic en el recurso deseado para ver la página Detalles del recurso, donde podrá ver sus propiedades, incluidos el esquema, el linaje y los propietarios del recurso.
+ Seleccione el recurso deseado para ver la página Detalles del recurso, donde podrá ver sus propiedades, incluidos el esquema, el linaje y los propietarios del recurso.
 
 :::image type="content" source="./media/how-to-search-catalog/search-view-asset.png" alt-text="Captura de pantalla que muestra la página de detalles del recurso" border="true":::
 

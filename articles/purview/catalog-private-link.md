@@ -6,15 +6,19 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/18/2021
-ms.openlocfilehash: b65820ab72c0a20953a7e3e9e4a2ee964df51e07
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.date: 09/27/2021
+ms.openlocfilehash: 925c556ccc5657af604eb80d5d697ed6ebcb5260
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122831616"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129210656"
 ---
 # <a name="use-private-endpoints-for-your-azure-purview-account"></a>Uso de puntos de conexión privados para la cuenta de Azure Purview
+
+> [!IMPORTANT]
+> Si creó un punto de conexión privado del _portal_ para su cuenta de Purview **antes del 27 de septiembre de 2021 a las 15:30 UTC**, deberá realizar las acciones necesarias como se detalla en [Reconfiguración de DNS para puntos de conexión privados del portal](#reconfigure-dns-for-portal-private-endpoints). **Estas acciones deben completarse antes del 11 de octubre de 2021. Si no lo hace, los puntos de conexión privados del portal existentes dejarán de funcionar**.
+
 
 En este artículo se describe cómo configurar los puntos de conexión privados para Azure Purview.
 
@@ -42,12 +46,10 @@ Antes de implementar puntos de conexión privados para la cuenta de Azure Purvie
 
 Use la siguiente lista de comprobación recomendada para hacer la implementación de la cuenta de Azure Purview con puntos de conexión privados:
 
-
 |Escenario  |Objetivos  |
 |---------|---------|
-|**Escenario 1** - [Conexión de forma privada y segura a la cuenta de Purview](./catalog-private-link-account-portal.md)   | Debe habilitar el acceso a la cuenta de Azure Purview, incluido el acceso a _Azure Purview Studio_ y la API de Atlas mediante puntos de conexión privados. (Implementación de puntos de conexión privados de _cuenta_ y _portal_).   |
-|**Escenario 2** - [Examen de los orígenes de datos de forma privada y segura](./catalog-private-link-ingestion.md)  | Debe examinar los orígenes de datos en el entorno local y en Azure detrás de una red virtual mediante el entorno de ejecución de integración autohospedado. (Implementación de puntos de conexión privados de _ingesta_).    |
-|**Escenario 3** - [Conexión a Azure Purview y examen de los orígenes de datos de forma privada y segura](./catalog-private-link-end-to-end.md) |Debe restringir el acceso a la cuenta de Azure Purview solo a través de un punto de conexión privado, incluido el acceso a Azure Purview Studio, las API de Atlas y el examen de orígenes de datos en el entorno local y Azure detrás de una red virtual mediante el entorno de ejecución de integración autohospedado, lo que garantiza el aislamiento de red de un extremo a otro. (Implementación de puntos de conexión privados de _cuenta_, _portal_ e _ingesta_).   |
+|**Escenario 1** - [Conexión a Azure Purview y examen de los orígenes de datos de forma privada y segura](./catalog-private-link-end-to-end.md) |Debe restringir el acceso a la cuenta de Azure Purview solo a través de un punto de conexión privado, incluido el acceso a Azure Purview Studio, las API de Atlas y el examen de orígenes de datos en el entorno local y Azure detrás de una red virtual mediante el entorno de ejecución de integración autohospedado, lo que garantiza el aislamiento de red de un extremo a otro. (Implementación de puntos de conexión privados de _cuenta_, _portal_ e _ingesta_).   |
+|**Escenario 2** - [Conexión de forma privada y segura a la cuenta de Purview](./catalog-private-link-account-portal.md)   | Debe habilitar el acceso a la cuenta de Azure Purview, incluido el acceso a _Azure Purview Studio_ y la API de Atlas mediante puntos de conexión privados. (Implementación de puntos de conexión privados de _cuenta_ y _portal_).   |
 
 ## <a name="support-matrix-for-scanning-data-sources-through-_ingestion_-private-endpoint"></a>Matriz de compatibilidad para examinar orígenes de datos mediante el punto de conexión privado de _ingesta_
 
@@ -67,6 +69,49 @@ En escenarios en los que se usa el punto de conexión privado de _ingesta_ en la
 |Azure Synapse Analytics | IR autohospedado| Entidad de servicio|
 |Azure Synapse Analytics | IR autohospedado| Autenticación de SQL|
 
+## <a name="reconfigure-dns-for-portal-private-endpoints"></a>Reconfiguración de DNS para puntos de conexión privados del portal
+
+Si creó un punto de conexión privado del _portal_ para su cuenta de Purview **antes del 27 de septiembre de 2021 a las 15:30 UTC**, deberá realizar las acciones necesarias como se detalla en esta sección.
+
+- Si **usa un DNS personalizado o añadió directamente registros D de DNS necesarios** al archivo host de las máquinas, **no se requiere ninguna acción**. 
+
+- Si ha **configurado la integración de zonas DNS privadas de Azure** para su cuenta de Purview, siga estos pasos a fin de volver a implementar los puntos de conexión privados para volver a definir la configuración de DNS: 
+
+    1. Implemente un nuevo punto de conexión privado del portal:
+       
+        1. Vaya a [Azure Portal](https://portal.azure.com) y, a continuación, haga clic en su cuenta de Azure Purview. En **Configuración**, seleccione **Redes** y luego **Conexiones de punto de conexión privado**.
+
+            :::image type="content" source="media/catalog-private-link/purview-pe-reconfigure-portal.png" alt-text="Captura de pantalla que muestra cómo crear un punto de conexión privado del portal.":::
+
+        2. Seleccione **+ Punto de conexión privado** para crear uno.
+
+        3. Rellene la información básica.
+
+        4. En la pestaña **Recurso**, seleccione **Microsoft.Purview/portal** como **Tipo de recurso**.
+
+        5. En **Recurso**, seleccione la cuenta de Azure Purview y en **Subrecurso de destino**, seleccione **portal**.
+
+        6. En la pestaña **Configuración**, seleccione la red virtual y, a continuación, seleccione la zona DNS privada de Azure para crear una nueva zona DNS de Azure.
+            
+            :::image type="content" source="media/catalog-private-link/purview-pe-reconfigure-portal-dns.png" alt-text="Captura de pantalla que muestra cómo crear un punto de conexión privado del portal y una configuración de DNS.":::
+
+        7. Vaya a la página de resumen y seleccione **Crear** para crear el punto de conexión privado del portal.
+
+    2. Elimine el punto de conexión privado anterior del portal asociado a la cuenta de Purview. 
+
+    3. Asegúrese de que se crea una nueva zona DNS privada de Azure (privatelink.purviewstudio.azure.com) durante la implementación del punto de conexión privado del portal y de que existe un registro D (web) correspondiente en la zona DNS privada. 
+    
+    4. Asegúrese de que puede cargar correctamente Azure Purview Studio. El nuevo enrutamiento DNS puede tardar unos minutos (10, aproximadamente) en surtir efecto después de volver a configurar el DNS. Puede esperar unos minutos e intentarlo de nuevo si no se carga inmediatamente.
+    
+    5. Si se produce un error en la navegación, realice la acción nslookup web.purview.azure.com, que debe resolverse en una dirección IP privada asociada al punto de conexión privado del portal.
+  
+    6. Repita los pasos del 1 al 3 señalados anteriormente para todos los puntos de conexión privados existentes del portal que tenga. 
+
+- Si ha **configurado la resolución DNS local o personalizada** (por ejemplo, está usando sus propios servidores DNS o ha configurado archivos host), lleve a cabo las siguientes acciones: 
+
+  - Si el registro DNS es `web.purview.azure.com`, **no se requiere ninguna acción**.  
+  - Si el registro DNS es `web.privatelink.purview.azure.com`, actualice el registro a `web.privatelink.purviewstudio.azure.com`. 
+
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes  
 
 Para obtener preguntas más frecuentes relacionadas con las implementaciones de puntos de conexión privados en Azure Purview, consulte [Preguntas más frecuentes sobre los puntos de conexión privados de Azure Purview](./catalog-private-link-faqs.md).
@@ -79,4 +124,5 @@ Para ver la lista de limitaciones actuales relacionadas con los puntos de conexi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Implementación de puntos de conexión privados de ingesta](./catalog-private-link-ingestion.md)
+- [Implementación de redes privadas de un extremo a otro](./catalog-private-link-end-to-end.md)
+- [Implementación de redes privadas para Purview Studio](./catalog-private-link-account-portal.md)

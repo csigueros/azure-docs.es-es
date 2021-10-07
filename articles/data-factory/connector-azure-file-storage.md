@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 03/17/2021
-ms.openlocfilehash: 50136700ce4cc39a2a8166ce4c7d7d2960b53990
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/10/2021
+ms.openlocfilehash: 893142b873e408f5e884bdd1248d0275b6979757
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123313952"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744142"
 ---
 # <a name="copy-data-from-or-to-azure-files-by-using-azure-data-factory"></a>Copia de datos con Azure Files como origen o destino mediante Azure Data Factory
 
@@ -140,12 +140,12 @@ Data Factory admite las siguientes propiedades para la autenticación de clave d
 
 Una firma de acceso compartido ofrece acceso delegado a recursos en la cuenta de almacenamiento. Puede utilizar una firma de acceso compartido para conceder a un cliente permisos limitados a los objetos de su cuenta de almacenamiento durante un periodo de tiempo especificado. Para obtener más información sobre las firmas de acceso compartido, consulte [Uso de firmas de acceso compartido (SAS): Comprender el modelo de firma de acceso compartido](../storage/common/storage-sas-overview.md).
 
-Data Factory admite las siguientes propiedades para usar la autenticación con firma de acceso compartido:
+El servicio admite las siguientes propiedades para usar la autenticación con firma de acceso compartido:
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **AzureFileStorage**. | Sí |
-| sasUri | Especifique el URI de firma de acceso compartido a los recursos. <br/>Marque este campo como **SecureString** para almacenarlo de forma segura en Data Factory. También puede colocar el token de SAS en Azure Key Vault para usar la rotación automática y quitar la parte del token. Para obtener más información, consulte los siguientes ejemplos y el [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| sasUri | Especifique el URI de firma de acceso compartido a los recursos. <br/>Marque este campo como **SecureString** para almacenarlo de forma segura. También puede colocar el token de SAS en Azure Key Vault para usar la rotación automática y quitar la parte del token. Para obtener más información, consulte los siguientes ejemplos y el [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | fileShare | Especifique el nombre del recurso compartido de archivos. | Sí |
 | instantánea | Especifique la fecha de la [instantánea del recurso compartido de archivos](../storage/files/storage-snapshots-files.md) si quiere realizar la copia desde una instantánea. | No |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |No |
@@ -173,7 +173,7 @@ Data Factory admite las siguientes propiedades para usar la autenticación con f
 }
 ```
 
-**Ejemplo: Almacenamiento de la clave de cuenta en Azure Key Vault**
+**Ejemplo: almacenar el token de SAS en Azure Key Vault**
 
 ```json
 {
@@ -192,7 +192,8 @@ Data Factory admite las siguientes propiedades para usar la autenticación con f
                     "type": "LinkedServiceReference" 
                 }, 
                 "secretName": "<secretName with value of SAS token e.g. ?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>" 
-            }
+            },
+            "fileShare": "<file share name>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -408,7 +409,7 @@ En esta sección se describe el comportamiento resultante de usar la ruta de acc
 
 Suponga que tiene la siguiente estructura de carpetas de origen y quiere copiar los archivos en negrita:
 
-| Estructura de origen de ejemplo                                      | Contenido de FileListToCopy.txt                             | Configuración de ADF                                            |
+| Estructura de origen de ejemplo                                      | Contenido de FileListToCopy.txt                             | Configuración                                            |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
 | root<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadatos<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **En el conjunto de datos:**<br>- Ruta de acceso a la carpeta: `root/FolderA`<br><br>**En origen de la actividad de copia:**<br>- Ruta de acceso de la lista de archivos: `root/Metadata/FileListToCopy.txt` <br><br>La ruta de acceso de la lista de archivos apunta a un archivo de texto en el mismo almacén de datos que incluye una lista de archivos que se quiere copiar, un archivo por línea con la ruta de acceso relativa a la ruta de acceso configurada en el conjunto de datos. |
 
@@ -440,7 +441,7 @@ Para información detallada sobre las propiedades, consulte [Actividad de elimin
 ## <a name="legacy-models"></a>Modelos heredados
 
 >[!NOTE]
->Estos modelos siguen siendo compatibles con versiones anteriores. Se recomienda usar el nuevo modelo mencionado en la sección anterior de ahora en adelante; además, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
+>Estos modelos siguen siendo compatibles con versiones anteriores. Se recomienda usar de ahora en adelante el nuevo modelo que se menciona en las secciones anteriores; además, la interfaz de usuario de creación ha pasado a generar el nuevo modelo.
 
 ### <a name="legacy-dataset-model"></a>Modelo de conjunto de datos heredado
 
@@ -571,4 +572,4 @@ Para información detallada sobre las propiedades, consulte [Actividad de elimin
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

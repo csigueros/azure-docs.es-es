@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 08/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5c8918870274cb0ea443dd1f4c93f39c301c6287
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: d91b14057937275338ee1c96ee4025d66af6251d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122446504"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124794605"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services"></a>Notas de la versión: servicios de datos habilitados para Azure Arc
 
@@ -32,7 +32,7 @@ Esta versión anuncia la disponibilidad general para el [nivel de servicio de us
    > - [Nivel de servicio Crítico para la empresa](service-tiers.md) de SQL Managed Instance
    > - Hiperescala de PostgreSQL
 
-### <a name="breaking-changes"></a>Cambios importantes
+### <a name="breaking-changes"></a>Últimos cambios
 
 #### <a name="tools"></a>Herramientas
 
@@ -140,7 +140,7 @@ Utilice las herramientas siguientes:
 
 ##### <a name="point-in-time-restorepitr-supportability-and-limitations"></a>Compatibilidad y limitaciones de la restauración a un momento dado (PITR):
     
--  No admite la restauración desde un SQL Managed Instance habilitado para Azure Arc a otro SQL Managed Instance habilitado para Azure Arc.  La base de datos solo se puede restaurar en el mismo SQL Managed Instance habilitado para Arc donde se crearon las copias de seguridad.
+-  No admite la restauración desde una instancia de SQL Managed Instance habilitada para Azure Arc en otra.  La base de datos solo se puede restaurar en la misma instancia de SQL Managed Instance habilitado para Azure Arc donde se crearon las copias de seguridad.
 -  Actualmente no se admite el cambio de nombre de una base de datos con fines de restauración a un momento dado.
 -  Actualmente no hay ningún comando de la CLI ni una API para proporcionar la información de período de tiempo permitida para la restauración a un momento dado. Puede proporcionar un tiempo dentro de un período razonable, desde la hora en que se creó la base de datos, y si la marca de tiempo es válida, la restauración funcionaría. Si la marca de tiempo no es válida, el período de tiempo permitido se proporciona a través de un mensaje de error.
 -  No se admite la restauración de una base de datos habilitada para TDE.
@@ -166,7 +166,7 @@ Utilice las herramientas siguientes:
 
 Esta versión preliminar se publicó el 13 de julio de 2021.
 
-### <a name="breaking-changes"></a>Cambios importantes
+### <a name="breaking-changes"></a>Últimos cambios
 
 #### <a name="new-deployment-templates"></a>Nuevas plantillas de implementación
 
@@ -188,7 +188,7 @@ Para actualizar los scripts de instancia administrada, reemplace `azdata arc sql
 
 Para Hiperescala de PostgreSQL habilitada para Azure Arc, reemplace `azdata arc sql postgres...` por `az postgres arc-server...`.
 
-Además de los parámetros que han existido históricamente en los comandos `azdata`, los mismos comandos de la extensión de la CLI de Azure `arcdata` tienen algunos parámetros nuevos como `--k8s-namespace` y `--use-k8s` que son ahora necesarios. El parámetro `--use-k8s` se usará para diferenciar cuándo se debe enviar el comando a la API de Kubernetes o a la API de ARM. Por ahora, todos los comandos de la CLI de Azure para los servicios de datos habilitados para Arc tienen como destino solo la API de Kubernetes.
+Además de los parámetros que han existido históricamente en los comandos `azdata`, los mismos comandos de la extensión de la CLI de Azure `arcdata` tienen algunos parámetros nuevos como `--k8s-namespace` y `--use-k8s` que son ahora necesarios. El parámetro `--use-k8s` se usará para diferenciar cuándo se debe enviar el comando a la API de Kubernetes o a la API de ARM. Por ahora, todos los comandos de la CLI de Azure para los servicios de datos habilitados para Azure Arc tienen como destino solo la API de Kubernetes.
 
 Algunas de las formas cortas de los nombres de parámetro (por ejemplo, `--core-limit` como `-cl`) se han quitado o cambiado. Use los nuevos nombres cortos de parámetro o el nombre largo.
 
@@ -204,7 +204,7 @@ Se ha quitado el paquete de seguridad de OpenDistro. Ahora, el inicio de sesión
 
 #### <a name="crd-version-bump-to-v1beta1"></a>Actualización de la versión de los CRD a `v1beta1`
 
-La versión de todos los CRD se ha actualizado de `v1alpha1` a `v1beta1` en esta versión. Asegúrese de eliminar todos los CRD como parte del proceso de desinstalación si ha implementado una versión de los servicios de datos habilitados para Arc antes de la versión de junio de 2021. Los nuevos CRD implementados con la versión de junio de 2021 tendrán v1beta1 como versión.
+La versión de todos los CRD se ha actualizado de `v1alpha1` a `v1beta1` en esta versión. Asegúrese de eliminar todos los CRD como parte del proceso de desinstalación si ha implementado una versión de los servicios de datos habilitados para Azure Arc antes de la versión de junio de 2021. Los nuevos CRD implementados con la versión de junio de 2021 tendrán v1beta1 como versión.
 
 #### <a name="azure-arc-enabled-sql-managed-instance"></a>SQL Managed Instance habilitado para Azure Arc
 
@@ -218,13 +218,13 @@ En esta versión se presentan las extensiones de la CLI `az` para los servicios 
 
 #### <a name="data-controller"></a>Controlador de datos
 
-- Experiencia de usuario simplificada para implementar un controlador de datos en el modo de conexión directa desde Azure Portal. Una vez que un clúster de Kubernetes ha sido habilitado para Arc, puede implementar el controlador de datos completamente desde el portal con el Asistente para crear controladores de datos de Arc en un solo movimiento. Esta implementación también crea la ubicación personalizada y la extensión de servicios de datos habilitados para Arc (programa previo). También puede crear previamente la ubicación personalizada o la extensión y configurar la implementación del controlador de datos para usarlas.
+- Experiencia de usuario simplificada para implementar un controlador de datos en el modo de conexión directa desde Azure Portal. Una vez que un clúster de Kubernetes ha sido habilitado para Azure Arc, puede implementar el controlador de datos completamente desde el portal con el Asistente para crear controladores de datos de Arc en un solo movimiento. Esta implementación también crea la ubicación personalizada y la extensión de servicios de datos habilitados para Azure Arc (programa previo). También puede crear previamente la ubicación personalizada o la extensión y configurar la implementación del controlador de datos para usarlas.
 - La nueva propiedad `Infrastructure` es una propiedad necesaria al implementar un controlador de datos de Arc. Esta propiedad será necesaria para fines de facturación. Se proporciona más información en disponibilidad general.
 - Varias mejoras de facilidad de uso en la experiencia del usuario del controlador de datos en Azure Portal, incluida la capacidad de ver mejor el estado de implementación de los recursos que se encuentran en el proceso de implementación en el clúster de Kubernetes.
 - El controlador de datos carga automáticamente los registros (opcionalmente) y ahora también las métricas en Azure en modo de conexión directa.
 - La pila de supervisión (bases de datos o paneles de métricas y registros) ahora se ha empaquetado en su propia definición de recursos personalizados (CRD): `monitors.arcdata.microsoft.com`. Cuando se crea este recurso personalizado, se crean los pods de la pila de supervisión. Cuando se elimina, se eliminan los pods de la pila de supervisión. Cuando se crea el controlador de datos, se crea automáticamente el recurso personalizado de supervisión.
 - Nuevas regiones admitidas para el modo de conexión directa (versión preliminar): Este de EE. UU. 2, Oeste de EE. UU. 2, Centro-sur de EE. UU., Sur de Reino Unido, Centro de Francia, Sudeste Asiático, Este de Australia.
-- El gráfico de recursos de ubicación personalizada de la hoja de información general ahora muestra los recursos de servicios de datos habilitados para Arc que se implementan en él.
+- El gráfico de recursos de ubicación personalizada de la hoja de información general ahora muestra los recursos de servicios de datos habilitados para Azure Arc que se implementan en él.
 - Se han agregado diagnósticos y soluciones a Azure Portal para el controlador de datos.
 - Se ha agregado una nueva propiedad `Observed Generation` a todos los recursos personalizados relacionados con Arc.
 - El servicio Administrador de credenciales ahora está incluido y controla la distribución automatizada de certificados a todos los servicios administrados por el controlador de datos.
@@ -235,7 +235,7 @@ En esta versión se presentan las extensiones de la CLI `az` para los servicios 
 - Las implementaciones de Hiperescala de PostgreSQL de Azure Arc ahora admiten estrategias de asignación de pods de Kubernetes a nodos con nodeSelector, nodeAffinity y antiafinidad.
 - Ahora puede configurar parámetros de proceso (núcleo virtual y memoria) por rol (coordinador o trabajo) al implementar un grupo de servidores de Hiperescala de PostgreSQL o después de la implementación desde Azure Data Studio y desde Azure Portal.
 - Desde Azure Portal, ahora puede ver la lista de extensiones de PostgreSQL creadas en el grupo de servidores de Hiperescala de PostgreSQL.
-- Desde Azure Portal, puede eliminar grupos de Hiperescala de PostgreSQL habilitada para Arc en un controlador de datos que esté conectado directamente a Azure.
+- Desde Azure Portal, puede eliminar grupos de Hiperescala de PostgreSQL habilitada para Azure Arc en un controlador de datos que esté conectado directamente a Azure.
 
 
 #### <a name="azure-arc-enabled-sql-managed-instance"></a>SQL Managed Instance habilitado para Azure Arc
@@ -273,7 +273,7 @@ Como característica en versión preliminar, la tecnología que se presenta en e
 
 - Cree y elimine el controlador de datos, SQL Managed Instance y los grupos de servidores de Hiperescala de PostgreSQL desde Azure Portal.
 - Valide las acciones del portal al eliminar servicios de datos de Azure Arc. Por ejemplo, el portal alerta cuando intenta eliminar el controlador de datos cuando hay instancias de SQL Managed Instance implementadas mediante el controlador de datos.
-- Cree perfiles de configuración personalizados para admitir la configuración personalizada al implementar el controlador de datos habilitado para Arc mediante Azure Portal.
+- Cree perfiles de configuración personalizados para admitir la configuración personalizada al implementar el controlador de datos habilitado para Azure Arc mediante Azure Portal.
 - De manera opcional, cargue automáticamente los registros en el área de trabajo de Azure Log Analytics en el modo de conexión directa.
 
 #### <a name="azure-arc-enabled-postgresql-hyperscale"></a>Hiperescala de PostgreSQL habilitada para Azure Arc
@@ -287,7 +287,7 @@ Esta versión presenta las siguientes características o funcionalidades:
 
 #### <a name="azure-arc-enabled-sql-managed-instance"></a>SQL Managed Instance habilitado para Azure Arc
 
-- La nueva [extensión de la CLI de Azure](/cli/azure/azure-cli-extensions-overview) para SQL Managed Instance habilitado para Arc tiene los mismos comandos que `az sql mi-arc <command>`. Todos los comandos de SQL Managed Instance habilitado para Arc se encuentran en `az sql mi-arc`. Todos los comandos de `azdata` relacionados con Arc estarán en desuso y se moverán a la CLI de Azure en una versión futura.
+- La nueva [extensión de la CLI de Azure](/cli/azure/azure-cli-extensions-overview) para SQL Managed Instance habilitado para Azure Arc tiene los mismos comandos que `az sql mi-arc <command>`. Todos los comandos de SQL Managed Instance habilitado para Azure Arc se encuentran en `az sql mi-arc`. Todos los comandos de `azdata` relacionados con Arc estarán en desuso y se moverán a la CLI de Azure en una versión futura.
 
    Para agregar la extensión:
 
@@ -484,7 +484,7 @@ Esta versión presenta los siguientes cambios importantes:
 
 ## <a name="september-2020"></a>Septiembre de 2020
 
-Los servicios de datos habilitados para Azure Arc se publican como versión preliminar pública. Los servicios de datos habilitados para Arc permiten administrar los servicios de datos en cualquier lugar.
+Los servicios de datos habilitados para Azure Arc se publican como versión preliminar pública. Los servicios de datos habilitados para Azure Arc permiten administrar los servicios de datos en cualquier lugar.
 
 - Instancia administrada de SQL
 - Hiperescala de PostgreSQL

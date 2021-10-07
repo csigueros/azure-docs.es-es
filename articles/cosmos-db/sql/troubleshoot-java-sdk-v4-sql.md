@@ -9,12 +9,12 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: 678161e4eee7e954f1507c370560e6891850750b
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 54f0796d52d150db272e00c5cb66aa0c68a2e51c
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123114239"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091015"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>Solución de problemas con el uso del SDK de Azure Cosmos DB para Java v4 con cuentas de SQL API
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -48,24 +48,24 @@ Cuando se produce un error de E/S, el SDK de Cosmos DB tratará de volver a int
 
 ### <a name="retry-design"></a>Diseño de reintentos
 
-La aplicación se debe diseñar para el reintento cuando se produzca cualquier excepción, a menos que se trate de un problema conocido, para lo que el reintento no servirá. Por ejemplo, la aplicación debe realizar un reintento si se producen tiempos de espera de solicitud 408; como este tiempo de espera posiblemente sea transitorio, es posible que el reintento sea correcto. La aplicación no debe realizar un reintento si se producen errores de tipo 400, que normalmente indican que hay un problema con la solicitud que debe resolverse primero. El reintento en los errores de tipo 400 no corregirá el problema y provocará el mismo error si se vuelve a intentar. En la tabla siguiente se muestran los errores conocidos y en cuáles se debe realizar el reintento.
+La aplicación se debe diseñar de tal modo que realice un reintento cuando se produzca cualquier excepción, a menos que se trate de un problema conocido para el que el reintento no vaya a servir. Por ejemplo, la aplicación debe realizar un reintento si se producen tiempos de espera de solicitud 408; como este tiempo de espera posiblemente sea transitorio, es posible que el reintento sea correcto. La aplicación no debe realizar un reintento si se producen errores de tipo 400, que normalmente indican que hay un problema con la solicitud que debe resolverse primero. El reintento en los errores de tipo 400 no corregirá el problema y provocará el mismo error si se vuelve a intentar. En la siguiente tabla se muestran errores conocidos y los casos en los que se debe realizar el reintento.
 
 ## <a name="common-error-status-codes"></a>Códigos de estado de error habituales <a id="error-codes"></a>
 
 | Código de estado | Admite reintentos | Descripción | 
 |----------|-------------|-------------|
-| 400 | No | Solicitud incorrecta (es decir, código JSON no válido, encabezados incorrectos, clave de partición incorrecta en el encabezado)| 
+| 400 | No | Solicitud incorrecta (p. ej., código JSON no válido, encabezados incorrectos o clave de partición incorrecta en el encabezado).| 
 | 401 | No | [No autorizado](troubleshoot-unauthorized.md) | 
 | 403 | No | [Prohibido](troubleshoot-forbidden.md) |
 | 404 | No | [No se encuentra el recurso](troubleshoot-not-found.md) |
 | 408 | Sí | [Se ha agotado el tiempo de espera para la solicitud](troubleshoot-request-timeout-java-sdk-v4-sql.md) |
 | 409 | No | Un error de conflicto se produce cuando un recurso existente ha tomado el identificador proporcionado para un recurso en una operación de escritura. Use otro identificador para que el recurso resuelva este problema, ya que el identificador debe ser único en todos los documentos con el mismo valor de clave de partición. |
-| 410 | Sí | Excepciones que ya no existen (error transitorio que no debería infringir el Acuerdo de Nivel de Servicio) |
+| 410 | Sí | Excepciones que ya no existen (error transitorio que no debería infringir el contrato de nivel de servicio). |
 | 412 | No | Un error en la condición previa se produce cuando la operación especificó un valor eTag que es diferente de la versión disponible en el servidor. Es un error de simultaneidad optimista. Vuelva a intentar la solicitud después de leer la versión más reciente del recurso y de actualizar el valor eTag en la solicitud.
 | 413 | No | [Entidad de solicitud demasiado grande](../concepts-limits.md#per-item-limits) |
-| 429 | Sí | Es seguro realizar el reintento en errores de tipo 429. Esto se puede evitar si se sigue el vínculo para [demasiadas solicitudes](troubleshoot-request-rate-too-large.md).|
-| 449 | Sí | Error transitorio que solo se produce en las operaciones de escritura y para el que es seguro realizar el reintento. Esto puede apuntar a un problema de diseño en el que demasiadas operaciones simultáneas intentan actualizar el mismo objeto en Cosmos DB. |
-| 500 | Sí | No se pudo realizar la operación debido a un error de servicio inesperado. Póngase en contacto con el soporte técnico y abra una [incidencia de Soporte técnico de Azure](https://aka.ms/azure-support). |
+| 429 | Sí | Es seguro realizar un reintento con errores de tipo 429. Para evitar esta situación, siga el vínculo sobre [excepciones relacionadas con una tasa de solicitudes demasiado grande](troubleshoot-request-rate-too-large.md).|
+| 449 | Sí | Error transitorio que solo se produce en las operaciones de escritura y para el que es seguro realizar el reintento. Esta situación puede indicar un problema de diseño en virtud del cual un número demasiado elevado de operaciones simultáneas intentan actualizar el mismo objeto en Cosmos DB. |
+| 500 | Sí | No se pudo realizar la operación debido a un error de servicio inesperado. Abra una [incidencia](https://aka.ms/azure-support) para ponerse en contacto con el Soporte técnico de Azure. |
 | 503 | Sí | [Servicio no disponible](troubleshoot-service-unavailable-java-sdk-v4-sql.md) |
 
 ## <a name="common-issues-and-workarounds"></a><a name="common-issues-workarounds"></a>Problemas comunes y soluciones alternativas
@@ -148,6 +148,14 @@ Se trata de un error de servidor. Indica que consumió el rendimiento aprovision
 * **Implementación del retroceso según intervalos de getRetryAfterInMilliseconds**
 
     Durante las pruebas de rendimiento, debe aumentar la carga hasta que se limite una tasa de solicitudes pequeña. Si se limita, la aplicación cliente debe retroceder de acuerdo con el intervalo de reintento que el servidor especificó. Respetar el retroceso garantiza que dedica una cantidad de tiempo mínima de espera entre reintentos.
+
+### <a name="error-handling-from-java-sdk-reactive-chain"></a>Control de errores desde la cadena reactiva del SDK para Java
+
+El control de errores desde el SDK para Java de Cosmos DB es importante en lo que respecta a la lógica de aplicación del cliente. El [marco reactor-core](https://projectreactor.io/docs/core/release/reference/#error.handling) proporciona diferentes mecanismos de control de errores, que se pueden usar en distintos escenarios. Se recomienda a los clientes que conozcan en detalle estos operadores de control de errores y usen los que mejor se ajusten a sus escenarios de lógica de reintento.
+
+> [!IMPORTANT]
+> No se recomienda usar el operador [`onErrorContinue()`](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html#onErrorContinue-java.util.function.BiConsumer-), ya que no se admite en todos los escenarios.
+> Tenga presente que `onErrorContinue()` es un operador especializado que puede hacer que el comportamiento de su cadena reactiva sea poco claro. Funciona en operadores ascendentes, no descendentes, requiere compatibilidad específica con el operador para funcionar, y el ámbito puede propagarse fácilmente en sentido ascendente en código de biblioteca que no lo haya anticipado (lo que da lugar a un comportamiento no deseado). Consulte la [documentación](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html#onErrorContinue-java.util.function.BiConsumer-) de `onErrorContinue()` para obtener más información sobre este operador especial.
 
 ### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Error al conectarse al emulador de Azure Cosmos DB
 

@@ -7,20 +7,20 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 09/28/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ba538f4753c2365406bd88286b6d54cff1a9e9ea
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f2356235bf70a5fdd3e284c26d421e16ca94fb59
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104800829"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208502"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filtros de Azure Cognitive Search 
 
 Un *filtro* proporciona criterios para seleccionar los documentos que se usan en una consulta. Un filtro puede ser un valor único o una [expresión de filtro](search-query-odata-filter.md) de OData. A diferencia de la búsqueda de texto completo, un valor o una expresión de filtro solo devuelve una coincidencia estricta.
 
-Algunas experiencias de búsqueda, como la [navegación por facetas](search-filters-facets.md), dependen de los filtros como parte de la implementación, pero puede usar filtros siempre que quiera establecer el ámbito de una consulta en valores específicos. Por otro lado, si su objetivo es limitar una consulta a campos específicos, hay métodos alternativos, los cuales se describen a continuación.
+Algunas experiencias de búsqueda, como la [navegación por facetas](search-faceted-navigation.md), dependen de los filtros como parte de la implementación, pero puede usar filtros siempre que quiera establecer el ámbito de una consulta en valores específicos. Por otro lado, si su objetivo es limitar una consulta a campos específicos, hay métodos alternativos, los cuales se describen a continuación.
 
 ## <a name="when-to-use-a-filter"></a>Cuándo se debe usar un filtro
 
@@ -88,13 +88,13 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
     var results = searchIndexClient.Documents.Search("*", parameters);
 ```
 
-## <a name="filter-usage-patterns"></a>Ver patrones de uso
+## <a name="filter-patterns"></a>Patrones de filtro
 
 En los ejemplos siguientes se muestran varios patrones de uso para escenarios de filtro. Para obtener más ideas, consulte [OData expression syntax > Examples](./search-query-odata-filter.md#examples) (Sintaxis de expresiones de OData > Ejemplos).
 
 + La expresión **$filter** independiente, sin una cadena de consulta, resulta útil cuando la expresión de filtro puede definir completamente los documentos de interés. Sin una cadena de consulta, no hay ningún análisis lingüístico ni léxico, ninguna puntuación y ninguna clasificación. Observe que la cadena de búsqueda es simplemente un asterisco, que significa "coincidencia con todos los documentos".
 
-  ```http
+  ```json
   {
     "search": "*",
     "filter": "Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Honolulu"
@@ -103,7 +103,7 @@ En los ejemplos siguientes se muestran varios patrones de uso para escenarios de
 
 + Combinación de una cadena de consulta y **$filter**, donde el filtro crea el subconjunto y la cadena de consulta proporciona las entradas de términos para la búsqueda de texto completo en el subconjunto filtrado. La adición de términos (cines a poca distancia) introduce puntuaciones de búsqueda en los resultados, donde los documentos que mejor coinciden con los términos se clasifican en primer lugar. Usar un filtro con una cadena de consulta es el patrón de uso más común.
 
-  ```http
+  ```json
   {
     "search": "walking distance theaters",
     "filter": "Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Seattle'"
@@ -111,32 +111,27 @@ En los ejemplos siguientes se muestran varios patrones de uso para escenarios de
 
 + Compound queries, separated by "or", each with its own filter criteria (for example, 'beagles' in 'dog' or 'siamese' in 'cat'). Expressions combined with `or` are evaluated individually, with the union of documents matching each expression sent back in the response. This usage pattern is achieved through the `search.ismatchscoring` function. You can also use the non-scoring version, `search.ismatch`.
 
-   ```
-   # <a name="match-on-hostels-rated-higher-than-4-or-5-star-motels"></a>Coincidencia con hostales con una clasificación superior a moteles de 4 o 5 estrellas.
+   ```http
+   # Match on hostels rated higher than 4 OR 5-star motels.
    $filter=search.ismatchscoring('hostel') and Rating ge 4 or search.ismatchscoring('motel') and Rating eq 5
 
-   # <a name="match-on-luxury-or-high-end-in-the-description-field-or-on-category-exactly-equal-to-luxury"></a>Coincidencia con los términos "luxury" (lujo) o "high-end" (gama alta) en el campo de descripción, o con una categoría idéntica a "Luxury".
+   # Match on 'luxury' or 'high-end' in the description field OR on category exactly equal to 'Luxury'.
    $filter=search.ismatchscoring('luxury | high-end', 'Description') or Category eq 'Luxury'&$count=true
    ```
 
-  It is also possible to combine full-text search via `search.ismatchscoring` with filters using `and` instead of `or`, but this is functionally equivalent to using the `search` and `$filter` parameters in a search request. For example, the following two queries produce the same result:
+  También es posible combinar la búsqueda de texto completo a través de `search.ismatchscoring` con filtros mediante `and` en lugar de `or`, pero esto es funcionalmente equivalente a usar los parámetros `search` y `$filter` en una solicitud de búsqueda. Por ejemplo, las dos consultas siguientes producen el mismo resultado:
 
-  ```
+  ```http
   $filter=search.ismatchscoring('pool') and Rating ge 4
 
   search=pool&$filter=Rating ge 4
   ```
 
-Follow up with these articles for comprehensive guidance on specific use cases:
+## <a name="field-requirements-for-filtering"></a>Requisitos de campo para filtrar
 
-+ [Facet filters](search-filters-facets.md)
-+ [Security trimming](search-security-trimming-for-azure-search.md) 
+En la API REST, el filtrado está *activado* de forma predeterminada para campos simples. Los campos que se pueden filtrar aumentan el tamaño del índice. Asegúrese de definir `"filterable": false` para los campos que no tiene previsto usar en un filtro. Para obtener más información sobre la configuración de definiciones de campos, consulte [Create Index](/rest/api/searchservice/create-index) (Creación de índices).
 
-## Field requirements for filtering
-
-In the REST API, filterable is *on* by default for simple fields. Filterable fields increase index size; be sure to set `"filterable": false` for fields that you don't plan to actually use in a filter. For more information about settings for field definitions, see [Create Index](/rest/api/searchservice/create-index).
-
-In the .NET SDK, the filterable is *off* by default. You can make a field filterable by setting the [IsFilterable property](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) of the corresponding [SearchField](/dotnet/api/azure.search.documents.indexes.models.searchfield) object to `true`. In the example below, the attribute is set on the `BaseRate` property of a model class that maps to the index definition.
+En el SDK de. NET, el filtrado está *desactivado* de forma predeterminada. Para hacer que un campo se pueda filtrar, establezca la [propiedad IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) del objeto [SearchField](/dotnet/api/azure.search.documents.indexes.models.searchfield) correspondiente en `true`. En el ejemplo siguiente, el atributo se establece en la propiedad `BaseRate` de una clase de modelo que se asigna a la definición del índice.
 
 ```csharp
 [IsFilterable, IsSortable, IsFacetable]
