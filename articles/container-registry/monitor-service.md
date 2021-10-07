@@ -6,13 +6,13 @@ ms.author: danlep
 ms.topic: how-to
 ms.custom: subject-monitoring
 ms.service: container-registry
-ms.date: 03/19/2021
-ms.openlocfilehash: 1b7f8a13a7d372fe67e5ca7c235febfa52294432
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.date: 08/13/2021
+ms.openlocfilehash: ff82571b791f20cf46150be06e583af29f13dbd5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114294937"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128586975"
 ---
 # <a name="monitor-azure-container-registry"></a>Supervisión de Azure Container Registry
 
@@ -20,7 +20,7 @@ Si tiene aplicaciones y procesos empresariales críticos que dependen de recurso
 
 ## <a name="monitor-overview"></a>Información general de supervisión
 
-La página de **información general** de Azure Portal para cada registro incluye una breve vista del uso y la actividad recientes del recurso como, por ejemplo, las operaciones de inserción y extracción. Esta información de alto nivel es útil, pero solo se muestra una pequeña cantidad de datos de supervisión. 
+La página de **información general** de Azure Portal para cada registro incluye una breve vista del uso y la actividad recientes del recurso como, por ejemplo, las operaciones de inserción y extracción. Esta información general es útil, pero solo muestra una pequeña cantidad de datos. 
 
 :::image type="content" source="media/monitor-service/metrics-overview.png" alt-text="Introducción a las métricas del registro"::: 
 
@@ -55,7 +55,7 @@ Consulte [Creación de una configuración de diagnóstico para recopilar registr
 > [!TIP]
 > Para crear la configuración de diagnóstico del registro puede ir también al registro en el portal. En el menú, seleccione **Configuración de diagnóstico** en **Supervisión**.
 
-En la imagen siguiente se muestran las opciones que hay cuando habilita la configuración de diagnóstico de un registro.
+En la imagen siguiente se muestran las opciones disponibles cuando se habilita la configuración de diagnóstico de un registro.
 
 :::image type="content" source="media/monitor-service/diagnostic-settings.png" alt-text="Configuración de diagnóstico de Container Registry":::
 
@@ -76,7 +76,6 @@ Como referencia, puede ver una lista de [todas las métricas de recursos que se 
 
 Los siguientes comandos de la CLI de Azure se pueden usar para obtener información sobre las métricas de Azure Container Registry.
 
-* [az acr show-usage](/cli/azure/acr/#az_acr_show_usage): muestra el almacenamiento actual que usa una instancia de Azure Container Registry
 * [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az_monitor_metrics_list_definitions): muestra las definiciones y dimensiones de las métricas
 * [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list): recupera los valores de las métricas
 
@@ -208,3 +207,4 @@ En la tabla siguiente se enumeran las reglas de alertas de métricas comunes y r
 
 - Consulte [Supervisión de la referencia de datos de Azure Container Registry](monitor-service-reference.md) para obtener una referencia de las métricas, los registros y otros valores importantes creados por Azure Container Registry.
 - Para más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md).
+- Vea [Representación de la utilización del registro](container-registry-skus.md#show-registry-usage) para obtener información sobre cómo obtener una instantánea de la utilización del almacenamiento y otro consumo de recursos en el registro.

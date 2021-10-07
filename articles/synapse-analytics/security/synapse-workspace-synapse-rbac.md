@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: dda885d55f2102f1fae478c8d214f2bca44f52f2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e2a49fb9de3c4f63edc483724769c5c726d3a63c
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737426"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081859"
 ---
 # <a name="what-is-synapse-role-based-access-control-rbac"></a>¿Qué es el control de acceso basado en rol de Synapse?
 
@@ -28,7 +28,7 @@ El control de acceso basado en rol de Synapse se utiliza para administrar quién
 - Supervisar o cancelar la ejecución de trabajos, examinar la salida de trabajos y los registros de ejecución.  
 
 >[!Note]
->Aunque el control de acceso basado en rol de Synapse se usa para administrar el acceso a los scripts de SQL publicados, solo proporciona un control de acceso limitado a los grupos de SQL sin servidor y _no_ se usa para controlar el acceso a grupos de SQL dedicados.  El acceso a los grupos de SQL se controla principalmente mediante la seguridad de SQL.
+>Aunque el control de acceso basado en rol de Synapse se usa para administrar el acceso a los scripts de SQL publicados, solo proporciona un control de acceso limitado a los grupos de SQL sin servidor y dedicados. El acceso a los grupos de SQL se controla principalmente mediante la seguridad de SQL.
 
 ## <a name="what-can-i-do-with-synapse-rbac"></a>¿Qué se puede hacer con el control de acceso basado en rol de Azure?
 

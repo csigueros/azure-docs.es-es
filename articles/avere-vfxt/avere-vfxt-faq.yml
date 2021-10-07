@@ -8,12 +8,12 @@ metadata:
   ms.date: 12/19/2019
   ms.author: rohogue
   ms.custom: references_regions
-  ms.openlocfilehash: 241bcb1e164bf8f0233e7110ffcdd9630e870e8d
-  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+  ms.openlocfilehash: a826f96396a4275b07598564281060dea0bf7b1a
+  ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/13/2021
-  ms.locfileid: "124751086"
+  ms.lasthandoff: 10/01/2021
+  ms.locfileid: "129351425"
 title: Preguntas frecuentes acerca de Avere vFXT for Azure
 summary: En este artículo encontrará respuestas que pueden ayudarle a decidir si la solución de Avere vFXT for Azure es adecuada para sus necesidades. Proporciona información básica sobre Avere vFXT y explica cómo funciona con otros componentes de Azure y con productos de proveedores externos.
 sections:
@@ -80,15 +80,6 @@ sections:
       ¿Tiene Avere vFXT Avere alta disponibilidad?
     answer: >
       Sí, Avere vFXT se ejecuta exclusivamente como solución de alta disponibilidad.
-  - question: >
-      ¿Admite Avere vFXT for Azure también otros servicios en la nube?
-    answer: >
-      Sí, los clientes pueden usar más de un proveedor de nube con el clúster de Avere vFXT. Es compatible con cubos estándar de AWS S3 y cubos estándar de Google Cloud Services, así como contenedores de Azure Blob.
-
-
-      > [!NOTE]
-
-      > Se aplica una tarifa de software para usar Avere vFXT con almacenamiento Google Cloud o AWS. No hay ninguna tarifa de software adicional por el uso del almacenamiento de blobs de Azure.
 - name: 'Técnica: Proceso'
   questions:
   - question: >
@@ -214,7 +205,7 @@ sections:
       Avere vFXT no es almacenamiento. Es una memoria caché que lee y escribe datos procedentes de varios destinos de almacenamiento denominados archivadores de core. Los datos almacenados en discos SSD Premium de Avere vFXT son transitorios y finalmente se vacían en el almacenamiento de los archivadores de core back-end.
   - question: >
       ¿Qué archivadores de core admite Avere vFXT?
-    answer: "En términos generales, Avere vFXT for Azure admite los siguientes sistemas como archivadores de core:\n\n* Dell EMC Isilon (OneFS 7.1, 7.2, 8.0 y 8.1) \n* NetApp ONTAP (Clustered Mode 9.4, 9.3, 9.2, 9.1P1, 8.0-8.3 - 7) y (7-Mode 8.0-8.3.*, 8.0 - 8.3)\n\n* Contenedores de blobs de Azure (solo almacenamiento con redundancia local)\n* Cubos de AWS S3\n* Cubos de Google Cloud\n"
+    answer: "En términos generales, Avere vFXT for Azure admite los siguientes sistemas como archivadores de core:\n\n* Dell EMC Isilon (OneFS 7.1, 7.2, 8.0 y 8.1) \n* NetApp ONTAP (Clustered Mode 9.4, 9.3, 9.2, 9.1P1, 8.0-8.3 - 7) y (7-Mode 8.0-8.3.*, 8.0 - 8.3)\n\n* Contenedores de blobs de Azure (solo almacenamiento con redundancia local)\n"
   - question: >
       ¿Por qué Avere vFXT no admite todos los sistemas de archivadores NFS?
     answer: >
@@ -248,7 +239,7 @@ sections:
       No suele recomendarse el almacenamiento de blobs en el nivel de acceso esporádico para el archivador principal de Avere vFXT for Azure. El nivel de acceso esporádico ofrece menores costos de almacenamiento pero mayores costos de operaciones. (Consulte [Precios de blobs en bloques](<https://azure.microsoft.com/pricing/details/storage/blobs/>) para obtener más detalles). Si se va a acceder a los datos y se van a modificar o eliminar con frecuencia, considere la posibilidad de usar el nivel de acceso frecuente.
 
 
-      [Niveles de acceso](../storage/blobs/storage-blob-storage-tiers.md#cool-access-tier) proporciona más información sobre cuándo puede tener sentido usar el almacenamiento de nivel de acceso esporádico como archivador principal de vFXT.
+      [Niveles de acceso](../storage/blobs/access-tiers-overview.md) proporciona más información sobre cuándo puede tener sentido usar el almacenamiento de nivel de acceso esporádico como archivador principal de vFXT.
   - question: >
       ¿Cómo se puede cifrar el contenedor de blobs?
     answer: "Puede configurar el cifrado de blobs en Azure (opción preferida) o en el nivel del archivador de core de Avere vFXT.  \n"

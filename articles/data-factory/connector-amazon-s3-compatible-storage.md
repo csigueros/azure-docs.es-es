@@ -1,28 +1,27 @@
 ---
 title: Copia de datos de Amazon Simple Storage Service (S3) Compatible Storage
+description: Aprenda a copiar datos de Amazon S3 Compatible Storage en almacenes de datos de receptor compatibles mediante una canalización de Azure Data Factory o Synapse Analytics.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Aprenda a copiar datos de Amazon S3 Compatible Storage a almacenes de datos de receptor compatibles mediante Azure Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 98191eb2e958510fe01fc5a02e0490bf7c2d41ae
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: 82abc8fcfacc09621b66192c1f40b8c33d73ae50
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123307004"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563484"
 ---
-# <a name="copy-data-from-amazon-s3-compatible-storage-by-using-azure-data-factory"></a>Copia de datos de Amazon S3 Compatible Storage mediante Azure Data Factory
+# <a name="copy-data-from-amazon-s3-compatible-storage-by-using-azure-data-factory-or-synapse-analytics"></a>Copia de datos de Amazon S3 Compatible Storage mediante Azure Data Factory o Synapse Analytics
 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se describe cómo copiar datos de Amazon Simple Storage Service (Amazon S3) Compatible Storage. Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
-
-
+En este artículo se describe cómo copiar datos de Amazon Simple Storage Service (Amazon S3) Compatible Storage. Para obtener más información, lea los artículos de introducción para [Azure Data Factory](introduction.md) y [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -41,7 +40,7 @@ Concretamente, este conector de Amazon S3 Compatible Storage admite la copia de
 
 Para copiar datos de Amazon S3 Compatible Storage, asegúrese de que se han concedido los permisos siguientes para las operaciones de objeto de Amazon S3: `s3:GetObject` y `s3:GetObjectVersion`.
 
-Si usa la interfaz de usuario de Data Factory para crear, se requieren los permisos `s3:ListAllMyBuckets` y `s3:ListBucket`/`s3:GetBucketLocation` adicionales para operaciones como probar la conexión al servicio vinculado y examinar desde la raíz. Si no quiere conceder estos permisos, puede elegir las opciones "Test connection to file path" (Probar conexión con la ruta de acceso del archivo) o "Browse from specified path" (Examinar desde la ruta de acceso especificada) en la interfaz de usuario.
+Si usa la interfaz de usuario para crear, se necesitan los permisos `s3:ListAllMyBuckets` y `s3:ListBucket`/`s3:GetBucketLocation` adicionales para operaciones como probar la conexión al servicio vinculado y examinar desde la raíz. Si no quiere conceder estos permisos, puede elegir las opciones "Test connection to file path" (Probar conexión con la ruta de acceso del archivo) o "Browse from specified path" (Examinar desde la ruta de acceso especificada) en la interfaz de usuario.
 
 Para obtener la lista completa de los permisos de Amazon S3, consulte [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) (Especificación de permisos en una directiva) en el sitio de AWS.
 
@@ -57,7 +56,7 @@ Siga estos pasos para crear un servicio vinculado a Amazon S3 Compatible Storage
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un servicio vinculado con la interfaz de usuario de Azure Data Factory":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -74,7 +73,7 @@ Siga estos pasos para crear un servicio vinculado a Amazon S3 Compatible Storage
 
 ## <a name="connector-configuration-details"></a>Detalles de configuración del conector 
 
-En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas de Amazon S3 Compatible Storage.
+En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades específicas de Amazon S3 Compatible Storage.
 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 
@@ -84,7 +83,7 @@ Las siguientes propiedades se admiten en el servicio vinculado Amazon S3 Compat
 |:--- |:--- |:--- |
 | type | La propiedad **type** debe establecerse en **AmazonS3Compatible**. | Sí |
 | accessKeyId | Id. de la clave de acceso secreta. |Sí |
-| secretAccessKey | La propia clave de acceso secreta. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. |Sí |
+| secretAccessKey | La propia clave de acceso secreta. Marque este campo como **SecureString** para almacenarlo de forma segura, o bien haga [referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
 | serviceUrl | Especifique el punto de conexión S3 personalizado `https://<service url>`. | No |
 | forcePathStyle | Indica si se va a usar el [acceso de estilo ruta de acceso](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#path-style-access) de S3 en lugar del acceso de estilo hospedado virtual. Los valores permitidos son **false** (valor predeterminado) y **true**.<br> Consulte la documentación de cada almacén de datos para saber si el acceso de estilo ruta de acceso es o no necesario. |No |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Se puede usar Azure Integration Runtime o un entorno de ejecución de integración autohospedado (si el almacén de datos está en una red privada). Si no se especifica esta propiedad, el servicio usa el valor predeterminado de Azure Integration Runtime. |No |
@@ -244,7 +243,7 @@ En esta sección se describe el comportamiento resultante de usar una ruta de ac
 
 Suponga que tiene la siguiente estructura de carpetas de origen y quiere copiar los archivos en negrita:
 
-| Estructura de origen de ejemplo                                      | Contenido de FileListToCopy.txt                             | Configuración de Data Factory                                            |
+| Estructura de origen de ejemplo                                      | Contenido de FileListToCopy.txt                             | Configuración |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
 | bucket<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadatos<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **En el conjunto de datos:**<br>- Cubo: `bucket`<br>- Ruta de acceso de la carpeta: `FolderA`<br><br>**En el origen de la actividad de copia:**<br>- Ruta de acceso de la lista de archivos: `bucket/Metadata/FileListToCopy.txt` <br><br>La ruta de acceso de la lista de archivos apunta a un archivo de texto en el mismo almacén de datos que incluye una lista de archivos que se quieren copiar, con un archivo por línea, con la ruta de acceso relativa a la ruta de acceso configurada en el conjunto de datos. |
 
@@ -263,4 +262,4 @@ Para información detallada sobre las propiedades, consulte [Actividad de elimin
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para ver una lista de los almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores, consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obtener una lista de los almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Canvas | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con Canvas'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Canvas.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/20/2021
+ms.date: 09/09/2021
 ms.author: jeedes
-ms.openlocfilehash: a71dac55c860348f31ce8da27ab050a6c71a5c68
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b91f6c186be774110b52fab75b742dcb73925f03
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101653074"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128622249"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Tutorial: Integración de Azure Active Directory con Canvas
+# <a name="tutorial-azure-ad-sso-integration-with-canvas"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Canvas
 
 En este tutorial, aprenderá a integrar Canvas con Azure Active Directory (Azure AD). Al integrar Canvas con Azure AD, puede hacer lo siguiente:
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Canvas con Azure Active Directory (Azure
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Canvas con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
  
@@ -63,7 +63,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Canvas, si
     1. **[Creación de un usuario de prueba de Canvas](#create-canvas-test-user)** , para tener un homólogo de B.Simon en Canvas que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
@@ -75,14 +75,12 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Canvas](common/sp-identifier.png)
+    b. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<tenant-name>.instructure.com`
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<tenant-name>.instructure.com`
-
-    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<tenant-name>.instructure.com/saml2`
+    a. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<tenant-name>.instructure.com/saml2`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte de cliente de Canvas](https://community.canvaslms.com/community/help) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con el identificador y la dirección URL de inicio de sesión reales. Póngase en contacto con el [equipo de soporte de cliente de Canvas](https://community.canvaslms.com/community/help) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 5. En la sección **Certificado de firma de SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Certificado de firma de SAML**.
 
@@ -120,17 +118,17 @@ En esta sección, va a permitir que B.Simon acceda a Canvas mediante el inicio d
 1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="configure-canvas-sso"></a>Configuración del inicio de sesión único en Canvas
+## <a name="configure-canvas-sso"></a>Configuración del inicio de sesión único en Canvas
 
 1. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la compañía de Canvas.
 
 2. Vaya a **Cursos \> Cuentas administradas \> Microsoft**.
 
-    ![Lienzo](./media/canvas-lms-tutorial/ic775990.png "Lienzo")
+    ![Lienzo](./media/canvas-lms-tutorial/course.png "Lienzo")
 
 3. En el panel de navegación izquierdo, seleccione **Authentication** (Autenticación) y, después, haga clic en **Add New SAML Config** (Agregar nueva configuración de SAML).
 
-    ![Autenticación](./media/canvas-lms-tutorial/ic775991.png "Authentication")
+    ![Autenticación](./media/canvas-lms-tutorial/tools.png "Authentication")
 
 4. En la página Curent Integration (integración actual) realice los siguientes pasos:
 
@@ -162,19 +160,19 @@ Para permitir que los usuarios de Azure AD inicien sesión en Canvas, tienen que
 
 2. Vaya a **Cursos \> Cuentas administradas \> Microsoft**.
 
-   ![Lienzo](./media/canvas-lms-tutorial/ic775990.png "Lienzo")
+   ![Lienzo](./media/canvas-lms-tutorial/course.png "Lienzo")
 
 3. Haga clic en **Usuarios**.
 
-   ![Captura de pantalla que muestra el menú Lienzo con la opción Usuarios seleccionada.](./media/canvas-lms-tutorial/ic775995.png "Usuarios")
+   ![Captura de pantalla que muestra el menú Lienzo con la opción Usuarios seleccionada.](./media/canvas-lms-tutorial/user.png "Usuarios")
 
 4. Haga clic en **Add New User**(Agregar nuevo usuario).
 
-   ![Captura de pantalla que muestra el botón Add a new User (Agregar nuevo usuario).](./media/canvas-lms-tutorial/ic775996.png "Usuarios")
+   ![Captura de pantalla que muestra el botón Add a new User (Agregar nuevo usuario).](./media/canvas-lms-tutorial/add-user.png "Usuarios")
 
 5. En la página de diálogo Agregar nuevo usuario, realice los pasos siguientes:
 
-   ![Agregar usuario](./media/canvas-lms-tutorial/ic775997.png "Agregar usuario")
+   ![Agregar usuario](./media/canvas-lms-tutorial/name.png "Agregar usuario")
 
    a. En el cuadro de texto **Nombre completo**, escriba el nombre de usuario, por ejemplo, **BrittaSimon**.
 
@@ -189,7 +187,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Canvas, tienen que
 > [!NOTE]
 > Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Canvas ofrecida por Canvas para aprovisionar cuentas de usuario de Azure AD.
 
-### <a name="test-sso"></a>Prueba de SSO
+## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
@@ -197,7 +195,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Acceda directamente a la URL de inicio de sesión de Canvas y ponga en marcha el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Canvas en Aplicaciones, debería iniciar sesión automáticamente en la instancia de Canvas para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Canvas en Aplicaciones, debería iniciar sesión automáticamente en la instancia de Canvas para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

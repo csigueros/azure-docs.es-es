@@ -5,13 +5,12 @@ author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: riyazp
-ms.custom: ''
-ms.openlocfilehash: c4a4b0fa982945b20616d576af4b3e8039d828c0
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 85dff004bdaf61297d9f88766e4cadc97f7d6b88
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122397821"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624261"
 ---
 # <a name="imagery-partner-integration"></a>Integración de asociados de imágenes
 
@@ -91,8 +90,8 @@ Estos son los encabezados de solicitud más comunes que deben especificarse al r
 
 **Encabezado** | **Descripción y ejemplo**
 --- | ---
-Content-Type  | El formato de la solicitud (Content-Type: application/<format>). En el caso de las API de centro de datos de FarmBeats, el formato es JSON. Content-Type: application/json
-Authorization | Especifica el token de acceso necesario para realizar una llamada API. Autorización: Bearer <Access-Token>
+Content-Type  | El formato de la solicitud (Content-Type: application/\<format\>). En el caso de las API de centro de datos de FarmBeats, el formato es JSON. Content-Type: application/json
+Authorization | Especifica el token de acceso necesario para realizar una llamada API. Autorización: \<Access-Token\> de portador
 Accept  | El formato de respuesta. En el caso de las API de centro de datos de FarmBeats, el formato es JSON. Accept: application/json
 
 
@@ -112,7 +111,7 @@ La siguiente solicitud de ejemplo se usa para obtener la lista de dispositivos:
 ```bash
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 "Content-Type: application/json" -H
-"Authorization: Bearer <Access-Token>”
+"Authorization: Bearer <Access-Token>"
 ```
 
 La mayoría de llamadas GET, POST y PUT requieren un cuerpo de la solicitud JSON.
@@ -136,20 +135,22 @@ JSON es un formato de datos común independiente del lenguaje que proporciona un
 
 Una vez que el asociado tiene credenciales para conectarse al centro de datos de FarmBeats, realiza los siguientes pasos en el componente traductor.
 
-1.  Crea un tipo extendido para los siguientes campos, de acuerdo con el tipo de imagen que se va a cargar:
+1. Crea un tipo extendido para los siguientes campos, de acuerdo con el tipo de imagen que se va a cargar:
 
-    - **Scene Source** (Origen de escena): por ejemplo, drone_partner_name.
-    - **Scene Type** (Tipo de escena): por ejemplo, dron.
-    - **Scene File Type** (Tipo de archivo de escena): por ejemplo, índice de clorofila.
-    - **Scene File Content Type** (Tipo de contenido del archivo de escena): por ejemplo, image/tiff.
+   - **Scene Source** (Origen de escena): por ejemplo, drone_partner_name.
+   - **Scene Type** (Tipo de escena): por ejemplo, dron.
+   - **Scene File Type** (Tipo de archivo de escena): por ejemplo, índice de clorofila.
+   - **Scene File Content Type** (Tipo de contenido del archivo de escena): por ejemplo, image/tiff.
 
-2.  Llama a /Farms API para obtener la lista de granjas del sistema Azure FarmBeats.
-3.  Proporciona al cliente la posibilidad de elegir una sola granja de la lista.
+2. Llama a /Farms API para obtener la lista de granjas del sistema Azure FarmBeats.
 
-    El sistema del asociado debe mostrar la granja en el software del asociado para planear la ruta y el vuelo del dron, así como para recopilar imágenes.
+3. Proporciona al cliente la posibilidad de elegir una sola granja de la lista.
 
-4.  Llama a /Scene API y proporciona los detalles necesarios para crear una escena con un identificador único.
-5.  Recibe una dirección URL de SAS de blob para cargar las imágenes necesarias en el centro de datos de FarmBeats, en el contexto de la granja elegida, en el sistema FarmBeats.
+   El sistema del asociado debe mostrar la granja en el software del asociado para planear la ruta y el vuelo del dron, así como para recopilar imágenes.
+
+4. Llama a /Scene API y proporciona los detalles necesarios para crear una escena con un identificador único.
+
+5. Recibe una dirección URL de SAS de blob para cargar las imágenes necesarias en el centro de datos de FarmBeats, en el contexto de la granja elegida, en el sistema FarmBeats.
 
 A continuación se muestra un flujo detallado de las llamadas API.
 

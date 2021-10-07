@@ -1,20 +1,18 @@
 ---
 title: Creación de una versión de imagen cifrada con claves propias
 description: Cree una versión de imagen en una galería de imágenes compartidas mediante claves de cifrado administradas por el cliente.
-author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 7/1/2021
-ms.author: olayemio
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 46fe21c47db436f1abedb60b3468b8a2e69cd432
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d80b2fb62f0c11a06daaf9198add9c7cbe19a42a
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128583499"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458744"
 ---
 # <a name="use-customer-managed-keys-for-encrypting-images"></a>uso de claves administradas por el cliente para el cifrado de imágenes
 

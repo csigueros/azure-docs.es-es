@@ -1,18 +1,17 @@
 ---
-title: Linaje de datos en Azure Purview (versión preliminar)
+title: Linaje de datos en Azure Purview
 description: Aquí se describen los conceptos del linaje de datos.
 author: chanuengg
 ms.author: csugunan
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 11/30/2020
-ms.openlocfilehash: da2f34014f3c789762cc2743b971aa76ad1049a9
-ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
+ms.date: 09/27/2021
+ms.openlocfilehash: 37cffe89fc0e0cb10aaadbb8d63f9aa12d0589eb
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112574441"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129207457"
 ---
 # <a name="data-lineage-in-azure-purview-data-catalog-client"></a>Linaje de datos en el cliente de Azure Purview Data Catalog
 
@@ -67,4 +66,4 @@ El linaje es una característica fundamental de Purview Data Catalog, ya que le 
 
 * [Inicio rápido: creación de una cuenta de almacenamiento de Azure Purview en Azure Portal](create-catalog-portal.md).
 * [Inicio rápido: creación de una cuenta de Azure Purview mediante Azure PowerShell o la CLI de Azure](create-catalog-powershell.md).
-* [Inicio rápido: uso de Purview Studio](use-purview-studio.md).
+* [Uso de Purview Studio](use-purview-studio.md)

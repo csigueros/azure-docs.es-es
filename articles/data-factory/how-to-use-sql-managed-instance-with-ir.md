@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 070c9ff8cbca98272be6aa0cf48a97381f4ff6b4
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: ce75b0439bdf14c8894fe91267ae3b88508a89d4
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129216619"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400332"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Uso de Instancia administrada de Azure SQL con SQL Server Integration Services (SSIS) en Azure Data Factory
 
@@ -66,7 +66,7 @@ Ahora los proyectos, paquetes y cargas de trabajo de SQL Server Integration Serv
 
                 | Protocolo de transporte | Source | Intervalo de puertos de origen | Destination |Destination port range |
                 |---|---|---|---|---|
-                |TCP|Dirección IP estática de Azure-SSIS IR <br> Para obtener más información, consulte el apartado [Traiga su propia dirección IP pública para Azure-SSIS IR](join-azure-ssis-integration-runtime-virtual-network.md#publicIP).|*|VirtualNetwork|3342|
+                |TCP|Dirección IP estática de Azure-SSIS IR <br> Para obtener más información, consulte el apartado [Traiga su propia dirección IP pública para Azure-SSIS IR](azure-ssis-integration-runtime-virtual-network-configuration.md#publicIP).|*|VirtualNetwork|3342|
 
              1. **Requisito de salida de Azure-SSIS IR** para permitir el tráfico saliente a la instancia administrada de SQL.
 
@@ -111,7 +111,7 @@ Ahora los proyectos, paquetes y cargas de trabajo de SQL Server Integration Serv
         |---|---|---|---|---|---|
         | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 |Permitir el tráfico saliente a la instancia administrada de SQL. Si la directiva de conexión se establece en **Proxy** en lugar de en **Redirigir**, solo se necesita el puerto 1433. |
         | TCP | VirtualNetwork | * | AzureCloud | 443 | Los nodos de Azure-SSIS Integration Runtime en la red virtual usan este puerto para acceder a servicios de Azure, como Azure Storage y Azure Event Hubs. |
-        | TCP | VirtualNetwork | * | Internet | 80 | (Opcional). Los nodos de Azure-SSIS Integration Runtime en la red virtual usan este puerto para descargar una lista de revocación de certificados de Internet. Si bloquea este tráfico, puede experimentar una degradación del rendimiento al iniciar el entorno de ejecución de integración y perder capacidad para comprobar el uso de certificados en la lista de revocación de certificados. Si desea restringir aún más el destino a determinados FQDN, consulte [Uso de Azure ExpressRoute o de una ruta definida por el usuario](./join-azure-ssis-integration-runtime-virtual-network.md#route).|
+        | TCP | VirtualNetwork | * | Internet | 80 | (Opcional). Los nodos de Azure-SSIS Integration Runtime en la red virtual usan este puerto para descargar una lista de revocación de certificados de Internet. Si bloquea este tráfico, puede experimentar una degradación del rendimiento al iniciar el entorno de ejecución de integración y perder capacidad para comprobar el uso de certificados en la lista de revocación de certificados. Si desea restringir aún más el destino a determinados FQDN, consulte [Uso de Azure ExpressRoute o de una ruta definida por el usuario](./azure-ssis-integration-runtime-virtual-network-configuration.md#route).|
         | TCP | VirtualNetwork | * | Storage | 445 | (Opcional). Esta regla solo es necesaria cuando quiera ejecutar un paquete SSIS almacenado en Azure Files. |
         |||||||
 
@@ -123,7 +123,7 @@ Ahora los proyectos, paquetes y cargas de trabajo de SQL Server Integration Serv
         | TCP | CorpNetSaw | * | VirtualNetwork | 3389 | (Opcional) Esta regla solo es necesaria cuando el servicio de soporte técnico de Microsoft pide al cliente que abra la solución de problemas avanzada y se puede cerrar justo después de solucionar el problema. La etiqueta de servicio **CorpNetSaw** permite que únicamente las estaciones de trabajo de acceso seguro de la red corporativa de Microsoft usen el Escritorio remoto. Esta etiqueta de servicio no se puede seleccionar desde el portal, y solo está disponible a través de Azure PowerShell o la CLI de Azure. <br/><br/> En el nivel de NIC del NSG, el puerto 3389 está abierto de forma predeterminada, y le permite controlar el puerto 3389 en el nivel de subred del NSG, mientras tanto, por motivos de protección, Azure-SSIS Integration Runtime ha deshabilitado el puerto 3389 de salida de forma predeterminada en la regla de Firewall de Windows en cada nodo del entorno de ejecución de integración. |
         |||||||
 
-    1. Consulte [Configuración de red virtual](join-azure-ssis-integration-runtime-virtual-network.md#virtual-network-configuration) para obtener más información:
+    1. Consulte [Configuración de red virtual](azure-ssis-integration-runtime-virtual-network-configuration.md) para obtener más información:
         - Si trae sus propias direcciones IP públicas para Azure-SSIS IR.
         - Si usa su propio servidor de Sistema de nombres de dominio (DNS).
         - Si usa Azure ExpressRoute o una ruta definida por el usuario (UDR).

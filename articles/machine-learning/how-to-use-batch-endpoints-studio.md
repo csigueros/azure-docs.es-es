@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: En este artículo, aprenderá a crear un punto de conexión por lotes en Estudio de Azure Machine Learning. Los puntos de conexión por lotes se usan para puntuar por lotes datos de gran tamaño de forma continua.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 author: shivanissambare
 ms.author: ssambare
 ms.reviewer: larryfr
 ms.date: 08/16/2021
 ms.custom: how-to, studio, managed-batch-endpoints
-ms.openlocfilehash: f5f5d71b22c505580ed4e6b339f5b9c30e19eb89
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 290d13c050a624c660174e3d8e272c67e90a9207
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122868599"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424149"
 ---
 # <a name="how-to-use-batch-endpoints-preview-in-azure-machine-learning-studio"></a>Uso de puntos de conexión por lotes (versión preliminar) en Estudio de Azure Machine Learning
 

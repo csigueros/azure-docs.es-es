@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Uso de MQTT para crear un cliente de dispositivo Azure IoT Plug and Play | Microsoft Docs'
 description: 'Tutorial: Uso del protocolo MQTT directamente para crear un cliente de dispositivo IoT Plug and Play sin usar los SDK de dispositivo de Azure IoT'
-author: lizross
-ms.author: lizross
+author: ryanwinter
+ms.author: rywinter
 ms.date: 05/13/2020
 ms.topic: tutorial
 ms.service: iot-develop
 services: iot-develop
-ms.openlocfilehash: f04d6521416375674d36d8d028cc3c0ec6aa9aec
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: ac8fb1ec3612d552c6e809d9aedb09a8a38fdf98
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129091357"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129364107"
 ---
 # <a name="tutorial---use-mqtt-to-develop-an-iot-plug-and-play-device-client"></a>Tutorial: Uso de MQTT para desarrollar un cliente de dispositivo IoT Plug and Play
 

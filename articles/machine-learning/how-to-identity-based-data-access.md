@@ -4,19 +4,19 @@ titleSuffix: Machine Learning
 description: Aprenda a utilizar el acceso a datos basado en identidades para conectarse a los servicios de almacenamiento de Azure con almacenes de datos de Azure Machine Learning y el SDK de Azure Machine Learning para Python.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 09/28/2021
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: 081f08ea13fddde88133a14789b4e800969413df
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 1455402a00d8e67a75337c890d10a6c14b98eca2
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129214282"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424265"
 ---
 # <a name="connect-to-storage-by-using-identity-based-data-access"></a>Conexión al almacenamiento mediante el acceso a datos basado en identidades
 

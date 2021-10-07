@@ -3,12 +3,12 @@ title: Administración de la directiva de grabación con Live Video Analytics - 
 description: En este tema se explica cómo administrar la directiva de grabación con Live Video Analytics.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: a8301b97e571370d498fba9a8d46cf3fc545ff29
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: c9ec5a2efd56a0a2872f946dd23db72d2e7836b9
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124740355"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273654"
 ---
 # <a name="manage-recording-policy-with-live-video-analytics"></a>Administración de la directiva de grabación con Live Video Analytics
 
@@ -44,7 +44,7 @@ La cuenta de Media Services está vinculada a una cuenta de Azure Storage y, al 
 La regla anterior:
 
 * Se aplica a todos los blobs en bloques de la cuenta de Azure Storage.
-* Especifica que, cuando la antigüedad de los blobs supera los 30 días, se mueven desde el [nivel de acceso frecuente al de acceso esporádico](../../storage/blobs/storage-blob-storage-tiers.md?tabs=azure-portal).
+* Especifica que, cuando la antigüedad de los blobs supera los 30 días, se mueven desde el [nivel de acceso frecuente al de acceso esporádico](../../storage/blobs/access-tiers-overview.md?tabs=azure-portal).
 * Indica que, cuando los blobs tengan más de 90 días, se eliminarán.
 
 Al usar Live Video Analytics para grabar en un recurso, especifique una propiedad `segmentLength` que indique al módulo que agregue una duración mínima de vídeo (en segundos) antes de que se escriba en la nube. El recurso contendrá una serie de segmentos, cada uno con una marca de tiempo de creación que es `segmentLength` más reciente que la anterior. Cuando se inicia la directiva de administración del ciclo de vida, elimina los segmentos anteriores al umbral especificado. Sin embargo, seguirá pudiendo acceder y reproducir los segmentos restantes a través de las API de Media Services. Para obtener más información, consulte [Reproducción de grabaciones](playback-recordings-how-to.md). 

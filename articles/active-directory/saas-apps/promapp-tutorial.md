@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/10/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 348d71bec02f70da656b2cc5af262ab31c64d673
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: e6bc2a97e1f7839721b67269b8486fc39f58aa8a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111983325"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776146"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nintex-promapp"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Nintex Promapp
 
@@ -39,6 +39,8 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Nintex Promapp admite el inicio de sesión único iniciado por **SP e IDP**.
 * Nintex Promapp admite el aprovisionamiento de usuarios **Just-In-Time**.
+
+* Nintex Promapp admite el [aprovisionamiento automatizado de usuarios](promapp-provisioning-tutorial.md).
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
@@ -99,7 +101,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<DOMAIN_NAME>.promapp.com/TENANTNAME/saml/authenticate`.
 
     > [!NOTE]
-    > Estos valores son marcadores de posición. Debe usar los valores reales de identificador, dirección URL de respuesta o dirección URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Nintex Promapp](https://www.promapp.com/about-us/contact-us/) para obtener los valores. También puede consultar los patrones que se muestran en el cuadro de diálogo **Configuración básica de SAML** de Azure Portal.
+    > Estos valores son marcadores de posición. Debe usar los valores reales de identificador, dirección URL de respuesta y dirección URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Nintex Promapp](https://www.promapp.com/about-us/contact-us/) para obtener los valores. También puede consultar los patrones que se muestran en el cuadro de diálogo **Configuración básica de SAML** de Azure Portal.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
@@ -162,6 +164,8 @@ En esta sección va a permitir que B.Simon acceda a Nintex Promapp mediante el i
 
 En esta sección se crea un usuario llamado B.Simon en Nintex Promapp. Nintex Promapp admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario no existe ya en Nintex Promapp, se crea después de la autenticación.
 
+Nintex Promapp también admite el aprovisionamiento automático de usuarios. [Aquí](./promapp-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
@@ -176,7 +180,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Haga clic en **Probar esta aplicación en Azure Portal**; debería iniciar sesión automáticamente en la instancia de Nintex Promapp para la que configuró el inicio de sesión único. 
 
-También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Nintex Promapp en Mis aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de Nintex Promapp para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+También puede usar Aplicaciones de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Nintex Promapp en Mis aplicaciones, si se ha configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para comenzar el flujo de inicio de sesión; y si se ha configurado en modo IDP, se debería iniciar sesión automáticamente en la instancia de Nintex Promapp para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

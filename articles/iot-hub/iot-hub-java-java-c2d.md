@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-java
-ms.openlocfilehash: 1509fc725f9b2b486f75b69b4d9cb1509abe097f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1493e9166e9d9b1584187fe6d7210936db7cc038
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728774"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234440"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Envío mensajes de nube a dispositivo con IoT Hub (Java)
 
@@ -223,7 +223,5 @@ Ahora está preparado para ejecutar las aplicaciones.
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, aprendió a enviar y recibir mensajes de nube a dispositivo.
-
-Para ver ejemplos de soluciones completas que usen IoT Hub, consulte [Aceleradores de soluciones de IoT](https://azure.microsoft.com/documentation/suites/iot-suite/).
 
 Para obtener más información sobre cómo desarrollar soluciones con IoT Hub, consulte la [Guía para desarrolladores de IoT Hub](iot-hub-devguide.md).

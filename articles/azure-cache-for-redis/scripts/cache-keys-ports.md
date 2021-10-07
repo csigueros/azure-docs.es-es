@@ -1,20 +1,20 @@
 ---
 title: Obtención del nombre de host, los puertos y las claves para Azure Cache for Redis con la CLI de Azure
 description: Este ejemplo de código de la CLI de Azure muestra cómo obtener el nombre de host, los puertos y las claves para una instancia de Azure Cache for Redis.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 tags: azure-service-management
 ms.service: cache
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d3e8e359a97c091e025049ac8a978e1beca1d759
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 096443b1ec83c5aa7bec6446f3a67f6a750944b1
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96184233"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534246"
 ---
 # <a name="get-the-hostname-ports-and-keys-for-azure-cache-for-redis"></a>Obtención del nombre de host, los puertos y las claves para Azure Cache for Redis
 

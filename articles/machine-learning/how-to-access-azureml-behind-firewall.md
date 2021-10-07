@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Cómo configurar el tráfico de red entrante y saliente necesario cuando se usa un área de trabajo de Azure Machine Learning segura.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 09/14/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 2207ac32595d3780bf662d9a4124b7cbf74ce6a7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 50c8a38a5acbfea119770a5ea81a21d51fd4ea83
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128633989"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424547"
 ---
 # <a name="configure-inbound-and-outbound-network-traffic"></a>Configuración del tráfico de red entrante y saliente
 

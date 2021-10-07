@@ -1,26 +1,33 @@
 ---
-title: Implementación de forma segura de una plantilla con el token de SAS
-description: Implemente recursos en Azure con una plantilla de Azure Resource Manager que está protegida con el token de SAS. Se muestra Azure PowerShell y la CLI de Azure.
+title: 'Implementación de una plantilla de ARM con token de SAS: Azure Resource Manager | Microsoft Docs'
+description: Aprenda a usar la CLI de Azure o Azure PowerShell para implementar de forma segura una plantilla de ARM privada con un token de SAS. Proteja y administre el acceso a las plantillas.
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: d8a173c719c239d72c57febbe54688f079a601bb
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 09/17/2021
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, seo-azure-cli
+keywords: plantilla privada, plantilla de token de SAS, cuenta de almacenamiento, seguridad de plantilla, plantilla de Azure ARM, plantilla de Azure Resource Manager
+ms.openlocfilehash: 0e6a680e0344ed5a03715c35e99394aead756501
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959972"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128584949"
 ---
-# <a name="deploy-private-arm-template-with-sas-token"></a>Implementación de una plantilla de Resource Manager privada con el token de SAS
+# <a name="how-to-deploy-private-arm-template-with-sas-token"></a>Procedimiento para implementar una plantilla de ARM privada con un token de SAS
 
-Cuando la plantilla de Azure Resource Manager (ARM) se encuentra en una cuenta de almacenamiento, puede restringir el acceso a la plantilla para evitar que se exponga públicamente. Para acceder a una plantilla protegida, cree un token de firma de acceso compartido (SAS) para la plantilla y proporcione ese token durante la implementación. En este artículo se explica cómo usar Azure PowerShell o la CLI de Azure para implementar una plantilla con un token de SAS.
+Cuando la plantilla de Azure Resource Manager (ARM) se encuentra en una cuenta de almacenamiento, puede restringir el acceso a la plantilla para evitar que se exponga públicamente. Para acceder a una plantilla protegida, cree un token de firma de acceso compartido (SAS) para la plantilla y proporcione ese token durante la implementación. En este artículo se explica cómo usar Azure PowerShell o la CLI de Azure para implementar de forma segura una plantilla de ARM con un token de SAS.
+
+Encontrará información sobre cómo proteger y administrar el acceso a las plantillas de ARM privadas con instrucciones sobre cómo hacer lo siguiente:
+
+* Creación de una cuenta de almacenamiento con un contenedor protegido
+* Carga de una plantilla en la cuenta de almacenamiento
+* Provisión del token de SAS durante la implementación
 
 > [!IMPORTANT]
-> En lugar de proteger la plantilla con un token de SAS, considere la posibilidad de usar [especificaciones de plantilla](template-specs.md). Con las especificaciones de plantilla, puede compartir sus plantillas con otros usuarios de su organización y administrar el acceso a las plantillas a través de RBAC de Azure.
+> En lugar de proteger la plantilla privada con un token de SAS, considere la posibilidad de usar [especificaciones de plantilla](template-specs.md). Con las especificaciones de plantilla, puede compartir sus plantillas con otros usuarios de su organización y administrar el acceso a las plantillas a través de RBAC de Azure.
 
 ## <a name="create-storage-account-with-secured-container"></a>Creación de una cuenta de almacenamiento con un contenedor protegido
 
-El script siguiente crea una cuenta de almacenamiento y un contenedor con acceso público desactivado.
+El script siguiente crea una cuenta de almacenamiento y un contenedor con acceso público desactivado para la seguridad de la plantilla.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -65,7 +72,7 @@ az storage container create \
 
 ---
 
-## <a name="upload-template-to-storage-account"></a>Carga de una plantilla en la cuenta de almacenamiento
+## <a name="upload-private-template-to-storage-account"></a>Carga de la plantilla privada a la cuenta de almacenamiento
 
 Ahora puede cargar la plantilla en la cuenta de almacenamiento. Proporcione la ruta de acceso a la plantilla que quiere usar.
 
@@ -94,7 +101,7 @@ az storage blob upload \
 Para implementar una plantilla privada en una cuenta de almacenamiento, genere un token de SAS e inclúyalo en el identificador URI de la plantilla. Establezca el tiempo de expiración con un margen suficiente para completar la implementación.
 
 > [!IMPORTANT]
-> El blob que contiene la plantilla solo es accesible para el propietario de la cuenta. Sin embargo, cuando se crea un token de SAS para el blob, el blob es accesible para cualquier persona con ese URI. Si otro usuario intercepta el URI, ese usuario podrá tener acceso a la plantilla. Un token de SAS es una buena forma de limitar el acceso a las plantillas, pero no debe incluir datos confidenciales, como contraseñas, directamente en la plantilla.
+> El blob que contiene la plantilla privada solo es accesible para el propietario de la cuenta. Sin embargo, cuando se crea un token de SAS para el blob, el blob es accesible para cualquier persona con ese URI. Si otro usuario intercepta el URI, ese usuario podrá tener acceso a la plantilla. Un token de SAS es una buena forma de limitar el acceso a las plantillas, pero no debe incluir datos confidenciales, como contraseñas, directamente en la plantilla.
 >
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)

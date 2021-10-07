@@ -1,14 +1,14 @@
 ---
-title: Prueba de la aplicación en Azure | Microsoft Docs
+title: Procedimiento para probar aplicaciones en Azure
 description: Aprenda a crear un recurso compartido de archivos en un laboratorio y montarlo en su máquina local y en una máquina virtual del laboratorio para, a continuación, implementar aplicaciones web o de escritorio en el recurso compartido de archivos y probarlas.
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/26/2020
-ms.openlocfilehash: b2dbbf349da4e352fe20a22db03cc9063d801990
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e9d4e78bf0ebe5e28ac9bb180acafae3fcdd0f08
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87282252"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128604386"
 ---
 # <a name="test-your-app-in-azure"></a>Prueba de las aplicaciones en Azure 
 En este artículo se proporciona los pasos para probar la aplicación en Azure con DevTest Labs. En primer lugar, configurará un recurso compartido de archivos en un laboratorio y lo montará como una unidad en la máquina de desarrollo local y en una máquina virtual de un laboratorio. A continuación, usará Visual Studio 2019 para implementar la aplicación en el recurso compartido de archivos de forma que pueda ejecutar la aplicación en la máquina virtual del laboratorio.  

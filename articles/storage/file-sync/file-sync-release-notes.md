@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 8/24/2021
+ms.date: 9/13/2021
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: fbd02fb70a16250d427afc2f60343ad6758ea8dc
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 0662431d950e0b65cce749697597e5ef9e9e8f3f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123258672"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589233"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de la versión del agente de Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Las instalaciones de Windows Server se transforman en una memoria caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a los datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -67,8 +67,8 @@ Las notas siguientes corresponden a la versión 13.0.0.0 del agente de Azure Fil
 - Compatibilidad con el cambio de nombre del servidor  
     - Si se cambia el nombre de un servidor registrado, Azure File Sync mostrará el nuevo nombre de servidor en el portal. Si se cambió el nombre del servidor antes de la versión v13, el nombre del servidor en el portal ahora se actualizará para mostrar el nombre de servidor correcto.
 
-- Compatibilidad con Windows Server 2022 - Versión preliminar  
-    - El agente de Azure File Sync ahora se admite en Windows Server 2022 - Versión preliminar (compilación 20348 o posterior).
+- Compatibilidad con Windows Server 2022  
+    - El agente de Azure File Sync ahora se admite en Windows Server 2022.
 
     > [!Note]  
     > Windows Server 2022 agrega compatibilidad con TLS 1.3, que actualmente no es compatible con Azure File Sync.  Si la [configuración de TLS](/windows-server/security/tls/tls-ssl-schannel-ssp-overview) se administra a través de la directiva de grupo, el servidor debe configurarse para admitir TLS 1.2. 
@@ -90,7 +90,7 @@ Para más información sobre cómo instalar y configurar el agente de Azure File
 - Se requiere reiniciar los servidores con una instalación del agente de Azure File Sync si la versión del agente es inferior a la versión 12.0.
 - El paquete de instalación del agente debe instalarse con permisos elevados (administrador).
 - El agente no es compatible con la opción de implementación de Nano Server.
-- El agente solo se admite en Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 y Windows Server 2022 - Versión preliminar.
+- El agente solo se admite en Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 y Windows Server 2022.
 - El agente requiere al menos 2 GB de memoria. Si el servidor se ejecuta en una máquina virtual con la memoria dinámica habilitada, la máquina virtual debe configurarse con un mínimo de 2048 MiB de memoria. Para más información, consulte el artículo en el que se indican los [recursos del sistema recomendados](file-sync-planning.md#recommended-system-resources).
 - El servicio del agente de sincronización de Storage (FileSyncSvc) no admite puntos de conexión de servidor ubicados en un volumen que tiene el directorio de información del volumen del sistema (SVI) comprimido. Esta configuración producirá resultados inesperados.
 

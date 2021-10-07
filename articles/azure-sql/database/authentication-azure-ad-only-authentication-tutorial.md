@@ -1,19 +1,20 @@
 ---
-title: Habilitar la autenticación solo de Azure Active Directory con Azure SQL
-description: Este artículo explica cómo habilitar la característica de autenticación solo de Azure Active Directory (Azure AD) con Azure SQL Database y Azure SQL Managed Instance.
+title: Habilitación de la autenticación solo de Azure Active Directory
+description: Este artículo explica cómo habilitar la característica de autenticación solo de Azure Active Directory (Azure AD) con Azure SQL Database y Azure SQL Managed Instance.
+titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 ms.service: sql-db-mi
 ms.subservice: security
 ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 06/30/2021
-ms.openlocfilehash: 6ea0da3b8a6ddcc2f41bd9e779742f3e2d9cbe4d
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.date: 08/31/2021
+ms.openlocfilehash: 76425e37c83ea5ac44653e20753e35606b89d370
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114470770"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643239"
 ---
 # <a name="tutorial-enable-azure-active-directory-only-authentication-with-azure-sql"></a>Tutorial: Habilitar la autenticación solo de Azure Active Directory con Azure SQL
 
@@ -184,7 +185,7 @@ Vaya al recurso del **servidor SQL** en [Azure Portal](https://portal.azure.com/
 
 # <a name="the-azure-cli"></a>[La CLI de Azure](#tab/azure-cli)
 
-Estos comandos se pueden usar para comprobar si la autenticación solo de Azure AD está habilitada para el servidor lógico de SQL Database o SQL Managed Instance. Los miembros de los roles colaborador de [Colaborador de SQL Server](../../role-based-access-control/built-in-roles.md#sql-server-contributor) y [colaborador de SQL Managed Instance](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) pueden usar estos comandos para comprobar el estado de la autenticación solo de Azure AD, pero no pueden habilitar ni deshabilitar la característica.
+Estos comandos se pueden usar para comprobar si la autenticación solo de Azure AD está habilitada para el [servidor lógico](logical-servers.md) de Azure SQL Database o SQL Managed Instance. Los miembros de los roles colaborador de [Colaborador de SQL Server](../../role-based-access-control/built-in-roles.md#sql-server-contributor) y [colaborador de SQL Managed Instance](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) pueden usar estos comandos para comprobar el estado de la autenticación solo de Azure AD, pero no pueden habilitar ni deshabilitar la característica.
 
 ## <a name="check-status-in-sql-database"></a>Comprobación del estado en SQL Database
 
@@ -240,7 +241,7 @@ Estos comandos se pueden usar para comprobar si la autenticación solo de Azure 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Estos comandos se pueden usar para comprobar si la autenticación solo de Azure AD está habilitada para el servidor lógico de SQL Database o SQL Managed Instance. Los miembros de los roles colaborador de [Colaborador de SQL Server](../../role-based-access-control/built-in-roles.md#sql-server-contributor) y [colaborador de SQL Managed Instance](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) pueden usar estos comandos para comprobar el estado de la autenticación solo de Azure AD, pero no pueden habilitar ni deshabilitar la característica.
+Estos comandos se pueden usar para comprobar si la autenticación solo de Azure AD está habilitada para el [servidor lógico](logical-servers.md) de Azure SQL Database o SQL Managed Instance. Los miembros de los roles colaborador de [Colaborador de SQL Server](../../role-based-access-control/built-in-roles.md#sql-server-contributor) y [colaborador de SQL Managed Instance](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) pueden usar estos comandos para comprobar el estado de la autenticación solo de Azure AD, pero no pueden habilitar ni deshabilitar la característica.
 
 El estado volverá a ser **True** si la característica está habilitada y será **False** si se deshabilita.
 
@@ -401,3 +402,4 @@ Después de deshabilitar la autenticación solo de Azure AD, pruebe a conectarse
 
 - [Autenticación solo de Azure AD con Azure SQL](authentication-azure-ad-only-authentication.md)
 - [Creación de un servidor con autenticación solo con Azure AD habilitada en Azure SQL](authentication-azure-ad-only-authentication-create-server.md)
+- [Uso de Azure Policy para aplicar la autenticación exclusiva de Azure Active Directory con Azure SQL](authentication-azure-ad-only-authentication-policy-how-to.md)

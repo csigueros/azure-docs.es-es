@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 06/24/2021
-ms.openlocfilehash: d57941c06f4917c8ff3b27f5e566fc9d5f95474b
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 9a72ec356161646df093bb6ca054f84ea0cfe6da
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129273010"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563084"
 ---
 # <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Uso de cuadernos de Jupyter para buscar amenazas de seguridad
 
@@ -64,8 +64,8 @@ En los cuadernos de Azure Sentinel se usa un paquete de Python denominado [MSTIC
 Las herramientas de MSTICPy están diseñadas expresamente para facilitar la creación de cuadernos que se puedan usar en búsquedas e investigaciones, y estamos trabajando activamente en nuevas características y mejoras. Para más información, consulte:
 
 - [Documentación de las herramientas de seguridad de MSTIC Jupyter y Python](https://msticpy.readthedocs.io/)
-- [Tutorial: Introducción a los cuadernos de Jupyter Notebook y MSTICPy en Azure Sentinel](notebook-get-started.md)
-- [Configuraciones avanzadas para cuadernos de Jupyter Notebook y MSTICPy en Azure Sentinel](notebooks-msticpy-advanced.md)
+- [Tutorial: Introducción a los cuadernos de Jupyter y MSTICPy en Azure Sentinel](notebook-get-started.md)
+- [Configuraciones avanzadas para cuadernos de Jupyter y MSTICPy en Azure Sentinel](notebooks-msticpy-advanced.md)
 
 El [repositorio de la comunidad GitHub de Azure Sentinel](https://github.com/Azure/Azure-Sentinel-Notebooks/) es la ubicación de los futuros cuadernos de Azure Sentinel creados por Microsoft o procedentes de contribuciones de la comunidad.
 
@@ -322,7 +322,7 @@ If the *Runtime dependency of PyGObject is missing* error appears when you load 
     ModuleNotFoundError: No module named 'gi'
     ```
 
-1. Use el script [aml-compute-setup.sh](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/HowTos/aml-compute-setup.sh), ubicado en el repositorio Azure Sentinel Notebooks de GitHub, para instalar automáticamente `pygobject` en todos los cuadernos y entornos de Anaconda en la instancia de Proceso.
+1. Use el script [aml-compute-setup.sh](https://github.com/Azure/Azure-Sentinel-Notebooks/master/HowTos/aml-compute-setup.sh), ubicado en el repositorio Azure Sentinel Notebooks de GitHub, para instalar automáticamente `pygobject` en todos los cuadernos y entornos de Anaconda en la instancia de Proceso.
 
 > [!TIP]
 > También puede corregir esta advertencia si ejecuta el código siguiente desde un cuaderno:
@@ -352,7 +352,7 @@ Agradecemos cualquier comentario, sugerencias, peticiones de características, c
 
 Para más información, consulte:
 
-  - [Tutorial: Introducción a los cuadernos de Jupyter Notebook y MSTICPy en Azure Sentinel](notebook-get-started.md)
+  - [Tutorial: Introducción a los cuadernos de Jupyter y MSTICPy en Azure Sentinel](notebook-get-started.md)
 - [Tutorial: Introducción a los cuadernos de Azure Sentinel](https://www.youtube.com/results?search_query=azazure+sentinel+notebooks) (Vídeo)
 - [Tutorial: Edición y ejecución de cuadernos de Jupyter sin salir de Estudio de Azure Machine Learning](https://www.youtube.com/watch?v=AAj-Fz0uCNk) (Vídeo)
 - [Seminario web: Aspectos básicos de los cuadernos de Azure Sentinel](https://www.youtube.com/watch?v=rewdNeX6H94)

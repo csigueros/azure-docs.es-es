@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 05/11/2021
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 7bcaf46ef6860a9546179b86d6293d24c0064c0c
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 3319d0e407c6661ee0727944035b315e77ea512f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751534"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626539"
 ---
 # <a name="what-is-azure-web-application-firewall"></a>¿Qué es el firewall de aplicaciones web de Azure?
 
@@ -35,3 +35,4 @@ WAF se puede implementar con Azure Application Gateway, Azure Front Door y el se
 - Para más información sobre el firewall de aplicaciones web en Application Gateway, consulte [Firewall de aplicaciones web en Azure Application Gateway](./ag/ag-overview.md).
 - Para más información sobre el firewall de aplicaciones web en Azure Front Door Service, consulte [Firewall de aplicaciones web en Azure Front Door Service](./afds/afds-overview.md).
 - Para más información sobre el firewall de aplicaciones web en el servicio Azure CDN, consulte [Firewall de aplicaciones web en el servicio Azure CDN](./cdn/cdn-overview.md).
+- Para obtener más información sobre Web Application Firewall, consulte el [Módulo de información: Introducción a Azure Web Application Firewall](/learn/modules/introduction-azure-web-application-firewall/).

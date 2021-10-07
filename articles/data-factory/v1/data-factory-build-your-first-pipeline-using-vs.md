@@ -5,15 +5,16 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: tutorial
 ms.custom: vs-azure, devx-track-azurepowershell
 ms.date: 01/22/2018
-ms.openlocfilehash: 2d48386e0d9b4d82de5deb62da95677172c74155
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: d24ee6c0ff6672a00b137f37bf332fe0f39d59a0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110671004"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667471"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Tutorial: Creación de una instancia de Data Factory mediante Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -69,10 +70,10 @@ Vamos a usa Visual Studio para crear una instancia de Azure Data Factory.
 1. Inicie **Visual Studio 2013** o **Visual Studio 2015**. Haga clic en **Archivo**, seleccione **Nuevo** y, luego, haga clic en **Proyecto**. Debería ver el cuadro de diálogo **Nuevo proyecto** .  
 2. En el cuadro de diálogo **Nuevo proyecto**, seleccione la plantilla **DataFactory** y haga clic en **Proyecto vacío de factoría de datos**.   
 
-    ![Cuadro de diálogo Nuevo proyecto](./media/data-factory-build-your-first-pipeline-using-vs/new-project-dialog.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/new-project-dialog.png" alt-text="Cuadro de diálogo Nuevo proyecto":::
 3. Escriba un **nombre** para el proyecto, la **ubicación** y un nombre para la **solución**; a continuación, haga clic en **Aceptar**.
 
-    ![Explorador de soluciones](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png" alt-text="Explorador de soluciones":::
 
 ### <a name="create-linked-services"></a>Crear servicios vinculados
 En este paso se crean dos servicios vinculados: **Azure Storage** y **HDInsight a petición**. 
@@ -87,9 +88,9 @@ Con el servicio vinculado de HDInsight a petición, se crea automáticamente el 
 #### <a name="create-azure-storage-linked-service"></a>Creación de un servicio vinculado de Azure Storage
 1. Haga clic con el botón derecho en **Servicios vinculados** en el Explorador de soluciones, seleccione **Agregar** y haga clic en **Nuevo elemento**.      
 2. En el cuadro de diálogo **Agregar nuevo elemento**, seleccione **Servicios vinculados de Azure Storage** en la lista y haga clic en **Agregar**.
-    ![Captura de pantalla que muestra el servicio vinculado de Azure Storage resaltado en la lista.](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png" alt-text="Captura de pantalla que muestra el servicio vinculado de Azure Storage resaltado en la lista.":::
 3. Reemplace `<accountname>` y `<accountkey>` por el nombre de la cuenta de Azure Storage y su clave. Para aprender a obtener la clave de acceso de almacenamiento, consulte [Administración de claves de acceso de la cuenta de almacenamiento](../../storage/common/storage-account-keys-manage.md).
-    ![Servicio vinculado de Azure Storage](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png" alt-text="Servicio vinculado de Azure Storage":::
 4. Guarde el archivo **AzureStorageLinkedService1.json** .
 
 #### <a name="create-azure-hdinsight-linked-service"></a>Creación de un servicio vinculado de HDInsight de Azure
@@ -293,10 +294,10 @@ En este paso, va a publicar las entidades de Data Factory (servicios vinculados,
 2. Si ve el cuadro de diálogo **Iniciar sesión en tu cuenta Microsoft**, escriba sus credenciales para la cuenta que tiene la suscripción de Azure y haga clic en **Iniciar sesión**.
 3. Debería ver el siguiente cuadro de diálogo:
 
-   ![Cuadro de diálogo Publicar](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
+   :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/publish.png" alt-text="Cuadro de diálogo Publicar":::
 4. En la página **Configure data factory** (Configurar Data Factory), siga estos pasos:
 
-    ![Publicar: nueva configuración de Data Factory](media/data-factory-build-your-first-pipeline-using-vs/publish-new-data-factory.png)
+    :::image type="content" source="media/data-factory-build-your-first-pipeline-using-vs/publish-new-data-factory.png" alt-text="Publicar: nueva configuración de Data Factory":::
 
    1. Seleccione la opción **Crear la nueva factoría de datos** .
    2. Escriba un **nombre** único para la factoría de datos. Por ejemplo: **DataFactoryUsingVS09152016**. El nombre debe ser único globalmente.
@@ -311,10 +312,10 @@ En este paso, va a publicar las entidades de Data Factory (servicios vinculados,
       > Si recibe el error **El nombre "DataFactoryUsingVS" de la factoría de datos no está disponible** al realizar la publicación, cambie el nombre (por ejemplo, a suNombreDataFactoryUsingVS). Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.   
 1. En la página **Publicar elementos**, asegúrese de que todas las factorías de datos están seleccionadas y haga clic en **Siguiente** para cambiar a la página **Resumen**.
 
-    ![Página Publicar elementos](media/data-factory-build-your-first-pipeline-using-vs/publish-items-page.png)     
+    :::image type="content" source="media/data-factory-build-your-first-pipeline-using-vs/publish-items-page.png" alt-text="Página Publicar elementos":::     
 2. Revise el resumen y haga clic en **Siguiente** para iniciar el proceso de implementación y ver el **Estado de implementación**.
 
-    ![Página de resumen](media/data-factory-build-your-first-pipeline-using-vs/summary-page.png)
+    :::image type="content" source="media/data-factory-build-your-first-pipeline-using-vs/summary-page.png" alt-text="Página de resumen":::
 3. En la página **Estado de implementación** , debería ver el estado del proceso de implementación. Cuando se haya completado la implementación, haga clic en Finalizar.
 
 Puntos importantes que hay que tener en cuenta:
@@ -340,46 +341,46 @@ En este paso, va a supervisar la canalización mediante la vista de diagrama de 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) y realice los siguientes pasos:
    1. Haga clic en **More services** (Más servicios) y en **Fábricas de datos**.
        
-        ![Examinar factorías de datos](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
+        :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png" alt-text="Examinar factorías de datos":::
    2. Seleccione el nombre de la factoría de datos (por ejemplo: **DataFactoryUsingVS09152016**) en la lista de factorías de datos.
    
-       ![Seleccione su factoría de datos](./media/data-factory-build-your-first-pipeline-using-vs/select-first-data-factory.png)
+       :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/select-first-data-factory.png" alt-text="Seleccione su factoría de datos":::
 2. En la página principal de la factoría de datos, haga clic en **Diagrama**.
 
-    ![Icono Diagrama](./media/data-factory-build-your-first-pipeline-using-vs/diagram-tile.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/diagram-tile.png" alt-text="Icono Diagrama":::
 3. En la Vista de diagrama, se ve información general de las canalizaciones y los conjuntos de datos empleados en este tutorial.
 
-    ![Vista de diagrama](./media/data-factory-build-your-first-pipeline-using-vs/diagram-view-2.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/diagram-view-2.png" alt-text="Vista de diagrama":::
 4. Para ver todas las actividades de la canalización, haga clic con el botón derecho en la canalización en el diagrama y haga clic en Abrir canalización.
 
-    ![Menú Abrir canalización](./media/data-factory-build-your-first-pipeline-using-vs/open-pipeline-menu.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/open-pipeline-menu.png" alt-text="Menú Abrir canalización":::
 5. Confirme que la actividad de HDInsightHive está en la canalización.
 
-    ![Vista Abrir canalización](./media/data-factory-build-your-first-pipeline-using-vs/open-pipeline-view.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/open-pipeline-view.png" alt-text="Vista Abrir canalización":::
 
     Para volver a la vista anterior, haga clic en **Data Factory** en el menú de la ruta de navegación de la parte superior.
 6. En la **Vista de diagrama**, haga doble clic en el conjunto de datos **AzureBlobInput**. Confirme que el estado del segmento es **Listo** . Puede que el segmento tarde un par de minutos en aparecer con ese estado. Si no aparece después de un tiempo, compruebe si el archivo de entrada (input.log) está en el contenedor (`adfgetstarted`) y en la carpeta (`inputdata`) correctos. Y asegúrese de que la propiedad **external** del conjunto de datos de entrada se establece en **true**. 
 
-   ![Segmento de entrada con estado Listo](./media/data-factory-build-your-first-pipeline-using-vs/input-slice-ready.png)
+   :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/input-slice-ready.png" alt-text="Segmento de entrada con estado Listo":::
 7. Haga clic en el botón **X** para cerrar la hoja **AzureBlobInput**.
 8. En la **Vista de diagrama**, haga doble clic en el conjunto de datos **AzureBlobOutput**. Se ve que el segmento se está procesando.
 
-   ![Captura de pantalla que muestra el conjunto de AzureBlobOutput resaltado.](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
+   :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png" alt-text="Captura de pantalla que muestra el conjunto de AzureBlobOutput resaltado.":::
 9. Cuando finalice el procesamiento, el segmento aparece con el estado **Listo** .
 
    > [!IMPORTANT]
    > La creación de un clúster de HDInsight a petición normalmente tarda algún tiempo (20 minutos aproximadamente). Por tanto, cabe esperar que la canalización tarde **aproximadamente 30 minutos** en procesar el segmento.  
    
-    ![Dataset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)    
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png" alt-text="Dataset":::    
 10. Cuando el segmento se encuentre en el estado **Listo**, busque los datos de salida en la carpeta `partitioneddata` del contenedor `adfgetstarted` del almacenamiento de blobs.  
 
-    ![datos de salida](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png" alt-text="datos de salida":::
 11. Haga clic en el segmento para ver sus detalles en una hoja **Segmento de datos** .
 
-    ![Detalles de segmento de datos](./media/data-factory-build-your-first-pipeline-using-vs/data-slice-details.png)  
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/data-slice-details.png" alt-text="Detalles de segmento de datos":::  
 12. Haga clic en una de las entradas de **Activity runs list** (Lista de ejecuciones de actividad) para ver los detalles de la ejecución de la actividad (en nuestro caso, la actividad de Hive) en la ventana **Detalles de la ejecución de actividad**. 
   
-    ![Detalles de ejecución de actividad](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png)    
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png" alt-text="Detalles de ejecución de actividad":::    
 
     En los archivos de registro, puede ver la consulta de Hive que se ejecutó y la información sobre el estado. Estos registros son útiles para solucionar cualquier problema.  
 
@@ -390,12 +391,12 @@ La Aplicación de supervisión y administración también se puede usar para sup
 
 1. Haga clic en el icono Supervisión y administración.
 
-    ![Icono Supervisión y administración](./media/data-factory-build-your-first-pipeline-using-vs/monitor-and-manage-tile.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/monitor-and-manage-tile.png" alt-text="Icono Supervisión y administración":::
 2. Debería ver la Aplicación de supervisión y administración. Cambie el valor de **Hora de inicio** y **Hora de finalización** para que coincidan con la hora de inicio (01-04-2016 12:00 a. m.) y la hora de finalización (02-04-2016 12:00 a. m.) de la canalización y haga clic en **Aplicar**.
 
-    ![Aplicación de supervisión y administración](./media/data-factory-build-your-first-pipeline-using-vs/monitor-and-manage-app.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/monitor-and-manage-app.png" alt-text="Aplicación Supervisión y administración":::
 3. Para ver los detalles de una ventana de actividad, selecciónela en la **lista de ventanas de actividad**.
-    ![Detalles de ventana de actividad](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-details.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/activity-window-details.png" alt-text="Detalles de ventana de actividad":::
 
 > [!IMPORTANT]
 > El archivo de entrada se elimina cuando el segmento se procesa correctamente. Por lo tanto, si desea volver a ejecutar el segmento o volver a realizar el tutorial, cargue el archivo de entrada (input.log) en la carpeta `inputdata` del contenedor `adfgetstarted`.
@@ -417,10 +418,10 @@ La Aplicación de supervisión y administración también se puede usar para sup
 1. En **Visual Studio** haga clic en **Vista** en el menú y haga clic en **Explorador de servidores**.
 2. En la ventana Explorador de servidores, expanda **Azure** y **Factoría de datos**. Si aparece **Iniciar sesión en Visual Studio**, escriba la **cuenta** asociada a su suscripción de Azure y haga clic en **Continuar**. Escriba la **contraseña** y haga clic en **Iniciar sesión**. Visual Studio intenta obtener información acerca de todas las factorías de datos de Azure de su suscripción. Puede ver el estado de esta operación en la ventana **Data Factory Task List** (Lista de tareas de Data Factory).
 
-    ![Explorador de servidores](./media/data-factory-build-your-first-pipeline-using-vs/server-explorer.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/server-explorer.png" alt-text="Explorador de servidores":::
 3. Puede hacer clic con el botón derecho en una factoría de datos y seleccionar **Export Data Factory to New Project** (Exportar Data Factory al nuevo proyecto) para crear un proyecto de Visual Studio basado en una factoría de datos existente.
 
-    ![Exportación de la factoría de datos](./media/data-factory-build-your-first-pipeline-using-vs/export-data-factory-menu.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/export-data-factory-menu.png" alt-text="Exportación de la factoría de datos":::
 
 ## <a name="update-data-factory-tools-for-visual-studio"></a>Actualización de herramientas de Factoría de datos para Visual Studio
 Para actualizar las herramientas de Azure Data Factory para Visual Studio, siga estos pasos:
@@ -453,7 +454,7 @@ Agregue un archivo de configuración a cada entorno realizando los pasos siguien
 1. En la solución de Visual Studio, haga clic con el botón derecho en el proyecto de Data Factory, seleccione **Agregar** y haga clic en **Nuevo elemento**.
 2. Seleccione **Config** en la lista de plantillas instaladas que encontrará a la izquierda, elija **Archivo de configuración**, especifique un **nombre** para este archivo y haga clic en **Agregar**.
 
-    ![Adición de archivo de configuración](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png" alt-text="Adición de archivo de configuración":::
 3. Agregue parámetros de configuración y sus valores en el formato siguiente:
 
     ```json
@@ -531,7 +532,7 @@ Para publicar entidades en un proyecto de Azure Data Factory mediante el archivo
 2. Seleccione una factoría de datos existente o especifique los valores necesarios para crear una en la página **Configure data factory** (Configurar Data Factory) y haga clic en **Siguiente**.   
 3. En la página **Publish Items** (Publicar elementos), verá una lista desplegable con las configuraciones disponibles para el campo **Select Deployment Config** (Seleccionar configuración de implementación).
 
-    ![Selección de archivo de configuración](./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png" alt-text="Selección de archivo de configuración":::
 4. Seleccione el **archivo de configuración** que desea usar y haga clic en **Siguiente**.
 5. Confirme que ve el nombre del archivo JSON en la página **Resumen** y haga clic en **Siguiente**.
 6. Cuando finalice la operación de implementación, haga clic en **Finalizar** .

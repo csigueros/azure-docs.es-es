@@ -8,12 +8,12 @@ ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: how-to
 ms.date: 09/21/2021
-ms.openlocfilehash: f544e9b98204f48defee59e614f395c879ecc8e4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 94f1a884eb2fbb10ced8c343d0408845f0ff34ba
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128699665"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273029"
 ---
 # <a name="set-up-power-bi-visual-offer-technical-configuration"></a>Configuración técnica de la oferta visual de Power BI
 
@@ -23,7 +23,7 @@ En la pestaña **Configuración técnica**, proporcione los archivos necesarios 
 
 ## <a name="pbiviz-package"></a>Paquete PBIVIZ
 
-[Empaquete el objeto visual de Power BI](https://docs.microsoft.com/power-bi/developer/visuals/package-visual) en un paquete PBIVIZ que contenga todos los metadatos necesarios:
+[Empaquete el objeto visual de Power BI](/power-bi/developer/visuals/package-visual) en un paquete PBIVIZ que contenga todos los metadatos necesarios:
 
 - Nombre de objeto visual
 - Nombre para mostrar

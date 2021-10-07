@@ -6,12 +6,12 @@ ms.date: 05/04/2021
 ms.author: tomfitz
 ms.custom: devx-track-azurepowershell
 author: tfitzmac
-ms.openlocfilehash: bfbf876f8621beec4d8eddb80c3db285cd6d4c49
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: bf417b6ca70012a3cf4bce17640aa4bc9ab9fd08
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110688292"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128611213"
 ---
 # <a name="azure-resource-manager-template-specs"></a>Especificaciones de plantilla de Azure Resource Manager
 
@@ -23,6 +23,10 @@ Para implementar la especificación de plantilla, use herramientas estándar de 
 
 > [!NOTE]
 > Para usar especificaciones de plantilla con Azure PowerShell, debe instalar la [versión 5.0.0 o posterior](/powershell/azure/install-az-ps). Para usarlas con la CLI de Azure, utilice la [versión 2.14.2 o posterior](/cli/azure/install-azure-cli).
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Para obtener más información sobre las especificaciones de plantilla e instrucciones prácticas, vea [Publicación de bibliotecas de código de infraestructura reutilizable mediante especificaciones de plantilla](/learn/modules/arm-template-specs) en **Microsoft Learn**.
 
 ## <a name="why-use-template-specs"></a>¿Por qué usar especificaciones de plantilla?
 

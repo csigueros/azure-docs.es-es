@@ -8,23 +8,21 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/02/2021
-ms.openlocfilehash: 4e23862e78fb6b3de9dd360ee54bb229c76bc8b4
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: f80a4a5961c0506f423da4d4f1578b8cf8999b51
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123537986"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755231"
 ---
 # <a name="quickstart-create-a-knowledge-store-in-the-azure-portal"></a>Inicio rápido: Creación de un almacén de conocimiento en Azure Portal
 
-El almacén de conocimiento es una característica de Azure Cognitive Search que envía la salida de una [canalización de enriquecimiento con IA](cognitive-search-concept-intro.md) a Azure Storage para el análisis subsiguiente o el procesamiento posterior.
+El [almacén de conocimiento](knowledge-store-concept-intro.md) es una característica de Azure Cognitive Search que envía la salida de una [canalización de enriquecimiento con IA](cognitive-search-concept-intro.md) a Azure Storage. Los enriquecimientos creados por la canalización, como texto traducido, texto OCR, entidades reconocidas y otros enriquecimientos, se proyectan en tablas o blobs, a los que cualquier aplicación o carga de trabajo que se conecte a Azure Storage puede acceder.
 
-Una canalización de enriquecimiento acepta contenido de imágenes y texto no estructurado, aplica procesamiento con tecnología de IA mediante Cognitive Services, y genera nuevas estructuras e información que no existían anteriormente. Una de las estructuras de datos físicas creadas por una canalización es un [almacén de conocimiento](knowledge-store-concept-intro.md), al que se puede acceder mediante cualquier herramienta, aplicación o proceso que se conecten a Azure Storage.
-
-En este artículo de inicio rápido, configurará los datos y, luego, ejecutará el Asistente para **importar datos** para crear una canalización de enriquecimiento que también genere un almacén de conocimiento. El almacén de conocimiento contendrá contenido de texto original que se extrajo del origen, además de contenido generado por IA que incluye una etiqueta de opinión, la extracción de frases clave, y la traducción de texto de comentarios de clientes que no están en inglés.
+En este artículo de inicio rápido, configurará los datos y, luego, ejecutará el Asistente para **importar datos** para crear una canalización de enriquecimiento que también genere un almacén de conocimiento. El almacén de conocimiento contendrá contenido de texto original que se extrajo del origen (reseñas de clientes sobre un hotel), además de contenido generado por IA que incluye una etiqueta de opinión, la extracción de frases clave, y la traducción de texto de comentarios de clientes que no están en inglés.
 
 > [!NOTE]
-> Este artículo de inicio rápido es la ruta más rápida hacia un almacén de conocimiento terminado en Azure Storage. Para una cobertura más detallada, consulte [Creación de un almacén de conocimiento mediante REST](knowledge-store-create-rest.md) en su lugar.
+> Este inicio rápido le indica el camino más corto hacia un almacén de conocimiento terminado en Azure Storage. Para obtener explicaciones más detalladas de cada paso, consulte [Creación de un almacén de conocimiento mediante REST](knowledge-store-create-rest.md) en su lugar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -161,25 +159,17 @@ En la página **Información general**, abra la pestaña **Indexadores** en el m
 
 En Azure Portal, cambie a la cuenta de Azure Storage y use el **Explorador de Storage** para ver las nuevas tablas. Debería ver tres tablas, una para cada proyección que se ofrecía en la sección "Guardar enriquecimientos" de la página "Agregar enriquecimientos".
 
-+ La tabla de documentos contiene todos los nodos de primer nivel del árbol de enriquecimiento de un documento.
++ `hotelReviewssDocument` contiene todos los nodos de primer nivel del árbol de enriquecimiento de un documento que no son colecciones.
 
-+ Se crea una tabla de páginas (o tabla de oraciones) si se especifica el nivel de granularidad en "páginas" u "oraciones". La salida de las aptitudes que se ejecutan a nivel de páginas u oraciones se proyectará en esta tabla.
++ `hotelReviewssPages` contiene campos enriquecidos creados en cada página que se ha dividido del documento. Los enriquecimientos en el nivel de página constan de una etiqueta de opinión y texto traducido. Se crea una tabla de páginas (o una tabla de oraciones si especifica ese nivel concreto de granularidad) al elegir la granularidad de "páginas" en la definición del conjunto de aptitudes. La salida de las aptitudes que se ejecutan a nivel de páginas u oraciones se proyectará en esta tabla.
 
-+ La salida de las aptitudes que emiten colecciones (matrices), como frases clave y entidades, se obtendrá en una tabla independiente.
++ `hotelReviewssKeyPhrases` contiene una larga lista con solo las frases clave extraídas de todas las reseñas. La salida de las aptitudes que emiten colecciones (matrices), como frases clave y entidades, se obtendrá en una tabla independiente.
 
-Todas las tablas del mismo grupo de proyección contienen información de referencia cruzada para admitir relaciones de tablas en otras herramientas y aplicaciones.
+Todas estas tablas contienen columnas de identificador para admitir relaciones de tabla en otras herramientas y aplicaciones. Al abrir una tabla, desplácese más allá de estos campos para ver los campos de contenido que ha agregado la canalización.
 
 En este artículo de inicio rápido, la tabla debe ser similar a la captura de pantalla siguiente:
 
    :::image type="content" source="media/knowledge-store-create-portal/azure-table-hotel-reviews.png" alt-text="Captura de pantalla de las tablas generadas en el Explorador de Storage" border="true":::
-
-Cada tabla se genera con los identificadores necesarios para la vinculación cruzada de las tablas en las consultas. Al abrir una tabla, desplácese más allá de estos campos para ver los campos de contenido que ha agregado la canalización.
-
-| Tabla | Descripción |
-|-------|-------------|
-| hotelReviewssDocument | Contiene campos que trasladan desde el archivo CSV, como reviews_date y reviews_text. |
-| hotelReviewssPages | Contiene campos enriquecidos creados por el conjunto de aptitudes, como la etiqueta de opinión y el texto traducido. |
-| hotelReviewssKeyPhrases | Contiene una larga lista con solo las frases clave. |
 
 ## <a name="clean-up"></a>Limpieza
 

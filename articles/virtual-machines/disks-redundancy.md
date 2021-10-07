@@ -7,13 +7,13 @@ ms.date: 09/01/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
-ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 5bb77a9a5c7a1a33fe1d95213d9ceb3f83406ac2
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.custom: references_regions
+ms.openlocfilehash: 3748b896956e058e9dc6c01083c19aa8e9c327e7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123429989"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128569359"
 ---
 # <a name="redundancy-options-for-managed-disks"></a>Opciones de redundancia para Managed Disks
 
@@ -34,7 +34,7 @@ Si el flujo de trabajo no admite escrituras sincrónicas en el nivel de aplicaci
 
 ## <a name="zone-redundant-storage-for-managed-disks"></a>Almacenamiento con redundancia de zona para discos administrados
 
-El almacenamiento con redundancia de zona (ZRS) replica los discos administrados de Azure de forma sincrónica en tres zonas de disponibilidad de Azure en la región seleccionada. Cada zona de disponibilidad es una ubicación física individual con alimentación, refrigeración y redes independientes. 
+El almacenamiento con redundancia de zona (ZRS) replica los discos administrados de Azure de forma sincrónica en tres zonas de disponibilidad de Azure en la región seleccionada. Cada zona de disponibilidad es una ubicación física individual con alimentación, refrigeración y redes independientes.
 
 Un disco ZRS le permite recuperarse de errores en zonas de disponibilidad. Si una zona deja de funcionar, se puede conectar un disco ZRS a una máquina virtual (VM) de otra zona. Los discos ZRS también se pueden compartir entre máquinas virtuales para mejorar la disponibilidad con aplicaciones en clúster o distribuidas, como SQL FCI, ASCS/SCS de SAP o GFS2. Un disco ZRS compartido se puede conectar a las máquinas virtuales principal y secundarias de diferentes zonas para aprovechar las ventajas de ZRS y de las [zonas de disponibilidad](../availability-zones/az-overview.md). Si se produce un error en la zona principal, puede conmutar por error rápidamente a la máquina virtual secundaria mediante la [reserva persistente SCSI](disks-shared-enable.md#supported-scsi-pr-commands).
 
@@ -44,7 +44,7 @@ Para obtener información detallada, consulte la [página de precios de Azure](h
 
 ### <a name="comparison-with-other-disk-types"></a>Comparación con otros tipos de disco
 
-Excepto por la mayor latencia de escritura, los discos que usan ZRS son idénticos a los discos que usan LRS: tienen los mismos objetivos de escala. [Haga pruebas comparativas de los discos](disks-benchmarks.md) para simular la carga de trabajo de la aplicación y comparar la latencia entre los discos LRS y ZRS. 
+Excepto por la mayor latencia de escritura, los discos que usan ZRS son idénticos a los discos que usan LRS: tienen los mismos objetivos de escala. [Haga pruebas comparativas de los discos](disks-benchmarks.md) para simular la carga de trabajo de la aplicación y comparar la latencia entre los discos LRS y ZRS.
 
 ### <a name="limitations"></a>Limitaciones
 

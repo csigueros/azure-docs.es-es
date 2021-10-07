@@ -5,12 +5,12 @@ author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: riyazp
-ms.openlocfilehash: 6bce47e07d2f9c2a9a8ac2043488739d2d2421c6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 99b87fd0066d67d09979965bab3a67d1b549afd4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773834"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599513"
 ---
 # <a name="sensor-partner-integration"></a>Integración de partners de sensores
 
@@ -95,13 +95,13 @@ Estos son los encabezados de solicitud más comunes que deben especificarse al r
 
 **Encabezado** | **Descripción y ejemplo**
 --- | ---
-Content-Type | El formato de la solicitud (Content-Type: application/<format>). En el caso de las API de centro de datos de FarmBeats, el formato es JSON. Content-Type: application/json
-Authorization | Especifica el token de acceso necesario para realizar una llamada API. Autorización: Bearer <Access-Token>
+Content-Type | Formato de la solicitud (Content-Type: `application/<format>`). En el caso de las API de centro de datos de FarmBeats, el formato es JSON. Content-Type: application/json
+Authorization | Especifica el token de acceso necesario para realizar una llamada API. Autorización: \<Access-Token\> de portador
 Accept | El formato de respuesta. En el caso de las API de centro de datos de FarmBeats, el formato es JSON. Accept: application/json
 
 **Solicitudes de API**
 
-Para realizar una solicitud de API REST, combine el método HTTP (GET, POST o PUT), la dirección URL al servicio de API y el URI (identificador uniforme de recursos) de un recurso para consultar, actualizar, eliminar o enviarle datos, y uno o varios encabezados de solicitud HTTP. La dirección URL del servicio de API es el punto de conexión de API que proporciona. Este es un ejemplo: https://\<yourdatahub-website-name>.azurewebsites.net
+Para realizar una solicitud de API REST, combine el método HTTP (GET, POST o PUT), la dirección URL al servicio de API y el URI (identificador uniforme de recursos) de un recurso para consultar, actualizar, eliminar o enviarle datos, y uno o varios encabezados de solicitud HTTP. La dirección URL del servicio de API es el punto de conexión de API que proporciona. Este es un ejemplo: `https://\<yourdatahub-website-name>.azurewebsites.net`
 
 También se pueden incluir parámetros de consulta en las llamadas GET para filtrar y ordenar los datos en las respuestas y limitar su tamaño.
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 1cb5312e164bac09930497c377f1590b6a77ca05
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 263531d24d50c27309163f0671a41ff7aacd36c7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "92205326"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601375"
 ---
 # <a name="configure-the-model-conversion"></a>Configuración de la conversión de modelos
 
@@ -109,13 +109,13 @@ Si un modelo se define mediante el espacio gamma, estas opciones deben establece
 ### <a name="scene-parameters"></a>Parámetros de escena
 
 * `sceneGraphMode`: define cómo se convierte el gráfico de escena en el archivo de origen:
-  * `dynamic` (predeterminado): todos los objetos del archivo se exponen como [entidades](../../concepts/entities.md) en la API y se pueden transformar de manera independiente. La jerarquía de nodos en tiempo de ejecución es idéntica a la estructura del archivo de origen.
-  * `static`: todos los objetos se exponen en la API, pero no se pueden transformar de manera independiente.
+  * `dynamic` (valor predeterminado): todos los objetos del archivo se exponen como [entidades](../../concepts/entities.md) en la API y se pueden transformar y cambiar de elemento principal de manera independiente. La jerarquía de nodos en tiempo de ejecución es idéntica a la estructura del archivo de origen.
+  * `static`: similar a `dynamic`, pero los objetos del gráfico de escena no se pueden cambiar de elemento principal a otros objetos de forma dinámica en tiempo de ejecución. En el caso de los modelos dinámicos con muchas partes móviles (por ejemplo, "vista de expansión"), la opción `dynamic` genera un modelo que es más eficaz de representar, pero el modo `static` todavía permite transformaciones de partes individuales. En caso de que no sea necesario cambiar de elemento principal de forma dinámica, la opción `static` es la más adecuada para los modelos con muchos elementos individuales.
   * `none`: el gráfico de escena se contrae en un objeto.
 
-Cada modo tiene un rendimiento en tiempo de ejecución diferente. En el modo `dynamic`, el costo de rendimiento se escala linealmente con el número de [entidades](../../concepts/entities.md) del gráfico, incluso cuando no se mueve ninguna parte. Utilice el modo `dynamic` solo cuando sea necesario trasladar partes individualmente, por ejemplo, para una animación de "vista explosionada".
+Cada modo tiene un rendimiento en tiempo de ejecución diferente. En el modo `dynamic`, el costo de rendimiento se escala linealmente con el número de [entidades](../../concepts/entities.md) del gráfico, incluso cuando no se mueve ninguna parte. Use el modo `dynamic` solo cuando sea necesario mover muchos elementos o subgrafos grandes simultáneamente, por ejemplo, para una animación de "vista de expansión".
 
-El modo de `static` exporta el gráfico de escena completo, pero las partes que contiene este gráfico tienen una transformación constante relativa a su parte raíz. El nodo raíz del objeto, sin embargo, puede seguir moviéndose, girándose o escalándose sin ningún costo de rendimiento importante. Además, las [consultas espaciales](../../overview/features/spatial-queries.md) devolverán partes individuales, pudiendo modificarse cada una a través de [invalidaciones de estado](../../overview/features/override-hierarchical-state.md). Con este modo, la sobrecarga en tiempo de ejecución por objeto es insignificante. Es ideal para escenas grandes en las que aún es necesaria una inspección por objeto, pero no cambia ninguna transformación por objeto.
+El modo `static` también exporta el gráfico de escena completo. Las [consultas espaciales](../../overview/features/spatial-queries.md) devolverán elementos individuales, y cada uno se puede modificar mediante [invalidaciones de estado](../../overview/features/override-hierarchical-state.md). Con este modo, la sobrecarga en tiempo de ejecución por objeto es insignificante. Es idónea para escenas grandes en las que se necesita inspeccionar cada objeto, cambios ocasionales de transformación en elementos individuales, pero no cambiar de elemento principal de objeto.
 
 El modo `none` tiene la sobrecarga en tiempo de ejecución más baja, así como tiempos de carga ligeramente mejores. La inspección o transformación de objetos individuales no es posible en este modo. Los casos de uso son, por ejemplo, modelos de fotogrametría que no tienen un gráfico de escena significativo en primer lugar.
 

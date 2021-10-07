@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 5cc264171c6c2dc5588156af2d3d0deb21e4fe94
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: e9a5b288976d375d9f773fee3dc1ea671ed902b4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114228091"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124786529"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Aplicación web que llama a las API web: Configuración del código
 
@@ -382,7 +382,7 @@ El uso de aserciones de cliente es un escenario avanzado, que se detalla en [Ase
 ## <a name="token-cache"></a>Memoria caché de tokens
 
 > [!IMPORTANT]
-> La implementación de la caché de tokens para aplicaciones web o API web es distinta a la implementación de las aplicaciones de escritorio, que a menudo están [basadas en archivos](scenario-desktop-acquire-token.md#file-based-token-cache).
+> La implementación de la caché de tokens para aplicaciones web o API web es distinta a la implementación de las aplicaciones de escritorio, que a menudo están [basadas en archivos](msal-net-token-cache-serialization.md).
 > Por motivos de seguridad y rendimiento, es importante asegurarse de que, para las aplicaciones web y las API web, haya una caché de tokens por cuenta de usuario. Es preciso serializar la caché de tokens de cada cuenta.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
@@ -420,13 +420,13 @@ Para información detallada sobre los proveedores de cachés de tokens, vea tamb
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-La implementación de la caché de tokens para aplicaciones web o API web es distinta a la implementación de las aplicaciones de escritorio, que a menudo están [basadas en archivos](scenario-desktop-acquire-token.md#file-based-token-cache).
+La implementación de la caché de tokens para aplicaciones web o API web es distinta a la implementación de las aplicaciones de escritorio, que a menudo están [basadas en archivos](msal-net-token-cache-serialization.md).
 
 La implementación de la aplicación web puede usar la sesión ASP.NET o la memoria del servidor. Vea por ejemplo cómo se enlaza la implementación de la memoria caché después de la creación de la aplicación de MSAL.NET en [MsalAppBuilder.cs#L39-L51](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/79e3e1f084cd78f9170a8ca4077869f217735a1a/WebApp/Utils/MsalAppBuilder.cs#L57-L58):
 
 
 En primer lugar, para usar estas implementaciones:
-- Agregue el paquete Nuget Microsoft.Identity.Web. Estos serializadores de caché de tokens no se incorporan en MSAL.NET directamente para evitar dependencias no deseadas. Además de un nivel superior para ASP.NET Core, Microsoft.Identity.Web incorpora clases que son asistentes para MSAL.NET, 
+- Agregue el paquete NuGet Microsoft.Identity.Web. Estos serializadores de caché de tokens no se incorporan en MSAL.NET directamente para evitar dependencias no deseadas. Además de un nivel superior para ASP.NET Core, Microsoft.Identity.Web incorpora clases que son asistentes para MSAL.NET, 
 - En el código, use el espacio de nombres Microsoft.Identity.Web:
 
   ```csharp

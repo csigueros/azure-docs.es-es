@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 49cee5c98c4099e214a732371269e935db353152
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82c6b6cd0dde6b321e4de8a87f99e1adad69040d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97106978"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662122"
 ---
 # <a name="tutorial-add-a-resource-to-your-arm-template"></a>Tutorial: Incorporación de un recurso a la plantilla de Resource Manager
 
@@ -50,7 +50,7 @@ La mayoría de los recursos también tienen una propiedad `location`, que establ
 
 Las demás propiedades varían según el tipo de recurso y la versión de API. Es importante comprender la relación entre la versión de API y las propiedades disponibles, así que lo analizaremos con más detalle.
 
-En este tutorial, ha agregado una cuenta de almacenamiento a la plantilla. Puede ver la versión de API en [storageAccounts 2019-04-01](/azure/templates/microsoft.storage/2019-04-01/storageaccounts). Tenga en cuenta que no ha agregado todas las propiedades a la plantilla. Muchas de las propiedades son opcionales. El proveedor de recursos `Microsoft.Storage` podría publicar una nueva versión de API, pero la versión que está implementando no tiene que cambiar. Puede seguir usando esa versión con la seguridad de que los resultados de la implementación serán coherentes.
+En este tutorial, ha agregado una cuenta de almacenamiento a la plantilla. Puede ver la versión de API en [storageAccounts 2021-04-01](/azure/templates/microsoft.storage/2021-04-01/storageaccounts). Tenga en cuenta que no ha agregado todas las propiedades a la plantilla. Muchas de las propiedades son opcionales. El proveedor de recursos `Microsoft.Storage` podría publicar una nueva versión de API, pero la versión que está implementando no tiene que cambiar. Puede seguir usando esa versión con la seguridad de que los resultados de la implementación serán coherentes.
 
 Si ve una versión de API anterior, como [storageAccounts 2016-05-01](/azure/templates/microsoft.storage/2016-05-01/storageaccounts), verá que hay disponible un conjunto más pequeño de propiedades.
 

@@ -1,7 +1,6 @@
 ---
 title: 'Inicio rápido: Establecimiento y recuperación de un secreto desde Azure Key Vault'
 description: Guía de inicio rápido que muestra cómo establecer y recuperar un secreto de Azure Key Vault mediante la CLI de Azure
-services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
@@ -10,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: dc5fa0eeabc437f16ca64c34b4bb72e62c0c3b21
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: cae19bc96cc689a3cb10f1c9820f95e13c9b4e4a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107815043"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593731"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Inicio rápido: Establecimiento y recuperación de un secreto desde Azure Key Vault mediante la CLI de Azure
 
@@ -25,7 +24,7 @@ En este inicio rápido, creará un almacén de claves en Azure Key Vault con la 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
- - Para realizar este inicio rápido es necesaria la versión 2.0.4 o posterior de la CLI de Azure. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
+Para realizar este inicio rápido es necesaria la versión 2.0.4 o posterior de la CLI de Azure. Si usa Azure Cloud Shell, ya está instalada la versión más reciente.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -47,9 +46,9 @@ az keyvault secret set --vault-name "<your-unique-keyvault-name>" --name "Exampl
 
 ## <a name="retrieve-a-secret-from-key-vault"></a>Recuperar un secreto del almacén de claves
 
-Ahora puede hacer referencia a esta clave que agregó a Azure Key Vault utilizando su URI. Use **'https://<nombre-del-almacén-de-claves>.vault.azure.net/secrets/ExamplePassword'** para obtener la versión actual.
+Ahora puede hacer referencia a esta clave que agregó a Azure Key Vault utilizando su URI. Use **`https://<your-unique-keyvault-name>.vault.azure.net/secrets/ExamplePassword`** para obtener la versión actual.
 
-Para ver el valor contenido en el secreto como texto sin formato:
+Para ver el valor contenido en el secreto como texto sin formato, use el comando de la CLI de Azure [az keyvault secret show](/cli/azure/keyvault/secret#az_keyvault_secret_show):
 
 ```azurecli
 az keyvault secret show --name "ExamplePassword" --vault-name "<your-unique-keyvault-name>" --query "value"

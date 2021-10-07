@@ -9,37 +9,39 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/21/2020
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 74c65a28688906b4c9cfecf786f5862e31143ead
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: ac32f01849054017394d420668d1361e7c597dfb
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108804347"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124751600"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Tutorial: integración de Azure Active Directory con ZScaler ZSCloud
 
 En este tutorial, aprenderá a integrar Zscaler ZSCloud con Azure Active Directory (Azure AD). Al integrar Zscaler ZSCloud con Azure AD, puede hacer lo siguiente:
 
-- Controlar en Azure AD quién tiene acceso a Zscaler ZSCloud.
-- Permitir que los usuarios inicien sesión automáticamente en Zscaler ZSCloud con sus cuentas de Azure AD.
-- Administrar las cuentas desde una ubicación central (Azure Portal).
+* Controlar en Azure AD quién tiene acceso a Zscaler ZSCloud.
+* Permitir que los usuarios inicien sesión automáticamente en Zscaler ZSCloud con sus cuentas de Azure AD.
+* Administrar las cuentas desde una ubicación central (Azure Portal).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con ZScaler ZSCloud, necesita los siguientes elementos:
 
-- Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/).
-- Una suscripción habilitada para el inicio de sesión único en Zscaler ZSCloud.
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/).
+* Una suscripción habilitada para el inicio de sesión único en Zscaler ZSCloud.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-- Zscaler ZSCloud admite el inicio de sesión único iniciado por **SP**.
+* Zscaler ZSCloud admite el inicio de sesión único iniciado por **SP**.
 
-- Zscaler ZSCloud admite el aprovisionamiento de usuarios **Just-In-Time**.
+* Zscaler ZSCloud admite el aprovisionamiento de usuarios **Just-In-Time**.
+
+* Zscaler ZSCloud admite el [aprovisionamiento automatizado de usuarios](zscaler-zscloud-provisioning-tutorial.md).
 
 ## <a name="adding-zscaler-zscloud-from-the-gallery"></a>Incorporación de ZScaler ZSCloud desde la galería
 
@@ -141,15 +143,15 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 5. En el cuadro de diálogo **Usuarios y grupos**, seleccione el usuario, como **Britta Simon**, en la lista y luego haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-   ![Captura de pantalla que muestra el cuadro de diálogo Usuarios y grupos, donde puede seleccionar un usuario.](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_users.png)
+   ![Captura de pantalla que muestra el cuadro de diálogo Usuarios y grupos, donde puede seleccionar un usuario.](./media/zscaler-zscloud-tutorial/users.png)
 
 6. En el cuadro de diálogo **Seleccionar rol**, elija el rol de usuario adecuado de la lista y, luego, haga clic en el botón **Seleccionar** situado en la parte inferior de la pantalla.
 
-   ![Captura de pantalla que muestra el cuadro de diálogo Seleccionar rol, donde puede elegir un rol de usuario.](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_roles.png)
+   ![Captura de pantalla que muestra el cuadro de diálogo Seleccionar rol, donde puede elegir un rol de usuario.](./media/zscaler-zscloud-tutorial/roles.png)
 
 7. En el cuadro de diálogo **Agregar asignación**, seleccione el botón **Asignar**.
 
-   ![Captura de pantalla que muestra el cuadro de diálogo Agregar asignación, donde puede seleccionar Asignar.](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_assign.png)
+   ![Captura de pantalla que muestra el cuadro de diálogo Agregar asignación, donde puede seleccionar Asignar.](./media/zscaler-zscloud-tutorial/assignment.png)
 
    > [!NOTE]
    > El rol de acceso predeterminado no se admite porque interrumpirá el aprovisionamiento, por lo que no se puede seleccionar al asignar el usuario.
@@ -168,7 +170,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 4. Vaya a **Administración > Autenticación > Configuración de autenticación** y realice los siguientes pasos:
 
-   ![Captura de pantalla que muestra el sitio de Zscaler con los pasos descritos.](./media/zscaler-zscloud-tutorial/ic800206.png "Administración")
+   ![Captura de pantalla que muestra el sitio de Zscaler con los pasos descritos.](./media/zscaler-zscloud-tutorial/setting.png "Administración")
 
    a. En Tipo de autenticación, elija **SAML**.
 
@@ -176,7 +178,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 5. En la ventana **Editar SAML**, realice los pasos siguientes y haga clic en Guardar.  
 
-   ![Administración de usuarios y autenticación](./media/zscaler-zscloud-tutorial/ic800208.png "Manage Users & Authentication")
+   ![Administración de usuarios y autenticación](./media/zscaler-zscloud-tutorial/attributes.png "Manage Users & Authentication")
 
    a. En el cuadro de texto **Dirección URL del portal de SAML**, pegue la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
@@ -196,7 +198,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 6. En la página del cuadro de diálogo **Configurar autenticación de usuario** , realice los pasos siguientes:
 
-   ![Captura de pantalla que muestra el cuadro de diálogo Configure User Authentication (Configurar autenticación de usuario) con la opción Activate (Activar) seleccionada.](./media/zscaler-zscloud-tutorial/ic800207.png)
+   ![Captura de pantalla que muestra el cuadro de diálogo Configure User Authentication (Configurar autenticación de usuario) con la opción Activate (Activar) seleccionada.](./media/zscaler-zscloud-tutorial/active.png)
 
    a. Mantenga el puntero sobre el menú **Activación** situado cerca de la parte inferior izquierda.
 
@@ -210,17 +212,17 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 2. Seleccione **Opciones de Internet** en el menú **Herramientas** para abrir el diálogo **Opciones de Internet**.
 
-   ![Opciones de Internet](./media/zscaler-zscloud-tutorial/ic769492.png &quot;Opciones de Internet")
+   ![Opciones de Internet](./media/zscaler-zscloud-tutorial/network.png &quot;Opciones de Internet")
 
 3. Haga clic en la pestaña **Conexiones** .
 
-   ![Conexiones](./media/zscaler-zscloud-tutorial/ic769493.png "Conexiones")
+   ![Conexiones](./media/zscaler-zscloud-tutorial/server.png "Conexiones")
 
 4. Haga clic en **Configuración de LAN** para abrir el diálogo **Configuración de LAN**.
 
 5. En la sección del servidor proxy, lleve a cabo estos pasos:
 
-   ![Servidor proxy](./media/zscaler-zscloud-tutorial/ic769494.png "Servidor proxy")
+   ![Servidor proxy](./media/zscaler-zscloud-tutorial/internet-options.png "Servidor proxy")
 
    a. Seleccione **Usar un servidor proxy para la LAN**.
 
@@ -241,15 +243,18 @@ En esta sección, se crea un usuario llamado Britta Simon en Zscaler ZSCloud. Zs
 > [!Note]
 > Si tiene que crear un usuario manualmente, póngase en contacto con el [equipo de soporte técnico de Zscaler ZSCloud](https://help.zscaler.com/).
 
+> [!NOTE]
+> Zscaler ZSCloud también admite el aprovisionamiento automático de usuarios. [Aquí](./zscaler-zscloud-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurarlo.
+
 ### <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 
-- Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Zscaler ZSCloud, donde podrá iniciar el flujo de inicio de sesión.
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esta acción le redirigirá a la dirección URL de inicio de sesión de Zscaler ZSCloud, donde podrá iniciar el flujo de inicio de sesión.
 
-- Vaya directamente a la dirección URL de inicio de sesión de Zscaler ZSCloud e inicie el flujo de inicio de sesión desde allí.
+* Vaya directamente a la dirección URL de inicio de sesión de Zscaler ZSCloud e inicie el flujo de inicio de sesión desde allí.
 
-- Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Zscaler ZSCloud en Mis aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de dicha aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Zscaler ZSCloud en Mis aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de dicha aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

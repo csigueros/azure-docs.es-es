@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 6fa30a56b3fb6e8b16a50bff7fda4c9349348633
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: a047350f8e91a5ce25d8fe8ee60ffd6aa12aaae7
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114403632"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129516610"
 ---
 IoT Plug and Play simplifica IoT, ya que permite interactuar con las funcionalidades de un dispositivo sin tener que conocer la implementación subyacente del mismo. En este inicio rápido se muestra cómo usar Java para conectarse y controlar un dispositivo IoT Plug and Play que esté conectado a la solución.
 
@@ -36,7 +36,7 @@ git clone https://github.com/Azure/azure-iot-sdk-java.git
 
 [!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
-Para más información sobre la configuración de ejemplo, consulte el [archivo Léame de ejemplo](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md).
+Para más información sobre la configuración de ejemplo, consulte el [archivo Léame de ejemplo](https://github.com/Azure/azure-iot-sdk-java/blob/main/device/iot-device-samples/readme.md).
 
 En este inicio rápido, se usa como dispositivo IoT Plug and Play un dispositivo termostato de ejemplo que se ha escrito en Java. Para ejecutar el dispositivo de ejemplo:
 

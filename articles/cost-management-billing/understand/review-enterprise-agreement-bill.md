@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 09/08/2021
 ms.author: banders
-ms.openlocfilehash: 5d945c421dc0a4abed17b3a355339c131dd922df
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 60c7acf1f88f37d44ef38516480640eeebd220b9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728057"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662046"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Descripción de la factura de Azure Enterprise
 
@@ -42,7 +42,7 @@ Esta sección no se aplica a los clientes de Azure en Australia, Japón ni Singa
 Recibe una factura de Azure cuando se produce alguno de estos eventos durante el ciclo de facturación:
 
 - **Uso por encima del límite del servicio**: los gastos por uso de la organización superan el saldo de crédito.
-- **Gastos facturados por separado**: los servicios que ha usado la organización no están cubiertos por el crédito. Se le facturará por los siguientes servicios a pesar del saldo de crédito:
+- **Gastos facturados por separado**: los servicios que ha usado la organización no están cubiertos por el crédito. Se le facturarán los siguientes servicios, independientemente de cuál sea su saldo de crédito. Los servicios que se muestran son ejemplos de cargos facturados por separado. Para obtener una lista completa de los servicios en los que los cargos se facturan por separado, puede enviar una [solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop
@@ -75,7 +75,7 @@ Esta sección solo se aplica a los clientes de Azure en Australia, Japón o Sing
 Recibirá una o más facturas de Azure cuando se produzcan los siguientes eventos:
 
 - **Uso por encima del límite del servicio**: los gastos por uso de la organización superan el saldo de crédito.
-- **Gastos facturados por separado**: los servicios que ha usado la organización no están cubiertos por el crédito. Se le facturarán los siguientes servicios:
+- **Gastos facturados por separado**: los servicios que ha usado la organización no están cubiertos por el crédito. Se le facturarán los siguientes servicios. Los servicios que se muestran son ejemplos de cargos facturados por separado. Para obtener una lista completa de los servicios en los que los cargos se facturan por separado, envíe una [solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop
@@ -368,7 +368,7 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 
 ### <a name="to-access-microsoft-azure-consumption-insights"></a>Para acceder a Microsoft Azure Consumption Insights:
 
-1. Vaya a [Microsoft Azure Consumption Insights](https://app.powerbi.com/getdata/services/azureconsumption?cpcode=MicrosoftAzureConsumptionInsights&amp;getDataForceConnect=true&amp;WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
+1. Vaya a Microsoft Azure Consumption Insights.
 1. Seleccione **Obtenerla ahora**.
 1. Proporcione un número de inscripción y el número de meses y, a continuación, seleccione **Siguiente**.
 1. Proporcione la clave de acceso de la API para conectarse. Puede encontrar la clave para la inscripción en [Enterprise Portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).

@@ -11,12 +11,12 @@ ms.author: chadam
 ms.reviewer: ''
 ms.date: 01/11/2021
 ms.topic: how-to
-ms.openlocfilehash: b1d65049f1e1b8f26aa6e9a99891cd77ca038a8f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a4882c763baf00220ac610ef9c0c8c6f5f56740d
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750136"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361080"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>Exportación a un archivo BACPAC: Azure SQL Database y Azure SQL Managed Instance
 
@@ -63,7 +63,7 @@ Actualmente, no se admite la exportación de un archivo BACPAC de una base de da
 
 ## <a name="sqlpackage-utility"></a>Utilidad de SQLPackage
 
-Para exportar una base de datos en SQL Database mediante la utilidad de línea de comandos [SqlPackage](/sql/tools/sqlpackage), consulte [Parámetros y propiedades de la exportación](/sql/tools/sqlpackage#export-parameters-and-properties). La utilidad SQLPackage incluye las versiones más recientes de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) y [SQL Server Data Tools para Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt), o bien puede descargar la versión más reciente de [SqlPackage](/sql/tools/sqlpackage/sqlpackage-download?view=sql-server-ver15) directamente desde el Centro de descarga de Microsoft.
+Para exportar una base de datos en SQL Database mediante la utilidad de línea de comandos [SqlPackage](/sql/tools/sqlpackage), consulte [Parámetros y propiedades de la exportación](/sql/tools/sqlpackage#export-parameters-and-properties). La utilidad SQLPackage incluye las versiones más recientes de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) y [SQL Server Data Tools para Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt), o bien puede descargar la versión más reciente de [SqlPackage](/sql/tools/sqlpackage/sqlpackage-download) directamente desde el Centro de descarga de Microsoft.
 
 Se recomienda usar la utilidad SQLPackage para la escala y el rendimiento en la mayoría de los entornos de producción. Consulte cómo [migrar de SQL Server a Azure SQL Database con archivos BACPAC](/archive/blogs/sqlcat/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files) en el blog de Customer Advisory Team de SQL Server.
 

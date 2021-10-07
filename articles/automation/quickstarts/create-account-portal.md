@@ -6,12 +6,12 @@ ms.date: 09/07/2021
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 5d73da041b5ecb5dd2b7089ee898b5bffbe4f512
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: f0f93a43fd74ba38b8be17636b695e287354ed5a
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123543005"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218282"
 ---
 # <a name="quickstart-create-an-automation-account-using-the-azure-portal"></a>Inicio rápido: Creación de una cuenta de Automation mediante Azure Portal
 
@@ -27,7 +27,7 @@ Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](http
 
 1. En el menú superior, seleccione **+ Crear un recurso**.
 
-1. En Categorías**, seleccione **Herramientas de administración y TI** y, después, **Automation**.
+1. En **Categorías**, seleccione **Herramientas de administración y TI** y, después, **Automation**.
 
    :::image type="content" source="./media/create-account-portal/automation-account-portal.png" alt-text="Localización de cuentas de Automation en el portal.":::
 

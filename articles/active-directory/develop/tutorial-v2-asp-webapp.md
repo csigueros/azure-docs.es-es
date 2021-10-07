@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 38def2b5af3a5f0f9a32c2b681bd0ee95ca44086
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2d1f6cf3fc8b5c59d765e61299609b0e11ba1bf5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102174689"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128592040"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Tutorial: Adición del inicio de sesión en Microsoft a una aplicación web ASP.NET
 
@@ -376,7 +376,7 @@ Para registrar la aplicación y agregar la información de registro de la aplica
    1. Copie la URL de SSL. En el siguiente paso, agregará esta dirección URL a la lista de URI de redirección del portal de registro correspondiente.<br/><br/>![Propiedades de proyecto](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
    
 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
-1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
+1. Si tiene acceso a varios inquilinos, use el filtro **Directorios y suscripciones**:::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para cambiar al inquilino en el que quiere registrar la aplicación.
 1. Busque y seleccione **Azure Active Directory**.
 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
 1. Escriba el **Nombre** de la aplicación, por ejemplo `ASPNET-Tutorial`. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
@@ -406,8 +406,8 @@ Cuando esté listo para realizar la prueba, use una cuenta de Azure AD (profesi
 <br/><br/>
 ![Iniciar sesión en la cuenta de Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
-#### <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Permisos y consentimiento en la plataforma de identidad de Microsoft
-Las aplicaciones que se integran en la plataforma de identidad de Microsoft siguen un modelo de autorización que permite a los usuarios y los administradores controlar el modo en que se puede acceder a los datos. Después de que un usuario se autentique en la plataforma de identidad de Microsoft para acceder a esta aplicación, se le pedirá que dé su consentimiento a los permisos solicitados por la aplicación ("Ver su perfil básico" y "Mantener el acceso a los datos a los que ha dado acceso"). Después de aceptar estos permisos, el usuario continuará con los resultados de la aplicación. Sin embargo, en su lugar, el usuario puede ver la página **Need admin consent** (Se necesita el consentimiento del administrador) si se produce alguna de las siguientes situaciones:
+#### <a name="permissions-and-consent-in-the-microsoft-identity-platform&quot;></a>Permisos y consentimiento en la plataforma de identidad de Microsoft
+Las aplicaciones que se integran en la plataforma de identidad de Microsoft siguen un modelo de autorización que permite a los usuarios y los administradores controlar el modo en que se puede acceder a los datos. Después de que un usuario se autentique en la plataforma de identidad de Microsoft para acceder a esta aplicación, se le pedirá que dé su consentimiento a los permisos solicitados por la aplicación (&quot;Ver su perfil básico&quot; y &quot;Mantener el acceso a los datos a los que ha dado acceso"). Después de aceptar estos permisos, el usuario continuará con los resultados de la aplicación. Sin embargo, en su lugar, el usuario puede ver la página **Need admin consent** (Se necesita el consentimiento del administrador) si se produce alguna de las siguientes situaciones:
 
 - El desarrollador de aplicaciones agrega todos los permisos adicionales que requieran **consentimiento del administrador**.
 - O bien se configura el inquilino (en **Aplicaciones empresariales -> Configuración de usuario**), donde los usuarios no pueden dar el consentimiento a las aplicaciones que accedan a los datos de la empresa en su nombre.

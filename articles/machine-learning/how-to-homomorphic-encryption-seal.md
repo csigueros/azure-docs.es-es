@@ -7,15 +7,15 @@ ms.author: luquinta
 ms.date: 07/09/2020
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.custom: devx-track-python, deploy, responsible-ml
-ms.openlocfilehash: c9e59835b674b1b6a8ea3da838a008938ea0a885
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 2c7f6df02ab0bba7964c0821dde733e166cceeff
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889239"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129423602"
 ---
 # <a name="how-to-deploy-an-encrypted-inferencing-web-service-preview"></a>Implementación de un servicio web de inferencia cifrada (versión preliminar)
 
@@ -34,7 +34,7 @@ ACI es una excelente solución para probar y conocer el flujo de trabajo de impl
 
 El método de cifrado que se usa en este ejemplo es el [cifrado homomórfico](https://github.com/Microsoft/SEAL#homomorphic-encryption). El cifrado homomórfico permite realizar cálculos en datos cifrados sin necesidad de tener acceso a una clave secreta (descifrado). Los resultados de los cálculos están cifrados y solo los puede revelar el propietario de la clave secreta. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En esta guía se da por supuesto que tiene un modelo de clasificación de imágenes registrado en Azure Machine Learning. Si no es así, registre el modelo con un [modelo previamente entrenado](https://github.com/Azure/MachineLearningNotebooks/raw/master/tutorials/image-classification-mnist-data/sklearn_mnist_model.pkl) o cree el suyo propio; para ello, complete el [tutorial de entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning](tutorial-train-models-with-aml.md).
 

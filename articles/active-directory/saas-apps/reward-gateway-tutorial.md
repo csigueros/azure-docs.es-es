@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/18/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 9d7c018319003ef9671d9403c2e17642ec70a5d4
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: bd6b11956ffe32a2ae59cd6d6ab262ab3013832f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110476426"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124753093"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Tutorial: Integración de Azure Active Directory con Reward Gateway
 
@@ -38,6 +38,8 @@ Para configurar la integración de Azure AD con Reward Gateway, necesita los sig
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Reward Gateway admite el inicio de sesión único iniciado por **IDP**.
+
+* Reward Gateway admite el [aprovisionamiento automatizado de usuarios](reward-gateway-provisioning-tutorial.md).
 
 ## <a name="add-reward-gateway-from-the-gallery"></a>Adición de Reward Gateway desde la galería
 
@@ -138,13 +140,15 @@ Para configurar el inicio de sesión único en **Reward Gateway**, empiece por c
 
 En esta sección, creará un usuario denominado Britta Simon en Reward Gateway. Trabaje con el [equipo de soporte técnico de Reward Gateway](mailto:clientsupport@rewardgateway.com) para agregar los usuarios a la plataforma de Reward Gateway. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
+Reward Gateway también admite el aprovisionamiento automático de usuarios. [Aquí](./reward-gateway-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 
 * Haga clic en Probar esta aplicación en Azure Portal; debería iniciar sesión automáticamente en la instancia de Reward Gateway para la que configuró el inicio de sesión único.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Reward Gateway en Aplicaciones, debería iniciar sesión automáticamente en la versión de Reward Gateway para la que configurara el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Reward Gateway en Aplicaciones, debería iniciar sesión automáticamente en la versión de Reward Gateway para la que configurara el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

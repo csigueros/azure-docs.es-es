@@ -1,19 +1,19 @@
 ---
 title: Imágenes de tipo Traiga su propia suscripción (BYOS) de Red Hat Enterprise Linux en Azure | Microsoft Docs
 description: Más información sobre las imágenes de "Bring-your-own-subscription" (BYOS) para Red Hat Enterprise Linux en Azure
-author: asinn826
+author: mamccrea
 ms.service: virtual-machines
 ms.subservice: redhat
 ms.collection: linux
 ms.topic: article
 ms.date: 06/10/2020
-ms.author: alsin
-ms.openlocfilehash: 93557e5fb32a6f5100bdc99cdfbeed3375fcc379
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.author: mamccrea
+ms.openlocfilehash: 59a89c069c332d4d0346e0f3c795763818c601de
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691966"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457114"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Imágenes Gold de tipo "Bring-your-own-subscription" (BYOS) de Red Hat Enterprise Linux en Azure
 

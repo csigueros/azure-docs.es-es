@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/11/2021
+ms.date: 09/23/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb911bb58413e6551224d98371cf56ecbd8e01f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e8b0279e0f97f3440bdef04046c2cb6eb35b6573
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737323"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605798"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>Configuración de un Pase de acceso temporal en Azure AD para registrar métodos de autenticación sin contraseña (versión preliminar)
 
@@ -26,7 +26,6 @@ Los métodos de autenticación sin contraseña, como FIDO2 y el inicio de sesió
 - Usando un Pase de acceso temporal (TAP) 
 
 Un Pase de acceso temporal es un código de acceso de tiempo limitado que emite un administrador, que satisface los requisitos de autenticación sólida y que se puede usar para incorporar otros métodos de autenticación, incluidos aquellos sin contraseña. Asimismo, el Pase de acceso temporal facilita la recuperación cuando un usuario ha perdido u olvidado su factor de autenticación sólida, como una clave de seguridad FIDO2 o la aplicación Microsoft Authenticator, pero debe iniciar sesión para registrar nuevos métodos de autenticación sólida.
-
 
 En este artículo se muestra cómo habilitar y usar el Pase de acceso temporal en Azure AD mediante Azure Portal. También puede realizar estas acciones con las API REST. 
 
@@ -120,13 +119,23 @@ El uso más común de un Pase de acceso temporal es para que un usuario registre
 El usuario ahora ha iniciado sesión y puede actualizar o registrar un método, como una llave de seguridad FIDO2. Los usuarios que actualicen sus métodos de autenticación debido a la pérdida de sus credenciales o dispositivos deben asegurarse de que quitan los métodos de autenticación antiguos.
 Los usuarios también pueden seguir iniciando sesión con su contraseña. Un pase TAP no reemplaza la contraseña de un usuario.
 
-Los usuarios también pueden usar su Pase de acceso temporal para registrarse en el inicio de sesión telefónico sin contraseña directamente desde la aplicación Authenticator. Para obtener más información, consulte [Agregar la cuenta profesional o educativa a la aplicación Microsoft Authenticator](../user-help/user-help-auth-app-add-work-school-account.md).
+### <a name="passwordless-phone-sign-in"></a>Inicio de sesión telefónico sin contraseña
+
+Los usuarios también pueden usar su Pase de acceso temporal para registrarse en el inicio de sesión telefónico sin contraseña directamente desde la aplicación Authenticator. Para obtener más información, consulte [Agregar la cuenta profesional o educativa a la aplicación Microsoft Authenticator](https://support.microsoft.com/account-billing/add-your-work-or-school-account-to-the-microsoft-authenticator-app-43a73ab5-b4e8-446d-9e54-2a4cb8e4e93c).
 
 ![Captura de pantalla de cómo escribir un Pase de acceso temporal mediante una cuenta profesional o educativa.](./media/how-to-authentication-temporary-access-pass/enter-work-school.png)
 
-## <a name="delete-a-temporary-access-pass"></a>Eliminación de un Pase de acceso temporal
+### <a name="guest-access"></a>Acceso de invitado
 
-No se puede usar un Pase de acceso temporal que haya expirado. En la opción **Métodos de autenticación** de un usuario, la columna **Detalle** muestra cuándo expiró el Pase de acceso temporal. Puede eliminar un Pase de acceso temporal que haya expirado siguiendo estos pasos:
+Los usuarios invitados pueden iniciar sesión en un inquilino de recursos con un Pase de acceso temporal emitido por su inquilino principal si el Pase de acceso temporal cumple el requisito de autenticación del inquilino principal. Si se necesita MFA para el inquilino del recurso, el usuario invitado debe realizar MFA para obtener acceso al recurso.
+
+### <a name="expiration"></a>Expiration
+
+No se puede usar un Pase de acceso temporal expirado o eliminado para la autenticación interactiva o no interactiva. Los usuarios tendrán que volver a autenticarse con otros métodos de autenticación después de que el Pase de acceso temporal haya expirado o se haya eliminado. 
+
+## <a name="delete-an-expired-temporary-access-pass"></a>Eliminación de un Pase de acceso temporal expirado
+
+En la opción **Métodos de autenticación** de un usuario, la columna **Detalle** muestra cuándo expiró el Pase de acceso temporal. Puede eliminar un Pase de acceso temporal que haya expirado siguiendo estos pasos:
 
 1. En el portal de Azure AD, vaya a **Usuarios**, seleccione un usuario, por ejemplo, *Usuario de TAP* y, después, elija **Métodos de autenticación**.
 1. En el lado derecho del método de autenticación **Temporary Access Pass (Preview)** (Pase de acceso temporal [vista previa]) que se muestra en la lista, seleccione **Eliminar**.
@@ -152,7 +161,6 @@ Para obtener más información sobre los estándares de NIST para la incorporaci
 Tenga en cuenta las limitaciones siguientes:
 
 - Cuando se usa un Pase de acceso temporal de un solo uso para registrar un método sin contraseña, como FIDO2 o el inicio de sesión telefónico, el usuario debe completar el registro en un plazo de 10 minutos a partir del inicio de sesión con el Pase de acceso temporal de un solo uso. Esta limitación no se aplica a un Pase de acceso temporal que se pueda usar más de una vez.
-- Tenga en cuenta que los usuarios invitados no pueden iniciar sesión con un Pase de acceso temporal.
 - Pase de acceso temporal está en versión preliminar pública y actualmente no está disponible en Azure para la Administración Pública de Estados Unidos.
 - Los usuarios en el ámbito de la directiva de registro de autoservicio de restablecimiento de contraseña (SSPR) *o* la [directiva de registro de autenticación multifactor de protección de identidades](../identity-protection/howto-identity-protection-configure-mfa-policy.md) tienen que registrar los métodos de autenticación una vez que han iniciado sesión con un Pase de acceso temporal. Los usuarios en el ámbito de estas directivas se redirigen al [modo de interrupción del registro combinado](concept-registration-mfa-sspr-combined.md#combined-registration-modes). Esta experiencia no admite actualmente el registro con FIDO2 e inicio de sesión telefónico. 
 - Un Pase de acceso temporal no se puede usar con la extensión del Servidor de directivas de redes (NPS) ni el adaptador de los Servicios de federación de Active Directory (AD FS), ni durante el programa de instalación de Windows/configuración rápida (OOBE), con Autopilot ni para implementar Windows Hello para empresas. 
@@ -173,4 +181,3 @@ Tenga en cuenta las limitaciones siguientes:
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Planeamiento de una implementación de autenticación sin contraseña en Azure Active Directory](howto-authentication-passwordless-deployment.md)
-

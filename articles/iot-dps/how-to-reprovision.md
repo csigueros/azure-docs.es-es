@@ -7,12 +7,12 @@ ms.date: 01/25/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: d704e8f9687f3987d80018d84b41c0fd519da172
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 43e0d3228937e507f988aa241b6fa0b619892c10
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98791903"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273692"
 ---
 # <a name="how-to-reprovision-devices"></a>Reaprovisionamiento de dispositivos
 
@@ -79,7 +79,7 @@ La frecuencia con la que un dispositivo envía una solicitud de aprovisionamient
 
 La directiva de reaprovisionamiento en una entrada de inscripción determina la forma en la que la instancia de Device Provisioning Service administra estas solicitudes de aprovisionamiento y si habría que llevar a cabo la migración de los datos sobre el estado del dispositivo durante el reaprovisionamiento. Las mismas directivas están disponibles para las inscripciones individuales y los grupos de inscripción:
 
-Si quiere ver un ejemplo de código para enviar solicitudes de aprovisionamiento desde un dispositivo durante una secuencia de arranque, consulte [Aprovisionamiento automático de un dispositivo simulado](quick-create-simulated-device.md).
+Si quiere ver un ejemplo de código para enviar solicitudes de aprovisionamiento desde un dispositivo durante una secuencia de arranque, consulte [Aprovisionamiento automático de un dispositivo simulado](quick-create-simulated-device-tpm.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

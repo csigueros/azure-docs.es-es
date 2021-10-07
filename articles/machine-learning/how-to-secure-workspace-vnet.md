@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Use una instancia aislada de Azure Virtual Network para proteger el área de trabajo de Azure Machine Learning y los recursos asociados.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
 ms.date: 09/22/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
-ms.openlocfilehash: 10cd246d0a60184616facb799f9dc079cb5cf30d
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 7200c13d5ad4157afeb2c0dd1d7ab7445670609d
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129216790"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129425342"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Protección de un área de trabajo de Azure Machine Learning con redes virtuales
 

@@ -4,16 +4,16 @@ description: Descubra cómo puede pagar por adelantado planes de software y ahor
 author: bandersmsft
 manager: yashesvi
 ms.service: virtual-machines
-ms.subservice: reserved-instances
+ms.subservice: billing
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: banders
-ms.openlocfilehash: 6321058c863b6db190ec987887e61cf20ed8be50
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: c46215bde33f726aba61ad42bf27a14ac2edb4dc
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122692688"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216502"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Pago por adelantado de planes de software de Azure
 
@@ -39,6 +39,7 @@ Los costos anticipados de la reserva se cargan al método de pago de la suscripc
 4. Seleccione un ámbito. El ámbito puede cubrir una o varias suscripciones (ámbito compartido).
     - Suscripción única: el descuento del plan se aplica al uso correspondiente en la suscripción.
     - Compartido: el descuento del plan se aplica a las instancias correspondientes en cualquier suscripción del contexto de facturación. Para los clientes de Enterprise, el contexto de facturación es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de planes individuales con precios de pago por uso, el contexto de facturación son todas las suscripciones de planes individuales con precios de pago por uso creadas por el administrador de cuenta.
+    - Grupo de administración: aplica el descuento de reserva al recurso correspondiente en la lista de suscripciones que forman parte del grupo de administración y del ámbito de facturación.
     - Grupo de recursos único: el descuento por reserva se aplica a los recursos coincidentes solo del grupo de recursos seleccionado.
 5. Seleccione un producto para elegir el tamaño de máquina virtual y el tipo de imagen. El descuento se aplica solo al tamaño de máquina virtual seleccionado.
 6. Seleccione un plazo de un año o tres años.

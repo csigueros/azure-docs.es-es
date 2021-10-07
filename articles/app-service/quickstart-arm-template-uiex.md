@@ -9,12 +9,12 @@ ms.date: 10/16/2020
 ms.custom: subject-armqs
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7d6111a68be8bc195b7268a778a77facdd944772
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 2940e407e88239aa1afec84137e72073b7a5028a
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129084139"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533243"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Inicio rápido: Creación de una aplicación de App Service mediante una plantilla de ARM
 
@@ -191,4 +191,3 @@ Cuando ya no necesite, [elimine el grupo de recursos](../azure-resource-manager/
 - Python con Postgres
 - [PHP con MySQL](tutorial-php-mysql-app.md)
 - [Conexión a una base de datos de Azure SQL con Java](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
-- [Asignación de un dominio personalizado](app-service-web-tutorial-custom-domain-uiex.md)

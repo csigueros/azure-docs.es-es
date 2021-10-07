@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: fbcea71558a59d624faf73647498fb38ecf6ccc1
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a882e0e1f0a5cf0dd9ea3690453887478319268e
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124755437"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538983"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Detección, valoración y análisis de dependencias: preguntas comunes
 
@@ -197,7 +197,7 @@ Para Azure SQL Managed Instance, no se agrega ningún costo de almacenamiento pa
 
 ### <a name="can-i-migrate-my-disks-to-ultra-disk-using-azure-migrate"></a>¿Puedo migrar mis discos a un disco Ultra mediante Azure Migrate?
 
-No. Actualmente, tanto Azure Migrate como Azure Sire Recovery no admiten la migración a discos Ultra. Encuentre los pasos para implementar un disco Ultra [aquí](../virtual-machines/disks-enable-ultra-ssd.md?tabs=azure-portal#deploy-an-ultra-disk).
+No. Actualmente, Azure Migrate y Azure Site Recovery no admiten la migración a discos Ultra. Busque los pasos para implementar el disco Ultra [aquí](../virtual-machines/disks-enable-ultra-ssd.md?tabs=azure-portal#deploy-an-ultra-disk).
 
 ### <a name="why-are-the-provisioned-iops-and-throughput-in-my-ultra-disk-more-than-my-on-premises-iops-and-throughput"></a>¿Por qué los valores de IOPS y rendimiento aprovisionados de mi disco Ultra son mayores que mis valores de IOPS y rendimiento locales?
 

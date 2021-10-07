@@ -1,17 +1,17 @@
 ---
 title: Supervisión de Azure Cache for Redis
 description: Aprenda a supervisar el estado y el rendimiento de las instancias de Azure Redis Cache for Redis
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: 80290a9214e7d4b2715251f49b407d7456bd1fb6
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 64234292051c5f780c33fd55fabf3305f45b756d
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114293973"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538416"
 ---
 # <a name="monitor-azure-cache-for-redis"></a>Supervisión de Azure Cache for Redis
 
@@ -163,14 +163,16 @@ Para configurar reglas de alerta para la memoria caché, seleccione **Reglas de 
 
 Para más información acerca de la configuración y uso de alertas, consulte [Información general de las alertas](../azure-monitor/alerts/alerts-classic-portal.md).
 
-## <a name="activity-logs"></a>Registros de actividad
+<!-- 
+## Activity Logs
 
-Los registros de actividad proporcionan información sobre las operaciones completadas en las instancias de Azure Cache for Redis. Antes se los conocía como "registros de auditoría" o "registros operativos". Con los registros de actividades, se puede responder a las preguntas "qué, quién y cuándo" de las operaciones de escritura (PUT, POST, DELETE) llevadas a cabo en las instancias de Azure Cache for Redis.
+Activity logs provide insight into the operations that completed on your Azure Cache for Redis instances. It was previously known as "audit logs" or "operational logs". Using activity logs, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) taken on your Azure Cache for Redis instances.
 
 > [!NOTE]
-> Los registros de actividad no incluyen operaciones de lectura (GET).
->
+> Activity logs do not include read (GET) operations.
+> 
 
-Para ver los registros de actividad de la memoria caché, seleccione **Registros de actividad** en el **menú Recursos**.
+To view activity logs for your cache, select **Activity logs** from the **Resource menu**.
 
-Para más información acerca de los registros de actividad, consulte [Información general sobre el registro de actividad de Azure](../azure-monitor/essentials/platform-logs-overview.md).
+For more information about Activity logs, see [Overview of the Azure Activity Log](../azure-monitor/essentials/platform-logs-overview.md).
+-->

@@ -2,21 +2,19 @@
 title: 'Tutorial: Aplicación web de página única de Bing Entity Search'
 titleSuffix: Azure Cognitive Services
 description: En este tutorial se indica cómo utilizar Bing Entity Search API en una aplicación web de una sola página.
-services: cognitive-services
 author: aahill
-manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: f2c15221268635ca1892a9292d5b0c208c13dd34
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 49ac0daf08e2b279396b12fa5fee74e8cdbbed7e
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102426814"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363544"
 ---
 # <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicación web de una sola página
 
@@ -564,7 +562,7 @@ Deje abierta la ventana de comandos mientras usa la aplicación del tutorial, ya
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Referencia a Bing Entity Search API](//docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Referencia a Bing Entity Search API](/rest/api/cognitiveservices/bing-entities-api-v7-reference)
 
 > [!div class="nextstepaction"]
-> [Documentación de la API de Mapas de Bing](//msdn.microsoft.com/library/dd877180.aspx)
+> [Documentación de la API de Mapas de Bing](/bingmaps/)

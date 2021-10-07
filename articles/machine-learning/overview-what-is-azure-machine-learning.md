@@ -10,12 +10,12 @@ author: cjgronlund
 ms.date: 08/03/2021
 ms.custom: devx-track-python
 adobe-target: true
-ms.openlocfilehash: 6709309bed5546dacdadc1ba412954e83310e183
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: f0b798db68ee15ffeb393c30f7a7ccc81e4cf386
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122446566"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606254"
 ---
 # <a name="what-is-azure-machine-learning"></a>¿Qué es Azure Machine Learning?
 
@@ -52,7 +52,7 @@ Los desarrolladores encuentran interfaces conocidas en Azure Machine Learning, c
 
 ### <a name="studio-ui"></a>Interfaz de usuario del Estudio 
 
-El Estudio de Azure Machine Learning es una interfaz gráfica de usuario para un área de trabajo del proyecto. En el Estudio, puede hacer lo siguiente:
+[Estudio de Azure Machine Learning](https://ml.azure.com) es una interfaz gráfica de usuario para un área de trabajo del proyecto. En el Estudio, puede hacer lo siguiente:
 
 - Ver ejecuciones, métricas, registros, salidas, etc.
 - Crear y editar cuadernos y archivos.
@@ -65,6 +65,8 @@ El Estudio de Azure Machine Learning es una interfaz gráfica de usuario para un
 - Crear trabajos de AutoML.
 
 Además, el diseñador tiene una interfaz de arrastrar y colocar en la que puede entrenar e implementar modelos. 
+
+Si es usuario de Estudio de ML (clásico), [obtenga información sobre el desuso de Estudio (clásico) y la diferencia entre él y Estudio de Azure Machine Learning](overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio).
 
 ## <a name="enterprise-readiness-and-security"></a>Preparación y seguridad para empresas
 

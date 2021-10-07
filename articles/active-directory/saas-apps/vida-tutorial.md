@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 6d1850ce3c0f8e9fb69159f6677bad3e3bfd0d57
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 7d7c07227741487bc62b1a6ef01680ccf326efd7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129351557"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672905"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-vida"></a>Tutorial: Integración del inicio de sesión único de Azure AD con VIDA
 
@@ -98,6 +98,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     | Nombre | Atributo de origen|
     | ---------------- | --------- |
     | assignedroles | user.assignedroles |
+
+    > [!NOTE]
+    > VIDA espera roles para los usuarios asignados a la aplicación. Configure estos roles en Azure AD para que se puedan asignar los roles correspondientes a los usuarios. Para aprender a configurar roles en Azure AD, consulte [este vínculo](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui).
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 

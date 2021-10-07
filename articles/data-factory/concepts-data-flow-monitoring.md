@@ -1,46 +1,46 @@
 ---
 title: Supervisión de flujos de datos de asignación
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Cómo supervisar visualmente los flujos de datos de asignación en Azure Data Factory
+description: Cómo supervisar visualmente los flujos de datos de asignación en Azure Data Factory y Synapse Analytics
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/18/2021
-ms.openlocfilehash: b64ed4b59c2aba13640dec2f19dfa4e42696ce59
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: a86faad201b2a00e288cd20c34b7e44152baac58
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638929"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124812052"
 ---
 # <a name="monitor-data-flows"></a>Supervisión de flujos de datos
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Después de haber completado la compilación y depuración del flujo de datos, desea programarlo para ejecutarse según una programación en el contexto de una canalización. Puede programar la canalización de Azure Data Factory mediante desencadenadores. Para probar y depurar el flujo de datos desde una canalización, puede usar el botón Depurar de la cinta de opciones de la barra de herramientas o la opción Desencadenar ahora del Generador de canalizaciones de Azure Data Factory para comenzar una ejecución única para probar el flujo de datos dentro del contexto de canalización.
+Después de haber completado la compilación y depuración del flujo de datos, desea programarlo para ejecutarse según una programación en el contexto de una canalización. Puede programar la canalización mediante Desencadenadores. Para probar y depurar el flujo de datos desde una canalización, puede usar el botón Depurar de la cinta de opciones de la barra de herramientas o la opción Trigger Now (Desencadenar ahora) del Generador de canalizaciones para comenzar una ejecución única para probar el flujo de datos dentro del contexto de canalización.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4P5pV]
 
-Cuando se ejecuta la canalización, puede supervisar la canalización y todas las actividades contenidas en la canalización, incluida la actividad de Data Flow. Haga clic en el icono de supervisión en el panel izquierdo de la interfaz de usuario de Azure Data Factory. Puede ver una pantalla similar a la siguiente. Los iconos resaltados permiten profundizar en las actividades de la canalización, incluidas las actividades de Data Flow.
+Cuando se ejecuta la canalización, puede supervisar la canalización y todas las actividades contenidas en la canalización, incluida la actividad de Data Flow. Haga clic en el icono de supervisión en el panel izquierdo de la interfaz de usuario. Puede ver una pantalla similar a la siguiente. Los iconos resaltados permiten profundizar en las actividades de la canalización, incluidas las actividades de Data Flow.
 
-![Captura de pantalla que muestra los iconos que se deben seleccionar para las canalizaciones a fin de obtener más información.](media/data-flow/monitor-new-001.png "Supervisión de Data Flow")
+:::image type="content" source="media/data-flow/monitor-new-001.png" alt-text="Captura de pantalla que muestra los iconos que se deben seleccionar para las canalizaciones a fin de obtener más información.":::
 
 Se muestran estadísticas en este nivel, así como los tiempos de ejecución y estado. El identificador de ejecución en el nivel de actividad es diferente al del nivel de canalización. El identificador de ejecución en el nivel anterior es para la canalización. Al seleccionar el icono de las gafas, se obtienen detalles de la ejecución del flujo de datos.
 
-![Captura de pantalla que muestra el icono de las gafas para ver los detalles de la ejecución del flujo de datos.](media/data-flow/monitoring-details.png "Supervisión de Data Flow")
+:::image type="content" source="media/data-flow/monitoring-details.png" alt-text="Captura de pantalla que muestra el icono de las gafas para ver los detalles de la ejecución del flujo de datos.":::
 
 En la vista de supervisión del nodo gráfico, puede ver una versión simplificada de solo lectura del gráfico de flujo de datos. Para ver la vista de detalles con nodos de gráfico más grandes que incluyen etiquetas de la fase de transformación, use el control deslizante de zoom en el lado derecho del lienzo. También puede usar el botón de búsqueda del lado derecho para buscar partes de la lógica de flujo de datos en el gráfico.
 
-![Captura de pantalla que muestra la versión de solo lectura del gráfico.](media/data-flow/mon003.png "Supervisión de Data Flow")
+:::image type="content" source="media/data-flow/mon003.png" alt-text="Captura de pantalla que muestra la versión de solo lectura del gráfico.":::
 
 ## <a name="view-data-flow-execution-plans"></a>Visualización de planes de ejecución de Data Flow
 
-Cuando se ejecuta Data Flow en Spark, Azure Data Factory determina las rutas de acceso de código óptimo según la integridad del flujo de datos. Además, las rutas de ejecución pueden producirse en distintos nodos de escalabilidad horizontal y particiones de datos. Por lo tanto, el gráfico de supervisión representa el diseño del flujo, teniendo en cuenta la ruta de acceso de ejecución de las transformaciones. Al seleccionar los nodos individuales, puede ver "fases" que representan el código que se ejecutó en el clúster. Los intervalos y recuentos que ve representan esos grupos o fases en lugar de los pasos individuales del diseño.
+Cuando se ejecuta Data Flow en Spark, el servicio determina las rutas de acceso de código óptimo según la integridad del flujo de datos. Además, las rutas de ejecución pueden producirse en distintos nodos de escalabilidad horizontal y particiones de datos. Por lo tanto, el gráfico de supervisión representa el diseño del flujo, teniendo en cuenta la ruta de acceso de ejecución de las transformaciones. Al seleccionar los nodos individuales, puede ver "fases" que representan el código que se ejecutó en el clúster. Los intervalos y recuentos que ve representan esos grupos o fases en lugar de los pasos individuales del diseño.
 
-![Captura de pantalla que muestra la página de un flujo de datos.](media/data-flow/monitor-new-005.png "Supervisión de Data Flow")
+:::image type="content" source="media/data-flow/monitor-new-005.png" alt-text="Captura de pantalla que muestra la página de un flujo de datos.":::
 
 * Al seleccionar el espacio abierto de la ventana de supervisión, las estadísticas del panel inferior muestran los recuentos de filas y el tiempo de cada receptor y las transformaciones que dieron lugar a los datos de receptor de linaje de transformación.
 
@@ -61,13 +61,13 @@ Cuando se ejecuta Data Flow en Spark, Azure Data Factory determina las rutas de 
   * Tiempo de inicio del clúster: la cantidad de tiempo necesaria para adquirir el entorno de proceso de Spark JIT para la ejecución del flujo de datos.
   * Número de transformaciones: el número de pasos de transformación que se ejecutan en el flujo
   
-![Captura de pantalla que muestra la opción Actualizar.](media/data-flow/monitornew.png "Nueva supervisión de Data Flow")
+:::image type="content" source="media/data-flow/monitornew.png" alt-text="Captura de pantalla que muestra la opción Actualizar.":::
 
 ## <a name="total-sink-processing-time-vs-transformation-processing-time"></a>Diferencias entre tiempo total de procesamiento de receptores y tiempo de procesamiento de la transformación
 
 Cada fase de transformación incluye un tiempo total para que se complete, y el tiempo de ejecución de todas las particiones se suma. Al hacer clic en el receptor, verá "Tiempo de procesamiento del receptor". Este valor incluye el total del tiempo de transformación *más* el tiempo de E/S que se tarda en escribir los datos en el almacén de destino. La diferencia entre el tiempo de procesamiento del receptor y el total de la transformación es el tiempo de E/S para escribir los datos.
 
-También puede ver el tiempo detallado del paso de transformación de cada partición si abre la salida JSON desde la actividad de flujo de datos en la vista de supervisión de la canalización de ADF. El archivo JSON contiene el tiempo en milisegundos de cada partición, mientras que la vista de supervisión de la experiencia de usuario es un intervalo agregado de las particiones sumadas:
+También puede ver el tiempo detallado del paso de transformación de cada partición si abre la salida JSON desde la actividad de flujo de datos en la vista de supervisión de la canalización. El archivo JSON contiene el tiempo en milisegundos de cada partición, mientras que la vista de supervisión de la experiencia de usuario es un intervalo agregado de las particiones sumadas:
 
 ```
  {
@@ -98,16 +98,16 @@ Cuando seleccione un icono de transformación del receptor en el mapa, el panel 
 
 La habilitación del control de filas de error en el receptor de flujo de datos se reflejará en la salida de supervisión. Cuando se establece el receptor en "report success on error" (notificar éxito cuando hay error), la salida de supervisión mostrará el número de filas correctas y con error al hacer clic en el nodo de supervisión de receptores.
 
-![La captura de pantalla muestra las filas de error.](media/data-flow/error-row-2.png "Error Row Monitoring Success (Éxito de supervisión de filas)")
+:::image type="content" source="media/data-flow/error-row-2.png" alt-text="La captura de pantalla muestra las filas de error.":::
 
 Al seleccionar "report failure on error" (informar de error en caso de error), la misma salida solo se mostrará en el texto de salida de la supervisión de la actividad. Esto se debe a que la actividad de flujo de datos devolverá un error de ejecución y la vista de supervisión detallada no estará disponible.
 
-![Captura de pantalla que muestra las filas de error en la actividad.](media/data-flow/error-rows-4.png "Error Row Monitoring Failure (Error de supervisión de filas)")
+:::image type="content" source="media/data-flow/error-rows-4.png" alt-text="Captura de pantalla que muestra las filas de error en la actividad.":::
 
 ## <a name="monitor-icons"></a>Iconos de supervisión
 
 Este icono significa que los datos de transformación se almacenaron en caché en el clúster, por lo que los intervalos y la ruta de acceso de ejecución se han tenido en cuenta:
 
-![Captura de pantalla que muestra el icono de disco.](media/data-flow/mon005.png "Supervisión de Data Flow")
+:::image type="content" source="media/data-flow/mon005.png" alt-text="Captura de pantalla que muestra el icono de disco.":::
 
 También ve los iconos de círculo verde en la transformación. Representan un recuento del número de receptores en los que fluyen los datos.

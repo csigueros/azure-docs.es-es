@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 1006f29544bf2708277c6b5a975836a31bcdeff9
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 6f8812e4894a9ba0daa4423fae77b43bcdb758d6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959279"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643999"
 ---
 # <a name="tutorial-add-template-functions-to-your-arm-template"></a>Tutorial: Adición de funciones de plantilla a una plantilla de Resource Manager
 
@@ -33,7 +33,7 @@ La ubicación de la cuenta de almacenamiento está codificada de forma rígida e
 
 ## <a name="use-function"></a>Uso de una función
 
-Si ha completado el tutorial anterior de esta serie, ya ha usado una función. Cuando agregó `"[parameters('storageName')]"`, usó la función [parameters](template-functions-deployment.md#parameters). Los corchetes indican que la sintaxis incluida entre ellos es una expresión [template](template-expressions.md). Resource Manager resuelve la sintaxis en lugar de tratarla como un valor literal.
+Si ha completado el [tutorial de parámetros](./template-tutorial-add-parameters.md#make-template-reusable), ha usado una función. Cuando agregó `"[parameters('storageName')]"`, usó la función [parameters](template-functions-deployment.md#parameters). Los corchetes indican que la sintaxis incluida entre ellos es una expresión [template](template-expressions.md). Resource Manager resuelve la sintaxis en lugar de tratarla como un valor literal.
 
 Las funciones agregan flexibilidad a la plantilla mediante la obtención dinámica de valores durante la implementación. En este tutorial, usará una función para obtener la ubicación del grupo de recursos que está usando para la implementación.
 

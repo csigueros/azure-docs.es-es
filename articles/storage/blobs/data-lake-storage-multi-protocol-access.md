@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 01e8cec9a77db207e5320386cbc39c8bbcfddd07
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e2a73ae4a780836371414401cf4d0114a6a5b220
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128621155"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273920"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Acceso multiprotocolo en Azure Data Lake Storage
 
@@ -23,7 +23,7 @@ Hasta hace poco, es posible que tuviera que mantener soluciones de almacenamient
 
 Con el acceso multiprotocolo en Data Lake Storage, puede trabajar con los datos mediante el ecosistema de herramientas, aplicaciones y servicios. Además, incluye herramientas y aplicaciones de terceros. Puede hacer que apunten a cuentas que tienen un espacio de nombres jerárquico sin necesidad de modificarlas. Estas aplicaciones funcionan *tal cual* aunque llamen a las API de blob, dado que estas API ya pueden operar en los datos de cuentas que tienen un espacio de nombres jerárquico.
 
-Las características de Blob Storage, como el [registro de diagnóstico](../common/storage-analytics-logging.md), los [niveles de acceso](storage-blob-storage-tiers.md) y las [directivas de administración del ciclo de vida de Blob Storage](./lifecycle-management-overview.md), ya funcionan con las cuentas que tienen un espacio de nombres jerárquico. Por tanto, puede habilitar los espacios de nombres jerárquicos en las cuentas de Blob Storage sin perder el acceso a estas características importantes.
+Las características de Blob Storage, como el [registro de diagnóstico](../common/storage-analytics-logging.md), los [niveles de acceso](access-tiers-overview.md) y las [directivas de administración del ciclo de vida de Blob Storage](./lifecycle-management-overview.md), ya funcionan con las cuentas que tienen un espacio de nombres jerárquico. Por tanto, puede habilitar los espacios de nombres jerárquicos en las cuentas de Blob Storage sin perder el acceso a estas características importantes.
 
 > [!NOTE]
 > El acceso multiprotocolo en Data Lake Storage está disponible de forma general y en todas las regiones. Algunos servicios de Azure o características de Blob Storage habilitados mediante el acceso multiprotocolo permanecen en versión preliminar. En estos artículos se resume la compatibilidad actual con las características de Blob Storage y las integraciones de servicios de Azure.

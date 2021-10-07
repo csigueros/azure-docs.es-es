@@ -7,81 +7,106 @@ metadata:
   ms.service: web-application-firewall
   ms.devlang: na
   ms.topic: article
-  ms.date: 05/05/2020
+  ms.date: 09/20/2021
   ms.author: victorh
-  ms.openlocfilehash: b575794a586e55dce81b6ad088d378500589b85d
-  ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+  ms.openlocfilehash: 6070f0f8bd0f355bc826011d90f20256a89eefc6
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/14/2021
-  ms.locfileid: "122181761"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128567050"
 title: Preguntas más frecuentes sobre el Firewall de aplicaciones web de Azure en Azure Front Door Service
 summary: En este artículo, se responden preguntas comunes sobre la funcionalidad y las características del firewall de aplicaciones web (WAF) de Azure en Azure Front Door Service.
 sections:
 - name: Omitido
   questions:
   - question: >
-      What is Azure WAF?
+      ¿Qué es WAF de Azure?
     answer: >
-      Azure WAF is a web application firewall that helps protect your web applications from common threats such as SQL injection, cross-site scripting, and other web exploits. You can define a WAF policy consisting of a combination of custom and managed rules to control access to your web applications.
+      Azure WAF es un Firewall de aplicaciones web que ayuda a proteger sus aplicaciones web frente a amenazas comunes como inyección de código SQL, el scripting entre sitios y otras vulnerabilidades de seguridad de la web. Puede definir una directiva de WAF, que consta de una combinación de reglas personalizadas y administradas para controlar el acceso a sus aplicaciones web.
 
 
-      An Azure WAF policy can be applied to web applications hosted on Application Gateway or Azure Front Doors.
-  - question: "What is WAF on Azure Front Door? \n"
+      Para las aplicaciones web hospedadas en el servicio Application Gateway o Azure Front Door, se puede aplicar una directiva de WAF de Azure.
+  - question: "¿Qué es WAF en Azure Front Door? \n"
     answer: >
-      Azure Front Door is a highly scalable, globally distributed application and content delivery network. Azure WAF, when integrated with Front Door, stops denial-of-service and targeted application attacks at the Azure network edge, close to attack sources before they enter your virtual network, offers protection without sacrificing performance.
+      Azure Front Door es una red de entrega de contenido y de aplicaciones altamente escalable y distribuida globalmente. Cuando WAF de Azure se integra con Front Door, detiene los ataques por denegación de servicio y de aplicaciones dirigidas en el borde de la red de Azure. De este modo, cierra los orígenes de los ataques antes de que entren en la red virtual y ofrece protección sin sacrificar el rendimiento.
   - question: >
-      Does Azure WAF support HTTPS?
+      ¿WAF de Azure admite HTTPS?
     answer: >
-      Front Door offers TLS offloading. WAF is natively integrated with Front Door and can inspect a request after it's decrypted.
+      Front Door ofrece la descarga de SSL. WAF se integra de forma nativa con Front Door y puede inspeccionar una solicitud una vez se descifra.
   - question: >
-      Does Azure WAF support IPv6?
+      ¿WAF de Azure admite IPv6?
     answer: >
-      Yes. You can configure IP restriction for IPv4 and IPv6.
+      Sí. Puede configurar restricciones de IP para IPv4 e IPv6.
   - question: >
-      How up-to-date are the managed rule sets?
+      ¿En qué medida están actualizados los conjuntos de reglas administrados?
     answer: >
-      We do our best to keep up with changing threat landscape. Once a new rule is updated, it's added to the Default Rule Set with a new version number.
+      Hacemos todo lo posible para mantenernos al día con el panorama de amenazas que cambia constantemente. Una vez que se actualiza una regla nueva, se agrega al conjunto de reglas predeterminado con un nuevo número de versión.
   - question: >
-      What is the propagation time if I make a change to my WAF policy?
+      ¿Cuál es el tiempo de propagación si realizo un cambio en mi directiva de WAF?
     answer: >
-      Most WAF policy deployments complete under 20 minutes. You can expect the policy to take effect as soon as the update is completed across all edge locations globally.
+      La mayoría de las implementaciones de directivas de WAF se completan en menos de 20 minutos. Puede esperar que la directiva surta efecto en cuanto se complete la actualización en todas las ubicaciones perimetrales globalmente.
   - question: >
-      Can WAF policies be different for different regions?
+      ¿Las directivas de WAF pueden ser diferentes según las distintas regiones?
     answer: >
-      When integrated with Front Door, WAF is a global resource. Same configuration applies across all Front Door locations.
+      Cuando se integra con Front Door, WAF es un recurso global. Se aplica la misma configuración en todas las ubicaciones de Front Door.
   - question: >
-      How do I limit access to my back-end to be from Front Door only?
+      ¿Cómo puedo limitar el acceso a mi back-end desde Front Door únicamente?
     answer: >
-      You may configure IP Access Control List in your back-end to allow for only Front Door outbound IP address ranges and deny any direct access from Internet. Service tags are supported for you to use on your virtual network. Additionally, you can verify that the X-Forwarded-Host HTTP header field is valid for your web application.
+      Puede configurar la lista de control de acceso de IP en el back-end para permitir solo los intervalos de direcciones IP salientes de Front Door y denegar cualquier acceso directo desde Internet. Se admite el uso de etiquetas de servicio en la red virtual. Además, puede verificar que el campo de encabezado HTTP X-Forwarded-Host es válido para su aplicación web.
   - question: >
-      Which Azure WAF options should I choose?
+      ¿Qué opciones de WAF de Azure debería elegir?
     answer: >
-      There are two options when applying WAF policies in Azure. WAF with Azure Front Door is a globally distributed, edge security solution. WAF with Application Gateway is a regional, dedicated solution. We recommend you choose a solution based on your overall performance and security requirements. For more information, see [Load-balancing with Azure’s application delivery suite](../../frontdoor/front-door-lb-with-azure-app-delivery-suite.md).
+      Hay dos opciones al aplicar las directivas de WAF en Azure. WAF con Azure Front Door es una solución de seguridad de borde distribuida globalmente. WAF con Application Gateway es una solución regional y dedicada. Le recomendamos que elija una solución basada en los requisitos de seguridad y rendimiento generales. Para obtener más información, consulte [Equilibrio de carga con el conjunto de entrega de aplicaciones de Azure](../../frontdoor/front-door-lb-with-azure-app-delivery-suite.md).
   - question: >
-      What's the recommended approach to enabling WAF on Front Door?
+      ¿Cuál es el enfoque recomendado para habilitar WAF en Front Door?
     answer: >
-      When you enable the WAF on an existing application, it's common to have false positive detections where the WAF rules detect legitimate traffic as a threat. To minimize the risk of an impact to your users, we recommend the following process:
+      Al habilitar WAF en una aplicación existente, suele haber detecciones de falsos positivos en las que las reglas de WAF detectan tráfico legítimo como una amenaza. Para minimizar el riesgo de que los usuarios se vean afectados, se recomienda el siguiente proceso:
 
 
-      * Enable the WAF in [**Detection** mode](./waf-front-door-create-portal.md#change-mode) to ensure that the WAF doesn't block requests while you are working through this process.
+      * Habilite WAF en el modo [**Detección**](./waf-front-door-create-portal.md#change-mode) para asegurarse de que WAF no bloquee las solicitudes mientras realiza este proceso.
         > [!IMPORTANT]
-        > This process describes how to enable the WAF on a new or existing solution when your priority is to minimize the disturbance to your application's users. If you are under attack or imminent threat, you may want to instead deploy the WAF in **Prevention** mode immediately, and use the tuning process to monitor and tune the WAF over time. This will probably cause some of your legitimate traffic to be blocked, which is why we only recommend doing this when you are under threat.
-      * Follow our [guidance for tuning the WAF](./waf-front-door-tuning.md). This process requires that you enable diagnostic logging, review the logs regularly, and add rule exclusions and other mitigations.
+        > Este proceso describe cómo habilitar WAF en una solución nueva o existente cuando tiene como prioridad minimizar las interrupciones para los usuarios de la aplicación. Si está siendo atacado o está bajo amenaza inminente, se recomienda que implemente WAF en el modo **Prevención** inmediatamente y use el proceso de optimización para supervisar y ajustar WAF con el tiempo. Esto probablemente hará que se bloquee parte del tráfico legítimo, por lo que solo recomendamos hacerlo cuando esté bajo amenaza.
+      * Siga las [instrucciones para optimizar WAF](./waf-front-door-tuning.md). Este proceso requiere que habilite el registro de diagnóstico, revise los registros con regularidad y agregue exclusiones de reglas y otras mitigaciones.
 
-      * Repeat this whole process, checking the logs regularly, until you're satisfied that no legitimate traffic is being blocked. The whole process may take several weeks. Ideally you should see fewer false positive detections after each tuning change you make.
+      * Repita todo este proceso y compruebe los registros con regularidad hasta que esté convencido de que no se está bloqueando el tráfico legítimo. Todo el proceso puede tardar varias semanas. Idealmente, debería haber menos detecciones de falsos positivos después de cada optimización que realice.
 
-      * Finally, enable the WAF in **Prevention mode**.
+      * Por último, habilite WAF en **modo de prevención**.
 
-      * Even once you're running the WAF in production, you should keep monitoring the logs to identify any other false-positive detections. Regularly reviewing the logs will also help you to identify any real attack attempts that have been blocked.
+      * Incluso cuando esté ejecutando WAF en producción, debe seguir supervisando los registros para identificar cualquier otra detección de falsos positivos. Revisar periódicamente los registros también le ayudará a identificar los intentos de ataques reales que se hayan bloqueado.
   - question: >
-      Do you support same WAF features in all integrated platforms?
+      ¿Se admiten las mismas características de WAF en todas las plataformas integradas?
     answer: >
-      Currently, ModSec CRS 2.2.9, CRS 3.0, and CRS 3.1 rules are only supported with WAF on Application Gateway. Rate-limiting, geo-filtering, and Azure managed Default Rule Set rules are supported only with WAF on Azure Front Door.
-  - question: "Is DDoS protection integrated with Front Door? \n"
+      Actualmente, las reglas ModSec CRS 2.2.9, CRS 3.0, y CRS 3.1 solo se admiten con WAF en Application Gateway. Las reglas de limitación de velocidad, de filtrado geográfico y de conjuntos de reglas predeterminadas administradas por Azure solo se admiten con WAF en Azure Front Door.
+  - question: "¿La protección contra DDoS está integrada con Door Front? \n"
     answer: >
-      Globally distributed at Azure network edges, Azure Front Door can absorb and geographically isolate large volume attacks. You can create custom WAF policy to automatically block and rate limit http(s) attacks that have known signatures. Further more, you can enable DDoS Protection Standard on the VNet where your back-ends are deployed. Azure DDoS Protection Standard customers receive additional benefits including cost protection, SLA guarantee, and access to experts from DDoS Rapid Response Team for immediate help during an attack. For more information, see [DDoS protection on Front Door](../../frontdoor/front-door-ddos.md).
+      Gracias a que Azure Front Door está distribuido globalmente en los bordes de la red de Azure, puede absorber y aislar geográficamente los ataques de gran volumen. Puede crear directivas personalizadas de WAF para bloquear automáticamente los ataques HTTP(S) que tienen firmas conocidas, así como para limitar el volumen de estos. Además, puede habilitar el estándar DDoS Protection en la red virtual donde se implementan sus back-ends. Los clientes del estándar Azure DDoS Protection reciben ventajas adicionales, como protección de los costos, garantía del SLA y acceso a expertos del equipo de respuesta rápida de DDoS para obtener ayuda inmediata durante un ataque. Para más información, consulte [Protección contra DDoS en Front Door](../../frontdoor/front-door-ddos.md).
   - question: >
-      Why do additional requests above the threshold configured for my rate limit rule get passed to my backend server?
-    answer: "A rate limit rule can limit abnormally high traffic from any client IP address. You may configure a threshold on the number of web requests allowed from a client IP address during a one-minute or five-minute duration. For granular rate control, rate limiting can be combined with additional match conditions such as HTTP(S) parameter matching. \n\nRequests from the same client often arrive at the same Front Door server. In that case, you'll see additional requests above the threshold get blocked immediately. \n\nHowever, it's possible that requests from the same client may arrive at a different Front Door server that has not refreshed the rate limit counter yet. For example, the client may open a new connection for each request and the threshold is low. In this case, the first request to the new Front Door server would pass the rate limit check. A rate limit threshold is usually set high to defend against denial of service attacks from any client IP address. For a very low threshold, you may see additional requests above the threshold get through.\n"
-additionalContent: "\n## Next steps\n\n- Learn about [Azure Web Application Firewall](../overview.md).\n- Learn more about [Azure Front Door](../../frontdoor/front-door-overview.md)."
+      ¿Por qué las solicitudes adicionales por encima del umbral configurado para la regla de límite de tasa se pasan al servidor back-end?
+    answer: "Una regla de límite de velocidad puede limitar el tráfico anómalomente alto de cualquier dirección IP del cliente. Puede configurar un umbral en función del número de solicitudes web que se permiten de una dirección IP de cliente durante una duración de uno o cinco minutos. Para control de tasa granular, la limitación de velocidad puede combinarse con condiciones de coincidencia adicionales, como la coincidencia de parámetros HTTP(S). \n\nLas solicitudes del mismo cliente a menudo llegan al mismo servidor Front Door. En ese caso, verá que las solicitudes adicionales por encima del umbral se bloquean inmediatamente. \n\nSin embargo, es posible que las solicitudes del mismo cliente lleguen a un servidor Front Door diferente que aún no ha actualizado el contador de límite de velocidad. Por ejemplo, el cliente puede abrir una nueva conexión para cada solicitud y el umbral es bajo. En este caso, la primera solicitud al nuevo servidor de Front Door pasaría la verificación del límite de velocidad. Un umbral de límite de velocidad se establece normalmente como alto para defenderse frente a ataques de denegación de servicio desde cualquier dirección IP del cliente. Para un umbral muy bajo, puede ver solicitudes adicionales por encima del umbral.\n"
+  - question: >
+      ¿Qué tipos de contenido admite WAF?
+    answer: >
+      Front Door WAF admite los siguientes tipos de contenido:
+
+
+      - **DRS 2.0**
+
+         **Reglas administradas**
+           * application/json
+           * aplicación/xml
+           * application/x-www-form-urlencoded
+           * multipart/form-data
+
+         **Reglas personalizadas**
+           * application/x-www-form-urlencoded
+
+      - **DRS 1.x**
+
+         **Reglas administradas**
+           * application/x-www-form-urlencoded
+           * text/plain
+
+         **Reglas personalizadas**
+           * application/x-www-form-urlencoded
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\n- Más información sobre [Firewall de aplicaciones web de Azure](../overview.md).\n- Obtenga más información acerca de [Azure Front Door](../../frontdoor/front-door-overview.md)."

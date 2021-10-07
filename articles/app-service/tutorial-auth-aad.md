@@ -4,15 +4,15 @@ description: Aprenda a usar la autenticación y autorización de App Service par
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/26/2021
+ms.date: 09/23/2021
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 4b5244766769255a74becaa7c8893db45532dc4f
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 0c07d17269911043c71fc0d89a5a290f053e39a4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123227132"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639800"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutorial: Autenticación y autorización de usuarios de extremo a extremo en Azure App Service
 
@@ -260,13 +260,7 @@ Usará Azure Active Directory como proveedor de identidades. Para más informaci
 
 1. En la página **Agregar un proveedor de identidades**, seleccione **Microsoft** en **Proveedor de identidades** para iniciar sesión en las identidades de Microsoft y Azure AD.
 
-1. En **Registro de aplicación** > **App registration type** (Tipo de registro de aplicación), seleccione **Create new app registration** (Crear registro de aplicación).
-
-1. En **Registro de aplicación** > **Supported account types** (Tipos de cuenta admitidos), seleccione **Current tenant-single tenant** (Inquilino de inquilino único actual).
-
-1. En la sección **App Service authentication settings** (Configuración de autenticación de App Service), deje la opción **Autenticación** establecida en **Requerir autenticación** y la opción **Unauthenticated requests** (Solicitudes no autenticadas) establecida en **HTTP 302 Found redirect: recommended for websites** (HTTP 302 Redirección no encontrada: recomendado para sitios web).
-
-1. En la parte inferior de la página **Agregar un proveedor de identidades**, haga clic en **Agregar** para permitir la autenticación de la aplicación web.
+1. Acepte la configuración predeterminada y haga clic en **Agregar**.
 
     :::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Captura de pantalla del menú de la izquierda de la aplicación de back-end que muestra la opción de autenticación o autorización seleccionada y la configuración que se ha seleccionado en el menú de la derecha.":::
 
@@ -278,7 +272,7 @@ Si se detiene aquí, tiene una aplicación independiente que ya está protegida 
 
 ### <a name="enable-authentication-and-authorization-for-front-end-app"></a>Habilitación de la autenticación y autorización en una aplicación de front-end
 
-Siga los mismos pasos para la aplicación de front-end, pero omita el último paso. No es necesario el identificador de cliente para la aplicación de front-end.
+Siga los mismos pasos para la aplicación de front-end, pero omita el último paso. No es necesario el identificador de cliente para la aplicación de front-end. Aun así, permanezca en la página de **Autenticación** de la aplicación de front-end, ya que la usará en el paso siguiente.
 
 Si quiere, vaya a `http://<front-end-app-name>.azurewebsites.net`. Debería dirigirle ahora a una página de inicio de sesión segura. Después de iniciar sesión, *todavía no puede tener acceso a los datos desde la aplicación de back-end*, porque la aplicación de back-end requiere ahora un inicio de sesión de Azure Active Directory desde la aplicación de front-end. Tiene que realizar tres acciones:
 
@@ -293,13 +287,9 @@ Si quiere, vaya a `http://<front-end-app-name>.azurewebsites.net`. Debería diri
 
 Ahora que ha habilitado la autenticación y autorización en las dos aplicaciones, cada una de ellas está respaldada por una aplicación de AD. En este paso, concederá a la aplicación de front-end permisos para acceder al back-end en nombre del usuario. (Técnicamente, asignará a la _aplicación de AD_ del front-end permisos para acceder a la _aplicación de AD_ del back-end en nombre del usuario).
 
-1. En el menú de [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory** o busque y seleccione *Azure Active Directory* desde cualquier página.
+1. En la página de **Autenticación** de la aplicación de front-end, seleccione el nombre de la aplicación de front-end en **Proveedor de identidades** Este registro de aplicación se generó automáticamente. Seleccione **Permisos de API** en el menú izquierdo.
 
-1. Seleccione **Registros de aplicaciones** > **Aplicaciones propias** > **View all applications in this directory** (Ver todas las aplicaciones de este directorio). Seleccione el nombre de la aplicación de front-end y, después, seleccione **Permisos de API**.
-
-    :::image type="content" source="./media/tutorial-auth-aad/add-api-access-front-end.png" alt-text="Captura de pantalla de la ventana Microsoft - Registros de aplicaciones, con Aplicaciones propias, un nombre de aplicación de front-end y permisos de API seleccionados.":::
-
-1. Seleccione **Agregar un permiso** y, a continuación, **API usadas en mi organización** >  **\<back-end-app-name>** .
+1. Seleccione **Agregar un permiso** y, a continuación, **Mis API** >  **\<back-end-app-name>** .
 
 1. En la página **Solicitud de permisos de API** de la aplicación de back-end, seleccione **Permisos delegados** y **user_impersonation** y, después, seleccione **Agregar permisos**.
 
@@ -315,18 +305,35 @@ La aplicación de front-end ya tiene los permisos necesarios para acceder a la a
 
     :::image type="content" source="./media/tutorial-auth-aad/resources-enable-write.png" alt-text="Captura de pantalla de los botones de solo lectura y de lectura/escritura en la parte superior de la página de Azure Resource Explorer, con el botón de lectura/escritura seleccionado.":::
 
-1. En el explorador izquierdo, explore en profundidad hasta **config** > **authsettings**.
+1. En el explorador izquierdo, explore en profundidad hasta **config** > **authsettingsV2**.
 
-1. En la vista **authsettings**, haga clic en **Edit** (Editar). Establezca `additionalLoginParams` en la siguiente cadena JSON, utilizando el identificador de cliente que copió. 
+1. En la vista **authsettingsV2**, haga clic en **Editar**. Explore en profundidad `properties.identityProviders.azureActiveDirectory.login` y agregue `loginParameters` en la siguiente cadena JSON con el identificador de cliente que copió. 
 
     ```json
-    "additionalLoginParams": ["response_type=code id_token","resource=<back-end-client-id>"],
+    "loginParameters": ["response_type=code id_token","scope=openid api://<back-end-client-id>/user_impersonation"],
     ```
 
-    :::image type="content" source="./media/tutorial-auth-aad/additional-login-params-front-end.png" alt-text="Captura de pantalla de un ejemplo de código en la vista authsettings que muestra la cadena additionalLoginParams, con un ejemplo de un identificador de cliente.":::
+    :::image type="content" source="./media/tutorial-auth-aad/add-loginparameters.png" alt-text="Captura de pantalla de un ejemplo de código en la vista authsettingsV2 que muestra la cadena loginParameters, con un ejemplo de un identificador de cliente.":::
+
+    > [!TIP]
+    > El ámbito `api://<back-end-client-id>/user_impersonation` se agrega de forma predeterminada al registro de la aplicación para la aplicación de back-end. Para verlo en el Azure Portal, vaya a la página de **Autenticación** de la aplicación de back-end, haga clic en el vínculo en **Proveedor de identidades** y, a continuación, haga clic en **Exponer una API** en el menú izquierdo.
+    >
+    > Tenga en cuenta que el ámbito requiere el consentimiento del administrador o del usuario. Este requisito hace que se muestre la página de solicitud de consentimiento cuando un usuario inicia sesión en la aplicación de front-end en el explorador. Para evitar esta página de consentimiento, agregue el registro de aplicaciones del front-end como una aplicación cliente autorizada en la página **Exponer una API**; para ello, haga clic en **Agregar una aplicación cliente** y proporcione el Id. de cliente del registro de aplicaciones del front-end.
 
 1. Haga clic en **PUT** para guardar la configuración.
 
+    ::: zone pivot="platform-linux"
+    
+    > [!NOTE]
+    > En el caso de las aplicaciones Linux, hay un requisito temporal para configurar una configuración de control de versiones para el registro de aplicaciones de back-end. En Cloud Shell, configúrelo con los siguientes comandos. Asegúrese de reemplazar *\<back-end-client-id>* por el Id. de cliente del back-end.
+    >
+    > ```azurecli-interactive
+    > id=$(az ad app show --id <back-end-client-id> --query objectId --output tsv)
+    > az rest --method PATCH --url https://graph.microsoft.com/v1.0/applications/$id --body "{'api':{'requestedAccessTokenVersion':2}}" 
+    > ```    
+
+    ::: zone-end
+    
     Ahora las aplicaciones están configuradas. El front-end ahora está listo para acceder al back-end con un token de acceso apropiado.
 
 Para más información acerca de cómo configurar el token de acceso para otros proveedores, consulte [Actualización de tokens del proveedor de identidades](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
