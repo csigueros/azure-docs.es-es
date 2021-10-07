@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 7714ce748eb172565357723924ab2212e9559e1f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c7c7dccf94c1211ef318d538c3a5c74ae16e427e
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98685334"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388819"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Administración de cargas de trabajo con clases de recursos en Azure Synapse Analytics
 
@@ -84,8 +84,6 @@ La clase de recursos del administrador de servicios está fijada en smallrc y no
 
 > [!NOTE]
 > Los usuarios o grupos definidos como administrador de Active Directory también son administradores de servicio.
->
->
 
 ## <a name="resource-class-operations"></a>Operaciones de clases de recursos
 
@@ -107,8 +105,6 @@ Estas operaciones están regidas por clases de recursos:
 
 > [!NOTE]  
 > Ninguno de los límites de simultaneidad se encarga de regular las instrucciones SELECT de las vistas de administración dinámicas (DMV) o de otras vistas del sistema. Puede supervisar el sistema independientemente del número de consultas que se ejecutan en él.
->
->
 
 ### <a name="operations-not-governed-by-resource-classes"></a>Operaciones no regidas por clases de recursos
 
@@ -185,8 +181,6 @@ Los usuarios pueden ser miembros de varias clases de recursos. Cuando un usuario
 
 >[!NOTE]
 >Considere la posibilidad de aprovechar las funcionalidades de administración de cargas de trabajo ([aislamiento de carga de trabajo](sql-data-warehouse-workload-isolation.md), [clasificación](sql-data-warehouse-workload-classification.md) e [importancia](sql-data-warehouse-workload-importance.md)) para obtener un mayor control sobre la carga de trabajo y un rendimiento predecible.  
->
->
 
 Se recomienda crear un usuario que se dedique a ejecutar un tipo específico de consulta u operación de carga. Conceda a ese usuario una clase de recursos permanente en lugar de cambiar la clase de recursos con frecuencia. Las clases de recursos estáticas, en general, proporcionan un mayor control sobre la carga de trabajo, por lo que le recomendamos que use dichas clases antes de plantearse usar las clases de recursos dinámicas.
 

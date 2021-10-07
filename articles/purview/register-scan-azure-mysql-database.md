@@ -1,23 +1,22 @@
 ---
 title: Registro y análisis de una base de datos de Azure Database for MySQL
-description: En este tutorial se describe cómo examinar una base de datos de Azure Database for MySQL
+description: En este artículo se describe cómo registrar y digitalizar una base de datos de Azure MySQL en Azure Purview.
 author: evwhite
 ms.author: evwhite
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: tutorial
-ms.date: 06/30/2021
-ms.openlocfilehash: ed3a0abc6bdd99e5c86e67a410d7c9ecadf7a718
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 8f4a5480b76e03a57ff810c88a0a1660ae561071
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737642"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209874"
 ---
 # <a name="register-and-scan-an-azure-mysql-database"></a>Registro y análisis de una base de datos de Azure Database for MySQL
 
 En este artículo se describe cómo registrar y examinar una base de datos de Azure Database for MySQL.
-
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 - **Exámenes completos e incrementales** para capturar metadatos y su clasificación de bases de datos de Azure Database for MySQL.
@@ -73,7 +72,7 @@ En la pantalla **Register sources (Azure MySQL Database)** (Registrar orígenes 
 
 Para crear y ejecutar un nuevo examen, siga estos pasos:
 
-1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de Purview Studio.
+1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Seleccione el origen de Azure Database for MySQL que registró.
 

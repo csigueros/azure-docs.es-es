@@ -5,19 +5,19 @@ description: Esta página proporciona información sobre las reglas y grupos de 
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/23/2021
+ms.date: 09/02/2021
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: a3908710febab64b8f4bb41692397f87eaee5613
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: ad8b70e7a5b07b2e933bc01af42dca0e89683959
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123434509"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638014"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Reglas y grupos de reglas de CRS de Firewall de aplicaciones Web
 
-El firewall de aplicaciones web de Application Gateway protege las aplicaciones web de las vulnerabilidades más habituales. Esta operación se realiza con las reglas que se definen en función de los conjuntos de reglas de OWASP Core 3.2, 3.1, 3.0 o 2.2.9. Estas reglas se pueden deshabilitar individualmente. En este artículo se incluyen las reglas y los conjuntos de reglas actuales que se ofrecen.
+El firewall de aplicaciones web de Application Gateway protege las aplicaciones web de las vulnerabilidades más habituales. Esta operación se realiza con las reglas que se definen en función de los conjuntos de reglas de OWASP Core 3.2, 3.1, 3.0 o 2.2.9. Estas reglas se pueden deshabilitar individualmente. En este artículo se incluyen las reglas y los conjuntos de reglas actuales que se ofrecen. En el caso poco probable de que sea necesario actualizar un conjunto de reglas publicado, se documentará aquí.
 
 ## <a name="core-rule-sets"></a>Conjuntos de reglas principales
 
@@ -805,7 +805,7 @@ Los siguientes grupos de reglas y reglas están disponibles cuando se usa el Fir
 
 # <a name="owasp-229"></a>[OWASP 2.2.9](#tab/owasp2)
 
-## <a name="29-rule-sets"></a><a name="owasp229"></a> 2.9 Conjuntos de reglas
+## <a name="229-rule-sets"></a><a name="owasp229"></a> 2.2.9 Conjuntos de reglas
 
 ### <a name="crs_20_protocol_violations"></a><a name="crs20"></a> crs_20_protocol_violations
 

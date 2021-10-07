@@ -7,15 +7,14 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.custom: template-tutorial, devx-track-azurecli
-ms.openlocfilehash: 8b62437fc8bcad406750101eb72b1ef8d48c102f
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: a325f248a4f634657d9b73e3d4b7929e0614a023
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322210"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124820737"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>Tutorial: Implementación de CI/CD con GitOps mediante clústeres de Kubernetes habilitados para Azure Arc
-
 
 En este tutorial va a configurar una solución de CI/CD con GitOps mediante clústeres de Kubernetes habilitados para Azure Arc. Con la aplicación de votaciones de ejemplo de Azure llevará a cabo las siguientes tareas:
 

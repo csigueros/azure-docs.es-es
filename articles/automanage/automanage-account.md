@@ -1,19 +1,17 @@
 ---
 title: Cuenta de Azure Automanage
 description: Obtenga información sobre cómo funciona una cuenta de Automanage y cómo crear una.
-author: asinn826
 ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/07/2021
-ms.author: alsin
-ms.openlocfilehash: d3a88c81f60eaf08f64326f2c53f4d5dfa886fa1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d418cd8c6ad764ee68cf8defd697ed168ee4136c
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121746752"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129455102"
 ---
 # <a name="automanage-accounts"></a>Cuentas de Automanage
 

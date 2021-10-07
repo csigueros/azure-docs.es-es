@@ -6,12 +6,12 @@ ms.custom: references_regions, devx-track-azurepowershell
 author: bwren
 ms.author: bwren
 ms.date: 12/22/2020
-ms.openlocfilehash: 0a4b6e1f90e24b3289b453e849b4ad979b10e202
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: a5a65f99fec0bb0db245450ead9747776e194b46
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319924"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614436"
 ---
 # <a name="configure-log-analytics-workspace-for-vm-insights"></a>Configuración del área de trabajo de Log Analytics para VM Insights
 VM Insights recopila sus datos de una o varias áreas de trabajo de Log Analytics en Azure Monitor. Antes de incorporar agentes, debe crear y configurar un área de trabajo. En este artículo se describen los requisitos del área de trabajo y cómo configurarla para VM Insights.
@@ -38,15 +38,13 @@ Puede crear una nueva área de trabajo de Log Analytics mediante cualquiera de l
 
 
 * [Azure Portal](../logs/quick-create-workspace.md)
-* [CLI de Azure](../logs/quick-create-workspace-cli.md)
+* [CLI de Azure](../logs/resource-manager-workspace.md)
 * [PowerShell](../logs/powershell-workspace-configuration.md)
 * [Azure Resource Manager](../logs/resource-manager-workspace.md)
 
 ## <a name="supported-regions"></a>Regiones admitidas
-VM Insights admite un área de trabajo de Log Analytics en cualquiera de las [regiones compatibles con Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all) excepto las siguientes:
+Información de máquinas virtuales admite un área de trabajo de Log Analytics en cualquiera de las [regiones compatibles con Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all).
 
-- Centro-oeste de Alemania
-- Centro de Corea del Sur
 
 >[!NOTE]
 >Puede supervisar máquinas virtuales de Azure en cualquier región. Las máquinas virtuales no se limitan a las regiones admitidas por el área de trabajo de Log Analytics.

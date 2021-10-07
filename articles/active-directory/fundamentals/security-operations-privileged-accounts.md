@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/15/2021
 ms.author: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1944e9f0e8d1ad7a447d12c99aa65a22ccb233d6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3c4a9afd9e2470085509c809153fd2abd9a63c27
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741708"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124796445"
 ---
 # <a name="security-operations-for-privileged-accounts"></a>Operaciones de seguridad para cuentas con privilegios
 
@@ -40,15 +40,15 @@ Los archivos de registro que usa para la investigación y supervisión son:
 
 * [Registros de auditoría de Azure AD](../reports-monitoring/concept-audit-logs.md)
 
-* [Registros de auditoría de Microsoft 365](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide) 
+* [Registros de auditoría de Microsoft 365](/microsoft-365/compliance/auditing-solutions-overview) 
 
 * [Información detallada de Azure Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md)
 
 En Azure Portal, puede ver los registros de auditoría de Azure AD y descargarlos como archivos de valores separados por comas (CSV) o notación de objetos JavaScript (JSON). Azure Portal tiene varias maneras de integrar los registros de Azure AD con otras herramientas que permiten una mayor automatización de la supervisión y las alertas:
 
-* [Azure Sentinel](../../sentinel/overview.md): permite el análisis de seguridad inteligente en el nivel empresarial proporcionando funcionalidades de Administración de eventos e información de seguridad (SIEM). 
+* [Azure Sentinel](../../sentinel/overview.md): Permite el análisis de seguridad inteligente en el nivel empresarial proporcionando funcionalidades de Administración de eventos e información de seguridad (SIEM). 
 
-* [Azure Monitor](../../azure-monitor/overview.md): permite la supervisión automatizada y las alertas de diversas condiciones. Puede crear o usar libros para combinar datos de orígenes diferentes.
+* [Azure Monitor](../../azure-monitor/overview.md): Permite la supervisión automatizada y las alertas de diversas condiciones. Puede crear o usar libros para combinar datos de orígenes diferentes.
 
 * [Azure Event Hubs](../../event-hubs/event-hubs-about.md) (integrado con SIEM): los [registros de Azure AD se pueden insertar en otras instancias de SIEM](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md), como Splunk, ArcSight, QRadar y Sumo Logic, a través de la integración de Azure Event Hubs.
 
@@ -138,13 +138,13 @@ Puede supervisar los eventos de inicio de sesión de la cuenta con privilegios e
 | Error de inicio de sesión, umbral de contraseña incorrecta | Alto | Registro de inicios de sesión de Azure AD | Estado = Error<br>- y -<br>Código de error = 50126 | Defina un umbral de línea de base y, a continuación, supervise y ajuste para adaptar los comportamientos de la organización y limitar la generación de alertas falsas. |
 | Error debido a un requisito de CA |Alto | Registro de inicios de sesión de Azure AD | Estado = Error<br>- y -<br>Código de error = 53003<br>- y -<br>Motivo del error = bloqueado por la CA | Esto puede ser una indicación de que un atacante está intentando acceder a la cuenta. |
 | Cuentas con privilegios que no siguen la directiva de nomenclatura.| | Suscripción de Azure | [Enumeración de asignaciones de roles de Azure mediante Azure Portal: RBAC de Azure](../../role-based-access-control/role-assignments-list-portal.md)| Muestra las asignaciones de roles de las suscripciones y alertas en los que el nombre de inicio de sesión no coincide con el formato de la organización. Por ejemplo, ADM_ como prefijo. |
-| Interrupción |  Alto/Medio | Inicios de sesión de Azure AD | Estado = Interrumpido<br>- y -<br>Código de error = 50074<br>- y -<br>Motivo del error = Se requiere autenticación sólida<br>Estado = Interrumpido<br>- y -<br>Código de error = 500121<br>Motivo del error = Error de autenticación durante la solicitud de autenticación sólida | Esto puede ser una indicación de que un atacante tiene la contraseña de la cuenta, pero no puede superar el desafío de MFA. |   |   |
+| Interrupción |  Alto/Medio | Inicios de sesión de Azure AD | Estado = Interrumpido<br>- y -<br>Código de error = 50074<br>- y -<br>Motivo del error = Se requiere autenticación sólida<br>Estado = Interrumpido<br>- y -<br>Código de error = 500121<br>Motivo del error = Error de autenticación durante la solicitud de autenticación sólida | Esto puede ser una indicación de que un atacante tiene la contraseña de la cuenta, pero no puede superar el desafío de MFA. | 
 | Cuentas con privilegios que no siguen la directiva de nomenclatura.| Alto | Directorio de Azure AD | [Enumeración de asignaciones de roles de Azure AD](../roles/view-assignments.md)| Muestra las asignaciones de roles de las alertas de roles de Azure AD en las que el UPN no coincide con el formato de su organización. Por ejemplo, ADM_ como prefijo. |
-| Detectar cuentas con privilegios no registradas para MFA. | Alto | Graph API de Azure AD| Consulta de IsMFARegistered eq false para cuentas de administrador. [Enumeración de los detalles de credentialUserRegistration:Microsoft Graph beta](/graph/api/reportroot-list-credentialuserregistrationdetails?view=graph-rest-beta&tabs=http) | Audite e investigue para determinar si es intencionada o de vigilancia. |
+| Detectar cuentas con privilegios no registradas para MFA. | Alto | Graph API de Azure AD| Consulta de IsMFARegistered eq false para cuentas de administrador. [Enumeración de los detalles de credentialUserRegistration:Microsoft Graph beta](/graph/api/reportroot-list-credentialuserregistrationdetails?view=graph-rest-beta&preserve-view=true&tabs=http) | Audite e investigue para determinar si es intencionada o de vigilancia. |
 | Bloqueo de cuenta | Alto | Registro de inicios de sesión de Azure AD | Estado = Error<br>- y -<br>Código de error = 50053 | Defina un umbral de línea de base y, a continuación, supervise y ajuste para adaptar los comportamientos de la organización y limitar la generación de alertas falsas. |
 | Cuenta deshabilitada o bloqueada para inicios de sesión | Bajo | Registro de inicios de sesión de Azure AD | Estado = Error<br>- y -<br>Destino = UPN de usuario<br>- y -<br>Código de error = 50057 | Esto podría indicar que alguien está intentando obtener acceso a una cuenta una vez que ha dejado una organización. Aunque la cuenta está bloqueada, sigue siendo importante registrar y esta actividad y alertar sobre ella. |
 | Bloque o alerta de fraude de MFA | Alto | Registro de inicios de sesión de Azure AD/Análisis de registros de Azure | Correcto = false<br>- y -<br>Detalle del resultado = MFA denegado<br>- y -<br>Destino = usuario | El usuario con privilegios ha indicado que no ha enviado el mensaje de MFA, y podría indicar que un atacante tiene la contraseña de la cuenta. |
-| Inicios de sesión de cuentas con privilegios fuera de los controles esperados. |  | Registro de inicios de sesión de Azure AD | Estado = error<br>UserPricipalName = <Admin account><br>Ubicación = <unapproved location><br>Dirección IP = <unapproved IP><br>Información del dispositivo= <explorador/sistema operativo no aprobado> | Supervise y notifique todas las entradas que haya definido como no aprobadas. |
+| Inicios de sesión de cuentas con privilegios fuera de los controles esperados. |  | Registro de inicios de sesión de Azure AD | Estado = error<br>UserPricipalName = \<Admin account\><br>Ubicación = \<unapproved location\><br>Dirección IP = \<unapproved IP\><br>Información del dispositivo = \<unapproved Browser, Operating System\> | Supervise y notifique todas las entradas que haya definido como no aprobadas. |
 | Fuera de los tiempos de inicio de sesión normales | Alto | Registro de inicios de sesión de Azure AD | Estado = correcto<br>- y -<br>Ubicación =<br>- y -<br>Hora = fuera del horario laboral | Supervise y notifique si los inicios de sesión se producen fuera del horario esperado. Es importante encontrar el patrón de trabajo normal para cada cuenta con privilegios y alertar si hay cambios no planeados fuera de las horas de trabajo normales. Los inicios de sesión fuera del horario laboral normal podrían indicar riesgos o posibles amenazas internas. | 
 | Riesgo de Identity Protection | Alto | Registros de Identity Protection | Estado de riesgo = en riesgo<br>- y -<br>Nivel de riesgo = bajo/medio/alto<br>- y -<br>Actividad = Inicio de sesión/TOR desconocido, etc. | Esto indica que se ha detectado alguna anomalía con el inicio de sesión de la cuenta y que es necesario estar alerta. | 
 | Cambio de contraseña | Alto | Registros de auditoría de Azure AD | Actor de la actividad = administrador/autoservicio<br>- y -<br>Destino = usuario<br>- y -<br>Estado = correcto/error | Alertar sobre cualquier cambio de contraseña de la cuenta de administrador, especialmente para administradores globales, administradores de usuarios, administradores de suscripciones y cuentas de acceso de emergencia. Escriba una consulta destinada a todas las cuentas con privilegios. | 
@@ -187,7 +187,7 @@ Investigue los cambios en las reglas de autenticación y los privilegios de las 
 
 Para más información sobre cómo supervisar las excepciones a las directivas de acceso condicional, vea [Información detallada e informes del acceso condicional](../conditional-access/howto-conditional-access-insights-reporting.md).
 
-Para más información sobre cómo detectar cuentas con privilegios no utilizadas, vea [Creación de una revisión de acceso para los roles de Azure AD en Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-how-to-start-security-review.md).
+Para más información sobre cómo detectar cuentas con privilegios no utilizadas, vea [Creación de una revisión de acceso para los roles de Azure AD en Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md).
 
  
 ## <a name="assignment-and-elevation"></a>Asignación y elevación

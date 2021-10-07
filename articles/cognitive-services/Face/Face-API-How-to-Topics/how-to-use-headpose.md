@@ -10,12 +10,12 @@ ms.topic: sample
 ms.date: 02/23/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c53686338ae45971519735edce0ac62a0544ac2e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: bbb43768aee85d5c3cde83563645fa649a4cbcc4
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121744781"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092193"
 ---
 # <a name="use-the-headpose-attribute"></a>Uso del atributo HeadPose
 
@@ -25,7 +25,7 @@ En esta guía verá cómo puede usar el atributo HeadPose de una cara detectada 
 
 El rectángulo facial, que se devuelve con cada rostro detectado, marca la ubicación y el tamaño de la cara en la imagen. De forma predeterminada, el rectángulo siempre se alinea con la imagen (sus lados son vertical y horizontal); esto puede resultar ineficaz para enmarcar caras en ángulo. En casos en los que desea recortar mediante programación las caras de una imagen, es mejor ser capaz de girar el rectángulo de recorte.
 
-La aplicación de ejemplo [Cognitive Services Face WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) usa el atributo HeadPose para girar los rectángulos de cara detectados.
+La aplicación de ejemplo [Cognitive Services Face WPF (Windows Presentation Foundation)](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) usa el atributo HeadPose para girar los rectángulos de cara detectados.
 
 ### <a name="explore-the-sample-code"></a>Exploración del código de ejemplo
 

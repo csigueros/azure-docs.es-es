@@ -1,7 +1,6 @@
 ---
-title: Tutorial para comprobar la carga de datos de Azure Data Box Disk a la cuenta de almacenamiento | Microsoft Docs
+title: Tutorial para comprobar la carga de datos de Azure Data Box Disk a la cuenta de almacenamiento
 description: Use este tutorial para obtener información sobre cómo comprobar los datos cargados desde Azure Data Box Disk a la cuenta de Azure Storage.
-services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
@@ -9,12 +8,12 @@ ms.topic: tutorial
 ms.localizationpriority: high
 ms.date: 09/17/2019
 ms.author: alkohli
-ms.openlocfilehash: abe09cf10e241ec95ceed767e7038cde07667fc9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 53e2db3728d92a862fce64ba1fc379a2ae2205ce
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322740"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591641"
 ---
 ::: zone target="docs"
 
@@ -85,9 +84,9 @@ Tras cargar los datos en Azure, compruebe que los datos están en las cuentas de
 
 - Sus cuentas de Azure Storage. Al copiar los datos en Data Box, dependiendo del tipo, estos se cargan en una de las siguientes rutas de acceso de la cuenta de Azure Storage.
 
-    - **Para blobs en bloques y blobs en páginas**: https://<nombre_de_la_cuenta_de_almacenamiento>.blob.core.windows.net/<containername>/files/a.txt
+    - **Para los blobs en bloques y los blobs en páginas**: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
 
-    - **Para Azure Files**: https://<nombre_de_la_cuenta_de_almacenamiento>.file.core.windows.net/<sharename>/files/a.txt
+    - **Para Azure Files**: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
 
 - Sus grupos de recursos de disco administrados. Al crear discos administrados, los discos duros virtuales se cargan como blobs en páginas y se convierten en discos administrados. Los discos administrados se conectan a los grupos de recursos especificados en el momento de creación del pedido.
 

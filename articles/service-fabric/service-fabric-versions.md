@@ -3,12 +3,12 @@ title: Versiones de Azure Service Fabric
 description: Obtenga información sobre las versiones de clúster de Azure Service Fabric y las versiones de plataforma que se admiten activamente
 ms.topic: troubleshooting
 ms.date: 04/12/2021
-ms.openlocfilehash: 4eb08bb2ce94612ee81b9cdf19a1b3cd2e2d6b00
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: bf9eee45ab674e7089fbf5210d6d5677ae4e11a9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121729732"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754948"
 ---
 # <a name="service-fabric-supported-versions"></a>Versiones admitidas de Service Fabric
 En las tablas de este artículo se describen las versiones de Service Fabric y de plataforma que se admiten activamente.
@@ -17,6 +17,7 @@ En las tablas de este artículo se describen las versiones de Service Fabric y d
 
 | Entorno de ejecución de Service Fabric |Versión desde la que se puede actualizar directamente|Versión anterior a la que se puede cambiar|Versiones del SDK o paquete de NuGet compatibles|Entornos de ejecución .NET compatibles** |Versión del SO. |Finalización del soporte técnico |
 | --- | --- | --- | --- | --- | --- | --- |
+| 8.1 CU2 | 7.2 CU7 | 8.0 | Versión 5.1 o anterior | .NET 5.0 (GA), >= .NET Core 2.1, <br>Todo >= .NET Framework 4.5 | [Consulte la versión del sistema operativo admitida](#supported-windows-versions-and-support-end-date) | Versión actual |
 | 8.1 CU1 | 7.2 CU7 | 8.0 | Versión 5.1 o anterior | .NET 5.0 (GA), >= .NET Core 2.1, <br>Todo >= .NET Framework 4.5 | [Consulte la versión del sistema operativo admitida](#supported-windows-versions-and-support-end-date) | Versión actual |
 | 8.1 RTO | 7.2 CU7 | 8.0 | Versión 5.1 o anterior | .NET 5.0 (GA), >= .NET Core 2.1, <br>Todo >= .NET Framework 4.5 | [Consulte la versión del sistema operativo admitida](#supported-windows-versions-and-support-end-date) | Versión actual |
 | 8.0 CU3 | 7.1 CU10 | 7.2 | Versión 5.0 o anterior | .NET 5.0 (GA), >= .NET Core 2.1, <br>Todo >= .NET Framework 4.5 | [Consulte la versión del sistema operativo admitida](#supported-windows-versions-and-support-end-date) | 28 de febrero de 2022 |
@@ -62,6 +63,7 @@ El soporte técnico para Service Fabric en un sistema operativo específico fina
 
 | Entorno de ejecución de Service Fabric | Versión desde la que se puede actualizar directamente |Versión anterior a la que se puede cambiar |Versiones del SDK o paquete de NuGet compatibles | Entornos de ejecución .NET compatibles** | Versión del sistema operativo | Finalización del soporte técnico |
 | --- | --- | --- | --- | --- | --- | --- |
+| 8.1 CU2 | 7.2 CU7 | 8.0 | Versión 5.1 o anterior | >= .NET Core 2.1 | [Consulte la versión del sistema operativo admitida](#supported-linux-versions-and-support-end-date) | Versión actual |
 | 8.1 CU1 | 7.2 CU7 | 8.0 | Versión 5.1 o anterior | >= .NET Core 2.1 | [Consulte la versión del sistema operativo admitida](#supported-linux-versions-and-support-end-date) | Versión actual |
 | 8.1 RTO | 7.2 CU7 | 8.0 | Versión 5.1 o anterior | >= .NET Core 2.1 | [Consulte la versión del sistema operativo admitida](#supported-linux-versions-and-support-end-date) | Versión actual |
 | 8.0 CU3 | 7.1 CU8 | 7.2 | Versión 5.0 o anterior | >= .NET Core 2.1 | [Consulte la versión del sistema operativo admitida](#supported-linux-versions-and-support-end-date) | 28 de febrero de 2022 |
@@ -87,6 +89,7 @@ En la tabla siguiente se indican los nombres de versión de Service Fabric y sus
 
 | Nombre de versión | Número de versión de Windows | Número de versión de Linux |
 | --- | --- | --- |
+| 8.1 CU2 | 8.1.329.9590 | 8.1.328.1 |
 | 8.1 CU1 | 8.1.321.9590 | 8.1.323.1 |
 | 8.1 RTO | 8.1.316.9590 | 8.1.320.1 |
 | 8.0 CU3 | 8.0.536.9590 | 8.0.527.1 |

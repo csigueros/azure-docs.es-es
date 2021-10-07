@@ -6,12 +6,12 @@ ms.author: nayenama
 ms.service: purview
 ms.topic: conceptual
 ms.date: 09/27/2021
-ms.openlocfilehash: 8c2628922391f3b8f6570c011dbc2220b1e7f815
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 2e3bcd7e51226f437f42f03fa43b144bee434f33
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129212868"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129456145"
 ---
 # <a name="use-purview-studio"></a>Uso de Purview Studio
 
@@ -59,7 +59,7 @@ En la lista siguiente se resumen las principales características de la **págin
    > Para más información sobre los roles de Azure Purview, consulte [Control de acceso en Azure Purview](catalog-permissions.md).
 
 5. La barra de navegación izquierda ayuda a localizar las páginas principales de la aplicación.   
-6. En la pestaña **Recently accessed** (Accedido recientemente) se muestra una lista de los recursos de datos a los que se ha accedido recientemente. Para información sobre el acceso a los recursos, consulte [Búsqueda en el catálogo de datos](how-to-search-catalog.md) y [Examen por tipo de recurso](how-to-browse-catalog.md#browse-experience).  La pestaña **My items** (Mis elementos) es una lista de los recursos de datos que pertenecen al usuario que ha iniciado sesión.
+6. En la pestaña **Recently accessed** (Accedido recientemente) se muestra una lista de los recursos de datos a los que se ha accedido recientemente. Para información sobre el acceso a los recursos, consulte [Búsqueda en el catálogo de datos](how-to-search-catalog.md) y [Examen por tipo de recurso](how-to-browse-catalog.md).  La pestaña **My items** (Mis elementos) es una lista de los recursos de datos que pertenecen al usuario que ha iniciado sesión.
 7. **Vínculos** contiene vínculos al estado de la región, la documentación, los precios, información general y el estado de Purview.
 8. La barra de navegación superior contiene información sobre las secciones siguientes: notas de la versión, actualizaciones, cambio de cuenta de Purview, notificaciones, ayuda y comentarios.
 

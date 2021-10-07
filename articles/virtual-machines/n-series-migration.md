@@ -1,16 +1,18 @@
 ---
 title: Guía de migración para cargas de trabajo de proceso de GPU en Azure
 description: Guía de migración de la serie NC, ND, NCv2.
+author: iafinder
 ms.service: virtual-machines
 ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 08/15/2020
-ms.openlocfilehash: 1f148ad07137f6384a9752d2321836601a6bd996
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.author: iafinder
+ms.openlocfilehash: 574118d9bd8c400eccb48ed551d6059c0dfc7bf2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129458782"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128551688"
 ---
 # <a name="migration-guide-for-gpu-compute-workloads-in-azure"></a>Guía de migración para cargas de trabajo de proceso de GPU en Azure
 
@@ -108,7 +110,7 @@ Después de evaluar el uso actual, decida qué tipo de máquina virtual de GPU n
 
 Siga la guía para [solicitar un aumento de la cuota de vCPU por familia de máquinas virtuales.](../azure-portal/supportability/per-vm-quota-requests.md) Seleccione el tamaño de máquina virtual de destino que ha elegido para la migración.
 
-#### <a name="resize-the-current-virtual-machine"></a>Cambiar el tamaño de la máquina virtual actual
+#### <a name="resize-the-current-virtual-machine"></a>Cambio del tamaño de la máquina virtual actual
 
 Puede [cambiar el tamaño de la máquina virtual](resize-vm.md). 
 

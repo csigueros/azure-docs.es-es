@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: f79325270dcd33cb451bd1f540ef60e0b1647f4d
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 872e55781a55ac15f960e0111f4b197ab380598d
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694517"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129279134"
 ---
 # <a name="import-your-training-data-into-machine-learning-studio-classic-from-various-data-sources"></a>Importación de datos de entrenamiento en Machine Learning Studio (clásico) desde varios orígenes de datos
 
@@ -153,7 +153,7 @@ Los orígenes de datos en línea admitidos se muestran en la tabla siguiente. Es
 > Por lo general, las cuentas de almacenamiento de Azure que podría haber creado antes de que esta opción de servicio estuviera disponible no deberían verse afectadas.
 > Si tiene que crear una cuenta nueva, seleccione **Clásico** en Modelo de implementación, o bien utilice Resource Manager y seleccione **Uso general** en lugar de **Blob Storage** en **Tipo de cuenta**.
 >
-> Para más información, consulte [Azure Blob Storage: Capas de almacenamiento de acceso frecuente y esporádico](../../storage/blobs/storage-blob-storage-tiers.md).
+> Para más información, consulte [Azure Blob Storage: Capas de almacenamiento de acceso frecuente y esporádico](../../storage/blobs/access-tiers-overview.md).
 
 ### <a name="supported-online-data-sources"></a>Orígenes de datos en línea admitidos
 El módulo **Importar datos** de Machine Learning Studio (clásico) admite los orígenes de datos siguientes:

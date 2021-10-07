@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/22/2021
 ms.author: bagol
-ms.openlocfilehash: b2eeec44054f57857e0da08134f6bada3aaf24f6
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: e0cab6a9d2d4c341cf326383e11b289bf606d37a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122514769"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755182"
 ---
 # <a name="azure-sentinel-authentication-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de la autenticación de Azure Sentinel (versión preliminar pública)
 
@@ -80,6 +80,7 @@ Log Analytics genera los siguientes campos para cada registro y puede invalidarl
 |---------|---------|---------|
 |<a name ="timegenerated"></a>**TimeGenerated**     |  datetime       |Hora a la que el dispositivo de informes generó el evento.         |
 |**_ResourceId**     | guid        |  Id. de recurso de Azure del dispositivo o servicio de informes, o bien Id. de recurso del reenviador de registros para los eventos reenviados mediante Syslog, CEF o WEF.       |
+| **Tipo** | String | Tabla original de la que se ha obtenido el registro. Este campo es útil cuando el mismo evento se puede recibir a través de varios canales en tablas diferentes y tienen los mismos valores EventVendor y EventProduct.<br><br>Por ejemplo, un evento Sysmon se puede recopilar en la tabla Event o en la tabla WindowsEvent. |
 |     |         |         |
 
 > [!NOTE]
@@ -102,12 +103,12 @@ Los campos de evento son comunes a todos los esquemas y describen la propia acti
 | <a name ="eventresultdetails"></a>**EventResultDetails**         | Opcional   | String |  Uno de los siguientes valores: <br><br>-  `No such user or password`. Este valor también se debe usar cuando el evento original informa de que no hay ningún usuario de este tipo, sin referencia a una contraseña. <br>-   `Incorrect password`<br>-   `Account expired`<br>-  `Password expired`<br>- `User locked`<br>-  `User disabled`<br>-    `Logon violates policy`. Este valor debe usarse cuando el evento original notifica, por ejemplo: MFA requerida, inicio de sesión fuera del horario laboral, restricciones de acceso condicional o intentos demasiado frecuentes.<br>-  `Session expired`<br>-  `Other`<br><br>**Nota**: El valor se puede proporcionar en el registro de origen usando términos diferentes, que se deben normalizar con estos valores.|
 | **EventSubType**    | Opcional    | String     |   El tipo de inicio de sesión, que normalmente se usa para los tipos de inicio de sesión de Windows. <br><br>Ejemplo: `Interactive`|
 | **EventOriginalResultDetails**    | Opcional    | String     |  Valor proporcionado en el registro original para [EventResultDetails](#eventresultdetails), si lo proporciona el origen.|
-| **EventOriginalUid**    | Opcional    | String     |   Identificador único del registro original, si lo proporciona el origen.|
-| **EventOriginalType**   | Opcional    | String     |   El tipo o identificador del evento original, si lo proporciona el origen.<br><br>Ejemplo: `4624`|
+| **EventOriginalUid**    | Opcional    | String     |   Id. único del registro original, si lo proporciona el origen.|
+| **EventOriginalType**   | Opcional    | String     |   Tipo o Id. del evento original, si lo proporciona el origen.<br><br>Ejemplo: `4624`|
 | <a name ="eventproduct"></a>**EventProduct**        | Mandatory   | String     |             Producto que genera el evento. <br><br>Ejemplo: `Windows`<br><br>**Nota:** Es posible que este campo no esté disponible en el registro de origen. En tales casos, el analizador debe establecer este campo.           |
 | **EventProductVersion** | Opcional    | String     | Versión del producto que genera el evento. <br><br>Ejemplo: `10` <br><br>**Nota:** Es posible que este campo no esté disponible en el registro de origen. En tales casos, el analizador debe establecer este campo.     |
 | **EventVendor**         | Mandatory   | String     |           Proveedor del producto que genera el evento. <br><br>Ejemplo: `Microsoft`  <br><br>**Nota:** Es posible que este campo no esté disponible en el registro de origen. En tales casos, el analizador debe establecer este campo.  |
-| **EventSchemaVersion**  | Mandatory   | String     |    Versión del esquema. La versión del esquema que se documenta aquí es `0.1`.         |
+| **EventSchemaVersion**  | Mandatory   | String     |    Versión del esquema. La versión del esquema que se documenta aquí el la versión `0.1`.         |
 | **EventReportUrl**      | Opcional    | String     | Dirección URL proporcionada en el evento para un recurso que ofrece información adicional sobre el evento.|
 | <a name ="dvc"></a>**Dvc** | Mandatory       | String     |              Identificador único del dispositivo en el que se produjo el evento. <br><br>Este campo puede ser un alias de los campos [DvcId](#dvcid), [DvcHostname](#dvchostname) o [DvcIpAddr](#dvcipaddr). En el caso de orígenes en la nube, para los que no hay ningún dispositivo aparente, use el valor del campo [EventProduct](#eventproduct).             |
 | <a name ="dvcipaddr"></a>**DvcIpAddr**           | Recomendado | Dirección IP |         La dirección IP del dispositivo en el que se produjo el evento de proceso.  <br><br>Ejemplo: `45.21.42.12`  <br><br>**Nota**: Si hay un identificador disponible pero no se conoce el tipo, no use este campo. Para obtener más información, consulte [Dvc](#dvc).  |
@@ -141,7 +142,7 @@ Un **actor**, que ejecuta una *aplicación que actúa* (**ActingApp**) en un *di
 | <a name="actoruserid"></a>**ActorUserId**    | Opcionales  | UserId     |   Representación única, alfanumérica y legible del actor. Para obtener más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).  <br><br>Ejemplo: `S-1-12-1-4141952679-1282074057-627758481-2916039507`    |
 | **ActorUserIdType**| Opcionales  | UserIdType     |  Tipo del identificador almacenado en el campo [ActorUserId](#actoruserid). Para obtener más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).         |
 | <a name="actorusername"></a>**ActorUsername**  | Opcionales    | Nombre de usuario     | Nombre de usuario del actor, incluida la información de dominio cuando esté disponible. Para obtener más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).<br><br>Ejemplo: `AlbertE`     |
-| **ActorUsernameType**              | Opcionales    | UsernameType |   Especifica el tipo de nombre de usuario almacenado en el campo [ActorUsername](#actorusername). Para obtener más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity). <br><br>Ejemplo: `Windows`       |
+| **ActorUsernameType**              | Opcionales    | UsernameType |   Especifica el tipo de nombre de usuario almacenado en el campo [ActorUsername](#actorusername). Para más información, consulte la [Entidad Usuario](normalization-about-schemas.md#the-user-entity). <br><br>Ejemplo: `Windows`       |
 | **ActorUserType** | Opcional | String | Tipo del actor. <br><br>Por ejemplo: `Guest` |
 | **ActorSessionId** | Opcional     | String     |   Identificador único de la sesión de inicio de sesión del actor.  <br><br>Ejemplo: `102pTUgC3p8RIqHvzxLCHnFlg`  |
 | **ActingAppId** | Opcional | String | Identificador de la aplicación que se autoriza en nombre del actor, incluido un proceso, un explorador o un servicio. <br><br>Por ejemplo: `0x12ae8` |
@@ -149,7 +150,7 @@ Un **actor**, que ejecuta una *aplicación que actúa* (**ActingApp**) en un *di
 | **ActingAppType** | Opcionales | Enumerated | Tipo de la aplicación que actúa. Los valores admitidos son: <br> <br>- `Process` <br>- `Browser` <br>- `Resource` <br>- `Other` |
 | **HttpUserAgent** |   Opcional    | String |  Cuando se realiza la autenticación a través de HTTP o HTTPS, el valor de este campo es el encabezado HTTP user_agent proporcionado por la aplicación que actúa al realizar la autenticación.<br><br>Por ejemplo: `Mozilla/5.0 (iPhone; CPU iPhone OS 12_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 Safari/604.1` |
 |<a name="targetuserid"></a> **TargetUserId**   | Opcionales | UserId     | Representación única, alfanumérica y legible del usuario de destino. Para obtener más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).            <br><br> Ejemplo: `00urjk4znu3BcncfY0h7`    |
-| **TargetUserIdType**               | Opcionales | UserIdType     | Tipo del identificador de usuario almacenado en el campo [TargetUserId](#targetuserid). Para obtener más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).            <br><br> Ejemplo: `SID`  |
+| **TargetUserIdType**               | Opcionales | UserIdType     | Tipo del identificador de usuario almacenado en el campo [TargetUserId](#targetuserid). Para más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).            <br><br> Ejemplo: `SID`  |
 | <a name="targetusername"></a>**TargetUsername** | Opcionales | Nombre de usuario     | El nombre de usuario de destino, incluida la información de dominio cuando esté disponible. Para obtener más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).  <br><br>Ejemplo:   `MarieC`      |
 | **TargetUsernameType**             |Opcionales  | UsernameType | Especifica el tipo de nombre de usuario almacenado en el campo [TargetUsername](#targetusername). Para obtener más información, consulte [Entidad de usuario](normalization-about-schemas.md#the-user-entity).          |
 | **TargetUserType** | Opcional | String | Tipo del usuario de destino. <br><br>Por ejemplo: `Member` |

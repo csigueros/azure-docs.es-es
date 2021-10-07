@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/29/2021
 ms.author: tamram
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 0d5d9eb7d2d8097da47d6639b1b6bb6887825207
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ddb061acb98cea775e6d147146646916adf05d68
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128649121"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129270607"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Actualización a una cuenta de almacenamiento de uso general v2
 
@@ -73,7 +73,7 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 Las cuentas de uso general v2 son compatibles con todos los servicios y objetos de datos de Azure Storage, pero los niveles de acceso están disponibles solo para blobs en bloques en Blob Storage. Cuando se actualiza a una cuenta de almacenamiento de uso general v2, puede especificar un nivel de acceso de cuenta predeterminado de acceso frecuente o esporádico, que indica el nivel predeterminado en el que se cargarán los datos de blobs como si no se especifica el parámetro del nivel de acceso del blob individual.
 
-Los niveles de acceso de blobs le permiten elegir el almacenamiento más rentable en función de los patrones de uso previstos. Los blobs en bloques se pueden almacenar en niveles con acceso frecuente, esporádico o de archivo. Para más información sobre los niveles de acceso, consulte [Azure Blob Storage: Niveles de almacenamiento de acceso frecuente, de acceso esporádico y de acceso de archivo](../blobs/storage-blob-storage-tiers.md).
+Los niveles de acceso de blobs le permiten elegir el almacenamiento más rentable en función de los patrones de uso previstos. Los blobs en bloques se pueden almacenar en niveles con acceso frecuente, esporádico o de archivo. Para más información sobre los niveles de acceso, consulte [Azure Blob Storage: Niveles de almacenamiento de acceso frecuente, de acceso esporádico y de acceso de archivo](../blobs/access-tiers-overview.md).
 
 De forma predeterminada, se crea una nueva cuenta de almacenamiento en el nivel de almacenamiento de acceso frecuente y se puede actualizar una cuenta de almacenamiento de uso general v1 al nivel de acceso frecuente o esporádico. Si no se especifica un nivel de acceso de cuenta en la actualización, se actualizará a frecuente de forma predeterminada. Si está explorando qué nivel de acceso debe usar para la actualización, considere el escenario de uso de datos actual. Hay dos escenarios típicos del usuario para migrar a una cuenta de uso general v2:
 

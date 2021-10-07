@@ -5,12 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: f59eb3296c27e64eb6a4644b2f455e3704381f49
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d140f5f71413524dc60d0d07bdc6b646ac552a1
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86260836"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351156"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Inicie, detenga e informe sobre el servicio de prueba de Chaos.
@@ -77,7 +77,7 @@ Obtenga el estado de Chaos indicando si Chaos se ejecuta o no, los parámetros d
 ## <a name="sfctl-chaos-start"></a>sfctl chaos start
 Inicia Chaos en el clúster.
 
-Si Chaos no está aún en ejecución en el clúster, inicia Chaos con los parámetros de Chaos especificados. Si ya se está ejecutando Chaos cuando se realiza esta llamada, se produce un error en la llamada con el código de error FABRIC_E_CHAOS_ALREADY_RUNNING. Consulte el artículo [Inducción de errores controlados con Caos en clústeres de Service Fabric](https\://docs.microsoft.com/azure/service-fabric/service-fabric-controlled-chaos) para obtener más detalles.
+Si Chaos no está aún en ejecución en el clúster, inicia Chaos con los parámetros de Chaos especificados. Si ya se está ejecutando Chaos cuando se realiza esta llamada, se produce un error en la llamada con el código de error FABRIC_E_CHAOS_ALREADY_RUNNING. Consulte el artículo [Inducción de errores controlados con Caos en clústeres de Service Fabric](service-fabric-controlled-chaos.md) para obtener más detalles.
 
 ### <a name="arguments"></a>Argumentos
 

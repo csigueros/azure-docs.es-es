@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/11/2021
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 1ab437afbd8e0dd3035837da47bbbb89e358103f
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 38ab873af949d2cf648ba0a129fd548cd6dbc534
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122272312"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124800505"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-travelperk"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con TravelPerk
 
@@ -40,6 +40,8 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 * TravelPerk admite el inicio de sesión único iniciado por **SP**.
 
 * TravelPerk admite el aprovisionamiento de usuarios **Just-In-Time**.
+
+* TravelPerk admite el [aprovisionamiento automático de usuarios](travelperk-provisioning-tutorial.md).
 
 ## <a name="add-travelperk-from-the-gallery"></a>Adición de TravelPerk desde la galería
 
@@ -130,6 +132,8 @@ Para configurar el inicio de sesión único en **TravelPerk**, debe enviar el ar
 
 En esta sección, se crea un usuario llamado B.Simon en TravelPerk. TravelPerk admite el aprovisionamiento Just-In-Time, que está habilitado de manera predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario no existe en TravelPerk, se crea uno nuevo cuando se intenta acceder a TravelPerk.
 
+TravelPerk también admite el aprovisionamiento automático de usuarios. [Aquí](./travelperk-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
@@ -138,7 +142,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya directamente a la dirección URL de inicio de sesión de TravelPerk e inicie el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de TravelPerk en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de TravelPerk. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de TravelPerk en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de TravelPerk. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

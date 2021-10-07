@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Sugerencias para solucionar problemas que se producen al usar ParallelRunStep en canalizaciones de aprendizaje automático.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: troubleshooting
 ms.custom: troubleshooting
 ms.reviewer: larryfr, vaidyas, laobri, tracych
 ms.author: pansav
 author: psavdekar
 ms.date: 09/23/2020
-ms.openlocfilehash: 3150ad022ddde1b72d0941d552351715920a161e
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 30a23150fc3d3de18cdde48c9ab07743613c5a15
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129217814"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129426271"
 ---
 # <a name="troubleshooting-the-parallelrunstep"></a>Solución de problemas de ParallelRunStep
 

@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/30/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 58e7357552be9c209dec81cc9ace23fcfd82ea2d
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 146a3a252a0f8105245c2a6826876e1400efdc13
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114467141"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124766993"
 ---
 # <a name="tutorial-create-an-azure-database-for-postgresql---flexible-server-with-app-services-web-app-in-virtual-network"></a>Tutorial: Creación de un servidor flexible de Azure Database for PostgreSQL y una aplicación web de App Services en la misma red virtual
 
@@ -96,8 +96,8 @@ az webapp up --resource-group demoresourcegroup --location westus2 --plan testap
 ```
 
 > [!NOTE]
-> - Para el argumento --location, use la misma ubicación que usó para la base de datos en la sección anterior.
-> - Reemplace <app-name> por un nombre que sea único en Azure. Los caracteres permitidos para <app-name> son A-Z, 0-9 y -. Un buen patrón es usar una combinación del nombre de la empresa y un identificador de la aplicación.
+> - Para el argumento _--location_, use la misma ubicación que usó para la base de datos en la sección anterior.
+> - Reemplace \<app-name\> por un nombre que sea único en Azure. Los caracteres permitidos para \<app-name\> son A-Z, 0-9 y -. Un buen patrón es usar una combinación del nombre de la empresa y un identificador de la aplicación.
 
 Este comando realiza las siguientes acciones, que pueden tardar algunos minutos:
 
@@ -135,7 +135,7 @@ Con el código ahora implementado en App Service, el paso siguiente consiste en 
 az webapp config appsettings set  --name mywebapp --settings DBHOST="<postgres-server-name>.postgres.database.azure.com" DBNAME="postgres" DBUSER="<username>" DBPASS="<password>" 
 ```
 - Reemplace **postgres-server-name**,**username** y **password** por el comando del servidor flexible recién creado.
-- Reemplace **<username>** y **<password>** por las credenciales que el comando también ha generado automáticamente.
+- Reemplace **\<username\>** y **\<password\>** por las credenciales que el comando también ha generado automáticamente.
 - El grupo de recursos y el nombre de la aplicación se extraen de los valores almacenados en caché del archivo .azure/config.
 - El comando crea valores de configuración denominados **DBHOST**, **DBNAME**, **DBUSER** y *DBPASS**. Si el código de la aplicación usa un nombre diferente para la información de la base de datos, use esos nombres para los valores de la aplicación, tal como se mencionó en el código.
 

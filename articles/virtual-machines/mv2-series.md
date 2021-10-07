@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: 75a9a8f9888c0e3773135aa407938601b74bab0e
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: eccc5389330fd43025dbb66835b82e45d0284df9
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122690275"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216106"
 ---
 # <a name="mv2-series"></a>Serie Mv2
 
@@ -43,8 +43,9 @@ Las máquinas virtuales de la serie Mv2 cuentan con la tecnología Hyper-Threadi
 
 - Windows Server 2019 o posterior
 - SUSE Linux Enterprise Server 12 SP4 y las versiones posteriores o SUSE Linux Enterprise Server 15 SP1 y las versiones posteriores.
-- Red Hat Enterprise Linux 7.6, 7.7, 8.1 o posterior 
-- Oracle Enterprise Linux 7.7 o posterior
+- Red Hat Enterprise Linux 7.6 o posterior y 8.1 o posterior
+- Oracle Enterprise Linux 7.7 o posterior y 8.1 o posterior
+- Ubuntu 18.04 con el kernel 5.4.0-azure o posterior
 
 <sup>2</sup> [Tamaños de núcleos restringidos disponibles](./constrained-vcpu.md).
 

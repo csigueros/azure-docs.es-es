@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: f44962f1dfdfe3a55272aa19d9399542cb28d736
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9aa0ac4334d50a7b3a55ff992fb3e5a984786384
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121736379"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129155028"
 ---
 # <a name="troubleshoot-azure-private-link-connectivity-problems"></a>Solución de problemas de conectividad de Azure Private Link
 
@@ -107,7 +107,17 @@ Si tiene problemas de conectividad con la configuración de Private Link, siga e
 
        ![Comprobación de las métricas del servicio Private Link](./media/private-link-tsg/pls-metrics.png)
 
-1. Póngase en contacto con el equipo de [soporte técnico de Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) si el problema sigue sin resolverse y el problema de conectividad persiste.
+1. Si desea obtener información y una vista de dependencia de los recursos, consulte [Azure Monitor: Redes](../azure-monitor/insights/network-insights-overview.md#dependency-view). Para ello, vaya a:
+     - Azure Monitor
+     - Redes
+     - Servicios Private Link
+     - Vista de dependencias 
+
+![AzureMonitor](https://user-images.githubusercontent.com/20302679/135001735-56a9484b-f9b4-484b-a503-cfb9d20b264a.png)
+
+![DependencyView](https://user-images.githubusercontent.com/20302679/135001741-8e848c52-d4bb-4646-b0d3-a85614ebe16c.png)
+
+4. Póngase en contacto con el equipo de [soporte técnico de Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) si el problema sigue sin resolverse y el problema de conectividad persiste.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

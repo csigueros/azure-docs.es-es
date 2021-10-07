@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 09/08/2021
 ms.author: alkohli
-ms.openlocfilehash: a4bb1c7cb2329f729ff8109add19db6842271c5e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 4359d8288627f425a4a61fc0d4bf91d63bea174f
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124827057"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129378103"
 ---
 |    Patrón de URL |    Componente o funcionalidad  |
 |-----------------------------------------------------|-----------------------------------------|
@@ -19,5 +19,6 @@ ms.locfileid: "124827057"
 |    http:\//windowsupdate.microsoft.com<br>http://\*.windowsupdate.microsoft.com<br>https://\*.windowsupdate.microsoft.com<br>http://\*.update.microsoft.com<br>https://\*.update.microsoft.com<br>http://\*.windowsupdate.com<br>http://download.microsoft.com<br>http://\*.download.windowsupdate.com<br>http://wustat.windows.com<br>http://ntservicepack.microsoft.com<br>http://\*.ws.microsoft.com<br>https://\*.ws.microsoft.com<br>http://\*.mp.microsoft.com |    Servidores de Microsoft Update                                                                             |
 |    http://\*.deploy.akamaitechnologies.com                                                                                                                                                                                                                                                                                                                                                                                                                          |    CDN de Akamai                                                                                           |
 |    http://\*.data.microsoft.com     |    Para información sobre el servicio de telemetría en Windows, consulte la actualización para la experiencia del usuario y la telemetría de diagnóstico. |
+|    `http://<vault-name>.vault.azure.net:443`     |    Key Vault |
 <!--|    http://www.msftconnecttest.com/connecttest.txt  |    En el caso de diagnósticos     ||  |-->   
 

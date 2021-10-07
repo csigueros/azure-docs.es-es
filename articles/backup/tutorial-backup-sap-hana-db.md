@@ -3,12 +3,12 @@ title: 'Tutorial: Copia de seguridad de bases de datos de SAP HANA en máquinas 
 description: En este tutorial, aprenderá a hacer una copia de seguridad de una base de datos de SAP HANA que se ejecuta en una máquina virtual de Azure en un almacén de Azure Backup Recovery Services.
 ms.topic: tutorial
 ms.date: 09/27/2021
-ms.openlocfilehash: 629465100106ff3a2403a27cae9bb00e1350bf5e
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 5469c10bb62164e7feea33a1b56cef3457d46efb
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129082733"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129349685"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Copia de seguridad de bases de datos de SAP HANA en una máquina virtual de Azure
 
@@ -22,10 +22,7 @@ Este tutorial muestra cómo realizar una copia de seguridad de una base de datos
 
 [Aquí](sap-hana-backup-support-matrix.md#scenario-support) están todos los escenarios que se admiten actualmente.
 
->[!NOTE]
->A partir del 1 de agosto de 2020, la copia de seguridad de SAP HANA para RHEL (7.4, 7.6, 7.7 y 8.1) está disponible con carácter general.
-
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Asegúrese de seguir estos pasos antes de configurar copias de seguridad:
 
@@ -184,14 +181,14 @@ A continuación se ofrece un resumen de los pasos necesarios para ejecutar el sc
 | --- | --- | --- | --- |
 | `<sid>`adm (SO) |    SO DE HANA   | Lea el tutorial y descargue el script de registro previo.  |    Tutorial: [Copia de seguridad de bases de datos de SAP HANA en una máquina virtual de Azure](/azure/backup/tutorial-backup-sap-hana-db)   <br><br>    Descargue el [script de registro previo](https://go.microsoft.com/fwlink/?linkid=2173610). |
 | `<sid>`adm (SO)    |    SO DE HANA    |   Iniciar HANA (iniciar HDB)    |   Antes de la configuración, asegúrese de que HANA esté en funcionamiento.   |
-| `<sid>`adm (SO)   |   SO DE HANA  |    Ejecute el comando: <br>  `hdbuserstore Set`   |  `hdbuserstore Set SYSTEM <hostname>:3<Instance#>13 SYSTEM <password>`  <br><br>   **Nota** <br>  Asegúrese de usar el nombre de host en lugar de la dirección IP o el FQDN.   |
+| `<sid>`adm (SO)   |   SO DE HANA  |    Ejecute el comando: <br>  `hdbuserstore Set`   |  `hdbuserstore Set SYSTEM <hostname>:3<Instance#>13 SYSTEM <password>`  <br><br>   **Note** <br>  Asegúrese de usar el nombre de host en lugar de la dirección IP o el FQDN.   |
 | `<sid>`adm (SO)   |  SO DE HANA    |   Ejecute el comando:<br> `hdbuserstore List`   |  Compruebe si el resultado incluye el almacén predeterminado como a continuación: <br><br> `KEY SYSTEM`  <br> `ENV : <hostname>:3<Instance#>13`    <br>  `USER : SYSTEM`   |
 | Raíz (SO)   |   SO DE HANA    |    Ejecute el [script de registro previo de HANA de Azure Backup](https://go.microsoft.com/fwlink/?linkid=2173610).     | `./msawb-plugin-config-com-sap-hana.sh -a --sid <SID> -n <Instance#> --system-key SYSTEM`    |
 | `<sid>`adm (SO)   |   SO DE HANA   |    Ejecute el comando: <br> `hdbuserstore List`   |   Compruebe si el resultado incluye nuevas líneas como se indica a continuación: <br><br>  `KEY AZUREWLBACKUPHANAUSER` <br>  `ENV : localhost: 3<Instance#>13`   <br> `USER: AZUREWLBACKUPHANAUSER`    |
-| Colaborador de Azure     |    Azure portal    |   Configure el NSG, la NVA, Azure Firewall, y así sucesivamente para permitir el tráfico saliente al servicio Azure Backup, Azure AD y Azure Storage.     |    [Configurar la conectividad de red](/azure/backup/tutorial-backup-sap-hana-db#set-up-network-connectivity)    |
-| Colaborador de Azure |   Azure portal    |   Cree o abra un almacén de Recovery Services y, a continuación, seleccione Copia de seguridad de HANA.   |   Busque todas las máquinas virtuales de HANA de destino de las que se va a hacer una copia de seguridad.   |
-| Colaborador de Azure    |   Azure portal    |   Detecte las bases de datos de HANA y configure la directiva de copia de seguridad.   |  Por ejemplo: <br><br>  Copia de seguridad semanal: todos los domingos a las 2:00 a.m., retención semanal de 12 semanas, mensual de 12 meses, anual de 3 años   <br>   Diferencial o incremental: todos los días, excepto el domingo    <br>   Registro: cada 15 minutos, retención de 35 días    |
-| Colaborador de Azure  |   Azure portal    |    Almacén de Recovery Service: elementos de copia de seguridad: SAP HANA     |   Compruebe los trabajos de copia de seguridad (carga de trabajo de Azure).    |
+| Colaborador de Azure     |    Azure Portal    |   Configure el NSG, la NVA, Azure Firewall, y así sucesivamente para permitir el tráfico saliente al servicio Azure Backup, Azure AD y Azure Storage.     |    [Configurar la conectividad de red](/azure/backup/tutorial-backup-sap-hana-db#set-up-network-connectivity)    |
+| Colaborador de Azure |   Azure Portal    |   Cree o abra un almacén de Recovery Services y, a continuación, seleccione Copia de seguridad de HANA.   |   Busque todas las máquinas virtuales de HANA de destino de las que se va a hacer una copia de seguridad.   |
+| Colaborador de Azure    |   Azure Portal    |   Detecte las bases de datos de HANA y configure la directiva de copia de seguridad.   |  Por ejemplo: <br><br>  Copia de seguridad semanal: todos los domingos a las 2:00 a.m., retención semanal de 12 semanas, mensual de 12 meses, anual de 3 años   <br>   Diferencial o incremental: todos los días, excepto el domingo    <br>   Registro: cada 15 minutos, retención de 35 días    |
+| Colaborador de Azure  |   Azure Portal    |    Almacén de Recovery Service: elementos de copia de seguridad: SAP HANA     |   Compruebe los trabajos de copia de seguridad (carga de trabajo de Azure).    |
 | Administrador de HANA    | HANA Studio   | Compruebe la consola de Backup, el catálogo de Backup, backup.log, backint.log y globa.ini.   |    Tanto SYSTEMDB como la base de datos del inquilino.   |
 
 Después de ejecutar correctamente el script previo al registro y comprobarlo, puede continuar para comprobar [los requisitos de conectividad](#set-up-network-connectivity) y, a continuación, [configurar la copia de seguridad](#discover-the-databases) desde el almacén de Recovery Services.

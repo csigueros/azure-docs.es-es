@@ -9,12 +9,12 @@ metadata:
   ms.date: 02/19/2020
   ms.author: alkemper
   ms.custom: references_regions
-  ms.openlocfilehash: 6dd7cff8408d89cfca117241ebb434f6976a32fb
-  ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+  ms.openlocfilehash: fdfc62b4b5c61cd1b064e6623464147d01dbc58e
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/27/2021
-  ms.locfileid: "123112047"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128603113"
 title: Preguntas frecuentes de Azure App Configuration
 summary: En este artículo se responde a preguntas frecuentes sobre Azure App Configuration.
 sections:
@@ -107,6 +107,8 @@ sections:
 
       - Oeste de EE. UU. 2
 
+      - Oeste de EE. UU. 3
+
       - Centro de Canadá
 
       - Centro de Francia
@@ -138,7 +140,9 @@ sections:
 
       * Superación del límite de solicitudes diarias de un almacén en el nivel Gratis.
 
-      * Limitación temporal debido a una tasa de solicitudes elevada para un almacén en el nivel Estándar.
+      * Superación del límite de solicitudes por horas de un almacén en el nivel estándar.
+
+      * Limitación momentánea debido a una gran ráfaga de solicitudes†.
 
       * Uso de ancho de banda excesivo.
 
@@ -146,12 +150,15 @@ sections:
 
 
       Compruebe el cuerpo de la respuesta 429 para conocer el motivo específico por el que se produjo un error en la solicitud.
+
+
+      †Un almacén de configuración puede experimentar una limitación momentánea si recibe una gran ráfaga de solicitudes. Los clientes de App Configuration, como el SDK de Azure, las bibliotecas del proveedor de configuración y las tareas de Azure Pipeline, se reintentan automáticamente en las solicitudes limitadas. En el caso de las aplicaciones que usen uno de estos clientes o un cliente personalizado que vuelve a intentar las solicitudes limitadas, esta limitación momentánea debe pasar desapercibida, en caso de que se produzca.
   - question: ¿Por qué no puedo crear un almacén de App Configuration con el mismo nombre que el que acabo de eliminar?
     answer: >
       Cuando se elimina un almacén de App Configuration de nivel estándar, el nombre se reserva durante tres días. Se puede volver a crear un almacén con el mismo nombre antes de que haya transcurrido el periodo de reserva, pero debe estar en la misma suscripción, grupo de recursos y región que el almacén original. Si se eliminó el grupo de recursos que contenía el almacén, será preciso volver a crearlo en la misma suscripción antes de volver a crear el almacén dentro de él.
 
 
-      El almacén de App Configuration no se puede crear en otro grupo de recursos o en otra suscripción hasta que haya transcurrido el período de retención. Sin embargo, el recurso puede volver a crearse en la suscripción o el grupo de recursos originales y transferirse después a una nueva suscripción o a un nuevo grupo de recursos siguiendo [estas instrucciones](/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-the-portal).
+      El almacén de App Configuration no se puede crear en otro grupo de recursos o en otra suscripción hasta que haya transcurrido el período de retención. Sin embargo, el recurso puede volver a crearse en la suscripción o el grupo de recursos originales y transferirse después a una nueva suscripción o a un nuevo grupo de recursos siguiendo [estas instrucciones](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal).
 
 
       Actualmente, solo se puede volver a crear un almacén de App Configuration durante el período de retención con la CLI de Azure utilizando el comando `az appconfig create` que se indica [aquí](/cli/azure/appconfig?view=azure-cli-latest#az_appconfig_create).

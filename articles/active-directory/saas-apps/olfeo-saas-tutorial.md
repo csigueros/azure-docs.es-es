@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 2c711188343be5ee52e1bac217f8b31dc6756d3d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 45ec57871be8160c2bfde34c20137bd6c7afd6c7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101654398"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124738582"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-olfeo-saas"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Olfeo SAAS
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Olfeo SAAS con Azure Active Directory (A
 * Permitir que los usuarios inicien sesión automáticamente en Olfeo SAAS con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -37,7 +37,9 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Olfeo SAAS permite utilizar el inicio de sesión único con **SP**
+* Olfeo SAAS admite el inicio de sesión único iniciado por **SP**.
+
+* Olfeo SAAS admite el [aprovisionamiento automatizado de usuarios](olfeo-saas-provisioning-tutorial.md).
 
 ## <a name="adding-olfeo-saas-from-the-gallery"></a>Adición de Olfeo SAAS desde la galería
 
@@ -49,7 +51,6 @@ Para poder configurar la integración de Olfeo SAAS en Azure AD, debe agregar e
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **Olfeo SAAS** en el cuadro de búsqueda.
 1. Seleccione **Olfeo SAAS** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-olfeo-saas"></a>Configuración y comprobación del inicio de sesión único de Azure AD con Olfeo SAAS
 
@@ -121,6 +122,8 @@ Para configurar el inicio de sesión único en **Olfeo SAAS**, debe enviar la **
 
 En esta sección, va a crear un usuario llamado Britta Simon en Olfeo SAAS. Colabore con el [equipo de soporte técnico de Olfeo SAAS](mailto:equipe-rd@olfeo.com) para agregar los usuarios a esta plataforma. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
+Olfeo SAAS también admite el aprovisionamiento automático de usuarios. [Aquí](./olfeo-saas-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurarlo.
+
 ## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
@@ -129,8 +132,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Acceda directamente a la dirección URL de inicio de sesión de Olfeo SAAS y comience el flujo de inicio de sesión desde ahí.
 
-* Puede usar Mis aplicaciones de Microsoft. Si en Aplicaciones hace clic en el icono de Olfeo SAAS, debería acceder automáticamente a la dirección URL de inicio de sesión de esta aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
-
+* Puede usar Mis aplicaciones de Microsoft. Si en Aplicaciones hace clic en el icono de Olfeo SAAS, debería acceder automáticamente a la dirección URL de inicio de sesión de esta aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

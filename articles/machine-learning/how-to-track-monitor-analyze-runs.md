@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Aprenda a iniciar, supervisar y seguir las ejecuciones de los experimentos de aprendizaje automático con el SDK de Azure Machine Learning para Python.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 author: swinner95
 ms.author: shwinne
 ms.reviewer: sgilley
 ms.date: 04/19/2021
 ms.topic: how-to
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: e51e537beb44271d5a1c63e8bc1952455f9a35d9
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 96f66914c22ddb107ab10ec49965e0f5ce8c6e4a
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323857"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424357"
 ---
 # <a name="start-monitor-and-track-run-history"></a>Inicio, supervisión y seguimiento del historial de ejecución
 

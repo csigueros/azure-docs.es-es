@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/26/2019
 ms.author: jeedes
-ms.openlocfilehash: a1033799be8a01462ea065dc09499fb02a8dc61c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a719487f991784d2641fd92c9ada4b7d45bd30c7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92457238"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128610909"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-betterworks"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con BetterWorks
 
@@ -89,6 +89,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://app.betterworks.com`
 
+   > [!NOTE]
+   > Si es un cliente de la Unión Europea de BetterWorks, use `eu.betterworks.com` como nombre de dominio en lugar de `app.betterworks.com` en estas direcciones URL.
+
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
@@ -139,7 +142,7 @@ En esta sección, creará un usuario llamado Britta Simon en BetterWorks. Colabo
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de BetterWorks en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de BetterWorks para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+Al hacer clic en el icono de BetterWorks en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de BetterWorks para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

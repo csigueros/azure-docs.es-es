@@ -7,21 +7,28 @@ ms.topic: include
 ms.date: 04/28/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: d4a571e1553e3a9e3dd9f5df63c8ecc16fa07abf
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 29b0785f1656620be4e497b80c855d109cf522cd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114712943"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128909100"
 ---
 [![Examinar el código](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/pnp)
 
-En este inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. En primer lugar, cree una aplicación de Azure IoT Central para hospedar dispositivos. A continuación, utilizaremos un ejemplo de un SDK de dispositivo IoT de Azure para ejecutar un controlador de temperatura simulado, conectarlo de forma segura a IoT Central y enviar datos de telemetría.
+En este artículo de inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. En primer lugar, cree una aplicación de Azure IoT Central para hospedar dispositivos. A continuación, utilizaremos un ejemplo de un SDK de dispositivo IoT de Azure para ejecutar un controlador de temperatura simulado, conectarlo de forma segura a IoT Central y enviar datos de telemetría.
 
 ## <a name="prerequisites"></a>Requisitos previos
-- La versión 3.7 de [Python](https://www.python.org/downloads/), o cualquier versión posterior. Para comprobar la versión de Python, ejecute `python --version`.
+Este inicio rápido se ejecuta en Windows, Linux y Raspberry Pi. Se ha probado en las siguientes versiones de sistema operativo y dispositivo:
+
+- Windows 10
+- Ubuntu 20.04 LTS que se ejecuta en Subsistema de Windows para Linux (WSL)
+- Raspberry Pi OS, versión 10 (buster), que se ejecuta en un dispositivo Raspberry Pi 3 Model B+
+
+Instale los siguientes requisitos previos en la máquina de desarrollo:
+
+- [Python](https://www.python.org/downloads/) versión 3.7 o cualquier versión posterior. Para comprobar la versión de Python, ejecute `python3 --version`.
 - [Git](https://git-scm.com/downloads).
-- Puede ejecutar este inicio rápido en Linux o Windows. Los comandos del shell usan el separador de ruta de acceso estándar de Linux: `/`. Si usa Windows, reemplace estos separadores por el separador de ruta de acceso de Windows: `\`.
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
@@ -30,11 +37,11 @@ En esta sección, configurará el entorno local, instalará el SDK de dispositiv
 
 ### <a name="configure-your-environment"></a>Configurar su entorno
 
-1. Abra una consola con el símbolo del sistema de Windows, PowerShell o Bash.
+1. Abra una consola como CMD de Windows, PowerShell o Bash.
 
 1. Establezca las siguientes variables de entorno con los comandos adecuados para la consola. El dispositivo simulado usa estos valores para conectarse a IoT Central. Para `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY` y `IOTHUB_DEVICE_DPS_DEVICE_ID`, use los valores de conexión del dispositivo que guardó anteriormente.
 
-    **Línea de comandos de Windows**
+    **CMD (Windows)**
 
     ```console
     set IOTHUB_DEVICE_SECURITY_TYPE=DPS
@@ -57,7 +64,7 @@ En esta sección, configurará el entorno local, instalará el SDK de dispositiv
     $env:IOTHUB_DEVICE_DPS_ENDPOINT='global.azure-devices-provisioning.net'
     ```
 
-    **Bash (Linux o Windows)**
+    **Bash**
 
     ```bash
     export IOTHUB_DEVICE_SECURITY_TYPE='DPS'
@@ -74,10 +81,18 @@ En esta sección, configurará el entorno local, instalará el SDK de dispositiv
     ```console
     git clone https://github.com/Azure/azure-iot-sdk-python
     ```
-1. Vaya al directorio de ejemplos.
+1. Vaya al directorio de ejemplo.
+
+    **Windows**
+    ```console
+    cd azure-iot-sdk-python\azure-iot-device\samples\pnp
+    ```
+
+    **Linux o Raspberry Pi OS**
     ```console
     cd azure-iot-sdk-python/azure-iot-device/samples/pnp
     ```
+
 1. Instale el SDK de Azure IoT para Python.
     ```console
     pip3 install azure-iot-device
@@ -87,7 +102,7 @@ En esta sección, configurará el entorno local, instalará el SDK de dispositiv
 
 1. En la consola, ejecute el siguiente ejemplo de código desde el SDK. El ejemplo crea un controlador de temperatura simulado con sensores termostatos.
     ```console
-    python temp_controller_with_thermostats.py
+    python3 temp_controller_with_thermostats.py
     ```
 
     Una vez que el dispositivo simulado se conecta a la aplicación IoT Central, se conecta a la instancia de dispositivo que creó en la aplicación y comienza a enviar datos de telemetría. En la consola se muestran los detalles de conexión y la salida de telemetría: 

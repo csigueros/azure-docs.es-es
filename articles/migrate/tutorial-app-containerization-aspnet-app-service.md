@@ -2,17 +2,17 @@
 title: Contenedorización de Azure App en ASP.NET; contenedorización y migración de aplicaciones de ASP.NET a Azure App Service.
 description: 'Tutorial: Contenedorización y migración de aplicaciones de ASP.NET a Azure App Service.'
 services: ''
-author: rahugup
+author: rahug1190
 manager: bsiva
 ms.topic: tutorial
 ms.date: 07/02/2021
 ms.author: rahugup
-ms.openlocfilehash: fd0a7d3e1af6bb0a0dad10f9a92194b495b13b91
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: e574b7b71f9ea2c968020a11c7b18c3ff4f0a64b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123253117"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128621459"
 ---
 # <a name="aspnet-app-containerization-and-migration-to-azure-app-service"></a>Contenedorización de aplicaciones de ASP.NET y migración a Azure App Service
 
@@ -153,6 +153,7 @@ La herramienta auxiliar de contenedorización de aplicaciones se conecta de form
 1. Especifique la **dirección IP/FQDN y las credenciales** del servidor que ejecuta la aplicación ASP.NET que se deben usar para conectarse de forma remota al servidor para la detección de las aplicaciones.
     - Las credenciales especificadas deben corresponder a un administrador local (Windows) en el servidor de aplicaciones.
     - En el caso de las cuentas de dominio (el usuario debe ser un administrador en el servidor de aplicaciones), anteponga el nombre de dominio con el formato *<dominio\nombre de usuario>* .
+    - En el caso de las cuentas locales (el usuario debe ser un administrador del servidor de aplicaciones), anteponga el nombre de host al nombre de usuario con el formato *<dominio\nombre de usuario>* .
     - Puede ejecutar la detección de aplicaciones para hasta cinco servidores de manera simultánea.
 
 2. Haga clic en **Validar** para comprobar que puede conectarse al servidor de aplicaciones desde la máquina que ejecuta la herramienta y que las credenciales son válidas. Una vez validada correctamente, la columna Estado tendrá el valor **Asignado**.  
@@ -166,8 +167,8 @@ La herramienta auxiliar de contenedorización de aplicaciones se conecta de form
     ![Captura de pantalla de la aplicación ASP.NET detectada.](./media/tutorial-containerize-apps-aks/discovered-app-asp.png)
 
 
-4. Use la casilla para seleccionar las aplicaciones que se incluirán en contenedores.
-5. **Especifique el nombre del contenedor**: especifique un nombre para el contenedor de destino de cada aplicación seleccionada. El nombre del contenedor debe especificarse como <*nombre:etiqueta*>, donde la etiqueta se use para la imagen del contenedor. Por ejemplo, puede especificar el nombre del contenedor de destino como *appname:v1*.   
+5. Use la casilla para seleccionar las aplicaciones que se incluirán en contenedores.
+6. **Especifique el nombre del contenedor**: especifique un nombre para el contenedor de destino de cada aplicación seleccionada. El nombre del contenedor debe especificarse como <*nombre:etiqueta*>, donde la etiqueta se use para la imagen del contenedor. Por ejemplo, puede especificar el nombre del contenedor de destino como *appname:v1*.   
 
 ### <a name="parameterize-application-configurations"></a>Parametrización de las configuraciones de la aplicación
 Al parametrizar la configuración, esta pasa a estar disponible como parámetro en el momento de la implementación. Esto le permite configurar este valor al implementar la aplicación, en lugar de codificar dicho valor de forma rígida en un valor específico en la imagen del contenedor. Por ejemplo, esta opción es útil para parámetros como las cadenas de conexión de base de datos.

@@ -5,12 +5,12 @@ services: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 06/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: 40c3d2dba3d41c7651846d09d01dd7afdce15af9
-ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
+ms.openlocfilehash: cf2461484d290dc05912121a6964b42ca58194cc
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112967068"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129455529"
 ---
 # <a name="how-to-manage-startstop-vms-v2-preview"></a>Administración de Start/Stop VMs v2 (versión preliminar)
 
@@ -21,9 +21,6 @@ Start/Stop VMs v2 (versión preliminar) incluye un [panel](../../azure-monitor/v
 Los datos de registro que muestra cada icono en el panel se actualiza cada hora, con una opción de actualización manual a petición mediante un clic en el icono **Actualizar** en una visualización determinada o mediante la actualización del panel completo.
 
 Para más información sobre cómo trabajar con un panel basado en registros, consulte el siguiente [tutorial](../../azure-monitor/visualize/tutorial-logs-dashboards.md).
-
-> [!NOTE]
-> Si tiene problemas durante la implementación, encuentra dificultades al usar Start/Stop VMs v2 (versión preliminar) o tiene alguna pregunta relacionada, puede enviar una incidencia en [GitHub](https://github.com/microsoft/startstopv2-deployments/issues). El envío de incidencias de soporte técnico de Azure desde el [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) no está disponible para esta versión preliminar. 
 
 ## <a name="configure-email-notifications"></a>Configuración de notificaciones de correo electrónico
 

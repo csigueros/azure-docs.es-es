@@ -1,7 +1,6 @@
 ---
-title: 'Tutorial: Integración de inicio de sesión único (SSO) de Azure Active Directory con Software AG Cloud | Microsoft Docs'
+title: 'Tutorial: Integración de inicio de sesión único (SSO) de Azure Active Directory con Software AG Cloud'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Software AG Cloud.
-services: active-directory
 author: jeevansd
 manager: CelesteDG
 ms.reviewer: CelesteDG
@@ -11,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/09/2020
 ms.author: jeedes
-ms.openlocfilehash: c2a2446da0e1ccf1b3dab88fe898b179291ddaba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 900cb7892331db3e78314a5de6bfb432f40990c6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98726155"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128558488"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-software-ag-cloud"></a>Tutorial: Integración de inicio de sesión único (SSO) de Azure Active Directory con Software AG Cloud
 
@@ -26,7 +25,7 @@ En este tutorial, aprenderá a integrar Software AG Cloud con Azure Active Direc
 * Permitir que los usuarios inicien sesión automáticamente en Software AG Cloud con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -151,7 +150,7 @@ En esta sección creará un usuario llamado Britta Simon en Software AG Cloud. S
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-Suponiendo que Microsoft Azure esté configurado como un proveedor en Software AG Cloud, vaya a `www.softwareag.cloud`, haga clic en el botón de inicio de sesión y escriba el nombre del entorno. En la siguiente pantalla, haga clic en el vínculo "Log in with <IDP NAME>" (Iniciar sesión con <nombre_del_IdP>) y escriba las credenciales. Una vez autenticado, se iniciará sesión y se le dirigirá a la página principal de Software AG Cloud.
+Suponiendo que Microsoft Azure esté configurado como un proveedor en Software AG Cloud, vaya a `www.softwareag.cloud`, haga clic en el botón de inicio de sesión y escriba el nombre del entorno. En la siguiente pantalla, haga clic en el vínculo "Log in with \<IDP NAME\>" (Iniciar sesión con <nombre_del_IdP>) y escriba las credenciales. Una vez autenticado, se iniciará sesión y se le dirigirá a la página principal de Software AG Cloud.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

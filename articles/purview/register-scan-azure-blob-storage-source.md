@@ -1,18 +1,18 @@
 ---
-title: Cómo examinar Azure Storage Blob
+title: Cómo registrar y examinar Azure Storage Blob
 description: Aprenda a examinar Azure Storage Blob en el catálogo de datos de Azure Purview.
 author: shsandeep123
 ms.author: sandeepshah
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: 7b295fd67052d91c229977571056b3ea95d56773
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 40105f18cce8fe515350903837f49d273bd39d03
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122177854"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209991"
 ---
 # <a name="register-and-scan-azure-blob-storage"></a>Registro y examen de Azure Blob Storage
 
@@ -24,9 +24,9 @@ Azure Blob Storage admite exámenes completos e incrementales para capturar los 
 
 Para los tipos de archivo como csv, tsv, psv y ssv, el esquema se extrae cuando se implementan las siguientes lógicas:
 
-1. Los valores de la primera fila no están vacíos
-2. Los valores de la primera fila son únicos
-3. Los valores de la primera fila no son una fecha ni un número
+1. Los valores de la primera fila no están vacíos.
+2. Los valores de la primera fila son únicos.
+3. Los valores de la primera fila no son una fecha ni un número.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -91,7 +91,7 @@ Es necesario obtener el id. de aplicación y el secreto de la entidad de servici
 1. Seleccione **+ Generar/Importar** y escriba el **nombre** que quiera y el **valor** como **Secreto de cliente** de la entidad de servicio.
 1. Seleccione **Crear** para completar la acción.
 1. Si el almacén de claves no está conectado todavía a Purview, necesitará [crear una conexión del almacén de claves](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
-1. Por último, [cree una credencial](manage-credentials.md#create-a-new-credential) mediante la entidad de servicio para configurar el examen.
+1. Por último, [cree una nueva credencial](manage-credentials.md#create-a-new-credential) mediante la entidad de servicio para configurar el examen.
 
 #### <a name="granting-the-service-principal-access-to-your-blob-storage"></a>Acceso de la entidad de servicio al almacenamiento de blobs
 
@@ -116,7 +116,7 @@ Es necesario obtener el id. de aplicación y el secreto de la entidad de servici
 
 Para registrar una nueva cuenta de blob en el catálogo de datos, haga lo siguiente:
 
-1. Vaya a Purview Studio desde su cuenta de Purview en el portal.
+1. Vaya a [Purview Studio](https://web.purview.azure.com/resource/) desde su cuenta de Purview en el portal.
 1. Seleccione **Registrar orígenes** en la página principal de Purview Studio.
 1. Seleccione **Registrar**.
 1. En **Registrar orígenes**, seleccione **Azure Blob Storage**.
@@ -136,7 +136,7 @@ En la pantalla **Registrar orígenes (Azure Blob Storage)** , haga lo siguiente:
 
 Para crear y ejecutar un nuevo examen, siga estos pasos:
 
-1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de Purview Studio.
+1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Seleccione el origen de datos de Azure Blob que ha registrado.
 

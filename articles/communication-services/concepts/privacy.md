@@ -8,12 +8,12 @@ ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 8b8500ed6c43149e47a82b58e9b25a07ac7eef59
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 06817450cb0957e845b5b9fecde21d94080183ac
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123258039"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060998"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilidad de regiones y residencia de datos
 
@@ -22,6 +22,9 @@ Azure Communication Services se compromete a ayudar a nuestros clientes a cumpli
 ## <a name="data-residency"></a>Residencia de datos
 
 Al crear un recurso de Communication Services, se especifica una **geografía** (no un centro de datos de Azure). Todos los mensajes de chat y los datos de recursos almacenados por Communication Services en reposo se conservarán en esa geografía, en un centro de datos seleccionado internamente por Communication Services. Los datos pueden estar en tránsito o procesarse en otras regiones geográficas. Estos puntos de conexión globales son necesarios para proporcionar una experiencia de alto rendimiento y baja latencia a los usuarios finales, independientemente de su ubicación.
+
+> [!NOTE]
+> En el caso de RTC y SMS, los registros de datos de llamadas y mensajes necesarios para la operación y facturación del servicio se pueden almacenar en Estados Unidos.
 
 ## <a name="data-collection"></a>datos, recopilación
 
@@ -75,11 +78,11 @@ El servicio procesa de forma efímera los mensajes SMS enviados y recibidos y no
 
 ### <a name="pstn-voice-calling"></a>Llamada de voz RTC
 
-El servicio procesa de forma efímera la comunicación de audio y vídeo, y no se conserva ningún dato en el recurso aparte de los registros de Azure Monitor.
+El servicio procesa de forma efímera la comunicación de audio y vídeo, y no se procesa ningún dato de procesamiento de llamadas en el recurso aparte de los registros de Azure Monitor.
 
 ### <a name="internet-voice-and-video-calling"></a>Llamadas de voz y vídeo de Internet
 
-El servicio procesa de forma efímera la comunicación de audio y vídeo, y no se conserva ningún dato en el recurso aparte de los registros de Azure Monitor.
+El servicio procesa de forma efímera la comunicación de audio y vídeo, y no se procesa ningún dato de procesamiento de llamadas en el recurso aparte de los registros de Azure Monitor.
 
 ### <a name="call-recording"></a>Grabación de llamadas
 

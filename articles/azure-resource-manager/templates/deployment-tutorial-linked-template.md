@@ -5,12 +5,12 @@ ms.date: 02/12/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6bfe1a2d7fb993e51c82f14b508d697900b7a333
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 9b9f8f594fbc85c69a546a82f2857802382eea28
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319762"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128556478"
 ---
 # <a name="tutorial-deploy-a-linked-template"></a>Tutorial: Implementación de una plantilla vinculada
 
@@ -48,7 +48,7 @@ El siguiente script de PowerShell crea una cuenta de almacenamiento, crea un con
 Seleccione **Probar** para abrir Cloud Shell, después, seleccione **Copiar** para copiar el script de PowerShell y haga clic con el botón derecho en el panel del shell para pegar el script:
 
 > [!IMPORTANT]
-> Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y usar solo números y letras minúsculas. El nombre debe ser único. En la plantilla, el nombre de la cuenta de almacenamiento es el nombre del proyecto con **store** anexado, y el nombre del proyecto debe tener entre 3 y 11 caracteres. Por lo tanto, el nombre del proyecto debe cumplir los requisitos de nombre para la cuenta de almacenamiento y tener menos de 11 caracteres.
+> Los nombres de cuentas de almacenamiento deben ser únicos, tener entre 3 y 24 caracteres, y usar solo **números** y **letras minúsculas**. La variable de la plantilla de muestra `storageAccountName` combina el máximo de 11 caracteres del parámetro `projectName` con un valor [uniqueString](./template-functions-string.md#uniquestring) de 13 caracteres.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.

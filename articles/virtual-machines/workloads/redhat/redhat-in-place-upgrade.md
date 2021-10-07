@@ -1,19 +1,19 @@
 ---
 title: Actualización local de imágenes de Red Hat Enterprise Linux en Azure
 description: Obtenga información sobre cómo realizar una actualización local desde imágenes de Red Hat Enterprise 7.x a la versión 8.x más reciente.
-author: mathapli
+author: mamccrea
 ms.service: virtual-machines
 ms.subservice: redhat
 ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
-ms.author: alsin
-ms.openlocfilehash: ccd3e58babc6627a384636dbea28ef82969be9fc
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.author: mamccrea
+ms.openlocfilehash: e127ec753a6db0556c901aff737656da47883c7a
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696749"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129454874"
 ---
 # <a name="red-hat-enterprise-linux-in-place-upgrades"></a>Actualizaciones locales de Red Hat Enterprise Linux
 

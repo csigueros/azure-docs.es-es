@@ -5,19 +5,19 @@ ms.topic: include
 ms.date: 07/20/2020
 ms.author: msmbaldwin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fe21da6b8cd2a3f7291ae4a27ef7de8040a2acd1
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: c328541ef98391daec87c1988951e8f4bcda4ccc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110720502"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597324"
 ---
 En este inicio rápido se usa un almacén de claves de Azure creado previamente. Puede crear un almacén de claves siguiendo los pasos descritos en el [inicio rápido de CLI de Azure](../articles/key-vault/general/quick-create-cli.md), [inicio rápido de Azure PowerShell](../articles/key-vault/general/quick-create-powershell.md) o [inicio rápido de Azure Portal](../articles/key-vault/general/quick-create-portal.md). 
 
 Como alternativa, puede ejecutar simplemente los siguientes comandos de la CLI de Azure o de Azure PowerShell.
 
 > [!Important]
-> Cada almacén de claves debe tener un nombre único. Reemplace <nombre-almacén de claves-único> por el nombre del almacén de claves en los ejemplos siguientes.
+> Cada almacén de claves debe tener un nombre único. Reemplace \<your-unique-keyvault-name\> por el nombre del almacén de claves en los ejemplos siguientes.
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 ```azurecli

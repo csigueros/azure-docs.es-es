@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 07/26/2021
-ms.openlocfilehash: a974bf12873d46b7835d861b8c4d7007fb7e72ee
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: eb94adfa104b68f515374090cfd07f300896a163
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121747247"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708821"
 ---
 # <a name="create-plans-for-a-virtual-machine-offer"></a>Creación de planes para una oferta de máquina virtual
 
@@ -218,6 +218,9 @@ La generación de una máquina virtual define el hardware virtual que usa. En fu
 3. Para actualizar una máquina virtual existente que tiene una generación 1 ya publicada, edite los detalles en la página **Configuración técnica**.
 
 Para obtener más información sobre las diferencias entre las funcionalidades de la generación 1 y generación 2, vea [Compatibilidad para máquinas virtuales de generación 2 en Azure](../virtual-machines/generation-2.md).
+
+> [!NOTE]
+> Una generación publicada requiere que al menos una versión de la imagen permanezca disponible para los clientes. Para quitar todo el plan (junto con todas sus generaciones e imágenes), seleccione **Plan en desuso** en la página **Información general del plan** (consulte la primera sección de este artículo).
 
 ### <a name="vm-images"></a>Imágenes de VM
 

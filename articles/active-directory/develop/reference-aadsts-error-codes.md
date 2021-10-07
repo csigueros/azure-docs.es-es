@@ -12,12 +12,12 @@ ms.date: 07/28/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3b1d7d8b658e0a0ac01789ca8a13ce0a2f779767
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3a530dae026ffe87efe06fb413966df43ce32314
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734530"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588298"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de error de autenticación y autorización de Azure AD
 
@@ -206,6 +206,7 @@ Por ejemplo, si ha recibido el código de error "AADSTS50058", busque "50058" en
 | AADSTS700054 | El elemento 'id_token' de response_type no está habilitado para la aplicación.  La aplicación solicitó un token de identificador al punto de conexión de autorización, pero no tenía habilitada la concesión implícita del token de identificador.  Vaya a Azure Portal > Azure Active Directory > Registros de aplicaciones > Seleccione su aplicación > Autenticación > en "Implicit grant and hybrid flows" (Concesión implícita y flujos híbridos), asegúrese de que "Tokens de id." está seleccionado.|
 | AADSTS70007 | UnsupportedResponseMode: la aplicación ha devuelto un valor no admitido de `response_mode` al solicitar un token.  |
 | AADSTS70008 | ExpiredOrRevokedGrant: el token de actualización ha expirado debido por inactividad. El token se emitió en XXX y estuvo inactivo durante un período de tiempo. |
+| AADSTS700084 | El token de actualización se ha emitido en una aplicación de página única (SPA) y, por tanto, tiene una duración limitada fija de {tiempo}, que no se puede extender. Ahora ha expirado y la SPA debe enviar una nueva solicitud de inicio de sesión a la página de inicio de sesión. El token se ha emitido el {fechaDeEmisión}.|
 | AADSTS70011 | InvalidScope: el ámbito solicitado por la aplicación no es válido. |
 | AADSTS70012 | MsaServerError: se ha producido un error de servidor al autenticar un usuario (consumidor) de MSA. Inténtelo de nuevo. Si el error persiste, [abra una incidencia de soporte técnico](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 | AADSTS70016 | AuthorizationPending: error de flujo de dispositivo de OAuth 2.0. La autorización está pendiente. El dispositivo volverá a intentar sondear la solicitud. |

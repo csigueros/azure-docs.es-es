@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 07/01/2021
 ms.author: bagol
-ms.openlocfilehash: 0e38c7171d523f8b73df1b53750710bc170e1e81
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d10d1e9408db7ab29a7fe01e5bf906e9023124c7
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124781275"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407235"
 ---
 # <a name="azure-sentinel-registry-event-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de eventos del Registro de Azure Sentinel (versión preliminar pública)
 
@@ -133,10 +133,10 @@ Para obtener más información, consulte [Estructura del Registro](/windows/win3
 | **ActorUserIdType**| Recomendado  | String     |  Tipo del identificador almacenado en el campo [ActorUserId](#actoruserid). Para más información, consulte la [Entidad Usuario](normalization-about-schemas.md#the-user-entity). <br><br>Ejemplo: `SID`         |
 | **ActorSessionId** | Opcional     | String     |   Identificador único de la sesión de inicio de sesión de Actor.  <br><br>Ejemplo: `999`<br><br>**Nota**: El tipo se define como *cadena* para admitir distintos sistemas, pero en Windows este valor debe ser numérico. Si usa una máquina Windows y el origen envía un tipo diferente, asegúrese de convertir el valor. Por ejemplo, si el origen envía un valor hexadecimal, conviértalo en un valor decimal.   |
 | <a name="actingprocessname"></a>**ActingProcessName**              | Opcional     | String     |   Nombre de archivo del archivo de imagen de proceso de acción. Por lo general, este nombre se considera el nombre del proceso.  <br><br>Ejemplo: `C:\Windows\explorer.exe`  |
-| **ActingProcessId**| Mandatory    | Entero        | Identificador de proceso (PID) del proceso de acción.<br><br>Ejemplo: `48610176`           <br><br>**Nota**: El tipo se define como *cadena* para admitir distintos sistemas, pero en Windows y Linux este valor debe ser numérico. <br><br>Si usa una máquina Windows o Linux y usa un tipo diferente, asegúrese de convertir los valores. Por ejemplo, si ha utilizado un valor hexadecimal, conviértalo en un valor decimal.    |
+| **ActingProcessId**| Mandatory    | String        | Identificador de proceso (PID) del proceso de acción.<br><br>Ejemplo: `48610176`           <br><br>**Nota**: El tipo se define como *cadena* para admitir distintos sistemas, pero en Windows y Linux este valor debe ser numérico. <br><br>Si usa una máquina Windows o Linux y usa un tipo diferente, asegúrese de convertir los valores. Por ejemplo, si ha utilizado un valor hexadecimal, conviértalo en un valor decimal.    |
 | **ActingProcessGuid**              | Opcional     | String     |  Identificador único (GUID) generado del proceso de acción.   <br><br> Ejemplo: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
 | **ParentProcessName**              | Opcional     | String     |  Nombre de archivo del archivo de imagen del proceso primario. Por lo general, este valor se considera el nombre del proceso.    <br><br>Ejemplo: `C:\Windows\explorer.exe` |
-| **ParentProcessId**| Mandatory    | Entero    | Identificador de proceso (PID) del proceso primario.   <br><br>     Ejemplo: `48610176`    |
+| **ParentProcessId**| Mandatory    | String    | Identificador de proceso (PID) del proceso primario.   <br><br>     Ejemplo: `48610176`    |
 | **ParentProcessGuid**              | Opcional     | String     |  Identificador único (GUID) generado del proceso primario.     <br><br> Ejemplo: `EF3BD0BD-2B74-60C5-AF5C-010000001E00` |
 
 

@@ -10,12 +10,12 @@ ms.date: 09/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 395b3d14571b9cf8ab2080c77aadf686dc8aea29
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7f0c0928a32807844d57eb91a903994a0264e460
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128599286"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534382"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configuración de la replicación de objetos para blobs en bloques
 
@@ -45,7 +45,7 @@ Al configurar la replicación de objetos en Azure Portal, solo tiene que configu
 Para crear una directiva de replicación en Azure Portal, siga estos pasos:
 
 1. Navegue hasta la cuenta de almacenamiento de origen en Azure Portal.
-1. En **Blob service**, seleccione **Replicación de objetos**.
+1. En **Administración de datos**, seleccione **Replicación de objetos**.
 1. Seleccione **Set up replication rules** (Configurar reglas de replicación).
 1. Seleccione la suscripción de destino y la cuenta de almacenamiento.
 1. En la sección **Container pairs** (Pares de contenedores), seleccione un contenedor de origen de la cuenta de origen y uno de destino de la cuenta de destino. Puede crear hasta 10 pares de contenedores por directiva de replicación.

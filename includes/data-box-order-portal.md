@@ -3,15 +3,15 @@ author: v-dalc
 ms.service: databox
 ms.subservice: databox
 ms.topic: include
-ms.date: 08/26/2021
+ms.date: 09/08/2021
 ms.author: alkohli
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: cce8075187517377efc406ce3b452e8a5c33a817
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 6f784c075d24fe26b7ec1ea9d5921dfb460e5298
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123468744"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743347"
 ---
 Para solicitar un dispositivo, realice los pasos siguientes en Azure Portal:
 
@@ -36,9 +36,13 @@ Para solicitar un dispositivo, realice los pasos siguientes en Azure Portal:
 
     [ ![Inicio de un pedido de importación de Azure Data Box](media/data-box-order-portal/data-box-import-03.png) ](media/data-box-order-portal/data-box-import-03.png#lightbox)
 
-5. Seleccione el producto **Data Box** producto que desea solicitar, ya sea Data Box, como se muestra a continuación, o Data Box Heavy. En el caso de Data Box, la capacidad máxima utilizable para un solo pedido es 80 TB. En el caso de Data Box, la capacidad máxima utilizable para un solo pedido es 770 TB. Para tamaños de datos mayores puede crear varios pedidos.
+5. Seleccione el producto **Data Box** producto que desea solicitar, ya sea Data Box, como se muestra a continuación, o Data Box Heavy. 
 
     [ ![Captura de pantalla que muestra la pantalla para seleccionar un producto de Azure Data Box. Está resaltado el botón Seleccionar de Data Box.](media/data-box-order-portal/data-box-import-04.png) ](media/data-box-order-portal/data-box-import-04.png#lightbox)
+
+    En el caso de Data Box, la capacidad máxima utilizable para un solo pedido es 80 TB. En el caso de Data Box, la capacidad máxima utilizable para un solo pedido es 770 TB. Para tamaños de datos mayores puede crear varios pedidos.
+
+    Si selecciona **Data Box Heavy**, el equipo de Data Box comprueba la disponibilidad del dispositivo en su región. Le notificarán cuándo puede continuar con el pedido.
 
 6. En **Pedido**, vaya a la pestaña **Datos básicos** y escriba o seleccione la siguiente información. Luego, seleccione **Siguiente: Destino de datos**.
 

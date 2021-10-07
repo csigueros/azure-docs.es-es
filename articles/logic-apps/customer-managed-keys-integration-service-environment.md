@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: mijos, rarayudu, azla
 ms.topic: conceptual
 ms.date: 01/20/2021
-ms.openlocfilehash: f3ea6476173e7be1a6239e97ef2e5fbb5257aead
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: db99be325d50f89e6e1c96c1471431815b98936d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322216"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124824292"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configure claves administradas por el cliente para cifrar los datos en reposo para los entornos de servicio de integración (ISE) en Azure Logic Apps
 
@@ -30,6 +30,8 @@ En este tema se muestra cómo configurar y especificar su propia clave de cifrad
   * Azure Government: Arizona, Virginia y Texas.
 
 * Solo puede especificar una clave administrada por el cliente *cuando cree su ISE*, no después. No se puede deshabilitar esta clave una vez creado el ISE. Actualmente, no existe compatibilidad para rotar una clave administrada por el cliente para un ISE.
+
+* El almacén de claves que almacena la clave administrada por el cliente debe existir en la misma región de Azure que el ISE.
 
 * Para admitir las claves administradas por el cliente, el ISE requiere habilitar la [identidad administrada asignada pro el sistema o por el usuario](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). Esta identidad permite al ISE autenticar el acceso a recursos seguros, como máquinas virtuales y otros sistemas o servicios que están dentro de una red virtual de Azure o conectados a ella. De este modo, no tiene que iniciar sesión con sus credenciales.
 
