@@ -38,12 +38,14 @@ items:
     items:
       - name: Uso de Purview Studio
         href: use-purview-studio.md
-      - name: Procedimientos recomendados
+      - name: Procedimientos recomendados y directrices
         items:
           - name: Procedimientos recomendados de implementación
             href: deployment-best-practices.md
           - name: Arquitectura de colecciones
             href: concept-best-practices-collections.md
+          - name: Directrices de precios de Purview
+            href: concept-guidelines-pricing.md
       - name: Permisos de Purview
         href: catalog-permissions.md
       - name: Mapa de datos

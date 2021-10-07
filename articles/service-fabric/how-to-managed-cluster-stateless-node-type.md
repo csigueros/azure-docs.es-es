@@ -3,12 +3,12 @@ title: Implementación de un clúster administrado de Service Fabric con tipos d
 description: Aprenda a crear e implementar tipos de nodo sin estado en clústeres administrados de Service Fabric
 ms.topic: how-to
 ms.date: 8/23/2021
-ms.openlocfilehash: 1d6cd328a195e35bd2523fa24aed9153267bd83e
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: a18c09e92cd8d78e314969fe15a802e4b7e2cc67
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867341"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546375"
 ---
 # <a name="deploy-a-service-fabric-managed-cluster-with-stateless-node-types"></a>Implementación de un clúster administrado de Service Fabric con tipos de nodo sin estado
 
@@ -27,26 +27,25 @@ Para establecer uno o más tipos de nodo como sin estado en un recurso de tipo d
 * El valor de apiVersion del recurso de clúster administrado de Service Fabric debe ser **2021-05-01** o posterior.
 
 ```json
-     {
-            "apiVersion": "[variables('sfApiVersion')]",
-            "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-            "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
-            "location": "[resourcegroup().location]",
-            "dependsOn": [
-              "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
-            ],
-            "properties": {
-                "isStateless": true,
-                "isPrimary": false,
-                "vmImagePublisher": "[parameters('vmImagePublisher')]",
-                "vmImageOffer": "[parameters('vmImageOffer')]",
-                "vmImageSku": "[parameters('vmImageSku')]",
-                "vmImageVersion": "[parameters('vmImageVersion')]",
-                "vmSize": "[parameters('nodeTypeSize')]",
-                "vmInstanceCount": "[parameters('nodeTypeVmInstanceCount')]",
-                "dataDiskSizeGB": "[parameters('nodeTypeDataDiskSizeGB')]"
-            }
-        }
+{
+  "apiVersion": "[variables('sfApiVersion')]",
+  "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+  "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+  "location": "[resourcegroup().location]",
+  "dependsOn": [
+    "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
+  ],
+  "properties": {
+    "isStateless": true,
+    "isPrimary": false,
+    "vmImagePublisher": "[parameters('vmImagePublisher')]",
+    "vmImageOffer": "[parameters('vmImageOffer')]",
+    "vmImageSku": "[parameters('vmImageSku')]",
+    "vmImageVersion": "[parameters('vmImageVersion')]",
+    "vmSize": "[parameters('nodeTypeSize')]",
+    "vmInstanceCount": "[parameters('nodeTypeVmInstanceCount')]",
+    "dataDiskSizeGB": "[parameters('nodeTypeDataDiskSizeGB')]"
+  }
 }
 ```
 

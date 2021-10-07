@@ -3,21 +3,21 @@ title: 'Inicio rápido: Inicio de sesión de los usuarios en aplicaciones de pá
 titleSuffix: Microsoft identity platform
 description: En este inicio rápido, obtendrá información sobre cómo una aplicación de página única (SPA) de JavaScript puede iniciar la sesión de usuarios para cuentas personales, profesionales y educativas mediante el flujo de código de autorización.
 services: active-directory
-author: hahamil
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/17/2020
-ms.author: hahamil
+ms.date: 09/09/2021
+ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 4ba36b80fc6a521b22dc812bdf67c3985a455ff4
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 5a136437f6ec47cf1b60f6a8a54ac7e63139afd7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108071905"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128611985"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow-with-pkce"></a>Inicio rápido: Inicio de sesión de los usuarios y obtención de un token de acceso en una aplicación SPA de JavaScript mediante el flujo de código de autorización con PKCE
 
@@ -48,7 +48,7 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 > #### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
 >
 > 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
-> 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
+> 1. Si tiene acceso a varios inquilinos, use el filtro **Directorios y suscripciones** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para ir al inquilino en el que quiere registrar la aplicación.
 > 1. Busque y seleccione **Azure Active Directory**.
 > 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
 > 1. Escriba el **nombre** de la aplicación. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
@@ -89,7 +89,7 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 > const msalConfig = {
 >   auth: {
 >     clientId: "Enter_the_Application_Id_Here",
->     authority: "Enter_the_Cloud_Instance_Id_HereEnter_the_Tenant_Info_Here",
+>     authority: "Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here",
 >     redirectUri: "Enter_the_Redirect_Uri_Here",
 >   },
 >   cache: {
@@ -110,7 +110,7 @@ Para ilustrar este tema, consulte el apartado en el que se explica el [funcionam
 > - `Enter_the_Application_Id_Here` es el **identificador de aplicación (cliente)** de la aplicación que registró.
 >
 >    Para buscar el valor de **Identificador de aplicación (cliente)** , vaya a la página **Información general** del registro de la aplicación en Azure Portal.
-> - `Enter_the_Cloud_Instance_Id_Here` es la instancia de la nube de Azure. En el caso de la nube principal o global de Azure, escriba `https://login.microsoftonline.com/`. Para nubes **nacionales** (por ejemplo, China), consulte [Nubes nacionales](authentication-national-cloud.md).
+> - `Enter_the_Cloud_Instance_Id_Here` es la instancia de la nube de Azure. En el caso de la nube principal o global de Azure, escriba `https://login.microsoftonline.com`. Para nubes **nacionales** (por ejemplo, China), consulte [Nubes nacionales](authentication-national-cloud.md).
 > - `Enter_the_Tenant_info_here` es uno de los siguientes valores:
 >   - Si la aplicación admite *cuentas de este directorio organizativo*, reemplace este valor por los valores de **Id. de inquilino** o **Nombre de inquilino**. Por ejemplo, `contoso.microsoft.com`.
 >

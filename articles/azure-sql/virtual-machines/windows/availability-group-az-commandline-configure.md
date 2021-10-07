@@ -14,12 +14,12 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 060d09d17bf622af5ca5c062e00d2961a0a2b566
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: ffb9ac3874ae3eb1ab3ec883a8094c57d03b86a8
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572462"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534572"
 ---
 # <a name="use-powershell-or-az-cli-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Uso de PowerShell o la CLI de Azure para configurar un grupo de disponibilidad para SQL Server en una máquina virtual de Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -77,11 +77,11 @@ az storage account create -n <name> -g <resource group name> -l <region> `
 # Create the storage account
 # example: New-AzStorageAccount -ResourceGroupName SQLVM-RG -Name cloudwitness `
 #    -SkuName Standard_LRS -Location West US -Kind StorageV2 `
-#    -AccessTier Hot -EnableHttpsTrafficOnly
+#    -AccessTier Hot -EnableHttpsTrafficOnly $true
 
 New-AzStorageAccount -ResourceGroupName <resource group name> -Name <name> `
     -SkuName Standard_LRS -Location <region> -Kind StorageV2 `
-    -AccessTier Hot -EnableHttpsTrafficOnly
+    -AccessTier Hot -EnableHttpsTrafficOnly $true
 ```
 
 ---
@@ -121,12 +121,13 @@ az sql vm group create -n <cluster name> -l <region ex:eastus> -g <resource grou
 #  -StorageAccountUrl '<ex:https://cloudwitness.blob.core.windows.net/>' `
 #  -StorageAccountPrimaryKey '4Z4/i1Dn8/bpbseyWX'
 
+$storageAccountPrimaryKey = ConvertTo-SecureString -String "<PublicKey>" -AsPlainText -Force
 $group = New-AzSqlVMGroup -Name <name> -Location <regio> 
   -ResourceGroupName <resource group name> -Offer <SQL201?-WS201?> 
   -Sku Enterprise -DomainFqdn <FQDN> -ClusterOperatorAccount <domain account> 
   -ClusterBootstrapAccount <domain account>  -SqlServiceAccount <service account> 
   -StorageAccountUrl '<ex:StorageAccountUrl>' `
-  -StorageAccountPrimaryKey '<PublicKey>'
+  -StorageAccountPrimaryKey $storageAccountPrimaryKey
 ```
 
 ---
@@ -520,11 +521,11 @@ Remove-AzSqlVMGroup -ResourceGroupName "<resource group name>" -Name "<cluster n
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que se haya implementado el grupo de disponibilidad, puede optimizar la [configuración de alta disponibilidad y recuperación ante desastres para SQL Server en VM de Azure](hadr-cluster-best-practices.md). 
+Una vez que se haya implementado el grupo de disponibilidad, puede optimizar la [configuración de alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md). 
 
 
 Para obtener más información, consulte:
 
 - [Clúster de conmutación por error de Windows Server con SQL Server en máquinas virtuales de Azure](hadr-windows-server-failover-cluster-overview.md)
-- [Grupos de disponibilidad Always On con SQL Server en máquinas virtuales de Azure](availability-group-overview.md)
+- [Grupos de disponibilidad Always On para SQL Server en Azure Virtual Machines](availability-group-overview.md)
 - [Introducción a los grupos de disponibilidad Always On](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)

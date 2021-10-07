@@ -4,15 +4,15 @@ description: En este artículo se describe cómo registrar un origen de SAP ECC
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 2/25/2021
-ms.openlocfilehash: f9cd8601ef3e59de3c11073d7ac73176367f4fc9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 6d6764d98b71c01abef66fbd7392017fe638ba5a
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121724262"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212067"
 ---
 # <a name="register-and-scan-sap-ecc-source"></a>Registro y examen de un origen de SAP ECC
 
@@ -80,7 +80,7 @@ En la pantalla **Register sources (SAP ECC)** (Registrar orígenes [SAP ECC]),
 
 Para crear y ejecutar un nuevo examen, siga estos pasos:
 
-1.  En el centro de administración, haga clic en Integration runtimes (Entornos de ejecución de integración). Asegúrese de que está configurado un entorno de ejecución de integración autohospedado. Si no lo está, use los pasos que se indican [aquí](./manage-integration-runtimes.md) para crear un entorno de ejecución de integración autohospedado.
+1.  En el centro de administración, seleccione Entornos de ejecución de integración. Asegúrese de que está configurado un entorno de ejecución de integración autohospedado. Si no lo está, use los pasos que se indican [aquí](./manage-integration-runtimes.md) para crear un entorno de ejecución de integración autohospedado.
 
 2.  Vaya a **Sources** (Orígenes).
 
@@ -110,11 +110,11 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
 
     :::image type="content" source="media/register-scan-sapecc-source/scan-sapecc.png" alt-text="examen de SAPECC" border="true":::
 
-6.  Haga clic en **Continuar**.
+6.  Seleccione **Continuar**.
 
 7.  Elija el **desencadenador del examen**. Puede configurar una programación o ejecutar el examen una vez.
 
-8.  Revise el examen y haga clic en **Save and run** (Guardar y ejecutar).
+8.  Revise el examen y seleccione **Guardar y ejecutar**.
 
 ## <a name="viewing-your-scans-and-scan-runs"></a>Visualización de los exámenes y las ejecuciones de exámenes
 

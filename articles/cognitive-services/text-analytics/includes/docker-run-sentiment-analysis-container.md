@@ -10,23 +10,24 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: 96b41c27b282bdc05dafa8c69398a11e8dbf3b1b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ece961054c945ce949886976dc45e1178a616b6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91779479"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128677556"
 ---
 Para ejecutar el contenedor *Análisis de sentimiento v3*, ejecute el siguiente comando `docker run`. Reemplace los marcadores de posición por sus propios valores:
 
 | Marcador de posición | Value | Formato o ejemplo |
 |-------------|-------|---|
+| **{LENGUAJE}** | El lenguaje del contenedor que quiere ejecutar. Asegúrese de que esto coincide con el comando `docker pull` que ha usado. Observe el guion (`-`) que se usa antes del lenguaje en el ejemplo siguiente. | `en` |
 | **{CLAVE_API}** | Clave del recurso de Text Analytics. Puede encontrarla en la página **Clave y punto de conexión** del recurso en Azure Portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
 | **{URI_PUNTODECONEXIÓN}** | Punto de conexión para acceder a Text Analytics API. Puede encontrarla en la página **Clave y punto de conexión** del recurso en Azure Portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment \
+mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment-{LANGUAGE} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}

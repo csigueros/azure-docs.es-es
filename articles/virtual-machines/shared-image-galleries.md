@@ -1,20 +1,18 @@
 ---
 title: Compartir imágenes de máquina virtual con Galerías compartidas
 description: Aprenda a usar galerías de imágenes compartidas para compartir imágenes de máquinas virtuales Linux en su organización.
-author: axayjo
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 6/8/2021
-ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 1886015d88fb292de64c9e124fbd7609c6a27abe
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a62c7c80ad2e785e9f09b68d9a5ec9ca7d355800
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124780878"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129455007"
 ---
 # <a name="shared-image-galleries-overview"></a>Información general de Shared Image Galleries
 
@@ -37,7 +35,7 @@ Si tiene un gran número de imágenes que se deben mantener y quiere que estén 
 
 La característica de galería de imágenes compartidas tiene varios tipos de recursos:
 
-| Recurso | Descripción|
+| Resource | Descripción|
 |----------|------------|
 | **Origen de imagen** | Se trata de un recurso que se puede usar para crear una **versión de imagen** en una galería de imágenes. Un origen de imagen puede ser una máquina virtual de Azure existente, ya sea [generalizada o especializada](#generalized-and-specialized-images); una imagen administrada; una instantánea; un disco duro virtual o una versión de imagen de otra galería de imágenes. |
 | **Galería de imágenes** | Al igual que Azure Marketplace, una **galería de imágenes** es un repositorio para administrar y compartir imágenes, pero usted puede controlar quién tiene acceso. |

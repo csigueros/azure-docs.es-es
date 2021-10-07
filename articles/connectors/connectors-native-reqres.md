@@ -7,12 +7,12 @@ ms.reviewers: estfan, azla
 ms.topic: conceptual
 ms.date: 08/04/2021
 tags: connectors
-ms.openlocfilehash: 8efcbac4b2cdd93c2646ad75a024df79cf5f2623
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 295cfe41e66791233ce7057a55717714902db9a7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121722588"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806528"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Recepción y respuesta de solicitudes HTTPS entrantes en Azure Logic Apps
 
@@ -29,6 +29,9 @@ Por ejemplo, puede hacer que la aplicación lógica:
 En este artículo se muestra cómo usar el desencadenador de solicitud y la acción de respuesta para que la aplicación lógica pueda recibir y responder a las llamadas entrantes.
 
 Para más información sobre el cifrado, la seguridad y la autorización de llamadas entrantes para la aplicación lógica, como la [Seguridad de la capa de transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), conocida anteriormente como Capa de sockets seguros (SSL) o la [Autenticación abierta de Azure Active Directory Azure (Azure AD OAuth)](../active-directory/develop/index.yml), exponer la aplicación lógica con Azure API Management o restringir las direcciones IP que originan las llamadas entrantes, consulte [Proteger el acceso y los datos en Azure Logic Apps: acceso de las llamadas entrantes a desencadenadores basados en solicitud](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+
+> [!NOTE]
+> Para el tipo de recurso **Aplicación lógica (estándar)** en una instancia de Azure Logic Apps de inquilino único, Azure AD OAuth no está disponible actualmente para las llamadas entrantes a desencadenadores basados en solicitudes, como el desencadenador de solicitud y el desencadenador de webhook HTTP.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

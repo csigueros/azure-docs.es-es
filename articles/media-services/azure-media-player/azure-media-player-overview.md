@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/05/2021
-ms.openlocfilehash: ec36f6bd19728d47b73a0186fb1fb192ba57f4cf
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: faf5bc8a96cb3781ed1d48e9d7f0d1fd7cbc386e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449824"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128679586"
 ---
 # <a name="azure-media-player-overview"></a>Información general sobre Azure Media Player #
 
@@ -19,7 +19,7 @@ Azure Media Player es un reproductor de vídeo web que reproduce contenido multi
 
 Microsoft Azure Media Services permite ofrecer contenido con formatos de streaming DASH, Smooth Streaming y HLS para reproducir contenido. Azure Media Player tiene en cuenta estos diversos formatos y reproduce automáticamente el vínculo mejor según las capacidades del explorador y plataforma. Microsoft Azure Media Services también proporciona cifrado dinámico de recursos con el cifrado común (PlayReady o Widevine) o el cifrado de sobre de AES de 128 bits. Azure Media Player permite el descifrado del contenido cifrado de AES de 128 bits y PlayReady cuando se configura correctamente.  Consulte la sección [Contenido protegido](azure-media-player-protected-content.md) para conocer cómo configurar el reproductor.
 
-Para solicitar características nuevas, proporcionar ideas o comentarios, envíelos a [UserVoice para Azure Media Player](https://aka.ms/ampuservoice). Si tiene problemas concretos, preguntas o encontró algún error, escríbanos a ampinfo@microsoft.com.
+Si tiene problemas específicos, preguntas o encuentra algún error, [abra una incidencia de soporte técnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) mediante la categoría Reproducción de cliente.
 
 > [!NOTE]
 > Tenga en cuenta que Azure Media Player solo admite transmisiones multimedia de Azure Media Services.

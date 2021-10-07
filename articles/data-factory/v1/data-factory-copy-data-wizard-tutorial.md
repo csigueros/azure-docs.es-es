@@ -3,16 +3,17 @@ title: 'Tutorial: creación de una canalización con el Asistente para copia '
 description: En este tutorial, creará una canalización de Azure Data Factory con una actividad de copia mediante el Asistente para copia compatible con Data Factory.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 16618276abc5e7933e5a434fd8537b09ad104d7b
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 91951af14a24c29bc6d3247f333f73f3e225ba57
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108753414"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653483"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: Creación de una canalización con la actividad de copia mediante el Asistente para copia de Data Factory
 > [!div class="op_single_selector"]
@@ -43,13 +44,13 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Haga clic en **Crear un recurso** en la esquina superior izquierda, después en **Datos y análisis** y en **Data Factory**. 
    
-   ![New->DataFactory](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
+   :::image type="content" source="./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png" alt-text="Nuevo->DataFactory":::
 2. En la hoja **Nueva factoría de datos** :
    
    1. Escriba **ADFTutorialDataFactory** como **nombre**.
        El nombre de la instancia de Azure Data Factory debe ser único de forma global. Si recibe el error: `Data factory name "ADFTutorialDataFactory" is not available`, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactoryYYYYMMDD) e intente crearla de nuevo. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.  
       
-       ![Nombre de Factoría de datos no disponible](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)    
+       :::image type="content" source="./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png" alt-text="Nombre de Factoría de datos no disponible":::    
    2. Selección la **suscripción** de Azure.
    3. Para el grupo de recursos, realice uno de los siguientes pasos: 
       
@@ -61,10 +62,10 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
    5. Seleccione la casilla **Anclar al panel** en la parte inferior de la hoja.  
    6. Haga clic en **Crear**.
       
-       ![Hoja Nueva Factoría de datos](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)            
+       :::image type="content" source="media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png" alt-text="Hoja Nueva Factoría de datos":::            
 3. Una vez completada la creación, puede ver la hoja **Data Factory** como se muestra en la siguiente imagen:
    
-   ![Página principal Factoría de datos](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
+   :::image type="content" source="./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png" alt-text="Página principal Factoría de datos":::
 
 ## <a name="launch-copy-wizard"></a>Inicio del Asistente para copia
 1. En la hoja Factoría de datos, haga clic en **Copiar datos** para iniciar el **Asistente para copia**. 
@@ -78,10 +79,10 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
    3. Cambie la **Fecha y hora de inicio** y la **Fecha y hora de finalización** para establecer la fecha de finalización en hoy y la fecha de inicio en cinco días antes.  
    4. Haga clic en **Next**.  
       
-      ![Herramienta de copia: página Propiedades](./media/data-factory-copy-data-wizard-tutorial/copy-tool-properties-page.png) 
+      :::image type="content" source="./media/data-factory-copy-data-wizard-tutorial/copy-tool-properties-page.png" alt-text="Herramienta de copia: Página de propiedades"::: 
 3. En la página **Almacén de datos de origen**, haga clic en el icono **Azure Blob Storage**. Use esta página para especificar el almacén de datos de origen para la tarea de copia. 
    
-    ![Herramienta de copia: página de Almacén de datos de origen](./media/data-factory-copy-data-wizard-tutorial/copy-tool-source-data-store-page.png)
+    :::image type="content" source="./media/data-factory-copy-data-wizard-tutorial/copy-tool-source-data-store-page.png" alt-text="Herramienta de copia: página de Almacén de datos de origen":::
 4. En la página **Especificar cuenta de Almacenamiento de blobs de Azure** :
    
    1. Escriba **AzureStorageLinkedService** en **Nombre de servicio vinculado**.
@@ -89,22 +90,22 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
    3. Selección la **suscripción** de Azure.  
    4. Seleccione una **cuenta de Azure Storage** en la lista de cuentas de Azure Storage disponibles en la suscripción seleccionada. También puede elegir especificar la configuración de la cuenta de almacenamiento manualmente, para lo que debe seleccionar la opción **Especificar manualmente** en **Método de selección de cuenta** y luego hacer clic en **Siguiente**. 
       
-      ![Herramienta de copia: Especificar cuenta de Almacenamiento de blobs de Azure](./media/data-factory-copy-data-wizard-tutorial/copy-tool-specify-azure-blob-storage-account.png)
+      :::image type="content" source="./media/data-factory-copy-data-wizard-tutorial/copy-tool-specify-azure-blob-storage-account.png" alt-text="Herramienta de copia: Especificar cuenta de Almacenamiento de blobs de Azure":::
 5. En la página **Elegir el archivo o la carpeta de entrada** :
    
    1. Haga doble clic en **adftutorial** (carpeta).
    2. Seleccione **emp.txt** y haga clic en **Elegir**.
       
-      ![Captura de pantalla que muestra la opción Elegir del archivo de entrada.](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
+      :::image type="content" source="./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png" alt-text="Captura de pantalla que muestra la opción Elegir del archivo de entrada.":::
 6. En la página **Choose the input file or folder** (Elegir el archivo o la carpeta de entrada), haga clic en **Next** (Siguiente). No seleccione **Binary copy**(Copia binaria). 
    
-    ![Captura de pantalla que muestra la opción Binary copy (Copia binaria) de la entrada.](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
+    :::image type="content" source="./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png" alt-text="Captura de pantalla que muestra la opción Binary copy (Copia binaria) de la entrada."::: 
 7. En la página **Configuración de formato de archivo**, verá los delimitadores y el esquema que el asistente detecta automáticamente al analizar el archivo. También puede especificar los delimitadores manualmente a fin de que el Asistente para copia detenga la detección automática o proceda a la invalidación. Haga clic en **Siguiente** después de revisar los delimitadores y obtener una vista previa de los datos. 
    
-    ![Herramienta de copia: Configuración de formato de archivo](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)  
+    :::image type="content" source="./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png" alt-text="Herramienta de copia: Configuración de formato de archivo":::  
 8. En la página Almacén de datos de destino, seleccione el icono **Azure SQL Database** y haga clic en **Siguiente**.
    
-    ![Herramienta de copia: Elegir el almacén de destino](./media/data-factory-copy-data-wizard-tutorial/choose-destination-store.png)
+    :::image type="content" source="./media/data-factory-copy-data-wizard-tutorial/choose-destination-store.png" alt-text="Herramienta de copia: Elegir el almacén de destino":::
 9. En la página **Especificar la base de datos de Azure SQL** :
    
    1. Escriba **AzureSqlLinkedService** en el campo **Nombre de la conexión**.
@@ -114,31 +115,31 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
    5. En **Nombre de usuario** y **Contraseña**, escriba los valores pertinentes.
    6. Haga clic en **Next**.  
       
-      ![Herramienta de copia: especificación de Azure SQL Database](./media/data-factory-copy-data-wizard-tutorial/specify-azure-sql-database.png)
+      :::image type="content" source="./media/data-factory-copy-data-wizard-tutorial/specify-azure-sql-database.png" alt-text="Herramienta de copia: especificación de Azure SQL Database":::
 10. En la página **Asignación de tabla**, seleccione **emp** en la lista desplegable del campo **Destino** y haga clic en **flecha abajo** (opcional) para ver el esquema y obtener una vista previa de los datos.
     
-     ![Herramienta de copia: Asignación de tabla](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png) 
+     :::image type="content" source="./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png" alt-text="Herramienta de copia: Asignación de tabla"::: 
 11. En la página **Asignación de esquema**, haga clic en **Siguiente**.
     
-    ![Herramienta de copia: Asignación de esquemas](./media/data-factory-copy-data-wizard-tutorial/schema-mapping-page.png)
+    :::image type="content" source="./media/data-factory-copy-data-wizard-tutorial/schema-mapping-page.png" alt-text="Herramienta de copia: Asignación de esquemas":::
 12. En la página **Configuración de rendimiento**, haga clic en **Siguiente**. 
     
-    ![Captura de pantalla que muestra la página Performance settings (Configuración de rendimiento), donde puede seleccionar Siguiente.](./media/data-factory-copy-data-wizard-tutorial/performance-settings.png)
+    :::image type="content" source="./media/data-factory-copy-data-wizard-tutorial/performance-settings.png" alt-text="Captura de pantalla que muestra la página Performance settings (Configuración de rendimiento), donde puede seleccionar Siguiente.":::
 13. Revise la información de la página **Resumen** y haga clic en **Finalizar**. El asistente crea dos servicios vinculados, dos conjuntos de datos (entrada y salida) y una canalización en la factoría de datos (desde donde se inició al Asistente para copia). 
     
-    ![Captura de pantalla que muestra el panel Resumen, donde puede seleccionar Siguiente.](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
+    :::image type="content" source="./media/data-factory-copy-data-wizard-tutorial/summary-page.png" alt-text="Captura de pantalla que muestra el panel Resumen, donde puede seleccionar Siguiente.":::
 
 ## <a name="launch-monitor-and-manage-application"></a>Inicio de la aplicación de supervisión y administración
 1. En la página **Implementación**, haga clic en el vínculo: `Click here to monitor copy pipeline`.
    
-   ![Herramienta de copia: Implementación correcta](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
+   :::image type="content" source="./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png" alt-text="Herramienta de copia: Implementación correcta":::  
 2. La aplicación de supervisión se inicia en una pestaña independiente del explorador web.   
    
-   ![Aplicación de supervisión](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png)   
+   :::image type="content" source="./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png" alt-text="Aplicación de supervisión":::   
 3. Haga clic en el botón **Actualizar** en la lista **VENTANAS DE ACTIVIDAD** en la parte inferior para ver el estado más reciente en segmentos horarios. Verá cinco ventanas de la actividad de los cinco días entre los tiempos de inicio y finalización para la canalización. La lista no se actualiza automáticamente, por lo que deberá hacer clic en Actualizar un par de veces antes de ver todas las ventanas de actividad en estado Listo. 
 4. Seleccione una ventana de actividad en la lista. Vea los detalles en el **Explorador de ventanas de actividad**, situado a la derecha.
 
-    ![Detalles de ventana de actividad](media/data-factory-copy-data-wizard-tutorial/activity-window-details.png)    
+    :::image type="content" source="media/data-factory-copy-data-wizard-tutorial/activity-window-details.png" alt-text="Detalles de ventana de actividad":::    
 
     Observe que las fechas 11, 12, 13, 14 y 15 están en color verde, lo que significa que los segmentos de salida diarios para estas fechas ya se han producido. También verá este código de color en la canalización y en el conjunto de datos de salida en la vista de diagrama. En el paso anterior, observe que ya se han producido dos segmentos, uno de los segmentos se está procesando y los otros dos están a la espera de ser procesados (según la codificación de color). 
 

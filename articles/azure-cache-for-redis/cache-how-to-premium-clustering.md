@@ -1,17 +1,17 @@
 ---
 title: 'Configuración de la agrupación en clústeres de Redis: Azure Cache for Redis Premium'
 description: Obtener información sobre cómo crear y administrar la agrupación en clústeres de para sus instancias de Azure Cache for Redis de nivel Prémium
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: c4812bb6b352ad57fa07ad766329644ef6af9c57
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: be90a868ca4ef738f0275b06fb49abec761c7a0c
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323577"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538176"
 ---
 # <a name="configure-redis-clustering-for-a-premium-azure-cache-for-redis-instance"></a>Configuración de la agrupación en clústeres de Redis para una instancia de Azure Cache for Redis de nivel prémium
 

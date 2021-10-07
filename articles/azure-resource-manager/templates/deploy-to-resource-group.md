@@ -2,14 +2,14 @@
 title: Implementación de recursos en grupos de recursos
 description: Se describe cómo implementar recursos en una plantilla de Azure Resource Manager. Se muestra cómo seleccionar más de un grupo de recursos como destino.
 ms.topic: conceptual
-ms.date: 09/14/2021
+ms.date: 10/01/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a2378baf84b5c86c16580304c994f012db51c3dc
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 818ace7b20ed1c4a21748c9c734da4bace100523
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128654159"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129390052"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>Implementaciones de grupos de recursos con plantillas de Resource Manager
 
@@ -64,7 +64,7 @@ New-AzResourceGroupDeployment `
   -Name demoRGDeployment `
   -ResourceGroupName ExampleGroup `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json `
-  -storageAccountType Standard_GRS `
+  -storageAccountType Standard_GRS
 ```
 
 ---

@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-nov-2020
 ms.topic: tutorial
-ms.date: 08/26/2021
-ms.openlocfilehash: 4531246124c8ccf75c5af7b364b7079dd687badf
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.date: 09/21/2021
+ms.openlocfilehash: 1d5198365465e07e393aef1c155416a444071385
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123039543"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128578704"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Tutorial: Migración de MongoDB a la API de Azure Cosmos DB para MongoDB en línea mediante DMS
 [!INCLUDE[appliesto-mongodb-api](../cosmos-db/includes/appliesto-mongodb-api.md)]
@@ -65,6 +65,10 @@ Para completar este tutorial, necesita:
 
 * [Realizar los pasos previos a la migración](../cosmos-db/mongodb-pre-migration.md) como son estimar el rendimiento, elegir una clave de partición y seleccionar la directiva de indexación.
 * [Cree una cuenta de la API de Azure Cosmos DB para MongoDB](https://ms.portal.azure.com/#create/Microsoft.DocumentDB) y asegúrese de que esté habilitado[SSR (reintento en el servidor)](../cosmos-db/mongodb/prevent-rate-limiting-errors.md).
+
+  > [!NOTE]
+  > DMS no se admite actualmente si va a migrar a la cuenta de API para MongoDB que se aprovisiona con el modo sin servidor.
+
 * Crear una instancia de Microsoft Azure Virtual Network para Azure Database Migration Service con el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio a los servidores de origen local mediante [ExpressRoute](../expressroute/expressroute-introduction.md) o [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
     > [!NOTE]
@@ -267,7 +271,7 @@ Después de migrar los datos almacenados en la base de datos de MongoDB a la API
 * [Información sobre el servicio Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
 * ¿Intenta planear la capacidad de una migración a Azure Cosmos DB?
     * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../cosmos-db/convert-vcore-to-request-unit.md). 
-    * Si conoce las velocidades de solicitud típicas de la carga de trabajo de la base de datos actual, lea sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](../cosmos-db/mongodb/estimate-ru-capacity-planner.md).
+    * Si conoce las tasas de solicitudes típicas de la carga de trabajo de la base de datos actual, obtenga información sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](../cosmos-db/mongodb/estimate-ru-capacity-planner.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

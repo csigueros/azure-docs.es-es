@@ -4,12 +4,12 @@ ms.service: service-bus-relay
 ms.topic: include
 ms.date: 07/19/2021
 ms.author: spelluru
-ms.openlocfilehash: e4fd2d455a294b247353e4983c379066d704c87a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 43550a98e5df6c58214427a989e290b3c69ab338
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121801459"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129378517"
 ---
 ## <a name="overview"></a>Información general
 Cuando una entidad de seguridad (usuario, grupo o aplicación) intenta acceder a una entidad de Relay, la solicitud debe estar autorizada. Con Azure AD, el acceso a un recurso es un proceso de dos pasos.
@@ -37,5 +37,5 @@ En la lista siguiente se describen los niveles en los que puede definir el ámbi
 - **Suscripción**: la asignación de roles se aplica a todos los recursos de Relay de todos los grupos de recursos de la suscripción.
 
 > [!NOTE]
-> Tenga en cuenta que las asignaciones de roles de Azure pueden tardar hasta cinco minutos en propagarse. Para más información sobre cómo se definen los roles integrados, consulte [Descripción de definiciones de roles](../../role-based-access-control/role-definitions.md#management-and-data-operations). Para más información acerca de la creación de roles personalizados de Azure, consulte [Roles personalizados de Azure](../../role-based-access-control/custom-roles.md). 
+> Tenga en cuenta que las asignaciones de roles de Azure pueden tardar hasta cinco minutos en propagarse. Para más información sobre cómo se definen los roles integrados, consulte [Descripción de definiciones de roles](../../role-based-access-control/role-definitions.md#control-and-data-actions). Para más información acerca de la creación de roles personalizados de Azure, consulte [Roles personalizados de Azure](../../role-based-access-control/custom-roles.md). 
 

@@ -3,12 +3,12 @@ title: Procedimientos para probar paquetes de configuración de invitado persona
 description: La experiencia de creación y realización de pruebas de paquetes que auditan o aplican configuraciones a las máquinas.
 ms.date: 07/20/2021
 ms.topic: how-to
-ms.openlocfilehash: 216cd207033b3bddd4960b85d8943e3842f8041f
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: efa2fbd49509b323cbf0cf442cb0a29bbc51c8b7
+ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129080658"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129418734"
 ---
 # <a name="how-to-test-guest-configuration-package-artifacts"></a>Procedimientos para probar paquetes de configuración de invitado personalizados
 
@@ -35,7 +35,7 @@ Para ejecutar PowerShell como "Root" en Linux, use el [comando su](https://manpa
 
 ## <a name="validate-the-configuration-package-meets-requirements"></a>Validación de que el paquete de configuración cumple los requisitos
 
-En primer lugar, compruebe que el paquete de configuración cumple los requisitos básicos mediante `Get-GuestConfigurationPacakgeComplianceStatus `. El comando comprueba los siguientes requisitos de paquete.
+En primer lugar, compruebe que el paquete de configuración cumple los requisitos básicos mediante `Get-GuestConfigurationPackageComplianceStatus `. El comando comprueba los siguientes requisitos de paquete.
 
 - MOF está presente y es válido en la ubicación correcta.
 - Los módulos o dependencias necesarios están presentes con la versión correcta, sin duplicados.

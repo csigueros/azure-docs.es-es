@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.author: thwimmer
-ms.openlocfilehash: c60f2ccc9325183fdcbc4edc533c7418e36eb6bf
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 34d1d765dbb5f2267c4c56d4dd91daa31f8799a7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113763616"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629889"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>Tutorial: Configuración de Hootsuite para el aprovisionamiento automático de usuarios
 
@@ -45,7 +45,7 @@ En el escenario descrito en este tutorial se supone que ya cuenta con los requis
 
 ## <a name="step-2-configure-hootsuite-to-support-provisioning-with-azure-ad"></a>Paso 2. Configuración de Hootsuite para admitir el aprovisionamiento con Azure AD
 
-Póngase en contacto con dev.support@hootsuite.com para obtener un token secreto de larga duración que será necesario en los pasos posteriores. 
+Llegue al CSM de Hootsuite para obtener el token de larga duración necesario en pasos posteriores.
 
 ## <a name="step-3-add-hootsuite-from-the-azure-ad-application-gallery"></a>Paso 3. Adición de Hootsuite desde la galería de aplicaciones de Azure AD
 

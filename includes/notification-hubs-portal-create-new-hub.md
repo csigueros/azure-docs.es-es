@@ -1,19 +1,19 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: notification-hubs
-author: jwargo
+author: sethmanheim
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 01/17/2019
-ms.author: jowargo
+ms.date: 09/07/2021
+ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: 2ec602f056b339a1b1dcb78d6b8d7583aeaf0434
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9d33df05e54d9cdeb97631ca479dd8ac9869343c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96009124"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "126056470"
 ---
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
@@ -21,19 +21,19 @@ ms.locfileid: "96009124"
 
       ![Azure Portal: selección de Notification Hubs](./media/notification-hubs-portal-create-new-hub/all-services-select-notification-hubs.png)
 
-1. En la página **Notification Hubs**, seleccione **Agregar** en la barra de herramientas.
+1. En la página **Notification Hubs**, seleccione **Crear** en la barra de herramientas.
 
-      ![Notification Hubs: botón Agregar de la barra de herramientas](./media/notification-hubs-portal-create-new-hub/add-toolbar-button.png)
+      ![Notification Hubs: botón Agregar de la barra de herramientas](./media/notification-hubs-portal-create-new-hub/create-toolbar-button.png)
 
-1. En la página **Notification Hubs**, realice los pasos siguientes:
+1. En la pestaña **Básico** de la página **Centro de notificaciones**, siga estos pasos:
 
-    1. Escriba un nombre en el **centro de notificaciones**.  
+    1. En **Suscripción**, seleccione el nombre de la suscripción de Azure que desea usar y, a continuación, seleccione un grupo de recursos existente o cree uno nuevo.  
 
-    1. Escriba un nombre en **Crear un nuevo espacio de nombres**. Un espacio de nombres contiene uno o más centros.
+    1. Escriba un nombre único para el nuevo espacio de nombres en **Detalles del espacio de nombres**. 
+    
+    1. Un espacio de nombres contiene uno o varios centros de notificaciones, por lo que debe escribir un nombre para el centro en **Detalles del centro de notificaciones**. O bien, seleccione un espacio de nombres existente en la lista desplegable.
 
     1. Seleccione un valor en el cuadro de lista desplegable **Ubicación**. Este valor especifica la ubicación en la que quiere crear el centro.
-
-    1. Seleccione un grupo de recursos existente en **Grupo de recursos** o cree un nombre para el nuevo grupo.
 
     1. Seleccione **Crear**.
 

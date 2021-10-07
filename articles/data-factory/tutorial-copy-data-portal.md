@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 07/05/2021
 ms.author: jianleishen
-ms.openlocfilehash: ed91fcaf566e31df2a1c9b57178c2e60d9206ad5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dd7a38070b13cb762bc22e954c47703ef5366b84
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637717"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124805476"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Copia de datos desde Azure Blob Storage hasta una base de datos de Azure SQL Database mediante Azure Data Factory
 
@@ -111,13 +111,13 @@ En este tutorial, comenzará a crear la canalización. A continuación, creará 
 
 1. En la página principal, seleccione **Orchestrate** (Organizar).
 
-   ![Captura de pantalla que muestra la página principal de ADF.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Captura de pantalla que muestra la página principal de ADF.":::
 
 1. En el panel General, en **Propiedades**, especifique **CopyPipeline** en **Nombre**. A continuación, contraiga el panel; para ello, haga clic en el icono Propiedades en la esquina superior derecha.
 
 1. En el cuadro de herramientas **Activities** (Actividades), expanda la categoría **Move and Transform** (Mover y transformar) y arrastre y suelte la actividad **Copy Data** (Copiar datos) desde el cuadro de herramientas hasta la superficie de diseño de la canalización. Especifique **CopyFromBlobToSql** en **Name** (Nombre).
 
-    ![Actividad de copia](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal/drag-drop-copy-activity.png" alt-text="Actividad de copia":::
 
 ### <a name="configure-source"></a>Configuración del origen
 
@@ -141,7 +141,7 @@ En este tutorial, comenzará a crear la canalización. A continuación, creará 
 
 1. Seleccione **Aceptar**. Va automáticamente a la página de canalización. En la pestaña **Source** (Origen), confirme que se selecciona **SourceBlobDataset**. Para obtener una vista previa de los datos de esta página, seleccione **Preview data** (Vista previa de los datos).
 
-    ![Conjunto de datos de origen](./media/tutorial-copy-data-portal/source-dataset-selected.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal/source-dataset-selected.png" alt-text="Conjunto de datos de origen":::
 
 ### <a name="configure-sink"></a>Configuración del receptor
 >[!TIP]
@@ -170,13 +170,13 @@ En este tutorial, comenzará a crear la canalización. A continuación, creará 
 
     g. Seleccione **Create** (Crear) para implementar el servicio vinculado.
 
-    ![Guardar nuevo servicio vinculado](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png" alt-text="Guardar nuevo servicio vinculado":::
 
 1. Va automáticamente al cuadro de diálogo **Set Properties** (Establecer propiedades). En **Table** (Tabla), seleccione **[dbo].[emp]** . Después, seleccione **Aceptar**.
 
 1. Vaya a la pestaña con la canalización y, en **Sink Dataset** (Conjunto de datos del receptor), confirme que se ha seleccionado **OutputSqlDataset**.
 
-    ![Pestaña Pipeline (Canalización)](./media/tutorial-copy-data-portal/pipeline-tab-2.png)       
+    :::image type="content" source="./media/tutorial-copy-data-portal/pipeline-tab-2.png" alt-text="Pestaña Pipeline (Canalización)":::       
 
 Opcionalmente, puede asignar el esquema del origen al correspondiente esquema de destino. Para ello, siga las instrucciones de [Asignación de esquemas en la actividad de copia](copy-activity-schema-and-type-mapping.md).
 
@@ -201,11 +201,11 @@ En este paso, desencadenará manualmente la canalización que publicó en el pas
 
 1. Vaya a la pestaña **Monitor** (Supervisar) de la izquierda. Verá una ejecución de canalización que se desencadena de forma manual. Puede usar los vínculos de la columna **PIPELINE NAME** (Nombre de la canalización) para ver los detalles de la actividad y volver a ejecutar la canalización.
 
-    [![Supervisión de las ejecuciones de canalización](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png)](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png#lightbox)
+    [:::image type="content" source="./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png#lightbox" alt-text="Supervisar ejecuciones de canalización](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png)":::
 
 1. Para ver las ejecuciones de actividad asociadas a la ejecución de la canalización, seleccione el vínculo **CopyPipeline** (Copiar canalización) en la columna **PIPELINE NAME** (Nombre de la canalización). En este ejemplo, solo hay una actividad, así que solo verá una entrada en la lista. Para obtener más información sobre la operación de copia, seleccione el vínculo **Detalles** (icono de gafas) en la columna **ACTIVITY NAME**. Para volver a la vista Ejecuciones de canalización, seleccione **All pipeline runs** (Todas las ejecuciones de canalización) en la parte superior. Para actualizar la vista, seleccione **Refresh** (Actualizar).
 
-    [![Supervisión de las ejecuciones de actividad](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png#lightbox)
+    [:::image type="content" source="./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png#lightbox" alt-text="Supervisar ejecuciones de actividad](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png)":::
 
 1. Compruebe que se agregan dos filas más a la tabla **emp** de la base de datos.
 
@@ -243,7 +243,7 @@ En esta programación, creará un desencadenador de programación para la canali
 
 1. Vaya a la pestaña **Monitor** (Supervisión) de la izquierda para ver las ejecuciones de canalización desencadenadas.
 
-    [![Ejecuciones de canalización desencadenadas](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png#lightbox)
+    [:::image type="content" source="./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png#lightbox" alt-text="Ejecuciones de canalización desencadenadas](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png)":::
 
 1. Para cambiar de la vista **Pipeline Runs** (Ejecuciones de canalización) a la vista **Trigger Runs** (Ejecuciones de desencadenador), seleccione **Trigger Runs** (Ejecuciones de desencadenador) en la parte izquierda de la ventana.
 

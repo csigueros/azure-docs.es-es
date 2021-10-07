@@ -1,23 +1,20 @@
 ---
-title: Comprobación de la preparación del origen de datos a escala (versión preliminar)
+title: Comprobación de la preparación del origen de datos a escala
 description: En este tutorial, comprobará la preparación de los orígenes de datos de Azure antes de registrarlos y examinarlos en Azure Purview.
 author: zeinam
 ms.author: zeinam
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: tutorial
-ms.date: 05/28/2021
-ms.openlocfilehash: d7dc8ab7987f149747df30834f426ce6d119eb5c
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.date: 09/27/2021
+ms.openlocfilehash: 1eaca951a5abe43bda2621043321537cee2daa13
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113105928"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213420"
 ---
-# <a name="tutorial-check-data-source-readiness-at-scale-preview"></a>Tutorial: Comprobación de la preparación del origen de datos a escala (versión preliminar)
-
-> [!IMPORTANT]
-> Azure Purview se encuentra actualmente en versión preliminar. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado con disponibilidad general.
+# <a name="tutorial-check-data-source-readiness-at-scale"></a>Tutorial: Comprobación de la preparación del origen de datos a escala
 
 Para analizar orígenes de datos, Azure Purview necesita acceso a ellos. Usa credenciales para obtener este acceso. Una *credencial* es la información de autenticación que Azure Purview puede usar para autenticarse en los orígenes de datos registrados. Hay varias maneras de configurar las credenciales de Azure Purview, entre las que se incluyen: 
 - Identidad administrada asignada a la cuenta de Azure Purview.
@@ -75,7 +72,7 @@ Siga estos pasos para ejecutar el script desde el equipo Windows:
 
 1. [Descargue el script de lista de comprobación de preparación de orígenes de datos de Azure Purview](https://github.com/Azure/Purview-Samples/tree/master/Data-Source-Readiness) en la ubicación que prefiera.
 
-2. En el equipo, escriba **PowerShell** en el cuadro de búsqueda de la barra de tareas de Windows. En la lista de búsqueda, haga clic con el botón derecho en **Windows PowerShell** y seleccione **Ejecutar como administrador**.
+2. En el equipo, escriba **PowerShell** en el cuadro de búsqueda de la barra de tareas de Windows. En la lista de búsqueda, mantenga presionado (o haga clic con el botón derecho) en **Windows PowerShell** y seleccione **Ejecutar como administrador**.
 
 3. Escriba el comando siguiente en la ventana de PowerShell. (Reemplace `<path-to-script>` por la ruta de acceso del archivo de script extraído).
 

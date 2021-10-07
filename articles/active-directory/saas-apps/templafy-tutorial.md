@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/03/2021
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 4a392ab735368b9850397e1e921590f898d273c1
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 198d11d85cacb984808db5449524812a151d82b7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111557493"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124821304"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-templafy-saml2"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Templafy SAML2
 
@@ -39,6 +39,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Templafy SAML2 admite el SSO iniciado por **SP**.
 * Templafy SAML2 admite el aprovisionamiento de usuarios **Just-In-Time**.
+* Templafy SAML2 admite el [aprovisionamiento automatizado de usuarios](templafy-saml-2-provisioning-tutorial.md).
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
@@ -144,6 +145,8 @@ Para configurar el inicio de sesión único en **Templafy SAML2**, tiene que env
 
 En esta sección, se crea un usuario llamado B.Simon en Templafy SAML2. Templafy SAML2 admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario deja de existir en Templafy SAML2, se crea otro después de la autenticación.
 
+Templafy SAML2 también admite el aprovisionamiento automático de usuarios. [Aquí](./templafy-saml-2-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
@@ -152,7 +155,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Vaya directamente a la dirección URL de inicio de sesión de Templafy SAML2 e inicie el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Templafy SAML2 en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de dicha aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Templafy SAML2 en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de dicha aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

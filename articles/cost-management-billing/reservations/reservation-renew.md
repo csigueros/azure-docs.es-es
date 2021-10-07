@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 08/20/2021
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 3b6f6a0700915263187f4f31b60a4d2d8b72d9fd
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: dbeb1a776aa5d813806cec6622e1ad1e515ccfc5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634207"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128623691"
 ---
 # <a name="automatically-renew-reservations"></a>Renovación automática de reservas
 
@@ -44,7 +44,7 @@ Para renovar una reserva es preciso que cumplir las siguientes condiciones:
 
 - Debe ser el propietario de la reserva existente.
 - Debe ser propietario de la suscripción si la reserva está en el ámbito de una suscripción individual o de un grupo de recursos.
-- Debe ser el propietario de la suscripción si tiene un ámbito compartido.
+- Debe ser el propietario de la suscripción si tiene un ámbito compartido o de grupo de administración.
 
 ## <a name="default-renewal-settings"></a>Configuración predeterminada de la renovación
 

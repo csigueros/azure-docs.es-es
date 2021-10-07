@@ -7,12 +7,13 @@ ms.author: baanders
 ms.date: 8/25/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: bfcaa516485b5ab1320db859f00a6f1709b7ef79
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 792ddf3f3ca57b16112de78a6ecf2c2d887494ef
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224881"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129535852"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Descripción de los modelos gemelos de Azure Digital Twins
 
@@ -114,7 +115,7 @@ También puede publicar un evento de telemetría desde la API de Azure Digital T
 
 ### <a name="schema"></a>Schema
 
-Según DTDL, el esquema de los atributos **propiedad** y **telemetría** puede ser de tipos primitivos estándar (`integer`, `double`, `string` y `Boolean`) y de otros tipos como `DateTime` y `Duration`. 
+Según DTDL, el esquema de los atributos **propiedad** y **telemetría** puede ser de tipos primitivos estándar (`integer`, `double`, `string` y `boolean`) y de otros tipos como `dateTime` y `duration`. 
 
 Además de los tipos primitivos, los campos de propiedad y telemetría pueden tener estos [tipos complejos](#complex-object-type-example):
 * `Object`

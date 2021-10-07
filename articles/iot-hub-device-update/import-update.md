@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 4/19/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 790d363a3bd0e961b184cc2511c39833f0eac3d7
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: f616fee894c1eb436770cdafbab7b60d7a1417db
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122253979"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537146"
 ---
 # <a name="add-an-update-to-device-update-for-iot-hub"></a>Adición de una actualización a Device Update for IoT Hub
 Aprenda a agregar una nueva actualización en Device Update for IoT Hub.
@@ -162,18 +162,15 @@ A continuación se muestra una salida del manifiesto de ejemplo. Si tiene alguna
 
    :::image type="content" source="media/import-update/update-ready.png" alt-text="Estado del trabajo" lightbox="media/import-update/update-ready.png":::
 
-## <a name="if-youre-importing-via-apis-instead"></a>Si en su lugar va a importar a través de las API
-
-Si acaba de seguir los pasos anteriores para importar a través de Azure Portal, vaya a Pasos siguientes a continuación.
-
-Si quiere usar las [API de actualización de Device Update for IoT Hub](/rest/api/deviceupdate/updates) para importar una actualización en lugar de importarla a través de Azure Portal, tenga en cuenta lo siguiente:
-  - Tendrá que cargar los archivos de actualización en una ubicación de Azure Blob Storage antes de llamar a las API de actualización.
-  - Puede hacer referencia a esta [llamada API de ejemplo](import-schema.md#example-import-request-body) que usa el manifiesto de importación que creó anteriormente.
-  - Si vuelve a usar la misma dirección URL de SAS durante las pruebas, puede que se produzcan errores cuando expire el token. Esto sucede cuando se envía el manifiesto de importación, así como el propio contenido de actualización.
-
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Creación de grupos](create-update-group.md)
 
 [Información sobre los conceptos de la importación](import-concepts.md)
+
+## <a name="if-youre-importing-via-apis-instead"></a>Si en su lugar va a importar a través de las API
+
+Si quiere usar las [API de actualización de Device Update for IoT Hub](/rest/api/deviceupdate/updates) para importar una actualización en lugar de importarla a través de Azure Portal, tenga en cuenta lo siguiente:
+  - Tendrá que cargar los archivos de actualización en una ubicación de Azure Blob Storage antes de llamar a las API de actualización.
+  - Puede hacer referencia a esta [llamada API de ejemplo](import-schema.md#example-import-request-body) que usa el manifiesto de importación que creó anteriormente.
+  - Si vuelve a usar la misma dirección URL de SAS durante las pruebas, puede que se produzcan errores cuando expire el token. Esto sucede cuando se envía el manifiesto de importación, así como el propio contenido de actualización.

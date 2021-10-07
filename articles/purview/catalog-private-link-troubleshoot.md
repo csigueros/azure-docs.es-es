@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 073b4bf8c1be14aa26141e20d5f6d6f4abdf9ff1
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: c077eb0c1639089fcc7196693a617e32c01d9a9a
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/29/2021
-ms.locfileid: "129208801"
+ms.locfileid: "129230463"
 ---
 # <a name="troubleshooting-private-endpoint-configuration-for-purview-accounts"></a>Solución de problemas de configuración de punto de conexión privado de cuentas de Purview
 

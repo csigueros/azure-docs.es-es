@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 08/24/2021
-ms.openlocfilehash: 9bb3bdc7254fb3f9da62936df6429d8cba6b3bd5
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: f9dacea4d80591b6ec5b83ae93564cd8b03aff9c
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450077"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212463"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en Azure Portal
 
@@ -200,7 +200,7 @@ Los filtros de faceta se incluyen en las solicitudes de búsqueda. Puede usar el
 
 + Solo los campos que se pueden filtrar se pueden clasificar. Solo se pueden devolver en los resultados campos recuperables.
 
-+ El campo *Rating* es un número de punto flotante de doble precisión y la agrupación será por valor preciso. Para más información sobre la agrupación por intervalo (por ejemplo, "clasificaciones de 3 estrellas", "clasificaciones de 4 estrellas", etc.), consulte [Procedimiento para implementar la navegación por facetas en Azure Cognitive Search](./search-faceted-navigation.md#filter-based-on-a-range).
++ El campo *Rating* es un número de punto flotante de doble precisión y la agrupación será por valor preciso. Para más información sobre la agrupación por intervalo (por ejemplo, "clasificaciones de 3 estrellas", "clasificaciones de 4 estrellas", etc.), consulte ["Parámetros de consulta" en la API REST](/rest/api/searchservice/search-documents#query-parameters).
 
 ### <a name="highlight-search-results"></a><a name="highlight-query"></a> Resaltado de los resultados de la búsqueda
 

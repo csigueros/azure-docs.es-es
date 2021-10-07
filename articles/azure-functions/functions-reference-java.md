@@ -4,12 +4,12 @@ description: Aprenda a desarrollar funciones con Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: fc827c8c03edecbdb10769f7830806ff01596bd1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d03a4121394141b7b39ae441d7eb3cf653a0b374
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121742641"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232154"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guía de Azure Functions para desarrolladores de Java
 
@@ -187,7 +187,7 @@ Maven también le permite especificar el sistema operativo en el que se ejecuta 
 
 | Elemento |  Windows | Linux | Docker |
 | ---- | ---- | ---- | --- |
-| **`os`** | Windows | Linux | docker |
+| **`os`** | `windows` | `linux` | `docker` |
 
 En el ejemplo siguiente se muestra la configuración del sistema operativo en la sección `runtime` del archivo pom.xml:
 
@@ -214,7 +214,7 @@ Puede proporcionar argumentos adicionales en una configuración de la aplicació
 > [!IMPORTANT]  
 > En el plan de consumo, también debe agregar el valor WEBSITE_USE_PLACEHOLDER con un valor de 0 para que funcione la personalización. Esta configuración aumenta los tiempos de arranque en frío de las funciones Java.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 En [Azure Portal](https://portal.azure.com), utilice la pestaña [Configuración de la aplicación](functions-how-to-use-azure-function-app-settings.md#settings) para agregar la configuración `JAVA_OPTS`.
 

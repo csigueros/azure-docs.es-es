@@ -4,12 +4,12 @@ description: En este artículo se incluyen las notas de la versión del agente d
 ms.topic: overview
 ms.date: 09/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: d4008a41629ac2e71e1abdb91e30f2d6b9350538
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 027d682a6f9727edb7ce39ac1eeea9947b2e4957
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123431611"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128628541"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Novedades del agente de servidores habilitados para Azure Arc
 
@@ -20,6 +20,16 @@ El agente de Connected Machine de los servidores habilitados para Azure Arc se m
 - Corrección de errores
 
 Esta página se actualiza mensualmente, por lo que se recomienda visitarla con frecuencia. Si busca elementos que tengan más de seis meses de antigüedad, puede encontrarlos en el [archivo de novedades del agente de servidores habilitados para Azure Arc](agent-release-notes-archive.md).
+
+## <a name="september-2021"></a>Septiembre de 2021
+
+Versión 1.11
+
+### <a name="fixed"></a>Fijo
+
+- El agente ahora se puede instalar en sistemas de Windows con los [objetos System: Requerir que no haya mayúsculas de minúsculas para la directiva de subsistemas no de Windows](/windows/security/threat-protection/security-policy-settings/system-objects-require-case-insensitivity-for-non-windows-subsystems) establecida en Deshabilitado.
+- El agente de directiva de configuración de invitado ahora volverá a intentarlo automáticamente si se produce un error durante los eventos de inicio o reinicio del servicio.
+- Se ha corregido un problema que impedía que las directivas de auditoría de configuración de invitado se ejecutaran correctamente en máquinas Linux.
 
 ## <a name="august-2021"></a>Agosto de 2021
 
@@ -81,19 +91,8 @@ Version 1.6
    - Compatibilidad adicional con la firma de V2 para la validación de extensiones.
    - Actualización secundaria para el registro de datos.
 
-## <a name="april-2021"></a>Abril de 2021
-
-Versión 1.5
-
-### <a name="new-features"></a>Nuevas características
-
-- Se ha agregado compatibilidad con Red Hat Enterprise Linux 8 y CentOS Linux 8.
-- Nuevo parámetro `-useStderr` para dirigir la salida de error y detallada a stderr.
-- El nuevo parámetro `-json` para dirigir la salida da lugar al formato JSON (cuando se usa con -useStderr).
-- Recopile otros metadatos de instancia: fabricante, modelo y el identificador de recurso del clúster (para nodos de Azure Stack HCI).
- 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Antes de evaluar o habilitar los servidores habilitados para Arc en varias máquinas híbridas, consulte la [introducción al agente de Connected Machine](agent-overview.md) para conocer los requisitos y detalles técnicos del agente y los métodos de implementación.
+- Antes de evaluar o habilitar los servidores habilitados para Azure Arc en varias máquinas híbridas, consulte la [introducción al agente de Connected Machine](agent-overview.md) para conocer los requisitos y detalles técnicos del agente y los métodos de implementación.
 
 - Examine la [guía de planeamiento e implementación](plan-at-scale-deployment.md) para planear la implementación de servidores habilitados para Azure Arc a cualquier escala e implementar la administración y supervisión centralizadas.

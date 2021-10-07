@@ -1,19 +1,19 @@
 ---
-title: 'Tutorial: uso de Acciones de GitHub para implementar en App Service para Containers y conectarse a una base de datos'
+title: 'Tutorial: Uso de Acciones de GitHub para implementar en un contenedor personalizado de App Service y conectarse a una base de datos'
 description: Aprenda a implementar una aplicación principal de ASP.NET en Azure y en Azure SQL Database con Acciones de GitHub
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/22/2021
 ms.author: jukullam
 ms.custom: github-actions-azure
-ms.openlocfilehash: f8048dab26451fea85b52caa3ffdc27d7e0a677a
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 24001d71721f2e3ee243248705ed8d4b64571c83
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111894153"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128675409"
 ---
-# <a name="tutorial-use-github-actions-to-deploy-to-app-service-for-containers-and-connect-to-a-database"></a>Tutorial: uso de Acciones de GitHub para implementar en App Service para Containers y conectarse a una base de datos
+# <a name="tutorial-use-github-actions-to-deploy-to-an-app-service-custom-container-and-connect-to-a-database"></a>Tutorial: Uso de Acciones de GitHub para implementar en un contenedor personalizado de App Service y conectarse a una base de datos
 
 En este tutorial le guiaremos a través de la configuración de un flujo de trabajo de Acciones de GitHub para implementar una aplicación ASP.NET Core en contenedores con un back-end de [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md). Cuando haya terminado, tendrá una aplicación ASP.NET en ejecución en Azure y conectada a SQL Database. En primer lugar, deberá crear los recursos de Azure con una [plantilla de ARM](../azure-resource-manager/templates/overview.md) del flujo de trabajo de Acciones de GitHub.
 

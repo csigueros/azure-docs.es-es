@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 12/22/2020
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0ede006b48646e9ddb0fd6b6a8f36cf5e9697fbf
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: b4e96045ec49a337d317583826cb3f50c6161f39
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122397323"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129276064"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Administración de conexiones en Azure Automation
 
@@ -39,7 +39,7 @@ En la mayoría de los casos no es necesario crear un recurso de conexión, ya qu
 
 ## <a name="powershell-cmdlets-to-access-connections"></a>Cmdlets de PowerShell para acceder a las conexiones
 
-Los cmdlets de la tabla siguiente permiten crear y administrar conexiones de Automation con PowerShell. Se suministran como un componente de los [módulos Az](shared-resources/modules.md#az-modules).
+Los cmdlets de la tabla siguiente permiten crear y administrar conexiones de Automation con PowerShell. Se suministran como un componente de los módulos Az.
 
 |Cmdlet|Descripción|
 |---|---|

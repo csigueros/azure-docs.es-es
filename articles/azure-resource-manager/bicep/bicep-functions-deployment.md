@@ -4,22 +4,17 @@ description: Describe las funciones que se usarán en un archivo de Bicep para r
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 53e9f34e2d04f68add7babd8c12b4fd583015847
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.date: 09/10/2021
+ms.openlocfilehash: e909ea77da32675beec6d5117430717acf274ab1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111027117"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124731098"
 ---
 # <a name="deployment-functions-for-bicep"></a>Funciones de implementación para Bicep
 
-Resource Manager proporciona las funciones siguientes para obtener los valores relacionados con la implementación actual del archivo de Bicep:
-
-* [deployment](#deployment)
-* [environment](#environment)
-
-Para obtener valores de recursos, grupos de recursos o suscripciones, consulte [Funciones de recursos](./bicep-functions-resource.md).
+En este artículo se describen las funciones de Bicep para obtener valores relacionados con la implementación actual.
 
 ## <a name="deployment"></a>implementación
 
@@ -200,4 +195,4 @@ En el ejemplo anterior se devuelve el objeto siguiente cuando se implementa en A
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Puede encontrar una descripción de las secciones de un archivo de Bicep en [Nociones sobre la estructura y la sintaxis de los archivos de Bicep](./file.md).
+* Para obtener valores de recursos, grupos de recursos o suscripciones, consulte [Funciones de recursos](./bicep-functions-resource.md).

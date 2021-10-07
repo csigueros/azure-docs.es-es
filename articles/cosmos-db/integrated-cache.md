@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/26/2021
+ms.date: 09/20/2021
 ms.author: tisande
-ms.openlocfilehash: 29a97d3f68d9b097bfe5c67f0b5832271fa983e1
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 39b385096fadb5d410520889c0aa8f1a07f1a67a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123031155"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128616562"
 ---
 # <a name="azure-cosmos-db-integrated-cache---overview-preview"></a>Caché integrada de Azure Cosmos DB: información general (versión preliminar)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -88,13 +88,17 @@ La caché de consulta almacenará en caché automáticamente los tokens de conti
 
 ## <a name="integrated-cache-consistency"></a>Coherencia de la caché integrada
 
-La caché integrada solo admite la [coherencia](consistency-levels.md) final. Si una lectura tiene un prefijo coherente, una sesión, obsolescencia limitada o coherencia fuerte, siempre omitirá la caché integrada.
+La caché integrada solo admite la [coherencia](consistency-levels.md) posible y de sesión. Si una lectura tiene un prefijo coherente, obsolescencia limitada o coherencia alta, siempre omitirá la caché integrada.
 
-La manera más fácil de configurar la coherencia final para todas las lecturas es [establecerla en el nivel de cuenta](consistency-levels.md#configure-the-default-consistency-level). Sin embargo, si solo desea que algunas de las lecturas tengan coherencia final, también puede configurar la coherencia en el [nivel de solicitud](how-to-manage-consistency.md#override-the-default-consistency-level).
+La manera más fácil de configurar la coherencia posible o de sesión para todas las lecturas consiste en [establecerla en el nivel de cuenta](consistency-levels.md#configure-the-default-consistency-level). Sin embargo, si solo desea que algunas de las lecturas tengan coherencia final, también puede configurar la coherencia en el [nivel de solicitud](how-to-manage-consistency.md#override-the-default-consistency-level).
+
+### <a name="session-consistency"></a>Coherencia de sesión
+
+La [coherencia de sesión](consistency-levels.md#session-consistency) es el nivel de coherencia más usado para regiones únicas, así como para cuentas de Azure Cosmos DB distribuidas globalmente. Al usar la coherencia de sesión, las sesiones de cliente único pueden leer sus propias escrituras. Al usar la caché integrada, los clientes que están fuera de la sesión que realiza escrituras verán la coherencia posible.
 
 ## <a name="maxintegratedcachestaleness"></a>MaxIntegratedCacheStaleness
 
-`MaxIntegratedCacheStaleness` es el máximo estancamiento aceptable para las lecturas y consultas puntuales almacenadas en caché. `MaxIntegratedCacheStaleness` se puede configurar en el nivel de solicitud. Por ejemplo, si establece un `MaxIntegratedCacheStaleness` de 2 horas, la solicitud solo devolverá datos en caché si los datos tienen menos de 2 horas de antigüedad. Para aumentar la probabilidad de que las lecturas repetidas utilicen la caché integrada, debe establecer el `MaxIntegratedCacheStaleness` a la altura máxima que permitan los requisitos empresariales.
+`MaxIntegratedCacheStaleness` es la mayor obsolescencia aceptable para las lecturas y consultas de punto en caché, independientemente de la coherencia seleccionada. `MaxIntegratedCacheStaleness` se puede configurar en el nivel de solicitud. Por ejemplo, si establece un `MaxIntegratedCacheStaleness` de 2 horas, la solicitud solo devolverá datos en caché si los datos tienen menos de 2 horas de antigüedad. Para aumentar la probabilidad de que las lecturas repetidas utilicen la caché integrada, debe establecer el `MaxIntegratedCacheStaleness` a la altura máxima que permitan los requisitos empresariales.
 
 Es importante saber que `MaxIntegratedCacheStaleness`, cuando se configura en una solicitud que acaba rellenando la caché, no afecta al tiempo que esa solicitud se almacenará en caché. `MaxIntegratedCacheStaleness` aplica coherencia al intentar usar datos en caché. No hay ningún valor de retención de caché o TTL global, por lo que los datos solo se expulsarán de la caché si la caché integrada está llena o se ejecuta una nueva lectura con una `MaxIntegratedCacheStaleness` inferior a la antigüedad de la entrada almacenada en caché actual.
 
@@ -109,7 +113,7 @@ Se trata de una mejora con respecto al funcionamiento de la mayoría de las memo
 
 Para conocer mejor el parámetro `MaxIntegratedCacheStaleness`, considere el ejemplo siguiente:
 
-| Hora       | Solicitud                                         | Response                                                     |
+| Time       | Solicitud                                         | Response                                                     |
 | ---------- | ----------------------------------------------- | ------------------------------------------------------------ |
 | t = 0 s  | Ejecutar Consulta A con MaxIntegratedCacheStaleness = 30 segundos | Devolver resultados de una base de datos de back-end (cargos de RU normales) y llenar la caché     |
 | t = 0 s  | Ejecutar Consulta B con MaxIntegratedCacheStaleness = 60 segundos | Devolver resultados de una base de datos de back-end (cargos de RU normales) y llenar la caché     |
@@ -154,7 +158,7 @@ Active `DedicatedGatewayRequests`. Esta métrica incluye todas las solicitudes q
 
 ### <a name="i-cant-tell-if-my-requests-are-hitting-the-integrated-cache"></a>No sé si mis solicitudes alcanzan la memoria caché integrada
 
-Compruebe `IntegratedCacheItemHitRate` y `IntegratedCacheQueryHitRate`. Si ambos valores son cero, las solicitudes no alcanzan la caché integrada. Compruebe que usa la cadena de conexión de puerta de enlace dedicada, que [se conecta con el modo de puerta de enlace](sql-sdk-connection-modes.md) y que [ha establecido la coherencia final](consistency-levels.md#configure-the-default-consistency-level).
+Compruebe `IntegratedCacheItemHitRate` y `IntegratedCacheQueryHitRate`. Si ambos valores son cero, las solicitudes no alcanzan la caché integrada. Compruebe que usa la cadena de conexión de puerta de enlace dedicada, que [se conecta con el modo de puerta de enlace](sql-sdk-connection-modes.md) y que [ha establecido la coherencia de sesión o posible](consistency-levels.md#configure-the-default-consistency-level).
 
 ### <a name="i-want-to-understand-if-my-dedicated-gateway-is-too-small"></a>Quiero saber si mi puerta de enlace dedicada es demasiado pequeña
 
@@ -177,6 +181,6 @@ En algunos casos, si la latencia es inesperadamente alta, puede que necesite má
 - [Preguntas más frecuentes sobre caché integrada](integrated-cache-faq.md)
 - [Configuración de la memoria caché integrada](how-to-configure-integrated-cache.md)
 - [Puerta de enlace dedicada](dedicated-gateway.md)
-- ¿Intenta planear la capacidad para una migración a Azure Cosmos DB? Puede usar información sobre el clúster de bases de datos existente para planear la capacidad.
+- ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Para ello, puede usar información sobre el clúster de bases de datos existente.
     - Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
-    - Si conoce las velocidades de solicitud típicas de la carga de trabajo de la base de datos actual, lea sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).
+    - Si conoce las velocidades de solicitud típicas de la carga de trabajo de base de datos actual, lea sobre el [cálculo de las unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).

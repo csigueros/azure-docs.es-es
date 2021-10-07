@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: 'Use Azure Machine Learning de forma segura: autenticación, autorización, seguridad de red, cifrado de datos y supervisión.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: conceptual
-ms.author: jmartens
+ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 06/02/2021
-ms.openlocfilehash: 27bd8124c0b78d1fecd1f7027104c3b5c9b8a8a1
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.date: 09/22/2021
+ms.openlocfilehash: 5a6ee4c0e1a73642323dab67efbfc4b0efe1f1aa
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111541511"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129426970"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Seguridad de empresa y gobernanza para Azure Machine Learning
 
@@ -115,6 +115,7 @@ Al implementar modelos como servicios web, puede habilitar la seguridad de la ca
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* [Procedimientos recomendados de Azure Machine Learning para la seguridad empresarial](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security)
 * [Protección de los servicios web Azure Machine Learning con TLS](how-to-secure-web-service.md)
 * [Consumir un modelo de Machine Learning implementado como un servicio web](how-to-consume-web-service.md)
 * [Uso de Azure Machine Learning con Azure Firewall](how-to-access-azureml-behind-firewall.md)

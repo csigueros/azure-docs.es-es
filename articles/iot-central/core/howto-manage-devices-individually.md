@@ -3,17 +3,17 @@ title: Administración individual de dispositivos en una aplicación de Azure Io
 description: Aprenda a administrar dispositivos de manera individual en la aplicación de Azure IoT Central. Cree, elimine y actualice dispositivos.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/08/2021
+ms.date: 08/20/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 22d433a874e1fc53d8b034c3efe1eb2837df485c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 0ca2190bf5994edec56dce638d7361d90d2da2de
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114442610"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124810634"
 ---
 # <a name="manage-individual-devices-in-your-azure-iot-central-application"></a>Administración de dispositivos individuales en la aplicación de Azure IoT Central
 
@@ -29,13 +29,16 @@ Para obtener información sobre cómo administrar grupos personalizados de dispo
 
 Para ver un dispositivo determinado:
 
-1. Elija **Dispositivos** en el panel izquierdo. Verá una lista con todos los dispositivos y sus plantillas de dispositivo.
+1. Elija **Dispositivos** en el panel izquierdo. Aquí puede ver una lista de las plantillas de dispositivo y una lista de todos los dispositivos a los que puede acceder su organización.
 
 1. Elija una plantilla.
 
-1. En el panel derecho de la página **Devices** (Dispositivos), verá una lista de los dispositivos creados con esa plantilla. Elija un dispositivo para ver la página de detalles de ese dispositivo:
+1. En el panel derecho de la página **Dispositivos**, verá una lista de los dispositivos creados con esa plantilla a los que puede acceder su organización. Elija un dispositivo para ver la página de detalles de ese dispositivo:
 
     :::image type="content" source="media/howto-manage-devices-individually/device-list.png" alt-text="Captura de pantalla que muestra la lista de dispositivos.":::
+
+    > [!TIP]
+    > Puede usar la herramienta de filtro de esta página para ver los dispositivos de una organización específica.
 
 ## <a name="add-a-device"></a>Agregar un dispositivo
 
@@ -51,9 +54,30 @@ Para agregar un dispositivo real a una aplicación de Azure IoT Central:
 
 1. Cambie el botón de alternancia **Simulated** **On** (Activado) u **Off** (Desactivado). Un dispositivo real hace referencia a un dispositivo físico que se conecta a la aplicación de Azure IoT Central. Un dispositivo simulado tiene datos de ejemplo generados por Azure IoT Central, que los pone a su disposición.
 
+1. Si la aplicación usa organizaciones, elija la organización a la que pertenece el dispositivo.
+
+    > [!TIP]
+    > Puede establecer una [organización predeterminada](howto-create-organizations.md#default-organization) para que aparezca en la lista desplegable de la organización.
+
 1. Seleccione **Crear**.
 
 1. El dispositivo aparece ahora en la lista de dispositivos de esta plantilla. Selecciónelo para ver su página de detalles, que contiene todas las vistas del dispositivo.
+
+## <a name="change-organization"></a>Cambio de organización
+
+Para trasladar un dispositivo a otra organización, debe tener acceso a las organizaciones de origen y de destino. Para trasladar un dispositivo:
+
+1. Elija **Dispositivos** en el panel izquierdo.
+
+1. Seleccione el dispositivo que se trasladará en la lista de dispositivos.
+
+1. Seleccione **Organización**.
+
+1. Seleccione la nueva organización para el dispositivo:
+
+    :::image type="content" source="media/howto-manage-devices-individually/change-device-organization.png" alt-text="Captura de pantalla en la que se muestra cómo trasladar un dispositivo a una nueva organización.":::
+
+1. Seleccione **Guardar**.
 
 ## <a name="migrate-devices-to-a-template"></a>Migración de dispositivos a una plantilla
 

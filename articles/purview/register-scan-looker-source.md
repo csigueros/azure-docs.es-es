@@ -4,17 +4,17 @@ description: En este artículo se describe cómo registrar un origen de Looker e
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 7/16/2021
-ms.openlocfilehash: ed524382bf1fcc0c93fc61dd1c0450d69a16b74c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 1f39a1d261b4c8ed4223d66ebb34c94be7310b2e
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749413"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214792"
 ---
-# <a name="register-and-scan-lookerpreview"></a>Registro y análisis de Looker (versión preliminar)
+# <a name="register-and-scan-looker-preview"></a>Registro y examen de Looker (versión preliminar)
 
 En este artículo se describe cómo registrar un servidor de Looker en Purview y cómo configurar un análisis.
 
@@ -67,7 +67,7 @@ En la pantalla Register sources (Registrar orígenes) (Looker), haga lo siguient
 
 Para crear y ejecutar un nuevo examen, siga estos pasos:
 
-1. En el centro de administración, haga clic en Integration runtimes (Entornos de ejecución de integración). Si no lo está, use los pasos que se indican [aquí](./manage-integration-runtimes.md) para configurar un entorno de ejecución de integración autohospedado.
+1. En el centro de administración, seleccione Entornos de ejecución de integración. Si no lo está, use los pasos que se indican [aquí](./manage-integration-runtimes.md) para configurar un entorno de ejecución de integración autohospedado.
 
 2. Vaya a **Sources** (Orígenes).
 
@@ -89,7 +89,7 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
     - Proporcione el id. de cliente de la clave API3 de Looker en el campo Nombre de usuario.
     - Guarde el secreto de cliente de la clave API3 de Looker en el secreto del almacén de claves.
 
-    **Nota:** Para acceder al id. de cliente y al secreto de cliente, vaya a Looker -\>Administrador -\> Usuarios -\> Haga clic en **Editar** en un usuario -\> Haga clic en **Editar claves** -\> Use el id. de cliente y el secreto de cliente o cree uno nuevo.
+    **Nota:** Para acceder al id. de cliente y al secreto de cliente, vaya a Looker -\>Administrador -\> Usuarios -\> Seleccione **Editar** en un usuario -\> Seleccione **Editar claves** -\> Use el id. de cliente y el secreto de cliente o cree uno nuevo.
     :::image type="content" source="media/register-scan-looker-source/looker-details.png" alt-text="obtener detalles de Looker" border="true":::
     
 
@@ -101,13 +101,13 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
 
     :::image type="content" source="media/register-scan-looker-source/setup-scan.png" alt-text="Desencadenar examen" border="true":::
 
-6. Haga clic en **Probar la conexión**.
+6. Seleccione **Test Connection** (Probar conexión).
 
-7. Haga clic en **Continuar**.
+7. Seleccione **Continuar**.
 
 8. Elija el **desencadenador del examen**. Puede configurar una programación o ejecutar el examen una vez.
 
-9. Revise el examen y haga clic en **Save and run** (Guardar y ejecutar).
+9. Revise el examen y seleccione **Save and run** (Guardar y ejecutar).
 
 ## <a name="viewing-your-scans-and-scan-runs"></a>Visualización de los exámenes y las ejecuciones de exámenes
 

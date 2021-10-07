@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/24/2021
-ms.openlocfilehash: 9be8ef1772da6259441a8de4c85fa44d54945c7d
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 09/09/2021
+ms.openlocfilehash: c9cedace5f4755e22c4f08ecdde0d3f6fb8fa52f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122821820"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128663219"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Características de optimización del rendimiento de la actividad de copia
 
@@ -32,8 +32,8 @@ El número permitido de DIU para impulsar la ejecución de una actividad de copi
 |:--- |:--- |---- |
 | Entre almacenes de archivos |- **Copia desde o hacia un solo archivo**: entre 2 y 4 <br>- **Copia desde y hacia varios archivos**: entre 2 y 256, según el número y tamaño de los archivos <br><br>Por ejemplo, si copia datos de una carpeta con 4 archivos grandes y decide conservar la jerarquía, el número máximo efectivo de DIU es 16; si decide combinar archivos, el número máximo efectivo de DIU es 4. |Entre 4 y 32, según el número y tamaño de los archivos |
 | Del almacén de archivos a un almacén que no es de archivos |- **Copia desde un solo archivo**: entre 2 y 4 <br/>- **Copia desde varios archivos**: entre 2 y 256, según el número y tamaño de los archivos <br/><br/>Por ejemplo, si copia datos de una carpeta con 4 archivos grandes, el número máximo efectivo de DIU es 16. |- **Copia en Azure SQL Database o Azure Cosmos DB**: entre 4 y 16, según el nivel de receptor (DTU o RU) y el patrón del archivo de origen<br>- **Copia en Azure Synapse Analytics** mediante PolyBase o la instrucción COPY: 2<br>- Otro escenario: 4 |
-| De un almacén que no es de archivos al almacén de archivos |- **Copia desde almacenes de datos habilitados con la opción de partición** (incluidos [Azure SQL Database](connector-azure-sql-database.md#azure-sql-database-as-the-source), [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md#sql-managed-instance-as-a-source), [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#azure-synapse-analytics-as-the-source), [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [SQL Server](connector-sql-server.md#sql-server-as-a-source) y [Teradata](connector-teradata.md#teradata-as-source)): entre 2 y 256 cuando se escribe en una carpeta y entre 2 y 4 cuando se escribe en un solo archivo. Tenga en cuenta que se puede usar un máximo de 4 DIU por partición de datos de origen.<br>- **Otros escenarios**: entre 2 y 4 |- **Copia desde REST o HTTP**: 1<br/>- **Copia desde Amazon Redshift** mediante UNLOAD: 2<br>- **Otro escenario**: 4 |
-| Entre almacenes que no son de archivos |- **Copia desde almacenes de datos habilitados con la opción de partición** (incluidos [Azure SQL Database](connector-azure-sql-database.md#azure-sql-database-as-the-source), [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md#sql-managed-instance-as-a-source), [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#azure-synapse-analytics-as-the-source), [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [SQL Server](connector-sql-server.md#sql-server-as-a-source) y [Teradata](connector-teradata.md#teradata-as-source)): entre 2 y 256 cuando se escribe en una carpeta y entre 2 y 4 cuando se escribe en un solo archivo. Tenga en cuenta que se puede usar un máximo de 4 DIU por partición de datos de origen.<br/>- **Otros escenarios**: entre 2 y 4 |- **Copia desde REST o HTTP**: 1<br>- **Otro escenario**: 4 |
+| De un almacén que no es de archivos al almacén de archivos |- **Copia desde almacenes de datos habilitados con la opción de partición** (incluidos [Azure Database for PostgreSQL](connector-azure-database-for-postgresql.md#azure-database-for-postgresql-as-source), [Azure SQL Database](connector-azure-sql-database.md#azure-sql-database-as-the-source), [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md#sql-managed-instance-as-a-source), [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#azure-synapse-analytics-as-the-source), [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [SQL Server](connector-sql-server.md#sql-server-as-a-source) y [Teradata](connector-teradata.md#teradata-as-source)): entre 2 y 256 cuando se escribe en una carpeta, y entre 2 y 4 cuando se escribe en un solo archivo. Tenga en cuenta que se puede usar un máximo de 4 DIU por partición de datos de origen.<br>- **Otros escenarios**: entre 2 y 4 |- **Copia desde REST o HTTP**: 1<br/>- **Copia desde Amazon Redshift** mediante UNLOAD: 2<br>- **Otro escenario**: 4 |
+| Entre almacenes que no son de archivos |- **Copia desde almacenes de datos habilitados con la opción de partición** (incluidos [Azure Database for PostgreSQL](connector-azure-database-for-postgresql.md#azure-database-for-postgresql-as-source), [Azure SQL Database](connector-azure-sql-database.md#azure-sql-database-as-the-source), [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md#sql-managed-instance-as-a-source), [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#azure-synapse-analytics-as-the-source), [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [SQL Server](connector-sql-server.md#sql-server-as-a-source) y [Teradata](connector-teradata.md#teradata-as-source)): entre 2 y 256 cuando se escribe en una carpeta, y entre 2 y 4 cuando se escribe en un solo archivo. Tenga en cuenta que se puede usar un máximo de 4 DIU por partición de datos de origen.<br/>- **Otros escenarios**: entre 2 y 4 |- **Copia desde REST o HTTP**: 1<br>- **Otro escenario**: 4 |
 
 Puede ver el número de unidades de integración de datos utilizadas en cada ejecución de copia en la vista de supervisión o en la salida de la actividad de copia. Para más información, consulte el artículo [Supervisión de la actividad de copia](copy-activity-monitoring.md). Para reemplazar esta configuración predeterminada, especifique un valor en la propiedad `dataIntegrationUnits` de la manera siguiente. El *número real de DIU* que usa la operación de copia en tiempo de ejecución es igual o inferior al valor configurado, según el patrón de datos.
 
@@ -135,7 +135,7 @@ Al copiar datos de un almacén de datos de origen a un almacén de datos recepto
 
 Al activar la característica de almacenamiento provisional, primero se copian los datos desde el almacén de datos de origen al almacenamiento provisional (aporte su propio Azure Blob o Azure Data Lake Storage Gen2). A continuación, los datos se copian desde el almacén de datos provisional al almacén de datos receptor. La actividad de copia administra automáticamente el flujo de dos fases y también borra los datos temporales del almacenamiento provisional una vez completado el movimiento de datos.
 
-![copia almacenada provisionalmente](media/copy-activity-performance/staged-copy.png)
+:::image type="content" source="media/copy-activity-performance/staged-copy.png" alt-text="Copias almacenadas provisionalmente":::
 
 Cuando activa el movimiento de datos mediante un almacén provisional, puede especificar si quiere que los datos se compriman antes de moverlos del almacén de datos de origen al almacenamiento provisional y luego se descompriman antes de moverlos desde este último al almacén de datos receptor.
 

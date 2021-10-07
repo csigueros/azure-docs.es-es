@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 09/21/2021
 ms.author: mbaldwin
 ms.custom: subject-monitoring
-ms.openlocfilehash: 753dbf0bdaa1e97a04422b567dcbc199717bbd71
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: fbb92ac1d1d6992a78577a8dfc062d6730302f2d
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129207330"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353347"
 ---
 # <a name="monitoring-azure-key-vault"></a>Supervisión de Azure Key Vault
 
@@ -84,7 +84,7 @@ En [Supervisión de la referencia de los datos de Key Vault](monitor-key-vault-
 > [!IMPORTANT]
 > Al seleccionar **Registros** en el menú de Key Vault, Log Analytics se abre con el ámbito de la consulta establecido en el almacén de claves actual. Esto significa que las consultas de registro solo incluirán datos de ese recurso. Si quiere ejecutar una consulta que incluya datos de otros almacenes de claves o servicios de Azure, seleccione **Registros** en el menú **Azure Monitor**. Consulte [Ámbito e intervalo de tiempo de una consulta de registro en Log Analytics de Azure Monitor](/azure/azure-monitor/log-query/scope/) para obtener más información.
 
-Estas son algunas consultas que puede escribir en la barra de búsqueda **Búsqueda de registros** para ayudarle a supervisar los recursos de Key Vault. Estas consultas funcionan con el [nuevo lenguaje](/azure-monitor/logs/log-query-overview).
+Estas son algunas consultas que puede escribir en la barra de búsqueda **Búsqueda de registros** para ayudarle a supervisar los recursos de Key Vault. Estas consultas funcionan con el [nuevo lenguaje](/azure/azure-monitor/logs/log-query-overview).
 
 * ¿Hay alguna solicitud lenta?
 
@@ -181,7 +181,7 @@ Estas son algunas consultas que puede escribir en la barra de búsqueda **Búsqu
 
 Las alertas de Azure Monitor le informan de forma proactiva cuando se detectan condiciones importantes en los datos que se supervisan. Permiten identificar y solucionar las incidencias en el sistema antes de que los clientes puedan verlos. Puede establecer alertas en [métricas](../../azure-monitor/platform/alerts-metric-overview.md), [registros](../../azure-monitor/platform/alerts-unified-log.md) y el [registro de actividad](../../azure-monitor/platform/activity-log-alerts.md). Cada tipo de alerta tiene sus ventajas y desventajas.
 
-Si crea o ejecuta una aplicación que se ejecuta en Azure Key Vault, [Azure Monitor Application Insights](/azure-monitor/overview#application-insights.md) puede ofrecer otros tipos de alertas.
+Si crea o ejecuta una aplicación que se ejecuta en Azure Key Vault, [Azure Monitor Application Insights](/azure/azure-monitor/overview#application-insights) puede ofrecer otros tipos de alertas.
 
 Estas son algunas reglas de alertas comunes y recomendadas de Azure Key Vault.
 

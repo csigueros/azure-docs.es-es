@@ -7,21 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/22/2021
-ms.openlocfilehash: 627ec77af4e492b4f22404972729cecdb1c40f06
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.date: 09/08/2021
+ms.openlocfilehash: 6511764697adcd6c8743efe41d276ccef3ff1bb0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104801611"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823912"
 ---
-# <a name="how-to-create-an-index-for-multiple-languages-in-azure-cognitive-search"></a>Creación de un índice para varios idiomas en Azure Cognitive Search
+# <a name="create-an-index-for-multiple-languages-in-azure-cognitive-search"></a>Creación de un índice para varios idiomas en Azure Cognitive Search
 
 Un requisito fundamental de una aplicación de búsqueda multilingüe es la posibilidad de buscar y recuperar los resultados en el idioma del usuario. En Azure Cognitive Search, una manera de satisfacer los requisitos de idioma de una aplicación multilingüe es crear una serie de campos dedicados para almacenar cadenas en un idioma determinado y luego restringir la búsqueda de texto completo a solo esos campos en el momento de la consulta.
 
-+ En las definiciones de campo, establezca un analizador de idioma que invoque las reglas lingüísticas del idioma de destino. Para ver la lista completa de los analizadores compatibles, consulte [Incorporación de analizadores de idiomas](index-add-language-analyzers.md).
++ En las definiciones de campo, [especifique un analizador de idioma](index-add-language-analyzers.md) que invoque las reglas lingüísticas del idioma de destino. 
 
-+ En la solicitud de la consulta, establezca los parámetros para que abarquen el ámbito de la operación de búsqueda de texto completo en campos específicos, y para recortar los resultados de los campos que no proporcionan contenido compatible con la experiencia de búsqueda que quiere proporcionar.
++ En la solicitud de consulta, establezca el parámetro `searchFields` para que la búsqueda de texto completo abarque campos específicos y después use `select` para devolver solo los campos que tienen contenido compatible.
 
 El éxito de esta técnica depende de la integridad del contenido del campo. Azure Cognitive Search no traduce las cadenas ni realiza la detección del idioma como parte de la ejecución de la consulta. Es responsabilidad suya asegurarse de que los campos contienen las cadenas que espera.
 
@@ -141,7 +141,7 @@ POST /indexes/hotels/docs/search?api-version=2020-06-30
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-+ [Analizadores de idiomas](index-add-language-analyzers.md)
++ [Adición de un analizador de idioma](index-add-language-analyzers.md)
 + [Funcionamiento de la búsqueda de texto completo en Azure Cognitive Search](search-lucene-query-architecture.md)
 + [API de REST de documentos de búsqueda](/rest/api/searchservice/search-documents)
 + [Información general sobre el enriquecimiento de IA](cognitive-search-concept-intro.md)

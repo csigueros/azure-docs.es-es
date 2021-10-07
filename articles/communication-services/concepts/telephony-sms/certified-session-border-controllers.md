@@ -8,12 +8,13 @@ ms.author: bobazile
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 8b2468b13f7093129c137019d8ec7f60e4fd5e4f
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.subservice: pstn
+ms.openlocfilehash: 9d9b08435f0f3a114a726acc26582a44b32b97ff
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123258008"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060979"
 ---
 # <a name="list-of-session-border-controllers-certified-for-azure-communication-services-direct-routing"></a>Lista de controladores de límites de sesión certificados para enrutamiento directo de Azure Communication Services
 Este documento contiene una lista de controladores de límites de sesión certificados para enrutamiento directo de Azure Communication Services. También incluye limitaciones conocidas.
@@ -37,8 +38,11 @@ Si tiene alguna pregunta sobre el programa de certificación SBC para enrutamien
 
 |Vendor|Producto|Versión del software|
 |:--- |:--- |:--- 
-|AudioCodes|Mediant SBC|7.40A
+|[AudioCodes](https://www.audiocodes.com/media/lbjfezwn/mediant-sbc-with-microsoft-azure-communication-services.pdf)|Mediant SBC|7.40A
 |Metaswitch|Perimeta SBC|4,9|
+|[Oracle](https://www.oracle.com/technical-resources/documentation/acme-packet.html)|Oracle Acme Packet SBC|8,4|
+|Ribbon Communications|SBC SWe / SBC 5400 / SBC 7000|9,02|
+||SBC SWe Lite / SBC 1000 / SBC 2000|9.0
 
 Tenga en cuenta la certificación que se concede a una versión principal. Esto significa que se admite el firmware con cualquier número del firmware SBC que sigue a la versión principal.
 

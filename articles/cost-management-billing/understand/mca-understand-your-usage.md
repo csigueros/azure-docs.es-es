@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 826217091b3297da0c068336ff67a0a58841716d
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 4e494b38bea9b799a6a2ee82b3fbb9847446d699
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690466"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128611716"
 ---
 # <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Términos en el archivo de uso y cargos de Azure para un contrato de cliente de Microsoft
 
@@ -32,12 +32,12 @@ Si era cliente de EA, verá que los términos del archivo .csv de uso del perfil
 
 | Archivo .csv de uso de Azure EA | CSV de cargos y de uso de Azure para el contrato de cliente de Microsoft |
 | --- | --- |
-| Date | date |
-| Month| date |
+| Fecha | fecha |
+| Month (Mes)| date |
 | Día | date |
-| Year | date |
-| Producto | product |
-| Id. del medidor | meterID |
+| Year | fecha |
+| Producto | producto |
+| MeterId | meterID |
 | MeterCategory | meterCategory |
 | MeterSubCategory | meterSubCategory |
 | MeterRegion | meterRegion |
@@ -78,7 +78,7 @@ billingPeriodStartDate | Fecha de inicio del período de facturación para el qu
 billingPeriodEndDate | Fecha de finalización del período de facturación para el que se genera la factura
 servicePeriodStartDate | Fecha de inicio del período de calificación que ha definido y bloqueado los precios para el servicio consumido o adquirido.
 servicePeriodEndDate | Fecha de finalización del período de calificación que ha definido y bloqueado los precios para el servicio consumido o adquirido.
-date | Para cargos basados en uso de Azure y Marketplace, esta es la fecha de calificación. Para las compras únicas (reservas, Marketplace) o los cargos periódicos fijos (ofertas de soporte técnico), esta es la fecha de compra.
+fecha | Para cargos basados en uso de Azure y Marketplace, esta es la fecha de calificación. Para las compras únicas (reservas, Marketplace) o los cargos periódicos fijos (ofertas de soporte técnico), esta es la fecha de compra.
 serviceFamily | Familia de servicios a la que pertenece el servicio
 productOrderId | Identificador único del pedido de productos
 productOrderName | Nombre único para el pedido del producto
@@ -90,7 +90,7 @@ meterSubCategory | Nombre de la categoría de subclasificación del medidor
 meterRegion | Nombre de la región donde está disponible el medidor para el servicio. Identifica la ubicación del centro de datos para ciertos servicios cuyos precios se establecen según la ubicación del centro de datos.
 offer | Nombre de la oferta comprada
 PayGPrice | Precio comercial del recurso.
-PricingModel | Identificador que indica cómo se calcula el precio del medidor (valores: a petición, reserva, al contado)
+PricingModel | Identificador que indica el precio del medidor (Valores: A petición, Reserva, Spot)
 productId | Identificador único para el producto que acumula los cargos
 product | Nombre del producto que acumula los cargos
 Id. de suscripción | Identificador único para la suscripción que acumula los cargos
@@ -107,7 +107,7 @@ resourceLocation | Identifica la ubicación del centro de datos donde se está e
 ubicación | Ubicación normalizada del recurso si se configuran diferentes ubicaciones de recursos para las mismas regiones
 quantity | Número de unidades compradas o consumidas
 unitOfMeasure | Unidad de medida para facturar por el servicio Por ejemplo, los servicios de proceso se facturan por hora.
-chargeType | Tipo de cargo. Valores: <ul><li>AsCharged-Usage: Los cargos que se acumulan en función del uso de un servicio de Azure. Esto incluye el uso en máquinas virtuales que no se cobran debido a instancias reservadas.</li><li>AsCharged-PurchaseMarketplace: Cargos únicos o periódicos fijos por compras en Marketplace</li><li>AsCharged-UsageMarketplace: Cargos por servicios de Marketplace que se cobran en función de unidades de consumo</li></ul>
+chargeType | Tipo de cargo. Valores: <ul><li>AsCharged-Usage: cargos que se acumulan en función del uso de un servicio de Azure. Esto incluye el uso en máquinas virtuales que no se cobran debido a instancias reservadas.</li><li>AsCharged-PurchaseMarketplace: cargos únicos o periódicos fijos por compras en Marketplace</li><li>AsCharged-UsageMarketplace: cargos por servicios de Marketplace que se cobran en función de unidades de consumo</li></ul>
 isAzureCreditEligible | Marca que indica si el cargo por el servicio es elegible para su pago mediante créditos de Azure (valores: True, False)
 serviceInfo1 | Metadatos específicos del servicio
 serviceInfo2 | Campo heredado que captura los metadatos específicos del servicio opcional.

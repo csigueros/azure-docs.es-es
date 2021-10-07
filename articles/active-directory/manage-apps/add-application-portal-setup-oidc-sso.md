@@ -1,81 +1,55 @@
 ---
-title: 'Inicio rápido: Configuración del inicio de sesión único basado en OIDC de una aplicación'
+title: Adición de una aplicación de inicio de sesión único basado en OpenID Connect
+description: Aprenda a agregar una aplicación de inicio de sesión único basado en OpenID Connect en Azure Active Directory.
 titleSuffix: Azure AD
-description: En este inicio rápido se describe el proceso de configuración del inicio de sesión único (SSO) basado en OIDC de una aplicación en el inquilino de Azure Active Directory (Azure AD).
 services: active-directory
 author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: quickstart
+ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/23/2020
+ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
-ms.openlocfilehash: 0e1c253211cfef2d9bf55b4d0a615ccb9563036b
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: 24d30dc81b2b2a3da2ac5f172dabe77cf5b01f9c
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114669446"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129058283"
 ---
-# <a name="quickstart-set-up-oidc-based-single-sign-on-for-an-application"></a>Inicio rápido: Configuración del inicio de sesión único basado en OIDC de una aplicación
+# <a name="add-an-openid-connect-based-single-sign-on-application-in-azure-active-directory"></a>Adición de una aplicación de inicio de sesión único basado en OpenID Connect en Azure Active Directory
 
-Comience a usar inicios de sesión de usuario simplificados mediante la configuración del inicio de sesión único (SSO) para una aplicación que haya agregado al inquilino de Azure Active Directory (Azure AD). Después de configurar el inicio de sesión único, los usuarios podrán iniciar sesión en una aplicación con sus credenciales de Azure AD. El inicio de sesión único se incluye en la edición gratuita de Azure AD.
+Agregue una aplicación que admita el inicio de sesión único (SSO) basado en [OpenID Connect (OIDC)](../develop/active-directory-v2-protocols.md) al inquilino de Azure Active Directory (Azure AD).
 
-Para más información sobre el inicio de sesión único basado en OIDC, consulte [Descripción del inicio de sesión único basado en OIDC](configure-oidc-single-sign-on.md).
+Para probar los pasos de esta página, se recomienda usar un entorno que no sea de producción.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para configurar el inicio de sesión único de una aplicación que haya agregado a su inquilino de Azure AD, necesita:
+Para configurar el inicio de sesión único basado en OIDC, necesita:
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Uno de los siguientes roles: Administrador global, Administrador de aplicaciones en la nube, Administrador de aplicaciones o Propietario de la entidad de servicio.
-- Una aplicación que admita el inicio de sesión único y que se haya configurado previamente y agregado ya a la galería de Azure AD. La mayoría de las aplicaciones pueden usar Azure AD para el inicio de sesión único. Las aplicaciones de la galería de Azure AD están preconfiguradas. Aunque la aplicación no aparezca en la lista, o se trate de una aplicación desarrollada de forma personalizada, podrá usarla de todas formas con Azure AD. Consulte los tutoriales y otra documentación adicional en la tabla de contenido. Este inicio rápido se centra en las aplicaciones que se configuraron previamente para el inicio de sesión único, y que los desarrolladores de aplicaciones han agregado a la galería de Azure AD.
-- Opcional: Haber finalizado el inicio rápido de [Visualización de las aplicaciones](view-applications-portal.md).
-- Opcional: Haber finalizado el inicio rápido de [Incorporación de una aplicación](add-application-portal.md).
-- Opcional: Haber finalizado el inicio rápido de [Configuración de una aplicación](add-application-portal-configure.md).
-- Opcional: haber finalizado [Asignación de usuarios a una aplicación](add-application-portal-assign-users.md).
 
->[!IMPORTANT]
->Use un entorno que no sea de producción para probar los pasos de esta guía de inicio rápido.
+## <a name="add-the-application"></a>Adición de la aplicación
 
-## <a name="enable-single-sign-on-for-an-app"></a>Habilitar el inicio de sesión único de una aplicación
+Al agregar una aplicación que usa el estándar OIDC para el inicio de sesión único, seleccionará un botón de configuración. Al seleccionar el botón, completará el proceso de registro de la aplicación.
 
-Al agregar una aplicación que usa el OIDC estándar para el inicio de sesión único, tendrá un botón de configuración. Al seleccionarlo, irá al sitio de aplicaciones para completar el proceso de registro de la aplicación. El proceso de incorporación de una aplicación se trata en el inicio rápido con la incorporación de una aplicación anterior en esta serie. Si está configurando una aplicación que ya se había agregado, consulte el primer inicio rápido. Este le guía por la visualización de las aplicaciones existentes en el inquilino.
+Para configurar el inicio de sesión único basado en OIDC para una aplicación:
 
-Para configurar el inicio de sesión único de una aplicación:
+1. Vaya al [centro de administración de Azure Active Directory](https://aad.portal.azure.com) e inicie sesión con uno de los roles enumerados en los requisitos previos.
+1. En el menú de la izquierda, seleccione **Aplicaciones empresariales**. Se abre el panel **Todas las aplicaciones**, en el que se ve una lista de las aplicaciones que hay en su inquilino de Azure AD. 
+1. En el panel **Aplicaciones empresariales**, seleccione **Nueva aplicación**.
+1. Se abre el panel **Examinar la Galería de Azure AD**, que muestra iconos para plataformas en la nube, aplicaciones locales y aplicaciones destacadas. Las aplicaciones que aparecen en la sección **Aplicaciones destacadas** incluyen iconos que indican si admiten el inicio de sesión único federado y el aprovisionamiento. Busque y seleccione la aplicación. En este ejemplo, se usa **SmartSheet**.
+1. Seleccione **Suscribirse**. Inicie sesión con las credenciales de la cuenta de usuario de Azure Active Directory. Si ya tiene una suscripción para la aplicación, se validan los detalles del usuario y la información del inquilino. Si la aplicación no puede comprobar el usuario, se le redirigirá a registrarse en el servicio de la aplicación.
 
-1. En el inicio rápido anterior en esta serie, aprendió a agregar una aplicación que usará el inquilino de Azure AD para la administración de identidades. Si el desarrollador de la aplicación usó el OIDC estándar para implementar el inicio de sesión único, se le presentará un botón de registro al agregar la aplicación.
+    :::image type="content" source="media/add-application-portal-setup-oidc-sso/oidc-sso-configuration.png" alt-text="Completar la pantalla de consentimiento de una aplicación.":::
 
-    :::image type="content" source="media/add-application-portal-setup-oidc-sso/sign-up-oidc-sso.png" alt-text="Captura de pantalla que muestra la opción Inicio de sesión único y el botón de registro." lightbox="media/add-application-portal-setup-oidc-sso/sign-up-oidc-sso.png":::
-
-2. Seleccione **Registrarse** y se abrirá la página de inicio de sesión para desarrolladores de aplicaciones. Inicie sesión con las credenciales de Azure Active Directory.
-
-   > [!IMPORTANT]
-    > Si ya tiene una suscripción a la aplicación, se producirá la validación de los detalles del usuario y la información del directorio o del inquilino. Si la aplicación no puede comprobar el usuario, se le redirigirá a registrarse en el servicio de aplicación o a la página de error.
-
-3. Después de la autenticación aparece un cuadro de diálogo que solicita el consentimiento del administrador. Seleccione **Consentimiento en nombre de la organización** y, luego, **Aceptar**. Para más información sobre el consentimiento del usuario y del administrador, consulte [Consentimiento del usuario y del administrador](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent).
-
-    :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="Captura de pantalla que muestra la pantalla de consentimiento de una aplicación." lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
-
-4. La aplicación se agrega al inquilino y la página principal de la aplicación aparece.
-
-> [!TIP]
-> La administración de aplicaciones se puede automatizar mediante Graph API, consulte el artículo sobre la [automatización de la administración de aplicaciones con Microsoft Graph API](/graph/application-saml-sso-configure-api).
-
-Este es un vídeo en el que se explica de forma más detallada cómo agregar una aplicación basada en OIDC a Azure AD.
-
-Adición de una aplicación basada en OIDC en Azure Active Directory
-
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
-
-## <a name="clean-up-resources"></a>Limpieza de recursos
-
-Cuando haya terminado con esta serie de inicios rápidos, considere la posibilidad de eliminar la aplicación para limpiar el inquilino de prueba. La eliminación de la aplicación se trata en el último inicio rápido de esta serie, consulte [Eliminación de una aplicación](delete-application-portal.md).
+1. Seleccione **Consentimiento en nombre de la organización** y, luego, **Aceptar**. La aplicación se agrega al inquilino y la página principal de la aplicación aparece. Para más información sobre el consentimiento del usuario y del administrador, consulte [Consentimiento del usuario y del administrador](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En el siguiente artículo aprenderá a eliminar una aplicación.
+Más información sobre cómo planear una implementación de inicio de sesión único.
 > [!div class="nextstepaction"]
-> [Eliminación de una aplicación](delete-application-portal.md)
+> [Planeamiento de la implementación del inicio de sesión único](plan-sso-deployment.md)

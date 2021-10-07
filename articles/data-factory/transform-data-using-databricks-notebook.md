@@ -7,13 +7,13 @@ ms.topic: tutorial
 ms.author: abnarain
 author: nabhishek
 ms.custom: seo-lt-2019
-ms.date: 08/31/2021
-ms.openlocfilehash: 15e08069be22cc71e228a1ad878e5f2b5424ce89
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.date: 09/08/2021
+ms.openlocfilehash: a2086feece0bb37068c57534740b2c58d072d0ea
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123541895"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806386"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Ejecución de un cuaderno de Databricks con la actividad Notebook de Databricks en Azure Data Factory
 
@@ -87,15 +87,15 @@ En esta sección, va a crear un servicio vinculado de Databricks. Este servicio 
 
 1.  En la página principal, cambie a la pestaña **Administrar** del panel de la izquierda.
 
-    ![Captura de pantalla que muestra pestaña Administrar.](media/doc-common-process/get-started-page-manage-button.png)
+    :::image type="content" source="media/doc-common-process/get-started-page-manage-button.png" alt-text="Captura de pantalla que muestra pestaña Administrar.":::
 
 1.  Seleccione **Servicios vinculados** en **Conexiones** y, después, **+ Nuevo**.
     
-    ![Captura de pantalla que muestra la creación de una conexión.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-6.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-6.png" alt-text="Captura de pantalla que muestra la creación de una conexión.":::
 
 1.  En la ventana **New Linked Service** (Nuevo servicio vinculado), seleccione **Compute** (Proceso) &gt; **Azure Databricks** y, luego, **Continue** (Continuar).
     
-    ![Captura de pantalla que muestra la especificación de un servicio vinculado de Databricks.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-7.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-7.png" alt-text="Captura de pantalla que muestra la especificación de un servicio vinculado de Databricks.":::
 
 1.  En la ventana **New Linked Service** (Nuevo servicio vinculado), realice los pasos siguientes:
     
@@ -109,7 +109,7 @@ En esta sección, va a crear un servicio vinculado de Databricks. Este servicio 
 
     1.  En **Access Token** (Token de acceso), genérelo en el área de trabajo de Azure Databricks. Puede encontrar los pasos [aquí](https://docs.databricks.com/api/latest/authentication.html#generate-token).
 
-    1.  En **Cluster version** (Versión del clúster), seleccione **4.2** (con Apache Spark 2.3.1 y Scala 2.11).
+    1.  En **Versión de clúster**, seleccione la versión que desea usar.
 
     1.  En **Cluster node type** (Tipo de nodo de clúster), seleccione **Standard\_D3\_v2** en la categoría **General Purpose (HDD)** (Uso general [HDD]) para los fines de este tutorial. 
     
@@ -117,23 +117,23 @@ En esta sección, va a crear un servicio vinculado de Databricks. Este servicio 
     
     1.  Seleccione **Crear**.
 
-        ![Captura de pantalla que muestra la configuración del nuevo servicio vinculado de Azure Databricks.](media/transform-data-using-databricks-notebook/new-databricks-linked-service.png)
+        :::image type="content" source="media/transform-data-using-databricks-notebook/new-databricks-linked-service.png" alt-text="Captura de pantalla que muestra la configuración del nuevo servicio vinculado de Azure Databricks.":::
 
 ## <a name="create-a-pipeline"></a>Crear una canalización
 
 1.  Seleccione el botón **+** (Más) y seleccione **Pipeline** (Canalización) en el menú.
 
-    ![Captura de pantalla que muestra los botones para crear una canalización.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-9.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-9.png" alt-text="Captura de pantalla que muestra los botones para crear una canalización.":::
 
 1.  Cree un **parámetro** para su uso en la **canalización**. Más adelante va a pasar este parámetro a la actividad Notebook de Databricks. En la canalización vacía, haga seleccione la pestaña **Parameters** (Parámetros) y **New** (Nuevo), y asígnele el nombre de "**name**".
 
-    ![Captura de pantalla que muestra cómo crear un parámetro.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-10.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-10.png" alt-text="Captura de pantalla que muestra cómo crear un parámetro.":::
 
-    ![Captura de pantalla que muestra cómo crear el parámetro name.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-11.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-11.png" alt-text="Captura de pantalla que muestra cómo crear el parámetro name.":::
 
 1.  En el cuadro de herramientas **Activities** (Actividades), expanda **Databricks**. Arrastre la actividad **Notebook** del cuadro de herramientas **Activities** (Actividades) a la superficie del diseñador de canalizaciones.
 
-    ![Captura de pantalla que muestra cómo arrastrar el cuaderno a la superficie del diseñador.](media/transform-data-using-databricks-notebook/new-adf-pipeline.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/new-adf-pipeline.png" alt-text="Captura de pantalla que muestra cómo arrastrar el cuaderno a la superficie del diseñador.":::
 
 1.  En las propiedades de la ventana de actividad **Notebook** de **Databricks** de la parte inferior, realice los pasos siguientes:
 
@@ -149,26 +149,26 @@ En esta sección, va a crear un servicio vinculado de Databricks. Este servicio 
 
        1. Cree una **carpeta** en el área de trabajo y llámela **adftutorial**.
 
-          ![Captura de pantalla que muestra cómo crear una carpeta.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
+          :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png" alt-text="Captura de pantalla que muestra cómo crear una carpeta.":::        
 
        1. [Captura de pantalla que muestra cómo crear un cuaderno.](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python). Vamos a llamarle **mynotebook**, en la carpeta **adftutorial**. Haga clic en **Crear**.
 
-          ![Captura de pantalla que muestra cómo crear un cuaderno.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
+          :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png" alt-text="Captura de pantalla que muestra cómo crear un cuaderno.":::  
 
-          ![Captura de pantalla que muestra cómo establecer las propiedades del cuaderno nuevo.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png)
+          :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png" alt-text="Captura de pantalla que muestra cómo establecer las propiedades del cuaderno nuevo.":::
 
-       1. En el cuaderno "mynotebook&quot; recién creado, agregue el código siguiente:
+       1. En el cuaderno "mynotebook" recién creado, agregue el código siguiente:
 
            ```
            # Creating widgets for leveraging parameters, and printing the parameters
 
-           dbutils.widgets.text(&quot;input&quot;, &quot;&quot;,&quot;")
+           dbutils.widgets.text("input", "","")
            y = dbutils.widgets.get("input")
            print ("Param -\'input':")
            print (y)
            ```
 
-           ![Captura de pantalla que muestra cómo crear widgets para los parámetros.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image16.png)
+          :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image16.png" alt-text="Captura de pantalla que muestra cómo crear widgets para los parámetros."::: 
 
        1. La **ruta de acceso del cuaderno** en este caso es **/adftutorial/mynotebook**.
 
@@ -176,51 +176,51 @@ En esta sección, va a crear un servicio vinculado de Databricks. Este servicio 
 
     a.  Agregue un **parámetro** a la actividad Notebook. Utilice el mismo parámetro que se ha agregado antes a la **canalización**.
 
-       ![Captura de pantalla en la que se muestra cómo agregar un parámetro.](media/transform-data-using-databricks-notebook/new-adf-parameters.png)
+       :::image type="content" source="media/transform-data-using-databricks-notebook/new-adf-parameters.png" alt-text="Captura de pantalla en la que se muestra cómo agregar un parámetro.":::
 
     b.  Denomine **input** al parámetro y proporcione el valor como expresión **\@pipeline().parameters.name**.
 
 1.  Para comprobar la canalización, seleccione el botón **Validate** (Comprobar) en la barra de herramientas. Para cerrar la ventana de validación, seleccione el botón **Cerrar**.
 
-    ![Captura de pantalla que muestra cómo validar la canalización.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-18.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-18.png" alt-text="Captura de pantalla que muestra cómo validar la canalización.":::
 
 1.  Seleccione **Publicar todo**. La interfaz de usuario de Data Factory permite publicar entidades (servicios vinculados y canalizaciones) en el servicio Azure Data Factory.
 
-    ![Captura de pantalla que muestra cómo publicar las nuevas entidades de la factoría de datos.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-19.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-19.png" alt-text="Captura de pantalla que muestra cómo publicar las nuevas entidades de la factoría de datos.":::
 
 ## <a name="trigger-a-pipeline-run"></a>Desencadenamiento de una ejecución de la canalización
 
 Seleccione **Agregar desencadenador** en la barra de herramientas y, después, **Trigger Now** (Desencadenar ahora).
 
-![Captura de pantalla que muestra cómo seleccionar el comando "Trigger now" (Desencadenar ahora).](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-20.png)
+:::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-20.png" alt-text="Captura de pantalla que muestra cómo seleccionar el comando &quot;Trigger now&quot; (Desencadenar ahora).":::
 
 En el cuadro de diálogo **Ejecución de canalización** se solicita el parámetro **name**. Utilice **/path/filename** como parámetro aquí. Seleccione **Aceptar**.
 
-![Captura de pantalla que muestra cómo proporcionar un valor para los parámetros name.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-21.png)
+:::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-21.png" alt-text="Captura de pantalla que muestra cómo proporcionar un valor para los parámetros name.":::
 
 ## <a name="monitor-the-pipeline-run"></a>Supervisión de la ejecución de la canalización
 
 1.  Vaya a la pestaña **Monitor** (Supervisar). Confirme que ve una ejecución de canalización. Se tarda aproximadamente entre 5 y 8 minutos crear un clúster de trabajo de Databricks, donde se ejecuta el cuaderno.
 
-    ![Captura de pantalla que muestra cómo supervisar la canalización.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image22.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-22.png" alt-text="Captura de pantalla que muestra cómo supervisar la canalización."::: 
 
 1.  Seleccione **Actualizar** periódicamente para comprobar el estado de la ejecución de canalización.
 
-1.  Para ver las ejecuciones de actividad asociadas con la ejecución de esta canalización, seleccione **View Activity Runs** (Ver ejecuciones de actividad) de la columna **Actions** (Acciones).
+1.  Para ver las ejecuciones de actividad asociadas a la ejecución de la canalización, seleccione el vínculo **pipeline1** en la columna **Nombre de canalización**.
 
-    ![Captura de pantalla que muestra cómo ver la ejecución de la actividad.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image23.png)
+1. En la página **Ejecuciones de actividad**, seleccione **Salida** en la columna **Nombre de la actividad** para ver la salida de cada actividad y puede encontrar el vínculo a los registros de Databricks en el panel **Salida** para obtener registros de Spark más detallados.
 
-Puede volver a la vista de ejecuciones de canalización. Para ello seleccione el vínculo **Pipelines** (Canalizaciones) en la parte superior.
+1. Para volver a la vista de ejecuciones de canalización, seleccione el vínculo **Todas las ejecuciones de la canalización** en el menú de la ruta de navegación de la parte superior.
 
 ## <a name="verify-the-output"></a>Comprobación del resultado
 
 Puede iniciar sesión en el **área de trabajo de Azure Databricks**, ir a **Clusters** (Clústeres) y ver el estado del **trabajo** como *ejecución pendiente, en ejecución o finalizado*.
 
-![Captura de pantalla que muestra cómo ver el clúster de trabajo y el trabajo.](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image24.png)
+:::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image24.png" alt-text="Captura de pantalla que muestra cómo ver el clúster de trabajo y el trabajo."::: 
 
 Puede hacer clic en el **nombre del trabajo** y desplazarse para ver más detalles. Si la ejecución se realiza correctamente, puede validar los parámetros pasados y la salida del cuaderno de Python.
 
-![Captura de pantalla que muestra cómo ver los detalles y la salida de la ejecución.](media/transform-data-using-databricks-notebook/databricks-output.png)
+:::image type="content" source="media/transform-data-using-databricks-notebook/databricks-output.png" alt-text="Captura de pantalla que muestra cómo ver los detalles y la salida de la ejecución."::: 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

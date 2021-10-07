@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 2a8f8c4a1cda62c4267f7a0f38f4dc9f9654404f
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 6b4b15362d1fe2371f181fb4ee46c30e8237dea0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123272464"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128598116"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Detección, evaluación y migración de máquinas virtuales de Amazon Web Services (AWS) a Azure
 
@@ -141,7 +141,7 @@ El primer paso de la migración consiste en configurar el dispositivo de replica
 
 2. En **Detectar máquinas** >  **¿Las máquinas están virtualizadas?** , haga clic en **No virtualizado/Otro**.
 3. En **Región de destino**, seleccione la región de Azure a la que desea migrar las máquinas.
-4. Seleccione **Confirme que la región de destino de la migración es <nombre-región>** .
+4. Seleccione **Confirmar que la región de destino de la migración es \<region-name\>** .
 5. Haga clic en **Crear recursos**. Esto crea un almacén de Azure Site Recovery en segundo plano.
     - Si ya ha configurado la migración con Azure Migrate Server Migration, no se puede configurar la opción de destino, ya que los recursos se configuraron anteriormente.
     - Después de hacer clic en este botón ya no se puede cambiar la región de destino de este proyecto.
@@ -356,7 +356,7 @@ Después de comprobar que la migración de prueba funciona según lo previsto, p
     - Detiene la replicación de la máquina virtual de AWS.
     - Quita la máquina virtual de AWS del recuento de **Replicando servidores** en Azure Migrate: Server Migration.
     - Limpia la información de estado de replicación de la máquina virtual.
-1. Compruebe y [solucione los problemas de activación de Windows en la máquina virtual de Azure](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems).
+1. Compruebe y [solucione los problemas de activación de Windows en la máquina virtual de Azure.](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems)
 1. Realice los ajustes de la aplicación posteriores a la migración, como actualizar los nombres de host, las cadenas de conexión de la base de datos y las configuraciones del servidor web.
 1. Realice las pruebas finales de la aplicación y la aceptación de la migración en la aplicación migrada que ahora se ejecuta en Azure.
 1. Pase el tráfico a la instancia de máquina virtual de Azure migrada.
