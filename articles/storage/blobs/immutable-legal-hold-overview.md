@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/22/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 1434f689f8f629fd04ec0c0b059a1298b32d5ac9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 39108c5c5fd823e313ce616fbb4f6d6135e7d81e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121781255"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645766"
 ---
 # <a name="legal-holds-for-immutable-blob-data"></a>Retenciones legales para datos de blob inmutables
 
@@ -53,7 +53,7 @@ Una suspensión legal a nivel de contenedor debe estar asociada a una o varias e
 
 #### <a name="audit-logging"></a>Registro de auditoría
 
-Cada contenedor con una suspensión legal en vigor proporciona un registro de auditoría de directivas.  El registro contiene el identificador del usuario, el tipo de comando, las marcas de tiempo y las etiquetas de suspensión legal. El registro de auditoría se conserva mientras dure la directiva, de acuerdo con las directrices de regulación SEC 17a-4(f).
+Cada contenedor con una suspensión legal en vigor proporciona un registro de auditoría de directivas. El registro contiene el Id. de usuario, el tipo de comando, las marcas de tiempo y las etiquetas de suspensión legal. El registro de auditoría se conserva mientras dure la directiva, de acuerdo con las directrices de regulación SEC 17a-4(f).
 
 El [registro de actividad de Azure](../../azure-monitor/essentials/platform-logs-overview.md) ofrece un registro más completo de todas las actividades del servicio de administración. Los [registros de recursos de Azure](../../azure-monitor/essentials/platform-logs-overview.md) conservan información sobre las operaciones de datos. Es responsabilidad del usuario almacenar dichos registros de forma persistente, ya que podría ser obligatorio por ley o por otros fines.
 

@@ -4,12 +4,12 @@ description: 'En este artículo se describen el soporte y los requisitos al impl
 ms.service: site-recovery
 ms.topic: article
 ms.date: 09/01/2021
-ms.openlocfilehash: f1c5182cc06fa0065c266cdd03ffe85717c0d496
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 940cfb52985e956a283e8278c572569e4f350f55
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123536804"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129084196"
 ---
 # <a name="deploy-azure-site-recovery-replication-appliance---preview"></a>Implementación del dispositivo de replicación de Azure Site Recovery: versión preliminar
 
@@ -19,7 +19,10 @@ ms.locfileid: "123536804"
 >[!NOTE]
 > Asegúrese de crear un nuevo almacén de Recovery Services para configurar el dispositivo de versión preliminar. No use un almacén existente.
 
-Cuando se usa [Azure Site Recovery](site-recovery-overview.md) para realizar la recuperación ante desastres de servidores físicos y máquinas virtuales de VMware en Azure, se implementa un dispositivo de replicación local.
+>[!NOTE]
+> No se admite la habilitación de la replicación para máquinas físicas con esta versión preliminar. 
+
+Cuando se usa [Azure Site Recovery](site-recovery-overview.md) para realizar la recuperación ante desastres de máquinas virtuales de VMware en Azure, se implementa un dispositivo de replicación local.
 
 - El dispositivo de replicación coordina la comunicación entre Azure y VMware local. También administra la replicación de datos.
 - [Obtenga más información](vmware-azure-architecture-preview.md) sobre los componentes y procesos del dispositivo de replicación de Azure Site Recovery.
@@ -47,7 +50,7 @@ FIPS (Estándar federal de procesamiento de información) | No habilitar el modo
 
 |**Componente** | **Requisito**|
 |--- | ---|
-|Tipo de dirección IP | estática|
+|Nombre de dominio completo (FQDN) | estática|
 |Puertos | 443 (orquestación del canal de control)<br>9443 (Transporte de datos)|
 |Tipo de NIC | VMXNET3 (si el dispositivo es una máquina virtual de VMware)|
 
@@ -58,7 +61,7 @@ Asegúrese de que se permiten las siguientes direcciones URL y se puede acceder 
 
   | **URL**                  | **Detalles**                             |
   | ------------------------- | -------------------------------------------|
-  | portal.azure.com          | Acceda a Azure Portal.              |
+  | portal.azure.com          | Vaya a Azure Portal.              |
   | `*.windows.net `<br>`*.msftauth.net`<br>`*.msauth.net`<br>`*.microsoft.com`<br>`*.live.com `<br>`*.office.com ` | Para iniciar sesión en la suscripción de Azure.  |
   |`*.microsoftonline.com `|Cree aplicaciones de Azure Active Directory (AD) para que el dispositivo se comunique con Azure Site Recovery. |
   |management.azure.com |Cree aplicaciones de Azure AD para que el dispositivo se comunique con el servicio Azure Site Recovery. |
@@ -74,6 +77,31 @@ Asegúrese de que se permiten las siguientes direcciones URL y se puede acceder 
 > [!NOTE]
 > Los vínculos privados no se admiten con la versión preliminar.
 
+## <a name="folder-exclusions-from-antivirus-program"></a>Exclusiones de carpetas del programa antivirus
+
+### <a name="if-antivirus-software-is-active-on-appliance"></a>Si hay un software antivirus activo en el dispositivo
+
+Para que la replicación se realice sin problema alguno y con el fin de evitar problemas de conectividad, excluya las siguientes carpetas del software antivirus:
+
+C:\ProgramData\Microsoft Azure <br>
+C:\ProgramData\ASRLogs <br>
+C:\Windows\Temp\MicrosoftAzure C:\Archivos de programa\Microsoft Azure Appliance Auto Update <br>
+C:\Archivos de programa\Microsoft Azure Appliance Configuration Manager <br>
+C:\Archivos de programa\Microsoft Azure Push Install Agent <br>
+C:\Archivos de programa\Microsoft Azure RCM Proxy Agent <br>
+C:\Archivos de programa\Microsoft Azure Recovery Services Agent <br>
+C:\Archivos de programa\Microsoft Azure Server Discovery Service <br>
+C:\Archivos de programa\Microsoft Azure Site Recovery Process Server <br>
+C:\Archivos de programa\Microsoft Azure Site Recovery Provider <br>
+C:\Archivos de programa\Microsoft Azure to On-Premise Reprotect agent <br>
+C:\Archivos de programa\Microsoft Azure VMware Discovery Service <br>
+C:\Archivos de programa\Microsoft On-Premise to Azure Replication agent <br>
+E:\ <br>
+
+### <a name="if-antivirus-software-is-active-on-source-machine"></a>Si hay algún antivirus activo en la máquina de origen
+
+Si el equipo de origen contiene algún software antivirus, la carpeta de instalación debe excluirse. Por consiguiente, para que no surja ningún problema durante la replicación, es preciso excluir la carpeta C:\ProgramData\ASR\agent.
+
 ## <a name="prepare-azure-account"></a>Preparación de la cuenta de Azure
 
 Para crear y registrar un dispositivo de replicación de Azure Site Recovery, necesita una cuenta de Azure con:
@@ -84,7 +112,7 @@ Para crear y registrar un dispositivo de replicación de Azure Site Recovery, ne
 
 Si acaba de crear una cuenta de Azure gratuita, es el propietario de la suscripción. Si no es el propietario de la suscripción, colabore con él para obtener los permisos necesarios.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 **Estos son los permisos necesarios del almacén de claves**:
 
@@ -147,6 +175,9 @@ La plantilla de OVF pone en marcha una máquina con las especificaciones necesar
 4. Seleccione **Finalizar**, a continuación, el sistema se reinicia y puede iniciar sesión con la cuenta de usuario de administrador.
 
 ### <a name="set-up-the-appliance-through-powershell"></a>Configuración del dispositivo mediante PowerShell
+
+>[!NOTE]
+> No se admite la habilitación de la replicación para máquinas físicas con esta versión preliminar. 
 
 En caso de restricciones organizativas, puede configurar manualmente el dispositivo de replicación de Site Recovery mediante PowerShell. Siga estos pasos:
 

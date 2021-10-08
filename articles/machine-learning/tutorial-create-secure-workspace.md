@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: jhirono
 ms.author: larryfr
 author: blackmist
-ms.date: 08/17/2021
+ms.date: 09/15/2021
 ms.topic: how-to
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: c704064685b4096c8ee7b4a1015d82fae7c40ba9
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: f0b4f19e8c1e06aa8ab5657fd1c70a75814451ad
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122324100"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128612194"
 ---
 # <a name="how-to-create-a-secure-workspace"></a>Procedimiento para crear un área de trabajo segura
 
@@ -79,22 +79,30 @@ Para crear un cliente de red virtual, siga estos pasos:
     1. Para crear una subred que contenga el área de trabajo, los servicios de dependencia y los recursos usados para el entrenamiento, seleccione __+ Agregar subred__ y use los siguientes valores para la subred:
         * __Nombre de subred__: Entrenamiento
         * __Intervalo de direcciones de la subred__: 172.17.0.0/24
-        * __Servicios__: seleccione los siguientes servicios:
-            * __Microsoft.Storage__
-            * __Microsoft.KeyVault__
-            * __Microsoft.ContainerRegistry__
 
         :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-training-subnet.png" alt-text="Captura de pantalla de la subred Entrenamiento":::
+
+        > [!TIP]
+        > Si planea usar un _punto de conexión de servicio_ para agregar una cuenta de Azure Storage o una instancia de Azure Key Vault o Azure Container Registry a la red virtual, seleccione lo siguiente en __Servicios__:
+        > * __Microsoft.Storage__
+        > * __Microsoft.KeyVault__
+        > * __Microsoft.ContainerRegistry__
+        >
+        > Si planea usar un _punto de conexión privado_ para agregar estos servicios a la red virtual, no es necesario seleccionar estas entradas. En los pasos de este artículo se usa un punto de conexión privado para estos servicios, por lo que no es necesario seleccionarlos al seguir estos pasos.
 
     1. Para crear una subred para los recursos de proceso que se usan para puntuar los modelos, seleccione __+ Agregar subred__ de nuevo y use los valores siguientes:
         * __Nombre de subred:__ Puntuación
         * Intervalo de direcciones de subred __: 172.17.1.0/24__
-        * __Servicios__: seleccione los siguientes servicios:
-            * __Microsoft.Storage__
-            * __Microsoft.KeyVault__
-            * __Microsoft.ContainerRegistry__
 
         :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-scoring-subnet.png" alt-text="Captura de pantalla de la subred Puntuación":::
+
+        > [!TIP]
+        > Si planea usar un _punto de conexión de servicio_ para agregar una cuenta de Azure Storage o una instancia de Azure Key Vault o Azure Container Registry a la red virtual, seleccione lo siguiente en __Servicios__:
+        > * __Microsoft.Storage__
+        > * __Microsoft.KeyVault__
+        > * __Microsoft.ContainerRegistry__
+        >
+        > Si planea usar un _punto de conexión privado_ para agregar estos servicios a la red virtual, no es necesario seleccionar estas entradas. En los pasos de este artículo se usa un punto de conexión privado para estos servicios, por lo que no es necesario seleccionarlos al seguir estos pasos.
 
 1. Seleccione __Seguridad__. En __BastionHost__, seleccione __Habilitar__. [Azure Bastion](../bastion/bastion-overview.md) proporciona una manera segura de acceder al jumpbox de máquina virtual que creará dentro de la red virtual en un paso posterior. Use los valores siguientes para los campos restantes:
 
@@ -282,21 +290,6 @@ Para crear un cliente de red virtual, siga estos pasos:
 ## <a name="enable-studio"></a>Habilitación de Estudio
 
 Estudio de Azure Machine Learning es una aplicación web que permite administrar fácilmente áreas de trabajo. Sin embargo, necesita algo más de configuración para poder usarse con recursos protegidos dentro de una red virtual. Para habilitar Estudio, siga estos pasos:
-
-1. En Azure Portal, seleccione una cuenta de almacenamiento y, después, seleccione __Access Control (IAM)__ .
-1. Seleccione __+ Agregar__ y, luego, __Agregar asignación de roles (versión preliminar)__ .
-
-    ![Página Control de acceso (IAM) con el menú Agregar asignación de roles abierto.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
-
-1. En la pestaña __Rol__, seleccione __Colaborador de datos de Storage Blob__.
-
-    ![Página Agregar asignación de roles con la pestaña Rol seleccionada.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
-
-1. En la pestaña __Miembros__, seleccione __Usuario, grupo o entidad de servicio__ en el área __Asignar acceso a__ y, después, seleccione __+ Seleccionar miembros__. En el cuadro de diálogo __Seleccionar miembros__, escriba el nombre como área de trabajo de Azure Machine Learning. Seleccione la entidad de servicio para el área de trabajo y, después, use el botón __Seleccionar__.
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace/studio-select-service-principal.png" alt-text="Captura de pantalla de la selección del nombre de la entidad de servicio":::
-
-1. En la pestaña **Revisión y asignación**, seleccione **Revisión y asignación** para asignar el rol.
 
 1. Cuando use una cuenta Azure Storage que tenga un punto de conexión privado, agregue la entidad de servicio del área de trabajo como __lector__ de los puntos de conexión privados de almacenamiento. En Azure Portal, seleccione una cuenta de almacenamiento y, después, seleccione __Redes__. Luego, seleccione __Conexiones de punto de conexión privado__.
 

@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 06/01/2021
-ms.openlocfilehash: cc3c837c4dddf744f141ad930a1e52a5e9f684c7
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.date: 09/27/2021
+ms.openlocfilehash: d7606595adb5c0d20b348bbe323d27af64e8d9cb
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542813"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129082106"
 ---
 # <a name="test-and-publish-an-azure-application-offer"></a>Prueba y publicación de una oferta de aplicación de Azure
 
@@ -21,7 +21,27 @@ En este artículo se explica cómo usar el Centro de partners para enviar la ofe
 
 ## <a name="submit-the-offer-for-publishing"></a>Envío de la oferta para su publicación
 
-1. Inicie sesión en el panel de marketplace comercial en el [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
+#### <a name="workspaces-view"></a>[Vista "Áreas de trabajo"](#tab/workspaces-view)
+
+1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
+
+1. En la página principal, seleccione el icono **Ofertas de Marketplace**.
+
+    [ ![Se muestra el icono "Ofertas de Marketplace" en la página principal del Centro de partners.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. En la página "Ofertas de Marketplace", seleccione la oferta que quiera publicar.
+1. En la esquina superior derecha del portal, seleccione **Revisar y publicar**.
+1. Asegúrese de que la columna de **Estado** de cada página indica **Completa**. Los tres estados posibles que se muestran son:
+    - **No iniciado**: la página está incompleta.
+    - **Incompleta**: falta información necesaria en la página o hay errores que deben corregirse. Tendrá que volver a la página anterior y actualizarla.
+    - **Completa**: la página está completa. Se han proporcionado todos los datos necesarios y no hay ningún error.
+1. Si alguna de las páginas tiene un estado que no sea **Completa**, seleccione el nombre de la página, corrija el problema, guarde la página y, luego, elija de nuevo **Revisar y publicar** para volver a esta página.
+1. Después de completar todas las páginas, en el cuadro de **Notas para la certificación**, proporcione instrucciones de prueba al equipo de certificación para asegurarse de que la aplicación se ha probado correctamente. Proporcione cualquier nota complementaria que resulte útil para entender la aplicación.
+1. Para iniciar el proceso de publicación de la oferta, seleccione **Publicar**. Aparece la página **Información general de la oferta**, que muestra el **estado de publicación** de la oferta.
+
+#### <a name="current-view"></a>[Vista actual](#tab/current-view)
+
+1. Inicie sesión en el marketplace comercial en el [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 1. En la página **Información general**, seleccione la oferta que quiere publicar.
 1. En la esquina superior derecha del portal, seleccione **Revisar y publicar**.
 1. Asegúrese de que la columna de **Estado** de cada página indica **Completa**. Los tres estados posibles que se muestran son:
@@ -31,6 +51,8 @@ En este artículo se explica cómo usar el Centro de partners para enviar la ofe
 1. Si alguna de las páginas tiene un estado que no sea **Completa**, seleccione el nombre de la página, corrija el problema, guarde la página y, luego, elija de nuevo **Revisar y publicar** para volver a esta página.
 1. Después de completar todas las páginas, en el cuadro de **Notas para la certificación**, proporcione instrucciones de prueba al equipo de certificación para asegurarse de que la aplicación se ha probado correctamente. Proporcione cualquier nota complementaria que resulte útil para entender la aplicación.
 1. Para iniciar el proceso de publicación de la oferta, seleccione **Publicar**. Aparece la página **Información general de la oferta**, que muestra el **estado de publicación** de la oferta.
+
+---
 
 El estado de publicación de la oferta cambiará a medida que avance por el proceso de publicación. Para más información sobre este proceso, consulte [Pasos de validación y publicación](review-publish-offer.md#validation-and-publishing-steps).
 
