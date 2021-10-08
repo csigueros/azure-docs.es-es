@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 07/06/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: 301181b291521b8a8b19a7d7266e90fa2c542e49
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7b6f68eea2c177ad4e6776723ae0387c0e0da6a1
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128562938"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361824"
 ---
 #  <a name="deploy-sap-continuous-threat-monitoring-public-preview"></a>Implementación de la supervisión de amenazas continua de SAP (versión preliminar pública)
 
@@ -136,7 +136,7 @@ En este procedimiento se describe cómo usar la CLI de Azure para implementar un
 1. Use el siguiente comando como ejemplo, insertando los valores del grupo de recursos y el nombre de la máquina virtual:
 
     ```azurecli
-    az vm create  --resource-group [resource group name]   --name [VM Name] --image UbuntuLTS  --admin-username AzureUser --data-disk-sizes-gb 10 – --size Standard_DS2_– --generate-ssh-keys  --assign-identity
+    az vm create  --resource-group [resource group name]   --name [VM Name] --image UbuntuLTS  --admin-username azureuser --data-disk-sizes-gb 10 – --size Standard_DS2 --generate-ssh-keys  --assign-identity
     ```
 
 1. En la nueva máquina virtual, instale:
@@ -293,23 +293,13 @@ Agregue manualmente listas de seguimiento relacionadas con SAP al área de traba
 
 Si ya tiene un contenedor de Docker en ejecución con una versión anterior del conector de datos de SAP, ejecute el script de actualización del conector de datos de SAP para obtener las características más recientes disponibles.
 
-1. Asegúrese de que tiene las versiones más recientes de los scripts de implementación correspondientes del repositorio de Github de Azure Sentinel. Ejecute:
+Asegúrese de que tiene las versiones más recientes de los scripts de implementación correspondientes del repositorio de Github de Azure Sentinel. 
 
-    ```azurecli
-    wget -O sapcon-instance-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-instance-update.sh && bash ./sapcon-instance-update.sh
-    ```
+Ejecute:
 
-1. Ejecute el siguiente comando en la máquina del conector de datos de SAP:
-
-    ```azurecli
-    ./ sapcon-instance-update.sh
-    ```
-
-1. Reinicie el contenedor de Docker:
-
-    ```bash
-    docker restart sapcon-[SID]
-    ```
+```azurecli
+wget -O sapcon-instance-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-instance-update.sh && bash ./sapcon-instance-update.sh
+```
 
 El contenedor de Docker del conector de datos de SAP en la máquina está actualizado. 
 
