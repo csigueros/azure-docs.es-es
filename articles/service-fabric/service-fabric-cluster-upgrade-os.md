@@ -1,15 +1,14 @@
 ---
 title: Actualización del sistema operativo Linux para Azure Service Fabric
 description: Obtenga información sobre las opciones para migrar el clúster de Azure Service Fabric a otro sistema operativo Linux.
-manager: tassb
 ms.topic: conceptual
 ms.date: 09/14/2021
-ms.openlocfilehash: 4a5b1a97fde977fa4ba64a4a23d0c57725595c37
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8f52481e7c457445dc842e86f7b05c3568502da4
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128699540"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278018"
 ---
 # <a name="upgrading-linux-os-for-azure-service-fabric"></a>Actualización del sistema operativo Linux para Azure Service Fabric
 
@@ -31,7 +30,7 @@ Este es el enfoque general:
 
     * Asegúrese de que, una vez creado el nuevo tipo de nodo del sistema operativo de destino, las cargas de trabajo existentes sigan funcionando correctamente. Si se observan problemas, realice los cambios necesarios en la aplicación o en los paquetes de máquina preinstalados antes de continuar con la eliminación del tipo de nodo anterior.
 3. Marque el tipo de nodo principal anterior como "isPrimary": false. Esto dará como resultado un conjunto de actualizaciones de larga duración para realizar la transición de todos los nodos de inicialización.
-4. (Solo para tipos de nodos de durabilidad Bronze): Conéctese al clúster mediante [sfctl](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl) / [PowerShell](https://docs.microsoft.com/powershell/module/ServiceFabric/?view=azureservicefabricps) / [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient?view=azure-dotnet) y deshabilite todos los nodos del tipo de nodo anterior.
+4. (Solo para tipos de nodos de durabilidad Bronze): Conéctese al clúster mediante [sfctl](service-fabric-sfctl.md) / [PowerShell](/powershell/module/ServiceFabric) / [FabricClient](/dotnet/api/system.fabric.fabricclient) y deshabilite todos los nodos del tipo de nodo anterior.
 5. Quite los tipos de nodo anteriores.
 
 > [!NOTE]
@@ -43,9 +42,9 @@ Este es el enfoque general:
 > [!NOTE]
 > En los pasos siguientes, se muestra cómo crear rápidamente un prototipo de la migración del tipo de nodo mediante cmdlets de Az PowerShell en un clúster de solo PRUEBA. En el caso de los clústeres de producción que se enfrentan al tráfico empresarial real, se espera que se den los mismos pasos mediante la emisión de actualizaciones de ARM para conservar la capacidad de reproducción y un origen de verdad declarativo coherente.
 
-1. Actualice la configuración de vmImage en el recurso del clúster de Service Fabric mediante [Update-AzServiceFabricVmImage](https://docs.microsoft.com/powershell/module/az.servicefabric/update-azservicefabricvmimage):
+1. Actualice la configuración de vmImage en el recurso del clúster de Service Fabric mediante [Update-AzServiceFabricVmImage](/powershell/module/az.servicefabric/update-azservicefabricvmimage):
 
-    [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps):
+    [Azure PowerShell](/powershell/azure/install-az-ps):
     ```powershell
     # Replace subscriptionId, resourceGroup, clusterName with ones corresponding to your cluster.
     $subscriptionId="cea219db-0593-4b27-8bfa-a703332bf433"

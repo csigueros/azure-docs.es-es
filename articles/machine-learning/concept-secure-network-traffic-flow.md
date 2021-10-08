@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Obtenga información sobre el flujo del tráfico de red entre los componentes cuando el área de trabajo de Azure Machine Learning está en una red virtual protegida.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 09/22/2021
-ms.openlocfilehash: 6265d433e20cfc5d1ee1bc9ae87c5c764f9eff60
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 033bd5a96c75a1097438e01390ba800089d89d1d
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129092554"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129426932"
 ---
 # <a name="network-traffic-flow-when-using-a-secured-workspace"></a>Flujo de tráfico de red al usar un área de trabajo protegida
 
@@ -55,11 +55,11 @@ En este artículo se da por hecho la siguiente configuración:
 
 | __Escenario__ | __Entrada necesaria__ | __Salida necesaria__ | __Configuración adicional__ | 
 | ----- | ----- | ----- | ----- |
-| [Acceso al área de trabajo desde el estudio](#scenario-access-workspace-from-studio) | N/D | <ul><li>Azure Active Directory</li><li>Azure Front Door</li><li>Azure Machine Learning Service</li></ul> | Es posible que tenga que usar un servidor DNS personalizado. Para obtener más información, consulte [Uso de un área de trabajo con un servidor DNS personalizado](how-to-custom-dns.md). | 
-| [Uso de AutoML, el diseñador, el conjunto de datos y el almacén de datos del estudio](#scenario-use-automl-designer-dataset-and-datastore-from-studio) | N/D | N/D | <ul><li>Configuración de la entidad de servicio del área de trabajo</li><li>Permitir el acceso desde servicios de Azure de confianza</li></ul>Para obtener más información, consulte [Protección de un área de trabajo en una red virtual](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts). | 
+| [Acceso al área de trabajo desde el estudio](#scenario-access-workspace-from-studio) | NA | <ul><li>Azure Active Directory</li><li>Azure Front Door</li><li>Azure Machine Learning Service</li></ul> | Es posible que tenga que usar un servidor DNS personalizado. Para obtener más información, consulte [Uso de un área de trabajo con un servidor DNS personalizado](how-to-custom-dns.md). | 
+| [Uso de AutoML, el diseñador, el conjunto de datos y el almacén de datos del estudio](#scenario-use-automl-designer-dataset-and-datastore-from-studio) | NA | NA | <ul><li>Configuración de la entidad de servicio del área de trabajo</li><li>Permitir el acceso desde servicios de Azure de confianza</li></ul>Para obtener más información, consulte [Protección de un área de trabajo en una red virtual](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts). | 
 | [Uso de una instancia de proceso y un clúster de proceso](#scenario-use-compute-instance-and-compute-cluster) | <ul><li>Azure Machine Learning Service en el puerto 44224</li><li>Administración de Azure Batch en los puertos 29876-29877</li></ul> | <ul><li>Azure Active Directory</li><li>Azure Resource Manager</li><li>Azure Machine Learning Service</li><li>Cuenta de Azure Storage</li><li>Azure Key Vault</li></ul> | Si usa un firewall, cree rutas definidas por el usuario. Para obtener más información, consulte [Configuración del tráfico de entrada y salida](how-to-access-azureml-behind-firewall.md). | 
-| [Uso de Azure Kubernetes Service](#scenario-use-azure-kubernetes-service) | N/D | Para obtener información sobre la configuración de salida de AKS, consulte [Implementación en Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#understand-connectivity-requirements-for-aks-inferencing-cluster). | Configure el equilibrador de carga interno. Para obtener más información, consulte [Implementación en Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#understand-connectivity-requirements-for-aks-inferencing-cluster). | 
-| [Uso de imágenes de Docker administradas por Azure Machine Learning](#scenario-use-docker-images-managed-by-azure-ml) | N/D | <ul><li>Registro de contenedor de Microsoft</li><li>Registro de contenedor global de `viennaglobal.azurecr.io`</li></ul> | Si la instancia de Azure Container Registry del área de trabajo está detrás de la red virtual, configure el área de trabajo con el fin de que use un clúster de proceso para compilar imágenes. Para obtener más información, consulte [Protección de un área de trabajo en una red virtual](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr). | 
+| [Uso de Azure Kubernetes Service](#scenario-use-azure-kubernetes-service) | NA | Para obtener información sobre la configuración de salida de AKS, consulte [Implementación en Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#understand-connectivity-requirements-for-aks-inferencing-cluster). | Configure el equilibrador de carga interno. Para obtener más información, consulte [Implementación en Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#understand-connectivity-requirements-for-aks-inferencing-cluster). | 
+| [Uso de imágenes de Docker administradas por Azure Machine Learning](#scenario-use-docker-images-managed-by-azure-ml) | NA | <ul><li>Registro de contenedor de Microsoft</li><li>Registro de contenedor global de `viennaglobal.azurecr.io`</li></ul> | Si la instancia de Azure Container Registry del área de trabajo está detrás de la red virtual, configure el área de trabajo con el fin de que use un clúster de proceso para compilar imágenes. Para obtener más información, consulte [Protección de un área de trabajo en una red virtual](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr). | 
 
 
 ## <a name="scenario-access-workspace-from-studio"></a>Escenario: Acceso al área de trabajo desde el estudio

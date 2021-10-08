@@ -5,16 +5,19 @@ services: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 06/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: dc44fc58b8832c30ed1b740eb6637f1fc8ed1413
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 51488a6694b843821110127640281a2da9986862
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129454969"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124744753"
 ---
 # <a name="deploy-startstop-vms-v2-preview"></a>Implementación de Start/Stop VMs v2 (versión preliminar)
 
 Siga la secuencia de pasos que aparecen en este tema para instalar la característica Start/Stop VMs v2 (versión preliminar). Después de completar el proceso de instalación, configure las programaciones para personalizar esta característica según sus necesidades.
+
+> [!NOTE]
+> Si tiene problemas durante la implementación, se produce un problema al usar Start/Stop VMs v2 (versión preliminar), o bien si tiene una pregunta relacionada, puede enviar una incidencia en [GitHub](https://github.com/microsoft/startstopv2-deployments/issues). La apertura de una incidencia de soporte técnico de Azure desde el [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) no está disponible para esta versión preliminar. 
 
 ## <a name="permissions-considerations"></a>Consideraciones sobre permisos
 Tenga en cuenta lo siguiente antes y durante la implementación:

@@ -1,6 +1,7 @@
 ---
 title: Protección del acceso híbrido con Azure AD y Silverfort
 description: En este tutorial, obtendrá información sobre cómo integrar Silverfort con Azure AD para el acceso híbrido seguro.
+services: active-directory
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
@@ -10,12 +11,12 @@ ms.workload: identity
 ms.date: 9/13/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0429b00a03aaf39fa5eb5657253ee6ee51190049
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: ce68bde35f817d17f1278f6826ffe38284bf6c1a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129274565"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128699737"
 ---
 # <a name="tutorial-configure-silverfort-with-azure-active-directory-for-secure-hybrid-access"></a>Tutorial: Configuración de Silverfort con Azure Active Directory para el acceso híbrido seguro
 
@@ -133,7 +134,7 @@ Para implementar Silverfort en su inquilino o infraestructura, [póngase en cont
 
     ![Imagen que muestra cómo agregar una directiva](./media/silverfort-azure-ad-integration/add-policy.png)
 
-14. Vuelva a la consola de Azure AD y vaya a **Aplicaciones empresariales**. Ahora debería aparecer la nueva aplicación de Silverfort. Esta aplicación ahora se puede incluir en las [directivas de CA](../authentication/tutorial-enable-azure-mfa.md?bc=/azure/active-directory/conditional-access/breadcrumb/toc.json&toc=/azure/active-directory/conditional-access/toc.json%23create-a-conditional-access-policy).
+14. Vuelva a la consola de Azure AD y vaya a **Aplicaciones empresariales**. Ahora debería aparecer la nueva aplicación de Silverfort. Esta aplicación ahora se puede incluir en las [directivas de CA](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?bc=/azure/active-directory/conditional-access/breadcrumb/toc.json&toc=/azure/active-directory/conditional-access/toc.json%23create-a-conditional-access-policy).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

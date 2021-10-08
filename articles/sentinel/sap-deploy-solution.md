@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 07/06/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: 555bc5c14a769c6e2ec309347fd40e4e9aa9e1e3
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
+ms.openlocfilehash: 301181b291521b8a8b19a7d7266e90fa2c542e49
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681413"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128562938"
 ---
 #  <a name="deploy-sap-continuous-threat-monitoring-public-preview"></a>Implementación de la supervisión de amenazas continua de SAP (versión preliminar pública)
 
@@ -171,26 +171,29 @@ En este tutorial se usa una instancia de [Azure Key Vault](../key-vault/index.ym
       --resource-group $kvgp
     ```
 
-1. Asigne una directiva de acceso que incluya los permisos GET, LIST y SET a la identidad administrada de la máquina virtual.
+1. Asigne una directiva de acceso que incluya los permisos GET, LIST y SET para la identidad administrada de la máquina virtual, usando uno de los siguientes métodos:
 
-    En Azure Key Vault, seleccione **Directivas de acceso** > **Agregar directiva de acceso - Permisos de los secretos: Get, List y Set** > **Seleccionar la entidad de seguridad**. Escriba el [nombre de la máquina virtual](#deploy-a-linux-vm-for-your-sap-data-connector) y, a continuación, seleccione **Agregar** > **Guardar**.
+    - **A través de Azure Portal:**
 
-    Para más información, consulte la [documentación de Key Vault](../key-vault/general/assign-access-policy-portal.md).
+        En Azure Key Vault, seleccione **Directivas de acceso** > **Agregar directiva de acceso - Permisos de los secretos: Get, List y Set** > **Seleccionar la entidad de seguridad**. Escriba el [nombre de la máquina virtual](#deploy-a-linux-vm-for-your-sap-data-connector) y, a continuación, seleccione **Agregar** > **Guardar**.
 
-1. Ejecute el siguiente comando para obtener el [identificador de entidad de seguridad de la máquina virtual](#deploy-a-linux-vm-for-your-sap-data-connector) y escriba el nombre del grupo de recursos de Azure:
+        Para más información, consulte la [documentación de Key Vault](../key-vault/general/assign-access-policy-portal.md).
 
-    ```azurecli
-    VMPrincipalID=$(az vm show -g [resource group] -n [Virtual Machine] --query identity.principalId -o tsv)
-    ```
+    - **A través de la CLI de Azure:**
 
-    El identificador de la entidad de seguridad se muestra para que lo use en el paso siguiente.
+        1. Ejecute el siguiente comando para obtener el [identificador de entidad de seguridad de la máquina virtual](#deploy-a-linux-vm-for-your-sap-data-connector) y escriba el nombre del grupo de recursos de Azure:
 
-1. Ejecute el siguiente comando para asignar los permisos de acceso de la máquina virtual a la instancia de Key Vault y escriba el nombre del grupo de recursos y el valor del identificador de la entidad de seguridad devuelto en el paso anterior.
+            ```azurecli
+            VMPrincipalID=$(az vm show -g [resource group] -n [Virtual Machine] --query identity.principalId -o tsv)
+            ```
 
-    ```azurecli
-    az keyvault set-policy -n [key vault] -g [resource group] --object-id $VMPrincipalID --secret-permissions get list set
-    ```
+            El identificador de la entidad de seguridad se muestra para que lo use en el paso siguiente.
 
+        1. Ejecute el siguiente comando para asignar los permisos de acceso de la máquina virtual a la instancia de Key Vault, indicando el nombre de su grupo de recursos y el valor de Id. de entidad de seguridad devuelto en el paso anterior.
+
+            ```azurecli
+            az keyvault set-policy -n [key vault] -g [resource group] --object-id $VMPrincipalID --secret-permissions get list set
+            ```
 ## <a name="deploy-your-sap-data-connector"></a>Implementación del conector de datos de SAP
 
 El script de implementación del conector de datos de Azure Sentinel para SAP instala el [software necesario](#automatically-installed-software) y, después, instala el conector en la [máquina virtual recién creada](#deploy-a-linux-vm-for-your-sap-data-connector) y almacena las credenciales en el [almacén de claves dedicado](#create-key-vault-for-your-sap-credentials).

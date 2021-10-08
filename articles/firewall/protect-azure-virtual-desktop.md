@@ -7,12 +7,12 @@ services: firewall
 ms.topic: how-to
 ms.date: 08/09/2021
 ms.author: victorh
-ms.openlocfilehash: 254a81e9fe5f3f0d3e98d7db6a7f70778f9746a3
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5c165dc8f00bb21894de06e541c02788bd7b51e5
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128699465"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129425000"
 ---
 # <a name="use-azure-firewall-to-protect-azure-virtual-desktop-deployments"></a>Uso de Azure Firewall para proteger las implementaciones de Azure Virtual Desktop
 
@@ -24,9 +24,8 @@ Siga las instrucciones de este artículo para proporcionar protección adicional
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-
  - Un entorno de Azure Virtual Desktop implementado y un grupo de hosts.
- - Una instancia de Azure Firewall implementada con al menos una directiva de Firewall Manager 
+ - Una instancia de Azure Firewall implementada con al menos una directiva de Firewall Manager
 
    Para obtener más información, vea [Tutorial: Creación de un grupo de hosts mediante Azure Portal](../virtual-desktop/create-host-pools-azure-marketplace.md).
 
@@ -36,26 +35,25 @@ Para obtener más información sobre los entornos de Azure Virtual Desktop, vea 
 
 Las máquinas virtuales de Azure que cree para Azure Virtual Desktop deben tener acceso a varios nombres de dominio completos (FQDN) para que funcionen correctamente. Azure Firewall proporciona una etiqueta FQDN de Azure Virtual Desktop para simplificar esta configuración. Siga estos pasos para permitir el tráfico saliente de la plataforma Azure Virtual Desktop:
 
-Tendrá que crear una directiva de Azure Firewall y colecciones de reglas para reglas de red y reglas de aplicaciones. Asigne una prioridad a la colección de reglas y una acción de permitir o denegar. 
+Tendrá que crear una directiva de Azure Firewall y colecciones de reglas para reglas de red y reglas de aplicaciones. Asigne una prioridad a la colección de reglas y una acción de permitir o denegar.
 
 ### <a name="create-network-rules"></a>Creación de reglas de red
 
-| NOMBRE | Tipo de origen | Source | Protocolo | Puertos de destino | Tipo de destino | Destination |
-| --- | --- | --- | --- | --- | --- | --- |
-| Nombre de la regla | Dirección IP | Dirección IP de la red virtual o subred | 80 | TCP |  Dirección IP | 169.254.169.254, 168.63.129.16 |
-| Nombre de la regla | Dirección IP | Dirección IP de la red virtual o subred | 443 | TCP | Etiqueta de servicio | AzureCloud, WindowsVirtualDesktop |
-| Nombre de la regla | Dirección IP | Dirección IP de la red virtual o subred | 53 | TCP, UDP | Dirección IP | * |
+| NOMBRE      | Tipo de origen | Source                    | Protocolo | Puertos de destino | Tipo de destino | Destination                       |
+| --------- | ----------- | ------------------------- | -------- | ----------------- | ---------------- | --------------------------------- |
+| Nombre de la regla | Dirección IP  | Dirección IP de la red virtual o subred | TCP      | 80                | Dirección IP       | 169.254.169.254, 168.63.129.16    |
+| Nombre de la regla | Dirección IP  | Dirección IP de la red virtual o subred | TCP      | 443               | Etiqueta de servicio      | AzureCloud, WindowsVirtualDesktop |
+| Nombre de la regla | Dirección IP  | Dirección IP de la red virtual o subred | TCP, UDP | 53                | Dirección IP       | *                                 |
 
 > [!NOTE]
 > Es posible que algunas implementaciones no necesiten reglas de DNS. Por ejemplo, los controladores de dominio de Azure Active Directory reenvían consultas de DNS a Azure DNS en la dirección 168.63.129.16.
 
-### <a name="create-application-rules"></a>Creación de reglas de aplicación 
+### <a name="create-application-rules"></a>Creación de reglas de aplicación
 
-| NOMBRE | Tipo de origen | Source | Protocolo | Tipo de destino | Destination|
-| --- | --- | --- | --- | --- | --- |
-| Nombre de la regla | Dirección IP | Dirección IP de la red virtual o subred | Https:443 | Etiqueta de FQDN | WindowsVirtualDesktop, WindowsUpdate, Windows Diagnostics, MicrosoftActiveProtectionService |
-| Nombre de la regla | Dirección IP | Dirección IP de la red virtual o subred | Https:1688 | FQDN | kms.core.windows.net |
-
+| NOMBRE      | Tipo de origen | Source                    | Protocolo   | Tipo de destino | Destination                                                                                 |
+| --------- | ----------- | ------------------------- | ---------- | ---------------- | ------------------------------------------------------------------------------------------- |
+| Nombre de la regla | Dirección IP  | Dirección IP de la red virtual o subred | Https:443  | Etiqueta de FQDN         | WindowsVirtualDesktop, WindowsUpdate, Windows Diagnostics, MicrosoftActiveProtectionService |
+| Nombre de la regla | Dirección IP  | Dirección IP de la red virtual o subred | Https:1688 | FQDN             | kms.core.windows.net                                                                        |
 
 > [!IMPORTANT]
 > Se recomienda no utilizar la inspección de TLS con Azure Virtual Desktop. Para más información, consulte las [directrices del servidor proxy](../virtual-desktop/proxy-server-support.md#dont-use-ssl-termination-on-the-proxy-server).
@@ -64,11 +62,11 @@ Tendrá que crear una directiva de Azure Firewall y colecciones de reglas para r
 
 En función de las necesidades de la organización, es posible que quiera habilitar un acceso seguro de salida a Internet para los usuarios finales. Si la lista de destinos permitidos está bien definida (por ejemplo, para el [acceso a Microsoft 365](/microsoft-365/enterprise/microsoft-365-ip-web-service)) puede usar reglas de red y de aplicación de Azure Firewall para configurar el acceso necesario. De esta forma, el tráfico del usuario final se enruta directamente a Internet para obtener el mejor rendimiento. Si tiene que permitir la conectividad de red para Windows 365 o Intune, vea [Requisitos de red para Windows 365](/windows-365/requirements-network#allow-network-connectivity) y [Puntos de conexión de red para Intune](/mem/intune/fundamentals/intune-endpoints).
 
-Si quiere filtrar el tráfico saliente de Internet de los usuarios mediante una puerta de enlace web segura local existente, puede configurar exploradores web u otras aplicaciones que se ejecuten en el grupo de hosts de Azure Virtual Desktop con una configuración de proxy explícita. Por ejemplo, consulte [Cómo usar las opciones de línea de comandos de Microsoft Edge para establecer la configuración de proxy](/deployedge/edge-learnmore-cmdline-options-proxy-settings). Esta configuración de proxy solo afecta al acceso a Internet del usuario final, de modo que permite el tráfico saliente de la plataforma Azure Virtual Desktop directamente mediante Azure Firewall. 
+Si quiere filtrar el tráfico saliente de Internet de los usuarios mediante una puerta de enlace web segura local existente, puede configurar exploradores web u otras aplicaciones que se ejecuten en el grupo de hosts de Azure Virtual Desktop con una configuración de proxy explícita. Por ejemplo, consulte [Cómo usar las opciones de línea de comandos de Microsoft Edge para establecer la configuración de proxy](/deployedge/edge-learnmore-cmdline-options-proxy-settings). Esta configuración de proxy solo afecta al acceso a Internet del usuario final, de modo que permite el tráfico saliente de la plataforma Azure Virtual Desktop directamente mediante Azure Firewall.
 
 ## <a name="control-user-access-to-the-web"></a>Control del acceso de los usuarios a la web
 
-Los administradores pueden permitir o denegar el acceso de los usuarios a diferentes categorías de sitios web. Agregue una regla a la colección de aplicaciones desde la dirección IP específica a las categorías web que quiera permitir o denegar. Revise todas las [categorías web](web-categories.md). 
+Los administradores pueden permitir o denegar el acceso de los usuarios a diferentes categorías de sitios web. Agregue una regla a la colección de aplicaciones desde la dirección IP específica a las categorías web que quiera permitir o denegar. Revise todas las [categorías web](web-categories.md).
 
 ## <a name="additional-considerations"></a>Consideraciones adicionales
 

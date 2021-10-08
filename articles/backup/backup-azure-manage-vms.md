@@ -3,12 +3,12 @@ title: Administración y supervisión de copias de seguridad de máquinas virtua
 description: Aprenda a administrar y supervisar las copias de seguridad de Azure VM con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 09/17/2021
-ms.openlocfilehash: d1040c1261c3edff3010403a63c856ff1c0200fa
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1fe5b1511147b8db3b0c46504ee88d99dd272287
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128605627"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129271809"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Administración de las copias de seguridad de máquina virtual de Azure con el servicio Azure Backup
 
@@ -97,7 +97,7 @@ Puede ejecutar una copia de seguridad a petición de una máquina virtual despu�
 * La duración de retención para una copia de seguridad a petición es el valor de retención que especificó al desencadenar la copia de seguridad diaria.
 
 > [!NOTE]
-> Azure Backup recomienda realizar cuatro copias de seguridad al día de cada máquina virtual: una copia de seguridad programada según la directiva de copia de seguridad y tres copias de seguridad a petición. Sin embargo, para que el usuario pueda repetir los intentos que no se han ejecutado correctamente, el límite máximo de copias de seguridad a petición está establecido en nueve intentos.
+> Azure Backup recomienda realizar cuatro copias de seguridad al día de cada máquina virtual: una copia de seguridad programada según la directiva de copia de seguridad y tres copias de seguridad a petición. Sin embargo, para permitir reintentos del usuario en caso de intentos fallidos, el límite máximo de copias de seguridad a petición se establece en nueve intentos.
 
 Para desencadenar una copia de seguridad a petición:
 
@@ -142,7 +142,7 @@ Una notificación le confirma que se han detenido los trabajos de copia de segur
 Para detener la protección y eliminar los datos de una máquina virtual:
 
 >[!Note]
->En el caso de los puntos de recuperación archivados que no hayan permanecido durante 180 días en el nivel de almacenamiento de archivo, la eliminación de los puntos de recuperación implica un costo de eliminación anticipada. [Más información](../storage/blobs/storage-blob-storage-tiers.md#cool-and-archive-early-deletion).
+>En el caso de los puntos de recuperación archivados que no hayan permanecido durante 180 días en el nivel de almacenamiento de archivo, la eliminación de los puntos de recuperación implica un costo de eliminación anticipada. [Más información](../storage/blobs/access-tiers-overview.md).
 
 
 1. En el [panel del elemento del almacén](#view-vms-on-the-dashboard), seleccione **Detener copia de seguridad**.

@@ -3,14 +3,14 @@ title: Planeamiento de la implementación de Update Management de Azure Automati
 description: En este artículo se describen las consideraciones y decisiones que se deben tomar para preparar la implementación de Update Management de Azure Automation.
 services: automation
 ms.subservice: update-management
-ms.date: 06/07/2021
+ms.date: 09/28/2021
 ms.topic: conceptual
-ms.openlocfilehash: 4c29ff09b6d353072cb8486e17ffa605ceff9aea
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: bac463aa01a997122d86e32e140b135938d589da
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769359"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129093295"
 ---
 # <a name="plan-your-update-management-deployment"></a>Planeamiento de la implementación de Update Management
 
@@ -56,9 +56,9 @@ Si las directivas de seguridad de TI no permiten que las máquinas de la red se 
 
 Para crear y administrar implementaciones de actualizaciones, necesita permisos concretos. Para más información sobre estos permisos, consulte [Acceso basado en rol: Update Management](../automation-role-based-access-control.md#update-management-permissions).
 
-## <a name="step-7---windows-update-client"></a>Paso 7: Cliente de Windows Update
+## <a name="step-7---windows-update-agent"></a>Paso 7: Agente de Windows Update
 
-Azure Automation Update Management se basa en el cliente de Windows Update para descargar e instalar las actualizaciones de Windows. Hay una configuración de directiva de grupo específica que Windows Update Agent (WUA) usa en las máquinas para conectarse a Windows Server Update Services (WSUS) o Microsoft Update. Esta configuración de directiva de grupo también se utiliza para analizar correctamente el cumplimiento de las actualizaciones de software, y para implementar automáticamente las actualizaciones de software. Para revisar nuestras recomendaciones, consulte [Configuración de Windows Update para Update Management](configure-wuagent.md).
+Azure Automation Update Management depende del agente de Windows Update para descargar e instalar las actualizaciones de Windows. Hay una configuración de directiva de grupo específica que Windows Update Agent (WUA) usa en las máquinas para conectarse a Windows Server Update Services (WSUS) o Microsoft Update. Esta configuración de directiva de grupo también se utiliza para analizar correctamente el cumplimiento de las actualizaciones de software, y para implementar automáticamente las actualizaciones de software. Para revisar nuestras recomendaciones, consulte [Configuración de Windows Update para Update Management](configure-wuagent.md).
 
 ## <a name="step-8---linux-repository"></a>Paso 8: Repositorio de Linux
 

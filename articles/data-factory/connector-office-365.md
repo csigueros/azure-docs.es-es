@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 09/30/2021
 ms.author: jianleishen
-ms.openlocfilehash: 45f4f771d2cb289b9893bb8243add86df36ac915
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: edd54b8b6f96244bef4b78ab191e4b265a753e69
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124815037"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129360479"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-or-synapse-analytics"></a>Copia de datos de Office 365 en Azure con Azure Data Factory o Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -51,9 +51,6 @@ Si es la primera vez que solicita datos para este contexto (una combinación de 
 
 Consulte [aquí](/graph/data-connect-faq#how-can-i-approve-pam-requests-via-microsoft-365-admin-portal) cómo el aprobador puede aprobar la solicitud de acceso a los datos y haga clic [aquí](/graph/data-connect-pam) para obtener una explicación sobre la integración total con Privileged Access Management, incluida la forma de configurar el grupo de aprobadores de acceso a los datos.
 
-## <a name="policy-validation"></a>Validación de directivas
-
-Si ADF se crea como parte de una aplicación administrada y las asignaciones de directivas de Azure se realizan en los recursos dentro del grupo de recursos de administración, entonces, para cada ejecución de la actividad de copia, ADF comprobará para asegurarse de que se aplican las asignaciones de directivas. Consulte [aquí](/graph/data-connect-policies#policies) para obtener una lista de las directivas admitidas.
 
 ## <a name="getting-started"></a>Introducción
 

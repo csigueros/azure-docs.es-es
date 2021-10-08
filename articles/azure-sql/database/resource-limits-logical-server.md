@@ -10,13 +10,13 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 09/28/2021
-ms.openlocfilehash: e9db19643252a94513be57c2cd3a18ee6038b742
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 10/01/2021
+ms.openlocfilehash: 67983b60457d652a1e4de71c6655f7eedae40542
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129218173"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389767"
 ---
 # <a name="resource-management-in-azure-sql-database"></a>Administración de recursos en Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,7 +36,7 @@ Para conocer los límites de recursos por plan de tarifa (también conocido como
 | :--- | :--- |
 | Bases de datos por [servidor lógico](logical-servers.md) | 5000 |
 | Número predeterminado de servidores lógicos por suscripción en una región | 20 |
-| Número máximo de servidores lógicos por suscripción en una región | 200 |
+| Número máximo de servidores lógicos por suscripción en una región | 250 |
 | Cuota de DTU o eDTU por servidor lógico | 54 000 |
 | Cuota de núcleo virtual por servidor lógico | 540 |
 | Número máximo de grupos elásticos por servidor lógico | Limitado por el número de DTU o núcleos virtuales. Por ejemplo, si cada grupo tiene 1000 DTU, un servidor puede admitir 54 grupos.|

@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Proteja los entornos de proceso y los recursos del área de trabajo de Azure Machine Learning mediante una instancia de Azure Virtual Network (VNet) aislada.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
 ms.date: 09/24/2021
 ms.topic: how-to
 ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack, security
-ms.openlocfilehash: 1844d9a84714231aac7cb399239c31a6af62661c
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 1d1389b5627f18c8772a55300a89dca9d0de4917
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129093523"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129423526"
 ---
 <!-- # Virtual network isolation and privacy overview -->
 # <a name="secure-azure-machine-learning-workspace-resources-using-virtual-networks-vnets"></a>Protección de los recursos del área de trabajo de Azure Machine Learning con redes virtuales (VNet)
@@ -168,7 +168,7 @@ Para habilitar la funcionalidad de Studio completa, consulte [Uso de Azure Machi
 
 ### <a name="limitations"></a>Limitaciones
 
-El [etiquetado de datos asistido por ML](how-to-create-labeling-projects.md#use-ml-assisted-data-labeling) no es compatible con las cuentas de almacenamiento predeterminadas en una red virtual. En su lugar, use una cuenta de almacenamiento que no sea la predeterminada para el etiquetado de datos asistido por ML. 
+El [etiquetado de datos asistido por ML](how-to-create-image-labeling-projects.md#use-ml-assisted-data-labeling) no es compatible con las cuentas de almacenamiento predeterminadas en una red virtual. En su lugar, use una cuenta de almacenamiento que no sea la predeterminada para el etiquetado de datos asistido por ML. 
 
 > [!TIP]
 > Siempre que no sea la cuenta de almacenamiento predeterminada, la cuenta usada por el etiquetado de datos se puede proteger en la red virtual. 

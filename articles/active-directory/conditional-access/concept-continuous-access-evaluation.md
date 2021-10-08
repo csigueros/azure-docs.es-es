@@ -12,12 +12,12 @@ manager: karenhoran
 ms.reviewer: jlu
 ms.custom: has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18cc593e3aa1f50dcdaeaea32d7ac584f8bd4a24
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: a5e3804ae4fd386668f4c34d11172e7f3dd1ae62
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129354074"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595415"
 ---
 # <a name="continuous-access-evaluation"></a>Evaluación continua de acceso
 
@@ -144,7 +144,7 @@ En el ejemplo siguiente, un administrador de acceso condicional ha configurado u
 En esta página, puede limitar opcionalmente los usuarios y grupos que estarán sujetos a la versión preliminar.
 
 > [!NOTE]
-> Puede consultar Microsoft Graph mediante [**continuousAccessEvaluationPolicy**](/graph/api/continuousaccessevaluationpolicy-get?view=graph-rest-beta&preserve-view=true&tabs=http#request-body) para comprobar la configuración de CAE en el inquilino. Una respuesta HTTP 200 y el cuerpo de respuesta asociado indican si CAE está habilitado o deshabilitado en el inquilino. CAE no está configurado si Microsoft Graph devuelve una respuesta HTTP 404.
+> Puede consultar Microsoft Graph mediante [**continuousAccessEvaluationPolicy**](/graph/api/continuousaccessevaluationpolicy-get?view=graph-rest-beta&tabs=http#request-body) para comprobar la configuración de CAE en el inquilino. Una respuesta HTTP 200 y el cuerpo de respuesta asociado indican si CAE está habilitado o deshabilitado en el inquilino. CAE no está configurado si Microsoft Graph devuelve una respuesta HTTP 404.
 
 ![Habilitar la versión preliminar de CAE en Azure Portal](./media/concept-continuous-access-evaluation/enable-cae-preview.png)
 
@@ -206,7 +206,7 @@ Cuando varios usuarios colaboran en un documento al mismo tiempo, es posible que
 - Cerrar la aplicación de Office
 - Después de un período de 10 horas
 
-Para reducir este tiempo, un administrador de SharePoint puede reducir la duración máxima de las sesiones de coautoría para los documentos almacenados en SharePoint Online y OneDrive para la Empresa mediante la [configuración de una directiva de ubicación de red en SharePoint Online](/sharepoint/control-access-based-on-network-location). Una vez que se cambia esta configuración, la vigencia máxima de las sesiones de coautoría se reducirá a 15 minutos, y se puede ajustar más mediante el comando de PowerShell de SharePoint Online "[Set-SPOTenant –IPAddressWACTokenLifetime](/powershell/module/sharepoint-online/set-spotenant)".
+Para reducir este tiempo, un administrador de SharePoint puede reducir la duración máxima de las sesiones de coautoría para los documentos almacenados en SharePoint Online y OneDrive para la Empresa mediante la [configuración de una directiva de ubicación de red en SharePoint Online](/sharepoint/control-access-based-on-network-location). Una vez que se cambia esta configuración, la vigencia máxima de las sesiones de coautoría se reducirá a 15 minutos, y se puede ajustar más mediante el comando de PowerShell de SharePoint Online "[Set-SPOTenant –IPAddressWACTokenLifetime](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps)".
 
 ### <a name="enable-after-a-user-is-disabled"></a>Habilitar después de deshabilitar un usuario
 

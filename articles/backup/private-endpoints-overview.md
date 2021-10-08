@@ -2,14 +2,14 @@
 title: Introducción a los puntos de conexión privados
 description: Comprenda el uso de los puntos de conexión privados para Azure Backup y los escenarios en los que el uso de puntos de conexión privados ayuda a preservar la seguridad de los recursos.
 ms.topic: conceptual
-ms.date: 08/19/2021
+ms.date: 09/28/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 959929c92ecea5534930df5c23648062256c6ca4
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 3070cb72b6e5949b94972f9dad54d4e57e5bf591
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122446650"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129154971"
 ---
 # <a name="overview-and-concepts-of-private-endpoints-for-azure-backup"></a>Introducción y conceptos de puntos de conexión privados para Azure Backup
 
@@ -28,7 +28,7 @@ Este artículo le ayudará a comprender cómo funcionan los puntos de conexión 
 - No se admiten redes virtuales con directivas de red para los puntos de conexión privados. Deberá [deshabilitar las directivas de red](../private-link/disable-private-endpoint-network-policy.md) antes de continuar.
 - Debe volver a registrar el proveedor de recursos de Recovery Services con la suscripción si lo registró antes del 1 de mayo de 2020. Para volver a registrar el proveedor, vaya a la suscripción en Azure Portal, haga clic en el **Proveedor de recursos** en la barra de navegación izquierda, seleccione **Microsoft.RecoveryServices** y **Volver a registrar**.
 - Si el almacén tiene habilitados los puntos de conexión privados, no se puede realizar la [restauración entre regiones](backup-create-rs-vault.md#set-cross-region-restore) de las copias de seguridad de bases de datos SQL y SAP HANA.
-- Al trasladar un almacén de Recovery Services que ya usa puntos de conexión privados a un nuevo inquilino, deberá actualizar el almacén de Recovery Services para volver a crear y configurar la identidad administrada del almacén y crear nuevos puntos de conexión privados según sea necesario (que deben estar en el nuevo inquilino). Si no lo hace, las operaciones de copia de seguridad y restauración comenzarán a generar errores. Además, los permisos de control de acceso basado en rol (RBAC) configurados en la suscripción deberán volver a configurarse.
+- Al trasladar un almacén de Recovery Services que ya usa puntos de conexión privados a un nuevo inquilino, deberá actualizar el almacén de Recovery Services para volver a crear y configurar la identidad administrada del almacén y crear nuevos puntos de conexión privados según sea necesario (que deben estar en el nuevo inquilino). Si no lo hace, las operaciones de copia de seguridad y restauración comenzarán a generar errores. Además, los permisos del control de acceso basado en roles de Azure (Azure RBAC) que se hayan configurado en la suscripción deberán volver a configurarse.
 
 ## <a name="recommended-and-supported-scenarios"></a>Escenarios recomendados y admitidos
 
@@ -65,12 +65,12 @@ Cuando se instala la extensión de carga de trabajo o el agente de MARS para el 
 >En el texto anterior, `<geo>` hace referencia al código de región (por ejemplo, **eus** para Este de EE. UU. y **ne** para Norte de Europa). Consulte las siguientes listas para ver los códigos de región:
 >- [Todas las nubes públicas](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
 >- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
->- [Alemania](/azure/germany/germany-developer-guide#endpoint-mapping)
->- [US Gov](/azure/azure-government/documentation-government-developer-guide)
+>- [Alemania](../germany/germany-developer-guide.md#endpoint-mapping)
+>- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
 Los FQDN de almacenamiento alcanzados en ambos escenarios son los mismos. Sin embargo, para un almacén de Recovery Services con la configuración de punto de conexión privado, la resolución de nombres debe devolver una dirección IP privada. Esto se puede lograr mediante el uso de zonas DNS privadas, mediante la creación de entradas DNS para la cuenta de almacenamiento en archivos host o mediante el uso de reenviadores condicionales a DNS personalizado con las entradas DNS correspondientes. Las asignaciones de IP privadas para la cuenta de almacenamiento se muestran en la hoja del punto de conexión privado de la cuenta de almacenamiento en el portal.
 
->Los puntos de conexión privados para blobs y colas siguen un patrón de nomenclatura estándar, comienzan con  **\<the name of the private endpoint>_ecs** o **\<the name of the private endpoint>_prot** y tienen el sufijo  **\_blob** y **\_queue** respectivamente.
+>Los puntos de conexión privados para blobs y colas siguen un patrón de nomenclatura estándar, comienzan con  **\<the name of the private endpoint>_ecs** o **\<the name of the private endpoint>_prot** y tienen el sufijo  **\_blob** y  **\_queue** respectivamente.
 
 Los puntos de conexión del servicio Azure Backup se modifican para los almacenes habilitados para el punto de conexión privado.  
 Si ha configurado un servidor proxy DNS mediante servidores proxy y firewalls de terceros, los nombres de dominio anteriores se deben permitir y redirigir a un DNS personalizado (con asignaciones de direcciones IP privadas) o a 169.63.129.16 con un vínculo de red virtual a una zona DNS privada con estas asignaciones de direcciones IP privadas.
@@ -91,14 +91,14 @@ La extensión de copia de seguridad de carga de trabajo y el agente de MARS se e
 >En el texto anterior, `<geo>` hace referencia al código de región (por ejemplo, **eus** para Este de EE. UU. y **ne** para Norte de Europa). Consulte las siguientes listas para ver los códigos de región:
 >- [Todas las nubes públicas](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
 >- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
->- [Alemania](/azure/germany/germany-developer-guide#endpoint-mapping)
->- [US Gov](/azure/azure-government/documentation-government-developer-guide)
+>- [Alemania](../germany/germany-developer-guide.md#endpoint-mapping)
+>- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
 Las direcciones URL modificadas son específicas de un almacén.  Consulte `<vault_id>` en el nombre de la dirección URL. Solo las extensiones y los agentes registrados en este almacén pueden comunicarse con Azure Backup a través de estos puntos de conexión. Esto restringe el acceso a los clientes dentro de esta red virtual. La extensión o el agente se comunicará a través de `*.privatelink.<geo>.backup.windowsazure.com`, que necesita resolver la dirección IP privada correspondiente en la NIC.
 
 Cuando el punto de conexión privado para los almacenes de Recovery Services se crea a través de Azure Portal con la opción **Integrar con zona DNS privada**, las entradas DNS necesarias para las direcciones IP privadas de los servicios de Azure Backup (`*.privatelink.<geo>backup.windowsazure.com`) se crean automáticamente cada vez que se asigna el recurso. De lo contrario, debe crear manualmente las entradas DNS para estos FQDN en el DNS personalizado o en los archivos host.
 
-Para la administración manual de registros DNS después de la detección de máquinas virtuales para el canal de comunicación: blob/cola, consulte [Registros DNS para blobs y colas (solo para servidores DNS personalizados o archivos host) después del primer registro](/azure/backup/private-endpoints#dns-records-for-blobs-and-queues-only-for-custom-dns-servershost-files-after-the-first-registration). Para la administración manual de registros DNS después de la primera copia de seguridad para el blob de la cuenta de almacenamiento de copia de seguridad, consulte [Registros DNS para blobs (solo para servidores DNS personalizados o archivos host) después de la primera copia de seguridad](/azure/backup/private-endpoints#dns-records-for-blobs-only-for-custom-dns-servershost-files-after-the-first-backup).
+Para la administración manual de registros DNS después de la detección de máquinas virtuales para el canal de comunicación: blob/cola, consulte [Registros DNS para blobs y colas (solo para servidores DNS personalizados o archivos host) después del primer registro](./private-endpoints.md#dns-records-for-blobs-and-queues-only-for-custom-dns-servershost-files-after-the-first-registration). Para la administración manual de registros DNS después de la primera copia de seguridad para el blob de la cuenta de almacenamiento de copia de seguridad, consulte [Registros DNS para blobs (solo para servidores DNS personalizados o archivos host) después de la primera copia de seguridad](./private-endpoints.md#dns-records-for-blobs-only-for-custom-dns-servershost-files-after-the-first-backup).
 
 >Las direcciones IP privadas de los FQDN se pueden encontrar en la hoja del punto de conexión privado del punto de conexión privado creado para el almacén de Recovery Services.
 

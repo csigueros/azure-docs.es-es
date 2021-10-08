@@ -1,17 +1,17 @@
 ---
 title: Alta disponibilidad en Azure Cache for Redis
 description: Más información sobre las características y opciones de alta disponibilidad de Azure Cache for Redis
-author: curib
+author: yegu-ms
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.author: cauribeg
-ms.openlocfilehash: 2fb0440ed6946f9595f1c78c5528fdb3c627de0b
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.author: yegu
+ms.openlocfilehash: 8796dd088df0ff297cd7ac99271bfe410fdb506b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129538538"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620851"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Alta disponibilidad en Azure Cache for Redis
 

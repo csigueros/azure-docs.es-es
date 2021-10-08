@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/17/2021
-ms.openlocfilehash: 4b8907b9a50be3bd6021b72dd05c7d5445da03f7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6c9580a051a7473e7009cf8df8d2ea8759834683
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128660436"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351162"
 ---
 # <a name="exchange-b2b-messages-between-partners-using-workflows-in-azure-logic-apps"></a>Intercambio de mensajes B2B entre asociados que utilizan flujos de trabajo en Azure Logic Apps
 
@@ -27,7 +27,7 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
 
 * Una cuenta y una suscripción de Azure. Si aún no tiene suscripción, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Un [recurso de cuenta de integración](logic-apps-enterprise-integration-create-integration-account.md), donde se definen y almacenan artefactos, como asociados comerciales, contratos, certificados, entre otros, para su uso en los flujos de trabajo de integración empresarial y B2B. Este recurso tiene que satisfacer los siguientes requisitos:
+* Un [recurso de cuenta de integración](logic-apps-enterprise-integration-create-integration-account.md), donde se definen y almacenan artefactos, como socios comerciales, contratos, certificados, entre otros, para su uso en los flujos de trabajo de integración empresarial y B2B. Este recurso tiene que satisfacer los siguientes requisitos:
 
   * Estar asociado a la misma suscripción de Azure que el recurso de aplicación lógica.
 
@@ -38,7 +38,7 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
   * Si utiliza el [tipo de recurso **Aplicación lógica (estándar)** ](logic-apps-overview.md#resource-type-and-host-environment-differences), la cuenta de integración no necesita un vínculo al recurso de aplicación lógica, pero sigue siendo necesaria para almacenar otros artefactos, como asociados, contratos y certificados, junto con el uso de las operaciones [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) o [EDIFACT](logic-apps-enterprise-integration-edifact.md). La cuenta de integración todavía tiene que cumplir otros requisitos, como usar la misma suscripción de Azure y existir en la misma ubicación que el recurso de aplicación lógica.
 
   > [!NOTE]
-  > Actualmente, solo el tipo de recurso **Aplicación lógica (consumo)** admite operaciones [RosettaNet](logic-apps-enterprise-integration-rosettanet.md). El tipo de recurso **Aplicación lógica (estándar)** no incluye operaciones [RosettaNet](logic-apps-enterprise-integration-rosettanet.md).
+  > Actualmente, solo el tipo de recurso **Logic App (Consumption)** (Aplicación lógica [Consumo]) admite operaciones de [RosettaNet](logic-apps-enterprise-integration-rosettanet.md). El tipo de recurso **Logic App (Standard)** (Aplicación lógica [Estándar]) no incluye operaciones de [RosettaNet](logic-apps-enterprise-integration-rosettanet.md).
 
 * Al menos dos [asociados comerciales](logic-apps-enterprise-integration-partners.md) en la cuenta de integración. Las definiciones de ambos asociados deben usar el mismo calificador de *identidad empresarial*, que es AS2, X12, EDIFACT o RosettaNet.
 
@@ -375,7 +375,7 @@ Ahora agregue la acción **Descodificar mensaje X12**.
 
 Con esto, ya ha terminado de configurar el flujo de trabajo de la aplicación lógica B2B. En una aplicación real, puede almacenar los datos X12 descodificados en un almacén de datos o una aplicación de línea de negocio (LOB). Por ejemplo, revise la siguiente documentación:
 
-* [Conexión a sistemas SAP desde Azure Logic Apps](/logic-apps-using-sap-connector.md)
+* [Conexión a sistemas SAP desde Azure Logic Apps](logic-apps-using-sap-connector.md)
 
 * [Supervisión, creación y administración de archivos SFTP mediante SSH y Azure Logic Apps](../connectors/connectors-sftp-ssh.md)
 

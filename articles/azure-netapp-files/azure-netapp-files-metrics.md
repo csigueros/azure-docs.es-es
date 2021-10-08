@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 09/29/2021
 ms.author: b-juche
-ms.openlocfilehash: b4ea507087bbed2ee3ac49f3c58d81bbac24c90b
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: cc034689e2c3cd6846986680225ca7ca21ac41c8
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129094279"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407539"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Métricas de Azure NetApp Files
 
@@ -83,9 +83,6 @@ Puede consultar las métricas para un grupo de capacidad o un volumen si selecci
 
 - *¿Se está transfiriendo la replicación del volumen?*     
     Indica si el estado de la replicación del volumen es "transfiriéndose". 
- 
-- *Tiempo de retardo de replicación del volumen*   
-    Cantidad de tiempo en segundos que los datos del reflejo se retrasan detrás del origen. 
 
 - *Duración de la última transferencia de replicación de volumen*   
     Cantidad de tiempo en segundos que tardó en completarse la última transferencia. 
@@ -142,5 +139,5 @@ Puede consultar las métricas para un grupo de capacidad o un volumen si selecci
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Información sobre la jerarquía del almacenamiento de Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
-* [Configuración de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md)
+* [Creación de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md)
 * [Creación de un volumen de Azure NetApp Files](azure-netapp-files-create-volumes.md)

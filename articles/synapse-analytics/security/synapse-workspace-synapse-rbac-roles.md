@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9d898bc4fe0afa268f9aef3ab4282ebb249e61b4
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 6b6c2cbf04b0e68f86bd11b8295c54b8c65d0360
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129081460"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352793"
 ---
 # <a name="synapse-rbac-roles"></a>Roles de Synapse RBAC
 
@@ -93,8 +93,8 @@ workspaces/pipelines/write, delete|Administrador de Synapse</br>Colaborador de S
 workspaces/triggers/write, delete|Administrador de Synapse</br>Colaborador de Synapse</br>Editor de artefactos de Synapse
 workspaces/datasets/write, delete|Administrador de Synapse</br>Colaborador de Synapse</br>Editor de artefactos de Synapse
 workspaces/libraries/write, delete|Administrador de Synapse</br>Administrador de Synapse Apache Spark</br>Colaborador de Synapse</br>Editor de artefactos de Synapse
-workspaces/linkedServices/write, delete|Administrador de Synapse</br>Colaborador de Synapse</br>Editor de artefactos de Synapse</br>Administrador de datos vinculado a Synapse
-workspaces/credentials/write, delete|Administrador de Synapse</br>Colaborador de Synapse</br>Editor de artefactos de Synapse</br>Administrador de datos vinculado a Synapse
+workspaces/linkedServices/write, delete|Administrador de Synapse</br>Administrador de Synapse Apache Spark</br>Administrador de Synapse SQL</br>Colaborador de Synapse</br>Editor de artefactos de Synapse</br>Administrador de datos vinculado a Synapse
+workspaces/credentials/write, delete|Administrador de Synapse</br>Administrador de Synapse Apache Spark</br>Administrador de Synapse SQL</br>Colaborador de Synapse</br>Editor de artefactos de Synapse</br>Administrador de datos vinculado a Synapse
 workspaces/notebooks/viewOutputs/action|Administrador de Synapse</br>Administrador de Synapse Apache Spark</br>Colaborador de Synapse</br>Editor de artefactos de Synapse</br>Editor de artefactos de Synapse
 workspaces/pipelines/viewOutputs/action|Administrador de Synapse</br>Colaborador de Synapse</br>Editor de artefactos de Synapse</br>Editor de artefactos de Synapse
 workspaces/linkedServices/useSecret/action|Administrador de Synapse</br>Usuario de credenciales Synapse

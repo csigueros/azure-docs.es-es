@@ -5,15 +5,15 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: include
-ms.date: 05/17/2021
+ms.date: 09/29/2021
 ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: 8dddf347cfa46b24e990365765e1587526fd084c
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: eb9d1b1221c1a12f88b7f0d766fa5007bfc3b156
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129096043"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129378423"
 ---
 | Abreviatura | Location | Region |
 | --- | --- | --- |
@@ -70,6 +70,7 @@ ms.locfileid: "129096043"
 | LIS | Lisboa, Portugal | Norte de Europa |
 | LON | Londres, Reino Unido | Sur de Reino Unido, Europa |
 | LOS | Lagos, Nigeria | África |
+| LTS | Londres, Reino Unido | Sur de Reino Unido, Europa |
 | MAA | Chennai, India | India central |
 | MAD | Madrid, España | Centro de España, Europa |
 | MAN | Manchester, Reino Unido | Oeste de Reino Unido, Europa |

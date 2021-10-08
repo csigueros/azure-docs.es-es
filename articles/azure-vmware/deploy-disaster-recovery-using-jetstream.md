@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo implementar JetStream DR en su nub
 ms.topic: how-to
 ms.date: 09/15/2021
 ms.custom: references_regions
-ms.openlocfilehash: 75bb77ad575f96e7605fe6a19e12d7129c28dac6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f43d2a8db4ef29588ad5260c583faab31bd01228
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128554446"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129279077"
 ---
 # <a name="deploy-disaster-recovery-using-jetstream-dr-preview"></a>Implementación de la recuperación ante desastres usando JetStream DR (versión preliminar)
 
@@ -80,7 +80,7 @@ En este escenario, el sitio primario es una nube privada de Azure VMware Solutio
 
 - [Configure JetStream DR y suscríbase](https://ms.portal.azure.com/#create/jetstreamsoftware1596597632545.jsdravs-093020) desde Azure Marketplace descargar el software de JetStream DR.
 
-- Una [cuenta de Azure Blob Storage](../storage/common/storage-account-create.md) creada mediante el nivel de rendimiento Estándar o Premium. En [Nivel de acceso, seleccione **Acceso rápido**](../storage/blobs/storage-blob-storage-tiers.md). 
+- Una [cuenta de Azure Blob Storage](../storage/common/storage-account-create.md) creada mediante el nivel de rendimiento Estándar o Premium. En [Nivel de acceso, seleccione **Acceso rápido**](../storage/blobs/access-tiers-overview.md). 
 
    >[!NOTE]
    >No se admite la opción **Habilitar espacio de nombres jerárquico** en el blob.   
@@ -99,7 +99,7 @@ En este escenario, el sitio primario es una nube privada de Azure VMware Solutio
 
 - [Configure JetStream DR y suscríbase](https://ms.portal.azure.com/#create/jetstreamsoftware1596597632545.jsdravs-093020) desde Azure Marketplace descargar el software de JetStream DR.
 
-- Una [cuenta de Azure Blob Storage](../storage/common/storage-account-create.md) creada mediante el nivel de rendimiento Estándar o Premium. En [Nivel de acceso, seleccione **Acceso rápido**](../storage/blobs/storage-blob-storage-tiers.md). 
+- Una [cuenta de Azure Blob Storage](../storage/common/storage-account-create.md) creada mediante el nivel de rendimiento Estándar o Premium. En [Nivel de acceso, seleccione **Acceso rápido**](../storage/blobs/access-tiers-overview.md). 
 
    >[!NOTE]
    >No se admite la opción **Habilitar espacio de nombres jerárquico** en el blob.   

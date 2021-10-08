@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 09/08/2021
 ms.author: normesta
-ms.openlocfilehash: 758a89e8366e338fe5aaaee7fd6b89d9f7daa588
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e22e7dcfde1782600cdb53814014e6080ffbbfa1
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128604025"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129271638"
 ---
 # <a name="blob-storage-feature-support-in-azure-storage-accounts"></a>Compatibilidad con la característica Blob Storage en cuentas de Azure Storage
 
@@ -24,9 +24,9 @@ Los elementos que aparecen en estas tablas van a cambiar con el tiempo a medida 
 
 | Característica de Azure Storage | Blob Storage (compatibilidad predeterminada) | Data Lake Storage Gen2 <sup>1</sup>   | NFS 3.0 <sup>1</sup>  |
 |---------------|-------------------|---|---|
-| [Nivel de acceso: archivo](storage-blob-storage-tiers.md) | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) |
-| [Nivel de acceso: esporádico](storage-blob-storage-tiers.md)   | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png)|
-| [Nivel de acceso: frecuente](storage-blob-storage-tiers.md) | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) |
+| [Nivel de acceso: archivo](access-tiers-overview.md) | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) |
+| [Nivel de acceso: esporádico](access-tiers-overview.md)    | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png)|
+| [Nivel de acceso: frecuente](access-tiers-overview.md) | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) |
 | [Acceso anónimo (público)](anonymous-read-access-configure.md) | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png)|
 | [Seguridad de Azure Active Directory](authorize-access-azure-active-directory.md) | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | [Inventario de blobs](blob-inventory.md) | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> |
@@ -70,9 +70,9 @@ Los elementos que aparecen en estas tablas van a cambiar con el tiempo a medida 
 
 | Característica de Azure Storage | Blob Storage (compatibilidad predeterminada) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> |
 |---------------|-------------------|---|---|
-| [Nivel de acceso: archivo](storage-blob-storage-tiers.md)  | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| [Nivel de acceso: esporádico](storage-blob-storage-tiers.md) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| [Nivel de acceso: frecuente](storage-blob-storage-tiers.md) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| [Nivel de acceso: archivo](access-tiers-overview.md)  | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| [Nivel de acceso: esporádico](access-tiers-overview.md) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| [Nivel de acceso: frecuente](access-tiers-overview.md) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | [Acceso anónimo (público)](anonymous-read-access-configure.md) | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) |
 | [Seguridad de Azure Active Directory](authorize-access-azure-active-directory.md) | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | [Inventario de blobs](blob-inventory.md) | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> | ![Sí](../media/icons/yes-icon.png)  <sup>2</sup> |
