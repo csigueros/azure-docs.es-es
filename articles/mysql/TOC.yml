@@ -13,6 +13,8 @@
       href: flexible-server/whats-new.md
     - name: Prueba gratuita de un servidor flexible
       href: flexible-server/how-to-deploy-on-azure-free-account.md
+    - name: Pago por adelantado de capacidad reservada
+      href: concept-reserved-pricing.md
     - name: Directiva de compatibilidad de versiones
       href: concepts-version-policy.md
       displayName: version policy
@@ -31,8 +33,6 @@
           items:
             - name: Planes de tarifa
               href: concepts-pricing-tiers.md
-            - name: Pago por adelantado de capacidad reservada
-              href: concept-reserved-pricing.md
     - name: Guías de inicio rápido
       expanded: true
       items:

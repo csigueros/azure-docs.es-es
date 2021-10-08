@@ -132,7 +132,7 @@
           href: apply-security-baseline.md
         - name: Examen de vulnerabilidades
           items:
-            - name: Análisis de máquinas con el examinador de VA integrado
+            - name: Análisis de máquinas con el examinador de Qualys integrado
               displayName: 'qualys, vulnerability, arc, hybrid'
               href: deploy-vulnerability-assessment-vm.md
             - name: Análisis de las máquinas virtuales con la solución de VA de BYOL
@@ -158,6 +158,9 @@
         - name: Definición de listas de aplicaciones seguras para máquinas
           displayName: 'aac, whitelist, allowlist, reviewgroup, adaptive application controls'
           href: security-center-adaptive-application.md
+        - name: Examen de las aplicaciones y del software instalados en las máquinas
+          displayName: 'inventory, apps, software inventory, mde, tvm'
+          href: asset-inventory.md#access-a-software-inventory
         - name: Seguimiento de cambios en archivos y registros
           items:
             - name: Introducción a la supervisión de la integridad de los archivos

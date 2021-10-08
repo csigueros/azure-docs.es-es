@@ -394,6 +394,8 @@
           href: manage/ea-portal-troubleshoot.md
         - name: Ponerse en contacto con soporte técnico
           href: ../azure-portal/supportability/how-to-create-azure-support-request.md
+        - name: Creación de una solicitud de Contrato Enterprise
+          href: manage/how-to-create-azure-support-request-ea.md
 - name: Referencia
   items:
     - name: Azure CLI

@@ -420,6 +420,8 @@
           href: how-to-managed-cluster-app-deployment-template.md
         - name: Implementación de una aplicación con identidad administrada en un clúster administrado
           href: how-to-managed-cluster-application-managed-identity.md
+        - name: Concesión de acceso a otros recursos de Azure en un clúster administrado
+          href: how-to-managed-cluster-grant-access-other-resources.md
         - name: Implementación de tipos de nodo sin estado en un clúster administrado
           href: how-to-managed-cluster-stateless-node-type.md
         - name: Configuración del tipo de nodo secundario para el escalado grande en un clúster administrado

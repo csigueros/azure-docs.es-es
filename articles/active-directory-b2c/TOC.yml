@@ -7,6 +7,8 @@
       href: overview.md
     - name: Información técnica y sobre características
       href: technical-overview.md
+    - name: "Características compatibles de Azure\_AD"
+      href: supported-azure-ad-features.md
     - name: Novedades de la documentación
       href: whats-new-docs.md
 - name: Guías de inicio rápido
@@ -26,7 +28,9 @@
       href: tutorial-register-applications.md
     - name: 3 - Creación de flujos de usuario y directivas personalizadas
       href: tutorial-create-user-flows.md
-    - name: Limpieza y eliminación del inquilino
+    - name: 4 - Administración de un inquilino
+      href: tenant-management.md
+    - name: 5 - Limpieza y eliminación de un inquilino
       href: tutorial-delete-tenant.md
 - name: Ejemplos
   items:
@@ -82,14 +86,14 @@
       href: user-overview.md
     - name: Atributos de perfil de usuario
       href: user-profile-attributes.md
+    - name: Control de acceso a roles y recursos
+      href: roles-resource-access-control.md
     - name: Identity Protection y acceso condicional
       href: conditional-access-identity-protection-overview.md
     - name: Claves de directiva
       href: policy-keys-overview.md
 - name: Guías paso a paso
   items:
-    - name: Administrar tu inquilino
-      href: tenant-management.md
     - name: Integración de la aplicación
       items:
         - name: Aplicación web de ASP.NET Core
