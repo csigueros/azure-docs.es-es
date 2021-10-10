@@ -1,192 +1,193 @@
-- name: Documentación del servicio Translator
-  href: index.yml
-- name: Información general
-  expanded: true
-  items:
-    - name: ¿Qué es Traductor?
-      href: translator-overview.md
-    - name: Compatibilidad con idiomas
-      href: language-support.md
-    - name: Precios
-      href: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator'
-    - name: Novedades
-      href: whats-new.md
-    - name: Preguntas frecuentes sobre la aplicación de traductor
-      href: translator-faq.md
-- name: Traducción del texto
-  expanded: true
-  items:
-    - name: ¿Qué es Traducción de texto?
-      href: text-translation-overview.md
-    - name: Guía de inicio rápido
-      href: quickstart-translator.md
-    - name: Ejemplos
-      items:
-        - name: Página de código de ejemplo
-          href: /samples/browse/?terms=microsoft%20translator
-        - name: C#
-          href: /samples/microsofttranslator/text-translation-api-v3-c-sharp/translator-c-sharp-v3/
-        - name: Java
-          href: /samples/microsofttranslator/text-translation-api-v3-java/translator-java-v3/
-        - name: Python
-          href: /samples/microsofttranslator/text-translation-api-v3-python/translator-python-v3/
-        - name: Node.js
-          href: /samples/microsofttranslator/text-translation-api-v3-nodejs/translator-javascript-v3/
-        - name: Go
-          href: /samples/microsofttranslator/text-translation-api-v3-go/translator-go-v3/
-        - name: PHP
-          href: 'https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP'
-        - name: Ruby
-          href: 'https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby'
-    - name: Guías paso a paso
-      items:
-        - name: Creación de un recurso de Traductor
-          href: ./translator-how-to-signup.md
-        - name: Migrar a Text API V3
-          href: migrate-to-v3.md
-        - name: Agregar filtrado de palabras soeces
-          href: profanity-filtering.md
-        - name: Recibir información de alineación de palabras
-          href: word-alignment.md
-        - name: Evitar la traducción del contenido
-          href: prevent-translation.md
-        - name: Usar la característica de diccionario dinámico
-          href: dynamic-dictionary.md
-        - name: Traducción detrás de firewalls
-          href: firewalls.md
-        - name: Uso del contenedor de Translator
-          items:
-            - name: Instalación y ejecución de contenedores
-              href: containers/translator-how-to-install-container.md
-            - name: Configuración de contenedores
-              href: containers/translator-container-configuration.md
-            - name: 'Contenedor: traducción'
-              href: containers/translator-container-supported-parameters.md
-    - name: Tutoriales
-      items:
-        - name: 'Creación de una aplicación de WPF para Traductor, C#'
-          href: tutorial-wpf-translation-csharp.md
-        - name: 'Creación de una aplicación de traducción de Flask, en Python'
-          href: tutorial-build-flask-app-translation-synthesis.md
-    - name: Referencia
-      items:
-        - name: Referencia sobre Traductor v3
-          href: reference/v3-0-reference.md
-        - name: API REST de Translator Text
-          href: reference/rest-api-guide.md
-        - name: Lenguajes
-          href: reference/v3-0-languages.md
-        - name: Translate
-          href: reference/v3-0-translate.md
-        - name: Transliterar
-          href: reference/v3-0-transliterate.md
-        - name: Detect
-          href: reference/v3-0-detect.md
-        - name: BreakSentence
-          href: reference/v3-0-break-sentence.md
-        - name: Búsqueda en diccionario
-          href: reference/v3-0-dictionary-lookup.md
-        - name: Ejemplos de diccionario
-          href: reference/v3-0-dictionary-examples.md
-        - name: Límites de solicitud
-          href: request-limits.md
-- name: Traducción de documentos
-  items:
-    - name: ¿Qué es la traducción de documentos?
-      href: document-translation/overview.md
-    - name: SDK de bibliotecas cliente
-      href: document-translation/client-sdks.md
-    - name: Guía de inicio rápido
-      href: document-translation/get-started-with-document-translation.md
-    - name: Guías paso a paso
-      items:
-        - name: Generación de tokens de SAS para la traducción de documentos
-          href: document-translation/create-sas-tokens.md
-        - name: Creación y uso de identidad administrada
-          href: document-translation/managed-identity.md
-    - name: Referencia
-      items:
-        - name: API REST de traducción de documentos
-          href: document-translation/reference/rest-api-guide.md
-        - name: Obtención de formatos de documento admitidos
-          href: document-translation/reference/get-supported-document-formats.md
-        - name: Obtención de formatos de glosario admitidos
-          href: document-translation/reference/get-supported-glossary-formats.md
-        - name: Obtención de orígenes de almacenamiento admitidos
-          href: document-translation/reference/get-supported-storage-sources.md
-        - name: Inicio de traducción
-          href: document-translation/reference/start-translation.md
-        - name: Obtención del estado de los documentos
-          href: document-translation/reference/get-documents-status.md
-        - name: Obtención del estado del documento
-          href: document-translation/reference/get-document-status.md
-        - name: Obtención del estado de las traducciones
-          href: document-translation/reference/get-translations-status.md
-        - name: Obtención del estado de la traducción
-          href: document-translation/reference/get-translation-status.md
-        - name: Cancelación de la traducción
-          href: document-translation/reference/cancel-translation.md
-    - name: Preguntas más frecuentes
-      href: document-translation/faq.md
-- name: Custom Translator
-  items:
-    - name: ¿Qué es Custom Translator?
-      href: custom-translator/overview.md
-    - name: Preguntas más frecuentes
-      href: custom-translator/faq.md
-    - name: Guía de inicio rápido
-      href: custom-translator/quickstart-build-deploy-custom-model.md
-    - name: Guías paso a paso
-      items:
-        - name: Crear un proyecto
-          href: custom-translator/how-to-create-project.md
-        - name: Administrar proyectos
-          href: custom-translator/how-to-search-edit-delete-projects.md
-        - name: Cargar un documento
-          href: custom-translator/how-to-upload-document.md
-        - name: Ver detalles del documento
-          href: custom-translator/how-to-view-document-details.md
-        - name: Entrenamiento de un modelo
-          href: custom-translator/how-to-train-model.md
-        - name: Ver detalles de los modelos
-          href: custom-translator/how-to-view-model-details.md
-        - name: Ver resultados de pruebas del sistema
-          href: custom-translator/how-to-view-system-test-results.md
-        - name: Administración de la configuración
-          href: custom-translator/how-to-manage-settings.md
-        - name: Implementaciones en lenguajes no compatibles
-          href: custom-translator/unsupported-language-deployments.md
-    - name: Conceptos
-      items:
-        - name: Términos clave
-          href: custom-translator/terminology.md
-        - name: Personalizar y mejorar la traducción del texto
-          href: customization.md
-        - name: Áreas de trabajo y proyectos
-          href: custom-translator/workspace-and-project.md
-        - name: Documentos paralelos
-          href: custom-translator/what-are-parallel-documents.md
-        - name: Diccionario
-          href: custom-translator/what-is-dictionary.md
-        - name: Formatos de documento
-          href: custom-translator/document-formats-naming-convention.md
-        - name: Alineación de frases
-          href: custom-translator/sentence-alignment.md
-        - name: Filtrado de datos
-          href: custom-translator/data-filtering.md
-        - name: Entrenamiento y modelo
-          href: custom-translator/training-and-model.md
-        - name: Puntuación BLEU
-          href: custom-translator/what-is-bleu-score.md
-        - name: Claves administradas por el cliente
-          href: encrypt-data-at-rest.md
-    - name: Referencia
-      items:
-        - name: Notas de la versión
-          href: custom-translator/release-notes.md
-- name: Recursos
-  items:
-    - name: Cumplimiento y certificación
-      href: 'https://www.microsoft.com/translator/business/notrace/'
-    - name: Ejemplos de código en GitHub
-      href: 'https://aka.ms/TranslatorGitHub'
+items:
+  - name: Documentación del servicio Translator
+    href: index.yml
+  - name: Información general
+    expanded: true
+    items:
+      - name: ¿Qué es Traductor?
+        href: translator-overview.md
+      - name: Compatibilidad con idiomas
+        href: language-support.md
+      - name: Precios
+        href: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator'
+      - name: Novedades
+        href: whats-new.md
+      - name: Preguntas frecuentes sobre la aplicación de traductor
+        href: translator-faq.md
+  - name: Traducción del texto
+    expanded: true
+    items:
+      - name: ¿Qué es Traducción de texto?
+        href: text-translation-overview.md
+      - name: Guía de inicio rápido
+        href: quickstart-translator.md
+      - name: Ejemplos
+        items:
+          - name: Página de código de ejemplo
+            href: /samples/browse/?terms=microsoft%20translator
+          - name: C#
+            href: /samples/microsofttranslator/text-translation-api-v3-c-sharp/translator-c-sharp-v3/
+          - name: Java
+            href: /samples/microsofttranslator/text-translation-api-v3-java/translator-java-v3/
+          - name: Python
+            href: /samples/microsofttranslator/text-translation-api-v3-python/translator-python-v3/
+          - name: Node.js
+            href: /samples/microsofttranslator/text-translation-api-v3-nodejs/translator-javascript-v3/
+          - name: Go
+            href: /samples/microsofttranslator/text-translation-api-v3-go/translator-go-v3/
+          - name: PHP
+            href: 'https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP'
+          - name: Ruby
+            href: 'https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby'
+      - name: Guías paso a paso
+        items:
+          - name: Creación de un recurso de Traductor
+            href: ./translator-how-to-signup.md
+          - name: Migrar a Text API V3
+            href: migrate-to-v3.md
+          - name: Agregar filtrado de palabras soeces
+            href: profanity-filtering.md
+          - name: Recibir información de alineación de palabras
+            href: word-alignment.md
+          - name: Evitar la traducción del contenido
+            href: prevent-translation.md
+          - name: Usar la característica de diccionario dinámico
+            href: dynamic-dictionary.md
+          - name: Traducción detrás de firewalls
+            href: firewalls.md
+          - name: Uso del contenedor de Translator
+            items:
+              - name: Instalación y ejecución de contenedores
+                href: containers/translator-how-to-install-container.md
+              - name: Configuración de contenedores
+                href: containers/translator-container-configuration.md
+              - name: 'Contenedor: traducción'
+                href: containers/translator-container-supported-parameters.md
+      - name: Tutoriales
+        items:
+          - name: 'Creación de una aplicación de WPF para Traductor, C#'
+            href: tutorial-wpf-translation-csharp.md
+          - name: 'Creación de una aplicación de traducción de Flask, en Python'
+            href: tutorial-build-flask-app-translation-synthesis.md
+      - name: Referencia
+        items:
+          - name: Referencia sobre Traductor v3
+            href: reference/v3-0-reference.md
+          - name: API REST de Translator Text
+            href: reference/rest-api-guide.md
+          - name: Lenguajes
+            href: reference/v3-0-languages.md
+          - name: Translate
+            href: reference/v3-0-translate.md
+          - name: Transliterar
+            href: reference/v3-0-transliterate.md
+          - name: Detect
+            href: reference/v3-0-detect.md
+          - name: BreakSentence
+            href: reference/v3-0-break-sentence.md
+          - name: Búsqueda en diccionario
+            href: reference/v3-0-dictionary-lookup.md
+          - name: Ejemplos de diccionario
+            href: reference/v3-0-dictionary-examples.md
+          - name: Límites de solicitud
+            href: request-limits.md
+  - name: Traducción de documentos
+    items:
+      - name: ¿Qué es la traducción de documentos?
+        href: document-translation/overview.md
+      - name: SDK de bibliotecas cliente
+        href: document-translation/client-sdks.md
+      - name: Guía de inicio rápido
+        href: document-translation/get-started-with-document-translation.md
+      - name: Guías paso a paso
+        items:
+          - name: Generación de tokens de SAS para la traducción de documentos
+            href: document-translation/create-sas-tokens.md
+          - name: Creación y uso de identidad administrada
+            href: document-translation/managed-identity.md
+      - name: Referencia
+        items:
+          - name: API REST de traducción de documentos
+            href: document-translation/reference/rest-api-guide.md
+          - name: Obtención de formatos de documento admitidos
+            href: document-translation/reference/get-supported-document-formats.md
+          - name: Obtención de formatos de glosario admitidos
+            href: document-translation/reference/get-supported-glossary-formats.md
+          - name: Obtención de orígenes de almacenamiento admitidos
+            href: document-translation/reference/get-supported-storage-sources.md
+          - name: Inicio de traducción
+            href: document-translation/reference/start-translation.md
+          - name: Obtención del estado de los documentos
+            href: document-translation/reference/get-documents-status.md
+          - name: Obtención del estado del documento
+            href: document-translation/reference/get-document-status.md
+          - name: Obtención del estado de las traducciones
+            href: document-translation/reference/get-translations-status.md
+          - name: Obtención del estado de la traducción
+            href: document-translation/reference/get-translation-status.md
+          - name: Cancelación de la traducción
+            href: document-translation/reference/cancel-translation.md
+      - name: Preguntas más frecuentes
+        href: document-translation/faq.md
+  - name: Custom Translator
+    items:
+      - name: ¿Qué es Custom Translator?
+        href: custom-translator/overview.md
+      - name: Preguntas más frecuentes
+        href: custom-translator/faq.md
+      - name: Guía de inicio rápido
+        href: custom-translator/quickstart-build-deploy-custom-model.md
+      - name: Guías paso a paso
+        items:
+          - name: Crear un proyecto
+            href: custom-translator/how-to-create-project.md
+          - name: Administrar proyectos
+            href: custom-translator/how-to-search-edit-delete-projects.md
+          - name: Cargar un documento
+            href: custom-translator/how-to-upload-document.md
+          - name: Ver detalles del documento
+            href: custom-translator/how-to-view-document-details.md
+          - name: Entrenamiento de un modelo
+            href: custom-translator/how-to-train-model.md
+          - name: Ver detalles de los modelos
+            href: custom-translator/how-to-view-model-details.md
+          - name: Ver resultados de pruebas del sistema
+            href: custom-translator/how-to-view-system-test-results.md
+          - name: Administración de la configuración
+            href: custom-translator/how-to-manage-settings.md
+          - name: Implementaciones en lenguajes no compatibles
+            href: custom-translator/unsupported-language-deployments.md
+      - name: Conceptos
+        items:
+          - name: Términos clave
+            href: custom-translator/terminology.md
+          - name: Personalizar y mejorar la traducción del texto
+            href: customization.md
+          - name: Áreas de trabajo y proyectos
+            href: custom-translator/workspace-and-project.md
+          - name: Documentos paralelos
+            href: custom-translator/what-are-parallel-documents.md
+          - name: Diccionario
+            href: custom-translator/what-is-dictionary.md
+          - name: Formatos de documento
+            href: custom-translator/document-formats-naming-convention.md
+          - name: Alineación de frases
+            href: custom-translator/sentence-alignment.md
+          - name: Filtrado de datos
+            href: custom-translator/data-filtering.md
+          - name: Entrenamiento y modelo
+            href: custom-translator/training-and-model.md
+          - name: Puntuación BLEU
+            href: custom-translator/what-is-bleu-score.md
+          - name: Claves administradas por el cliente
+            href: encrypt-data-at-rest.md
+      - name: Referencia
+        items:
+          - name: Notas de la versión
+            href: custom-translator/release-notes.md
+  - name: Recursos
+    items:
+      - name: Cumplimiento y certificación
+        href: 'https://www.microsoft.com/translator/business/notrace/'
+      - name: Ejemplos de código en GitHub
+        href: 'https://aka.ms/TranslatorGitHub'
