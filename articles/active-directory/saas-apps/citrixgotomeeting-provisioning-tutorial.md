@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: ff377b0f93968eb6743187e4e659f4e888e5010e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c150788f6b4c5439a20995c8db83b0f50c95a65
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94358906"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427103"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Tutorial: Configuración de GoToMeeting para el aprovisionamiento automático de usuarios
 
@@ -60,17 +60,14 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
 1. Establezca el **modo de aprovisionamiento** en **Automático**. 
 
-    ![Captura de pantalla de la pestaña Aprovisionamiento de GoToMeeting en Azure Portal. El modo de aprovisionamiento se establece en Automático y Nombre de usuario de administrador, Contraseña y Probar conexión se resaltan.](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
+    ![Captura de pantalla de la pestaña Aprovisionamiento de GoToMeeting en Azure Portal. El modo de aprovisionamiento se establece en Automático y Nombre de usuario de administrador, Contraseña y Probar conexión se resaltan.](https://user-images.githubusercontent.com/49566142/135871050-9d63861d-7963-47e0-bbdf-0e7c947e0b41.png)
 
-1. En la sección Credenciales de administración, realice los pasos siguientes:
+
+1. En la sección Credenciales de administrador, haga clic en **Autorizar** e inicie sesión en GoToMeeting en las ventanas emergentes que aparecen.
    
-    a. En el cuadro de texto **Nombre de usuario de administrador de GoToMeeting**, escriba el nombre de usuario de un administrador.
-
-    b. En el cuadro de texto **Contraseña de administrador de GoToMeeting**, escriba la contraseña del administrador.
 
 1. En Azure Portal, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación de GoToMeeting. Si se produce un error de conexión, asegúrese de que su cuenta de GoToMeeting tiene permisos de administrador de equipo y vuelva a intentar el paso de **"Credenciales de administración"** .
 
-1. Escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento en el campo **Correo electrónico de notificación** y active la casilla.
 
 1. Haga clic en **Guardar**.
 

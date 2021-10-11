@@ -4,14 +4,14 @@ description: En este tutorial, aprenderá a incorporarse a Azure Defender para I
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 09/23/2021
+ms.date: 10/05/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: cd62dfaa3a90c6efde1f758bec3e7062ce3e858c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 717b65b78d177e277922687c4c290035b57ab6ab
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128642156"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537046"
 ---
 # <a name="tutorial-azure-defender-for-iot-trial-setup"></a>Tutorial: Configuración de la evaluación gratuita de Azure Defender para IoT
 
@@ -282,7 +282,7 @@ Una instancia de vSwitch no tiene funcionalidades de creación de reflejo, pero 
 
 Antes de comenzar, deberá:
 
-- Asegurarse de que no hay ninguna instancia de ClearPass VA en ejecución.
+- Asegurarse de que no haya ninguna instancia de una aplicación virtual en ejecución.
 
 - Habilitar Ensure SPAN (Asegurar SPAN) en el puerto de datos y no en el puerto de administración.
 
@@ -306,11 +306,11 @@ Antes de comenzar, deberá:
 
 1. Seleccione **Aceptar**.
 
-#### <a name="attach-a-clearpass-span-virtual-interface-to-the-virtual-switch"></a>Asociación de una interfaz virtual Clearpass SPAN al conmutador virtual
+#### <a name="attach-a-span-virtual-interface-to-the-virtual-switch"></a>Asociación de una interfaz virtual SPAN al conmutador virtual
 
-Puede asociar una interfaz virtual ClearPass SPAN al conmutador virtual mediante Windows PowerShell o el administrador de Hyper-V.
+Puede asociar una interfaz virtual SPAN al conmutador virtual mediante Windows PowerShell o el administrador de Hyper-V.
 
-**Para asociar una interfaz virtual Clearpass SPAN al conmutador virtual con PowerShell**:
+**Para asociar una interfaz virtual SPAN al conmutador virtual con PowerShell**:
 
 1. Seleccione el conmutador virtual SPAN recién agregado y agregue un nuevo adaptador de red con el siguiente comando:
 
@@ -334,7 +334,7 @@ Puede asociar una interfaz virtual ClearPass SPAN al conmutador virtual mediante
 
 Estos comandos establecen el nombre del hardware del adaptador recién agregado como `Monitor`. Si usa el administrador de Hyper-V, el nombre del hardware del adaptador recién agregado se establece en `Network Adapter`.
 
-**Para asociar una interfaz virtual Clearpass SPAN al conmutador virtual con el administrador de Hyper-V**:
+**Para asociar una interfaz virtual SPAN al conmutador virtual con el administrador de Hyper-V**:
 
 1. En la lista Hardware, seleccione **Adaptador de red**.
 

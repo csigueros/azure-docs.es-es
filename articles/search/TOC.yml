@@ -17,10 +17,12 @@
           href: search-get-started-portal.md
         - name: Creación de una aplicación de demostración
           href: search-create-app-portal.md
-        - name: Creación de un conjunto de aptitudes
-          href: cognitive-search-quickstart-blob.md
         - name: Crear un almacén de conocimientos
           href: knowledge-store-create-portal.md
+        - name: Traducción de texto y reconocimiento de entidades
+          href: cognitive-search-quickstart-blob.md
+        - name: Aplicación de OCR y análisis de imágenes
+          href: cognitive-search-quickstart-ocr.md
         - name: Consulta con el Explorador de búsqueda
           href: search-explorer.md
     - name: Visual Studio Code

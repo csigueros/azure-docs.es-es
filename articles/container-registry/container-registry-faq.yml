@@ -4,14 +4,14 @@ metadata:
   description: Respuestas a las preguntas más frecuentes relacionadas con el servicio Azure Container Registry
   author: sajayantony
   ms.topic: article
-  ms.date: 03/15/2021
+  ms.date: 09/17/2021
   ms.author: sajaya
-  ms.openlocfilehash: ef541e23c2ad3142c4e5b50ccc5351a569727905
-  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+  ms.openlocfilehash: 9a1b4cdb33dc3499bdc027911dee5ac05c2f79b7
+  ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/22/2021
-  ms.locfileid: "114438899"
+  ms.lasthandoff: 10/05/2021
+  ms.locfileid: "129545423"
 title: 'Preguntas más frecuentes: Azure Container Registry'
 summary: >
   En este artículo se abordan las preguntas más frecuentes y los problemas conocidos sobre Azure Container Registry.
@@ -230,7 +230,7 @@ sections:
       La cuarentena de imágenes actualmente es una característica de versión preliminar de ACR. Puede habilitar el modo de cuarentena de un registro para que solo las imágenes que han pasado correctamente el análisis de seguridad sean visibles para los usuarios normales. Para más información, consulte el [repositorio de GitHub para ACR](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
   - question: >
       ¿Cómo se habilita el acceso de extracción anónimo?
-    answer: "La configuración de un registro de contenedor de Azure para el acceso de extracción anónimo (sin autenticar) es actualmente una característica en vista previa (GB), disponible en los [niveles de servicio](container-registry-skus.md)Estándar y Premium. \n\nPara habilitar el acceso de extracción anónimo, actualice un registro mediante el CLI de Azure (versión 2.21.0 o posterior) y pase el parámetro `--anonymous-pull-enabled` al comando [actualizado AZ ACR](/cli/azure/acr#az_acr_update):\n\n```azurecli\naz acr update --name myregistry --anonymous-pull-enabled\n``` \n\nPuede deshabilitar el acceso de extracción anónimo en cualquier momento si establece `--anonymous-pull-enabled` en `false`.\n\n> [!NOTE]\n> * Antes de intentar una operación de extracción anónima, ejecute `docker logout` para que se borren todas las credenciales de Docker existentes.\n> * Solo las operaciones de plano de datos están disponibles para los clientes no autenticados.\n> * El registro puede limitar una alta tasa de solicitudes no autenticadas.\n> * Actualmente, el acceso de extracción anónimo no se admite en las regiones del registro con [replicación geográfica](container-registry-geo-replication.md).\n\n> [!WARNING]\n> El acceso de extracción anónimo se aplica actualmente a todos los repositorios del registro. Si administra el acceso al repositorio mediante [el uso de tokens de ámbito de repositorio](container-registry-repository-scoped-permissions.md), tenga en cuenta que todos los usuarios pueden extraer de estos repositorios en un registro habilitado para extracción anónima. Se recomienda eliminar los tokens cuando está habilitado el acceso de extracción anónimo.\n"
+    answer: "Para más información, consulte el artículo en el que se explica cómo [hacer que el contenido del Registro esté disponible públicamente](anonymous-pull-access.md).          \n"
   - question: >
       ¿Cómo puedo insertar capas no distribuibles en un registro?
     answer: >

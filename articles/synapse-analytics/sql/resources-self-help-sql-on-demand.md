@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 9/23/2021
 ms.author: stefanazaric
 ms.reviewer: jrasnick, wiassaf
-ms.openlocfilehash: 35803ad7d63e107f71e71c6ce8292c5608740eec
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e0380c4d1b4fe9c82d6e9b82922b1a509f7dcdf4
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128555261"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129545610"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>Autoayuda para grupos de SQL sin servidor
 
@@ -495,7 +495,7 @@ El valor especificado en la cláusula `WITH` no coincide con los tipos de Cosmos
 ### <a name="cosmosdb-performance-issues"></a>Incidencias de rendimiento de CosmosDB
 
 Si experimenta algunos problemas de rendimiento inesperados, asegúrese de aplicar los procedimientos recomendados, como:
-- Asegúrese de que ha colocado la aplicación cliente, el grupo sin servidor y el almacenamiento analítico de Cosmos DB en [la misma región](best-practices-serverless-sql-pool.md#colocate-your-cosmosdb-analytical-storage-and-serverless-sql-pool).
+- Asegúrese de que ha colocado la aplicación cliente, el grupo sin servidor y el almacenamiento analítico de Cosmos DB en [la misma región](best-practices-serverless-sql-pool.md#colocate-your-azure-cosmos-db-analytical-storage-and-serverless-sql-pool).
 - Asegúrese de que usa la cláusula `WITH` con los [tipos de datos óptimos](best-practices-serverless-sql-pool.md#use-appropriate-data-types).
 - Asegúrese de que usa la [intercalación Latin1_General_100_BIN2_UTF8](best-practices-serverless-sql-pool.md#use-proper-collation-to-utilize-predicate-pushdown-for-character-columns) al filtrar los datos mediante predicados de cadena.
 - Si tiene consultas repetitivas que se podrían almacenar en caché, intente usar [CETAS para almacenar los resultados de la consulta en Azure Data Lake Storage](best-practices-serverless-sql-pool.md#use-cetas-to-enhance-query-performance-and-joins).
@@ -644,10 +644,16 @@ El grupo de SQL sin servidor asigna los recursos a las consultas en función del
 ### <a name="query-duration-is-very-long"></a>La duración de la consulta es muy larga 
 
 Si usa Synapse Studio, pruebe a usar algún cliente de escritorio, como SQL Server Management Studio o Azure Data Studio. Synapse Studio es un cliente web que se conecta al grupo sin servidor mediante el protocolo HTTP, que suele ser más lento que las conexiones SQL nativas usadas en SQL Server Management Studio o Azure Data Studio.
+
 Si tiene consultas con una duración de consulta superior a 30 minutos, esto indica que la devolución de resultados al cliente es lenta. El grupo de SQL sin servidor tiene un límite de ejecución de 30 minutos y el tiempo adicional se dedica a la transmisión de los resultados.
+
+Compruebe los siguientes problemas si experimenta una ejecución lenta de las consultas:
 -   Asegúrese de que las aplicaciones cliente se coloquen con el punto de conexión del grupo de SQL sin servidor. La ejecución de una consulta en toda la región puede provocar una latencia adicional y una transmisión lenta del conjunto de resultados.
 -   Asegúrese de que no tiene problemas de redes que puedan provocar una transmisión lenta del conjunto de resultados. 
--   Asegúrese de que la aplicación cliente tenga suficientes recursos (por ejemplo, no usa el 100 % de CPU). Consulte los procedimientos recomendados para [colocar los recursos](best-practices-serverless-sql-pool.md#client-applications-and-network-connections).
+-   Asegúrese de que la aplicación cliente tenga suficientes recursos (por ejemplo, no usa el 100 % de CPU). 
+-   Asegúrese de que la cuenta de almacenamiento o el almacenamiento analítico de CosmosDB se coloquen en la misma región que el punto de conexión de SQL sin servidor.
+
+Consulte los procedimientos recomendados para [colocar los recursos](best-practices-serverless-sql-pool.md#client-applications-and-network-connections).
 
 ### <a name="high-variations-in-query-durations"></a>Altas variaciones en las duraciones de las consulta
 

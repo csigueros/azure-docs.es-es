@@ -1,0 +1,46 @@
+- name: Documentación de Azure Fluid Relay
+  href: index.yml
+- name: Información general
+  items:
+    - name: Introducción a Azure Fluid Relay
+      href: overview/overview.md
+- name: Guías de inicio rápido
+  items:
+    - name: 'Inicio rápido: aplicación que tira dados'
+      href: quickstarts/quickstart-dice-roll.md
+- name: Conceptos
+  items:
+    - name: Architecture
+      href: concepts/architecture.md
+    - name: Administración de contenedores
+      href: concepts/container-management.md
+    - name: Estructuras de datos distribuidos
+      href: concepts/data-structures.md
+    - name: Autenticación y autorización en una aplicación
+      href: concepts/authentication-authorization.md
+    - name: Compatibilidad de versiones
+      href: concepts/version-compatibility.md
+- name: Guías paso a paso
+  items:
+    - name: 'Procedimiento: Aprovisionamiento de un servicio Azure Fluid Relay'
+      href: how-tos/provision-fluid-azure-portal.md
+    - name: 'Procedimiento: Conexión a un servicio Azure Fluid Relay'
+      href: how-tos/connect-fluid-azure-service.md
+    - name: 'Procedimiento: Uso de AzureClient para pruebas locales'
+      href: how-tos/local-mode-with-azure-client.md
+    - name: 'Procedimiento: Escritura de un TokenProvider con una función de Azure'
+      href: how-tos/azure-function-token-provider.md
+    - name: 'Procedimiento: Uso de tokens JWT'
+      href: how-tos/fluid-json-web-token.md
+    - name: 'Procedimiento: uso de la automatización de pruebas con Azure Fluid Relay'
+      href: how-tos/test-automation.md
+    - name: 'Procedimiento: Eliminación de un contenedor de Fluid'
+      href: how-tos/container-deletion.md
+- name: Referencia
+  items:
+    - name: Documentación de la API
+      href: 'https://fluidframework.com/docs/apis/'
+- name: Recursos
+  items:
+    - name: Página principal de Fluid Framework
+      href: 'https://fluidframework.com'

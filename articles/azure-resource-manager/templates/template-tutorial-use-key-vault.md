@@ -6,12 +6,12 @@ ms.date: 03/01/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: e2136e70f45fa909a306e1af2c25cb6e5c6a85d0
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: a352015437437ef47b076b487710018e7ef8e2d9
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081918"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129402137"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager
 
@@ -40,11 +40,13 @@ Para un módulo de Microsoft Learn donde se usa un valor seguro de un almacén d
 Para completar este artículo, necesitará lo siguiente:
 
 * Visual Studio Code con la extensión Resource Manager Tools. Consulte [Quickstart: Creación de plantillas de ARM mediante Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
-* Para mejorar la seguridad, use una contraseña generada para la cuenta de administrador de la VM. Este es un ejemplo para generar una contraseña:
+* Para mejorar la seguridad, use una contraseña generada para la cuenta de administrador de la VM. Puede usar [Azure Cloud Shell](../../cloud-shell/overview.md) ejecutar el siguiente comando en PowerShell o Bash:
 
-    ```console
+    ```shell
     openssl rand -base64 32
     ```
+
+    Para más información, ejecute `man openssl rand` para abrir la página manual.
 
     Compruebe que la contraseña generada cumple los requisitos de contraseña de la VM. Cada servicio de Azure tiene unos requisitos de contraseña concretos. Para los requisitos de contraseña de una VM, consulte [¿Cuáles son los requisitos de contraseña cuando se crea una VM?](../../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 
@@ -58,7 +60,7 @@ En esta sección, creará un almacén de claves y le agregará un secreto, de ma
 > [!NOTE]
 > Como el usuario que implementa la plantilla de máquina virtual, si no es el propietario o un colaborador del almacén de claves, el propietario o colaborador debe conceder acceso al permiso `Microsoft.KeyVault/vaults/deploy/action` para el almacén de claves. Para más información, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](./key-vault-parameter.md).
 
-Para ejecutar el siguiente script de Azure PowerShell, seleccione **Pruébelo** para abrir Azure Cloud Shell. Para pegar el script, haga clic con el botón derecho en el panel del shell y, a continuación, seleccione **Pegar**.
+Para ejecutar el siguiente script de Azure PowerShell, seleccione **Probar** para abrir Cloud Shell. Para pegar el script, haga clic con el botón derecho en el panel del shell y, a continuación, seleccione **Pegar**.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -171,7 +173,7 @@ Al usar el método del identificador estático, no es necesario realizar ningún
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-1. Inicio de sesión en [Azure Cloud Shell](https://shell.azure.com)
+1. Inicie sesión en [Cloud Shell](https://shell.azure.com).
 
 1. Elija el entorno que prefiera; para ello, seleccione **PowerShell** o **Bash** (para CLI) en la esquina superior izquierda.  Es necesario reiniciar el shell cuando realiza el cambio.
 

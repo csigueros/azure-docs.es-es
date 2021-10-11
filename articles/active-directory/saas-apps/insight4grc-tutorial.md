@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Insight4GRC | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con Insight4GRC'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Insight4GRC.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/31/2021
+ms.date: 09/30/2021
 ms.author: jeedes
-ms.openlocfilehash: 9c5de8d0444012d7c10f35740f524ae0621eee3c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 47356ee5c3c67b417db24325b2250e42cb7fb5d9
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128676245"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129402233"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-insight4grc"></a>Tutorial: Integración de Azure Active Directory con Insight4GRC
+# <a name="tutorial-azure-ad-sso-integration-with-insight4grc"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Insight4GRC
 
 En este tutorial, obtendrá información sobre cómo integrar Insight4GRC con Azure Active Directory (Azure AD). Al integrar Insight4GRC con Azure AD, puede hacer lo siguiente:
 
@@ -33,6 +33,9 @@ Para empezar, necesita los siguientes elementos:
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 * Una suscripción habilitada para el inicio de sesión único (SSO) en Insight4GRC.
 
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
+
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
@@ -41,7 +44,7 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 * Insight4GRC admite el aprovisionamiento de usuarios **Just-In-Time**.
 * Insight4GRC admite el [aprovisionamiento automatizado de usuarios](insight4grc-provisioning-tutorial.md).
 
-## <a name="adding-insight4grc-from-the-gallery"></a>Agregar Insight4GRC desde la galería
+## <a name="add-insight4grc-from-the-gallery"></a>Adición de Insight4GRC desde la galería
 
 Para configurar la integración de Insight4GRC en Azure AD, debe agregar Insight4GRC desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -51,7 +54,6 @@ Para configurar la integración de Insight4GRC en Azure AD, debe agregar Insight
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **Insight4GRC** en el cuadro de búsqueda.
 1. Seleccione **Insight4GRC** en el panel de resultados y, a continuación, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-insight4grc"></a>Configuración y prueba del inicio de sesión único de Azure AD para Insight4GRC
 

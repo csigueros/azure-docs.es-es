@@ -10,13 +10,13 @@ metadata:
   ms.author: wiassaf
   ms.reviewer: mathoma
   ms.custom: 
-  ms.date: 09/15/2021
-  ms.openlocfilehash: ba903b2ed34877a05b5993095b65d537416486ca
-  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+  ms.date: 09/30/2021
+  ms.openlocfilehash: 608c13253f93f18a8bb1ef59b7af1501077f2c95
+  ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/24/2021
-  ms.locfileid: "128677727"
+  ms.lasthandoff: 10/01/2021
+  ms.locfileid: "129358454"
 title: Preguntas más frecuentes sobre la ventana de mantenimiento
 summary: Este artículo responde a las preguntas más frecuentes sobre la ventana de mantenimiento de [Azure SQL Database](sql-database-paas-overview.md) y [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md).
 sections:
@@ -83,6 +83,8 @@ sections:
   - question: Tengo seleccionada la ventana de mantenimiento predeterminada. ¿Puedo habilitar las notificaciones anticipadas para ese mantenimiento?
     answer: >
       No, las notificaciones avanzadas no se pueden configurar para la opción de ventana de mantenimiento predeterminada. Al elegir una ventana de mantenimiento, elija una opción que no sea **Opción predeterminada del sistema** para configurar y habilitar las notificaciones avanzadas.
+  - question: No puedo configurar notificaciones anticipadas para el mantenimiento planeado, ¿seguirá apareciendo un evento de mantenimiento planeado en el panel de Service Health?
+    answer: "No, si las notificaciones anticipadas no están configuradas, Service Health no mostrará los eventos de mantenimiento planeados. \n"
 additionalContent: >
   ## <a name="see-also"></a>Consulte también
 

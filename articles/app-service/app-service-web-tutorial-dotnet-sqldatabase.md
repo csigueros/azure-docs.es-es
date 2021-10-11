@@ -4,14 +4,14 @@ description: Aprenda a implementar una aplicación ASP.NET para C# en Azure y Az
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 03/18/2021
+ms.date: 10/05/2021
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: 533bd817b704db9976624b356a9950a9c48b8339
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 818ab11d64468a945d85f5b15f6b39dc1664a424
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606026"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536234"
 ---
 # <a name="tutorial-deploy-an-aspnet-app-to-azure-with-azure-sql-database"></a>Tutorial: Implementación de una aplicación ASP.NET en Azure con Azure SQL Database
 
@@ -74,7 +74,7 @@ La aplicación usa un contexto de base de datos para conectarse con la base de d
 
 #### <a name="sign-in-and-add-an-app"></a>Inicio de sesión e incorporación de una aplicación
 
-1. En el cuadro de diálogo **Publicar**, haga clic en **Agregar una cuenta** en el menú desplegable del administrador de cuentas.
+1. En el cuadro de diálogo **Publicar**, haga clic en **Iniciar sesión**.
 
 1. Inicie sesión en la suscripción de Azure. Si ya ha iniciado sesión en una cuenta de Microsoft, asegúrese de que esa cuenta contiene la suscripción de Azure. Si la cuenta de Microsoft con la que inició sesión no contiene su suscripción de Azure, haga clic en ella para agregar la cuenta correcta.
 
@@ -130,6 +130,9 @@ Antes de crear una base de datos, necesita un [servidor SQL lógico ](../azure-s
 
 1. En el cuadro de diálogo **Publicar**, desplácese hacia abajo hasta la sección **Dependencias del servicio**. Junto a **Base de datos de SQL Server**, haga clic en **Configurar**.
 
+    > [!NOTE]
+    > Asegúrese de configurar SQL Database desde la página **Publicar**, en lugar de la página **Servicios conectados**.
+
    ![Configuración de la dependencia de SQL Database](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sqldb-dependency.png)
 
 1. Seleccione **Azure SQL Database** y haga clic en **Siguiente**.
@@ -138,7 +141,7 @@ Antes de crear una base de datos, necesita un [servidor SQL lógico ](../azure-s
 
 1. Junto a **Servidor de bases de datos**, haga clic en **Nuevo**.
 
-   Se genera un nombre de servidor. Este nombre se usa como parte de la dirección URL predeterminada del servidor, `<server_name>.database.windows.net`. Tiene que ser único entre todos los servidores de Azure SQL. Este nombre se puede cambiar, pero para los fines de este tutorial, conserve el valor generado.
+   El nombre de servidor se usa como parte de la dirección URL predeterminada del servidor, `<server_name>.database.windows.net`. Tiene que ser único entre todos los servidores de Azure SQL. Cambie el nombre del servidor al valor que desee.
 
 1. Agregue un nombre de usuario y una contraseña de administrador. Para conocer los requisitos de complejidad de la contraseña, consulte [Directivas de contraseñas](/sql/relational-databases/security/password-policy).
 
@@ -164,6 +167,9 @@ Antes de crear una base de datos, necesita un [servidor SQL lógico ](../azure-s
 1. En **Nombre de usuario de la conexión de base de datos** y **Contraseña de conexión de base de datos**, escriba el nombre de usuario de administrador y la contraseña que haya utilizado en [Crear un servidor](#create-a-server-and-database).
 
 1. Asegúrese de que **Configuración de App de Azure** esté seleccionado y haga clic en **Finalizar**.
+
+    > [!NOTE]
+    > Si ve **archivos de secretos de usuario local** en su lugar, debe haber configurado SQL Database en la página **Servicios conectados**, en lugar de la página **Publicar**.
 
     ![Configuración de la cadena de conexión de base de datos](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-connection.png)
 

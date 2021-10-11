@@ -51,6 +51,12 @@
       href: marketplace-criteria-content-validation.md
     - name: Administración de clientes potenciales
       href: partner-center-portal/commercial-marketplace-get-customer-leads.md
+    - name: Ofertas privadas
+      items:
+        - name: Para revendedores de la nube
+          href: isv-csp-reseller.md
+        - name: Preguntas más frecuentes
+          href: isv-csp-faq.yml
     - name: Versiones de prueba
       items:
         - name: ¿Qué es una versión de prueba?
@@ -80,6 +86,8 @@
         - name: Migración de soluciones de venta conjunta de OCP GTM
           href: co-sell-solution-migration.md
         - name: Reventa a través de asociados de CSP
+          href: cloud-solution-providers.md
+        - name: Ofertas privadas de ISV a revendedor de asociados
           href: cloud-solution-providers.md
         - name: Guía de incorporación de programas de conexión
           href: business-applications-isv-program.md

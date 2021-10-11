@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.author: inhenkel
 author: IngridAtMicrosoft
 ms.date: 03/20/2021
-ms.openlocfilehash: 0e425cddea1adaec8bfb8f0055b55bb0c45fb168
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 43f1602b22a761461f84761ed3a3806397011ae2
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106123171"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389521"
 ---
 # <a name="create-an-azure-media-services-live-stream-with-obs"></a>Creación de un streaming en vivo de Azure Media Services con OBS
 
@@ -63,7 +63,7 @@ Abra el explorador web y vaya a [Microsoft Azure Portal](https://portal.azure.co
 
    ![Cuadro Live event name (Nombre del evento en directo)](media/live-events-obs-quickstart/live-event-name.png)
 1. Escriba una descripción opcional del evento en el campo **Description** (Descripción).
-1. Seleccione la opción **Pass-through – no cloud encoding** (Paso a través: sin codificación en la nube).
+1. Seleccione la opción **Pass-through – no cloud encoding** (Tránsito: sin codificación en la nube) básica.
 
    ![Opción de codificación en la nube](media/live-events-obs-quickstart/cloud-encoding.png)
 1. Seleccione la opción **RTMP**.
@@ -151,7 +151,7 @@ En el siguiente procedimiento, volverá a Azure Media Services en el explorador 
 
 #### <a name="x264-encoder-settings"></a>Configuración del codificador X264
 
-1. Si ha seleccionado la opción de codificación **X264**, seleccione el cuadro de **Rescale Output** (Cambiar escala de salida). Seleccione 1920x1080 si está usando un evento en directo prémium en Media Services o 1280x720 si usa un evento en directo estándar (720P).  Si utiliza un evento en directo de tránsito, puede elegir cualquier resolución disponible.
+1. Si ha seleccionado la opción de codificación **X264**, seleccione el cuadro de **Rescale Output** (Cambiar escala de salida). Seleccione 1920x1080 si está usando un evento en directo prémium en Media Services o 1280x720 si usa un evento en directo estándar (720P).  Si utiliza un evento en directo de tránsito básico o estándar, puede elegir cualquier resolución disponible.
 
 1. Establezca la **velocidad de bits** en cualquier lugar entre 1500 kbps y 4000 kbps. Se recomiendan 2500 Kbps si usa un evento en directo de codificación estándar en 720P. Si utiliza un evento en directo prémium en 1080P, se recomienda 4000 kbps. Es posible que desee ajustar la velocidad de bits en función de las capacidades de CPU disponibles y el ancho de banda de la red para lograr la configuración de calidad deseada.
 
@@ -165,7 +165,7 @@ En el siguiente procedimiento, volverá a Azure Media Services en el explorador 
 
 #### <a name="nvidia-nvenc-encoder-settings"></a>Configuración del codificador de NVIDIA NVENC
 
-1. Si ha seleccionado la opción de codificación de GPU **NVENC**, active la casilla **Rescale Output** (Cambiar escala de salida) y seleccione 1920 x 1080 si usa un evento prémium en directo en Media Services, o 1280x720 si está usando un evento en directo estándar (720p). Si usa un evento en directo de tránsito, puede elegir cualquier resolución disponible.
+1. Si ha seleccionado la opción de codificación de GPU **NVENC**, active la casilla **Rescale Output** (Cambiar escala de salida) y seleccione 1920 x 1080 si usa un evento prémium en directo en Media Services, o 1280x720 si está usando un evento en directo estándar (720p). Si utiliza un evento en directo de tránsito básico o estándar, puede elegir cualquier resolución disponible.
 
 1. Establezca **Rate Control** (Control de velocidad) en CBR para el control de la velocidad de bits constante.
 
@@ -189,7 +189,7 @@ En el siguiente procedimiento, volverá a Azure Media Services en el explorador 
 
 #### <a name="intel-quicksync-encoder-settings"></a>Configuración del codificador de Intel QuickSync
 
-1. Si ha seleccionado la opción de codificación de GPU Intel **QuickSync**, active la casilla **Rescale Output** (Cambiar escala de salida) y seleccione 1920x1080 si usa un evento en directo prémium en Media Services, o 1280x720 si usa un evento en directo estándar (720p). Si usa un evento en directo de tránsito, puede elegir cualquier resolución disponible.
+1. Si ha seleccionado la opción de codificación de GPU Intel **QuickSync**, active la casilla **Rescale Output** (Cambiar escala de salida) y seleccione 1920x1080 si usa un evento en directo prémium en Media Services, o 1280x720 si usa un evento en directo estándar (720p). Si utiliza un evento en directo de tránsito básico o estándar, puede elegir cualquier resolución disponible.
 
 1. Establezca **Target Usage** (Uso de destino) en "balanced" (equilibrado) o ajústelo según sea necesario en función de la carga combinada de CPU y GPU. Ajústelo según sea necesario y experimente para lograr un 80 % del uso máximo de la CPU en promedio con la calidad que el hardware puede generar. Si está en un hardware más restringido, pruebe con "fast" (rápido) o "very fast" (muy rápido) si tiene problemas de rendimiento.
 

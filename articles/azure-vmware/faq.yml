@@ -5,13 +5,13 @@ metadata:
   ms.topic: article
   ms.service: azure-vmware
   ms.custom: contperf-fy21q4
-  ms.date: 08/19/2021
-  ms.openlocfilehash: 536dfd9fa71c2f6eaefe25ada08f537868cf3f58
-  ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+  ms.date: 09/29/2021
+  ms.openlocfilehash: 80610860b6af94e79a792d15af82041f65980b73
+  ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/26/2021
-  ms.locfileid: "129061720"
+  ms.lasthandoff: 10/05/2021
+  ms.locfileid: "129458839"
 title: Preguntas frecuentes sobre Azure VMware Solution
 summary: En este artículo se responden las preguntas más frecuentes sobre Azure VMware Solution.
 sections:
@@ -36,8 +36,6 @@ sections:
     answer: Con la nueva solución Azure VMware Solution, Microsoft y VMware tienen una asociación directa con el proveedor de la nube. La solución nueva está diseñada, creada y respaldada por Microsoft, y aprobada por VMware. Desde el punto de vista de la arquitectura, las soluciones son coherentes con la pila de tecnología de VMware que se ejecuta en una infraestructura de Azure dedicada.
 - name: Facturación
   questions:
-  - question: ¿Cómo se me facturará durante la versión preliminar?
-    answer: La facturación durante la versión preliminar es de pago por uso, mensual. Con la disponibilidad general (GA) hay opciones adicionales disponibles.
   - question: ¿Hay un Acuerdo de Nivel de Servicio en el reemplazo del disco cuando se producen errores?
     answer: Cualquier host con problemas de disco se reemplaza. Se incluye hasta la disponibilidad del Acuerdo de Nivel de Servicio 99.9 del servicio Azure VMware Solution.
   - question: ¿Cómo se estructurará el precio de Azure VMware Solution?
@@ -46,8 +44,6 @@ sections:
     answer: Si tiene pensado usar VMware HCX Enterprise, asegúrese de habilitar el complemento VMware HCX Enterprise mediante el envío de una [solicitud de soporte técnico](https://rc.portal.azure.com/#create/Microsoft.Support). Es una evaluación gratuita de 12 meses en Azure VMware Solution.
   - question: ¿Incurre el tráfico entre el entorno local y Azure VMware Solution a través de ExpressRoute en un cargo de transferencia de datos de salida en el plan de datos según uso?
     answer: "El tráfico del circuito ExpressRoute de Azure VMware Solution no se mide de ningún modo. El tráfico del circuito ExpressRoute que conecta el entorno local a Azure se cobra en función de los planes de precios de ExpressRoute.\n\n- La conexión de **Azure VMware Solution a la red virtual** se realiza mediante un circuito ExpressRoute interno y es gratuito dentro de la misma región que Azure VMware Solution. Sin embargo, si el circuito ExpressRoute interno está conectado entre regiones, se aplican cargos por la transferencia de datos.\n\n- La conexión de **Azure VMware Solution a un entorno local** se realiza mediante la red virtual o Global Reach de ExpressRoute (entre el ExpressRoute interno y el ExpressRoute externo). Sigue siendo gratuito siempre que la conexión a la red virtual (mencionada anteriormente) o el uso de Global Reach de ExpressRoute se realice en la región donde se haya implementado Azure VMware Solution. \n"
-  - question: ¿Cuándo comienza y finaliza la medición para los clústeres de prueba de Azure VMware Solution?
-    answer: Los clústeres de prueba se limitan a tres hosts que se usan para las evaluaciones de un mes de las nubes privadas de Azure VMware Solution. Después de 30 días, los clústeres se miden automáticamente según sus tarifas correspondientes. Si los clústeres de prueba se eliminan antes de la fecha de finalización de 30 días, la evaluación gratuita de Azure VMware Solution finalizará en el momento de la eliminación.
   - question: ¿Es necesario adquirir licencias y recursos adicionales de VMware aparte de la instancia de AV36 al migrar desde el entorno de máquina virtual local con una extensión L2?
     answer: "No, no es necesario adquirir licencias adicionales de VMware además del servicio Azure VMware Solution. Para más información, consulte la página [Precios de Solución de VMware en Azure](https://azure.microsoft.com/pricing/details/azure-vmware/) para ver qué tecnología de VMware se incluye.     \n"
 - name: Soporte técnico
@@ -161,6 +157,8 @@ sections:
     answer: Azure Virtual WAN no proporciona enrutamiento transitivo entre dos circuitos ExpressRoute conectados y una puerta de enlace de ExpressRoute WAN no virtual. Global Reach de ExpressRoute permite la conectividad entre el en el entorno local y Azure VMware Solution, pero pasa por la red global de Microsoft en lugar del centro de conectividad Virtual WAN.
   - question: ¿Se admite Windows 2008 como servidor de Active Directory (AD) o sistema operativo de Host de sesión de Escritorio remoto (RDSH) en NSX-T?
     answer: No.
+  - question: ¿Por qué no puedo acceder al dispositivo de vCenter Server de Azure VMware Solution y a NSX-T Manager desde el entorno local y la red virtual de Azure?
+    answer: "Por diseño, no podrá acceder a NSX-T Manager y al dispositivo de vCenter Server (VCSA) desde el entorno local cuando solo se anuncia 0.0.0.0/0 (ruta predeterminada) mediante Global Reach de ExpressRoute entre Azure VMware Solution y ExpressRoute local o mediante la red virtual de Azure para Azure VMware Solution. Deberá anunciar rutas de red o subredes específicas para acceder a NSX-T Manager y VCSA. \n"
 - name: Storage
   questions:
   - question: ¿Cuál es la directiva de almacenamiento correcta para la configuración de la desduplicación?
@@ -197,12 +195,8 @@ sections:
     answer: Sí, siempre y cuando tenga la cuota asignada en la nube privada, puede escalar horizontalmente los clústeres. Cuando la demanda de carga de trabajo cae, puede eliminar hosts del clúster para reducirla verticalmente. Puede hacer esto a través del portal de Azure VMware Solution.
   - question: ¿Se comparte la infraestructura subyacente?
     answer: No, los hosts y clústeres de nube privada son dedicados y se borran de forma segura antes y después del uso.
-  - question: ¿Cuál es el número mínimo y máximo de hosts por clúster?
-    answer: Los clústeres se escalan entre tres (mínimo) y 16 (máximo) hosts ESXi. Los clústeres de prueba están limitados a tres hosts.
-  - question: ¿Puedo escalar mis clústeres de nube privada?
-    answer: Sí, los clústeres se escalan entre tres (mínimo) y 16 (máximo) hosts ESXi.
-  - question: ¿Qué son los clústeres de prueba?
-    answer: Los clústeres de prueba son solo tres clústeres de hosts que se usan para las evaluaciones de un mes de las nubes privadas de Azure VMware Solution.
+  - question: ¿Cuál es el número mínimo y máximo de hosts por clúster? ¿Puedo escalar mis clústeres de nube privada?
+    answer: Los clústeres se escalan entre tres (mínimo) y 16 (máximo) hosts ESXi.
 - name: Administración de identidades
   questions:
   - question: ¿Qué cuentas y privilegios obtendré con mi nueva nube privada de Azure VMware Solution?

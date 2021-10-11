@@ -4,12 +4,12 @@ description: Obtenga información acerca de cómo restaurar un disco y crear una
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 7f4d70f43f76c3a72cd8e53037d06d32e61c3cdb
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 0de37086f3b7a968b69318ebe7bb73689812373a
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107768521"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537219"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Restauración de una máquina virtual con la CLI de Azure
 
@@ -163,6 +163,12 @@ fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31
 ```
 
 Cuando el valor de *Estado* del trabajo de restauración es *Completado*, la información necesaria (configuración de la máquina virtual y la plantilla de implementación) se ha restaurado en la cuenta de almacenamiento.
+
+#### <a name="using-managed-identity-to-restore-disks"></a>Uso de una identidad administrada para restaurar discos
+
+Azure Backup también permite usar una identidad administrada (MSI) durante la operación de restauración para acceder a las cuentas de almacenamiento en las que se deben restaurar los discos. Esta opción solo se admite actualmente para la restauración de discos administrados.
+
+Si desea usar la identidad administrada asignada por el sistema del almacén para restaurar discos, pase la marca adicional * **--mi-system-assigned** _ al comando [az backup restore restore-disks](/cli/azure/backup/restore#az_backup_restore_restore_disks). Si desea usar una identidad administrada asignada por el usuario, pase el parámetro _*_ --mi-user-assigned_** con el identificador de ARM de la identidad administrada del almacén como valor del parámetro. Consulte [este artículo](encryption-at-rest-with-cmk.md#enable-managed-identity-for-your-recovery-services-vault) para obtener información sobre cómo habilitar la identidad administrada de los almacenes. 
 
 ## <a name="create-a-vm-from-the-restored-disk"></a>Crear una máquina virtual a partir del disco restaurado
 

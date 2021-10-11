@@ -1,0 +1,34 @@
+### YamlMime:Landing
+title: Documentación de Azure Fluid Relay
+summary: Azure Fluid Relay es un servicio en la nube administrado que admite clientes Fluid Framework
+metadata:
+  title: Azure Fluid Relay
+  description: Azure Fluid Relay es un servicio en la nube administrado que admite clientes Fluid Framework
+  ms.service: azure-fluid
+  ms.topic: landing-page
+  author: hickeys
+  ms.author: hickeys
+  ms.date: 08/19/2021
+  ms.openlocfilehash: 86238a56af7d5d5e7f8e105bbe487994dffa207f
+  ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 10/07/2021
+  ms.locfileid: "129661474"
+landingContent:
+- title: Acerca de Azure Fluid Relay
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Introducción a Azure Fluid Relay
+      url: overview/overview.md
+    - text: Arquitectura de Azure Fluid Relay
+      url: concepts/architecture.md
+- title: Procedimientos e inicios rápidos
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Aprovisionamiento de un servicio Azure Fluid Relay
+      url: how-tos/provision-fluid-azure-portal.md
+    - text: 'Inicio rápido: aplicación que tira dados'
+      url: quickstarts/quickstart-dice-roll.md

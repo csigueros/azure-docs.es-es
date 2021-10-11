@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 534ea1a7a4e1356f44c97dc69e1a6dabbf9cae12
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fc052deefeec9263d1f055c04381792c1ac0980b
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128637150"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537002"
 ---
 # <a name="discover-assess-and-migrate-google-cloud-platform-gcp-vms-to-azure"></a>Detección, evaluación y migración de máquinas virtuales de Google Cloud Platform (GCP) a Azure
 
@@ -138,7 +138,7 @@ El primer paso de la migración consiste en configurar el dispositivo de replica
 
 2. En **Detectar máquinas** >  **¿Las máquinas están virtualizadas?** , haga clic en **No virtualizado/Otro**.
 3. En **Región de destino**, seleccione la región de Azure a la que desea migrar las máquinas.
-4. Seleccione **Confirm that the target region for migration is \<region-name\>** (Confirmar que la región de destino de la migración es).
+4. Seleccione **Confirmar que la región de destino de la migración es \<region-name\>** .
 5. Haga clic en **Crear recursos**. Esto crea un almacén de Azure Site Recovery en segundo plano.
     - Si ya ha configurado la migración con Azure Migrate Server Migration, no se puede configurar la opción de destino, ya que los recursos se configuraron anteriormente.
     - Después de hacer clic en este botón ya no se puede cambiar la región de destino de este proyecto.
@@ -315,14 +315,15 @@ Realice una migración de prueba como se indica a continuación:
 
 2. Haga clic con el botón derecho en la máquina virtual que va a probar y haga clic en **Migración de prueba**.
 
-    ![Migración de prueba](./media/tutorial-migrate-physical-virtual-machines/test-migrate.png)
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/test-migrate-inline.png" alt-text="Captura de pantalla que muestra el resultado después de hacer clic en Probar migración." lightbox="./media/tutorial-migrate-physical-virtual-machines/test-migrate-expanded.png":::
 
 3. En **Migración de prueba**, seleccione la red virtual de Azure en la que se ubicará la máquina virtual de Azure después de la migración. Se recomienda usar una red virtual que no sea de producción.
 4. Comienza el trabajo de **Migración de prueba**. Supervise el trabajo en las notificaciones del portal.
 5. Una vez finalizada la migración, la máquina virtual de Azure migrada se puede ver en **Máquinas virtuales** en Azure Portal. El nombre de la máquina tiene el sufijo **-Test**.
 6. Una vez finalizada la prueba, haga clic con el botón derecho en la máquina virtual de Azure, en **Replicación de máquinas**, y haga clic en **Limpiar la migración de prueba**.
 
-    ![Limpiar la migración](./media/tutorial-migrate-physical-virtual-machines/clean-up.png)
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/clean-up-inline.png" alt-text="Captura de pantalla que muestra el resultado después de la limpieza de la migración de prueba." lightbox="./media/tutorial-migrate-physical-virtual-machines/clean-up-expanded.png":::
+
     > [!NOTE]
     > Ahora puede registrar los servidores que ejecutan SQL Server con el punto de retención de SQL VM para aprovechar las ventajas de la aplicación automatizada de revisiones, la copia de seguridad automatizada y la administración simplificada de licencias mediante la extensión Agente de IaaS de SQL.
     >- Seleccione **Manage** > **Replicating servers** > **Machine containing SQL server** >  **Compute and Network** (Administrar > Servidores de replicación > Máquina que contiene servidor SQL Server > Proceso y red) y seleccione **yes** (Sí) para registrarse con el RP de máquina virtual de SQL.

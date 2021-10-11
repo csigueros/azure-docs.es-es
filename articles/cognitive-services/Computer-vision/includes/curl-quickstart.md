@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 04/19/2021
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2f01b1d222470c49505638be64180948b6f7e046
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: ceeb1804c9332d9e0d3e11336ff92e8aacc8516c
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728265"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129585053"
 ---
 Use la API REST Optical Character Recognition para leer texto impreso y manuscrito.
 
@@ -32,10 +32,10 @@ Use la API REST Optical Character Recognition para leer texto impreso y manuscri
 * [cURL](https://curl.haxx.se/) instalado
 
 
+## <a name="extract-printed-and-handwritten-text"></a>Extracción de texto impreso y manuscrito
 
-## <a name="read-printed-and-handwritten-text"></a>Lectura de texto manuscrito e impreso
+El servicio OCR puede extraer el texto visible de una imagen o documento y convertirlo en una secuencia de caracteres. Para más información sobre la extracción de texto, consulte la [introducción sobre el reconocimiento óptico de caracteres (OCR)](../overview-ocr.md).
 
-El servicio OCR puede leer texto visible de una imagen y convertirlo en una secuencia de caracteres. Para más información sobre el reconocimiento de texto, consulte la [introducción sobre el reconocimiento óptico de caracteres (OCR)](../overview-ocr.md).
 
 ### <a name="call-the-read-api"></a>Llamada a la API Read
 
@@ -55,6 +55,9 @@ curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/r
 ```
 
 La respuesta incluirá un encabezado `Operation-Location` cuyo valor es una dirección URL única. Use esta dirección URL para consultar los resultados de la operación de lectura. La dirección URL expira dentro de 48 horas.
+
+### <a name="how-to-use-preview-features"></a>Procedimientos para usar las características en vista previa (gb)
+Para conocer las características y los idiomas en versión preliminar, consulte los [procedimientos para especificar la versión del modelo](../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional). El modelo en versión preliminar incluye todas las mejoras realizadas en las características y los idiomas en GA.
 
 ### <a name="get-read-results"></a>Obtención de resultados de lectura
 

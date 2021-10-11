@@ -3,19 +3,22 @@ title: Introducción a los temas y las suscripciones de Azure Service Bus
 description: En este inicio rápido se muestra cómo enviar mensajes a temas de Azure Service Bus mediante el paquete azure-messaging-servicebus.
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.date: 06/29/2021
+ms.date: 09/16/2021
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: 05772a7e4fbb2717dd34cbdaf82ae47162d4f149
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 330a69d437ffb58cb0e47ab6f9fe6a76fda9b8a6
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123451734"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533514"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-its-subscriptions-net"></a>Envío de mensajes a un tema de Azure Service Bus y recepción de mensajes de sus suscripciones (.NET)
 En este artículo de inicio rápido se muestra cómo enviar mensajes a un tema de Service Bus y recibir mensajes de una suscripción a ese tema mediante la biblioteca [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/) de .NET.
 
-## <a name="prerequisites"></a>Prerrequisitos
+> [!NOTE]
+> Puede encontrar más ejemplos de .NET para Azure Service Bus en el [repositorio del SDK de Azure para .NET en GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples).
+
+## <a name="prerequisites"></a>Requisitos previos
 Si no está familiarizado con el servicio, consulte la [información general sobre Service Bus](service-bus-messaging-overview.md) antes de seguir este artículo de inicio rápido. 
 
 - **Suscripción de Azure**. Para usar los servicios de Azure, entre los que se incluye Azure Service Bus, se necesita una suscripción.  Si no se dispone de una cuenta de Azure, es posible registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/free/), o bien usar las ventajas que disfrutan los suscriptores MSDN al [crear una cuenta](https://azure.microsoft.com).
@@ -170,8 +173,7 @@ En esta sección, creará una aplicación de consola de .NET Core que recibe men
     ```
 
 ### <a name="add-code-to-receive-messages-from-the-subscription"></a>Adición de código para recibir mensajes de la suscripción
-1. Reemplace el código del archivo **Program.cs** por el código siguiente. Estos son los pasos importantes del código.
-    Estos son los pasos importantes del código:
+1. Reemplace el código del archivo **Program.cs** por el código siguiente. Estos son los pasos importantes del código:
     1. Crea un objeto [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) mediante la cadena de conexión al espacio de nombres. 
     1. Invoca al método [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) en el objeto `ServiceBusClient` para crear un objeto [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) para la cola de Service Bus especificada. 
     1. Especifica los controladores para los eventos [ProcessMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) y [ProcessErrorAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processerrorasync) del objeto `ServiceBusProcessor`. 

@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: rifox
-ms.openlocfilehash: cccf6c4c5882c7132bf526095e331035f1e665af
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: d61120d3f4e1256b9da50b8128b23fd73b36a5ef
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122967946"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129406839"
 ---
 ## <a name="sample-code"></a>Código de ejemplo
 Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-chat).
@@ -47,8 +47,8 @@ Desde la línea de comandos, vaya al directorio raíz del proyecto de iOS `ChatQ
 Abra el archivo Podfile y agregue las siguientes dependencias al destino `ChatQuickstart`:
 
 ```
-pod 'AzureCommunicationCommon', '~> 1.0'
-pod 'AzureCommunicationChat', '~> 1.0.1'
+pod 'AzureCommunicationCommon', '~> 1.0.2'
+pod 'AzureCommunicationChat', '~> 1.1.0-beta.2'
 ```
 
 Instale las dependencias con el comando siguiente: `pod install`. Tenga en cuenta que esto también crea un área de trabajo de Xcode.
@@ -107,7 +107,13 @@ Con fines de demostración, usaremos un semáforo para sincronizar el código. E
 
 ### <a name="create-a-chat-client"></a>Creación de un cliente de chat
 
-Reemplace el comentario `<CREATE A CHAT CLIENT>` por el código siguiente:
+Para crear un cliente de chat, usará el punto de conexión de Communication Services y el token de acceso que se generó como parte de los pasos de requisitos previos.
+
+Obtenga más información sobre los [tokens de acceso de usuario](../../access-tokens.md).
+
+Este inicio rápido no cubre la creación de un nivel de servicio para administrar tokens para la aplicación de chat, aunque se recomienda. [Más información sobre la arquitectura del chat](../../../concepts/chat/concepts.md).
+
+Reemplace el comentario `<CREATE A CHAT CLIENT>` por el fragmento de código siguiente:
 
 ```
 let endpoint = "<ACS_RESOURCE_ENDPOINT>"
@@ -126,13 +132,9 @@ let chatClient = try ChatClient(
 
 Reemplace `<ACS_RESOURCE_ENDPOINT>` por el punto de conexión del recurso de Azure Communication Services. Reemplace `<ACCESS_TOKEN>` por un token de acceso de Communication Services válido.
 
-En este inicio rápido no se aborda la creación de un nivel de servicio para administrar tokens para la aplicación de chat, aunque se recomienda. Para más información, consulte la sección "Arquitectura del chat" de [Conceptos de chat](../../../concepts/chat/concepts.md).
-
-Para más información sobre los tokens de acceso de usuario, consulte [Inicio rápido: Creación y administración de tokens de acceso](../../access-tokens.md).
-
 ## <a name="object-model"></a>Modelo de objetos 
 
-Las siguientes clases e interfaces controlan algunas de las características principales de Chat SDK de Azure Communication Services para JavaScript.
+Las siguientes clases e interfaces controlan algunas de las características principales de Chat SDK de Azure Communication Services para iOS.
 
 | Nombre                                   | Descripción                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -141,9 +143,10 @@ Las siguientes clases e interfaces controlan algunas de las características pri
 
 ## <a name="start-a-chat-thread"></a>Inicio de un subproceso de chat
 
-Ahora va a utilizar la instancia de `ChatClient` para crear una conversación con un usuario inicial.
+`CreateChatThreadResult` es la respuesta devuelta por la creación de una conversación de chat.
+Contiene una propiedad `chatThread` que es el objeto `ChatThreadProperties`. Este objeto contiene el valor threadId que se puede usar para obtener un `ChatThreadClient` para realizar operaciones en el subproceso creado: agregar participantes, enviar mensajes, etc.
 
-Reemplace el comentario `<CREATE A CHAT THREAD>` por el código siguiente:
+Reemplace el comentario `<CREATE A CHAT THREAD>` por el fragmento de código siguiente:
 
 ```
 let request = CreateChatThreadRequest(
@@ -200,7 +203,7 @@ semaphore.wait()
 
 ## <a name="get-a-chat-thread-client"></a>Obtención de un cliente de subproceso de chat
 
-Ahora que ha creado una conversación de chat, puede obtener un elemento `ChatThreadClient` para realizar operaciones en la conversación.
+El método `createClient` devuelve un `ChatThreadClient` para un subproceso que ya existe. Se puede usar para realizar operaciones en el subproceso creado: agregar participantes, enviar un mensaje, etc. threadId es el identificador único de la conversación del chat existente.
 
 Reemplace el comentario `<GET A CHAT THREAD CLIENT>` por el código siguiente:
 
@@ -210,13 +213,29 @@ let chatThreadClient = try chatClient.createClient(forThread: threadId!)
 
 ## <a name="send-a-message-to-a-chat-thread"></a>Envío de un mensaje a un subproceso de chat
 
-Reemplace el comentario `<SEND A MESSAGE>` por el código siguiente:
+Utilice el método `send` para enviar un mensaje a un subproceso identificado mediante threadId.
+
+`SendChatMessageRequest` se utiliza para describir la solicitud del mensaje:
+
+- Utilice `content` para proporcionar el contenido del mensaje de chat.
+- Utilice `senderDisplayName` para especificar el nombre para mostrar del remitente.
+- Use `type` para especificar el tipo de mensaje, como "texto" o "html".
+- Opcionalmente, use `metadata` para incluir los datos adicionales que quiera enviar con el mensaje. Este campo proporciona un mecanismo para que los desarrolladores amplíen la funcionalidad de los mensajes de chat y agreguen información personalizada para su caso de uso. Por ejemplo, al compartir un vínculo de archivo en el mensaje, es posible que quiera agregar "hasAttachment:true" en los metadatos para que la aplicación del destinatario pueda analizarlo y mostrarlo en consecuencia.
+
+`SendChatMessageResult` es la respuesta que se devuelve al enviar un mensaje. Contiene un identificador que es el identificador único del mensaje.
+
+Reemplace el comentario `<SEND A MESSAGE>` por el fragmento de código siguiente:
 
 ```
 let message = SendChatMessageRequest(
-    content: "Hello!",
-    senderDisplayName: "Jack"
-)
+                        content: "Hello!",
+                        senderDisplayName: "Jack",
+                        type: .text,
+                        metadata: [
+                            "hasAttachment": "true",
+                            "attachmentUrl": "https://contoso.com/files/attachment.docx"
+                        ]
+                    )
 
 var messageId: String?
 
@@ -233,12 +252,12 @@ chatThreadClient.send(message: message) { result, _ in
 semaphore.wait()
 ```
 
-En primer lugar, construya el elemento `SendChatMessageRequest`, que contiene el contenido y el nombre para mostrar del remitente. Esta solicitud también puede contener la hora del historial del recurso compartido, si desea incluirla. La respuesta devuelta al controlador de finalización contiene el identificador del mensaje enviado.
-
-
 ## <a name="send-a-read-receipt"></a>Envío de una confirmación de lectura
 
-Puede enviar una confirmación de lectura para un mensaje determinado mediante una llamada al método `sendReadReceipt` de `ChatThreadClients`. Reemplace el comentario `<SEND A READ RECEIPT>` por el código siguiente:
+Puede usar el método `sendReadReceipt` para publicar un evento de confirmación de lectura en un subproceso de chat en nombre de un usuario.
+`messageId` es el identificador único del mensaje de chat que se leyó.
+
+Reemplace el comentario `<SEND A READ RECEIPT>` por el código siguiente:
 
 ```
 if let id = messageId {
@@ -259,9 +278,33 @@ if let id = messageId {
 
 ## <a name="receive-chat-messages-from-a-chat-thread"></a>Recepción de mensajes de chat de un subproceso de chat
 
-Puede recibir mensajes de una conversación de chat mediante una llamada al método `listMessages()` desde `ChatThreadClient`. Los mensajes de la lista incluyen los mensajes del sistema, así como los mensajes enviados por el usuario. Para más información sobre los tipos de mensajes que puede recibir, consulte [Tipos de mensaje](../../../concepts/chat/concepts.md#message-types).
+Con la señalización en tiempo real, puede suscribirse para escuchar nuevos mensajes entrantes y actualizar los mensajes actuales en la memoria en consecuencia. Azure Communication Services admite una [lista de eventos a los que se puede suscribir](../../../concepts/chat/concepts.md#real-time-notifications).
 
-Reemplace el comentario `<RECEIVE MESSAGES>` por el código siguiente:
+Reemplace el comentario `<RECEIVE MESSAGES>` por el código siguiente. Después de habilitar las notificaciones, pruebe a enviar nuevos mensajes para ver ChatMessageReceivedEvents.
+
+```
+chatClient.startRealTimeNotifications { result in
+    switch result {
+    case .success:
+        print("Real-time notifications started.")
+    case .failure:
+        print("Failed to start real-time notifications.")
+    }
+    semaphore.signal()
+}
+semaphore.wait()
+
+chatClient.register(event: .chatMessageReceived, handler: { response in
+    switch response {
+    case let .chatMessageReceivedEvent(event):
+        print("Received a message: \(event.message)")
+    default:
+        return
+    }
+})
+```
+
+También puede recuperar mensajes de chat mediante el sondeo del método `listMessages` a intervalos especificados. Ejecute el siguiente fragmento de código de `listMessages`
 
 ```
 chatThreadClient.listMessages { result, _ in
@@ -286,6 +329,13 @@ semaphore.wait()
 
 ## <a name="add-a-user-as-a-participant-to-the-chat-thread"></a>Adición de un usuario como miembro a la conversación del chat
 
+Una vez que se crea un subproceso, puede agregar y quitar usuarios de este. Al agregar usuarios, les concede acceso para poder enviar mensajes a la conversación, y agregar o quitar otros participantes. Antes de llamar a `add`, asegúrese de que ha adquirido un token de acceso y una identidad nuevos para ese usuario. El usuario necesitará ese token de acceso para poder inicializar su cliente de chat.
+
+Use el método `add` de `ChatThreadClient` para agregar uno o varios participantes a la conversación de chat. A continuación se indican los atributos admitidos para cada participante de la conversación:
+- `id` es obligatorio y es la identidad del participante de la conversación.
+- `displayName` es opcional y es el nombre para mostrar del participante de la conversación.
+- `shareHistoryTime` es opcional y es la hora a partir de la cual el historial de chat se compartió con el participante.
+
 Reemplace el comentario `<ADD A USER>` por el código siguiente:
 
 ```
@@ -308,9 +358,9 @@ semaphore.wait()
 
 Reemplace `<USER_ID>` por el identificador de usuario de Communication Services del usuario que se va a agregar.
 
-Al agregar un participante a una conversación, la respuesta devuelta puede contener errores. Estos errores indican que no se pueden agregar participantes concretos.
-
 ## <a name="list-users-in-a-thread"></a>Enumeración de usuarios en una conversación
+
+Use el método `listParticipants` para obtener todos los participantes de una conversación de chat determinada.
 
 Reemplace el comentario `<LIST USERS>` por el código siguiente:
 

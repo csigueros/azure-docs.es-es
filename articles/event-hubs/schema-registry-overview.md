@@ -4,12 +4,12 @@ description: En este artículo se proporciona información general sobre la comp
 ms.topic: overview
 ms.date: 05/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: 43380ccd4f20616676f4eeb53fb2231b4f76f4e9
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 6ac6361643d9baafb41259e6db69f816d747b1d8
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371212"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534834"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Registro de esquema de Azure en Event Hubs (versión preliminar)
 En muchos escenarios de transmisión de eventos y de mensajería, la carga de eventos o mensajes contiene datos estructurados que se serializan o deserializan con un formato controlado por esquemas, como Apache Avro. Tal vez los remitentes y receptores quieran validar la integridad de los datos con un documento de esquema, como con el esquema JSON. En el caso de los formatos controlados por esquema, que el esquema esté disponible para el consumidor de mensajes es un requisito previo para que el consumidor pueda deserializar los datos. 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ff8c65d01db4729ba9515e6f121b657154ff2b89
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c27288094adb55c58a9d75e3b269580c3d6e93f9
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128628959"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232962"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de escritorio de Windows
 
@@ -148,7 +148,7 @@ MSAL tiene dos métodos para adquirir tokens: `AcquireTokenInteractive` y `Acqui
 
 #### <a name="get-a-user-token-interactively"></a>Obtención de un token de usuario interactivamente
 
-En algunas situaciones es necesario forzar a los usuarios a interactuar con la plataforma de identidad de Microsoft mediante una ventana emergente para validar sus credenciales o dar su consentimiento. Estos son algunos ejemplos:
+En algunas situaciones, es necesario forzar a los usuarios a interactuar con la Plataforma de identidad de Microsoft mediante una ventana emergente para validar sus credenciales o dar su consentimiento. Estos son algunos ejemplos:
 
 - La primera vez que los usuarios inician sesión en la aplicación
 - Cuando los usuarios deben volver a escribir sus credenciales porque la contraseña expiró

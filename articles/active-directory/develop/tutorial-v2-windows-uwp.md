@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: db445dee705c47b557916f7b6d69de4668a7eaa5
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8b2fc0f070ba5a07a1ac51a314f08873860e852d
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128618160"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129229684"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Tutorial: Llamar a Microsoft Graph API desde una aplicación de la Plataforma universal de Windows (UWP)
 
@@ -379,7 +379,7 @@ Para habilitar la autenticación integrada de Windows cuando se utiliza con un d
    * **Certificados de usuario compartidos**
 
 > [!IMPORTANT]
-> La [autenticación de Windows integrada](https://aka.ms/msal-net-iwa) no está configurada de forma predeterminada para este ejemplo. Las aplicaciones que solicitan funcionalidades `Enterprise Authentication` o `Shared User Certificates` requieren un mayor nivel de comprobación por parte de Windows Store. Además, no todos los desarrolladores desean llevar a cabo un nivel de comprobación más alto. Habilite esta opción solo si necesita usar la autenticación de Windows integrada con un dominio de Azure AD federado.
+> La [autenticación de Windows integrada](https://aka.ms/msal-net-iwa) no está configurada de forma predeterminada para este ejemplo. Las aplicaciones que solicitan funcionalidades `Enterprise Authentication` o `Shared User Certificates` requieren un mayor nivel de comprobación por parte de Windows Store. Además, no todos los desarrolladores desean llevar a cabo un nivel de comprobación más alto. Habilite esta opción solo si necesita usar la autenticación integrada de Windows con un dominio federado de Azure AD.
 
 ## <a name="alternate-approach-to-using-withdefaultredirecturi"></a>Enfoque alternativo al uso de WithDefaultRedirectURI()
 

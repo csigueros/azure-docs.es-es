@@ -1,4 +1,4 @@
-- name: Documentación sobre Administración de costos + facturación
+- name: Documentación de Cost Management + Billing
   href: index.yml
 - name: Información general
   items:
@@ -36,7 +36,7 @@
   items:
     - name: Administración de costos
       items:
-        - name: Prácticas recomendadas de Azure Cost Management
+        - name: Procedimientos recomendados de Cost Management
           href: costs/cost-mgt-best-practices.md
         - name: Descripción de los datos de Cost Management
           href: costs/understand-cost-mgt-data.md
@@ -400,7 +400,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/billing
-    - name: API REST de Azure Cost Management
+    - name: API REST de Cost Management
       href: /rest/api/cost-management
     - name: API REST de consumo de Azure
       href: /rest/api/consumption

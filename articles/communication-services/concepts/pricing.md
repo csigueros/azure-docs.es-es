@@ -9,12 +9,12 @@ ms.author: nmurav
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: d8938a437db42a2d1cb5dd88f6102ce7f5facb3a
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: d2ea2c510aa9e6225de215da128670514f1dba3b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259079"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129360445"
 ---
 # <a name="pricing-scenarios"></a>Escenarios de precios
 
@@ -190,10 +190,10 @@ Los precios siguientes incluyen los impuestos y cuotas de comunicaciones necesar
 
 ### <a name="sms"></a>SMS
 
-SMS ofrece precios de pago por uso. El precio es un cargo por mensaje en función del destino del mensaje. Los mensajes se pueden enviar mediante números de teléfono gratuitos a números de teléfono ubicados en Estados Unidos. Tenga en cuenta que los números de teléfono locales (geográficos) no se pueden usar para enviar mensajes SMS.
+SMS ofrece precios de pago por uso. El precio es un cargo por segmento de mensaje en función del destino del mensaje. [Aquí](./telephony-sms/sms-faq.md#what-is-the-sms-character-limit) puede encontrar más información sobre los segmentos de mensaje. Los mensajes se pueden enviar mediante números de teléfono gratuitos a números de teléfono ubicados en Estados Unidos. Tenga en cuenta que los números de teléfono locales (geográficos) no se pueden usar para enviar mensajes SMS.
 
 Los precios siguientes incluyen los impuestos y cuotas de comunicaciones necesarios:
 
 |País   |Envío de mensajes|Recepción de mensajes|
 |-----------|------------|------------|
-|EE. UU. (gratuito)    |0,0075 USD/mensaje   | 0,0075 USD/mensaje |
+|EE. UU. (gratuito)    |0,0075 USD/segmento de mensaje  | 0,0075 USD/segmento de mensaje |

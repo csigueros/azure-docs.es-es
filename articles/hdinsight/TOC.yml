@@ -1004,6 +1004,8 @@
           href: ./domain-joined/apache-domain-joined-architecture.md
         - name: Arquitectura de red virtual de HDInsight
           href: ./hdinsight-virtual-network-architecture.md
+        - name: Restricción de la conectividad pública
+          href: ./hdinsight-restrict-public-connectivity.md
         - name: Private Link
           href: ./hdinsight-private-link.md
         - name: Seguridad de la capa de transporte

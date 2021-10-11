@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 09/08/2021
-ms.openlocfilehash: cf5c28d197aabf60d7e6ee36c2e724ffad435522
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/01/2021
+ms.openlocfilehash: 8e474cd0ae6635034607a088aceee47a83c500de
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128559216"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388781"
 ---
 # <a name="security-in-azure-database-for-postgresql---flexible-server"></a>Seguridad en Azure Database for PostgreSQL: Servidor flexible
 
@@ -24,7 +24,9 @@ Hay varios niveles de seguridad disponibles para ayudar a proteger los datos en 
 Azure Database for PostgreSQL cifra los datos de dos maneras:
 
 - **Datos en tránsito:** Azure Database for PostgreSQL cifra los datos en tránsito con Capa de sockets seguros y Seguridad de la capa de transporte (SSL/TLS). El cifrado se aplica de forma predeterminada. Consulte esta [guía](how-to-connect-tls-ssl.md) para más detalles. Para mejorar la seguridad, puede optar por habilitar la [autenticación SCRAM](how-to-connect-scram.md).
- Aunque no se recomienda, si es necesario, tiene la opción de deshabilitar TLS\SSL para las conexiones al servidor flexible de Azure Database for PostgreSQL mediante la actualización del parámetro de servidor **require_secure_transport** a OFF. También puede establecer la versión de TLS; para ello, establezca los parámetros de servidor **ssl_min_protocol_version** y **ssl_max_protocol_version**.
+
+   Aunque no se recomienda, si es necesario, tiene la opción de deshabilitar TLS\SSL para las conexiones al servidor flexible de Azure Database for PostgreSQL mediante la actualización del parámetro de servidor `require_secure_transport` a OFF. También puede establecer la versión de TLS estableciendo los parámetros de servidor `ssl_min_protocol_version` y `ssl_max_protocol_version`.
+
 
 - **Datos en reposo:** Azure Database for PostgreSQL usa el módulo criptográfico FIPS 140-2 validado para el cifrado del almacenamiento. Los datos se cifran en el disco, incluidas las copias de seguridad y los archivos temporales que se crean mientras se ejecutan las consultas. 
 

@@ -10,16 +10,31 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 05/24/2021
 ms.author: pafarley
-ms.openlocfilehash: b7292206aacbbca5c8e76ce573dc6fd0b3e32578
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.openlocfilehash: 1a27bfac347480591a67bf2c164b9ff41fe3b18d
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835763"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129426442"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novedades de Computer Vision
 
 Conozca las novedades del servicio. Estos elementos pueden ser notas de la versión, vídeos, entradas de blogs y otros tipos de información. Agregue esta página a sus marcadores para mantenerse actualizado con el servicio.
+
+## <a name="september-2021"></a>Septiembre de 2021
+
+### <a name="ocr-read-api-public-preview-supports-122-languages"></a>La versión preliminar pública de OCR (lectura) API admite 122 idiomas
+[OCR (lectura) API](overview-ocr.md) de Computer Vision expande los [idiomas que admite](language-support.md) a 122 con su versión preliminar más reciente:
+* Compatibilidad de OCR con texto impreso en 49 nuevos idiomas, entre los que se incluyen el ruso y el búlgaro, así como otros idiomas cirílicos y procedentes del latín.
+* Compatibilidad de OCR con texto manuscrito en 6 nuevos idiomas, que incluyen inglés, chino simplificado, francés, alemán, italiano, portugués y español.
+* Mejoras para procesar archivos PDF digitales y texto de zona de lectura automática (MRZ) en documentos de identidad.
+* Mejoras generales en el rendimiento y en la calidad de la inteligencia artificial
+
+Para aprender a usar las nuevas características en vista previa (gb), consulte la [guía paso a paso de OCR](Vision-API-How-to-Topics/call-read-api.md).
+
+> [!div class="nextstepaction"]
+> [Introducción a Read API](./quickstarts-sdk/client-library.md)
+
 
 ## <a name="august-2021"></a>Agosto de 2021
 

@@ -8,15 +8,15 @@ items:
   - name: Guías de inicio rápido
     expanded: true
     items:
-      - name: Creación de una cuenta de Purview
+      - name: Creación de una cuenta de Azure Purview
         items:
-          - name: 'Creación de cuenta de Purview: Azure Portal'
+          - name: 'Creación de una cuenta: Azure Portal'
             href: create-catalog-portal.md
-          - name: 'Creación de cuenta de Purview: PowerShell'
+          - name: 'Creación de una cuenta: PowerShell/CLI'
             href: create-catalog-powershell.md
-          - name: 'Creación de cuenta de Purview: SDK de .NET'
+          - name: 'Creación de una cuenta: .NET SDK'
             href: create-purview-dotnet.md
-          - name: 'Creación de cuenta de Purview: Python'
+          - name: 'Creación de una cuenta: Python'
             href: create-purview-python.md
       - name: 'Creación de una colección: Azure Portal'
         href: quickstart-create-collection.md
@@ -26,17 +26,17 @@ items:
         items:
           - name: Preparación del origen de Azure a escala
             href: tutorial-data-sources-readiness.md
-          - name: Configuración de MSI de Purview a escala
+          - name: Configuración de MSI de Azure Purview a escala
             href: tutorial-msi-configuration.md
       - name: Incorporación de una instancia de SQL Server local
         href: tutorial-register-scan-on-premises-sql-server.md
-      - name: Uso de API REST para planos de datos de Purview
+      - name: Uso de API REST para planos de datos
         href: tutorial-using-rest-apis.md
-      - name: Uso de API REST para la administración de colecciones
+      - name: Uso de API REST para colecciones
         href: tutorial-metadata-policy-collections-apis.md
   - name: Conceptos
     items:
-      - name: Uso de Purview Studio
+      - name: Uso de Azure Purview Studio
         href: use-purview-studio.md
       - name: Procedimientos recomendados y directrices
         items:
@@ -44,9 +44,11 @@ items:
             href: deployment-best-practices.md
           - name: Arquitectura de colecciones
             href: concept-best-practices-collections.md
-          - name: Directrices de precios de Purview
+          - name: Directrices de precios
             href: concept-guidelines-pricing.md
-      - name: Permisos de Purview
+          - name: Arquitectura de red
+            href: concept-best-practices-network.md
+      - name: Permisos de Azure Purview
         href: catalog-permissions.md
       - name: Mapa de datos
         items:
@@ -68,7 +70,7 @@ items:
             href: concept-asset-normalization.md
       - name: Información de datos
         href: concept-insights.md
-      - name: Cuentas de Purview actualizadas
+      - name: Cuentas de Azure Purview actualizadas
         href: concept-account-upgrade.md
   - name: Guías paso a paso
     items:
@@ -80,9 +82,9 @@ items:
             href: purview-connector-overview.md
           - name: Administración de orígenes de datos
             href: manage-data-sources.md
-          - name: Administrar credenciales
+          - name: Administración de credenciales
             href: manage-credentials.md
-            displayName: Create and manage Credentials
+            displayName: Create and manage credentials
       - name: Orígenes
         items:
           - name: Azure Multiple Source

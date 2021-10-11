@@ -1303,6 +1303,8 @@
           href: graph/powershell-samples.md
         - name: Administración mediante la CLI de Azure
           href: graph/cli-samples.md
+        - name: Solución de rastreabilidad de la cadena de suministro
+          href: graph/supply-chain-traceability-solution.md
     - name: Referencia
       items:
         - name: Encabezados de respuesta

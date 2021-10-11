@@ -9,12 +9,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e32e6ecacb2de646314be237c6b7bce973a0ed4e
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 5583596e399456461b2fc157a193b83b596180ee
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129213484"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387399"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Acerca de los secretos de Azure Key Vault
 
@@ -81,49 +81,11 @@ Puede especificar metadatos específicos de la aplicación adicionales en forma 
 >[!Note]
 >El autor de llamada puede leer las etiquetas si tienen el permiso *list* o *get*.
 
-## <a name="azure-storage-account-key-management"></a>Administración de claves de la cuenta de almacenamiento de Azure
-
-Key Vault puede administrar las claves de una [cuenta de almacenamiento Azure](../../storage/common/storage-account-overview.md):
-
-- Internamente, Key Vault puede enumerar (sincronizar) las claves con una cuenta de almacenamiento de Azure. 
-- Key Vault vuelve a generar (rotar) las claves periódicamente.
-- Los valores de clave nunca se devuelven como respuesta al autor de la llamada.
-- Key Vault administra las claves de las cuentas de almacenamiento y de las cuentas de almacenamiento clásicas.
-
-Para más información, consulte:
-- [Claves de acceso de cuenta de almacenamiento](../../storage/common/storage-account-keys-manage.md)
-- [Administración de claves de cuenta de almacenamiento en Azure Key Vault](../secrets/overview-storage-keys.md)
-
-
-## <a name="storage-account-access-control"></a>Control de acceso a la cuenta de almacenamiento
-
-Los siguientes permisos pueden usarse al autorizar a una entidad de seguridad de aplicación o usuario para realizar operaciones en una cuenta de almacenamiento administrada:  
-
-- Permisos para la cuenta de almacenamiento administrada y operaciones de definiciones de SAS
-  - *get*: obtener información sobre una cuenta de almacenamiento 
-  - *list*: enumerar las cuentas de almacenamiento administradas por Key Vault
-  - *update*: crear una cuenta de almacenamiento
-  - *delete*: Eliminar una cuenta de almacenamiento  
-  - *recover*: recuperar una cuenta de almacenamiento eliminada
-  - *backup*: copia de seguridad de una cuenta de almacenamiento
-  - *restore*: restaurar una copia de seguridad de una cuenta de almacenamiento en un almacén de claves
-  - *set*: crear o actualizar una cuenta de almacenamiento
-  - *regeneratekey*: volver a generar un valor de clave específico para una cuenta de almacenamiento
-  - *getsas*: obtener información sobre una definición de SAS para una cuenta de almacenamiento
-  - *listsas*: enumerar las definiciones de SAS de almacenamiento para una cuenta de almacenamiento
-  - *deletesas*: eliminar una definición de SAS de una cuenta de almacenamiento
-  - *setsas*: crear o actualizar definiciones o atributos de SAS nuevos para una cuenta de almacenamiento
-
-- Permisos para las operaciones con privilegios
-  - *purge*: purgar (eliminar permanentemente) una cuenta de almacenamiento administrada
-
-Para más información, vea las [operaciones para cuentas de almacenamiento en la referencia de la API REST de Key Vault](/rest/api/keyvault). Para obtener información sobre cómo establecer permisos, vea [Almacenes: crear o actualizar](/rest/api/keyvault/vaults/createorupdate) y [Almacenes: actualizar directiva de acceso](/rest/api/keyvault/vaults/updateaccesspolicy).
-
 ## <a name="usage-scenarios"></a>Escenarios de uso
 
 | Cuándo se usa | Ejemplos |
 |--------------|-------------|
-|Almacene las credenciales, administre su ciclo de vida y supervíselas de forma segura para la comunicación de servicio a servicio, como contraseñas, claves de acceso y secretos de cliente de entidad de servicio.  | - [Uso de Azure Key Vault con una máquina virtual](../general/tutorial-net-virtual-machine.md)<br> - [Uso de Azure Key Vault con una aplicación web de Azure](../general/tutorial-net-create-vault-azure-web-app.md) |
+|Almacene las credenciales, administre el ciclo de vida y supervíselas de forma segura para la comunicación de servicio a servicio, como contraseñas, claves de acceso y secretos de cliente de entidad de servicio.  | - [Uso de Azure Key Vault con una máquina virtual](../general/tutorial-net-virtual-machine.md)<br> - [Uso de Azure Key Vault con una aplicación web de Azure](../general/tutorial-net-create-vault-azure-web-app.md) |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

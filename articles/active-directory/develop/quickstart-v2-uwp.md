@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: e9353c12c20ea8b08164ac057f886ca47cc8c383
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 72f19c7f722900f46df07265407b28583412196d
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128552755"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235105"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Inicio rápido: Llamar a Microsoft Graph API desde una aplicación de la Plataforma universal de Windows (UWP)
 
@@ -156,7 +156,7 @@ MSAL tiene dos métodos para adquirir tokens en una aplicación de UWP: `Acquire
 
 #### <a name="get-a-user-token-interactively"></a>Obtención de un token de usuario interactivamente
 
-En algunas situaciones es necesario forzar a los usuarios a interactuar con la plataforma de identidad de Microsoft mediante una ventana emergente para validar sus credenciales o dar su consentimiento. Estos son algunos ejemplos:
+En algunas situaciones, es necesario forzar a los usuarios a interactuar con la Plataforma de identidad de Microsoft mediante una ventana emergente para validar sus credenciales o dar su consentimiento. Estos son algunos ejemplos:
 
 - La primera vez que los usuarios inician sesión en la aplicación
 - Cuando los usuarios deben volver a escribir sus credenciales porque la contraseña expiró

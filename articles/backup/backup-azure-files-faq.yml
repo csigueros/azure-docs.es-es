@@ -5,12 +5,12 @@ metadata:
   ms.date: 04/22/2020
   ms.topic: article
   ms.service: backup
-  ms.openlocfilehash: ac3cc6f6fc6b6896e236fd28c4808c49616cf68a
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.openlocfilehash: 22aeb3771f0a1c1d1f7baafc4ce4a2e5885aa4bc
+  ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122252320"
+  ms.lasthandoff: 10/05/2021
+  ms.locfileid: "129533119"
 title: Preguntas acerca de la copia de seguridad de archivos de Azure
 summary: >
   En este artículo se ofrecen respuestas a preguntas habituales acerca de la copia de seguridad de archivos de Azure. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. También se pueden publicar preguntas sobre el servicio Azure Backup en la [página de preguntas y respuestas de Microsoft para su debate](/answers/topics/azure-backup.html).
@@ -74,6 +74,10 @@ sections:
       ¿Se puede usar PowerShell para configurar/administrar/restaurar copias de seguridad de los recursos compartidos de Azure File?
     answer: >
       Sí. Consulte [aquí](backup-azure-afs-automation.md) la documentación detallada.
+  - question: >
+      ¿Por qué las copias de seguridad de Azure Files no se replican las copias de seguridad según el valor de Tipo de replicación de almacenamiento del almacén?
+    answer: >
+      El valor de Replicación de almacenamiento del almacén no es relevante para la copia de seguridad de Azure Files. Esto se debe a que la solución actual se basa en instantáneas y no hay datos transferidos al almacén. Las instantáneas se almacenan en la misma cuenta de almacenamiento que el recurso compartido de archivos del que se realiza la copia de seguridad y, por tanto, se replican según el valor de la cuenta de almacenamiento.
   - question: >
       ¿Puedo acceder a las instantáneas realizadas por las instancias de Azure Backup y montarlas?
     answer: >

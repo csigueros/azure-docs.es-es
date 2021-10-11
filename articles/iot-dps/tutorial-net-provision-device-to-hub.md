@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 84fe935c1122d3d5c65423341b8760643257f992
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 19f36e926ada75f36ddb34f1ad8d98cdf531fd22
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107868578"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457437"
 ---
 # <a name="tutorial-enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Tutorial: Inscripción del dispositivo en una instancia de IoT Hub mediante el cliente del servicio Azure IoT Hub Device Provisioning (.NET)
 
-En el tutorial anterior, aprendió a configurar un dispositivo para conectarse al servicio Device Provisioning. En este tutorial, aprenderá a usar este servicio para aprovisionar el dispositivo en una única instancia de IoT Hub mediante la **_inscripción individual_** y los **_grupos de inscripción_**. En este tutorial se muestra cómo realizar las siguientes acciones:
+En el tutorial anterior, aprendió a configurar un dispositivo para conectarse a la instancia de Device Provisioning Service. En este tutorial, aprenderá a usar este servicio para aprovisionar el dispositivo en una única instancia de IoT Hub mediante la **_inscripción individual_** y los **_grupos de inscripción_**. En este tutorial se muestra cómo realizar las siguientes acciones:
 
 > [!div class="checklist"]
 > * Inscribir el dispositivo
@@ -229,7 +229,7 @@ Inicie el dispositivo para permitir que la aplicación cliente inicie el registr
 
 ## <a name="verify-the-device-is-registered"></a>Comprobar que el dispositivo está registrado
 
-Una vez que arranque el dispositivo, se deben realizar las siguientes acciones. Para más información, consulte el [ejemplo de aprovisionamiento de dispositivos cliente](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device). 
+Una vez que arranque el dispositivo, se deben realizar las siguientes acciones. Para más información, consulte el [ejemplo de aprovisionamiento de dispositivos cliente](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/main/provisioning/Samples/device). 
 
 1. El dispositivo envía una solicitud de registro al servicio Device Provisioning.
 2. En el caso de los dispositivos TPM, el servicio Device Provisioning devuelve un desafío de registro al que responde el dispositivo. 

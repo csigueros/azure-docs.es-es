@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con 10,000ft Plans | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con 10,000ft Plans'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y 10,000ft Plans.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/23/2021
+ms.date: 09/29/2021
 ms.author: jeedes
-ms.openlocfilehash: b8d7e7045e76ceb193a0060a3c83db172f788f6d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 1d4e4ce25a34e722b86d9bfa9824b81625f1aa69
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124748286"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400411"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-10000ft-plans"></a>Tutorial: integración de Azure Active Directory con 10,000ft Plans
+# <a name="tutorial-azure-ad-sso-integration-with-10000ft-plans"></a>Tutorial: Integración del inicio de sesión único de Azure AD con 10,000ft Plans
 
 En este tutorial, aprenderá a integrar 10,000ft Plans con Azure Active Directory (Azure AD). Al integrar 10,000ft Plans con Azure AD, puede hacer lo siguiente:
 
@@ -76,20 +76,18 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL: `https://app.10000ft.com`
+    a. En el cuadro de texto **Identificador (id. de entidad)** , escriba la dirección URL: `https://rm.smartsheet.com/saml/metadata`.
 
-    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba la dirección URL: `https://app.10000ft.com/saml/metadata`.
+    b. En el cuadro de texto **URL de respuesta**, escriba la dirección URL: `https://rm.smartsheet.com/saml/acs`
+    
+    c. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL: ` https://rm.smartsheet.com`
 
     > [!NOTE]
     > El valor de **Identificador** es distinto si tiene un dominio personalizado. Para obtener este valor, póngase en contacto con el [equipo de soporte técnico de 10,000ft Plans](https://www.10000ft.com/plans/support). También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (sin procesar)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione el icono de copia para copiar la **dirección URL de metadatos de federación de aplicación**. Guárdelo en el equipo.
 
-    ![Vínculo de descarga del certificado](common/certificateraw.png)
-
-6. En la sección **Set up 10,000ft Plans** (Configurar 10,000ft Plans), copie las direcciones URL adecuadas según sus necesidades.
-
-    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+    ![Captura de pantalla de la sección Certificado de firma de SAML, con el icono de copia resaltado](common/copy-metadataurl.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -117,7 +115,23 @@ En esta sección, habilitará a B.Simon para que use el inicio de sesión único
 
 ## <a name="configure-10000ft-plans-sso"></a>Configuración del inicio de sesión único de 10,000ft Plans
 
-Para configurar el inicio de sesión único en **10,000ft Plans**, es preciso enviar el **certificado (sin procesar)** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de 10,000ft Plans](https://www.10000ft.com/plans/support). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+1. Inicie sesión en el sitio web de 10000ft Plans como administrador.
+
+1. Haga clic en **Settings** (Configuración) y seleccione **Account Settings** (Configuración de la cuenta) en la lista desplegable.
+
+    ![Captura de pantalla del icono de configuración.](./media/10000ftplans-tutorial/settings.png)
+
+1. Haga clic en **SSO** en el menú izquierdo y realice los pasos siguientes:
+
+    ![Captura de pantalla de la página de configuración del inicio de sesión único.](./media/10000ftplans-tutorial/setup-sso.png)
+
+    a. Seleccione **Automatic Configuration** (Configuración automática) en la sección de configuración del inicio de sesión único.
+
+    b. En el cuadro de texto **IdP Metadata URL** (Dirección URL de metadatos del IdP), pegue el valor de la **Dirección URL de metadatos de federación de aplicación** que copió de Azure Portal.
+
+    c. Habilite la casilla **Auto-provision authenticated users not in account** (Aprovisionar automáticamente los usuarios autenticados que no están en la cuenta).
+
+    d. Haga clic en **Save**(Guardar).
 
 ### <a name="create-10000ft-plans-test-user"></a>Creación de un usuario de prueba de 10,000ft Plans
 

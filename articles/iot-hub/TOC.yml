@@ -2,10 +2,8 @@
   href: index.yml
 - name: Información general
   items:
-    - name: ¿Qué es Azure IoT Hub?
-      href: about-iot-hub.md
-    - name: Conceptos de IoT
-      href: iot-concepts.md
+    - name: Conceptos de IoT y Azure IoT Hub
+      href: iot-concepts-and-iot-hub.md
 - name: Guías de inicio rápido
   expanded: true
   items:

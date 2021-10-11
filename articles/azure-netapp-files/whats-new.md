@@ -12,18 +12,36 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/27/2021
+ms.date: 10/05/2021
 ms.author: b-juche
-ms.openlocfilehash: cae4e16f42d9031040060a33bb8a5795f7695f56
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 2dff42fcf855a41e2e907563b1aecccad0a1661a
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129092136"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129545932"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novedades de Azure NetApp Files
 
 Azure NetApp Files se actualiza periódicamente. En este artículo se proporciona un resumen de las nuevas características y mejoras más recientes. 
+
+    
+## <a name="october-2021"></a>Octubre de 2021
+
+* [Características de red Estándar](configure-network-features.md) (versión preliminar)
+
+    Azure NetApp Files ahora admite las características de red **Estándar** para volúmenes que los clientes han estado solicitando desde el principio. Esta funcionalidad ha sido posible gracias a una innovadora integración de hardware y software. Las características de red Estándar proporcionan una experiencia de redes virtuales mejorada mediante una variedad de características para una experiencia sin problemas y coherente, junto con la posición de seguridad de todas las cargas de trabajo, incluido Azure NetApp Files.
+    
+    Ahora puede elegir características de red *Estándar* o *Básicas* al crear un nuevo volumen de Azure NetApp Files. Al elegir las características de red Estándar, puede aprovechar las ventajas de las siguientes características admitidas para volúmenes y subredes delegadas de Azure NetApp Files:   
+    * Aumento de los límites de IP para las redes virtuales con volúmenes de Azure NetApp Files al mismo nivel que las máquinas virtuales
+    * Seguridad de red mejorada con compatibilidad con [grupos de seguridad de red](../virtual-network/network-security-groups-overview.md) en la subred delegada de Azure NetApp Files
+    * Control de red mejorado con compatibilidad con [rutas definidas por el usuario](../virtual-network/virtual-networks-udr-overview.md#custom-routes) hacia y desde las subredes delegadas de Azure NetApp Files
+    * Conectividad mediante la configuración de la puerta de enlace de VPN activo/activo
+    * Conectividad de [FastPath de ExpressRoute](../expressroute/about-fastpath.md) a Azure NetApp Files
+
+    Esta versión preliminar pública está disponible actualmente en **Centro-norte de EE. UU.** y se va a poner en marcha en otras regiones.  Manténgase en contacto para más información mediante [Actualizaciones de Azure](https://azure.microsoft.com/updates/) a medida que estén disponibles más regiones y características.  
+ 
+    Para más información, consulte [Configuración de características de red para un volumen de Azure NetApp Files](configure-network-features.md).
 
 ## <a name="september-2021"></a>Septiembre de 2021
 

@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Aprenda a administrar el proceso de etiquetado de imágenes para que se puedan usar en modelos de clasificación de imágenes con varias clases.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: tutorial
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
-ms.date: 04/09/2020
+ms.date: 09/30/2021
 ms.custom: data4ml
-ms.openlocfilehash: 2dcd31493bf8ebc7c5096bfe7fda3e2b3f1641be
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 89d3a569a8e202ff2fbe43f697de3598b9b767ad
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112459557"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129423941"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutorial: Creación de un proyecto de etiquetado para la clasificación de imágenes con varias clases 
 
@@ -96,6 +96,10 @@ Ahora que tiene acceso a los datos que desea que se etiqueten, cree el proyecto 
     Etiquetado de tipos de tareas | Seleccione **Clasificación de imágenes con varias clases**.  
     
     Seleccione **Siguiente** para continuar con la creación del proyecto.
+
+### <a name="add-workforce-optional"></a>Agregar recursos (opcional)
+
+Seleccione **Next** (Siguiente) para continuar.  No va a usar recursos externos para este tutorial.
 
 ### <a name="select-or-create-a-dataset"></a>Selección o creación de un conjunto de datos
 

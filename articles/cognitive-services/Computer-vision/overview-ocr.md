@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 06/21/2021
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 3c644a62dfd48f86fd21a39af57211ff7c20ae36
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.openlocfilehash: 48b1eaa6e01bf25b11ca269e0771b4fd03530bba
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112520627"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533222"
 ---
 # <a name="what-is-optical-character-recognition"></a>¿Qué es el reconocimiento óptico de caracteres?
 
@@ -45,20 +45,26 @@ La llamada a **Read** usa las imágenes y los documentos como entrada. Tienen lo
 * El tamaño de archivo debe ser inferior a 50 MB (6 MB para el nivel Gratis); y sus dimensiones, de al menos 50 x 50 píxeles y, como máximo, de 10 000 x 10 000 píxeles. 
 
 ## <a name="supported-languages"></a>Idiomas compatibles
-Read API admite un total de 73 idiomas en texto de estilo impreso. Consulte la lista completa de [idiomas admitidos por OCR](./language-support.md#optical-character-recognition-ocr). El OCR de estilo manuscrito se admite exclusivamente en inglés.
+Read API admite 122 idiomas en texto impreso y 7 idiomas en texto manuscrito, incluidos los idiomas y las características en versión preliminar.
+
+El OCR del texto impreso incluye compatibilidad con inglés, francés, alemán, italiano, portugués, español, chino, japonés, coreano y ruso (versión preliminar), junto con idiomas cirílicos y derivados del latín con la actualización de versión preliminar más reciente.
+
+El OCR del texto manuscrito incluye compatibilidad con inglés y una versión preliminar de compatibilidad con francés, alemán, italiano, portugués, español y chino.
+
+Consulte los [procedimientos para especificar la versión del modelo](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) para usar las características y los idiomas de la versión preliminar. Consulte la lista completa de [idiomas admitidos por OCR](./language-support.md#optical-character-recognition-ocr). El modelo en versión preliminar incluye todas las mejoras de la versión de GA actual.
 
 ## <a name="key-features"></a>Características principales
 
-Read API incluye las características siguientes. 
+Read API incluye las características siguientes.
 
-* Extracción de texto de impresión en 73 idiomas
-* Extracción de texto manuscrito en inglés
+* Extracción de texto impreso en 122 idiomas
+* Extracción de texto manuscrito 7 idiomas
 * Líneas de texto y palabras con puntuaciones de ubicación y confianza
 * No se requiere identificación de idioma
 * Compatibilidad con idiomas mixtos, modo mixto (impresión y escritura a mano)
 * Selección de páginas e intervalos de páginas de documentos grandes de varias páginas
-* Orden de lectura natural para las líneas de texto
-* Clasificación de escritura a mano para líneas de texto
+* Opción de orden de lectura natural para la salida de la línea de texto (solo para idiomas procedentes del latín).
+* Clasificación manuscrita para líneas de texto (solo para idiomas derivados del latín).
 * Disponible como contenedor sin distribución de Docker para la implementación local
 
 Aprenda a [usar las características de OCR](./vision-api-how-to-topics/call-read-api.md).
@@ -78,4 +84,4 @@ Al igual que sucede con todas las instancias de Cognitive Services, los desarrol
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Comience a trabajar con los [inicios rápidos de la biblioteca cliente o la API REST de OCR (Read)](./quickstarts-sdk/client-library.md).
-- Obtenga información sobre la [API REST de Read 3.2](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005).
+- Obtenga información sobre la [API REST de Read 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005).

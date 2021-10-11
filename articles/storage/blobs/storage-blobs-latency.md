@@ -8,18 +8,18 @@ ms.topic: overview
 ms.date: 09/05/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 20a1fd8b222da14eb70206d4a9e3b087d4b20690
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e3ed432e1c0c6b9fbe602720935e5c549437587a
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128662597"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129277126"
 ---
 # <a name="latency-in-blob-storage"></a>Latencia en Blob Storage
 
 La latencia, a la que a veces se hace referencia como tiempo de respuesta, es la cantidad de tiempo que una aplicación debe esperar a que se complete una solicitud. Puede afectar directamente al rendimiento de una aplicación. Una latencia baja suele ser importante para escenarios en los que las personas operan en un bucle, por ejemplo, en la realización de transacciones de tarjetas de crédito o la carga de páginas Web. Los sistemas que necesitan procesar eventos entrantes con tarifas elevadas, como el registro de telemetría o los eventos de IoT, también requieren una latencia baja. En este artículo se describe cómo conocer y medir la latencia de las operaciones en blob en bloques y cómo diseñar las aplicaciones para que tengan una latencia baja.
 
-Azure Storage ofrece dos opciones de rendimiento diferentes para los blobs en bloques: Premium y Standard. Los blobs en bloques Premium ofrecen una latencia significativamente menor y más coherente que los blobs en bloques estándar a través de discos SSD de alto rendimiento. Para más información, consulte **Almacenamiento de blobs en bloques de rendimiento Premium** en [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](storage-blob-storage-tiers.md).
+Azure Storage ofrece dos opciones de rendimiento diferentes para los blobs en bloques: Premium y Standard. Los blobs en bloques Premium ofrecen una latencia significativamente menor y más coherente que los blobs en bloques estándar a través de discos SSD de alto rendimiento. Para más información, consulte **Almacenamiento de blobs en bloques de rendimiento Premium** en [Niveles de acceso frecuente, esporádico y de archivo para datos de blobs](access-tiers-overview.md).
 
 ## <a name="about-azure-storage-latency"></a>Acerca de la latencia de Azure Storage
 

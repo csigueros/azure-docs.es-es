@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Perforce Helix Core - Helix Authentication Service | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure AD con Perforce Helix Core - Helix Authentication Service'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Perforce Helix Core - Helix Authentication Service.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/18/2021
+ms.date: 09/24/2021
 ms.author: jeedes
-ms.openlocfilehash: 8f3695edd8529d28ea792fcca57e8225b511635f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e11a0aeff4168b850ae95be7ce26f97e4afa9c81
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124738018"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129399610"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-perforce-helix-core---helix-authentication-service"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Perforce Helix Core - Helix Authentication Service
+# <a name="tutorial-azure-ad-sso-integration-with-perforce-helix-core---helix-authentication-service"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure AD con Perforce Helix Core - Helix Authentication Service
 
 En este tutorial, aprenderá a integrar Perforce Helix Core - Helix Authentication Service con Azure Active Directory (Azure AD). Al integrar Perforce Helix Core - Helix Authentication Service con Azure AD, puede hacer lo siguiente:
 
@@ -32,6 +32,9 @@ Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 * Una suscripción habilitada para el inicio de sesión único (SSO) en Perforce Helix Core - Helix Authentication Service.
+
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -73,16 +76,16 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<HELIX-AUTH-SERVICE>.<CUSTOMER_HOSTNAME>.com/`
+    a. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<HELIX-AUTH-SERVICE>.<CUSTOMER_HOSTNAME>.com/saml`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<HELIX-AUTH-SERVICE>.<CUSTOMER_HOSTNAME>.com/saml`
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<HELIX-AUTH-SERVICE>.<CUSTOMER_HOSTNAME>.com/saml/sso`
 
-    c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<HELIX-AUTH-SERVICE>.<CUSTOMER_HOSTNAME>.com/saml/sso`
+    c. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<HELIX-AUTH-SERVICE>.<CUSTOMER_HOSTNAME>.com/`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualícelos con la dirección URL de respuesta, el identificador y la dirección URL de inicio de sesión reales. Póngase en contacto con el [equipo de soporte técnico al cliente de Perforce Helix Core - Helix Authentication Service](mailto:support@perforce.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con el identificador y las direcciones URL de inicio de sesión y de respuesta reales. Póngase en contacto con el [equipo de soporte técnico al cliente de Perforce Helix Core - Helix Authentication Service](mailto:support@perforce.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 

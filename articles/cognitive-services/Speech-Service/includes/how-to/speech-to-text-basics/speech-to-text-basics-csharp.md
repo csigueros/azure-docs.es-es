@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5df77bcee69c07b8705b656ae7d4d44d921dcc08
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: e8475ffeefbc057f22e2c795da730528d3ff079a
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123542883"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129378180"
 ---
 Una de las características principales del servicio de voz es la capacidad para reconocer y transcribir la voz humana (que a menudo se denomina "conversión de voz en texto"). En este inicio rápido, aprenderá a usar el SDK de voz en sus aplicaciones y productos para realizar una conversión de voz en texto de alta calidad.
 
@@ -313,7 +313,7 @@ A una lista de frases se pueden agregar palabras solas o frases completas. Duran
 >
 > La característica de lista de frases debe usarse con no más de unos cientos de frases. Si tiene una lista mayor o es de idiomas que no se admiten actualmente, es probable que [entrenar un modelo personalizado](../../../custom-speech-overview.md) sea la mejor opción para mejorar la precisión.
 >
-> No use la característica Lista de frases con los puntos de conexión personalizados. En su lugar, entrene un modelo personalizado que incluya las frases.
+> La característica Lista de frases no se admite con puntos de conexión personalizados. Por tanto, no la use con ellos. En su lugar, entrene un modelo personalizado que incluya las frases.
 
 Para usar una lista de frases, primero debe crear un objeto [`PhraseListGrammar`](/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar) y, a continuación, agregar palabras y frases específicas con [`AddPhrase`](/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar.addphrase).
 

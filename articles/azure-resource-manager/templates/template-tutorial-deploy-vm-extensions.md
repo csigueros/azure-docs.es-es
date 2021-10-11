@@ -6,12 +6,12 @@ ms.date: 03/26/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 14aece10cad828b82f2541e4f0478633382de662
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b7e7770df1195dc170a28246a572f8825b39a860
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128656253"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129401282"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Tutorial: Implementación de extensiones de máquina virtual con plantillas de Resource Manager
 
@@ -32,11 +32,13 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Para completar este artículo, necesitará lo siguiente:
 
 * Visual Studio Code con la extensión Resource Manager Tools. Consulte [Quickstart: Creación de plantillas de ARM mediante Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
-* Para aumentar la seguridad, utilice una contraseña generada para la cuenta de administrador de máquina virtual. Este es un ejemplo para generar una contraseña:
+* Para aumentar la seguridad, utilice una contraseña generada para la cuenta de administrador de máquina virtual. Puede usar [Azure Cloud Shell](../../cloud-shell/overview.md) ejecutar el siguiente comando en PowerShell o Bash:
 
-    ```console
+    ```shell
     openssl rand -base64 32
     ```
+
+    Para más información, ejecute `man openssl rand` para abrir la página manual.
 
     Azure Key Vault está diseñado para proteger las claves criptográficas y otros secretos. Para más información, consulte el [Tutorial: Integración de Azure Key Vault en una implementación de plantilla de ARM](./template-tutorial-use-key-vault.md). También se recomienda actualizar la contraseña cada tres meses.
 

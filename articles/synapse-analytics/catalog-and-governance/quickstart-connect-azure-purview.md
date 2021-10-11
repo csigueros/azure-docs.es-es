@@ -5,15 +5,15 @@ author: Jejiang
 ms.service: synapse-analytics
 ms.subservice: purview
 ms.topic: quickstart
-ms.date: 09/02/2021
+ms.date: 09/29/2021
 ms.author: jejiang
 ms.reviewer: jrasnick
-ms.openlocfilehash: b7d729234244302e648a2d3a0bf9c8dc94f10d5a
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 894df32142cf29e59e40b1e9218f4090bbda93f0
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450366"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351623"
 ---
 # <a name="quickstartconnect-a-synapse-workspace-to-an-azure-purview-account"></a>Inicio rápido: Conectar un área de trabajo de Synapse a una cuenta de Azure Purview
 
@@ -71,13 +71,24 @@ La identidad administrada del área de trabajo de Synapse se usa para autenticar
 
     Al conectar el área de trabajo de Synapse a Purview en Synapse Studio, Synapse intenta agregar dicha asignación de roles automáticamente. Si tiene el rol **Administradores de colecciones** en la colección raíz de Purview y tiene acceso a la cuenta de Purview desde la red, esta operación se realiza correctamente.
 
-- Para la cuenta de Purview creada **antes del 18 de agosto de 2021**, conceda el rol integrado de Azure [**Conservador de datos de Purview**](../../role-based-access-control/built-in-roles.md#purview-data-curator) de la identidad administrada del área de trabajo de Synapse en la cuenta de Purview. Obtenga más información sobre el [Control de acceso en Azure Purview: permisos heredados](../../purview/catalog-permissions.md#legacy-permission-guide).
+- En el caso de la cuenta de Purview creada **antes del 18 de agosto de 2021**, conceda el rol integrado de Azure [**Conservador de datos de Purview (heredado)** ](../../role-based-access-control/built-in-roles.md#purview-data-curator-legacy) de la identidad administrada del área de trabajo de Synapse en la cuenta de Purview. Obtenga más información sobre el [Control de acceso en Azure Purview: permisos heredados](../../purview/catalog-permissions.md#legacy-permission-guide).
 
     Al conectar el área de trabajo de Synapse a Purview en Synapse Studio, Synapse intenta agregar dicha asignación de roles automáticamente. Si tiene los roles integrados de Azure **Propietario** o **Administrador de acceso de usuarios** en la cuenta de Purview, esta operación se realiza correctamente.
 
-Es posible que vea la siguiente advertencia si tiene privilegios para leer la información de asignación de roles de Purview y no se concede el rol necesario. Para asegurarse de que la conexión se establezca correctamente para la inserción de linaje de canalización, vaya a la cuenta de Purview y compruebe si se ha concedido el rol **Conservador de datos de Purview** a la identidad administrada del área de trabajo de Synapse. Si no es así, agregue manualmente la asignación de roles.
+## <a name="monitor-purview-connection"></a>Supervisión de la conexión de Purview
 
-:::image type="content" source="./media/register-purview-account-warning.png" alt-text="Captura de pantalla de la advertencia de registro de una cuenta de Purview.":::
+Una vez que conecte el área de trabajo de Synapse a una cuenta de Purview, verá la página siguiente con detalles sobre las funcionalidades de integración habilitadas.
+
+:::image type="content" source="./media/monitor-purview-connection-status.png" alt-text="Captura de pantalla para supervisar el estado de integración entre Azure Synapse y Purview.":::
+
+En **Data Lineage - Synapse Pipeline** (Linaje de datos: canalización de Synapse), es posible que vea uno de los siguientes estados:
+
+- **Connected** (Conectado): el área de trabajo de Synapse está conectada correctamente a la cuenta de Purview. Tenga en cuenta que esto indica que el área de trabajo de Synapse está asociada a una cuenta de Purview y que tiene permiso para insertar linaje en ella. Si la cuenta de Purview está protegida mediante firewall, también debe asegurarse de que el entorno de ejecución de integración usado para ejecutar las actividades y realizar la inserción de linaje puede llegar a la cuenta de Purview. Obtendrá más información al respecto en [Acceso a una cuenta de Azure Purview protegida](how-to-access-secured-purview-account.md).
+- **Disconnected** (Desconectado): el área de trabajo de Synapse no puede insertar linaje en Purview porque no se ha concedido el rol de administrador de datos de Purview a la identidad administrada del área de trabajo de Synapse. Para corregir este problema, vaya a la cuenta de Purview para comprobar las asignaciones de roles y conceda manualmente el rol según sea necesario. Más información en la sección [Configuración de la autenticación](#set-up-authentication).
+- **Unknown** (Desconocido): Azure Synapse no puede comprobar el estado. Los posibles motivos son:
+
+    - No se puede acceder a la cuenta de Purview desde la red actual porque la cuenta está protegida mediante firewall. Puede iniciar Synapse Studio desde una red privada que tenga conectividad con su cuenta de Purview en su lugar.
+    - No tiene permiso para comprobar las asignaciones de roles en la cuenta de Purview. Puede ponerse en contacto con el administrador de la cuenta de Purview para que compruebe las asignaciones de roles. Más información sobre el rol de Purview necesario en la sección [Configuración de la autenticación](#set-up-authentication).
 
 ## <a name="report-lineage-to-azure-purview"></a>Notificación del linaje a Azure Purview
 

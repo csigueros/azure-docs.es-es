@@ -5,12 +5,12 @@ ms.author: agiurg
 ms.date: 07/20/2021
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: 07a8af0c389b0b5c2216f45e0a3fb0ba053e5690
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: bb5ccb022b4bfeb90f7c50f27ce2a76d43386571
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114442919"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129378495"
 ---
 En este artículo de inicio rápido aprenderá a chatear en una reunión de Teams mediante Chat SDK de Azure Communication Services para Android.
 
@@ -390,7 +390,9 @@ El cliente de Teams no establece los nombres para mostrar de los participantes d
 
 ## <a name="get-a-teams-meeting-chat-thread-for-a-communication-services-user"></a>Obtención de un subproceso del chat de la reunión para un usuario de Communication Services
 
-El vínculo y el chat de la reunión de Teams se pueden recuperar mediante las instancias de Graph API, que se detallan en la [documentación de Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true). El SDK de llamada de Communication Services acepta un vínculo a toda la reunión de Teams. Este vínculo se devuelve como parte del recurso `onlineMeeting`, accesible desde la [propiedad `joinWebUrl`](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true). Con las instancias de [Graph API](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true), también puede obtener `threadId`. La respuesta tendrá un objeto `chatInfo` que contiene el elemento `threadID`. 
+Los detalles de la reunión de Teams se pueden recuperar mediante las instancias de Graph API, que se detallan en la [documentación de Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true). El SDK de llamada de Communication Services acepta un vínculo completo a la reunión de Teams o un identificador de reunión. Ambos elementos se devuelven como parte del recurso `onlineMeeting`, al que se puede acceder bajo la [`joinWebUrl`propiedad](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true).
+
+Con [Graph API](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true), también se puede obtener `threadID`. La respuesta tendrá un objeto `chatInfo` que contiene el elemento `threadID`.
 
 También puede obtener la información de la reunión necesaria y el identificador de la conversación en la dirección URL **Unirse a la reunión** de la propia invitación a la reunión de Teams.
 Así es el vínculo de una reunión en Teams: `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`. El valor de `threadId` estará donde se encuentra el elemento `meeting_chat_thread_id` en el vínculo. Asegúrese de que el elemento `meeting_chat_thread_id` se haya escapado antes de utilizarlo. Debería tener el siguiente formato: `19:meeting_ZWRhZDY4ZGUtYmRlNS00OWZaLTlkZTgtZWRiYjIxOWI2NTQ4@thread.v2`.

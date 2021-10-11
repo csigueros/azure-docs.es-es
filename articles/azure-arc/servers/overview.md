@@ -1,14 +1,14 @@
 ---
 title: Introducción a los servidores habilitados para Azure Arc
 description: Aprenda a usar los servidores habilitados para Azure Arc para administrar servidores hospedados fuera de Azure como un recurso de Azure.
-ms.date: 08/27/2021
+ms.date: 09/30/2021
 ms.topic: overview
-ms.openlocfilehash: 5bca2ec2bdf46f27ca83c4747c5ecb5688fa1708
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: c064abb4258f36207e8bd4f02f7cb68d8ce1fce1
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124807150"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355393"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>¿Qué son los servidores habilitados para Azure Arc?
 
@@ -32,8 +32,8 @@ Si conecta la máquina a servidores habilitados para Azure Arc, podrá realizar 
 | Azure Security Center | Proteja servidores que no son de Azure con [Microsoft Defender para punto de conexión](/microsoft-365/security/defender-endpoint), incluido mediante [Azure Defender](../../security-center/defender-for-servers-introduction.md), para la detección de amenazas, para la administración de vulnerabilidades y para supervisar proactivamente las posibles amenazas de seguridad. Azure Security Center presenta las alertas y las sugerencias de corrección de las amenazas detectadas. |
 | Azure Sentinel | Las máquinas conectadas a servidores habilitados para Arc se pueden [configurar con Azure Sentinel](scenario-onboard-azure-sentinel.md) para recopilar eventos relacionados con la seguridad y relacionarlos con otros orígenes de datos. |
 |**Configuración** ||
-| Azure Automation |Evalúe los cambios de configuración del software instalado, los servicios de Microsoft, los archivos y el Registro de Windows, y los demonios de Linux utilizando [Seguimiento de cambios e inventario](../../automation/change-tracking/overview.md).<br> Utilice [Update Management](../../automation/update-management/overview.md) para administrar las actualizaciones del sistema operativo de los servidores Windows y Linux. |
-| Azure Automanage | Incorpore un conjunto de servicios de Azure cuando use [Automanage en máquinas con servidores habilitados para Arc](../../automanage/automanage-arc.md). |
+| Azure Automation |Automatice tareas de administración frecuentes y lentas mediante PowerShell y [runbooks](../../automation/automation-runbook-execution.md) de Python.<br> Evalúe los cambios de configuración del software instalado, los servicios de Microsoft, los archivos y el Registro de Windows, y los demonios de Linux utilizando [Seguimiento de cambios e inventario](../../automation/change-tracking/overview.md).<br> Utilice [Update Management](../../automation/update-management/overview.md) para administrar las actualizaciones del sistema operativo de los servidores Windows y Linux. |
+| Azure Automanage (versión preliminar) | Automatice la incorporación y configuración de un conjunto de servicios de Azure cuando utilice [Automanage para máquinas: servidores habilitados para Arc](../../automanage/automanage-arc.md). |
 | Extensiones de máquina virtual | Proporciona tareas de automatización y configuración posteriores a la implementación [utilizando extensiones de máquina virtual de servidores habilitados para Arc](manage-vm-extensions.md) que son compatibles con máquinas Windows que no son de Azure o máquinas Linux. |
 |**Supervisión**|
 | Azure Monitor | Supervise el rendimiento del sistema operativo invitado de la máquina conectada y detecte los componentes de la aplicación para supervisar sus procesos y dependencias con otros recursos mediante [Insights para VM](../../azure-monitor/vm/vminsights-overview.md). Recopile otros datos de registro del sistema operativo o las cargas de trabajo que se ejecutan en la máquina, como los datos de rendimiento y los eventos, con el [agente de Log Analytics](../../azure-monitor/agents/agents-overview.md#log-analytics-agent). Estos datos se guardan en un [área de trabajo de Log Analytics](../../azure-monitor/logs/design-logs-deployment.md). |

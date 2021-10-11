@@ -235,7 +235,7 @@
           items:
             - name: Crear un área de trabajo
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: logs/quick-create-workspace.md
                 - name: PowerShell
                   href: logs/powershell-workspace-configuration.md
@@ -1111,7 +1111,7 @@
               href: containers/container-insights-enable-new-cluster.md
             - name: Habilitación para un clúster de AKS existente
               href: containers/container-insights-enable-existing-clusters.md
-            - name: Habilitación para un clúster habilitado para Arc
+            - name: Habilitación para un clúster habilitado para Azure Arc
               href: containers/container-insights-enable-arc-enabled-clusters.md
             - name: Habilitar para un clúster híbrido
               href: containers/container-insights-hybrid-setup.md

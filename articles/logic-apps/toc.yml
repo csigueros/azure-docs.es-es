@@ -91,7 +91,7 @@
       items:
         - name: "Acerca de Logic Apps habilitado para Azure\_Arc"
           href: azure-arc-enabled-logic-apps-overview.md
-        - name: Creación e implementación de aplicaciones lógicas habilitadas para Arc
+        - name: Creación e implementación de aplicaciones lógicas habilitadas para Azure Arc
           href: azure-arc-enabled-logic-apps-create-deploy-workflows.md
     - name: Desarrollar
       items:
@@ -267,7 +267,7 @@
           href: logic-apps-http-endpoint.md
         - name: Azure Service Bus
           href: ../connectors/connectors-create-api-servicebus.md
-        - name: Azure SQL Database
+        - name: "Azure\_SQL\_Database"
           href: ../connectors/connectors-create-api-sqlazure.md
         - name: Bing Search
           href: ../connectors/connectors-create-api-bingsearch.md

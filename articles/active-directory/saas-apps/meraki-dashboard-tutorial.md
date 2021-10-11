@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/28/2020
+ms.date: 09/28/2021
 ms.author: jeedes
-ms.openlocfilehash: 0cc51035a8bdb0ee12d27763b1d03e6b08494b66
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5adf1f5c2c811bdc2b48e03c1e2892746d36da4b
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124795780"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129402932"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-meraki-dashboard"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Meraki Dashboard
 
@@ -37,7 +37,7 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-- El panel de Meraki Dashboard admite el inicio de sesión único iniciado por **IDP**
+- Meraki Dashboard admite el inicio de sesión único iniciado por **IDP**.
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
@@ -63,7 +63,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Meraki Das
    1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
    1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
 1. **[Configuración del inicio de sesión único de Meraki Dashboard](#configure-meraki-dashboard-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
-   1. **[Creación de un usuario de prueba de Meraki Dashboard](#create-meraki-dashboard-test-user)** , para tener un homólogo de B.Simon en Meraki Dashboard que esté vinculado a la representación del usuario en Azure AD.
+   1. **[Creación de roles de administrador de Meraki Dashboard](#create-meraki-dashboard-admin-roles)** , para tener un homólogo de B.Simon en Meraki Dashboard que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -169,7 +169,7 @@ En esta sección, va a permitir que B.Simon acceda a Meraki Dashboard mediante e
 
    ![Configuración de Meraki Dashboard](./media/meraki-dashboard-tutorial/configure-4.png)
 
-### <a name="create-meraki-dashboard-test-user"></a>Creación de un usuario de prueba de Meraki Dashboard
+### <a name="create-meraki-dashboard-admin-roles"></a>Creación de roles de administrador de Meraki Dashboard
 
 1. En otra ventana del explorador web, inicie sesión en el sitio web de Meraki Dashboard como administrador.
 
@@ -184,6 +184,26 @@ En esta sección, va a permitir que B.Simon acceda a Meraki Dashboard mediante e
 1. Escriba el rol **meraki_full_admin**, marque **Organization access** (Acceso de la organización) como **Full** (Completo) y haga clic en **Create role** (Crear rol). Repita el proceso para **meraki_readonly_admin** y, esta vez, marque **Organization access** (Acceso de la organización) como **Read-only** (Solo lectura).
 
    ![Creación de un usuario de Meraki Dashboard](./media/meraki-dashboard-tutorial/user-3.png)
+
+1. Siga estos pasos que se indican a continuación para asignar los roles de Meraki Dashboard a los roles de SAML de Azure AD:
+
+   ![Captura de pantalla de roles de aplicación.](./media/meraki-dashboard-tutorial/app-role.png)
+
+   a. En Azure Portal, haga clic en **Registros de aplicaciones**.
+
+   b. Seleccione Todas las aplicaciones y haga clic en **Meraki Dashboard**.
+
+   c. Haga clic en **Roles de la aplicación** y en **Create App role** (Crear rol de aplicación).
+
+   d. En Nombre para mostrar, escriba `Meraki Full Admin`.
+   
+   e. Seleccione Miembros permitidos como `Users/Groups`.
+
+   f. En Valor, especifique `meraki_full_admin`.
+
+   g. En Descripción, escriba `Meraki Full Admin`.
+
+   h. Haga clic en **Save**(Guardar). 
 
 ## <a name="test-sso"></a>Prueba de SSO
 

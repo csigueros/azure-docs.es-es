@@ -158,6 +158,8 @@ items:
         href: concepts/logging-and-diagnostics.md
       - name: Métricas
         href: concepts/metrics.md
+      - name: Azure Advisor
+        href: concepts/advisor-overview.md
       - name: Solución de problemas
         href: concepts/troubleshooting-info.md
   - name: Guías paso a paso
@@ -172,7 +174,7 @@ items:
             href: how-tos/calling-sdk/record-calls.md
           - name: Habilitación de notificaciones de inserción
             href: how-tos/calling-sdk/push-notifications.md
-          - name: Transcripción de llamadas
+          - name: Mostrar el estado de la transcripción
             href: how-tos/calling-sdk/call-transcription.md
           - name: Mostrar altavoces activos
             href: how-tos/calling-sdk/dominant-speaker.md

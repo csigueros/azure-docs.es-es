@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Tableau Online | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con Tableau Online'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Tableau Online.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/28/2020
+ms.date: 09/24/2021
 ms.author: jeedes
-ms.openlocfilehash: cb3efdc1bc03535abcf1f50ed4cd7a5c847ed957
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3f3aaf5f24a08fa2941701005a6c38957ee7a3da
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124751696"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129402394"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-online"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Tableau Online
+# <a name="tutorial-azure-ad-sso-integration-with-tableau-online"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Tableau Online
 
 En este tutorial, aprenderá a integrar Tableau Online con Azure Active Directory (Azure AD). Al integrar Tableau Online con Azure AD, puede hacer lo siguiente:
 
@@ -33,14 +33,17 @@ Para empezar, necesita los siguientes elementos:
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 * Una suscripción habilitada para el inicio de sesión único (SSO) en Tableau Online.
 
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
+
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Tableau Online admite SSO iniciado por **SP**
+* Tableau Online admite el inicio de sesión único iniciado por **SP**.
 * Tableau Online admite el [aprovisionamiento y desaprovisionamiento **automático** de usuarios](tableau-online-provisioning-tutorial.md) (se recomienda).
 
-## <a name="adding-tableau-online-from-the-gallery"></a>Incorporación de Tableau Online desde la galería
+## <a name="add-tableau-online-from-the-gallery"></a>Adición de Tableau Online desde la galería
 
 Para configurar la integración de Tableau Online en Azure AD, será preciso que agregue Tableau Online desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -65,17 +68,17 @@ Para configurar el inicio de sesión único de Azure AD con Tableau Online, rea
     1. **[Creación de un usuario de prueba en Tableau Online](#create-tableau-online-test-user)** , para tener un homólogo de B.Simon en Tableau Online que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
+## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
 1. En Azure Portal, en la página de integración de la aplicación **Tableau Server**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
     a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL: `https://sso.online.tableau.com/public/sp/login?alias=<entityid>`
 
@@ -111,9 +114,7 @@ En esta sección va a permitir que B.Simon acceda a Tableau Server mediante el i
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **Tableau Online**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
@@ -132,15 +133,15 @@ En esta sección va a permitir que B.Simon acceda a Tableau Server mediante el i
 
 1. Vaya a **Settings** (Configuración) y luego a **Authentication** (Autenticación).
 
-    ![Captura de pantalla que muestra la opción Authentication (Autenticación) seleccionada en el menú de configuración.](./media/tableauonline-tutorial/tutorial_tableauonline_09.png)
+    ![Captura de pantalla que muestra la opción Authentication (Autenticación) seleccionada en el menú de configuración.](./media/tableauonline-tutorial/menu.png)
 
 2. Para habilitar SAML, en la sección **Authentication types** (Tipos de autenticación) seleccione **Enable an additional authentication method** (Habilitar un método de autenticación adicional) y, después, seleccione la casilla **SAML**.
 
-    ![Captura de pantalla que muestra la sección Tipos de autenticación, en la que puede seleccionar valores.](./media/tableauonline-tutorial/tutorial_tableauonline_12.png)
+    ![Captura de pantalla que muestra la sección Tipos de autenticación, en la que puede seleccionar valores.](./media/tableauonline-tutorial/authentication.png)
 
 3. Desplácese hacia abajo hasta la sección **Import metadata file into Tableau Online** (Importar archivo de metadatos en Tableau Online).  Haga clic en Examinar e importe el archivo de metadatos que ha descargado desde Azure AD. A continuación, haga clic en **Aplicar**.
 
-   ![Captura de pantalla que muestra la sección en la que puede importar el archivo de metadatos.](./media/tableauonline-tutorial/tutorial_tableauonline_13.png)
+   ![Captura de pantalla que muestra la sección en la que puede importar el archivo de metadatos.](./media/tableauonline-tutorial/metadata.png)
 
 4. En la sección **Match assertions** (Aserciones de coincidencia), inserte el nombre de aserción del proveedor de identidades correspondiente para la **dirección de correo electrónico**, el **nombre** y los **apellidos**. Para obtener esta información a partir de Azure AD: 
   
@@ -148,17 +149,17 @@ En esta sección va a permitir que B.Simon acceda a Tableau Server mediante el i
 
     b. En la sección **User Attributes & Claims** (Atributos de usuario y notificaciones), haga clic en el icono de edición.
 
-   ![Captura de pantalla que muestra la sección de atributos y notificaciones del usuario, desde donde puede seleccionar el icono de edición.](./media/tableauonline-tutorial/attributesection.png)
+   ![Captura de pantalla que muestra la sección de atributos y notificaciones del usuario, desde donde puede seleccionar el icono de edición.](./media/tableauonline-tutorial/attribute-section.png)
 
     c. Copie el valor del espacio de nombres de estos atributos: givenname, email y surname mediante los pasos siguientes:
 
-   ![Captura de pantalla que muestra los atributos Givenname, Surname y Emailaddress.](./media/tableauonline-tutorial/tutorial_tableauonline_10.png)
+   ![Captura de pantalla que muestra los atributos Givenname, Surname y Emailaddress.](./media/tableauonline-tutorial/name.png)
 
     d. Haga clic en el valor **user.givenname**
 
     e. Copie el valor del cuadro de texto **Namespace** (Espacio de nombres).
 
-    ![Captura de pantalla que muestra la sección Administrar las notificaciones del usuario, en la que puede especificar el espacio de nombres.](./media/tableauonline-tutorial/attributesection2.png)
+    ![Captura de pantalla que muestra la sección Administrar las notificaciones del usuario, en la que puede especificar el espacio de nombres.](./media/tableauonline-tutorial/attributes.png)
 
     f. Para copiar los valores del espacio de nombres del correo electrónico y el apellido, repita los pasos anteriores.
 
@@ -170,7 +171,7 @@ En esta sección va a permitir que B.Simon acceda a Tableau Server mediante el i
 
     * Apellidos: **surname**
 
-    ![Captura de pantalla que muestra la sección Match attributes (Coincidencia de atributos), en la que puede especificar los valores.](./media/tableauonline-tutorial/tutorial_tableauonline_14.png)
+    ![Captura de pantalla que muestra la sección Match attributes (Coincidencia de atributos), en la que puede especificar los valores.](./media/tableauonline-tutorial/claims.png)
 
 ### <a name="create-tableau-online-test-user"></a>Creación de un usuario de prueba en Tableau Online
 
@@ -178,15 +179,15 @@ En esta sección, creará una usuaria llamada Britta Simon en Tableau Online.
 
 1. En **Tableau Online**, haga clic en **Settings** (Configuración) y en la sección **Authentication** (Autenticación). Desplácese hacia abajo hasta la sección **Manage Users** (Administrar usuarios). Haga clic en **Add users** (Agregar usuarios) y, después, en **Enter Email Addresses** (Especificar direcciones de correo electrónico).
   
-    ![Captura de pantalla que muestra la sección Administrar usuarios, en la que puede seleccionar Agregar usuarios.](./media/tableauonline-tutorial/tutorial_tableauonline_15.png)
+    ![Captura de pantalla que muestra la sección Administrar usuarios, en la que puede seleccionar Agregar usuarios.](./media/tableauonline-tutorial/users.png)
 
 2. Seleccione **Add users for (SAML) authentication** [Agregar usuarios para la autenticación (SAML)]. En el cuadro de texto **Especificar direcciones de correo electrónico**, agregue britta.simon\@contoso.com.
   
-    ![Captura de pantalla que muestra la página Agregar usuarios, en la que puede especificar una dirección de correo electrónico.](./media/tableauonline-tutorial/tutorial_tableauonline_11.png)
+    ![Captura de pantalla que muestra la página Agregar usuarios, en la que puede especificar una dirección de correo electrónico.](./media/tableauonline-tutorial/add-users.png)
 
 3. Haga clic en **Agregar usuarios**.
 
-### <a name="test-sso"></a>Prueba de SSO
+## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 

@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.openlocfilehash: 0dc539a5f649ed4a894e92e579fdbd15d4d2b4be
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 410b0926faf2e5c6b8885c91cdf08343c3000469
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128635800"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362323"
 ---
 # <a name="calling-sdk-overview"></a>Información general de Calling SDK
 
@@ -88,8 +88,8 @@ Calling SDK de Communication Services admite las siguientes configuraciones de s
 
 | Límite                                                         | Web                         | Windows/Android/iOS        |
 | ------------------------------------------------------------- | --------------------------- | -------------------------- |
-| **Número de secuencias salientes que se pueden enviar simultáneamente**     | 1 vídeo o 1 uso compartido de pantalla | 1 vídeo + 1 uso compartido de pantalla |
-| **número de secuencias entrantes que se pueden representar simultáneamente** | 1 vídeo o 1 uso compartido de pantalla | 6 vídeo + 1 uso compartido de pantalla |
+| **Número máximo de secuencias salientes que se pueden enviar simultáneamente**     | 1 vídeo o 1 uso compartido de pantalla | 1 vídeo + 1 uso compartido de pantalla |
+| **Número máximo de secuencias remotas entrantes que se pueden enviar simultáneamente** | 4 vídeos + 1 uso compartido de pantalla | 6 vídeos + 1 uso compartido de pantalla |
 
 Aunque el SDK de llamada no aplicará estos límites, los usuarios pueden experimentar una degradación del rendimiento si se superan.
 
@@ -119,7 +119,6 @@ En la tabla siguiente se representa el conjunto de exploradores compatibles que 
 | Windows      | ✔️      | ❌      | ✔️           |
 | Ubuntu/Linux | ✔️      | ❌      | ❌           |    
 
-* No se admiten llamadas de uno a uno en Safari.
 * No se admite el uso compartido de pantalla saliente en iOS ni Android.
 * [Las aplicaciones iOS en Safari no pueden enumerar ni seleccionar dispositivos de micrófono y altavoz](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (por ejemplo, Bluetooth); se trata de una limitación del sistema operativo y siempre hay un solo dispositivo, el sistema operativo controla la selección predeterminada del dispositivo.
 

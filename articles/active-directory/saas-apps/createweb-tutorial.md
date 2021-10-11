@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Create!Webフロー | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con Create!Webフロー '
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Create!Webフロー.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/31/2021
+ms.date: 09/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 1aaabacff8e1512931aa18c7fe6db20708425096
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 38fab4d4e1dff8f9916693442926312d81409884
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124802847"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129402004"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-createweb"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Create!Webフロー
+# <a name="tutorial-azure-ad-sso-integration-with-createweb"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Create!Webフロー
 
 En este tutorial, obtendrá información sobre cómo integrar Create!Webフロー con Azure Active Directory (Azure AD). Al integrar Create!Webフロー con Azure AD, puede hacer lo siguiente:
 
@@ -94,7 +94,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<user-hostname>:8443/XFV20`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico al cliente de Create!Webフロー](mailto:solution-cwf@iftc.co.jp) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico al cliente de Create!Webフロー](https://support.createwebflow.jp/contact/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
@@ -130,11 +130,11 @@ En esta sección, permitirá que B.Simon acceda a Create!Webフロー mediante e
 
 ## <a name="configure-createweb-sso"></a>Configuración del inicio de sesión único en Create!Webフロー
 
-Para configurar el inicio de sesión único en **Create!Webフロー**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de Create!Webフロー](mailto:solution-cwf@iftc.co.jp). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Create!Webフロー**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de Create!Webフロー](https://support.createwebflow.jp/contact/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-createweb-test-user"></a>Creación de un usuario de prueba de Create!Webフロー
 
-En esta sección, se crea una usuaria llamada Britta Simon en Create!Webフロー. Colabore con el [equipo de soporte técnico de Create!Webフロー](mailto:solution-cwf@iftc.co.jp) para agregar los usuarios en la plataforma de Create!Webフロー. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, se crea una usuaria llamada Britta Simon en Create!Webフロー. Colabore con el [equipo de soporte técnico de Create!Webフロー](https://support.createwebflow.jp/contact/) para agregar los usuarios en la plataforma de Create!Webフロー. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ## <a name="test-sso"></a>Prueba de SSO 
 

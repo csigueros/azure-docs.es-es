@@ -130,19 +130,25 @@
         - name: Aplicación de líneas base de seguridad de Azure
           displayName: 'VM, guest configuration, vulnerabilities, ASB, benchmark'
           href: apply-security-baseline.md
-        - name: Examen de vulnerabilidades
+        - name: Evaluaciones de vulnerabilidades
           items:
-            - name: Análisis de máquinas con el examinador de Qualys integrado
-              displayName: 'qualys, vulnerability, arc, hybrid'
+            - name: Búsqueda de vulnerabilidades con administración de amenazas y vulnerabilidades
+              displayName: 'mde, tvm, vulnerability, va, arc, hybrid'
+              href: deploy-vulnerability-assessment-tvm.md
+            - name: Búsqueda de vulnerabilidades con el analizador de Qualys integrado
+              displayName: 'qualys, va, vulnerability, arc, hybrid'
               href: deploy-vulnerability-assessment-vm.md
-            - name: Análisis de las máquinas virtuales con la solución de VA de BYOL
+            - name: Búsqueda de vulnerabilidades con una solución BYOL VA
               displayName: 'qualys, rapid7, vulnerability'
               href: deploy-vulnerability-assessment-byol-vm.md
+            - name: Habilitación automática de una solución de evaluación de vulnerabilidades
+              displayName: 'qualys, rapid7, vulnerability, auto provision'
+              href: auto-deploy-vulnerability-assessment.md
             - name: Examen y corrección de vulnerabilidades
-              displayName: 'qualys, rapid7, vulnerability'
+              displayName: 'qualys, va, rapid7, vulnerability'
               href: remediate-vulnerability-findings-vm.md
             - name: Deshabilitar hallazgos sobre vulnerabilidades específicas
-              displayName: 'qualys, rapid7'
+              displayName: 'qualys, rapid7, va'
               href: remediate-vulnerability-findings-vm.md#disable-specific-findings-preview
         - name: Protección de los puertos de administración con acceso Just-in-Time a máquinas virtuales
           items:

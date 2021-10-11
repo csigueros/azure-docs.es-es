@@ -737,6 +737,8 @@ items:
                 href: monitor-install-analytics.md
           - name: Supervisar con SDK
             href: monitor-programmatically.md
+          - name: Supervisión de canalizaciones y notificaciones por correo electrónico
+            href: how-to-send-email.md
           - name: Supervisión de canalizaciones con notificaciones de Microsoft Teams
             href: how-to-send-notifications-to-teams.md
           - name: Supervisión de Integration Runtime
@@ -876,7 +878,9 @@ items:
             href: how-to-discover-explore-purview-data.md
       - name: Escenarios
         items:
-          - name: Supervisión de canalizaciones con notificaciones de Microsoft Teams
+          - name: Envío de un correo electrónico desde una canalización
+            href: how-to-send-email.md
+          - name: Envío de notificaciones de Microsoft Teams desde una canalización
             href: how-to-send-notifications-to-teams.md
           - name: Migración de datos para Data Lake y EDW
             items:

@@ -13,12 +13,12 @@ ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 8d8c4972653ddc70c7c0eb97e57b37479d52441b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c3b2cc9f3fa6656cf4d5e493f725c17b64f4d7d8
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128616030"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233585"
 ---
 # <a name="what-is-single-sign-on-in-azure-active-directory"></a>¿Qué es el inicio de sesión único en Azure Active Directory?
 
@@ -40,7 +40,7 @@ La elección de un método de inicio de sesión único depende de cómo esté co
 
     > [!VIDEO https://www.youtube.com/embed/CjarTgjKcX8]
 
-- **Contraseña**: las aplicaciones locales pueden usar métodos de inicio de sesión único basados en contraseñas, Autenticación integrada de Windows, en encabezados o vinculados para el inicio de sesión único. Las opciones locales funcionan si las aplicaciones están configuradas para el [proxy de aplicación](../app-proxy/what-is-application-proxy.md).
+- **Contraseña**: las aplicaciones locales pueden usar métodos basados en contraseñas, en la autenticación integrada de Windows, en encabezados o vinculados para el inicio de sesión único. Las opciones locales funcionan si las aplicaciones están configuradas para el [proxy de aplicación](../app-proxy/what-is-application-proxy.md).
 
     Con el inicio de sesión único con contraseña, los usuarios finales inician sesión con un nombre de usuario y una contraseña en la aplicación la primera vez que acceden a ella. Después del primer inicio de sesión, Azure AD proporciona el nombre de usuario y la contraseña a la aplicación. El inicio de sesión único basado en contraseña permite el almacenamiento seguro de contraseñas de las aplicaciones y la reproducción mediante una extensión de explorador web o aplicación móvil. Esta opción usa el proceso de inicio de sesión existente proporcionado por la aplicación, permite que un administrador administre las contraseñas y no requiere que el usuario conozca la contraseña.
 

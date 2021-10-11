@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/09/2021
 ms.custom: template-quickstart
 keywords: Kubernetes, Arc, Azure, cluster
-ms.openlocfilehash: bcc4d9183bf60e37c1d024462d7ab924df1f671e
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 10c97945a78867d92b9ed4887e9655d49b195e33
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/29/2021
-ms.locfileid: "129210777"
+ms.locfileid: "129273768"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>Inicio rápido: conexión de un clúster de Kubernetes existente a Azure Arc
 
@@ -96,8 +96,8 @@ En este inicio rápido, conocerá las ventajas de Kubernetes habilitado para Azu
 | `https://<region>.dp.kubernetesconfiguration.azure.com` (para la nube de Azure), `https://<region>.dp.kubernetesconfiguration.azure.us` (para Azure US Government) | Punto de conexión de plano de datos para que el agente inserte información de la configuración de estado y recuperación de cambios. |
 | `https://login.microsoftonline.com`, `login.windows.net` (para la nube de Azure), `https://login.microsoftonline.us` (para Azure US Government) | Necesario para capturar y actualizar tokens de Azure Resource Manager. |
 | `https://mcr.microsoft.com`, `https://*.data.mcr.microsoft.com` | Necesario para extraer imágenes de contenedor para agentes de Azure Arc.                                                                  |
-| `https://gbl.his.arc.azure.com` |  Necesario para obtener el punto de conexión regional para extraer certificados de Managed Service Identity (MSI) asignados por el sistema. |
-| `https://*.his.arc.azure.com` (para la nube de Azure), `https://usgv.his.arc.azure.us` y `https://gbl.his.arc.azure.us` (para Azure US Government) |  Necesario para extraer certificados de identidad administrados que haya asignado el sistema. |
+| `https://gbl.his.arc.azure.com` (para la nube de Azure), `https://gbl.his.arc.azure.us` (para Azure US Government) |  Necesario para obtener el punto de conexión regional para extraer los certificados de la identidad administrada asignada por el sistema. |
+| `https://*.his.arc.azure.com` (para la nube de Azure), `https://usgv.his.arc.azure.us` (para Azure US Government) |  Necesario para extraer certificados de identidad administrados que haya asignado el sistema. |
 |`*.servicebus.windows.net`, `guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`, `sts.windows.net` | Para escenarios basados en la [conexión de clúster](cluster-connect.md) y la [ubicación personalizada](custom-locations.md). |
 
 ## <a name="1-register-providers-for-azure-arc-enabled-kubernetes"></a>1. Registro de proveedores en Kubernetes habilitado para Azure Arc

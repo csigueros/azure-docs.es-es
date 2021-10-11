@@ -5,12 +5,12 @@ ms.author: askaur
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 4aad194e1bfbd31cb31795ec4b6d21737800e06d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 616741c97b1e133dd9027b8622c181a9ca622b72
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121722541"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129378700"
 ---
 En este inicio rápido aprenderá a chatear en una reunión de Teams mediante el SDK de chat de Azure Communication Services para JavaScript.
 
@@ -205,118 +205,121 @@ const sendMessageButton = document.getElementById("send-message");
 const messagebox = document.getElementById("message-box");
 
 var userId = '';
-var messages = '';
+var lastMessage = '';
+var previousMessage = '';
 
 async function init() {
-    const connectionString = "<SECRET_CONNECTION_STRING>";
-    const endpointUrl = "<ENDPOINT_URL>";
+  const connectionString = "<SECRET_CONNECTION_STRING>";
+  const endpointUrl = "<ENDPOINT_URL>";
 
-    const identityClient = new CommunicationIdentityClient(connectionString);
+  const identityClient = new CommunicationIdentityClient(connectionString);
 
-    let identityResponse = await identityClient.createUser();
-    userId = identityResponse.communicationUserId;
-    console.log(`\nCreated an identity with ID: ${identityResponse.communicationUserId}`);
+  let identityResponse = await identityClient.createUser();
+  userId = identityResponse.communicationUserId;
+  console.log(`\nCreated an identity with ID: ${identityResponse.communicationUserId}`);
 
-    let tokenResponse = await identityClient.getToken(identityResponse, [
-        "voip",
-        "chat",
-    ]);
+  let tokenResponse = await identityClient.getToken(identityResponse, [
+    "voip",
+    "chat",
+  ]);
 
-    const { token, expiresOn } = tokenResponse;
-    console.log(`\nIssued an access token that expires at: ${expiresOn}`);
-    console.log(token);
+  const { token, expiresOn } = tokenResponse;
+  console.log(`\nIssued an access token that expires at: ${expiresOn}`);
+  console.log(token);
 
-    const callClient = new CallClient();
-    const tokenCredential = new AzureCommunicationTokenCredential(token);
-    callAgent = await callClient.createCallAgent(tokenCredential);
-    callButton.disabled = false;
+  const callClient = new CallClient();
+  const tokenCredential = new AzureCommunicationTokenCredential(token);
+  callAgent = await callClient.createCallAgent(tokenCredential);
+  callButton.disabled = false;
 
-    chatClient = new ChatClient(
-        endpointUrl,
-        new AzureCommunicationTokenCredential(token)
-    );
+  chatClient = new ChatClient(
+    endpointUrl,
+    new AzureCommunicationTokenCredential(token)
+  );
 
-    console.log('Azure Communication Chat client created!');
+  console.log('Azure Communication Chat client created!');
 }
 
 init();
 
 callButton.addEventListener("click", async () => {
-    // join with meeting link
-    call = callAgent.join({meetingLink: meetingLinkInput.value}, {});
+  // join with meeting link
+  call = callAgent.join({meetingLink: meetingLinkInput.value}, {});
 
-    call.on('stateChanged', () => {
-        callStateElement.innerText = call.state;
-    })
-    // toggle button and chat box states
-    chatBox.style.display = "block";
-    hangUpButton.disabled = false;
-    callButton.disabled = true;
+  call.on('stateChanged', () => {
+      callStateElement.innerText = call.state;
+  })
+  // toggle button and chat box states
+  chatBox.style.display = "block";
+  hangUpButton.disabled = false;
+  callButton.disabled = true;
 
-    messagesContainer.innerHTML = messages;
+  messagesContainer.innerHTML = "";
 
-    console.log(call);
+  console.log(call);
 
-    // open notifications channel
-    await chatClient.startRealtimeNotifications();
+  // open notifications channel
+  await chatClient.startRealtimeNotifications();
 
-    // subscribe to new message notifications
-    chatClient.on("chatMessageReceived", (e) => {
-        console.log("Notification chatMessageReceived!");
+  // subscribe to new message notifications
+  chatClient.on("chatMessageReceived", (e) => {
+    console.log("Notification chatMessageReceived!");
 
       // check whether the notification is intended for the current thread
-        if (threadIdInput.value != e.threadId) {
-            return;
-        }
+    if (threadIdInput.value != e.threadId) {
+      return;
+    }
 
-        if (e.sender.communicationUserId != userId) {
-           renderReceivedMessage(e.message);
-        }
-        else {
-           renderSentMessage(e.message);
-        }
-    });
+    if (e.sender.communicationUserId != userId) {
+       renderReceivedMessage(e.message);
+    }
+    else {
+       renderSentMessage(e.message);
+    }
+  });
 
-    chatThreadClient = await chatClient.getChatThreadClient(threadIdInput.value);
+  chatThreadClient = await chatClient.getChatThreadClient(threadIdInput.value);
 });
 
 async function renderReceivedMessage(message) {
-    messages += '<div class="container lighter">' + message + '</div>';
-    messagesContainer.innerHTML = messages;
+  previousMessage = lastMessage;
+  lastMessage = '<div class="container lighter">' + message + '</div>';
+  messagesContainer.innerHTML = previousMessage + lastMessage;
 }
 
 async function renderSentMessage(message) {
-    messages += '<div class="container darker">' + message + '</div>';
-    messagesContainer.innerHTML = messages;
+  previousMessage = lastMessage;
+  lastMessage = '<div class="container darker">' + message + '</div>';
+  messagesContainer.innerHTML = previousMessage + lastMessage;
 }
 
 hangUpButton.addEventListener("click", async () => 
-    {
-        // end the current call
-        await call.hangUp();
+  {
+    // end the current call
+    await call.hangUp();
 
-        // toggle button states
-        hangUpButton.disabled = true;
-        callButton.disabled = false;
-        callStateElement.innerText = '-';
+    // toggle button states
+    hangUpButton.disabled = true;
+    callButton.disabled = false;
+    callStateElement.innerText = '-';
 
-        // toggle chat states
-        chatBox.style.display = "none";
-        messages = "";
-    });
+    // toggle chat states
+    chatBox.style.display = "none";
+    messages = "";
+  });
 
 sendMessageButton.addEventListener("click", async () =>
-    {
-        let message = messagebox.value;
+  {
+    let message = messagebox.value;
 
-        let sendMessageRequest = { content: message };
-        let sendMessageOptions = { senderDisplayName : 'Jack' };
-        let sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
-        let messageId = sendChatMessageResult.id;
+    let sendMessageRequest = { content: message };
+    let sendMessageOptions = { senderDisplayName : 'Jack' };
+    let sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
+    let messageId = sendChatMessageResult.id;
 
-        messagebox.value = '';
-        console.log(`Message sent!, message id:${messageId}`);
-    });
+    messagebox.value = '';
+    console.log(`Message sent!, message id:${messageId}`);
+  });
 ```
 
 El cliente de Teams no establece los nombres para mostrar de los participantes de la conversación del chat. Los nombres se devolverán como NULL en la API para los participantes de la enumeración, en el evento `participantsAdded` y en el evento `participantsRemoved`. Los nombres para mostrar de los participantes del chat se pueden recuperar del campo `remoteParticipants` del objeto `call`. Al recibir una notificación sobre un cambio en la lista, puede usar este código para recuperar el nombre del usuario que se agregó o quitó:
@@ -327,7 +330,9 @@ var displayName = call.remoteParticipants.find(p => p.identifier.communicationUs
 
 ## <a name="get-a-teams-meeting-chat-thread-for-a-communication-services-user"></a>Obtención de un subproceso del chat de la reunión para un usuario de Communication Services
 
-El vínculo y el chat de la reunión de Teams se pueden recuperar mediante las instancias de Graph API, que se detallan en la [documentación de Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true). El SDK de llamada de Communication Services acepta un vínculo a toda la reunión de Teams. Este vínculo se devuelve como parte del recurso `onlineMeeting`, accesible desde la [propiedad `joinWebUrl`](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true). Con las instancias de [Graph API](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true), también puede obtener `threadId`. La respuesta tendrá un objeto `chatInfo` que contiene el elemento `threadID`. 
+Los detalles de la reunión de Teams se pueden recuperar mediante las instancias de Graph API, que se detallan en la [documentación de Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true). El SDK de llamada de Communication Services acepta un vínculo completo a la reunión de Teams o un identificador de reunión. Ambos elementos se devuelven como parte del recurso `onlineMeeting`, al que se puede acceder bajo la [`joinWebUrl`propiedad](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true).
+
+Con [Graph API](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true), también se puede obtener `threadID`. La respuesta tendrá un objeto `chatInfo` que contiene el elemento `threadID`. 
 
 También puede obtener la información de la reunión necesaria y el identificador de la conversación en la dirección URL **Unirse a la reunión** de la propia invitación a la reunión de Teams.
 Así es el vínculo de una reunión en Teams: `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`. El valor de `threadId` estará donde se encuentra el elemento `meeting_chat_thread_id` en el vínculo. Asegúrese de que el elemento `meeting_chat_thread_id` se haya escapado antes de utilizarlo. Debería tener el siguiente formato: `19:meeting_ZWRhZDY4ZGUtYmRlNS00OWZaLTlkZTgtZWRiYjIxOWI2NTQ4@thread.v2`.
@@ -345,7 +350,7 @@ Abra el explorador web y vaya a http://localhost:8080/. Verá lo siguiente:
 
 :::image type="content" source="../join-teams-meeting-chat-quickstart.png" alt-text="Captura de pantalla de la aplicación JavaScript completada.":::
 
-Inserte el vínculo de la reunión de Teams y el identificador de la conversación en los cuadros de texto. Presione *Unirse a una reunión de Teams* para unirse a dicha reunión. Una vez que el usuario de Communication Services se haya admitido en la reunión, puede chatear desde dentro de la aplicación de Communication Services. Navegue hasta el cuadro que hay en la parte inferior de la página para iniciar el chat.
+Inserte el vínculo de la reunión de Teams y el identificador de la conversación en los cuadros de texto. Presione *Unirse a una reunión de Teams* para unirse a dicha reunión. Una vez que el usuario de Communication Services se haya admitido en la reunión, puede chatear desde dentro de la aplicación de Communication Services. Navegue hasta el cuadro que hay en la parte inferior de la página para iniciar el chat. Por simplicidad, la aplicación solo mostrará los dos últimos mensajes en el chat.
 
 > [!NOTE] 
-> Actualmente, en los escenarios de interoperabilidad con Teams solo se admiten el envío, la recepción, la edición de mensajes y el envío de notificaciones de escritura. Otras características, como las confirmaciones de lectura y que los usuarios de Communication Services agreguen o quiten otros usuarios de la reunión de Teams, aún no se admiten.
+> Actualmente, en los escenarios de interoperabilidad con Teams solo se admiten el envío, la recepción, la edición de mensajes y el envío de notificaciones de escritura. Otras características, como las confirmaciones de lectura y que los usuarios de Communication Services agreguen o quiten otros usuarios de la reunión de Teams, no se admiten.
