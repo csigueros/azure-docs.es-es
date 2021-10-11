@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 4/27/2021
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 26063c9d0c02079b2c40eb85330be499b4bb624e
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 92b1eeb5317f5a7535406d1b3781a4b0b66cad45
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114462013"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272460"
 ---
 # <a name="quickstart---get-started-with-a-sample-scenario-in-azure-digital-twins-explorer"></a>Inicio rápido: introducción a un escenario de ejemplo de Azure Digital Twins Explorer
 
 Con Azure Digital Twins, puede crear modelos en directo de los entornos del mundo real e interactuar con ellos. En primer lugar, los elementos individuales se modelan como **gemelos digitales**. A continuación, se conectan en un **grafo** de conocimiento que puede dar respuesta a eventos en directo y en el que se puede consultar información.
 
-En este inicio rápido, explorará un grafo de Azure Digital Twins precompilado con la ayuda de [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md). Se trata de una herramienta que permite visualizar e interactuar con los datos Azure Digital Twins en Azure Portal.
+En este inicio rápido, explorará un grafo de Azure Digital Twins precompilado con la ayuda de [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md). Se trata de una herramienta que permite visualizar e interactuar con los datos Azure Digital Twins en Azure Portal. 
 
 Deberá completar los pasos siguientes:
 
@@ -31,6 +31,9 @@ Deberá completar los pasos siguientes:
 El grafo de ejemplo con el que va a trabajar representa un edificio de dos plantas y dos salas. Floor0 contiene Room0 y Floor1 contiene Room1. El grafo será como el de esta imagen:
 
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="Captura de pantalla de un grafo formado por cuatro nodos circulares conectados por flechas en Azure Digital Twins Explorer.":::
+
+>[!NOTE]
+>Este inicio rápido es para explorar un gráfico creado previamente para comprender cómo Azure Digital Twins representa los datos. Para que sea más fácil, esta guía de inicio rápido no trata la configuración de conexiones entre dispositivos de IoT Hub y sus representaciones gráficas. Para configurar un flujo de un extremo a otro conectado para el grafo, consulte los tutoriales: [Conexión a una solución de un extremo a otro](tutorial-end-to-end.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

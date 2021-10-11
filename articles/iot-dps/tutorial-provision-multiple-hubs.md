@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 6cca34774038156cfb01e872e751338c1c96efaa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 090d11866f3d3605a3703fd7ca39f820bbeb7187
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91316007"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273257"
 ---
 # <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Tutorial: Aprovisionamiento de dispositivos en instancias de IoT Hub con equilibrio de carga
 
-En este tutorial se muestra cómo aprovisionar dispositivos para varias instancias de IoT Hub con equilibrio de carga mediante el servicio Device Provisioning. En este tutorial aprenderá a:
+En este tutorial se muestra cómo aprovisionar dispositivos para varias instancias de IoT Hub con equilibrio de carga mediante el servicio Device Provisioning. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Usar Azure Portal para aprovisionar un segundo dispositivo en un segundo centro de IoT 
@@ -55,17 +55,17 @@ Siga estos pasos para establecer la directiva de asignación:
 
 1. Para establecer la directiva de asignación, en la página del servicio Device Provisioning haga clic en **Manage allocation policy** (Administrar directiva de asignación).
 2. Establezca la directiva de asignación en **Distribución uniformemente ponderada**.
-3. Haga clic en **Guardar**.
+3. Haga clic en **Save**(Guardar).
 
 ## <a name="link-the-new-iot-hub-to-the-device-provisioning-service"></a>Vincular la nueva instancia de IoT Hub al servicio Device Provisioning
 
 Vincule el servicio Device Provisioning e IoT Hub para que el primero pueda registrar dispositivos en el segundo.
 
-1. En la página **Todos los recursos**, haga clic en el servicio Device Provisioning que creó anteriormente.
+1. En la página **Todos los recursos**, haga clic en la instancia de Device Provisioning Service que creó anteriormente.
 2. En la página del servicio Device Provisioning, haga clic en **Linked IoT hubs** (Centros de IoT vinculados).
 3. Haga clic en **Agregar**.
 4. En la página **Add link to IoT hub** (Agregar vínculo a centro de IoT), utilice los botones de radio para especificar si el centro de IoT vinculado se encuentra en la suscripción actual o en una suscripción diferente. A continuación, elija el nombre del centro de IoT en el cuadro **Centro de IoT**.
-5. Haga clic en **Guardar**.
+5. Haga clic en **Save**(Guardar).
 
 En este tutorial, ha aprendido a:
 

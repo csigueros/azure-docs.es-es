@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc, devx-track-nodejs
 ms.date: 04/15/2021
 ms.author: inhenkel
-ms.openlocfilehash: 5b7c080e532a7a8cb220a501fb7239300b3f2d3e
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 2b553548111c732ca778c439232e949b0abb4707
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109712881"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388610"
 ---
 # <a name="tutorial-stream-live-with-media-services-by-using-nodejs-and-typescript"></a>Tutorial: Streaming en vivo con Media Services mediante Node.js y TypeScript
 
@@ -145,7 +145,7 @@ En este código, va a cambiar la `longRunningOperationRetryTimeout` propiedad de
 
 ### <a name="create-a-live-event"></a>Creación de un evento en directo
 
-En esta sección se muestra cómo crear un tipo de evento en directo *de tránsito* (`LiveEventEncodingType` establecido en `None`). Para más información sobre los tipos disponibles, consulte [Tipos de eventos en directo](live-event-outputs-concept.md#live-event-types). Además del tránsito, puede usar un evento de codificación en directo para la codificación en la nube con velocidad de bits adaptable de 720p o 1080p.
+En esta sección se muestra cómo crear un tipo de evento en directo de *tránsito* básico (`LiveEventEncodingType` establecido en `PassthroughBasic`). Para más información sobre los tipos disponibles, consulte [Tipos de eventos en directo](live-event-outputs-concept.md#live-event-types). Además del tránsito básico o estándar, puede usar un evento de codificación en directo para la codificación en la nube con velocidad de bits adaptable de 720p o 1080p.
  
 Es posible que quiera especificar lo siguiente al crear el evento en directo:
 

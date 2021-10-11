@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 08/12/2021
+ms.date: 10/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 890270bf5594c9ea7dfc35e38b135c20ea671461
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: df6838d1616d27c12d7176df0041a35d0d773f83
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122429657"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129545122"
 ---
 # <a name="what-is-the-azure-stack-edge-mini-r"></a>¿Qué es Azure Stack Edge Mini R?
 
@@ -31,16 +31,16 @@ Azure Stack Edge Mini R presenta las siguientes funcionalidades:
 |Hardware resistente| Hardware resistente diseñado para entornos exigentes.|
 |Ultraportátil| Factor de forma ultra portátil y con batería.|
 |Administración en la nube|El dispositivo y el servicio se administran con Azure Portal.|
-|Cargas de trabajo de proceso perimetral|Permite el análisis, procesamiento y filtrado de datos.<br>Admite máquinas virtuales y cargas de trabajo en contenedores. |
-|Inferencia de IA acelerada| Habilitado por la VPU Intel Movidius Myriad X.|
+|Cargas de trabajo de proceso perimetral|Permite el análisis, procesamiento y filtrado de datos.<br>Admite máquinas virtuales y cargas de trabajo en contenedores. <ul><li>Para obtener información sobre las cargas de trabajo de máquina virtual, consulte [Introducción a la máquina virtual en Azure Stack Edge](azure-stack-edge-gpu-virtual-machine-overview.md).</li> <li>Para cargas de trabajo en contenedores, consulte [Información general de Kubernetes en Azure Stack Edge](azure-stack-edge-gpu-kubernetes-overview.md).</li></ul>  |
+|Inferencia de IA acelerada| Habilitado por la VPU Intel Movidius Myriad X. |
 |Cableado e inalámbrico | Permite las transferencias de datos por cable e inalámbricas.|
 |Acceso a datos     | Ofrece acceso directo a los datos de Azure Storage Blob y Azure Files mediante las API en la nube para un procesamiento de datos adicional en la nube. La memoria caché local del dispositivo se usa para agilizar el acceso a los archivos usados más recientemente.|
 |Modo desconectado|  El dispositivo y el servicio se pueden administrar a través de Azure Stack Hub. Implemente, ejecute y administre aplicaciones en modo sin conexión. <br> El modo sin conexión es compatible con escenarios de carga sin conexión.|
 |Protocolos de transferencia de archivos compatibles      |Compatibilidad con los protocolos estándar SMB, NFS y REST para la ingesta de datos. <br> Para obtener más información sobre las versiones compatibles, vaya a [Requisitos del sistema de Azure Stack Edge Mini R](azure-stack-edge-gpu-system-requirements.md).|
-|Actualización de datos     | Capacidad para actualizar los archivos locales con la versión más reciente de la nube.|
-|Cifrado doble    | El uso de la unidad de cifrado automático proporciona la primera capa de cifrado. VPN proporciona la segunda capa de cifrado. Compatibilidad con BitLocker para cifrar los datos localmente y proteger las transferencias de datos en la nube mediante *HTTPS*.|
-|Límite de ancho de banda| Limite el uso de ancho de banda durante las horas punta.|
-|Pedidos sencillos| Pedidos masivos y seguimiento del dispositivo mediante Azure Edge Hardware Center (versión preliminar).|
+|Actualización de datos     | Capacidad para actualizar los archivos locales con la versión más reciente de la nube. <br> Para obtener más información, consulte [Actualización de un recurso compartido en Azure Stack Edge](azure-stack-edge-gpu-manage-shares.md#refresh-shares).|
+|Cifrado doble    | El uso de la unidad de cifrado automático proporciona la primera capa de cifrado. VPN proporciona la segunda capa de cifrado. Compatibilidad con BitLocker para cifrar los datos localmente y proteger las transferencias de datos en la nube mediante *HTTPS*. <br> Para más información, consulte [Configuración de VPN en el dispositivo Azure Stack Edge Pro R](azure-stack-edge-mini-r-configure-vpn-powershell.md).|
+|Límite de ancho de banda| Limite el uso de ancho de banda durante las horas punta. <br> Para más información, consulte [Administración de las programaciones de ancho de banda de Azure Stack Edge](azure-stack-edge-gpu-manage-bandwidth-schedules.md).|
+|Pedidos sencillos| Pedidos masivos y seguimiento del dispositivo mediante Azure Edge Hardware Center (versión preliminar). <br> Para más información, consulte [Pedido de un dispositivo a través de Azure Edge Hardware Center](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).|
 
 ## <a name="use-cases"></a>Casos de uso
 

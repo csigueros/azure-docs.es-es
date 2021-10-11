@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ice Contact Center | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con ice Contact Center'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory e ice Contact Center.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/09/2021
+ms.date: 09/24/2021
 ms.author: jeedes
-ms.openlocfilehash: cf9e228769531095ae4e8b6629b2377af2df3a0c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: df556e930bd570960080233bc17e77c0bcc5510f
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124790669"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129401054"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ice-contact-center"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ice Contact Center
+# <a name="tutorial-azure-ad-sso-integration-with-ice-contact-center"></a>Tutorial: Integración del inicio de sesión único de Azure AD con ice Contact Center
 
 En este tutorial, obtendrá información sobre cómo integrar ice Contact Center con Azure Active Directory (Azure AD). Al integrar ice Contact Center con Azure AD, puede hacer lo siguiente:
 
@@ -32,6 +32,9 @@ Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 * Una suscripción habilitada para el inicio de sesión único (SSO) en ice Contact Center.
+
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 

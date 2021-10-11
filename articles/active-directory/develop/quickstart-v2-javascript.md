@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: c266fe52620cd91f1e09f06d7468181b0d584df3
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: d49ab26695a061f47fd7e077fb9c609055998286
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113357650"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232591"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Inicio rápido: Inicio de sesión de usuarios y obtención de un token de acceso en un SPA de JavaScript
 
@@ -277,7 +277,7 @@ Hay situaciones en las que es necesario forzar a los usuarios a interactuar con 
 
 El patrón habitual recomendado para la mayoría de las aplicaciones es llamar primero a `acquireTokenSilent`, después detectar la excepción y, por último, llamar a `acquireTokenPopup` (o a `acquireTokenRedirect`) para iniciar una solicitud interactiva.
 
-Una llamada a `acquireTokenPopup` da como resultado una ventana emergente para iniciar sesión (o `acquireTokenRedirect` genera la redirección de los usuarios a la plataforma de identidad de Microsoft). En esa ventana, los usuarios tienen que interactuar confirmando las credenciales, dándole el consentimiento al recurso requerido o completando la autenticación en dos fases.
+Una llamada a `acquireTokenPopup` da como resultado una ventana emergente para iniciar sesión. (o `acquireTokenRedirect` genera la redirección de los usuarios a la plataforma de identidad de Microsoft). En esa ventana, los usuarios tienen que interactuar confirmando las credenciales, dándole el consentimiento al recurso requerido o completando la autenticación en dos fases.
 
 ```javascript
 // Add here scopes for access token to be used at MS Graph API endpoints.
@@ -295,7 +295,7 @@ myMSALObj.acquireTokenPopup(requestObj)
 ```
 
 > [!NOTE]
-> En este inicio rápido, se usan los métodos `loginRedirect` y `acquireTokenRedirect` con Microsoft Internet Explorer, debido a un [problema conocido](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) relacionado con la manera en que Internet Explorer controla las ventanas emergentes.
+> En este inicio rápido se usan los métodos `loginRedirect` y `acquireTokenRedirect` con Microsoft Internet Explorer, debido a un [problema conocido](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) relacionado con la manera en que Internet Explorer controla las ventanas emergentes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

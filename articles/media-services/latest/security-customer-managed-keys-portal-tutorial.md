@@ -6,16 +6,16 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: tutorial
 ms.date: 10/18/2020
-ms.openlocfilehash: e34649162c7a30d4ab43aa068d2c864b5c2d90e0
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 1a5b4c8e387085b8fee6c6e82ae765a186f43e87
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106281098"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129356684"
 ---
 # <a name="tutorial-use-the-azure-portal-to-use-customer-managed-keys-or-byok-with-media-services"></a>Tutorial: Uso de Azure Portal para emplear claves administradas por el cliente o BYOK con Media Services
 
-Con la API 2020-05-01, puede usar una clave RSA administrada por el cliente con una cuenta de Azure Media Services que tenga una identidad administrada por el sistema. Este tutorial indica los pasos en Azure Portal.
+Con la API 2020-05-01 o una versión anterior, puede usar una clave RSA administrada por el cliente con una cuenta de Azure Media Services que tenga una identidad administrada por el sistema. Este tutorial indica los pasos en Azure Portal.
 
 Los servicios utilizados son:
 

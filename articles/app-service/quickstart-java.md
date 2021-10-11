@@ -14,12 +14,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-java-uiex
-ms.openlocfilehash: 54ca249d1b89eb90b636da72e1378eadfd5fe0c1
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
+ms.openlocfilehash: 2fb7a97f1efb50f76b91cbc49a189deda7cde9c8
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681402"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357118"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Inicio rápido: Creación de una aplicación de Java en Azure App Service
 
@@ -98,7 +98,7 @@ El proceso de implementación en Azure App Service utilizará sus credenciales d
 Ejecute el siguiente comando de Maven para configurar la implementación. Este comando le ayudará a configurar el sistema operativo de App Service, la versión de Java y la versión de Tomcat.
 
 ```azurecli-interactive
-mvn com.microsoft.azure:azure-webapp-maven-plugin:2.1.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.2.0:config
 ```
 
 ::: zone pivot="platform-windows"
@@ -107,9 +107,9 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.1.0:config
 
 1. Si se le solicita la opción **Suscripción**, escriba el número impreso en el comienzo de línea para seleccionar el valor de `Subscription` adecuado.
 2. Cuando se le solicite la opción **Aplicación web**, presione Entrar para seleccionar la opción predeterminada, `<create>`.
-3. Cuando se le solicite la opción **SO**, especifique `2` para seleccionar **Windows**.
+3. Cuando se le solicite la opción **SO**, especifique `1` para seleccionar **Windows**.
 4. Cuando se le solicite la opción **javaVersion**, escriba `1` para seleccionar **Java 8**.
-5. Cuando se le solicite la opción **Plan de tarifa**, especifique `7` para seleccionar **P1v2**.
+5. Cuando se le solicite la opción **Plan de tarifa**, especifique `10` para seleccionar **P1v2**.
 6. Por último, presione Entrar en la última solicitud para confirmar las selecciones.
 
     La salida del resumen tendrá un aspecto similar al fragmento de código que se muestra a continuación.
@@ -119,11 +119,11 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.1.0:config
     Subscription Id : ********-****-****-****-************
     AppName : spring-boot-1599007390755
     ResourceGroup : spring-boot-1599007390755-rg
-    Region : westeurope
-    PricingTier : Basic_B2
+    Region : centralus
+    PricingTier : P1v2
     OS : Windows
-    Java : 1.8
-    WebContainer : java 8
+    Java : Java 8
+    WebContainer : Java SE
     Deploy to slot : false
     Confirm (Y/N)? : Y
     [INFO] Saving configuration to pom.
@@ -139,10 +139,10 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.1.0:config
 
 1. Si se le solicita la opción **Suscripción**, escriba el número impreso en el comienzo de línea para seleccionar el valor de `Subscription` adecuado.
 2. Cuando se le solicite la opción **Aplicación web**, presione Entrar para seleccionar la opción predeterminada, `<create>`.
-3. Cuando se le solicite la opción **SO**, especifique `2` para seleccionar **Windows**.
+3. Cuando se le solicite la opción **SO**, especifique `1` para seleccionar **Windows**.
 4. Cuando se le solicite la opción **javaVersion**, escriba `1` para seleccionar **Java 8**.
-5. Cuando se le solicite la opción **webContainer**, escriba `3` para seleccionar **Tomcat 8.5**.
-6. Cuando se le solicite la opción **Plan de tarifa**, especifique `7` para seleccionar **P1v2**.
+5. Cuando se le solicite la opción **webContainer**, escriba `1` para seleccionar **Tomcat 8.5**.
+6. Cuando se le solicite la opción **Plan de tarifa**, especifique `10` para seleccionar **P1v2**.
 7. Por último, presione Entrar en la última solicitud para confirmar las selecciones.
 
     La salida del resumen tendrá un aspecto similar al fragmento de código que se muestra a continuación.
@@ -152,10 +152,10 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.1.0:config
     Subscription Id : ********-****-****-****-************
     AppName : helloworld-1599003152123
     ResourceGroup : helloworld-1599003152123-rg
-    Region : westeurope
-    PricingTier : Basic_B2
+    Region : centralus
+    PricingTier : P1v2
     OS : Windows
-    Java : 1.8
+    Java : Java 8
     WebContainer : tomcat 8.5
     Deploy to slot : false
     Confirm (Y/N)? : Y
@@ -183,7 +183,7 @@ JBoss EAP solo está disponible en la versión para Linux de App Service. Selecc
 1. Cuando se le solicite la opción **Aplicación web**, presione Entrar para seleccionar la opción predeterminada, `<create>`.
 1. Cuando se le solicite la opción **SO**, presione Entrar para seleccionar **Linux**.
 2. Cuando se le solicite la opción **javaVersion**, escriba `1` para seleccionar **Java 8**.
-3. Cuando se le solicite la opción **Plan de tarifa**, especifique `6` para seleccionar **P1v2**.
+3. Cuando se le solicite la opción **Plan de tarifa**, especifique `10` para seleccionar **P1v2**.
 4. Por último, presione Entrar en la última solicitud para confirmar las selecciones.
 
     ```
@@ -191,10 +191,10 @@ JBoss EAP solo está disponible en la versión para Linux de App Service. Selecc
     Subscription Id : ********-****-****-****-************
     AppName : spring-boot-1599007116351
     ResourceGroup : spring-boot-1599007116351-rg
-    Region : westeurope
-    PricingTier : Basic_B2
+    Region : centralus
+    PricingTier : P1v2
     OS : Linux
-    RuntimeStack : JAVA 8-jre8
+    Web server stack : JAVA SE
     Deploy to slot : false
     Confirm (Y/N)? : Y
     [INFO] Saving configuration to pom.
@@ -212,8 +212,8 @@ JBoss EAP solo está disponible en la versión para Linux de App Service. Selecc
 1. Cuando se le solicite la opción **Aplicación web**, presione Entrar para seleccionar la opción predeterminada, `<create>`.
 1. Cuando se le solicite la opción **SO**, presione Entrar para seleccionar **Linux**.
 1. Cuando se le solicite la opción **javaVersion**, escriba `1` para seleccionar **Java 8**.
-1. Cuando se le solicite la opción **runtimeStack**, escriba `3` para seleccionar **Tomcat 8.5**.
-1. Cuando se le solicite la opción **Plan de tarifa**, especifique `6` para seleccionar **P1v2**.
+1. Cuando se le solicite la opción **webcontainer**, escriba `3` para seleccionar **Tomcat 8.5**.
+1. Cuando se le solicite la opción **Plan de tarifa**, especifique `10` para seleccionar **P1v2**.
 1. Por último, presione Entrar en la última solicitud para confirmar las selecciones.
 
     ```
@@ -221,10 +221,10 @@ JBoss EAP solo está disponible en la versión para Linux de App Service. Selecc
     Subscription Id : ********-****-****-****-************
     AppName : helloworld-1599003744223
     ResourceGroup : helloworld-1599003744223-rg
-    Region : westeurope
-    PricingTier : Basic_B2
+    Region : centralus
+    PricingTier : P1v2
     OS : Linux
-    RuntimeStack : TOMCAT 8.5-jre8
+    Web server stack : TOMCAT 8.5
     Deploy to slot : false
     Confirm (Y/N)? : Y
     [INFO] Saving configuration to pom.
@@ -242,8 +242,8 @@ JBoss EAP solo está disponible en la versión para Linux de App Service. Selecc
 1. Cuando aparezca la opción **Aplicación web**, acepte la opción predeterminada `<create>` presionando Entrar.
 1. Cuando se le solicite la opción **SO**, presione Entrar para seleccionar **Linux**.
 1. Cuando se le solicite la opción **javaVersion**, escriba `1` para seleccionar **Java 8**.
-1. Cuando se le solicite la opción **runtimeStack**, escriba `2` para seleccionar **Jbosseap 7**.
-1. Cuando se le solicite la opción **Plan de tarifa**, especifique `3` para seleccionar **P1v3**.
+1. Cuando se le solicite la opción **webcontainer**, escriba `1` para seleccionar **Jbosseap 7**.
+1. Cuando se le solicite la opción **Plan de tarifa**, especifique `1` para seleccionar **P1v3**.
 1. Por último, presione Entrar en la última solicitud para confirmar las selecciones.
 
     ```
@@ -251,11 +251,11 @@ JBoss EAP solo está disponible en la versión para Linux de App Service. Selecc
     Subscription Id : ********-****-****-****-************
     AppName : petstoreee7-1623451825408
     ResourceGroup : petstoreee7-1623451825408-rg
-    Region : westeurope
+    Region : centralus
     PricingTier : P1v3
     OS : Linux
     Java : Java 8
-    Web server stack: Jbosseap 7.2
+    Web server stack: Jbosseap 7
     Deploy to slot : false
     Confirm (Y/N) [Y]: y
     [INFO] Saving configuration to pom.
@@ -279,7 +279,7 @@ Propiedad | Obligatorio | Descripción | Versión
 `<subscriptionId>` | false | Especifique el identificador de suscripción. | 0.1.0+
 `<resourceGroup>` | true | Grupo de recursos de Azure para la aplicación web. | 0.1.0+
 `<appName>` | true | El nombre de la aplicación web. | 0.1.0+
-`<region>` | true | Especifica la región donde se hospedará la aplicación web. El valor predeterminado es **westeurope**. Todas las regiones válidas en la sección [Regiones admitidas](https://azure.microsoft.com/global-infrastructure/services/?products=app-service). | 0.1.0+
+`<region>` | true | Especifica la región donde se hospedará la aplicación web; el valor predeterminado es **centralus**. Todas las regiones válidas en la sección [Regiones admitidas](https://azure.microsoft.com/global-infrastructure/services/?products=app-service). | 0.1.0+
 `<pricingTier>` | true | El plan de tarifa de la aplicación web. El valor predeterminado es **P1V2** para cargas de trabajo de producción, mientras que **B2** es el mínimo recomendado para desarrollo y pruebas de Java. [Más información](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
 `<runtime>` | true | La configuración del entorno en tiempo de ejecución. Puede ver los detalles [aquí](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
 `<deployment>` | true | La configuración de implementación. Puede ver los detalles [aquí](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+

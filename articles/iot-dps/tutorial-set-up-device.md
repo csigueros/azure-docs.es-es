@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 78858e9d8b7aae10109e4a709100d912869f3189
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f9020c757e1a8bdfb5f244881f69f4790af2e3bf
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121727851"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129277197"
 ---
 # <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Tutorial: Configuración del dispositivo para el aprovisionamiento mediante el servicio Azure IoT Hub Device Provisioning
 
@@ -136,7 +136,7 @@ Dependiendo de si ha compilado el SDK para usar la atestación para un dispositi
  
   1. Cree un archivo llamado **_X509testcert.pem_** , ábralo en el editor de texto que desee y copie el contenido del portapapeles en este archivo. Guarde el archivo tal como lo usará más adelante para la inscripción de dispositivo. Cuando se ejecuta el software de registro, utiliza el mismo certificado durante el aprovisionamiento automático.    
 
-Estos artefactos de seguridad se requieren durante la inscripción del dispositivo al servicio Device Provisioning. El servicio de aprovisionamiento espera a que el dispositivo arranque y se conecte con él en cualquier momento posterior en el tiempo. La primera vez que arranca el dispositivo, la lógica del SDK de cliente interactúa con el chip (o simulador) para extraer los artefactos de seguridad del dispositivo y comprueba el registro con el servicio Device Provisioning. 
+Estos artefactos de seguridad se requieren durante la inscripción del dispositivo al servicio Device Provisioning. El servicio de aprovisionamiento espera a que el dispositivo arranque y se conecte con él en cualquier momento posterior en el tiempo. La primera vez que arranca el dispositivo, la lógica del SDK de cliente interactúa con el chip (o simulador) para extraer los artefactos de seguridad del dispositivo y comprueba el registro con la instancia de Device Provisioning Service. 
 
 ## <a name="create-the-device-registration-software"></a>Crear el software de registro del dispositivo
 
@@ -145,7 +145,7 @@ El último paso es escribir una aplicación de registro que use el SDK de client
 > [!NOTE]
 > Para este paso supondremos que se usa un dispositivo simulado, lo que se realiza mediante la ejecución de una aplicación de registro de ejemplo de SDK desde la estación de trabajo. Sin embargo, se aplican los mismos conceptos si se compila una aplicación de registro para su implementación en un dispositivo físico. 
 
-1. En Azure Portal, seleccione la hoja **Información general** del servicio Device Provisioning y copie el valor de **_Ámbito de id_** . El servicio genera el *ámbito del identificador* y este garantiza la exclusividad. Es inmutable y se utiliza para identificar de forma exclusiva los identificadores de registro.
+1. En Azure Portal, seleccione la hoja **Información general** de la instancia de Device Provisioning Service y copie el valor de **_Ámbito de id_**. El servicio genera el *ámbito del identificador* y este garantiza la exclusividad. Es inmutable y se utiliza para identificar de forma exclusiva los identificadores de registro.
 
     ![Extracción de información del punto de conexión del servicio Device Provisioning desde la hoja del portal](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
 
@@ -201,7 +201,7 @@ También puede darse cuenta de que necesita refinar la aplicación de registro d
 
 En este momento, los servicios Device Provisioning e IoT Hub se ejecutan en el portal. Si desea abandonar la configuración del aprovisionamiento del dispositivo o retrasar la finalización de esta serie de tutoriales, es aconsejable apagarlos para no incurrir en costos innecesarios.
 
-1. Desde el menú de la izquierda en Azure Portal, haga clic en **Todos los recursos** y seleccione el servicio Device Provisioning. En la parte superior de la hoja **Todos los recursos**, haga clic en **Eliminar**.  
+1. En el menú de la izquierda en Azure Portal, haga clic en **Todos los recursos** y seleccione la instancia de Device Provisioning Service. En la parte superior de la hoja **Todos los recursos**, haga clic en **Eliminar**.  
 1. Desde el menú de la izquierda en Azure Portal, haga clic en **Todos los recursos** y seleccione su centro de IoT. En la parte superior de la hoja **Todos los recursos**, haga clic en **Eliminar**.  
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -10,12 +10,12 @@ ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d3a1fe8f4b06601ed6b3e77ffa5743506e923ec4
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 9e610e7ec02ec16d077087dab4742721c4209bfa
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122771757"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234858"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Control del acceso a la cuenta de almacenamiento del grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -36,7 +36,7 @@ Como alternativa, puede hacer que los archivos estén disponibles públicamente 
 
 ## <a name="supported-storage-authorization-types"></a>Tipos de autorización de almacenamiento admitidos
 
-Un usuario que haya iniciado sesión en un grupo de SQL sin servidor debe estar autorizado para acceder y consultar los archivos de Azure Storage si los archivos no están disponibles públicamente. Para acceder al almacenamiento no público puede usar tres tipos de autorización: [Identidad de usuario](?tabs=user-identity), [Firma de acceso compartido](?tabs=shared-access-signature) e [Identidad administrada](?tabs=managed-identity).
+Un usuario que haya iniciado sesión en un grupo de SQL sin servidor debe estar autorizado para acceder y consultar los archivos de Azure Storage si los archivos no están disponibles públicamente. Puede utilizar cuatro tipos de autorización para acceder al almacenamiento no público: [Identidad de usuario](?tabs=user-identity), [Firma de acceso compartido](?tabs=shared-access-signature), [Entidad de servicio](?tab/service-principal) e [Identidad administrada](?tabs=managed-identity).
 
 > [!NOTE]
 > **Paso a través de Azure AD** es el comportamiento predeterminado cuando se crea un área de trabajo.
@@ -46,7 +46,7 @@ Un usuario que haya iniciado sesión en un grupo de SQL sin servidor debe estar 
 La **identidad de usuario**, conocida también como "paso a través de Azure AD", es un tipo de autorización en el que se usa la identidad del usuario de Azure AD que inició sesión en el grupo de SQL sin servidor para autorizar el acceso a los datos. Antes de acceder a los datos, el administrador de Azure Storage debe conceder permisos al usuario de Azure AD. Como se indica en la tabla siguiente, no se admite para el tipo de usuario de SQL.
 
 > [!IMPORTANT]
-> Las aplicaciones cliente pueden almacenar en caché el token de autenticación de Azure Active Directory. Por ejemplo, PowerBI almacena en caché el token de Azure Active Directory y reutiliza el mismo token durante una hora. Puede producirse un error en las consultas de larga duración si el token expira en mitad de la ejecución de la consulta. Si experimenta errores de consulta causados por la expiración del token de acceso de Azure Active Directory en mitad de la consulta, considere la posibilidad de cambiar a la [identidad administrada](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) o a la [firma de acceso compartido](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types).
+> Las aplicaciones cliente pueden almacenar en caché el token de autenticación de Azure Active Directory. Por ejemplo, PowerBI almacena en caché el token de Azure Active Directory y reutiliza el mismo token durante una hora. Puede producirse un error en las consultas de larga duración si el token expira en mitad de la ejecución de la consulta. Si experimenta errores de consulta causados por la expiración del token de acceso de AAD en mitad de la consulta, cambie a la [Entidad de servicio](develop-storage-files-storage-access-control.md?tabs=service-principal#supported-storage-authorization-types), a la [Identidad administrada](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) o a la [Firma de acceso compartido](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types).
 
 Debe tener un rol de Propietario, Colaborador o Lector de datos de un blob de almacenamiento para usar su identidad para acceder a los datos. Como alternativa, puede establecer reglas de ACL específicas para acceder a archivos y carpetas. Incluso si es propietario de una cuenta de almacenamiento, deberá agregarse a uno de los roles de datos del blob de almacenamiento.
 Para más información sobre el control de acceso en Azure Data Lake Store Gen2, revise el artículo [Control de acceso en Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md).
@@ -69,6 +69,14 @@ Para habilitar el acceso mediante un token de SAS, debe crear una credencial con
 > [!IMPORTANT]
 > No es posible acceder a las cuentas de almacenamiento privado con el token de SAS. Considere la posibilidad de cambiar a la [identidad administrada](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) o a la autenticación de [paso a través de Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) para acceder al almacenamiento protegido.
 
+
+### <a name="service-principal"></a>[Entidad de seguridad de servicio](#tab/service-principal)
+Una **entidad de servicio** es la representación local de un objeto de aplicación global en un inquilino particular de Azure AD. Este método de autenticación es adecuado en caso de que se autorice el acceso al almacenamiento de una aplicación de usuario, servicio o herramienta de automatización. 
+
+Tenga en cuenta que la aplicación debe estar registrada en Azure Active Directory. Para el proceso de registro, puede consultar [Inicio rápido: Registro de una aplicación con la Plataforma de identidad de Microsoft](../../active-directory/develop/quickstart-register-app.md). Una vez registrada la aplicación, la entidad de servicio se puede usar para realizar la autorización. 
+
+Asimismo, debe asignar a la entidad de servicio el rol de propietario, colaborador o lector de datos de blob de almacenamiento para que la aplicación pueda acceder a estos. Incluso si la entidad de servicio es la propietaria de una cuenta de Storage, todavía es necesario conceder un rol de datos del blob de almacenamiento adecuado. Como forma alternativa de conceder acceso a archivos de almacenamiento y carpetas, se pueden definir reglas de ACL específicas para la entidad de servicio. Para más información sobre el control de acceso en Azure Data Lake Store Gen2, revise el artículo [Control de acceso en Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md).
+
 ### <a name="managed-identity"></a>[Identidad administrada](#tab/managed-identity)
 
 La **identidad administrada** también se conoce como MSI. Es una característica de Azure Active Directory (Azure AD) que proporciona servicios de Azure para el grupo de SQL sin servidor. Además, implementa una identidad administrada automáticamente en Azure AD. Esta identidad se puede usar para autorizar la solicitud de acceso a los datos de Azure Storage.
@@ -81,15 +89,19 @@ Puede tener acceso a los archivos disponibles públicamente ubicados en cuentas 
 
 ---
 
+#### <a name="cross-tenant-scenarios"></a>Escenarios de varios inquilinos
+En los casos en que Azure Storage se encuentra en un inquilino diferente del grupo de SQL sin servidor de Synapse, la autorización a través de la **entidad de servicio** es el método recomendado. También puede usar la autorización **SAS**, pero tenga en cuenta que la **Identidad administrada** no es compatible. 
+
 ### <a name="supported-authorization-types-for-databases-users"></a>Tipos de autorización admitidos para usuarios de bases de datos
 
-En la tabla siguiente puede encontrar los tipos de autorización disponibles:
+En la tabla siguiente puede encontrar los tipos de autorización disponibles para distintos métodos de inicio de sesión en el punto de conexión de SQL sin servidor de Synapse:
 
-| Tipo de autorización                    | *Usuario de SQL*    | *Usuario de Azure AD*     |
-| ------------------------------------- | ------------- | -----------    |
-| [Identidad de usuario](?tabs=user-identity#supported-storage-authorization-types)       | No compatible | Compatible      |
-| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Compatible     | Compatible      |
-| [Identidad administrada](?tabs=managed-identity#supported-storage-authorization-types) | Compatible | Compatible      |
+| Tipo de autorización                    | *Usuario de SQL*    | *Usuario de Azure AD*     | *Entidad de seguridad de servicio* |
+| ------------------------------------- | ------------- | -----------    | -------- |
+| [Identidad de usuario](?tabs=user-identity#supported-storage-authorization-types)       |  No compatible | Compatible      | Compatible|
+| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Compatible     | Compatible      | Compatible|
+| [Entidad de seguridad de servicio](?tabs=service-principal#supported-storage-authorization-types) | Compatible | Compatible      | Compatible|
+| [Identidad administrada](?tabs=managed-identity#supported-storage-authorization-types) | Compatible | Compatible      | Compatible|
 
 ### <a name="supported-storages-and-authorization-types"></a>Tipos de almacenamiento y autorización admitidos
 
@@ -98,6 +110,7 @@ Puede usar las siguientes combinaciones de tipos de autorización y almacenamien
 | Tipo de autorización  | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Compatible      | No compatible   | Compatible     |
+| [Entidad de seguridad de servicio](?tabs=managed-identity#supported-storage-authorization-types) | Compatible   | Compatible      | Compatible  |
 | [Identidad administrada](?tabs=managed-identity#supported-storage-authorization-types) | Compatible      | Compatible        | Compatible     |
 | [Identidad de usuario](?tabs=user-identity#supported-storage-authorization-types)    | Compatible      | Compatible        | Compatible     |
 
@@ -109,6 +122,15 @@ Al acceder al almacenamiento protegido con firewall, solo se puede usar **Identi
 > [!NOTE]
 > La característica de firewall de Azure Storage está en versión preliminar pública y está disponible en todas las regiones de la nube pública. 
 
+
+En la tabla siguiente puede encontrar los tipos de autorización disponibles para distintos métodos de inicio de sesión en el punto de conexión de SQL sin servidor de Synapse:
+
+| Tipo de autorización                    | *Usuario de SQL*    | *Usuario de Azure AD*     | *Entidad de seguridad de servicio* |
+| ------------------------------------- | ------------- | -----------    | -------- |
+| [Identidad de usuario](?tabs=user-identity#supported-storage-authorization-types)       |  No compatible | Compatible      | Compatible|
+| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | No compatible     | No compatible      | No compatible|
+| [Entidad de seguridad de servicio](?tabs=service-principal#supported-storage-authorization-types) | No compatible | No compatible      | No compatible|
+| [Identidad administrada](?tabs=managed-identity#supported-storage-authorization-types) | Compatible | Compatible      | Compatible|
 
 ### <a name="user-identity"></a>[Identidad de usuario](#tab/user-identity)
 
@@ -193,6 +215,10 @@ Siga estos pasos para configurar el firewall de la cuenta de almacenamiento y ag
 
 Las firmas de acceso compartido no se pueden usar para acceder al almacenamiento protegido por el firewall.
 
+### <a name="service-principal"></a>[Entidad de seguridad de servicio](#tab/service-principal)
+
+La entidad de servicio no se puede usar para acceder al almacenamiento protegido por firewall. En lugar de ello, use la identidad administrada.
+
 ### <a name="managed-identity"></a>[Identidad administrada](#tab/managed-identity)
 
 Debe establecer [Permitir servicios de Microsoft de confianza…](../../storage/common/storage-network-security.md#trusted-microsoft-services) y [asignar un rol de Azure](../../storage/blobs/authorize-access-azure-active-directory.md#assign-azure-roles-for-access-rights) de manera explícita a la [identidad administrada asignada por el sistema](../../active-directory/managed-identities-azure-resources/overview.md) para esa instancia del recurso. En ese caso, el ámbito de acceso de la instancia corresponde al rol de Azure que se asigna a la identidad administrada.
@@ -263,8 +289,18 @@ GO
 
 Opcionalmente, puede usar solo la dirección URL base de la cuenta de almacenamiento, sin el nombre de contenedor.
 
-### <a name="managed-identity"></a>[Identidad administrada](#tab/managed-identity)
+### <a name="service-principal"></a>[Entidad de seguridad de servicio](#tab/service-principal)
 
+El siguiente script crea una credencial de nivel de servidor que se puede usar para acceder a los archivos de un almacén mediante la entidad de servicio para la autenticación y autorización. **AppID** se puede encontrar si accede a los Registros de aplicaciones en Azure Portal y seleccionando la aplicación que solicita acceso al almacenamiento. El **secreto** se obtiene durante el registro de la aplicación. El valor **AuthorityUrl** es la dirección URL de la entidad de AAD OAuth 2.0.
+
+```sql
+CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
+WITH IDENTITY = '<AppID>@<AuthorityUrl>' 
+, SECRET = '<Secret>'
+```
+
+### <a name="managed-identity"></a>[Identidad administrada](#tab/managed-identity)
+ 
 El script siguiente crea una credencial de nivel de servidor que puede usar la función `OPENROWSET` para tener acceso a cualquier archivo de Azure Storage mediante la identidad administrada del área de trabajo.
 
 ```sql
@@ -313,6 +349,24 @@ GO
 CREATE EXTERNAL DATA SOURCE mysample
 WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>',
           CREDENTIAL = SasToken
+)
+```
+
+
+### <a name="service-principal"></a>[Entidad de seguridad de servicio](#tab/service-principal)
+El siguiente script crea una credencial con ámbito en una base de datos que se puede usar para acceder a los archivos de un almacén mediante la entidad de servicio para la autenticación y autorización. **AppID** se puede encontrar si accede a los Registros de aplicaciones en Azure Portal y seleccionando la aplicación que solicita acceso al almacenamiento. El **secreto** se obtiene durante el registro de la aplicación. El valor **AuthorityUrl** es la dirección URL de la entidad de AAD OAuth 2.0.
+
+```sql
+-- Optional: Create MASTER KEY if not exists in database:
+-- CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<Very Strong Password>
+
+CREATE DATABASE SCOPED CREDENTIAL [<CredentialName>] WITH
+IDENTITY = '<AppID>@<AuthorityUrl>' 
+, SECRET = '<Secret>'
+GO
+CREATE EXTERNAL DATA SOURCE MyDataSource
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>',
+          CREDENTIAL = CredentialName
 )
 ```
 
@@ -394,14 +448,18 @@ Modifique el script siguiente para crear una tabla externa que tenga acceso a Az
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Y*********0'
 GO
 
--- Create databases scoped credential that use Managed Identity or SAS token. User needs to create only database-scoped credentials that should be used to access data source:
+-- Create databases scoped credential that use Managed Identity, SAS token or Service Principal. User needs to create only database-scoped credentials that should be used to access data source:
 
 CREATE DATABASE SCOPED CREDENTIAL WorkspaceIdentity
 WITH IDENTITY = 'Managed Identity'
 GO
 CREATE DATABASE SCOPED CREDENTIAL SasCredential
 WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2019-10-1********ZVsTOL0ltEGhf54N8KhDCRfLRI%3D'
-
+GO
+CREATE DATABASE SCOPED CREDENTIAL SPNCredential WITH
+IDENTITY = '**44e*****8f6-ag44-1890-34u4-22r23r771098@https://login.microsoftonline.com/**do99dd-87f3-33da-33gf-3d3rh133ee33/oauth2/token' 
+, SECRET = '.7OaaU_454azar9WWzLL.Ea9ePPZWzQee~'
+GO
 -- Create data source that one of the credentials above, external file format, and external tables that reference this data source and file format:
 
 CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] WITH ( FORMAT_TYPE = PARQUET)
@@ -412,6 +470,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 -- Uncomment one of these options depending on authentication method that you want to use to access data source:
 --,CREDENTIAL = WorkspaceIdentity 
 --,CREDENTIAL = SasCredential 
+--,CREDENTIAL = SPNCredential
 )
 
 CREATE EXTERNAL TABLE dbo.userData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )

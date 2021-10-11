@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3cff113ffd6a37406a88eb5ad5a4e3d5e85e10c5
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: abf39ce59bec57d765ab981eae94b1b49b41e4b1
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123039429"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129390090"
 ---
 # <a name="tutorial-develop-iot-edge-modules-with-linux-containers"></a>Tutorial: Desarrollo de módulos IoT Edge para contenedores de Linux
 
@@ -154,13 +154,13 @@ Cuando la nueva solución se cargue en la ventana de Visual Studio Code, dedique
 
 ### <a name="set-iot-edge-runtime-version"></a>Establecimiento de la versión del entorno de ejecución de IoT Edge
 
-La extensión IoT Edge adopta como predeterminada la versión estable más reciente del entorno de ejecución de IoT Edge cuando crea los recursos de implementación. Actualmente, esta versión es la 1.2. Si va a desarrollar módulos para dispositivos que ejecutan la versión de compatibilidad a largo plazo 1.1 o la versión 1.0 anterior, actualice la versión del entorno de ejecución de IoT Edge en Visual Studio Code para que coincidan.
+La extensión de IoT Edge adopta como predeterminada la versión estable más reciente del entorno de ejecución de IoT Edge cuando crea los recursos de implementación. Actualmente, la versión estable más reciente es la versión 1.2. Si va a desarrollar módulos para dispositivos que ejecutan la versión de compatibilidad a largo plazo 1.1 o la versión 1.0 anterior, actualice la versión del entorno de ejecución de IoT Edge en Visual Studio Code para que coincidan.
 
 1. Seleccione **Ver** > **Paleta de comandos**.
 
 1. En la paleta de comandos, escriba el comando **Azure IoT Edge: Set default IoT Edge runtime version** (Azure IoT Edge: Establecer la versión predeterminada del entorno de ejecución de IoT Edge) y ejecútelo.
 
-1. En la lista, elija la versión del entorno de ejecución que ejecutan los dispositivos de IoT Edge.
+1. En la lista, elija la versión del entorno de ejecución que ejecutan los dispositivos IoT Edge.
 
 Después de seleccionar una nueva versión del entorno de ejecución, el manifiesto de implementación se actualiza dinámicamente para reflejar el cambio en las imágenes del módulo del entorno de ejecución.
 
@@ -178,7 +178,7 @@ La extensión de IoT Edge intenta extraer de Azure las credenciales del registr
 3. Guarde los cambios en el archivo .env.
 
 >[!NOTE]
->En este tutorial se usan credenciales de inicio de sesión de administrador de Azure Container Registry, que son prácticas para escenarios de desarrollo y pruebas. Cuando esté listo para escenarios de producción, se recomienda una opción de autenticación con privilegios mínimos, como las entidades de servicio. Para más información, consulte [Administración del acceso al registro de contenedor](production-checklist.md#manage-access-to-your-container-registry).
+>En este tutorial se usan credenciales de inicio de sesión de administrador de Azure Container Registry, que son prácticas para escenarios de desarrollo y pruebas. Cuando esté listo para escenarios de producción, se recomienda una opción de autenticación con privilegios mínimos, como las entidades de servicio o los tokens de ámbito de repositorio. Para más información, consulte [Administración del acceso al registro de contenedor](production-checklist.md#manage-access-to-your-container-registry).
 
 ### <a name="select-your-target-architecture"></a>Selección de la arquitectura de destino
 

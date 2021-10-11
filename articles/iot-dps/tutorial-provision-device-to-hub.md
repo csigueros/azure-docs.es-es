@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: b6dce9f84ff78a7caaf5f5f7ef702053640cee7a
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.openlocfilehash: eed3ff374850d4861c94fe79263c26a8f33760ac
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112519108"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129271695"
 ---
 # <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Tutorial: Aprovisionamiento del dispositivo en una instancia de IoT Hub mediante el servicio Azure IoT Hub Device Provisioning
 
-En el tutorial anterior, aprendió a configurar un dispositivo para conectarse al servicio Device Provisioning. En este tutorial, aprenderá a usar este servicio para aprovisionar el dispositivo en una única instancia de IoT Hub mediante el aprovisionamiento automático y las **_listas de inscripción_** . En este tutorial se muestra cómo realizar las siguientes acciones:
+En el tutorial anterior, aprendió a configurar un dispositivo para conectarse a la instancia de Device Provisioning Service. En este tutorial, aprenderá a usar este servicio para aprovisionar el dispositivo en una única instancia de IoT Hub mediante el aprovisionamiento automático y las **_listas de inscripción_** . En este tutorial se muestra cómo realizar las siguientes acciones:
 
 > [!div class="checklist"]
 > * Inscribir el dispositivo
@@ -64,15 +64,15 @@ Ahora puede inscribir el dispositivo con la instancia del servicio Device Provis
 
     ![Inscripción de TPM satisfactoria en el portal](./media/tutorial-provision-device-to-hub/tpm-enrollment-success.png)
 
-Después de la inscripción, el servicio de aprovisionamiento espera a que cualquiera de los dispositivos arranque y se conecte con él en cualquier momento posterior en el tiempo. Cuando el dispositivo arranca por primera vez, la biblioteca de cliente SDK interactúa con el chip para extraer los artefactos de seguridad del dispositivo y comprueba el registro con el servicio Device Provisioning. 
+Después de la inscripción, el servicio de aprovisionamiento espera a que cualquiera de los dispositivos arranque y se conecte con él en cualquier momento posterior en el tiempo. Cuando el dispositivo arranca por primera vez, la biblioteca de cliente SDK interactúa con el chip para extraer los artefactos de seguridad del dispositivo y comprueba el registro con la instancia de Device Provisioning Service. 
 
 ## <a name="start-the-iot-device"></a>Inicio del dispositivo IoT
 
-El dispositivo IoT puede ser un dispositivo real o un dispositivo simulado. Como el dispositivo IoT se ha inscrito con una instancia de Device Provisioning Service, este puede iniciarse ahora y llamar al servicio de aprovisionamiento para que lo reconozca mediante el mecanismo de atestación. Una vez que el servicio de aprovisionamiento ha reconocido el dispositivo, este se asignará a un centro de IoT. 
+El dispositivo IoT puede ser un dispositivo real o un dispositivo simulado. Como el dispositivo IoT se ha inscrito con una instancia de Device Provisioning Service, este puede iniciarse ahora y llamar al servicio de aprovisionamiento para que lo reconozca mediante el mecanismo de atestación. Una vez que el servicio de aprovisionamiento ha reconocido el dispositivo, este se asignará a un centro de IoT.
 
-Se incluyen ejemplos de dispositivos simulados, mediante atestación TPM y X.509, para C, Java, C#, Node.js y Python. Por ejemplo, un dispositivo simulado con TPM y el [SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c) seguiría el proceso descrito en la sección [Simulate first boot sequence for a device](quick-create-simulated-device.md#simulate-first-boot-sequence-for-the-device) (Simulación de la primera secuencia de inicio de un dispositivo). El mismo dispositivo con la atestación de certificado X.509 haría referencia a esta sección de la [secuencia de inicio](quick-create-simulated-device-x509.md#simulate-first-boot-sequence-for-the-device).
+Se incluyen ejemplos de dispositivos simulados, mediante atestación TPM y X.509, para C, Java, C#, Node.js y Python.  Para ver un ejemplo de un dispositivo que usa la atestación de TPM, consulte [Inicio rápido: Aprovisionamiento de un dispositivo de TPM simulado](quick-create-simulated-device-tpm.md). Para ver un ejemplo de un dispositivo que usa la atestación X.509, consulte [Inicio rápido: Aprovisionamiento de un dispositivo de clave simétrica](quick-create-simulated-device-x509.md#prepare-and-run-the-device-provisioning-code).
 
-Inicie el dispositivo para permitir que la aplicación cliente de este inicie el registro con el servicio Device Provisioning.  
+Inicie el dispositivo para permitir que la aplicación cliente de este inicie el registro con la instancia de Device Provisioning Service.  
 
 ## <a name="verify-the-device-is-registered"></a>Comprobar que el dispositivo está registrado
 
@@ -86,7 +86,7 @@ Cuando arranca el dispositivo, se deben realizar las siguientes acciones:
 
     ![Conexión correcta al centro en el portal](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
 
-Para obtener más información, consulte el ejemplo de cliente de dispositivo de aprovisionamiento, [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c). En el ejemplo se muestra el aprovisionamiento de un dispositivo simulado mediante TPM, los certificados X.509 y las claves simétricas. Remítase a las guías de inicio rápido de atestación de [TPM](./quick-create-simulated-device.md), [X.509](./quick-create-simulated-device-x509.md) y [Clave simétrica](./quick-create-simulated-device-symm-key.md) para obtener instrucciones paso a paso sobre el uso del ejemplo.
+Para obtener más información, consulte el ejemplo de cliente de dispositivo de aprovisionamiento, [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c). En el ejemplo se muestra el aprovisionamiento de un dispositivo simulado mediante TPM, los certificados X.509 y las claves simétricas. Remítase a las guías de inicio rápido de atestación de [TPM](./quick-create-simulated-device-tpm.md), [X.509](./quick-create-simulated-device-x509.md) y [Clave simétrica](./quick-create-simulated-device-symm-key.md) para obtener instrucciones paso a paso sobre el uso del ejemplo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha aprendido a:

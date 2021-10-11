@@ -2,16 +2,16 @@
 title: 'Tutorial: Creación e implementación de una plantilla'
 description: Cree la primera plantilla de Azure Resource Manager (plantilla de ARM). En este tutorial, aprenderá sobre la sintaxis del archivo de plantilla y cómo implementar una cuenta de almacenamiento.
 author: mumian
-ms.date: 12/17/2020
+ms.date: 10/01/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 83a043084af78d382e06b3f860addb986423e9cb
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 7263a72f19d9dfea8044e55451a52ebdec29ec7d
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123187134"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129390242"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutorial: Creación e implementación de su primera plantilla de Resource Manager
 
@@ -100,18 +100,18 @@ az login
 
 ---
 
-Si tiene varias suscripciones de Azure, seleccione la suscripción que desee usar. Reemplace `[SubscriptionID/SubscriptionName]` y los corchetes `[]` por la información de la suscripción:
+Si tiene varias suscripciones de Azure, seleccione la suscripción que desee usar. Reemplace `SubscriptionName` por el nombre de la suscripción. También puede utilizar un identificador de suscripción en lugar del nombre de la suscripción.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Set-AzContext [SubscriptionID/SubscriptionName]
+Set-AzContext SubscriptionName
 ```
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 ```azurecli
-az account set --subscription [SubscriptionID/SubscriptionName]
+az account set --subscription SubscriptionName
 ```
 
 ---

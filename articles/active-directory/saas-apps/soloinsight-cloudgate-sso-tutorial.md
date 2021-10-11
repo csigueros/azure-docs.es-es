@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/24/2021
+ms.date: 09/01/2021
 ms.author: jeedes
-ms.openlocfilehash: 7c52a14ce1115be6efcaf99a29f9ee7ca1836c71
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f21c120374a7e6a42c5bb98a1db8687f00aba548
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110452714"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124778483"
 ---
 # <a name="tutorial-integrate-soloinsight-cloudgate-sso-with-azure-active-directory"></a>Tutorial: Integración de Soloinsight-CloudGate SSO con Azure Active Directory
 
@@ -38,6 +38,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Soloinsight-CloudGate SSO permite utilizar el inicio de sesión único iniciado por **SP**.
+* El Inicio de sesión único de Soloinsight-CloudGate admite el [Aprovisionamiento automatizado de usuarios](soloinsight-cloudgate-sso-provisioning-tutorial.md).
 
 ## <a name="add-soloinsight-cloudgate-sso-from-the-gallery"></a>Incorporación de Soloinsight-CloudGate SSO desde la galería
 
@@ -67,13 +68,13 @@ Para configurar el inicio de sesión único de Azure AD con Soloinsight-CloudGa
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Soloinsight-CloudGate SSO**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de la aplicación **Soloinsight-CloudGate SSO**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, seleccione **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la página **Configuración básica de SAML**, especifique los valores de los siguientes campos:
+1. En la página **Configuración básica de SAML**, siga estos pasos:
 
     1. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.sigateway.com/login`
 
@@ -172,6 +173,9 @@ Para crear un usuario de prueba, seleccione **Employees** (Empleados) en el men�
 
 ![Prueba de empleado](./media/soloinsight-cloudgate-sso-tutorial/employee-test.png)
 
+> [!NOTE]
+> El inicio de sesión único de Soloinsight-CloudGate también admite el aprovisionamiento automático de usuarios. [Aquí](./soloinsight-cloudgate-sso-provisioning-tutorial.md) puede encontrar más detalles sobre cómo configurar el aprovisionamiento automático de usuarios.
+
 ## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
@@ -180,7 +184,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Acceda directamente a la dirección URL de inicio de sesión de Soloinsight-CloudGate SSO y ponga en marcha el flujo de inicio de sesión desde ahí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Soloinsight-CloudGate SSO en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de dicha aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Soloinsight-CloudGate SSO en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de dicha aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

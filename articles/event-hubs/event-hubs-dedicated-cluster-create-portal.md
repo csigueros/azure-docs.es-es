@@ -2,13 +2,13 @@
 title: Creación de un clúster dedicado de Event Hubs mediante Azure Portal
 description: En este inicio rápido, aprenderá a crear un clúster de Azure Event Hubs mediante Azure Portal.
 ms.topic: quickstart
-ms.date: 06/23/2020
-ms.openlocfilehash: 9fd43423d8928768f46f4c1c10f14a2ca0a7fc4e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 09/28/2021
+ms.openlocfilehash: 758110a0dcffc8f9ea8a802ac5cbac2c6ffb39b8
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375048"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129231234"
 ---
 # <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>Inicio rápido: Creación de un clúster de Event Hubs dedicado en Azure Portal 
 Los clústeres de Event Hubs ofrecen implementaciones de inquilino único para los clientes con las necesidades de streaming más exigentes. Esta oferta tiene un Acuerdo de Nivel de Servicio garantizado del 99,99 % y solo está disponible en nuestro plan de tarifa dedicado. Un [clúster de Event Hubs](event-hubs-dedicated-overview.md) puede incorporar millones de eventos por segundo con capacidad garantizada y una latencia inferior a un segundo. Los espacios de nombres y los centros de eventos creados en un clúster incluyen todas las características de la oferta Premium y mucho más, pero sin límites de entrada. La oferta dedicada también incluye la popular característica [Event Hubs Capture](event-hubs-capture-overview.md) sin costo adicional, que permite transferir por lotes secuencias de datos a [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) o [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md) y registrarlas ahí automáticamente.
@@ -35,29 +35,31 @@ Un clúster de Event Hubs proporciona un único contenedor de ámbito en el que 
 
 Para crear un clúster en el grupo de recursos con Azure Portal, haga lo siguiente:
 
-1. Siga [este vínculo](https://aka.ms/eventhubsclusterquickstart) para crear un clúster en Azure Portal. Por otro lado, seleccione **Todos los servicios** desde el panel de navegación izquierdo, escriba "Clústeres de Event Hubs" en la barra de búsqueda y seleccione "Clústeres de Event Hubs" en la lista de resultados.
-2. En la página **Crear clúster**, configure lo siguiente:
+1. Siga [este vínculo](https://aka.ms/eventhubsclusterquickstart) para crear un clúster en Azure Portal. Por otro lado, seleccione **Todos los servicios** desde el panel de navegación izquierdo, escriba **Clústeres de Event Hubs** en la barra de búsqueda y seleccione **Clústeres de Event Hubs** en la lista de resultados.
+1. En la página **Clústeres de Event Hubs**, seleccione **+ Crear** en la barra de herramientas. 
+1. En la página **Crear clúster**, configure lo siguiente:
     1. Escriba un **nombre para el clúster**. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
     2. Seleccione la **suscripción** en la que desea crear el clúster.
     3. Seleccione el **grupo de recursos** en el que desea crear el clúster.
     4. Seleccione una **ubicación** para el clúster. Si su región preferida está atenuada, significa que se encuentra temporalmente sin capacidad y puede enviar una [solicitud de soporte técnico](#submit-a-support-request) al equipo de Event Hubs.
     5. Seleccione el botón **Siguiente: Etiquetas** situado en la parte inferior de la página. Puede que tenga que esperar unos minutos hasta que el sistema aprovisione totalmente los recursos.
 
-        ![Crear clúster de Event Hubs: página Datos básicos](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-basics-page.png)
+        :::image type="content" source="./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-basics-page.png" alt-text="Imagen que muestra la página Crear clúster de Event Hubs - Conceptos básicos.":::
 3. En la página **Etiquetas**, configure lo siguiente:
     1. Escriba un **nombre** y un **valor** para la etiqueta que desea agregar. Este paso es **opcional**.  
     2. Seleccione el botón **Revisar y Crear**.
 
-        ![Página Crear clúster de Event Hubs: página Etiquetas](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-tags-page.png)
+        :::image type="content" source="./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-tags-page.png" alt-text="Imagen que muestra la página Crear clúster de Event Hubs: página Etiquetas.":::
 4. En la página **Revisar y crear**, revise los detalles y seleccione **Crear**. 
 
-    ![Página Crear clúster de Event Hubs: página Revisar y crear](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-review-create-page.png)
+    :::image type="content" source="./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-review-create-page.png" alt-text="Imagen que muestra la página Crear clúster de Event Hubs: página Revisar y crear.":::
+5. Una vez que la creación se haya realizado correctamente, seleccione **Ir al recurso** para ir a la página de inicio del clúster de Event Hubs. 
 
 ## <a name="create-a-namespace-and-event-hub-within-a-cluster"></a>Creación de un espacio de nombres y un centro de eventos dentro de un clúster
 
 1. Para crear un espacio de nombres dentro de un clúster, en la página **Clúster de Event Hubs** del clúster, seleccione **+ Espacio de nombres** en el menú superior.
 
-    ![Página Administración del clúster: botón Agregar espacio de nombres](./media/event-hubs-dedicated-cluster-create-portal/cluster-management-page-add-namespace-button.png)
+    :::image type="content" source="./media/event-hubs-dedicated-cluster-create-portal/cluster-management-page-add-namespace-button.png" alt-text="Imagen que muestra la página de administración del clúster: botón para agregar espacio de nombres.":::
 2. En la página **Crear un espacio de nombres**, siga estos pasos:
     1. Escriba **nombre para el espacio de nombres**.  El sistema comprueba si el nombre está disponible.
     2. El espacio de nombres hereda las propiedades siguientes:
@@ -67,7 +69,7 @@ Para crear un clúster en el grupo de recursos con Azure Portal, haga lo siguien
         4. Cluster Name
     3. Seleccione **Crear** para crear el espacio de nombres. Ahora puede administrar el clúster.  
 
-        ![Creación de un espacio de nombres en la página del clúster](./media/event-hubs-dedicated-cluster-create-portal/create-namespace-cluster-page.png)
+        :::image type="content" source="./media/event-hubs-dedicated-cluster-create-portal/create-namespace-cluster-page.png" alt-text="Imagen que muestra la opción Crear espacio de nombres en la página del clúster.":::
 3. Una vez creado el espacio de nombres, puede [crear un centro de eventos](event-hubs-create.md#create-an-event-hub) tal y como crearía normalmente uno dentro de un espacio de nombres. 
 
 

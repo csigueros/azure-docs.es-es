@@ -6,14 +6,14 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart
-ms.date: 08/10/2020
+ms.date: 10/04/2021
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: 3d97c10236391157dbf0a8d32110e3e1d540a3b3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: bd8821c898c4fa94963bb240658aa8118a104905
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121729268"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407900"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Inicio rápido: Configuración de Azure NetApp Files y creación de un volumen de NFS
 
@@ -21,7 +21,7 @@ En este artículo se muestra cómo configurar Azure NetApp Files y crear un volu
 
 En este inicio rápido, configurará los elementos siguientes:
 
-- Registro de Azure NetApp Files y proveedor de recursos de NetApp
+- Registro del proveedor de recursos de NetApp
 - Cuenta de NetApp
 - Grupo de capacidad
 - Volumen de NFS para Azure NetApp Files
@@ -30,14 +30,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para ver todas las características que puede habilitar para un volumen NFS y las consideraciones pertinentes, consulte [Creación de un volumen NFS](azure-netapp-files-create-volumes.md). 
 
-## <a name="before-you-begin"></a>Antes de empezar
-
-> [!IMPORTANT]
-> Se le debe conceder acceso al servicio Azure Files de NetApp. Para solicitar acceso al servicio, consulte la [página de envío de la lista de espera de Azure Files de NetApp](https://aka.ms/azurenetappfiles).  Antes de continuar, debe esperar un correo electrónico de confirmación oficial del equipo de Azure NetApp Files.
-
----
-
-## <a name="register-for-azure-netapp-files-and-netapp-resource-provider"></a>Registro de Azure NetApp Files y del proveedor de recursos de NetApp
+## <a name="register-for-netapp-resource-provider"></a>Registro del proveedor de recursos de NetApp
 
 > [!NOTE]
 > El proceso de registro puede tardar algún tiempo en completarse.
@@ -75,9 +68,7 @@ Prepare el entorno para la CLI de Azure.
 
 Ninguno.
 
-Use Azure Portal, PowerShell o la CLI de Azure para registrarse en Azure NetApp Files y el proveedor de recursos de NetApp.
-
-Para más información, consulte [Registro en Azure NetApp Files](azure-netapp-files-register.md).
+Use Azure Portal, PowerShell o la CLI de Azure para [registrarse en el proveedor de recursos de NetApp](azure-netapp-files-register.md).
 
 ---
 
@@ -174,7 +165,7 @@ En el siguiente fragmento de código se muestra cómo crear una cuenta de NetApp
 
 ---
 
-## <a name="set-up-a-capacity-pool"></a>Configuración de un grupo de capacidad
+## <a name="create-a-capacity-pool"></a>Creación de un grupo de capacidad
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

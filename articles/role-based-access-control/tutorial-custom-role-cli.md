@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e3743697d58d0f5b167b123df59bc5638aa60489
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 6fed28798e8e2f7795600b50c0121361ce54584b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771684"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129358239"
 ---
 # <a name="tutorial-create-an-azure-custom-role-using-azure-cli"></a>Tutorial: Creación de un rol personalizado de Azure con la CLI de Azure
 
-Si los [roles integrados de Azure](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear los suyos propios. En este tutorial, creará un rol personalizado llamado Reader Support Tickets (Lector de incidencias de soporte) con la CLI de Azure. El rol personalizado permite al usuario ver todo lo relativo a la administración de una suscripción y también abrir incidencias de soporte técnico.
+Si los [roles integrados de Azure](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear los suyos propios. En este tutorial, creará un rol personalizado llamado Reader Support Tickets (Lector de incidencias de soporte) con la CLI de Azure. El rol personalizado permite al usuario ver todo lo relativo al plano de control de una suscripción y también abrir incidencias de soporte técnico.
 
 En este tutorial, aprenderá a:
 
@@ -50,9 +50,9 @@ Inicie sesión en la [CLI de Azure](/cli/azure/authenticate-azure-cli).
 
 El modo más sencillo de crear un rol personalizado es tomar como partida una plantilla JSON, editarla y, a continuación, crear un nuevo rol.
 
-1. Revise la lista de operaciones para el [proveedor de recursos Microsoft.Support](resource-provider-operations.md#microsoftsupport). Resulta útil conocer las operaciones que están disponibles para crear los permisos.
+1. Revise la lista de acciones del [proveedor de recursos Microsoft.Support](resource-provider-operations.md#microsoftsupport). Resulta útil conocer las acciones que están disponibles para crear los permisos.
 
-    | Operación | Descripción |
+    | Acción | Descripción |
     | --- | --- |
     | Microsoft.Support/register/action | Registra para admitir el proveedor de recursos |
     | Microsoft.Support/supportTickets/read | Obtiene los detalles de las incidencias de soporte técnico (incluido el estado, gravedad, detalles de contacto y comunicaciones) u obtiene la lista de incidencias de soporte técnico de las diversas suscripciones. |
@@ -79,7 +79,7 @@ El modo más sencillo de crear un rol personalizado es tomar como partida una pl
     }
     ```
     
-1. Agregue las siguientes operaciones a la propiedad `Actions`. Estas acciones permiten al usuario ver todo el contenido de la suscripción y crear incidencias de soporte técnico.
+1. Agregue las siguientes acciones a la propiedad `Actions`. Estas acciones permiten al usuario ver todo el contenido de la suscripción y crear incidencias de soporte técnico.
 
     ```
     "*/read",
@@ -202,7 +202,7 @@ Para actualizar el rol personalizado, actualice el archivo JSON y, a continuaci�
 
 1. Abra el archivo ReaderSupportRole.json.
 
-1. En `Actions`, agregue la operación para crear y administrar implementaciones de grupos de recursos `"Microsoft.Resources/deployments/*"`. Asegúrese de incluir una coma después de la operación anterior.
+1. En `Actions`, agregue la acción para crear y administrar implementaciones de grupos de recursos `"Microsoft.Resources/deployments/*"`. Asegúrese de incluir una coma después de cada acción anterior.
 
     El archivo JSON actualizado debe ser similar al siguiente:
 

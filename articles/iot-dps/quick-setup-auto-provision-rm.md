@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 8ec795e7ad54d2101573d857fa52b5aaad0ed71d
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 20a6ced453ca49c08131917f0d22c4c7d9f759a9
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112032400"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278754"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-dps-with-an-arm-template"></a>Inicio rápido: Configuración de IoT Hub Device Provisioning Service (DPS) con una plantilla de Resource Manager
 
@@ -170,4 +170,4 @@ También puede eliminar grupos de recursos y recursos individuales desde Azure P
 En este inicio rápido, ha implementado un centro de IoT y una instancia de Device Provisioning Service, y ha vinculado los dos recursos. Para saber cómo usar esta configuración para aprovisionar un dispositivo, vaya al inicio rápido en el que se explica cómo crear un dispositivo.
 
 > [!div class="nextstepaction"]
-> [Inicio rápido para aprovisionar un dispositivo](./quick-create-simulated-device-symm-key.md)
+> [Inicio rápido: Aprovisionamiento de un dispositivo simulado con clave simétrica](./quick-create-simulated-device-symm-key.md)

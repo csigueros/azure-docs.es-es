@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 06/14/2021
 ms.author: b-juche
-ms.openlocfilehash: fd96a8c2002bc22a0e4ef2c5a19fa06bf10b5565
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 41ccd31a5e42b2765ffa778dc347cc848090ffee
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112071900"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407520"
 ---
 # <a name="storage-hierarchy-of-azure-netapp-files"></a>Jerarquía de almacenamiento de Azure NetApp Files
 
@@ -86,8 +86,7 @@ El ejemplo siguiente muestra las relaciones de la suscripción de Azure, las cue
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Límites de recursos para Azure NetApp Files](azure-netapp-files-resource-limits.md)
-- [Registro de Azure NetApp Files](azure-netapp-files-register.md)
 - [Niveles de servicio para Azure NetApp Files](azure-netapp-files-service-levels.md)
 - [Consideraciones sobre el rendimiento de Azure NetApp Files](azure-netapp-files-performance-considerations.md)
-- [Configuración de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md)
+- [Creación de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md)
 - [Administración de un grupo de capacidad de QoS manual](manage-manual-qos-capacity-pool.md)

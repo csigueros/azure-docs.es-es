@@ -12,12 +12,12 @@ metadata:
   ms.date: 04/17/2019
   ms.author: kefre
   ms.custom: seodec18
-  ms.openlocfilehash: b344ae378bc299a737e212205b2d85f6106424a6
-  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+  ms.openlocfilehash: 5b13040c02d72a2cfd423f014f4f89ffba11d627
+  ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/13/2021
-  ms.locfileid: "124824835"
+  ms.lasthandoff: 10/01/2021
+  ms.locfileid: "129350721"
 title: Preguntas frecuentes sobre Computer Vision API
 summary: >
   > [!TIP]
@@ -29,7 +29,7 @@ sections:
   - question: >
       ¿Cómo puedo aumentar las transacciones por segundo (TPS) que permite el servicio?
     answer: >
-      El nivel gratis (S0) solo permite 20 transacciones por minuto. Actualice al nivel S1 para obtener hasta 10 transacciones por segundo. Si ve el código de error 429 y el mensaje de error "Demasiadas solicitudes", [envíe una vale de Soporte técnico de Azure](https://azure.microsoft.com/support/create-ticket/) para aumentar el TPS a 50 o superior con una breve justificación comercial. [Precios de Computer Vision](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/#pricing).
+      El nivel gratis (S0) solo permite 20 transacciones por minuto. Actualice al nivel S1 para obtener hasta 30 transacciones por segundo. Si ve el código de error 429 y el mensaje de error "Demasiadas solicitudes", [envíe una vale de Soporte técnico de Azure](https://azure.microsoft.com/support/create-ticket/) para aumentar el TPS a 50 o superior con una breve justificación comercial. [Precios de Computer Vision](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/#pricing).
   - question: "El servicio genera un error porque mi archivo de imagen es demasiado grande. ¿Cómo puedo solucionarlo? \n"
     answer: >
       El límite de tamaño de archivo para la mayoría de las características de Computer Vision es de 4 MB, pero los SDK de la biblioteca cliente pueden gestionar archivos de hasta 6 MB. En el caso del reconocimiento óptico de caracteres (OCR) que controla documentos de varias páginas, el tamaño máximo de archivo es de 50 MB. Para obtener más información, consulte los [límites de entradas de análisis de imágenes](overview-image-analysis.md#image-requirements) y los [límites de entrada de OCR](overview-ocr.md#input-requirements).

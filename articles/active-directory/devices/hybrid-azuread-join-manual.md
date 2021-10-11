@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d563f8a188496918997d54e06594d282ebaa67ce
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 755c3eaf90cd12fcebc032f33189fb07c6ce9d1a
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128637957"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234288"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configuración manual de dispositivos unidos a Azure Active Directory híbrido
 
@@ -180,7 +180,7 @@ Para obtener una lista de los dominios comprobados de la compañía, puede usar 
 
 En una configuración de Azure AD federada, los dispositivos usan AD FS, o un servicio de federación local de un asociado de Microsoft para autenticarse en Azure AD. Los dispositivos se autentican para obtener un token de acceso para registrarse en Azure Active Directory Device Registration Service (Azure DRS).
 
-Los dispositivos de Windows actuales se autentican mediante la autenticación integrada de Windows en un punto de conexión de WS-Trust activo (versiones 1.3 o 2005) hospedado por el servicio de federación local.
+Los dispositivos de Windows actuales se autentican mediante la autenticación integrada de Windows en un punto de conexión de WS-Trust activo (versiones 1.3 o 2005) hospedado por el servicio de federación local.
 
 Cuando use AD FS, debe habilitar los siguientes puntos de conexión de WS-Trust
 - `/adfs/services/trust/2005/windowstransport`
@@ -501,7 +501,7 @@ Si ya ha emitido una notificación **ImmutableID** para las cuentas de usuario, 
 Si algunos de los dispositivos unidos a un dominio son dispositivos de Windows de nivel inferior, tendrá que:
 
 * Establecer una directiva en Azure AD que permita a los usuarios registrar dispositivos.
-* Configurar el servicio de federación local para emitir notificaciones para admitir la autenticación integrada de Windows (IWA) para el registro de dispositivos.
+* Configurar el servicio de federación local para emitir notificaciones y así admitir la autenticación integrada de Windows (IWA) para el registro de dispositivos.
 * Agregar el punto de conexión de autenticación de dispositivos de Azure AD a las zonas de la intranet locales para evitar las solicitudes de certificado al autenticar el dispositivo.
 * Controlar los dispositivos de Windows de nivel inferior.
 

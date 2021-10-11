@@ -5,17 +5,17 @@ services: synapse-analytics
 author: saveenr
 ms.author: saveenr
 manager: julieMSFT
-ms.reviewer: jrasnick
+ms.reviewer: jrasnick, wiassaf
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 03/24/2021
-ms.openlocfilehash: 56115e977603e1f2148f84569373dcf4d351e0c4
-ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
+ms.date: 09/29/2021
+ms.openlocfilehash: cf1aabdef95a58c4bdd5a14e3714da37295ed790
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113038217"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387741"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Análisis de datos con grupos de SQL dedicados
 
@@ -23,9 +23,9 @@ En este tutorial usará los datos de NYC Taxi para explorar las funcionalidades 
 
 ## <a name="create-a-dedicated-sql-pool"></a>Creación de un grupo de SQL dedicado
 
-1. En Synapse Studio, en el panel izquierdo, seleccione **Administrar** > **Grupos de SQL**.
+1. En Synapse Studio, en el panel izquierdo, seleccione **Administrar** > **Grupos de SQL** en **Grupos de análisis**.
 1. Seleccione **Nuevo paso**.
-1. En **Nombre del grupo de SQL** seleccione **SQLPOOL1**
+1. En **Nombre del grupo de SQL dedicado** seleccione **SQLPOOL1**.
 1. En **Nivel de rendimiento** seleccione **DW100C**
 1. Seleccione **Revisar y crear** > **Crear**. El grupo de SQL dedicado estará listo en unos minutos. 
 
@@ -37,12 +37,14 @@ Los grupos de SQL dedicados consumen recursos facturables mientras están activo
 
 > [!NOTE] 
 > Al crear un nuevo grupo de SQL dedicado (anteriormente SQL DW) en el área de trabajo, se abrirá la página de aprovisionamiento del grupo de SQL dedicado. El aprovisionamiento se llevará a cabo en el servidor SQL lógico.
+
 ## <a name="load-the-nyc-taxi-data-into-sqlpool1"></a>Carga de los datos NYC Taxi en SQLPOOL1
 
 1. En Synapse Studio, vaya al centro de **desarrollo**, haga clic en el botón **+** para agregar un nuevo recurso y cree un nuevo script SQL.
-1. Seleccione el grupo "SQLPOOL1" (creado en el [paso 1](./get-started-create-workspace.md) de este tutorial) en la sección "Conectar a" del script.
+1. Seleccione el grupo "SQLPOOL1" (creado en el [paso 1](./get-started-create-workspace.md) de este tutorial) en la lista desplegable **Conectar a** del script.
 1. Escriba el siguiente código:
-    ```
+
+    ```sql
     IF NOT EXISTS (SELECT * FROM sys.objects O JOIN sys.schemas S ON O.schema_id = S.schema_id WHERE O.NAME = 'NYCTaxiTripSmall' AND O.TYPE = 'U' AND S.NAME = 'dbo')
     CREATE TABLE dbo.NYCTaxiTripSmall
         (
@@ -93,8 +95,8 @@ Los grupos de SQL dedicados consumen recursos facturables mientras están activo
         ,IDENTITY_INSERT = 'OFF'
     )
     ```
-1. Haga clic en el botón Ejecutar para ejecutar el script.
-1. Este script finalizará en menos de 60 segundos. Carga dos millones filas de datos de NYC Taxi en una tabla denominada **dbo.NYCTaxiTripSmall**.
+1. Haga clic en el botón **Ejecutar** para ejecutar el script.
+1. Este script finalizará en menos de 60 segundos. Carga dos millones filas de datos de NYC Taxi en una tabla denominada `dbo.NYCTaxiTripSmall`.
 
 ## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>Exploración de los datos de NYC Taxi en el grupo de SQL dedicado
 

@@ -5,12 +5,12 @@ metadata:
   ms.topic: article
   ms.service: backup
   ms.date: 04/05/2021
-  ms.openlocfilehash: ff157a3d8e744dffd314525a053b8c3ca1ab8999
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.openlocfilehash: d4877b7346e9854748f6106ca881732c549e98a1
+  ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122252502"
+  ms.lasthandoff: 09/29/2021
+  ms.locfileid: "129271676"
 title: 'Preguntas más frecuentes: agente de Microsoft Azure Recovery Services (MARS)'
 summary: >
   En este artículo se da respuesta a preguntas habituales sobre la copia de seguridad de datos con el agente de Microsoft Azure Recovery Services (MARS) del servicio [Azure Backup](backup-overview.md).
@@ -84,6 +84,10 @@ sections:
   - question: >
       ¿Cuál es el impacto en las copias de seguridad del agente de MARS de la transferencia de la suscripción del almacén a un directorio de Azure AD diferente?
     answer: "El cambio de directorio de Azure AD no afectará a las copias de seguridad del agente de MARS. \n"
+  - question: >
+      ¿Qué ocurre si se produce un error en la copia de seguridad semanal, mensual o anual esperada?
+    answer: >
+      Si se produce un error en la copia de seguridad, la siguiente copia de seguridad correcta después de la copia de seguridad semanal, mensual o anual esperada se conserva según el período de retención de los respectivos puntos de recuperación semanales, mensuales y anuales, que también se conocen como puntos de retención a largo plazo (LTR), según la directiva de copia de seguridad. Esta copia de seguridad correcta puede ser una copia de seguridad ad hoc o una copia de seguridad programada en el caso del agente de MARS.
 - name: Administración de copias de seguridad
   questions:
   - question: >

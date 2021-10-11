@@ -6,14 +6,14 @@ metadata:
   author: vhorne
   ms.service: firewall
   ms.topic: conceptual
-  ms.date: 09/01/2021
+  ms.date: 09/28/2021
   ms.author: victorh
-  ms.openlocfilehash: 9eac926802af481d012d58e358b7d40776552049
-  ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+  ms.openlocfilehash: 92ea30808101b60f24796e973820453dcd65d72d
+  ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/03/2021
-  ms.locfileid: "123436093"
+  ms.lasthandoff: 09/29/2021
+  ms.locfileid: "129215669"
 title: Preguntas frecuentes sobre Azure Firewall
 summary: ''
 sections:
@@ -180,7 +180,7 @@ sections:
     answer: >
       No. Las reglas NAT agregan de forma implícita una regla de red correspondiente implícita para permitir el tráfico traducido. Para invalidar este comportamiento, agregue explícitamente una colección de reglas de red con reglas de denegación que coinciden con el tráfico traducido. Para más información acerca de la lógica de procesamiento de reglas Azure Firewall, consulte [Lógica de procesamiento de reglas de Azure Firewall](rule-processing.md).
   - question: ¿Cómo funcionan los caracteres comodín en las direcciones URL de destino y en los nombres de dominio completo de destino en las reglas de aplicación?
-    answer: "- **Dirección URL**: los asteriscos funcionan cuando se sitúan en el extremo derecho o en el extremo izquierdo. Si un asterisco está a la izquierda, no puede formar parte del FQDN.\n- **FQDN**: los asteriscos funcionan cuando se ponen en el extremo izquierdo.\n\nEjemplos:\n\n\n  |Tipo  |Regla  |¿Compatible?  |Ejemplos válidos  |\n  |---------|---------|---------|---------|\n  |TargetURL  |`www.contoso.com` |Sí|`www.contoso.com`<br>`www.contoso.com/`|\n  |TargetURL  |`*.contoso.com` |Sí|`www.contoso.com`<br>`any.contoso.com/`|\n  |TargetURL  |`*contoso.com`|Sí         |`example.anycontoso.com`<br>`contoso.com`|\n  |TargetURL  |`www.contoso.com/test`|Sí|`www.contoso.com/test`<br>`www.contoso.com/test/`<br>`www.contoso.com/test?with_query=1`|\n  |TargetURL  |`www.contoso.com/test/*`|Sí|`www.contoso.com/test/anything`<br>Nota: `www.contoso.com/test` **no** coincidirá (última barra diagonal)|\n  |TargetURL  |`www.contoso.*/test/*`|No|         |\n  |TargetURL  |`www.contoso.com/test?example=1`|No|         |\n  |TargetURL  |`www.contoso.*`|No|         |\n  |TargetURL  |`www.*contoso.com`|No|         |\n  |TargetURL   |`www.contoso.com:8080`|No|         |\n  |TargetURL   |`*.contoso.*`|No|         |\n  |TargetFQDN    |`www.contoso.com`|Sí|`www.contoso.com`|\n  |TargetFQDN    |`*.contoso.com`|Sí|`www.contoso.com`<br>`any.contoso.com`|\n  |TargetFQDN    |`*contoso.com`|Sí|`example.anycontoso.com`<br>`contoso.com`|\n  |TargetFQDN    |`www.contoso.*`|No|         |\n  |TargetFQDN    |`*.contoso.*`|No|         |\n \n"
+    answer: "- **Dirección URL**: los asteriscos funcionan cuando se sitúan en el extremo derecho o en el extremo izquierdo. Si un asterisco está a la izquierda, no puede formar parte del FQDN.\n- **FQDN**: los asteriscos funcionan cuando se ponen en el extremo izquierdo.\n\nEjemplos:\n\n\n  |Tipo  |Regla  |¿Compatible?  |Ejemplos válidos  |\n  |---------|---------|---------|---------|\n  |TargetURL  |`www.contoso.com` |Sí|`www.contoso.com`<br>`www.contoso.com/`|\n  |TargetURL  |`*.contoso.com` |Sí|`www.contoso.com`<br>`any.contoso.com/`|\n  |TargetURL  |`*contoso.com`|Sí         |`example.anycontoso.com`<br>`contoso.com`|\n  |TargetURL  |`www.contoso.com/test`|Sí|`www.contoso.com/test`<br>`www.contoso.com/test/`<br>`www.contoso.com/test?with_query=1`|\n  |TargetURL  |`www.contoso.com/test/*`|Sí|`www.contoso.com/test/anything`<br>Nota: `www.contoso.com/test` **no** coincidirá (última barra diagonal)|\n  |TargetURL  |`www.contoso.*/test/*`|No|         |\n  |TargetURL  |`www.contoso.com/test?example=1`|No|         |\n  |TargetURL  |`www.contoso.*`|No|         |\n  |TargetURL  |`www.*contoso.com`|No|         |\n  |TargetURL   |`www.contoso.com:8080`|No|         |\n  |TargetURL   |`*.contoso.*`|No|         |\n  |TargetFQDN    |`www.contoso.com`|Sí|`www.contoso.com`|\n  |TargetFQDN    |`*.contoso.com`|Sí|`any.contoso.com`<br><br>Nota: si quiere permitir `contoso.com` específicamente, debe incluir contoso.com en la regla. De lo contrario, la conexión se descartará de forma predeterminada porque la solicitud no coincidirá con ninguna regla.|\n  |TargetFQDN    |`*contoso.com`|Sí|`example.anycontoso.com`<br>`contoso.com`|\n  |TargetFQDN    |`www.contoso.*`|No|         |\n  |TargetFQDN    |`*.contoso.*`|No|         |\n \n"
   - question: >
       ¿Qué significa *Estado de aprovisionamiento: error*?
     answer: Cada vez que se aplique un cambio de configuración, Azure Firewall intenta actualizar todas sus instancias de back-end subyacentes. En raras ocasiones, una de estas instancias de back-end puede producir un error al actualizar con la nueva configuración y el proceso de actualización se detiene con un estado de aprovisionamiento con error. Azure Firewall todavía está operativo, pero es posible que la configuración aplicada se encuentre en un estado incoherente, donde algunas instancias tienen la configuración anterior y otras tienen el conjunto de reglas actualizado. Si esto sucede, intente actualizar la configuración una vez más, hasta que la operación se realice correctamente y el firewall se encuentre en un estado de aprovisionamiento *Correcto*.
@@ -213,10 +213,10 @@ sections:
 
       ```azurepowershell
 
-      # Add a Threat Intelligence allow list to an Existing Azure Firewall
+      # Add a Threat Intelligence allowlist to an Existing Azure Firewall
 
 
-      # Create the allow list with both FQDN and IPAddresses
+      # Create the allowlist with both FQDN and IPAddresses
 
       $fw = Get-AzFirewall -Name "Name_of_Firewall" -ResourceGroupName "Name_of_ResourceGroup"
 

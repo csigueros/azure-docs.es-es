@@ -1,7 +1,7 @@
 ---
 title: 'Creación de una función de C# desde la línea de comandos: Azure Functions'
 description: Aprenda a crear una función de C# desde la línea de comandos y, luego, a publicar el proyecto local en el hospedaje sin servidor en Azure Functions.
-ms.date: 08/15/2021
+ms.date: 09/14/2021
 ms.topic: quickstart
 ms.custom:
 - devx-track-csharp
@@ -11,23 +11,21 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-csharp-ieux
-ms.openlocfilehash: c2344a13c1a3dc005d00933fdc182348be9bb0f2
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+zone_pivot_groups: runtime-version-programming-functions
+ms.openlocfilehash: 5ae176c8f9ebe77a40619a65464594236b94671b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122830615"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128559889"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>Inicio rápido: Creación de una función de C# en Azure desde la línea de comandos
 
-[!INCLUDE [functions-language-selector-quickstart-cli](../../includes/functions-language-selector-quickstart-cli.md)]
+[!INCLUDE [functions-runtime-version-dotnet](../../includes/functions-runtime-version-dotnet.md)]
 
 En este artículo, se usan herramientas de la línea de comandos para crear una función de C# que responda a solicitudes HTTP. Después de probar el código localmente, se implementa en el entorno sin servidor de Azure Functions.
 
-En este artículo se admite la creación de ambos tipos de funciones de C# compiladas: 
-
-+ [En proceso](create-first-function-cli-csharp.md?tabs=in-process): se ejecuta en el mismo proceso que el proceso de host de Functions. Para más información, consulte [Desarrollo de funciones de la biblioteca de clases de C# con Azure Functions](functions-dotnet-class-library.md).
-+ [Proceso aislado](create-first-function-cli-csharp.md?tabs=isolated-process): se ejecuta en un proceso de trabajo de .NET independiente. Para más información, consulte la [Guía para ejecutar funciones en .NET 5.0 en Azure](dotnet-isolated-process-guide.md).
+[!INCLUDE [functions-dotnet-execution-model](../../includes/functions-dotnet-execution-model.md)]
 
 Este inicio rápido supone un pequeño costo en su cuenta de Azure.
 
@@ -37,9 +35,39 @@ También hay una [versión basada en Visual Studio Code](create-first-function-v
 
 Antes de empezar, debe disponer de lo siguiente:
 
+::: zone pivot="programming-runtime-functions-v3"
 [!INCLUDE [functions-cli-dotnet-prerequisites](../../includes/functions-cli-dotnet-prerequisites.md)]
+::: zone-end
+::: zone pivot="programming-runtime-functions-v4"
+# <a name="in-process"></a>[En proceso](#tab/in-process)    
 
-+ También necesita una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
++ [SDK de .NET 6.0](https://dotnet.microsoft.com/download)
+
++ [Azure Functions Core Tools](./functions-run-local.md#v2), versión 4.x.
+
++ Una de las siguientes herramientas para crear recursos de Azure:
+
+    + [CLI de Azure](/cli/azure/install-azure-cli), versión 2.4 o posterior.
+
+    + [Azure PowerShell](/powershell/azure/install-az-ps), versión 5.0 o posterior.
+
+# <a name="isolated-process"></a>[Proceso aislado](#tab/isolated-process)
+
++ [SDK de .NET 6.0](https://dotnet.microsoft.com/download/dotnet/6.0)
+
++ [SDK de .NET Core 3.1](https://dotnet.microsoft.com/download). Requerido por el proceso de compilación.
+
++ [Azure Functions Core Tools](./functions-run-local.md#v2), versión 4.x.
+
++ Una de las siguientes herramientas para crear recursos de Azure:
+
+    + [CLI de Azure](/cli/azure/install-azure-cli), versión 2.4 o posterior.
+
+    + [Azure PowerShell](/powershell/azure/install-az-ps), versión 5.0 o posterior.
+---
+::: zone-end
+
+También necesita una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ### <a name="prerequisite-check"></a>Comprobación de requisitos previos
 
@@ -206,6 +234,11 @@ Para más información, vea [Enlaces y desencadenadores HTTP de Azure Functions]
     El cmdlet [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) crea la aplicación de funciones en Azure. 
 
     ---
+
+    ::: zone pivot="programming-runtime-functions-v4"
+    > [!NOTE]
+    > Este comando crea una aplicación de funciones con la versión 3.x del entorno de ejecución de Azure Functions. El comando `func azure functionapp publish` que ejecutará más adelante actualiza la aplicación a la versión 4.x.
+    ::: zone-end
     
     En el ejemplo anterior, reemplace `<STORAGE_NAME>` por el nombre de la cuenta que usó en el paso anterior y reemplace `<APP_NAME>` por un nombre único global que le resulte adecuado. `<APP_NAME>` también es el dominio DNS predeterminado de la aplicación de función. 
     

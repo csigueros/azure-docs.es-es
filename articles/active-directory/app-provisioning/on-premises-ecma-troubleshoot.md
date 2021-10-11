@@ -11,12 +11,12 @@ ms.date: 08/24/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe1da3615d835b6a2d828fdbca989c805a9f9b17
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: cae6f7285618771f2486c62bfbd3d532db146c8a
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122823087"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350627"
 ---
 # <a name="troubleshoot-ecma-connector-host-issues"></a>Solución de problemas del host del conector ECMA
 
@@ -187,7 +187,7 @@ Es posible que reciba un mensaje de error al instalar el agente de aprovisionami
 
 Este problema suele deberse a que el agente no puede ejecutar los scripts de registro de PowerShell debido a las directivas de ejecución locales de PowerShell.
 
-Para solucionar este problema, cambie las directivas de ejecución de PowerShell en el servidor. Debe establecer las directivas de máquina y usuario en *Undefined* o *RemoteSigned*. Si se establece como *Unrestricted*, verá este error. Para más información, consulte las [directivas de ejecución de PowerShell](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
+Para solucionar este problema, cambie las directivas de ejecución de PowerShell en el servidor. Debe establecer las directivas de máquina y usuario en *Undefined* o *RemoteSigned*. Si se establece como *Unrestricted*, verá este error. Para más información, consulte las [directivas de ejecución de PowerShell](/powershell/module/microsoft.powershell.core/about/about_execution_policies). 
 
 ### <a name="log-files"></a>Archivos de registro
 
@@ -227,7 +227,4 @@ Para más información, consulte [Acerca de los atributos delimitadores y los no
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Instalación del host del conector ECMA de Azure AD](on-premises-ecma-install.md)
-- [Configuración del host del conector ECMA de Azure AD](on-premises-ecma-configure.md)
-- [Conector SQL genérico](on-premises-sql-connector-configure.md)
 - [Tutorial: Conector SQL genérico del host del conector ECMA de Azure AD](tutorial-ecma-sql-connector.md)

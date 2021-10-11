@@ -11,12 +11,12 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: adbb2979fc9e097fa0abf2675759ba1f7aad8a0c
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: fffd56c05fc3389a6f10ade5b565a760b842a2ca
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123310564"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129358206"
 ---
 # <a name="tutorial-using-openssl-to-create-test-certificates"></a>Tutorial: Uso de OpenSSL para crear certificados de prueba
 
@@ -285,10 +285,10 @@ openssl x509 -in mycert.crt -out mycert.pem -outform PEM
  
   ```
 
-10. Cree un certificado con el archivo de configuración de la entidad de certificación raíz y el CSR como certificado de prueba de posesión.
+10. Cree un certificado con el archivo de configuración de la entidad de certificación subordinada y el CSR como certificado de prueba de posesión.
 
   ```bash
-    openssl ca -config rootca.conf -in pop.csr -out pop.crt -extensions client_ext
+    openssl ca -config subca.conf -in pop.csr -out pop.crt -extensions client_ext
 
   ```
 
@@ -314,7 +314,7 @@ Para generar un certificado de cliente, primero debe generar una clave privada. 
 openssl genpkey -out device.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
 ```
 
-Cree una solicitud de firma de certificado para la clave. No es necesario que escriba una contraseña de comprobación ni un nombre de empresa opcional. Sin embargo, debe escribir el identificador del dispositivo en el campo Nombre común.
+Cree una solicitud de firma de certificado para la clave. No es necesario que escriba una contraseña de comprobación ni un nombre de empresa opcional. Sin embargo, debe escribir el identificador del dispositivo en el campo Nombre común. También puede escribir sus propios valores para los demás parámetros, como **País**, **Nombre de la organización** y así sucesivamente.
 
 ```bash
 openssl req -new -key device.key -out device.csr
@@ -349,4 +349,8 @@ openssl ca -config subca.conf -in device.csr -out device.crt -extensions client_
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Vaya a la [prueba de la autenticación de certificados](tutorial-x509-test-certificate.md) para determinar si el certificado puede autenticar el dispositivo en el IoT Hub.
+Vaya a la [prueba de la autenticación de certificados](tutorial-x509-test-certificate.md) para determinar si el certificado puede autenticar el dispositivo en el IoT Hub. El código de esa página requiere que use un certificado PFX. Use el siguiente comando openSSL para convertir el certificado .crt del dispositivo a formato .pfx.
+
+```bash
+openssl pkcs12 -export -in device.crt -inkey device.key -out device.pfx
+```

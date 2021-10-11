@@ -1,15 +1,15 @@
 ---
 title: 'Inicio rápido: Nueva asignación de directivas con Python'
 description: En este inicio rápido, se usa Python para crear una asignación de Azure Policy e identificar los recursos no compatibles.
-ms.date: 08/17/2021
+ms.date: 10/01/2021
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 59f61e05afd9e3abb0aa6bb6a76f632187940412
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: fd9328fdc3f925756652853a81e8b9c77a0266e7
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323501"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350782"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-python"></a>Inicio rápido: Creación de una asignación de directiva para identificar los recursos no compatibles mediante Python
 
@@ -51,6 +51,9 @@ Para permitir que Python funcione con Azure Policy, se debe agregar la bibliotec
 
    # Add the CLI Core library for Python for authentication (development only!)
    pip install azure-cli-core
+
+   # Add the Azure identity library for Python
+   pip install azure.identity
    ```
 
    > [!NOTE]
@@ -60,7 +63,7 @@ Para permitir que Python funcione con Azure Policy, se debe agregar la bibliotec
 
    ```bash
    # Check each installed library
-   pip show azure-mgmt-policyinsights azure-mgmt-resource azure-cli-core
+   pip show azure-mgmt-policyinsights azure-mgmt-resource azure-cli-core azure.identity
    ```
 
 ## <a name="create-a-policy-assignment"></a>Creación de una asignación de directiva
@@ -71,16 +74,21 @@ Ejecute el código siguiente para crear una nueva asignación de directiva:
 
 ```python
 # Import specific methods and models from other libraries
-from azure.common.credentials import get_azure_cli_credentials
-from azure.common.client_factory import get_client_from_cli_profile
 from azure.mgmt.resource.policy import PolicyClient
-from azure.mgmt.resource.policy.models import PolicyAssignment
+from azure.mgmt.resource.policy.models import PolicyAssignment, Identity, UserAssignedIdentitiesValue, PolicyAssignmentUpdate
+from azure.identity import AzureCliCredential
+
+# Set subscription
+subId = "{subId}"
+assignmentLocation = "westus2"
 
 # Get your credentials from Azure CLI (development only!) and get your subscription list
-policyClient = get_client_from_cli_profile(PolicyClient)
+credential = AzureCliCredential()
+policyClient = PolicyClient(credential, subId, base_url=none)
 
 # Create details for the assignment
-policyAssignmentDetails = PolicyAssignment(display_name="Audit VMs without managed disks Assignment", policy_definition_id="/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d", scope="{scope}", description="Shows all virtual machines not using managed disks")
+policyAssignmentIdentity = Identity(type="SystemAssigned")
+policyAssignmentDetails = PolicyAssignment(display_name="Audit VMs without managed disks Assignment", policy_definition_id="/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d", description="Shows all virtual machines not using managed disks", identity=policyAssignmentIdentity, location=assignmentLocation)
 
 # Create new policy assignment
 policyAssignment = policyClient.policy_assignments.create("{scope}", "audit-vm-manageddisks", policyAssignmentDetails)
@@ -92,6 +100,7 @@ print(policyAssignment)
 Los comandos anteriores usan la siguiente información:
 
 Detalles de la asignación:
+- **subId**: su suscripción. Necesario para la autenticación. Reemplace `{subId}` con la suscripción.
 - **display_name**: nombre para mostrar de la asignación de directiva. En este caso, usará _Auditoría de máquinas virtuales sin discos administrados_.
 - **policy_definition_id**: la ruta de acceso de la definición de directiva, según la opción utilizada para crear la asignación. En este caso, es el identificador de la definición de directiva _Auditoría de máquinas virtuales que no usan discos administrados_. En este ejemplo, la definición de directiva está integrada y la ruta de acceso no incluye la información del grupo de administración ni de la suscripción.
 - **scope**: un ámbito determina en qué recursos o agrupación de recursos se aplica la asignación de directiva. Podría abarcar desde un grupo de administración a un recurso individual. Asegúrese de reemplazar `{scope}` por uno de los siguientes patrones:
@@ -115,24 +124,28 @@ Utilice la siguiente información para identificar los recursos que no son compa
 
 ```python
 # Import specific methods and models from other libraries
-from azure.common.client_factory import get_client_from_cli_profile
 from azure.mgmt.policyinsights._policy_insights_client import PolicyInsightsClient
 from azure.mgmt.policyinsights.models import QueryOptions
+from azure.identity import AzureCliCredential
+
+# Set subscription
+subId = "{subId}"
 
 # Get your credentials from Azure CLI (development only!) and get your subscription list
-policyInsightsClient = get_client_from_cli_profile(PolicyInsightsClient)
+credential = AzureCliCredential()
+policyClient = PolicyInsightsClient(credential, subId, base_url=none)
 
 # Set the query options
 queryOptions = QueryOptions(filter="IsCompliant eq false and PolicyAssignmentId eq 'audit-vm-manageddisks'",apply="groupby((ResourceId))")
 
 # Fetch 'latest' results for the subscription
-results = policyInsightsClient.policy_states.list_query_results_for_subscription(policy_states_resource="latest", subscription_id="{subscriptionId}", query_options=queryOptions)
+results = policyInsightsClient.policy_states.list_query_results_for_subscription(policy_states_resource="latest", subscription_id=subId, query_options=queryOptions)
 
 # Show results
 print(results)
 ```
 
-Reemplace `{subscriptionId}` por la suscripción en la que desea ver los resultados de cumplimiento de esta asignación de directiva. Para obtener una lista de otros ámbitos y maneras de resumir los datos, consulte [Métodos de estado de las directivas](/python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights.operations.policystatesoperations#methods).
+Reemplace `{subId}` por la suscripción en la que desea ver los resultados de cumplimiento de esta asignación de directiva. Para obtener una lista de otros ámbitos y maneras de resumir los datos, consulte [Métodos de estado de las directivas](/python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights.operations.policystatesoperations#methods).
 
 Los resultados deben tener una apariencia similar al ejemplo siguiente:
 
@@ -155,11 +168,15 @@ Para quitar la asignación creada, ejecute el siguiente comando:
 
 ```python
 # Import specific methods and models from other libraries
-from azure.common.client_factory import get_client_from_cli_profile
 from azure.mgmt.resource.policy import PolicyClient
+from azure.identity import AzureCliCredential
+
+# Set subscription
+subId = "{subId}"
 
 # Get your credentials from Azure CLI (development only!) and get your subscription list
-policyClient = get_client_from_cli_profile(PolicyClient)
+credential = AzureCliCredential()
+policyClient = PolicyClient(credential, subId, base_url=none)
 
 # Delete the policy assignment
 policyAssignment = policyClient.policy_assignments.delete("{scope}", "audit-vm-manageddisks")
@@ -168,7 +185,7 @@ policyAssignment = policyClient.policy_assignments.delete("{scope}", "audit-vm-m
 print(policyAssignment)
 ```
 
-Reemplace `{scope}` por el mismo ámbito que usó para crear la asignación de directiva.
+Reemplace `{subId}` con la suscripción y `{scope}` con el mismo ámbito que usó para crear la asignación de directivas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

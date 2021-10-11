@@ -1,15 +1,15 @@
 ---
 title: 'Inicio rápido: Envío de eventos personalizados a Event Hubs: Event Grid, la CLI de Azure'
 description: 'Inicio rápido: Use Azure Event Grid y la CLI de Azure para publicar un tema y suscribirse a ese evento. Para el punto de conexión se usa un centro de eventos de eventos.'
-ms.date: 07/07/2020
+ms.date: 09/28/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 37523e907eb891a326c8dbe975593554958a44b9
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: f725af009f8c2b8f8c4595865d6d746ff9f55849
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897926"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230175"
 ---
 # <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Inicio rápido: Enrutamiento de eventos personalizados a Azure Event Hubs con la CLI de Azure y Event Grid
 
@@ -37,6 +37,9 @@ Un tema de cuadrícula de eventos proporciona un punto de conexión definido por
 
 ```azurecli-interactive
 topicname=<your-topic-name>
+```
+
+```azurecli-interactive
 az eventgrid topic create --name $topicname -l westus2 -g gridResourceGroup
 ```
 
@@ -46,6 +49,9 @@ Antes de suscribirse al tema personalizado, vamos a crear el punto de conexión 
 
 ```azurecli-interactive
 namespace=<unique-namespace-name>
+```
+
+```azurecli-interactive
 hubname=demohub
 
 az eventhubs namespace create --name $namespace --resource-group gridResourceGroup
@@ -94,7 +100,7 @@ done
 
 Vaya al centro de eventos del portal y tenga en cuenta que Event Grid ha enviado esos tres eventos al centro de eventos.
 
-![Mostrar mensajes](./media/custom-event-to-eventhub/show-result.png)
+:::image type="content" source="./media/custom-event-to-eventhub/show-result.png" lightbox="./media/custom-event-to-eventhub/show-result.png" alt-text="Imagen que muestra la página del portal con el recuento de mensajes entrantes como 3.":::
 
 Normalmente, se crea una aplicación que recupera los eventos del centro de eventos. Para crear una aplicación que reciba mensajes de un centro de eventos, consulte:
 

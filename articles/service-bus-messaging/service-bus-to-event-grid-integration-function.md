@@ -4,15 +4,15 @@ description: En este artículo, se proporcionan los pasos necesarios para admini
 documentationcenter: .net
 author: spelluru
 ms.topic: tutorial
-ms.date: 06/23/2020
+ms.date: 09/29/2021
 ms.author: spelluru
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fb18eb5df675690a6bb5b796349c140a61949df1
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: 46dc7a9ac1b985c116162f60c58afb0e8dff9c3a
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "122207430"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273176"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions"></a>Tutorial: Respuesta a eventos de Azure Service Bus recibidos mediante Azure Event Grid utilizando Azure Functions
 En este tutorial, aprenderá a responder a eventos de Azure Service Bus que se reciben a través de Azure Event Grid con Azure Functions y Azure Logic Apps. 
@@ -44,6 +44,8 @@ Instale [Visual Studio 2019](https://www.visualstudio.com/vs) e incluya la car
 1. En el **Asistente para publicación**, en la página **Destino**, seleccione **Azure** como **Destino**. 
 1. En la página **Destino específico**, seleccione **Azure Function App (Windows)** . 
 1. En la página **Functions instance** (Instancia de Functions), seleccione **Create a new Azure function** (Crear una función de Azure). 
+
+    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/add-function-button.png" alt-text="Imagen que muestra el botón Agregar función del cuadro de diálogo Visual Studio- Publicar.":::
 1. En la página **Function App (Windows)** , siga estos pasos:
     1. Escriba el **nombre** de la aplicación de funciones.
     1. Seleccione una **suscripción** de Azure.

@@ -9,12 +9,12 @@ metadata:
   ms.date: 06/08/2021
   ms.author: victorh
   ms.custom: references_regions
-  ms.openlocfilehash: 87780dbc3a7d492f0fd0fec8839ef26bb092b2eb
-  ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+  ms.openlocfilehash: a0d8c83209f5d96d10cacd95d85fc45f2d09b44b
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/24/2021
-  ms.locfileid: "122777561"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128669082"
 title: Preguntas más frecuentes sobre Application Gateway
 summary: >
   [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -60,7 +60,11 @@ sections:
 
       En SKU v2, abra el recurso de dirección IP pública y seleccione **Configuración**. El campo **Etiqueta de nombre DNS (opcional)** está disponible para configurar el nombre DNS.
   - question: ¿Cuáles son los valores de tiempo de espera de conexión persistente y tiempo de espera de inactividad de TCP?
-    answer: "El *tiempo de espera de conexión persistente* rige cuánto tiempo esperará Application Gateway para que un cliente envíe otra solicitud HTTP en una conexión persistente antes de reutilizarla o cerrarla. El *tiempo de espera de inactividad de TCP* rige cuánto tiempo se mantiene abierta una conexión TCP en caso de que no haya ninguna actividad. \n\nEl *tiempo de espera de conexión persistente* en la SKU de Application Gateway v1 es 120 segundos, mientras que en la SKU v2 es 75 segundos. El *tiempo de espera de inactividad de TCP* es el valor predeterminado de 4 minutos en la IP virtual (VIP) de front-end tanto de la SKU v1 y v2 de Application Gateway. Puede configurar el valor de tiempo de espera de inactividad de TCP en las instancias de Application Gateway v1 y v2 para que estén entre los 4 y 30 minutos. En el caso de las instancias de Application Gateway v1 y v2, debe ir a la dirección IP pública de la instancia de Application Gateway y cambiar el tiempo de espera de inactividad de TCP en la hoja \"Configuración\" de la dirección IP pública en el portal. Puede establecer el valor de tiempo de espera de inactividad de TCP de la dirección IP pública mediante PowerShell al ejecutar los siguientes comandos: \n\n```azurepowershell-interactive\n$publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup\n$publicIP.IdleTimeoutInMinutes = \"15\"\nSet-AzPublicIpAddress -PublicIpAddress $publicIP\n```\n"
+    answer: "El *tiempo de espera de conexión persistente* rige cuánto tiempo esperará Application Gateway para que un cliente envíe otra solicitud HTTP en una conexión persistente antes de reutilizarla o cerrarla. El *tiempo de espera de inactividad de TCP* rige cuánto tiempo se mantiene abierta una conexión TCP en caso de que no haya ninguna actividad. \n\nEl *tiempo de espera de conexión persistente* en la SKU de Application Gateway v1 es 120 segundos, mientras que en la SKU v2 es 75 segundos. El *tiempo de espera de inactividad de TCP* es el valor predeterminado de 4 minutos en la IP virtual (VIP) de front-end tanto de la SKU v1 y v2 de Application Gateway. Puede configurar el valor de tiempo de espera de inactividad de TCP en las instancias de Application Gateway v1 y v2 para que estén entre los 4 y 30 minutos. En el caso de las instancias de Application Gateway v1 y v2, debe ir a la dirección IP pública de la instancia de Application Gateway y cambiar el tiempo de espera de inactividad de TCP en la hoja \"Configuración\" de la dirección IP pública en el portal. No se admite el cambio del valor de la dirección IP privada. Puede establecer el valor de tiempo de espera de inactividad de TCP de la dirección IP pública mediante PowerShell al ejecutar los siguientes comandos: \n\n```azurepowershell-interactive\n$publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup\n$publicIP.IdleTimeoutInMinutes = \"15\"\nSet-AzPublicIpAddress -PublicIpAddress $publicIP\n```\n"
+  - question: ¿Puedo cambiar el nombre del recurso de Application Gateway?
+    answer: No. No hay ninguna manera de cambiar el nombre de un recurso de Application Gateway. Por lo tanto, debe crear otro recurso con un nombre diferente.
+  - question: ¿Hay alguna manera de restaurar un recurso de Application Gateway y su dirección IP pública si se han eliminado?
+    answer: No. No hay ninguna manera de restaurar un recurso de Application Gateway o su dirección IP pública una vez eliminados. Debe crear un nuevo recurso.
   - question: ¿Cambia la dirección IP o el nombre DNS durante la vigencia de Application Gateway?
     answer: En la SKU de la versión 1 de Application Gateway, la IP virtual puede cambiar si se detiene o inicia la puerta de enlace de aplicaciones. Sin embargo, el nombre DNS asociado a Application Gateway no cambia durante la vigencia de la puerta de enlace. Como el nombre DNS no cambia, se debe usar un alias de CNAME y apuntarlo hacia la dirección DNS de Application Gateway. En la SKU de la versión 2 de Application Gateway, puede establecer la dirección IP como estática, por lo que el nombre de IP y DNS no cambiará durante la vigencia de la puerta de enlace de aplicaciones.
   - question: ¿Admite Application Gateway direcciones IP estáticas?
@@ -96,6 +100,8 @@ sections:
     answer: No. Application Gateway V2 no admite solicitudes de proxy con autenticación NTLM.
   - question: ¿La cookie de afinidad de Application Gateway admite el atributo SameSite?
     answer: "Sí, la [actualización v80](https://chromiumdash.appspot.com/schedule) del [explorador Chromium](https://www.chromium.org/Home) incluye un mandato en el que las cookies HTTP sin el atributo SameSite se tratan como SameSite=Lax. Esto significa que el explorador no enviará la cookie de afinidad de Application Gateway en un contexto de terceros. \n\nPara admitir este escenario, Application Gateway inserta otra cookie llamada *ApplicationGatewayAffinityCORS* además de la cookie *ApplicationGatewayAffinity* existente.  Estas cookies son similares, aunque la cookie *ApplicationGatewayAffinityCORS* tiene dos atributos más: *SameSite=None y Secure*. Estos atributos mantienen las sesiones permanentes incluso para las solicitudes entre orígenes. Consulte la sección [afinidad basada en cookies](configuration-http-settings.md#cookie-based-affinity) para obtener más información.\n"
+  - question: ¿Qué se considera un agente de escucha activo y un agente de escucha inactivo?
+    answer: "Un agente de escucha activo es un agente de escucha que está asociado a una regla **y** que envía tráfico a un grupo de back-end. Cualquier agente de escucha que **solo** redirija el tráfico no es un agente de escucha activo. Asimismo, los agentes de escucha asociados a las reglas de redireccionamiento no se consideran activos. Si las reglas de redireccionamiento son reglas basadas en rutas de acceso, tenga en cuenta que todas las rutas de acceso de esa regla de redireccionamiento deben redirigir el tráfico; de lo contrario, el agente de escucha se considera activo. Para obtener más detalles sobre el límite de los componentes individuales, consulte [Límites, cuotas y restricciones de suscripciones y servicios de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits). \n"
 - name: Rendimiento
   questions:
   - question: ¿Cómo admite Application Gateway la alta disponibilidad y la escalabilidad?

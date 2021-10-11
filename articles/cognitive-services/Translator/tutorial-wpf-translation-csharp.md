@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: lajanuar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0665dcbc8de518c5759c52a8fc3aec26859566d6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5e2ae8e228a001deec59e9b65e61cf5d44687a14
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728015"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424867"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutorial: Creación de una aplicación de traducción con WPF
 
@@ -41,7 +41,7 @@ En esta lista se incluyen los servicios Cognitive Services utilizados en este tu
 | Servicio | Característica | Descripción |
 |---------|---------|-------------|
 | Traductor | [Obtener idiomas](./reference/v3-0-languages.md) | Recupera una lista completa de los idiomas admitidos para la traducción de texto. |
-| Traductor | [Traducir](./reference/v3-0-translate.md) | Traduce texto a 90 idiomas y dialectos. |
+| Traductor | [Traducir](./reference/v3-0-translate.md) | Traduce texto. |
 | Traductor | [Detectar](./reference/v3-0-detect.md) | Detecta el idioma del texto de entrada. Incluye la puntuación de confianza para la detección. |
 | Bing Spell Check | [Corrector ortográfico](/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Corrige los errores de ortografía para mejorar la precisión de la traducción. |
 
@@ -264,7 +264,7 @@ Por último, hemos agregado código a métodos de llamada para recuperar los idi
 
 ## <a name="get-supported-languages"></a>Obtener idiomas admitidos
 
-Traductor admite actualmente 90 idiomas y dialectos. Dado que, con el tiempo, se agregará nueva compatibilidad de idiomas, recomendamos llamar al recurso de idiomas que expone Traductor en lugar de codificar la lista de idiomas de la aplicación.
+Recomendamos llamar al recurso de idiomas que expone Traductor en lugar de codificar la lista de idiomas de la aplicación.
 
 En esta sección, se va a crear una solicitud `GET` al recurso de idiomas, especificando que queremos una lista de idiomas disponibles para traducir.
 

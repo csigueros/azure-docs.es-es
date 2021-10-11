@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/28/2019
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: d2ec1be20c7453d64b3255f9756676d06b023d38
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3cf44d5ebe1ea643f588f1f63e0f5695240b1c95
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121747308"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233169"
 ---
 # <a name="what-is-azure-iot-edge"></a>¿Qué es Azure IoT Edge?
 
@@ -65,7 +65,7 @@ El entorno en tiempo de ejecución de Azure IoT Edge se ejecuta en un gran conju
 
 Es difícil administrar el ciclo de vida de software de millones de dispositivos IoT que, con frecuencia, tienen marcas y modelos diferentes o están geográficamente dispersos. Las cargas de trabajo se crean y configuran para un determinado tipo de dispositivo, se implementan en todos los dispositivos y se supervisan para detectar los comportamientos incorrectos de los dispositivos. Estas actividades no se pueden realizar en cada dispositivo y deben realizarse a escala.
 
-Azure IoT Edge se integra perfectamente con los aceleradores de soluciones de IoT de Azure para conseguir un plan de control que se adapte a las necesidades de la solución. Los servicios en la nube le permiten:
+Azure IoT Edge se integra perfectamente con Azure IoT Central para conseguir un plan de control que se adapte a las necesidades de la solución. Los servicios en la nube le permiten:
 
 * Crear y configurar una carga de trabajo que se ejecute en un tipo específico de dispositivo.
 * Enviar una carga de trabajo a un conjunto de dispositivos.

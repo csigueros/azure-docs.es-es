@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Starmind | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con Starmind'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Starmind.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/25/2020
+ms.date: 09/20/2021
 ms.author: jeedes
-ms.openlocfilehash: ecccc0bf05dfc4e27835a676748ca144c6bcc6c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 535abbd360ffb3bbc2d07c8cc23491874679b813
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92521992"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128669357"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-starmind"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Starmind
+# <a name="tutorial-azure-ad-sso-integration-with-starmind"></a>Tutorial: Integración del inicio de sesión único de Azure AD con Starmind
 
 En este tutorial, aprenderá a integrar Starmind con Azure Active Directory (Azure AD). Al integrar Starmind con Azure AD, puede hacer lo siguiente:
 
@@ -40,7 +40,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 * Starmind admite el inicio de sesión único iniciado por **SP**.
 * Starmind admite el aprovisionamiento de usuarios **Just-In-Time**.
 
-## <a name="adding-starmind-from-the-gallery"></a>Incorporación de Starmind desde la galería
+## <a name="add-starmind-from-the-gallery"></a>Incorporación de Starmind desde la galería
 
 Para configurar la integración de Starmind en Azure AD, deberá agregar Starmind desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -50,7 +50,6 @@ Para configurar la integración de Starmind en Azure AD, deberá agregar Starmi
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **Starmind** en el cuadro de búsqueda.
 1. Seleccione **Starmind** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-starmind"></a>Configuración y prueba del inicio de sesión único de Azure AD para Starmind
 
@@ -71,23 +70,22 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal, en la página de integración de aplicaciones de **Starmind**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.starmind.com`
+    a. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.starmind.com/auth/realms/<ID>`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.starmind.com/auth/realms/<ID>`
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.starmind.com/auth/realms/<ID>/broker/saml/endpoint`
 
-    c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.starmind.com/auth/realms/<ID>/broker/saml/endpoint`
+    c. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.starmind.com`
 
     d. En el cuadro de texto **URL de cierre de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.starmind.com/auth/realms/<ID>/broker/saml/endpoint`.
 
-
     > [!NOTE]
-    > Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, el identificador, la dirección URL de respuesta y la URL de cierre de sesión reales. Póngase en contacto con el [equipo de soporte técnico para clientes de Starmind](mailto:support@starmind.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualícelos con el identificador, la dirección URL de respuesta, la dirección URL de inicio de sesión y la dirección URL de cierre de sesión reales. Póngase en contacto con el [equipo de soporte técnico para clientes de Starmind](mailto:support@starmind.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
@@ -133,11 +131,11 @@ En esta sección se crea un usuario llamado Britta Simon en Starmind. Starmind a
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones. 
 
-1. Haga clic en **Probar esta aplicación** en Azure Portal. Esto le redirigirá a la dirección URL de inicio de sesión de Starmind, donde puede iniciar el flujo de inicio de sesión. 
+* Haga clic en **Probar esta aplicación** en Azure Portal. Esto le redirigirá a la dirección URL de inicio de sesión de Starmind, donde puede iniciar el flujo de inicio de sesión. 
 
-2. Vaya directamente a la dirección URL de inicio de sesión de Starmind e inicie el flujo de inicio de sesión desde allí.
+* Vaya directamente a la dirección URL de inicio de sesión de Starmind e inicie el flujo de inicio de sesión desde allí.
 
-3. Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de Starmind en el Panel de acceso, se le redirigirá a la dirección URL de inicio de sesión de Starmind. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Starmind en Mis aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de Starmind. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

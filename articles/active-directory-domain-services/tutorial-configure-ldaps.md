@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: justinha
-ms.openlocfilehash: 27e8c108447a3e16a5e61854eb9d43c4a8efffee
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: ce3587d0e70c2dec04e60bed5a23f16bd6c7688b
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126933"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233038"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configuración de LDAP seguro para un dominio administrado de Azure Active Directory Domain Services
 
@@ -232,7 +232,7 @@ Crearemos una regla para permitir el acceso LDAP seguro de entrada a través del
 
 1. En Azure Portal, seleccione *Grupos de recursos* en la navegación lateral izquierda.
 1. Elija el grupo de recursos, por ejemplo *miGrupoDeRecursos*, y luego seleccione el grupo de seguridad de red, por ejemplo *aaads-nsg*.
-1. Se muestra la lista de reglas de seguridad de entrada y salida existentes. En el lado izquierdo de las ventanas del grupo de seguridad de red, elija **Configuración > Reglas de seguridad de entrada**.
+1. Se muestra la lista de reglas de seguridad de entrada y salida existentes. En el lado izquierdo de la ventana del grupo de seguridad de red, elija **Configuración > Reglas de seguridad de entrada**.
 1. Seleccione **Agregar** y, a continuación, cree una regla para permitir el puerto *TCP* *636*. Para mejorar la seguridad, elija el origen como *Direcciones IP* y, después, especifique su propia dirección IP o el intervalo de direcciones IP válidas para la organización.
 
     | Configuración                           | Valor        |

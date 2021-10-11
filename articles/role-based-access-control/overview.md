@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 05/17/2021
 ms.author: rolyon
 ms.custom: contperf-fy21q1, azuread-video-2020
-ms.openlocfilehash: 9126b3a915f9d457b51a69a4cef9a79003597c31
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3b731b83264802884bba01ed3c32db6152d0a4f9
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110091143"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129356125"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>¿Qué es el control de acceso basado en rol de Azure (RBAC)?
 
@@ -48,7 +48,7 @@ Una *entidad de seguridad* es un objeto que representa a un usuario, un grupo, u
 
 ### <a name="role-definition"></a>Definición de roles
 
-Una *definición de roles* es una recopilación de permisos. Suele denominarse un *rol*. Una definición de roles enumera las operaciones que se pueden realizar, por ejemplo, de lectura, escritura y eliminación. Los roles pueden ser generales, como propietarios, o específicos, como lectores de máquina virtual.
+Una *definición de roles* es una recopilación de permisos. Suele denominarse un *rol*. Una definición de roles enumera las acciones que se pueden realizar; por ejemplo, de lectura, escritura y eliminación. Los roles pueden ser generales, como propietarios, o específicos, como lectores de máquina virtual.
 
 ![Diagrama que muestra un ejemplo de definición de roles de una asignación de roles.](./media/shared/rbac-role-definition.png)
 
@@ -58,7 +58,7 @@ En este vídeo se ofrece información general rápida sobre los roles integrados
 
 >[!VIDEO https://www.youtube.com/embed/I1mefHptRgo]
 
-Azure tiene operaciones de datos que le permiten conceder acceso a los datos dentro de un objeto. Por ejemplo, si un usuario tiene acceso para leer datos de una cuenta de almacenamiento, puede leer los blobs o mensajes en esa cuenta de almacenamiento.
+Azure tiene acciones de datos que le permiten conceder acceso a los datos de un objeto. Por ejemplo, si un usuario tiene acceso para leer datos de una cuenta de almacenamiento, puede leer los blobs o mensajes en esa cuenta de almacenamiento.
 
 Para más información, consulte [Descripción de definiciones de roles de Azure](role-definitions.md).
 

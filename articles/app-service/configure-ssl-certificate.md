@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/13/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 27e17c5adeb7ab5a55b4783bac86301ba4237f45
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: cf15fd428c7e487b82823586be6edfd21f6cab48
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538208"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129057405"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Incorporación de un certificado TLS/SSL en Azure App Service
 
@@ -70,12 +70,13 @@ El certificado gratuito presenta las siguientes limitaciones:
 - No admite certificados comodín.
 - No se puede usar como certificado de cliente mediante la huella digital del certificado (está planeada la eliminación de la huella digital del certificado).
 - No se puede exportar.
+- No se admite en App Service ni es accesible públicamente.
 - No puede utilizarse en App Service Environment (ASE).
 - No es compatible con los dominios raíz que se integran con Traffic Manager.
 - Si un certificado es para un dominio asignado por CNAME, el CNAME debe asignarse directamente a `<app-name>.azurewebsites.net`.
 
 > [!NOTE]
-> El certificado gratuito lo emite DigiCert. En algunos dominios de nivel superior debe permitir explícitamente DigiCert como emisor de certificados mediante la creación de un [registro de dominio de CAA](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) con el valor `0 issue digicert.com`.
+> El certificado gratuito lo emite DigiCert. En algunos dominios, debe permitir explícitamente DigiCert como emisor de certificados mediante la creación de un [registro de dominio de CAA](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) con el valor `0 issue digicert.com`.
 > 
 
 En <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, en el menú de la izquierda, seleccione **App Services** >  **\<app-name>** .
@@ -125,13 +126,13 @@ Use la tabla siguiente para obtener ayuda para configurar el certificado. Cuando
 |-|-|
 | Nombre | Nombre descriptivo para el certificado de App Service. |
 | Nombre de host de dominio desnudo | Especifique aquí el dominio raíz. El certificado emitido protege *al mismo tiempo* el dominio raíz y el subdominio `www`. En el certificado emitido, el campo Nombre común contiene el dominio raíz, mientras que el campo Nombre alternativo del firmante contiene el dominio `www`. Para proteger cualquier subdominio solamente, especifique el nombre de dominio completo del subdominio aquí (por ejemplo, `mysubdomain.contoso.com`).|
-| Suscripción | La suscripción que contendrá el certificado. |
+| Subscription | La suscripción que contendrá el certificado. |
 | Resource group | El grupo de recursos que contendrá el certificado. Puede usar un nuevo grupo de recursos o seleccionar el mismo grupo de recursos que la aplicación de App Service, por ejemplo. |
 | SKU de certificado | Determine el tipo de certificado a crear, ya sea un certificado estándar o un [certificado comodín](https://wikipedia.org/wiki/Wildcard_certificate). |
 | Términos legales | Haga clic para confirmar que está de acuerdo con los términos legales. Los certificados se obtienen de GoDaddy. |
 
 > [!NOTE]
-> Los certificados de App Service adquiridos de Azure los emite GoDaddy. En algunos dominios de nivel superior debe permitir explícitamente GoDaddy como emisor de certificados mediante la creación de un [registro de dominio de CAA](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) con el valor `0 issue godaddy.com`.
+> Los certificados de App Service adquiridos de Azure los emite GoDaddy. En algunos dominios, debe permitir explícitamente GoDaddy como emisor de certificados mediante la creación de un [registro de dominio de CAA](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) con el valor `0 issue godaddy.com`.
 > 
 
 ### <a name="store-in-azure-key-vault"></a>Almacenamiento en Azure Key Vault
@@ -220,7 +221,7 @@ Use la tabla siguiente como ayuda para seleccionar el certificado.
 
 | Configuración | Descripción |
 |-|-|
-| Suscripción | Suscripción a la que pertenece la instancia de Key Vault. |
+| Subscription | Suscripción a la que pertenece la instancia de Key Vault. |
 | Key Vault | Almacén que incluye el certificado que desea importar. |
 | Certificado | Seleccione en la lista de certificados PKCS12 del almacén. Se enumeran todos los certificados PKCS12 del almacén con sus huellas digitales, pero no todos se admiten en App Service. |
 
@@ -331,6 +332,9 @@ Para reemplazar un certificado que expira, la forma de actualizar el enlace de c
 3. Elimine el certificado existente.
 
 ### <a name="renew-an-app-service-certificate"></a>Renovación de un certificado de App Service
+
+> [!NOTE]
+> A partir del 23 de septiembre de 2021, los certificados de App Service requerirán realizar la validación de dominio cada 395 días. A diferencia del Certificado administrado de App Service, la revalidación de dominio para el Certificado de App Service NO se automatizará.
 
 > [!NOTE]
 > El proceso de renovación requiere que [la entidad de servicio conocida para App Service tenga los permisos necesarios en el almacén de claves](deploy-resource-manager-template.md#deploy-web-app-certificate-from-key-vault). Este permiso se configura automáticamente al importar un App Service Certificate a través del portal y no se debe quitar del almacén de claves.

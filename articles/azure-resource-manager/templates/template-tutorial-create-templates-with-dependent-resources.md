@@ -5,16 +5,16 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 152494ef7d24d3e39af63fcb549a26c78bb27bc6
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b7e4fa06db063538c801b01225818c4c9311e3d6
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959426"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400788"
 ---
 # <a name="tutorial-create-arm-templates-with-dependent-resources"></a>Tutorial: Creación de plantillas de Resource Manager con recursos dependientes
 
-Aprenda a crear una plantilla de Azure Resource Manager (ARM) para implementar varios recursos y configurar la orden de implementación. Después de crear la plantilla, puede implementarla mediante Cloud Shell en Azure Portal.
+Aprenda a crear una plantilla de Azure Resource Manager (ARM) para implementar varios recursos y configurar la orden de implementación. Después de crear la plantilla, puede implementarla mediante Azure Cloud Shell en Azure Portal.
 
 En este tutorial, creará una cuenta de almacenamiento, una máquina virtual, una red virtual y algunos otros recursos dependientes. Algunos de los recursos no se pueden implementar hasta que existe otro recurso. Por ejemplo, no se puede crear la máquina virtual hasta que existe su cuenta de almacenamiento y la interfaz de red. Esta relación se define al marcar un recurso como dependiente de los otros. Administrador de recursos evalúa las dependencias entre recursos y los implementa en su orden dependiente. Cuando no hay recursos dependientes entre sí, Resource Manager los implementa en paralelo. Para más información consulte [Definición del orden de implementación de recursos en plantillas de Azure Resource Manager](./resource-dependency.md).
 
@@ -36,11 +36,13 @@ Para un módulo de Microsoft Learn que abarca las dependencias de los recursos, 
 Para completar este artículo, necesitará lo siguiente:
 
 * Visual Studio Code con la extensión Resource Manager Tools. Consulte [Quickstart: Creación de plantillas de ARM mediante Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
-* Para aumentar la seguridad, utilice una contraseña generada para la cuenta de administrador de máquina virtual. Este es un ejemplo para generar una contraseña:
+* Para aumentar la seguridad, utilice una contraseña generada para la cuenta de administrador de máquina virtual. Puede usar [Azure Cloud Shell](../../cloud-shell/overview.md) para ejecutar el siguiente comando en PowerShell o Bash:
 
-    ```console
+    ```shell
     openssl rand -base64 32
     ```
+
+    Para más información, ejecute `man openssl rand` para abrir la página manual.
 
     Azure Key Vault está diseñado para proteger las claves criptográficas y otros secretos. Para más información, consulte el [Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager](./template-tutorial-use-key-vault.md). También se recomienda actualizar la contraseña cada tres meses.
 
@@ -120,7 +122,7 @@ Mediante la especificación de las dependencias, Resource Manager implementa de 
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-1. Inicio de sesión en [Azure Cloud Shell](https://shell.azure.com)
+1. Inicie sesión en [Cloud Shell](https://shell.azure.com).
 
 1. Elija el entorno que prefiera; para ello, seleccione **PowerShell** o **Bash** (para CLI) en la esquina superior izquierda.  Es necesario reiniciar el shell cuando realiza el cambio.
 

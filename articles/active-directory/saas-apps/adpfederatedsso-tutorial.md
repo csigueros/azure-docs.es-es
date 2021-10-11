@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ADP | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con ADP'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y ADP.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/24/2020
+ms.date: 09/30/2021
 ms.author: jeedes
-ms.openlocfilehash: ab53dc218bee83476811e6d42dec76479559b50b
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b0ee99863c0ba0287d3fd192ed04145fd3a3c69f
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124803240"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129402668"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adp"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ADP
+# <a name="tutorial-azure-ad-sso-integration-with-adp"></a>Tutorial: Integración del inicio de sesión único de Azure AD con ADP
 
 En este tutorial, aprenderá a integrar ADP en Azure Active Directory (Azure AD). Al integrar ADP en Azure AD, puede hacer lo siguiente:
 
@@ -26,13 +26,15 @@ En este tutorial, aprenderá a integrar ADP en Azure Active Directory (Azure AD)
 * Permitir que los usuarios puedan iniciar sesión automáticamente en ADP con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 * Una suscripción habilitada para el inicio de sesión único (SSO) en ADP.
+
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -43,7 +45,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
 
-## <a name="adding-adp-from-the-gallery"></a>Adición de ADP desde la galería
+## <a name="add-adp-from-the-gallery"></a>Incorporación de ADP desde la galería
 
 Para configurar la integración de ADP en Azure AD, será preciso agregar ADP desde la galería a la lista de aplicaciones SaaS administradas.
 
@@ -73,7 +75,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En Azure Portal, vaya a la página de integración de la aplicación **ADP**, haga clic en la **pestaña Propiedades** y realice los pasos siguientes: 
 
-    ![Propiedades del inicio de sesión único](./media/adpfederatedsso-tutorial/tutorial_adp_prop.png)
+    ![Propiedades del inicio de sesión único](./media/adpfederatedsso-tutorial/properties.png)
 
     a. Establezca el valor del campo **Habilitado para que los usuarios inicien sesión** en **Sí**.
 
@@ -91,13 +93,13 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    En el cuadro de texto **Identificador (Id. de entidad)** , escriba una dirección URL: `https://fed.adp.com`
+    En el cuadro de texto **Identificador (id. de entidad)** , escriba la dirección URL: `https://fed.adp.com`.
 
-4. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-6. En la sección **Configurar ADP**, copie las direcciones URL adecuadas según sus necesidades.
+1. En la sección **Configurar ADP**, copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -146,7 +148,7 @@ Una vez recibida la confirmación del representante de ADP, configure los servic
 1. Seleccione **ADP** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 1. En Azure Portal, vaya a la página de integración de la aplicación **ADP**, haga clic en la **pestaña Propiedades** y realice los pasos siguientes:  
 
-    ![Propiedades vinculadas de inicio de sesión único](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
+    ![Pestaña de propiedades vinculadas de inicio de sesión único](./media/adpfederatedsso-tutorial/application.png)
 
     1. Establezca el valor del campo **Habilitado para que los usuarios inicien sesión** en **Sí**.
 
@@ -158,11 +160,11 @@ Una vez recibida la confirmación del representante de ADP, configure los servic
 
 1. En el cuadro de diálogo **Seleccione un método de inicio de sesión único**, elija como **Modo** la opción **Vinculado**. Para vincular la aplicación a **ADP**.
 
-    ![Inicio de sesión único vinculado](./media/adpfederatedsso-tutorial/tutorial_adp_linked.png)
+    ![Inicio de sesión único vinculado](./media/adpfederatedsso-tutorial/linked.png)
 
 1. Navegue hasta la sección **Configurar la dirección URL de inicio de sesión** y realice los pasos siguientes:
 
-    ![Propiedades del inicio de sesión único](./media/adpfederatedsso-tutorial/tutorial_adp_linkedsignon.png)
+    ![Configuración del inicio de sesión único](./media/adpfederatedsso-tutorial/users.png)
 
     1. Pegue la **dirección URL de acceso de usuario** que copió de la **pestaña Propiedades** anterior (de la aplicación principal ADP).
 
@@ -209,7 +211,6 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 * Haga clic en Probar esta aplicación en Azure Portal y debería iniciar sesión automáticamente en la instancia de ADP para la que configuró el inicio de sesión único.
 
 * Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de ADP en Aplicaciones, debería iniciar sesión automáticamente en la instancia de ADP para la que ha configurado el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

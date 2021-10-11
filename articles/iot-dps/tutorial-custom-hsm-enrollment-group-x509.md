@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: f2e6918e6cdc6eb87fe80e9110183ed5a0a3693b
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: d431e91eb71d5befe71f134e634fe5ad3c7b392d
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113106720"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274486"
 ---
 # <a name="tutorial-provision-multiple-x509-devices-using-enrollment-groups"></a>Tutorial: Aprovisionamiento de varios dispositivos X.509 mediante grupos de inscripción
 
@@ -318,7 +318,7 @@ Los certificados de firma ahora son de confianza en el dispositivo basado en Win
 
 ## <a name="create-an-enrollment-group"></a>Creación de un grupo de inscripción
 
-1. Inicie sesión en Azure Portal, seleccione el botón **Todos los recursos** en el menú de la izquierda y abra Device Provisioning Service.
+1. Inicie sesión en Azure Portal, seleccione el botón **Todos los recursos** en el menú de la izquierda y abra la instancia de Device Provisioning Service.
 
 2. Seleccione la pestaña **Administrar inscripciones** y, después, seleccione el botón **Agregar grupo de inscripciones** en la parte superior.
 
@@ -339,9 +339,9 @@ Los certificados de firma ahora son de confianza en el dispositivo basado en Win
 
 En esta sección, actualizará el código de ejemplo con la información de la instancia de Device Provisioning Service. Si un dispositivo está autenticado, se asignará a un centro de IoT vinculado a la instancia de Device Provisioning Service configurada en esta sección.
 
-1. En Azure Portal, seleccione la pestaña **Información general** de Device Provisioning Service y anote el valor de **_Ámbito de id_** .
+1. En Azure Portal, seleccione la pestaña **Información general** de Device Provisioning Service y anote el valor de **_Ámbito de id_**.
 
-    ![Extracción de información del punto de conexión del servicio Device Provisioning desde la hoja del portal](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
+    ![Extracción de información del punto de conexión del servicio Device Provisioning desde la hoja del portal](./media/quick-create-simulated-device-x509/copy-id-scope.png) 
 
 2. Inicie Visual Studio y abra el nuevo archivo de solución que se creó en el directorio `cmake` que creó en el directorio raíz del repositorio de Git azure-iot-sdk-c. El archivo de solución se llama `azure_iot_sdks.sln`.
 

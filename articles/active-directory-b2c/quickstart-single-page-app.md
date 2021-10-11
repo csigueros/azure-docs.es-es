@@ -11,27 +11,29 @@ ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f560b5d288c1beea639476600a9a40fda19b8044
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 7dc02eb3c74208cf0d438640434430c7c04aeb9c
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613411"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353659"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Inicio rápido: Configuración del inicio de sesión de una aplicación de página única mediante Azure Active Directory B2C
 
-Azure Active Directory B2C (Azure AD B2C) proporciona administración de identidades en la nube para mantener la protección de su aplicación, empresa y clientes. Azure AD B2C permite que las aplicaciones puedan autenticarse con cuentas de redes sociales y cuentas de empresa mediante protocolos estándar abiertos. En esta guía de inicio rápido, se utiliza una aplicación de página única para iniciar sesión mediante un proveedor de identidades de redes sociales y llamar a una API web protegida por Azure AD B2C.
+Azure Active Directory B2C (Azure AD B2C) proporciona administración de identidades en la nube para mantener la protección de su aplicación, empresa y clientes. Azure AD B2C permite que las aplicaciones puedan autenticarse con cuentas de redes sociales y cuentas de empresa mediante protocolos estándar abiertos. 
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+En esta guía de inicio rápido, se utiliza una aplicación de página única para iniciar sesión mediante un proveedor de identidades de redes sociales y llamar a una API web protegida por Azure AD B2C.
+
+<!--[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] -->
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Node.js](https://nodejs.org/en/download/)
 - Cuenta de redes sociales de Facebook, Google o Microsoft
-- Ejemplo de código de GitHub: [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa)
+- Ejemplo de código de GitHub: [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa):
 
-    Puede [descargar el archivo .zip](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/archive/main.zip) o clonar el repositorio:
+    Puede [descargar el archivo .zip](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/archive/main.zip) o clonar el repositorio.
 
     ```console
     git clone https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa.git
@@ -42,7 +44,8 @@ Azure Active Directory B2C (Azure AD B2C) proporciona administración de id
 1. Inicie el servidor mediante la ejecución de los siguientes comandos desde el símbolo del sistema de Node.js:
 
     ```console
-    npm install && npm update
+    npm install
+    npm update
     npm start
     ```
 
@@ -75,19 +78,16 @@ Seleccione **Call API** (Llamar a la API) para obtener el nombre para mostrar de
 
 La aplicación de página única de ejemplo incluye un token de acceso en la solicitud al recurso de API web protegido.
 
-## <a name="clean-up-resources"></a>Limpieza de recursos
+<!-- ## Clean up resources
 
-Puede usar el inquilino de Azure AD B2C si tiene previsto leer otros tutoriales o guías de inicio rápido de Azure AD B2C. Cuando ya no sea necesario, puede [eliminar el inquilino de Azure AD B2C](faq.yml#how-do-i-delete-my-azure-ad-b2c-tenant-).
+You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C quickstarts or tutorials. When no longer needed, you can [delete your Azure AD B2C tenant](faq.yml#how-do-i-delete-my-azure-ad-b2c-tenant-).-->
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha utilizado una aplicación de una página única de ejemplo para lo siguiente:
+<!---In this quickstart, you used a sample single-page application to:
 
-- Iniciar sesión con un proveedor de identidades de redes sociales
-- Crear una cuenta de usuario de Azure AD B2C (que se crea automáticamente al iniciar sesión)
-- Llamar a una API web protegida por Azure AD B2C
+- Sign in with a social identity provider
+- Create an Azure AD B2C user account (created automatically at sign-in)
+- Call a web API protected by Azure AD B2C -->
 
-Empiece a crear su propio inquilino de Azure AD B2C.
-
-> [!div class="nextstepaction"]
-> [Creación de un inquilino de Azure Active Directory B2C en Azure Portal](tutorial-create-tenant.md)
+- Introducción a la creación del [inquilino de Azure Active Directory B2C en Azure Portal](tutorial-create-tenant.md)
