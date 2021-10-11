@@ -12,7 +12,7 @@
       displayName: 'deployment, where to deploy'
       href: architecture.md
 - name: Guías de inicio rápido
-  expanded: true
+  expanded: false
   items:
     - name: Requisitos previos del sistema
       displayName: 'firewall, proxy, open ports'
@@ -20,7 +20,7 @@
     - name: Introducción a Azure Defender para IoT
       displayName: 'getting started, registration, onboarding, activation, threat intelligence, trial, free, subscription'
       href: getting-started.md
-- name: Tutorial
+- name: Tutoriales
   expanded: false
   items:
     - name: Configuración de la evaluación gratuita de Azure Defender para IoT

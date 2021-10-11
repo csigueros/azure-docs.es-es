@@ -297,20 +297,6 @@
               href: h-series-retirement.md
             - name: "Retirada de la serie\_HB"
               href: hb-series-retirement.md
-        - name: Estados y facturación
-          href: states-billing.md
-        - name: Cuotas de vCPU
-          items:
-            - name: CLI
-              displayName: 'vCPU, quota, limit'
-              href: ./linux/quotas.md
-            - name: PowerShell
-              displayName: 'vCPU, quota, limit'
-              href: ./windows/quotas.md
-        - name: Máquinas virtuales de Azure sin disco temporal
-          href: azure-vms-no-temp-disk.yml
-        - name: Convenciones de nomenclatura de tamaños de máquina virtual de Azure
-          href: vm-naming-conventions.md
         - name: Generaciones anteriores
           displayName: 'older, retired, expired, deprecated'
           href: sizes-previous-gen.md
@@ -320,9 +306,6 @@
         - name: Tamaños aislados
           displayName: 'isolated VM, sole-tenant, sole'
           href: isolation.md
-        - name: Generaciones anteriores
-          displayName: 'older, retired, expired, deprecated'
-          href: sizes-previous-gen.md
         - name: Unidades de proceso de Azure (ACU)
           href: acu.md
         - name: Puntuaciones de pruebas comparativas
@@ -1402,7 +1385,7 @@
           href: ../virtual-network/virtual-networks-static-private-ip-arm-cli.md?context=/azure/virtual-machines/context/context
     - name: 'Creación de una máquina virtual: varias IP'
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: ../virtual-network/virtual-network-multiple-ip-addresses-portal.md?context=/azure/virtual-machines/context/context
         - name: Azure PowerShell
           href: ../virtual-network/virtual-network-multiple-ip-addresses-powershell.md?context=/azure/virtual-machines/context/context
