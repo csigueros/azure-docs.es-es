@@ -8,14 +8,12 @@
 - name: Tutoriales
   expanded: true
   items:
-    - name: Introducción a las credenciales verificables
-      href: get-started-verifiable-credentials.md
-    - name: Configuración de las credenciales verificables en el inquilino
-      items:
-        - name: "1 - Configuración del emisor de credenciales verificables en su propia instancia de Azure\_AD"
-          href: enable-your-tenant-verifiable-credentials.md
-        - name: "2 - Conexión del emisor de credenciales verificables a su propia instancia de Azure\_AD"
-          href: issue-verify-verifiable-credentials-your-tenant.md
+    - name: Configuración del servicio de credenciales verificables
+      href: verifiable-credentials-configure-tenant.md
+    - name: Generación de una credencial verificable
+      href: verifiable-credentials-configure-issuer.md
+    - name: Comprobación de una credencial verificable
+      href: verifiable-credentials-configure-verifier.md
 - name: Conceptos
   expanded: true
   items:
@@ -32,6 +30,8 @@
           href: plan-issuance-solution.md
         - name: Planeamiento de una solución de verificación
           href: plan-verification-solution.md
+    - name: Uso de la API REST de servicios de solicitud
+      href: get-started-request-api.md
     - name: Personalización de credenciales
       href: credential-design.md
     - name: Administración de la revocación de credenciales
@@ -49,6 +49,15 @@
       href: 'https://didvc-issuer-sample.azurewebsites.net/'
     - name: Verificador de ejemplo
       href: 'https://didvc-verifier-sample.azurewebsites.net/'
+- name: Referencia
+  expanded: true
+  items:
+    - name: Novedades
+      href: whats-new.md
+    - name: Especificación de API de emisión
+      href: issuance-request-api.md
+    - name: Especificación de API de presentación
+      href: presentation-request-api.md
 - name: Recursos
   expanded: true
   items:

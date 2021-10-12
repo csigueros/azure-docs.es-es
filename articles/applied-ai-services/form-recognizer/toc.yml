@@ -16,19 +16,19 @@ items:
     items:
       - name: "Form Recognizer\_v2.1"
         items:
-          - name: 'Introducción: herramienta de etiquetado de Form Recognizer'
+          - name: Herramienta de etiquetado Form Recognizer
             href: quickstarts/try-sample-label-tool.md
-          - name: 'Introducción: bibliotecas cliente y API REST'
+          - name: Bibliotecas cliente y API REST
             href: quickstarts/try-sdk-rest-api.md
       - name: "Form Recognizer\_v3.0 | Versión preliminar"
         items:
-          - name: 'Introducción: Form Recognizer Studio (versión preliminar)'
+          - name: Form Recognizer Studio (versión preliminar)
             href: quickstarts/try-v3-form-recognizer-studio.md
-          - name: 'Introducción: API REST (versión preliminar)'
+          - name: API REST (versión preliminar)
             href: quickstarts/try-v3-rest-api.md
-          - name: 'Introducción: SDK de C# (versión preliminar)'
+          - name: "SDK de\_C# (versión preliminar)"
             href: quickstarts/try-v3-csharp-sdk.md
-          - name: 'Introducción: SDK de Python (versión preliminar)'
+          - name: SDK de Python (versión preliminar)
             href: quickstarts/try-v3-python-sdk.md
   - name: Ejemplos
     items:
@@ -133,6 +133,8 @@ items:
         href: tutorial-azure-function.md
   - name: Referencia
     items:
+      - name: "Códigos de error y mensajes\_v3.0 (versión preliminar)"
+        href: preview-error-guide.md
       - name: API REST v2.1 de Azure Form Recognizer
         items:
           - name: Referencia de la API REST v2.1

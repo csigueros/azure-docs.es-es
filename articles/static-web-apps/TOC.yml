@@ -108,6 +108,8 @@
       href: publish-azure-resource-manager.md
     - name: Adición de Azure Front Door
       href: front-door-manual.md
+    - name: Administración de roles de usuario mediante programación
+      href: assign-roles-microsoft-graph.md
 - name: Referencia
   items:
     - name: Azure CLI

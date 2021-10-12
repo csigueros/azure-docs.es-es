@@ -188,6 +188,8 @@
               href: import-export-analytics-rules.md
             - name: Uso de reglas de anomalías de SOC-ML
               href: work-with-anomaly-rules.md
+            - name: Administración de versiones de plantilla para reglas de análisis
+              href: manage-analytics-rule-templates.md
         - name: Habilitación del análisis del comportamiento de usuarios y entidades (UEBA)
           href: enable-entity-behavior-analytics.md
         - name: Uso de reglas de anomalías de SOC-ML
