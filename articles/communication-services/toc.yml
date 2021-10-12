@@ -150,7 +150,11 @@ items:
       - name: Notificaciones de inserción
         href: concepts/notifications.md
       - name: Interoperabilidad de Teams
-        href: concepts/teams-interop.md
+        items:
+          - name: Información general
+            href: concepts/teams-interop.md
+          - name: Unión a una reunión de Teams
+            href: concepts/join-teams-meeting.md
       - name: Eventos de servicio (EventGrid)
         href: ../event-grid/event-schema-communication-services.md
         maintainContext: true

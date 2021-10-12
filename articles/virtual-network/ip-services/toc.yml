@@ -26,7 +26,7 @@ items:
     items:
       - name: Configuración de una máquina virtual con preferencia de enrutamiento de Internet
         items:
-          - name: Azure Portal
+          - name: Azure portal
             href: tutorial-routing-preference-virtual-machine-portal.md
           - name: Azure PowerShell
             href: configure-routing-preference-virtual-machine-powershell.md
@@ -59,7 +59,7 @@ items:
       - name: Seguridad
         items:
           - name: Línea de base de seguridad de IP pública
-        href: /security/benchmark/azure/baselines/public-ip-security-baseline?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json
+            href: /security/benchmark/azure/baselines/public-ip-security-baseline?toc=/azure/virtual-network/ip-services/toc.json
   - name: Instrucciones
     items:
       - name: Configuración de direcciones IP para una interfaz de red de Azure
@@ -98,7 +98,7 @@ items:
             href: remove-public-ip-address-vm.md
           - name: 'Creación de una máquina virtual: IP pública estática'
             items:
-              - name: Azure Portal
+              - name: Azure portal
                 href: virtual-network-deploy-static-pip-arm-portal.md
               - name: Azure PowerShell
                 href: virtual-network-deploy-static-pip-arm-ps.md
@@ -106,7 +106,7 @@ items:
                 href: virtual-network-deploy-static-pip-arm-cli.md
           - name: 'Creación de una máquina virtual: IP privada estática'
             items:
-              - name: Azure Portal
+              - name: Azure portal
                 href: virtual-networks-static-private-ip-arm-pportal.md
               - name: Azure PowerShell
                 href: virtual-networks-static-private-ip-arm-ps.md
@@ -122,7 +122,7 @@ items:
                 href: virtual-network-multiple-ip-addresses-cli.md
           - name: 'Creación de máquina virtual: Dirección IP privada estática (clásica)'
             items:
-              - name: Azure Portal
+              - name: Azure portal
                 href: virtual-networks-static-private-ip-classic-pportal.md
               - name: Azure PowerShell
                 href: virtual-networks-static-private-ip-classic-ps.md
@@ -132,7 +132,7 @@ items:
         items:
           - name: Creación de una dirección IP pública
             items:
-              - name: Azure Portal
+              - name: Azure portal
                 href: routing-preference-portal.md
               - name: Azure PowerShell
                 href: routing-preference-powershell.md
