@@ -2,13 +2,13 @@
 title: Concesión de acceso para una aplicación a otros recursos de Azure en un clúster administrado de Service Fabric
 description: En este artículo se explica el proceso para que una aplicación de Service Fabric habilitada para identidades administradas tenga acceso a otros recursos de Azure que admiten la autenticación basada en Azure Active Directory en un clúster administrado de Service Fabric.
 ms.topic: article
-ms.date: 5/10/2021
-ms.openlocfilehash: ba85736779f44d5874bb4a080ce0da1c5ba764f8
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.date: 10/05/2021
+ms.openlocfilehash: 6bead810e52c53f6c045e6d13d8035542f73ae39
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129544704"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615284"
 ---
 # <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-on-a-service-fabric-managed-cluster"></a>Concesión de acceso a recursos de Azure para la identidad administrada de una aplicación de Service Fabric en un clúster administrado de Service Fabric
 
@@ -38,74 +38,71 @@ De forma similar al proceso para acceder al almacenamiento, puede aprovechar la 
 En el ejemplo siguiente se muestra cómo conceder acceso a un almacén mediante la implementación de una plantilla; agregue el los fragmentos de código siguientes como otra entrada debajo del elemento `resources` de la plantilla. En el ejemplo se muestra cómo conceder acceso tanto a los tipos de identidad asignados por el usuario como a los asignados por el sistema, respectivamente (elija el que corresponda).
 
 ```json
-{
+    # under 'variables':
   "variables": {
-    "userAssignedIdentityResourceId": "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]",
-  },
-  "resources": [
-    {
-      "type": "Microsoft.KeyVault/vaults/accessPolicies",
-      "name": "[concat(parameters('keyVaultName'), '/add')]",
-      "apiVersion": "2018-02-14",
-      "properties": {
-        "accessPolicies": [
-          {
-            "tenantId": "[reference(variables('userAssignedIdentityResourceId'), '2018-11-30').tenantId]",
-            "objectId": "[reference(variables('userAssignedIdentityResourceId'), '2018-11-30').principalId]",
-            "dependsOn": [
-              "[variables('userAssignedIdentityResourceId')]"
-            ],
-            "permissions": {
-              "keys": [ "get", "list" ],
-              "secrets": [ "get", "list" ],
-              "certificates": [ "get", "list" ]
-            }
-          }
-        ]
-      }
+        "userAssignedIdentityResourceId" : "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]",
     }
-  ]
-}
+    # under 'resources':
+    {
+        "type": "Microsoft.KeyVault/vaults/accessPolicies",
+        "name": "[concat(parameters('keyVaultName'), '/add')]",
+        "apiVersion": "2018-02-14",
+        "properties": {
+            "accessPolicies": [
+                {
+                    "tenantId": "[reference(variables('userAssignedIdentityResourceId'), '2018-11-30').tenantId]",
+                    "objectId": "[reference(variables('userAssignedIdentityResourceId'), '2018-11-30').principalId]",
+                    "dependsOn": [
+                        "[variables('userAssignedIdentityResourceId')]"
+                    ],
+                    "permissions": {
+                        "keys":         ["get", "list"],
+                        "secrets":      ["get", "list"],
+                        "certificates": ["get", "list"]
+                    }
+                }
+            ]
+        }
+    },
 ```
 Y para las identidades administradas asignadas por el usuario:
 ```json
-{
+    # under 'variables':
   "variables": {
-    "sfAppSystemAssignedIdentityResourceId": "[concat(resourceId('Microsoft.ServiceFabric/managedClusters/applications/', parameters('clusterName'), parameters('applicationName')), '/providers/Microsoft.ManagedIdentity/Identities/default')]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.KeyVault/vaults/accessPolicies",
-      "name": "[concat(parameters('keyVaultName'), '/add')]",
-      "apiVersion": "2018-02-14",
-      "properties": {
-        "accessPolicies": [
-          {
-            "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
-            "tenantId": "[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').tenantId]",
-            "objectId": "[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').principalId]",
-            "dependsOn": [
-              "[variables('sfAppSystemAssignedIdentityResourceId')]"
-            ],
-            "permissions": {
-              "secrets": [
-                "get",
-                "list"
-              ],
-              "certificates": [
-                "get",
-                "list"
-              ]
-            }
-          }
-        ]
-      }
+        "sfAppSystemAssignedIdentityResourceId": "[concat(resourceId('Microsoft.ServiceFabric/managedClusters/applications/', parameters('clusterName'), parameters('applicationName')), '/providers/Microsoft.ManagedIdentity/Identities/default')]"
     }
-  ]
-}
+    # under 'resources':
+    {
+        "type": "Microsoft.KeyVault/vaults/accessPolicies",
+        "name": "[concat(parameters('keyVaultName'), '/add')]",
+        "apiVersion": "2018-02-14",
+        "properties": {
+            "accessPolicies": [
+            {
+                    "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
+                    "tenantId": "[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').tenantId]",
+                    "objectId": "[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').principalId]",
+                    "dependsOn": [
+                        "[variables('sfAppSystemAssignedIdentityResourceId')]"
+                    ],
+                    "permissions": {
+                        "secrets": [
+                            "get",
+                            "list"
+                        ],
+                        "certificates": 
+                        [
+                            "get", 
+                            "list"
+                        ]
+                    }
+            },
+        ]
+        }
+    }
 ```
 
 Para obtener más información, consulte [Almacenes: actualización de la directiva de acceso](/rest/api/keyvault/vaults/updateaccesspolicy).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Implementación de una aplicación de Service Fabric con una identidad administrada asignada por el sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
+* [Implementación de una aplicación con identidad administrada en un clúster administrado de Service Fabric](how-to-managed-cluster-application-managed-identity.md)

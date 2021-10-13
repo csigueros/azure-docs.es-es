@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 11/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0b41880bea25c1b833ab2a996a50edcf557f37b8
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: f2392484c8ee7c72daa0da7c3ff9632a981a52ec
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108161670"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619697"
 ---
 # <a name="configure-runbook-output-and-message-streams"></a>Configuración de flujos de salida y de mensajes de runbooks
 
@@ -30,7 +30,7 @@ En la tabla siguiente se describe brevemente cada flujo con su comportamiento en
 
 ## <a name="use-the-output-stream"></a>Uso del flujo de salida
 
-El flujo de salida se usa para la salida de los objetos creados por un script o flujo de trabajo, cuando se ejecuta correctamente. Azure Automation usa este flujo principalmente para objetos destinados a ser consumidos por runbooks primarios que llaman al [runbook actual](automation-child-runbooks.md). Cuando un runbook primario [llama a un runbook insertado](automation-child-runbooks.md#invoke-a-child-runbook-using-inline-execution), el runbook secundario devuelve los datos del flujo de salida al primario.
+El flujo de salida se usa para la salida de los objetos creados por un script o flujo de trabajo, cuando se ejecuta correctamente. Azure Automation usa este flujo principalmente para objetos destinados a ser consumidos por runbooks primarios que llaman al [runbook actual](automation-child-runbooks.md). Cuando un runbook primario [llama a un runbook insertado](automation-child-runbooks.md#call-a-child-runbook-by-using-inline-execution), el runbook secundario devuelve los datos del flujo de salida al primario.
 
 El runbook usa el flujo de salida para comunicar información general al cliente solo si nunca se le llama desde otro runbook. Como procedimiento recomendado, sin embargo, le recomendamos que los runbooks usen la opción de [flujo detallado](#write-output-to-verbose-stream) para comunicar información general al usuario.
 

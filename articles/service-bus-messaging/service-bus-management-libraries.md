@@ -3,12 +3,12 @@ title: Administración mediante programación de espacios de nombres y entidades
 description: En este artículo se explica cómo aprovisionar dinámicamente o mediante programación las entidades y los espacios de nombres de Service Bus.
 ms.topic: article
 ms.date: 08/06/2021
-ms.openlocfilehash: b053ff5cce51fbcd0ce56e2bdbfaff39dddb6394
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 2962d5d8aebcf0a24535b7d9c1538dc69bd11e65
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122178922"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709125"
 ---
 # <a name="dynamically-provision-service-bus-namespaces-and-entities"></a>Aprovisionamiento dinámico de espacios de nombres y entidades de Service Bus 
 Azure Service Bus proporciona bibliotecas para facilitar el aprovisionamiento dinámico de las entidades y los espacios de nombres de Service Bus. Esto posibilita escenarios complejos de implementación y mensajería, y permite determinar mediante programación qué entidades aprovisionar.
@@ -60,5 +60,5 @@ La bibliotecas cliente de Service Bus que se usan para operaciones como enviar y
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Envío y recepción de mensajes desde la cola mediante la biblioteca de Service Bus más reciente: [.NET](./service-bus-dotnet-get-started-with-queues.md#send-messages), [Java](./service-bus-java-how-to-use-queues.md), [JavaScript](./service-bus-nodejs-how-to-use-queues.md), [Python](./service-bus-python-how-to-use-queues.md)
+- Envío y recepción de mensajes desde la cola mediante la biblioteca de Service Bus más reciente: [.NET](./service-bus-dotnet-get-started-with-queues.md#send-messages-to-the-queue), [Java](./service-bus-java-how-to-use-queues.md), [JavaScript](./service-bus-nodejs-how-to-use-queues.md), [Python](./service-bus-python-how-to-use-queues.md)
 - Envío de mensajes a temas y recepción de mensajes desde suscripciones mediante la biblioteca de Service Bus más reciente: .[NET](./service-bus-dotnet-how-to-use-topics-subscriptions.md),  [Java](./service-bus-java-how-to-use-topics-subscriptions.md), [JavaScript](./service-bus-nodejs-how-to-use-topics-subscriptions.md), [Python](./service-bus-python-how-to-use-topics-subscriptions.md)

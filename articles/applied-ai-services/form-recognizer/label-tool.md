@@ -11,12 +11,12 @@ ms.date: 05/11/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: procesamiento de documentos
-ms.openlocfilehash: d463a45064a9f6b342a7cb735372a3c5098539c4
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 43e7da4eea864bf0ac2767718ff8ed04ed58c54e
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123431755"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715192"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -24,11 +24,11 @@ ms.locfileid: "123431755"
 <!-- markdownlint-disable MD034 -->
 # <a name="train-a-custom-model-using-the-sample-labeling-tool"></a>Entrenamiento de un modelo personalizado mediante la herramienta de etiquetado de ejemplo
 
-En este artículo, usará la API REST de Form Recognizer con la herramienta de etiquetado de ejemplo para entrenar un modelo personalizado de procesamiento de documentos con datos etiquetados manualmente. Consulte la sección [Entrenamiento con etiquetas](overview.md#train-with-labels) de la introducción para más información sobre el entrenamiento con Form Recognizer.
+En este artículo, usará la API REST de Form Recognizer con la herramienta de etiquetado de ejemplo para entrenar un modelo personalizado de procesamiento de documentos con datos etiquetados manualmente. 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este inicio rápido, debe cumplir los siguientes requisitos:
 

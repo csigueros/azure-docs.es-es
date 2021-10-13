@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
-ms.openlocfilehash: a41329da9171014b0495498f8757007dbef008ef
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: bd0ca3b20cc37ecf2107e03eea5d6e4a62633f16
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129537416"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129807180"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Solución de problemas del lado cliente de Redis Cache
 
@@ -21,7 +21,7 @@ En esta sección se describen problemas que se producen debido a una condición 
 - [Ráfaga de tráfico](#traffic-burst)
 - [Uso elevado de la CPU del cliente](#high-client-cpu-usage)
 - [Limitación de ancho de banda del lado cliente](#client-side-bandwidth-limitation)
-- [Tamaño de solicitud o respuesta grande](#large-request-or-response-size)
+<!-- [Large request or response size](#large-request-or-response-size) -->
 
 ## <a name="memory-pressure-on-redis-client"></a>Presión de memoria en el cliente de Redis
 
@@ -78,11 +78,12 @@ Supervise cómo cambia la utilización del ancho de banda a lo largo del tiempo 
 
 Para mitigarlo, reduzca el consumo de ancho de banda de red o aumente el tamaño de la máquina virtual del cliente a una con más capacidad de red.
 
-## <a name="large-request-or-response-size"></a>Tamaño de solicitud o respuesta grande
+<!-- 
+## Large request or response Size
 
-Una solicitud/respuesta grande puede provocar tiempos de espera agotados. Por ejemplo, suponga que el valor del tiempo de expiración configurado en el cliente es de 1 segundo. La aplicación solicita dos claves (por ejemplo, "A" y "B") al mismo tiempo (con la utilización de la misma conexión de red física). La mayoría de clientes admiten la "canalización" de las solicitudes, en la que ambas solicitudes, "A" y "B", se envían una tras otra sin tener que esperar las respuestas. El servidor vuelve a enviar las respuestas en el mismo orden. Si la respuesta "A" es grande, puede consumir la mayor parte del tiempo de expiración para las solicitudes posteriores.
+A large request/response can cause timeouts. As an example, suppose your timeout value configured on your client is 1 second. Your application requests two keys (for example, 'A' and 'B') at the same time (using the same physical network connection). Most clients support request "pipelining", where both requests 'A' and 'B' are sent one after the other without waiting for their responses. The server sends the responses back in the same order. If response 'A' is large, it can eat up most of the timeout for later requests.
 
-En el ejemplo siguiente, las solicitudes "A" y "B" se envían rápidamente al servidor. El servidor empieza a enviar las respuestas "A" y "B" rápidamente. Debido a los tiempos de transferencia de datos, la respuesta "B" debe esperar a que se agote el tiempo de espera de la respuesta "A", aunque el servidor haya respondido con rapidez.
+In the following example, request 'A' and 'B' are sent quickly to the server. The server starts sending responses 'A' and 'B' quickly. Because of data transfer times, response 'B' must wait behind response 'A' times out even though the server responded quickly.
 
 ```console
 |-------- 1 Second Timeout (A)----------|
@@ -93,19 +94,20 @@ En el ejemplo siguiente, las solicitudes "A" y "B" se envían rápidamente al se
                                        |- Read Response B-| (**TIMEOUT**)
 ```
 
-Esta solicitud/respuesta es difícil de medir. Puede instrumentar el código del cliente para realizar un seguimiento de las respuestas y solicitudes grandes.
+This request/response is a difficult one to measure. You could instrument your client code to track large requests and responses.
 
-Las resoluciones para los tamaños grandes de respuesta varían, pero incluyen lo siguiente:
+Resolutions for large response sizes are varied but include:
 
-1. Optimización de la aplicación para un gran número de valores pequeños, en lugar de unos pocos valores grandes.
-    - La mejor solución es dividir los datos en valores menores relacionados.
-    - Consulte la publicación [What is the ideal value size range for redis? Is 100KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) (¿Cuál es el intervalo de tamaño de valor ideal para Redis? ¿100 KB es demasiado grande?) para obtener detalles de por qué se recomiendan valores más pequeños.
-1. Aumento del tamaño de la máquina virtual para obtener mayores capacidades de ancho de banda.
-    - Un aumento de ancho de banda en la máquina virtual del cliente o servidor puede reducir los tiempos de transferencia de datos para respuestas más grandes.
-    - Compare la utilización actual de la red en ambas máquinas con los límites del tamaño actual de la máquina virtual. Es posible que obtener más ancho de banda solo en el servidor o en el cliente no sea suficiente.
-1. Aumente el número de objetos de conexión que usa la aplicación.
-    - Use un enfoque round robin para realizar solicitudes a través de objetos de conexión distintos.
+1. Optimize your application for a large number of small values, rather than a few large values.
+    - The preferred solution is to break up your data into related smaller values.
+    - See the post [What is the ideal value size range for redis? Is 100 KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) for details on why smaller values are recommended.
+1. Increase the size of your VM to get higher bandwidth capabilities
+    - More bandwidth on your client or server VM may reduce data transfer times for larger responses.
+    - Compare your current network usage on both machines to the limits of your current VM size. More bandwidth on only the server or only on the client may not be enough.
+1. Increase the number of connection objects your application uses.
+    - Use a round-robin approach to make requests over different connection objects.
 
+ -->
 ## <a name="additional-information"></a>Información adicional
 
 - [Solución de problemas del lado servidor de Redis Cache](cache-troubleshoot-server.md)

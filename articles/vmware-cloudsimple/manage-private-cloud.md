@@ -1,19 +1,19 @@
 ---
 title: Administrar una nube privada de Azure VMware Solution by CloudSimple
 description: Describe las funcionalidades disponibles para administrar la actividad y los recursos de nube privada CloudSimple.
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.date: 06/10/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 204f259285578a8af697833e2c9b210c231d62ef
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 05ee1a15cf344399d2dbb7e0f47e6afc0e556934
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108184395"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129620096"
 ---
 # <a name="manage-private-cloud-resources-and-activity"></a>Administrar la actividad y los recursos de la nube privada
 

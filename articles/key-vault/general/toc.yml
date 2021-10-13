@@ -124,6 +124,8 @@
           href: key-vault-recovery.md
         - name: Integrar Azure Key Vault con Azure Policy
           href: azure-policy.md
+        - name: Solución de problemas en la implementación de Azure Key Vault con Azure Policy
+          href: troubleshoot-azure-policy-for-key-vault.md
         - name: Copias de seguridad de objetos de Key Vault individuales
           href: backup.md
     - name: Seguridad

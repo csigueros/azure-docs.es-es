@@ -1,19 +1,19 @@
 ---
 title: 'Azure VMware Solution by CloudSimple: extensión de una red de Capa 2 en el entorno local a la nube privada'
 description: Se describe cómo configurar una VPN de Capa 2 entre NSX-T en una nube privada de CloudSimple y un cliente de NSX Edge independiente local.
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 7f327e0eecbfe51095f3f533dc787cc9aeedfb1e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5156be86fdaf2830abc66ed270edd1217be13bfb
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128638318"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129614239"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migración de cargas de trabajo mediante redes extendidas de Capa 2
 

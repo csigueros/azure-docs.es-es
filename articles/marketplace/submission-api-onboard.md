@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
 ms.date: 09/22/2021
-ms.openlocfilehash: 5c6431fef8c91b41f19d27d19b59efca14986b7f
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: e75b85ea7557e4eb6688e8a549e92820d580359b
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129061948"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129614752"
 ---
 # <a name="partner-center-submission-api-onboarding"></a>Incorporación de la API de envío del Centro de partners
 
@@ -64,7 +64,7 @@ grant_type=client_credentials
 &resource= https://api.partner.microsoft.com
 ```
 
-Para el valor tenant_id en el URI de POST y los parámetros client_id y client_secret, especifique el id. de inquilino, el de cliente y la clave de la aplicación que recuperó del Centro de partners en la sección anterior. Para el parámetro resource, tiene que especificar https://api.partner.microsoft.com.
+Para el valor tenant_id en el URI de POST y los parámetros client_id y client_secret, especifique el id. de inquilino, el de cliente y la clave de la aplicación que recuperó del Centro de partners en la sección anterior. Para el parámetro resource, tiene que especificar `https://api.partner.microsoft.com`.
 
 ### <a name="step-3-use-the-partner-center-submission-api"></a>Paso 3: Uso de la API de envío del Centro de partners
 

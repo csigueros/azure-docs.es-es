@@ -4,12 +4,12 @@ description: Aprenda a usar la API del servicio Batch para guardar datos de sali
 ms.topic: how-to
 ms.date: 08/18/2021
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 6669d6d4ae3a1aba0be6300869d17c0791d3734d
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 0a089637c68e218799e36cda0bcfa2dc7b1600a1
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122445111"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658526"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Almacenamiento de datos de tareas en Azure Storage con la API del servicio Batch
 
@@ -166,7 +166,7 @@ https://myaccount.blob.core.windows.net/mycontainer/task1/output.txt
 https://myaccount.blob.core.windows.net/mycontainer/task2/output.txt
 ```
 
-Para más información acerca de los directorios virtuales de Azure Storage, consulte [Enumerar los blobs de un contenedor](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container).
+Para más información acerca de los directorios virtuales de Azure Storage, consulte [Enumerar los blobs de un contenedor](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-blobs-in-a-container).
 
 ## <a name="diagnose-file-upload-errors"></a>Diagnóstico de errores de carga de archivos
 

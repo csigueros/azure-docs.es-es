@@ -70,7 +70,7 @@ En el código que ha clonado al principio del artículo, la función `GetCredent
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#GetCredentialsAsync)]
 
-En el caso de la autenticación interactiva, la función `GetCredentialsInteractiveAuthAsync` crea el objeto `ServiceClientCredentials` en función de una autenticación interactiva y los parámetros de conexión proporcionados en el archivo de configuración local (*appsettings.json*) o a través del archivo de variables de entorno *.env* en la raíz del repositorio. En ese caso, AADCLIENTID y AADSECRET no son necesarios en el archivo de variables de entorno ni de configuración.
+En el caso de la autenticación interactiva, la función `GetCredentialsInteractiveAuthAsync` crea el objeto `ServiceClientCredentials` en función de una autenticación interactiva y los parámetros de conexión proporcionados en el archivo de configuración local (*appsettings.json*) o a través del archivo de variables de entorno *.env* en la raíz del repositorio. En ese caso, AADCLIENTID y AADSECRET no son necesarios en el archivo de variables de entorno o de configuración.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#GetCredentialsInteractiveAuthAsync)]
 
@@ -83,7 +83,7 @@ En Media Services v3, se utilizan las API de Azure Storage para cargar archivos.
 La función siguiente realiza estas acciones:
 
 * Crea un **recurso**.
-* Obtiene una [dirección URL de SAS](../../storage/common/storage-sas-overview.md) que se puede escribir para el [contenedor de almacenamiento](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container) del recurso.
+* Obtiene una [dirección URL de SAS](../../storage/common/storage-sas-overview.md) que se puede escribir para el [contenedor de almacenamiento](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-a-blob-to-a-container) del recurso.
 
     Si usa la función [ListContainerSas](/rest/api/media/assets/listcontainersas) de un recurso para obtener direcciones URL SAS, tenga en cuenta que la función devuelve varias URL de SAS, ya que hay dos claves para cada cuenta de almacenamiento. Las cuentas de almacenamiento tienen dos claves, ya que eso permite una rotación perfecta de las claves de cuenta de almacenamiento (por ejemplo, cambiar una mientras se usa la otra y, luego, empezar a usar la clave nueva y rotar la otra). La primera dirección URL de SAS representa clave de almacenamiento 1, mientras que la segunda representa clave de almacenamiento 2.
 * Carga el archivo en el contenedor de almacenamiento mediante la dirección URL de SAS.

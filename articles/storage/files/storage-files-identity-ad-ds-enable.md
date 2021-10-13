@@ -5,15 +5,15 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 07/20/2021
+ms.date: 10/05/2021
 ms.author: rogarana
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cb66ed6c1a00c049c2fff6d9fccb22acbcb9fbee
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 7a7082005cc2a8154670abfae120d94015b2135c
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114462512"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129545819"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Parte 1: Habilitación de la autenticación de AD DS para los recursos compartidos de archivos de Azure 
 
@@ -36,7 +36,7 @@ Los cmdlets del módulo AzFilesHybrid de PowerShell realizan las modificaciones 
 
 ### <a name="download-azfileshybrid-module"></a>Descarga del módulo AzFilesHybrid
 
-- Si no tiene instalado [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472), instálelo ahora. Es necesario para que el módulo se importe correctamente.
+- Si no tiene instalado [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472), instálelo ahora. Es necesario para que el módulo se importe correctamente.
 - [Descargue y descomprima el módulo AzFilesHybrid (módulo de disponibilidad general: v0.2.0+)](https://github.com/Azure-Samples/azure-files-samples/releases) Tenga en cuenta que el cifrado de Kerberos AES 256 es compatible con v0.2.2 o posterior. Si ha habilitado la característica con una versión de AzFilesHybrid inferior a v0.2.2 y quiere actualizarla para que admita el cifrado de Kerberos AES 256, consulte [este artículo](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption).
 - Instale y ejecute el módulo en un dispositivo que se haya unido a un dominio a AD DS local con credenciales de AD DS que tengan permisos para crear una cuenta de inicio de sesión de servicio o una cuenta de equipo en la instancia de destino.
 -  Ejecute el script con una credencial de AD DS local que esté sincronizada con su instancia de Azure AD. La credencial de AD DS local debe tener el rol de Azure de **propietario** o **colaborador** en la cuenta de almacenamiento.
@@ -104,11 +104,11 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 
 Si ya ha ejecutado correctamente el script `Join-AzStorageAccountForAuth` anterior, vaya a la sección [Confirmación de que la característica está habilitada](#confirm-the-feature-is-enabled). No tendrá que realizar los siguientes pasos manuales.
 
-### <a name="checking-environment"></a>Comprobación del entorno
+### <a name="check-the-environment"></a>Comprobación del entorno
 
 En primer lugar, debe comprobar el estado del entorno. En concreto, compruebe si [Active Directory PowerShell](/powershell/module/activedirectory/) está instalado y si el shell se ejecuta con privilegios de administrador. Después, compruebe si está instalado el [módulo Az.Storage 2.0 (o una versión posterior)](https://www.powershellgallery.com/packages/Az.Storage/2.0.0) y, en caso negativo, instálelo. Después de completar esas comprobaciones, compruebe la instancia de AD DS para ver si hay una [cuenta de equipo](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (valor predeterminado) o una [cuenta de inicio de sesión de servicio](/windows/win32/ad/about-service-logon-accounts) que ya se haya creado con SPN/UPN como "cifs/nombre_de_la_cuenta_de_almacenamiento.file.core.windows.net". Si la cuenta no existe, cree una como se describe en la sección siguiente.
 
-### <a name="creating-an-identity-representing-the-storage-account-in-your-ad-manually"></a>Creación de una identidad que representa la cuenta de almacenamiento en AD manualmente
+### <a name="create-an-identity-representing-the-storage-account-in-your-ad-manually"></a>Creación de una identidad que represente a la cuenta de almacenamiento de AD manualmente
 
 Para crear esta cuenta manualmente, cree una clave Kerberos para la cuenta de almacenamiento. A continuación, use la clave Kerberos como contraseña para su cuenta con los cmdlets de PowerShell siguientes. Esta clave solo se usa durante la configuración y no se puede utilizar para las operaciones de control o de plano de datos en la cuenta de almacenamiento. 
 
@@ -129,9 +129,37 @@ Si la unidad organizativa impone la expiración de la contraseña, debe actualiz
 
 Mantenga el SID de la identidad recién creada; lo necesitará en el siguiente paso. No es preciso sincronizar con Azure AD la identidad que ha creado y que representa la cuenta de almacenamiento.
 
+#### <a name="optional-enable-aes256-encryption"></a>(Opcional) Habilitación del cifrado AES256
+
+Si quiere habilitar el cifrado AES256, siga los pasos de esta sección. Si piensa usar RC4, puede omitir esta sección.
+
+El objeto de dominio que representa a la cuenta de almacenamiento debe cumplir los siguientes requisitos:
+- El nombre de la cuenta de almacenamiento no puede superar los 15 caracteres.
+- El objeto de dominio debe crearse como un objeto de equipo en el dominio de AD local.
+- A excepción del carácter "$" final, el nombre de la cuenta de almacenamiento debe ser el mismo que el elemento samAccountName del objeto de equipo.
+
+Si el objeto de dominio no cumple esos requisitos, elimínelo y cree un nuevo objeto de dominio que lo haga.
+
+Reemplace `<domain-object-identity>` y `<domain-name>` por sus valores y use el siguiente comando para configurar la compatibilidad con AES256: 
+
+```powershell
+Set-ADComputer -Identity <domain-object-identity> -Server <domain-name> -KerberosEncryptionType "AES256"
+```
+
+Después de ejecutar ese comando, reemplace `<domain-object-identity>` en el siguiente script por su valor y ejecute el script para actualizar la contraseña del objeto de dominio:
+
+```powershell
+$KeyName = "kerb1" # Could be either the first or second kerberos key, this script assumes we're refreshing the first
+$KerbKeys = New-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -KeyName $KeyName
+$KerbKey = $KerbKeys | Where-Object {$_.KeyName -eq $KeyName} | Select-Object -ExpandProperty Value
+$NewPassword = Convert-ToSecureString -String $KerbKey -AsPlainText -Force
+
+Set-ADAccountPassword -Identity <domain-object-identity> -Reset -NewPassword $NewPassword
+```
+
 ### <a name="enable-the-feature-on-your-storage-account"></a>Habilitación de la característica en la cuenta de almacenamiento
 
-Ahora puede habilitar la característica en la cuenta de almacenamiento. Proporcione algunos detalles de configuración para las propiedades de dominio en el siguiente comando y, luego, ejecútelo. El SID de la cuenta de almacenamiento necesario en el siguiente comando es el de la identidad que creó en su AD DS en [la sección anterior](#creating-an-identity-representing-the-storage-account-in-your-ad-manually).
+Ahora puede habilitar la característica en la cuenta de almacenamiento. Proporcione algunos detalles de configuración para las propiedades de dominio en el siguiente comando y, luego, ejecútelo. El SID de la cuenta de almacenamiento necesario en el siguiente comando es el de la identidad que creó en su AD DS en [la sección anterior](#create-an-identity-representing-the-storage-account-in-your-ad-manually).
 
 ```PowerShell
 # Set the feature flag on the target storage account and provide the required AD domain information

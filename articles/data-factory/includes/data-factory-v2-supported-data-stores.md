@@ -1,19 +1,19 @@
 ---
-title: Archivo de inclusión
+title: archivo de inclusión
 description: archivo de inclusión
 services: data-factory
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: include
-ms.date: 09/22/2021
-ms.author: jingwang
+ms.date: 09/29/2021
+ms.author: jianleishen
 ms.custom: include file
-ms.openlocfilehash: 75a08a3aee9a337e422611fd238fece98b9d09e5
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 4bb3c4e2c51323400ca233193c65ba85b3200316
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129095969"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129725879"
 ---
 | Category | Almacén de datos | Se admite como origen | Se admite como receptor | Compatible con [IR de Azure](../concepts-integration-runtime.md#azure-integration-runtime) | Compatible con [IR autohospedado](../concepts-integration-runtime.md#self-hosted-integration-runtime) |
 |:--- |:--- |:--- |:--- |:--- |:--- |

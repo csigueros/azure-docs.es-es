@@ -1036,6 +1036,8 @@
         - name: Buscar cargo de la unidad de solicitud
           displayName: 'request units, RUs, RU, charge, consumption'
           href: cassandra/find-request-unit-charge-cassandra.md
+        - name: Evitar errores que limiten la velocidad
+          href: cassandra/prevent-rate-limiting-errors.md
         - name: Almacenamiento y administración de datos de Spring
           href: cassandra/access-data-spring-data-app.md
         - name: Solución de problemas comunes

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 16479588b0e0ec64a17cb3ce0b7a46c49bd2244e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e077ac7c1cdae781b2a07cdcba0b89e001da87bb
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124769909"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129712202"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Reescribir los encabezados HTTP de solicitud y respuesta con Azure Application Gateway mediante Azure Portal
 
@@ -99,7 +99,7 @@ En este ejemplo, se modificará una dirección URL de redireccionamiento al rees
 
    - En la lista **Operador**, seleccione **igual (=)** .
 
-   - Escriba un patrón de expresión regular. En este ejemplo, se usará el patrón `(https?)://.*azurewebsites.net(.*)$`.
+   - Escriba un patrón de expresión regular. En este ejemplo, se usará el patrón `(https?):\/\/.*azurewebsites.net(.*)$`.
 
    - Seleccione **Aceptar**.
 

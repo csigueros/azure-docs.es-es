@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 867d4b380266c5cbfbae68ca61d83ab3fd28aee3
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 9b144af348a13ae3673ccf2a5f2f11810fd3e296
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129216600"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129728121"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Aplicación de la Ventaja híbrida de Azure en máquinas virtuales Linux
 
@@ -188,12 +188,13 @@ Para más información sobre el cumplimiento de las suscripciones de Red Hat, la
 
 ### <a name="suse"></a>SUSE
 
+A fin de usar Ventaja híbrida de Azure para las máquinas virtuales de SLES y para obtener información sobre cómo cambiar de PAYG de SLES a BYOS, o bien pasar de BYOS de SLES a PAYG, vea [SUSE Linux Enterprise y Ventaja híbrida de Azure](https://aka.ms/suse-ahb). 
+
 Los clientes que usan Ventaja híbrida de Azure deben trasladar la infraestructura de actualización de nube a una de las tres opciones que proporcionan actualizaciones de software y revisiones a esas máquinas virtuales:
 - [Centro de atención al cliente de SUSE](https://scc.suse.com)
 - SUSE Manager
 - SUSE Repository Mirroring Tool (RMT) 
 
-A fin de usar Ventaja híbrida de Azure para las máquinas virtuales de SLES y para obtener información sobre cómo cambiar de PAYG de SLES a BYOS, o bien pasar de BYOS de SLES a PAYG, vea [SUSE Linux Enterprise y Ventaja híbrida de Azure](https://www.suse.com/c/suse-linux-enterprise-and-azure-hybrid-benefit/). 
 
 ## <a name="azure-hybrid-benefit-on-reserved-instances"></a>Ventaja híbrida de Azure en instancias reservadas 
 

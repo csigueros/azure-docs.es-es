@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
-ms.openlocfilehash: bb057f6328c0a678f1fbc7bfed57f1fa8dc13bfc
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
+ms.openlocfilehash: c4b403a28c5411008645a8c3f7f52894b8993faf
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681640"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707405"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Instalación de aplicaciones de Apache Hadoop de terceros en Azure HDInsight
 
@@ -32,10 +32,9 @@ En la lista siguiente se muestran las aplicaciones publicadas:
 |[Kyligence Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/kyligence.kyligence-cloud-saas) |Hadoop, HBase, Spark |Con tecnología Apache Kylin, Kyligence Enterprise permite la inteligencia empresarial sobre macrodatos. Como un motor OLAP empresarial en Hadoop, Kyligence Enterprise permite a los analistas empresariales diseñar una arquitectura de inteligencia empresarial en Hadoop con metodologías de inteligencia empresarial y almacenamiento de datos estándar del sector. |
 |[Starburst Presto para Azure HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/starburstdatainc1582306810515.starburst-enterprise-presto?tab=Overview) |Hadoop |Presto es un motor de consulta SQL distribuido, rápido y escalable. Diseñado para la separación de almacenamiento y proceso, Presto es perfecto para consultar datos en Azure Data Lake Storage, Azure Blob Storage, bases de datos SQL y NoSQL y otros orígenes de datos. |
 |[StreamSets Data Collector para HDInsight en la nube](https://azuremarketplace.microsoft.com/marketplace/apps/streamsets.streamsets-data-collector-hdinsight) |Hadoop, HBase, Spark, Kafka |StreamSets Data Collector es un motor ligero y eficaz que transmite datos en tiempo real. Puede usar Data Collector para enrutar y procesar los datos de los flujos de datos. Incluye una licencia de prueba de 30 días. |
-|[Trifacta Wrangler Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/trifacta.trifacta-db?tab=Overview) |Hadoop, Spark, HBase |Trifacta Wrangler Enterprise para HDInsight admite la limpieza y transformación de datos en toda la empresa para cualquier escala de datos. El costo de ejecutar Trifacta en Azure es una combinación de los costos de suscripción de Trifacta más los costos de infraestructura de Azure para las máquinas virtuales. |
+|[Trifacta Wrangler Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/trifactainc1587522950142.trifactaazure) |Hadoop, Spark, HBase |Trifacta Wrangler Enterprise para HDInsight admite la limpieza y transformación de datos en toda la empresa para cualquier escala de datos. El costo de ejecutar Trifacta en Azure es una combinación de los costos de suscripción de Trifacta más los costos de infraestructura de Azure para las máquinas virtuales. |
 |[Plataforma de datos Unifi](https://www.crunchbase.com/organization/unifi-software) |Hadoop, HBase, Storm, Spark |La plataforma de datos Unifi es un conjunto de herramientas de datos de autoservicio perfectamente integrado diseñado para permitir que el usuario de una empresa afronte los desafíos de datos que impulsan ingresos incrementales y reducen los costos o la complejidad operativa. |
 |[Unraveldata APM](https://azuremarketplace.microsoft.com/marketplace/apps/unravel-data.unravel-app) |Spark |Aplicación Unravel Data para clúster Spark de HDInsight. |
-|[Catálogo de datos controlado por inteligencia artificial de Waterline](https://azuremarketplace.microsoft.com/marketplace/apps/waterline_data.waterline_data) |Spark |Waterline clasifica, organiza y administra los datos mediante la inteligencia artificial para etiquetarlos de forma automática con términos empresariales. El catálogo alfabetizado empresarial de Waterline es un componente crítico y de éxito para análisis de autoservicio, cumplimiento y gobernanza, así como para iniciativas de administración de TI. |
 
 Para las instrucciones proporcionadas en este artículo se usa Azure Portal. También puede exportar la plantilla de Azure Resource Manager desde el portal u obtener una copia de dicha plantilla de proveedores y usar Azure PowerShell y la CLI de Azure clásica para implementarla.  Consulte [Creación de clústeres de Apache Hadoop en HDInsight con plantillas de Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 

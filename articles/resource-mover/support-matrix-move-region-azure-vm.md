@@ -7,20 +7,16 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 02/08/2021
 ms.author: raynew
-ms.openlocfilehash: 3022b2d4954ffaef71e17ed28dd9b6f141d4da70
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ced0213a155bee2926a77d0b8f4126b7b97232fb
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99980497"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129618959"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Compatibilidad con la migración de máquinas virtuales de Azure entre regiones de Azure
 
 En este artículo se resumen la compatibilidad y los requisitos previos a la hora de migrar máquinas virtuales y recursos de red relacionados entre regiones de Azure mediante Resource Mover.
-
-> [!IMPORTANT]
-> Azure Resource Mover se encuentra actualmente en versión preliminar.
-
 
 ## <a name="windows-vm-support"></a>Compatibilidad con máquinas virtuales Windows
 

@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: tutorial
 ms.date: 07/26/2021
 ms.author: inhenkel
-ms.openlocfilehash: 8f857ff3c1a17e0f17d396b8d97d9d0e27b4fa18
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1427e97ceb3cd592a105bc06174e2627e3bc53bd
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128646087"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659020"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Tutorial: Análisis de vídeos con Media Services v3
 
@@ -91,7 +91,7 @@ En Media Services v3, se utilizan las API de Azure Storage para cargar archivos.
 La función siguiente realiza estas acciones:
 
 * Crea un recurso.
-* Obtiene una [dirección URL de SAS](../../storage/common/storage-sas-overview.md) que se puede escribir para el [contenedor de almacenamiento](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container) del recurso.
+* Obtiene una [dirección URL de SAS](../../storage/common/storage-sas-overview.md) que se puede escribir para el [contenedor de almacenamiento](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-a-blob-to-a-container) del recurso.
 
     Si usa la función [ListContainerSas](/rest/api/media/assets/listcontainersas) de un recurso para obtener direcciones URL SAS, tenga en cuenta que la función devuelve varias URL de SAS, ya que hay dos claves para cada cuenta de almacenamiento. Las cuentas de almacenamiento tienen dos claves, ya que eso permite una rotación perfecta de las claves de cuenta de almacenamiento (por ejemplo, cambiar una mientras se usa la otra y, luego, empezar a usar la clave nueva y rotar la otra). La primera dirección URL de SAS representa clave de almacenamiento 1, mientras que la segunda representa clave de almacenamiento 2.
 * Carga el archivo en el contenedor de almacenamiento mediante la dirección URL de SAS.

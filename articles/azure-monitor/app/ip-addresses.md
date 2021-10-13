@@ -3,12 +3,12 @@ title: Direcciones IP usadas por Azure Monitor
 description: Excepciones para el firewall del servidor requeridas por Application Insights
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: e6f0eb2de43f3ee6a9be61089a22d57f8cfe8116
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7516cdc5fcb605415ef009e7b5f1d5da195ba1c9
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124815772"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858374"
 ---
 # <a name="ip-addresses-used-by-azure-monitor"></a>Direcciones IP usadas por Azure Monitor
 
@@ -196,7 +196,7 @@ East US
 ```
 
 ### <a name="discovery-api"></a>API de detección
-Puede que también le interese [recuperar mediante programación](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) la lista actual de etiquetas de servicio, junto con los detalles del intervalo de direcciones IP.
+Puede que también le interese [recuperar mediante programación](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) la lista actual de etiquetas de servicio, junto con los detalles del intervalo de direcciones IP.
 
 ## <a name="application-insights--log-analytics-apis"></a>API de Application Insights y Log Analytics
 

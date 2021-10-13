@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/01/2021
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: f385ca93c3cee6535a71dcffdd9240871ab1bdce
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d43407221d62992a54f1e5efdeb23afd3dde92ef
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128676397"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129661186"
 ---
 # <a name="azure-cosmos-db-output-binding-for-azure-functions-2x-and-higher"></a>Enlace de salida de Azure Cosmos DB para Azure Functions 2.x y versiones superiores
 
@@ -700,7 +700,7 @@ De forma predeterminada, cuando se escribe en el parámetro de salida de la func
 
 ## <a name="hostjson-settings"></a>configuración de host.json
 
-En esta sección se describen las opciones de configuración globales disponibles para este enlace en la versión 2.x de Azure Functions. Para obtener más información acerca de las opciones de configuración globales de la versión 2.x de Azure Functions, consulte la [referencia de host.json para Azure Functions, versión 2.x](functions-host-json.md).
+[!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
 
 ```json
 {

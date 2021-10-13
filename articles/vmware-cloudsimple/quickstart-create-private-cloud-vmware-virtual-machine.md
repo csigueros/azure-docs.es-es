@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Creación de una máquina virtual de VMware de Azure en una nube privada: Azure VMware Solution by CloudSimple'
 description: Aprenda a crear una máquina virtual de VMware en la nube privada de CloudSimple. Acceda al portal de CloudSimple desde Azure Portal.
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 76dd3e6796b49cda5ae2a55582b102e41d231d07
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 4eec39455834d6ebaa2fcb1ed2799b0e023d48bf
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108176331"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129616177"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Creación de máquinas virtuales de VMware en la nube privada
 

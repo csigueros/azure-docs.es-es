@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 06/25/2021
 ms.author: glenga
 ms.topic: tutorial
-ms.openlocfilehash: 6b4875f028fe8645125743d04770c2fd237b4f62
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2454957e6cff781199ad9217ed02ab5241d104c2
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121752464"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129661262"
 ---
 # <a name="tutorial-get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Tutorial: Introducción al SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -199,10 +199,6 @@ A partir de la versión 3 del SDK de WebJobs, para conectarse a los servicios d
     {
         var builder = new HostBuilder();
         builder.UseEnvironment(EnvironmentName.Development);
-        builder.ConfigureWebJobs(b =>
-        {
-            b.AddAzureStorageCoreServices();
-        });
         builder.ConfigureLogging((context, b) =>
         {
             b.AddConsole();

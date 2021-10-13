@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: how-to
 ms.date: 05/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 1f98c0d12ac0df6d824f7f6f5c5e19071b780612
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: fa8b26c2f26ed93bda0ba96b695e94951b72af6b
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110781979"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658222"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>Creación de una entrada de trabajo a partir de un archivo local
 
@@ -33,7 +33,7 @@ En Media Services v3, cuando se envían trabajos para procesar los vídeos, es n
 En el código siguiente se muestra cómo crear un recurso de entrada y usarlo como la entrada del trabajo. La función CreateInputAsset realiza las acciones siguientes:
 
 * Crea el recurso.
-* Obtiene una [dirección URL de SAS](../../storage/common/storage-sas-overview.md) que se puede escribir en el [contenedor de almacenamiento](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container) del recurso.
+* Obtiene una [dirección URL de SAS](../../storage/common/storage-sas-overview.md) que se puede escribir en el [contenedor de almacenamiento](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-a-blob-to-a-container) del recurso.
 * Carga el archivo en el contenedor de almacenamiento mediante la dirección URL de SAS
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]

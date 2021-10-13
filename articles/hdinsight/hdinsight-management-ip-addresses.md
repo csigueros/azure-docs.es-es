@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 617624fe3ae3ea5c0dc7bb3f34145f0aadf4ac4b
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 65e2e90f82794fa36c7e33a9eb1859e260034f71
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113219220"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857527"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Direcciones IP de administración de HDInsight
 
@@ -23,7 +23,7 @@ En este artículo se enumeran las direcciones IP que usan los servicios de mante
 
 Si usa grupos de seguridad de red (NSG) o rutas definidas por el usuario (UDR) para controlar el tráfico entrante a su clúster de HDInsight, tiene que asegurarse de que el clúster pueda comunicarse con los servicios críticos de mantenimiento y administración de Azure.  Algunas de las direcciones IP de esos servicios son específicas de una región y otra se aplican a todas las regiones de Azure. También es posible que deba permitir el tráfico desde el servicio Azure DNS si no usa DNS personalizado.
 
-Si necesita direcciones IP para una región que no aparece aquí, puede usar la [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) para buscar las direcciones IP de su región. Si no puede usar la API, descargue el [archivo JSON de la etiqueta de servicio](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) y busque la región deseada.
+Si necesita direcciones IP para una región que no aparece aquí, puede usar la [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) para buscar las direcciones IP de su región. Si no puede usar la API, descargue el [archivo JSON de la etiqueta de servicio](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) y busque la región deseada.
 
 HDInsight valida estas reglas cuando se crean y escalan clústeres para evitar que se produzcan errores. Si no se supera la validación, las operaciones de creación y escalado no se realizan correctamente.
 

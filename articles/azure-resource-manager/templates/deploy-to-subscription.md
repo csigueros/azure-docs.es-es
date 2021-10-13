@@ -4,12 +4,12 @@ description: Se describe cómo crear un grupo de recursos en una plantilla de Az
 ms.topic: conceptual
 ms.date: 09/14/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 2afcd6fa4598a881f0adc5f82c43c8d9c8021064
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8d171bde22bce1aac94e21c412b6773e6a4f39c5
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128672825"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711492"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Implementaciones de suscripción con plantillas de Resource Manager
 
@@ -332,37 +332,7 @@ En el ejemplo siguiente se crea un grupo de recursos y se implementa una cuenta 
 
 En el ejemplo siguiente se asigna una definición de directiva existente a la suscripción. Si la definición de directiva toma parámetros, proporciónelos como un objeto. Si la definición de directiva no toma parámetros, use el objeto vacío predeterminado.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "policyDefinitionID": {
-      "type": "string"
-    },
-    "policyName": {
-      "type": "string"
-    },
-    "policyParameters": {
-      "type": "object",
-      "defaultValue": {}
-    }
-  },
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2020-09-01",
-      "name": "[parameters('policyName')]",
-      "properties": {
-        "scope": "[subscription().id]",
-        "policyDefinitionId": "[parameters('policyDefinitionID')]",
-        "parameters": "[parameters('policyParameters')]"
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/policyassign.json":::
 
 Para implementar esta plantilla con la CLI de Azure, use:
 
@@ -398,46 +368,7 @@ New-AzSubscriptionDeployment `
 
 Puede [definir](../../governance/policy/concepts/definition-structure.md) y asignar una definición de directiva en la misma plantilla.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Authorization/policyDefinitions",
-      "apiVersion": "2020-09-01",
-      "name": "locationpolicy",
-      "properties": {
-        "policyType": "Custom",
-        "parameters": {},
-        "policyRule": {
-          "if": {
-            "field": "location",
-            "equals": "northeurope"
-          },
-          "then": {
-            "effect": "deny"
-          }
-        }
-      }
-    },
-    {
-      "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2020-09-01",
-      "name": "location-lock",
-      "dependsOn": [
-        "locationpolicy"
-      ],
-      "properties": {
-        "scope": "[subscription().id]",
-        "policyDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/policydefineandassign.json":::
 
 Para crear la definición de directiva en su suscripción y asignarla a la suscripción, use el siguiente comando de la CLI:
 

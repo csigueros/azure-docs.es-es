@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/17/2021
-ms.openlocfilehash: 54261049799cc02695d1162012cac9b7bff3558f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1966ce24919e2d98658afe2cec09d37e3b567c60
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128559254"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387494"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Límites en Azure Database for PostgreSQL con servidor flexible
 
@@ -96,6 +96,7 @@ Una conexión de PostgreSQL, aunque no esté activa, puede ocupar aproximadament
 - Postgres 10 y las versiones anteriores no se admiten. Se recomienda usar la opción [Servidor único](../overview-single-server.md) si necesita versiones anteriores de Postgres.
 - La compatibilidad con la extensión está limitada actualmente a las extensiones `contrib` de Postgres.
 - El agrupador de conexiones PgBouncer integrado no está disponible actualmente para los servidores que pueden aumentar la velocidad.
+- La autenticación SCRAM no se admite con la conectividad mediante PgBouncer integrado.
 
 ### <a name="stopstart-operation"></a>Parada o puesta en marcha
 

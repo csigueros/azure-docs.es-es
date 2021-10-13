@@ -6,14 +6,14 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/11/2020
+ms.date: 10/8/2021
 ms.author: erhopf
-ms.openlocfilehash: 7e0b0a3023147fc12c0133f7fb0c78b943c09ced
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: e706c8ed4bd15d7d8f1d234d8adfab85d626788c
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122067058"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129729109"
 ---
 # <a name="azure-cognitive-services-support-and-help-options"></a>Opciones de ayuda y de soporte técnico de Azure Cognitive Services
 
@@ -144,7 +144,6 @@ Para solicitar nuevas características, publíquelas en https://feedback.azure.c
 Mantenerse informado acerca de las características de una nueva versión o de noticias en el blog de Azure puede ayudarle a encontrar la diferencia entre un error de programación, un error del servicio o una característica que todavía no esté disponible en Cognitive Services.
 
 * Obtenga información sobre las actualizaciones de productos, la hoja de ruta y los anuncios en [Actualizaciones de Azure](https://azure.microsoft.com/updates/?category=ai-machine-learning&query=Azure%20Cognitive%20Services).
-* Vea qué artículos Cognitive Services se han agregado o actualizado recientemente en [Novedades de la documentación](whats-new-docs.md).
 * Las noticias sobre Cognitive Services se comparten en el [blog de Azure](https://azure.microsoft.com/blog/topics/cognitive-services/).
 * [Únase a la conversación en Reddit](https://www.reddit.com/r/AZURE/search/?q=Cognitive%20Services&restrict_sr=1) sobre Cognitive Services.
 

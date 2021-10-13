@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 00a3fa397bf88520fa4923b6fbe7495c0aa0b8a2
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 37535361222a1c2e476e2cde24304ee4cc3f218c
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277409"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129657366"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Señalización de pistas descriptivas de audio
 
@@ -45,7 +45,7 @@ En Media Services v3, se utilizan las API de Azure Storage para cargar archivos.
 La función siguiente realiza estas acciones:
 
 * Crea un **recurso** 
-* Obtiene una [dirección URL de SAS](../../storage/common/storage-sas-overview.md) que se puede escribir para el [contenedor de almacenamiento](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container) del recurso.
+* Obtiene una [dirección URL de SAS](../../storage/common/storage-sas-overview.md) que se puede escribir para el [contenedor de almacenamiento](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-a-blob-to-a-container) del recurso.
 * Carga el archivo en el contenedor de almacenamiento mediante la dirección URL de SAS
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]

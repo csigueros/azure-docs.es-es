@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 01/19/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 555529b52d586078ba7e1832373ec126ba545c11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 16b805f909ad06397894c5c405027986ff5fd939
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98706045"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709350"
 ---
 # <a name="troubleshoot-issues-in-azure-importexport"></a>Solución de problemas de Azure Import/Export
 En este artículo se describe cómo solucionar problemas comunes al importar y exportar datos en Azure Import/Export.
@@ -38,8 +38,8 @@ El archivo de diario de una unidad contiene información de sesión completa de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Configuración de la herramienta de Azure Import/Export](storage-import-export-tool-setup-v1.md)
+<!--* [Set up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)-->
 * [Preparación de unidades de disco duro para un trabajo de importación](storage-import-export-data-to-blobs.md#step-1-prepare-the-drives)
 * [Revisión del estado del trabajo con archivos de registro de copia](storage-import-export-tool-reviewing-job-status-v1.md)
-* [Reparación de un trabajo de importación](storage-import-export-tool-repairing-an-import-job-v1.md)
-* [Reparación de un trabajo de exportación](storage-import-export-tool-repairing-an-export-job-v1.md)
+<!--* [Repair an import job](storage-import-export-tool-repairing-an-import-job-v1.md)-->
+<!--* [Repair an export job](storage-import-export-tool-repairing-an-export-job-v1.md)-->

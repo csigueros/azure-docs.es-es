@@ -2,19 +2,19 @@
 title: Conceptos clave para administrar Azure VMware Solution by CloudSimple
 titleSuffix: Azure VMware Solution by CloudSimple
 description: En este artículo se describen conceptos clave para administrar Azure VMware Solution by CloudSimple
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.date: 04/24/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9e97abdd46e1c83d7883a51ddbd73ea0aa75b9f2
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: e48df490137357a376f0d546b7d3c16165205d09
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108184269"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129620115"
 ---
 # <a name="key-concepts-for-administration-of-azure-vmware-solutions-by-cloudsimple"></a>Conceptos clave para la administración de Azure VMware Solution by CloudSimple
 

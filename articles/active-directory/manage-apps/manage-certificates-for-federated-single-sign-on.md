@@ -12,12 +12,12 @@ ms.date: 04/04/2019
 ms.author: davidmu
 ms.reviewer: saumadan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5217f358e7977d8414204c48d82dd6b4f1554b1c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9da004c30de9cf1bc9f0d5aec7c9e766003dba45
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749160"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129545329"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Administrar certificados para inicio de sesión único federado en Azure Active Directory
 
@@ -30,6 +30,8 @@ Este artículo solo es relevante para las aplicaciones que están configuradas p
 Al agregar una nueva aplicación desde la galería y configurar el inicio de sesión basado en SAML (mediante la selección de **Inicio de sesión único** > **SAML** desde la página de información general de la aplicación), Azure AD genera un certificado para la aplicación con una validez de tres años. Para descargar el certificado activo como un archivo de certificado de seguridad ( **.cer**), vuelva a esa página (**inicio de sesión basado en SAML**) y seleccione un vínculo de descarga en el encabezado **Certificado de firma de SAML**. Puede elegir entre el certificado sin formato (binario) o el certificado de Base64 (texto cifrado en Base64). Para las aplicaciones de la galería, en esta sección es posible que también se muestre un vínculo para descargar el certificado como XML de metadatos de federación (un archivo **.xml**), según el requisito de la aplicación.
 
 ![Opciones de descarga del certificado de firma de SAML activo](./media/manage-certificates-for-federated-single-sign-on/active-certificate-download-options.png)
+
+Los certificados de firma de SAML generados por Azure al crear la aplicación son específicos de esta y, por tanto, cada certificado es único para cada instancia de aplicación. No se admite el uso del mismo certificado de SAML para todas las instancias de la aplicación. Si quiere usar el mismo certificado de SAML para todas las instancias de aplicación, tiene que generar un certificado de SAML propio con una clave privada y cargarlo en todas las instancias de aplicación. Los certificados de firma de SAML generados por Azure no tendrán una clave privada (incluso si se exporta el certificado sin formato). 
 
 También puede descargar un certificado activo o inactivo seleccionando el icono **Editar** (con forma de lápiz) del encabezado del **certificado de firma de SAML**, que muestra la página del **certificado de firma de SAML**. Seleccione los puntos suspensivos ( **...** ) junto al certificado que quiere descargar y, a continuación, elija el formato de certificado que quiera. Tiene la opción adicional de descargar el certificado en formato de correo con privacidad mejorada (PEM). Este formato es idéntico a Base64, pero con una extensión de nombre de archivo **.pem**, que no se reconoce en Windows como formato de certificado.
 

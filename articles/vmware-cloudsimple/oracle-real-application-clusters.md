@@ -1,19 +1,19 @@
 ---
 title: 'Azure VMware Solution by CloudSimple: optimización de la nube privada de CloudSimple para Oracle RAC'
 description: Se describe cómo implementar un nuevo clúster y optimizar una VM para la instalación y configuración de Oracle Real Application Clusters (RAC).
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/06/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a563067c62f56905d88186db77cbe2e039cfa409
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: c6413d6237cb8bab903b3c98a844fe05c943539e
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108177465"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129616296"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Optimización de la nube privada de CloudSimple para la instalación de Oracle RAC
 

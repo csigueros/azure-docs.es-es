@@ -10,12 +10,12 @@ author: julieMSFT
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.date: 03/10/2021
-ms.openlocfilehash: 601b31aa4941ba3a971ebbc9be03178593b5f565
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: fcd2b4adf6387398d05a26abefd567c1375c92f2
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129055293"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619300"
 ---
 # <a name="migrate-a-data-warehouse-to-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Migración de un almacenamiento de datos a un grupo de SQL dedicado en Azure Synapse Analytics
 
@@ -111,7 +111,6 @@ Para obtener más ayuda para completar este escenario de migración, consulte lo
 | [Herramienta y modelo de evaluación de la carga de trabajo de datos](https://www.microsoft.com/download/details.aspx?id=103130) | Esta herramienta proporciona sugerencias de plataformas de destino "ideales", preparación para la nube y el nivel de corrección de la aplicación o base de datos para una carga de trabajo determinada. Ofrece un cálculo sencillo con un solo clic y una función de generación de informes que ayuda a acelerar las evaluaciones de grandes volúmenes, ya que proporciona un proceso de toma de decisiones de plataforma de destino uniforme y automatizado. |
 | [Administración de problemas de codificación de datos al cargar datos en Azure Synapse Analytics](https://azure.microsoft.com/blog/handling-data-encoding-issues-while-loading-data-to-sql-data-warehouse/) | Este blog ofrece información sobre algunos de los problemas de codificación de datos que puede encontrar al usar PolyBase para cargar datos en SQL Data Warehouse. Este artículo también ofrece algunas opciones que puede usar para solucionar los problemas y cargar los datos correctamente. |
 | [Obtención de los tamaños de tabla en el grupo de SQL dedicado de Azure Synapse Analytics](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Getting%20table%20sizes%20in%20SQL%20DW.pdf) | Una de las tareas clave que debe realizar un arquitecto es obtener métricas sobre un nuevo entorno posterior a la migración. Algunos ejemplos son la recopilación de tiempos de carga del entorno local en la nube y la recopilación de los tiempos de carga de PolyBase. Entre las tareas más importantes es determinar el tamaño de almacenamiento en SQL Data Warehouse en comparación con la plataforma existente del cliente. |
-| [Utilidad para migrar los inicios de sesión de SQL Server del entorno local a Azure Synapse Analytics](https://github.com/Microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins) | Un script de PowerShell crea un script de comandos T-SQL para volver a crear los inicios de sesión y seleccionar usuarios de base de datos de una instancia local de SQL Server para un servicio de plataforma como servicio (PaaS) de Azure SQL. La herramienta permite asignar automáticamente cuentas de Windows Server Active Directory a cuentas de Azure Active Directory. También puede hacer búsquedas del nombre principal de usuario para cada inicio de sesión en la instancia local de Windows Server Active Directory. La herramienta también puede migrar opcionalmente los inicios de sesión nativos de SQL Server. Los roles de servidor y de base de datos personalizados se incluyen en scripts, junto con la pertenencia a rol, el rol de base de datos y los permisos de usuario. No se admiten bases de datos independientes y solo un subconjunto de los permisos de SQL Server posibles se incluyen en scripts. Hay más información disponible en la documentación complementaria y el script contiene comentarios para facilitar la comprensión. |
 
 El equipo de ingeniería de datos SQL ha desarrollado estos recursos. El objetivo principal de este equipo es permitir y acelerar la modernización compleja de los proyectos de migración de la plataforma de datos a la de Azure, de Microsoft.
 

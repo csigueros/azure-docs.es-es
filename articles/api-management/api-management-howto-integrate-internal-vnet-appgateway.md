@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.author: danlep
 ms.date: 06/10/2021
 ms.custom: devx-track-azurepowershell,contperf-fy21q4
-ms.openlocfilehash: e7db405d43ef41f4ebe90272498dae61bf56d817
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 05767ffb0487964780ab25ec56fd586451066ac3
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128679567"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615360"
 ---
 # <a name="integrate-api-management-in-an-internal-virtual-network-with-application-gateway"></a>Integración de API Management en una red virtual interna con Application Gateway
 
@@ -138,8 +138,11 @@ Cree grupos de seguridad de red y reglas de NSG para las subredes de Application
 $appGwRule1 = New-AzNetworkSecurityRuleConfig -Name appgw-in -Description "AppGw inbound" `
     -Access Allow -Protocol * -Direction Inbound -Priority 100 -SourceAddressPrefix `
     GatewayManager -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 65200-65535
+$appGwRule2 = New-AzNetworkSecurityRuleConfig -Name appgw-in-internet -Description "AppGw inbound Internet" `
+    -Access Allow -Protocol "TCP" -Direction Inbound -Priority 110 -SourceAddressPrefix `
+    Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 443
 $appGwNsg = New-AzNetworkSecurityGroup -ResourceGroupName $resGroupName -Location $location -Name `
-    "NSG-APPGW" -SecurityRules $appGwRule1
+    "NSG-APPGW" -SecurityRules $appGwRule1, $appGwRule2
 
 $apimRule1 = New-AzNetworkSecurityRuleConfig -Name apim-in -Description "APIM inbound" `
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix `

@@ -1,7 +1,7 @@
 ---
 title: Configuración de los destinos de proceso de entrenamiento e inferencia
 titleSuffix: Azure Machine Learning
-description: Adición de recursos de proceso (destinos de proceso) al área de trabajo para usarlos en el entrenamiento y la inferencia de aprendizaje automático
+description: Agregue recursos de proceso (destinos de proceso) al área de trabajo para usarlos en el entrenamiento y la inferencia de aprendizaje automático.
 services: machine-learning
 author: sdgilley
 ms.author: sgilley
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/18/2021
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 8d9910755162ea1da593f2e9ee50183c0a3eaa60
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: af5d5914d0a90c2c142582e5cdf2105982205f04
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745294"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427692"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>Configuración de destinos de proceso para el entrenamiento y la implementación de modelos
 

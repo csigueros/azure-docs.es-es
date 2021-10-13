@@ -3,17 +3,17 @@ title: Directivas de restricción de acceso de Azure API Management | Microsoft 
 description: Aprenda sobre las directivas de restricción de acceso disponibles para su uso en Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 08/20/2021
-ms.author: apimpm
-ms.openlocfilehash: 8d3370558e8dde2227834fa8f67577ca393b9564
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.author: danlep
+ms.openlocfilehash: 32fa405a612026fc16257447cb2cc858101c729c
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122687728"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536504"
 ---
 # <a name="api-management-access-restriction-policies"></a>Directivas de restricción de acceso de API Management
 
@@ -97,7 +97,7 @@ La directiva `rate-limit` evita los picos de uso de la API según suscripción l
 
 ```xml
 <rate-limit calls="number" renewal-period="seconds">
-    <api name="API name" id="API id" calls="number" renewal-period="seconds" />
+    <api name="API name" id="API id" calls="number" renewal-period="seconds">
         <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" 
         retry-after-header-name="header name" 
         retry-after-variable-name="policy expression variable name"
@@ -392,6 +392,9 @@ En el ejemplo siguiente, la clave de la cuota se establece según la dirección 
 | increment-condition | Expresión booleana que especifica si la solicitud se debe contar para la cuota (`true`).             | No                                                               | N/D     |
 | renewal-period      | Período de tiempo en segundos tras el cual se restablece la cuota. Cuando se establece en, `0` el periodo se establece en infinito.                                                   | Sí                                                              | N/D     |
 
+> [!NOTE]
+> El valor del atributo `counter-key` debe ser único en todas las API de API Management si no quiere compartir el total entre las demás API.
+
 ### <a name="usage"></a>Uso
 
 Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.
@@ -650,21 +653,21 @@ En el ejemplo siguiente se valida un certificado de cliente para que coincida co
 ### <a name="attributes"></a>Atributos
 
 | Nombre                            | Descripción      | Obligatorio |  Valor predeterminado    |
-| ------------------------------- |   ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| ------------------------------- | -----------------| -------- | ----------- |
 | validate-revocation  | booleano. Especifica si el certificado se valida con la lista de revocación en línea.  | No   | True  |
 | validate-trust | booleano. Especifica si se debe generar un error de validación en caso de que la cadena no se pueda crear correctamente en una entidad de certificación de confianza. | No | True |
-| validate-not-before | booleano. Valida el valor con respecto a la hora actual. | No | True | 
-| validate-not-after  | booleano. Valida el valor con respecto a la hora actual. | No | True| 
-| ignore-error  | booleano. Especifica si la directiva debe continuar con el controlador siguiente o pasar al error si se genera un error en la validación. | n°. | False |  
-| identidad | String. Combinación de valores de notificaciones de certificado que hacen que el certificado sea válido. | sí | N/D | 
+| validate-not-before | booleano. Valida el valor con respecto a la hora actual. | No | True |
+| validate-not-after  | booleano. Valida el valor con respecto a la hora actual. | No | True|
+| ignore-error  | booleano. Especifica si la directiva debe continuar con el controlador siguiente o pasar al error si se genera un error en la validación. | No | False |
+| identidad | String. Combinación de valores de notificaciones de certificado que hacen que el certificado sea válido. | sí | N/D |
 | thumbprint | Huella digital del certificado. | No | N/D |
 | serial-number | Número de serie del certificado. | No | N/D |
 | common-name | Nombre común del certificado (parte de la cadena del firmante). | No | N/D |
 | subject | Cadena del firmante. Debe seguir el formato de nombre distintivo (DN). | No | N/D |
-| dns-name | Valor de la entrada dnsName dentro de la notificación Nombre alternativo del firmante. | No | N/D | 
-| issuer-subject | Firmante del emisor. Debe seguir el formato de nombre distintivo (DN). | No | N/D | 
-| issuer-thumbprint | Huella digital del emisor. | No | N/D | 
-| issuer-certificate-id | Identificador de la entidad de certificación existente que representa la clave pública del emisor. Mutuamente excluyente con otros atributos del emisor.  | No | N/D | 
+| dns-name | Valor de la entrada dnsName dentro de la notificación Nombre alternativo del firmante. | No | N/D |
+| issuer-subject | Firmante del emisor. Debe seguir el formato de nombre distintivo (DN). | No | N/D |
+| issuer-thumbprint | Huella digital del emisor. | No | N/D |
+| issuer-certificate-id | Identificador de la entidad de certificación existente que representa la clave pública del emisor. Mutuamente excluyente con otros atributos del emisor.  | No | N/D |
 
 ### <a name="usage"></a>Uso
 

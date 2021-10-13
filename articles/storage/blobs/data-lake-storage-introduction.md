@@ -8,12 +8,12 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 34484c501a95379194ad2147fbcb553bf3f06980
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 34331436c0e683aefa8ea7cddd4396e4a21546ea
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129277696"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619338"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introducción a Azure Data Lake Storage Gen2
 
@@ -84,5 +84,6 @@ Varias plataformas de código abierto son compatibles con Data Lake Storage Gen2
 
 ## <a name="see-also"></a>Consulte también
 
+- [Procedimientos recomendados para usar Azure Data Lake Storage Gen2](data-lake-storage-best-practices.md)
 - [Problemas conocidos con Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 - [Acceso multiprotocolo en Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 06/23/2021
-ms.openlocfilehash: 419feaf3102ba9db4335718131281481821fe6a9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 988e3249580408147b74409856bea1e45df4e966
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121722297"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857120"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Etiquetas de servicio de grupos de seguridad de red para Azure HDInsight
 
@@ -18,7 +18,7 @@ Las etiquetas de servicio de Azure HDInsight de los grupos de seguridad de red (
 
 El servicio HDInsight administra estas etiquetas de servicio. No puede crear su propia etiqueta de servicio ni modificar una etiqueta existente. Microsoft administra los prefijos de direcciones que coinciden con la etiqueta de servicio y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian.
 
-Si quiere usar una región determinada y la etiqueta de servicio aún no está documentada en esta página, puede usar la [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) para buscar la etiqueta de servicio. También puede descargar el [archivo JSON de la etiqueta de servicio](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) y buscar la región deseada.
+Si quiere usar una región determinada y la etiqueta de servicio aún no está documentada en esta página, puede usar la [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) para buscar la etiqueta de servicio. También puede descargar el [archivo JSON de la etiqueta de servicio](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) y buscar la región deseada.
 
 ## <a name="get-started-with-service-tags"></a>Introducción a las etiquetas de servicio
 

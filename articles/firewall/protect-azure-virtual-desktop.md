@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 08/09/2021
+ms.date: 10/06/2021
 ms.author: victorh
-ms.openlocfilehash: 5c165dc8f00bb21894de06e541c02788bd7b51e5
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 9ac87633dbb4d1b21dfe4fa4430012d91243b8d5
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129425000"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129620514"
 ---
 # <a name="use-azure-firewall-to-protect-azure-virtual-desktop-deployments"></a>Uso de Azure Firewall para proteger las implementaciones de Azure Virtual Desktop
 
@@ -44,6 +44,7 @@ Tendrá que crear una directiva de Azure Firewall y colecciones de reglas para r
 | Nombre de la regla | Dirección IP  | Dirección IP de la red virtual o subred | TCP      | 80                | Dirección IP       | 169.254.169.254, 168.63.129.16    |
 | Nombre de la regla | Dirección IP  | Dirección IP de la red virtual o subred | TCP      | 443               | Etiqueta de servicio      | AzureCloud, WindowsVirtualDesktop |
 | Nombre de la regla | Dirección IP  | Dirección IP de la red virtual o subred | TCP, UDP | 53                | Dirección IP       | *                                 |
+|Nombre de la regla  | Dirección IP  | Dirección IP de la red virtual o subred | TCP      | 1688              | Dirección IP       | 23.102.135.246                    |
 
 > [!NOTE]
 > Es posible que algunas implementaciones no necesiten reglas de DNS. Por ejemplo, los controladores de dominio de Azure Active Directory reenvían consultas de DNS a Azure DNS en la dirección 168.63.129.16.
@@ -53,7 +54,6 @@ Tendrá que crear una directiva de Azure Firewall y colecciones de reglas para r
 | NOMBRE      | Tipo de origen | Source                    | Protocolo   | Tipo de destino | Destination                                                                                 |
 | --------- | ----------- | ------------------------- | ---------- | ---------------- | ------------------------------------------------------------------------------------------- |
 | Nombre de la regla | Dirección IP  | Dirección IP de la red virtual o subred | Https:443  | Etiqueta de FQDN         | WindowsVirtualDesktop, WindowsUpdate, Windows Diagnostics, MicrosoftActiveProtectionService |
-| Nombre de la regla | Dirección IP  | Dirección IP de la red virtual o subred | Https:1688 | FQDN             | kms.core.windows.net                                                                        |
 
 > [!IMPORTANT]
 > Se recomienda no utilizar la inspección de TLS con Azure Virtual Desktop. Para más información, consulte las [directrices del servidor proxy](../virtual-desktop/proxy-server-support.md#dont-use-ssl-termination-on-the-proxy-server).

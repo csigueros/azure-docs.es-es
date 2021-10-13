@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 09/30/2021
+ms.date: 10/07/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efa2c16f83fc0a85e3c2d346aed5d7fdf848c873
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: a4bda35abff8bed8795d9cc6257b45bb22ef961c
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129355432"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709876"
 ---
 # <a name="what-is-azure-ad-connect-cloud-sync"></a>¿Qué es la sincronización en la nube de Azure AD Connect?
 La sincronización en la nube de Azure AD Connect es una nueva oferta de Microsoft que se ha concebido para cumplir los objetivos de identidad híbrida con fines de sincronización de usuarios, grupos y contactos en Azure AD.  Para ello, se usa el agente de aprovisionamiento de Azure AD en la nube, en lugar de la aplicación Azure AD Connect.  No obstante, se puede usar junto con la sincronización de Azure AD Connect y ofrece las siguientes ventajas:
@@ -34,7 +34,7 @@ Con el aprovisionamiento en la nube de Azure AD Connect, el aprovisionamiento d
 ## <a name="azure-ad-connect-cloud-sync-video"></a>Vídeo sobre la sincronización en la nube de Azure AD Connect
 El siguiente vídeo breve ofrece una excelente introducción a la sincronización en la nube de Azure AD Connect:
 
-> [!VIDEO https://youtube.com/embed/mOT3ID02_YQ]
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWJ8l5]
 
 
 ## <a name="comparison-between-azure-ad-connect-and-cloud-sync"></a>Comparación entre Azure AD Connect y el aprovisionamiento en la nube

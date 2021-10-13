@@ -1,6 +1,7 @@
 ---
-title: Solución de problemas de inicio de sesión único basado en contraseña en Azure Active Directory
+title: Solución de problemas de inicio de sesión único basado en contraseña
 description: Solución de incidencias relacionadas con aplicaciones de Azure AD configuradas para inicio de sesión único basado en contraseña.
+titleSuffix: Azure AD
 author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
@@ -10,14 +11,14 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: davidmu
 ms.reviewer: ergreenl
-ms.openlocfilehash: 0c3f95559b891cfff9e704883365ca6b7bc1630b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1b33398a9188b55eae3d0ec54fcfe1acc6b6a589
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128658210"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129613706"
 ---
-# <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Solución de problemas de inicio de sesión único basado en contraseña en Azure AD
+# <a name="troubleshoot-password-based-single-sign-on-in-azure-active-directory"></a>Solución de problemas de inicio de sesión único basado en contraseña en Azure Active Directory
 
 Para usar el inicio de sesión único (SSO) basado en contraseña en Aplicaciones, debe instalarse la extensión del explorador. Esta extensión se descarga automáticamente cuando se selecciona una aplicación que está configurada para el inicio de sesión único basado en contraseña. Para obtener información sobre el uso de Aplicaciones desde la perspectiva del usuario final, consulte la [ayuda del portal Aplicaciones](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 

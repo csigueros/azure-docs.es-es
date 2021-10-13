@@ -1,19 +1,19 @@
 ---
 title: 'Azure VMware Solution by CloudSimple: configuración de vCenter en la nube privada para vRealize Automation'
 description: Describe cómo configurar un servidor de VMware vCenter en la nube privada de CloudSimple como punto de conexión para VMware vRealize Automation.
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 765e7616c5bea838ba093fb64e9b7e12e651ec69
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: cd00a319c06131014db2873a7339cdf9127fe58d
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108182415"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129611479"
 ---
 # <a name="set-up-vcenter-on-your-private-cloud-for-vmware-vrealize-automation"></a>Configuración de vCenter en la nube privada para VMware vRealize Automation
 

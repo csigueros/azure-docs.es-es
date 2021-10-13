@@ -8,12 +8,12 @@ ms.date: 06/15/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 798a46d2d77a3363a5540c3c490fd625fba3a9ff
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b1fdd85c2f954751a0ce7e2ec03dc87d4c685809
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728832"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660882"
 ---
 # <a name="update-iot-edge"></a>Actualización de IoT Edge
 
@@ -245,7 +245,7 @@ Algunas de las diferencias principales entre la versión 1.2 y las anteriores so
 * El paquete **libiothsm-std** ya no se usa. Si usó el paquete estándar proporcionado como parte de la versión de IoT Edge, las configuraciones se pueden transferir a la nueva versión. Si usó una implementación diferente de libiothsm-std, deberá volver a configurar los certificados proporcionados por el usuario como el certificado de identidad de dispositivo, la CA de dispositivo y el paquete de confianza.
 * Un nuevo servicio de identidad, **aziot-identity-service**, se introdujo como parte de la versión 1.2. Este servicio controla el aprovisionamiento y la administración de identidades para IoT Edge y otros componentes de dispositivo que necesitan comunicarse con IoT Hub, como la [actualización de dispositivos para IoT Hub](../iot-hub-device-update/understand-device-update.md).
 * El archivo de configuración predeterminado tiene un nombre y una ubicación nuevos. La información de configuración de dispositivo que anteriormente se encontraba en `/etc/iotedge/config.yaml`, ahora se espera que esté en `/etc/aziot/config.toml` de manera predeterminada. El comando `iotedge config import` se puede usar para ayudar a migrar la información de configuración de la ubicación y la sintaxis anteriores a las nuevas.
-  * El comando de importación no puede detectar ni modificar las reglas de acceso al módulo de plataforma segura (TPM) de un dispositivo. Si el dispositivo usa la atestación de TPM, debe actualizar manualmente el archivo /etc/udev/rules.d/tpmaccess.rules para proporcionar acceso al servicio aziottpm. Para más información, vea [Concesión a IoT Edge el acceso a TPM](how-to-auto-provision-simulated-device-linux.md?view=iotedge-2020-11&preserve-view=true#give-iot-edge-access-to-the-tpm).
+  * El comando de importación no puede detectar ni modificar las reglas de acceso al módulo de plataforma segura (TPM) de un dispositivo. Si el dispositivo usa la atestación de TPM, debe actualizar manualmente el archivo /etc/udev/rules.d/tpmaccess.rules para proporcionar acceso al servicio aziottpm. Para más información, vea [Concesión a IoT Edge el acceso a TPM](how-to-provision-devices-at-scale-linux-tpm.md?view=iotedge-2020-11&preserve-view=true#give-iot-edge-access-to-the-tpm).
 * La API de carga de trabajo de la versión 1.2 guarda los secretos cifrados en un nuevo formato. Si actualiza desde una versión anterior a la versión 1.2, se importa la clave de cifrado maestra existente. La API de carga de trabajo puede leer los secretos guardados en el formato anterior mediante la clave de cifrado importada. Sin embargo, la API de carga de trabajo no puede escribir secretos cifrados en el formato anterior. Una vez que un módulo vuelve a cifrar un secreto, se guarda en el nuevo formato. El mismo módulo de la versión 1.1 no puede leer los secretos cifrados en la versión 1.2. Si conserva los datos cifrados en una carpeta o volumen montados en host, cree siempre una copia de seguridad de los datos *antes* de la actualización para conservar la capacidad de cambiar a una versión anterior, si es necesario.
 
 Antes de automatizar los procesos de actualización, compruebe que funciona en máquinas de prueba.

@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/04/2021
-ms.openlocfilehash: 662faef8b7a3afbf3d3d3b021c52754af3a3c0bc
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 10/01/2021
+ms.openlocfilehash: 526a06c1ffd110fa02fd3d412ab62882bd74f9fa
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559921"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387380"
 ---
 # <a name="server-parameters-in-azure-database-for-postgresql---flexible-server"></a>Parámetros del servidor en Azure Database for PostgreSQL: servidor flexible
 
@@ -39,6 +39,7 @@ A continuación se enumeran algunos de los parámetros:
 | **shared_buffers**    | La configuración "shared_buffers" cambia en función de la SKU seleccionada (la SKU determina la memoria disponible). Los servidores de uso general tienen un valor de "shared_buffers" de 2 GB para dos núcleos virtuales; los servidores optimizados para memoria tienen un valor de "shared_buffers" de 4 GB para dos núcleos virtuales. El valor de shared_buffers se escala linealmente (aproximadamente) a medida que los núcleos virtuales aumentan en un nivel. | 
 | **shared_preload_libraries** | Este parámetro está disponible para la configuración con un conjunto predefinido de extensiones admitidas. Tenga en cuenta que siempre se carga la extensión `azure` (que se usa para tareas de mantenimiento) y la extensión `pg_stat_statements` (puede usar el parámetro pg_stat_statements.track para controlar si la extensión está activa). |
 | **connection_throttling** | Puede habilitar o deshabilitar la limitación de conexiones temporales por IP si hay demasiados errores de inicio de sesión con una contraseña no válida. |
+| **require_secure_transport** | Si la aplicación no admite la conectividad SSL con el servidor, puede deshabilitar opcionalmente el transporte protegido desde el cliente si cambia a `OFF` este valor de parámetro. |
  
 ## <a name="next-steps"></a>Pasos siguientes
 

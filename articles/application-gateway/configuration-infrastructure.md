@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 06/14/2021
 ms.author: surmb
-ms.openlocfilehash: 5ea384a580109d40dfbb072b7bad16924307873e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f838b1821e38e6046014f5cd8233694db7f2ef87
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124837335"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129729850"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>Configuración de la infraestructura de Azure Application Gateway
 
@@ -73,7 +73,7 @@ En este escenario, puede usar grupos de seguridad de red en la subred de Applica
 
 - **v1**
 
-   Para la SKU v1, las rutas definidas por el usuario (UDR) se admiten en la subred de la puerta de enlace de aplicaciones, siempre que no alteren la comunicación de solicitud y respuesta de un extremo a otro. Por ejemplo, puede configurar una ruta definida por el usuario en la subred de Application Gateway para que apunte a un dispositivo de firewall para la inspección de paquetes. Debe asegurarse de que el paquete puede llegar a su destino previsto después de la inspección. El no hacerlo podría resultar en un sondeo del estado o en un comportamiento de enrutamiento de tráfico incorrectos. Esto incluye las rutas aprendidas o las rutas 0.0.0.0/0 predeterminadas que se propagan por las puertas de enlace de VPN o de Azure ExpressRoute en la red virtual. La versión 1 no admite los escenarios en los que se debe redirigir 0.0.0.0/0 en el entorno local (tunelización forzada).
+   Para la SKU v1, las rutas definidas por el usuario (UDR) se admiten en la subred de la puerta de enlace de aplicaciones, siempre que no alteren la comunicación de solicitud y respuesta de un extremo a otro. Por ejemplo, puede configurar una ruta definida por el usuario en la subred de Application Gateway para que apunte a un dispositivo de firewall para la inspección de paquetes. Debe asegurarse de que el paquete puede llegar a su destino previsto después de la inspección. El no hacerlo podría resultar en un sondeo del estado o en un comportamiento de enrutamiento de tráfico incorrectos. Esto incluye las rutas aprendidas o las rutas 0.0.0.0/0 predeterminadas que se propagan por las puertas de enlace de VPN o de Azure ExpressRoute en la red virtual.
 
 - **v2**
 
