@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 1e46bb0fad37e1a6da3676578f6cd92af912cb3f
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 798f381ef067af174370fb21893c32386390449a
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111963901"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129617290"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Solución de problemas y mensajes de error de Proxy de aplicación
 
@@ -80,10 +80,6 @@ En esta lista se muestran los errores que los usuarios finales pueden encontrar 
 | No se puede tener acceso a esta aplicación corporativa. No está autorizado para tener acceso a esta aplicación. Error de autorización. Asegúrese de que el usuario tiene una licencia de Azure Active Directory Premium. | Es posible que el usuario reciba este error al intentar acceder a la aplicación que publicó si el administrador del suscriptor no les asignó explícitamente una licencia Premium. Vaya a la pestaña **Licencias** de Active Directory del suscriptor y asegúrese de que se asigne a este usuario o grupo de usuarios una licencia Premium. |
 | No se encontró un servidor con el nombre de host especificado. | Es posible que el usuario reciba este error al intentar acceder a la aplicación que publicó si el dominio personalizado de la aplicación no está configurado correctamente. Asegúrese de haber cargado un certificado para el dominio y haber configurado correctamente el registro DNS siguiendo los pasos descritos en [Uso de dominios personalizados en el proxy de la aplicación de Azure AD](./application-proxy-configure-custom-domain.md) |
 |Prohibido: This corporate app can't be accessed OR The user could not be authorized. Make sure the user is defined in your on-premises AD and that the user has access to the app in your on-premises AD (Prohibido: No se puede acceder a esta aplicación corporativa o no se pudo autorizar al usuario. Asegúrese de que el usuario está definido en la instancia de AD local y de que tenga acceso a la aplicación en dicha instancia). | Podría haber un problema con el acceso a la información de autorización. Consulte [Algunas aplicaciones y API requieren acceso a información de autorización en los objetos de cuenta]( https://support.microsoft.com/help/331951/some-applications-and-apis-require-access-to-authorization-information). En resumen, agregue la cuenta de máquina del conector del proxy de aplicación al grupo de dominio integrado "Grupo de acceso de autorización de Windows" para resolverlo. |
-
-## <a name="my-error-wasnt-listed-here"></a>Mi error no aparece aquí.
-
-Si se produce un error o un problema con el Proxy de aplicación de Azure AD que no aparece en esta guía de solución de problemas, es conveniente obtener información al respecto. Envíe un correo electrónico al [equipo de comentarios](mailto:aadapfeedback@microsoft.com) con los detalles del error que se ha producido.
 
 ## <a name="see-also"></a>Consulte también
 * [Habilitación del proxy de aplicación de Azure Active Directory](application-proxy-add-on-premises-application.md)

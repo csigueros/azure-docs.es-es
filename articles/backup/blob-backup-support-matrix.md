@@ -2,14 +2,14 @@
 title: Matriz de compatibilidad para la copia de seguridad de blobs de Azure
 description: Proporciona un resumen de opciones y limitaciones de compatibilidad a la hora de realizar copias de seguridad en blobs de Azure.
 ms.topic: conceptual
-ms.date: 07/07/2021
+ms.date: 10/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: 0d9dbcb9bb4497de4c8355ca42597b8e9eecd0e9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 921f08a80511766f55e179fccde38a061800061e
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124799251"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533176"
 ---
 # <a name="support-matrix-for-azure-blobs-backup"></a>Matriz de compatibilidad para la copia de seguridad de blobs de Azure
 
@@ -17,7 +17,7 @@ En este artículo se resume la disponibilidad regional, los escenarios admitidos
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
-La copia de seguridad operativa de blobs está disponible actualmente en las siguientes regiones: Centro de Australia, Centro de Australia 2, Este de Australia, Sudeste de Australia, Sur de Brasil, Sudeste de Brasil, Centro de Canadá, Este de Canadá, Centro de la India, Centro de EE. UU., Este de Asia, Este de EE. UU., Este de EE. UU. 2, Centro de Francia, Norte de Alemania, Centro-oeste de Alemania, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Centro y norte de EE. UU., Norte de Europa, Este de Noruega, Oeste de Noruega, Norte de Sudáfrica, Centro y Sur de EE. UU., Sudeste Asiático, Sur de la India, Norte de Suiza, Oeste de Suiza, Centro de Emiratos Árabes Unidos, Norte de Emiratos Árabes Unidos, Sur de Reino Unido, Oeste de Reino Unido, Centro-oeste de EE. UU., Oeste de Europa, Oeste de la India, Oeste de EE. UU., Oeste de EE. UU. 2.
+La copia de seguridad operativa de blobs está disponible en todas las regiones de la nube pública, excepto Sur de Francia y Oeste de Sudáfrica. También está disponible en regiones de la nube soberana: todas las regiones de Azure Government y las regiones de China (excepto Este de China).
 
 ## <a name="limitations"></a>Limitaciones
 

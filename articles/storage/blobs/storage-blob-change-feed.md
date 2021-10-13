@@ -1,20 +1,21 @@
 ---
-title: Fuente de cambios en Azure Blob Storage | Microsoft Docs
+title: Fuente de cambios en Blob Storage
+titleSuffix: Azure Storage
 description: Obtenga información sobre los registros de fuente de cambios en Azure Blob Storage y cómo usarlos.
 author: tamram
 ms.author: tamram
-ms.date: 05/17/2021
+ms.date: 10/01/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 67ecaac43885b76071a6bc71268edb811db7cbbd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: bed39bd544ac1b586dcefefb890927fe1ce472b2
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128680288"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129402158"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Compatibilidad con la fuente de cambios en Azure Blob Storage
 
@@ -55,7 +56,7 @@ Estos son algunos aspectos que hay que tener en cuenta al habilitar la fuente de
 
 - La fuente de cambios captura *todos* los cambios de todos los eventos disponibles que se producen en la cuenta. Las aplicaciones cliente pueden filtrar los tipos de eventos según sea necesario. (Consulte las [condiciones](#conditions) de la versión actual).
 
-- Solo las cuentas de uso general v2 y Blob Storage pueden habilitar la fuente de cambios. Las cuentas de blobs en bloques prémium y las cuentas habilitadas para espacios de nombres jerárquicos no se admiten actualmente. No se admiten las cuentas de uso general v1, pero se pueden actualizar a v2 sin tiempo de inactividad. Para más información consulte [Actualización a una cuenta de almacenamiento de uso general v2](../common/storage-account-upgrade.md).
+- Solo las cuentas de uso general v2 estándar, de blobs en bloques prémium y de Blob Storage pueden habilitar la fuente de cambios. Las cuentas con un espacio de nombres jerárquico habilitado no se admiten actualmente. No se admiten las cuentas de uso general v1, pero se pueden actualizar a v2 sin tiempo de inactividad. Para más información consulte [Actualización a una cuenta de almacenamiento de uso general v2](../common/storage-account-upgrade.md).
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -302,10 +303,10 @@ En esta sección se describen los problemas conocidos y las condiciones de la ve
 
 En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades.
 
-| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
-|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) |
-| Blobs en bloques Premium          | ![No](../media/icons/no-icon.png)|![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Tipo de cuenta de almacenamiento | Blob Storage (compatibilidad predeterminada) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> |
+|--|--|--|--|
+| De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Blobs en bloques Premium | ![Sí](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 
 <sup>1</sup> Tanto Data Lake Storage Gen2 como el protocolo Network File System (NFS) 3.0 necesitan una cuenta de almacenamiento con un espacio de nombres jerárquico habilitado.
 

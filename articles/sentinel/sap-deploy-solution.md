@@ -2,18 +2,18 @@
 title: Implementación de la supervisión de amenazas continua de SAP | Microsoft Docs
 description: Aprenda a implementar la solución Azure Sentinel para entornos de SAP.
 author: batamig
-ms.author: bagold
+ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: how-to
 ms.custom: mvc
 ms.date: 07/06/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: 7b6f68eea2c177ad4e6776723ae0387c0e0da6a1
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: fb8d75b9dbf4fd2e6c0fd82ecbc0dce2ce2447c0
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129361824"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857835"
 ---
 #  <a name="deploy-sap-continuous-threat-monitoring-public-preview"></a>Implementación de la supervisión de amenazas continua de SAP (versión preliminar pública)
 

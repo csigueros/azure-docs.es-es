@@ -3,15 +3,15 @@ title: Creación de una nube privada de Azure VMware Solution
 description: Pasos para crear una nube privada de Azure VMware Solution mediante Azure Portal.
 ms.topic: include
 ms.date: 08/05/2021
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.service: azure-vmware
-ms.openlocfilehash: beae1ba1fe5cb37f9c96d411ca9ee0e8cddfe1d3
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: bf607b4db54b9ec3c4eb481cf9917873be4411ad
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122262723"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129638370"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
 
@@ -33,7 +33,7 @@ Puede crear una nube privada de Azure VMware Solution mediante Azure Portal o co
    >[!TIP]
    >La información se recopiló durante la [fase de planeamiento](../plan-private-cloud-deployment.md) de esta inicio rápido.
 
-   | Campo   | Value  |
+   | Campo   | Valor  |
    | ---| --- |
    | **Suscripción** | Seleccione la suscripción que va a usar para la implementación. Todos los recursos de una suscripción a Azure se facturan juntos.|
    | **Grupos de recursos** | Seleccione el grupo de recursos de la nube privada. Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Como alternativa, puede crear un nuevo grupo de recursos para su nube privada. |

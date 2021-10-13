@@ -4,22 +4,29 @@ description: Use Azure Resource Manager y la CLI de Azure para implementar recur
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/17/2021
+ms.date: 10/01/2021
 ms.custom: devx-track-azurecli, seo-azure-cli
-ms.openlocfilehash: 0c474a7bf1d74b44b85f108b6a7fa28bcdc48902
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ab371ec2f4cb59b602e953be0043f4dbe49dfb9e
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128625627"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389065"
 ---
 # <a name="how-to-deploy-resources-with-bicep-and-azure-cli"></a>Implementación de recursos con Bicep y la CLI de Azure
 
 En este artículo, se explica el uso de la CLI de Azure con archivos Bicep para implementar recursos en Azure. Si no conoce los conceptos de implementación y administración de las soluciones de Azure, consulte [Introducción a Bicep](./overview.md).
 
-Para implementar archivos Bicep, necesita la [CLI de Azure versión 2.20.0 o posterior](/cli/azure/install-azure-cli).
+## <a name="prerequisites"></a>Requisitos previos
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+Necesita un archivo de Bicep para implementarlo. El archivo debe ser local.
+
+Necesita la CLI de Azure y estar conectado a Azure:
+
+- **Instale los comandos de la CLI de Azure en el equipo local**. Para implementar archivos Bicep, necesita la [CLI de Azure](/cli/azure/install-azure-cli), versión **2.20.0 o posterior**.
+- **Conéctese a Azure mediante [az login](/cli/azure/reference-index#az_login)** . Si tiene varias suscripciones de Azure, es posible que también tenga que ejecutar [az account set](/cli/azure/account#az_account_set).
+
+Los ejemplos de la CLI de Azure están escritos para el shell `bash`. Para ejecutar este ejemplo en Windows PowerShell o en el símbolo del sistema, es posible que necesite cambiar algunos elementos del script.
 
 Si no tiene instalada la CLI de Azure, puede usar Azure Cloud Shell. Para más información, consulte [Implementación de archivos Bicep desde Azure Cloud Shell](./deploy-cloud-shell.md).
 
@@ -183,11 +190,11 @@ Antes de implementar el archivo Bicep, puede obtener una vista previa de los cam
 
 ## <a name="deploy-template-specs"></a>Especificaciones de la implementación de la plantilla
 
-Actualmente, la CLI de Azure no admite la creación de especificaciones de plantilla mediante archivos Bicep. Pero puede crear un archivo de Bicep con el recurso [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) para implementar una especificación de plantilla. En el [ejemplo Creación de una especificación de plantilla](https://github.com/Azure/azure-docs-bicep-samples/blob/main/samples/create-template-spec/azuredeploy.bicep) se muestra cómo crear una especificación de plantilla en un archivo de Bicep. También puede compilar el archivo Bicep en una plantilla ARM JSON mediante la CLI de Bicep y, a continuación, crear una especificación de plantilla con la plantilla JSON.
+Actualmente, la CLI de Azure no admite la creación de especificaciones de plantilla mediante archivos Bicep. Pero puede crear un archivo de Bicep con el recurso [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) para implementar una especificación de plantilla. En el [ejemplo Creación de una especificación de plantilla](https://github.com/Azure/azure-docs-bicep-samples/blob/main/samples/create-template-spec/azuredeploy.bicep) se muestra cómo crear una especificación de plantilla en un archivo de Bicep. También puede compilar el archivo Bicep en JSON mediante la CLI de Bicep y luego crear una especificación de plantilla con la plantilla JSON.
 
 ## <a name="deployment-name"></a>Nombre de implementación
 
-Al implementar un archivo Bicep, puede asignarle un nombre a la implementación. Este nombre puede ayudarle a recuperar la implementación del historial de implementaciones. Si no especifica un nombre para la implementación, se utilizará el nombre del archivo Bicep. Por ejemplo, si implementa un archivo Bicep llamado `azuredeploy.bicep` y no especifica ningún nombre para la implementación, se le asignará el nombre `azuredeploy`.
+Al implementar un archivo Bicep, puede asignarle un nombre a la implementación. Este nombre puede ayudarle a recuperar la implementación del historial de implementaciones. Si no especifica un nombre para la implementación, se utilizará el nombre del archivo Bicep. Por ejemplo, si implementa un archivo Bicep llamado `main.bicep` y no especifica ningún nombre para la implementación, se le asignará el nombre `main`.
 
 Cada vez que se ejecuta una implementación, se agrega una entrada al historial de implementación del grupo de recursos con el nombre de la implementación. Si ejecuta otra implementación y le asigna el mismo nombre, la entrada anterior se reemplazará por la implementación actual. Si desea que todas las entradas del historial de implementaciones sean diferentes, asigne un nombre único a cada implementación.
 
@@ -213,6 +220,4 @@ Para evitar conflictos con las implementaciones simultáneas y garantizar que la
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para revertir a una implementación correcta cuando se produce un error, consulte [Revertir en caso de error a una implementación correcta](../templates/rollback-on-error.md).
-- Para entender cómo definir parámetros en el archivo, consulte [Nociones sobre la estructura y la sintaxis de los archivos Bicep](file.md).
-* Para obtener sugerencias para resolver los errores de implementación más comunes, consulte [Solución de errores comunes de implementación de Azure con Azure Resource Manager](../templates/common-deployment-errors.md).
+* Para entender cómo definir parámetros en el archivo, consulte [Nociones sobre la estructura y la sintaxis de los archivos Bicep](file.md).

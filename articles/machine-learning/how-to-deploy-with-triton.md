@@ -9,12 +9,12 @@ ms.date: 05/17/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, devx-track-azurecli
-ms.openlocfilehash: b6bccf2dd24e557c2d5cdbb5fa6134f8c0dc904d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 64166d398fe488abf7e3820d780bd11699fbb70a
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128598144"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705376"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Servicio de alto rendimiento con Triton Inference Server (versión preliminar) 
 
@@ -198,15 +198,6 @@ az ml service delete -n triton-densenet-onnx
 [!notebook-python[] (~/Azureml-examples-main/python-sdk/experimental/deploy-triton/1.bidaf-ncd-local.ipynb?name=delete-service)]
 
 ---
-
-## <a name="how-to-use-azure-machine-learning-triton-inference-server-container-image"></a>Uso de la imagen de contenedor Triton Inference Server en Azure Machine Learning
-
-Aprenda a usar la imagen de contenedor Triton Inference Server en Azure Machine Learning con la nueva [CLI(v2)](/cli/azure/ml?view=azure-cli-latest&preserve-view=true). En los ejemplos siguientes se usa el concepto de [punto de conexión en línea e implementaciones](concept-endpoints.md#what-are-online-endpoints-preview). 
-
-1. [Implementación de un solo modelo Triton](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-triton-managed-online-endpoint.sh).
-1. [Implementación de varios modelos Triton](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-triton-multiple-models-online-endpoint.sh).
-1. [Implementación del modelo de ensamblado de Triton](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-triton-ensemble-managed-online-endpoint.sh).
-1. Consulte los [ejemplos de Triton](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/triton).
 
 ## <a name="troubleshoot"></a>Solución de problemas
 

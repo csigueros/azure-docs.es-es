@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: b652b2c7b3f1fd14e401381b5a83a5cf4a987fde
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 529b43fdf23eebb46bf7cc194bab1508afa0f7ca
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129378247"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129679865"
 ---
 Una de las características principales del servicio de voz es la capacidad para reconocer y transcribir la voz humana (que a menudo se denomina "conversión de voz en texto"). En este inicio rápido, aprenderá a usar el SDK de voz en sus aplicaciones y productos para realizar una conversión de voz en texto de alta calidad.
 
@@ -38,7 +38,7 @@ Para más información sobre `require`, consulte la [documentación necesaria](h
 
 ## <a name="create-a-speech-configuration"></a>Creación de una configuración de voz
 
-Para llamar al servicio de voz con Speech SDK, debe crear un elemento [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig). Esta clase incluye información sobre la suscripción, como la clave y la región o ubicación asociada, el punto de conexión, el host o el token de autorización. Cree una clase [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) mediante la clave y la región o ubicación. Consulte la página [Búsqueda de claves y región o ubicación](../../../overview.md#find-keys-and-locationregion) para encontrar el par clave-región o ubicación.
+Para llamar al servicio de voz con Speech SDK, debe crear un elemento [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig). Esta clase incluye información sobre la suscripción, como la clave y la región o ubicación asociada, el punto de conexión, el host, o el token de autorización. Cree una clase [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) mediante la clave y la región o ubicación. Vea la página [Búsqueda de claves y región o ubicación](../../../overview.md#find-keys-and-locationregion) para encontrar el par clave-región o ubicación.
 
 ```javascript
 const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
@@ -202,7 +202,7 @@ Cuando todo esté configurado, llame a [`startContinuousRecognitionAsync`](/java
 recognizer.startContinuousRecognitionAsync();
 
 // make the following call at some point to stop recognition.
-// recognizer.StopContinuousRecognitionAsync();
+// recognizer.stopContinuousRecognitionAsync();
 ```
 
 ### <a name="dictation-mode"></a>Modo de dictado

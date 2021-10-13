@@ -6,12 +6,12 @@ ms.date: 11/25/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 5f6b5eb64de1e904805446f731158443205d6b68
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: cbfdc8c7e07a68335083c529e545143a513b1808
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110082446"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858279"
 ---
 # <a name="upgrading-from-application-insights-java-2x-sdk"></a>Actualización del SDK de Java de Application Insights 2.x
 
@@ -115,31 +115,6 @@ Los procesadores de telemetría realizan las siguientes acciones (en orden):
 }
 ```
 
-## <a name="dependency-names"></a>Nombres de dependencias
-
-Los nombres de dependencias también han cambiado en Application Insights Java 3.x, de nuevo para proporcionar a nivel general una mejor vista agregada de la experiencia del usuario con el portal de Application Insights.
-
-Una vez más, si para algunas aplicaciones prefiere la vista agregada de la experiencia del usuario que proporcionaban los nombres de dependencias anteriores, puede usar técnicas similares a las anteriores para replicar el comportamiento anterior.
-
-## <a name="operation-name-on-dependencies"></a>Nombre de operación en las dependencias
-
-Anteriormente en el SDK de Application Insights Java 2.x, el nombre de la operación de la telemetría de solicitudes también se estableció en la telemetría de dependencias.
-Application Insights Java 3.x ya no rellena el nombre de la operación en la telemetría de dependencias.
-Si quiere ver el nombre de la operación para la solicitud que es el elemento primario de la telemetría de dependencias, puede escribir una consulta de registros (Kusto) para crear una unión desde la tabla de dependencias a la tabla de solicitudes, por ejemplo.
-
-```
-let start = datetime('...');
-let end = datetime('...');
-dependencies
-| where timestamp between (start .. end)
-| project timestamp, type, name, operation_Id
-| join (requests
-    | where timestamp between (start .. end)
-    | project operation_Name, operation_Id)
-    on $left.operation_Id == $right.operation_Id
-| summarize count() by operation_Name, type, name
-```
-
 ## <a name="2x-sdk-logging-appenders"></a>Elementos appender de registro de SDK 2.x
 
 Application Insights Java 3.x [recopila de forma automática el registro](./java-standalone-config.md#auto-collected-logging) sin necesidad de configurar ningún elemento appender de registro.
@@ -148,7 +123,7 @@ Si usa elementos appender de registro de SDK 2.x, los puede quitar, ya que Appl
 ## <a name="2x-sdk-spring-boot-starter"></a>Spring Boot Starter de SDX 2.x
 
 No hay ningún Spring Boot Starter de Application Insights Java 3.x.
-La instalación y configuración de 3.x sigue los mismos [pasos sencillos](./java-in-process-agent.md#quickstart), tanto si usa Spring Boot como si no.
+La instalación y configuración de 3.x sigue los mismos [pasos sencillos](./java-in-process-agent.md#get-started), tanto si usa Spring Boot como si no.
 
 Al realizar la actualización desde Spring Boot Starter del SDK de Application Insights Java 2.x, tenga en cuenta que el nombre del rol en la nube ya no será `spring.application.name` de forma predeterminada.
 Consulte los [documentos de configuración de 3.x](./java-standalone-config.md#cloud-role-name) para establecer el nombre del rol en la nube en 3.x mediante la configuración de json o la variable de entorno.

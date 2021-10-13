@@ -1,20 +1,20 @@
 ---
-author: DCtheGeek
+author: georgewallace
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/17/2021
-ms.author: dacoulte
+ms.date: 10/11/2021
+ms.author: gwallace
 ms.custom: generated
-ms.openlocfilehash: efd3e7d5d6ccffdedeaab35db31cc8690e1a44ee
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: bc324ae3e61cfa82689bb712e8228e06e30bf71d
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128655166"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129810423"
 ---
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Las cuentas de Cognitive Services deben deshabilitar el acceso a la red pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0725b4dd-7e76-479c-a735-68e7ee23d5ca) |Al deshabilitar el acceso a la red pública, se mejora la seguridad, ya que la cuenta de Cognitive Services no se expone en la red pública de Internet. La creación de puntos de conexión privados puede limitar la exposición de la cuenta de Cognitive Services. Más información en: [https://go.microsoft.com/fwlink/?linkid=2129800](../../../../articles/private-link/index.yml).  |Audit, Deny, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_DisablePublicNetworkAccess_Audit.json) |
+|[Las cuentas de Cognitive Services deben deshabilitar el acceso a la red pública.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0725b4dd-7e76-479c-a735-68e7ee23d5ca) |Al deshabilitar el acceso a la red pública, se mejora la seguridad, ya que la cuenta de Cognitive Services no se expone en la red pública de Internet. La creación de puntos de conexión privados puede limitar la exposición de la cuenta de Cognitive Services. Más información en: [https://go.microsoft.com/fwlink/?linkid=2129800](../../../../articles/private-link/index.yml).  |Audit, Deny, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_DisablePublicNetworkAccess_Audit.json) |
 |[Las cuentas de Cognitive Services deben habilitar el cifrado de datos con una clave administrada por el cliente](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F67121cc7-ff39-4ab8-b7e3-95b84dab487d). |Las claves administradas por el cliente suelen ser necesarias para cumplir estándares de cumplimiento normativo. Las claves administradas por el cliente permiten cifrar los datos almacenados en Cognitive Services con una clave de Azure Key Vault creada por el usuario y propiedad de este. Tiene control y responsabilidad totales del ciclo de vida de la clave, incluidos la rotación y administración. Para más información sobre las claves administradas por el cliente, consulte [https://go.microsoft.com/fwlink/?linkid=2121321](../../../../articles/cognitive-services/encryption/cognitive-services-encryption-keys-portal.md). |Audit, Deny, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_CustomerManagedKey_Audit.json) |
 |[Las cuentas de Cognitive Services deben tener deshabilitados los métodos de autenticación local](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F71ef260a-8f18-47b7-abcb-62d0673d94dc) |La deshabilitación de métodos de autenticación local mejora la seguridad, ya que garantiza que las cuentas de Cognitive Services requieran identidades de Azure Active Directory exclusivamente para la autenticación. Más información en: [https://aka.ms/cs/auth](../../../../articles/cognitive-services/authentication.md). |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_DisableLocalAuth_Audit.json) |
 |[Las cuentas de Cognitive Services deben restringir el acceso a la red](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F037eea7a-bd0a-46c5-9a66-03aea78705d3) |Se debe restringir el acceso de red a las cuentas de Cognitive Services. Configure reglas de red, de forma que solo las aplicaciones de redes permitidas pueden acceder a la cuenta de Cognitive Services. Para permitir conexiones desde clientes específicos locales o de Internet, se puede conceder acceso al tráfico procedente de redes virtuales de Azure específicas o a intervalos de direcciones IP de Internet públicas. |Audit, Deny, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_NetworkAcls_Audit.json) |

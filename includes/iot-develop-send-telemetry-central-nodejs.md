@@ -7,14 +7,14 @@ ms.topic: include
 ms.date: 09/17/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 85e75839d204360847162b470d149e580fac80bc
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 233a5df91d744b393736a0c9483c3fcb2b52c57a
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128910737"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129725776"
 ---
-[![Examinar el código](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/pnp)
+[![Examinar el código](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/javascript/pnp)
 
 En este artículo de inicio rápido, se explica un flujo de trabajo básico de desarrollo de aplicaciones de Azure IoT. En primer lugar, cree una aplicación de Azure IoT Central para hospedar dispositivos. A continuación, utilizaremos un ejemplo de un SDK de dispositivo IoT de Azure para ejecutar un controlador de temperatura simulado, conectarlo de forma segura a IoT Central y enviar datos de telemetría.
 
@@ -86,12 +86,12 @@ En esta sección, configurará el entorno local, instalará el SDK de dispositiv
 
     **Windows**
     ```console
-    cd azure-iot-sdk-node\device\samples\pnp
+    cd azure-iot-sdk-node\device\samples\javascript\pnp
     ```
 
     **Sistema operativo Linux o Raspberry Pi**
     ```console
-    cd azure-iot-sdk-node/device/samples/pnp
+    cd azure-iot-sdk-node/device/samples/javascript/pnp
     ```
 
 1. Instale el SDK de Azure IoT para Node.js y las dependencias necesarias:

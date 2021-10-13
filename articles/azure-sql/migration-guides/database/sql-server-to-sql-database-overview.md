@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: cawrites
 ms.date: 11/06/2020
-ms.openlocfilehash: 5ad3560cccb0cd87191f103d435776ce401beb90
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 04bd20e233bac44194c66e772db19f022458383d
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121746624"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615531"
 ---
 # <a name="migration-overview-sql-server-to-azure-sql-database"></a>Información general sobre la migración: de SQL Server a Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -186,7 +186,6 @@ Para obtener más ayuda, consulte los siguientes recursos, que se desarrollaron 
 |[Creación masiva de bases de datos con PowerShell](https://www.microsoft.com/download/details.aspx?id=103107)|Puede usar un conjunto de tres scripts de PowerShell que crean un grupo de recursos (create_rg.ps1), el [servidor lógico de Azure](../../database/logical-servers.md) (create_sqlserver.ps1) y una base de datos SQL (create_sqldb.ps1). Los scripts incluyen funcionalidades de bucle para que pueda iterar y crear tantos servidores y bases de datos como sea necesario.|
 |[Implementación masiva de esquemas con MSSQL-Scripter y PowerShell](https://www.microsoft.com/download/details.aspx?id=103032)|Este recurso crea un grupo de recursos, crea uno o varios [servidores lógicos en Azure](../../database/logical-servers.md) para hospedar Azure SQL Database, exporta todos los esquemas de una instancia de SQL Server local (o varias instancias de SQL Server [2005 y posteriores]) y los importa en Azure SQL Database.|
 |[Conversión de trabajos del Agente SQL Server en trabajos de base de datos elástica](https://www.microsoft.com/download/details.aspx?id=103123)|Este script migra los trabajos de Agente SQL Server de origen a trabajos de base de datos elástica.|
-|[Envío de correo electrónicos desde Azure SQL Database](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/AF%20SendMail)|Esta solución es una alternativa a la funcionalidad de SendMail que está disponible para SQL Server local. Utiliza Azure Functions y el servicio SendGrid para enviar correos electrónicos desde Azure SQL Database.|
 |[Utilidad de migración de inicios de sesión de SQL Server local a Azure SQL Database](https://www.microsoft.com/download/details.aspx?id=103111)|Un script de PowerShell puede crear un script de comandos de T-SQL para volver a crear inicios de sesión y seleccionar usuarios de base de datos de SQL Server local para Azure SQL Database. La herramienta permite la asignación automática de cuentas de Windows Server Active Directory a cuentas de Azure AD, junto con la migración de inicios de sesión nativos de SQL Server.|
 |[Automatización de la colección de datos de PerfMon mediante Logman](https://www.microsoft.com/download/details.aspx?id=103114)|Puede usar la herramienta Logman para recopilar datos de Perfmon (para ayudarle a comprender el rendimiento de línea base) y obtener recomendaciones de destino para la migración. Esta herramienta utiliza el archivo logman.exe para crear el comando que creará, iniciará, detendrá y eliminará el conjunto de contadores de rendimiento en una instancia de SQL Server remota.|
 

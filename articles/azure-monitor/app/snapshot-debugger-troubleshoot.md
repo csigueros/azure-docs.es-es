@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: bd83367ae073e03f03188cdf62cb60faaad7ac97
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9ae4a7d070419aae974742802ec5b6b3ae958c87
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105026460"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355519"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Solucionar problemas de habilitación de Application Insights Snapshot Debugger o ver instantáneas
 Si habilitó Snapshot Debugger de Application Insights en la aplicación, pero no puede ver las instantáneas para las excepciones, puede usar estas instrucciones para solucionar problemas.
@@ -92,7 +92,7 @@ Para comprobar la configuración, abra el archivo web.config y busque la secció
    ```
 
 > [!NOTE]
-> Al modificar el valor targetFramework de httpRuntime, se cambian las peculiaridades del entorno de ejecución de la aplicación y se pueden producir otros cambios sutiles en el comportamiento. Asegúrese de probar exhaustivamente la aplicación después de realizar este cambio. Para obtener una lista completa de los cambios de compatibilidad, vea https://docs.microsoft.com/dotnet/framework/migration-guide/application-compatibility#retargeting-changes.
+> Al modificar el valor targetFramework de httpRuntime, se cambian las peculiaridades del entorno de ejecución de la aplicación y se pueden producir otros cambios sutiles en el comportamiento. Asegúrese de probar exhaustivamente la aplicación después de realizar este cambio. Para obtener una lista completa de cambios de compatibilidad, vea [Cambios de redestinación](/dotnet/framework/migration-guide/application-compatibility#retargeting-changes).
 
 > [!NOTE]
 > Si targetFramework es 4.7 o superior, Windows determina los protocolos disponibles. En Azure App Service, está disponible TLS 1.2. Sin embargo, si usa su propia máquina virtual, es posible que tenga que habilitar TLS 1.2 en el sistema operativo.

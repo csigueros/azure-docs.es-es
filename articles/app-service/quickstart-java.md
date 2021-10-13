@@ -14,12 +14,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-java-uiex
-ms.openlocfilehash: 2fb7a97f1efb50f76b91cbc49a189deda7cde9c8
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 5be4133f23764ab87e8c1fca3b176d680e1eeae1
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129357118"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129855619"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Inicio rápido: Creación de una aplicación de Java en Azure App Service
 
@@ -123,7 +123,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.2.0:config
     PricingTier : P1v2
     OS : Windows
     Java : Java 8
-    WebContainer : Java SE
+    Web server stack : Java SE
     Deploy to slot : false
     Confirm (Y/N)? : Y
     [INFO] Saving configuration to pom.
@@ -156,7 +156,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.2.0:config
     PricingTier : P1v2
     OS : Windows
     Java : Java 8
-    WebContainer : tomcat 8.5
+    Web server stack : Tomcat 8.5
     Deploy to slot : false
     Confirm (Y/N)? : Y
     [INFO] Saving configuration to pom.
@@ -183,7 +183,7 @@ JBoss EAP solo está disponible en la versión para Linux de App Service. Selecc
 1. Cuando se le solicite la opción **Aplicación web**, presione Entrar para seleccionar la opción predeterminada, `<create>`.
 1. Cuando se le solicite la opción **SO**, presione Entrar para seleccionar **Linux**.
 2. Cuando se le solicite la opción **javaVersion**, escriba `1` para seleccionar **Java 8**.
-3. Cuando se le solicite la opción **Plan de tarifa**, especifique `10` para seleccionar **P1v2**.
+3. Cuando se le solicite la opción **Plan de tarifa**, especifique `9` para seleccionar **P1v2**.
 4. Por último, presione Entrar en la última solicitud para confirmar las selecciones.
 
     ```
@@ -194,7 +194,7 @@ JBoss EAP solo está disponible en la versión para Linux de App Service. Selecc
     Region : centralus
     PricingTier : P1v2
     OS : Linux
-    Web server stack : JAVA SE
+    Web server stack : Java SE
     Deploy to slot : false
     Confirm (Y/N)? : Y
     [INFO] Saving configuration to pom.
@@ -213,7 +213,7 @@ JBoss EAP solo está disponible en la versión para Linux de App Service. Selecc
 1. Cuando se le solicite la opción **SO**, presione Entrar para seleccionar **Linux**.
 1. Cuando se le solicite la opción **javaVersion**, escriba `1` para seleccionar **Java 8**.
 1. Cuando se le solicite la opción **webcontainer**, escriba `3` para seleccionar **Tomcat 8.5**.
-1. Cuando se le solicite la opción **Plan de tarifa**, especifique `10` para seleccionar **P1v2**.
+1. Cuando se le solicite la opción **Plan de tarifa**, especifique `9` para seleccionar **P1v2**.
 1. Por último, presione Entrar en la última solicitud para confirmar las selecciones.
 
     ```
@@ -224,7 +224,7 @@ JBoss EAP solo está disponible en la versión para Linux de App Service. Selecc
     Region : centralus
     PricingTier : P1v2
     OS : Linux
-    Web server stack : TOMCAT 8.5
+    Web server stack : Tomcat 8.5
     Deploy to slot : false
     Confirm (Y/N)? : Y
     [INFO] Saving configuration to pom.
@@ -279,10 +279,10 @@ Propiedad | Obligatorio | Descripción | Versión
 `<subscriptionId>` | false | Especifique el identificador de suscripción. | 0.1.0+
 `<resourceGroup>` | true | Grupo de recursos de Azure para la aplicación web. | 0.1.0+
 `<appName>` | true | El nombre de la aplicación web. | 0.1.0+
-`<region>` | true | Especifica la región donde se hospedará la aplicación web; el valor predeterminado es **centralus**. Todas las regiones válidas en la sección [Regiones admitidas](https://azure.microsoft.com/global-infrastructure/services/?products=app-service). | 0.1.0+
-`<pricingTier>` | true | El plan de tarifa de la aplicación web. El valor predeterminado es **P1V2** para cargas de trabajo de producción, mientras que **B2** es el mínimo recomendado para desarrollo y pruebas de Java. [Más información](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
-`<runtime>` | true | La configuración del entorno en tiempo de ejecución. Puede ver los detalles [aquí](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
-`<deployment>` | true | La configuración de implementación. Puede ver los detalles [aquí](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
+`<region>` | false | Especifica la región donde se hospedará la aplicación web; el valor predeterminado es **centralus**. Todas las regiones válidas en la sección [Regiones admitidas](https://azure.microsoft.com/global-infrastructure/services/?products=app-service). | 0.1.0+
+`<pricingTier>` | false | El plan de tarifa de la aplicación web. El valor predeterminado es **P1V2** para cargas de trabajo de producción, mientras que **B2** es el mínimo recomendado para desarrollo y pruebas de Java. [Más información](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
+`<runtime>` | false | La configuración del entorno en tiempo de ejecución. Puede ver los detalles [aquí](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
+`<deployment>` | false | La configuración de implementación. Puede ver los detalles [aquí](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
 
 Tenga cuidado con los valores de `<appName>` y `<resourceGroup>` (`helloworld-1590394316693` y `helloworld-1590394316693-rg` en la demostración), ya que se usarán más adelante.
 

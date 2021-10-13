@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/07/2021
-ms.openlocfilehash: 2d145e62392ee95189a212c1cd0b294134ce1109
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dda75aedab0c17f14d2725ff9759d7ab30203474
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739076"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129712922"
 ---
 # <a name="create-rich-interactive-reports-of-security-center-data"></a>Creación de informes completos e interactivos de los datos de Security Center
 
@@ -95,7 +95,7 @@ Security Center incluye examinadores de vulnerabilidades para sus máquinas, con
 
 Más información sobre el uso de estos examinadores:
 
-- [Análisis de máquinas con el examinador de VA integrado](deploy-vulnerability-assessment-vm.md)
+- [Análisis de máquinas con el examinador de Qualys integrado](deploy-vulnerability-assessment-vm.md)
 - [Búsqueda de vulnerabilidades en las imágenes del registro](defender-for-container-registries-usage.md)
 - [Examen de recursos de SQL en busca de vulnerabilidades](defender-for-sql-on-machines-vulnerability-assessment.md)
 

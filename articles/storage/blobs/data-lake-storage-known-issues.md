@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/08/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 4276311163134b428fe9d616bf1e6bc23fdedfaf
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 11572f957fc2d305f5d6f17303bb8386345abc7b
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128638375"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714067"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conocidos con Azure Data Lake Storage Gen2
 
@@ -57,7 +57,6 @@ Las siguientes API REST de blob no se admiten:
 - [Get Page Ranges](/rest/api/storageservices/get-page-ranges) (Conseguir intervalos de páginas)
 - [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob) (Copia incremental del blob)
 - [Put Page from URL](/rest/api/storageservices/put-page-from-url) (Poner página de dirección URL)
-- [Put Block List](/rest/api/storageservices/put-block-list)
 
 No se admiten discos de máquina virtual no administrados en cuentas que tengan un espacio de nombres jerárquico. Si desea habilitar un espacio de nombres jerárquico en una cuenta de almacenamiento, coloque los discos de máquina virtual no administrados en una cuenta de almacenamiento que no tenga habilitada la característica de espacio de nombres jerárquico.
 

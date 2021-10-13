@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: bd296000f95ee6a2bb73567a0de46472a7c05492
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: 4a73c636eb6e1f9848a06bf38e584bd19d2a3b47
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114403626"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129725668"
 ---
 IoT Plug and Play simplifica IoT, ya que permite interactuar con las funcionalidades de un dispositivo sin tener que conocer la implementación subyacente del mismo. En este inicio rápido se muestra cómo usar Node.js para conectarse y controlar un dispositivo IoT Plug and Play que esté conectado a una solución.
 
@@ -37,7 +37,7 @@ git clone https://github.com/Azure/azure-iot-sdk-node
 
 [!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
-Para más información sobre la configuración de ejemplo, consulte el [archivo Léame de ejemplo](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/pnp/readme.md).
+Para más información sobre la configuración de ejemplo, consulte el [archivo Léame de ejemplo](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/javascript/pnp/readme.md).
 
 En este inicio rápido, se usa un dispositivo termostato de ejemplo, que se ha escrito en Node.js, como dispositivo IoT Plug and Play. Para ejecutar el dispositivo de ejemplo:
 

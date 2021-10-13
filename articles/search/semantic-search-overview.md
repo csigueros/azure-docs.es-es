@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: 057afd588193a8fdfba020e25d086dc915bb9eaa
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9df6e2c1bd937f275fb3b35db8cd6ac2e3909502
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128612840"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129532865"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Búsqueda semántica en Azure Cognitive Search
 
@@ -89,14 +89,14 @@ La búsqueda semántica está disponible a través del [registro de suscripción
 
 | Característica | Nivel | Region (Región) | Suscripción | Precios |
 |---------|------|--------|---------------------|-------------------|
-| Búsqueda semántica (títulos, resaltados, respuestas) | Nivel estándar (S1, S2, S3) | Centro-norte de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU. 2, Norte de Europa, Oeste de Europa | Obligatorio | [Página de precios de Cognitive Search](https://azure.microsoft.com/pricing/details/search/)  |
-| Corrector ortográfico | Any | Centro-norte de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU. 2, Norte de Europa, Oeste de Europa | Obligatorio | Ninguno (gratis) |
+| Búsqueda semántica (clasificación, títulos, resaltados, respuestas) | Nivel estándar (S1, S2, S3) | Centro-norte de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU. 2, Norte de Europa, Oeste de Europa | Obligatorio | [Página de precios de Cognitive Search](https://azure.microsoft.com/pricing/details/search/)  |
+| Corrector ortográfico | Básico y superior | All | None | Ninguno (gratis) |
 
-Puede usar la revisión ortográfica sin búsqueda semántica, de forma gratuita. Los cargos por la búsqueda semántica se aplican cuando las solicitudes de consulta incluyen `queryType=semantic` y la cadena de búsqueda no está vacía (por ejemplo, `search=pet friendly hotels in new york`. Las búsquedas vacías (consultas donde `search=*`) no se cobran, ni siquiera si queryType está establecido en `semantic`.
+Los cargos de la búsqueda semántica se aplican cuando las solicitudes de consulta incluyen "queryType=semantic" y la cadena de búsqueda no está vacía (por ejemplo, "search=pet friendly hotels in new york"). Si la cadena de búsqueda está vacía ("search=*"), no se cobra, aunque queryType esté establecido en "semantic".
 
 ## <a name="disable-semantic-search"></a>Deshabilitación de la búsqueda semántica
 
-Solo un servicio de búsqueda que tenga habilitada la característica puede incurrir en cargos. Sin embargo, si desea una protección completa contra el uso accidental, [deshabilite la opción](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch).
+Para una protección completa frente al uso accidental y los cargos, puede [deshabilitar la búsqueda semántica](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) mediante la API de creación o actualización de servicio en el servicio de búsqueda. Una vez deshabilitada la característica, se rechazan las solicitudes que incluyen el tipo de consulta semántica.
 
 * En la API REST de administración, versión 2021-04-01-Preview, se proporciona esta opción.
 

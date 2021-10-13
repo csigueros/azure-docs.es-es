@@ -13,12 +13,12 @@ ms.subservice: compliance
 ms.date: 08/18/2021
 ms.author: sama
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23e0a0d9bf53192249b50f03df508e86cc88b91e
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: 0a68a523a2a5ce14c9fccd2750eb9523b4c5281d
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129155973"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129807228"
 ---
 # <a name="tutorial---onboard-external-users-to-azure-ad-through-an-approval-process"></a>Tutorial : Incorporación de usuarios externos a Azure AD mediante un proceso de aprobación
 
@@ -130,4 +130,4 @@ En este paso, puede eliminar el paquete de acceso del **paquete de usuario exter
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre cómo crear paquetes de acceso para administrar el acceso a otros tipos de recursos, como aplicaciones y sitios. [Tutorial: Administración del acceso a los recursos en la administración de derechos de Azure AD](/active-directory/governance/entitlement-management-access-package-first.md)
+Obtenga información sobre cómo crear paquetes de acceso para administrar el acceso a otros tipos de recursos, como aplicaciones y sitios. [Tutorial: Administración del acceso a los recursos en la administración de derechos de Azure AD](/azure/active-directory/governance/entitlement-management-access-package-first)

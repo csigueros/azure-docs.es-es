@@ -3,12 +3,12 @@ title: Esquema de recursos basado en el área de trabajo de Application Insights
 description: Obtenga información sobre la nueva estructura de tabla y el esquema parar los nuevos recursos basados en áreas de trabajo de Application Insights de Azure Monitor.
 ms.topic: conceptual
 ms.date: 05/09/2020
-ms.openlocfilehash: ef9d22cd2b45679928ee54778b2a521ea9ecab03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 040f53836466dec446da6fcd312910ca7ad600e4
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100575597"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615512"
 ---
 # <a name="workspace-based-resource-changes"></a>Cambios en los recursos basados en áreas de trabajo
 
@@ -28,7 +28,7 @@ Con los recursos de Application Insights basados en áreas de trabajo, los datos
 | pageViews | AppPageViews| Datos sobre cada vista del sitio web con información del explorador. |
 | performanceCounters | AppPerformanceCounters | Medidas de rendimiento de los recursos de proceso que respaldan la aplicación, por ejemplo, contadores de rendimiento de Windows. |
 | Solicitudes | AppRequests | Solicitudes recibidas por su aplicación. Por ejemplo, se registra un registro de solicitud independiente para cada solicitud HTTP que recibe la aplicación web.  |
-| exceptions | AppSystemEvents | Excepciones producidas por el tiempo de ejecución de la aplicación, captura las excepciones del lado servidor y cliente (exploradores). |
+| exceptions | AppExceptions | Excepciones producidas por el tiempo de ejecución de la aplicación, captura las excepciones del lado servidor y cliente (exploradores). |
 | traces | AppTraces | Registros detallados (seguimientos) emitidos a través de código de aplicación/plataformas de registro, registrados a través de TrackTrace(). |
 
 ## <a name="table-schemas"></a>Esquemas de tabla

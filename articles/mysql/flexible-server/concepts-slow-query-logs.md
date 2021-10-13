@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 7550fafa0a1fdf67baca4f9c777a4a064f522728
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: bf3aa8b675e242952f32678059b8b2c89d5b95e0
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122652447"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612434"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql-flexible-server-preview"></a>Registros de consultas lentas en Azure Database for MySQL con servidor flexible (versión preliminar)
 
@@ -41,7 +41,7 @@ Consulte la [documentación rel registro de consultas lentas](https://dev.mysql.
 
 ## <a name="access-slow-query-logs"></a>Acceso a registros de consultas lentas
 
-Los registros de consultas lentas están integrados con la configuración de diagnóstico de Azure Monitor. Una vez que haya habilitado los registros de consulta lenta en el servidor flexible de MySQL, puede enviarlos a los registros de Azure Monitor, Event Hubs o Azure Storage. Para obtener más información acerca de la configuración de diagnóstico, vea la [documentación de los registros de diagnóstico](../../azure-monitor/essentials/platform-logs-overview.md). Para obtener más información sobre cómo habilitar la configuración de diagnóstico en Azure Portal, vea el [artículo sobre registros de consultas lentas en el portal](how-to-configure-slow-query-logs-portal.md#set-up-diagnostics).
+Los registros de consultas lentas están integrados con la configuración de diagnóstico de Azure Monitor. Una vez que haya habilitado los registros de consulta lenta en el servidor flexible de MySQL, puede enviarlos a los registros de Azure Monitor, Event Hubs o Azure Storage. Para obtener más información acerca de la configuración de diagnóstico, vea la [documentación de los registros de diagnóstico](../../azure-monitor/essentials/platform-logs-overview.md). Para obtener más información sobre cómo habilitar la configuración de diagnóstico en Azure Portal, vea el [artículo sobre registros de consultas lentas en el portal](tutorial-query-performance-insights.md#set-up-diagnostics).
 
 En la tabla siguiente se describe la salida del registro de consultas lentas. En función del método de salida que elija, pueden variar los campos incluidos y el orden en el que aparecen.
 
@@ -133,5 +133,5 @@ Una vez que los registros de consultas lentos se canalizan a los registros de Az
     
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información sobre los [registros de auditoría](concepts-audit-logs.md)
-- Configuración de registros de consultas lentas en [Azure Portal](how-to-configure-slow-query-logs-portal.md)
+- [Información de rendimiento de consultas](tutorial-query-performance-insights.md)
 <!-- - [How to configure slow query logs from the Azure CLI](howto-configure-server-logs-in-cli.md). -->

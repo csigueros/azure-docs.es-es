@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 598702dee3c4e5fa712144eaad5aefff564df602
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 71f3d64a05a44773652852adb860b64363e158a9
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122015504"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129855961"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Inicio rápido: Compilación e implementación de aplicaciones en Azure Spring Cloud
 
@@ -280,7 +280,7 @@ La creación del proyecto tarda aproximadamente de 5 a 10 minutos. Una vez compl
 1. Genere configuraciones mediante la ejecución del siguiente comando en la carpeta raíz de PetClinic que contiene el POM primario. Si ya ha iniciado sesión con la CLI de Azure, el comando tomará automáticamente las credenciales. Si no lo ha hecho, le proporcionará instrucciones para iniciar sesión. Para obtener más información, consulte nuestra [página wiki](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
     ```azurecli
-    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.6.0:config
+    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.7.0:config
     ```
 
     Se le pedirá que seleccione:
@@ -298,7 +298,7 @@ La creación del proyecto tarda aproximadamente de 5 a 10 minutos. Una vez compl
             <plugin>
                 <groupId>com.microsoft.azure</groupId>
                 <artifactId>azure-spring-cloud-maven-plugin</artifactId>
-                <version>1.6.0</version>
+                <version>1.7.0</version>
                 <configuration>
                     <subscriptionId>xxxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx</subscriptionId>
                     <clusterName>v-spr-cld</clusterName>

@@ -4,7 +4,7 @@ description: Describe cómo usar un panel de recursos para realizar una revisió
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,16 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 423f04a2641199ca27274c45bb90fad405a93329
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d87ff7dc27dea5b25995dcfbd7f969a6d01fec56
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124754139"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129669271"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review-in-privileged-identity-management"></a>Uso de un panel de recursos para realizar una revisión de acceso en Privileged Identity Management (PIM)
 

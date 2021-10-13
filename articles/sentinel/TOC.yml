@@ -222,6 +222,8 @@
           href: authenticate-playbooks-to-sentinel.md
         - name: Uso de desencadenadores y acciones en cuadernos de estrategias
           href: playbook-triggers-actions.md
+        - name: Personalización de cuadernos de estrategias a partir de plantillas
+          href: use-playbook-templates.md
     - name: Administración de Azure Sentinel
       items:
         - name: Azure Sentinel para MSSP

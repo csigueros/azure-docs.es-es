@@ -1,19 +1,19 @@
 ---
 title: 'Azure VMware Solution by CloudSimple: servicio'
 description: Obtenga información sobre el servicio CloudSimple con esta introducción. La creación del servicio permite adquirir nodos, reservarlos y crear nubes privadas.
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: acf5180e438d244f2eab791f4a2ebff77df6eaa4
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 037ca574be21d0b0e2648ab558e1b3f36417651b
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108182289"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129613954"
 ---
 # <a name="cloudsimple-service-overview"></a>Información general del servicio CloudSimple
 

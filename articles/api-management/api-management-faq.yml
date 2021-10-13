@@ -14,13 +14,13 @@ metadata:
   ms.topic: article
   ms.date: 11/19/2017
   ms.author: danlep
-  ms.custom: devx-track-azurepowershell
-  ms.openlocfilehash: 161f532be71fb137adc0514f6a71b279f5111509
-  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+  ms.custom: devx-track-azurepowershell, fasttrack-edit
+  ms.openlocfilehash: 3f5e12589596bbb42133b2226b28c216a41a6bca
+  ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/24/2021
-  ms.locfileid: "128647145"
+  ms.lasthandoff: 10/12/2021
+  ms.locfileid: "129856911"
 title: P+F de Azure API Management
 summary: >
   Obtenga respuestas a preguntas comunes, patrones y procedimientos recomendados para Azure API Management.
@@ -31,102 +31,129 @@ sections:
 - name: Omitido
   questions:
   - question: >
-      ¿Qué significa que una característica se encuentra en su versión preliminar?
+      What does it mean when a feature is in preview?
     answer: >
-      Cuando una característica está en su versión preliminar, significa que estamos buscando activamente comentarios acerca de cómo funciona la característica. Una característica en versión preliminar está funcionalmente completa, pero es posible que hagamos cambios importantes en respuesta a los comentarios de los clientes. Se recomienda no depender de una característica que está en su versión preliminar en el entorno de producción.
+      When a feature is in preview, it means that we're actively seeking feedback on how the feature is working for you. A feature in preview is functionally complete, but it's possible that we'll make a breaking change in response to customer feedback. We recommend that you don't depend on a feature that is in preview in your production environment.
   - question: >
-      ¿Cómo se puede proteger la conexión entre la puerta de enlace de API Management y mis servicios back-end?
+      How can I secure the connection between the API Management gateway and my back-end services?
     answer: >
-      Tiene varias opciones para proteger la conexión entre la puerta de enlace de API Management y mis servicios back-end. Puede:
+      You have several options to secure the connection between the API Management gateway and your back-end services. You can:
 
 
-      * Use la autenticación básica HTTP. Para más información, consulte [Importación y publicación de la primera API](import-and-publish.md).
+      * Use HTTP basic authentication. For more information, see [Import and publish your first API](import-and-publish.md).
 
-      * Use la autenticación mutua de TLS como se describe en [Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Azure API Management](api-management-howto-mutual-certificates.md).
+      * Use TLS mutual authentication as described in [How to secure back-end services by using client certificate authentication in Azure API Management](api-management-howto-mutual-certificates.md).
 
-      * Use filtrado de IP en el servicio back-end. En todos los niveles de API Management, a excepción del nivel de consumo, la dirección IP de la puerta de enlace permanece constante, con algunas salvedades que se describen en [el artículo sobre la documentación de IP](api-management-howto-ip-addresses.md).
+      * Use IP filtering on your back-end service. In all tiers of API Management with the exception of Consumption tier, the IP address of the gateway remains constant, with a few caveats described in [the IP documentation article](api-management-howto-ip-addresses.md).
 
-      * Conecte la instancia de API Management a Azure Virtual Network.
+      * Connect your API Management instance to an Azure Virtual Network.
   - question: >
-      ¿Cómo se puede copiar mi instancia de servicio de API Management en una nueva instancia?
+      How do I copy my API Management service instance to a new instance?
     answer: >
-      Tiene varias opciones si desea copiar una instancia de API Management a una nueva instancia. Puede:
+      You have several options if you want to copy an API Management instance to a new instance. You can:
 
 
-      * Usar la función de copia de seguridad y restauración de API Management. Para más información, consulte [Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Azure API Management](api-management-howto-disaster-recovery-backup-restore.md).
+      * Use the backup and restore function in API Management. For more information, see [How to implement disaster recovery by using service backup and restore in Azure API Management](api-management-howto-disaster-recovery-backup-restore.md).
 
-      * Crear su propia característica de copia de seguridad y restauración mediante la [API de REST de API Management](/rest/api/apimanagement/). Usar la API de REST para guardar y restaurar las entidades de la instancia de servicio que desee.
+      * Create your own backup and restore feature by using the [API Management REST API](/rest/api/apimanagement/). Use the REST API to save and restore the entities from the service instance that you want.
 
-      * Descargar la configuración del servicio mediante Git y cargarla en una nueva instancia. Para más información, consulte [Guardado y configuración del servicio API Management mediante Git](api-management-configuration-repository-git.md).
+      * Download the service configuration by using Git, and then upload it to a new instance. For more information, see [How to save and configure your API Management service configuration by using Git](api-management-configuration-repository-git.md).
   - question: >
-      ¿Es posible administrar mi instancia de API Management mediante programación?
+      Can I manage my API Management instance programmatically?
     answer: >
-      Sí, puede administrar API Management mediante programación utilizando:
-
-
-      * La [API de REST de API Management](/rest/api/apimanagement/).
-
-      * El [SDK de la biblioteca de administración del servicio Microsoft Azure ApiManagement](https://aka.ms/apimsdk).
-
-      * Los cmdlets de [implementación del servicio](/powershell/module/wds) y [administración del servicio](/powershell/azure/servicemanagement/overview) de PowerShell.
-  - question: >
-      ¿Cómo se puede agregar un usuario al grupo de administradores?
-    answer: >
-      Los grupos de administradores son un grupo de sistema inmutable. Los administradores de suscripciones a Azure son parte de este grupo. No se pueden agregar usuarios a este grupo. Consulte [Creación y uso de grupos para administrar cuentas de desarrollador en Azure API Management](./api-management-howto-create-groups.md) para obtener más información.
-  - question: >
-      ¿Por qué la directiva que deseo agregar no está habilitada en el editor de directivas?
-    answer: >
-      Si la directiva que desea agregar aparece atenuada o sombreada en el editor de directivas, asegúrese de que está en el ámbito correcto para la directiva. Cada instrucción de la directiva está diseñada para su uso en determinados ámbitos y secciones de la directiva. Para revisar las secciones y los ámbitos de una directiva, consulte en la sección sobre el uso de la directiva en [API Management policies](./api-management-policies.md) (Directivas de API Management).
-  - question: >
-      ¿Cómo se configuran varios entornos en una sola API?
-    answer: >
-      Para configurar varios entornos; por ejemplo, un entorno de prueba y un entorno de producción, en una sola API, tiene dos opciones. Puede:
+      Yes, you can manage API Management programmatically by using:
 
 
-      * Hospedar diferentes API en el mismo inquilino.
+      * The [API Management REST API](/rest/api/apimanagement/).
 
-      * Hospedar las mismas API en diferentes inquilinos.
-  - question: >
-      ¿Se puede usar SOAP con API Management?
-    answer: >
-      Ahora se admite el [paso a través de SOAP](https://azure.microsoft.com/blog/soap-pass-through/). Los administradores pueden importar el WSDL de su servicio SOAP, y Azure API Management creará un front-end SOAP. Ahora hay documentación del portal para desarrolladores, la consola de prueba, las directivas y el análisis disponible para los servicios SOAP.
-  - question: >
-      ¿Se puede configurar un servidor de autorización de OAUth 2.0 con seguridad AD FS?
-    answer: >
-      Para más información sobre cómo configurar un servidor de autorización de OAuth 2.0 con la seguridad de Servicios de federación de Active Directory (AD FS), consulte [Using ADFS in API Management](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/) (Uso de ADFS en API Management).
-  - question: >
-      ¿Qué método de enrutamiento utiliza API Management en implementaciones en varias ubicaciones geográficas?
-    answer: >
-      API Management usa el [método de enrutamiento de tráfico de rendimiento](../traffic-manager/traffic-manager-routing-methods.md#performance) en las implementaciones en varias ubicaciones geográficas. El tráfico entrante se enrutará a la puerta de enlace de API más cercana. Si una región se queda sin conexión, el tráfico entrante se enruta automáticamente a la siguiente puerta de enlace más cercana. Aprenda más acerca de los métodos de enrutamiento en [Métodos de enrutamiento de tráfico de Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
-  - question: >
-      ¿Se puede usar una plantilla de Azure Resource Manager para crear una instancia del servicio API Management?
-    answer: >
-      Sí. Consulte las plantillas de inicio rápido del [servicio Azure API Management](https://azure.microsoft.com/resources/templates/azure-api-management-create/).
-  - question: >
-      ¿Se puede usar un certificado TLS/SSL autofirmado para un back-end?
-    answer: "Sí. Puede hacerse a través de PowerShell o enviando el certificado directamente a la API. Esta operación deshabilitará la validación de la cadena de certificados y le permitirá usar certificados autofirmados o firmados de forma privada cuando se comunique con los servicios back-end desde API Management.\n\n### <a name=\"powershell-method\"></a>Método de Powershell\nUtilice el cmdlet de PowerShell [`New-AzApiManagementBackend`](/powershell/module/az.apimanagement/new-azapimanagementbackend) (con el nuevo back-end) o [`Set-AzApiManagementBackend`](/powershell/module/az.apimanagement/set-azapimanagementbackend) (con el back-end existente) y establezca el parámetro `-SkipCertificateChainValidation` en `True`.\n\n```powershell\n$context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'\nNew-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true\n```\n### <a name=\"direct-api-update-method\"></a>Método de actualización directo con la API\n\n1. Cree una entidad de [back-end](/rest/api/apimanagement/) mediante API Management.     \n2. Establezca la propiedad **skipCertificateChainValidation** en **true**.     \n3. Si ya no desea permitir los certificados autofirmados, puede eliminar la entidad de back-end o establecer la propiedad **skipCertificateChainValidation** en **false**.\n"
-  - question: >
-      ¿Por qué se obtiene un error de autenticación al intentar clonar un repositorio?
-    answer: >
-      Si utiliza el Administrador de credenciales de Git o si está intentando clonar un repositorio Git con Visual Studio, se puede encontrar un problema conocido en el cuadro de diálogo de credenciales de Windows. El cuadro de diálogo limita la longitud de la contraseña a 127 caracteres y se trunca la contraseña generada por Microsoft. Estamos trabajando para acortar la contraseña. De momento, use Git Bash para clonar el repositorio Git.
-  - question: >
-      ¿Funciona API Management con Azure ExpressRoute?
-    answer: >
-      Sí. API Management funciona con Azure ExpressRoute.
-  - question: >
-      ¿Por qué es necesaria una subred dedicada en las redes virtuales de estilo Resource Manager cuando API Management está implementado en ellas?
-    answer: >
-      El requisito de subred dedicada para API Management procede del hecho de que se basa en el modelo de implementación clásica (capa V1 de PAAS). Aunque podemos implementarlo en una red virtual de Resource Manager (capa V2), hay consecuencias derivadas de ello. El modelo de implementación clásica de Azure no está estrechamente vinculado al modelo de Resource Manager, así que si crea un recurso en la capa V2, la capa V1 no lo sabe y pueden surgir problemas, por ejemplo, que API Management intente usar una IP que ya está asignada a una NIC (creada en V2).
+      * The [Microsoft Azure ApiManagement Service Management Library SDK](https://aka.ms/apimsdk).
 
-      Para más información sobre la diferencia entre el modelo de implementación clásica y el modelo de Resource Manager de Azure consulte las [diferencias en los modelos de implementación](../azure-resource-manager/management/deployment-models.md).
+      * The [Service deployment](/powershell/module/wds) and [Service management](/powershell/azure/servicemanagement/overview) PowerShell cmdlets.
   - question: >
-      ¿Cuál es el tamaño de subred mínimo necesario al implementar API Management en una red virtual?
+      How do I add a user to the Administrators group?
     answer: >
-      El tamaño de subred mínimo necesario para implementar API Management es [/29](../virtual-network/virtual-networks-faq.md#configuration), que es el mínimo que admite Azure.
+      Administrators groups is an immutable system group. Azure subscription administrators are members of this group. You cannot add a user to this group. See [How to create and use groups to manage developer accounts in Azure API Management](./api-management-howto-create-groups.md) for more information.
   - question: >
-      ¿Se puede mover un servicio API Management de una suscripción a otra?
+      Why is the policy that I want to add unavailable in the policy editor?
     answer: >
-      Sí. Para más información, consulte vea [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+      If the policy that you want to add appears dimmed or shaded in the policy editor, be sure that you are in the correct scope for the policy. Each policy statement is designed for you to use in specific scopes and policy sections. To review the policy sections and scopes for a policy, see the policy's Usage section in [API Management policies](./api-management-policies.md).
   - question: >
-      ¿Existen restricciones de la importación de mi API o problemas conocidos con ella?
-    answer: '[Problemas conocidos y restricciones](api-management-api-import-restrictions.md) para formatos Open API(Swagger), WSDL y WADL.'
+      How do I set up multiple environments in a single API?
+    answer: >
+      To set up multiple environments, for example, a test environment and a production environment, in a single API, you have two options. You can:
+
+
+      * Host different APIs on the same tenant.
+
+      * Host the same APIs on different tenants.
+  - question: >
+      Can I use SOAP with API Management?
+    answer: >
+      [SOAP pass-through](https://azure.microsoft.com/blog/soap-pass-through/) support is now available. Administrators can import the WSDL of their SOAP service, and Azure API Management will create a SOAP front end. Developer portal documentation, test console, policies and analytics are all available for SOAP services.
+  - question: >
+      Can I configure an OAuth 2.0 authorization server with AD FS security?
+    answer: >
+      To learn how to configure an OAuth 2.0 authorization server with Active Directory Federation Services (AD FS) security, see [Using ADFS in API Management](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/).
+  - question: >
+      What routing method does API Management use in deployments to multiple geographic locations?
+    answer: >
+      API Management uses the [performance traffic routing method](../traffic-manager/traffic-manager-routing-methods.md#performance) in deployments to multiple geographic locations. Incoming traffic is routed to the closest API gateway. If one region goes offline, incoming traffic is automatically routed to the next closest gateway. Learn more about routing methods in [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md).
+  - question: >
+      Can I use an Azure Resource Manager template to create an API Management service instance?
+    answer: >
+      Yes. See the [Azure API Management Service](https://azure.microsoft.com/resources/templates/azure-api-management-create/) quickstart templates.
+  - question: >
+      Can I use a self-signed TLS/SSL certificate for a back end?
+    answer: >
+      Yes. This can be done through PowerShell or by directly submitting to the API. This will disable certificate chain validation and will allow you to use self-signed or privately-signed certificates when communicating from API Management to the back end services.
+
+
+      ### Powershell method
+
+      Use the [`New-AzApiManagementBackend`](/powershell/module/az.apimanagement/new-azapimanagementbackend) (for new back end) or [`Set-AzApiManagementBackend`](/powershell/module/az.apimanagement/set-azapimanagementbackend) (for existing back end) PowerShell cmdlets and set the `-SkipCertificateChainValidation` parameter to `True`.
+
+
+      ```powershell
+
+      $context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
+
+      New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
+
+      ```
+
+      ### Direct API update method
+
+
+      1. Create a [Backend](/rest/api/apimanagement/) entity by using API Management.		
+
+      2. Set the **skipCertificateChainValidation** property to **true**.		
+
+      3. If you no longer want to allow self-signed certificates, delete the Backend entity, or set the **skipCertificateChainValidation** property to **false**.
+  - question: >
+      Why do I get an authentication failure when I try to clone a Git repository?
+    answer: >
+      If you use Git Credential Manager, or if you're trying to clone a Git repository by using Visual Studio, you might run into a known issue with the Windows credentials dialog box. The dialog box limits password length to 127 characters, and it truncates the Microsoft-generated password. We are working on shortening the password. For now, please use Git Bash to clone your Git repository.
+  - question: >
+      Does API Management work with Azure ExpressRoute?
+    answer: >
+      Yes. API Management works with Azure ExpressRoute.
+  - question: >
+      Why do we require a dedicated subnet in Resource Manager style VNETs when API Management is deployed into them?
+    answer: >
+      The dedicated subnet requirement for API Management comes from the fact, that it is built on Classic (PAAS V1 layer) deployment model. While we can deploy into a Resource Manager VNET (V2 layer), there are consequences to that. The Classic deployment model in Azure is not tightly coupled with the Resource Manager model and so if you create a resource in V2 layer, the V1 layer doesn't know about it and problems can happen, such as API Management trying to use an IP that is already allocated to a NIC (built on V2).
+
+      To learn more about difference of Classic and Resource Manager models in Azure refer to [difference in deployment models](../azure-resource-manager/management/deployment-models.md).
+  - question: >
+      What is the minimum subnet size needed when deploying API Management into a VNET?
+    answer: >
+      The minimum subnet size needed to deploy API Management is [/29](../virtual-network/virtual-networks-faq.md#configuration), which is the minimum subnet size that Azure supports.
+  - question: >
+      Can I move an API Management service from one subscription to another?
+    answer: >
+      Yes. To learn how, see [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+  - question: >
+      Are there restrictions on or known issues with importing my API?
+    answer: "[Known issues and restrictions](api-management-api-import-restrictions.md) for Open API(Swagger), WSDL and WADL formats.\n      \n"
+  - question: >
+      How does API Management handle trailing slashes when calling backend services?
+    answer: Historically and by convention a URL ending with a trailing slash is treated as a Directory, for example "https://contoso.com/sample/" whereas the same URL without the trailing slash "https://contoso.com/sample" would be indicative of a file. This is not mandated, so some systems will consider those two URLs unique, whilst others will consider them the same URL. API Management doesn’t make a distinction thus a single operation "resource" will accept "resource" and "resource/". However, whilst the distinction doesn’t matter to API Management it may matter to the backend host. Some web servers will automatically redirect a URL not ending with a trailing slash, to the same URL ending in a trailing slash. As API Management is the client to the backend (server) an automatic redirect is not always desirable. If needed create a [Rewrite URL policy](api-management-transformation-policies.md#RewriteURL) to ensure a trailing slash is always added to the outbound backend call.

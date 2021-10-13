@@ -4,16 +4,16 @@ ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 114def65376e40fed81b4857e8d2f124ad665c70
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: 087d5c3e43d1b01754f19978d8b76d012e9c55a7
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114403812"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129725688"
 ---
 En este inicio rápido se muestra cómo compilar una aplicación de dispositivo IoT Plug and Play de ejemplo, conectarla al centro de IoT y usar la herramienta Azure IoT Explorer para ver los datos de telemetría que envía. La aplicación de ejemplo se escribe en Node.js y se incluye en el SDK de dispositivo IoT de Azure para Node.js. Un generador de soluciones puede usar la herramienta Azure IoT Explorer para comprender las funcionalidades de cualquier dispositivo IoT Plug and Play sin necesidad de ver nada de código del dispositivo.
 
-[![Examinar el código](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/pnp)
+[![Examinar el código](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/javascript/pnp)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -75,7 +75,7 @@ En la función main, puede ver cómo todo encaja:
 
 [!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
-Para más información sobre la configuración de ejemplo, consulte el [archivo Léame de ejemplo](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/pnp/readme.md).
+Para más información sobre la configuración de ejemplo, consulte el [archivo Léame de ejemplo](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/javascript/pnp/readme.md).
 
 Ejecute una aplicación de ejemplo para simular un dispositivo IoT Plug and Play que envía telemetría al centro de IoT. Para ejecutar la aplicación de ejemplo, utilice el comando siguiente:
 

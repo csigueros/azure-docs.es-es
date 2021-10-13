@@ -13,12 +13,12 @@ ms.subservice: compliance
 ms.date: 08/18/2021
 ms.author: sama
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84b3cbecc6dbde98693f1fb5dafd6b791c876a70
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 05633ab0a46f3aa88ab3e520b493d40527717872
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129353141"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129809325"
 ---
 # <a name="tutorial-manage-the-lifecycle-of-your-group-based-licenses-in-azure-ad"></a>Tutorial: Administración del ciclo de vida de las licencias basadas en grupos en Azure AD
  
@@ -55,7 +55,7 @@ Para obtener más información, consulte [Requisitos de licencia](entitlement-ma
 
 1. Seleccione **Siguiente: Roles de recurso** para ir a la pestaña **Roles de recurso**.
 
-2. En esta pestaña se seleccionan los recursos y el rol de recurso que se incluirán en el paquete de acceso. En este escenario, seleccione **Grupos y equipos**, y busque el grupo que tiene asignadas [licencias de Office](/active-directory/enterprise-users/licensing-groups-assign.md).
+2. En esta pestaña se seleccionan los recursos y el rol de recurso que se incluirán en el paquete de acceso. En este escenario, seleccione **Grupos y equipos**, y busque el grupo que tiene asignadas [licencias de Office](/azure/active-directory/enterprise-users/licensing-groups-assign).
 
 3. En la lista **Rol**, seleccione **Miembro**.
 
@@ -141,4 +141,4 @@ En este paso, puede eliminar el paquete de acceso para las licencias de Office.
 
 Obtenga información sobre cómo crear paquetes de acceso para administrar el acceso a otros tipos de recursos, como aplicaciones y sitios: 
 
-[Administración del acceso a los recursos en la administración de derechos de Azure AD](/active-directory/governance/entitlement-management-access-package-first.md)
+[Administración del acceso a los recursos en la administración de derechos de Azure AD](/azure/active-directory/governance/entitlement-management-access-package-first)

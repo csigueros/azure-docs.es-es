@@ -1,6 +1,7 @@
 ---
 title: Protección del acceso híbrido con la integración de asociados de Azure AD
 description: Ayude a los clientes a detectar aplicaciones SaaS y migrarlas a Azure AD, así como a conectar con Azure AD aplicaciones que usan métodos de autenticación heredados.
+titleSuffix: Azure AD
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 04/20/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d7463c6f21ce3973f92ea6261c026adaeaf003d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f700b4850f68f9938bc574b26172f49c1d7c0a73
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128630345"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129613821"
 ---
 # <a name="secure-hybrid-access-with-azure-active-directory-partner-integrations"></a>Protección del acceso híbrido con integraciones de asociados de Azure Active Directory
 

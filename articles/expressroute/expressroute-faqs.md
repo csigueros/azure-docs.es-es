@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: duau
-ms.openlocfilehash: 108c7c30ad84c83e895cade79bc8a6ad30029199
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 08878f4fe13c270b6da3bfb74bed88c2476ad5de
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122272259"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129399629"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -110,7 +110,7 @@ Si el circuito ExpressRoute está habilitado para el emparejamiento de Microsoft
 
 ### <a name="public-peering"></a>Emparejamiento público
 
-El emparejamiento público se ha deshabilitado en los nuevos circuitos ExpressRoute. Ahora, los servicios de Azure están disponibles en el emparejamiento de Microsoft. Si un circuito creado antes del emparejamiento público estaba en desuso, puede optar por usar el emparejamiento de Microsoft o el emparejamiento público, en función de los servicios que quiera.
+El emparejamiento público se ha deshabilitado en los nuevos circuitos ExpressRoute. Ahora, los servicios de Azure están disponibles en el emparejamiento de Microsoft. Si tiene un circuito creado antes de la puesta en desuso del emparejamiento público, puede optar por usar el emparejamiento de Microsoft o el emparejamiento público, en función de los servicios que quiera.
 
 Para obtener más información y conocer los pasos de configuración para el emparejamiento público, consulte [Emparejamiento público de ExpressRoute](about-public-peering.md).
 

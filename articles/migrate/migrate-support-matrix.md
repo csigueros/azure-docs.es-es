@@ -6,12 +6,12 @@ ms.author: panshar
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: b98695e9f7d91ae72ca13714814eeca3bde23c74
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0429c7a8308db9acecd4600d4925493222375ced
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121736461"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857880"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de compatibilidad para Azure Migrate
 
@@ -94,6 +94,7 @@ Francia | Centro de Francia
 Alemania | Centro-oeste de Alemania
 India | Centro de la India o Sur de la India
 Japón |  Japón Oriental u Japón Occidental
+Jio India | JIO de India occidental 
 Corea | Centro de Corea del Sur o Sur de Corea del Sur
 Noruega | Este de Noruega
 Suiza | Norte de Suiza

@@ -3,12 +3,12 @@ title: 'Pruebas de disponibilidad privadas: Application Insights de Azure Monito
 description: Aprenda a usar pruebas de disponibilidad en servidores internos que se ejecutan detrás de un firewall con pruebas privadas.
 ms.topic: conceptual
 ms.date: 05/14/2021
-ms.openlocfilehash: dca75f6497567c5c6855fc1b5b12aa17a41b3dec
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 713a57db66042c562e212d65c6dd265c2aab47cd
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110104526"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858450"
 ---
 # <a name="private-testing"></a>Pruebas privadas
 
@@ -32,7 +32,7 @@ Configure el firewall para que permita solicitudes entrantes desde nuestro servi
 
         :::image type="content" source="media/availability-private-test/service-tag.png" alt-text="Captura de pantalla de la pestaña Add inbound security rules (Agregar reglas de seguridad de entrada) con un origen de etiqueta de servicio.":::
 
-- Si los puntos de conexión se hospedan fuera de Azure o las etiquetas de servicio no están disponibles para su escenario, deberá permitir individualmente las [direcciones IP de nuestros agentes de pruebas web](ip-addresses.md). Puede consultar los intervalos IP directamente mediante PowerShell, la CLI de Azure o una llamada REST con la [API de etiqueta de servicio](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview). También puede descargar un archivo [JSON](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) para obtener una lista de etiquetas de servicio actuales con detalles de las direcciones IP.
+- Si los puntos de conexión se hospedan fuera de Azure o las etiquetas de servicio no están disponibles para su escenario, deberá permitir individualmente las [direcciones IP de nuestros agentes de pruebas web](ip-addresses.md). Puede consultar los intervalos IP directamente mediante PowerShell, la CLI de Azure o una llamada REST con la [API de etiqueta de servicio](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api). También puede descargar un archivo [JSON](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) para obtener una lista de etiquetas de servicio actuales con detalles de las direcciones IP.
     1. En el recurso de grupo seguridad de red, seleccione **Reglas de seguridad de entrada** en *Configuración* y, luego, elija **Agregar**.
     1. Luego, seleccione *Direcciones IP* como origen y agregue las direcciones IP a una lista delimitada por comas en intervalos de direcciones IP/CIRD.
 

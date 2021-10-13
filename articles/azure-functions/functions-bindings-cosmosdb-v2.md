@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/01/2021
 ms.author: cshoe
-ms.openlocfilehash: 5d3513ea7c7e44afde70765bed668c93cf4096bb
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: dbeec528e22d3622b374d6cfee2d51a61b989aac
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128582608"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129661167"
 ---
 # <a name="azure-cosmos-db-trigger-and-bindings-for-azure-functions-2x-and-higher-overview"></a>Información general sobre el desencadenador y los enlaces de Azure Cosmos DB para Azure Functions 2.x y versiones superiores
 
@@ -74,7 +74,7 @@ Las aplicaciones de Functions 1.x tienen automáticamente una referencia al paqu
 
 ## <a name="hostjson-settings"></a>configuración de host.json
 
-En esta sección se describen las opciones de configuración globales disponibles para este enlace en la versión 2.x de Azure Functions. Para obtener más información acerca de las opciones de configuración globales de la versión 2.x de Azure Functions, consulte la [referencia de host.json para Azure Functions, versión 2.x](functions-host-json.md).
+[!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
 
 ```json
 {
@@ -94,7 +94,7 @@ En esta sección se describen las opciones de configuración globales disponible
 |Propiedad  |Valor predeterminado |Descripción |
 |----------|--------|------------|
 |GatewayMode|Puerta de enlace|Modo de conexión que usa la función al conectarse al servicio de Azure Cosmos DB. Las opciones son `Direct` y `Gateway`|
-|Protocolo|Https|Protocolo de conexión que usa la función al conectarse al servicio de Azure Cosmos DB. Lea [aquí para obtener una explicación de los dos modos](../cosmos-db/performance-tips.md#networking). <br><br> Esta configuración no está disponible en la [versión 4.x de la extensión](#cosmos-db-extension-4x-and-higher). |
+|Protocolo|Https|Protocolo de conexión que usa la función al conectarse al servicio de Azure Cosmos DB. Lea [este documento para obtener una explicación de los dos modos](../cosmos-db/performance-tips.md#networking). <br><br> Esta configuración no está disponible en la [versión 4.x de la extensión](#cosmos-db-extension-4x-and-higher). |
 |leasePrefix|N/D|Prefijo de concesión que se usará en todas las funciones de una aplicación. <br><br> Esta configuración no está disponible en la [versión 4.x de la extensión](#cosmos-db-extension-4x-and-higher).|
 
 ## <a name="next-steps"></a>Pasos siguientes

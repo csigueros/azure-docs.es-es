@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 01/26/2021
 ms.author: danlep
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 689dbc56eb5f587e124a645895723436a2a7ccd8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 72b1680af5bb20d772d93d7743224170fde437fd
+ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128569630"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129740291"
 ---
 # <a name="secure-backend-services-using-client-certificate-authentication-in-azure-api-management"></a>Protección de servicios back-end con la autenticación de certificados de cliente en Azure API Management
 
 API Management permite acceder de forma segura al servicio back-end de una API con certificados de cliente. En esta guía se muestra cómo administrar certificados de la instancia de servicio de Azure API Management con Azure Portal. También se explica cómo configurar una API para que use un certificado para acceder a un servicio back-end.
 
-También puede administrar certificados de API Management mediante la [API REST de API Management](/rest/api/apimanagement/2020-06-01-preview/certificate).
+También puede administrar certificados de API Management mediante la [API REST de API Management](/rest/api/apimanagement/2020-12-01/certificate).
 
 ## <a name="certificate-options"></a>Opciones de certificado
 

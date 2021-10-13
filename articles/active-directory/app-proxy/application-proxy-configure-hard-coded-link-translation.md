@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 08b730b0196aa5b78ebafc0208accd51e544e8d7
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 08782f57ecf82924f48e25a1e8f1a62a1a94264b
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124787497"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129613840"
 ---
 # <a name="redirect-hard-coded-links-for-apps-published-with-azure-active-directory-application-proxy"></a>Redireccionamiento de vínculos codificados de manera rígida de aplicaciones publicadas con Application Proxy de Azure Active Directory
 
@@ -142,10 +142,6 @@ Comenzar a trabajar con la traducción de vínculos es tan fácil como hacer cli
 4. Seleccione **Guardar** para aplicar los cambios.
 
 Ahora, cuando los usuarios accedan a esta aplicación, el proxy examinará automáticamente las direcciones URL que se hayan publicado a través del Proxy de aplicación en el inquilino.
-
-## <a name="send-feedback"></a>Envío de comentarios
-
-Queremos que nos ayude a hacer que esta característica funcione para todas las aplicaciones. Buscamos más de 30 etiquetas en HTML y CSS. Si tiene un ejemplo de vínculos generados que no está traducido, envíe un fragmento de código a [Comentarios del Proxy de aplicación](mailto:aadapfeedback@microsoft.com). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Uso de dominios personalizados con el Proxy de aplicación de Azure AD](application-proxy-configure-custom-domain.md) para tener la misma dirección URL interna y externa

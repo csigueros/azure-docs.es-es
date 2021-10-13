@@ -7,25 +7,22 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: ssambare
 author: shivanissambare
-ms.date: 05/25/2021
+ms.date: 10/07/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
-ms.openlocfilehash: c4a1b52f87f0c5053e357fcb67a2e90962dc37c1
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: b772db78ebdcbede50b3decc4edd235c336471a6
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123433537"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713213"
 ---
-# <a name="extend-a-prebuilt-docker-image-preview"></a>Extensión de una imagen de Docker precompilada (versión preliminar)
+# <a name="extend-a-prebuilt-docker-image"></a>Extensión de una imagen de Docker precompilada (versión preliminar)
 
 En algunos casos, es posible que las [imágenes de Docker precompiladas para la inferencia de modelos](concept-prebuilt-docker-images-inference.md) y las soluciones de [extensibilidad](./how-to-prebuilt-docker-images-inference-python-extensibility.md) para Azure Machine Learning no satisfagan sus necesidades de servicio de inferencia.
 
 En tal caso, puede usar un Dockerfile para crear una imagen nueva, usando una de las imágenes precompiladas como punto de partida. Al extender desde una imagen de Docker precompilada existente, puede usar la pila de red y las bibliotecas de Azure Machine Learning sin crear una imagen desde cero.
-
-> [!IMPORTANT]
-> El uso de imágenes de Docker precompiladas con Azure Machine Learning está actualmente en versión preliminar. La funcionalidad de versión preliminar se proporciona "tal cual", sin ninguna garantía de soporte técnico ni contrato de nivel de servicio. Para obtener más información, consulte [Condiciones de uso complementarias de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 **Ventajas e inconvenientes**
 

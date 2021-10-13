@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 5dfd36891c52fb85ea7b7921f82059ed629158b8
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 4ffeba4fd01a88819857d137f79fef406b43b645
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124835402"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658868"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-factset"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con FactSet
 
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar FactSet con Azure Active Directory (Azu
 * Permitir que los usuarios inicien sesión automáticamente en FactSet con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -78,9 +78,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. En la página **Configurar inicio de sesión único con SAML** realice los siguientes pasos:
 
-    a. En el cuadro de texto **Identificador**, escriba la dirección URL: `https://login.factset.com`
+    a. En el cuadro de texto **Identificador**, escriba la dirección URL: `https://auth.factset.com`
 
-    b. En el cuadro de texto **URL de respuesta**, escriba la dirección URL: `https://login.factset.com/services/saml2/`
+    b. En el cuadro de texto **URL de respuesta**, escriba la dirección URL: `https://auth.factset.com/sp/ACS.saml2`
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el archivo de metadatos y guardarlo en su equipo.
 

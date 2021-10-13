@@ -1,19 +1,19 @@
 ---
 title: 'Azure VMware Solution by CloudSimple: configuración de alta disponibilidad de una instancia local a una puerta de enlace VPN de CloudSimple'
 description: Se describe cómo configurar una conexión de alta disponibilidad desde el entorno local a una instancia de puerta de enlace VPN de CloudSimple habilitada para alta disponibilidad.
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f2ea74aa319bd3cf736a50542e2e8d0285a13646
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e0ccebc3f60ad8a83ea787ef77113d296301845e
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128577758"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612035"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Configuración de una conexión de alta disponibilidad desde la ubicación local a la puerta de enlace VPN de CloudSimple
 

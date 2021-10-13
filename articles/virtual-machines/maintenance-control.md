@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: 741a7a73fc7ac4ac468febfd9beec77c3a8c9946
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 47d99e87e788c833e5793a1e4e3b7d517d90909b
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129216540"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129535001"
 ---
 # <a name="managing-platform-updates-with-maintenance-control"></a>Administración de las actualizaciones de la plataforma con el control de mantenimiento 
 
@@ -34,6 +34,7 @@ Con el control de mantenimiento, puede:
 - Las máquinas virtuales deben estar en un [host dedicado](./dedicated-hosts.md) o bien crearse con un [tamaño de máquina virtual aislada](isolation.md).
 - La duración de la ventana de mantenimiento puede variar mes a mes y, a veces, puede tardar hasta dos horas en aplicar las actualizaciones pendientes una vez que la inicia el usuario.  
 - Después de 35 días, se aplicará automáticamente una actualización.
+- Las actividades de mantenimiento de nivel de bastidor aún no forman parte de este control de mantenimiento.
 - El usuario debe tener acceso de **colaborador del recurso**.
 
 ## <a name="management-options"></a>Opciones de administración

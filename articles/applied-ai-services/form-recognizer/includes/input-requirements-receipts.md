@@ -3,14 +3,14 @@ author: laujan
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 05/12/2021
+ms.date: 09/22/2021
 ms.author: lajanuar
-ms.openlocfilehash: 00202628ea4512c8da87b6a6209fd7733d8e1da0
-ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.openlocfilehash: 0fd614d2b5499f16547b5e10a93509a24b2acb2f
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128910057"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129725806"
 ---
 <!-- markdownlint-disable MD041 -->
 * Formatos de archivos admitidos: JPEG, PNG, PDF, BMP y TIFF.

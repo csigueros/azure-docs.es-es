@@ -7,12 +7,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/19/2021
-ms.openlocfilehash: 4aa60a5433f13ca6b942204bbdb8eb4425d0ddf7
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
+ms.openlocfilehash: 11dbe95a63ce22602985cb7ff9b4db11f5e8f8dc
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112983219"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129856759"
 ---
 # <a name="indexer-connections-to-sql-server-on-an-azure-virtual-machine"></a>Conexiones del indizador a SQL Server en una máquina virtual de Azure
 
@@ -83,7 +83,7 @@ Se recomienda encarecidamente restringir el acceso a la dirección IP del servic
 
 Puede averiguar la dirección IP haciendo ping en el FQDN (por ejemplo, `<your-search-service-name>.search.windows.net`) del servicio de búsqueda. Aunque la dirección IP del servicio de búsqueda podría cambiar, no es probable que lo haga. La dirección IP tiende a ser estática durante la vigencia del servicio.
 
-Puede averiguar el intervalo de direcciones IP de la [etiqueta de servicio](../virtual-network/service-tags-overview.md#available-service-tags) `AzureCognitiveSearch` mediante el uso de [archivos JSON descargables](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) o a través de la [API de detección de etiquetas de servicio](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview). El intervalo de direcciones IP se actualiza semanalmente.
+Puede averiguar el intervalo de direcciones IP de la [etiqueta de servicio](../virtual-network/service-tags-overview.md#available-service-tags) `AzureCognitiveSearch` mediante el uso de [archivos JSON descargables](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) o a través de la [API de detección de etiquetas de servicio](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api). El intervalo de direcciones IP se actualiza semanalmente.
 
 ### <a name="include-the-azure-cognitive-search-portal-ip-addresses"></a>Inclusión de las direcciones IP del portal de Búsqueda cognitiva de Azure
 

@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: kgremban
-ms.openlocfilehash: 75061400eb68e3c17a24839e9e155e3a284607c6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 82aa2eb24905a4166de474fbaf0baa1213abce53
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128589803"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659343"
 ---
 # <a name="register-an-iot-edge-device-in-iot-hub"></a>Registro de un dispositivo IoT Edge en IoT Hub
 
@@ -38,7 +38,7 @@ En este artículo se tratan ambos métodos de autenticación.
 Si tiene muchos dispositivos para configurar y no quiere aprovisionar manualmente cada uno, siga uno de los artículos a continuación para obtener información sobre cómo funciona IoT Edge con IoT Hub Device Provisioning Service:
 
 * [Creación y aprovisionamiento de dispositivos IoT Edge mediante certificados X.509](how-to-provision-devices-at-scale-linux-x509.md)
-* [Creación y aprovisionamiento de dispositivos IoT Edge con un TPM](how-to-auto-provision-simulated-device-linux.md)
+* [Creación y aprovisionamiento de dispositivos IoT Edge con un TPM](how-to-provision-devices-at-scale-linux-tpm.md)
 * [Creación y aprovisionamiento de dispositivos IoT Edge mediante claves simétricas](how-to-provision-devices-at-scale-linux-symmetric.md)
 
 ## <a name="prerequisites"></a>Requisitos previos

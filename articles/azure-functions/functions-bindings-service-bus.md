@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9163e3dcd30cc5e47ababd929961975ac70cb243
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: dc0e424e36d67cd25fc93e950e5758c6378c1b7d
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824700"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660597"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Enlaces de Azure Service Bus en Azure Functions
 
@@ -66,7 +66,7 @@ Las aplicaciones de Functions 1.x tienen automáticamente una referencia al paqu
 
 ## <a name="hostjson-settings"></a>configuración de host.json
 
-En esta sección se describen las opciones de configuración globales disponibles para este enlace en las versiones 2.x y posteriores. El siguiente archivo host.json de ejemplo contiene solo la configuración para este enlace. Para más información acerca de las opciones de configuración globales, consulte [Referencia de host.json para Azure Functions](functions-host-json.md).
+[!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
 
 > [!NOTE]
 > Para obtener una referencia de host.json en Functions 1.x, consulte la [referencia de host.json para Azure Functions, versión 1.x](functions-host-json-v1.md).

@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit, devx-track-azurepowershell
-ms.openlocfilehash: 925c468ff744df8b543618e4282ec9b6a9dda78a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 77e374e43722554a215675fd09d0317899d7992f
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121723060"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709062"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
 <a name="Overview"></a>
@@ -274,9 +274,6 @@ Para permitir a los usuarios participar en la aplicación de la versión beta, e
 ```
 
 De forma predeterminada, las ranuras nuevas tienen una regla de enrutamiento del `0%`, en gris. Cuando se establece explícitamente este valor en `0%` (en negro), los usuarios pueden acceder a la ranura de ensayo manualmente mediante el parámetro de consulta `x-ms-routing-name`. Pero no se les enrutará automáticamente a la ranura, ya que el porcentaje se ha establecido en 0. Se trata de un escenario avanzado donde puede "ocultar" su ranura de ensayo del público y permitir que los equipos internos prueben los cambios en la ranura al mismo tiempo.
-
-> [!NOTE]
-> Hay una limitación conocida que afecta a los puntos de conexión privados y al enrutamiento del tráfico con ranuras. A partir de abril de 2021, el enrutamiento automático y manual de solicitudes entre ranuras provocará el mensaje "403 Acceso denegado". Esta limitación se eliminará en una próxima versión. 
 
 <a name="Delete"></a>
 

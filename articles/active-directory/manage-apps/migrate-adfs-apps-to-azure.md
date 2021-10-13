@@ -1,6 +1,7 @@
 ---
 title: Traslado de la autenticación de las aplicaciones de AD FS a Azure Active Directory
 description: Obtenga información acerca de cómo usar Azure Active Directory para reemplazar los Servicios de federación de Active Directory (AD FS), lo que proporciona a los usuarios un inicio de sesión único para todas las aplicaciones.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -11,14 +12,14 @@ ms.workload: identity
 ms.date: 03/01/2021
 ms.author: davidmu
 ms.reviewer: alamaral
-ms.openlocfilehash: 420b1a0042dff8b643dc98f3b3f92e33be8c2d75
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a9d6ca9769e19f300242a50c2016d1e942663567
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124791771"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129614790"
 ---
-# <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Traslado de la autenticación de las aplicaciones de los Servicios de federación de Active Directory (AD FS) a Azure Active Directory
+# <a name="move-application-authentication-to-azure-active-directory"></a>Traslado de la autenticación de la aplicación a Azure Active Directory
 
 [Azure Active Directory (Azure AD)](../fundamentals/active-directory-whatis.md) ofrece una plataforma de identidad universal que proporciona a los usuarios, asociados y clientes una identidad única para acceder a las aplicaciones y colaborar desde cualquier plataforma y dispositivo. Azure AD tiene un [conjunto completo de funcionalidades de administración de identidades](../fundamentals/active-directory-whatis.md). La estandarización de la autenticación y autorización de las aplicaciones en Azure AD ofrece estas ventajas.
 

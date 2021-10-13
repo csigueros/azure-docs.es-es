@@ -55,10 +55,10 @@
           href: my-apps-deployment-plan.md
     - name: Inicio de sesión único
       items:
-        - name: Plan para implementar
-          href: plan-sso-deployment.md
         - name: ¿Qué es el inicio de sesión único?
           href: what-is-single-sign-on.md
+        - name: Plan para implementar
+          href: plan-sso-deployment.md
     - name: Seguridad de la aplicación
       items:
         - name: Opciones de acceso a aplicaciones
@@ -118,14 +118,14 @@
           href: prevent-domain-hints-with-home-realm-discovery.md
     - name: Migración de aplicaciones
       items:
-        - name: Recursos de migración
-          href: migration-resources.md
         - name: "Migración de una aplicación de AD\_FS a Azure"
           href: migrate-adfs-apps-to-azure.md
         - name: "Migración de la autenticación de las aplicaciones a Azure\_Active\_Directory"
           href: migrate-application-authentication-to-azure-active-directory.md
         - name: "Uso del informe de actividad de una aplicación de AD\_FS"
           href: migrate-adfs-application-activity.md
+        - name: Recursos de migración
+          href: migration-resources.md
         - name: "Migración de aplicaciones desde Okta a Azure\_AD"
           items:
             - name: "Migración de aplicaciones desde Okta a Azure\_AD"

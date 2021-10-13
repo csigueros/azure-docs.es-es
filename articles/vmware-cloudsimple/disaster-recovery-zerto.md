@@ -1,19 +1,19 @@
 ---
 title: 'Azure VMware Solution by CloudSimple: uso de la nube privada como sitio de recuperación ante desastres de cargas de trabajo locales'
 description: Describe cómo configurar la nube privada de CloudSimple como un sitio de recuperación ante desastres de las cargas de trabajo locales de VMware.
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e7305557944e00121c54112704f67f861d2aa789
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: f9700b5d25a7d564c72bf959d48ad7cf1afce4e7
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108177789"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612396"
 ---
 # <a name="set-up-cloudsimple-private-cloud-as-a-disaster-recovery-site-for-on-premises-vmware-workloads"></a>Configuración de la nube privada de CloudSimple como un sitio de recuperación ante desastres de las cargas de trabajo locales de VMware
 
@@ -35,7 +35,7 @@ La solución requiere lo siguiente:
 
 En la siguiente imagen se muestra la arquitectura de la solución de Zerto.
 
-![Arquitectura](media/cloudsimple-zerto-architecture.png)
+![Architecture](media/cloudsimple-zerto-architecture.png)
 
 ## <a name="how-to-deploy-the-solution"></a>Implementación de la solución
 

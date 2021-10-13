@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: fb68ea362c5b91e5c60578f63c752d1982495efb
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: ee4acc6e8e7abf8ece1c6808a810b022745fb66a
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129538058"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612339"
 ---
 # <a name="enable-zone-redundancy-for-azure-cache-for-redis"></a>Habilitación de la redundancia de zona para Azure Cache for Redis
 En este artículo, aprenderá a configurar una instancia de Azure Cache con redundancia de zona mediante Azure Portal.
@@ -74,7 +74,7 @@ Para crear una instancia de caché, siga estos pasos:
 
 ### <a name="why-cant-i-enable-zone-redundancy-when-creating-a-premium-cache"></a>¿Por qué no puedo habilitar la redundancia de zona al crear una caché Premium?
 
-La redundancia de zona solo está disponible en las regiones de Azure que tienen Availability Zones. Consulte [Regiones de Azure con Availability Zones](../availability-zones/az-region.md#azure-services-supporting-availability-zones) para obtener la lista más reciente.
+La redundancia de zona solo está disponible en las regiones de Azure que tienen Availability Zones. Consulte [Regiones de Azure con Availability Zones](../availability-zones/az-region.md#azure-regions-with-availability-zones) para obtener la lista más reciente.
 
 ### <a name="why-cant-i-select-all-three-zones-during-cache-create"></a>¿Por qué no puedo seleccionar las tres zonas durante la creación de la caché?
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 11/23/2020
+ms.date: 10/07/2021
 ms.author: lajanuar
-ms.openlocfilehash: ea5e49cf6a61ad89d182637c11b969ee80c754e6
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: b541c19f3a3bd129e81723df7b1b58ba75e4a540
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122327689"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714451"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Tutorial: Creación de una aplicación de procesamiento de formularios con AI Builder
 
@@ -57,7 +57,7 @@ En la página **Agregar documentos**, debe proporcionar documentos de ejemplo pa
 > - Documentos PDF de más de 50 páginas
 > - PDF rellenables
 >
-> Para más información sobre los requisitos de los documentos de entrada, consulte los [requisitos de entrada](./overview.md#input-requirements).
+> Para más información sobre los requisitos de los documentos de entrada, consulte los [requisitos de entrada](concept-model-overview.md#input-requirements).
 
 ### <a name="upload-your-documents"></a>Carga de los documentos
 
@@ -78,7 +78,7 @@ Durante el paso de análisis, AI Builder examina los documentos cargados y detec
 Cuando el análisis haya finalizado, seleccione la miniatura para abrir la experiencia de selección de campos.
 
 > [!IMPORTANT]
-> Si se produce un error en el análisis, es probable que AI Builder no pueda detectar texto estructurado en los documentos. Compruebe que los documentos que ha actualizado siguen los [requisitos de entrada](./overview.md#input-requirements).
+> Si se produce un error en el análisis, es probable que AI Builder no pueda detectar texto estructurado en los documentos. Compruebe que los documentos que ha actualizado siguen los [requisitos de entrada](concept-model-overview.md#input-requirements).
 
 ## <a name="select-your-form-fields"></a>Selección de los campos de formulario
 

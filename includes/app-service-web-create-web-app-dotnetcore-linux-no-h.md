@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: app-service
 author: cephalin
@@ -8,22 +8,19 @@ ms.topic: include
 ms.date: 04/29/2021
 ms.author: cephalin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 88576f786ce2d55f97e616592fa7baafe72f1260
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 44b076a132bce92c6a1b063cc7eaa70d44bb6c62
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108754528"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658448"
 ---
 Cree una [aplicación web](../articles/app-service/overview.md#app-service-on-linux) en el plan de App Service de `myAppServicePlan`. 
 
-En Cloud Shell, puede usar el comando [`az webapp create`](/cli/azure/webapp). En el siguiente ejemplo, reemplace `<app-name>` por un nombre único global de aplicación (los caracteres válidos son `a-z`, `0-9` y `-`). El tiempo de ejecución se establece en `DOTNETCORE|3.1`. Para ver todos los entornos en tiempo de ejecución admitidos, ejecute [`az webapp list-runtimes --linux`](/cli/azure/webapp). 
+En Cloud Shell, puede usar el comando [`az webapp create`](/cli/azure/webapp). En el siguiente ejemplo, reemplace `<app-name>` por un nombre único global de aplicación (los caracteres válidos son `a-z`, `0-9` y `-`). El tiempo de ejecución se establece en `DOTNET|5.0`. Para ver todos los entornos en tiempo de ejecución admitidos, ejecute [`az webapp list-runtimes --linux`](/cli/azure/webapp). 
 
 ```azurecli-interactive
-# Bash
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "DOTNETCORE|3.1" --deployment-local-git
-# PowerShell
-az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "DOTNETCORE|3.1" --deployment-local-git
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime 'DOTNET|5.0' --deployment-local-git
 ```
 
 Cuando se haya creado la aplicación web, la CLI de Azure mostrará información similar a la del ejemplo siguiente:

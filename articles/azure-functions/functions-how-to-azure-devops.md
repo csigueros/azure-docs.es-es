@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 7d3a108185c43be2f6de72466db10db5e2ec94f1
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 6e35b814b8b6fce5f223200f1774b7da2fee7a8c
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110077327"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660977"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Entrega continua con Azure DevOps
 
@@ -244,8 +244,6 @@ Si la aplicación de JavaScript tiene una dependencia en los módulos nativos de
 Cuando cree una nueva canalización de versión, busque la plantilla de versión de Azure Functions.
 
 ![Búsqueda de la plantilla de versión de Azure Functions](media/functions-how-to-azure-devops/release-template.png)
-
-En la plantilla de versión no se admite la implementación en una ranura de implementación.
 
 ## <a name="create-a-build-pipeline-by-using-the-azure-cli"></a>Creación de una canalización de compilación mediante la CLI de Azure
 

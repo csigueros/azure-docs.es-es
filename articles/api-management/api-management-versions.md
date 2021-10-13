@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/10/2021
 ms.author: jodowns
 ms.custom: fasttrack-new
-ms.openlocfilehash: 55951f288314d92cf5057e7d5c1e988f65cb3e14
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 6b055cb6771dc76557c61220a52120a5fbbd7940
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102040386"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129811373"
 ---
 # <a name="versions-in-azure-api-management"></a>Versiones de Azure API Management
 
@@ -70,7 +70,7 @@ Cada versión de una API se mantiene como su propio recurso de API, que después
 
 Azure Portal crea conjuntos de versiones de forma automática, y tanto los nombres como las descripciones de estos conjuntos se pueden modificar también en Azure Portal.
 
-Los conjuntos de versiones se puede ver y administrar directamente mediante la [CLI de Azure](/cli/azure/apim/api/versionset), [Azure PowerShell](/powershell/module/az.apimanagement/#api-management), las [plantillas de Resource Manager](/azure/templates/microsoft.apimanagement/service/apiversionsets) o [Azure Resource Manager API](/rest/api/apimanagement/2020-06-01-preview/apiversionset).
+Los conjuntos de versiones se puede ver y administrar directamente mediante la [CLI de Azure](/cli/azure/apim/api/versionset), [Azure PowerShell](/powershell/module/az.apimanagement/#api-management), las [plantillas de Resource Manager](/azure/templates/microsoft.apimanagement/service/apiversionsets) o [Azure Resource Manager API](/rest/api/apimanagement/2020-12-01/api-version-set).
 
 ### <a name="migrating-a-non-versioned-api-to-a-versioned-api"></a>Migración de una API sin versión a una API con versión
 

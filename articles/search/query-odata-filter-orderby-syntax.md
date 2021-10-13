@@ -2,29 +2,17 @@
 title: Introducción al lenguaje OData
 titleSuffix: Azure Cognitive Search
 description: Introducción a las expresiones filter, select y order by del lenguaje OData en consultas de Azure Cognitive Search.
-manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/10/2020
-translation.priority.mt:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pt-br
-- ru-ru
-- zh-cn
-- zh-tw
-ms.openlocfilehash: d04311fce81d147a0830918aee1d4a2a9c0808d4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 10/06/2021
+ms.openlocfilehash: 2225bd0012e5159467cba17ebf7b272ca8db0cb7
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88923405"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129613023"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Introducción a `$filter`, `$orderby` y `$select` del lenguaje OData en Azure Cognitive Search
 

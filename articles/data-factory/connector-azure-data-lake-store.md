@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
-ms.openlocfilehash: 87e377c5fbfd5c8a6045e7178351419c246a0bc5
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/11/2021
+ms.openlocfilehash: 68f3bb388f003162786a6ce4f50e0f2dd00d48d0
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128652479"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129856664"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory-or-azure-synapse-analytics"></a>Copia de datos con Azure Data Lake Storage Gen1 como origen o destino mediante Azure Data Factory o Azure Synapse Analytics
 
@@ -431,6 +431,7 @@ Al transformar datos en los flujos de datos de asignación, puede leer y escribi
 * [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties)
 * [Excel](format-excel.md#mapping-data-flow-properties)
 * [JSON](format-json.md#mapping-data-flow-properties)
+* [Formato ORC](format-orc.md#mapping-data-flow-properties)
 * [Parquet](format-parquet.md#mapping-data-flow-properties)
 
 La configuración específica de formato se encuentra en la documentación de ese formato. Para obtener más información, consulte los artículos sobre la [transformación de origen en un flujo de datos de asignación](data-flow-source.md) y la [transformación de receptor en un flujo de datos de asignación](data-flow-sink.md).

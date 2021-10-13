@@ -98,6 +98,8 @@ items:
     items:
       - name: Introducción al modelo
         href: concept-model-overview.md
+      - name: Form Recognizer Studio | versión preliminar
+        href: concept-form-recognizer-studio.md
       - name: Modelo de documento general | versión preliminar
         href: concept-general-document.md
       - name: Modelo de diseño

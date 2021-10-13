@@ -4,22 +4,22 @@ titleSuffix: Azure Machine Learning
 description: Obtenga información sobre cómo las canalizaciones de Azure Machine Learning ingieren datos, y sobre cómo administrar y migrar datos entre pasos de canalización.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.author: laobri
 author: lobrien
 ms.date: 02/26/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: 86bdbd1588c14ad03cca6544e341599a446c35e9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: cfbb7d9d5144c0e91b9bf68e332300317dc2f76f
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124767268"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129425949"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Movimiento de datos a los pasos de canalización de Machine Learning (Python) y entre ellos
 
-En este artículo se proporciona código para importar, transformar y mover datos entre los pasos de una canalización de Azure Machine Learning. Para obtener información general sobre cómo funcionan los datos en Azure Machine Learning, consulte [Acceso a los datos en los servicios de Azure Storage](how-to-access-data.md). Para obtener información sobre las ventajas y la estructura de las canalizaciones de Azure Machine Learning, consulte [¿Qué son las canalizaciones de Azure Machine Learning?](concept-ml-pipelines.md).
+En este artículo se proporciona código para importar, transformar y mover datos entre los pasos de una canalización de Azure Machine Learning. Para obtener información general sobre cómo funcionan los datos en Azure Machine Learning, consulte [Acceso a los datos en los servicios de Azure Storage](how-to-access-data.md). Para obtener información sobre las ventajas y la estructura de las canalizaciones de Azure Machine Learning, vea [¿Qué son las canalizaciones de Azure Machine Learning?](concept-ml-pipelines.md)
 
 Este artículo le mostrará cómo realizar los siguientes procedimientos:
 

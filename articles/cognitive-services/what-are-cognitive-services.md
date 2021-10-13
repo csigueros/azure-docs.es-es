@@ -9,15 +9,15 @@ keywords: cognitive services, cognitive intelligence, cognitive solutions, ai se
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: overview
-ms.date: 04/16/2021
+ms.date: 10/08/2021
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 4badad1f7e22fcb82e122a56e219fc61973634a2
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 2b5519d5a71f9a431bd5948283ea12ae79647196
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114451271"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129730040"
 ---
 # <a name="what-are-azure-cognitive-services"></a>¿Qué es Azure Cognitive Services?
 
@@ -149,5 +149,4 @@ Cognitive Services proporciona varias opciones de soporte técnico para ayudarle
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Creación de una cuenta de Cognitive Services](cognitive-services-apis-create-account.md "Creación de una cuenta de Cognitive Services")
-* [Novedades en la documentación de Cognitive Services](whats-new-docs.md "Novedades en la documentación de Cognitive Services")
 * [Planeamiento y administración de los costos de Cognitive Services](plan-manage-costs.md)

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/19/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
-ms.openlocfilehash: dc6a56cff3492011a4717d867f08a580cf5a198c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fe746ed4fe8c24afa0667d8c2559d9c46fee5211
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738690"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660084"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Solución de errores intermitentes en la conexión de salida en Azure App Service
 
@@ -165,14 +165,6 @@ Las conexiones TCP y los puertos SNAT no están directamente relacionados. Un de
  
 Si se agotan los puertos SNAT y los trabajos web no se pueden conectar a SQL Database, no hay ninguna métrica para mostrar el número de conexiones abiertas por cada proceso de aplicación web individual. Para encontrar el trabajo web con el problema, puede transferir varios trabajos web a otro plan de App Service para ver si la situación mejora, o bien si un problema se mantiene en uno de los planes. Repita el proceso hasta que encuentre el trabajo web con el problema.
 
-### <a name="using-snat-ports-sooner"></a>Uso temprano de puertos SNAT
-
-No se puede cambiar la configuración de Azure para liberar los puertos SNAT usados antes, ya que todos los puertos SNAT se liberarán según las condiciones siguientes y el comportamiento es por diseño.
- 
-* Si el servidor o el cliente envía FINACK, el [puerto SNAT se liberará](../load-balancer/load-balancer-outbound-connections.md) después de 240 segundos.
-* Si se ve un RST, el puerto SNAT se liberará después de 15 segundos.
-* Si se ha alcanzado del tiempo de expiración, el puerto se libera.
- 
 ## <a name="additional-information"></a>Información adicional
 
 * [SNAT con App Service](https://4lowtherabbit.github.io/blogs/2019/10/SNAT/)
