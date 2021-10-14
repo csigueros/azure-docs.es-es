@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 07/22/2021
-ms.openlocfilehash: 447398acc918dc830769b6b5e227f2ea87eb33c4
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 1a4fbbb84eb296acabd383461e01e90cbf570d9d
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129545385"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129657385"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Ejecución de cuadernos de Jupyter Notebook en el área de trabajo
 
@@ -26,7 +26,7 @@ Para obtener información sobre cómo crear y administrar archivos, incluidos lo
 > [!IMPORTANT]
 > Las características marcadas como (versión preliminar) se ofrecen sin Acuerdo de nivel de servicio y no se recomiendan para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 * Un área de trabajo de Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
@@ -311,7 +311,7 @@ Con los siguientes métodos abreviados de teclado, puede navegar y ejecutar cód
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 
-* Si no puede conectarse a un cuaderno, asegúrese de que la comunicación de socket web **no** está deshabilitada. Para que la funcionalidad de Jupyter de instancia de proceso haga su trabajo, debe habilitarse la comunicación de socket web. Asegúrese de que la [red permite conexiones de websocket](https://docs.microsoft.com/azure/machine-learning/how-to-access-azureml-behind-firewall?tabs=ipaddress#microsoft-hosts) a *.instances.azureml.net e *.instances.azureml.ms. 
+* Si no puede conectarse a un cuaderno, asegúrese de que la comunicación de socket web **no** está deshabilitada. Para que la funcionalidad de Jupyter de instancia de proceso haga su trabajo, debe habilitarse la comunicación de socket web. Asegúrese de que la [red permite conexiones de websocket](how-to-access-azureml-behind-firewall.md?tabs=ipaddress#microsoft-hosts) a *.instances.azureml.net e *.instances.azureml.ms. 
 
 * Cuando una instancia de proceso se implementa en un área de trabajo con un punto de conexión privado, solo se puede [acceder a ella desde la red virtual](./how-to-secure-training-vnet.md). Si usa un archivo de hosts o DNS personalizado, agregue una entrada para <nombre-de-instancia>.<región>.instances.azureml.ms con la dirección IP privada del punto de conexión privado de su área de trabajo. Para obtener más información, consulte el artículo [DNS personalizado](./how-to-custom-dns.md?tabs=azure-cli).
 

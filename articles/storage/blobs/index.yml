@@ -12,12 +12,12 @@ metadata:
   author: normesta
   ms.author: normesta
   ms.date: 08/20/2019
-  ms.openlocfilehash: 67f829dea3446527ed387dda372b5fec759f63ff
-  ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+  ms.openlocfilehash: 4da41103cc040a0d7dd1f4e7731990aa2779ce82
+  ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/29/2021
-  ms.locfileid: "129276366"
+  ms.lasthandoff: 10/12/2021
+  ms.locfileid: "129855923"
 landingContent:
 - title: Acerca de Blob Storage
   linkLists:
@@ -130,7 +130,7 @@ landingContent:
     - text: Administración de derechos de acceso con Azure RBAC
       url: assign-azure-role-data-access.md
     - text: Uso de una identidad administrada para autorizar el acceso a Blob Storage
-      url: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      url: authorize-managed-identity.md
 - title: Transferencia de datos
   linkLists:
   - linkListType: concept

@@ -118,12 +118,14 @@
       items:
         - name: Administración de derechos de acceso con Azure RBAC
           href: assign-azure-role-data-access.md
+        - name: "Obtención de un token de acceso para la autorización con Azure\_AD"
+          href: ../common/identity-library-acquire-token.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+        - name: Autorización desde una aplicación que se ejecuta en Azure
+          href: authorize-managed-identity.md
         - name: Visualización y administración de claves de cuentas
           href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
         - name: Configurar cadenas de conexión
           href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-        - name: Uso de la API REST de Azure Storage
-          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     - name: Protección de datos de tabla
       items:
         - name: Administración del cifrado de servicio Azure Storage
