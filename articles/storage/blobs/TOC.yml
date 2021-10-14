@@ -18,7 +18,7 @@ items:
         items:
           - name: Uso de blobs
             items:
-              - name: Azure Portal
+              - name: Azure portal
                 href: storage-quickstart-blobs-portal.md
               - name: Explorador de Storage
                 href: quickstart-storage-explorer.md
@@ -350,9 +350,11 @@ items:
                 href: assign-azure-role-data-access.md
               - name: Autenticación y autorización con Azure AD
                 items:
-                  - name: Autorización con una identidad administrada
-                    href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                  - name: Autorización desde una aplicación
+                  - name: "Obtención de un token de acceso para la autorización con Azure\_AD"
+                    href: ../common/identity-library-acquire-token.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                  - name: Autorización desde una aplicación que se ejecuta en Azure
+                    href: authorize-managed-identity.md
+                  - name: Autorización desde una aplicación nativa o web
                     href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               - name: Autorización con clave compartida
                 items:
@@ -842,7 +844,7 @@ items:
                 href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Administración del control de acceso
             items:
-              - name: Azure Portal
+              - name: Azure portal
                 href: data-lake-storage-acl-azure-portal.md
               - name: Explorador de Storage
                 href: data-lake-storage-explorer-acl.md

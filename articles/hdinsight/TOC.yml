@@ -695,6 +695,8 @@
           items:
             - name: Dominios de error insuficientes
               href: ./kafka/kafka-troubleshoot-insufficient-domains.md
+            - name: Disco de datos completo
+              href: ./kafka/kafka-troubleshoot-full-disk.md
 - name: HBase Apache
   items:
     - name: Información general
