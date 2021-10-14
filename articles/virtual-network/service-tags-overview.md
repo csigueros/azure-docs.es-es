@@ -10,15 +10,15 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 9/20/2021
+ms.date: 9/30/2021
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 79785c82e06c9dc1621b3278ef886866ae9695ab
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 39262b40cc320152bcbf2e9e5c0947e52234a019
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128590297"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400237"
 ---
 # <a name="virtual-network-service-tags"></a>Etiquetas de servicio de red virtual
 <a name="network-service-tags"></a>
@@ -68,6 +68,7 @@ De forma predeterminada, las etiquetas de servicio reflejan los intervalos de to
 | **AzureDatabricks** | Azure Databricks. | Ambos | No | No |
 | **AzureDataExplorerManagement** | Administración de Azure Data Explorer. | Entrada | No | No |
 | **AzureDataLake** | Azure Data Lake Storage Gen1. | Salida | No | Sí |
+| **AzureDeviceUpdate** | Device Update for IoT Hub. | Ambos | No | Sí |
 | **AzureDevSpaces** | Azure Dev Spaces. | Salida | No | No |
 | **AzureDevOps** | Azure Dev Ops.<br/><br/>*Nota: Esta etiqueta no se puede configurar actualmente desde Azure Portal*| Entrada | No | Sí |
 | **AzureDigitalTwins** | Azure Digital Twins.<br/><br/>*Nota:* Esta etiqueta o las direcciones IP que abarca se pueden utilizar para restringir el acceso a los puntos de conexión configurados para rutas de eventos. *Esta etiqueta no se puede configurar actualmente mediante Azure Portal* | Entrada | No | Sí |

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/25/2021
 ms.author: marsma
 ms.reviewer: saeeda
-ms.openlocfilehash: ff8a97afa39f4db6892402c334aacb903d2cb4c2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 67ac453bb70c6889e1a69e7c0c40a88f623813ff
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124787251"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235124"
 ---
 # <a name="authentication-flows"></a>Flujos de autenticación
 
@@ -167,7 +167,7 @@ En el diagrama anterior, la aplicación hace lo siguiente:
 > [!WARNING]
 > Este flujo no es recomendable. Requiere un alto grado de confianza y exposición de credencial. Este flujo lo debe usar *solo* cuando no se pueden usar flujos más seguros. Para más información, consulte [What's the solution to the growing problem of passwords?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/) (¿Cuál es la solución al creciente problema de las contraseñas?).
 
-El flujo preferido para adquirir un token de forma silenciosa en equipos unidos a un dominio de Windows es la [autenticación integrada de Windows](#integrated-windows-authentication). En otros casos, use el [flujo de código del dispositivo](#device-code).
+El flujo preferido para adquirir un token de forma silenciosa en máquinas unidas a un dominio de Windows es la [autenticación integrada de Windows](#integrated-windows-authentication). En otros casos, use el [flujo de código del dispositivo](#device-code).
 
 Si bien el flujo de nombre de usuario/contraseña puede ser útil en algunos escenarios como DevOps, evítelo si quiere usar el nombre de usuario/contraseña en escenarios interactivos donde puede proporcionar su propia interfaz de usuario.
 
@@ -178,7 +178,7 @@ Mediante el uso de nombre de usuario y contraseña:
 
 ### <a name="constraints"></a>Restricciones
 
-Aparte de la [las restricciones de la autenticación integrada de Windows](#integrated-windows-authentication), también se aplican las siguientes restricciones:
+Aparte de las [restricciones de la autenticación integrada de Windows](#integrated-windows-authentication), también se aplican estas otras:
 
 - El flujo de usuario y contraseña no es compatible con el acceso condicional ni la autenticación multifactor. Como consecuencia, si la aplicación se ejecuta en un inquilino de Azure AD donde el administrador de inquilinos requiere la autenticación multifactor, no se puede usar este flujo. Muchas organizaciones hacen eso.
 - ROPC solo funciona para las cuentas profesionales y educativas. No se puede usar ROPC para las cuentas de Microsoft (MSA).
@@ -187,18 +187,18 @@ Aparte de la [las restricciones de la autenticación integrada de Windows](#inte
 
 ## <a name="integrated-windows-authentication"></a>Autenticación integrada de Windows
 
-MSAL admite la Autenticación integrada de Windows (IWA) para aplicaciones de escritorio y aplicaciones móviles que se ejecutan en un equipo Windows unido a un dominio o a Azure AD. Mediante IWA, estas aplicaciones pueden adquirir un token de forma silenciosa, sin necesitar ninguna interacción de la interfaz de usuario del usuario.
+MSAL admite la autenticación integrada de Windows (IWA) para aplicaciones móviles y de escritorio que se ejecutan en un equipo Windows unido a un dominio o a Azure AD. Mediante IWA, estas aplicaciones pueden adquirir un token de forma silenciosa, sin necesitar ninguna interacción de la interfaz de usuario del usuario.
 
 ![Diagrama de la autenticación integrada de Windows](media/msal-authentication-flows/integrated-windows-authentication.png)
 
 En el diagrama anterior, la aplicación hace lo siguiente:
 
-1. Adquiere un token mediante el uso de la autenticación integrada de Windows.
+1. Adquiere un token mediante la autenticación integrada de Windows.
 2. Usa el token para hacer solicitudes al recurso.
 
 ### <a name="constraints"></a>Restricciones
 
-La Autenticación integrada de Windows (IWA) admite *solo* usuarios federados, los usuarios creados en Active Directory y respaldados por Azure AD. Los usuarios creados directamente en Azure AD sin el respaldo de Active Directory (usuarios administrados) no pueden usar este flujo de autenticación. Esta limitación no afecta al [flujo de usuario y contraseña](#usernamepassword).
+La autenticación integrada de Windows (IWA) *solo* admite usuarios federados, los usuarios creados en Active Directory y respaldados por Azure AD. Los usuarios creados directamente en Azure AD sin el respaldo de Active Directory (usuarios administrados) no pueden usar este flujo de autenticación. Esta limitación no afecta al [flujo de usuario y contraseña](#usernamepassword).
 
 IWA es para las aplicaciones de .NET Framework, .NET Core y de Plataforma universal de Windows.
 

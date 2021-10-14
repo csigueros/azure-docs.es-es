@@ -6,13 +6,13 @@ author: markheff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/02/2021
-ms.openlocfilehash: 7dd06e48d6d610b99f6c52affcd1d6101e04c9ba
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.date: 10/01/2021
+ms.openlocfilehash: 139fa020459804571129d63819a0e82e3f1737e2
+ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122183985"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129418658"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Configuración de una conexión a una cuenta de Azure Storage mediante una identidad administrada
 
@@ -20,7 +20,8 @@ En esta página se describe cómo configurar una conexión de indexador a una cu
 
 Puede usar una identidad administrada asignada por el sistema o asignada por el usuario (versión preliminar).
 
-Antes de obtener más información acerca de esta característica, se recomienda comprender qué es un indexador y cómo configurar un indexador para el origen de datos. Se puede encontrar más información en los vínculos siguientes:
+En este artículo se da por hecho que está familiarizado con los conceptos y la configuración del indizador. Si no es así, comience con estos vínculos:
+
 * [Información general del indexador](search-indexer-overview.md)
 * [Indexador de blobs de Azure](search-howto-indexing-azure-blob-storage.md)
 * [Indexador de Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md)
@@ -28,37 +29,45 @@ Antes de obtener más información acerca de esta característica, se recomienda
 
 ## <a name="1---set-up-a-managed-identity"></a>1 - Configuración de una identidad administrada
 
-Configure la [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) usando una de las siguientes opciones.
+Configure la [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) de un servicio Azure Cognitive Search mediante alguna de las siguientes opciones. 
+
+El servicio de búsqueda debe ser de nivel Básico o superior.
 
 ### <a name="option-1---turn-on-system-assigned-managed-identity"></a>Opción 1: Activación de la identidad administrada asignada por el sistema
 
 Cuando se habilita una identidad administrada asignada por el sistema, Azure crea una identidad para el servicio de búsqueda que se puede usar para autenticarse en otros servicios de Azure en el mismo inquilino y la misma suscripción. Después, puede usar esta identidad en las asignaciones de control de acceso basado en rol de Azure (RBAC de Azure) que permiten el acceso a los datos durante la indexación.
 
-![Activar la identidad administrada asignada por el sistema](./media/search-managed-identities/turn-on-system-assigned-identity.png "Activar la identidad administrada asignada por el sistema")
+![Activar la identidad administrada asignada por el sistema](./media/search-managed-identities/turn-on-system-assigned-identity.png "Activación de la identidad administrada asignada por el sistema")
 
 Después de seleccionar **Guardar**, verá un identificador de objeto que se ha asignado al servicio de búsqueda.
 
 ![Id. de objeto](./media/search-managed-identities/system-assigned-identity-object-id.png "Id. de objeto")
- 
+
 ### <a name="option-2---assign-a-user-assigned-managed-identity-to-the-search-service-preview"></a>Opción 2: Asignación de una identidad administrada asignada por el usuario al servicio de búsqueda (versión preliminar)
 
 Si todavía no tiene creada una identidad administrada asignada por el usuario, tendrá que crear una. Una identidad administrada asignada por el usuario es un recurso en Azure.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+
 1. Seleccione **+ Crear un recurso**.
-1. En la barra de búsqueda "Servicios de búsqueda y Marketplace", busque "Identidad administrada asignada por el usuario" y, después, seleccione **Crear**.
+
+1. En la barra de búsqueda "Search services and marketplace» (Servicios de búsqueda y Marketplace), busque "Identidad administrada asignada por el usuario" y, después, seleccione **Crear**.
+
 1. Asigne un nombre descriptivo a la identidad.
 
 A continuación, asigne la identidad administrada asignada por el usuario al servicio de búsqueda. Esta operación se puede realizar mediante la [API de administración 2021-04-01-preview](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
 
-La propiedad de identidad toma un tipo y una o más identidades asignadas por el usuario completas:
+La propiedad de identidad toma un tipo y una o más identidades asignadas por el usuario completamente calificadas:
 
-* **type** es el tipo de identidad. Los valores válidos son "SystemAssigned", "UserAssigned" o "SystemAssigned, UserAssigned" si desea usar ambos. Un valor de "None" borrará del servicio de búsqueda las identidades asignadas previamente.
-* **userAssignedIdentities** incluye los detalles de la identidad administrada asignada por el usuario.
-    * Formato de la identidad administrada asignada por el usuario: 
-        * /subscriptions/**subscription ID**/resourcegroups/**nombre del grupo de recursos**/providers/Microsoft.ManagedIdentity/userAssignedIdentities/**nombre de la identidad administrada**
+* **type** es el tipo de identidad. Los valores válidos son "SystemAssigned", "UserAssigned" o "SystemAssigned, UserAssigned" para ambos. Un valor de "None" borrará del servicio de búsqueda las identidades asignadas previamente.
 
-Ejemplo de cómo asignar una identidad administrada asignada por el usuario a un servicio de búsqueda:
+* **userAssignedIdentities** incluye los detalles de la identidad administrada asignada por el usuario. El formato es:
+
+  ```bash
+    /subscriptions/<your-subscription-ID>/resourcegroups/<your-resource-group-name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<your-managed-identity-name>
+  ```
+
+Ejemplo de una asignación de identidad administrada asignada por el usuario:
 
 ```http
 PUT https://management.azure.com/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Search/searchServices/[search service name]?api-version=2021-04-01-preview
@@ -85,20 +94,25 @@ Content-Type: application/json
 
 ## <a name="2---add-a-role-assignment"></a>2 - Agregar una asignación de roles
 
-En este paso, concederá permiso a su servicio Azure Cognitive Search o a la identidad administrada asignada por el usuario para leer datos de su cuenta de almacenamiento.
+En este paso va a conceder permiso al servicio Azure Cognitive Search o a la identidad administrada asignada por el usuario para leer datos de la cuenta de almacenamiento.
 
 1. En Azure Portal, navegue hasta la cuenta de almacenamiento que contiene los datos que quiere indexar.
+
 2. Seleccione **Access Control (IAM)**
+
 3. Seleccione **Agregar** y, a continuación, **Agregar asignación de roles**.
 
     ![Agregar asignación de roles](./media/search-managed-identities/add-role-assignment-storage.png "Agregar asignación de roles")
 
 4. Seleccione los roles apropiados según el tipo de cuenta de almacenamiento que quiera indexar:
-    1. Azure Blob Storage requiere que se agregue el rol **Lector de datos de Storage Blob** al servicio de búsqueda.
-    1. Azure Data Lake Storage Gen2 requiere que se agregue el rol **Lector de datos de Storage Blob** al servicio de búsqueda.
-    1. Azure Table Storage requiere que se agregue el rol **Lector y acceso a los datos** al servicio de búsqueda.
-5.  Deje **Asignar acceso a** como **Usuario, grupo o entidad de servicio de Azure AD**.
-6.  Si usa una identidad administrada asignada por el sistema, busque el servicio de búsqueda y selecciónelo. Si usa una identidad administrada asignada por el usuario, busque el nombre de la identidad y selecciónelo. Seleccione **Guardar**.
+
+    * Azure Blob Storage requiere que se agregue el rol **Lector de datos de Storage Blob** al servicio de búsqueda.
+    * Azure Data Lake Storage Gen2 requiere que se agregue el rol **Lector de datos de Storage Blob** al servicio de búsqueda.
+    * Azure Table Storage requiere que se agregue el rol **Lector y acceso a los datos** al servicio de búsqueda.
+
+5. Deje **Asignar acceso a** como **Usuario, grupo o entidad de servicio de Azure AD**.
+
+6. Si usa una identidad administrada asignada por el sistema, busque el servicio de búsqueda y selecciónelo. Si usa una identidad administrada asignada por el usuario, busque el nombre de la identidad y selecciónelo. Seleccione **Guardar**.
 
     Ejemplo de Azure Blob Storage y Azure Data Lake Storage Gen2 en el que se usa una identidad administrada asignada por el sistema:
 
@@ -107,6 +121,8 @@ En este paso, concederá permiso a su servicio Azure Cognitive Search o a la ide
     Ejemplo de Azure Table Storage en el que se usa una identidad administrada asignada por el sistema:
 
     ![Agregue la asignación del rol Lector y acceso a datos](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "Agregar la asignación del rol Lector y acceso a datos").
+
+Para obtener ejemplos de código de C#, vea [Indexación de Data Lake Gen2 mediante Azure AD](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md) en GitHub.
 
 ## <a name="3---create-the-data-source"></a>3 - Crear el origen de datos
 
@@ -167,7 +183,7 @@ Al realizar la indexación desde una cuenta de almacenamiento, el origen de dato
 * **identity** contiene la colección de identidades administradas asignadas por el usuario. Solo se debe proporcionar una identidad administrada asignada por el usuario al crear el origen de datos.
     * **userAssignedIdentities** incluye los detalles de la identidad administrada asignada por el usuario.
         * Formato de la identidad administrada asignada por el usuario: 
-            * /subscriptions/**subscription ID**/resourcegroups/**nombre del grupo de recursos**/providers/Microsoft.ManagedIdentity/userAssignedIdentities/**nombre de la identidad administrada**
+            * /subscriptions/**ID de suscripción**/resourcegroups/**nombre del grupo de recursos**/providers/Microsoft.ManagedIdentity/userAssignedIdentities/**nombre de la identidad administrada**
 
 Ejemplo de cómo crear un objeto de origen de datos de blob mediante la [API de REST](/rest/api/searchservice/create-data-source):
 
@@ -241,14 +257,13 @@ Para más información sobre la API Create Indexer, consulte [Crear indexador](/
 
 Para más información sobre cómo definir las programaciones del indexador, consulte [Programación de indexadores para Azure Cognitive Search](search-howto-schedule-indexers.md).
 
-## <a name="accessing-secure-data-in-storage-accounts"></a>Acceso a datos seguros en cuentas de almacenamiento
+## <a name="accessing-network-secured-data-in-storage-accounts"></a>Acceso a datos de red seguros en cuentas de almacenamiento
 
 Las cuentas de almacenamiento de Azure se pueden proteger aún más mediante firewalls y redes virtuales. Si quiere indexar contenido de una cuenta de almacenamiento de blobs o de una cuenta de almacenamiento de Data Lake Gen2 que está protegida mediante un firewall o una red virtual, siga las instrucciones de [Acceso a los datos de las cuentas de almacenamiento de forma segura mediante una excepción de servicio de confianza](search-indexer-howto-access-trusted-service-exception.md).
 
 ## <a name="see-also"></a>Consulte también
 
-Más información sobre los indexadores de Azure Storage:
-
 * [Indexador de blobs de Azure](search-howto-indexing-azure-blob-storage.md)
 * [Indexador de Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md)
 * [Indexador de tablas de Azure](search-howto-indexing-azure-tables.md)
+* [Ejemplo de C#: Indexación de Data Lake Gen2 mediante Azure AD (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md)

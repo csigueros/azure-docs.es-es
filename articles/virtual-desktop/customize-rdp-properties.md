@@ -7,12 +7,12 @@ ms.date: 10/09/2020
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 481b81edb0ee5709e712f213036fa8df53aca7c4
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.openlocfilehash: 282044d0ee3d07ae4eaa2c63d8d0bcebae0251aa
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113287931"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129544496"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Personalización de las propiedades de Protocolo de escritorio remoto (RDP) para un grupo de hosts
 
@@ -38,6 +38,7 @@ Los archivos RDP tienen las siguientes propiedades de forma predeterminada:
 >[!NOTE]
 >- El modo de supervisión múltiple solo se habilita para grupos de aplicaciones de escritorio y se omitirá para los grupos de aplicaciones de RemoteApp.
 >- Todas las propiedades predeterminadas del archivo RDP se exponen en Azure Portal.
+>- De forma predeterminada, el campo CustomRdpProperty es NULL en el Azure Portal. Un campo CustomRdpProperty NULL aplicará todas las propiedades RDP predeterminadas al grupo de hosts. Un campo CustomRdpProperty vacío no aplicará ninguna propiedad RDP predeterminada al grupo de hosts.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

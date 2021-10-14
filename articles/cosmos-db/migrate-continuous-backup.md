@@ -4,16 +4,16 @@ description: Azure Cosmos DB admite actualmente una migración unidireccional de
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 08/26/2021
+ms.date: 10/04/2021
 ms.author: sngun
 ms.topic: how-to
 ms.reviewer: sngun
-ms.openlocfilehash: 270c0fd585c2232b86011673e460737173106b09
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: b6821435f2f6ce04f1b8ba4b3af8b8f47097c2fa
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123479083"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546022"
 ---
 # <a name="migrate-an-azure-cosmos-db-account-from-periodic-to-continuous-backup-mode"></a>Migración de una cuenta de Azure Cosmos DB del modo periódico al modo de copia de seguridad continua
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -78,6 +78,24 @@ Instale la [versión más reciente de Azure PowerShell](/powershell/azure/instal
      -Name "myAccount" `
      -BackupPolicyType Continuous
    ```
+
+### <a name="check-the-migration-status"></a>Comprobación del estado de la migración
+
+Ejecute el siguiente comando y compruebe el **estado** y las propiedades **targetType** del objeto **backupPolicy**. El estado se muestra en curso después de que se inicie la migración:
+
+```azurepowershell-interactive
+az cosmosdb show -n "myAccount" -g "myrg"
+```
+
+:::image type="content" source="./media/migrate-continuous-backup/migration-status-started-powershell.png" alt-text="Comprobación del estado de la migración mediante el comando de PowerShell":::
+
+Una vez completada la migración, el tipo de copia de seguridad cambia a **Continuo**. Vuelva a ejecutar el mismo comando para comprobar el estado:
+
+```azurepowershell-interactive
+az cosmosdb show -n "myAccount" -g "myrg"
+```
+
+:::image type="content" source="./media/migrate-continuous-backup/migration-status-complete-powershell.png" alt-text="El tipo de copia de seguridad cambia a continuo una vez completada la migración":::
 
 ## <a name="migrate-using-cli"></a><a id="cli"></a>Migración mediante la CLI
 
@@ -202,5 +220,5 @@ Para obtener más información sobre el modo de copia de seguridad continua, vea
 * Restaure una cuenta mediante [Azure Portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), la [CLI](restore-account-continuous-backup.md#restore-account-cli) o [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
 
 ¿Intenta planear la capacidad de una migración a Azure Cosmos DB?
-   * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea este artículo para [calcular las unidades de solicitud utilizando núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
+   * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](convert-vcore-to-request-unit.md). 
    * Si conoce las velocidades de solicitud típicas de la carga de trabajo de base de datos actual, lea sobre el [cálculo de las unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).

@@ -17,12 +17,12 @@ ms.date: 06/23/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fbd65204534e978446109c99ca7286c0af00d68
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 9455883bea37602e572a538862eaf5de9c17bbbc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112580393"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128669424"
 ---
 # <a name="sign-in-logs-in-azure-active-directory---preview"></a>Registros de información de inicio de sesión en Azure Active Directory: versión preliminar
 
@@ -177,7 +177,7 @@ Los inicios de sesión de usuario no interactivos son inicios de sesión que se 
 
 - Un cliente utiliza un código de autorización de OAuth 2.0 para obtener un token de acceso y un token de actualización.
 
-- Un usuario realiza el inicio de sesión único (SSO) en una aplicación web o una aplicación de Windows en un equipo unido a Azure AD.
+- Un usuario realiza el inicio de sesión único (SSO) en una aplicación web o Windows en un equipo unido a Azure AD (sin proporcionar un factor de autenticación ni interactuar con un símbolo del sistema de Azure AD).
 
 - Un usuario inicia sesión en una segunda aplicación de Microsoft Office mientras tiene una sesión en un dispositivo móvil que usa FOCI (Familia de identificadores de cliente).
 

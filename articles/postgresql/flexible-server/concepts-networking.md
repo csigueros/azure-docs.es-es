@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/08/2021
-ms.openlocfilehash: 768645614035afa852e5d9195666748df9116368
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3a0ce42cf32e218f3debaf6f3e84bb8f27a81c82
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128577961"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129279039"
 ---
 # <a name="networking-overview-for-azure-database-for-postgresql---flexible-server-preview"></a>Información general sobre redes para Azure Database for PostgreSQL con la opción Servidor flexible (versión preliminar)
 
@@ -74,7 +74,7 @@ Estos son algunos conceptos que debe conocer al usar redes virtuales con servido
   En este momento, no admitimos los NSG donde un ASG forma parte de la regla mediante Azure Database for PostgreSQL con la opción Servidor flexible. Actualmente se recomienda usar el [filtrado de origen o de destino basado en IP](../../virtual-network/network-security-groups-overview.md#security-rules) en un NSG. 
 
   > [!IMPORTANT]
-  > Las características de alta disponibilidad de la opción de servidor flexible de Azure Database for PostgreSQL requieren la capacidad de enviar y recibir tráfico a los puertos de destino 5432 y 6432 dentro de la subred de la red virtual de Azure donde se ha implementado el servidor flexible de Azure Database for PostgreSQL, así como a Azure Storage para el archivado de registros. Si crea [grupos de seguridad de red (NSG)](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) para denegar el flujo de tráfico hacia o desde el servidor flexible de Azure Database for PostgreSQL dentro de la subred donde se implementó, asegúrese de permitir el tráfico a los puertos de destino 5432 y 6432 dentro de la subred y también a Azure Storage mediante la [etiqueta de servicio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) de Azure Storage como destino. 
+  > Las características de alta disponibilidad de la opción de servidor flexible de Azure Database for PostgreSQL requieren la capacidad de enviar y recibir tráfico a los puertos de destino 5432 y 6432 dentro de la subred de la red virtual de Azure donde se ha implementado el servidor flexible de Azure Database for PostgreSQL, así como a Azure Storage para el archivado de registros. Si crea [grupos de seguridad de red (NSG)](../../virtual-network/network-security-groups-overview.md) para denegar el flujo de tráfico hacia o desde el servidor flexible de Azure Database for PostgreSQL dentro de la subred donde se implementó, asegúrese de permitir el tráfico a los puertos de destino 5432 y 6432 dentro de la subred y también a Azure Storage mediante la [etiqueta de servicio](../../virtual-network/service-tags-overview.md) de Azure Storage como destino.
 
 * **Integración de la zona DNS privada**. La integración de la zona DNS privada de Azure permite resolver el DNS privado dentro de la red virtual actual o en cualquier red virtual emparejada en la región en la que esté vinculada la zona DNS privada. 
 

@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions
 ms.date: 09/27/2021
-ms.openlocfilehash: 5d5b1ed8a20bc459370a9bb7e437e1f5c977714d
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 6ec86ff575e4848f79dfe8c6e444e47ed6d1f8f1
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/29/2021
-ms.locfileid: "129218013"
+ms.locfileid: "129277904"
 ---
 # <a name="connect-data-factory-to-azure-purview-preview"></a>Conexión de Data Factory a Azure Purview (versión preliminar)
 
@@ -76,7 +76,7 @@ La identidad administrada de la factoría de datos se usa para autenticar las op
 
     Al conectar la factoría de datos a Purview en la interfaz de usuario de creación, ADF intenta agregar esta asignación de roles automáticamente. Si tiene el rol **Administradores de colecciones** en la colección raíz de Purview y tiene acceso a la cuenta de Purview desde la red, esta operación se realiza correctamente.
 
-- Para la cuenta de Purview creada **antes del 18 de agosto de 2021**, conceda el rol integrado de Azure [**Conservador de datos de Purview**](../role-based-access-control/built-in-roles.md#purview-data-curator) de la identidad administrada de la factoría de datos en la cuenta de Purview. Obtenga más información sobre el [Control de acceso en Azure Purview: permisos heredados](../purview/catalog-permissions.md#legacy-permission-guide).
+- En la cuenta de Purview creada **antes del 18 de agosto de 2021**, conceda el rol integrado de Azure [**Conservador de datos de Purview (heredado)** ](../role-based-access-control/built-in-roles.md#purview-data-curator-legacy) de la identidad administrada de la factoría de datos en la cuenta de Purview. Obtenga más información sobre el [Control de acceso en Azure Purview: permisos heredados](../purview/catalog-permissions.md#legacy-permission-guide).
 
     Al conectar la factoría de datos a Purview en la interfaz de usuario de creación, ADF intenta agregar esta asignación de roles automáticamente. Si tiene los roles integrados de Azure **Propietario** o **Administrador de acceso de usuarios** en la cuenta de Purview, esta operación se realiza correctamente.
 

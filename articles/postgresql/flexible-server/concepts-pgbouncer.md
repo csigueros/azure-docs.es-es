@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/30/2021
-ms.openlocfilehash: 86543f160a9ffc725a9512069bac39e6e222d543
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 10/01/2021
+ms.openlocfilehash: d49deec6a782e0b36f110b7c2046b89e314e4011
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745093"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387342"
 ---
 # <a name="pgbouncer-in-azure-database-for-postgresql---flexible-server"></a>PgBouncer en Azure Database for PostgreSQL: servidor flexible
 
@@ -25,7 +25,7 @@ PgBouncer usa un modelo más ligero que usa E/S asincrónica y solo recurre a co
 Cuando se habilita, PgBouncer se ejecuta en el puerto 6432 del servidor de bases de datos. Puede cambiar la configuración de conexión de la base de datos de la aplicación para usar el mismo nombre de host, pero cambie el puerto a 6432 para empezar a usar PgBouncer y beneficiarse de la mejora en el escalado de conexiones inactivas.
 
 > [!Note]
-> PgBouncer se admite en los niveles de proceso De uso general y Optimizado para memoria en redes de acceso público y acceso privado.
+> PgBouncer se admite en los niveles de proceso De uso general y Optimizado para memoria en redes de acceso público y acceso privado. 
 
 ## <a name="enabling-and-configuring-pgbouncer"></a>Habilitación y configuración de protocolos
 
@@ -46,7 +46,7 @@ Puede configurar PgBouncer con estos parámetros:
 Para más información sobre las configuraciones de PgBouncer, consulte el archivo [pgbouncer.ini](https://www.pgbouncer.org/config.html).
 
 > [!Note] 
-> Azure administrará la actualización de PgBouncer.
+> Azure administra la actualización de PgBouncer.
 
 ## <a name="switching-your-application-to-use-pgbouncer"></a>Cambio de la aplicación para usar PgBouncer
 
@@ -77,6 +77,7 @@ El uso de un grupo del lado de la aplicación junto con PgBouncer en el servidor
 * Si cambia el nivel de proceso de De uso general o Con optimización para memoria al nivel Flexible, perderá la funcionalidad PgBouncer.
 * Cada vez que se reinicia el servidor durante las operaciones de escalado, conmutación por error de alta disponibilidad o reinicio, PgBouncer también se reinicia junto con la máquina virtual del servidor. Por lo tanto, las conexiones existentes deben volver a establecerse.
 * Debido a un problema conocido, el portal no muestra todos los parámetros de PgBouncer. Una vez que habilite PgBouncer y guarde el parámetro, tendrá que salir de la pantalla Parámetros (por ejemplo, haga clic en Información general) y, a continuación, volver a la página Parámetros. 
+* No se admite la [autenticación de SCRAM](how-to-connect-scram.md) con PgBouncer.
   
 ## <a name="next-steps"></a>Pasos siguientes
 

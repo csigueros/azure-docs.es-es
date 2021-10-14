@@ -4,13 +4,13 @@ description: Se describen las funciones que se usarán en un archivo Bicep para 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/10/2021
-ms.openlocfilehash: fd65cc60412d46a734764d3566fa3606a48c7bf6
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/30/2021
+ms.openlocfilehash: 38dfdee2dbe40b40631b45b8d0f9e157f5efc7ae
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124758453"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129349835"
 ---
 # <a name="object-functions-for-bicep"></a>Funciones de objeto para Bicep
 
@@ -21,6 +21,8 @@ En este artículo se describen las funciones de Bicep para trabajar con objetos.
 `contains(container, itemToFind)`
 
 Comprueba si una matriz contiene un valor, un objeto contiene una clave o una cadena contiene una subcadena. La comparación de cadena distingue mayúsculas de minúsculas. Pero, cuando se prueba si un objeto contiene una clave, la comparación no distingue mayúsculas de minúsculas.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -75,6 +77,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Determina si una matriz, un objeto o una cadena están vacíos.
 
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
@@ -112,6 +116,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 `intersection(arg1, arg2, arg3, ...)`
 
 Devuelve una única matriz u objeto con los elementos comunes de los parámetros.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -169,6 +175,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Convierte una cadena JSON válida en un tipo de datos JSON.
 
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
@@ -223,6 +231,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Devuelve el número de elementos de una matriz, caracteres de una cadena o propiedades de nivel raíz de un objeto.
 
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
@@ -272,6 +282,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 `union(arg1, arg2, arg3, ...)`
 
 Devuelve una única matriz u objeto con todos los elementos de los parámetros. Los valores o las claves duplicados solo se incluyen una vez.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 

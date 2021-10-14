@@ -1,21 +1,21 @@
 ---
-title: Uso de parámetros de canalización en el diseñador para compilar canalizaciones versátiles
+title: Uso de parámetros de canalización para compilar canalizaciones versátiles
 titleSuffix: Azure Machine Learning
 description: Cómo usar los parámetros de canalización en el diseñador de Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: keli19
 author: likebupt
 ms.date: 04/09/2020
 ms.topic: how-to
 ms.custom: designer
-ms.openlocfilehash: ba5af77022c3f230fdaf77d115a1c1a4b2151c3e
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: b3ef6f684123c863fd2bdfb5a5ec953b3b20cc6f
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107888159"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428072"
 ---
 # <a name="use-pipeline-parameters-in-the-designer-to-build-versatile-pipelines"></a>Uso de parámetros de canalización en el diseñador para compilar canalizaciones versátiles
 
@@ -30,7 +30,7 @@ En este artículo, aprenderá a realizar las siguientes tareas:
 > * Eliminar y administrar parámetros de canalización
 > * Desencadenar ejecuciones de canalización al ajustar los parámetros de canalización
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Un área de trabajo de Azure Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 

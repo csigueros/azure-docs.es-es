@@ -6,13 +6,13 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 09/15/2021
-ms.openlocfilehash: 52eb75c054ec9b930898b86f5a58f5334656523a
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 09/27/2021
+ms.openlocfilehash: 838730453f5d49efd756abce40faec74513d52b2
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129207495"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129390337"
 ---
 # <a name="azure-purview-collections-architectures-and-best-practices"></a>Arquitecturas de las colecciones de Azure Purview y procedimientos recomendados  
 
@@ -53,7 +53,7 @@ Considere la posibilidad de implementar colecciones en Azure Purview para cumpli
 
 - Los orígenes de datos, los exámenes y los recursos solo pueden pertenecer a una colección. 
 
-- Una jerarquía de colecciones de una instancia de Azure Purview puede admitir hasta 300 colecciones, con un máximo de ocho niveles de profundidad. Esto no incluye a la colección raíz. 
+- Una jerarquía de colecciones de una instancia de Azure Purview puede admitir hasta 256 colecciones, con un máximo de ocho niveles de profundidad. Esto no incluye a la colección raíz. 
 
 - Por diseño, no se pueden registrar orígenes de datos varias veces en una sola cuenta de Purview. Esta arquitectura ayuda a evitar el riesgo de asignar diferentes niveles de control de acceso a un único origen de datos. Si varios equipos consumen los metadatos de un único origen de datos, puede registrar y administrar el origen de datos en una colección primaria. Luego puede crear los exámenes correspondientes en cada subcolección para que los recursos relevantes aparezcan en cada colección secundaria.
 
@@ -65,7 +65,9 @@ Considere la posibilidad de implementar colecciones en Azure Purview para cumpli
 
 - Se permite mover recursos entre colecciones si se concede al usuario el rol de conservador de datos en las colecciones de origen y destino. 
 
-- Actualmente no se permiten ciertas operaciones, como eliminar, mover ni cambiar el nombre de una colección. 
+- Actualmente no se permiten ciertas operaciones, como mover y cambiar el nombre de una colección. 
+
+- Puede eliminar una colección si no tiene recursos, exámenes asociados, orígenes de datos ni colecciones secundarias.
 
 - Si existen en el mapa de datos de Azure Purview, los orígenes de datos, los exámenes y los recursos deben pertenecer a una colección.    
 
@@ -74,9 +76,6 @@ Considere la posibilidad de implementar colecciones en Azure Purview para cumpli
 
 - Moving assets across collections is allowed if the user is granted the Data Curator role for the source and destination collections. 
 
-- Certain operations, like delete, move, and rename of a collection, aren't allowed via the Azure Purview Studio graphical interface. You can use the API to perform such operations directly in your Azure Purview data map. 
-
-- You can delete a collection if there are no assets or data sources associated with the collection. You can delete a collection that has a scan associated with it. 
 -->
 
 ### <a name="design-recommendations"></a>Recomendaciones de diseño 

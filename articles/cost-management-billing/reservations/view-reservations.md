@@ -6,14 +6,14 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 08/11/2021
+ms.date: 10/05/2021
 ms.author: banders
-ms.openlocfilehash: 0c278256c952fce12833a8f4c5fe55e18c3b40b0
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 797aff6fed0cf2eda46bcf5371e57e18df466f00
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123099918"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546969"
 ---
 # <a name="permissions-to-view-and-manage-azure-reservations"></a>Permisos para ver y administrar reservas de Azure
 
@@ -31,6 +31,8 @@ De forma predeterminada, estos son los usuarios que pueden ver y administrar res
 - Un administrador de reservas, en el caso de las reservas de su inquilino (directorio) de Azure Active Directory (Azure AD)
 - Un lector de reservas tiene acceso de solo lectura a las reservas de su inquilino (directorio) de Azure Active Directory.
 
+Actualmente, los roles de administrador y lector de reservas solo están disponibles para asignarse mediante PowerShell. No se pueden ver ni asignar en Azure Portal. Para más información, consulte [Concesión de acceso con PowerShell](#grant-access-with-powershell).
+
 El ciclo de vida de la reserva no depende de una suscripción de Azure, por lo que la reserva no es un recurso de la suscripción de Azure. En su lugar, es un recurso de nivel de inquilino con su propio permiso de RBAC de Azure independiente de las suscripciones. Las reservas no heredan los permisos de las suscripciones después de la compra.
 
 ## <a name="view-and-manage-reservations"></a>Vista y administración de reservas
@@ -42,7 +44,7 @@ Si es un administrador de facturación, siga estos pasos para ver y administrar 
     - Los propietarios de un perfil de facturación de Contrato de cliente de Microsoft, deben seleccionar **Perfiles de facturación** en el menú de la izquierda. En la lista de perfiles de facturación, seleccione uno.
 1. En el menú de la izquierda, seleccione **Productos y servicios** > **Reservas**.
 1. Se muestra la lista completa de reservas de su perfil de facturación o inscripción de EA.
-1. Los administradores de facturación pueden tomar posesión de una reserva; para ello, la seleccionan y, después, seleccionan **Conceder acceso** en la ventana que aparece.
+1. Los administradores de facturación pueden tomar posesión de una reserva mediante la selección de una o varias reservas, haciendo clic en **Conceder acceso** y seleccionando **Conceder acceso** en la ventana que aparece.
 
 ### <a name="add-billing-administrators"></a>Incorporación de administradores de facturación
 

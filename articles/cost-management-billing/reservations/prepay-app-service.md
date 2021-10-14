@@ -1,24 +1,24 @@
 ---
 title: Ahorros para Azure App Service con capacidad reservada
-description: Aprenda a ahorrar costos en instancias reservadas de Azure App Service Premium v3 y Premium v2 y tarifas de unidades de escalado aisladas.
+description: Aprenda a ahorrar costos en instancias reservadas de Azure App Service Premium v3 e Isolated v2 y tarifas de unidades de escalado aisladas.
 author: bandersmsft
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 10/04/2021
 ms.author: banders
 ms.custom: references_regions
-ms.openlocfilehash: 305849e104c3d8fb48b5d661d3d21f589fd69516
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f3c45799d88601bb8ef9a2d652bb07d7d54aceb9
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128664435"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129456620"
 ---
 # <a name="save-costs-with-azure-app-service-reserved-instances"></a>Ahorro de costos con instancias reservadas de Azure App Service
 
-En este artículo se explica cómo ahorrar con instancias reservadas de Azure App Service para instancias de Premium v3 y Premium v2 y tarifas de unidades de escalado aisladas.
+En este artículo se explica cómo ahorrar con instancias reservadas de Azure App Service para instancias de Premium v3 e Isolated v2 y tarifas de unidades de escalado aisladas.
 
 ## <a name="save-with-premium-v3-reserved-instances"></a>Ahorro con instancias reservadas de Premium v3
 
@@ -63,7 +63,7 @@ Si tiene un Contrato Enterprise, puede usar la opción **Agregar más** para agr
 | **Campo** | **Descripción** |
 |---|---|
 | Subscription | Suscripción que se usa para pagar la reserva. Los costos de la reserva se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o Contrato de cliente de Microsoft o una suscripción individual con tarifas de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Los cargos se deducen del saldo de compromiso monetario, si está disponible, o se cobran como uso por encima del límite. En una suscripción con tarifas de pago por uso, los cargos se cobran con el método de pago de factura o la tarjeta de crédito de la suscripción. |
-| Ámbito | El ámbito de la reserva puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona: <ul><li>**Single resource group scope** (Ámbito de grupo de recursos único): aplica el descuento por reserva a los recursos coincidentes solo en el grupo de recursos seleccionado. </li><li>**Single subscription scope** (Ámbito de suscripción única): aplica el descuento por reserva a los recursos coincidentes de la suscripción seleccionada.</li><li>**Ámbito compartido**: aplica el descuento por reserva a los recursos coincidentes en suscripciones aptas que están en el contexto de facturación. Para los clientes de EA, el contexto de facturación es la inscripción. En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.</li><li>**Grupo de administración:** aplica el descuento de reserva al recurso correspondiente en la lista de suscripciones que forman parte del grupo de administración y del ámbito de facturación.</li></ul> |
+| Ámbito | El ámbito de la reserva puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona: <ul><li>**Single resource group scope** (Ámbito de grupo de recursos único): aplica el descuento por reserva a los recursos coincidentes solo en el grupo de recursos seleccionado. </li><li>**Single subscription scope** (Ámbito de suscripción única): aplica el descuento por reserva a los recursos coincidentes de la suscripción seleccionada.</li><li>**Ámbito compartido**: aplica el descuento por reserva a los recursos coincidentes en suscripciones aptas que están en el contexto de facturación. Para los clientes de EA, el contexto de facturación es la inscripción. En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.</li><li>**Grupo de administración**: aplica el descuento de reserva al recurso correspondiente en la lista de suscripciones que forman parte del grupo de administración y del ámbito de facturación.</li></ul> |
 | Region | Región de Azure que está cubierta por la reserva. |
 | Tamaño de instancias reservadas de Premium v3 | El tamaño de las instancias reservadas de Premium v3. |
 | Término | Un año o tres años. También hay un período de 5 años disponible solo para las instancias reservadas de Premium v3 HBv2. |
@@ -89,7 +89,7 @@ Si tiene un Contrato Enterprise, puede usar la opción **Agregar más** para agr
 | **Campo** | **Descripción** |
 | --- | --- |
 | Subscription | Suscripción que se usa para pagar la reserva. Los costos de la reserva se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o Contrato de cliente de Microsoft o una suscripción individual con tarifas de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Los cargos se deducen del saldo de compromiso monetario, si está disponible, o se cobran como uso por encima del límite. En una suscripción con tarifas de pago por uso, los cargos se cobran con el método de pago de factura o la tarjeta de crédito de la suscripción. |
-| Ámbito | El ámbito de la reserva puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona:<UL><LI>**Single resource group scope** (Ámbito de grupo de recursos único): aplica el descuento por reserva a los recursos coincidentes solo en el grupo de recursos seleccionado.</li><li>**Single subscription scope** (Ámbito de suscripción única): aplica el descuento por reserva a los recursos coincidentes de la suscripción seleccionada.</li><li>**Ámbito compartido**: aplica el descuento por reserva a los recursos coincidentes en suscripciones aptas que están en el contexto de facturación. Para los clientes de EA, el contexto de facturación es la inscripción. En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.</li><li>**Grupo de administración:** aplica el descuento de reserva al recurso correspondiente en la lista de suscripciones que forman parte del grupo de administración y del ámbito de facturación.</li></ul> |
+| Ámbito | El ámbito de la reserva puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona:<UL><LI>**Single resource group scope** (Ámbito de grupo de recursos único): aplica el descuento por reserva a los recursos coincidentes solo en el grupo de recursos seleccionado.</li><li>**Single subscription scope** (Ámbito de suscripción única): aplica el descuento por reserva a los recursos coincidentes de la suscripción seleccionada.</li><li>**Ámbito compartido**: aplica el descuento por reserva a los recursos coincidentes en suscripciones aptas que están en el contexto de facturación. Para los clientes de EA, el contexto de facturación es la inscripción. En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.</li><li>**Grupo de administración**: aplica el descuento de reserva al recurso correspondiente en la lista de suscripciones que forman parte del grupo de administración y del ámbito de facturación.</li></ul> |
 | Region | Región de Azure que está cubierta por la reserva. |
 | Tamaño de instancia reservada de App Service aislado v2 | Tamaño de las instancias reservadas de App Service aislado v2. |
 | Término | Un año o tres años. También hay un período de 5 años disponible solo para las instancias reservadas de App Service aislado v2 HBv2. |
@@ -134,7 +134,7 @@ Puede comprar la capacidad reservada de timbres en entornos aislados en [Azure P
     - **Single resource group scope** (Ámbito de grupo de recursos único): aplica el descuento por reserva a los recursos coincidentes solo en el grupo de recursos seleccionado.
     - **Single subscription scope** (Ámbito de suscripción única): aplica el descuento por reserva a los recursos coincidentes de la suscripción seleccionada.
     - **Ámbito compartido**: aplica el descuento por reserva a los recursos coincidentes en suscripciones aptas que están en el contexto de facturación. Para los clientes con Contrato Enterprise, el contexto de facturación es la inscripción. En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.
-    - **Grupo de administración:** aplica el descuento de reserva al recurso correspondiente en la lista de suscripciones que forman parte del grupo de administración y del ámbito de facturación.
+    - **Grupo de administración**: aplica el descuento de reserva al recurso correspondiente en la lista de suscripciones que forman parte del grupo de administración y del ámbito de facturación.
 1. Seleccione una **región** para elegir una región de Azure que abarque la capacidad reservada y agregue la reserva al carro.
 1. Seleccione un tipo de plan aislado y, luego, haga clic en **Seleccionar**.  
     ![Ejemplo ](./media/prepay-app-service/app-service-isolated-stamp-select.png)

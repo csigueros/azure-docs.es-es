@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 427f7ad4d6a1b9839b1197ef9f7ca15400ea0f59
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 12f41bc6369ab399ccce83d6c694003175a85fa7
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87907700"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129229570"
 ---
 # <a name="azure-active-directory-b2b-collaboration-for-hybrid-organizations"></a>Colaboración B2B de Azure Active Directory para organizaciones híbridas
 
@@ -28,7 +28,7 @@ Si la organización usa las funcionalidades de colaboración B2B de Azure AD par
 
 Para aquellas aplicaciones que usan la autenticación basada en SAML, puede hacer que esas aplicaciones estén disponibles para los usuarios B2B en Azure Portal usando Azure AD Application Proxy para la autenticación.
 
-Para aquellas aplicaciones que usan la autenticación integrada de Windows (IWA) con la delegación restringida de Kerberos (KCD), también puede usar Azure AD Application Proxy para la autenticación. No obstante, para que la autorización funcione, se requiere que un objeto de usuario esté en la instancia local de Windows Server Active Directory. Hay dos métodos que puede usar para crear objetos de usuario locales que representen a los usuarios B2B invitados.
+En el caso de las aplicaciones que usan la autenticación integrada de Windows (IWA) con la delegación restringida de Kerberos (KCD), también puede usar el proxy de Azure AD para la autenticación. No obstante, para que la autorización funcione, se requiere que un objeto de usuario esté en la instancia local de Windows Server Active Directory. Hay dos métodos que puede usar para crear objetos de usuario locales que representen a los usuarios B2B invitados.
 
 - Puede usar Microsoft Identity Manager (MIM) 2016 SP1 y el agente de administración de MIM para Microsoft Graph.
 - Puede usar un script de PowerShell. (Esta solución no necesita MIM).

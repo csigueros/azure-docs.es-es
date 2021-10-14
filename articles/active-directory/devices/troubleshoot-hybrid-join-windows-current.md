@@ -12,12 +12,12 @@ manager: karenhoran
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 5a89c2dd574c1910d2c35c78aee4f5ee8b561dfc
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2b7e51bc2837cdb068f0f9d6704e80d3f41c396e
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128592800"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538872"
 ---
 # <a name="troubleshoot-hybrid-azure-ad-joined-devices"></a>Solución de problemas de dispositivos unidos a Azure AD híbrido
 
@@ -443,7 +443,7 @@ El campo "Attempt Status" (Estado del intento) en el campo "AzureAdPrt" proporci
 
 Use el Visor de eventos para buscar las entradas de registro registradas por el complemento Azure AD CloudAP durante la adquisición del PRT. 
 
-1. En el Visor de eventos, abra los registros de eventos de Azure AD. Se almacenan en **Applications and Services Log** > **Microsoft** > **Windows** > **User Device Registration** (Registros de aplicaciones y servicios > Microsoft > Windows > Registro de dispositivos del usuario) 
+1. En el Visor de eventos, abra los registros de eventos operativos de Azure AD. Se almacenan en **Applications and Services Log** > **Microsoft** > **Windows** > **AAD** (Registros de aplicaciones y servicios > Microsoft > Windows > AAD). 
 
    > [!NOTE]
    > El complemento CloudAP registra eventos de error en los registros operativos y eventos de información en los registros de análisis. Tanto los eventos de registros de análisis como los operativos son necesarios para solucionar incidencias. 

@@ -10,12 +10,12 @@ ms.date: 09/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8ba9a24e050307b029e4026a7e8e519a1b4043dc
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6808160b97d6d1d46917f2e1733b7b1badb4c5f4
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128607052"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534372"
 ---
 # <a name="object-replication-for-block-blobs"></a>Replicación de objetos para blobs en bloques
 
@@ -57,7 +57,7 @@ La replicación asincrónica de objetos copia blobs en bloques en un contenedor 
 
 La replicación de objetos requiere que el control de versiones de los blobs esté habilitado en las cuentas de origen y de destino. Cuando se modifica un blob replicado de la cuenta de origen, se crea una nueva versión del blob en la cuenta de origen que refleja el estado anterior del mismo antes de la modificación. La versión actual de la cuenta de origen refleja las actualizaciones más recientes. Tanto la versión actual como cualquier versión anterior se replican en la cuenta de destino. Para más información sobre la forma en que las operaciones de escritura afectan a las versiones del blob, consulte [Control de versiones en operaciones de escritura](versioning-overview.md#versioning-on-write-operations).
 
-Cuando se elimina un blob de la cuenta de origen, la versión actual del blob se convierte en una versión anterior y, después, se elimina. Todas las versiones del blob que ya existieran previamente se conservan. Este estado se replica en la cuenta de destino. Para más información sobre la forma en que las operaciones de eliminación afectan a las versiones del blob, consulte [Control de versiones en operaciones de eliminación](versioning-overview.md#versioning-on-delete-operations).
+Cuando se elimina un blob de la cuenta de origen, la versión actual del blob se convierte en una versión anterior y deja de haber una versión actual. Todas las versiones del blob que ya existieran previamente se conservan. Este estado se replica en la cuenta de destino. Para más información sobre la forma en que las operaciones de eliminación afectan a las versiones del blob, consulte [Control de versiones en operaciones de eliminación](versioning-overview.md#versioning-on-delete-operations).
 
 ### <a name="snapshots"></a>Instantáneas
 
@@ -65,7 +65,7 @@ La replicación de objetos no admite instantáneas de blobs. Las instantáneas d
 
 ### <a name="blob-tiering"></a>Niveles de blob
 
-La replicación de objetos se admite cuando las cuentas de origen y de destino se encuentran en el nivel de acceso frecuente o esporádico. Las cuentas de origen y destino pueden estar en niveles diferentes. Sin embargo, se producirá un error en la replicación de objetos si un blob de las cuentas de origen o destino se ha movido al nivel de archivo. Para más información sobre los niveles de blobs, consulte [Niveles de acceso de Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](storage-blob-storage-tiers.md).
+La replicación de objetos se admite cuando las cuentas de origen y de destino se encuentran en el nivel de acceso frecuente o esporádico. Las cuentas de origen y destino pueden estar en niveles diferentes. Sin embargo, se producirá un error en la replicación de objetos si un blob de las cuentas de origen o destino se ha movido al nivel de archivo. Para más información sobre los niveles de blob, consulte [Niveles de acceso frecuente, esporádico y de archivo de los blobs](access-tiers-overview.md).
 
 ### <a name="immutable-blobs"></a>Blobs inalterables
 
@@ -99,7 +99,7 @@ También puede especificar uno o varios filtros como parte de una regla de repli
 
 Los contenedores de origen y de destino deben existir antes de poder especificarlos en una regla. Después de crear la directiva de replicación, no se permiten las operaciones de escritura en el contenedor de destino. Cualquier intento de escribir en el contenedor de destino producirá un error con el código de error 409 (Conflicto). Para escribir en un contenedor de destino para el que esté configurada una regla de replicación, debe eliminar la regla que está configurada para ese contenedor o quitar la directiva de replicación. Las operaciones de lectura y eliminación en el contenedor de destino se permiten cuando la directiva de replicación está activa.
 
-Puede llamar a la operación [Establecer el nivel del blob](/rest/api/storageservices/set-blob-tier) en un blob en el contenedor de destino para moverla al nivel de archivo. Para más información sobre el nivel de archivo, consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](storage-blob-storage-tiers.md#archive-access-tier).
+Puede llamar a la operación [Establecer el nivel del blob](/rest/api/storageservices/set-blob-tier) en un blob en el contenedor de destino para moverla al nivel de archivo. Para más información sobre el nivel de archivo, consulte [Niveles de acceso frecuente, esporádico y de archivo de datos de blob](access-tiers-overview.md#archive-access-tier).
 
 ## <a name="policy-definition-file"></a>Archivo de definición de directiva
 

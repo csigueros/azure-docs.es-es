@@ -1,23 +1,23 @@
 ---
 title: Configuración de la replicación geográfica activa para las instancias de Azure Cache for Redis Enterprise
 description: Aprenda a replicar las instancias de Azure Cache for Redis Enterprise entre regiones de Azure.
-author: yegu-ms
+author: curib
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.author: yegu
-ms.openlocfilehash: 5f7bd55cfbdd0e38e2c53784dd24760fb051c0f1
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.author: cauribeg
+ms.openlocfilehash: 99169aaacf0ddd39fb4213ee6c1d83c05a71d532
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112233590"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538488"
 ---
 # <a name="configure-active-geo-replication-for-enterprise-azure-cache-for-redis-instances-preview"></a>Configuración de la replicación geográfica activa para las instancias de Azure Cache for Redis Enterprise (versión preliminar)
 
 En este artículo, aprenderá a configurar una instancia de Azure Cache con replicación geográfica activa mediante Azure Portal.
 
-La replicación geográfica activa agrupa dos instancias de Azure Cache for Redis Enterprise en una sola caché que abarca varias regiones de Azure. Ambas instancias actúan como las principales locales. Una aplicación decide qué instancias se van a utilizar para las solicitudes de lectura y escritura.
+La replicación geográfica activa agrupa hasta cinco instancias Enterprise de Azure Cache for Redis en una sola caché que abarca varias regiones de Azure. Ambas instancias actúan como las principales locales. Una aplicación decide qué instancias se van a utilizar para las solicitudes de lectura y escritura.
 
 > [!NOTE]
 > La transferencia de datos entre regiones de Azure se cobrará según las [tarifas de ancho de banda](https://azure.microsoft.com/pricing/details/bandwidth/) estándar.

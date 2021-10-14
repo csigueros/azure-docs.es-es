@@ -10,17 +10,14 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 04/21/2021
-ms.openlocfilehash: 7714adf00a40953301cf3f13eb8d6e403cd8c7a3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c0220070d6b377212099a67c4328bc080afc1648
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121736559"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129544628"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Uso de una plantilla de Azure Resource Manager para crear un área de trabajo para Azure Machine Learning
-
-
-<br>
 
 En este artículo aprenderá varias formas de crear un área de trabajo de Azure Machine Learning mediante plantillas de Azure Resource Manager. Una plantilla de Resource Manager facilita la creación de recursos en una única operación coordinada. Una plantilla es un documento JSON que define los recursos que son necesarios para una implementación. También puede especificar los parámetros de implementación. Los parámetros se emplean para proporcionar valores de entrada cuando se usa la plantilla.
 
@@ -38,7 +35,7 @@ Para obtener más información, consulte [Implementación de una aplicación con
 
 ## <a name="workspace-resource-manager-template"></a>Plantilla de Resource Manager de área de trabajo
 
-La plantilla de Azure Resource Manager usada en este documento se encuentra en el directorio [machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json) del repositorio de GitHub de plantillas de inicio rápido de Azure.
+La plantilla de Azure Resource Manager usada en este documento se encuentra en el directorio [microsoft.machineleaerningservices/machine-learning-workspace-vnet](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json) del repositorio de GitHub de plantillas de inicio rápido de Azure.
 
 Esta plantilla crea los siguientes servicios de Azure:
 
@@ -276,9 +273,6 @@ Al establecer el valor del parámetro `vnetOption` en `new` o `existing`, podrá
 ### <a name="only-deploy-workspace-behind-private-endpoint"></a>Implementación del área de trabajo solo detrás de un punto de conexión privado
 
 Si los recursos asociados no están detrás de una red virtual, puede establecer el parámetro **privateEndpointType** en `AutoAproval` o `ManualApproval` para implementar el área de trabajo detrás de un punto de conexión privado. Esto puede hacerse tanto en áreas de trabajo nuevas como existentes. Al actualizar un área de trabajo existente, rellene los parámetros de la plantilla con la información del área de trabajo existente.
-
-> [!IMPORTANT]
-> El uso de un área de trabajo de Azure Machine Learning con un punto de conexión privado no está disponible en las regiones de Azure Government.
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azcli)
 

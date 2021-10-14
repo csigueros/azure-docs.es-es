@@ -1,20 +1,20 @@
 ---
 title: Implementación de un contenedor personalizado como un punto de conexión en línea administrado
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo usar un contenedor personalizado para usar servidores de código abierto en Azure Machine Learning.
+description: Obtenga información sobre cómo usar un contenedor personalizado para usar servidores de código abierto en Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.reviewer: larryfr
 ms.date: 06/16/2021
 ms.topic: how-to
 ms.custom: deploy, devplatv2
-ms.openlocfilehash: b5438ccfcd84a9574e7e65eb9d0342f947f4d03b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4aa55ee69b1092b7a2cb8dd207faf577ac532e32
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128599475"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428262"
 ---
 # <a name="deploy-a-tensorflow-model-served-with-tf-serving-using-a-custom-container-in-a-managed-online-endpoint-preview"></a>Implementación de un modelo de TensorFlow servido con TF Serving mediante un contenedor personalizado en un punto de conexión en línea administrado (versión preliminar)
 

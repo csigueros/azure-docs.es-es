@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: d26459080e57f8998b40c181306ca10508ad4749
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: cde36aaa5946519533d4e68eb31da48af08be689
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123099231"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546299"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configuración de redes de Azure CNI en Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ En este artículo se muestra cómo usar las redes de *Azure CNI* para crear y us
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 * La subred asignada al grupo de nodos AKS no puede ser una [subred delegada](../virtual-network/subnet-delegation-overview.md).
-* Si proporciona su propia subred, tendrá que administrar los grupos de seguridad de red (NSG) asociados a dicha subred. AKS no modificará ninguno de los NSG asociados a esa subred. También debe asegurarse de que las reglas de seguridad de los NSG permiten el tráfico entre el nodo y los rangos de CIDR del pod.
+* AKS no aplica grupos de seguridad de red (NSG) a su subred y no modificará ninguno de los grupos de seguridad de red asociados a esa subred. Si proporciona su propia subred y agrega grupos de seguridad de red asociados a ella, debe asegurarse de que las reglas de seguridad de estos grupos permiten el tráfico entre los intervalos de CIDR del nodo y del pod. Para más información, consulte [Grupos de seguridad de red][aks-network-nsg].
 
 ## <a name="plan-ip-addressing-for-your-cluster"></a>Planeamiento de direccionamiento IP del clúster
 
@@ -358,6 +358,7 @@ Más información acerca de las redes en AKS en los siguientes artículos:
 [aks-ssh]: ssh.md
 [ManagedClusterAgentPoolProfile]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object
 [aks-network-concepts]: concepts-network.md
+[aks-network-nsg]: concepts-network.md#network-security-groups
 [aks-ingress-basic]: ingress-basic.md
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-static-tls]: ingress-static-ip.md

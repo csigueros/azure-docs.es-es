@@ -1,18 +1,17 @@
 ---
 title: Reglas y grupos de reglas de DRS de Azure Web Application Firewall en Azure Front Door
 description: En este artículo se proporciona información sobre las reglas y los grupos de reglas de DRS de Azure Web Application Firewall.
-services: web-application-firewall
-author: vhorne
 ms.service: web-application-firewall
-ms.date: 07/29/2021
+author: vhorne
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 401a6bd003e592d1b53aa91ac24f062688da7a3b
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 07/29/2021
+ms.openlocfilehash: 95839937f2356f74d29499bb45e7cd0e1159b02c
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123435751"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546356"
 ---
 # <a name="web-application-firewall-drs-rule-groups-and-rules"></a>Reglas y grupos de reglas de DRS de Azure Web Application Firewall
 
@@ -62,6 +61,9 @@ En el modo de puntuación de anomalías, el tráfico que coincide con alguna reg
 |Aviso       |2|
 
 Hay un umbral de 5 para que la puntuación de anomalías bloquee el tráfico. Por lo tanto, solo hace falta una coincidencia con la regla *Crítica* para que WAF bloquee una solicitud, incluso en modo de prevención. Pero una coincidencia con la regla *Advertencia* solo aumenta la puntuación de anomalías en 3, lo que no es suficiente para bloquear por sí misma el tráfico.
+
+> [!NOTE]
+> La inspección del cuerpo solo está disponible en DRS 2.0.
 
 ### <a name="drs-20"></a>DRS 2.0
 
@@ -288,6 +290,9 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 |941370|Variable global de JavaScript encontrada|
 |941380|Inserción de plantillas del lado cliente de AngularJS detectada|
 
+>[!NOTE]
+> Este artículo contiene referencias al término *lista negra*, un término que Microsoft ya no usa. Cuando se quite el término del software, se quitará también del artículo.
+
 
 ### <a name="sqli---sql-injection"></a><a name="drs942-20"></a> SQLI: inyección de código SQL
 |Identificador de regla|Descripción|
@@ -470,6 +475,9 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 |941340|Filtros XSS de IE: ataque detectado|
 |941350|XSS de IE con codificación UTF-7: ataque detectado|
 
+>[!NOTE]
+> Este artículo contiene referencias al término *lista negra*, un término que Microsoft ya no usa. Cuando se quite el término del software, se quitará también del artículo.
+
 ### <a name="sqli---sql-injection"></a><a name="drs942-11"></a> SQLI: inyección de código SQL
 |Identificador de regla|Descripción|
 |---|---|
@@ -647,6 +655,9 @@ Las reglas y los grupos de reglas siguientes están disponibles cuando se usa We
 |941330|Filtros XSS de IE: ataque detectado|
 |941340|Filtros XSS de IE: ataque detectado|
 |941350|XSS de IE con codificación UTF-7: ataque detectado|
+
+>[!NOTE]
+> Este artículo contiene referencias al término *lista negra*, un término que Microsoft ya no usa. Cuando se quite el término del software, se quitará también del artículo.
 
 ### <a name="sqli---sql-injection"></a><a name="drs942-10"></a> SQLI: inyección de código SQL
 |Identificador de regla|Descripción|

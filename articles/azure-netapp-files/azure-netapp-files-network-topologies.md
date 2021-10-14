@@ -12,20 +12,30 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/28/2021
+ms.date: 10/04/2021
 ms.author: ramakk
-ms.openlocfilehash: 6d82310eea944d91124025c3d894f543448f82e1
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 09f09b5c50dd04f39f95405df9875d458a258b25
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129218686"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129545970"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Instrucciones para el planeamiento de red de Azure NetApp Files
 
 La planeación de la arquitectura de red es un elemento clave del diseño de cualquier infraestructura de aplicación. En este artículo encontrará ayuda para diseñar una arquitectura de red eficaz para que sus cargas de trabajo se beneficien de las completas funcionalidades de Azure NetApp Files.
 
-Los volúmenes de Azure NetApp Files están diseñados para incluirse en una subred de propósito especial llamada [subred delegada](../virtual-network/virtual-network-manage-subnet.md) dentro de Azure Virtual Network. Por lo tanto, puede acceder a los volúmenes directamente desde la red virtual, desde redes virtuales emparejadas en la misma región o desde un entorno local a través de una puerta de enlace de red virtual (ExpressRoute o VPN Gateway) según sea necesario. La subred está dedicada a Azure NetApp Files y no hay ninguna conectividad a Internet ni a otros servicios de Azure.
+Los volúmenes de Azure NetApp Files están diseñados para incluirse en una subred de propósito especial llamada [subred delegada](../virtual-network/virtual-network-manage-subnet.md) dentro de Azure Virtual Network. Por lo tanto, puede acceder a los volúmenes directamente desde dentro de Azure mediante emparejamiento de red virtual o desde un entorno local por medio de una puerta de enlace de red virtual (ExpressRoute o VPN Gateway), según sea necesario. La subred está dedicada a Azure NetApp Files y no hay conectividad a Internet. 
+
+## <a name="configurable-network-features"></a>Características de red configurables  
+
+ La configuración de [**características de red Standard**](configure-network-features.md) para Azure NetApp Files está disponible en versión preliminar pública. Después de registrarse en esta característica con la suscripción, puede crear nuevos volúmenes si elije características de red *Standard* o *Basic* en las regiones admitidas. En las regiones en las que no se admiten las características de red Standard, el volumen usa de manera predeterminada las características de red Basic.  
+
+* ***Estándar***  
+    La selección de este valor permite límites de IP superiores y características de red virtual estándar, como [grupos de seguridad de red](../virtual-network/network-security-groups-overview.md) y [rutas definidas por el usuario](../virtual-network/virtual-networks-udr-overview.md#user-defined) en subredes delegadas, y patrones de conectividad adicionales, como se indica en este artículo.
+
+* ***Basic***  
+    Al seleccionar este valor se habilitan los patrones de conectividad selectivos y la escala de IP limitada, como se menciona en la sección [Consideraciones](#considerations). Todas las [restricciones](#constraints) se aplican en este valor. 
 
 ## <a name="considerations"></a>Consideraciones  
 
@@ -33,37 +43,38 @@ Debe entender algunas consideraciones al planear de red de Azure NetApp Files.
 
 ### <a name="constraints"></a>Restricciones
 
-Las características siguientes no se admiten actualmente en Azure NetApp Files: 
+En la tabla siguiente se describe lo que se admite en cada configuración de características de red:
 
-* Grupos de seguridad de red (NSG) aplicados a la subred delegada
-* Rutas definidas por el usuario (UDR) aplicadas a la subred delegada
-* Directivas de Azure personalizadas (por ejemplo, directivas de nomenclatura personalizadas) en la interfaz de Azure NetApp Files
-* Equilibradores de carga para el tráfico de Azure NetApp Files
-* Azure Virtual WAN 
-* Puertas de enlace de Virtual Network con redundancia de zona (SKU de puerta de enlace con Az) 
-* Puertas de enlace activa/activa de Virtual Network 
-* Red virtual de pila dual (IPv4 e IPv6)
-
-Las siguientes restricciones de red se aplican a Azure NetApp Files:
-
-* El número de direcciones IP en uso en una red virtual con Azure NetApp Files (incluidas las redes virtuales emparejadas *inmediatamente*) no puede ser mayor que 1000. Estamos trabajando para aumentar este límite con el fin de satisfacer las necesidades de escalado de los clientes. 
-* En cada red virtual de Azure (VNet), solo puede delegarse una subred a Azure NetApp Files.
-
+|      Características     |      Características de red Standard     |      Características de red Basic     |
+|---|---|---|
+|     Número de direcciones IP en uso en una red virtual con Azure NetApp Files (incluidas las redes virtuales emparejadas inmediatamente)    |     [Límites estándar como máquinas virtuales](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)    |     1000    |
+|     Subredes delegadas de ANF por red virtual    |     1    |     1    |
+|     [Grupos de seguridad de red](../virtual-network/network-security-groups-overview.md) (NSG) en subredes delegadas de Azure NetApp Files    |     Sí    |     No    |
+|     [Rutas definidas por el usuario](../virtual-network/virtual-networks-udr-overview.md#user-defined) (UDR) en subredes delegadas de Azure NetApp Files    |     Sí    |     No    |
+|     Conectividad a [puntos de conexión privados](../private-link/private-endpoint-overview.md)    |     No    |     No    |
+|     Conectividad a [puntos de conexión de servicio](../virtual-network/virtual-network-service-endpoints-overview.md)    |     No    |     No    |
+|     Directivas de Azure (por ejemplo, directivas de nomenclatura personalizadas) en la interfaz de Azure NetApp Files    |     No    |     No    |
+|     Equilibradores de carga para el tráfico de Azure NetApp Files    |     No    |     No    |
+|     Red virtual de pila dual (IPv4 e IPv6)    |     No <br> (Solo se admite IPv4)    |     No <br> (Solo se admite IPv4)    |
 
 ### <a name="supported-network-topologies"></a>Topologías de red admitidas
 
-En la tabla siguiente se describen las topologías de red compatibles con Azure NetApp Files.  También se describen las soluciones alternativas para las topologías no admitidas. 
+En la tabla siguiente se describen las topologías de red admitidas en cada configuración de características de red de Azure NetApp Files. 
 
-|    Topologías    |    Se admite    |     Solución alternativa    |
-|-------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------------------------------------------------------------------|
-|    Conectividad al volumen en una red virtual local    |    Sí    |         |
-|    Conectividad al volumen en una red virtual emparejada (misma región)    |    Sí    |         |
-|    Conectividad al volumen en una red virtual emparejada (emparejamiento global o entre regiones)    |    No    |    None    |
-|    Conectividad a un volumen a través de la puerta de enlace ExpressRoute    |    Sí    |         |
-|    Conectividad del entorno local a un volumen en una red virtual de radio a través de una puerta de enlace ExpressRoute y emparejamiento de redes virtuales con tránsito de puerta de enlace    |    Sí    |        |
-|    Conectividad del en el entorno local a un volumen en una red virtual de radio a través de puerta de enlace de VPN    |    Sí    |         |
-|    Conectividad del entorno local a un volumen en una red virtual de radio a través de una puerta de enlace de VPN y emparejamiento de redes virtuales con tránsito de puerta de enlace    |    Sí    |         |
-
+|      Topologías     |      Características de red Standard     |      Características de red Basic     |
+|---|---|---|
+|     Conectividad al volumen en una red virtual local    |     Sí    |     Sí    |
+|     Conectividad al volumen en una red virtual emparejada (misma región)    |     Sí    |     Sí    |
+|     Conectividad a volumen en una red virtual emparejada (emparejamiento global o entre regiones)    |     No    |     No    |
+|     Conectividad a un volumen a través de la puerta de enlace ExpressRoute    |     Sí    |     Sí    |
+|     FastPath de ExpressRoute (ER)    |     Sí    |     No    |
+|     Conectividad desde el entorno local a un volumen en una red virtual de radio por medio de una puerta de enlace de ExpressRoute y emparejamiento de redes virtuales con tránsito de puerta de enlace    |     Sí    |     Sí    |
+|     Conectividad desde el entorno local a un volumen en una red virtual de radio por medio de una puerta de enlace de VPN    |     Sí    |     Sí    |
+|     Conectividad desde el entorno local a un volumen en una red virtual de radio por medio de una puerta de enlace de VPN y emparejamiento de redes virtuales con tránsito de puerta de enlace    |     Sí    |     Sí    |
+|     Conectividad mediante puertas de enlace de VPN activo/pasivo    |     Sí    |     Sí    |
+|     Conectividad mediante puertas de enlace de VPN activo/activo    |     Sí    |     No    |
+|     Conectividad mediante puertas de enlace con redundancia de zona activa/activa    |     No    |     No    |
+|     Conectividad mediante Virtual WAN (VWAN)    |     No    |     No    |
 
 ## <a name="virtual-network-for-azure-netapp-files-volumes"></a>Red virtual para volúmenes de Azure NetApp Files
 
@@ -85,10 +96,14 @@ Si la red virtual está emparejada con otra red virtual, no puede expandir el es
 
 ### <a name="udrs-and-nsgs"></a>UDR y NSG
 
-Las rutas definidas por el usuario (UDR) y los grupos de seguridad de red (NSG) no se admiten en las subredes delegadas de Azure NetApp Files. Pero puede aplicar UDR y NSG a otras subredes, incluso dentro de la misma red virtual que la subred delegada en Azure NetApp Files.
+Las rutas definidas por el usuario (UDR) y los grupos de seguridad de red (NSG) solo se admiten en subredes delegadas de Azure NetApp Files que tienen al menos un volumen creado con las características de red Standard.  
 
-* Después, las UDR definen los flujos de tráfico de las demás subredes a la subred delegada de Azure NetApp Files. Esto ayuda a garantizar que esto se alinee con el flujo de tráfico de Azure NetApp Files a las otras subredes mediante las rutas del sistema.  
-* Luego las NSG permiten o deniegan el tráfico hacia la subred delegada de Azure NetApp Files y desde esta. 
+> [!NOTE]
+> No se permite la asociación de NSG en el nivel de interfaz de red en interfaces de red de Azure NetApp Files. 
+
+Si la subred tiene una combinación de volúmenes con las características de red Standard y Basic (o para volúmenes existentes no registrados en la versión preliminar de la característica), las UDR y los NSG aplicados en las subredes delegadas solo se aplican a los volúmenes con las características de red Standard.
+
+La configuración de rutas definidas por el usuario (UDR) en las subredes de máquina virtual de origen con prefijo de dirección de subred delegada y próximo salto como NVA no se admite para volúmenes con las características de red Basic. Esa configuración da lugar a problemas de conectividad.
 
 ## <a name="azure-native-environments"></a>Entornos nativos de Azure
 
@@ -133,4 +148,5 @@ En la topología que se ilustra anteriormente, la red local está conectada a un
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Delegación de una subred en Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
+* [Delegación de una subred en Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
+* [Configuración de las características de red de un volumen de Azure NetApp Files](configure-network-features.md) 

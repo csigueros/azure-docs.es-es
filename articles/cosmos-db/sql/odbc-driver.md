@@ -5,21 +5,25 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 10/02/2019
+ms.date: 10/04/2021
 ms.author: sngun
-ms.openlocfilehash: 91c433edd48c560f2938b50540d9a654e3eee2e7
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 6e9a03869fadf5dd6616755a44c12cefe40a5556
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123113727"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129456031"
 ---
-# <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Conexión a Azure Cosmos DB mediante herramientas de análisis de BI con el controlador ODBC
+# <a name="connect-to-azure-cosmos-db-using-analytics-bi-and-data-integration-tools-with-the-odbc-driver"></a>Conexión a Azure Cosmos DB mediante herramientas de análisis, BI e integración de datos con el controlador ODBC
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-El controlador ODBC de Azure Cosmos DB le permite conectarse a Azure Cosmos DB mediante herramientas de análisis de BI, como SQL Server Integration Services, Power BI Desktop y Tableau de forma que pueda analizar y crear visualizaciones de los datos de Azure Cosmos DB en esas soluciones.
+El controlador ODBC de Azure Cosmos DB permite conectarse a Azure Cosmos DB mediante herramientas como SQL Server Integration Services y Tableau para poder analizar, mover, transformar y crear visualizaciones de los datos de Azure Cosmos DB en esas soluciones.
 
 El controlador ODBC de Azure Cosmos DB es compatible con ODBC 3.8 y admite la sintaxis de ANSI SQL-92. El controlador ofrece características enriquecidas que le ayudarán a volver a normalizar datos en Azure Cosmos DB. Mediante el controlador, puede representar datos en Azure Cosmos DB como tablas y vistas. El controlador permite realizar operaciones de SQL en las tablas y vistas, así como agrupar por consultas, inserciones, actualizaciones y eliminaciones.
+
+> [!NOTE]
+> Si usa Power BI, vea la [documentación](powerbi-visualize.md) del conector nativo.
+
 
 > [!NOTE]
 > La conexión a Azure Cosmos DB con el controlador ODBC actualmente solo se admite para cuentas de API de SQL de Azure Cosmos DB.

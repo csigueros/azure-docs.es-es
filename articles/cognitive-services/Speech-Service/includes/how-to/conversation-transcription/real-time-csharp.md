@@ -1,15 +1,15 @@
 ---
-author: laujan
+author: PatrickFarley
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/20/2020
-ms.author: lajanuar
-ms.openlocfilehash: bc4709eeb59f0333a086336b4f61474671dac3af
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.author: pafarley
+ms.openlocfilehash: 0ffa432b6d5d94ad4e313a183d8e277ce44aae3d
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122068972"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129585339"
 ---
 ## <a name="install-the-speech-sdk"></a>Instalación de Speech SDK
 
@@ -25,7 +25,7 @@ En primer lugar, deberá instalar Speech SDK. Utilice las siguientes instruccion
 
 (Puede omitir este paso si no quiere usar perfiles de usuario inscritos previamente para identificar participantes concretos).
 
-Si quiere inscribir perfiles de usuario, el primer paso consiste en crear firmas de voz para los participantes en la conversación a fin de que puedan identificarse como hablantes únicos. El archivo de audio `.wav` de entrada para la creación de firmas de voz debe ser de 16 bits, con una frecuencia de muestreo de 16 kHz y un formato de canal único (mono). La longitud recomendada para cada muestra de audio está entre 30 segundos y dos minutos. Una muestra de audio demasiado corta dará como resultado una precisión reducida al reconocer el hablante. El archivo `.wav` debe ser una muestra de voz de **una persona** para que se cree un perfil de voz único.
+Si quiere inscribir perfiles de usuario, el primer paso consiste en crear firmas de voz para los participantes en la conversación a fin de que puedan identificarse como hablantes únicos. El archivo de audio `.wav` de entrada para la creación de firmas de voz debe ser de 16 bits, con frecuencia de muestreo de 16 kHz y un formato de canal único (mono). La longitud recomendada para cada muestra de audio está entre 30 segundos y dos minutos. Una muestra de audio demasiado corta dará como resultado una precisión reducida al reconocer el hablante. El archivo `.wav` debe ser una muestra de voz de **una persona** para que se cree un perfil de voz único.
 
 El ejemplo siguiente muestra cómo crear una firma de voz [mediante la API REST](https://aka.ms/cts/signaturegenservice) de C#. Tenga en cuenta que debe sustituir la información real de `subscriptionKey`, `region` y la ruta de acceso a un archivo `.wav` de ejemplo.
 
@@ -102,7 +102,7 @@ El siguiente código de ejemplo muestra cómo transcribir conversaciones en tiem
 Si no usa perfiles de usuario inscritos previamente, se tardarán unos segundos más en completar el primer reconocimiento de usuarios desconocidos como speaker1, speaker2, etc.
 
 > [!NOTE]
-> Asegúrese de usar el mismo valor `subscriptionKey` en la aplicación para la creación de firmas; de lo contrario, se producirán errores. 
+> Asegúrese de que se usa el mismo valor `subscriptionKey` en la aplicación para la creación de firmas o se producirán errores. 
 
 Este código de ejemplo realiza las tareas siguientes:
 
@@ -111,6 +111,9 @@ Este código de ejemplo realiza las tareas siguientes:
 * Crea un objeto `ConversationTranscriber` usando el constructor y se suscribe a los eventos necesarios.
 * Agrega participantes a la conversación. Las cadenas `voiceSignatureStringUser1` y `voiceSignatureStringUser2` deben aparecer como salidas de los pasos anteriores desde la función `GetVoiceSignatureString()`.
 * Se une a la conversación y comienza la transcripción.
+
+> [!NOTE]
+> `AudioStreamReader` es una clase auxiliar que puede obtener en [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/csharp/dotnet/conversation-transcription/helloworld/AudioStreamReader.cs).
 
 Llame a la función `TranscribeConversationsAsync()` para iniciar la transcripción de conversaciones.
 
@@ -201,8 +204,9 @@ public static async Task TranscribeConversationsAsync(string voiceSignatureStrin
                 Task.WaitAny(new[] { stopRecognition.Task });
                 await conversationTranscriber.StopTranscribingAsync().ConfigureAwait(false);
             }
-        }
-    }
-}
+         }
+      }
+   }
 }
 ```
+
