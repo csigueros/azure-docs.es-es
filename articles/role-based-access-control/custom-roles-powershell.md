@@ -15,12 +15,12 @@ ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a65ab5e32a3a11becff70fb2e563d6760fa95360
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 4a31b5963f8143079eba016494da19b585273d1a
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110696651"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353816"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-powershell"></a>Creación o actualización de roles personalizados de Azure mediante Azure PowerShell
 
@@ -164,7 +164,7 @@ Start Virtual Machine                          Microsoft.Compute/virtualMachines
 
 Al usar PowerShell para crear un rol personalizado, puede usar uno de los [roles integrados](built-in-roles.md) como punto de partida o puede empezar desde cero. El primer ejemplo de esta sección empieza con un rol integrado y, luego, se personaliza con más permisos. Edite los atributos para agregar cualquier elemento `Actions`, `NotActions` o `AssignableScopes` que quiera y guarde los cambios como un nuevo rol.
 
-El ejemplo siguiente se inicia con el rol integrado [Colaborador de la máquina virtual](built-in-roles.md#virtual-machine-contributor) para crear un rol personalizado denominado *Operador de máquina virtual*. El nuevo rol concede acceso a todas las operaciones de lectura de los proveedores de recursos *Microsoft.Compute*, *Microsoft.Storage* y *Microsoft.Network*, y concede acceso para iniciar, reiniciar y supervisar las máquinas virtuales. El rol personalizado se puede usar en dos suscripciones.
+El ejemplo siguiente se inicia con el rol integrado [Colaborador de la máquina virtual](built-in-roles.md#virtual-machine-contributor) para crear un rol personalizado denominado *Operador de máquina virtual*. El nuevo rol concede acceso a todas las acciones de lectura de los proveedores de recursos *Microsoft.Compute*, *Microsoft.Storage* y *Microsoft.Network*, y concede acceso para iniciar, reiniciar y supervisar las máquinas virtuales. El rol personalizado se puede usar en dos suscripciones.
 
 ```azurepowershell
 $role = Get-AzRoleDefinition "Virtual Machine Contributor"
@@ -188,7 +188,7 @@ $role.AssignableScopes.Add("/subscriptions/11111111-1111-1111-1111-111111111111"
 New-AzRoleDefinition -Role $role
 ```
 
-En el ejemplo siguiente muestra otra forma de crear el rol personalizado de *Operador de máquina virtual*. Se inicia al crear un nuevo objeto `PSRoleDefinition`. Las operaciones de acción se especifican en la variable `perms` y se establecen en la propiedad `Actions`. La propiedad `NotActions` se establece al leer `NotActions` desde el rol integrado [Colaborador de la máquina virtual](built-in-roles.md#virtual-machine-contributor). Puesto que el [colaborador de la máquina Virtual](built-in-roles.md#virtual-machine-contributor) no tiene ningún `NotActions`, esta línea no es necesaria, pero muestra cómo se puede recuperar la información desde otro rol.
+En el ejemplo siguiente muestra otra forma de crear el rol personalizado de *Operador de máquina virtual*. Se inicia al crear un nuevo objeto `PSRoleDefinition`. Las acciones se especifican en la variable `perms` y se establecen en la propiedad `Actions`. La propiedad `NotActions` se establece al leer `NotActions` desde el rol integrado [Colaborador de la máquina virtual](built-in-roles.md#virtual-machine-contributor). Puesto que el [colaborador de la máquina Virtual](built-in-roles.md#virtual-machine-contributor) no tiene ningún `NotActions`, esta línea no es necesaria, pero muestra cómo se puede recuperar la información desde otro rol.
 
 ```azurepowershell
 $role = [Microsoft.Azure.Commands.Resources.Models.Authorization.PSRoleDefinition]::new()
@@ -245,7 +245,7 @@ De modo similar a la creación de un rol personalizado, puede modificar un rol p
 
 Para modificar un rol personalizado, use en primer lugar el comando [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) para recuperar la definición de rol. Después, haga los cambios que desee en la definición de rol. Por último, use el comando [Set-AzRoleDefinition](/powershell/module/az.resources/set-azroledefinition) para guardar la definición de rol modificada.
 
-En el ejemplo siguiente se agrega la operación `Microsoft.Insights/diagnosticSettings/*` al rol personalizado *Operador de máquina virtual* .
+En el ejemplo siguiente se agrega la acción `Microsoft.Insights/diagnosticSettings/*` al rol personalizado *Operador de máquina virtual*.
 
 ```azurepowershell
 $role = Get-AzRoleDefinition "Virtual Machine Operator"

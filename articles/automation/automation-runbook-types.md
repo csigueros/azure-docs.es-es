@@ -3,15 +3,15 @@ title: Tipos de runbooks de Azure Automation
 description: En este artículo se describen los tipos de runbooks que puede usar en Azure Automation y las consideraciones de determinar qué tipo usar.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/10/2021
+ms.date: 10/05/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 44923cd63676a6eb2fa589c66726f1c14c76896c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 58bc105a088e2ed06fb710d9a2e38e406e375bd9
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124744807"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534318"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de runbooks de Azure Automation
 
@@ -69,8 +69,8 @@ Los runbooks de PowerShell están basados en Windows PowerShell. Puede modificar
 * Debe estar familiarizado con el scripting de PowerShell.
 * Los runbooks no pueden usar el [procesamiento paralelo](automation-powershell-workflow.md#use-parallel-processing) para ejecutar varias acciones en paralelo.
 * Los runbooks no pueden usar los [puntos de control](automation-powershell-workflow.md#use-checkpoints-in-a-workflow) para reanudar un runbook si se produce un error.
-* Solo puede incluir los runbooks gráficos y de flujo de trabajo de PowerShell como runbooks secundarios mediante el cmdlet [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook), que crea un trabajo.
-* Los runbooks no pueden usar la instrucción [#Requires](/powershell/module/microsoft.powershell.core/about/about_requires) de PowerShell, no se admite en el espacio aislado de Azure ni en Hybrid Runbook Worker y provocarán un error en el trabajo.
+* Solo puede incluir runbooks gráficos, de PowerShell y de flujo de trabajo de PowerShell como runbooks secundarios mediante el cmdlet [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook), que crea un trabajo.
+* Los runbooks no pueden usar la instrucción [#Requires](/powershell/module/microsoft.powershell.core/about/about_requires) de PowerShell, no se admite en el espacio aislado de Azure ni en instancias de Hybrid Runbook Worker y provocarán un error en el trabajo.
 
 ### <a name="known-issues"></a>Problemas conocidos
 
@@ -124,6 +124,14 @@ Los runbooks de Python 3 se admiten en las siguientes infraestructuras globales
 * Para utilizar bibliotecas de terceros, debe [importar los paquetes](python-packages.md) a la cuenta de Automation.
 * Usar el cmdlet **Start-AutomationRunbook** en PowerShell o en el flujo de trabajo de PowerShell para iniciar un runbook de Python 3 (versión preliminar) no funciona. Puede usar el cmdlet  **Start-AzAutomationRunbook** desde el nódulo Az.Automation o el cmdlet  **Start-AzureRmAutomationRunbook** del módulo AzureRm.Automation para solucionar esta limitación.  
 * Azure Automation no admite  **sys.stderr**.
+
+### <a name="multiple-python-versions"></a>Varias versiones de Python
+
+En el caso de Runbook Worker de Windows, al ejecutar un runbook de Python 2, este busca primero la variable de entorno `PYTHON_2_PATH` y valida si apunta a un archivo ejecutable válido. Por ejemplo, si la carpeta de instalación es `C:\Python2`, comprobaría si `C:\Python2\python.exe` es una ruta de acceso válida. Si no se encuentra, busca la variable de entorno `PATH` para realizar una comprobación similar.
+
+Para Python 3, primero busca la variable env `PYTHON_3_PATH` y, a continuación, recurre a la variable de entorno `PATH`.
+
+Cuando se usa solo una versión de Python, puede agregar la ruta de instalación a la variable `PATH`. Si quiere usar ambas versiones en Runbook Worker, establezca `PYTHON_2_PATH` y `PYTHON_3_PATH` en la ubicación del módulo para esas versiones.
 
 ### <a name="known-issues"></a>Problemas conocidos
 

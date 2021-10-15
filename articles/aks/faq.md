@@ -4,12 +4,12 @@ description: Encuentre respuestas a algunas de las preguntas comunes sobre Azure
 ms.topic: conceptual
 ms.date: 05/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: 612493d55adddea82e3e8d1e3d169eee963bfda2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fdccee2795a4e1b2c967c53dc17d15a6520f4402
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121724729"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546527"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 
@@ -289,8 +289,7 @@ Los nodos habilitados para FIPS están disponibles actualmente en versión preli
 
 ## <a name="can-i-configure-nsgs-with-aks"></a>¿Se pueden configurar los grupos de seguridad de red con AKS?
 
-Si proporciona su propia subred, tendrá que administrar los grupos de seguridad de red (NSG) asociados a dicha subred. AKS solo modificará los grupos de seguridad de red en el nivel de NIC y no modificará ninguno de los grupos de seguridad de red asociados a esa subred. Si usa CNI, también debe asegurarse de que las reglas de seguridad de los grupos de seguridad de red permiten el tráfico entre el nodo y los rangos de CIDR del pod. Si usa kubenet, también debe asegurarse de que las reglas de seguridad de los grupos de seguridad de red permiten el tráfico entre el nodo y el CIDR del pod.
-
+AKS no aplica grupos de seguridad de red (NSG) a su subred y no modificará ninguno de los grupos de seguridad de red asociados a esa subred. AKS solo modificará los grupos de seguridad de red en el nivel de NIC. Si usa CNI, también debe asegurarse de que las reglas de seguridad de los grupos de seguridad de red permiten el tráfico entre el nodo y los rangos de CIDR del pod. Si usa kubenet, también debe asegurarse de que las reglas de seguridad de los grupos de seguridad de red permiten el tráfico entre el nodo y el CIDR del pod. Para más información, consulte [Grupos de seguridad de red](concepts-network.md#network-security-groups).
 
 <!-- LINKS - internal -->
 

@@ -1,6 +1,6 @@
 ---
-title: Ejecución de un paquete SSIS con la actividad de ejecución de paquetes SSIS
-description: En este artículo se describe cómo ejecutar un paquete de SQL Server Integration Services (SSIS) desde una canalización de Azure Data Factory mediante la actividad de ejecución de paquetes SSIS.
+title: Uso de la actividad Ejecutar paquetes SSIS desde el portal
+description: En este artículo se describe cómo ejecutar un paquete de SQL Server Integration Services (SSIS) en una canalización de Azure Data Factory mediante la actividad Ejecutar paquetes SSIS y el portal de Azure Data Factory Studio.
 ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
@@ -8,30 +8,25 @@ ms.topic: conceptual
 ms.author: sawinark
 author: swinarko
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 06/04/2021
-ms.openlocfilehash: 0b24ae5a1564f182cf44e540a9d05a2aaac005ae
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/01/2021
+ms.openlocfilehash: 1e8c1777c8f2a95bd63ab9f03abc9c65fe0b1b6f
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124733124"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357971"
 ---
-# <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Ejecución de un paquete de SSIS mediante la actividad Ejecutar paquete SSIS de Azure Data Factory
+# <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-the-azure-data-factory-studio-portal"></a>Ejecución de un paquete SSIS mediante la actividad Ejecutar paquetes SSIS en el portal de Azure Data Factory Studio
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-En este artículo se describe cómo ejecutar un paquete de SQL Server Integration Services (SSIS) desde una canalización de Azure Data Factory mediante la actividad de ejecución de paquetes SSIS. 
+En este artículo se describe cómo ejecutar un paquete de SQL Server Integration Services (SSIS) en una canalización de Azure Data Factory mediante la actividad Ejecutar paquetes SSIS y la interfaz de usuario del portal de Azure Data Factory Studio. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Cree una instancia de Azure-SSIS Integration Runtime (IR) si no tiene ya una. Para ello, siga las instrucciones paso a paso del [Tutorial: Aprovisionamiento de Azure-SSIS IR](./tutorial-deploy-ssis-packages-azure.md).
 
-## <a name="run-a-package-in-the-azure-portal"></a>Ejecución de un paquete en Azure Portal
-En esta sección, usará la interfaz de usuario de Data Factory o la aplicación para crear una canalización de Data Factory con una actividad de ejecución de paquetes SSIS que ejecuta un paquete SSIS.
-
-### <a name="create-a-pipeline-with-an-execute-ssis-package-activity"></a>Creación de una canalización con una actividad Ejecutar paquete de SSIS
+## <a name="create-a-pipeline-with-an-execute-ssis-package-activity"></a>Creación de una canalización con una actividad Ejecutar paquete de SSIS
 En este paso, usa la interfaz de usuario de Data Factory o aplicación para crear una canalización. Agregará una actividad Ejecutar paquete de SSIS a la canalización y la configurará para ejecutar el paquete de SSIS. 
 
 1. En la información general de Data Factory o en la página principal de Azure Portal, seleccione el icono **Crear y supervisar** para iniciar la interfaz de usuario de Data Factory o la aplicación en una pestaña independiente. 
@@ -48,7 +43,7 @@ En este paso, usa la interfaz de usuario de Data Factory o aplicación para crea
 
    Seleccione el objeto Execute SSIS Package activity (Ejecutar una actividad de paquete SSISS) para configurar sus pestañas **General**, **Settings** (Configuración), **SSIS Parameters** (Parámetros de SSIS), **Connection Managers** (Administradores de conexiones) y **Property Overrides** (Invalidaciones de propiedad).
 
-#### <a name="general-tab"></a>Pestaña General
+### <a name="general-tab"></a>Pestaña General
 
 En la pestaña **General** de la actividad Execute SSIS Package (Ejecutar paquete SSIS), realice los pasos siguientes.
 
@@ -68,7 +63,7 @@ En la pestaña **General** de la actividad Execute SSIS Package (Ejecutar paquet
 
    1. Active la casilla **Secure input** (Entrada segura) para elegir si quiere excluir del registro la entrada de la actividad Execute SSIS Package (Ejecutar paquete de SSIS).
 
-#### <a name="settings-tab"></a>Pestaña Settings
+### <a name="settings-tab"></a>Pestaña Settings
 
 En la pestaña **Settings** (Configuración) de la actividad Execute SSIS Package (Ejecutar paquete de SSIS), haga lo siguiente.
 
@@ -88,7 +83,7 @@ En la pestaña **Settings** (Configuración) de la actividad Execute SSIS Packag
 
    1. En **Package location** (Ubicación del paquete), seleccione **SSISDB**, **File System (Package)** (Sistema de archivos [paquete]), **File System (Project)** (Sistema de archivos [proyecto]), **Embedded package** (Paquete insertado) o **Package store** (Almacén de paquetes). 
 
-##### <a name="package-location-ssisdb"></a>Ubicación del paquete: SSISDB
+#### <a name="package-location-ssisdb"></a>Ubicación del paquete: SSISDB
 
 La ubicación del paquete **SSISDB** se selecciona automáticamente si Azure-SSIS IR se aprovisionó con un catálogo de SSIS (SSISDB) hospedado en el servidor de base de datos o la instancia administrada de Azure SQL; también la puede seleccionar el usuario. Si está seleccionada, siga estos pasos.
 
@@ -100,7 +95,7 @@ La ubicación del paquete **SSISDB** se selecciona automáticamente si Azure-SSI
 
       :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png" alt-text="Establecer las propiedades en la pestaña Settings (Configuración): manual":::
 
-##### <a name="package-location-file-system-package"></a>Ubicación del paquete: File System (Package) (Sistema de archivos [paquete])
+#### <a name="package-location-file-system-package"></a>Ubicación del paquete: File System (Package) (Sistema de archivos [paquete])
 
 La ubicación del paquete **File System (Package)** (Sistema de archivos [paquete]) se selecciona automáticamente si Azure-SSIS IR se aprovisionó sin SSISDB; también la puede seleccionar el usuario. Si está seleccionada, siga estos pasos.
 
@@ -130,7 +125,7 @@ La ubicación del paquete **File System (Package)** (Sistema de archivos [paquet
    
 Para todas las rutas de acceso UNC mencionadas anteriormente, el nombre de archivo completo debe tener menos de 260 caracteres. El nombre del directorio debe tener menos de 248 caracteres.
 
-##### <a name="package-location-file-system-project"></a>Ubicación del paquete: File System (Project) (Sistema de archivos [proyecto])
+#### <a name="package-location-file-system-project"></a>Ubicación del paquete: File System (Project) (Sistema de archivos [proyecto])
 
 Si selecciona **File System (Project)** (Sistema de archivos [proyecto]) como ubicación del paquete, realice los pasos siguientes.
 
@@ -158,7 +153,7 @@ Si selecciona **File System (Project)** (Sistema de archivos [proyecto]) como ub
    
 Para todas las rutas de acceso UNC mencionadas anteriormente, el nombre de archivo completo debe tener menos de 260 caracteres. El nombre del directorio debe tener menos de 248 caracteres.
 
-##### <a name="package-location-embedded-package"></a>Ubicación del paquete: Embedded package (Paquete insertado)
+#### <a name="package-location-embedded-package"></a>Ubicación del paquete: Embedded package (Paquete insertado)
 
 Si selecciona **Embedded package** (Paquete insertado) como ubicación del paquete, realice los pasos siguientes.
 
@@ -186,7 +181,7 @@ Si selecciona **Embedded package** (Paquete insertado) como ubicación del paque
    
 Para todas las rutas de acceso UNC mencionadas anteriormente, el nombre de archivo completo debe tener menos de 260 caracteres. El nombre del directorio debe tener menos de 248 caracteres.
 
-##### <a name="package-location-package-store"></a>Ubicación del paquete: Package store (Almacén de paquetes)
+#### <a name="package-location-package-store"></a>Ubicación del paquete: Package store (Almacén de paquetes)
 
 Si selecciona **Package store** (Almacén de paquetes) como ubicación del paquete, realice los pasos siguientes.
 
@@ -218,7 +213,7 @@ Si selecciona **Package store** (Almacén de paquetes) como ubicación del paque
    
 Para todas las rutas de acceso UNC mencionadas anteriormente, el nombre de archivo completo debe tener menos de 260 caracteres. El nombre del directorio debe tener menos de 248 caracteres.
 
-#### <a name="ssis-parameters-tab"></a>Pestaña SSIS Parameters (Parámetros de SSIS)
+### <a name="ssis-parameters-tab"></a>Pestaña SSIS Parameters (Parámetros de SSIS)
 
 En la pestaña **SSIS Parameters** (Parámetros de SSIS) de la actividad Execute SSIS Package (Ejecutar paquete de SSIS), haga lo siguiente.
 
@@ -232,7 +227,7 @@ Al asignar valores a los parámetros, puede agregar contenido dinámico mediante
 
 También puede usar como valores los secretos almacenados en la instancia de Azure Key Vault. Para hacerlo, active la casilla **AZURE KEY VAULT** que aparece al lado. Seleccione o edite el servicio vinculado del almacén de claves existente o cree uno nuevo. Luego, seleccione el nombre del secreto y la versión del valor. Al crear o editar el servicio vinculado del almacén de claves, puede seleccionar o editar el almacén de claves existente o crear uno nuevo. Asegúrese de conceder a Data Factory el acceso de la identidad administrada a su almacén de claves si aún no lo ha hecho. Los secretos también se pueden escribir directamente en el siguiente formato: `<key vault linked service name>/<secret name>/<secret version>`. 
 
-#### <a name="connection-managers-tab"></a>Pestaña Administradores de conexiones
+### <a name="connection-managers-tab"></a>Pestaña Administradores de conexiones
 
 En la pestaña **Connection Managers** (Administradores de conexones) de la actividad Execute SSIS Package (Ejecutar paquete de SSIS), haga lo siguiente.
 
@@ -256,7 +251,7 @@ Al asignar valores a las propiedades del administrador de conexiones, puede agre
 
 También puede usar como valores los secretos almacenados en la instancia de Azure Key Vault. Para hacerlo, active la casilla **AZURE KEY VAULT** que aparece al lado. Seleccione o edite el servicio vinculado del almacén de claves existente o cree uno nuevo. Luego, seleccione el nombre del secreto y la versión del valor. Al crear o editar el servicio vinculado del almacén de claves, puede seleccionar o editar el almacén de claves existente o crear uno nuevo. Asegúrese de conceder a Data Factory el acceso de la identidad administrada a su almacén de claves si aún no lo ha hecho. Los secretos también se pueden escribir directamente en el siguiente formato: `<key vault linked service name>/<secret name>/<secret version>`. 
 
-#### <a name="property-overrides-tab"></a>Pestaña Property Overrides (Invalidaciones de propiedad)
+### <a name="property-overrides-tab"></a>Pestaña Property Overrides (Invalidaciones de propiedad)
 
 En la pestaña **Property Overrides** (Invalidaciones de propiedad) de la actividad Execute SSIS Package (Ejecutar paquete de SSIS), siga estos pasos.
 
@@ -288,7 +283,7 @@ Para validar la configuración de la canalización, seleccione **Validate** (Val
 
 Para publicar la canalización en Data Factory, seleccione **Publish All** (Publicar todo). 
 
-### <a name="run-the-pipeline"></a>Ejecución de la canalización
+## <a name="run-the-pipeline"></a>Ejecución de la canalización
 En este paso, desencadenará una ejecución de canalización. 
 
 1. Para desencadenar una ejecución de canalización, seleccione **Trigger** (Desencadenar) en la barra de herramientas y en **Trigger now** (Desencadenar ahora). 
@@ -297,7 +292,7 @@ En este paso, desencadenará una ejecución de canalización.
 
 2. En la ventana **Pipeline Run** (Ejecución de canalización), seleccione **Finish** (Finalizar). 
 
-### <a name="monitor-the-pipeline"></a>Supervisar la canalización
+## <a name="monitor-the-pipeline"></a>Supervisar la canalización
 
 1. Cambie a la pestaña **Monitor** (Supervisar) de la izquierda. Verá la ejecución de canalización y su estado junto con otro tipo de información, como la hora de **inicio de la ejecución**. Para actualizar la vista, seleccione **Refresh** (Actualizar).
 
@@ -319,402 +314,10 @@ En este paso, desencadenará una ejecución de canalización.
 
    :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png" alt-text="Obtenga el identificador de ejecución.":::
 
-### <a name="schedule-the-pipeline-with-a-trigger"></a>Programación de la canalización con un desencadenador
+## <a name="schedule-the-pipeline-with-a-trigger"></a>Programación de la canalización con un desencadenador
 
 También puede crear un desencadenador programado para la canalización de manera que esta se ejecute según una programación, como por hora o cada día. Para ver un ejemplo, consulte [Create a data factory - Data Factory UI](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule) (Creación de una factoría de datos: interfaz de usuario de Data Factory).
 
-## <a name="run-a-package-with-powershell"></a>Ejecución de un paquete con PowerShell
-En esta sección, usará Azure PowerShell para crear una canalización de Data Factory con una actividad de ejecución de paquetes de SSIS que ejecuta un paquete SSIS. 
-
-Instale los módulos de Azure PowerShell más recientes siguiendo las instrucciones paso a paso que se indican en [Cómo instalar y configurar Azure PowerShell](/powershell/azure/install-az-ps).
-
-### <a name="create-a-data-factory-with-azure-ssis-ir"></a>Creación de una factoría de datos con Azure-SSIS IR
-Puede usar una factoría de datos existente que ya tenga Azure-SSIS IR aprovisionado o crear una nueva factoría de datos con Azure-SSIS IR. Siga las instrucciones detalladas en el [Tutorial: Implementación de paquetes SSIS en Azure mediante PowerShell](./tutorial-deploy-ssis-packages-azure-powershell.md).
-
-### <a name="create-a-pipeline-with-an-execute-ssis-package-activity"></a>Creación de una canalización con una actividad Ejecutar paquete de SSIS 
-En este paso se crea una canalización con una actividad Ejecutar paquete de SSIS. La actividad ejecuta el paquete de SSIS. 
-
-1. Cree un archivo JSON denominado `RunSSISPackagePipeline.json` en la carpeta `C:\ADF\RunSSISPackage` con contenido similar al del siguiente ejemplo.
-
-   > [!IMPORTANT]
-   > Reemplace los nombres de objeto, descripciones, rutas de acceso, valores de propiedades y parámetros, contraseñas y otros valores de variables antes de guardar el archivo. 
-    
-   ```json
-   {
-       "name": "RunSSISPackagePipeline",
-       "properties": {
-           "activities": [{
-               "name": "MySSISActivity",
-               "description": "My SSIS package/activity description",
-               "type": "ExecuteSSISPackage",
-               "typeProperties": {
-                   "connectVia": {
-                       "referenceName": "MyAzureSSISIR",
-                       "type": "IntegrationRuntimeReference"
-                   },
-                   "executionCredential": {
-                       "domain": "MyExecutionDomain",
-                       "username": "MyExecutionUsername",
-                       "password": {
-                           "type": "SecureString",
-                           "value": "MyExecutionPassword"
-                       }
-                   },
-                   "runtime": "x64",
-                   "loggingLevel": "Basic",
-                   "packageLocation": {
-                       "type": "SSISDB",
-                       "packagePath": "MyFolder/MyProject/MyPackage.dtsx"
-                   },
-                   "environmentPath": "MyFolder/MyEnvironment",
-                   "projectParameters": {
-                       "project_param_1": {
-                           "value": "123"
-                       },
-                       "project_param_2": {
-                           "value": {
-                               "value": "@pipeline().parameters.MyProjectParameter",
-                               "type": "Expression"
-                           }
-                       }
-                   },
-                   "packageParameters": {
-                       "package_param_1": {
-                           "value": "345"
-                       },
-                       "package_param_2": {
-                           "value": {
-                               "type": "AzureKeyVaultSecret",
-                               "store": {
-                                   "referenceName": "myAKV",
-                                   "type": "LinkedServiceReference"
-                               },
-                               "secretName": "MyPackageParameter"
-                           }
-                       }
-                   },
-                   "projectConnectionManagers": {
-                       "MyAdonetCM": {
-                           "username": {
-                               "value": "MyConnectionUsername"
-                           },
-                           "password": {
-                               "value": {
-                                   "type": "SecureString",
-                                   "value": "MyConnectionPassword"
-                               }
-                           }
-                       }
-                   },
-                   "packageConnectionManagers": {
-                       "MyOledbCM": {
-                           "username": {
-                               "value": {
-                                   "value": "@pipeline().parameters.MyConnectionUsername",
-                                   "type": "Expression"
-                               }
-                           },
-                           "password": {
-                               "value": {
-                                   "type": "AzureKeyVaultSecret",
-                                   "store": {
-                                       "referenceName": "myAKV",
-                                       "type": "LinkedServiceReference"
-                                   },
-                                   "secretName": "MyConnectionPassword",
-                                   "secretVersion": "MyConnectionPasswordVersion"
-                               }
-                           }
-                       }
-                   },
-                   "propertyOverrides": {
-                       "\\Package.MaxConcurrentExecutables": {
-                           "value": 8,
-                           "isSensitive": false
-                       }
-                   }
-               },
-               "policy": {
-                   "timeout": "0.01:00:00",
-                   "retry": 0,
-                   "retryIntervalInSeconds": 30
-               }
-           }]
-       }
-   }
-   ```
-
-   Para ejecutar los paquetes almacenados en un sistema de archivos o Azure Files, escriba los valores del paquete y las propiedades de ubicación del registro de la siguiente manera:
-
-   ```json
-   {
-       {
-           {
-               {
-                   "packageLocation": {
-                       "type": "File",
-                       "packagePath": "//MyStorageAccount.file.core.windows.net/MyFileShare/MyPackage.dtsx",
-                       "typeProperties": {
-                           "packagePassword": {
-                               "type": "SecureString",
-                               "value": "MyEncryptionPassword"
-                           },
-                           "accessCredential": {
-                               "domain": "Azure",
-                               "username": "MyStorageAccount",
-                               "password": {
-                                   "type": "SecureString",
-                                   "value": "MyAccountKey"
-                               }
-                           }
-                       }
-                   },
-                   "logLocation": {
-                       "type": "File",
-                       "logPath": "//MyStorageAccount.file.core.windows.net/MyFileShare/MyLogFolder",
-                       "typeProperties": {
-                           "accessCredential": {
-                               "domain": "Azure",
-                               "username": "MyStorageAccount",
-                               "password": {
-                                   "type": "AzureKeyVaultSecret",
-                                   "store": {
-                                       "referenceName": "myAKV",
-                                       "type": "LinkedServiceReference"
-                                   },
-                                   "secretName": "MyAccountKey"
-                               }
-                           }
-                       }
-                   }
-               }
-           }
-       }
-   }
-   ```
-
-   Para ejecutar los paquetes de proyectos almacenados en un sistema de archivos o Azure Files, escriba los valores de las propiedades de ubicación del paquete de la siguiente manera:
-
-   ```json
-   {
-       {
-           {
-               {
-                   "packageLocation": {
-                       "type": "File",
-                       "packagePath": "//MyStorageAccount.file.core.windows.net/MyFileShare/MyProject.ispac:MyPackage.dtsx",
-                       "typeProperties": {
-                           "packagePassword": {
-                               "type": "SecureString",
-                               "value": "MyEncryptionPassword"
-                           },
-                           "accessCredential": {
-                               "domain": "Azure",
-                               "userName": "MyStorageAccount",
-                               "password": {
-                                   "type": "SecureString",
-                                   "value": "MyAccountKey"
-                               }
-                           }
-                       }
-                   }
-               }
-           }
-       }
-   }
-   ```
-
-   Para ejecutar paquetes insertados, escriba los valores de las propiedades de ubicación del paquete de la siguiente manera:
-
-   ```json
-   {
-       {
-           {
-               {
-                   "packageLocation": {
-                       "type": "InlinePackage",
-                       "typeProperties": {
-                           "packagePassword": {
-                               "type": "SecureString",
-                               "value": "MyEncryptionPassword"
-                           },
-                           "packageName": "MyPackage.dtsx",
-                           "packageContent":"My compressed/uncompressed package content",
-                           "packageLastModifiedDate": "YYYY-MM-DDTHH:MM:SSZ UTC-/+HH:MM"
-                       }
-                   }
-               }
-           }
-       }
-   }
-   ```
-
-   Para ejecutar paquetes almacenados en almacenes de paquetes, escriba los valores del paquete y las propiedades de ubicación de configuración de la siguiente manera:
-
-   ```json
-   {
-       {
-           {
-               {
-                   "packageLocation": {
-                       "type": "PackageStore",
-                       "packagePath": "myPackageStore/MyFolder/MyPackage",
-                       "typeProperties": {
-                           "packagePassword": {
-                               "type": "SecureString",
-                               "value": "MyEncryptionPassword"
-                           },
-                           "accessCredential": {
-                               "domain": "Azure",
-                               "username": "MyStorageAccount",
-                               "password": {
-                                   "type": "SecureString",
-                                   "value": "MyAccountKey"
-                               }
-                           },
-                           "configurationPath": "//MyStorageAccount.file.core.windows.net/MyFileShare/MyConfiguration.dtsConfig",
-                           "configurationAccessCredential": {
-                               "domain": "Azure",
-                               "userName": "MyStorageAccount",
-                               "password": {
-                                   "type": "AzureKeyVaultSecret",
-                                   "store": {
-                                       "referenceName": "myAKV",
-                                       "type": "LinkedServiceReference"
-                                   },
-                                   "secretName": "MyAccountKey"
-                               }
-                           }
-                       }
-                   }
-               }
-           }
-       }
-   }
-   ```
-
-2. En Azure PowerShell, cambie a la carpeta `C:\ADF\RunSSISPackage`.
-
-3. Para crear la canalización **RunSSISPackagePipeline**, ejecute el cmdlet **Set-AzDataFactoryV2Pipeline**.
-
-   ```powershell
-   $DFPipeLine = Set-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
-                                                  -ResourceGroupName $ResGrp.ResourceGroupName `
-                                                  -Name "RunSSISPackagePipeline"
-                                                  -DefinitionFile ".\RunSSISPackagePipeline.json"
-   ```
-
-   Esta es la salida de ejemplo:
-
-   ```
-   PipelineName      : Adfv2QuickStartPipeline
-   ResourceGroupName : <resourceGroupName>
-   DataFactoryName   : <dataFactoryName>
-   Activities        : {CopyFromBlobToBlob}
-   Parameters        : {[inputPath, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification], [outputPath, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification]}
-   ```
-
-### <a name="run-the-pipeline"></a>Ejecución de la canalización
-Use el cmdlet **Invoke-AzDataFactoryV2Pipeline** para ejecutar la canalización. El cmdlet devuelve el identificador de ejecución de la canalización para realizar una supervisión en un futuro.
-
-```powershell
-$RunId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
-                                             -ResourceGroupName $ResGrp.ResourceGroupName `
-                                             -PipelineName $DFPipeLine.Name
-```
-
-### <a name="monitor-the-pipeline"></a>Supervisar la canalización
-
-Ejecute el script de PowerShell siguiente para comprobar continuamente el estado de ejecución de la canalización hasta que termine de copiar los datos. Copie y pegue el siguiente script en la ventana de PowerShell y seleccione Entrar. 
-
-```powershell
-while ($True) {
-    $Run = Get-AzDataFactoryV2PipelineRun -ResourceGroupName $ResGrp.ResourceGroupName `
-                                               -DataFactoryName $DataFactory.DataFactoryName `
-                                               -PipelineRunId $RunId
-
-    if ($Run) {
-        if ($run.Status -ne 'InProgress') {
-            Write-Output ("Pipeline run finished. The status is: " +  $Run.Status)
-            $Run
-            break
-        }
-        Write-Output  "Pipeline is running...status: InProgress"
-    }
-
-    Start-Sleep -Seconds 10
-}   
-```
-
-También puede supervisar la canalización mediante Azure Portal. Para ver instrucciones paso a paso, consulte [Supervisar la canalización](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
-
-### <a name="schedule-the-pipeline-with-a-trigger"></a>Programación de la canalización con un desencadenador
-En el paso anterior, ha ejecutado la canalización a petición. También puede crear un desencadenador de programación para ejecutar la canalización en una programación, como cada hora o cada día.
-
-1. Cree un archivo JSON denominado `MyTrigger.json` en la carpeta `C:\ADF\RunSSISPackage` con el siguiente contenido: 
-        
-   ```json
-   {
-       "properties": {
-           "name": "MyTrigger",
-           "type": "ScheduleTrigger",
-           "typeProperties": {
-               "recurrence": {
-                   "frequency": "Hour",
-                   "interval": 1,
-                   "startTime": "2017-12-07T00:00:00-08:00",
-                   "endTime": "2017-12-08T00:00:00-08:00"
-               }
-           },
-           "pipelines": [{
-               "pipelineReference": {
-                   "type": "PipelineReference",
-                   "referenceName": "RunSSISPackagePipeline"
-               },
-               "parameters": {}
-           }]
-       }
-   }    
-   ```
-    
-1. En Azure PowerShell, cambie a la carpeta `C:\ADF\RunSSISPackage`.
-1. Ejecute el cmdlet **Set-AzDataFactoryV2Trigger**, que crea el desencadenador. 
-
-   ```powershell
-   Set-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
-                                   -DataFactoryName $DataFactory.DataFactoryName `
-                                   -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"
-   ```
-1. De manera predeterminada, el desencadenador está en estado detenido. Inicie el desencadenador al ejecutar el cmdlet **Start-AzDataFactoryV2Trigger**. 
-
-   ```powershell
-   Start-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
-                                     -DataFactoryName $DataFactory.DataFactoryName `
-                                     -Name "MyTrigger" 
-   ```
-1. Confirme que el desencadenador se ha iniciado al ejecutar el cmdlet **Get-AzDataFactoryV2Trigger**. 
-
-   ```powershell
-   Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName `
-                                   -DataFactoryName $DataFactoryName `
-                                   -Name "MyTrigger"     
-   ```    
-1. Ejecute el comando siguiente al comenzar la hora siguiente. Por ejemplo, si la hora actual es 15:25 UTC, ejecute el comando a las 16:00 UTC. 
-    
-   ```powershell
-   Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName `
-                                      -DataFactoryName $DataFactoryName `
-                                      -TriggerName "MyTrigger" `
-                                      -TriggerRunStartedAfter "2017-12-06" `
-                                      -TriggerRunStartedBefore "2017-12-09"
-   ```
-
-   Ejecute la consulta siguiente en la base de datos SSISDB en el servidor de SQL para comprobar la ejecución del paquete. 
-
-   ```sql
-   select * from catalog.executions
-   ```
-
 ## <a name="next-steps"></a>Pasos siguientes
-Vea la siguiente entrada de blog:
+- [Ejecución de un paquete SSIS mediante la actividad Ejecutar paquetes SSIS de Azure Data Factory con PowerShell](how-to-invoke-ssis-package-ssis-activity-powershell.md)
 - [Modernización y ampliación de los flujos de trabajo ETL/ETL con actividades de SSIS en las canalizaciones de Azure Data Factory](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Modernize-and-Extend-Your-ETL-ELT-Workflows-with-SSIS-Activities/ba-p/388370)

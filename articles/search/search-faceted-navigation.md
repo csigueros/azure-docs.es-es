@@ -1,176 +1,216 @@
 ---
 title: Agregar una jerarquía de categoría de navegación por facetas
 titleSuffix: Azure Cognitive Search
-description: Agregue navegación por facetas para el filtrado autodirigido en aplicaciones de búsqueda que se integran con Azure Cognitive Search.
+description: Agregue navegación por facetas para el filtrado autodirigido en aplicaciones que se integran con Azure Cognitive Search.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 09/30/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 05be5295ae5f8c73c916a21bba7dbc98ab0c5e87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ebd61d57e79864c1af8a583de349eb5a6706fce8
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89002800"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273939"
 ---
-# <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Procedimiento para implementar la navegación por facetas en Azure Cognitive Search
+# <a name="add-faceted-navigation-to-a-search-app"></a>Adición de navegación por facetas a una aplicación de búsqueda
 
-La navegación por facetas es un mecanismo de filtrado que proporciona una navegación en profundidad autodirigida en aplicaciones de búsqueda. El término "navegación por facetas" puede resultarle desconocido, pero probablemente es algo que ya ha usado con anterioridad. Como se muestra en el siguiente ejemplo, la navegación por facetas no es más que las categorías usadas para filtrar los resultados.
+La navegación por facetas se usa para aplicar filtrado de exploración en profundidad autodirigido en resultados de consulta de una aplicación de búsqueda, donde la aplicación ofrece controles de formulario para limitar la búsqueda a grupos de documentos (por ejemplo, categorías o marcas) y Azure Cognitive Search proporciona las estructuras de datos y los filtros para respaldar la experiencia. 
 
- ![Demostración del portal de búsqueda de trabajo de Azure Cognitive Search](media/search-faceted-navigation/azure-search-faceting-example.png "Demostración del portal de búsqueda de trabajo de Azure Cognitive Search")
+En este artículo, aprenderá los pasos básicos para crear una estructura de navegación por facetas en Azure Cognitive Search.
 
-La navegación por facetas es un punto de entrada alternativo para buscar. Ofrece una alternativa cómoda a escribir expresiones de búsqueda complejas a mano. Las facetas pueden ayudarle a encontrar lo que busca y le garantizan que obtendrá al menos un resultado. Como desarrollador, las facetas permiten exponer los criterios de búsqueda más útiles para navegar por el índice de búsqueda. En las aplicaciones de tienda en línea, la navegación por facetas suele basarse en marcas, departamentos (zapatos para niños), tamaño, precio, popularidad y clasificación. 
+> [!div class="checklist"]
+> * Establecimiento de atributos de campo en el índice
+> * Estructura de solicitudes y respuestas
+> * Adición de controles de navegación y filtros en la capa de presentación
 
-La implementación de la navegación por facetas difiere en las distintas tecnologías de búsqueda. En Azure Cognitive Search, la navegación por facetas se compila en tiempo de consulta usando campos que haya atribuido anteriormente en el esquema.
+El código de la capa de presentación realiza el trabajo pesado en una experiencia de navegación por facetas. Las demostraciones y ejemplos que aparecen al final de este artículo proporcionan código de trabajo que muestra cómo encajar todas las piezas.
 
--   En las consultas que la aplicación crea, una consulta tiene que enviar *parámetros de consulta de faceta* para obtener los valores de filtro de faceta disponibles para ese conjunto de resultados de documento.
+## <a name="faceted-navigation-in-a-search-page"></a>Navegación por facetas en una página de búsqueda
 
--   Para recortar realmente el conjunto de resultados de documento, la aplicación tiene que aplicar también una expresión `$filter`.
+Las facetas son dinámicas y se devuelven en una consulta. Una respuesta de búsqueda trae consigo todas las categorías de facetas utilizadas para navegar por los documentos en el resultado. Primero se ejecuta la consulta y luego se extraen las facetas de los resultados actuales y se ensamblan en una estructura de navegación por facetas.
 
-En el desarrollo de aplicaciones, la escritura del código que construye las consultas supone la mayor parte del trabajo. El servicio proporciona muchos de los comportamientos de aplicación que podrían interesarle de la navegación por facetas, incluida la compatibilidad integrada para establecer intervalos y obtener recuentos de los resultados de la faceta. El servicio también incluye valores predeterminados razonables que le ayudarán a evitar estructuras de navegación difíciles de manejar. 
+En Cognitive Search, las facetas tienen una capa de profundidad y no pueden ser jerárquicas. Si no está familiarizado con la navegación por facetas estructurada, en el ejemplo siguiente se muestra uno a la izquierda. Los recuentos indican el número de coincidencias por cada faceta. El mismo documento se puede representar en varias facetas.
 
-## <a name="sample-code-and-demo"></a>Demostración y código de ejemplo
-En este artículo se utiliza como ejemplo un portal de búsqueda de trabajo. El ejemplo se implementa como una aplicación ASP.NET MVC.
+:::image source="media/tutorial-csharp-create-first-app/azure-search-facet-nav.png" alt-text="Resultados de la búsqueda por facetas":::
 
-- Vea y pruebe la demostración de trabajo en línea en [Demostración del portal de búsqueda de trabajo de Azure Cognitive Search](https://aka.ms/azjobsdemo).
+Las facetas pueden ayudarle a encontrar lo que busca y le garantizan que obtendrá al menos un resultado. Como desarrollador, las facetas permiten exponer los criterios de búsqueda más útiles para navegar por el índice de búsqueda.
 
-- Descargue el código del [repositorio de ejemplos de Azure en GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
+## <a name="enable-facets-in-the-index"></a>Habilitación de facetas en el índice
 
-## <a name="get-started"></a>Introducción
-Si no está familiarizado con el desarrollo de búsquedas, la mejor manera de pensar en la navegación por facetas es que muestra las posibilidades de una búsqueda autodirigida. Es un tipo de experiencia de búsqueda en profundidad basada en filtros predefinidos, que se usa para restringir rápidamente los resultados de búsqueda mediante acciones de apuntar y hacer clic. 
+La aplicación de facetas está habilitada campo por campo en una definición de índice cuando se establece el atributo "facetable" en true.
 
-### <a name="interaction-model"></a>Modelo de interacción
+Aunque no es estrictamente necesario, también debe establecer el atributo "filterable" para que pueda crear los filtros necesarios que respalden la experiencia de navegación por facetas en la aplicación de búsqueda.
 
-La experiencia de búsqueda de la navegación por facetas es iterativa, por lo que comenzaremos por describirla como una secuencia de consultas que se despliega en respuesta a las acciones del usuario.
-
-El punto de partida es una página de aplicación que proporciona navegación por facetas, normalmente situada en la periferia. La navegación por facetas suele tener una estructura de árbol con casillas para cada valor o texto en el que se puede hacer clic. 
-
-1. Una consulta enviada a Azure Cognitive Search especifica la estructura de la navegación por facetas mediante uno o más parámetros de consulta de faceta. Por ejemplo, la consulta podría incluir `facet=Rating`, quizá con una opción `:values` o `:sort` para refinar aún más la presentación.
-2. La capa de presentación representa una página de búsqueda que proporciona navegación por facetas, usando las facetas especificadas en la solicitud.
-3. En una estructura de navegación por facetas dada que incluye el campo de valoración Rating, haga clic en "4" para indicar que solo se deben mostrar los productos con una valoración de 4 o superior. 
-4. En respuesta, la aplicación envía una consulta que incluye `$filter=Rating ge 4` 
-5. La capa de presentación actualiza la página para mostrar un conjunto de resultados reducido únicamente con los elementos que cumplen el nuevo criterio (en este caso, los productos con una valoración de 4 y superior).
-
-Una faceta es un parámetro de consulta, pero no lo confunda con una entrada de consulta. Nunca se usa como criterio de selección en una consulta. En su lugar, piense en los parámetros de consulta de faceta como entradas a la estructura de navegación que se devuelven en la respuesta. Para cada parámetro de consulta de faceta que proporcione, Azure Cognitive Search evaluará cuántos documentos hay en los resultados parciales de cada valor de faceta.
-
-Observe la expresión `$filter` en el paso 4. El filtro es un aspecto importante de la navegación por facetas. Aunque las facetas y los filtros son independientes en la API, ambos son necesarios para proporcionarle la experiencia que desea. 
-
-### <a name="app-design-pattern"></a>Patrón de diseño de la aplicación
-
-En el código de aplicación, el patrón es usar parámetros de consulta de faceta para devolver la estructura de navegación por facetas junto con los resultados de las facetas, además de una expresión $filter.  La expresión de filtro controla el evento de clic en el valor de faceta. Piense en la expresión `$filter` como en el código subyacente al recorte real de los resultados de búsqueda que se devuelven a la capa de presentación. En una faceta Colors dada, la posibilidad de hacer clic en el color Red se implementa mediante una expresión `$filter` que selecciona solo los elementos que tienen un color rojo. 
-
-### <a name="query-basics"></a>Conceptos básicos de las consultas
-
-En Azure Cognitive Search, una solicitud se especifica mediante uno o más parámetros de consulta (consulte [Buscar documentos](/rest/api/searchservice/Search-Documents) para obtener una descripción de cada uno). Ninguno de los parámetros de consulta son obligatorios, pero debe tener al menos uno para que una consulta sea válida.
-
-La precisión, entendida como la capacidad de filtrar los resultados irrelevantes, se consigue mediante una o ambas de estas expresiones:
-
--   **search=**  
-    El valor de este parámetro constituye la expresión de búsqueda. Podría ser un fragmento de texto o una expresión de búsqueda compleja que incluye varios términos y operadores. En el servidor, las expresiones de búsqueda se usan para realizar búsquedas de texto completo que consultan en los campos de búsqueda del índice si hay términos coincidentes y devuelven los resultados en orden. Si establece `search` en NULL, la ejecución de la consulta se realiza en todo el índice (es decir, `search=*`). En este caso, los demás elementos de la consulta, como un `$filter` o el perfil de puntuación, son los principales factores que afectan a qué documentos se devuelven (`($filter`) y en qué orden (`scoringProfile` o `$orderby`).
-
--   **$filter=**  
-    Un filtro es un mecanismo eficaz para limitar el tamaño de los resultados de búsqueda según los valores de atributos de documento específicos. Primero se evalúa una expresión `$filter` y después la lógica de uso de facetas que genera los valores disponibles y los correspondientes recuentos para cada valor.
-
-Las expresiones de búsqueda complejas reducen el rendimiento de la consulta. Siempre que sea posible, use expresiones de filtro bien construidas para aumentar la precisión y mejorar el rendimiento de las consultas.
-
-Para entender mejor cómo los filtros agregan más precisión, compare una expresión de búsqueda compleja con una que incluya una expresión de filtro:
-
--   `GET /indexes/hotel/docs?search=lodging budget +Seattle –motel +parking`
--   `GET /indexes/hotel/docs?search=lodging&$filter=City eq 'Seattle' and Parking and Type ne 'motel'`
-
-Aunque ambas consultas son válidas, la segunda es mejor si está buscando hoteles que no sean moteles con estacionamiento en Seattle.
--   La primera consulta se basa en las palabras específicas que se mencionan o no en campos de cadena tales como nombre, descripción u otros que contengan datos que se pueden buscar.
--   La segunda consulta busca coincidencias precisas en datos estructurados y es probable que sea mucho más exacta.
-
-En las aplicaciones que incluyen navegación por facetas, asegúrese de que cada acción del usuario en una estructura de navegación por facetas vaya acompañada de una restricción de los resultados de búsqueda. Para restringir los resultados, utilice una expresión de filtro.
-
-<a name="howtobuildit"></a>
-
-## <a name="build-a-faceted-navigation-app"></a>Compilación de una aplicación de navegación por facetas
-Implemente la navegación por facetas con Azure Cognitive Search en el código de la aplicación que compila la solicitud de búsqueda. El panel de navegación por facetas se basa en los elementos del esquema que definió anteriormente.
-
-En el índice de búsqueda está predefinido el atributo de índice `Facetable [true|false]` , que se establece en los campos seleccionados para habilitar o deshabilitar su uso en una estructura de navegación por facetas. Sin `"Facetable" = true`, un campo no se puede usar en la navegación por facetas.
-
-La capa de presentación del código proporciona la experiencia del usuario. Debe enumerar las partes que constituyen la navegación por facetas, como la etiqueta, los valores, las casillas y el recuento. La API REST de Azure Cognitive Search es independiente de la plataforma, así que puede usar cualquier lenguaje y plataforma que desee. Lo importante es incluir elementos de interfaz de usuario que admitan la actualización incremental, actualizando el estado de la interfaz de usuario cuando se seleccione cada faceta adicional. 
-
-En tiempo de consulta, el código de aplicación crea una solicitud que incluye `facet=[string]`, un parámetro de solicitud que proporciona el campo por el que se realizará la consulta por facetas. Una consulta puede tener varias facetas, como `&facet=color&facet=category&facet=rating`, separadas por un carácter de y comercial (&).
-
-El código de aplicación también debe construir una expresión `$filter` para controlar los eventos de clic en la navegación por facetas. Una expresión `$filter` reduce los resultados de búsqueda, usando el valor de la faceta como criterio de filtro.
-
-Azure Cognitive Search devuelve los resultados de búsqueda, basados en uno o más de los términos que haya escrito, junto con las actualizaciones de la estructura de navegación por facetas. En Azure Cognitive Search, la navegación por facetas es una construcción de un solo nivel, con los valores de las facetas y los recuentos de cuántos resultados se encuentran para cada una.
-
-En las secciones siguientes veremos con más detalle cómo crear cada parte.
-
-<a name="buildindex"></a>
-
-## <a name="build-the-index"></a>Crear el índice
-El uso de facetas se habilita para cada campo en el índice mediante este atributo de índice: `"Facetable": true`.  
-Todos los tipos de campo que podrían usarse en la navegación por facetas son `Facetable` de forma predeterminada. Entre estos tipos de campo se incluyen `Edm.String`, `Edm.DateTimeOffset`, y todos los tipos de campo numéricos (básicamente, todos los tipos de campo se pueden usar con facetas excepto `Edm.GeographyPoint`, que no se puede usar en la navegación por facetas). 
-
-Al crear un índice, el procedimiento recomendado para la navegación por facetas desactivar explícitamente el uso de facetas para los campos que nunca deben usarse como facetas.  En concreto, los campos de cadena de valores singleton, tales como un identificador o un nombre de producto, deben establecerse en `"Facetable": false` para impedir su uso accidental (e ineficaz) en una exploración por facetas. Desactivar el uso de facetas donde no es necesario ayuda a mantener un tamaño de índice pequeño y, por lo general, mejora el rendimiento.
-
-El siguiente es parte del esquema de la aplicación de ejemplo de la demostración del portal de búsqueda de trabajo, al que se le han recortado algunos atributos para reducir su tamaño:
+En el ejemplo siguiente del índice de ejemplo "hotels" se muestra "facetable" y "filterable" en campos de cardinalidad baja que contienen valores únicos o frases cortas: "Category", "Tags", "Rating".
 
 ```json
 {
-  ...
-  "name": "nycjobs",
+  "name": "hotels",  
   "fields": [
-    { "name": "id",                 "type": "Edm.String",              "searchable": false, "filterable": false, ... "facetable": false, ... },
-    { "name": "job_id",             "type": "Edm.String",              "searchable": false, "filterable": false, ... "facetable": false, ... },
-    { "name": "agency",              "type": "Edm.String",             "searchable": true,  "filterable": true, ...  "facetable": true, ...  },
-    { "name": "posting_type",        "type": "Edm.String",             "searchable": true,  "filterable": true, ...  "facetable": true, ...  },
-    { "name": "num_of_positions",    "type": "Edm.Int32",              "searchable": false, "filterable": true, ...  "facetable": true, ...  },
-    { "name": "business_title",      "type": "Edm.String",             "searchable": true,  "filterable": true, ...  "facetable": true, ...  },
-    { "name": "civil_service_title", "type": "Edm.String",             "searchable": true,  "filterable": true, ...  "facetable": true, ...  },
-    { "name": "title_code_no",       "type": "Edm.String",             "searchable": true,  "filterable": true, ...  "facetable": true, ...  },
-    { "name": "level",               "type": "Edm.String",             "searchable": true,  "filterable": true, ...  "facetable": true, ...  },
-    { "name": "salary_range_from",   "type": "Edm.Int32",              "searchable": false, "filterable": true, ...  "facetable": true, ...  },
-    { "name": "salary_range_to",     "type": "Edm.Int32",              "searchable": false, "filterable": true, ...  "facetable": true, ...  },
-    { "name": "salary_frequency",    "type": "Edm.String",             "searchable": true,  "filterable": true, ...  "facetable": true, ...  },
-    { "name": "work_location",       "type": "Edm.String",             "searchable": true,  "filterable": true, ...  "facetable": true, ...  },
-…
-    { "name": "geo_location",        "type": "Edm.GeographyPoint",     "searchable": false, "filterable": true, ...  "facetable": false, ... },
-    { "name": "tags",                "type": "Collection(Edm.String)", "searchable": true,  "filterable": true, ...  "facetable": true, ...  }
-  ],
-…
+    { "name": "hotelId", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false },
+    { "name": "Description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false },
+    { "name": "HotelName", "type": "Edm.String", "facetable": false },
+    { "name": "Category", "type": "Edm.String", "filterable": true, "facetable": true },
+    { "name": "Tags", "type": "Collection(Edm.String)", "filterable": true, "facetable": true },
+    { "name": "Rating", "type": "Edm.Int32", "filterable": true, "facetable": true },
+    { "name": "Location", "type": "Edm.GeographyPoint" }
+  ]
 }
 ```
 
-Como puede observar en el esquema del ejemplo, `Facetable` se ha desactivado para los campos de cadena que no deben usarse como facetas, como los valores de identificador. Desactivar el uso de facetas donde no es necesario ayuda a mantener un tamaño de índice pequeño y, por lo general, mejora el rendimiento.
+### <a name="choosing-fields"></a>Elección de los campos
 
-> [!TIP]
-> Como procedimiento recomendado, incluya el conjunto completo de atributos de índice para cada campo. Aunque `Facetable` está activado para casi todos los campos de forma predeterminada, establecer deliberadamente cada atributo puede ayudar a considerar detenidamente las implicaciones de cada decisión del esquema. 
+Las facetas se pueden calcular tanto para campos de valor único como para colecciones. Los campos que funcionan mejor en la navegación por facetas tienen estas características:
 
-<a name="checkdata"></a>
+* Cardinalidad baja (un pequeño número de valores distintos que se repiten en los documentos del corpus de búsqueda)
 
-## <a name="check-the-data"></a>Comprobación de los datos
-La calidad de los datos tiene un efecto directo en la posibilidad de que la estructura de navegación por facetas se materialice tal y como se espera. También afecta a la facilidad de creación de filtros para reducir el conjunto de resultados.
+* Valores descriptivos cortos (una o dos palabras) que se representarán correctamente en un árbol de navegación
 
-Si desea usar la marca o el precio como facetas, cada documento debe contener valores de *BrandName* y *ProductPrice* que sean válidos, coherentes y productivos como opción de filtro.
+El contenido de un campo, y no el propio campo, genera las facetas en una estructura de navegación por facetas. Si la faceta es un campo de cadena *Color*, las facetas serán azules, verdes y cualquier otro valor de ese campo.
 
-A continuación tiene algunos recordatorios de lo que se debe pulir:
+Como procedimiento recomendado, compruebe que los campos no tengan valores NULL, errores ortográficos o discrepancias de mayúsculas y minúsculas, y versiones en singular y plural de la misma palabra. Los filtros y facetas no se someten a análisis léxico ni a [revisión ortográfica](speller-how-to-add.md), lo que significa que todos los valores de un campo "facetable" son facetas en potencia, incluso si las palabras difieren en un carácter.
 
-* Para cada campo que desee usar como faceta, pregúntese si contiene valores que son adecuados como filtros en búsquedas autodirigidas. Los valores deben ser breves, descriptivos y suficientemente distintivos para ofrecer una opción clara entre las opciones de la competencia.
-* Errores ortográficos o valores casi coincidentes. Si usa Color como faceta y los valores de campo incluyen Naranja y Nraanja (una palabra incorrecta), una faceta basada en el campo Color seleccionará ambas.
-* La mezcla de mayúsculas y minúsculas en el texto también puede causar estragos en la navegación por facetas, porque naranja y Naranja aparecen como dos valores diferentes. 
-* Las versiones en singular y plural del mismo valor pueden producir una faceta diferente para cada una.
+### <a name="defaults-in-rest-and-azure-sdks"></a>Valores predeterminados en los SDK de REST y Azure
 
-Como puede imaginar, la diligencia en la preparación de los datos es un aspecto esencial de una navegación por facetas eficiente.
+Si usa uno de los SDK de Azure, el código debe especificar todos los atributos de campo. Por el contrario, la API REST tiene valores predeterminados para los atributos de campo basados en el [tipo de datos](/rest/api/searchservice/supported-data-types). Los siguientes tipos de datos son "filtrables" y "clasificables" de forma predeterminada:
 
-<a name="presentationlayer"></a>
+* `Edm.String`
+* `Edm.DateTimeOffset`
+* `Edm.Boolean`
+* `Edm.Int32`, `Edm.Int64`, `Edm.Double`
+* Colecciones de cualquiera de los tipos anteriores (por ejemplo, `Collection(Edm.String)` o `Collection(Edm.Double)`)
 
-## <a name="build-the-ui"></a>Creación de la interfaz de usuario
-Empezar a trabajar desde la capa de presentación puede ayudarle a descubrir requisitos que de otra forma podrían perderse, y comprender las características que son esenciales para la experiencia de búsqueda.
+No puede usar campos `Edm.GeographyPoint` ni `Collection(Edm.GeographyPoint)` en la navegación por facetas. Las facetas funcionan mejor en los campos con cardinalidad baja. Debido a la resolución de coordenadas geográficas, es poco frecuente que dos conjuntos de coordenadas sean iguales en un conjunto de datos determinado. Como tales, las facetas no se admiten para coordenadas geográficas. Para crear una faceta de ubicación, se necesita un campo de ciudad o región.
 
-En términos de la navegación por facetas, la página o aplicación web muestra la estructura de la navegación por facetas, detecta la entrada del usuario en la página e inserta los elementos modificados. 
+> [!Tip]
+> Como procedimiento recomendado para optimizar el rendimiento y el almacenamiento, desactive las facetas para los campos que nunca se deban usar como facetas. En concreto, los campos de cadena de valores únicos, como un identificador o un nombre de producto, deben establecerse en `"facetable": false` para evitar su uso accidental (e ineficaz) en la navegación por facetas. Esto es especialmente cierto para la API REST que habilita filtros y facetas de forma predeterminada.
 
-En el caso de las aplicaciones web, normalmente se usa AJAX en la capa de presentación porque permite actualizar los cambios incrementales. También puede usar MVC de ASP.NET o cualquier otra plataforma de visualización que puede conectarse a un servicio Azure Cognitive Search a través de HTTP. La aplicación de ejemplo a la que se hace referencia a lo largo de este artículo (**Demostración del portal de búsqueda de trabajo de Azure Cognitive Search**) es una aplicación MVC de ASP.NET.
+## <a name="facet-request-and-response"></a>Solicitud y respuesta de faceta
 
-En el ejemplo, la navegación por facetas se integra en la página de resultados de búsqueda. El ejemplo siguiente, tomado del archivo `index.cshtml` de la aplicación de ejemplo, muestra una estructura HTML estática para mostrar la navegación por facetas en la página de resultados de búsqueda. La lista de facetas se compila o recompila dinámicamente cuando se envía un término de búsqueda, o cuando se selecciona o borra una faceta.
+Las facetas se especifican en la consulta y la estructura de navegación por facetas se devuelve en la parte superior de la respuesta. La estructura de una solicitud y respuesta es bastante sencilla. De hecho, el trabajo real detrás de la navegación por facetas se encuentra en la capa de presentación, que se trata en una sección posterior. 
+
+El ejemplo de REST siguiente es una consulta no completa (`"search": "*"`) que tiene como ámbito todo el índice (consulte el [ejemplo integrado "hotels"](search-get-started-portal.md)). Las facetas suelen ser una lista de campos, pero esta consulta muestra solo uno para que la siguiente respuesta sea más legible.
+
+```http
+POST https://{{service_name}}.search.windows.net/indexes/hotels/docs/search?api-version={{api_version}}
+{
+    "search": "*",
+    "queryType": "simple",
+    "select": "",
+    "searchFields": "",
+    "filter": "",
+    "facets": [ "Category"], 
+    "orderby": "",
+    "count": true
+}
+```
+
+Resulta útil inicializar una página de búsqueda con una consulta abierta para rellenar completamente la estructura de navegación por facetas. Tan pronto como se pasen los términos de consulta en la solicitud, la estructura de navegación por facetas se limitará a solo las coincidencias en los resultados, en lugar de todo el índice.
+
+La respuesta del ejemplo anterior incluye la estructura de navegación por facetas en la parte superior. La estructura consta de valores "Category" y un recuento de los hoteles para cada uno. Va seguido del resto de los resultados de búsqueda, que aquí se han recortado para mayor brevedad. Este ejemplo funciona bien por varias razones. El número de facetas de este campo se encuentra por debajo del límite (el valor predeterminado es 10), por lo que todas ellas aparecen y cada hotel del índice de 50 hoteles se representa exactamente en una de estas categorías.
+
+```json
+{
+    "@odata.context": "https://demo-search-svc.search.windows.net/indexes('hotels')/$metadata#docs(*)",
+    "@odata.count": 50,
+    "@search.facets": {
+        "Category": [
+            {
+                "count": 13,
+                "value": "Budget"
+            },
+            {
+                "count": 12,
+                "value": "Resort and Spa"
+            },
+            {
+                "count": 9,
+                "value": "Luxury"
+            },
+            {
+                "count": 7,
+                "value": "Boutique"
+            },
+            {
+                "count": 5,
+                "value": "Suite"
+            },
+            {
+                "count": 4,
+                "value": "Extended-Stay"
+            }
+        ]
+    },
+    "value": [
+        {
+            "@search.score": 1.0,
+            "HotelId": "1",
+            "HotelName": "Secret Point Motel",
+            "Description": "The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Time's Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.",
+            "Category": "Boutique",
+            "Tags": [
+                "pool",
+                "air conditioning",
+                "concierge"
+            ],
+            "ParkingIncluded": false,
+  . . .
+```
+
+## <a name="facets-syntax"></a>Sintaxis de las facetas
+
+Un parámetro de consulta de faceta se establece en una lista delimitada por comas de campos "clasificables" y, según el tipo de datos, se puede parametrizar aún más para establecer recuentos, ordenaciones e intervalos: `count:<integer>`, `sort:<>`, `interval:<integer>` y `values:<list>`. Para más información sobre los parámetros de faceta, consulte ["Parámetros de consulta" en la API REST](/rest/api/searchservice/search-documents#query-parameters).
+
+```http
+POST https://{{service_name}}.search.windows.net/indexes/hotels/docs/search?api-version={{api_version}}
+{
+    "search": "*",
+    "facets": [ "Category", "Tags,count:5", "Rating,values:1|2|3|4|5"],
+    "count": true
+}
+```
+
+Para cada árbol de navegación por facetas, hay un límite predeterminado de 10 facetas. Este valor predeterminado tiene sentido en las estructuras de navegación porque mantiene la lista de valores en un tamaño fácil de administrar. Puede invalidar el valor predeterminado y asignar un valor a "count". Por ejemplo, `"Tags,count:5"` reduce el número de etiquetas de la sección de etiquetas a las cinco principales.
+
+Para los valores Numeric y DateTime únicamente, puede establecer explícitamente valores en el campo de faceta (por ejemplo, `facet=Rating,values:1|2|3|4|5`) para separar los resultados en intervalos contiguos (intervalos basados en valores numéricos o períodos de tiempo). Como alternativa, puede agregar "interval", como en `facet=Rating,interval:1`. 
+
+Cada intervalo se genera usando 0 como punto de partida, un valor de la lista como extremo y, después, se recorta el intervalo anterior para crear diferentes intervalos.
+
+### <a name="discrepancies-in-facet-counts"></a>Discrepancias en los recuentos de facetas
+
+En algunos casos, puede que los recuentos de faceta no coincidan con los conjuntos de resultados (consulte [Navegación por facetas en Azure Cognitive Search, en la página de preguntas y respuestas de Microsoft](/answers/topics/azure-cognitive-search.html)).
+
+Los recuentos de faceta pueden ser incorrectos debido a la arquitectura de particionamiento. Cada índice de búsqueda tiene varias particiones, y cada una notifica las N primeras facetas por recuento de documentos, que después se combina en un único resultado. Si algunas particiones tienen muchos valores coincidentes, mientras que otros tienen menos, verá que algunos valores de faceta faltan o se contabilizan con un número inferior en los resultados.
+
+Aunque este comportamiento podría cambiar en cualquier momento, si se produce en la actualidad puede solucionarlo aumentando artificialmente el valor de count:\<number> en un número grande para forzar que se notifique el valor completo de cada partición. Si el valor de count: es mayor o igual que el número de valores únicos en el campo, se garantizan resultados precisos. Sin embargo, si el recuento de documentos es alto, esto afecta al rendimiento, por lo que debe usar esta opción con prudencia.
+
+## <a name="presentation-layer"></a>Capa de presentación
+
+En el código de aplicación, el patrón es usar parámetros de consulta de faceta para devolver la estructura de navegación por facetas junto con los resultados de las facetas, además de una expresión $filter.  La expresión de filtro controla el evento de clic y acota aún más el resultado de la búsqueda en función de la selección de las facetas.
+
+### <a name="facet-and-filter-combination"></a>Combinación de faceta y filtro
+
+El siguiente fragmento de código del archivo `JobsSearch.cs` de la demostración NYCJobs agrega el cargo empresarial seleccionado al filtro si selecciona un valor de la faceta "Business Title".
+
+```cs
+if (businessTitleFacet != "")
+  filter = "business_title eq '" + businessTitleFacet + "'";
+```
+
+A continuación, se muestra otro caso del ejemplo "hotels". El fragmento de código siguiente agrega categorFacet al filtro si un usuario selecciona un valor de la faceta de categoría.
+
+```csharp
+if (!String.IsNullOrEmpty(categoryFacet))
+    filter = $"category eq '{categoryFacet}'";
+```
+
+### <a name="html-for-faceted-navigation"></a>HTML para la navegación por facetas
+
+El ejemplo siguiente, tomado del archivo `index.cshtml` de la aplicación de ejemplo NYCJobs, muestra la estructura HTML estática para visualizar la navegación por facetas en la página de resultados de búsqueda. La lista de facetas se compila o recompila dinámicamente cuando se envía un término de búsqueda, o cuando se selecciona o borra una faceta.
 
 ```html
 <div class="widget sidebar-widget jobs-filter-widget">
@@ -197,7 +237,9 @@ En el ejemplo, la navegación por facetas se integra en la página de resultados
 </div>
 ```
 
-El siguiente fragmento de código desde la página `index.cshtml` compila de forma dinámica el HTML para mostrar la primera faceta, Business Title (cargo empresarial). Funciones similares compilan dinámicamente el HTML para las otras facetas. Cada faceta tiene una etiqueta y un recuento, que muestra el número de elementos encontrados para ese resultado de la faceta.
+### <a name="build-html-dynamically"></a>Compilación dinámica de HTML
+
+El siguiente fragmento de código de `index.cshtml` (también de la demostración NYCJobs) compila de forma dinámica el código HTML para mostrar la primera faceta, "Business Title". Funciones similares compilan dinámicamente el HTML para las otras facetas. Cada faceta tiene una etiqueta y un recuento, que muestra el número de elementos encontrados para ese resultado de la faceta.
 
 ```js
 function UpdateBusinessTitleFacets(data) {
@@ -210,78 +252,21 @@ function UpdateBusinessTitleFacets(data) {
 }
 ```
 
-> [!TIP]
-> Al diseñar la página de resultados de búsqueda, no olvide agregar un mecanismo para borrar las facetas. Si agrega casillas de verificación, puede ver fácilmente cómo borrar los filtros. En otros diseños, puede que necesite un patrón de ruta de navegación u otro enfoque creativo. Por ejemplo, en la aplicación de ejemplo del portal de búsqueda de trabajo, puede hacer clic en `[X]` después de una faceta seleccionada para borrar la faceta.
+## <a name="tips-for-working-with-facets"></a>Sugerencias para trabajar con facetas
 
-<a name="buildquery"></a>
+Esta sección es una colección de sugerencias y soluciones alternativas que pueden resultar útiles.
 
-## <a name="build-the-query"></a>Crear la consulta
-El código que se escribe para crear consultas debe especificar todas las partes de una consulta válida, incluidas las expresiones de búsqueda, las facetas o los filtros de puntuación (todo lo que se usa para formular una solicitud). En esta sección, exploraremos cómo encajan las facetas en una consulta y cómo se usan los filtros con facetas para entregar un conjunto de resultados reducido.
+### <a name="preserve-a-facet-navigation-structure-asynchronously-of-filtered-results"></a>Conservar una estructura de navegación por facetas de forma asincrónica respecto a los resultados filtrados
 
-Observe que las facetas son una parte integral de esta aplicación de ejemplo. La experiencia de búsqueda en la demostración del portal de búsqueda de trabajos está diseñada en torno a los filtros y la navegación por facetas. La colocación destacada de navegación por facetas en la página muestra su importancia. 
+Uno de los retos de la navegación por facetas de Azure Cognitive Search es que las facetas solo existen para los resultados actuales. En la práctica, se suele conservar un conjunto estático de facetas para que el usuario pueda navegar en orden inverso y reconstruir los pasos para explorar rutas alternativas a través del contenido de búsqueda. 
 
-Un ejemplo suele ser una buena manera de comenzar. En el ejemplo siguiente, tomado del archivo `JobsSearch.cs`, se crea una solicitud que crea una navegación por facetas basada en Business Title (cargo empresarial), Location (ubicación), Posting Type (tipo de puesto) y Minimum Salary (salario mínimo). 
+Aunque se trata de un caso de uso común, no es algo que la estructura de navegación por facetas proporcione de forma predeterminada actualmente. Para solucionar esta limitación, los desarrolladores que quieren facetas estáticas suelen emitir dos consultas filtradas: una centrada en los resultados y otra para crear una lista estática de facetas con fines de navegación.
 
-```cs
-SearchParameters sp = new SearchParameters()
-{
-  ...
-  // Add facets
-  Facets = new List<String>() { "business_title", "posting_type", "level", "salary_range_from,interval:50000" },
-};
-```
+### <a name="clear-facets"></a>Eliminación de las facetas
 
-Un parámetro de consulta de faceta se establece en un campo y, según el tipo de datos, se puede parametrizar aún más con una lista delimitada por comas que incluya `count:<integer>`, `sort:<>`, `interval:<integer>` y `values:<list>`. Se admiten listas de valores para datos numéricos cuando se establecen intervalos. Consulte [Buscar documentos (API de Azure Cognitive Search)](/rest/api/searchservice/Search-Documents) para más información sobre su uso.
+Al diseñar la página de resultados de búsqueda, no olvide agregar un mecanismo para borrar las facetas. Si agrega casillas de verificación, puede ver fácilmente cómo borrar los filtros. En otros diseños, puede que necesite un patrón de ruta de navegación u otro enfoque creativo. En el ejemplo "hotels" para C#, puede enviar una búsqueda vacía para restablecer la página. Por el contrario, la aplicación de ejemplo NYCJobs proporciona un elemento en el que se puede hacer clic, `[X]`, después de seleccionar una faceta para borrarla, que es una cola visual más fuerte para el usuario.
 
-Además de las facetas, la solicitud que la aplicación formula también debe generar filtros para reducir el conjunto de documentos candidatos en función de una selección de valores de faceta. Para una tienda de bicicletas, la navegación por facetas proporciona pistas a preguntas como *¿qué colores, fabricantes y tipos de bicicletas están disponibles?* . El filtrado responde a preguntas como *¿qué bicicletas exactas son rojas, bicicletas de montaña, dentro de este precio de intervalo de precios?* . Cuando hace clic en "Red" para indicar que solo se deben mostrar productos de color rojo, la consulta siguiente que la aplicación envía incluye`$filter=Color eq 'Red'`.
-
-El siguiente fragmento de código de la página `JobsSearch.cs` agrega el cargo empresarial seleccionado al filtro si selecciona un valor de la faceta de Business Title.
-
-```cs
-if (businessTitleFacet != "")
-  filter = "business_title eq '" + businessTitleFacet + "'";
-```
-
-<a name="tips"></a> 
-
-## <a name="tips-and-best-practices"></a>Sugerencias y prácticas recomendadas
-
-### <a name="indexing-tips"></a>Sugerencias de indexación
-**Mejora de la eficacia del índice si no utiliza un cuadro de búsqueda**
-
-Si la aplicación usa navegación por facetas exclusivamente (es decir, ningún cuadro de búsqueda), puede marcar el campo como `searchable=false`, `facetable=true` para generar un índice más compacto. Además, la indización se produce solo en los valores de faceta completos, sin saltos de palabras ni indización de los componentes de un valor de varias palabras.
-
-**Especificación de qué campos se pueden usar como facetas**
-
-Recuerde que el esquema del índice determina qué campos están disponibles para usar como facetas. Suponiendo que un campo se pueda usar para la búsqueda por facetas, la consulta especifica qué campos se van a usar para la búsqueda por facetas. El campo que se va a usar para la búsqueda por facetas proporciona los valores que aparecerán debajo de la etiqueta. 
-
-Los valores que aparecen debajo de cada etiqueta se recuperan del índice. Por ejemplo, si el campo de faceta es *Color*, los valores disponibles para un filtrado adicional son los valores de ese campo (Red, Black, etc.).
-
-Solo para los valores Numeric y DateTime, puede establecer explícitamente valores en el campo de faceta (por ejemplo, `facet=Rating,values:1|2|3|4|5`). Se permite una lista de valores para estos tipos de campo para simplificar la separación de los resultados de faceta en intervalos contiguos (intervalos basados en valores numéricos o en períodos de tiempo). 
-
-**De forma predeterminada solo puede tener un nivel de navegación por facetas** 
-
-Como ya se mencionó, no hay compatibilidad directa para facetas anidadas en una jerarquía. De forma predeterminada, la navegación por facetas en Azure Cognitive Search solo admite un nivel de filtros. Sin embargo, existen soluciones alternativas. Puede codificar una estructura jerárquica de facetas en una `Collection(Edm.String)` con un punto de entrada por jerarquía. La implementación de esta solución queda fuera del ámbito de este artículo. 
-
-### <a name="querying-tips"></a>Sugerencias de consulta
-**Validar los campos**
-
-Si compila la lista de facetas de manera dinámica basándose en la entrada de usuarios que no son de confianza, valide que los nombres de los campos con facetas son válidos. O bien, anule los nombres al generar direcciones URL utilizando o bien `Uri.EscapeDataString()` en. NET, o su equivalente en la plataforma que elija.
-
-### <a name="filtering-tips"></a>Sugerencias de filtrado
-**Aumento de la precisión de la búsqueda con filtros**
-
-Use filtros. Si confía solamente en expresiones de búsqueda, la lematización podría provocar que se devuelva un documento que no tiene un valor de faceta preciso en ninguno de sus campos.
-
-**Aumento del rendimiento de la búsqueda con filtros**
-
-Los filtros restringen el conjunto de documentos candidatos para la búsqueda y los excluyen de la clasificación. Si tiene un conjunto grande de documentos, usar una profundización por facetas selectiva suele proporcionar un mayor rendimiento.
-  
-**Filtrado solo de campos por facetas**
-
-En la profundización por facetas, normalmente solo debe incluir los documentos que tienen el valor de faceta en un campo (con faceta) específico, no en cualquiera de todos los campos en los que se puede buscar. Agregar un filtro refuerza el campo de destino y dirige el servicio para que busque un valor coincidente solo en el campo con faceta.
-
-**Recorte de los resultados de faceta con más filtros**
+### <a name="trim-facet-results-with-more-filters"></a>Recorte de los resultados de faceta con más filtros
 
 Los resultados de faceta son documentos que se encuentran en los resultados de búsqueda y que coinciden con un término de faceta. En el ejemplo siguiente, en los resultados de búsqueda de *cloud computing*, 254 elementos también tienen *internal specification* como tipo de contenido. Los elementos no son necesariamente excluyentes mutuamente. Si un elemento cumple los criterios de ambos filtros, se contabiliza en cada uno de ellos. Esta duplicación es posible cuando se usan facetas en campos `Collection(Edm.String)`, que suelen usarse para implementar el etiquetado de documentos.
 
@@ -294,114 +279,30 @@ Content type
 
 En general, si encuentra que los resultados de faceta son demasiado grandes de forma persistente, se recomienda agregar más filtros para ofrecer a los usuarios más opciones para delimitar la búsqueda.
 
-### <a name="tips-about-result-count"></a>Sugerencias sobre el recuento de resultados
+### <a name="a-facet-only-search-experience"></a>Experiencia de búsqueda solo con facetas
 
-**Limitación del número de elementos en la navegación por facetas**
+Si la aplicación usa exclusivamente la navegación por facetas (es decir, ningún cuadro de búsqueda), puede marcar el campo como `searchable=false`, `filterable=true` y `facetable=true` para generar un índice más compacto. El índice no incluirá índices invertidos y no habrá análisis de texto ni tokenización. Los filtros se realizan por coincidencias exactas a nivel de caracteres.
 
-Para cada campo de faceta del árbol de navegación, hay un límite predeterminado de 10 valores. Este valor predeterminado tiene sentido en las estructuras de navegación porque mantiene la lista de valores en un tamaño fácil de administrar. Puede invalidar el valor predeterminado y asignar un valor a count.
+### <a name="validate-inputs-at-query-time"></a>Validación de entradas en tiempo de consulta
 
-* `&facet=city,count:5` especifica que solo se devuelven como resultado de la faceta las cinco primeras ciudades encontradas en los principales resultados. Considere una consulta de ejemplo con un término de búsqueda "aeropuerto" y 32 coincidencias. Si la consulta especifica `&facet=city,count:5`, solo se incluyen en los resultados de la faceta las primeras cinco ciudades con más documentos en los resultados de búsqueda.
+Si compila la lista de facetas de manera dinámica basándose en la entrada de usuarios que no son de confianza, valide que los nombres de los campos con facetas son válidos. O bien, anule los nombres al generar direcciones URL utilizando o bien `Uri.EscapeDataString()` en. NET, o su equivalente en la plataforma que elija.
 
-Observe la diferencia entre resultados de búsqueda y resultados de faceta. Los resultados de búsqueda son todos los documentos que coinciden con la consulta. Los resultados de faceta son las coincidencias para cada valor de la faceta. En el ejemplo, los resultados de búsqueda incluyen los nombres de ciudades que no están en la lista de clasificación de faceta (5 en nuestro ejemplo). Los resultados que se filtran mediante la navegación por facetas son visibles cuando se borran las facetas o se eligen otras facetas además de City. 
+## <a name="demos-and-samples"></a>Demostraciones y ejemplos
 
-> [!NOTE]
-> Analizar `count` cuando hay más de un tipo puede ser confuso. En la tabla siguiente se ofrece un breve resumen de cómo se usa el término en la API de Azure Cognitive Search así como código de ejemplo y documentación. 
+Varios ejemplos incluyen la navegación por facetas. En esta sección se incluyen vínculos a los ejemplos y también se indica qué lenguaje y biblioteca cliente se usan para cada uno de ellos.
 
-* `@colorFacet.count`<br/>
-  En el código de presentación, verá un parámetro count en la faceta, que se usa para mostrar el número de resultados de faceta. En los resultados de faceta, count indica el número de documentos que coinciden con el término de faceta o con el intervalo de facetas.
-* `&facet=City,count:12`<br/>
-  En una consulta de faceta, puede establecer count en un valor.  El valor predeterminado es 10, pero puede establecer uno inferior o superior. Al establecer `count:12` se obtienen las 12 principales coincidencias en los resultados de faceta por recuento de documentos.
-* "`@odata.count`"<br/>
-  En la respuesta de la consulta, este valor indica el número de elementos coincidentes en los resultados de búsqueda. Por término medio, es mayor que la suma de todos los resultados de faceta combinados, debido a la presencia de elementos que coinciden con el término de búsqueda pero con ninguno de los valores de faceta.
+### <a name="create-your-first-app-in-c-razor"></a>Creación de la primera aplicación en C# (Razor)
 
-**Obtención de recuentos en los resultados de faceta**
+En este tutorial y en la serie de ejemplos de C# se incluye una [lección centrada en la navegación por facetas](tutorial-csharp-facets.md). La solución es una aplicación ASP.NET MVC y la capa de presentación usa las bibliotecas cliente de Razor.
 
-Al agregar un filtro a una consulta por facetas, quizás quiera conservar la instrucción facet (por ejemplo, `facet=Rating&$filter=Rating ge 4`). Técnicamente, facet=Rating no es necesaria, pero conservarla devuelve los recuentos de los valores de faceta para las valoraciones de 4 y superiores. Por ejemplo, si hace clic en "4" y la consulta incluye un filtro para valores mayores o iguales que "4", se devuelven los recuentos de valoraciones de 4 y superiores.  
+### <a name="add-search-to-web-apps-react"></a>Incorporación de la búsqueda a las aplicaciones web (React)
 
-**Garantía de obtención de recuentos de faceta adecuados**
+Los tutoriales y ejemplos de [C#](tutorial-csharp-overview.md), [Python](tutorial-python-overview.md) y [JavaScript](tutorial-javascript-overview.md) incluyen la navegación por facetas, así como filtros, sugerencias y la función de autocompletar. Estos ejemplos usan React para la capa de presentación.
 
-En algunos casos, puede que los recuentos de faceta no coincidan con los conjuntos de resultados (consulte [Navegación por facetas en Azure Cognitive Search, en la página de preguntas y respuestas de Microsoft](/answers/topics/azure-cognitive-search.html)).
+### <a name="nycjobs-sample-code-and-demo-ajax"></a>Demostración y código de ejemplo de NYCJobs (Ajax)
 
-Los recuentos de faceta pueden ser incorrectos debido a la arquitectura de particionamiento. Cada índice de búsqueda tiene varias particiones, y cada una notifica las N primeras facetas por recuento de documentos, que después se combina en un único resultado. Si algunas particiones tienen muchos valores coincidentes, mientras que otros tienen menos, verá que algunos valores de faceta faltan o se contabilizan con un número inferior en los resultados.
+El ejemplo NYCJobs es una aplicación ASP.NET MVC que usa Ajax en la capa de presentación. Está disponible como [aplicación de demostración en vivo](https://aka.ms/azjobsdemo) y como código fuente en el [repositorio de ejemplos de Azure en GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
-Aunque este comportamiento podría cambiar en cualquier momento, si se produce en la actualidad puede solucionarlo aumentando artificialmente el valor de count:\<number> en un número grande para forzar que se notifique el valor completo de cada partición. Si el valor de count: es mayor o igual que el número de valores únicos en el campo, se garantizan resultados precisos. Sin embargo, si el recuento de documentos es alto, esto afecta al rendimiento, por lo que debe usar esta opción con prudencia.
+### <a name="video-demonstration"></a>Demostración en vídeo
 
-### <a name="user-interface-tips"></a>Sugerencias de interfaz de usuario
-**Agregar etiquetas para cada campo en la navegación por facetas**
-
-Las etiquetas suelen definirse en el HTML o formulario (`index.cshtml` en la aplicación de ejemplo). No hay ninguna API de Azure Cognitive Search para las etiquetas de navegación por facetas u otros tipos de metadatos.
-
-<a name="rangefacets"></a>
-
-## <a name="filter-based-on-a-range"></a>Filtro basado en un intervalo
-El uso de facetas en intervalos de valores es un requisito habitual de las aplicaciones de búsqueda. Se admiten intervalos para datos numéricos y valores de fecha y hora. Puede leer más acerca de cada enfoque en [Buscar documentos (API de Azure Cognitive Search)](/rest/api/searchservice/Search-Documents).
-
-Azure Cognitive Search simplifica la construcción de intervalos mediante dos enfoques de cálculo de intervalos. En ambos enfoques, Azure Cognitive Search crea los intervalos adecuados con las entradas proporcionadas. Por ejemplo, si especifica valores de intervalo de 10|20|30, creará automáticamente los intervalos 0-10, 10-20, 20-30. La aplicación tiene la opción de quitar los intervalos que estén vacíos. 
-
-**Enfoque 1: Usar el parámetro de intervalo**  
-Para establecer las facetas de precio en incrementos de 10 USD, especificaría: `&facet=price,interval:10`
-
-**Enfoque 2: Usar una lista de valores**  
-Para datos numéricos, puede usar una lista de valores.  Tenga en cuenta el intervalo de facetas para un campo `listPrice`, que se representa como sigue:
-
-  ![Lista de valores de ejemplo](media/search-faceted-navigation/Facet-5-Prices.PNG "Lista de valores de ejemplo")
-
-Para especificar un intervalo de faceta semejante al de la captura de pantalla anterior, use una lista de valores:
-
-> `facet=listPrice,values:10|25|100|500|1000|2500`
-
-Cada intervalo se genera usando 0 como punto de partida, un valor de la lista como extremo y, después, se recorta el intervalo anterior para crear diferentes intervalos. Azure Cognitive Search hace esto como parte de la navegación por facetas. No es necesario escribir código para estructurar cada intervalo.
-
-### <a name="build-a-filter-for-a-range"></a>Creación de un filtro para un intervalo
-Para filtrar los documentos según un intervalo que seleccione, puede usar los operadores de filtro `"ge"` y `"lt"` en una expresión de dos partes que define los puntos de conexión del intervalo. Por ejemplo, si elige el intervalo de 10 a 25 para un campo `listPrice`, el filtro sería `$filter=listPrice ge 10 and listPrice lt 25`. En el código de ejemplo, la expresión de filtro usa los parámetros **priceFrom** y **priceTo** para establecer los puntos de conexión. 
-
-  ![Consulta para un intervalo de valores](media/search-faceted-navigation/Facet-6-buildfilter.PNG "Consulta para un intervalo de valores")
-
-<a name="geofacets"></a> 
-
-## <a name="filter-based-on-distance"></a>Filtro basado en la distancia
-Es habitual ver filtros que ayudan a elegir una tienda, un restaurante o un destino en función de su proximidad a la ubicación actual. Aunque este tipo de filtro puede parecer una navegación por facetas, en realidad es solo un filtro. Lo mencionamos aquí para aquellos que buscan específicamente consejos de implementación para ese problema de diseño concreto.
-
-Hay dos funciones geoespaciales en Azure Cognitive Search, **geo.distance** y **geo.intersects**.
-
-* La función **geo.distance** devuelve la distancia en kilómetros entre dos puntos. Un punto es un campo y otra es una constante que se pasa como parte del filtro. 
-* La función **geo.intersects** devuelve true si un punto determinado se encuentra dentro de un polígono determinado. El punto es un campo y el polígono se especifica como una lista constante de coordenadas que se pasa como parte del filtro.
-
-Puede encontrar ejemplos de filtros en [Sintaxis de expresiones de OData (Azure Cognitive Search)](query-odata-filter-orderby-syntax.md).
-
-<a name="tryitout"></a>
-
-## <a name="try-the-demo"></a>Prueba de la demostración
-La demostración del portal de búsqueda de trabajo de Azure Cognitive Search contiene los ejemplos a los que se hace referencia en este artículo.
-
--   Vea y pruebe la demostración de trabajo en línea en [Demostración del portal de búsqueda de trabajo de Azure Cognitive Search](https://aka.ms/azjobsdemo).
-
--   Descargue el código del [repositorio de ejemplos de Azure en GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
-
-Cuando trabaje con los resultados de búsqueda, vigile los posibles cambios en las direcciones URL en la construcción de la consulta. Esta aplicación anexa facetas al URI a medida que las selecciona.
-
-1. Para usar la funcionalidad de asignación de la aplicación de demostración, obtenga una clave de Bing Maps en [Bing Maps Dev Center](https://www.bingmapsportal.com/) (Centro para desarrolladores de Bing Maps). Pegue sobre la clave existente en la página `index.cshtml`. El ajuste `BingApiKey` en el archivo `Web.config` no se utiliza. 
-
-2. Ejecute la aplicación. Dese el paseo opcional o descarte el cuadro de diálogo.
-   
-3. Escriba un término de búsqueda, como "analyst" y haga clic en el icono de búsqueda. La consulta se ejecuta rápidamente.
-   
-   Con los resultados de búsqueda se devuelve también una estructura de navegación por facetas. En la página de resultados de búsqueda, la estructura de navegación por facetas incluye los recuentos de cada resultado de faceta. No hay facetas seleccionadas, por lo que se devuelven todos los resultados de búsqueda que coinciden.
-   
-   ![Resultados de la búsqueda antes de seleccionar las facetas](media/search-faceted-navigation/faceted-search-before-facets.png "Resultados de la búsqueda antes de seleccionar las facetas")
-
-4. Haga clic en un Business Title (cargo empresarial), Location (ubicación) o Minimum Salary (salario mínimo). Las facetas son NULL en la búsqueda inicial, pero a medida que toman valores, en los resultados de búsqueda se recortan los elementos que ya no coinciden.
-   
-   ![Resultados de la búsqueda después de seleccionar las facetas](media/search-faceted-navigation/faceted-search-after-facets.png "Resultados de la búsqueda después de seleccionar las facetas")
-
-5. Para borrar la consulta por facetas para poder probar comportamientos de consulta diferentes, haga clic en `[X]` después de las facetas seleccionadas para borrar las facetas.
-   
-<a name="nextstep"></a>
-
-## <a name="learn-more"></a>Más información
-Vea el vídeo de [profundización en Azure Cognitive Search](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). En el minuto 45:25, hay una demostración sobre cómo implementar las facetas.
-
-Para obtener más información sobre los principios de diseño de la navegación por facetas, recomendamos los siguientes vínculos:
-
-* [Patrones de diseño: Navegación por facetas](https://alistapart.com/article/design-patterns-faceted-navigation)
-* [Problemas de front-end al implementar la búsqueda por facetas – Parte 1](https://articles.uie.com/faceted_search2/)
+En [Azure Cognitive Search Deep Dive](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410), hay una demostración sobre cómo implementar facetas.

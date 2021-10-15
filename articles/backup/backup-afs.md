@@ -3,12 +3,12 @@ title: Copia de seguridad de los recursos compartidos de archivos de Azure en Az
 description: Aprenda a usar Azure Portal para realizar copias de seguridad de recursos compartidos de archivos de Azure en almacenes de Recovery Services
 ms.topic: conceptual
 ms.date: 05/07/2021
-ms.openlocfilehash: e236980310889e84fe905861c5843f5a7b7039a2
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 807a173112d0bb85c008403028ab76000a3096db
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109516765"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427977"
 ---
 # <a name="back-up-azure-file-shares"></a>Copia de seguridad de recursos compartidos de archivos de Azure
 
@@ -60,6 +60,9 @@ En los pasos siguientes se explica cómo puede configurar la copia de seguridad 
 1. En la lista de cuentas de almacenamiento detectadas, seleccione una cuenta y seleccione **Aceptar**.
 
    ![Selección de una de las cuentas de almacenamiento detectadas](./media/backup-afs/select-discovered-storage-account.png)
+   
+   >[!NOTE]
+   > Si una cuenta de almacenamiento está presente en una región diferente a la del almacén, no existirá en la lista de cuentas de almacenamiento detectadas.
 
 1. El siguiente paso consiste en seleccionar los recursos compartidos de archivos de los que quiere realizar copias de seguridad. Seleccione el botón **Agregar** de la sección **Recursos compartidos de archivos para la copia de seguridad**.
 
@@ -100,8 +103,6 @@ En los pasos siguientes se explica cómo puede configurar la copia de seguridad 
 
 Después de establecer una directiva de copia de seguridad, se realiza una instantánea de los recursos compartidos de archivos a la hora programada. El punto de recuperación también se conserva durante el período elegido.
 
->[!NOTE]
->Azure Backup admite ahora directivas con retención diaria, semanal, mensual o anual para la copia de seguridad de recursos compartidos de archivos de Azure.
 
 ## <a name="configure-backup-from-the-file-share-pane"></a>Configuración de copias de seguridad desde el panel recursos compartidos de archivos
 

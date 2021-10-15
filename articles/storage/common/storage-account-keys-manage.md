@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/29/2021
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cfea2bd15bceb7d1478059d9ef80f4eb33337dc6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a0f95f78b8ca84175be185088316209ea5eb1e97
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128664758"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546833"
 ---
 # <a name="manage-storage-account-access-keys"></a>Administración de las claves de acceso de la cuenta de almacenamiento
 
@@ -32,15 +32,17 @@ Puede ver y copiar las claves de acceso a la cuenta con Azure Portal, PowerShell
 
 Para ver y copiar la cadena de conexión o las claves de acceso de la cuenta de almacenamiento desde Azure Portal:
 
-1. Vaya a la cuenta de almacenamiento en [Azure Portal](https://portal.azure.com).
+1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento.
 
-2. En **Configuración**, seleccione **Claves de acceso**. Aparecen las claves de acceso de la cuenta, así como la cadena de conexión completa de cada clave.
+2. En **Seguridad y redes**, seleccione **Claves de acceso**. Aparecen las claves de acceso de la cuenta, así como la cadena de conexión completa de cada clave.
 
-3. Busque el valor de **Clave** en **key1** y haga clic en el botón **Copiar** para copiar la clave de cuenta.
+3. Seleccione **Mostrar claves** para mostrar las claves de acceso y las cadenas de conexión y habilitar los botones para copiar los valores.
 
-4. Como alternativa, puede copiar la cadena de conexión completa. Busque el valor de **Cadena de conexión** en **key1** y haga clic en el botón **Copiar** para copiar la cadena de conexión.
+4. En **key1**, busque el valor de **Clave**. Seleccione el botón **Copiar** para copiar la clave de la cuenta.
 
-    :::image type="content" source="media/storage-account-keys-manage/portal-connection-string.png" alt-text="Captura de pantalla que muestra cómo ver las claves de acceso en Azure Portal":::
+5. Como alternativa, puede copiar la cadena de conexión completa. En **key1**, busque el valor **Cadena de conexión**. Seleccione el botón **Copiar** para copiar la cadena correspondiente.
+
+    :::image type="content" source="./media/storage-account-keys-manage/portal-connection-string.png" alt-text="Captura de pantalla que muestra cómo ver las claves de acceso en Azure Portal":::
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -50,7 +52,7 @@ En el ejemplo siguiente se recupera la primera clave. Para recuperar la segunda 
 
 ```powershell
 $storageAccountKey = `
-    (Get-AzStorageAccountKey `
+    (Get-AzStorageAccountKey
     -ResourceGroupName <resource-group> `
     -Name <storage-account>).Value[0]
 ```
@@ -93,7 +95,19 @@ Si tiene previsto girar manualmente las claves de acceso, Microsoft recomienda e
 
 #### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-La capacidad de establecer una directiva de expiración de claves mediante Azure Portal todavía no está disponible. Puede usar la CLI de Azure o PowerShell.
+Para crear una directiva de expiración de claves en Azure Portal, haga lo siguiente:
+
+1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento.
+
+2. En **Seguridad y redes**, seleccione **Claves de acceso**. Aparecen las claves de acceso de la cuenta, así como la cadena de conexión completa de cada clave.
+
+3. Seleccione el vínculo **Set rotation reminder** (Establecer recordatorio de rotación).
+
+4. En **Set a reminder to rotate access keys** (Establecer recordatorio de rotación), active la casilla **Enable key rotation reminders** (Habilitar recordatorios de rotación de claves) y establezca una frecuencia para el recordatorio.
+
+5. Seleccione **Guardar**.
+
+:::image type="content" source="media/storage-account-keys-manage/portal-key-expiration-policy.png" alt-text="Captura de pantalla que muestra cómo crear una directiva de expiración de claves en Azure Portal":::
 
 #### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -202,7 +216,7 @@ Para rotar las claves de acceso a la cuenta de almacenamiento en Azure Portal:
 
 2. Vaya a la cuenta de almacenamiento en [Azure Portal](https://portal.azure.com).
 
-3. En **Configuración**, seleccione **Claves de acceso**.
+3. En **Seguridad y redes**, seleccione **Claves de acceso**.
 
 4. Para regenerar la clave de acceso principal de la cuenta de almacenamiento, seleccione el botón **Regenerar** que se encuentra junto a la clave de acceso principal.
 

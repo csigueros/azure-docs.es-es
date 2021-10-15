@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: jlu, shreyamalik
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 431124d79307c305ebb589a72a0608347de8a2c7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 93d44065255dcb9f4977e93dd596eb3b80c1faa2
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128594570"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533169"
 ---
 # <a name="monitor-and-troubleshoot-continuous-access-evaluation"></a>Supervisión y solución de problemas de evaluación continua de acceso
 
@@ -42,7 +42,7 @@ Use filtros para restringir la búsqueda. Por ejemplo, si un usuario ha iniciado
 
 ## <a name="continuous-access-evaluation-workbooks"></a>Libros de evaluación continua de acceso
 
-El libro de conclusiones de evaluación continua de acceso permite a los administradores ver y supervisar las conclusiones de uso de CAE para sus inquilinos. En la primera tabla se muestran los intentos de autenticación con errores de coincidencia de IP. En la segunda tabla se muestra el estado de compatibilidad con CAE en varias aplicaciones. Este libro se puede encontrar como plantilla en la categoría Acceso condicional. 
+El libro de conclusiones de evaluación continua de acceso permite a los administradores ver y supervisar las conclusiones de uso de CAE para sus inquilinos. En la tabla se muestran los intentos de autenticación con errores de coincidencia de IP. Este libro se puede encontrar como plantilla en la categoría Acceso condicional. 
 
 ### <a name="accessing-the-cae-workbook-template"></a>Acceso a la plantilla de libro de CAE
 
@@ -54,7 +54,7 @@ Antes de que se muestren los libros, es necesario completar la integración de L
 
 [ ![Búsqueda del libro de conclusiones de CAE en la galería para continuar con la supervisión](./media/howto-continuous-access-evaluation-troubleshoot/azure-ad-workbooks-continuous-access-evaluation.png) ](./media/howto-continuous-access-evaluation-troubleshoot/azure-ad-workbooks-continuous-access-evaluation.png#lightbox)
 
-El libro **Continuous access evaluation insights** (Conclusiones de evaluación continua de acceso) contiene dos tablas:
+El libro sobre **conclusiones de evaluación continua de acceso** contiene la siguiente tabla:
 
 ### <a name="potential-ip-address-mismatch-between-azure-ad-and-resource-provider"></a>Posible falta de coincidencia de direcciones IP entre Azure AD y el proveedor de recursos  
 
