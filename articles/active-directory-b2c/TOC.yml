@@ -205,8 +205,6 @@
         - name: Directiva de credenciales de contraseña del propietario del recurso
           href: add-ropc-policy.md
           displayName: ROPC
-        - name: Configuración de directiva de restablecimiento de contraseña de autoservicio (en desuso)
-          href: user-flow-self-service-password-reset.md
         - name: Registro e inicio de sesión por teléfono
           href: phone-authentication-user-flows.md
     - name: Proveedores de identidades

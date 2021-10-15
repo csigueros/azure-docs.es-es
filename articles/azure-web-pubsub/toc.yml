@@ -74,6 +74,10 @@
       href: concept-service-internals.md
     - name: Introducción al protocolo del cliente
       href: concept-client-protocols.md
+    - name: Alta disponibilidad
+      items:
+        - name: Resistencia y recuperación ante desastres
+          href: concept-disaster-recovery.md
     - name: Consideraciones de rendimiento
       href: concept-performance.md
     - name: Modelo de facturación

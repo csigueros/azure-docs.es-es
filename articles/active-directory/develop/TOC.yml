@@ -167,6 +167,8 @@
           href: security-best-practices-for-app-registration.md
     - name: Aprovisionamiento automático de usuarios (SCIM)
       href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+    - name: Uso de Microsoft Graph API
+      href: microsoft-graph-intro.md
 - name: Instrucciones
   items:
     - name: Integración de un escenario de aplicaciones
@@ -560,8 +562,6 @@
           href: howto-add-app-roles-in-azure-ad-apps.md
         - name: Implementación de RBAC en una aplicación
           href: howto-implement-rbac-for-apps.md
-    - name: Uso de Microsoft Graph API
-      href: microsoft-graph-intro.md
     - name: Compilación para resistencia
       items:
         - name: Introducción al desarrollo

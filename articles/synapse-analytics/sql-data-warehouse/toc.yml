@@ -344,6 +344,8 @@
           href: sql-data-warehouse-how-to-configure-workload-importance.md
         - name: Conversión de las clases de recursos en grupos de cargas de trabajo
           href: sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md
+        - name: Solución de problemas de una clasificación que falte
+          href: sql-data-warehouse-how-to-troubleshoot-missed-classification.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
     - name: Administración y supervisión
       items:
         - name: Actualización a Gen2
