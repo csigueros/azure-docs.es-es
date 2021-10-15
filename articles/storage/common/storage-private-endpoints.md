@@ -10,16 +10,16 @@ ms.date: 03/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: a52460db452d519c51fb7a1b191766b21da67f88
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 908c313da4343798faedf614e8356e511ab0b4dd
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128592287"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458650"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Uso de puntos de conexión privados para Azure Storage
 
-Puede usar [puntos de conexión privados](../../private-link/private-endpoint-overview.md) en sus cuentas de Azure Storage para que los clientes de una red virtual (VNet) puedan acceder de forma segura a los datos a través de una instancias de [Private Link](../../private-link/private-link-overview.md). El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual para el servicio de la cuenta de almacenamiento. El tráfico de red entre los clientes de la red virtual y la cuenta de almacenamiento atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet.
+Puede usar [puntos de conexión privados](../../private-link/private-endpoint-overview.md) en sus cuentas de Azure Storage para que los clientes de una red virtual (VNet) puedan acceder de forma segura a los datos a través de una instancias de [Private Link](../../private-link/private-link-overview.md). El punto de conexión privado usa una dirección IP independiente del espacio de direcciones de la red virtual para el servicio de la cuenta de almacenamiento. El tráfico de red entre los clientes de la red virtual y la cuenta de almacenamiento atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet.
 
 El uso de puntos de conexión privados en una cuenta de almacenamiento permite:
 

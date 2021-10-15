@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 883bef7f38765d45bab0f505e4ce0184dfa59356
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 2a8fd99528e9f744a69533caa5a6009203a5f4de
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113110464"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232943"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Inmersión técnica profunda
 
@@ -49,7 +49,7 @@ SSO de conexión directa se habilita a través de Azure AD Connect tal como se m
 >[!IMPORTANT]
 > El inicio de sesión único de conexión directa admite los tipos de cifrado `AES256_HMAC_SHA1`, `AES128_HMAC_SHA1` y `RC4_HMAC_MD5` para Kerberos. Se recomienda que el tipo de cifrado de la cuenta `AzureADSSOAcc$` se establezca en `AES256_HMAC_SHA1`, o uno de los tipos AES en lugar de RC4, para mayor seguridad. El tipo de cifrado se almacena en el atributo `msDS-SupportedEncryptionTypes` de la cuenta en Active Directory.  Si el tipo de cifrado de la cuenta `AzureADSSOAcc$` está establecido en `RC4_HMAC_MD5` y quiere cambiarlo por uno de los tipos de cifrado AES, asegúrese de revertir primero la clave de descifrado de Kerberos de la cuenta `AzureADSSOAcc$`, como se explica en la pregunta correspondiente del [documento de preguntas más frecuentes](how-to-connect-sso-faq.yml); de lo contrario, no se producirá el inicio de sesión único de conexión directa.
 
-Una vez que se completa la instalación, SSO de conexión directa funcionan del mismo modo que cualquier otro inicio de sesión que usa la autenticación integrada de Windows (IWA).
+Una vez que se completa la instalación, el inicio de sesión único de conexión directa funciona del mismo modo que cualquier otro inicio de sesión que use la autenticación integrada de Windows (IWA).
 
 ### <a name="how-does-sign-in-on-a-web-browser-with-seamless-sso-work"></a>¿Cómo funciona el inicio de sesión en un explorador web con SSO de conexión directa?
 

@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4463659077943507651ddd2ad30ee2a1af9cf7a
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: a2c760e4b1ca923496d11002f2e30b72672f32df
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110785219"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124778407"
 ---
 # <a name="azure-functions-hosting-options"></a>Opciones de hospedaje de Azure Functions
 
@@ -34,8 +34,8 @@ A continuación se ofrece un resumen de las ventajas de los tres principales pla
 | Planear | Ventajas |
 | --- | --- |  
 |**[Plan de consumo](consumption-plan.md)**| Escale de forma automática y pague los recursos de proceso solo cuando se ejecuten las funciones.<br/><br/>En el plan de consumo, las instancias del host de Functions se agregan y quitan de forma dinámica según el número de eventos de entrada.<br/><br/> ✔ Plan de hospedaje predeterminado.<br/>✔ Pague solo cuando se ejecutan las funciones.<br/>✔ Escala de forma automática, incluso durante períodos de carga elevada.|  
-|**[Plan Premium](functions-premium-plan.md)**|Escala automáticamente en función de la demanda mediante trabajos preparados previamente que ejecutan aplicaciones sin ningún retraso después de estar inactivas, ejecuta en instancias más eficaces y se conecta a redes virtuales. <br/><br/>Considere la posibilidad de elegir el plan Premium de Azure Functions en las siguientes situaciones: <br/><br/>✔ La aplicación de funciones se ejecuta de forma continua, o casi continua.<br/>✔ Tiene un gran número de ejecuciones pequeñas y una factura de ejecución elevada, pero pocos GB por segundo en el plan de consumo.<br/>✔ Necesita más opciones de CPU o memoria de las que proporciona el plan de consumo.<br/>✔ Su código debe ejecutarse durante más tiempo del máximo permitido en el plan de consumo.<br/>✔ Necesita características que no están disponibles en el plan de consumo, como la conectividad con red virtual.|  
-|**[Plan dedicado](dedicated-plan.md)** |Ejecute las funciones en un plan de App Service a los [Precios de App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) normales.<br/><br/>Mejor para escenarios de ejecución prolongada en los que no se puede usar [Durable Functions](durable/durable-functions-overview.md). Considere el plan de App Service en las situaciones siguientes:<br/><br/>✔ Tiene máquinas virtuales infrautilizadas que ya ejecutan otras instancias de App Service.<br/>✔ Quiere proporcionar una imagen personalizada en la que ejecutar sus funciones. <br/>✔ Se requieren escalado y costos predictivos.|  
+|**[Plan Premium](functions-premium-plan.md)**|Escala automáticamente en función de la demanda mediante trabajos preparados previamente que ejecutan aplicaciones sin ningún retraso después de estar inactivas, ejecuta en instancias más eficaces y se conecta a redes virtuales. <br/><br/>Considere la posibilidad de elegir el plan Premium de Azure Functions en las siguientes situaciones: <br/><br/>✔ La aplicación de funciones se ejecuta de forma continua, o casi continua.<br/>✔ Tiene un gran número de ejecuciones pequeñas y una factura de ejecución elevada, pero pocos GB por segundo en el plan de consumo.<br/>✔ Necesita más opciones de CPU o memoria de las que proporciona el plan de consumo.<br/>✔ Su código debe ejecutarse durante más tiempo del máximo permitido en el plan de consumo.<br/>✔ Necesita características que no están disponibles en el plan de consumo, como la conectividad con red virtual.<br/>✔ Quiere proporcionar una imagen personalizada de Linux en la que ejecutar sus funciones. |  
+|**[Plan dedicado](dedicated-plan.md)** |Ejecute las funciones en un plan de App Service a los [Precios de App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) normales.<br/><br/>Mejor para escenarios de ejecución prolongada en los que no se puede usar [Durable Functions](durable/durable-functions-overview.md). Considere el plan de App Service en las situaciones siguientes:<br/><br/>✔ Tiene máquinas virtuales infrautilizadas que ya ejecutan otras instancias de App Service.<br/>✔ Se requieren escalado y costos predictivos.|  
 
 En las tablas de comparación de este artículo también se incluyen las siguientes opciones de hospedaje, que proporcionan el mayor control y aislamiento posibles en los que ejecutar las aplicaciones de funciones.  
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/27/2021
 ms.author: larryfr
 ms.custom: include file
-ms.openlocfilehash: 18d6da8c9156a66a16be7590603ae71b85abb9a4
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: e144756e65c0ae4d202333cd2972d9c5a1e3fdc8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123105513"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124740726"
 ---
 Azure Machine Learning requiere acceso entrante y saliente a la red pública de Internet. En las tablas siguientes se proporciona información general sobre qué acceso es necesario el acceso y para qué lo es. El __protocolo__ de todos los elementos es __TCP__. En el caso de las etiquetas de servicio que terminan en `.region`, reemplace `region` por la región de Azure que contiene el área de trabajo. Por ejemplo, `Storage.westus`:
 
@@ -28,6 +28,7 @@ Azure Machine Learning requiere acceso entrante y saliente a la red pública de 
 | Salida | 443 | AzureFrontDoor.FrontEnd</br>* No es necesario en Azure China. | Establecer un punto de entrada global para [Estudio de Azure Machine Learning](https://ml.azure.com). | 
 | Salida | 443 | ContainerRegistry.region | Acceder a las imágenes de Docker proporcionadas por Microsoft. |
 | Salida | 443 | MicrosoftContainerRegistry.region | Acceder a las imágenes de Docker proporcionadas por Microsoft. Configurar el enrutador de Azure Machine Learning para Azure Kubernetes Service. |
+| Salida | 443 | Keyvault.region | Acceda al almacén de claves del servicio Azure Batch. Solo se necesita si el área de trabajo se creó con la marca [hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) habilitada. |
 
 > [!TIP]
 > Si necesita las direcciones IP, en lugar de etiquetas de servicio, use una de las siguientes opciones:
@@ -52,6 +53,6 @@ También es posible que tenga que permitir el tráfico __saliente__ a Visual Stu
 
 Al usar Azure Kubernetes Service (AKS) con Azure Machine Learning, habilite el tráfico siguiente a la red virtual de AKS:
 
-* Requisitos generales de entrada y salida para AKS, tal como se describe en el artículo [Restricción del tráfico de salida en Azure Kubernetes Service](/azure/aks/limit-egress-traffic).
+* Requisitos generales de entrada y salida para AKS, tal como se describe en el artículo [Restricción del tráfico de salida en Azure Kubernetes Service](../articles/aks/limit-egress-traffic.md).
 * __Tráfico de salida__ a mcr.microsoft.com.
-* Al implementar un modelo en un clúster de AKS, use las instrucciones del artículo [Implementación de modelos de ML en Azure Kubernetes Service](/azure/machine-learning/how-to-deploy-azure-kubernetes-service#connectivity).
+* Al implementar un modelo en un clúster de AKS, use las instrucciones del artículo [Implementación de modelos de ML en Azure Kubernetes Service](../articles/machine-learning/how-to-deploy-azure-kubernetes-service.md#connectivity).

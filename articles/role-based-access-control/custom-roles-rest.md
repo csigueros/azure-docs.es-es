@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ab64765fc4e329c8edbf7a4db813113d20d476b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5c7e816f15400a28e8b10f4aea7a2315c89048be
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100557511"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352915"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-rest-api"></a>Creación o actualización de roles personalizados para los recursos de Azure con la API REST
 
@@ -185,9 +185,9 @@ Para crear un rol personalizado, use la API de REST [Role Definitions - Create O
 
 1. Si `assignableScopes` es un grupo de administración, reemplace la instancia *{groupId}* por el identificador del grupo de administración. La adición de un grupo de administración a `assignableScopes` está actualmente en versión preliminar.
 
-1. En la propiedad `actions`, agregue las operaciones que permite realizar el rol.
+1. En la propiedad `actions`, agregue las acciones que permite realizar el rol.
 
-1. En la propiedad `notActions`, agregue las operaciones excluidas de las `actions` permitidas.
+1. En la propiedad `notActions`, agregue las acciones excluidas de las `actions` permitidas.
 
 1. En las propiedades `roleName` y `description`, especifique un nombre de rol exclusivo y una descripción. Para más información sobre las propiedades, consulte [Roles personalizados de Azure](custom-roles.md).
 

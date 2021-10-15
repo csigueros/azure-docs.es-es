@@ -8,12 +8,12 @@ ms.date: 08/11/2020
 author: minhe-msft
 ms.author: hemin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8633ee6f76319afcd9c62a3aa5d70db77113f235
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 9e0136fe9ec7274a1788b11134527c8625c2cace
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124750598"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400465"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Supervisión de Integration Runtime en Azure Data Factory
 
@@ -234,7 +234,7 @@ El icono informativo **NODE SIZE** (Tamaño del nodo) muestra la SKU (serie tier
 
 El icono informativo **RUNNING / REQUESTED NODE(S)** (Nodos solicitados/en ejecución) compara el número de nodos que se están ejecutando actualmente con el número total de nodos solicitados previamente para Azure-SSIS IR.
 
-El icono informativo **DUAL STANDBY PAIR / ROLE** (PAR/ROL EN ESPERA DUAL) muestra el nombre del par de Azure-SSIS IR en espera dual que funciona sincronizado con el grupo de conmutación por error de Azure SQL Database/Instancia administrada para la continuidad empresarial y la recuperación ante desastres (BCDR) y el rol principal/secundario actual de Azure-SSIS IR. Cuando se produce la conmutación por error de SSISDB, las instancias de Azure-SSIS IR principal y secundaria intercambiarán sus roles (consulte [Configuración de Azure-SSIS Integration Runtime para continuidad empresarial y recuperación ante desastres [BCDR]](./configure-bcdr-azure-ssis-integration-runtime.md)).
+El icono informativo **DUAL STANDBY PAIR / ROLE** (PAR/ROL EN ESPERA DUAL) muestra el nombre del par de Azure-SSIS IR en espera dual que funciona sincronizado con el grupo de conmutación por error de la instancia administrada de Azure SQL Database para la continuidad empresarial y la recuperación ante desastres (BCDR) y el rol principal/secundario actual de Azure-SSIS IR. Cuando se produce la conmutación por error de SSISDB, las instancias de Azure-SSIS IR principal y secundaria intercambiarán sus roles (consulte [Configuración de Azure-SSIS Integration Runtime para continuidad empresarial y recuperación ante desastres [BCDR]](./configure-bcdr-azure-ssis-integration-runtime.md)).
 
 Los iconos funcionales se describen con más detalle a continuación.
 
@@ -270,7 +270,7 @@ En el icono **DIAGNOSTICAR CONECTIVIDAD** de la página de supervisión de Azure
 
 #### <a name="static-public-ip-addresses-tile"></a>Icono STATIC PUBLIC IP ADDRESSES (Direcciones IP públicas estáticas)
 
-Si trae sus propias direcciones IP públicas estáticas a Azure-SSIS IR, verá el icono **STATIC PUBLIC IP ADDRESSES** (Direcciones IP públicas estáticas) en la página de supervisión de Azure-SSIS IR (consulte la sección [Selección de direcciones IP públicas estáticas](./join-azure-ssis-integration-runtime-virtual-network.md#publicIP)). En este icono, puede seleccionar los vínculos que designan las primeras/segunda direcciones IP públicas estáticas para Azure-SSIS IR para que aparezca una ventana, donde puede copiar el identificador de recurso (`/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress`) de un cuadro de texto. En la ventana emergente, también puede seleccionar el vínculo **See your first/second static public IP address settings** (Ver la configuración de la primera/segunda dirección IP pública estática) para administrar su primera y segunda dirección IP pública estática en Azure Portal.
+Si trae sus propias direcciones IP públicas estáticas a Azure-SSIS IR, verá el icono **STATIC PUBLIC IP ADDRESSES** (Direcciones IP públicas estáticas) en la página de supervisión de Azure-SSIS IR (consulte la sección [Selección de direcciones IP públicas estáticas](azure-ssis-integration-runtime-virtual-network-configuration.md#publicIP)). En este icono, puede seleccionar los vínculos que designan las primeras/segunda direcciones IP públicas estáticas para Azure-SSIS IR para que aparezca una ventana, donde puede copiar el identificador de recurso (`/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress`) de un cuadro de texto. En la ventana emergente, también puede seleccionar el vínculo **See your first/second static public IP address settings** (Ver la configuración de la primera/segunda dirección IP pública estática) para administrar su primera y segunda dirección IP pública estática en Azure Portal.
 
 :::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png" alt-text="Supervisión de la instancia de Azure-SSIS IR: icono STATIC (ESTÁTICO)":::
 

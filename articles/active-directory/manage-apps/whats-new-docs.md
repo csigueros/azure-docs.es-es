@@ -1,7 +1,7 @@
 ---
 title: Novedades de la administración de aplicaciones en Azure Active Directory
 description: Documentación nueva y actualizada sobre la administración de aplicaciones de Azure Active Directory.
-ms.date: 09/08/2021
+ms.date: 10/05/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -10,16 +10,52 @@ ms.author: davidmu
 author: davidmu1
 manager: CelesteDG
 reviewer: napuri
-ms.openlocfilehash: a5de6a248d389c90cbc67f59b0b94f53c35821f2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 260473c428e7bdc2bfd968aa2ba5469e578c1005
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124810042"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533141"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Administración de aplicaciones en Azure Active Directory: Novedades
 
 Le damos la bienvenida a las novedades sobre la documentación de administración de aplicaciones de Azure Active Directory. En este artículo se enumeran los documentos nuevos que se han agregado y los que han tenido actualizaciones importantes en los últimos tres meses. Para conocer las novedades del servicio de administración de aplicaciones, consulte [Novedades de Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="september-2021"></a>Septiembre de 2021
+
+### <a name="new-articles"></a>Artículos nuevos
+
+- [Detección del dominio de inicio de una aplicación en Azure Active Directory](home-realm-discovery-policy.md)
+
+### <a name="updated-articles"></a>Artículos actualizados
+
+- [Asignación de usuarios y grupos en una aplicación de Azure Active Directory](assign-user-or-group-access-portal.md)
+- [Configuración del comportamiento de inicio de sesión de una aplicación mediante una directiva de detección del dominio de inicio](configure-authentication-for-federated-users-portal.md)
+- [Deshabilitar la forma en que un usuario se registra en una aplicación en Azure Active Directory](disable-user-sign-in-portal.md)
+- [Ocultación de una aplicación empresarial en Azure Active Directory](hide-application-from-user-portal.md)
+- [Habilitación de la asignación del autoservicio de las aplicaciones en Azure Active Directory](manage-self-service-access.md)
+- [Deshabilitación de la aceleración automática en un IDP federado durante el inicio de sesión de usuario con la directiva de detección del dominio de inicio](prevent-domain-hints-with-home-realm-discovery.md)
+- [Administración del acceso a aplicaciones en Azure Active Directory](what-is-access-management.md)
+- [Tutorial: Migración de sus aplicaciones de Okta a Azure Active Directory](migrate-applications-from-okta-to-azure-active-directory.md)
+- [Tutorial: Migración de la federación de Okta a la autenticación administrada de Azure AD](migrate-okta-federation-to-azure-active-directory.md)
+- [Tutorial: Migración de directivas de inicio de sesión de Okta al acceso condicional de Azure AD](migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md)
+- [Tutorial: Migración del aprovisionamiento de la sincronización de Okta a la sincronización basada en Azure AD Connect](migrate-okta-sync-provisioning-to-azure-active-directory.md)
+- [Protección del acceso híbrido con integraciones de asociados de Azure Active Directory](secure-hybrid-access-integrations.md)
+- [Administración de aplicaciones en Azure Active Directory: Novedades](whats-new-docs.md)
+- [Inicio rápido: Creación y asignación de una cuenta de usuario en Azure Active Directory](add-application-portal-assign-users.md)
+- [Inicio rápido: Configuración de las propiedades de aplicaciones empresariales en Azure Active Directory](add-application-portal-configure.md)
+- [Adición de una aplicación de inicio de sesión único basado en OpenID Connect en Azure Active Directory](add-application-portal-setup-oidc-sso.md)
+- [Inicio rápido: Habilitación del inicio de sesión único para una aplicación empresarial en Azure Active Directory](add-application-portal-setup-sso.md)
+- [Inicio rápido: Adición de una aplicación empresarial en Azure Active Directory](add-application-portal.md)
+- [Inicio rápido: Eliminación de una aplicación empresarial en Azure Active Directory](delete-application-portal.md)
+- [Inicio rápido: Visualización de aplicaciones empresariales en Azure Active Directory](view-applications-portal.md)
+- [Creación de colecciones en el portal Mis aplicaciones](access-panel-collections.md)
+- [Administración de directivas de consentimiento de aplicaciones](manage-app-consent-policies.md)
+- [Adición del inicio de sesión único vinculado a una aplicación en Azure Active Directory](configure-linked-sign-on.md)
+- [Adición del inicio de sesión único basado en contraseña a una aplicación en Azure Active Directory](configure-password-single-sign-on-non-gallery-applications.md)
+- [Planificación de una implementación de inicio de sesión único de Azure Active Directory](plan-sso-deployment.md)
+- [¿Qué es el inicio de sesión único en Azure Active Directory?](what-is-single-sign-on.md)
+
 
 ## <a name="august-2021"></a>Agosto de 2021
 

@@ -3,15 +3,15 @@ title: Ejecución de un runbook en Azure Automation
 description: En este artículo se proporciona información general del procesamiento de runbooks en Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/13/2021
+ms.date: 09/15/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 026adbac5ad66772711bcd3988a9c95da49ae6a1
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 700c5a9254cbb3ae8fe69ccc0f2ea3b76bb66121
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124837487"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129356456"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Ejecución de un runbook en Azure Automation
 
@@ -99,19 +99,9 @@ El agente de [Log Analytics para Windows](../azure-monitor/agents/agent-windows.
 
 ### <a name="log-analytics-agent-for-linux"></a>Agente de Log Analytics para Linux
 
-El agente de [Log Analytics para Linux](../azure-monitor/agents/agent-linux.md) funciona de forma similar al agente para Windows, pero conecta equipos Linux a Azure Monitor. El agente se instala con una cuenta de usuario **nxautomation** que permite la ejecución de comandos que requieren permisos de raíz, por ejemplo, en una instancia de Hybrid Runbook Worker. La cuenta **nxautomation** es una cuenta del sistema que no requiere contraseña.
+El agente de [Log Analytics para Linux](../azure-monitor/agents/agent-linux.md) funciona de forma similar al agente para Windows, pero conecta equipos Linux a Azure Monitor. El agente se instala con determinadas cuentas de servicio que ejecutan comandos que requieren permisos raíz. Para más información, consulte [Cuentas de servicio](./automation-hrw-run-runbooks.md#service-accounts).
 
-La cuenta **nxautomation** con los permisos sudo correspondientes debe estar presente durante la [instalación de la instancia de Hybrid Runbook Worker en Linux](automation-linux-hrw-install.md). Si intenta instalar el rol de trabajo y la cuenta no está presente o no tiene los permisos adecuados, no se realizará la instalación.
-
-No cambie los permisos de la carpeta `sudoers.d` ni su propiedad. Se requiere permiso sudo para la cuenta **nxautomation** y no se deben quitar los permisos. Su restricción a determinadas carpetas o comandos puede dar lugar a un cambio importante.
-
-Los registros disponibles para el agente de Log Analytics y la cuenta **nxautomation** son:
-
-* /var/opt/microsoft/omsagent/log/omsagent.log: registro de agente de Log Analytics
-* /var/opt/microsoft/omsagent/run/automationworker/worker.log: registro de trabajo de Automation
-
->[!NOTE]
->El usuario **nxautomation** habilitado como parte de Update Management solo ejecuta runbooks firmados.
+El registro del agente de Log Analytics se encuentra en `/var/opt/microsoft/omsagent/log/omsagent.log`.
 
 ## <a name="runbook-permissions"></a>Permisos de runbooks
 

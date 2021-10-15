@@ -7,12 +7,12 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: bf8b1e04e11dee4e636826430838a467fe034e3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b03564c293a5c12dca2a52f3afd5f3347b6c8186
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94951135"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278205"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Implementación de certificados de dispositivo X.509
 
@@ -45,7 +45,7 @@ Si está administrando sus propios certificados de dispositivo, tendrá que crea
 
 ## <a name="roll-the-certificate-in-the-iot-hub"></a>Implementación del certificado en el centro de IoT
 
-Puede agregar manualmente el certificado del dispositivo a centro de IoT. El certificado también se puede automatizar mediante una instancia de servicio Device Provisioning. En este artículo, supondremos que una instancia de servicio Device Provisioning se utiliza para admitir el aprovisionamiento automático.
+Puede agregar manualmente el certificado del dispositivo a centro de IoT. El certificado también se puede automatizar mediante una instancia de Device Provisioning Service. En este artículo, supondremos que se utiliza una instancia de Device Provisioning Service para admitir el aprovisionamiento automático.
 
 Cuando un dispositivo se ha aprovisionado inicialmente con el aprovisionamiento automático, arranca y se pone en contacto con el servicio de aprovisionamiento. El servicio de aprovisionamiento responde realizando una comprobación de identidad antes de crear una identidad de dispositivo en un centro de IoT mediante el certificado de hoja del dispositivo como la credencial. Después, el servicio de aprovisionamiento indica el dispositivo al que está asignado el centro de IoT y, después, usa su certificado de hoja para autenticarse y conectarse a dicho centro. 
 
@@ -106,7 +106,7 @@ Para actualizar una inscripción de grupo en respuesta a una infracción de segu
 
 #### <a name="update-compromised-root-ca-certificates"></a>Actualización de certificados de entidad de certificación raíz en peligro
 
-1. Haga clic en la pestaña **Certificados** para la instancia de servicio Device Provisioning.
+1. Haga clic en la pestaña **Certificados** para la instancia de Device Provisioning Service.
 
 2. Haga clic en el certificado en peligro en la lista y luego en el botón **Eliminar**. Confirme la eliminación escribiendo el nombre del certificado y haga clic en **Aceptar**. Repita este proceso para todos los certificados en peligro.
 
@@ -114,7 +114,7 @@ Para actualizar una inscripción de grupo en respuesta a una infracción de segu
 
 3. Siga los pasos descritos en [Realización de una prueba de posesión de certificados de entidad de certificación X.509 con el servicio Device Provisioning](how-to-verify-certificates.md) para agregar y comprobar los nuevos certificados de entidad de certificación raíz.
 
-4. Haga clic en la pestaña **Administrar inscripciones** para la instancia de servicio Device Provisioning y, luego, haga clic en la lista **Grupos de inscripción**. Haga clic en el nombre del grupo de inscripción en la lista.
+4. Haga clic en la pestaña **Administrar inscripciones** para la instancia de Device Provisioning Service y, luego, en la lista **Grupos de inscripción**. Haga clic en el nombre del grupo de inscripción en la lista.
 
 5. Haga clic en **Certificado de entidad de certificación** y seleccione el nuevo certificado de entidad de certificación raíz. A continuación, haga clic en **Save**(Guardar). 
 
@@ -160,13 +160,13 @@ Posteriormente, cuando se aproxima la expiración del certificado secundario y n
 
 1. Siga los pasos descritos en [Realización de una prueba de posesión de certificados de entidad de certificación X.509 con el servicio Device Provisioning](how-to-verify-certificates.md) para agregar y comprobar los nuevos certificados de entidad de certificación raíz.
 
-2. Haga clic en la pestaña **Administrar inscripciones** para la instancia de servicio Device Provisioning y, luego, haga clic en la lista **Grupos de inscripción**. Haga clic en el nombre del grupo de inscripción en la lista.
+2. Haga clic en la pestaña **Administrar inscripciones** para la instancia de Device Provisioning Service y, luego, en la lista **Grupos de inscripción**. Haga clic en el nombre del grupo de inscripción en la lista.
 
 3. Haga clic en **Certificado de entidad de certificación** y seleccione el nuevo certificado de entidad de certificación raíz en la configuración **Certificado secundario**. A continuación, haga clic en **Save**(Guardar). 
 
     ![Selección del nuevo certificado de entidad de certificación raíz para expiración](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 
-4. Posteriormente, cuando el certificado principal haya expirado, haga clic en la pestaña **Certificados** para la instancia de servicio Device Provisioning. Haga clic en el certificado expirado en la lista y luego en el botón **Eliminar**. Confirme la eliminación escribiendo el nombre del certificado y haga clic en **Aceptar**.
+4. Posteriormente, cuando el certificado principal haya expirado, haga clic en la pestaña **Certificados** para la instancia de Device Provisioning Service. Haga clic en el certificado expirado en la lista y luego en el botón **Eliminar**. Confirme la eliminación escribiendo el nombre del certificado y haga clic en **Aceptar**.
 
     ![Eliminación de un certificado de entidad de certificación raíz](./media/how-to-roll-certificates/delete-root-cert.png)
 
@@ -188,7 +188,7 @@ Posteriormente, cuando se aproxima la expiración del certificado secundario y n
 
 ## <a name="reprovision-the-device"></a>Reaprovisionamiento del dispositivo
 
-Una vez que el certificado se ha implementado tanto en el dispositivo como en Device Provisioning Service, el dispositivo se puede reaprovisionar a sí mismo poniéndose en contacto con el servicio Device Provisioning. 
+Una vez que el certificado se ha implementado tanto en el dispositivo como en Device Provisioning Service, el dispositivo se puede reaprovisionar a sí mismo poniéndose en contacto con Device Provisioning Service. 
 
 Una manera sencilla de programar dispositivos para reaprovisionamiento es programar el dispositivo para que se comunique con el servicio de aprovisionamiento para recorrer el flujo de aprovisionamiento si el dispositivo recibe un error de “no autorizado” al intentar conectarse al centro de IoT.
 

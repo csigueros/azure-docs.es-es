@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 7b4b3806ed00955096939c4b996c9a9d3daec004
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: a1f0fe56af1faaf9b743bf752f75c6dcb6aad881
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323814"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351257"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Codificación de vídeo y audio con Media Services
 
@@ -148,7 +148,7 @@ En Media Services v3, los valores preestablecidos son entidades fuertemente tip
 ## <a name="scaling-encoding-in-v3"></a>Escalado de la codificación en v3
 
 Para escalar el procesamiento multimedia, consulte [Escalado con CLI](media-reserved-units-cli-how-to.md).
-En el caso de las cuentas que se crearon con la versión **2020-05-01** de la API o a través de Azure Portal, ya no se requieren unidades reservadas de multimedia ni el escalado. El escalado será automático y lo controlará internamente el servicio.
+En el caso de las cuentas que se crearon con la versión **2020-05-01** o posterior de la API o a través de Azure Portal, ya no se requieren unidades reservadas de multimedia ni el escalado. El escalado será automático y lo controlará internamente el servicio.
 
 ## <a name="billing"></a>Facturación
 

@@ -2,21 +2,21 @@
 title: Restricciones de los URI de redirección (URL de respuesta) | Azure AD
 titleSuffix: Microsoft identity platform
 description: Descripción de las restricciones y limitaciones del formato del identificador URI de redirección (dirección URL de respuesta) aplicado por la Plataforma de identidad de Microsoft.
-author: SureshJa
-ms.author: sureshja
+author: madansr7
+ms.author: saumadan
 manager: CelesteDG
-ms.date: 08/06/2021
+ms.date: 09/03/2021
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: contperf-fy21q4-portal, aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: 96fe21b4f1df662e72ec88abc68d74db25257de1
-ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
+ms.openlocfilehash: d20d14619111515332b6aa5aec9239d0a6d50283
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122662042"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353051"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Restricciones y limitaciones del identificador URI de redirección (dirección URL de respuesta)
 
@@ -54,6 +54,11 @@ En esta tabla se muestra el número máximo de identificadores URI de redirecci�
 ## <a name="maximum-uri-length"></a>Longitud máxima de URI
 
 Puede usar un máximo de 256 caracteres para cada identificador URI de redirección que agregue a un registro de aplicación.
+
+## <a name="redirect-uris-in-application-vs-service-principal-objects"></a>Identificadores URI de redirección en una aplicación frente a objetos de entidad de servicio
+
+* Agregue siempre los identificadores URI de redirección solo al objeto de aplicación.
+* No agregue valores del identificador URI a una entidad de servicio porque estos valores se pueden quitar cuando el objeto de entidad de servicio se sincroniza con el objeto de aplicación. Esto puede ocurrir debido a cualquier operación de actualización que desencadena una sincronización entre los dos objetos.
 
 ## <a name="supported-schemes"></a>Esquemas admitidos
 

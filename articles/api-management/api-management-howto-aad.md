@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/20/2021
 ms.author: danlep
-ms.openlocfilehash: 769c67557b6e9d6947e8ffd0fffa71765cf397c4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 03ac79a70a1725fd6d1ceca6d79d4cdb325a8c51
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128601832"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428471"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorización de las cuentas de desarrollador mediante Azure Active Directory en Azure API Management
 
@@ -90,7 +90,7 @@ En este artículo, aprenderá a:
 
     > [!NOTE]
     > Puede especificar varios dominios en la sección **Allowed Tenants** (Inquilinos permitidos). Una administración global debe conceder a la aplicación acceso a datos de directorio antes de que los usuarios puedan iniciar sesión desde un dominio diferente al de registro de aplicación original. Para conceder permiso, el administrador global debe:
-    > 1. Ir a `https://<URL of your developer portal>/aadadminconsent` (por ejemplo, https://contoso.portal.azure-api.net/aadadminconsent) ).
+    > 1. Ir a `https://<URL of your developer portal>/aadadminconsent` (por ejemplo, `https://contoso.portal.azure-api.net/aadadminconsent`).
     > 1. Escribir el nombre de dominio del inquilino de Azure AD al que quiera conceder acceso.
     > 1. Seleccione **Submit** (Enviar). 
 

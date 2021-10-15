@@ -7,21 +7,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/1/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 98ab4a660923f1a399317b9682a231774f310f3c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 391c9adc9b79c5263121cb3827aeec7f5f520338
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128546961"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350311"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Configuración de tokens en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) emite varios tipos de tokens de seguridad a medida que procesa cada [flujo de autenticación](application-types.md). Este documento describe el formato, las características de seguridad y el contenido de cada tipo de token.
+Azure Active Directory B2C (Azure AD B2C) emite varios tipos de tokens de seguridad a medida que procesa cada [flujo de autenticación](application-types.md). Este artículo describe el formato, las características de seguridad y el contenido de cada tipo de token.
 
 ## <a name="token-types"></a>Tipos de token
 
@@ -29,9 +29,9 @@ Azure AD B2C admite los [protocolos OAuth 2.0 y OpenID Connect](protocols-overvi
 
 Los tokens siguientes se utilizan en la comunicación con Azure AD B2C:
 
-- *Token de identificador*: JWT que contiene las notificaciones que puede usar para identificar usuarios en la aplicación. Este token se envía de forma segura en las solicitudes HTTP para la comunicación entre dos componentes de la misma aplicación o el mismo servicio. Puede usar las notificaciones en un token de identificador como considere oportuno. Se suelen usar para mostrar información sobre la cuenta o para tomar decisiones sobre el control de acceso en una aplicación. Los tokens de identificador están firmados, pero no cifrados. Cuando una aplicación o API recibe un token de identificador, debe validar la firma para demostrar que es auténtico. La aplicación o la API también deben validar algunas notificaciones del token para demostrar que es válido. En función de los requisitos del escenario, las notificaciones validadas por una aplicación pueden variar, pero la aplicación debe realizar algunas validaciones de notificación comunes en todos los escenarios.
-- *Token de acceso*: JWT que contiene notificaciones que puede usar para identificar los permisos concedidos a las API. Los tokens de acceso están firmados, pero no cifrados. Los tokens de acceso se utilizan para proporcionar acceso a las API y los servidores de recursos.  Cuando una API recibe un token de acceso, debe validar la firma para demostrar que es auténtico. La API también debe validar algunas notificaciones del token para demostrar que es válido. En función de los requisitos del escenario, las notificaciones validadas por una aplicación pueden variar, pero la aplicación debe realizar algunas validaciones de notificación comunes en todos los escenarios.
-- *Token de actualización*: los tokens de actualización se utilizan para adquirir nuevos tokens de identificador y tokens de acceso en un flujo de OAuth 2.0. Permite a la aplicación obtener acceso a largo plazo a los recursos en nombre de los usuarios sin necesidad de interacción con los usuarios. Los tokens de actualización son totalmente opacos para su aplicación. Los emite Azure AD B2C y solo Azure AD B2C los puede inspeccionar e interpretar. Son de larga duración, pero la aplicación no se debe escribir esperando que un token de actualización dure un período de tiempo especificado. Los tokens de actualización pueden invalidarse en cualquier momento por varios motivos. La única forma de que su aplicación sepa si un token de actualización es válido es intentar canjearlo mediante una solicitud de token a Azure AD B2C. Al canjear un token de actualización por un nuevo token de acceso, recibe un nuevo token de actualización en la respuesta del token. Guarde el nuevo token de actualización. Reemplaza al token de actualización que usó anteriormente en la solicitud. Esta acción ayuda a garantizar que los tokens de actualización sigan siendo válidos mientras sea posible. Tenga en cuenta que las aplicaciones de página única que usan el flujo de código de autorización con PKCE siempre tienen una duración de token de actualización de 24 horas. [Más información sobre las consecuencias de seguridad de los tokens de actualización en el explorador](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
+- **Token de identificador**: JWT que contiene las notificaciones que puede usar para identificar usuarios en la aplicación. Este token se envía de forma segura en las solicitudes HTTP para la comunicación entre dos componentes de la misma aplicación o el mismo servicio. Puede usar las notificaciones en un token de identificador como considere oportuno. Se suelen usar para mostrar información sobre la cuenta o para tomar decisiones sobre el control de acceso en una aplicación. Los tokens de identificador están firmados, pero no cifrados. Cuando una aplicación o API recibe un token de identificador, debe validar la firma para demostrar que es auténtico. La aplicación o la API también deben validar algunas notificaciones del token para demostrar que es válido. En función de los requisitos del escenario, las notificaciones validadas por una aplicación pueden variar, pero la aplicación debe realizar algunas validaciones de notificación comunes en todos los escenarios.
+- **Token de acceso**: JWT que contiene notificaciones que puede usar para identificar los permisos concedidos a las API. Los tokens de acceso están firmados, pero no cifrados. Los tokens de acceso se utilizan para proporcionar acceso a las API y los servidores de recursos.  Cuando una API recibe un token de acceso, debe validar la firma para demostrar que es auténtico. La API también debe validar algunas notificaciones del token para demostrar que es válido. En función de los requisitos del escenario, las notificaciones validadas por una aplicación pueden variar, pero la aplicación debe realizar algunas validaciones de notificación comunes en todos los escenarios.
+- **Token de actualización**: los tokens de actualización se utilizan para adquirir nuevos tokens de identificador y tokens de acceso en un flujo de OAuth 2.0. Permite a la aplicación obtener acceso a largo plazo a los recursos en nombre de los usuarios sin necesidad de interacción con los usuarios. Los tokens de actualización son totalmente opacos para su aplicación. Los emite Azure AD B2C y solo Azure AD B2C los puede inspeccionar e interpretar. Son de larga duración, pero la aplicación no se debe escribir esperando que un token de actualización dure un período de tiempo especificado. Los tokens de actualización pueden invalidarse en cualquier momento por varios motivos. La única forma de que su aplicación sepa si un token de actualización es válido es intentar canjearlo mediante una solicitud de token a Azure AD B2C. Al canjear un token de actualización por un nuevo token de acceso, recibe un nuevo token de actualización en la respuesta del token. Guarde el nuevo token de actualización. Reemplaza al token de actualización que usó anteriormente en la solicitud. Esta acción ayuda a garantizar que los tokens de actualización sigan siendo válidos mientras sea posible. Tenga en cuenta que las aplicaciones de página única que usan el flujo de código de autorización con PKCE siempre tienen una duración de token de actualización de 24 horas. [Más información sobre las consecuencias de seguridad de los tokens de actualización en el explorador](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
 
 ## <a name="endpoints"></a>Puntos de conexión
 
@@ -40,7 +40,9 @@ Una [aplicación registrada](tutorial-register-applications.md) recibe los token
 - `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize`
 - `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token`
 
-Los tokens de seguridad que la aplicación recibe de Azure AD B2C pueden proceder de los puntos de conexión `/authorize` o `/token`. Cuando los tokens de identificador se adquieren en el punto de conexión `/authorize`, el procedimiento se realiza con el [flujo implícito](implicit-flow-single-page-application.md), que se usa a menudo para los usuarios que inician sesión en aplicaciones web basadas en JavaScript. Cuando se adquieren los tokens de identificador en el punto de conexión `/token`, el procedimiento se realiza utilizando el [flujo de código de autorización](openid-connect.md#get-a-token), que mantiene el token oculto al explorador.
+Los tokens de seguridad que la aplicación recibe de Azure AD B2C pueden proceder de los puntos de conexión `/authorize` o `/token`. Cuando se adquieren tokens de identificador desde el:
+-  punto de conexión `/authorize`, el procedimiento se realiza con el [flujo implícito](implicit-flow-single-page-application.md), que se usa a menudo para los usuarios que inician sesión en aplicaciones web basadas en JavaScript. 
+-  punto de conexión `/token`, el procedimiento se realiza utilizando el [flujo de código de autorización](openid-connect.md#get-a-token), que mantiene el token oculto al explorador.
 
 ## <a name="claims"></a>Notificaciones
 

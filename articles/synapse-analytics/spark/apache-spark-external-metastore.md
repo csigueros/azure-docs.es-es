@@ -8,12 +8,12 @@ ms.subservice: spark
 ms.author: yanacai
 author: yanancai
 ms.date: 09/08/2021
-ms.openlocfilehash: 9a2d822d84d6356fbf34b45e24501e4426f1b06d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 805987eb38df3979904fc8b9f3bebfc7fdb1fdca
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128699501"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129276385"
 ---
 # <a name="use-external-hive-metastore-for-synapse-spark-pool-preview"></a>Uso de un metastore de Hive externo para un grupo de Spark de Synapse (versión preliminar)
 
@@ -36,21 +36,21 @@ La característica funciona con Spark 2.4 y Spark 3.0. En la tabla siguiente s
 
 Siga estos pasos para configurar un servicio vinculado al metastore de Hive externo en el área de trabajo de Synapse.
 
-1.  Abra Synapse Studio, vaya a **Administrar > Servicios vinculados** a la izquierda y haga clic en **Nuevo**  para crear un nuevo servicio vinculado.
+1. Abra Synapse Studio, vaya a **Administrar > Servicios vinculados** a la izquierda y haga clic en **Nuevo**  para crear un nuevo servicio vinculado.
 
-    :::image type="content" source="./media/use-external-metastore/set-up-hive-metastore-linked-service.png" alt-text="Configuración del servicio vinculado al metastore de Hive" border="true":::
+   :::image type="content" source="./media/use-external-metastore/set-up-hive-metastore-linked-service.png" alt-text="Configuración del servicio vinculado al metastore de Hive" border="true":::
 
-2.  Elija **Azure SQL Database** y haga clic en **Continuar**.
+2. Elija **Azure SQL Database** y haga clic en **Continuar**.
 
-3.  Proporcione el **Nombre** del servicio vinculado. Registre el nombre del servicio vinculado. Esta información se usará para configurar Spark en breve.
+3. Proporcione el **Nombre** del servicio vinculado. Registre el nombre del servicio vinculado. Esta información se usará para configurar Spark en breve.
 
-4.  Puede seleccionar el valor de Azure SQL Database para el metastore de Hive externo en la lista de suscripciones de Azure o escribir la información manualmente.
+4. Puede seleccionar el valor de Azure SQL Database para el metastore de Hive externo en la lista de suscripciones de Azure o escribir la información manualmente.
 
-5.  Actualmente solo se admite la autenticación SQL como tipo de autenticación. Proporcione el **Nombre de usuario** y la **Contraseña** para configurar la conexión.
+5. Actualmente solo se admite la autenticación SQL como tipo de autenticación. Proporcione el **Nombre de usuario** y la **Contraseña** para configurar la conexión.
 
-6.  **Prueba de conexión** para comprobar el nombre de usuario y la contraseña.
+6. **Prueba de conexión** para comprobar el nombre de usuario y la contraseña.
 
-7.  Haga clic en **Crear** para crear el servicio vinculado. 
+7. Haga clic en **Crear** para crear el servicio vinculado. 
 
 ### <a name="test-connection-and-get-the-metastore-version-in-notebook"></a>Probar la conexión y obtener la versión del metastore en el cuaderno
 Algunas opciones de configuración de reglas de seguridad de red pueden bloquear el acceso desde el grupo de Spark a la base de datos del metastore de Hive externo. Antes de configurar el grupo de Spark, ejecute el código siguiente en cualquier cuaderno del grupo de Spark para probar la conexión a la base de datos del metastore de Hive externo. 
@@ -140,15 +140,15 @@ Si los datos subyacentes de los catálogos de Hive se almacenan en otra cuenta d
 ### <a name="set-up-connection-to-blob-storage"></a>Configuración de la conexión a Blob Storage
 Si los datos subyacentes de las tablas de Hive se almacenan en la cuenta de Azure Blob Storage, configure la conexión siguiendo estos pasos:
 
-1.  Abra Synapse Studio, vaya a **Datos > Pestaña vinculada > botón Agregar** > **Conectar a datos externos**.
+1. Abra Synapse Studio, vaya a **Datos > Pestaña vinculada > botón Agregar** > **Conectar a datos externos**.
 
-    :::image type="content" source="./media/use-external-metastore/connect-to-storage-account.png" alt-text="Conectar con la cuenta de almacenamiento" border="true":::
+   :::image type="content" source="./media/use-external-metastore/connect-to-storage-account.png" alt-text="Conectar con la cuenta de almacenamiento" border="true":::
 
-2.  Escoja **Azure Blob Storage** y haga clic en **Continuar**.
-3.  Proporcione el **Nombre** del servicio vinculado. Registre el nombre del servicio vinculado; esta información se usará en la configuración de sesión de Spark en breve.
-4.  Seleccione la cuenta de Azure Blob Storage. Asegúrese de que el método de autenticación es **Clave de cuenta**. Actualmente, el grupo de Spark solo puede acceder a la cuenta de Blob Storage a través de la clave de cuenta.
-5.  **Pruebe la conexión** y haga clic en **Crear**.
-6.  Después de crear el servicio vinculado a la cuenta de Blob Storage, al ejecutar consultas de Spark, asegúrese de ejecutar el siguiente código de Spark en el cuaderno para obtener acceso a la cuenta de Blob Storage para la sesión de Spark. Obtenga más información sobre por qué debe hacerlo [aquí](./apache-spark-secure-credentials-with-tokenlibrary.md).
+2. Escoja **Azure Blob Storage** y haga clic en **Continuar**.
+3. Proporcione el **Nombre** del servicio vinculado. Registre el nombre del servicio vinculado; esta información se usará en la configuración de sesión de Spark en breve.
+4. Seleccione la cuenta de Azure Blob Storage. Asegúrese de que el método de autenticación es **Clave de cuenta**. Actualmente, el grupo de Spark solo puede acceder a la cuenta de Blob Storage a través de la clave de cuenta.
+5. **Pruebe la conexión** y haga clic en **Crear**.
+6. Después de crear el servicio vinculado a la cuenta de Blob Storage, al ejecutar consultas de Spark, asegúrese de ejecutar el siguiente código de Spark en el cuaderno para obtener acceso a la cuenta de Blob Storage para la sesión de Spark. Obtenga más información sobre por qué debe hacerlo [aquí](./apache-spark-secure-credentials-with-tokenlibrary.md).
 
 ```
 %%pyspark
@@ -168,7 +168,7 @@ Después de configurar las conexiones de almacenamiento, puede consultar las tab
 - El explorador de objetos de Synapse Studio seguirá mostrando objetos en el metastore de Synapse administrado, en lugar del HMS externo. Estamos mejorando esta experiencia.
 - [SQL <-> sincronización de Spark](../sql/develop-storage-files-spark-tables.md) no funciona al utilizar HMS externo.  
 - Solo Azure SQL Database se admite como base de datos de metastore de Hive externo. Solo se admite autorización SQL.
-- Actualmente, Spark solo funciona con tablas externas de Hive y tablas de Hive administradas no transaccionales o no ACID. Ahora no admite tablas ACID o transaccionales de Hive.
+- Actualmente, Spark solo funciona con tablas externas de Hive y tablas de Hive administradas no transaccionales o que no son de ACID. Ahora no admite tablas ACID o transaccionales de Hive.
 - La integración de Apache Ranger no se admite de momento.
 
 ## <a name="troubleshooting"></a>Solución de problemas
@@ -213,7 +213,7 @@ spark.hadoop.hive.metastore.schema.verification false
 spark.hadoop.hive.synapse.externalmetastore.schema.usedefault false
 ```
 
-Si necesita migrar la versión de HMS, se recomienda usar la [herramienta de esquema de Hive](https://cwiki.apache.org/confluence/display/Hive/Hive+Schema+Tool). Y si los clústeres de HDInsight han usado HMS, se recomienda usar la [versión proporcionada por HDI](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-migrate-workloads). 
+Si necesita migrar la versión de HMS, se recomienda usar la [herramienta de esquema de Hive](https://cwiki.apache.org/confluence/display/Hive/Hive+Schema+Tool). Y si los clústeres de HDInsight han usado HMS, se recomienda usar la [versión proporcionada por HDI](../../hdinsight/interactive-query/apache-hive-migrate-workloads.md). 
 
 ### <a name="when-sharing-the-metastore-with-hdinsight-40-spark-clusters-i-cannot-see-the-tables"></a>Al compartir el metastore con clústeres de Spark de HDInsight 4.0, no puedo ver las tablas.
 Si desea compartir el catálogo de Hive con un clúster de Spark en HDInsight 4.0, asegúrese de que la propiedad `spark.hadoop.metastore.catalog.default` de Spark de Synapse esté alineada con el valor de Spark de HDInsight. El valor predeterminado es `Spark`.

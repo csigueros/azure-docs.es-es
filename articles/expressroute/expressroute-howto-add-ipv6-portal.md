@@ -7,16 +7,19 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/09/2021
 ms.author: duau
-ms.openlocfilehash: ffb713ac2a2f60b6ea046691169f4775bff726e3
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 645b936b5c8c550e9a71d33c079721d897aab0e3
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128647487"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233547"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-the-azure-portal-preview"></a>Adición de compatibilidad con IPv6 para el emparejamiento privado mediante Azure Portal (versión preliminar)
 
-En este artículo se describe cómo agregar compatibilidad con IPv6 para conectarse a través de ExpressRoute a los recursos de Azure mediante Azure Portal. 
+En este artículo se describe cómo agregar compatibilidad con IPv6 para conectarse a través de ExpressRoute a los recursos de Azure mediante Azure Portal.
+
+>[!NOTE]
+> Algunos aspectos del portal aún se están implementando. Por consiguiente, siga el orden exacto de las instrucciones que se especifican en este documento para agregar correctamente compatibilidad con IPv6 a través del portal. En concreto, asegúrese de crear la red virtual y la subred, o bien agregue espacio de direcciones IPv6 a la red virtual existente y a GatewaySubnet, *antes* de crear una puerta de enlace de red virtual en el portal.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 

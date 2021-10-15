@@ -8,12 +8,12 @@ author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019
 ms.date: 09/29/2020
-ms.openlocfilehash: ac2939e8c57b9b630de2fca1800c47cee29652bc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ee29630c0f990a7a6342d0027bbf9f36cbf13b91
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725414"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124778293"
 ---
 # <a name="manage-packages-with-azure-ssis-integration-runtime-package-store"></a>Administración de paquetes con el almacén de paquetes de Azure-SSIS Integration Runtime
 
@@ -30,23 +30,23 @@ Cuando se usa el modelo de implementación de paquetes, puede elegir aprovisiona
 
 Una vez que se ha aprovisionado Azure-SSIS IR, puede conectarse a este para examinar los almacenes de paquetes en SSMS.
 
-![Conexión a Azure-SSIS IR](media/azure-ssis-integration-runtime-package-store/ssms-package-store-connect.png)
+:::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-connect.png" alt-text="Conexión a Azure-SSIS IR":::
 
 En la ventana **Explorador de objetos** de SSMS, seleccione **Azure-SSIS Integration Runtime** en el menú desplegable **Conectar**. A continuación, inicie sesión en Azure y seleccione la suscripción y las instancias de ADF y Azure-SSIS IR pertinentes que ha aprovisionado con almacenes de paquetes. Aparecerá Azure-SSIS IR con los nodos **Paquetes en ejecución** y **Paquetes almacenados** situados debajo. Expanda el nodo **Paquetes almacenados** para ver debajo los almacenes de paquetes. Expanda los almacenes de paquetes para ver debajo las carpetas y los paquetes. Es posible que se le pida que escriba las credenciales de acceso para los almacenes de paquetes, en caso de que SSMS no se pueda conectar a ellos automáticamente. Por ejemplo, si expande un almacén de paquetes encima de MSDB, es posible que se le pida que se conecte primero a Instancia administrada de Azure SQL.
 
-![Conexión a Instancia administrada de Azure SQL](media/azure-ssis-integration-runtime-package-store/ssms-package-store-connect2.png)
+:::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-connect2.png" alt-text="Conexión a Instancia administrada de Azure SQL":::
 
 ## <a name="manage-folders-and-packages"></a>Administración de carpetas y paquetes
 
 Al conectarse a la instancia de Azure-SSIS IR en SSMS, puede hacer clic con el botón derecho en cualquier almacén de paquetes, carpeta o paquete y aparecerá un menú emergente. Seleccione **Nueva carpeta**, **Importar paquete**, **Exportar paquete**, **Eliminar** o **Actualizar**.
 
-   ![Administración de carpetas y paquetes](media/azure-ssis-integration-runtime-package-store/ssms-package-store-manage.png)
+   :::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-manage.png" alt-text="Administración de carpetas y paquetes":::
 
    *  Seleccione **Nueva carpeta** para crear una carpeta para los paquetes importados.
 
    *  Seleccione **Importar paquete** para importar paquetes del **Sistema de archivos**, **SQL Server** (MSDB) o el **Almacén de paquetes de SSIS** heredado en el almacén de paquetes.
 
-      ![Importación de paquete](media/azure-ssis-integration-runtime-package-store/ssms-package-store-import.png)
+      :::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-import.png" alt-text="Importación de paquete":::
 
       En función de la **Ubicación del paquete** desde la que se va a importar, seleccione el valor pertinente de **Servidor**/**Tipo de autenticación**, escriba las credenciales de acceso si es necesario, seleccione la **Ruta de acceso del paquete** y escriba el nuevo **Nombre del paquete**. Al importar paquetes, no se puede cambiar su nivel de protección. Para cambiarlo, use SQL Server Data Tools (SSDT) o la utilidad de línea de comandos `dtutil`.
 
@@ -61,7 +61,7 @@ Al conectarse a la instancia de Azure-SSIS IR en SSMS, puede hacer clic con el b
 
    *  Seleccione **Exportar paquete** para exportar paquetes del almacén de paquetes al **Sistema de archivos**, **SQL Server** (MSDB) o el **Almacén de paquetes de SSIS** heredado.
 
-      ![Exportación de paquetes](media/azure-ssis-integration-runtime-package-store/ssms-package-store-export.png)
+      :::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-export.png" alt-text="Exportación de paquetes":::
 
       En función de la **Ubicación del paquete** a la que se va a exportar, seleccione el valor pertinente de **Servidor**/**Tipo de autenticación**, escriba las credenciales de acceso si es necesario y seleccione la **Ruta de acceso del paquete**. Al exportar paquetes, si están cifrados, escriba primero las contraseñas para descifrarlos. Luego, puede cambiar su nivel de protección, por ejemplo, para evitar almacenar datos confidenciales o para cifrar todos los datos con una clave de usuario o contraseña.
 
@@ -80,23 +80,23 @@ Al conectarse a la instancia de Azure-SSIS IR en SSMS, puede hacer clic con el b
 
 Al conectarse a Azure-SSIS IR en SSMS, puede hacer clic con el botón derecho en cualquier paquete almacenado y aparecerá un menú emergente. Seleccione **Ejecutar paquete**.  Se abrirá el cuadro de diálogo **Utilidad de ejecución de paquetes**, donde podrá configurar las ejecuciones de paquetes en Azure-SSIS IR como actividades de tipo Ejecutar paquete de SSIS en canalizaciones de ADF.
 
-![Páginas 1 y 2 de Utilidad de ejecución de paquetes](media/azure-ssis-integration-runtime-package-store/ssms-package-store-execute.png)
+:::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-execute.png" alt-text="Páginas 1 y 2 de Utilidad de ejecución de paquetes":::
 
-![Páginas 3 y 4 de Utilidad de ejecución de paquetes](media/azure-ssis-integration-runtime-package-store/ssms-package-store-execute2.png)
+:::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-execute2.png" alt-text="Páginas 3 y 4 de Utilidad de ejecución de paquetes":::
 
 Las páginas **General**, **Configuraciones**, **Opciones de ejecución** y **Registro** del cuadro de diálogo **Utilidad de ejecución de paquetes** corresponden a la pestaña **Configuración** de la actividad Ejecutar paquete de SSIS. En estas páginas, puede escribir la contraseña de cifrado del paquete y acceder a la información del archivo de configuración del paquete. También puede especificar las propiedades y las credenciales de ejecución del paquete, así como la información de acceso de la carpeta de registro.  La página **Establecer valores** del cuadro de diálogo **Utilidad de ejecución de paquetes** se corresponde con la pestaña **Invalidaciones de propiedad** de la actividad Ejecutar paquete de SSIS, donde se pueden especificar las propiedades del paquete que se van a invalidar. Para obtener información, vea [Ejecución de un paquete de SSIS mediante la actividad Ejecutar paquete de SSIS en canalizaciones de ADF](./how-to-invoke-ssis-package-ssis-activity.md).
 
 Al seleccionar el botón **Ejecutar**, se genera y se desencadena automáticamente una nueva canalización de ADF con la actividad Ejecutar paquete de SSIS. Si ya existe una canalización de ADF con la misma configuración, se volverá a ejecutar y no se generará una nueva canalización. La canalización de ADF y la actividad Ejecutar paquete de SSIS se denominarán `Pipeline_SSMS_YourPackageName_HashString` y `Activity_SSMS_YourPackageName`, respectivamente.
 
-![Botón de la Utilidad de ejecución de paquetes](media/azure-ssis-integration-runtime-package-store/ssms-package-store-execute3.png)
+:::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-execute3.png" alt-text="Botón de la Utilidad de ejecución de paquetes":::
 
-![Ejecutar una actividad de paquete SSIS](media/azure-ssis-integration-runtime-package-store/ssis-activity-package-store.png)
+:::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssis-activity-package-store.png" alt-text="Ejecutar una actividad de paquete SSIS":::
 
 ## <a name="monitor-and-stop-running-packages"></a>Supervisión y detención de los paquetes en ejecución
 
 Después de conectarse a la instancia de Azure-SSIS IR en SSMS, puede expandir el nodo **Running Packages** (Paquetes en ejecución) para ver los paquetes que se están ejecutando.  Haga clic con el botón derecho en cualquiera de ellos para que aparezca un menú emergente y seleccione **Detener** o **Actualizar**.
 
-   ![Supervisión y detención de los paquetes en ejecución](media/azure-ssis-integration-runtime-package-store/ssms-package-store-monitor.png)
+   :::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-monitor.png" alt-text="Supervisión y detención de los paquetes en ejecución":::
 
    *  Seleccione **Detener** para cancelar la canalización de ADF que se está ejecutando actualmente y que ejecuta el paquete como una actividad Ejecutar paquete de SSIS.
 
@@ -106,11 +106,11 @@ Después de conectarse a la instancia de Azure-SSIS IR en SSMS, puede expandir e
 
 Al conectarse a la instancia de Azure-SSIS IR en SSMS, puede hacer clic con el botón derecho en ella y aparecerá un menú emergente. Seleccione **Go to Azure Data Factory portal** (Ir al portal de Azure Data Factory) o **Actualizar**.
 
-   ![Ir al portal de ADF](media/azure-ssis-integration-runtime-package-store/ssms-package-store-monitor2.png)
+   :::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-monitor2.png" alt-text="Ir al portal de ADF":::
 
    *  Seleccione **Go to Azure Data Factory portal** (Ir al portal de Azure Data Factory) para abrir la página **Integration runtimes** (Entornos de ejecución de integración) del centro de supervisión de ADF, donde puede supervisar Azure-SSIS IR. En el icono **PACKAGE STORES** (ALMACENES DE PAQUETES), puede ver el número de almacenes de paquetes que están conectados a Azure-SSIS IR.  Al seleccionar ese número, aparecerá una ventana emergente donde puede editar los servicios vinculados de ADF que almacenan la información de acceso de los almacenes de paquetes.
 
-      ![Edición de los almacenes de paquetes](media/azure-ssis-integration-runtime-package-store/ssms-package-store-monitor3.png)
+      :::image type="content" source="media/azure-ssis-integration-runtime-package-store/ssms-package-store-monitor3.png" alt-text="Edición de los almacenes de paquetes":::
 
    *  Seleccione **Actualizar** para mostrar las carpetas o paquetes recién agregados a los almacenes de paquetes y los paquetes en ejecución en los almacenes de paquetes.
 
@@ -165,7 +165,7 @@ Para usar el punto de conexión público o privado de Azure SQL Managed Instance
 
 El script generará líneas de comandos de dtutil para todos los paquetes de MSDB que se puedan seleccionar de una vez, copiar y pegar y ejecutar en un símbolo del sistema.
 
-![Generación de líneas de comandos de dtutil](media/azure-ssis-integration-runtime-package-store/sql-server-msdb-to-sql-mi-msdb.png)
+:::image type="content" source="media/azure-ssis-integration-runtime-package-store/sql-server-msdb-to-sql-mi-msdb.png" alt-text="Generación de líneas de comandos de dtutil":::
 
 ```dos
 dtutil /SQL YourFolder\YourPackage1 /ENCRYPT SQL;YourFolder\YourPackage1;2;YourEncryptionPassword /DestServer YourSQLManagedInstanceEndpoint /DestUser YourUserName /DestPassword YourPassword

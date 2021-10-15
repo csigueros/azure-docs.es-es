@@ -12,22 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/28/2018
+ms.date: 10/04/2021
 ms.author: b-juche
-ms.openlocfilehash: e5e0c43aa8c4fbf0db89065e0fab93ee174a4ede
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 994af6291f55e9f1dd44f2f522f9273639531257
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96006600"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407064"
 ---
 # <a name="create-a-netapp-account"></a>Creación de una cuenta de NetApp
 La creación de una cuenta de NetApp le permite configurar un grupo de capacidad y crear después un volumen. Use la hoja de Azure NetApp Files para crear una nueva cuenta de NetApp.
 
 ## <a name="before-you-begin"></a>Antes de empezar
-Debe haber recibido un correo electrónico del equipo de Azure NetApp Files en el que se le confirme que se le ha concedido acceso al servicio. Consulte [Enviar una solicitud de lista de espera para acceder al servicio](azure-netapp-files-register.md#waitlist).
 
-También debe haber registrado su suscripción para usar el proveedor de recursos de NetApp. Consulte [Registro del proveedor de recursos de NetApp](azure-netapp-files-register.md#resource-provider).
+También debe haber registrado su suscripción para usar el proveedor de recursos de NetApp. Consulte [Registro del proveedor de recursos de NetApp](azure-netapp-files-register.md).
 
 ## <a name="steps"></a>Pasos 
 
@@ -64,5 +63,5 @@ También debe haber registrado su suscripción para usar el proveedor de recurso
 
 ## <a name="next-steps"></a>Pasos siguientes  
 
-[Configuración de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md)
+[Creación de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md)
 

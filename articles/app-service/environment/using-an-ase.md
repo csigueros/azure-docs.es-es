@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 8/5/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: da32a2bbd4824e589a6673b043551dce67c32e70
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 6d32e0f19ca37243fa0dbaca9bc04369bfd974b2
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122446323"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354118"
 ---
 # <a name="use-an-app-service-environment"></a>Uso de una instancia de App Service Environment
 > [!NOTE]
@@ -174,10 +174,10 @@ Puede integrar la instancia de ASE con Azure Monitor para enviar registros sobre
 
 | Situación | Message |
 |---------|----------|
-| ASE no tiene un estado correcto | La instancia de ASE especificada no tiene un estado correcto porque la configuración de la red virtual no es válida. La instancia de ASE se suspenderá si se mantiene un estado que no es correcto. Asegúrese de que se siguen las instrucciones indicadas aquí: https://docs.microsoft.com/azure/app-service/environment/network-info. |
+| ASE no tiene un estado correcto | La instancia de ASE especificada no tiene un estado correcto porque la configuración de la red virtual no es válida. La instancia de ASE se suspenderá si se mantiene un estado que no es correcto. Asegúrese de que se siguen las directrices definidas aquí: [Consideraciones de red para una instancia de App Service Environment](network-info.md). |
 | La subred de ASE casi no tiene espacio | La instancia de ASE especificada está en una subred que casi no tiene espacio. Quedan {0} direcciones. Una vez que se agoten estas direcciones, la instancia de ASE no se podrá escalar.  |
 | ASE está a punto de alcanzar el límite total de instancias | La instancia de ASE especificada está a punto de alcanzar al límite total de instancias. Actualmente contiene {0} instancias de planes de App Service, de un máximo de 201 instancias. |
-| ASE no puede obtener acceso a una dependencia | La instancia de ASE especificada no puede obtener acceso a {0}.  Asegúrese de que se siguen las instrucciones indicadas aquí: https://docs.microsoft.com/azure/app-service/environment/network-info. |
+| ASE no puede obtener acceso a una dependencia | La instancia de ASE especificada no puede obtener acceso a {0}.  Asegúrese de que se siguen las directrices definidas aquí: [Consideraciones de red para una instancia de App Service Environment](network-info.md). |
 | La instancia de ASE está suspendida | La instancia de ASE especificada está suspendida. Esta suspensión puede deberse a que hay pocas cuentas o a que una configuración de red virtual no es válida. Resuelva la causa principal del problema y reanude la instancia de ASE para que siga atendiendo el tráfico. |
 | Se ha iniciado una actualización de ASE | Se ha iniciado una actualización de la plataforma a la instancia de ASE especificada. Es posible que se produzcan retrasos en las operaciones de escalado. |
 | Se ha completado una actualización de ASE | Ha finalizado una actualización de plataforma de la instancia de ASE especificada. |
@@ -210,7 +210,7 @@ Para crear una alerta sobre los registros, siga las instrucciones de [Creación,
 
 ## <a name="upgrade-preference"></a>Preferencia de actualización
 
-Si tiene varias instancias de ASE, es posible que prefiera que unas se actualicen antes que otras. Este comportamiento se puede habilitar mediante el portal de ASE.  En **Configuración**, tiene la opción de establecer la **preferencia de actualización**. Estos son los tres valores posibles:
+Si tiene varias instancias de ASE, es posible que prefiera que unas se actualicen antes que otras. Este comportamiento se puede habilitar a través del portal de ASE.  En **Configuración**, tiene la opción de establecer la **preferencia de actualización**. Estos son los tres valores posibles:
 
 - **Ninguna**: Azure actualizará la instancia de ASE en alguno de los lotes. Este es el valor predeterminado.
 - **Early**: la instancia de ASE se actualizará durante la primera mitad de las actualizaciones de App Service.

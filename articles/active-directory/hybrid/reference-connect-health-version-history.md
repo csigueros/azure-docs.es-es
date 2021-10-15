@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 08/10/2020
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44ef48fe75d7070d3f471b06d548c06dc5d972b6
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 21d59036677a9a62d366e03bcdedb3a2f5d44abe
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479793"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351695"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Historial de lanzamiento de versiones
 El equipo de Azure Active Directory actualiza periódicamente Azure AD Connect Health con nuevas características y funciones. En este artículo se enumeran las versiones y características que se han publicado.  
@@ -31,6 +31,13 @@ El equipo de Azure Active Directory actualiza periódicamente Azure AD Connect H
 >
 
 Azure AD Connect Health para Sync se integra con la instalación de Azure AD Connect. Más información sobre el [historial de versiones de Azure AD Connect](./reference-connect-version-history.md). Para enviar comentarios sobre las características, vote en el [canal de UserVoice para Connect Health](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
+
+## <a name="september-2021"></a>Septiembre de 2021
+**Actualización del agente**
+- Agente de Azure AD Connect Health para AD FS (versión 3.1.113.0)
+  - Corrección para extraer información del dispositivo, como el cumplimiento del dispositivo y el estado administrado, el sistema operativo del dispositivo y la versión del sistema operativo del dispositivo a partir de auditorías de AD FS en determinados escenarios de autenticación basada en dispositivos.
+  - Corrección para rellenar la información de la aplicación de OAuth en casos de error y categorizar los errores de OAuth con códigos de error más específicos.
+  - Corrección de alertas en llamadas WMI interrumpidas en el equipo cliente. Ahora, estas llamadas al resultado o el estado se establecerían en "notRun".
 
 ## <a name="may-2021"></a>Mayo de 2021
 **Actualización del agente**

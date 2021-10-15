@@ -8,12 +8,12 @@ ms.author: johndeu
 ms.date: 08/31/2020
 ms.topic: how-to
 ms.service: media-services
-ms.openlocfilehash: a8b40206a73672b1d6bbb0ecded26b9f974be6b9
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 553fb2b55a5b183b596016c2942106ead99e79c4
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277596"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387171"
 ---
 # <a name="how-to-verify-your-on-premises-live-streaming-encoder"></a>Cómo comprobar su codificador de streaming en vivo local
 
@@ -26,7 +26,7 @@ Como asociado de codificador local de Azure Media Services, Media Services promu
 ## <a name="pass-through-live-event-verification"></a>Verificación del Evento en directo con paso a través
 
 1. En la cuenta de Media Services, asegúrese de que el **Punto de conexión de streaming** esté en ejecución. 
-2. Cree e inicie el Evento en directo de **paso a través**. <br/> Para más información, consulte [Estados y facturación de LiveEvent](live-event-states-billing-concept.md).
+2. Cree e inicie el evento en directo de **tránsito** (básico o estándar). <br/> Para más información, consulte [Estados y facturación de LiveEvent](live-event-states-billing-concept.md).
 3. Obtenga las direcciones URL de ingesta y configure el codificador local de forma que utilice la dirección URL para enviar una secuencia en directo de velocidad de bits múltiple a Media Services.
 4. Obtenga la dirección URL de versión preliminar y úsela para verificar que la entrada del codificador se está recibiendo realmente.
 5. Cree un nuevo objeto de **recurso**.

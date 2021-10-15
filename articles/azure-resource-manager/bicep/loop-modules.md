@@ -4,13 +4,13 @@ description: Use bucles y matrices en un archivo de Bicep para implementar varia
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/27/2021
-ms.openlocfilehash: f8893fa6716d1b106e54f7eb76002622ce5a4bc3
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/30/2021
+ms.openlocfilehash: 8c679eda4de1a3e29719a1518166e214b57b37c3
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124793443"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357809"
 ---
 # <a name="module-iteration-in-bicep"></a>Iteración de módulos en Bicep
 
@@ -149,6 +149,8 @@ module stgModule './storageAccount.bicep' = [for i in range(0, 4): {
 ```
 
 Para una implementación puramente secuencial, establezca el tamaño del lote en 1.
+
+El decorador `batchSize` está en el [espacio de nombres sys](bicep-functions.md#namespaces-for-functions). Si necesita diferenciar este decorador de otro elemento con el mismo nombre, ponga **sys** delante: `@sys.batchSize(2)`
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -5,12 +5,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: 70b27fec07d074dadb413d1debb098e23b4d33b3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f0a2fed2a7dc2fae62005d1f00fdb688a4f52ebe
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102428735"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232748"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Esquema de Windows Diagnostics Extension
 Azure Diagnostics Extension es un agente de Azure Monitor que recopila datos de supervisión del sistema operativo invitado y de las cargas de trabajo de los recursos de proceso. En este artículo, se describe el esquema que se usa para configurar Diagnostics Extension en máquinas virtuales Windows y otros recursos de proceso.

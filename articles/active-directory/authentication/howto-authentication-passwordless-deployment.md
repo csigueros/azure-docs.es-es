@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ee82c26217ac1b760c59f56f9875b7dcbcaf663
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3427384d41b4ebdd5f65d9c7e9ecdde911b5f08e
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124759821"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129807652"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planeamiento de una implementación de autenticación sin contraseña en Azure Active Directory
 
@@ -76,17 +76,17 @@ Los requisitos previos se determinan por los métodos de autenticación sin cont
 
 | Requisito previo| Aplicación Microsoft Authenticator| Llaves de seguridad FIDO2|
 | - | -|-|
-| Se ha habilitado el [registro combinado en Multi-Factor Authentication (MFA) de Azure AD y el autoservicio de restablecimiento de contraseña (SSPR)](howto-registration-mfa-sspr-combined.md).| √| √|  |
-| [Los usuarios pueden realizar Azure AD MFA](howto-mfa-getstarted.md)| √| √|  |
-| [Los usuarios se han registrado en Azure AD MFA y SSPR](howto-registration-mfa-sspr-combined.md)| √| √|  |
-| [Los usuarios han registrado sus dispositivos móviles en Azure Active Directory](../devices/overview.md)| √| |  |
-| Windows 10 versión 1809 o superior con un explorador admitido, como Microsoft Edge o Mozilla Firefox (versión 67 o superior). Microsoft recomienda la versión 1903 o posteriores para tener compatibilidad nativa.| | √|  |
-| Claves de seguridad compatibles Asegúrese de que está usando una [clave de seguridad FIDO2 verificada y probada por Microsoft](concept-authentication-passwordless.md) u otra clave de seguridad FIDO2 compatible.| | √|  |
+| Se ha habilitado el [registro combinado en Multi-Factor Authentication (MFA) de Azure AD y el autoservicio de restablecimiento de contraseña (SSPR)](howto-registration-mfa-sspr-combined.md).| √| √|
+| [Los usuarios pueden realizar Azure AD MFA](howto-mfa-getstarted.md)| √| √|
+| [Los usuarios se han registrado en Azure AD MFA y SSPR](howto-registration-mfa-sspr-combined.md)| √| √|
+| [Los usuarios han registrado sus dispositivos móviles en Azure Active Directory](../devices/overview.md)| √| |
+| Windows 10 versión 1809 o superior con un explorador admitido, como Microsoft Edge o Mozilla Firefox (versión 67 o superior). Microsoft recomienda la versión 1903 o posteriores para tener compatibilidad nativa.| | √|
+| Claves de seguridad compatibles Asegúrese de que usa una [clave de seguridad FIDO2 verificada y probada por Microsoft](concept-authentication-passwordless.md), o cualquier otra clave de seguridad FIDO2 compatible.| | √|
 
 
 ### <a name="windows-hello-for-business"></a>Windows Hello para empresas
 
-Los requisitos previos de Windows Hello para empresas dependen en gran medida de si se está implementando en una configuración local, híbrida o solo en la nube. También depende de la estrategia de unión del dispositivo. 
+Los requisitos previos y las rutas de implementación de Windows Hello para empresas dependen en gran medida de si la implementación se realiza en una configuración local, híbrida o solo en la nube. También depende de la estrategia de conexión del dispositivo. 
 
 Seleccione Windows Hello para empresas y [complete el asistente](https://aka.ms/passwordlesswizard) para determinar los requisitos previos y la implementación adecuados para su organización.
 
@@ -126,17 +126,17 @@ En el caso de que sea la primera vez para un usuario que no tiene una contraseñ
 Este método también se puede usar para facilitar la recuperación cuando el usuario ha perdido u olvidado su factor de autenticación, como una llave de seguridad o la aplicación Microsoft Authenticator, pero debe iniciar sesión para **registrar un nuevo método de autenticación sólida**. 
 
 >[!NOTE] 
-> Si no puede usar la clave de seguridad o la aplicación Microsoft Authenticator para algunos escenarios, puede usar la autenticación multifactor con un nombre de usuario y una contraseña junto con otro método registrado como opción de reserva.
+> Si no puede usar la clave de seguridad o la aplicación Microsoft Authenticator en algunos escenarios, se puede usar la autenticación multifactor con un nombre de usuario y una contraseña, junto con otro método registrado como opción de reserva.
 
 ## <a name="plan-for-and-deploy-the-microsoft-authenticator-app"></a>Planeación e implementación de la aplicación Microsoft Authenticator
 
-La [aplicación Microsoft Authenticator](concept-authentication-passwordless.md) convierte cualquier teléfono Android o iOS en una credencial segura sin contraseña. Su descarga de Google Play o Apple App Store es gratuita. Haga que los usuarios [descarguen la aplicación Microsoft Authenticator](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a) y que sigan las instrucciones para habilitar el inicio de sesión en el teléfono.
+La [aplicación Microsoft Authenticator](concept-authentication-passwordless.md) convierte cualquier teléfono Android o iOS en una credencial segura sin contraseña. Se puede descargar gratis de Google Play o Apple App Store. Haga que los usuarios [descarguen la aplicación Microsoft Authenticator](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a) y que sigan las instrucciones para habilitar el inicio de sesión en el teléfono.
 
 ### <a name="technical-considerations"></a>Consideraciones técnicas
 
-**Servicios de federación de Active Directory (AD FS)** : cuando un usuario habilita la credencial sin contraseña de Microsoft Authenticator, la autenticación predeterminada para ese usuario siempre es enviar una notificación para su aprobación. Se impide que los usuarios de un inquilino híbrido se dirijan a AD FS para iniciar sesión a menos que seleccionen "Use su contraseña en su lugar". Este proceso también omite las directivas de acceso condicional locales y los flujos de autenticación transferida (PTA). Sin embargo, si se especifica login_hint, el usuario se reenvía a AD FS y se omite la opción de usar la credencial sin contraseña.
+**Servicios de federación de Active Directory (AD FS)** : cuando un usuario habilita la credencial sin contraseña de Microsoft Authenticator, la autenticación predeterminada para ese usuario siempre es enviar una notificación para su aprobación. Se impide que los usuarios de un inquilino híbrido se dirijan a AD FS para iniciar sesión, a menos que seleccionen "Use su contraseña en su lugar". Este proceso también omite las directivas de acceso condicional locales y los flujos de autenticación transferida (PTA). Sin embargo, si se especifica login_hint, el usuario se reenvía a AD FS y se omite la opción de usar la credencial sin contraseña.
 
-**Servidor de Azure MFA**: los usuarios finales habilitados para la autenticación multifactor a través de un servidor de Azure MFA local de la organización pueden crear y usar una credencial de inicio de sesión único en el teléfono sin contraseña. Si el usuario intenta actualizar varias instalaciones (5 o más) de Microsoft Authenticator con la credencial, este cambio puede dar lugar a un error.
+**Servidor Azure MFA**: los usuarios finales habilitados para la autenticación multifactor a través de un servidor Azure MFA local de la organización pueden crear y usar una credencial de inicio de sesión único telefónico sin contraseña. Si el usuario intenta actualizar varias instalaciones (5 o más) de Microsoft Authenticator con la credencial, este cambio puede dar lugar a un error.
 
 > [!IMPORTANT]
 > A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el servidor MFA para implementaciones nuevas. Los clientes nuevos que quieran exigir la autenticación multifactor (MFA) durante los eventos de inicio de sesión deben usar Azure AD Multi-Factor Authentication basado en la nube. Los clientes existentes que hayan activado el Servidor MFA antes del 1 de julio de 2019 podrán descargar la versión más reciente y las actualizaciones futuras, así como generar credenciales de activación como de costumbre. Se recomienda pasar del servidor Azure MFA a Azure Active Directory MFA.
@@ -224,7 +224,7 @@ Para habilitar el inicio de sesión de Windows 10 con claves de seguridad FIDO2
 
 * [Habilitar un proveedor de credenciales con un paquete de aprovisionamiento](howto-authentication-passwordless-security-key-windows.md)
 
-  * Si no es posible la implementación de Intune, los administradores deben implementar un paquete en cada máquina para habilitar la funcionalidad del proveedor de credenciales. La instalación del paquete se puede llevar a cabo con una de las siguientes opciones:
+  * Si no es posible la implementación de Intune, los administradores deben implementar un paquete en cada equipo para habilitar la funcionalidad del proveedor de credenciales. La instalación del paquete se puede llevar a cabo con una de las siguientes opciones:
     * Directiva de grupo o Configuration Manager
     * Instalación local en una máquina Windows 10
 
@@ -289,26 +289,24 @@ Los siguientes son casos de prueba de ejemplo para la autenticación sin contras
 | El usuario puede registrar el dispositivo FIDO2 en aka.ms/mysecurityinfo con Firefox| El registro se realizará correctamente |
 | El usuario puede iniciar sesión en OneDrive en línea mediante el dispositivo FIDO2 con Microsoft Edge| El inicio de sesión debería realizarse correctamente |
 | El usuario puede iniciar sesión en OneDrive en línea mediante el dispositivo FIDO2 con Firefox| El inicio de sesión debería realizarse correctamente |
-| Prueba de reversión del registro de dispositivos FIDO2 mediante la desactivación de las claves de seguridad FIDO2 en la ventana de métodos de autenticación del portal de Azure Active Directory| Los usuarios: <li> Se les solicitará que inicien sesión con su clave de seguridad. <li> Inician sesión correctamente y se muestra un error: "Your company policy requires that you use a different method to sign in" (La directiva de la empresa requiere que use otro método para iniciar sesión). <li>Pueden seleccionar un método diferente e iniciar sesión correctamente. Cierre la ventana e inicie sesión de nuevo para comprobar que no ven el mismo mensaje de error. |
+| Prueba de reversión del registro de dispositivos FIDO2 mediante la desactivación de las claves de seguridad FIDO2 en la ventana de métodos de autenticación del portal de Azure Active Directory| Los usuarios: <li> Se les solicitará que inicien sesión con su clave de seguridad. <li> Iniciaran sesión correctamente y verán el siguiente error: "Your company policy requires that you use a different method to sign in" (La directiva de la empresa requiere que use otro método para iniciar sesión). <li>Pueden seleccionar un método diferente e iniciar sesión correctamente. Cierre la ventana e inicie sesión de nuevo para comprobar que no ven el mismo mensaje de error. |
 
 
 ### <a name="troubleshoot-security-key-sign-in"></a>Solución de problemas de inicio de sesión con clave de seguridad
-
 
 | Escenario| Solución |
 | - | -|
 | El usuario no puede realizar el registro combinado.| Asegúrese de que el [registro combinado](concept-registration-mfa-sspr-combined.md) está habilitado. |
 | El usuario no puede agregar una clave de seguridad a la [configuración de seguridad](https://aka.ms/mysecurityinfo).| Asegúrese de que las [llaves de seguridad](howto-authentication-passwordless-security-key.md) estén habilitadas. |
 | El usuario no puede agregar una clave de seguridad en las opciones de inicio de sesión de Windows 10.| [Asegúrese de que las claves de seguridad para el inicio de sesión de Windows](concept-authentication-passwordless.md) estén habilitadas. |
-| **Mensaje de error**: hemos detectado que este sistema operativo o explorador no admite las claves de seguridad FIDO2.| Los dispositivos de seguridad FIDO2 sin contraseña solo se pueden registrar en exploradores compatibles (Microsoft Edge, Firefox versión 67) en Windows 10 versión 1809 o posteriores. |
+| **Mensaje de error**: Hemos detectado que este sistema operativo o explorador no admite las claves de seguridad FIDO2.| Los dispositivos de seguridad FIDO2 sin contraseña solo se pueden registrar en exploradores compatibles (Microsoft Edge, Firefox versión 67) en Windows 10 versión 1809 o posteriores. |
 | **Mensaje de error**: La directiva de la empresa requiere que use otro método para iniciar sesión.| Asegúrese de que las claves de seguridad estén habilitadas en el inquilino. |
 | El usuario no puede administrar mi llave de seguridad en la versión 1809 de Windows 10| La versión 1809 requiere que use el software de administración de llaves de seguridad proporcionado por el proveedor de llaves FIDO2. Póngase en contacto con el proveedor para obtener soporte técnico. |
 | Creo que mi clave de seguridad FIDO2 puede ser defectuosa, ¿cómo puedo probarla?| Vaya a [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/), escriba las credenciales de una cuenta de prueba, conecte la clave de seguridad sospechosa, seleccione el botón + situado en la parte superior derecha de la pantalla, seleccione Crear y continúe con el proceso de creación. Si se produce un error en este escenario, es posible que el dispositivo esté defectuoso. |
 
-
 ## <a name="manage-passwordless-authentication"></a>Administración de la autenticación sin contraseña
 
-Para administrar los métodos de autenticación sin contraseña del usuario en [Azure Portal](https://portal.azure.com/), seleccione su cuenta de usuario y, a continuación, seleccione Métodos de autenticación.
+Para administrar los métodos de autenticación sin contraseña del usuario en [Azure Portal](https://portal.azure.com/), seleccione su cuenta de usuario y, después, seleccione Métodos de autenticación.
 
 ### <a name="microsoft-graph-apis"></a>Microsoft Graph API 
 
@@ -320,7 +318,7 @@ También puede administrar los métodos de autenticación sin contraseña median
 
 * Administre las directivas del método de autenticación para las claves de seguridad y la aplicación Microsoft Authenticator.
 
-Para más información sobre los métodos de autenticación que se pueden administrar en Microsoft Graph, consulte [Introducción a la API de métodos de autenticación de Azure AD](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Para más información sobre los métodos de autenticación que se pueden administrar en Microsoft Graph, consulte [Introducción a la API de métodos de autenticación de Azure AD](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true).
 
 ### <a name="rollback"></a>Reversión
 
@@ -340,12 +338,11 @@ Azure AD tiene informes que proporcionan información técnica y empresarial. H
 
 En la tabla siguiente se proporcionan algunos ejemplos de escenarios de informes típicos:
 
-| Administración de los riesgos.| Aumento de la productividad| Gobernanza y cumplimiento|
-|-|-|-|
+| Administración de los riesgos.| Aumento de la productividad| Gobernanza y cumplimiento| otro|
+|-|-|-|-|
 | Tipos de informes| Métodos de autenticación: usuarios registrados para el registro de seguridad combinado| Métodos de autenticación: usuarios registrados para la notificación de aplicaciones| Inicios de sesión: revisar quién tiene acceso al inquilino y cómo. |
 | Acciones posibles| Dirigirse a los usuarios no registrados todavía| Impulsar la adopción de la aplicación Microsoft Authenticator o llaves de seguridad| Revocar el acceso o aplicar directivas de seguridad adicionales para administradores |
 
- 
 
 #### <a name="track-usage-and-insights"></a>Uso y conclusiones del seguimiento
 

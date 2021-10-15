@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, has-adal-ref
-ms.openlocfilehash: a5e4f3cb33451b8668b4212fca248d0b7d9c1438
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 2e214abaa6f193c3464025014757d49349aa388c
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124734841"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129231983"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Flujos de autenticación y escenarios de aplicaciones
 

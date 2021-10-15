@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: e175439cacb75fc50574f172d9e1e34cba4cdbd7
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: e0c9a1d640a4ac1596370cace9cd657e082aee48
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123426407"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275760"
 ---
 # <a name="use-azure-private-link-to-connect-networks-to-azure-monitor"></a>Uso de Private Link para conectar redes a Azure Monitor
 
@@ -78,7 +78,7 @@ Por lo tanto, las instancias de Private Link creadas a partir de septiembre de 2
 * Modo abierto: usa Private Link para comunicarse con los recursos de AMPLS, pero también permite que el tráfico continúe a otros recursos. Consulte [Control de cómo se aplica Private Link a las redes](./private-link-design.md#control-how-private-links-apply-to-your-networks) para más información.
 
 > [!NOTE]
-> La ingesta de Log Analytics usa puntos de conexión específicos del recurso. Por lo tanto, no se adhiere a los modos de acceso de AMPLS. La ingesta en las áreas de trabajo de AMPLS se envía a través del vínculo privado, mientras que la ingesta en áreas de trabajo que no están en AMPLS usa los puntos de conexión públicos predeterminados. Para garantizar que las solicitudes de ingesta no pueden acceder a los recursos fuera de AMPLS, bloquee el acceso de la red a los puntos de conexión públicos.
+> La ingesta de Log Analytics usa puntos de conexión específicos del recurso. Por lo tanto, no se adhiere a los modos de acceso de AMPLS. **Para asegurarse de que las solicitudes de ingesta de Log Analytics no pueden acceder a áreas de trabajo fuera de AMPLS, establezca el firewall de red para que bloquee el tráfico a los puntos de conexión públicos, independientemente de los modos de acceso de AMPLS**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Diseño de la configuración de Private Link](private-link-design.md)

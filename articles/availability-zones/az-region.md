@@ -4,16 +4,16 @@ description: Para crear aplicaciones altamente disponibles y resistentes en Azur
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 09/16/2021
+ms.date: 10/05/2021
 ms.author: prsandhu
 ms.reviewer: cnthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 26d4464d67634d5660796ce24dc9b9dc2505e0ef
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 22b6f4570736d891b7cbcb9c0d2c10d6847ee83f
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129218249"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533662"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Servicios de Azure compatibles con Availability Zones
 
@@ -49,13 +49,13 @@ Para lograr una continuidad del negocio integral en Azure, cree la arquitectura 
 
 | América           | Europa               | África              | Asia Pacífico   |
 |--------------------|----------------------|---------------------|----------------|
-| Sur de Brasil       | Centro de Francia       | Norte de Sudáfrica* | Este de Australia |
+| Sur de Brasil       | Centro de Francia       | Norte de Sudáfrica  | Este de Australia |
 | Centro de Canadá     | Centro-oeste de Alemania |                     | Centro de la India* |
 | Centro de EE. UU.         | Norte de Europa         |                     | Japón Oriental     |
-| Este de EE. UU.            | Este de Noruega          |                     | Centro de Corea del Sur* |
+| Este de EE. UU.            | Este de Noruega          |                     | Centro de Corea del Sur  |
 | Este de EE. UU. 2          | Sur de Reino Unido 2             |                     | Sudeste de Asia |
 | Centro-sur de EE. UU.   | Oeste de Europa          |                     |                |
-| US Gov - Virginia    |                      |                     |                |
+| US Gov - Virginia    | Suecia*              |                     |                |
 | Oeste de EE. UU. 2          |                      |                     |                |
 | Oeste de EE. UU. 3          |                      |                     |                |
 

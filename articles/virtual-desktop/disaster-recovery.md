@@ -1,6 +1,6 @@
 ---
-title: 'Configuración del plan de recuperación ante desastres de Azure Virtual Desktop: Azure'
-description: Procedimiento para configurar un plan de continuidad empresarial y recuperación ante desastres para su implementación de Azure Virtual Desktop.
+title: Plan de recuperación ante desastres de Azure Virtual Desktop
+description: Cree un plan de recuperación ante desastres para la implementación de Azure Virtual Desktop con el fin de proteger los datos.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 10/09/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 91795dbe4e648f12e9a088a5aeffb68bffb46a65
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 54202b49e2881d1d128136b876cbf88c2bc87400
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111757902"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359753"
 ---
-# <a name="set-up-a-business-continuity-and-disaster-recovery-plan"></a>Configuración de un plan de continuidad empresarial y recuperación ante desastres
+# <a name="azure-virtual-desktop-disaster-recovery"></a>Recuperación ante desastres de Azure Virtual Desktop
 
 Para mantener la seguridad de los datos de su organización, es posible que tenga que adoptar una estrategia de continuidad empresarial y recuperación ante desastres (BCDR). Una estrategia de BCDR adecuada mantiene las aplicaciones y cargas de trabajo en ejecución durante las interrupciones del servicio o de Azure, sean planeadas o no.
 

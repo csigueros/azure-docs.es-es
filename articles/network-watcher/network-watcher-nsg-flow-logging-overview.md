@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: 23960e112dd03a711027c2364f648f60f23d0c8e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: aab3c66a76e22e17e5e5d6c0cd03ebca4562734d
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121742021"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129277658"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introducción al registro de flujo de grupos de seguridad de red
 
@@ -59,7 +59,7 @@ Los registros de flujo son el origen único de toda la actividad de red del ento
 **Conceptos principales**
 
 - Las redes definidas por software están organizadas en torno a redes virtuales y subredes. La seguridad de estas redes virtuales y subredes se puede administrar mediante un grupo de seguridad de red.
-- Un grupo de seguridad de red (NSG) contiene una lista de _reglas de seguridad_ que permiten o deniegan el tráfico de red en recursos a los que está conectado. Los grupos de seguridad de red se pueden asociar a subredes, máquinas virtuales individuales o interfaces de red (NIC) individuales conectadas a máquinas virtuales (Resource Manager). Para más información, consulte [Introducción a los grupos de seguridad de red](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- Un grupo de seguridad de red (NSG) contiene una lista de _reglas de seguridad_ que permiten o deniegan el tráfico de red en recursos a los que está conectado. El grupo de seguridad de red se puede asociar cada subred e interfaz de red en una máquina virtual. Para más información, consulte [Introducción a los grupos de seguridad de red](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - Todos los flujos de tráfico de la red se evalúan mediante las reglas de los grupos de seguridad de red correspondientes.
 - El resultado de estas evaluaciones son los registros de flujo de NSG. Los registros de flujo se recopilan mediante la plataforma Azure y no requieren ningún cambio en los recursos del cliente.
 - Nota: Las reglas son de dos tipos: de terminación y de no terminación, cada una con distintos comportamientos de registro.

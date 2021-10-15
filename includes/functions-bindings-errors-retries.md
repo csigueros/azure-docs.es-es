@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: glenga
-ms.openlocfilehash: 2ccff72be66a88b9bf0a5e9eb9c29ade8397804b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 740f1e3bd8c08ae7d1684613d1920cffd1bba619
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96356200"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129237329"
 ---
 Los errores que se producen en una instancia de Azure Functions pueden provenir de cualquiera de los orígenes siguientes:
 
@@ -297,9 +297,9 @@ Esta es la directiva de reintentos del archivo *function.json*:
 |---------|---------|---------| 
 |strategy|n/a|Necesario. Estrategia de reintentos que se usará. Los valores válidos son `fixedDelay` y `exponentialBackoff`.|
 |maxRetryCount|n/a|Necesario. Número máximo de reintentos permitidos por ejecución de función. `-1` significa que se reintentará indefinidamente.|
-|delayInterval|n/a|Retraso que se utilizará entre reintentos al usar la estrategia `fixedDelay`.|
-|minimumInterval|n/a|Retraso entre reintentos mínimo al usar la estrategia `exponentialBackoff`.|
-|maximumInterval|n/a|Retraso entre reintentos máximo al usar la estrategia `exponentialBackoff`.| 
+|delayInterval|n/a|Retraso que se usa entre reintentos al utilizar la estrategia `fixedDelay`. Especifíquelo como una cadena con el formato `HH:mm:ss`.|
+|minimumInterval|n/a|Retraso mínimo entre reintentos al usar la estrategia `exponentialBackoff`. Especifíquelo como una cadena con el formato `HH:mm:ss`.|
+|maximumInterval|n/a|Retraso entre reintentos máximo al usar la estrategia `exponentialBackoff`. Especifíquelo como una cadena con el formato `HH:mm:ss`.| 
 
 ### <a name="retry-limitations-during-preview"></a>Limitaciones de reintentos durante la versión preliminar
 

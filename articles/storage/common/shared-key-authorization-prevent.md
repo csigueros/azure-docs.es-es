@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 10/01/2021
 ms.author: tamram
-ms.reviewer: dineshm
+ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5e38cfeae5ad8593e5ee69059f4bdb903b04aa42
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 566c538e0864f11dad0a642dd18f711c7cf00886
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122178304"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129532834"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account"></a>Impedir la autorización con clave compartida para una cuenta de Azure Storage
 
@@ -122,7 +122,7 @@ Para denegar la autorización con clave compartida para una cuenta de almacenami
 
 1. Vaya a la cuenta de almacenamiento en Azure Portal.
 1. Busque la opción **Configuración** en **Configuración**.
-1. Establezca **Permitir acceso con clave compartida** en **Deshabilitado**.
+1. Establezca la opción **Permitir el acceso a la clave de la cuenta de almacenamiento** en **Deshabilitado**.
 
     :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Captura de pantalla que muestra cómo denegar el acceso con clave compartida para una cuenta":::
 

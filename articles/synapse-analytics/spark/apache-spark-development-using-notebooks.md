@@ -10,18 +10,18 @@ ms.date: 05/08/2021
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: a0f4a8602b3f4b10ac1ef6ca1ac65e5bedc76210
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 244d7b7d2ff6fe88b883b2e8adbeeaa0e7fb167e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123187404"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593237"
 ---
 # <a name="create-develop-and-maintain-synapse-notebooks-in-azure-synapse-analytics"></a>Creación, desarrollo y mantenimiento de cuadernos de Synapse en Azure Synapse Analytics
 
 Un cuaderno de Synapse es una interfaz web para crear archivos que contengan código activo, visualizaciones y texto narrativo. Los cuadernos son un buen lugar para validar ideas y aplicar experimentos rápidos para sacar conclusiones a partir de los datos. Los cuadernos también se usan ampliamente en la preparación de datos, la visualización de datos, el aprendizaje automático y otros escenarios de macrodatos.
 
-Con un cuaderno de Synapse, puede hacer lo siguiente:
+Con un cuaderno de Synapse, puede hacer lo siguiente: 
 
 * Empezar a trabajar sin esfuerzo alguno de configuración.
 * Mantener los datos protegidos con las características de seguridad empresarial integradas.
@@ -42,10 +42,11 @@ El equipo de Synapse proporciona el nuevo componente de cuaderno en Synapse Stud
 |Arrastrar y colocar para desplazar una celda| No compatible |&#9745;|
 |Esquema (tabla de contenido)| No compatible |&#9745;|
 |Explorador de variables| No compatible |&#9745;|
-|Formato de celdas de texto con botones de la barra de herramientas|&#9745;| No disponible |
+|Formato de celdas de texto con botones de la barra de herramientas|&#9745;| No compatible|
 |Comentarios de celdas de código| No compatible | &#9745;|
 
-
+> [!NOTE]
+> El explorador de variables solo admite Python.
 ## <a name="create-a-notebook"></a>Creación de un cuaderno
 
 Hay dos formas de crear un cuaderno. Puede crear un nuevo cuaderno o importar uno existente en un área de trabajo de Synapse desde el **Explorador de objetos**. Los cuadernos de Synapse reconocen los archivos IPYNB estándar de Jupyter Notebook.
@@ -64,7 +65,7 @@ Proporcionamos operaciones enriquecidas para desarrollar cuadernos:
 + [IntelliSense de estilo IDE](#ide-style-intellisense)
 + [Fragmentos de código](#code-snippets)
 + [Formato de celdas de texto con botones de la barra de herramientas](#format-text-cell-with-toolbar-buttons)
-+ [Deshacer la operación de la celda](#undo-cell-operation)
++ [Deshacer/rehacer operación de celda](#undo-redo-cell-operation)
 + [Comentarios de celdas de código](#Code-cell-commenting)
 + [Movimiento de una celda](#move-a-cell)
 + [Eliminación de una celda](#delete-a-cell)
@@ -91,13 +92,10 @@ Hay varias maneras de agregar una nueva celda a un cuaderno.
 
 # <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
 
-1. Expanda el botón superior izquierdo **+ Celdas** y seleccione **celda de código** o **celda de Markdown**.
+1. Mantenga el puntero sobre el espacio entre dos celdas y seleccione **Código** o **Markdown**.
     ![Captura de pantalla de add-azure-notebook-cell-with-cell-button](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-add-cell-1.png)
-2. Seleccione el signo más (+) al principio de una celda y seleccione **celda de código** o **celda de Markdown**.
 
-    ![Captura de pantalla de add-azure-notebook-cell-between-space](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-add-cell-2.png)
-
-3. Use las teclas de método abreviado [aznb en el modo de comando](#shortcut-keys-under-command-mode). Presione **A** para insertar una celda sobre la celda actual. Presione **B** para insertar una celda debajo de la celda actual.
+2. Use las teclas de método abreviado [aznb en el modo de comando](#shortcut-keys-under-command-mode). Presione **A** para insertar una celda sobre la celda actual. Presione **B** para insertar una celda debajo de la celda actual.
 
 ---
 
@@ -105,10 +103,10 @@ Hay varias maneras de agregar una nueva celda a un cuaderno.
 
 Los cuadernos de Synapse admiten cuatro lenguajes de Apache Spark:
 
-* pySpark (Python)
+* PySpark (Python)
 * Spark (Scala)
-* SparkSQL
-* .NET para Apache Spark (C#)
+* Spark SQL
+* .NET Spark (C#)
 
 Desde la lista desplegable de la barra de comandos superior, puede establecer el lenguaje principal para las nuevas celdas que se agreguen.
 
@@ -138,7 +136,7 @@ No puede hacer referencia a datos o variables directamente entre distintos lengu
 1. En la celda 1, lea un DataFrame de un conector de grupo de SQL mediante Scala y cree una tabla temporal.
 
    ```scala
-   %%scala
+   %%spark
    val scalaDataFrame = spark.read.sqlanalytics(&quot;mySQLPoolDatabase.dbo.mySQLPoolTable")
    scalaDataFrame.createOrReplaceTempView( "mydataframetable" )
    ```
@@ -166,8 +164,8 @@ Las características de IntelliSense tienen distintos niveles de madurez para di
 |Lenguajes| Resaltado de sintaxis | Creador de errores de sintaxis  | Finalización de código de sintaxis | Finalización de código de sintaxis| Finalización de código de funciones del sistema| Finalización de código de funciones del usuario| Sangría inteligente | Plegado de código|
 |--|--|--|--|--|--|--|--|--|
 |PySpark (Python)|Sí|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
-|Spark (Scala)|Sí|Sí|Sí|Sí|-|-|-|Sí|
-|SparkSQL|Sí|Sí|-|-|-|-|-|-|
+|Spark (Scala)|Sí|Sí|Sí|Sí|Sí|Sí|-|Sí|
+|SparkSQL|Sí|Sí|Sí|Sí|Sí|-|-|-|
 |.NET para Spark ( C# )|Sí|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 
 >[!Note]
@@ -196,7 +194,7 @@ La barra de herramientas del botón de formato no está disponible aún para la 
 
 ---
 
-<h3 id="undo-cell-operation">Deshacer la operación de la celda</h3>
+<h3 id="undo-redo-cell-operation">Deshacer/rehacer operación de celda</h3>
 
 # <a name="classical-notebook"></a>[Cuaderno clásico](#tab/classical)
 
@@ -218,6 +216,7 @@ Operaciones de deshacer celda admitidas:
 
 > [!NOTE]
 > Las operaciones de texto en celda y las operaciones de comentario de celdas de código no se pueden deshacer.
+> Ahora puede deshacer/rehacer hasta las 10 operaciones de celda históricas más recientes.
 
 
 ---
@@ -294,7 +293,7 @@ Seleccione el botón de flecha situado en la parte inferior de la celda actual p
 
 # <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
 
-Seleccione los puntos suspensivos (...) para ver **más comandos** en la barra de herramientas de la celda y la **entrada** para contraer la entrada de la celda actual. Para expandirla, seleccione la **entrada oculta** mientras la celda está contraída.
+Seleccione los puntos suspensivos de **Más comandos** (...) en la barra de herramientas de la celda y en **Hide input** (Ocultar entrada) para contraer la entrada de la celda actual. Para expandirla, seleccione **Show input** (Mostrar entrada) mientras la celda está contraída.
 
    ![GIF animado de azure-notebook-collapse-cell-input](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-collapse-cell-input.gif)
 
@@ -310,7 +309,7 @@ Seleccione el botón **Contraer salida** situado en la parte superior izquierda 
 
 # <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
 
-Seleccione los puntos suspensivos (...) para ver **más comandos** en la barra de herramientas de la celda y la **salida** para contraer la salida de la celda actual. Para expandirla, seleccione el mismo botón mientras la salida de la celda está oculta.
+Seleccione los puntos suspensivos de **Más comandos** (...) en la barra de herramientas de la celda y en **Hide output** (Ocultar salida) para contraer la salida de la celda actual. Para expandirla, seleccione **Show output** (Mostrar salida) mientras la salida de la celda está oculta.
 
    ![GIF animado de azure-notebook-collapse-cell-output](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-collapse-cell-output.gif)
 

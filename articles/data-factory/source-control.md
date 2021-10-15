@@ -8,12 +8,12 @@ ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/22/2021
-ms.openlocfilehash: 06bdd49df0f8a4d79ffece298fee2ea2691b0796
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 24e6157ce585914229a3b65a20feba4640ca272a
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129219218"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458820"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Control de código fuente en Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -102,6 +102,7 @@ El panel de configuración muestra la siguiente configuración del repositorio d
 | **ProjectName** | Nombre de proyecto de Azure Repos. Puede buscar el nombre de proyecto de Azure Repos en `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
 | **RepositoryName** | Nombre del repositorio de código de Azure Repos. Los proyectos de Azure Repos contienen repositorios de Git para administrar el código fuente a medida que crece el proyecto. Puede crear un repositorio nuevo o usar uno existente en el proyecto. | `<your Azure Repos code repository name>` |
 | **Rama de colaboración** | Rama de colaboración de Azure Repos que se usa para la publicación. De forma predeterminada, es `main`. Cámbiela en caso de que desee publicar recursos de otra rama. | `<your collaboration branch name>` |
+| **Rama de publicación** | La rama de publicación es la rama del repositorio donde se almacenan y actualizan las plantillas de ARM relacionadas con la publicación. De forma predeterminada, es `adf_publish`. | `<your publish branch name>` |
 | **Carpeta raíz** | Carpeta raíz de la rama de colaboración de Azure Repos. | `<your root folder name>` |
 | **Import existing Data Factory resources to repository** (Importar recursos existentes de Data Factory en el repositorio). | Especifica si se deben importar los recursos de la factoría de datos existente del **lienzo de creación** de UX en un repositorio Git de Azure Repos. Active la casilla para importar los recursos de la factoría de datos en el repositorio Git asociado en formato JSON. Esta acción exporta cada recurso individualmente (es decir, los servicios vinculados y los conjuntos de datos se exportan a archivos JSON independientes). Cuando esta casilla no está activada, no se importan los recursos existentes. | Activada (valor predeterminado) |
 | **Rama donde importar recursos** | Especifica en qué rama se importan los recursos de la factoría de datos (canalizaciones, conjuntos de datos, servicios vinculados etc.). Puede importar recursos en una de las siguientes ramas: a. Colaboración b. Crear nuevo c. Usar existente |  |
@@ -296,6 +297,12 @@ Importa el código del modo real a la rama de colaboración. Considera el códig
 1. Cree una solicitud de incorporación de cambios para combinar los cambios con la rama de colaboración. 
 
 Elija cualquiera de los métodos según sea necesario. 
+
+### <a name="all-resources-showing-as-new-on-publish"></a>Todos los recursos que se muestran como nuevos en la publicación
+
+Durante la publicación, todos los recursos pueden mostrarse como nuevos aunque se publicaran previamente. Esto puede ocurrir si se restablece la propiedad *lastCommitId* en la propiedad *repoConfiguration* de fábrica mediante la reimplementación de una plantilla de ARM de fábrica o la actualización de la propiedad *repoConfiguration* de fábrica mediante PowerShell o la API de REST. Si continúa publicando los recursos, se resolverá el problema, pero para evitar que se vuelva a producir, evite actualizar la propiedad *repoConfiguration* de fábrica. 
+
+
 
 ## <a name="switch-to-a-different-git-repository"></a>Cambio a un repositorio de Git diferente
 

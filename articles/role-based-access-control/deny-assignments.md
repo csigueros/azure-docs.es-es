@@ -15,12 +15,12 @@ ms.date: 03/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: a5f17f009caa9306631debf511f2c890f8f2a450
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 38427b0686e830939025075536ac79c95ebde4cd
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "82733781"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362959"
 ---
 # <a name="understand-azure-deny-assignments"></a>Descripción de las asignaciones de denegación de Azure
 
@@ -58,10 +58,10 @@ Las asignaciones de denegación siguen un patrón similar que las asignaciones d
 > | --- | --- | --- | --- |
 > | `DenyAssignmentName` | Sí | String | El nombre para mostrar de la asignación de denegación. Los nombres deben ser únicos para un ámbito determinado. |
 > | `Description` | No | String | La descripción de la asignación de denegación. |
-> | `Permissions.Actions` | Al menos una Actions o una DataActions | String[] | Una matriz de cadenas que especifican las operaciones de administración a las que la asignación de denegación bloquea el acceso. |
-> | `Permissions.NotActions` | No | String[] | Una matriz de cadenas que especifican las operaciones de administración que deben excluirse de la asignación de denegación. |
-> | `Permissions.DataActions` | Al menos una Actions o una DataActions | String[] | Una matriz de cadenas que especifican las operaciones de datos a las que la asignación de denegación bloquea el acceso. |
-> | `Permissions.NotDataActions` | No | String[] | Una matriz de cadenas que especifican las operaciones de datos que deben excluirse de la asignación de denegación. |
+> | `Permissions.Actions` | Al menos una Actions o una DataActions | String[] | Una matriz de cadenas que especifican las acciones del plano de control a las que la asignación de denegación bloquea el acceso. |
+> | `Permissions.NotActions` | No | String[] | Una matriz de cadenas que especifican la acción del plano de control que se debe excluir de la asignación de denegación. |
+> | `Permissions.DataActions` | Al menos una Actions o una DataActions | String[] | Una matriz de cadenas que especifican las acciones del plano de datos a las que la asignación de denegación bloquea el acceso. |
+> | `Permissions.NotDataActions` | No | String[] | Una matriz de cadenas que especifican las acciones del plano de datos que deben excluirse de la asignación de denegación. |
 > | `Scope` | No | String | Una cadena que especifica el ámbito al que se aplica la asignación de denegación. |
 > | `DoNotApplyToChildScopes` | No | Boolean | Especifica si la asignación de denegación se aplica a los ámbitos secundarios. El valor predeterminado es False. |
 > | `Principals[i].Id` | Sí | String[] | Matriz de identificadores de objetos de entidad de seguridad de Azure AD (usuario, grupo o entidad de servicio) a los que se aplica la asignación de denegación. Establézcala en un GUID `00000000-0000-0000-0000-000000000000` vacío para representar a todas las entidades de seguridad. |

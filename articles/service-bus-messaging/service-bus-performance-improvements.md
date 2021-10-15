@@ -3,12 +3,12 @@ title: Procedimientos recomendados para mejorar el rendimiento mediante Azure Se
 description: Describe cómo usar Service Bus para optimizar el rendimiento al intercambiar mensajes asincrónicos.
 ms.topic: article
 ms.date: 08/30/2021
-ms.openlocfilehash: d7bd692809504bb16607a431e879f0abfff953cb
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 51b8005f9aa3b53bbcb8d78b83c4449992cf0210
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225250"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128560723"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Procedimientos recomendados para mejorar el rendimiento mediante la mensajería de Service Bus
 
@@ -84,13 +84,14 @@ AMQP es el más eficaz, ya que mantiene la conexión a Service Bus. También imp
 > SBMP solo está disponible para .NET Framework. AMQP es el valor predeterminado de .NET Standard.
 
 ## <a name="choosing-the-appropriate-service-bus-net-sdk"></a>Elección del SDK de .NET para Service Bus adecuado
-Hay tres SDK de .NET para Azure Service Bus admitidos. Sus API son muy similares, y puede resultar confuso cuál elegir. Consulte la siguiente tabla para que le ayude a tomar su decisión. El SDK de Azure.Messaging.ServiceBus es el más reciente y se recomienda usarlo antes que otros SDK. Los SDK de Azure.Messaging.ServiceBus and Microsoft.Azure.ServiceBus son modernos, eficaces y compatibles con varias plataformas. Además, admiten el protocolo AMQP sobre WebSockets y forman parte de la colección de SDK de .NET para Azure de proyectos de código abierto.
+
+El paquete `Azure.Messaging.ServiceBus` es la versión más reciente del SDK de .NET de Azure Service Bus disponible a partir de noviembre de 2020. Hay dos SDK de .NET antiguos que seguirán recibiendo correcciones de errores críticos, pero le recomendamos encarecidamente que use el SDK más reciente en su lugar. Lea la [guía de migración](https://aka.ms/azsdk/net/migrate/sb) para obtener más información sobre cómo mover los SDK más antiguos.
 
 | Paquete NuGet | Espacios de nombres principales | Plataformas mínimas | Protocolos |
 |---------------|----------------------|---------------------|-------------|
-| [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) | `Azure.Messaging.ServiceBus`<br>`Azure.Messaging.ServiceBus.Administration` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Plataforma universal de Windows 10.0.16299 | AMQP<br>HTTP |
+| [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) (**más reciente**) | `Azure.Messaging.ServiceBus`<br>`Azure.Messaging.ServiceBus.Administration` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Plataforma universal de Windows 10.0.16299 | AMQP<br>HTTP |
 | [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | `Microsoft.Azure.ServiceBus`<br>`Microsoft.Azure.ServiceBus.Management` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Plataforma universal de Windows 10.0.16299 | AMQP<br>HTTP |
-| [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) | `Microsoft.ServiceBus`<br>`Microsoft.ServiceBus.Messaging` | .NET Framework 4.6.1 | AMQP<br>SBMP<br>HTTP |
+| [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) (**heredado**) | `Microsoft.ServiceBus`<br>`Microsoft.ServiceBus.Messaging` | .NET Framework 4.6.1 | AMQP<br>SBMP<br>HTTP |
 
 Para más información sobre la compatibilidad mínima con la plataforma .NET Standard, consulte [Compatibilidad con la implementación de .NET](/dotnet/standard/net-standard#net-implementation-support).
 
@@ -102,9 +103,13 @@ Se recomienda no cerrar ni desechar estos objetos después de enviar o recibir c
 
 # <a name="microsoftazureservicebus-sdk"></a>[SDK de Microsoft.Azure.ServiceBus](#tab/net-standard-sdk)
 
+> Tenga en cuenta que hay un paquete más reciente Azure.Messaging.ServiceBus disponible a partir de noviembre de 2020. Aunque el paquete Microsoft.Azure.ServiceBus seguirá recibiendo correcciones de errores críticos, le recomendamos encarecidamente que realice la actualización. Para más información, lea la [guía de migración](https://aka.ms/azsdk/net/migrate/sb).
+
 Objetos de cliente Service Bus, como las implementaciones de [`IQueueClient`][QueueClient] o [`IMessageSender`][MessageSender], se deben registrar para la inserción de dependencias como singletons (o crear una instancia de una vez y compartirse). Se recomienda no cerrar las factorías de mensajería ni los clientes de cola, tema o suscripción después de enviar un mensaje y luego volver a crearlos al enviar el mensaje siguiente. Al cerrar una factoría de mensajería, se elimina la conexión al servicio Service Bus. Al volver a crear la factoría, se establece una nueva conexión. 
 
 # <a name="windowsazureservicebus-sdk"></a>[SDK de WindowsAzure.ServiceBus](#tab/net-framework-sdk)
+
+> Tenga en cuenta que hay un paquete más reciente Azure.Messaging.ServiceBus disponible a partir de noviembre de 2020. Aunque el paquete WindowsAzure.ServiceBus seguirá recibiendo correcciones de errores críticos, le recomendamos encarecidamente que realice la actualización. Para más información, lea la [guía de migración](https://aka.ms/azsdk/net/migrate/sb).
 
 Los objetos de cliente de Service Bus, como `QueueClient` o `MessageSender`, se crean mediante un objeto [MessagingFactory][MessagingFactory], que también proporciona administración interna de las conexiones. Se recomienda no cerrar las factorías de mensajería ni los clientes de cola, tema o suscripción después de enviar un mensaje y luego volver a crearlos al enviar el mensaje siguiente. Al cerrar una factoría de mensajería, se elimina la conexión con el servicio Service Bus y, al volver a crearla, se establece una nueva conexión. 
 

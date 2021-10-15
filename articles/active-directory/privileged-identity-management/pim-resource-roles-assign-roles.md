@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/15/2021
+ms.date: 09/28/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c50d62d5c8f24ed25258305411f9ed045098c7f
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 55ba6435ca8ea3b46051080eb6f33ebfca4e02bd
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112232838"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272763"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Asignación de roles de recursos de Azure en Privileged Identity Management
 
@@ -39,7 +39,7 @@ En Privileged Identity Management se admiten roles de Azure integrados y persona
 
 ## <a name="role-assignment-conditions"></a>Condiciones de asignación de roles
 
-Puede usar la versión preliminar del control de acceso basado en atributos de Azure (Azure ABAC) para establecer condiciones de recursos en las asignaciones de roles aptos mediante Privileged Identity Management (PIM). Con PIM, los usuarios finales deben activar una asignación de roles apta para obtener permiso para realizar determinadas acciones. El uso de las condiciones de Azure ABAC en PIM permite no solo limitar los permisos de los roles de un usuario a un recurso mediante condiciones específicas, sino también usar PIM para proteger la asignación de roles con una configuración del límite de tiempo, un flujo de trabajo de aprobación y un registro de auditoría, entre otros. Para más información, consulte el artículo sobre la [versión preliminar pública del control de acceso basado en atributos de Azure](../../role-based-access-control/conditions-overview.md).
+Puede usar la versión preliminar del control de acceso basado en atributos de Azure (Azure ABAC) para establecer condiciones de recursos en las asignaciones de roles aptos mediante Privileged Identity Management (PIM). Con PIM, los usuarios finales deben activar una asignación de roles apta para obtener permiso para realizar determinadas acciones. El uso de las condiciones de control de acceso basado en atributos en PIM permite no solo limitar los permisos de los roles de un usuario a un recurso mediante condiciones específicas, sino también usar PIM para proteger la asignación de roles con una configuración del límite de tiempo, un flujo de trabajo de aprobación y un registro de auditoría, entre otros. Para más información, consulte el artículo sobre la [versión preliminar pública del control de acceso basado en atributos de Azure](../../role-based-access-control/conditions-overview.md).
 
 ## <a name="assign-a-role"></a>Asignar un rol
 
@@ -92,6 +92,98 @@ Siga estos pasos para hacer que un usuario sea elegible para un rol de directori
 1. Una vez creada la nueva asignación de roles, se muestra una notificación de estado.
 
     ![Nueva asignación: notificación](./media/pim-resource-roles-assign-roles/resources-new-assignment-notification.png)
+
+## <a name="assign-a-role-using-arm-api"></a>Asignación de un rol mediante ARM API
+
+Privileged Identity Management admite los comandos de Azure Resource Manager (ARM) API para administrar los roles de los recursos de Azure, como se documenta en la [referencia de ARM API de PIM](/rest/api/authorization/roleeligibilityschedulerequests). Para obtener los permisos necesarios para usar PIM API, consulte [Descripción de las API de Privileged Identity Management](pim-apis.md).
+
+A continuación se muestra una solicitud HTTP de ejemplo para crear una asignación apta para un rol de Azure.
+
+### <a name="request"></a>Solicitud
+
+````HTTP
+PUT https://management.azure.com/providers/Microsoft.Subscription/subscriptions/dfa2a084-766f-4003-8ae1-c4aeb893a99f/providers/Microsoft.Authorization/roleEligibilityScheduleRequests/64caffb6-55c0-4deb-a585-68e948ea1ad6?api-version=2020-10-01-preview
+````
+
+### <a name="request-body"></a>Cuerpo de la solicitud
+
+````JSON
+{
+  "properties": {
+    "principalId": "a3bb8764-cb92-4276-9d2a-ca1e895e55ea",
+    "roleDefinitionId": "/subscriptions/dfa2a084-766f-4003-8ae1-c4aeb893a99f/providers/Microsoft.Authorization/roleDefinitions/c8d4ff99-41c3-41a8-9f60-21dfdad59608",
+    "requestType": "AdminAssign",
+    "scheduleInfo": {
+      "startDateTime": "2020-09-09T21:31:27.91Z",
+      "expiration": {
+        "type": "AfterDuration",
+        "endDateTime": null,
+        "duration": "P365D"
+      }
+    },
+    "condition": "@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'",
+    "conditionVersion": "1.0"
+  }
+}
+````
+
+### <a name="response"></a>Response
+
+Código de estado: 201
+
+````HTTP
+{
+  "properties": {
+    "targetRoleEligibilityScheduleId": "b1477448-2cc6-4ceb-93b4-54a202a89413",
+    "targetRoleEligibilityScheduleInstanceId": null,
+    "scope": "/providers/Microsoft.Subscription/subscriptions/dfa2a084-766f-4003-8ae1-c4aeb893a99f",
+    "roleDefinitionId": "/subscriptions/dfa2a084-766f-4003-8ae1-c4aeb893a99f/providers/Microsoft.Authorization/roleDefinitions/c8d4ff99-41c3-41a8-9f60-21dfdad59608",
+    "principalId": "a3bb8764-cb92-4276-9d2a-ca1e895e55ea",
+    "principalType": "User",
+    "requestType": "AdminAssign",
+    "status": "Provisioned",
+    "approvalId": null,
+    "scheduleInfo": {
+      "startDateTime": "2020-09-09T21:31:27.91Z",
+      "expiration": {
+        "type": "AfterDuration",
+        "endDateTime": null,
+        "duration": "P365D"
+      }
+    },
+    "ticketInfo": {
+      "ticketNumber": null,
+      "ticketSystem": null
+    },
+    "justification": null,
+    "requestorId": "a3bb8764-cb92-4276-9d2a-ca1e895e55ea",
+    "createdOn": "2020-09-09T21:32:27.91Z",
+    "condition": "@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'",
+    "conditionVersion": "1.0",
+    "expandedProperties": {
+      "scope": {
+        "id": "/subscriptions/dfa2a084-766f-4003-8ae1-c4aeb893a99f",
+        "displayName": "Pay-As-You-Go",
+        "type": "subscription"
+      },
+      "roleDefinition": {
+        "id": "/subscriptions/dfa2a084-766f-4003-8ae1-c4aeb893a99f/providers/Microsoft.Authorization/roleDefinitions/c8d4ff99-41c3-41a8-9f60-21dfdad59608",
+        "displayName": "Contributor",
+        "type": "BuiltInRole"
+      },
+      "principal": {
+        "id": "a3bb8764-cb92-4276-9d2a-ca1e895e55ea",
+        "displayName": "User Account",
+        "email": "user@my-tenant.com",
+        "type": "User"
+      }
+    }
+  },
+  "name": "64caffb6-55c0-4deb-a585-68e948ea1ad6",
+  "id": "/providers/Microsoft.Subscription/subscriptions/dfa2a084-766f-4003-8ae1-c4aeb893a99f/providers/Microsoft.Authorization/RoleEligibilityScheduleRequests/64caffb6-55c0-4deb-a585-68e948ea1ad6",
+  "type": "Microsoft.Authorization/RoleEligibilityScheduleRequests"
+}
+````
 
 ## <a name="update-or-remove-an-existing-role-assignment"></a>Actualizar o quitar una asignación de roles existente
 

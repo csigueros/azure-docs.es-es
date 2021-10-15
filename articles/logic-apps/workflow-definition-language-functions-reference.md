@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 09/09/2021
-ms.openlocfilehash: f1b4efafd7868d4c42528ce7de5eae56051dcb83
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 99d642a1cd534691e5089ac6956dc023d3a207d0
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124736650"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388857"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guía de referencia para usar las funciones en las expresiones para Azure Logic Apps y Power Automate
 
@@ -1005,9 +1005,7 @@ Este ejemplo convierte la cadena "aGVsbG8 =" codificada en base64 en una cadena 
 base64ToBinary('aGVsbG8=')
 ```
 
-Y devuelve este resultado:
-
-`"0110000101000111010101100111001101100010010001110011100000111101"`
+Por ejemplo, supongamos que usa una acción HTTP para enviar una solicitud. Puede usar `base64ToBinary()` para convertir una cadena codificada en base64 en datos binarios y enviar los datos mediante el tipo de contenido `application/octet-stream` de la solicitud.
 
 <a name="base64ToString"></a>
 
@@ -1065,6 +1063,7 @@ binary('<value>')
 *Ejemplo*
 
 Por ejemplo, usa una acción HTTP que devuelve una imagen o un archivo de vídeo. Puede usar `binary()` para convertir el valor en un modelo de sobre de contenido codificado en Base 64. A continuación, puede reutilizar el sobre de contenido en otras acciones, como `Compose`.
+Puede usar esta expresión de función para enviar los bytes de cadena con el tipo de contenido `application/octet-stream` en la solicitud.
 
 <a name="body"></a>
 
@@ -1277,7 +1276,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
-| <*zona_horaria_de_destino*> | Sí | String | Nombre de la zona horaria de destino. Para los nombres de zonas horarias, consulte [Zonas horarias predeterminadas de Microsoft Windows](/windows-hardware/manufacture/desktop/default-time-zones), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
+| <*zona_horaria_de_destino*> | Sí | String | Nombre de la zona horaria de destino. Para los nombres de zona horaria, revise: [Zonas horarias predeterminadas de Microsoft Windows](/windows-hardware/manufacture/desktop/default-time-zones). |
 | <*formato*> | No | String | Puede ser un [especificador de formato sencillo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), que cumple la norma [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
@@ -3716,7 +3715,7 @@ split('<text>', '<delimiter>')
 | [<*subcadena1*>, <*subcadena2*>,...] | Array | Una matriz que contiene subcadenas de la cadena original, separadas por comas |
 ||||
 
-*Ejemplo*
+*Ejemplo 1*
 
 En este ejemplo se crea una matriz con las subcadenas de la cadena especificada según el carácter especificado como delimitador:
 
@@ -3725,6 +3724,16 @@ split('a_b_c', '_')
 ```
 
 Y devuelve esta matriz como resultado: `["a","b","c"]`
+
+*Ejemplo 2*
+  
+En este ejemplo se crea una matriz con un único elemento cuando no existe ningún delimitador en la cadena:
+
+```
+split('a_b_c', ' ')
+```
+
+Y devuelve esta matriz como resultado: `["a_b_c"]`
 
 <a name="startOfDay"></a>
 

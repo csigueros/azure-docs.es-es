@@ -4,17 +4,17 @@ titleSuffix: Azure Machine Learning
 description: Inicie TensorBoard para visualizar los historiales de ejecución de los experimentos e identificar posibles áreas para el ajuste y el reentrenamiento de hiperparámetros.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 author: minxia
 ms.author: minxia
 ms.date: 02/27/2020
 ms.topic: how-to
-ms.openlocfilehash: a8e1c85bf2284eb2dd5a2bc87c2a60b89478e928
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 29c79d53ded02ab4648359210b8b18ea04f5965b
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108760614"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429022"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualización de las ejecuciones y las métricas de los experimentos con TensorBoard y Azure Machine Learning
 

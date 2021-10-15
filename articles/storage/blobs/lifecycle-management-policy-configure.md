@@ -10,12 +10,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 507077913a672da6f9572a283367c5713a9d5e39
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e940db4a16963b236fa5230893373da935532761
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128603512"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273221"
 ---
 # <a name="configure-a-lifecycle-management-policy"></a>Configurar una directiva de administración del ciclo de vida
 
@@ -220,4 +220,4 @@ Una directiva de administración del ciclo de vida se debe leer o escribir compl
 ## <a name="see-also"></a>Consulte también
 
 - [Optimizar los costes mediante la administración automática del ciclo de vida de los datos](lifecycle-management-overview.md)
-- [Niveles de acceso de Azure Blob Storage: frecuente, esporádico y archivo](storage-blob-storage-tiers.md)
+- [Niveles de acceso frecuente, esporádico y de archivo de los datos de blob](access-tiers-overview.md)

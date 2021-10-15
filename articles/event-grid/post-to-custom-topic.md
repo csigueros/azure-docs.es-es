@@ -4,16 +4,20 @@ description: En este artículo se describe cómo publicar un evento en un tema p
 ms.topic: conceptual
 ms.date: 08/19/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3c3be5c11341ddd7bb381134a0d0b50ba8745709
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 489ad5ab07a411612bdbce1a2dc71dc1a3441f3c
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122515427"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361517"
 ---
-# <a name="post-to-azure-event-grid-custom-topics-using-access-keys"></a>Publicar temas personalizados de Azure Event Grid mediante claves de acceso
+# <a name="publish-events-to-azure-event-grid-custom-topics-using-access-keys"></a>Publicación de eventos en temas personalizados de Azure Event Grid mediante claves de acceso
 
 En este artículo se describe cómo publicar un evento en un tema personalizado mediante una clave de acceso. Muestra el formato de los datos de publicación y eventos. El [Acuerdo de Nivel de Servicio (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/) solo se aplica a las publicaciones que coinciden con el formato esperado.
+
+
+> [!NOTE]
+> La autenticación de Azure AD proporciona una compatibilidad de autenticación superior a la que ofrece la autenticación con claves de acceso o tokens de firma de acceso compartido (SAS). Con la autenticación de Azure AD, la identidad se valida en un proveedor de identidades de Azure AD. Si usa la autenticación de Azure AD, como desarrollador, no tiene que controlar las claves del código. También se beneficia de todas las características de seguridad integradas en la plataforma de identidad de Microsoft, como el acceso condicional, que puede ayudarle a mejorar la postura de seguridad de la aplicación. Para más información, consulte el artículo sobre la [autenticación de clientes de publicación mediante Azure Active Directory](authenticate-with-active-directory.md).
 
 ## <a name="endpoint"></a>Punto de conexión
 

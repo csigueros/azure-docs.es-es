@@ -12,12 +12,12 @@ ms.date: 06/05/2020
 ms.author: celested
 ms.reviewer: asteen, jlu, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bed6bc43dfc15abf2bdf9f38a5de2240d348d6fb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e27ac47426e8c3d8ff7b4b02fcdbfcf06d3a3453
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89320263"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129231299"
 ---
 # <a name="configure-the-stay-signed-in-prompt-for-azure-ad-accounts"></a>Configuración del mensaje "¿Quiere mantener la sesión iniciada?" para las cuentas de Azure AD
 
@@ -61,7 +61,7 @@ También puede usar los controles de sesión del explorador persistentes en el a
 
 Para asegurar que el aviso de KMSI se muestre sólo cuando pueda beneficiar al usuario, el aviso de KMSI no se muestra intencionadamente en los siguientes escenarios:
 
-* El usuario ha iniciado sesión mediante SSO de conexión directa y la autenticación integrada de Windows (IWA)
+* El usuario ha iniciado sesión mediante el inicio de sesión único de conexión directa y la autenticación integrada de Windows (IWA)
 * El usuario inició sesión mediante los Servicios de federación de Active Directory (AD FS) y Autenticación integrada de Windows
 * El usuario es un invitado en el inquilino
 * La puntuación de riesgo del usuario es alta

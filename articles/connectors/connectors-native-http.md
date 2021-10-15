@@ -7,12 +7,12 @@ ms.reviewer: estfan, logicappspm, azla
 ms.topic: how-to
 ms.date: 09/13/2021
 tags: connectors
-ms.openlocfilehash: 1c894c6162a8c9e24794f5c52ce1f6cefb6fa85a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c1352fe61b8a663371719100aa86806da0791f20
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128563701"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359359"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Llamada a puntos de conexión de servicio mediante HTTP o HTTPS desde Azure Logic Apps
 
@@ -128,19 +128,19 @@ Aquí tiene más información acerca de las salidas de un desencadenador o una a
 
 Si tiene un recurso de **Aplicación lógica (estándar)** en Azure Logic Apps de un solo inquilino y desea usar una operación HTTP con cualquiera de los siguientes tipos de autenticación, asegúrese de completar los pasos de configuración adicionales para el tipo de autenticación correspondiente. De lo contrario, se produce un error en la llamada.
 
-* [Certificado TSL/SSL](#tsl-ssl-certificate-authentication): agregue la configuración de la aplicación, `WEBSITE_LOAD_ROOT_CERTIFICATES`, y proporcione la huella digital del certificado TSL/SSL.
+* [Certificado TLS/SSL](#tls-ssl-certificate-authentication): agregue la configuración de la aplicación, `WEBSITE_LOAD_ROOT_CERTIFICATES`, y proporcione la huella digital del certificado TLS/SSL.
 
 * [Certificado de cliente o Azure Active Directory Open Authentication (Azure AD OAuth) con el tipo de credencial "Certificado"](#client-certificate-authentication): agregue la configuración de la aplicación, `WEBSITE_LOAD_USER_PROFILE`, y establezca el valor en `1`.
 
-<a name="tsl-ssl-certificate-authentication"></a>
+<a name="tls-ssl-certificate-authentication"></a>
 
-### <a name="tslssl-certificate-authentication"></a>Autenticación con certificados TLS/SSL
+### <a name="tlsssl-certificate-authentication"></a>Autenticación con certificados TLS/SSL
 
 1. En la configuración de la aplicación del recurso de aplicación lógica, [agregue o actualice la configuración de la aplicación](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings), `WEBSITE_LOAD_ROOT_CERTIFICATES`.
 
 1. Para el valor de configuración, proporcione la huella digital del certificado TLS/SSL como certificado raíz de confianza.
 
-   `"WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>"`
+   `"WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TLS/SSL-certificate>"`
 
 Por ejemplo, si trabaja en Visual Studio Code, siga estos pasos:
 
@@ -154,7 +154,7 @@ Por ejemplo, si trabaja en Visual Studio Code, siga estos pasos:
       "Values": {
          <...>
          "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-         "WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>",
+         "WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TLS/SSL-certificate>",
          <...>
       }
    }
@@ -256,9 +256,9 @@ Por ejemplo, imagine que tiene una aplicación lógica que envía una solicitud 
 
 ## <a name="asynchronous-request-response-behavior"></a>Comportamiento asincrónico de la solicitud-respuesta
 
-Para los flujos de trabajo *con estado* en instancias de Azure Logic Apps de uno o varios inquilinos, todas las acciones basadas en HTTP siguen el [patrón de operación asincrónica](/azure/architecture/patterns/async-request-reply) estándar como comportamiento predeterminado. Este patrón especifica que, después de que una acción HTTP llame a o envíe una solicitud a un punto de conexión, servicio, sistema o API, el receptor devolverá inmediatamente una respuesta ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3). Este código confirma que el receptor aceptó la solicitud, pero no ha finalizado el procesamiento. La respuesta puede incluir un encabezado `location` que especifica el URI y un identificador de actualización que el autor de la llamada puede usar para sondear o comprobar el estado de la solicitud asincrónica hasta que el receptor detenga el procesamiento y devuelva una respuesta de operación correcta ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) u otra respuesta que no sea 202. Sin embargo, el autor de la llamada no tiene que esperar a que la solicitud finalice el procesamiento y puede continuar ejecutando la siguiente acción. Para más información, consulte [Diseño de la comunicación entre servicios para microservicios](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
+Para los flujos de trabajo *con estado* en instancias de Azure Logic Apps de uno o varios inquilinos, todas las acciones basadas en HTTP siguen el [patrón de operación asincrónica](/azure/architecture/patterns/async-request-reply) estándar como comportamiento predeterminado. Este patrón especifica que, después de que una acción HTTP llame a o envíe una solicitud a un punto de conexión, servicio, sistema o API, el receptor devolverá inmediatamente una respuesta ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3). Este código confirma que el receptor aceptó la solicitud, pero no ha finalizado el procesamiento. La respuesta puede incluir un encabezado `location` que especifica el URI y un identificador de actualización que el autor de la llamada puede usar para sondear o comprobar el estado de la solicitud asincrónica hasta que el receptor detiene el procesamiento y devuelve una respuesta de operación correcta ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) u otra respuesta que no sea 202. Sin embargo, el autor de la llamada no tiene que esperar a que la solicitud finalice el procesamiento y puede continuar ejecutando la siguiente acción. Para más información, consulte [Diseño de la comunicación entre servicios para microservicios](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
 
-Para los flujos de trabajo *sin estado* en instancias de Azure Logic Apps de inquilino único, las acciones basadas en HTTP no usan el patrón de operación asincrónica. En su lugar, solo se ejecutan sincrónicamente, devuelven la respuesta ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) tal y como está, y van al paso siguiente en la ejecución del flujo de trabajo. Si la respuesta incluye un encabezado `location`, un flujo de trabajo sin estado no sondeará el URI especificado para comprobar el estado. Para seguir el [patrón de operación asincrónica estándar](/azure/architecture/patterns/async-request-reply), use en su lugar un flujo de trabajo con estado.
+Para los flujos de trabajo *sin estado* en instancias de Azure Logic Apps de inquilino único, las acciones basadas en HTTP no usan el patrón de operación asincrónica. En su lugar, solo se ejecutan sincrónicamente, devuelven la respuesta ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) tal y como está, y van al paso siguiente en la ejecución del flujo de trabajo. Si la respuesta incluye un encabezado `location`, un flujo de trabajo sin estado no sondea al URI especificado para comprobar el estado. Para seguir el [patrón de operación asincrónica estándar](/azure/architecture/patterns/async-request-reply), use en su lugar un flujo de trabajo con estado.
 
 * En el Diseñador de aplicación lógica, la acción HTTP (no el desencadenador) tiene una opción de configuración **Modelo asincrónico**, que está habilitada de forma predeterminada. Esta configuración especifica que el autor de la llamada no espera a que finalice el procesamiento y puede pasar a la siguiente acción, pero continúa comprobando el estado hasta que el procesamiento se detiene. Si está deshabilitada, esta configuración especifica que el autor de la llamada espera a que finalice el procesamiento antes de pasar a la siguiente acción.
 

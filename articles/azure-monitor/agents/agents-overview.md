@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/22/2021
-ms.openlocfilehash: 204c7a75eed5be4b6c3aca91d59011fd2b1327b5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8a6a2b7acc4f627bb871520ee6a82be920d1135e
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750140"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215916"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Información general sobre los agentes de Azure Monitor
 
@@ -31,7 +31,7 @@ En las tablas siguientes se proporciona una comparación rápida de los agentes 
 | **Entornos compatibles** | Azure<br>Otra nube (Azure Arc)<br>Local (Azure Arc)  | Azure | Azure<br>Otra nube<br>Local | Azure<br>Otra nube<br>Local | 
 | **Requisitos del agente**  | None | None | None | Requiere el agente de Log Analytics |
 | **Datos recopilados** | Registros de eventos<br>Rendimiento | Registros de eventos<br>Eventos de ETW<br>Rendimiento<br>Registros basados en archivos<br>Registros IIS<br>Registros de aplicaciones .NET<br>Volcados de memoria<br>Registros de diagnósticos del agente | Registros de eventos<br>Rendimiento<br>Registros basados en archivos<br>Registros IIS<br>Conclusiones y soluciones<br>Otros servicios | Dependencias de procesos<br>Métricas de conexión de red |
-| **Destinatario de los datos** | Registros de Azure Monitor<br>Métricas de Azure Monitor | Azure Storage<br>Métricas de Azure Monitor<br>Centro de eventos | Registros de Azure Monitor | Registros de Azure Monitor<br>(a través del agente de Log Analytics) |
+| **Destinatario de los datos** | Registros de Azure Monitor<br>Métricas de Azure Monitor<sup>1</sup> | Azure Storage<br>Métricas de Azure Monitor<br>Centro de eventos | Registros de Azure Monitor | Registros de Azure Monitor<br>(a través del agente de Log Analytics) |
 | **Servicios y**<br>**features**<br>**Se admite** | Log Analytics<br>Explorador de métricas | Explorador de métricas | VM Insights<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | VM Insights<br>Mapa de servicio |
 
 ### <a name="linux-agents"></a>Agentes de Linux
@@ -44,7 +44,7 @@ En las tablas siguientes se proporciona una comparación rápida de los agentes 
 | **Destinatario de los datos** | Registros de Azure Monitor<br>Métricas de Azure Monitor<sup>1</sup> | Azure Storage<br>Centro de eventos | Métricas de Azure Monitor | Registros de Azure Monitor | Registros de Azure Monitor<br>(a través del agente de Log Analytics) |
 | **Servicios y**<br>**features**<br>**Se admite** | Log Analytics<br>Explorador de métricas | | Explorador de métricas | VM Insights<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | VM Insights<br>Mapa de servicio |
 
-<sup>1</sup> Actualmente hay una limitación en el agente de Azure Monitor para Linux por la que no se admite el uso de métricas de Azure Monitor como *único* destino. Su uso junto con los registros de Azure Monitor funciona. Esta limitación se solucionará en la siguiente actualización de la extensión.
+<sup>1</sup> [Haga clic aquí](../essentials/metrics-custom-overview.md#quotas-and-limits) para revisar otras limitaciones del uso de Métricas de Azure Monitor. En Linux, el uso de Métricas de Azure Monitor como único destino se admite en v.1.10.9.0 o superior. 
 
 ## <a name="azure-monitor-agent"></a>Agente de Azure Monitor
 
@@ -54,7 +54,7 @@ Utilice el agente de Azure Monitor si necesita:
 
 - Recopilar los registros y las métricas de los invitados de cualquier máquina en Azure, en otras nubes o en el entorno local. (Los [servidores habilitados para Azure Arc](../../azure-arc/servers/overview.md) son necesarios para las máquinas fuera de Azure). 
 - Administrar la configuración de recopilación de datos de manera centralizada, mediante [reglas de recopilación de datos](./data-collection-rule-overview.md) y use plantillas de Azure Resource Manager (ARM) o directivas para la administración general.
-- Enviar datos a registros y métricas de Azure Monitor para su análisis con Azure Monitor. 
+- Enviar datos a Azure Monitor Logs and Azure Monitor Metrics (versión preliminar) para su análisis con Azure Monitor. 
 - Aprovechar el filtrado de eventos de Windows o varios alojamientos para registros en Windows y Linux.
 <!--- Send data to Azure Storage for archiving.
 - Send data to third-party tools using [Azure Event Hubs](./diagnostics-extension-stream-event-hubs.md).
@@ -129,6 +129,7 @@ Tenga en cuenta lo siguiente al usar Dependency Agent:
 
 - Dependency Agent requiere que el agente de Log Analytics se instale en la misma máquina.
 - En los equipos Linux, el agente de Log Analytics debe instalarse antes que la extensión Azure Diagnostics.
+- En las versiones Windows y Linux de Dependency Agent, la recopilación de datos se realiza mediante un servicio de espacio de usuario y un controlador de kernel. 
 
 ## <a name="virtual-machine-extensions"></a>Extensiones de máquina virtual
 
@@ -144,6 +145,7 @@ En las tablas siguientes se enumeran los sistemas operativos compatibles con los
 
 | Sistema operativo | Agente de Azure Monitor | Agente de Log Analytics | Dependency Agent | Extensión Diagnostics | 
 |:---|:---:|:---:|:---:|:---:|
+| Windows Server 2022                                      | X |   |   |   |
 | Windows Server 2019                                      | X | X | X | X |
 | Windows Server 2019 Core                                 | X |   |   |   |
 | Windows Server 2016                                      | X | X | X | X |
@@ -153,15 +155,19 @@ En las tablas siguientes se enumeran los sistemas operativos compatibles con los
 | Windows Server 2008 R2 SP1                               | X | X | X | X |
 | Windows Server 2008 R2                                   |   |   | X | X |
 | Windows Server 2008 SP2                                   |   | X |  |  |
-| Windows 10 Enterprise<br>(incluida la sesión múltiple) y Pro<br>(Solo para escenarios de servidor)  | X | X | X | X |
-| Windows 8 Enterprise y Pro<br>(Solo para escenarios de servidor)  |   | X | X |   |
-| Windows 7 SP1<br>(Solo para escenarios de servidor)                 |   | X | X |   |
+| Windows 10 Enterprise<br>(incluida la sesión múltiple) y Pro<br>(Solo para escenarios de servidor<sup>1</sup>)  | X | X | X | X |
+| Windows 8 Enterprise y Pro<br>(Solo para escenarios de servidor<sup>1</sup>)  |   | X | X |   |
+| Windows 7 SP1<br>(Solo para escenarios de servidor<sup>1</sup>)                 |   | X | X |   |
+| Azure Stack HCI                                          |   | X |   |   |
+
+<sup>1</sup> Ejecución del sistema operativo en hardware de servidor, es decir, máquinas que siempre están conectadas, siempre activadas y que no ejecutan otras cargas de trabajo (PC, oficina, explorador, etc.)
 
 ### <a name="linux"></a>Linux
 
 | Sistema operativo | Agente de Azure Monitor <sup>1</sup> | Agente de Log Analytics <sup>1</sup> | Dependency Agent | Extensión Diagnostics <sup>2</sup>| 
 |:---|:---:|:---:|:---:|:---:
 | Amazon Linux 2017.09                                        |   | X |   |   |
+| Amazon Linux 2                                              |   | X |   |   |
 | CentOS Linux 8                                              | X <sup>3</sup> | X | X |   |
 | CentOS Linux 7                                              | X | X | X | X |
 | CentOS Linux 6                                              |   | X |   |   |
@@ -186,7 +192,7 @@ En las tablas siguientes se enumeran los sistemas operativos compatibles con los
 | SUSE Linux Enterprise Server 15                             | X | X | X |   |
 | SUSE Linux Enterprise Server 12 SP5                         | X | X | X | X |
 | SUSE Linux Enterprise Server 12                             | X | X | X | X |
-| Ubuntu 20.04 LTS                                            | X | X | X |   |
+| Ubuntu 20.04 LTS                                            | X | X | X | X |
 | Ubuntu 18.04 LTS                                            | X | X | X | X |
 | Ubuntu 16.04 LTS                                            | X | X | X | X |
 | Ubuntu 14.04 LTS                                            |   | X |   | X |

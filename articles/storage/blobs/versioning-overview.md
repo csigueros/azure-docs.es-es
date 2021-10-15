@@ -10,12 +10,12 @@ ms.date: 05/10/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1feb78c381a189ae2db1d2aa658f8d0782769f99
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2fa724f139881f7647468684f5ad97d80a80baf2
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128664796"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274432"
 ---
 # <a name="blob-versioning"></a>Control de versiones de blobs
 
@@ -109,7 +109,7 @@ Al escribir nuevos datos en el blob, se crea una versión actual de este. Las ve
 
 ### <a name="access-tiers"></a>Niveles de acceso
 
-Puede trasladar cualquier versión de un blob en bloques, incluida la actual, a otro nivel de acceso de blobs mediante una llamada a la operación [Set Blob Tier](/rest/api/storageservices/set-blob-tier). Para aprovechar los precios de menor capacidad, traslade las versiones anteriores de un blob al nivel de acceso esporádico o de archivo. Para obtener más información, consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](storage-blob-storage-tiers.md).
+Puede trasladar cualquier versión de un blob en bloques, incluida la actual, a otro nivel de acceso de blobs mediante una llamada a la operación [Set Blob Tier](/rest/api/storageservices/set-blob-tier). Para aprovechar los precios de menor capacidad, traslade las versiones anteriores de un blob al nivel de acceso esporádico o de archivo. Para más información, consulte [Niveles de acceso frecuente, esporádico y de archivo de los datos de blob](access-tiers-overview.md).
 
 Para automatizar el proceso de trasladar blobs en bloques al nivel adecuado, use la administración del ciclo de vida del blob. Para obtener más información sobre la administración del ciclo de vida, consulte [Administración del ciclo de vida de Azure Blob Storage](./lifecycle-management-overview.md).
 
@@ -209,7 +209,7 @@ En la tabla siguiente se muestra el permiso necesario en un SAS para eliminar un
 
 La habilitación del control de versiones de blobs puede dar lugar a cargos de almacenamiento de datos adicionales en su cuenta. Al diseñar una aplicación, es importante tener en cuenta cómo se pueden acumular estos gastos para que pueda de minimizar los costos.
 
-Las versiones de blobs, como las instantáneas de blobs, se facturan con la misma tarifa que los datos activos. La forma en que se facturan las versiones depende de si ha establecido explícitamente el nivel para el blob de base o para cualquiera de sus versiones (o instantáneas). Para más información sobre los niveles de blobs, consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](storage-blob-storage-tiers.md).
+Las versiones de blobs, como las instantáneas de blobs, se facturan con la misma tarifa que los datos activos. La forma en que se facturan las versiones depende de si ha establecido explícitamente el nivel para el blob de base o para cualquiera de sus versiones (o instantáneas). Para más información sobre los niveles de acceso de los blobs, consulte [Niveles de acceso frecuente, esporádico y de archivo de los datos de blob](access-tiers-overview.md).
 
 Si no ha cambiado el nivel de un blob o de una versión, se le facturarán los bloques únicos de datos en ese blob, sus versiones y las instantáneas que pueda tener. Para más información, consulte [Facturación cuando el nivel de blob no se ha establecido explícitamente](#billing-when-the-blob-tier-has-not-been-explicitly-set).
 
@@ -291,7 +291,7 @@ Cuando la eliminación temporal del blob está habilitada, si elimina o sobrescr
 
 En la tabla siguiente se describe el comportamiento de facturación de un blob que se elimina temporalmente, en función de si el control de versiones está habilitado o deshabilitado. Cuando se habilita el control de versiones, se crea una versión cuando un blob se elimina temporalmente. Cuando se deshabilita el control de versiones, la eliminación temporal de un blob crea una instantánea de eliminación temporal.
 
-| Cuando sobrescribe un blob base con su nivel establecido explícitamente... | A continuación, se le facturará por... |
+| Cuando sobrescribe un blob base con su nivel establecido explícitamente... | Se le factura entonces... |
 |-|-|
 | Si la eliminación temporal de blobs y el control de versiones están habilitados | Todas las versiones existentes en la longitud del contenido completo independientemente del nivel. |
 | Si la eliminación temporal de blobs está habilitada, pero el control de versiones está deshabilitado | Todas las instantáneas de eliminación temporal existentes con una longitud de contenido completo independientemente del nivel. |

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6d4d0f355d48532c43e9180f2c819e45d45737b4
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: dc516c9631eda2904ff311af6ca779872d9802f0
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572201"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537195"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>Configuración de un grupo de disponibilidad AlwaysOn de SQL Server en distintas regiones de Azure
 
@@ -150,6 +150,8 @@ Para crear una réplica en un centro de datos remoto, siga estos pasos:
 
 1. En el nuevo servidor SQL Server, en el Administrador de configuración de SQL Server, [habilite grupos de disponibilidad AlwaysOn](/sql/database-engine/availability-groups/windows/enable-and-disable-always-on-availability-groups-sql-server).
 
+1. En el nuevo SQL Server de SQL Server Management Studio, [configure los permisos de cuenta del sistema](availability-group-manually-configure-prerequisites-tutorial.md#configure-system-account-permissions).
+
 1. [Abra los puertos de firewall en el nuevo servidor SQL](availability-group-manually-configure-prerequisites-tutorial.md#endpoint-firewall).
 
    Los números de puerto que debe abrir dependerán del entorno. Abra puertos para el punto de conexión de creación de reflejo y el sondeo de estado del equilibrador de carga de Azure.
@@ -158,12 +160,13 @@ Para crear una réplica en un centro de datos remoto, siga estos pasos:
 1. [Agregue una réplica al grupo de disponibilidad en el nuevo servidor SQL Server](/sql/database-engine/availability-groups/windows/use-the-add-replica-to-availability-group-wizard-sql-server-management-studio).
 
    Para una réplica en una región remota de Azure, establézcala en replicación asincrónica con conmutación por error manual.  
+   
 
 ## <a name="set-connection-for-multiple-subnets"></a>Configuración de conexión para varias subredes
 
 La réplica en el centro de datos remoto forma parte del grupo de disponibilidad pero está en una subred diferente. Si esta réplica se convierte en la réplica principal, pueden producirse tiempos de espera de conexión de la aplicación. Este comportamiento es el mismo que el de un grupo de disponibilidad local en una implementación con varias subredes. Para permitir conexiones de aplicaciones de cliente, actualice la conexión de cliente o configure el almacenamiento en caché de la resolución de nombres en el recurso de nombres de red del clúster.
 
-Es preferible actualizar las cadenas de conexión de cliente para establecer `MultiSubnetFailover=Yes`. Consulte [Conectarse a MultiSubnetFailover](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#Anchor_0).
+Preferiblemente, actualice la configuración del clúster para establecer `RegisterAllProvidersIP=1` y las cadenas de conexión de cliente para establecer `MultiSubnetFailover=Yes`. Consulte [Conectarse a MultiSubnetFailover](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#Anchor_0).
 
 Si no puede modificar las cadenas de conexión, puede configurar el almacenamiento en caché de la resolución de nombres. Consulte [Error de tiempo de espera y no se puede conectar a un agente de escucha de SQL Server 2012 AlwaysOn disponibilidad grupo en un entorno de varias subredes](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av).
 

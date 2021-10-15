@@ -6,19 +6,19 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 06/30/2021
 ms.author: v-erkel
-ms.openlocfilehash: e0100c9e184d1704d127e1ef5a33c2144e721a89
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: 151186d3d42ad799707f4a352e76cd154d3443bb
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113587102"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129276196"
 ---
 # <a name="edit-storage-targets"></a>Edición de los destinos de almacenamiento
 
 Puede modificar destinos de almacenamiento con Azure Portal o la CLI de Azure. Por ejemplo, puede cambiar las directivas de acceso, los modelos de uso y las rutas de acceso de espacio de nombres de un destino de almacenamiento existente.
 
 > [!TIP]
-> Lea [Administración de destinos de almacenamiento](manage-storage-targets.md) para saber cómo eliminar o suspender destinos de almacenamiento, o hacer que escriban datos almacenados en caché en el almacenamiento back-end.
+> Lea [Visualización y administración de destinos de almacenamiento](manage-storage-targets.md) para saber cómo eliminar o suspender destinos de almacenamiento, o hacer que escriban datos almacenados en caché en el almacenamiento back-end.
 
 En función del tipo de almacenamiento, puede modificar estos valores de destino de almacenamiento:
 
@@ -73,7 +73,7 @@ Para cambiar el espacio de nombres de un destino de almacenamiento de blobs con 
 
 En el caso de los destinos de almacenamiento de NFS, puede cambiar o agregar rutas de acceso de espacios de nombres virtuales, cambiar los valores de exportación o el subdirectorio de NFS al que apunta una ruta de acceso de espacio de nombres, y cambiar el modelo de uso.
 
-Los destinos de almacenamiento en cachés con algunos tipos de valores de DNS personalizados también tienen un control para actualizar sus direcciones IP. (Este tipo de configuración es poco frecuente). Conozca cómo actualizar la configuración de DNS en [Administración de destinos de almacenamiento](manage-storage-targets.md#update-ip-address-custom-dns-configurations-only).
+Los destinos de almacenamiento en cachés con algunos tipos de valores de DNS personalizados también tienen un control para actualizar sus direcciones IP. (Este tipo de configuración es poco frecuente). Aprenda a actualizar la configuración de DNS en [Visualización y administración de destinos de almacenamiento](manage-storage-targets.md#update-ip-address-custom-dns-configurations-only).
 
 A continuación se muestran los detalles:
 
@@ -179,6 +179,6 @@ La configuración de los modelos de uso de ADLS-NFS es idéntica a la selección
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Lea [Administración de destinos de almacenamiento](manage-storage-targets.md) para información sobre cómo detener, eliminar y vaciar destinos de almacenamiento individuales.
+* Lea [Administración de destinos de almacenamiento](manage-storage-targets.md) para obtener información sobre cómo detener, eliminar y vaciar destinos de almacenamiento individuales.
 * Lea [Incorporación de destinos de almacenamiento](hpc-cache-add-storage.md) para más información sobre opciones de destino de almacenamiento.
 * Lea [Planeamiento del espacio de nombres agregado](hpc-cache-namespace.md) para obtener más recomendaciones sobre el uso de rutas de acceso virtuales.

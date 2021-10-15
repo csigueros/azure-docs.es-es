@@ -6,12 +6,12 @@ ms.date: 07/23/2021
 ms.topic: article
 author: mayurigupta13
 ms.author: mayg
-ms.openlocfilehash: 1909b6efc46e40de0b0e4a864e8a5e3d852da366
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 16e13238ffd471678eab9bdd0245aa708b7c4419
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128637843"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389368"
 ---
 # <a name="azure-arc-enabled-open-service-mesh-preview"></a>Open Service Mesh habilitado para Azure Arc (versión preliminar)
 
@@ -52,7 +52,7 @@ Asegúrese de que la variable de entorno KUBECONFIG apunta al archivo kubeconfig
 Establezca las variables de entorno:
 
 ```azurecli-interactive
-export VERSION=0.8.4
+export VERSION=<osm-arc-version>
 export CLUSTER_NAME=<arc-cluster-name>
 export RESOURCE_GROUP=<resource-group-name>
 ```
@@ -92,7 +92,7 @@ Debería obtener una salida similar a la que se muestra a continuación. El grá
   },
   "statuses": [],
   "type": "Microsoft.KubernetesConfiguration/extensions",
-  "version": "0.8.4"
+  "version": "x.x.x"
 }
 ```
 
@@ -126,7 +126,7 @@ Para asegurarse de que la configuración del contenedor de inicialización con p
 
 ### <a name="install-azure-arc-enabled-osm-using-arm-template"></a>Instalación de OSM habilitado para Azure Arc mediante una plantilla de ARM
 
-Después de conectar el clúster a Azure Arc, cree un archivo JSON con el formato siguiente y asegúrese de actualizar el valor \<cluster-name\>:
+Después de conectar el clúster a Azure Arc, cree un archivo JSON con el formato siguiente y asegúrese de actualizar los valores \<cluster-name\> y \<osm-arc-version\>:
 
 ```json
 {
@@ -148,7 +148,7 @@ Después de conectar el clúster a Azure Arc, cree un archivo JSON con el format
             }
         },
         "ExtensionVersion": {
-            "defaultValue": "0.8.4",
+            "defaultValue": "<osm-arc-version>",
             "type": "String",
             "metadata": {
                 "description": "The extension type version."
@@ -203,7 +203,7 @@ Ahora, debería poder ver los recursos de OSM y usar la extensión OSM en el cl�
 
 ## <a name="validate-the-azure-arc-enabled-open-service-mesh-installation"></a>Validación de la instalación de Open Service Mesh habilitado para Azure Arc
 
-Ejecute el siguiente comando.
+Ejecute el siguiente comando:
 
 ```azurecli-interactive
 az k8s-extension show --cluster-type connectedClusters --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --name osm
@@ -238,7 +238,7 @@ Debería mostrarse una salida JSON similar a la siguiente:
   },
   "statuses": [],
   "type": "Microsoft.KubernetesConfiguration/extensions",
-  "version": "0.8.4"
+  "version": "x.x.x"
 }
 ```
 ## <a name="osm-controller-configuration"></a>Configuración del controlador de OSM

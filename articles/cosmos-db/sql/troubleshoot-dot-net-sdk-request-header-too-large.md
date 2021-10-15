@@ -4,17 +4,17 @@ description: Obtenga información sobre cómo diagnosticar y corregir la excepci
 author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 07/13/2020
+ms.date: 09/29/2021
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: d180e955fda4074fa2115b26f363b2c1350dab98
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: acd3393471e8a58247ad366dcc8b816965ba8045
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123114426"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273502"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-header-too-large-message"></a>Diagnóstico y solución de problemas del mensaje "Encabezado de solicitud demasiado grande" de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -37,7 +37,7 @@ Reinicie la aplicación cliente para restablecer todos los tokens de sesión. Es
 
 #### <a name="solution"></a>Solución:
 > [!IMPORTANT]
-> Actualice al menos a .NET [v3.20.1](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md) o [v2.15.0](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md). Estas versiones secundarias contienen optimizaciones para reducir el tamaño del token de sesión, con el fin de evitar que el encabezado crezca y alcance el límite de tamaño.
+> Actualice al menos a .NET [v3.20.1](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md) o [v2.16.1](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md). Estas versiones secundarias contienen optimizaciones para reducir el tamaño del token de sesión, con el fin de evitar que el encabezado crezca y alcance el límite de tamaño.
 1. Siga las instrucciones de los artículos sobre las sugerencias de rendimiento para [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) o [.NET v2](performance-tips.md). Convierta la aplicación para que use el modo de conexión directa con el Protocolo de control de transmisión (TCP). El modo de conexión directa con el protocolo TCP no tiene la restricción de tamaño de encabezado como el protocolo HTTP, por lo que se evita este problema. Asegúrese de usar la versión más reciente del SDK, que tiene una corrección para las operaciones de consulta cuando la interoperabilidad del servicio no está disponible.
 1. Si el modo de conexión directa con el protocolo TCP no es una opción para su carga de trabajo, mitigue el problema cambiando el [nivel de coherencia del cliente](how-to-manage-consistency.md). El token de sesión solo se usa para la coherencia de la sesión, que es el nivel de coherencia predeterminado para Azure Cosmos DB. Los otros niveles de coherencia no usan el token de sesión.
 

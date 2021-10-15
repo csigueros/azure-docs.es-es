@@ -1,23 +1,23 @@
 ---
 title: Configuración de mensajes AS2
-description: Guía de referencia para la configuración de envío y recepción de AS2 en Azure Logic Apps con Enterprise Integration Pack
+description: Guía de referencia para la configuración de mensajes AS2 en contratos para Azure Logic Apps con Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
-ms.topic: article
+ms.reviewer: estfan, azla
+ms.topic: reference
 ms.date: 07/20/2021
-ms.openlocfilehash: af13306598db75e89064507b9a2fad80d8d33542
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 2bec9c598c0f08e9e114fcf5a83bfb0d238dd2b1
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114453178"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400998"
 ---
-# <a name="reference-for-as2-message-settings-in-azure-logic-apps-with-enterprise-integration-pack"></a>Guía de referencia para la configuración de envío y recepción de AS2 en Azure Logic Apps con Enterprise Integration Pack
+# <a name="reference-for-as2-message-settings-in-agreements-for-azure-logic-apps"></a>Referencia de la configuración de mensajes AS2 en contratos para Azure Logic Apps
 
-Esta referencia describe las propiedades que puede establecer para especificar cómo un contrato de AS2 controla los mensajes enviados y recibidos entre asociados comerciales. Configure estas propiedades en función del contrato con el asociado con el que intercambia mensajes.
+Esta referencia describe las propiedades que puede establecer en un contrato AS2 para especificar cómo administrar los mensajes entre [asociados comerciales](logic-apps-enterprise-integration-partners.md). Configure estas propiedades en función del contrato con el asociado con el que intercambia mensajes.
 
 <a name="AS2-incoming-messages"></a>
 

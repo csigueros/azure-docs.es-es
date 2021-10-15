@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: 45b9fa1fb96f45b5b24d7a0b823b11f89a471bd4
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: d17f370739acf5280850beb1eb14ad8cdc0268a6
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111752322"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424943"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Copia de seguridad y restauración en el grupo de SQL dedicado de Azure Synapse
 
@@ -74,7 +74,7 @@ Se crea una copia de seguridad de replicación geográfica una vez al día en un
 Si no necesita copias de seguridad geográficas para su grupo de SQL dedicado, puede deshabilitarlas y ahorrar costos de almacenamiento de recuperación ante desastres. Para ello, consulte [Guía de procedimientos: Deshabilitación de copias de seguridad geográficas para un grupo de SQL dedicado (anteriormente SQL DW)](disable-geo-backup.md). Tenga en cuenta que si deshabilita las copias de seguridad geográficas, no podrá recuperar el grupo de SQL dedicado en la región de Azure emparejada si el centro de datos principal de Azure no está disponible. 
 
 > [!NOTE]
-> Si necesita un objetivo de punto de recuperación más reducido para copias de seguridad de replicación geográfica, vote por esta funcionalidad [aquí](https://feedback.azure.com/forums/307516-sql-data-warehouse). También puede crear un punto de restauración definido por el usuario y restaurar a partir del punto de restauración recién creado en un nuevo almacenamiento de datos. Cuando haya realizado la restauración, tendrá el almacenamiento de datos en línea y podrá pausarlo indefinidamente para ahorrar costos de proceso. La base de datos en pausa genera gastos de almacenamiento según la tarifa de Azure Premium Storage. Si necesita una copia activa del almacenamiento de datos, puede reanudarlo, lo que solo le llevará unos minutos.
+> Si necesita un objetivo de punto de recuperación más reducido para copias de seguridad de replicación geográfica, vote por esta funcionalidad [aquí](https://feedback.azure.com/forums/307516-sql-data-warehouse). También puede crear un punto de restauración definido por el usuario y restaurar a partir del punto de restauración recién creado en un nuevo almacenamiento de datos. Cuando haya realizado la restauración, tendrá el almacenamiento de datos en línea y podrá pausarlo indefinidamente para ahorrar los costos del proceso. La base de datos en pausa genera gastos de almacenamiento según la tarifa de Azure Premium Storage. Otro patrón común para un punto de recuperación más corto es ingerir datos en instancias principales y secundarias de un almacenamiento de datos en paralelo. En este escenario, los datos se ingieren desde un origen (o varios orígenes) y se conservan en dos instancias independientes del almacenamiento de datos (principal y secundaria). Para ahorrar en costos del proceso, puede pausar la instancia secundaria del almacenamiento. Si necesita una copia activa del almacenamiento de datos, puede reanudarlo, lo que solo le llevaría unos minutos.
 
 ## <a name="data-residency"></a>Residencia de datos 
 

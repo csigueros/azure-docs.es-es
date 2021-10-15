@@ -13,12 +13,12 @@ ms.reviewer: martinco
 ms.date: 4/26/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ea917523c33e73013824203d892d3931a0f2ee9
-ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
+ms.openlocfilehash: c634c30c325a05d9c1f8f7506180561488a010d6
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110586169"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234896"
 ---
 # <a name="configure-identification-and-authentication-controls-to-meet-fedramp-high-impact-level"></a>Configuración de controles de identificación y autenticación para cumplir el nivel de impacto FedRAMP High
 
@@ -63,7 +63,7 @@ Cada fila de la siguiente tabla proporciona instrucciones prescriptivas para ayu
 | IA-06| **Ocultar la información de comentarios de autenticación durante el proceso de autenticación.**<p>De forma predeterminada, Azure AD oculta todos los comentarios del autenticador.<p>
 | IA-07| **Implementar mecanismos para la autenticación en un módulo criptográfico que cumpla las leyes federales aplicables.**<p>El nivel de impacto FedRAMP High requiere el autenticador AAL3. Todos los autenticadores admitidos por Azure AD en AAL3 proporcionan mecanismos para autenticar el acceso del operador al módulo según sea necesario. Por ejemplo, en una implementación de Windows Hello para empresas con TPM de hardware, configure el nivel de autorización de propietario de TPM.<p> Recursos<br><li>Para obtener más información, consulte IA-02 (2 y 4).<br> <li>[Lograr niveles de seguridad de autenticación NIST con la plataforma de identidad de Microsoft](nist-overview.md) <br> <li>[Configuración de directiva de grupo del TPM](/windows/security/information-protection/tpm/trusted-platform-module-services-group-policy-settings) |
 | IA-08| **El sistema de información identifica y autentica de forma unívoca a los usuarios que no pertenecen a la organización (o los procesos que actúan en nombre de estos).**<p>Azure AD identifica y autentica de forma única a los usuarios que no pertenecen a la organización que se encuentran en el inquilino de la organización o en directorios externos mediante protocolos aprobados por Federal Identity, Credential, and Access Management (FICAM).<p>Recursos<br><li>[¿Qué es la colaboración B2B en Azure Active Directory?](../external-identities/what-is-b2b.md)<br> <li>[Federación directa con un proveedor de identidades para B2B](../external-identities/direct-federation.md)<br> <li>[Propiedades de un usuario invitado B2B](../external-identities/user-properties.md) |
-| IA-08(1)<br>IA-08(4)| **Acepte y compruebe las credenciales de PIV emitidas por otras agencias federales. Ajústese a los perfiles emitidos por FICAM.**<p>Configure Azure AD para aceptar credenciales de PIV mediante federación (OIDC, SAML) o localmente a través de la Autenticación integrada de Windows.<p>Recursos<br> <li>[¿En qué consiste la federación con Azure AD?](../hybrid/whatis-fed.md)<br> <li>[Configuración de AD FS para la autenticación de certificados de usuario](/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><li>[¿Qué es la colaboración B2B en Azure Active Directory?](../external-identities/what-is-b2b.md)<br> <li>[Federación directa con un proveedor de identidades para B2B](../external-identities/direct-federation.md) |
+| IA-08(1)<br>IA-08(4)| **Acepte y compruebe las credenciales de PIV emitidas por otras agencias federales. Ajústese a los perfiles emitidos por FICAM.**<p>Configure Azure AD para que acepte las credenciales de PIV mediante federación (OIDC, SAML) o localmente a través de la Autenticación integrada de Windows.<p>Recursos<br> <li>[¿En qué consiste la federación con Azure AD?](../hybrid/whatis-fed.md)<br> <li>[Configuración de AD FS para la autenticación de certificados de usuario](/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><li>[¿Qué es la colaboración B2B en Azure Active Directory?](../external-identities/what-is-b2b.md)<br> <li>[Federación directa con un proveedor de identidades para B2B](../external-identities/direct-federation.md) |
 | IA-08(2)| **Aceptar solo las credenciales aprobadas por FICAM.**<p>Azure AD admite los autenticadores de los AAL 1, 2 y 3 de NIST. Restrinja el uso de autenticadores de acuerdo con la categoría de seguridad del sistema al que se accede. <p>Azure AD admite una amplia variedad de métodos de autenticación.<p>Recursos<br> <li>[¿Qué métodos de autenticación y verificación hay disponibles en Azure Active Directory?](../authentication/concept-authentication-methods.md)<br> <li>[Introducción a la API de directiva de métodos de autenticación de Azure AD](/graph/api/resources/authenticationmethodspolicies-overview?view=graph-rest-beta&preserve-view=true)<br> <li>[Lograr niveles de seguridad de autenticación NIST con la plataforma de identidad de Microsoft](https://azure.microsoft.com/resources/microsoft-nist/) |
 
 ## <a name="next-steps"></a>Pasos siguientes

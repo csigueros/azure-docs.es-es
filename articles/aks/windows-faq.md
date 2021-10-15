@@ -2,15 +2,14 @@
 title: Preguntas frecuentes sobre los grupos de nodos de Windows Server
 titleSuffix: Azure Kubernetes Service
 description: Vea las preguntas frecuentes cuando ejecute cargas de trabajo de aplicaciones y grupos de nodos de Windows Server en Azure Kubernetes Service (AKS).
-services: container-service
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: c11ca69e11ee3f9b429414c2caf5b71a947d6a31
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: dd83803069f83233915c0baae0656346008a3814
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128595301"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354627"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Preguntas frecuentes sobre los grupos de nodos de Windows Server en AKS
 
@@ -68,7 +67,7 @@ Sí. Para conocer las implicaciones y las opciones disponibles, consulte [Pods m
 
 Si ha creado el clúster antes de febrero de 2020 y nunca ha realizado ninguna operación de actualización, este sigue usando una imagen de Windows antigua. Es posible que se haya mostrado un error similar al siguiente:
 
-"No se encontró la siguiente lista de imágenes a las que se hace referencia en la plantilla de implementación: Publicador: MicrosoftWindowsServer, Oferta: WindowsServer, SKU: 2019-datacenter-core-smalldisk-2004, Versión: más reciente. Consulte https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage para obtener instrucciones sobre cómo buscar las imágenes disponibles".
+"No se encontró la siguiente lista de imágenes a las que se hace referencia en la plantilla de implementación: Publicador: MicrosoftWindowsServer, Oferta: WindowsServer, SKU: 2019-datacenter-core-smalldisk-2004, Versión: más reciente. Consulte [Búsqueda y uso de imágenes de máquina virtual de Azure Marketplace con Azure PowerShell](../virtual-machines/windows/cli-ps-findimage.md) para obtener instrucciones para encontrar imágenes disponibles.
 
 Para corregir este error:
 

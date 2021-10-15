@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: media-services
-ms.openlocfilehash: 8210efe9c17a6edcb18fe114b7f6165d8cbd8360
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 6b5bec7006fa7bea7c887286d9cdc1a7b51a3d5c
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106281648"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389862"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>Codificadores de streaming en vivo locales comprobados
 
@@ -28,6 +28,7 @@ En Azure Media Services, un [evento en directo](/rest/api/media/liveevents) (can
 
   > [!TIP]
   > El método de paso a través es la forma más económica de realizar un streaming en vivo.
+  > El servicio admite un modo de paso a través básico y estándar en función de los requisitos de ingesta. El paso a través básico es el más económico, pero sus funcionalidades están limitadas. 
  
 * Un codificador en directo local envía una secuencia de velocidad de bits única al Evento en directo que está habilitado para realizar la codificación en vivo con Media Services, con uno de los siguientes formatos: RTMP o Smooth Streaming (MP4 fragmentado). Después, el Evento en directo codifica en vivo la secuencia entrante de velocidad de bits única en una secuencia de vídeo de velocidad de bits múltiple (adaptable).
 

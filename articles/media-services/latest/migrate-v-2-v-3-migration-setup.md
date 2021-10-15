@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: ca8e0f2303ed31660e92f084c0f6760a60f40c22
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c2a08059de275efcfb3e65c6a316566a6a081830
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128659483"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357943"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>Paso 3: Configuración para migrar a la API REST v3 o SDK de cliente
 
@@ -39,7 +39,7 @@ Anteriormente, los desarrolladores usaban un id. y secreto de cliente para el cl
 
 La API v3 está basada en Azure Resource Manager (ARM). Usa claves e identificadores de entidad de servicio de Azure Active Directory (Azure AD) para conectarse a la API. Los desarrolladores deberán crear entidades de servicio o identidades administradas para conectarse a la API. En la API v3, la API usa puntos de conexión estándar de ARM y usa un modelo similar y coherente para todos los demás servicios de Azure.
 
-Los clientes que anteriormente usaban la versión 2015-10-01 de la API de administración de ARM para administrar sus cuentas de v2 deben usar la versión 2020-05-01 de la API de administración de ARM compatible con el acceso a la API v3.
+Los clientes que anteriormente usaban la versión 2015-10-01 de la API de administración de ARM para administrar sus cuentas de v2 deben usar la versión 2020-05-01 (o posterior) de la API de administración de ARM compatible con el acceso a la API v3.
 
 ## <a name="create-a-new-media-services-account-for-testing"></a>Creación de una cuenta de Media Services para pruebas
 
@@ -69,7 +69,7 @@ Siga los pasos de inicio rápido para [configurar el entorno](setup-azure-subscr
 Use [Postman](./setup-postman-rest-how-to.md) para llamadas API REST de Media Services v3.
 Lea las [páginas de referencia de la API REST](/rest/api/media/).
 
-Debe usar la cadena de versión 2020-05-01 en la colección de Postman.
+Debe usar la cadena de versión 2020-05-01 (o posterior) en la colección de Postman.
 
 ## <a name="net"></a>[.NET](#tab/net)
 

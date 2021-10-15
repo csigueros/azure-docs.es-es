@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
 ms.subservice: blobs
-ms.openlocfilehash: a1681640b97d6ee183eefd7f65edd9b2d944f0f2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3c0a5174a1fea451f5b4f502795a77f1c4ff8125
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128633875"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275459"
 ---
 # <a name="rehydrate-an-archived-blob-to-an-online-tier"></a>Rehidratación de un blob archivado en un nivel en línea
 
@@ -188,7 +188,7 @@ az storage blob show \
 
 ## <a name="see-also"></a>Vea también
 
-- [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](storage-blob-storage-tiers.md).
+- [Niveles de acceso frecuente, esporádico y de archivo de los datos de blob](access-tiers-overview.md).
 - [Introducción a la rehidratación de blobs desde el nivel de archivo](archive-rehydrate-overview.md)
 - [Ejecución de una función de Azure en respuesta a un evento de rehidratación de blobs](archive-rehydrate-handle-event.md)
 - [Reacción a eventos de Blob Storage](storage-blob-event-overview.md)

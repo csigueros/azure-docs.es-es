@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 08108de86c5c64d50e86e3a83faa58db4fd607e2
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 9f62afe8a8f1c5c9f05a335ae049b3f2a39763d4
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129060581"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388629"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en vivo con Azure Media Services v3
 
@@ -57,7 +57,7 @@ Los [eventos en directo](/rest/api/media/liveevents) son responsables de la inge
 
 ![Diagrama que muestra cómo se ingieren y procesan las fuentes de audio y vídeo de un evento en directo de paso a través.](./media/live-streaming/pass-through.svg)
 
-Cuando se utiliza el **objeto LiveEvent** de paso a través, se confía en el codificador en directo local para generar una secuencia de vídeo con múltiples velocidades de bits y enviarla como fuente de contribución al objeto LiveEvent (mediante el protocolo de entrada RTMP o MP4 fragmentado). Tras ello, el objeto LiveEvent realiza la secuencia de vídeo entrante al empaquetador dinámico (punto de conexión de streaming) sin necesidad de transcodificar nada más. Este tipo de objeto LiveEvent de paso a través está optimizado para eventos en directo de larga duración o para el streaming en vivo ininterrumpidamente. 
+Cuando se utiliza el **evento en directo** de tránsito (básico o estándar), se confía en el codificador en directo local para generar una secuencia de vídeo con múltiples velocidades de bits y enviarla como fuente de contribución al evento en directo (mediante el protocolo de entrada RTMP o MP4 fragmentado). Tras ello, el objeto LiveEvent realiza la secuencia de vídeo entrante al empaquetador dinámico (punto de conexión de streaming) sin necesidad de transcodificar nada más. Este tipo de objeto LiveEvent de paso a través está optimizado para eventos en directo de larga duración o para el streaming en vivo ininterrumpidamente. 
 
 ### <a name="live-encoding"></a>Live Encoding  
 

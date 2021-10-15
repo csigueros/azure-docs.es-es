@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e46161812d122a1d5647e8589c58f9528578b878
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: ff1c5396ca2861250c5314ac785f8cbad42bf362
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749841"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235485"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid"></a>Recepción de notificaciones del almacén de claves y respuesta con Azure Event Grid
 
@@ -29,7 +29,7 @@ En esta guía se describe cómo recibir notificaciones de Key Vault mediante Eve
 
 ## <a name="concepts"></a>Conceptos
 
-Event Grid es un servicio de eventos para la nube. Al seguir los pasos de esta guía, se suscribirá a los eventos de Key Vault y enrutará los eventos a Automation. Cuando uno de los secretos del almacén de claves está a punto de expirar, Event Grid recibe una notificación del cambio de estado y realiza una solicitud HTTP POST al punto de conexión. Después, un webhook desencadena una ejecución de Automation de un script de PowerShell.
+Event Grid es un servicio de eventos para la nube. Al seguir los pasos de esta guía, se suscribirá a los eventos de Key Vault y enrutará los eventos a Automation. Cuando uno de los secretos del almacén de claves está a punto de expirar (se define como 30 días antes de la fecha de expiración), Event Grid recibe una notificación del cambio de estado y realiza una solicitud HTTP POST al punto de conexión. Después, un webhook desencadena una ejecución de Automation de un script de PowerShell.
 
 ![Diagrama de flujo HTTP POST](../media/event-grid-tutorial-1.png)
 

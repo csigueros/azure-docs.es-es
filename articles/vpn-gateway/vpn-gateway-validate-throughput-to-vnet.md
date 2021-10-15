@@ -2,7 +2,6 @@
 title: Validación del rendimiento de la VPN en una red virtual
 description: Obtenga información sobre cómo validar el rendimiento de red de los recursos locales en una máquina virtual de Azure.
 titleSuffix: Azure VPN Gateway
-services: vpn-gateway
 author: cherylmc
 manager: dcscontentpm
 ms.service: vpn-gateway
@@ -10,12 +9,12 @@ ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: b5c3853ca2849590b0338c3f82b3e8606cd35d2d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 52d928762d64ce0612ed8e7063c1b2fb2028e870
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128643676"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273389"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Validación del rendimiento de la VPN en una red virtual
 
@@ -217,7 +216,7 @@ Desde la línea de comandos de bash (asume que git está instalado)
 
 > [!Note]
 > Asegúrese de que no haya saltos intermedios (por ejemplo, una aplicación virtual) durante la prueba de rendimiento entre la máquina virtual y la puerta de enlace.
-> Si los resultados de las pruebas de iPERF/NTTTCP anteriores son deficientes (en términos de rendimiento total), consulte el siguiente artículo para comprender los factores clave que subyacen a las posibles causas principales del problema: https://docs.microsoft.com/azure/virtual-network/virtual-network-tcpip-performance-tuning.
+> Si los resultados de las pruebas de iPERF/NTTTCP anteriores no son satisfactorios (en términos de rendimiento total), consulte [este artículo](../virtual-network/virtual-network-tcpip-performance-tuning.md) para conocer los factores clave que subyacen a las posibles causas principales del problema: 
 
 En particular, el análisis del seguimiento de la captura de paquetes (Wireshark/Monitor de red) recopilado en paralelo del cliente y del servidor durante estas pruebas ayudará a evaluar el rendimiento deficiente. Estos seguimientos pueden incluir la pérdida de paquetes, la latencia alta, el tamaño de MTU, la fragmentación, la ventana TCP 0, fragmentos desordenados, etc.
 

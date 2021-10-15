@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/21/2021
+ms.date: 09/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 33389224bcc4abf05ffbb261e23409eb95896781
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: b428b069c0f576109179ecc64bddc409abe29e5f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220866"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128568331"
 ---
 # <a name="developer-notes-for-azure-active-directory-b2c"></a>Notas para desarrolladores sobre Azure Active Directory B2C
 
@@ -55,7 +55,9 @@ En la tabla siguiente se resumen los flujos de autenticación de aplicaciones de
 [En nombre de](../active-directory/develop/v2-oauth2-on-behalf-of-flow.md)| N/D | N/D | Una aplicación invoca un servicio o API web, que, a su vez, debe llamar a otro servicio o API web. <br />  <br /> Para que el servicio de nivel intermedio realice solicitudes autenticadas al servicio de nivel inferior, pase un token de *credencial de cliente* en el encabezado de autorización. Opcionalmente, puede incluir un encabezado personalizado con el token del usuario de Azure AD B2C.  |
 [OpenId Connect](openid-connect.md) | GA | GA | OpenID Connect presenta el concepto de un token de identificador, que es un token de seguridad que permite al cliente comprobar la identidad del usuario. |
 [Flujo híbrido de OpenID Connect](openid-connect.md) | GA | GA | Permite que una aplicación web recupere el token de identificador en la solicitud de autorización junto con un código de autorización.  |
-[Credenciales de contraseña del propietario del recurso (ROPC)](add-ropc-policy.md) | Vista previa | Vista previa | Permite a una aplicación móvil iniciar la sesión del usuario al controlar directamente la contraseña. |
+[Credenciales de contraseña del propietario del recurso (ROPC)](add-ropc-policy.md) | Disponibilidad general | GA | Permite a una aplicación móvil iniciar la sesión del usuario al controlar directamente la contraseña. |
+| [Cierre de sesión](session-behavior.md#sign-out)| Disponibilidad general | GA | |
+| [Cierre de sesión único](session-behavior.md#sign-out)  | N/D | Vista previa | |
 
 ### <a name="oauth-20-options"></a>Opciones de OAuth 2.0
 
@@ -66,6 +68,7 @@ En la tabla siguiente se resumen los flujos de autenticación de aplicaciones de
 | Inserción de JSON en el recorrido del usuario a través de `client_assertion`| N/D| Obsoleto |  |
 | Inserción de JSON en el recorrido del usuario como [id_token_hint](id-token-hint.md) | N/D | GA | |
 | [Paso del token del proveedor de identidades a la aplicación](idp-pass-through-user-flow.md)| Vista previa| Vista previa| Por ejemplo, de Facebook a la aplicación. |
+| [Mantener la sesión iniciada (KMSI)](session-behavior.md#enable-keep-me-signed-in-kmsi)| Disponibilidad general| GA| |
 
 ## <a name="saml2-application-authentication-flows"></a>Flujos de autenticación de aplicaciones SAML2
 
@@ -81,6 +84,7 @@ En la tabla siguiente se resumen los flujos de autenticación de aplicaciones de
 |Característica  |Flujo de usuario  |Directiva personalizada  |Notas  |
 |---------|:---------:|:---------:|---------|
 | [Compatibilidad con varios lenguajes](localization.md)| GA | GA | |
+| [Dominios personalizados](custom-domain.md)| Disponibilidad general | GA | |
 | [Verificación de correo electrónico personalizado](custom-email-mailjet.md) | N/D | GA| |
 | [Personalización de la interfaz de usuario con plantillas integradas](customize-ui.md) | GA| GA| |
 | [Personalización de la interfaz de usuario con plantillas personalizadas](customize-ui-with-html.md) | GA| GA| Mediante plantillas HTML. |
@@ -89,6 +93,7 @@ En la tabla siguiente se resumen los flujos de autenticación de aplicaciones de
 | [Experiencia de inicio de sesión insertada](embedded-login.md) | N/D |  Vista previa| Mediante el elemento de marco en línea `<iframe>`. |
 | [Complejidad de la contraseña](password-complexity.md) | GA | GA | |
 | [Deshabilitación de la comprobación de correo electrónico](disable-email-verification.md) | GA|  GA| No se recomienda para entornos de producción. Deshabilitar la comprobación de correos electrónicos en el proceso de registro puede provocar que se reciban correos no deseados. |
+
 
 
 
@@ -147,7 +152,7 @@ En la tabla siguiente se resumen los flujos de autenticación de aplicaciones de
 | [Proveedor externo de sesión de inicio de sesión](custom-policy-reference-sso.md#externalloginssosessionprovider) | GA |  |
 | [Proveedor de sesión de SSO de SAML](custom-policy-reference-sso.md#samlssosessionprovider) | GA |  |
 | [Proveedor de sesión de SSO de OAuth](custom-policy-reference-sso.md#oauthssosessionprovider)  | GA|  |
-| [Cierre de sesión único](session-behavior.md#sign-out)  |  Vista previa |  |
+
 
 ### <a name="components"></a>Componentes
 
@@ -159,6 +164,7 @@ En la tabla siguiente se resumen los flujos de autenticación de aplicaciones de
 | [Azure Active Directory](active-directory-technical-profile.md) como directorio local | GA |  |
 | [Validaciones de predicado](predicates.md) | GA | Por ejemplo, la complejidad de la contraseña. |
 | [Controles de presentación](display-controls.md) | GA |  |
+| [Subrecorridos](subjourneys.md) | GA | |
 
 ### <a name="developer-interface"></a>Interfaz del desarrollador
 

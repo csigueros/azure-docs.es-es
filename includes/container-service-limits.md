@@ -1,21 +1,20 @@
 ---
 title: Archivo de inclusión
 description: archivo de inclusión
-services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: include
 ms.date: 04/06/2021
 ms.author: mlearned
 ms.custom: include file
-ms.openlocfilehash: 928c4669ec7b1a04874f760cc14234cfa874e99a
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 17a98a50f4c6e6d0723b62f1ea402c78f653bf4c
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123437904"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129378316"
 ---
-| Recurso                                                                                                           | Límite                                                                                                                                                                                                       |
+| Resource                                                                                                           | Límite                                                                                                                                                                                                       |
 | ------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Número máximo de clústeres por suscripción                                                                                  | 5000                                                                                                                                                                                                        |
 | Número máximo de nodos por clúster con los conjuntos de disponibilidad de máquina virtual y el SKU básico de Load Balancer                       | 100                                                                                                                                                                                                         |
@@ -29,10 +28,10 @@ ms.locfileid: "123437904"
 
 <br />
 
-| Límites del plano de control de Kubernetes                                                                                                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Nivel de pago                                                                                  | Se escala horizontalmente automáticamente en función de la carga                                                                                                                                                                                                        |
-| Nivel gratis                       | Recursos limitados con un [límite de solicitudes en proceso](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) de 50 de mutación y de 100 llamadas de solo lectura                                                                                                                                                                                                         |
+| Nivel del plano de control de Kubernetes | Límite |  
+| -------------- | :--------------------------------------------- |
+| Nivel de pago      | Se escala horizontalmente automáticamente en función de la carga     |
+| Nivel gratis      | Recursos limitados con un [límite de solicitudes en proceso](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) de 50 de mutación y de 100 llamadas de solo lectura   |
 
 <!-- LINKS - Internal -->
 

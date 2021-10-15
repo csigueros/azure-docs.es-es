@@ -3,13 +3,13 @@ title: Administración y supervisión de copias de seguridad del agente de MARS
 description: Aprenda a administrar y supervisar las copias de seguridad del agente de Microsoft Azure Recovery Services (MARS) con el servicio Azure Backup.
 ms.reviewer: srinathv
 ms.topic: conceptual
-ms.date: 06/08/2021
-ms.openlocfilehash: c7a696c4059ebc7cc28a34a299060039ac1c0c62
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.date: 10/05/2021
+ms.openlocfilehash: 525bdff82c224b02b941354983276747b483ae56
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111902958"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129535155"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Administración de copias de seguridad del agente de Microsoft Azure Recovery Services (MARS) con el servicio Azure Backup
 
@@ -94,7 +94,7 @@ Hay dos formas de detener la protección de una copia de seguridad de archivos y
   - Podrá restaurar los datos de copia de seguridad de los puntos de recuperación que no hayan expirado.
   - Si decide reanudar la protección, podrá usar la opción *Vuelva a habilitar la programación de copia de seguridad*. Después de la operación, los datos se conservarán de acuerdo con la nueva directiva de retención.
 - **Detener la protección y eliminar los datos de copia de seguridad**.
-  - Esta opción detendrá la protección de los datos para todos los trabajos de copia de seguridad futuros. Si las características de seguridad del almacén no están habilitadas, todos los puntos de recuperación se eliminan inmediatamente.<br>Si las características de seguridad están habilitadas, la eliminación se retrasa 14 días y recibirá un correo electrónico de alerta de con el mensaje *Los datos de este elemento de copia de seguridad se han eliminado. Estos datos estarán disponibles temporalmente durante un período de 14 días, tras el cual se eliminarán de forma permanente* y la acción recomendada *Vuelva a proteger el elemento de copia de seguridad en el plazo de 14 días para recuperar los datos*.<br>En este estado, la directiva de retención se sigue aplicando y los datos de copia de seguridad siguen siendo facturables. [Más información](backup-azure-security-feature.md#enable-security-features) sobre cómo habilitar las características de seguridad del almacén.
+  - Esta opción detendrá la protección de los datos para todos los trabajos de copia de seguridad futuros. Si las características de seguridad del almacén no están habilitadas, todos los puntos de recuperación se eliminan inmediatamente.<br>Si las características de seguridad están habilitadas, la eliminación se retrasará 14 días y recibirá un correo electrónico de alerta con el mensaje *Los datos de este elemento de copia de seguridad se han eliminado. Estos datos estarán disponibles temporalmente durante un período de 14 días, tras el cual se eliminarán de forma permanente* y se mostrará la acción recomendada *Vuelva a proteger el elemento de copia de seguridad en el plazo de 14 días para recuperar los datos*.<br>En este estado, la directiva de retención se sigue aplicando y los datos de copia de seguridad siguen siendo facturables. [Más información](backup-azure-security-feature.md#enable-security-features) sobre cómo habilitar las características de seguridad del almacén.
   - Para reanudar la protección, vuelva a proteger el servidor en el plazo de 14 días a partir de la operación de eliminación. En esta duración, también puede restaurar los datos en un servidor alternativo.
 
 ### <a name="stop-protection-and-retain-backup-data"></a>Detener la protección y conservar los datos de copia de seguridad
@@ -167,6 +167,62 @@ Una frase de contraseña se usa para cifrar y descifrar los datos durante la cop
 
     ![Pegar el PIN de seguridad](./media/backup-azure-manage-mars/passphrase2.png)
 1. Asegúrese de que la frase de contraseña se guarda de forma segura en una ubicación alternativa (distinta de la máquina de origen), preferiblemente en Azure Key Vault. Realice un seguimiento de todas las frases de contraseña si tiene varias máquinas de las que se realiza una copia de seguridad con los agentes de MARS.
+
+## <a name="validate-passphrase"></a>Validación de la frase de contraseña
+
+A partir de la versión del agente MARS 2.0.9190.0 y versiones posteriores, debe validar la frase de contraseña para asegurarse de que cumple los [requisitos actualizados](/azure/backup/backup-azure-file-folder-backup-faq#what-characters-are-allowed-for-the-passphrase-).
+
+Para validar la frase de contraseña, siga estos pasos:
+
+1. Abra la consola de MARS.
+
+   Se muestra un mensaje en la parte superior en el que se le pide que valide la frase de contraseña. 
+
+1. Haga clic en **Validar**.
+
+   :::image type="content" source="./media/backup-azure-manage-mars/validate-passphrase-prompt-inline.png" alt-text="Captura de pantalla que muestra el mensaje para la validación de la frase de contraseña." lightbox="./media/backup-azure-manage-mars/validate-passphrase-prompt-expanded.png":::
+
+   Se abre el validador de frases de contraseña y se solicita la frase de contraseña actual. Si la frase de contraseña no cumple los requisitos actualizados, aparece una opción para volver a generar la frase de contraseña.
+
+1. Genere la frase de contraseña con los detalles siguientes:
+
+   - Nueva frase de contraseña que cumpla los requisitos.
+   - Un PIN de seguridad (consulte [los pasos para generar el PIN de seguridad](#generate-security-pin)).
+   - Una ubicación segura en el servidor para guardar la frase de contraseña recién generada.
+
+   :::image type="content" source="./media/backup-azure-manage-mars/generate-passphrase.png" alt-text="Captura de pantalla que muestra el proceso para generar una frase de contraseña con los detalles necesarios.":::
+
+### <a name="validate-passphrase-for-dpmmabs-agent"></a>Validación de la frase de contraseña para el agente DPM/MABS
+
+Para DPM/MABS, ejecute la herramienta de validación de frases de contraseña desde un símbolo del sistema con privilegios elevados.
+   
+Puede encontrar la herramienta en una de las siguientes ubicaciones:
+
+- **System Center Data Protection Manager**
+     
+  %ProgramFiles%\Microsoft Azure Recovery Services Agent\bin\PassphraseValidator.exe
+
+- **Microsoft Azure Backup Server**
+      
+  %ProgramFiles%\Microsoft Azure Backup Server\DPM\MARS\Microsoft Azure Recovery Services Agent\bin\PassphraseValidator.exe
+
+Se abre el validador de frases de contraseña y se solicita la frase de contraseña actual. Si la frase de contraseña no cumple los requisitos actualizados, vuelva a generar la frase de contraseña.
+   
+:::image type="content" source="./media/backup-azure-manage-mars/passphrase-validator-prompts-for-current-passphrase.png" alt-text="Captura de pantalla que muestra los mensajes del validador de frases de contraseña para la frase de contraseña actual.":::
+
+Siga estos pasos:
+
+1. En la consola de administración, vaya a la pestaña **Administración** y seleccione **En línea** -> **Configurar**.
+1. Siga el **Asistente para establecer la configuración de la suscripción** y, en el paso **Configuración de cifrado**, proporcione la frase de contraseña actualizada.
+
+:::image type="content" source="./media/backup-azure-manage-mars/configure-subscription-settings-wizard.png" alt-text="Captura de pantalla que muestra el proceso para proporcionar una frase de contraseña después del Asistente para establecer la configuración de la suscripción.":::
+
+## <a name="generate-security-pin"></a>Generación de un PIN de seguridad
+
+1. Vaya a **Almacén de Recovery Services** -> **Configuración** -> **Propiedades**.
+1. En **PIN de seguridad**, seleccione **Generar**.
+ 
+Copie el PIN. Este PIN solo es válido durante cinco minutos.
 
 ## <a name="managing-backup-data-for-unavailable-machines"></a>Administración de datos de copia de seguridad para máquinas no disponibles
 

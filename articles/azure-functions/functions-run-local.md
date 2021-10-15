@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 07/27/2021
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 04e6f9ab74ab30b73f323e5796c159e07655f836
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 5f2ea49df446c26453bb8cf54af52ab54b2c24b2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121861670"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128669728"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Uso de Azure Functions Core Tools
 
@@ -29,36 +29,62 @@ Para desarrollar funciones en el equipo local y publicarlas en Azure utilizando 
 > * [Ejecute la función de forma local.](#start)
 > * [Publique el proyecto en Azure.](#publish)
 
-## <a name="core-tools-versions"></a>Versiones de Core Tools
-
-Hay tres versiones de Azure Functions Core Tools.<sup>*</sup>La versión que use depende del entorno de desarrollo local, la [elección del idioma](supported-languages.md) y el nivel de compatibilidad requerido:
-
-+ [**Versión 3.x o 2.x**](#v2): es compatible con la [versión 3.x o 2.x del entorno de ejecución de Azure Functions](functions-versions.md). Estas versiones son compatibles con [Windows](?tabs=windows#v2), [macOS](?tabs=macos#v2) y [Linux](?tabs=linux#v2). Además, usan administradores de paquetes o específicos de la plataforma o npm para la instalación.
-
-+ **Versión 1.x**: es compatible con la versión 1.x del entorno en tiempo de ejecución de Azure Functions. Esta versión de las herramientas solo se admite en equipos con Windows y se instala desde un [paquete npm](https://www.npmjs.com/package/azure-functions-core-tools).
-
-Solo puede instalar una versión de Core Tools en un equipo determinado. A menos que se indique lo contrario, los ejemplos de este artículo son para la versión 3.x.
-
-<sup>*</sup> Hay disponible una versión experimental de Azure Functions que le permite usar las funciones de C# en la versión preliminar de .NET 6.0. Para más información, consulte la página de la [primera versión preliminar de Azure Functions v4](https://aka.ms/functions-dotnet6earlypreview-wiki).
-
 ## <a name="prerequisites"></a>Requisitos previos
 
 Azure Functions Core Tools actualmente depende de la [CLI de Azure](/cli/azure/install-azure-cli) o de [Azure PowerShell](/powershell/azure/install-az-ps) para la autenticación con su cuenta de Azure. Esto significa que debe instalar alguna de estas herramientas para poder [realizar la publicación en Azure](#publish) desde Azure Functions Core Tools. 
+
+## <a name="core-tools-versions"></a><a name="v2"></a>Versiones de Core Tools
+
+Hay cuatro versiones de Azure Functions Core Tools. La versión que use depende del entorno de desarrollo local, la [elección del lenguaje](supported-languages.md) y el nivel de compatibilidad necesario.
+
+Elija una pestaña de versión a continuación para obtener información sobre cada versión específica y para obtener instrucciones de instalación detalladas:
+
+# <a name="version-3x"></a>[Versión 3.x](#tab/v3)
+
+Es compatible con la [versión 3.x](functions-versions.md) del entorno de ejecución de Azure Functions. Esta versión admite Windows, macOS y Linux, y emplea administradores de paquetes específicos de la plataforma o npm para la instalación. Esta es la versión recomendada del entorno de ejecución de Functions y Core Tools.
+
+# <a name="version-4x-preview"></a>[Versión 4.x (versión preliminar)](#tab/v4)
+
+Admite la [versión 4.x](functions-versions.md) del entorno de ejecución de Functions, que se encuentra en versión preliminar. Esta versión admite Windows, macOS y Linux, y emplea administradores de paquetes específicos de la plataforma o npm para la instalación. A menos que necesite ejecutar las funciones de C# en .NET 6.0, considere la posibilidad de usar la versión 3.x del entorno de ejecución de Functions y Core Tools.
+
+# <a name="version-2x"></a>[Versión 2.x](#tab/v2)
+
+Admite la [versión 2.x](functions-versions.md) del entorno de ejecución de Azure Functions. Esta versión admite Windows, macOS y Linux, y emplea administradores de paquetes específicos de la plataforma o npm para la instalación. 
+
+# <a name="version-1x"></a>[Versión 1.x](#tab/v1) 
+
+es compatible con la versión 1.x del entorno en tiempo de ejecución de Azure Functions. Esta versión de las herramientas solo se admite en equipos con Windows y se instala desde un [paquete npm](https://www.npmjs.com/package/azure-functions-core-tools).
+
+---
+
+Solo puede instalar una versión de Core Tools en un equipo determinado.  A menos que se indique lo contrario, los ejemplos de este artículo son para la versión 3.x.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Instalación de Azure Functions Core Tools
 
 [Azure Functions Core Tools] incluye una versión del mismo tiempo de ejecución de Azure Functions que puede ejecutar en el equipo de desarrollo local. También proporciona comandos para crear funciones, conectarse a Azure e implementar proyectos de funciones.
 
-### <a name="version-3x-and-2x"></a><a name="v2"></a>Versión 3.x y 2.x
-
-La versión 3.x o 2.x de las herramientas usa el entorno de ejecución de Azure Functions que se basa en .NET Core. Esta versión se admite en todas las plataformas que admiten .NET Core, incluidas [Windows](?tabs=windows#v2), [macOS](?tabs=macos#v2) y [Linux](?tabs=linux#v2). 
+A partir de la versión 2.x, Core Tools se basa en .NET Core. Esto significa que la versión 2.X y superiores se ejecutan en todas las plataformas que admite .NET Core, como [Windows](?tabs=windows#v2), [macOS](?tabs=macos#v2) y [Linux](?tabs=linux#v2).
 
 > [!IMPORTANT]
-> Puede omitir el requisito de instalar el SDK de .NET Core con los [conjuntos de extensiones].
+> En el caso de los lenguajes que no son .NET, puede omitir el requisito de instalar el SDK de .NET Core con los [conjuntos de extensiones].
 
-# <a name="windows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows/v4)
 
-En los pasos siguientes se utiliza Windows Installer (MSI) para instalar Core Tools v3.x. Para obtener más información sobre otros instaladores basados en paquetes, que son necesarios para instalar Core Tools V2. x, consulte el [archivo Léame de Core Tools](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
+Para instalar la versión 4.x de Core Tools, se necesita actualmente npm. Si ha instalado una versión anterior de Core Tools con un administrador de paquetes diferente, desinstálela antes de instalar la versión 4.x.
+
+1. Si aún no lo ha hecho, [instale Node.js con npm](https://nodejs.org/en/download/). 
+
+1. Ejecute el siguiente comando de npm para instalar el paquete de Core Tools:
+
+    ```
+    npm i -g azure-functions-core-tools@4 --unsafe-perm true
+    ```
+
+1. Si no planea usar los [conjuntos de extensión](functions-bindings-register.md#extension-bundles), instale el [SDK de .NET Core 3.x para Windows](https://dotnet.microsoft.com/download).
+
+# <a name="windows"></a>[Windows](#tab/windows/v3)
+
+En los pasos siguientes se utiliza Windows Installer (MSI) para instalar Core Tools v3.x. Para más información sobre otros instaladores basados en paquetes, consulte el [archivo Léame de Core Tools](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
 1. Descargue y ejecute el instalador de Core Tools según su versión de Windows:
 
@@ -67,7 +93,25 @@ En los pasos siguientes se utiliza Windows Installer (MSI) para instalar Core To
 
 1. Si no planea usar los [conjuntos de extensión](functions-bindings-register.md#extension-bundles), instale el [SDK de .NET Core 3.x para Windows](https://dotnet.microsoft.com/download).
 
-# <a name="macos"></a>[macOS](#tab/macos)
+# <a name="windows"></a>[Windows](#tab/windows/v2)
+
+Para instalar la versión 2.x de Core Tools, se necesita npm. También puede [usar Chocolatey para instalar el paquete](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#azure-functions-core-tools).
+
+1. Si aún no lo ha hecho, [instale Node.js con npm](https://nodejs.org/en/download/). 
+
+1. Ejecute el siguiente comando de npm para instalar el paquete de Core Tools:
+
+    ```
+    npm install -g azure-functions-core-tools@2 --unsafe-perm true
+    ```
+
+1. Si no planea usar los [conjuntos de extensión](functions-bindings-register.md#extension-bundles), instale el [SDK de .NET Core 3.x para Windows](https://dotnet.microsoft.com/download).
+
+# <a name="windows"></a>[Windows](#tab/windows/v1)
+
+Si necesita instalar la versión 1.x de Core Tools, consulte el [repositorio de GitHub](https://github.com/Azure/azure-functions-core-tools/blob/v1.x/README.md#installing) para más información.
+
+# <a name="macos"></a>[macOS](#tab/macos/v4)
 
 Los pasos siguientes utilizan Homebrew para instalar Core Tools en macOS.
 
@@ -75,16 +119,39 @@ Los pasos siguientes utilizan Homebrew para instalar Core Tools en macOS.
 
 1. Instale el paquete de Core Tools:
 
-    ##### <a name="v3x-recommended"></a>v3.x (recomendado)
+    ```bash
+    brew tap azure/functions
+    brew install azure-functions-core-tools@4
+    # if upgrading on a machine that has 2.x or 3.x installed:
+    brew link --overwrite azure-functions-core-tools@4
+    ```
+    
+1. Si no planea usar los [conjuntos de extensión](functions-bindings-register.md#extension-bundles), instale el [SDK de .NET Core 3.x para macOS](https://dotnet.microsoft.com/download).
+
+# <a name="macos"></a>[macOS](#tab/macos/v3)
+
+Los pasos siguientes utilizan Homebrew para instalar Core Tools en macOS.
+
+1. Instale [Homebrew](https://brew.sh/), si aún no está instalado.
+
+1. Instale el paquete de Core Tools:
 
     ```bash
     brew tap azure/functions
     brew install azure-functions-core-tools@3
-    # if upgrading on a machine that has 2.x installed
+    # if upgrading on a machine that has 2.x installed:
     brew link --overwrite azure-functions-core-tools@3
     ```
     
-    ##### <a name="v2x"></a>Versión 2.x
+1. Si no planea usar los [conjuntos de extensión](functions-bindings-register.md#extension-bundles), instale el [SDK de .NET Core 3.x para macOS](https://dotnet.microsoft.com/download).
+
+# <a name="macos"></a>[macOS](#tab/macos/v2)
+
+Los pasos siguientes utilizan Homebrew para instalar Core Tools en macOS.
+
+1. Instale [Homebrew](https://brew.sh/), si aún no está instalado.
+
+1. Instale el paquete de Core Tools:
 
     ```bash
     brew tap azure/functions
@@ -93,59 +160,43 @@ Los pasos siguientes utilizan Homebrew para instalar Core Tools en macOS.
     
 1. Si no planea usar los [conjuntos de extensión](functions-bindings-register.md#extension-bundles), instale el [SDK de .NET Core 3.x para macOS](https://dotnet.microsoft.com/download).
 
-# <a name="linux"></a>[Linux](#tab/linux)
+# <a name="macos"></a>[macOS](#tab/macos/v1)
 
-Los siguientes pasos usan [APT](https://wiki.debian.org/Apt) para instalar Core Tools en la distribución de Ubuntu/Debian Linux. Para otras distribuciones de Linux, consulte el [archivo Léame de Core Tools](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
+La versión 1.x de Core Tools no se admite en macOS. Use en su lugar la versión 2.x o una versión posterior.
 
-1. Instale la clave GPG del repositorio de paquetes de Microsoft para validar la integridad del paquete:
+# <a name="linux"></a>[Linux](#tab/linux/v4)
 
-    ```bash
-    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-    sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-    ```
+[!INCLUDE [functions-core-tools-linux-install](../../includes/functions-core-tools-linux-install.md)]
 
-1. Configure la lista de origen de APT antes de actualizar APT.
-
-    ##### <a name="ubuntu"></a>Ubuntu
-
-    ```bash
-    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
-    ```
-
-    ##### <a name="debian"></a>Debian
-
-    ```bash
-    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/debian/$(lsb_release -rs | cut -d'.' -f 1)/prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
-    ```
-
-1. Compruebe si el archivo `/etc/apt/sources.list.d/dotnetdev.list` contiene una de las cadenas que se indican a continuación con la versión de Linux apropiada:
-
-    | Distribución de Linux | Versión |
-    | --------------- | ----------- |
-    | Debian 10 | `buster`  |
-    | Debian 9  | `stretch` |
-    | Ubuntu 20.04    | `focal`     |
-    | Ubuntu 19.04    | `disco`     |
-    | Ubuntu 18.10    | `cosmic`    |
-    | Ubuntu 18.04    | `bionic`    |
-    | Ubuntu 17.04    | `zesty`     |
-    | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
-
-1. Inicie la actualización del origen de APT:
+5. Instale el paquete de Core Tools:
 
     ```bash
     sudo apt-get update
+    sudo apt-get install azure-functions-core-tools-4
     ```
 
-1. Instale el paquete de Core Tools:
+1. Si no planea usar los [conjuntos de extensión](functions-bindings-register.md#extension-bundles), instale el [SDK de .NET Core 3.x para Linux](https://dotnet.microsoft.com/download).
 
-    ##### <a name="v3x-recommended"></a>v3.x (recomendado)
+
+# <a name="linux"></a>[Linux](#tab/linux/v3)
+
+[!INCLUDE [functions-core-tools-linux-install](../../includes/functions-core-tools-linux-install.md)]
+
+5. Instale el paquete de Core Tools:
+
     ```bash
     sudo apt-get update
     sudo apt-get install azure-functions-core-tools-3
     ```
-    
-    ##### <a name="v2x"></a>Versión 2.x
+
+1. Si no planea usar los [conjuntos de extensión](functions-bindings-register.md#extension-bundles), instale el [SDK de .NET Core 3.x para Linux](https://dotnet.microsoft.com/download).
+
+# <a name="linux"></a>[Linux](#tab/linux/v2)
+
+[!INCLUDE [functions-core-tools-linux-install](../../includes/functions-core-tools-linux-install.md)]
+
+5. Instale el paquete de Core Tools:
+
     ```bash
     sudo apt-get update
     sudo apt-get install azure-functions-core-tools-2
@@ -153,11 +204,22 @@ Los siguientes pasos usan [APT](https://wiki.debian.org/Apt) para instalar Core 
 
 1. Si no planea usar los [conjuntos de extensión](functions-bindings-register.md#extension-bundles), instale el [SDK de .NET Core 3.x para Linux](https://dotnet.microsoft.com/download).
 
+
+# <a name="linux"></a>[Linux](#tab/linux/v1)
+
+La versión 1.x de Core Tools no se admite en Linux. Use en su lugar la versión 2.x o una versión posterior.
+
 ---
 
-### <a name="version-1x"></a>Versión 1.x
+## <a name="changing-core-tools-versions"></a>Cambio de las versiones de Core Tools
 
-Si necesita instalar la versión 1.x de Core Tools, que solo se ejecuta en Windows, consulte el [repositorio de GitHub](https://github.com/Azure/azure-functions-core-tools/blob/v1.x/README.md#installing) para obtener más información.
+Al cambiar a una versión diferente de Core Tools, debe usar el mismo administrador de paquetes que la instalación original para pasar a otra versión del paquete. Por ejemplo, si instaló la versión 2.x de Core Tools mediante npm, debe usar el siguiente comando para actualizar a la versión 3.x:
+
+```bash
+npm install -g azure-functions-core-tools@3 --unsafe-perm true
+```
+
+Si usó Windows instalador (MSI) para instalar Core Tools en Windows, debe desinstalar la versión anterior desde Agregar quitar programas antes de instalar otra versión.
 
 ## <a name="create-a-local-functions-project"></a>Creación de un proyecto local de Functions
 

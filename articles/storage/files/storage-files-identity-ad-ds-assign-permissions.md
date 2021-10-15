@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/13/2021
 ms.author: rogarana
 ms.custom: devx-track-azurepowershell, subject-rbac-steps
-ms.openlocfilehash: 4c69a8bcd3acb559de3674dd7012220f4c7868e4
-ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
+ms.openlocfilehash: cf2d9c2921599680781695631eae9c5276ff53c2
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113687162"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400652"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>Parte 2: Asignación de permisos de nivel de recurso compartido a una identidad
 
@@ -55,11 +55,14 @@ En la tabla siguiente se enumeran los permisos de nivel de recurso compartido y 
 
 ## <a name="share-level-permissions-for-specific-azure-ad-users-or-groups"></a>Permisos de nivel de recurso compartido para usuarios o grupos específicos de Azure AD
 
-Si tiene previsto usar un usuario o grupo específico de Azure AD para acceder a recursos compartidos de archivos de Azure, esa identidad debe ser una identidad híbrida que exista tanto en el entorno local de AD DS como en el de Azure AD. Por ejemplo, supongamos que tiene un usuario en su instancia de AD, user1@onprem.contoso.com, que se ha sincronizado con Azure AD como user1@contoso.com con la sincronización de Azure AD Connect. Para que este usuario acceda a Azure Files, debe asignar los permisos de nivel de recurso compartido a user1@contoso.com. El mismo concepto se aplica a los grupos o entidades de servicio. Por este motivo, debe sincronizar los usuarios y grupos de su instancia de AD con Azure AD mediante la sincronización de Azure AD Connect. 
+Si tiene previsto usar un usuario o grupo específico de Azure AD para acceder a recursos compartidos de archivos de Azure, esa identidad debe ser una **identidad híbrida que exista tanto en el entorno local de AD DS como en el de Azure AD**. Por ejemplo, supongamos que tiene un usuario en su instancia de AD, user1@onprem.contoso.com, que se ha sincronizado con Azure AD como user1@contoso.com con la sincronización de Azure AD Connect. Para que este usuario acceda a Azure Files, debe asignar los permisos de nivel de recurso compartido a user1@contoso.com. El mismo concepto se aplica a los grupos o entidades de servicio. Por este motivo, debe sincronizar los usuarios y grupos de su instancia de AD con Azure AD mediante la sincronización de Azure AD Connect. 
 
 Los permisos de nivel de recurso compartido deben asignarse a la identidad de Azure AD que representa el mismo usuario o grupo en AD DS para admitir la autenticación de AD DS en el recurso compartido de archivos de Azure. La autenticación y autorización con identidades que solo existen en Azure AD, como las identidades administradas de Azure (MSI), no se admiten con la autenticación de AD DS.
 
 Puede usar Azure Portal, el módulo Azure PowerShell o la CLI de Azure para asignar los roles integrados a la identidad de Azure AD de un usuario a fin de conceder permisos de nivel de recurso compartido.
+
+> [!IMPORTANT]
+> Los permisos en el nivel de recurso compartido tardarán hasta 3 horas en surtir efecto una vez completado. Espere a que se sincronicen los permisos antes de conectarse al recurso compartido de archivos con sus credenciales.   
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

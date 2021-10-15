@@ -13,12 +13,12 @@ ms.date: 08/31/2021
 ms.author: sahmalik
 ms.reviewer: saeeda, shermanouko, jmprieur
 ms.custom: devx-track-csharp, aaddev, has-adal-ref
-ms.openlocfilehash: 153ac3b3ae141815246326d42b3959ae4d981081
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 1ccd2acaaec8c49de761511ebd3d4a5ad86f4095
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124837928"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233661"
 ---
 # <a name="migrate-public-client-applications-from-adalnet-to-msalnet"></a>Migración de aplicaciones cliente públicas de ADAL.NET a MSAL.NET
 
@@ -41,8 +41,8 @@ En este artículo se describe cómo migrar una aplicación cliente pública de l
 
    - [Administrador de autenticación web](scenario-desktop-acquire-token-wam.md), la autenticación basada en agente preferida en Windows.
    - [Autenticación interactiva](scenario-desktop-acquire-token-interactive.md), donde se muestra al usuario una interfaz basada en web para completar el proceso de inicio de sesión.
-   - [Autenticación integrada de Windows](scenario-desktop-acquire-token-integrated-windows-authentication.md), donde un usuario firma con la misma identidad que usó para iniciar sesión en el dominio de Windows (para máquinas unidas a un dominio o unidas a AAD).
-   - [Nombre de usuario y contraseña](scenario-desktop-acquire-token-username-password.md), donde se produce el inicio de sesión al proporcionar una credencial de nombre de usuario y contraseña.
+   - [Autenticación integrada de Windows](scenario-desktop-acquire-token-integrated-windows-authentication.md), donde un usuario firma con la misma identidad que usó para iniciar sesión en un dominio de Windows (para máquinas unidas a un dominio o unidas a Azure AD).
+   - [Nombre de usuario y contraseña](scenario-desktop-acquire-token-username-password.md), donde se produce el inicio de sesión al proporcionar unas credenciales de nombre de usuario y contraseña.
    - [Flujo de código de dispositivo](scenario-desktop-acquire-token-device-code-flow.md), donde un dispositivo con experiencia de usuario limitada muestra un código de dispositivo para completar el flujo de autenticación en un dispositivo alternativo.
 
 
@@ -124,17 +124,17 @@ El código de MSAL mostrado anteriormente usa WAM (administrador de autenticaci�
 
 ## <a name="integrated-windows-authentication"></a>[Autenticación integrada de Windows](#tab/iwa)
 
-En la autenticación integrada de Windows, la aplicación cliente pública inicia sesión con la misma identidad que usó para iniciar sesión en el dominio de Windows (para máquinas unidas a un dominio o unidas a AAD).
+La autenticación integrada de Windows es el lugar en que la aplicación cliente pública inicia sesión mediante la misma identidad que usó para iniciar sesión en un dominio de Windows (para máquinas unidas a un dominio o unidas a Azure AD).
 
 #### <a name="find-out-if-your-code-uses-integrated-windows-authentication"></a>Averiguar si el código usa la autenticación integrada de Windows
 
-El código de ADAL de la aplicación usa escenarios de autenticación integrada de Windows si contiene una llamada a `AcquireTokenAsync` disponible como método de extensión de la clase `AuthenticationContextIntegratedAuthExtensions`, con los parámetros siguientes:
+El código ADAL de la aplicación usa escenarios de autenticación integrada de Windows si contiene una llamada a `AcquireTokenAsync` disponible como método de extensión de la clase `AuthenticationContextIntegratedAuthExtensions`, con los parámetros siguientes:
 
 - `resource`, que representa el recurso para el que pide un token.
 - `clientId`, que es un GUID que representa el registro de la aplicación.
 - `UserCredential`, que representa el usuario para el que intenta solicitar el token.
 
-#### <a name="update-the-code-for-integrated-windows-auth-scenarios"></a>Actualizar el código en escenarios de autenticación integrada de Windows
+#### <a name="update-the-code-for-integrated-windows-authentication-scenarios"></a>Actualización del código en escenarios de autenticación integrada de Windows
 
  [!INCLUDE [Common steps](includes/msal-net-adoption-steps-public-clients.md)]
 

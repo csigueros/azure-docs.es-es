@@ -2,336 +2,156 @@
 title: Copia de seguridad de Azure Database for PostgreSQL
 description: Más información sobre la copia de seguridad de Azure Database for PostgreSQL con retención a largo plazo (versión preliminar)
 ms.topic: conceptual
-ms.date: 09/06/2021
-ms.custom: references_regions , devx-track-azurecli
-ms.openlocfilehash: 1896f836d9eeb2f4d32e4b0784424837a2f80d0c
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.date: 09/22/2021
+ms.openlocfilehash: 25304aee2a759b55b8b3139aa2ae57511c967595
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129081840"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389881"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Copia de seguridad de Azure Database for PostgreSQL con retención a largo plazo (versión preliminar)
 
-Azure Backup y los servicios de base de datos de Azure se han unido para crear una solución de copia de seguridad de clase empresarial para servidores de Azure Database for PostgreSQL que conserve las copias de seguridad hasta 10 años.
-
-Además de la retención a largo plazo, la solución incluye muchas otras funciones que se indican a continuación:
-
-- Control de acceso basado en rol de Azure para la base de datos mediante la autenticación de Azure Active Directory y Managed Service Identity (MSI).
-- Copia de seguridad a petición y programada controlada por el cliente en el nivel de base de datos individual.
-- Restauraciones en el nivel de base de datos en cualquier servidor de Postgres o directamente en Blog Storage.
-- Retención a largo plazo.
-- Supervisión central de todas las operaciones y trabajos.
-- Las copias de seguridad se almacenan en dominios de seguridad y de error independientes. Por tanto, incluso si el servidor de origen estuviera en peligro o terminado, las copias de seguridad seguirían siendo seguras en el [almacén de Backup](backup-vault-overview.md).
-- El uso de **pg_dump** ofrece una mayor flexibilidad en las restauraciones, por lo que se puede restaurar entre versiones de base de datos o incluso restaurar solo una parte de la copia de seguridad.
-
-Puede usar esta solución de forma independiente o sumada a la solución de copia de seguridad nativa que ofrece Azure PostgreSQL, con una retención de hasta 35 días. La solución nativa es adecuada para las recuperaciones operativas, como la recuperación a partir de las copias de seguridad más recientes. La solución Azure Backup le ayuda a satisfacer sus necesidades de cumplimiento y ofrece procesos de copia de seguridad y restauración más detallados y flexibles.
-
-## <a name="support-matrix"></a>Matrices compatibles
-
-|Soporte técnico  |Detalles  |
-|---------|---------|
-|Implementaciones admitidas   |  [Azure Database for PostgreSQL: Servidor único](../postgresql/overview.md#azure-database-for-postgresql---single-server)     |
-|Regiones de Azure compatibles |  Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro-sur de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU., Sur de Brasil, Centro de Canadá, Norte de Europa, Oeste de Europa, Sur de Reino Unido, Oeste de Reino Unido, Centro-oeste de Alemania, Norte de Suiza, Oeste de Suiza, Este de Asia, Sudeste de Asia, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Centro de la India, Este de Australia, Centro de Australia, Centro de Australia 2 y Norte de Emiratos Árabes Unidos  |
-|Versiones admitidas de Azure PostgreSQL    |   9.5, 9.6, 10, 11      |
-
-## <a name="feature-considerations-and-limitations"></a>Consideraciones y limitaciones de las características
-
-- Las operaciones solo se admiten desde Azure Portal.
-- El límite recomendado como tamaño máximo de la base de datos es de 400 GB.
-- No se admite la copia de seguridad entre regiones. Esto significa que no se puede realizar una copia de seguridad de un servidor de Azure PostgreSQL en un almacén de otra región. Del mismo modo, solo puede restaurar una copia de seguridad en un servidor que se encuentre dentro de la misma región que el almacén.
-- En la restauración solo se recuperan datos; no se restauran los "roles".
-- En la versión preliminar, se recomienda ejecutar la solución solo en el entorno de prueba.
-
-## <a name="prerequisite-permissions-for-configure-backup-and-restore"></a>Permisos previos para configurar copias de seguridad y restauraciones
-
-Azure Backup sigue unas estrictas directrices de seguridad. Aunque sea un servicio nativo de Azure, no se asumen los permisos en el recurso, por lo que el usuario debe concederlos explícitamente.  Del mismo modo, no se almacenan las credenciales para conectarse a la base de datos. Esto es importante para proteger los datos. En su lugar, se usa la autenticación de Azure Active Directory.
-
-[Descargue este documento](https://download.microsoft.com/download/7/4/d/74d689aa-909d-4d3e-9b18-f8e465a7ebf5/OSSbkpprep_automated.docx) para obtener un script automatizado y las instrucciones relacionadas. Este script le concederá un conjunto de permisos adecuado para realizar copias de seguridad y restauraciones en un servidor de Azure PostgreSQL.
-
-## <a name="backup-process"></a>Proceso de copia de seguridad
-
-1. En esta solución se usa **pg_dump** para realizar copias de seguridad de las bases de datos de Azure PostgreSQL.
-
-2. Una vez que se especifican las bases de datos de Azure PostgreSQL de las que se desea realizar una copia de seguridad, el servicio comprueba si tiene el conjunto adecuado de permisos y el acceso necesario para realizar la operación de copia de seguridad en el servidor y en la base de datos.
-
-3. Azure Backup pone en marcha un rol de trabajo con una extensión de copia de seguridad instalada en él. Esta extensión se comunica con el servidor de Postgres.
-
-4. Esta extensión consta de un coordinador y un complemento Postgres de Azure. Mientras que el coordinador es el responsable de desencadenar los flujos de trabajo de diversas operaciones, como la configuración de las copias de seguridad o la copia de seguridad y restauración, el complemento es responsable del flujo de datos real.
-  
-5. Cuando desencadena la configuración de la protección en las bases de datos seleccionadas, el servicio de copia de seguridad configura el coordinador con las programaciones de las copias de seguridad y otros detalles de la directiva.
-
-6. A la hora programada, el coordinador se comunica con el complemento y empieza a transmitir los datos de la copia de seguridad en secuencias desde el servidor Postgres mediante **pg_dump**.
-
-7. El complemento envía los datos directamente al almacén de Backup, por lo que se elimina la necesidad de una ubicación de almacenamiento provisional. El servicio Azure Backup cifra los datos con claves administradas por Microsoft y los almacena en cuentas de almacenamiento.
-
-8. Cuando se completa la transferencia de datos, el coordinador realiza la confirmación con el servicio de copia de seguridad.
-
-    ![Proceso de copia de seguridad](./media/backup-azure-database-postgresql-overview/backup-process.png)
+En este artículo, se describe cómo hacer una copia de seguridad del servidor de Azure Database for PostgreSQL.
 
 ## <a name="configure-backup-on-azure-postgresql-databases"></a>Configuración de la copia de seguridad en bases de datos de Azure PostgreSQL
 
-Puede configurar la copia de seguridad de varias bases de datos en varios servidores de Azure PostgreSQL. Asegúrese de que ya están configurados los [permisos previos](#prerequisite-permissions-for-configure-backup-and-restore) que necesita el servicio para realizar copias de seguridad de los servidores de Postgres.
+Puede configurar la copia de seguridad de varias bases de datos en varios servidores de Azure PostgreSQL. Para configurar la copia de seguridad en las bases de datos de Azure Database for PostgreSQL mediante Azure Backup, siga estos pasos:
 
-Las siguientes instrucciones son una guía paso a paso para configurar la copia de seguridad en las bases de datos de Azure PostgreSQL mediante Azure Backup:
+1. Vaya a **Almacén de copia de seguridad** ->  **+Copia de seguridad**.
 
-1. Hay dos maneras de iniciar el proceso:
+   :::image type="content" source="./media/backup-azure-database-postgresql/adding-backup-inline.png" alt-text="Captura de pantalla que muestra la opción para agregar una copia de seguridad." lightbox="./media/backup-azure-database-postgresql/adding-backup-expanded.png":::
 
-    1. Vaya a [Centro de copias de seguridad](backup-center-overview.md) -> **Información general** -> **Copia de seguridad**.
+   :::image type="content" source="./media/backup-azure-database-postgresql/adding-backup-details-inline.png" alt-text="Captura de pantalla que muestra la opción para agregar información de copia de seguridad." lightbox="./media/backup-azure-database-postgresql/adding-backup-details-expanded.png":::
 
-        ![Ir al Centro de copias de seguridad](./media/backup-azure-database-postgresql/backup-center.png)
+   También puede navegar a esta página desde el [Centro de copias de seguridad](/azure/backup/backup-center-overview). 
 
-        En **Iniciar: Configurar copia de seguridad**, seleccione **Azure Database for PostgreSQL** en **Tipo de origen de datos**.
+1. Seleccione [Create a Backup Policy](#create-backup-policy) (Crear una directiva de copia de seguridad), que define la programación de la copia de seguridad y la duración de la retención.
 
-        ![En Iniciar: Configurar copia de seguridad, seleccionar el tipo de origen de tipos](./media/backup-azure-database-postgresql/initiate-configure-backup.png)
+   :::image type="content" source="./media/backup-azure-database-postgresql/create-or-add-backup-policy-inline.png" alt-text="Captura de pantalla que muestra la opción para agregar una directiva de copia de seguridad." lightbox="./media/backup-azure-database-postgresql/create-or-add-backup-policy-expanded.png":::
 
-    1. Como alternativa, puede ir directamente a [Almacenes de Backup](backup-vault-overview.md) -> **Copia de seguridad**.
+1. **Seleccionar las bases de datos de Azure Database for PostgreSQL de las que se va a hacer una copia de seguridad**: elija uno de los servidores de Azure Database for PostgreSQL entre las suscripciones si se encuentra en la misma región que el almacén. Expanda la flecha para ver la lista de bases de datos dentro de un servidor.
 
-        ![Ir a Almacenes de Backup](./media/backup-azure-database-postgresql/backup-vaults.png)
+   :::image type="content" source="./media/backup-azure-database-postgresql/select-azure-postgresql-databases-to-back-up-inline.png" alt-text="Captura de pantalla que muestra la opción para seleccionar una base de datos PostgreSQL de Azure." lightbox="./media/backup-azure-database-postgresql/select-azure-postgresql-databases-to-back-up-expanded.png":::
 
-        ![Seleccionar Copia de seguridad en el almacén de Backup](./media/backup-azure-database-postgresql/backup-backup-vault.png)
+   :::image type="content" source="./media/backup-azure-database-postgresql/choose-an-azure-postgresql-server-inline.png" alt-text="Captura de pantalla que muestra cómo elegir un servidor de Azure Database for PostgreSQL." lightbox="./media/backup-azure-database-postgresql/choose-an-azure-postgresql-server-expanded.png":::
 
-1. En **Configurar copia de seguridad**, en **Almacén de Backup**, seleccione el almacén en el que desea realizar la copia de seguridad de las bases de datos de Postgres. Esta información ya se rellena previamente si está en el contexto del almacén.
 
-    ![Seleccionar Almacén de Backup en Configurar copia de seguridad](./media/backup-azure-database-postgresql/configure-backup.png)
+1. **Asigne un almacén de claves de Azure** que almacene las credenciales para conectarse a la base de datos seleccionada. Para asignar el almacén de claves en el nivel de fila individual, haga clic en **Select a key vault and secret** (Seleccionar un almacén de claves y un secreto). También puede asignar el almacén de claves seleccionando varias filas y haciendo clic en Assign key vault (Asignar almacén de claves) en el menú superior de la cuadrícula. 
 
-1. En **Directiva de Backup**, seleccione o cree una directiva.
+   :::image type="content" source="./media/backup-azure-database-postgresql/assign-azure-key-vault-inline.png" alt-text="Captura de pantalla que muestra cómo asignar un almacén de claves de Azure." lightbox="./media/backup-azure-database-postgresql/assign-azure-key-vault-expanded.png"::: 
 
-    ![Elegir directiva de Backup](./media/backup-azure-database-postgresql/backup-policy.png)
+1. Para especificar la información del secreto, use una de las siguientes opciones: 
 
-1. Seleccione los recursos o las bases de datos de Postgres de los que desea hacer una copia de seguridad.
+   1. **Escribir el identificador URI del secreto**: use esta opción si el identificador URI del secreto es compartido o conocido por usted. Puede copiar el **identificador URI del secreto desde el almacén de claves** -> **Secretos (seleccione un secreto)**  -> **Identificador secreto**.
 
-    ![Seleccionar recursos para realizar copias de seguridad](./media/backup-azure-database-postgresql/select-resources.png)
+      :::image type="content" source="./media/backup-azure-database-postgresql/enter-secret-uri-inline.png" alt-text="Captura de pantalla en la que se muestra cómo especificar el identificador URI del secreto." lightbox="./media/backup-azure-database-postgresql/enter-secret-uri-expanded.png":::  
 
-1. Puede elegir en la lista de todos los servidores de Azure PostgreSQL de las suscripciones, siempre que estén en la misma región que el almacén. Expanda la flecha para ver la lista de bases de datos dentro de un servidor.
+      Sin embargo, con esta opción, Azure Backup no obtiene visibilidad sobre el almacén de claves al que se ha hecho referencia. Por lo tanto, no se pueden conceder en línea los permisos de acceso al almacén de claves. El administrador de copias de seguridad y el administrador de Postgres y el almacén de claves deben asegurarse de que el [acceso al almacén de claves del almacén de copia de seguridad se conceda manualmente](backup-azure-database-postgresql-overview.md#access-permissions-on-the-azure-key-vault-associated-with-the-postgresql-server) fuera del flujo de configuración de copia de seguridad para que la operación de copia de seguridad se realice correctamente.
 
-    ![Elegir los servidores](./media/backup-azure-database-postgresql/choose-servers.png)
+   1. **Seleccionar el almacén de claves**: use esta opción si conoce el nombre del secreto y el almacén de claves. Con esta opción, usted (administrador de copias de seguridad con acceso de escritura al almacén de claves) puede conceder en línea los permisos de acceso al almacén de claves. El almacén de claves y el secreto pueden existir previamente o crearse sobre la marcha. Asegúrese de que el secreto sea la cadena de conexión del servidor PG en formato ADO.net actualizado con las credenciales del usuario de base de datos al que se han concedido los privilegios de "copia de seguridad" en el servidor. Más información sobre cómo crear los [secretos en el almacén de claves](#create-secrets-in-the-key-vault).
 
-1. El servicio ejecuta estas comprobaciones en las bases de datos seleccionadas para asegurarse de que el almacén tiene permisos para hacer copias de seguridad de los servidores y las bases de datos de Postgres seleccionados.
-    1. Para poder continuar, el valor **Preparación para la copia de seguridad** de todas las bases de datos debe mostrar **Correcto**.
-    1. Si hay un error, **corríjalo** y **vuelva a validar** o quite la base de datos de las selecciones.
+      :::image type="content" source="./media/backup-azure-database-postgresql/assign-secret-store-inline.png" alt-text="Captura de pantalla en la que se muestra cómo asignar un almacén de secretos." lightbox="./media/backup-azure-database-postgresql/assign-secret-store-expanded.png":::
 
-    ![Errores de validación que corregir](./media/backup-azure-database-postgresql/validation-errors.png)
+      :::image type="content" source="./media/backup-azure-database-postgresql/select-secret-from-azure-key-vault-inline.png" alt-text="Captura de pantalla que muestra la selección del secreto de Azure Key Vault." lightbox="./media/backup-azure-database-postgresql/select-secret-from-azure-key-vault-expanded.png":::   
 
-1. Confirme todos los detalles en **Revisión y configuración** y seleccione **Configurar la copia de seguridad** para ejecutar la operación.
+1. Cuando se completa la actualización de la información del secreto, la validación se inicia una vez actualizada la información del almacén de claves. En este caso, el servicio de copia de seguridad valida si tiene todos los [permisos de acceso](backup-azure-database-postgresql-overview.md#key-vault-based-authentication-model) necesarios para leer los detalles del secreto del almacén de claves y conectarse a la base de datos. Si faltan uno o varios permisos de acceso, se mostrará uno de estos mensajes de error: _Role assignment not done (Asignación de roles no realizada) o User cannot assign roles (El usuario no puede asignar roles)_ .
 
-    ![Confirmar detalles en Revisión y configuración](./media/backup-azure-database-postgresql/review-and-configure.png)
+   :::image type="content" source="./media/backup-azure-database-postgresql/validation-of-secret-inline.png" alt-text="Captura de pantalla que muestra la validación del secreto." lightbox="./media/backup-azure-database-postgresql/validation-of-secret-expanded.png":::   
 
-1. Una vez desencadenada la operación **Configurar la copia de seguridad**, creará una instancia de copia de seguridad. Puede realizar un seguimiento del estado de la operación en el panel [Instancias de copia de seguridad](backup-center-monitor-operate.md#backup-instances) del Centro de copias de seguridad o en la vista del almacén.
+   1. **User cannot assign roles** (El usuario no puede asignar roles): este mensaje se muestra cuando usted (el administrador de copias de seguridad) no tiene acceso de escritura en el servidor postgreSQL o en el almacén de claves para asignar los permisos que faltan, como se muestra en **View details** (Ver detalles). Descargue la plantilla de asignación desde el botón de acción y haga que la ejecuten el administrador de PostgreSQL o del almacén de claves. Se trata de una plantilla de ARM que le ayuda a asignar los permisos necesarios en los recursos necesarios. Una vez que la plantilla se ejecute correctamente, haga clic en **Re-validate** (Volver a validar) en la página Configure Backup (Configurar copia de seguridad).
 
-    ![Instancias de copia de seguridad](./media/backup-azure-database-postgresql/backup-instances.png)
+      :::image type="content" source="./media/backup-azure-database-postgresql/download-role-assignment-template-inline.png" alt-text="Captura de pantalla que muestra la opción para descargar la plantilla de asignación de roles." lightbox="./media/backup-azure-database-postgresql/download-role-assignment-template-expanded.png":::    
 
-1. Las copias de seguridad se desencadenan según la programación de copia de seguridad definida en la directiva. Se puede realizar un seguimiento de los trabajos en [Trabajos de copia de seguridad](backup-center-monitor-operate.md#backup-jobs). Actualmente, puede ver los trabajos de los siete últimos días.
+   1. **Role assignment not done** (Asignación de roles no realizada): este mensaje se muestra cuando usted (el administrador de copias de seguridad) tiene acceso de escritura en el servidor postgreSQL o en el almacén de claves para asignar los permisos que faltan, como se muestra en **View details** (Ver detalles). Use el botón de acción **Assign missing roles** (Asignar roles que faltan) del menú de acciones superior para conceder en línea los permisos en el servidor postgreSQL y en el almacén de claves.
 
-    ![Trabajos de copia de seguridad](./media/backup-azure-database-postgresql/backup-jobs.png)
+      :::image type="content" source="./media/backup-azure-database-postgresql/role-assignment-not-done-inline.png" alt-text="Captura de pantalla que muestra el mensaje de error sobre la asignación de roles no realizada." lightbox="./media/backup-azure-database-postgresql/role-assignment-not-done-expanded.png":::     
 
-## <a name="create-backup-policy"></a>Creación de una directiva de copia de seguridad
+1. Seleccione **Assign missing roles** (Asignar roles que faltan) en el menú superior y asigne los roles. Una vez que se inicia el proceso, se conceden al almacén de copia de seguridad los [permisos de acceso que faltan](backup-azure-database-postgresql-overview.md#azure-backup-authentication-with-the-postgresql-server) en el almacén de claves o el servidor PG. Puede definir el ámbito en el que se deben conceder los permisos de acceso. Una vez completada la acción, se inicia una nueva validación.
 
-1. Vaya a **Centro de copias de seguridad** -> **Directivas de Backup** -> **Agregar**. Como alternativa, puede ir a **Almacén de Backup** -> **Directiva de Backup** -> **Agregar**.
+   :::image type="content" source="./media/backup-azure-database-postgresql/assign-missing-roles-inline.png" alt-text="Captura de pantalla que muestra la opción para asignar los roles que faltan." lightbox="./media/backup-azure-database-postgresql/assign-missing-roles-expanded.png":::
 
-    ![Agregar directiva de Backup](./media/backup-azure-database-postgresql/add-backup-policy.png)
+   :::image type="content" source="./media/backup-azure-database-postgresql/define-scope-of-access-permission-inline.png" alt-text="Captura de pantalla que muestra cómo definir el ámbito del permiso de acceso." lightbox="./media/backup-azure-database-postgresql/define-scope-of-access-permission-expanded.png":::     
 
-1. En **Nombre**, escriba un nombre para la nueva directiva.
+   - El almacén de copia de seguridad accede a los secretos del almacén de claves y ejecuta una conexión de prueba a la base de datos para validar si las credenciales se han especificado correctamente. También se comprueban los privilegios del usuario de base de datos para ver [si el usuario de base de datos tiene permisos relacionados con la copia de seguridad en la base de datos](backup-azure-database-postgresql-overview.md#database-users-backup-privileges-on-the-database).
 
-    ![Escribir nombre de la directiva](./media/backup-azure-database-postgresql/enter-policy-name.png)
+   - El administrador de PostgreSQL tendrá todos los permisos de copia de seguridad y restauración en la base de datos de manera predeterminada. Por lo tanto, las validaciones se realizarán correctamente.
+   - Es posible que un usuario con pocos privilegios no tenga permisos de copia de seguridad y restauración en la base de datos. Por lo tanto, se produciría un error en las validaciones. Se genera dinámicamente un script de PowerShell (uno por cada registro o base de datos seleccionada). [Ejecute el script de PowerShell para conceder estos privilegios al usuario de base de datos en la base de datos](#create-secrets-in-the-key-vault). Como alternativa, puede asignar estos privilegios mediante PG admin o la herramienta PSQL.
 
-1. Defina la programación de las copias de seguridad. Actualmente se admite el valor **Semanal**. Puede programar las copias de seguridad en uno o varios días de la semana.
+   :::image type="content" source="./media/backup-azure-database-postgresql/backup-vault-accesses-secrets-inline.png" alt-text="Captura de pantalla que muestra los secretos de acceso del almacén de copia de seguridad desde el almacén de claves." lightbox="./media/backup-azure-database-postgresql/backup-vault-accesses-secrets-expanded.png":::      
 
-    ![Definir la programación de copias de seguridad](./media/backup-azure-database-postgresql/define-backup-schedule.png)
+   :::image type="content" source="./media/backup-azure-database-postgresql/run-test-connection.png" alt-text="Captura de pantalla que muestra el proceso para iniciar la conexión de prueba.":::      
+
+   :::image type="content" source="./media/backup-azure-database-postgresql/user-credentials-to-run-test-connection-inline.png" alt-text="Captura de pantalla que muestra cómo proporcionar las credenciales de usuario para ejecutar la prueba." lightbox="./media/backup-azure-database-postgresql/user-credentials-to-run-test-connection-expanded.png":::      
+
+1. Mantenga los registros con el estado de preparación para la copia de seguridad establecido como Correcto para continuar con el último paso de envío de la operación.
+
+   :::image type="content" source="./media/backup-azure-database-postgresql/backup-readiness-as-success-inline.png" alt-text="Captura de pantalla que muestra que la preparación para la copia de seguridad es correcta." lightbox="./media/backup-azure-database-postgresql/backup-readiness-as-success-expanded.png":::      
+
+   :::image type="content" source="./media/backup-azure-database-postgresql/review-backup-configuration-details-inline.png" alt-text="Captura de pantalla que muestra la página de revisión de la configuración de copia de seguridad." lightbox="./media/backup-azure-database-postgresql/review-backup-configuration-details-expanded.png":::      
+
+1. Envíe la operación de configuración de copia de seguridad y realice un seguimiento del progreso en **Backup instances** (Instancias de Backup).
+
+   :::image type="content" source="./media/backup-azure-database-postgresql/submit-configure-backup-operation-inline.png" alt-text="Captura de pantalla que muestra el envío de la configuración de copia de seguridad y el seguimiento del progreso." lightbox="./media/backup-azure-database-postgresql/submit-configure-backup-operation-expanded.png":::      
+
+## <a name="create-backup-policy"></a>Crear directiva de copia de seguridad
+
+Puede crear una directiva de copia de seguridad sobre la marcha durante la configuración del flujo de copia de seguridad. Como alternativa, vaya a **Centro de copias de seguridad** -> **Directivas de Backup** -> **Agregar**.
+
+1. En Nombre, escriba un nombre para la nueva directiva.
+
+   :::image type="content" source="./media/backup-azure-database-postgresql/enter-name-for-new-policy-inline.png" alt-text="Captura de pantalla que muestra el proceso para especificar un nombre para la nueva directiva." lightbox="./media/backup-azure-database-postgresql/enter-name-for-new-policy-expanded.png":::
+
+1. Defina la programación de las copias de seguridad. Actualmente, solo está disponible la opción de copia de seguridad semanal. Sin embargo, puede programar las copias de seguridad varios días de la semana.
 
 1. Defina la configuración de **Retención**. Puede agregar una o varias reglas de retención. En cada regla de retención se suponen entradas para copias de seguridad específicas, así como el almacén de datos y el tiempo que se retienen esas copias de seguridad.
 
-1. Puede optar por almacenar las copias de seguridad en uno de los dos almacenes de datos (o niveles): **Almacén de datos de copia de seguridad** (nivel estándar) o **Almacén de datos de archivo** (en versión preliminar).
+1. Para almacenar las copias de seguridad en uno de los dos almacenes de datos (o niveles), elija **Backup data store** (Almacén de datos de copia de seguridad) (nivel Estándar) o **Archive data store** (Almacén de datos de archivo) (en versión preliminar).
 
-   Puede elegir la opción **Al expirar** si prefiere trasladar la copia de seguridad al almacén de datos de archivo cuando expire en el almacén de datos de copia de seguridad.
+1. Elija la opción **On-expiry** (Al expirar) para mover la copia de seguridad al almacén de datos de archivo cuando expire en el almacén de datos de copia de seguridad.
 
-1. Si no hay ninguna otra regla de retención, se aplica la **regla de retención predeterminada**, que a su vez tiene un valor predeterminado de tres meses.
+   Si no hay ninguna otra regla de retención, se aplica la **regla de retención predeterminada**, que a su vez tiene un valor predeterminado de tres meses.
 
-    - La duración de la retención oscila entre siete días y diez años en el **almacén de datos de copia de seguridad**.
-    - La duración de la retención oscila entre seis meses y diez años en el **almacén de datos de archivo**.
+   - La duración de la retención oscila entre siete días y diez años en el **almacén de datos de copia de seguridad**.
+   - La duración de la retención oscila entre seis meses y diez años en el **almacén de datos de archivo**.
 
-    ![Editar la duración de retención](./media/backup-azure-database-postgresql/edit-retention.png)
+   :::image type="content" source="./media/backup-azure-database-postgresql/choose-option-to-move-backup-to-archive-data-store-inline.png" alt-text="Captura de pantalla que muestra el paso 5 para elegir la opción Al expirar para mover la copia de seguridad al almacén de datos de archivo tras su expiración." lightbox="./media/backup-azure-database-postgresql/choose-option-to-move-backup-to-archive-data-store-expanded.png":::
 
->[!NOTE]
->Las reglas de retención se evalúan en un orden de prioridad predeterminado. La prioridad más alta es para la regla **anual**, seguida de la regla **mensual** y, luego, la **semanal**. La configuración de referencia predeterminada se aplica en caso de que no haya ninguna otra regla que cumpla los requisitos. Por ejemplo, el mismo punto de recuperación puede ser la primera copia de seguridad correcta que se realiza cada semana, así como la primera copia de seguridad correcta realizada cada mes. Sin embargo, dado que la prioridad de la regla mensual es mayor que la de la regla semanal, se aplica la retención correspondiente a la primera copia de seguridad correcta realizada cada mes.
+>[!Note]
+>Las reglas de retención se evalúan en un orden de prioridad predeterminado. La prioridad más alta es para la regla anual, seguida de la regla mensual y, luego, la semanal. La configuración de referencia predeterminada se aplica en caso de que no haya ninguna otra regla que cumpla los requisitos. Por ejemplo, el mismo punto de recuperación puede ser la primera copia de seguridad correcta que se realiza cada semana, así como la primera copia de seguridad correcta realizada cada mes. Sin embargo, dado que la prioridad de la regla mensual es mayor que la de la regla semanal, se aplica la retención correspondiente a la primera copia de seguridad correcta realizada cada mes.
+## <a name="create-secrets-in-the-key-vault"></a>Creación de los secretos en el almacén de claves
 
-## <a name="restore"></a>Restauración
+El secreto es la cadena de conexión del servidor PG en formato _ADO.net_ actualizado con las credenciales del usuario de base de datos al que se han concedido los privilegios de **copia de seguridad** en el servidor. Copie la cadena de conexión del servidor PG y edítela en un editor de texto para actualizar el _identificador de usuario y la contraseña_. 
 
-Puede restaurar una base de datos en cualquier servidor de Azure PostgreSQL dentro de la misma suscripción, si el servicio tiene el conjunto de permisos adecuado en el servidor de destino. Asegúrese de que ya están configurados los [permisos previos](#prerequisite-permissions-for-configure-backup-and-restore) que necesita el servicio para realizar copias de seguridad de los servidores de Postgres.
+:::image type="content" source="./media/backup-azure-database-postgresql/pg-server-connection-string-inline.png" alt-text="Captura de pantalla que muestra la cadena de conexión del servidor PG como un secreto." lightbox="./media/backup-azure-database-postgresql/pg-server-connection-string-expanded.png":::
 
-Siga esta guía paso a paso para desencadenar una restauración:
+:::image type="content" source="./media/backup-azure-database-postgresql/create-secret-inline.png" alt-text="Captura de pantalla que muestra la opción para crear un secreto de cadena de conexión de servidor PG." lightbox="./media/backup-azure-database-postgresql/create-secret-expanded.png":::
 
-1. Hay dos maneras de iniciar el proceso de restauración:
+## <a name="run-powershell-script-to-grant-privileges-to-database-users"></a>Ejecución de un script de PowerShell para conceder privilegios a los usuarios de base de datos
 
-   1. Vaya a [Centro de copias de seguridad](backup-center-overview.md) -> **Información general** -> **Restauración**.
+El script de PowerShell generado dinámicamente durante la configuración de la copia de seguridad acepta el usuario de base de datos como entrada, junto con las credenciales del administrador de PG, para conceder los privilegios relacionados con la copia de seguridad al usuario de base de datos en la base de datos.
 
-      ![Seleccionar Restauración en el Centro de copias de seguridad](./media/backup-azure-database-postgresql/backup-center-restore.png)
+La [herramienta PSQL](https://www.enterprisedb.com/download-postgresql-binaries) debe estar presente en la máquina y se debe establecer correctamente la variable de entorno PATH en la ruta de acceso de la herramienta PSQL.
 
-      En **Iniciar: Restaurar**, seleccione **Azure Database for PostgreSQL** en **Tipo de origen de datos**. Seleccione la **instancia de copia de seguridad**.
+:::image type="content" source="./media/backup-azure-database-postgresql/psql-set-environment-inline.png" alt-text="Captura de pantalla que muestra la opción para buscar la aplicación de configuración del entorno." lightbox="./media/backup-azure-database-postgresql/psql-set-environment-expanded.png":::
 
-      ![Seleccionar el tipo de origen de datos en Iniciar: Restaurar](./media/backup-azure-database-postgresql/initiate-restore.png)
+:::image type="content" source="./media/backup-azure-database-postgresql/system-properties-to-set-environment-inline.png" alt-text="Captura de pantalla que muestra la opción para establecer el entorno en Propiedades del sistema." lightbox="./media/backup-azure-database-postgresql/system-properties-to-set-environment-expanded.png":::
 
-   1. También puede ir directamente a **Almacén de Backup** -> **Instancias de copia de seguridad**. En **Instancia de copia de seguridad** seleccione la instancia correspondiente a la base de datos que desea restaurar.
+:::image type="content" source="./media/backup-azure-database-postgresql/adding-environment-variables-inline.png" alt-text="Captura de pantalla que muestra las variables de entorno predeterminadas." lightbox="./media/backup-azure-database-postgresql/adding-environment-variables-expanded.png":::
 
-      ![Instancias de copia de seguridad para restauración](./media/backup-azure-database-postgresql/backup-instances-restore.png)
+:::image type="content" source="./media/backup-azure-database-postgresql/editing-environment-variables-inline.png" alt-text="Captura de pantalla que muestra las variables de entorno que debe establecer." lightbox="./media/backup-azure-database-postgresql/editing-environment-variables-expanded.png":::
 
-      ![Lista de instancias de copia de seguridad](./media/backup-azure-database-postgresql/list-backup-instances.png)
+Asegúrese de que la **configuración de seguridad de la conexión** de la instancia de Azure Database for PostgreSQL incluya en la lista de permitidos la dirección IP de la máquina para permitir la conectividad de red.
 
-      ![Seleccione Restaurar](./media/backup-azure-database-postgresql/select-restore.png)
-
-1. En **Seleccione un punto de recuperación**, elija el punto que desee en la lista de todas las copias de seguridad completas disponibles para la instancia de copia de seguridad seleccionada. De forma predeterminada, se selecciona el punto de recuperación más reciente.
-
-    ![Seleccionar el punto de recuperación](./media/backup-azure-database-postgresql/select-recovery-point.png)
-
-    ![Lista de puntos de recuperación](./media/backup-azure-database-postgresql/list-recovery-points.png)
-
-1. Indique los valores adecuados en **Restore Parameters** (Parámetros de restauración). En este momento, puede seleccionar entre dos tipos de restauraciones: **Restore as Database** (Restaurar como base de datos) y **Restaurar como archivos**.
-
-1. **Restore as Database** (Restaurar como base de datos):  restaura los datos de copia de seguridad para crear una nueva base de datos en el servidor PostgreSQL de destino.
-
-    - El servidor de destino puede ser el mismo que el servidor de origen. Sin embargo, no se puede sobrescribir la base de datos original.
-    - Puede elegir el servidor entre todas las suscripciones, pero debe estar en la misma región que el almacén.
-    - Seleccione **Revisar y restaurar**. Esto desencadenará la validación para comprobar si el servicio cuenta con los permisos de restauración adecuados en el servidor de destino.
-
-    ![Restaurar como base de datos](./media/backup-azure-database-postgresql/restore-as-database.png)
-
-1. **Restaurar como archivos**: Vuelque los archivos de copia de seguridad en la cuenta de almacenamiento de destino (blobs).
-
-    - Puede elegir la cuenta de almacenamiento entre todas las suscripciones, pero debe estar en la misma región que el almacén.
-    - Seleccione el contenedor de destino de la lista de contenedores filtrados para la cuenta de almacenamiento seleccionada.
-    - Seleccione **Revisar y restaurar**. Esto desencadenará la validación para comprobar si el servicio cuenta con los permisos de restauración adecuados en el servidor de destino.
-
-    ![Restaurar como archivos](./media/backup-azure-database-postgresql/restore-as-files.png)
-
-1. Si el punto de recuperación está en el nivel de archivo, debe rehidratar el punto de recuperación antes de restaurarlo.
-   
-   ![Configuración de la rehidratación](./media/backup-azure-database-postgresql/rehydration-settings.png)
-   
-   Proporcione los siguientes parámetros adicionales necesarios para la rehidratación:
-   - **Prioridad de la rehidratación:** el valor predeterminado es **Estándar**.
-   - **Duración de la rehidratación:** la duración máxima de rehidratación es de 30 días y la duración mínima de rehidratación es de 10 días. El valor predeterminado es **15**.
-   
-   El punto de recuperación se almacena en el **almacén de datos de Backup** durante la rehidratación especificada.
-
-
-1. Revise la información y seleccione **Restaurar**. Esto desencadenará un trabajo de restauración correspondiente, cuyo seguimiento puede realizar en **Trabajos de copia de seguridad**.
-
->[!NOTE]
->La compatibilidad con archivos de Azure Database for PostgreSQL está en versión preliminar pública limitada.
-
-
-
-## <a name="manage-the-backed-up-azure-postgresql-databases"></a>Administración de las bases de datos de Azure PostgreSQL de las que se hizo copia de seguridad
-
-Estas son las operaciones de administración que puede realizar en las **instancias de copia de seguridad**:
-
-### <a name="on-demand-backup"></a>Copia de seguridad a petición
+## <a name="generate-an-on-demand-backup"></a>Generación de una copia de seguridad a petición
 
 Para desencadenar una copia de seguridad fuera de la programación especificada en la directiva, vaya a **Instancias de copia de seguridad** -> **Hacer copia de seguridad ahora**.
 Elija una regla de retención en la lista de las que se definieron en la directiva de Backup asociada.
 
-![Desencadenar copia de seguridad ahora](./media/backup-azure-database-postgresql/backup-now.png)
+:::image type="content" source="./media/backup-azure-database-postgresql/navigate-to-retention-rules-inline.png" alt-text="Captura de pantalla que muestra la opción para ir a la lista de reglas de retención que se definieron en la directiva de copia de seguridad asociada." lightbox="./media/backup-azure-database-postgresql/navigate-to-retention-rules-expanded.png":::
 
-![Elegir en la lista de reglas de retención](./media/backup-azure-database-postgresql/retention-rules.png)
-
-### <a name="change-policy"></a>Cambiar la directiva
-
-Puede cambiar la directiva asociada a una instancia de copia de seguridad.
-
-1. Seleccione la opción **Instancia de copia de seguridad** -> **Cambiar directiva**.
-
-    ![Cambiar la directiva](./media/backup-azure-database-postgresql/change-policy.png)
-
-1. Seleccione la nueva directiva que desea aplicar a la base de datos.
-
-    ![Reasignar directiva](./media/backup-azure-database-postgresql/reassign-policy.png)
-
-## <a name="troubleshooting"></a>Solución de problemas
-
-En esta sección se proporciona información para la solución de problemas de copia de seguridad de bases de datos de Azure PostgreSQL con Azure Backup.
-
-### <a name="usererrormsimissingpermissions"></a>UserErrorMSIMissingPermissions
-
-Proporcione al valor MSI del almacén de Backup acceso de tipo **Lectura** en el servidor de PostgreSQL en el que quiera realizar copias de seguridad o restaurar.
-
-Para establecer una conexión segura a la base de datos de PostgreSQL, Azure Backup usa el modelo de autenticación de [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md). Esto significa que el almacén de copia de seguridad solo tendrá acceso a los recursos a los que el usuario haya concedido explícitamente el permiso.
-
-En el momento de la creación del almacén, se le asigna automáticamente un valor MSI del sistema. Debe proporcionar a este valor MSI del almacén acceso a los servidores de PostgreSQL de cuyas bases de datos quiere realizar copias de seguridad.
-
-Pasos:
-
-1. En el servidor de Postgres, vaya al panel **Control de acceso (IAM)** .
-
-    ![Panel Control de acceso](./media/backup-azure-database-postgresql/access-control-pane.png)
-
-1. Seleccione **Agregar asignación de roles**.
-
-    ![Agregar asignación de roles](./media/backup-azure-database-postgresql/add-role-assignment.png)
-
-1. En el panel de contexto derecho que se abre, escriba lo siguiente:<br>
-
-   - **Rol:** elija el rol **Lector** en la lista desplegable.<br>
-   - **Asignar acceso a:** elija la opción **Usuario, grupo o entidad de servicio** en la lista desplegable.<br>
-   - **Seleccionar**: escriba el nombre del almacén de Backup en el que desea realizar la copia de seguridad de este servidor y sus bases de datos.<br>
-
-    ![Seleccionar rol](./media/backup-azure-database-postgresql/select-role-and-enter-backup-vault-name.png)
-
-### <a name="usererrorbackupuserauthfailed"></a>UserErrorBackupUserAuthFailed
-
-Cree un usuario de copia de seguridad de base de datos que pueda autenticarse con Azure Active Directory:
-
-Este error puede deberse a la ausencia de un administrador de Azure Active Directory para el servidor de PostgreSQL o a la ausencia de un usuario de copia de seguridad que pueda autenticarse mediante Azure Active Directory.
-
-Pasos:
-
-Agregue un administrador de Active Directory al servidor OSS:
-
-Este paso es necesario para conectarse a la base de datos con un usuario que puede autenticarse mediante Azure Active Directory en lugar de usar una contraseña. El usuario administrador de Azure AD en Azure Database for PostgreSQL tendrá el rol **azure_ad_admin**. Solo un rol **azure_ad_admin** puede crear nuevos usuarios de base de datos que se puedan autenticar con Azure AD.
-
-1. Vaya a la pestaña Administrador de Active Directory en el panel de navegación izquierdo de la vista de servidor y agréguese (o agregue a otra persona) como administrador de Active Directory.
-
-    ![Establecer el administrador de Active Directory](./media/backup-azure-database-postgresql/set-admin.png)
-
-1. Asegúrese de **guardar** la configuración de usuario administrador de AD.
-
-    ![Guardar configuración de usuario de administrador de Active Directory](./media/backup-azure-database-postgresql/save-admin-setting.png)
-
-Consulte [este documento](https://download.microsoft.com/download/7/4/d/74d689aa-909d-4d3e-9b18-f8e465a7ebf5/OSSbkpprep_automated.docx) para ver la lista de pasos que debe realizar para completar la concesión de permisos.
-
-### <a name="usererrormissingnetworksecuritypermissions"></a>UserErrorMissingNetworkSecurityPermissions
-
-Habilite la marca **Permitir el acceso a servicios de Azure** para establecer la línea de visión de la red. En la vista de servidor, en el panel **Seguridad de la conexión**, establezca la marca **Permitir el acceso a servicios de Azure** en **Sí**.
-
->[!Note]
->Antes de habilitar esta marca, asegúrese de establecer la marca **Denegar acceso a la red pública** en **No**.
-
-![Permitir el acceso a servicios de Azure](./media/backup-azure-database-postgresql/allow-access-to-azure-services.png)
-
-### <a name="usererrorcontainernotaccessible"></a>UserErrorContainerNotAccessible
-
-#### <a name="permission-to-restore-to-a-storage-account-container-when-restoring-as-files"></a>Permiso para restaurar en un contenedor de la cuenta de almacenamiento al restaurar como archivos
-
-1. Conceda al valor MSI del almacén de Backup permiso para acceder a los contenedores de la cuenta de almacenamiento mediante Azure Portal.
-    1. Vaya a **Cuenta de almacenamiento** -> **Control de acceso** -> **Agregar asignación de rol**.
-    1. Asigne el rol **Colaborador de datos de Storage Blob** al valor MSI del almacén de Backup.
-
-    ![Asignar el rol Colaborador de datos de Storage Blob](./media/backup-azure-database-postgresql/assign-storage-blog-data-contributor-role.png)
-
-1. También puede conceder permisos pormenorizados al contenedor específico en el que va a realizar la restauración mediante el comando [az role assignment create](/cli/azure/role/assignment) de la CLI de Azure.
-
-    ```azurecli
-    az role assignment create --assignee $VaultMSI_AppId  --role "Storage Blob Data Contributor"   --scope $id
-    ```
-
-    1. Reemplace el parámetro assignee por el valor de **Id. de aplicación** de la identidad MSI del almacén y modifique el parámetro scope para que haga referencia al contenedor específico.
-    1. Para obtener el valor de **Id. de aplicación** de la identidad MSI del almacén, seleccione **Todas las aplicaciones** en **Tipo de aplicación**:
-
-        ![Seleccionar Todas las aplicaciones](./media/backup-azure-database-postgresql/select-all-applications.png)
-
-    1. Busque el nombre del almacén y copie el identificador de la aplicación:
-
-        ![Buscar el nombre del almacén](./media/backup-azure-database-postgresql/search-for-vault-name.png)
+:::image type="content" source="./media/backup-azure-database-postgresql/choose-retention-rules-inline.png" alt-text="Captura de pantalla que muestra la opción elegir las reglas de retención que se definieron en la directiva de copia de seguridad asociada." lightbox="./media/backup-azure-database-postgresql/choose-retention-rules-expanded.png":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Introducción a los almacenes de Backup](backup-vault-overview.md)
+[Solución de problemas de la copia de seguridad de base de datos de PostgreSQL con Azure Backup](backup-azure-database-postgresql-troubleshoot.md)

@@ -3,13 +3,13 @@ title: Creación de una solicitud de soporte técnico de Azure
 description: Los clientes que necesiten asistencia pueden usar Azure Portal para buscar soluciones de autoservicio y para crear y administrar solicitudes de soporte técnico.
 ms.topic: how-to
 ms.custom: support-help-page
-ms.date: 09/01/2021
-ms.openlocfilehash: 768c778926024288b0d331b5cb6b60c8e9c16a57
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 09/30/2021
+ms.openlocfilehash: 4598cc16173100749ad3f1bdefd3165020554465
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123429484"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129358267"
 ---
 # <a name="create-an-azure-support-request"></a>Creación de una solicitud de soporte técnico de Azure
 
@@ -18,9 +18,9 @@ Azure le permite crear y administrar solicitudes de soporte técnico, también c
 > [!NOTE]
 > La dirección URL de Azure Portal es específica de la nube de Azure donde está implementada la organización.
 >
->* Azure Portal para uso comercial: [https://portal.azure.com](https://portal.azure.com)
->* Azure Portal para Alemania: [https://portal.microsoftazure.de](https://portal.microsoftazure.de)
->* Azure Portal para el gobierno de los Estados Unidos: [https://portal.azure.us](https://portal.azure.us)
+>- Azure Portal para uso comercial: [https://portal.azure.com](https://portal.azure.com)
+>- Azure Portal para Alemania: [https://portal.microsoftazure.de](https://portal.microsoftazure.de)
+>- Azure Portal para el gobierno de los Estados Unidos: [https://portal.azure.us](https://portal.azure.us)
 
 Azure proporciona soporte ilimitado para la administración de suscripciones, lo que incluye facturación, ajustes de cuota y transferencias de cuentas. Para obtener soporte técnico, necesita un plan de soporte técnico. Para más información, consulte [Comparar planes de soporte técnico](https://azure.microsoft.com/support/plans).
 
@@ -78,7 +78,9 @@ A continuación, recopilaremos información adicional sobre el problema. Proporc
 
 1. Complete los **detalles del problema** para que podamos tener más información sobre el mismo. Si es posible, indíquenos cuándo se inició el problema y los pasos para reproducirlo. Puede cargar un archivo, como un archivo de registro o una salida de diagnósticos. Para obtener más información sobre las cargas de archivos, consulte [Instrucciones de carga de archivos](how-to-manage-azure-support-request.md#file-upload-guidelines).
 
-1. En la sección **Compartir información de diagnóstico**, seleccione **Sí** o **No**. Si elige **Sí**, el soporte técnico de Azure podrá recopilar [información de diagnóstico](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) de los recursos de Azure. Si prefiere no compartir esta información, seleccione **No**. En algunos casos, habrá opciones adicionales entre las que elegir, como permitir el acceso a la memoria de una máquina virtual.
+1. En la sección **Compartir información de diagnóstico**, seleccione **Sí** o **No**. Si elige **Sí**, el soporte técnico de Azure podrá recopilar [información de diagnóstico](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) de los recursos de Azure. Si prefiere no compartir esta información, seleccione **No**. Consulte la sección [Registros de información de diagnóstico avanzada](#advanced-diagnostic-information-logs) para obtener más detalles sobre los tipos de archivos que se pueden recopilar.
+
+  En algunos casos, habrá opciones adicionales donde elegir. Por ejemplo, para determinados tipos de problemas de máquina virtual, puede elegir si desea [permitir el acceso a la memoria de una máquina virtual](#memory-dump-collection).
 
 1. En la sección **Método de soporte técnico**, seleccione la gravedad del efecto. El nivel de gravedad máximo depende de su [plan de soporte técnico](https://azure.microsoft.com/support/plans).
 
@@ -93,6 +95,29 @@ Seleccione **Siguiente** cuando haya completado toda la información necesaria.
 Antes de crear la solicitud, revise todos los detalles que va a enviar al soporte técnico. Puede seleccionar **Anterior** para volver a cualquier pestaña si necesita realizar cambios. Cuando esté satisfecho con la solicitud de soporte técnico, seleccione **Crear**.
 
 Un ingeniero de soporte técnico se pondrá en contacto con usted mediante el método que haya indicado. Consulte [Ámbito de soporte técnico y capacidad de respuesta](https://azure.microsoft.com/support/plans/response/) para obtener información sobre los tiempos de respuesta inicial.
+
+### <a name="advanced-diagnostic-information-logs"></a>Registros de información de diagnóstico avanzada
+
+Cuando se permite la recopilación de [información de diagnóstico avanzada](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/), el soporte técnico de Microsoft puede recopilar información que pueda ayudar a resolver el problema más rápidamente. Esta lista no exhaustiva incluye ejemplos de los archivos más comunes recopilados en información de diagnóstico avanzada para diferentes servicios o entornos.
+
+- [Registros de VM de PaaS de Microsoft Azure](/troubleshoot/azure/virtual-machines/sdp352ef8720-e3ee-4a12-a37e-cc3b0870f359-windows-vm)
+- [Registros de VM de IaaS de Microsoft Azure](https://github.com/azure/azure-diskinspect-service/blob/master/docs/manifest_by_file.md)
+- [Registros de Microsoft Azure Service Fabric](/troubleshoot/azure/general/fabric-logs)
+- [Registros de dispositivos y paquetes de soporte de StorSimple](https://support.microsoft.com/topic/storsimple-support-packages-and-device-logs-cb0a1c7e-6125-a5a7-f212-51439781f646)
+- [Registros de SQL Server en Azure Virtual Machines](/troubleshoot/azure/general/sql-vm-logs)
+- [Registros de Azure Active Directory](/troubleshoot/azure/active-directory/support-data-collection-diagnostic-logs)
+- [Registros de dispositivos y paquetes de soporte de Azure Stack Edge](/troubleshoot/azure/general/azure-stack-edge-support-package-device-logs)
+- [Registros de Azure Synapse Analytics](/troubleshoot/azure/general/synapse-analytics-apache-spark-pools-diagnostic-logs)
+
+### <a name="memory-dump-collection"></a>Recopilación de volcado de memoria
+
+Al crear un caso de soporte técnico para determinados tipos de problemas de máquina virtual (VM), se le preguntará si va a permitir que el soporte técnico acceda a la memoria de la máquina virtual. Si lo hace, podemos recopilar un volcado de memoria para ayudar a diagnosticar el problema.
+
+Un volcado de memoria completo es el archivo de volcado de memoria en modo kernel más grande. Este archivo incluye toda la memoria física que usa Windows. De forma predeterminada, un volcado de memoria completo no incluye la memoria física que usa el firmware de la plataforma.
+
+El volcado se copia desde el nodo de proceso (host de Azure) a otro servidor para la depuración en el mismo centro de datos. Los datos del cliente están protegidos, ya que los datos no salen del límite seguro de Azure.
+
+El archivo de volcado se crea mediante la generación de un estado de guardado de Hyper-V de la máquina virtual. Esto pausará la máquina virtual durante un máximo de 10 minutos, después de lo cual se reanudará. La máquina virtual no se reinicia como parte de este proceso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere, asteen
-ms.openlocfilehash: 8bf923e6793b55b4655c4c2133de1cda10216e18
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 33276b986f951a1ad343a25229b2ee23c33e05b8
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108187309"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232401"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Configuración del inicio de sesión único en una aplicación de proxy de aplicación
 
@@ -34,13 +34,13 @@ Configure el tipo específico de inicio de sesión único. Los métodos de inici
 
 -   **Inicio de sesión con contraseña**: el inicio de sesión con contraseña sirve para cualquier aplicación que utilice los campos de nombre de usuario y contraseña para iniciar sesión. Los pasos de configuración están disponibles en [Configuración del inicio de sesión único con contraseña para una aplicación de la galería de Azure AD](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md).
 
--   **Autenticación integrada de Windows**: en el caso de las aplicaciones que utilizan la Autenticación integrada de Windows (IWA), el inicio de sesión único se habilita mediante de la delegación limitada de Kerberos (KCD). Este método concede permiso a los conectores de proxy de aplicación en Active Directory para suplantar a los usuarios, y para enviar y recibir tokens en su nombre. Puede ver más información sobre la configuración de KCD en la [documentación sobre el inicio de sesión único con KCD](application-proxy-configure-single-sign-on-with-kcd.md).
+-   **Autenticación integrada de Windows**: para las aplicaciones que utilizan la autenticación integrada de Windows (IWA), el inicio de sesión único se habilita mediante la delegación restringida de Kerberos (KCD). Este método concede permiso a los conectores de proxy de aplicación en Active Directory para suplantar a los usuarios, y para enviar y recibir tokens en su nombre. Puede ver más información sobre la configuración de KCD en la [documentación sobre el inicio de sesión único con KCD](application-proxy-configure-single-sign-on-with-kcd.md).
 
--   **Inicio de sesión basado en el encabezado**: El inicio de sesión basado en el encabezado se usa para proporcionar funcionalidades de inicio de sesión único mediante encabezados HTTP. Para más información, consulte [Inicio de sesión único basado en el encabezado](application-proxy-configure-single-sign-on-with-headers.md).
+-   **Inicio de sesión basado en el encabezado**: el inicio de sesión basado en el encabezado se usa para proporcionar funcionalidades de inicio de sesión único mediante encabezados HTTP. Para más información, consulte [Inicio de sesión único basado en el encabezado](application-proxy-configure-single-sign-on-with-headers.md).
 
--   **Inicio de sesión único SAML**: Con el inicio de sesión único de SAML, Azure AD se autentica en la aplicación mediante el uso de la cuenta de Azure AD del usuario. Azure AD comunica la información de inicio de sesión a la aplicación a través de un protocolo de conexión. Con el inicio de sesión único basado en SAML puede asignar usuarios a roles de aplicación específicos según las reglas que defina en las notificaciones SAML. Para obtener información sobre cómo configurar el inicio de sesión único de SAML, vea [SAML para inicio de sesión único con Application Proxy](application-proxy-configure-single-sign-on-on-premises-apps.md).
+-   **Inicio de sesión único de SAML**: con el inicio de sesión único de SAML, Azure AD se autentica en la aplicación mediante la cuenta de Azure AD del usuario. Azure AD comunica la información de inicio de sesión a la aplicación a través de un protocolo de conexión. Con el inicio de sesión único basado en SAML puede asignar usuarios a roles de aplicación específicos según las reglas que defina en las notificaciones SAML. Para obtener información sobre cómo configurar el inicio de sesión único de SAML, vea [SAML para inicio de sesión único con Application Proxy](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
-Puede encontrar todas estas opciones si va a "Aplicaciones empresariales" en la aplicación y abre la página **Inicio de sesión único** en el menú de la izquierda. Tenga en cuenta que, si la aplicación se creó en el portal antiguo, es posible que no vea todas estas opciones.
+Para encontrar todas estas opciones, vaya a su aplicación en **Aplicaciones empresariales** y abra la página **Inicio de sesión único** en el menú de la izquierda. Tenga en cuenta que, si la aplicación se creó en el portal antiguo, es posible que no vea todas estas opciones.
 
 En esta página, también verá una opción adicional para el inicio de sesión: Inicio de sesión vinculado. El proxy de aplicación también admite esta opción. Sin embargo, esta opción no agrega el inicio de sesión único a la aplicación. Dicho esto, es posible que ya se haya implementado el inicio de sesión único en la aplicación mediante otro servicio, como los Servicios de federación de Active Directory. 
 

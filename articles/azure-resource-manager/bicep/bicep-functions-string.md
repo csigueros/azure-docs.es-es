@@ -4,13 +4,13 @@ description: Describe las funciones que se usarán en un archivo de Bicep para t
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/10/2021
-ms.openlocfilehash: d94f2b97a9ff78b715682052a647f02af6286af3
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/01/2021
+ms.openlocfilehash: e8691fd357b8f8cbde87309f4881fa7424f7f44e
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124794089"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389084"
 ---
 # <a name="string-functions-for-bicep"></a>Funciones de cadena para Bicep
 
@@ -21,6 +21,8 @@ En este artículo se describen las funciones de Bicep para trabajar con cadenas.
 `base64(inputString)`
 
 Devuelve la representación de base64 de la cadena de entrada.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -61,6 +63,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 `base64tojson`
 
 Convierte una representación en base64 a un objeto JSON.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -103,6 +107,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Convierte una representación en base64 en una cadena.
 
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
@@ -141,7 +147,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 ## <a name="concat"></a>concat
 
-En lugar de usar la función concat, use la interpolación de cadenas. 
+En lugar de usar la función concat, use la interpolación de cadenas.
 
 ```bicep
 param prefix string = 'prefix'
@@ -155,11 +161,15 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | ---- | ---- | ----- |
 | concatOutput | String | prefixAnd5yj4yjf5mbg72 |
 
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
+
 ## <a name="contains"></a>contains
 
 `contains (container, itemToFind)`
 
 Comprueba si una matriz contiene un valor, un objeto contiene una clave o una cadena contiene una subcadena. La comparación de cadena distingue mayúsculas de minúsculas. Pero, cuando se prueba si un objeto contiene una clave, la comparación no distingue mayúsculas de minúsculas.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -216,6 +226,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Convierte un valor en un identificador URI de datos.
 
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
@@ -251,6 +263,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Convierte un valor con formato de identificador URI de datos en una cadena.
 
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
@@ -285,6 +299,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 `empty(itemToTest)`
 
 Determina si una matriz, un objeto o una cadena están vacíos.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -323,6 +339,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 `endsWith(stringToSearch, stringToFind)`
 
 Determina si una cadena termina con un valor. La comparación distingue entre mayúsculas y minúsculas.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -365,6 +383,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Devuelve el primer carácter de la cadena o el primer elemento de la matriz.
 
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
@@ -403,6 +423,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Crea una cadena con formato a partir de valores de entrada.
 
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
@@ -438,6 +460,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 `guid(baseString, ...)`
 
 Crea un valor en el formato de un identificador único global en función de los valores proporcionados como parámetros.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -492,6 +516,8 @@ output guidPerDeployment string = guid(resourceGroup().id, deployment().name)
 
 Devuelve la primera posición de un valor dentro de una cadena. La comparación distingue entre mayúsculas y minúsculas.
 
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
@@ -533,11 +559,15 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Convierte una cadena JSON válida en un tipo de datos JSON. Para más información, consulte [función de json](./bicep-functions-object.md#json).
 
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
+
 ## <a name="last"></a>last
 
 `last (arg1)`
 
 Devuelve el último carácter de la cadena, o el último elemento de la matriz.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -577,6 +607,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Devuelve la última posición de un valor dentro de una cadena. La comparación distingue entre mayúsculas y minúsculas.
 
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
@@ -615,6 +647,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 `length(string)`
 
 Devuelve el número de caracteres en una cadena, elementos en una matriz o propiedades de nivel raíz en un objeto.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -665,6 +699,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 `newGuid()`
 
 Devuelve un valor en el formato de un identificador único global. **Esta función solo puede utilizarse en el valor predeterminado para un parámetro.**
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="remarks"></a>Observaciones
 
@@ -734,6 +770,8 @@ El resultado del ejemplo anterior varía para cada implementación, pero será s
 
 Devuelve una cadena alineada a la derecha agregando caracteres a la izquierda hasta alcanzar la longitud total especificada.
 
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
@@ -770,6 +808,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Devuelve una nueva cadena con todas las instancias de una cadena reemplazadas por otra cadena.
 
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
@@ -805,6 +845,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 `skip(originalValue, numberToSkip)`
 
 Devuelve una cadena con todos los caracteres después del número especificado de caracteres, o una matriz con todos los elementos después del número especificado de elementos.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -848,6 +890,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Devuelve una matriz de cadenas que contiene las subcadenas de la cadena de entrada que están delimitadas por los delimitadores especificados.
 
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
@@ -889,6 +933,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Determina si una cadena empieza con un valor. La comparación distingue entre mayúsculas y minúsculas.
 
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
@@ -929,6 +975,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 `string(valueToConvert)`
 
 Convierte el valor especificado a una cadena.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -975,6 +1023,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Devuelve una subcadena que empieza en la posición de carácter especificada y que contiene el número especificado de caracteres.
 
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
@@ -1018,6 +1068,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Devuelve una cadena con el número especificado de caracteres desde el inicio de la cadena, o una matriz con el número especificado de elementos desde el inicio de la matriz.
 
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
@@ -1060,6 +1112,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Convierte la cadena especificada a minúsculas.
 
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
@@ -1093,6 +1147,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 `toUpper(stringToChange)`
 
 Convierte la cadena especificada a mayúsculas.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -1128,6 +1184,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Quita todos los caracteres de espacio en blanco iniciales y finales de la cadena especificada.
 
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
@@ -1159,6 +1217,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 `uniqueString (baseString, ...)`
 
 Crea una cadena de hash determinista basada en los valores proporcionados como parámetros.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -1204,7 +1264,7 @@ resource mystorage 'Microsoft.Storage/storageAccounts@@2018-07-01' = {
 }
 ```
 
-Si necesita crear un nuevo nombre único cada vez que implemente un archivo de Bicep y no tiene intención de actualizar el recurso, puede usar la función [utcNow](./bicep-functions-date.md#utcnow) con uniqueString. Podría utilizar este enfoque en un entorno de prueba. Para ver un ejemplo, consulte [utcNow](./bicep-functions-date.md#utcnow).
+Si necesita crear un nuevo nombre único cada vez que implemente un archivo de Bicep y no tiene intención de actualizar el recurso, puede usar la función [utcNow](./bicep-functions-date.md#utcnow) con uniqueString. Podría utilizar este enfoque en un entorno de prueba. Para ver un ejemplo, consulte [utcNow](./bicep-functions-date.md#utcnow). Tenga en cuenta que la función utcNow solo se puede usar dentro de una expresión para el valor predeterminado de un parámetro.
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1224,6 +1284,8 @@ output uniqueDeploy string = uniqueString(resourceGroup().id, deployment().name)
 `uri (baseUri, relativeUri)`
 
 Crea un URI absoluto mediante la combinación de la cadena de relativeUri y baseUri.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -1282,6 +1344,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Codifica un identificador URI.
 
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
@@ -1320,6 +1384,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 `uriComponentToString(uriEncodedString)`
 
 Devuelve una cadena del valor codificado por el identificador URI.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 

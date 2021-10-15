@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: b01595353dd9857409c75ab95271452fb3cee7b0
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: dbe44535f535eb2f0deb5ef30515cc188d3d5b22
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114228573"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235428"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-active-directory-domain-services-managed-domain"></a>Implementación de Azure AD Application Proxy para el acceso seguro a las aplicaciones internas en un dominio administrado de Azure Active Directory Domain Services
 

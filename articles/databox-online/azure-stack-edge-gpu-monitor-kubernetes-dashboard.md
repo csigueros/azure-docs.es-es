@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 08/31/2021
 ms.author: alkohli
-ms.openlocfilehash: 6b50169586ef29e579d52985ee8b7822a63560d0
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 30e46f9425f4015893c08b94382e87cfa93c8be8
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982438"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363130"
 ---
 # <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-pro-gpu-device"></a>Uso del panel de Kubernetes para supervisar el dispositivo Azure Stack Edge Pro con GPU
 
@@ -44,15 +44,31 @@ En un dispositivo Azure Stack Edge Pro, puede usar el panel de Kubernetes en mod
 El panel de Kubernetes es de *solo lectura* y se ejecuta en el nodo maestro de Kubernetes en el puerto 31000. Siga estos pasos para acceder al panel: 
 
 1. En la interfaz de usuario local del dispositivo, vaya a **Dispositivo** y, a continuación, vaya a **Device endpoints** (Puntos de conexión del dispositivo). 
-1. Seleccione **Descargar configuración** para descargar una `kubeconfig` que le permita acceder al panel. Guarde el archivo `config.json` en el sistema local.
-1. Seleccione la dirección URL del panel de Kubernetes para abrir el panel en un explorador.
+1. Copie el punto de conexión del **panel de Kubernetes**. Cree una entrada DNS en el archivo `C:\Windows\System32\Drivers\etc\hosts` del cliente para conectarse al panel de Kubernetes. 
 
-    ![Dirección URL del panel de Kubernetes en la página Dispositivo en la interfaz de usuario local](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-url-local-ui-1.png)
+    `<IP address of the Kubernetes dashboard>    <Kubernetes dashboard endpoint suffix>` 
+        
+    ![Adición de una entrada DNS para el punto de conexión del panel de Kubernetes](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/add-domain-name-service-entry-hosts-1.png) 
 
-1. En la página de **inicio de sesión del panel de Kubernetes**:
+1. En la fila del punto de conexión del **panel de Kubernetes**, seleccione **Descargar configuración**. Esta acción descarga un elemento `kubeconfig` que le permite acceder al panel. Guarde el archivo `config.json` en el sistema local.   
+
+1. Descargue el certificado del panel de Kubernetes desde la interfaz de usuario local. 
+    1. En la interfaz de usuario local, vaya a **Certificados**.
+    1. Localice la entrada del **certificado del punto de conexión del panel de Kubernetes**. A la derecha de esta entrada, seleccione **Descargar** para descargar el certificado en el sistema cliente que usará para acceder al panel. 
+
+    ![Descarga del certificado del punto de conexión del panel de Kubernetes](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/download-kubernetes-dashboard-endpoint-certificate-1.png)  
+
+1. Instale el certificado descargado en el cliente. Si usa un cliente Windows, siga estos pasos: 
+    1. Seleccione el certificado y, en el **Asistente para importar certificados**, seleccione la ubicación del almacén como **Máquina local**. 
+
+        ![Instalación del certificado en el cliente 1](media/azure-stack-edge-gpu-edge-container-registry/install-certificate-1.png) 
+    
+    1. Instale el certificado en la máquina local del almacén raíz de confianza. 
+
+        ![Instalación del certificado en el cliente 2](media/azure-stack-edge-gpu-edge-container-registry/install-certificate-2.png) 
+1. Copie y use la dirección URL del panel de Kubernetes para abrir el panel en un explorador. En la página de **inicio de sesión del panel de Kubernetes**:
     
     1. Seleccione **kubeconfig**. 
-        ![Selección de la opción kubeconfig](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-1.png) 
     1. Seleccione los puntos suspensivos **...** . Busque y señale la `kubeconfig` que descargó anteriormente en el sistema local. Haga clic en **Iniciar sesión**.
         ![Examinar el archivo kubeconfig](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-2.png)    
 

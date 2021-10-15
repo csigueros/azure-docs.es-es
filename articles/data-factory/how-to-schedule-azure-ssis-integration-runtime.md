@@ -5,15 +5,15 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 06/04/2021
+ms.date: 10/04/2021
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: 7ebb64ccdfaaefe517baf21c0996d49f0bdc1278
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a7a520ba1b95b412cbc068ad045a6b022e15306f
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124760448"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129535398"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Inicio y detención de Azure-SSIS Integration Runtime mediante una programación
 
@@ -84,39 +84,55 @@ Si crea un tercer desencadenador que se programe para ejecutarse diariamente a m
 
    :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Captura de pantalla que muestra la página principal de ADF.":::
    
-2. En el cuadro de herramientas **Actividades**, expanda el menú **General**, arrastre una actividad **web** y colóquela en la superficie del diseñador de canalizaciones. En la pestaña **General** de la ventana de propiedades, cambie el nombre de la actividad a **startMyIR**. Cambie a la pestaña **Configuración** y realice los pasos siguientes.
+2. En el cuadro de herramientas **Actividades**, expanda el menú **General**, arrastre una actividad **web** y colóquela en la superficie del diseñador de canalizaciones. En la pestaña **General** de la ventana de propiedades, cambie el nombre de la actividad a **startMyIR**. Cambie a la pestaña **Configuración** y realice los pasos siguientes:
 
-    1. En **Dirección URL**, escriba la siguiente dirección URL de API REST que inicia Azure-SSIS IR y reemplace `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}` y `{integrationRuntimeName}` por los valores reales de la instancia de IR: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01` También puede copiar y pegar el identificador de recurso de la instancia de IR de su página de supervisión en la interfaz de usuario o la aplicación de ADF para remplazar el siguiente elemento de la anterior dirección URL: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`
+   1. En **Dirección URL**, escriba la siguiente dirección URL para la API de REST que inicia Azure-SSIS IR y reemplace `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}` y `{integrationRuntimeName}` por los valores reales de la instancia de IR: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01`.  También puede copiar y pegar el identificador de recurso de la instancia de IR de su página de supervisión en la interfaz de usuario o la aplicación de ADF para remplazar el siguiente elemento de la anterior dirección URL: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`
     
-       :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-ssis-ir-resource-id.png" alt-text="Identificador de recurso del entorno de ejecución para la integración de SSIS en ADF":::
+      :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-ssis-ir-resource-id.png" alt-text="Identificador de recurso del entorno de ejecución para la integración de SSIS en ADF":::
   
-    2. En **Method** (Método) seleccione **POST**. 
-    3. En **Body** (Cuerpo), especifique `{"message":"Start my IR"}`. 
-    4. En **Authentication** (Autenticación), seleccione **MSI** para usar la identidad administrada de su ADF. Para más información, consulte el artículo [Identidad administrada de Data Factory](./data-factory-service-identity.md).
-    5. En **Recurso**, escriba `https://management.azure.com/`.
+   2. En **Method** (Método) seleccione **POST**. 
+   3. En **Body** (Cuerpo), especifique `{"message":"Start my IR"}`.
+   4. En **Autenticación**, seleccione **Identidad administrada** para usar la identidad administrada del sistema especificada para su ADF; vea el artículo [Identidad administrada de Data Factory](./data-factory-service-identity.md) para más información.
+   5. En **Recurso**, escriba `https://management.azure.com/`.
     
-       :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png" alt-text="IR de SSIS de programación de actividades web en ADF":::
+      :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png" alt-text="IR de SSIS de programación de actividades web en ADF":::
   
 3. Clone la primera canalización para crear otra, cambie el nombre de actividad a **stopMyIR** y reemplace las propiedades siguientes.
 
-    1. En **Dirección URL**, escriba la siguiente dirección URL de API REST que detiene Azure-SSIS IR y reemplace `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}` y `{integrationRuntimeName}` por los valores reales de la instancia de IR: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/stop?api-version=2018-06-01`
-    
-    2. En **Body** (Cuerpo), especifique `{"message":"Stop my IR"}`. 
+   1. En **Dirección URL**, escriba la siguiente dirección URL para la API de REST que detiene Azure-SSIS IR y reemplace `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}` y `{integrationRuntimeName}` por los valores reales de la instancia de IR: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/stop?api-version=2018-06-01`.
+   2. En **Body** (Cuerpo), especifique `{"message":"Stop my IR"}`. 
 
-4. Cree una tercera canalización, arrastre una actividad **Ejecutar paquete SSIS** del cuadro de herramientas **Actividades** y colóquela en la superficie del diseñador de canalizaciones, y configúrela según las instrucciones del artículo [Ejecución de un paquete de SSIS mediante una actividad Ejecutar paquete de SSIS de Azure Data Factory](how-to-invoke-ssis-package-ssis-activity.md).  También puede usar una actividad **Procedimiento almacenado** en su lugar y configurarla según las instrucciones del artículo [Ejecución de un paquete de SSIS mediante una actividad de procedimiento almacenado de Azure Data Factory](how-to-invoke-ssis-package-stored-procedure-activity.md).  Luego, encadene la actividad Ejecutar paquete SSIS o Procedimiento almacenado entre dos actividades web que inicien y detengan la instancia de IR, de forma similar a las actividades web de la primera y segunda canalización.
+4. Cree una tercera canalización, arrastre una actividad **Ejecutar paquete SSIS** del cuadro de herramientas **Actividades** y colóquela en la superficie del diseñador de canalizaciones, y configúrela según las instrucciones del artículo [Ejecución de un paquete de SSIS mediante una actividad Ejecutar paquete de SSIS de Azure Data Factory](how-to-invoke-ssis-package-ssis-activity.md).  Luego, encadene la actividad Ejecutar paquete SSIS entre dos actividades web que inicien y detengan la instancia de IR, de forma similar a las actividades web de la primera y segunda canalización.
 
    :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-on-demand-ssis-ir.png" alt-text="IR de SSIS a petición de actividades web en ADF":::
 
-5. Asigne a la identidad administrada para la instancia de ADF un rol de **colaborador** para sí misma, de manera que las actividades web de las canalizaciones puedan llamar a la API REST para iniciar o detener las instancias de Azure-SSIS IR aprovisionadas en ella.  En su página de ADF en Azure Portal, haga clic en **Control de acceso (IAM)** y en **+ Add role assignment** (+ Agregar asignación de rol) y luego realice las siguientes acciones en la hoja **Agregar asignación de rol**.
+5. En lugar de crear manualmente la tercera canalización, también puede crearla automáticamente a partir de una plantilla. Para ello, seleccione el símbolo **...** junto a **Canalización** para mostrar un menú de acciones de canalización, seleccione la acción **Canalización desde plantilla**, active la casilla **SSIS** en **Categoría**, seleccione la plantilla **Programación de la canalización de ADF para iniciar y detener la instancia de Azure-SSIS IR en el momento preciso antes y después de ejecutar el paquete SSIS**, seleccione el IR en el menú desplegable **Azure-SSIS Integration Runtime** y, por último, seleccione el botón **Usar esta plantilla**. La canalización se creará automáticamente, y solo queda un paquete SSIS para asignarlo a la actividad Ejecutar paquete de SSIS.
 
-    1. En **Rol**, seleccione **Colaborador**. 
-    2. En **Asignar acceso a**, seleccione **Usuario, grupo o entidad de servicio de Azure AD**. 
-    3. En **Seleccionar**, busque el nombre de su ADF y selecciónelo. 
-    4. Haga clic en **Save**(Guardar).
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-on-demand-ssis-ir-template.png" alt-text="Plantilla de SSIS IR a petición en ADF":::
+
+6. Para que la tercera canalización sea más sólida, puede asegurarse de que se reintenten las actividades web para iniciar o detener el IR si hay errores transitorios debidos a la conectividad de red u otros problemas, y solo se completan cuando el IR se inicia o detiene realmente. Para ello, puede reemplazar cada actividad web por un actividad Until, que a su vez contiene dos actividades web, una para iniciar o detener el IR y otra para comprobar el estado del IR. Vamos a llamar a las actividades Until *Start SSIS IR* (Iniciar SSIS IR) y *Stop SSIS IR* (Detener SSIS IR).  La actividad Until *Start SSIS IR* (Iniciar SSIS IR) contiene las actividades web *Try Start SSIS IR* (Probar inicio de SSIS IR) y *Get SSIS IR Status* (Obtener estado de SSIS IR). La actividad Until *Stop SSIS IR* (Detener SSIS IR) contiene las actividades web *Try Stop SSIS IR* (Probar detención de SSIS IR) y *Get SSIS IR Status* (Obtener estado de SSIS IR). En la pestaña **Configuración** de las actividades Until *Start SSIS IR*/*Stop SSIS IR* (Iniciar SSIS IR/Detener SSIS IR), en **Expresión**, escriba `@equals('Started', activity('Get SSIS IR Status').output.properties.state)`/`@equals('Stopped', activity('Get SSIS IR Status').output.properties.state)`, respectivamente.
+
+   :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-until-activity-on-demand-ssis-ir.png" alt-text="Actividad Until SSIS IR a petición en ADF":::
+
+   Dentro de ambas actividades Until, las actividades web *Try Start SSIS IR*/*Try Stop SSIS IR* (Probar inicio de SSIS IR/Probar detención de SSIS IR) son similares a las actividades web de la primera y segunda canalización. En la pestaña **Configuración** de las actividades web *Get SSIS IR Status* (Obtener estado de SSIS IR), realice las siguientes acciones:
+
+   1. En **Dirección URL**, escriba la siguiente dirección URL para la API de REST que obtiene el estado de Azure-SSIS IR y reemplace `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}` y `{integrationRuntimeName}` por los valores reales de la instancia de IR: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}?api-version=2018-06-01`.
+   2. En **Método**, seleccione **GET**. 
+   3. En **Autenticación**, seleccione **Identidad administrada** para usar la identidad administrada del sistema especificada para su ADF; vea el artículo [Identidad administrada de Data Factory](./data-factory-service-identity.md) para más información.
+   4. En **Recurso**, escriba `https://management.azure.com/`.
+    
+      :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-until-activity-on-demand-ssis-ir-open.png" alt-text="Actividad Until Apertura de SSIS IR a petición en ADF":::
+
+7. Asigne a la identidad administrada para la instancia de ADF un rol de **colaborador** para sí misma, de manera que las actividades web de las canalizaciones puedan llamar a la API REST para iniciar o detener las instancias de Azure-SSIS IR aprovisionadas en ella.  En su página de ADF en Azure Portal, haga clic en **Control de acceso (IAM)** y en **+ Agregar asignación de roles** y luego realice las siguientes acciones en la hoja **Agregar asignación de roles**:
+
+   1. En **Rol**, seleccione **Colaborador**. 
+   2. En **Asignar acceso a**, seleccione **Usuario, grupo o entidad de servicio de Azure AD**. 
+   3. En **Seleccionar**, busque el nombre de su ADF y selecciónelo. 
+   4. Haga clic en **Save**(Guardar).
     
    :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/adf-managed-identity-role-assignment.png" alt-text="Asignaciones de roles de identidad administrada de ADF":::
 
-6. Valide la instancia de ADF y todos los valores de canalización, haga clic en **Validate all/Validate** (Validar todo/Validar) en la barra de herramientas de la fábrica o la canalización. Para cerrar **Factory/Pipeline Validation Output** (Resultado de validación de la fábrica/canalización), haga clic en el botón **>>** .  
+8. Valide la instancia de ADF y todos los valores de canalización, haga clic en **Validate all/Validate** (Validar todo/Validar) en la barra de herramientas de la fábrica o la canalización. Para cerrar **Factory/Pipeline Validation Output** (Resultado de validación de la fábrica/canalización), haga clic en el botón **>>** .  
 
    :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/validate-pipeline.png" alt-text="Comprobar la canalización":::
 
@@ -126,7 +142,7 @@ Si crea un tercer desencadenador que se programe para ejecutarse diariamente a m
 
    :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/test-run-output.png" alt-text="Serie de pruebas":::
     
-2. Para probar la tercera canalización, inicie SQL Server Management Studio (SSMS). En la ventana **Conectar al servidor**, realice las acciones siguientes. 
+2. Para probar la tercera canalización, si almacena el paquete SSIS en el catálogo de SSIS (SSISDB), puede iniciar SQL Server Management Studio (SSMS) para comprobar su ejecución. En la ventana **Conectar al servidor**, realice las acciones siguientes. 
 
     1. En **Nombre del servidor**, escriba **&lt;el nombre del servidor&gt;.database.windows.net**.
     2. Seleccione **Opciones >>** .
@@ -173,7 +189,7 @@ Ahora que las canalizaciones funcionan tal como esperaba, puede crear desencaden
 
    :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/pipeline-runs.png" alt-text="Ejecuciones de la canalización":::
 
-2. Para ver las ejecuciones de actividad asociadas a una ejecución de canalización, seleccione el primer vínculo (**View Activity Runs** [Ver ejecuciones de actividad]) de la columna **Actions** (Acciones). En el caso de la tercera canalización, verá tres ejecuciones de actividad, una por cada actividad encadenada en la canalización (actividad web para iniciar la instancia de IR, actividad de procedimiento almacenado para ejecutar el paquete y actividad web para detener la instancia de IR). Para ver de nuevo las ejecuciones de canalización, seleccione el vínculo **Pipelines** (Canalizaciones) de la parte superior.
+2. Para ver las ejecuciones de actividad asociadas a una ejecución de canalización, seleccione el primer vínculo (**View Activity Runs** [Ver ejecuciones de actividad]) de la columna **Actions** (Acciones). En el caso de la tercera canalización, verá tres ejecuciones de actividad, una por cada actividad encadenada en la canalización (actividad web para iniciar la instancia de IR, actividad Ejecución de paquetes SSIS y actividad web para detener la instancia de IR). Para ver de nuevo las ejecuciones de canalización, seleccione el vínculo **Pipelines** (Canalizaciones) de la parte superior.
 
    :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png" alt-text="Ejecuciones de actividad":::
 

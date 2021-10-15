@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.custom: subject-cost-optimization
 ms.topic: how-to
 ms.date: 09/02/2021
-ms.openlocfilehash: 3e814541ecf43d8f9d12c028e8bebc8ac31fe411
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: bd3ff870952701901f432660ec0069afa5151916
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123433483"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275361"
 ---
 # <a name="plan-and-manage-costs-for-azure-sentinel"></a>Planeamiento y administración de los costos de Azure Sentinel
 
@@ -321,7 +321,7 @@ Al buscar o investigar amenazas en Azure Sentinel, es posible que tenga que acce
 
 ### <a name="optimize-log-analytics-costs-with-dedicated-clusters"></a>Optimice los costos de Log Analytics con clústeres dedicados
 
-Si ingiere al menos 1 TB al día en el área de trabajo o las áreas de trabajo de Azure Sentinel de la misma región, considere la posibilidad de pasar a un clúster dedicado de Log Analytics para reducir los costos. Un nivel de compromiso de clúster dedicado de Log Analytics agrega el volumen de datos en áreas de trabajo que ingieren colectivamente un total de 1 TB al día o más.
+Si ingiere al menos 500 GB al día en el área de trabajo de Azure Sentinel o en las áreas de trabajo de la misma región, considere la posibilidad de pasar a un clúster dedicado de Log Analytics para reducir los costos. Un nivel de compromiso de clúster dedicado de Log Analytics agrega un volumen de datos en áreas de trabajo que ingieren en conjunto un total de 500 GB al día, o más.
 
 Los clústeres dedicados de Log Analytics no se aplican a los niveles de compromiso de Azure Sentinel. Los costos de Azure Sentinel se siguen aplicando por área de trabajo en el clúster dedicado.
 
@@ -329,7 +329,7 @@ Puede agregar varias áreas de trabajo de Azure Sentinel a un clúster dedicado 
 
 - Las consultas entre áreas de trabajo se ejecutan más rápido si todas las áreas de trabajo implicadas en la consulta están en el clúster dedicado. Sigue siendo mejor tener el menor número de áreas de trabajo posible en el entorno y un clúster dedicado que conserva el [límite de 100 áreas de trabajo](../azure-monitor/logs/cross-workspace-query.md) para incluirlas en una sola consulta entre áreas de trabajo.
 
-- Todas las áreas de trabajo del clúster dedicado pueden compartir el nivel de compromiso de Log Analytics establecido en el clúster. No tener que confirmar niveles de compromiso de Log Analytics independientes para cada área de trabajo puede permitir ahorrar costos y eficiencias. Al habilitar un clúster dedicado, confirma un nivel de compromiso mínimo de Log Analytics de ingesta de 1 TB al día.
+- Todas las áreas de trabajo del clúster dedicado pueden compartir el nivel de compromiso de Log Analytics establecido en el clúster. No tener que confirmar niveles de compromiso de Log Analytics independientes para cada área de trabajo puede permitir ahorrar costos y eficiencias. Al habilitar un clúster dedicado, se compromete a un nivel de compromiso de Log Analytics mínimo de 500 GB de ingesta al día.
 
 Estas son otras consideraciones para pasar a un clúster dedicado para la optimización de costos:
 

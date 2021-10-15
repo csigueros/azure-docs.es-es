@@ -1,22 +1,22 @@
 ---
-title: Introducción a la rehidratación de blobs desde el nivel de archivo
+title: Rehidratación de blobs desde el nivel de archivo
 description: Mientras un blob se encuentra en el nivel de acceso de archivo, se considera que está sin conexión y no se puede leer ni modificar. Para leer o modificar los datos de un blob archivado, primero debe rehidratar el blob en un nivel en línea, ya sea el nivel de acceso frecuente o esporádico.
 services: storage
 author: tamram
 ms.author: tamram
-ms.date: 08/31/2021
+ms.date: 09/29/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: fryu
-ms.openlocfilehash: 2c4eac524ecda8a2b90036748fd2a6f2a389a3cd
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 195238c6ef4191266a0f4b5dd481fbf24b70528f
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124823728"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129271828"
 ---
-# <a name="overview-of-blob-rehydration-from-the-archive-tier"></a>Introducción a la rehidratación de blobs desde el nivel de archivo
+# <a name="blob-rehydration-from-the-archive-tier"></a>Rehidratación de blobs desde el nivel de archivo
 
 Mientras un blob se encuentra en el nivel de acceso de archivo, se considera que está sin conexión y no se puede leer ni modificar. Para leer o modificar los datos de un blob archivado, primero debe rehidratar el blob en un nivel en línea, ya sea el nivel de acceso frecuente o esporádico. Hay dos opciones para rehidratar un blob que se almacena en el nivel de archivo:
 
@@ -28,7 +28,7 @@ La rehidratación de un blob de un nivel de acceso de archivo puede tardar varia
 
 Puede configurar [Azure Event Grid](../../event-grid/overview.md)para que genere un evento cuando rehidrate un blob desde el nivel de archivo a un nivel en línea y envíe el evento a un controlador de eventos. Para obtener más información, consulte [Control de un evento en la rehidratación de blobs](#handle-an-event-on-blob-rehydration).
 
-Para más información sobre los niveles de acceso en Azure Storage, consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](storage-blob-storage-tiers.md).
+Para más información sobre los niveles de acceso en Azure Storage, consulte [Niveles de acceso frecuente, esporádico y de archivo de los datos de blob](access-tiers-overview.md).
 
 ## <a name="rehydration-priority"></a>Prioridad de la rehidratación
 
@@ -51,7 +51,7 @@ Debe copiar el blob archivado en un nuevo blob con un nombre diferente o en un c
 
 Microsoft recomienda realizar una operación de copia en la mayoría de los escenarios en los que es necesario mover un blob del nivel de archivo a un nivel en línea, por los siguientes motivos:
 
-- Una operación de copia evita la cuota de eliminación anticipada que se aplica si cambia el nivel de un blob del nivel de archivo antes de que transcurra el período requerido de 180 días. Para más información, consulte [Nivel de acceso de archivo](storage-blob-storage-tiers.md#archive-access-tier).
+- Una operación de copia evita la cuota de eliminación anticipada que se aplica si cambia el nivel de un blob del nivel de archivo antes de que transcurra el período requerido de 180 días. Para más información, consulte [Nivel de acceso de archivo](access-tiers-overview.md#archive-access-tier).
 - Si hay una directiva de administración del ciclo de vida en vigor para la cuenta de almacenamiento, la rehidratación de un blob con la operación [Set Blob Tier](/rest/api/storageservices/set-blob-tier) puede dar lugar a un escenario en el que la directiva de ciclo de vida mueva el blob de nuevo al nivel de archivo después de la rehidratación, ya que la hora de la última modificación supera el umbral establecido para la directiva. Una operación de copia deja el blob de origen en el nivel de archivo y crea un nuevo blob con un nombre diferente y una nueva hora de última modificación, por lo que no hay ningún riesgo de que la directiva de ciclo de vida devuelva el blob rehidratado al nivel de archivo.
 
 La copia de un blob desde el nivel de archivo puede tardar horas en completarse, en función de la prioridad de rehidratación seleccionada. En segundo plano, una operación de copia lee el blob de origen de archivo para crear un nuevo blob en línea en el nivel de destino seleccionado. El nuevo blob puede estar visible cuando se enumeren los blobs en el contenedor primario antes de que se complete la operación de rehidratación, pero su nivel se establecerá en archivo; los datos no estarán disponibles hasta que se complete la operación de lectura del blob de origen en el nivel de archivo y el contenido del blob se haya escrito en el nuevo blob de destino en un nivel en línea. El nuevo blob es una copia independiente, por lo que modificarlo o eliminarlo no afecta al blob de origen en el nivel de archivo.
@@ -107,13 +107,13 @@ Una operación de rehidratación con [Set Blob Tier](/rest/api/storageservices/s
 
 La copia de un blob archivado en un nivel en línea con [Copy Blob](/rest/api/storageservices/copy-blob) o [Copy Blob from URL](/rest/api/storageservices/copy-blob-from-url) se factura por las transacciones de lectura de datos y el tamaño de recuperación de datos. La creación del blob de destino en un nivel en línea se factura por las transacciones de escritura de datos. Las tarifas de eliminación anticipada no se aplican al realizar la copia en un blob en línea porque el blob de origen permanece sin modificar en el nivel de archivo. Si se selecciona, se aplican cargos por recuperación de alta prioridad.
 
-Los blobs de nivel de archivo deben estar almacenados durante un mínimo de 180 días. La eliminación o el cambio del nivel de un blob archivado antes de que transcurra el período de 180 días conlleva una cuota de eliminación anticipada. Para más información, consulte [Nivel de acceso de archivo](storage-blob-storage-tiers.md#archive-access-tier).
+Los blobs de nivel de archivo deben estar almacenados durante un mínimo de 180 días. La eliminación o el cambio del nivel de un blob archivado antes de que transcurra el período de 180 días conlleva una cuota de eliminación anticipada. Para más información, consulte [Nivel de acceso de archivo](access-tiers-overview.md#archive-access-tier).
 
 Para obtener más información sobre los precios de los blobs en bloques, consulte la página [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/). Para obtener más información sobre los cargos por la transferencia de datos salientes, consulte la página [Detalles de precios de ancho de banda](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 ## <a name="see-also"></a>Vea también
 
-- [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](storage-blob-storage-tiers.md).
+- [Niveles de acceso frecuente, esporádico y de archivo de los datos de blob](access-tiers-overview.md).
 - [Rehidratación de un blob archivado en un nivel en línea](archive-rehydrate-to-online-tier.md)
 - [Ejecución de una función de Azure en respuesta a un evento de rehidratación de blobs](archive-rehydrate-handle-event.md)
 - [Reacción a eventos de Blob Storage](storage-blob-event-overview.md)

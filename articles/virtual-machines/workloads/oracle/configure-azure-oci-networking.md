@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: article
 ms.date: 03/16/2020
 ms.author: rogardle
-ms.openlocfilehash: 9c785be73e424d4669b24600c353a14127e9279a
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: c8c35abc680a37c3226872698d85be8853dd892d
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696028"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129456411"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Configurar una interconexión directa entre Azure y Oracle Cloud Infrastructure  
 
@@ -32,6 +32,10 @@ Para crear una [experiencia integrada de nube múltiple](oracle-oci-overview.md)
 En la siguiente imagen se muestra una descripción general de alto nivel de la interconexión:
 
 ![Conexión de red entre nubes](https://user-images.githubusercontent.com/37556655/115093592-bced0180-9ecf-11eb-976d-9d4c7a1be2a8.png)
+
+> [!NOTE]
+> La conexión de ExpressRoute que se ve en el diagrama es un [circuito ExpressRoute](../../../expressroute/expressroute-introduction.md) normal y admite todas las funcionalidades, como Global Reach.
+> 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

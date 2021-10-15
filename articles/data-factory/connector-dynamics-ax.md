@@ -1,26 +1,26 @@
 ---
 title: Copia de datos de Dynamics AX
+description: Aprenda a copiar datos de Dynamics AX en almacenes de datos receptores compatibles mediante una actividad de copia en una canalización de Synapse Analytics o de Azure Data Factory.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre cómo copiar datos desde Dynamics AX a almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: d6cb93951877e40be1d6cc73b76e9e9b183e6b9a
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: 249feb6b906db9c89b9b77dff022effe5bce4e83
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123313170"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124778008"
 ---
-# <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory"></a>Copia de datos de Dynamics AX mediante Azure Data Factory
+# <a name="copy-data-from-dynamics-ax-using-azure-data-factory-or-synapse-analytics"></a>Copia de datos de Dynamics AX mediante Azure Data Factory o Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde un origen Dynamics AX. El artículo se basa en [Actividad de copia en Azure Data Factory](copy-activity-overview.md), en el que se ofrece información general acerca de la actividad de copia.
+En este artículo se resume el uso de la actividad de copia en canalizaciones de Azure Data Factory y Synapse Analytics para copiar datos de Dynamics AX. El artículo se basa en [Actividad de copia](copy-activity-overview.md), en el que se ofrece información general acerca de la actividad de copia.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -48,7 +48,7 @@ Siga estos pasos para crear un servicio vinculado a Dynamics AX en la interfaz 
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Creación de un servicio vinculado con la interfaz de usuario de Azure Data Factory":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -87,7 +87,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 | type | La propiedad **type** debe establecerse en **Dynamics AX**. |Sí |
 | url | El extremo de OData de instancia de Dynamics AX (o Dynamics 365 Finance and Operations). |Sí |
 | servicePrincipalId | Especifique el id. de cliente de la aplicación. | Sí |
-| servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. | Sí |
+| servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como **SecureString** para almacenarlo de forma segura, o bien haga [referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | tenant | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarla, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí |
 | aadResourceId | Especifique el recurso de AAD para el cual solicita autorización. Por ejemplo, si es la dirección URL de Dynamics es `https://sampledynamics.sandbox.operations.dynamics.com/data/`, el recurso AAD correspondiente suele ser `https://sampledynamics.sandbox.operations.dynamics.com`. | Sí |
 | connectVia | Instancia de [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Se puede elegir Azure Integration Runtime o un Integration Runtime autohospedado (si el almacén de datos se encuentra en una red privada). Si no se especifica, se usa el valor predeterminado de Azure Integration Runtime. |No |
@@ -205,4 +205,4 @@ Para obtener información detallada sobre las propiedades, consulte [Actividad d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver una lista de los almacenes de datos que la actividad de copia admite como orígenes y receptores en Azure Data Factory, consulte los [Almacenes de datos y formatos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, consulte [Almacenes de datos y formatos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

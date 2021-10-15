@@ -8,12 +8,12 @@ ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 741f20a19c4bfe842ed2c14cee51c1ae19c1d9da
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: c4429e0410fb9511d511ce5841876d5fbca173f5
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123258462"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388103"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 
@@ -209,7 +209,9 @@ Usaremos un ejemplo para ilustrar cómo calcular la cantidad de espacio disponib
 En este caso, Azure File Sync necesitaría unos 209 500 000 KiB (209,5 GiB) de espacio para este espacio de nombres. Agregue esta cantidad a cualquier espacio disponible adicional que desee para averiguar cuánto espacio libre se necesita para este disco.
 
 ### <a name="failover-clustering"></a>Clústeres de conmutación por error
-La característica de clústeres de conmutación por error de Windows es compatible con Azure File Sync en la opción de implementación "Servidor de archivos para uso general". La característica de clústeres de conmutación por error no se admite en "Servidor de archivos de escalabilidad horizontal para datos de aplicación" (SOFS) o en volúmenes compartidos de clúster (CSV).
+1. La característica de clústeres de conmutación por error de Windows es compatible con Azure File Sync en la opción de implementación "Servidor de archivos para uso general". 
+2. El único escenario admitido por Azure File Sync es el clúster de conmutación por error de Windows Server con discos en clúster.
+3. La característica de clústeres de conmutación por error no se admite en "Servidor de archivos de escalabilidad horizontal para datos de aplicación" (SOFS) o en volúmenes compartidos de clúster (CSV) o discos locales.
 
 > [!Note]  
 > El agente de Azure File Sync debe estar instalado en cada nodo de un clúster de conmutación por error para que la sincronización funcione correctamente.

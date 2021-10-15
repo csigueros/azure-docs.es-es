@@ -1,22 +1,22 @@
 ---
-title: Implementación de un modelo de aprendizaje automático con un punto de conexión en línea administrado (versión preliminar)
+title: Implementación de un modelo de ML con un punto de conexión en línea administrado (versión preliminar)
 titleSuffix: Azure Machine Learning
 description: Aprenda a implementar el modelo de aprendizaje automático como un servicio web administrado automáticamente por Azure.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
 ms.date: 08/05/2021
 ms.topic: how-to
 ms.custom: how-to, devplatv2
-ms.openlocfilehash: 0c421148571b99bb182de6841586caafb116df42
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 882f0d8d140d7394e82aa23bf9a5b72b477940e5
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122418431"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129423621"
 ---
 # <a name="deploy-and-score-a-machine-learning-model-by-using-a-managed-online-endpoint-preview"></a>Implementación y puntuación de un modelo de aprendizaje automático con un punto de conexión en línea administrado (versión preliminar)
 

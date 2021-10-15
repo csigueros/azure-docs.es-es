@@ -1,6 +1,6 @@
 ---
 title: Definición de contratos entre asociados en los flujos de trabajo
-description: Agregue contratos a la cuenta de integración en los flujos de trabajo de Azure Logic Apps mediante Enterprise Integration Pack.
+description: Agregue contratos entre asociados en la cuenta de integración para los flujos de trabajo de Azure Logic Apps que usan Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,14 +8,14 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/15/2021
-ms.openlocfilehash: 3a1b714be1f6eb70a4780c7abf58f13a45eb3f3f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7b634da15248513ee782967eb1c86092e940ec9b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128584170"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361301"
 ---
-# <a name="add-agreements-between-partners-to-integration-accounts-for-workflows-in-azure-logic-apps"></a>Adición de contratos entre asociados a cuentas de integración en los flujos de trabajo de Azure Logic Apps
+# <a name="add-agreements-between-partners-in-integration-accounts-for-workflows-in-azure-logic-apps"></a>Adición de contratos entre asociados en cuentas de integración para flujos de trabajo de Azure Logic Apps
 
 Después de agregar asociados a la cuenta de integración, especifique cómo estos intercambian los mensajes mediante la definición de [*contratos*](logic-apps-enterprise-integration-agreements.md) en la cuenta de integración. Los contratos ayudan a las organizaciones a comunicarse entre sí sin problemas, ya que definen el protocolo estándar específico del sector para intercambiar mensajes y proporcionan las siguientes ventajas compartidas:
 
@@ -43,7 +43,7 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
 
   * Si usa el tipo de recurso [**Logic App (Consumption)** ](logic-apps-overview.md#resource-type-and-host-environment-differences) (Aplicación lógica [Consumo]), la cuenta de integración necesita un [vínculo al recurso de aplicación lógica](logic-apps-enterprise-integration-create-integration-account.md#link-account) para poder utilizar los artefactos en el flujo de trabajo.
 
-  * Si usa el tipo de recurso [**Logic App (Standard)** ](logic-apps-overview.md#resource-type-and-host-environment-differences) (Aplicación lógica [Estándar]), la cuenta de integración no necesita un vínculo al recurso de aplicación lógica, pero sigue siendo necesario para almacenar otros artefactos, como asociados, contratos y certificados, junto con el uso de las operaciones [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) y [EDIFACT](logic-apps-enterprise-integration-edifact.md). La cuenta de integración todavía tiene que cumplir otros requisitos, como usar la misma suscripción de Azure y existir en la misma ubicación que el recurso de aplicación lógica.
+  * Si usa el tipo de recurso [**Logic App (Standard)**](logic-apps-overview.md#resource-type-and-host-environment-differences) (Aplicación lógica [Estándar]), la cuenta de integración no necesita un vínculo al recurso de aplicación lógica, pero sigue siendo necesario para almacenar otros artefactos, como asociados, contratos y certificados, junto con el uso de las operaciones [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) y [EDIFACT](logic-apps-enterprise-integration-edifact.md). La cuenta de integración todavía tiene que cumplir otros requisitos, como usar la misma suscripción de Azure y existir en la misma ubicación que el recurso de aplicación lógica.
 
   > [!NOTE]
   > Actualmente, solo el tipo de recurso **Logic App (Consumption)** (Aplicación lógica [Consumo]) admite operaciones de [RosettaNet](logic-apps-enterprise-integration-rosettanet.md). El tipo de recurso **Logic App (Standard)** (Aplicación lógica [Estándar]) no incluye operaciones de [RosettaNet](logic-apps-enterprise-integration-rosettanet.md).

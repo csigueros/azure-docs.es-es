@@ -3,12 +3,12 @@ title: Configuración de la recopilación de datos del agente de Container Insig
 description: En este artículo se describe cómo puede configurar el agente de Container Insights para controlar la recopilación de registros de stdout y stderr, así como de variables de entorno.
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: bd818d03d74042e7f58cbc8889ce862279706bec
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c24b87cb35339cb0e400878579b35d5f6b963718
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741322"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388064"
 ---
 # <a name="configure-agent-data-collection-for-container-insights"></a>Configuración de la recopilación de datos del agente de Container Insights
 
@@ -41,7 +41,7 @@ En la tabla siguiente se describen los valores que puede configurar para control
 | `[log_collection_settings.stderr] exclude_namespaces =` | String | Matriz separada por comas | Matriz de espacios de nombres de Kubernetes para la que no se recopilarán los registros de stderr.<br> Esta configuración es efectiva únicamente<br> `log_collection_settings.stdout.enabled` se establece en `true`.<br> Si no se especifica en ConfigMap, el valor predeterminado es<br> `exclude_namespaces = ["kube-system"]`. |
 | `[log_collection_settings.env_var] enabled =` | Boolean | true o false | Esta configuración controla la colección de variables de entorno<br> en todos los pods/nodos del clúster<br> y el valor predeterminado es `enabled = true` cuando no se especifica<br> en ConfigMaps.<br> Si la colección de variables de entorno está habilitada globalmente, puede deshabilitarla para un contenedor específico<br> al establecer la variable de entorno<br> `AZMON_COLLECT_ENV` en **False** con un valor de Dockerfile o en el [archivo de configuración para el Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) en la sección **env:** .<br> Si la colección de variables de entorno está deshabilitada globalmente, no puede habilitar la colección para un contenedor específico (es decir, la única invalidación que se puede aplicar en el nivel de contenedor es deshabilitar la colección si ya está habilitada globalmente). |
 | `[log_collection_settings.enrich_container_logs] enabled =` | Boolean | true o false | Esta configuración controla el enriquecimiento de los registros de contenedor para rellenar los valores de propiedad de nombre e imagen<br> de cada entrada de registro escrita en la tabla ContainerLog de todos los registros de contenedor del clúster.<br> El valor predeterminado es `enabled = false` cuando no se especifica en ConfigMap. |
-| `[log_collection_settings.collect_all_kube_events]` | Boolean | true o false | Esta configuración permite la recopilación de eventos de Kube de todos los tipos.<br> De forma predeterminada, no se recopilan los eventos de Kube con el tipo *Normal*. Cuando esta opción se establece en `true`, ya no se filtran los eventos con el tipo *Normal* y se recopilan todos los eventos.<br> De manera predeterminada, se establece en `false`. |
+| `[log_collection_settings.collect_all_kube_events] enabled =` | Boolean | true o false | Esta configuración permite la recopilación de eventos de Kube de todos los tipos.<br> De forma predeterminada, no se recopilan los eventos de Kube con el tipo *Normal*. Cuando esta opción se establece en `true`, ya no se filtran los eventos con el tipo *Normal* y se recopilan todos los eventos.<br> El valor predeterminado es `enabled = false` cuando no se especifica en ConfigMap. |
 
 ### <a name="metric-collection-settings"></a>Configuración de la recopilación de métricas
 

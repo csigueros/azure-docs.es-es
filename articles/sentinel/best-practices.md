@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/21/2021
-ms.openlocfilehash: 4a47a13405402b381c1a1b3682f5d42038218959
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 8454a75936c84f012d05c8917cfffeec4a08dcdc
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689154"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278431"
 ---
 # <a name="best-practices-for-azure-sentinel"></a>Procedimientos recomendados para Azure Sentinel
 
@@ -23,6 +23,35 @@ Esta colección de procedimientos recomendados proporciona instrucciones para im
 > Antes de implementar Azure Sentinel, revise y complete las [actividades previas a la implementación y los requisitos previos](prerequisites.md).
 >
 
+
+## <a name="best-practice-references"></a>Referencias de procedimientos recomendados
+
+La documentación de Azure Sentinel tiene instrucciones de procedimientos recomendados distribuidas por los artículos. Además del contenido que se proporciona en este artículo, consulte los siguientes para más información:
+
+- **Usuarios administradores**:
+
+    - [Pre-deployment activities and prerequisites for deploying Azure Sentinel](prerequisites.md) (Actividades previas a la implementación y requisitos previos para implementar Azure Sentinel)
+    - [Procedimientos recomendados de arquitectura de áreas de trabajo de Azure Sentinel](best-practices-workspace-architecture.md)
+    - [Diseño de una arquitectura de áreas de trabajo de Azure Sentinel](design-your-workspace-architecture.md)
+    - [Diseños de ejemplo de áreas de trabajo de Azure Sentinel](sample-workspace-designs.md)
+    - [Procedimientos recomendados para la recopilación de datos](best-practices-data.md)
+    - [Costos y facturación de Azure Sentinel](azure-sentinel-billing.md)
+    - [Permisos de Azure Sentinel](roles.md)
+    - [Protección de la propiedad intelectual del MSSP en Azure Sentinel](mssp-protect-intellectual-property.md)
+    - [Integración de inteligencia sobre amenazas en Azure Sentinel](threat-intelligence-integration.md)
+    - [Auditoría de consultas y actividades de Azure Sentinel](audit-sentinel-data.md)
+
+- **Analistas**:
+
+    - [Cuadernos de estrategia recomendados](automate-responses-with-playbooks.md#recommended-playbooks)
+    - [Control de falsos positivos en Azure Sentinel](false-positives.md)
+    - [Búsqueda de amenazas con Azure Sentinel](hunting.md)
+    - [Libros de Azure Sentinel que se usan comúnmente](top-workbooks.md)
+    - [Detección de amenazas integrada](detect-threats-built-in.md)
+    - [Creación de reglas de análisis personalizadas para detectar amenazas](detect-threats-custom.md)
+    - [Uso de Jupyter Notebook para buscar amenazas de seguridad](notebooks.md)
+
+Para obtener más información, vea también nuestro vídeo: [Architecting SecOps for Success: Best Practices for Deploying Azure Sentinel](https://youtu.be/DyL9MEMhqmI) (Arquitectura de SecOps para el éxito: procedimientos recomendados de implementación de Azure Sentinel)
 
 ## <a name="regular-soc-activities-to-perform"></a>Actividades normales de SOC
 
@@ -131,36 +160,6 @@ Use indicadores de riesgo en las reglas analíticas para buscar amenazas, invest
 Use una lista de reproducción que combine datos de los datos ingeridos y los orígenes externos, por ejemplo, datos de enriquecimiento. Por ejemplo, cree listas de intervalos de direcciones IP usados por su organización o de empleados despedidos recientemente. Use listas de reproducción con cuadernos de estrategias para recopilar datos de enriquecimiento, como agregar direcciones IP malintencionadas a listas de reproducción para usarlas durante la detección, la búsqueda de amenazas y las investigaciones.
 
 Durante un incidente, use las listas de reproducción para contener los datos de investigación y, a continuación, elimínelos cuando se realice la investigación para asegurarse de que los datos confidenciales permanezcan ocultos.
-
-
-## <a name="additional-best-practice-references"></a>Referencias adicionales de procedimientos recomendados
-
-La documentación de Azure Sentinel tiene más instrucciones de procedimientos recomendados distribuidas en nuestros artículos. Por ejemplo, vea los siguientes artículos para obtener más información:
-
-- **Usuarios administradores**:
-
-    - [Pre-deployment activities and prerequisites for deploying Azure Sentinel](prerequisites.md) (Actividades previas a la implementación y requisitos previos para implementar Azure Sentinel)
-    - [Procedimientos recomendados de arquitectura de áreas de trabajo de Azure Sentinel](best-practices-workspace-architecture.md)
-    - [Diseño de una arquitectura de áreas de trabajo de Azure Sentinel](design-your-workspace-architecture.md)
-    - [Diseños de ejemplo de áreas de trabajo de Azure Sentinel](sample-workspace-designs.md)
-    - [Procedimientos recomendados para la recopilación de datos](best-practices-data.md)
-    - [Costos y facturación de Azure Sentinel](azure-sentinel-billing.md)
-    - [Permisos de Azure Sentinel](roles.md)
-    - [Protección de la propiedad intelectual del MSSP en Azure Sentinel](mssp-protect-intellectual-property.md)
-    - [Integración de inteligencia sobre amenazas en Azure Sentinel](threat-intelligence-integration.md)
-    - [Auditoría de consultas y actividades de Azure Sentinel](audit-sentinel-data.md)
-
-- **Analistas**:
-
-    - [Cuadernos de estrategia recomendados](automate-responses-with-playbooks.md#recommended-playbooks)
-    - [Control de falsos positivos en Azure Sentinel](false-positives.md)
-    - [Búsqueda de amenazas con Azure Sentinel](hunting.md)
-    - [Libros de Azure Sentinel que se usan comúnmente](top-workbooks.md)
-    - [Detección de amenazas integrada](detect-threats-built-in.md)
-    - [Creación de reglas de análisis personalizadas para detectar amenazas](detect-threats-custom.md)
-    - [Uso de Jupyter Notebook para buscar amenazas de seguridad](notebooks.md)
-
-Para obtener más información, vea también nuestro vídeo: [Architecting SecOps for Success: Best Practices for Deploying Azure Sentinel](https://youtu.be/DyL9MEMhqmI) (Arquitectura de SecOps para el éxito: procedimientos recomendados de implementación de Azure Sentinel)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

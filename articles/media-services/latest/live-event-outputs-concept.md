@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: fb80374976752961b5c199fc06a8acba572c4d89
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: c5684a3e3949ca2bf119a4c81d7096726a441da6
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129054497"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129390147"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos en directo y salidas en directo en Media Services
 
@@ -35,9 +35,10 @@ Los [eventos en directo](/rest/api/media/liveevents) son responsables de la inge
 
 ## <a name="live-event-types"></a>Tipos de eventos en directo
 
-Un [evento en directo](/rest/api/media/liveevents) se puede establecer en una codificación de *tránsito* (un codificador en directo local envía una secuencia de velocidad de bits múltiple) o en una *codificación en directo* (un codificador en directo local envía una secuencia de velocidad de bits única). Los tipos se establecen durante la creación mediante [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype):
+Un [evento en directo](/rest/api/media/liveevents) se puede establecer en un *tránsito* básico o estándar (un codificador en directo local envía una secuencia de velocidad de bits múltiple) o en una *codificación en directo* (un codificador en directo local envía una secuencia de velocidad de bits única). Los tipos se establecen durante la creación mediante [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype):
 
-* **LiveEventEncodingType.None**: un codificador en directo local envía una secuencia de velocidad de bits múltiple. El flujo de datos ingerido pasa por el evento en directo sin más procesamiento. También se denomina modo de paso a través.
+* **LiveEventEncodingType.PassthroughBasic**: un codificador en directo local envía una secuencia de velocidad de bits múltiple. El tránsito básico se limita a una entrada máxima de 5 Mbps, una ventana DVR de 8 horas y no se admite la transcripción en directo.
+* **LiveEventEncodingType.PassthroughStandard**: un codificador en directo local envía una secuencia de velocidad de bits múltiple. El tránsito estándar tiene límites de ingesta más altos, una ventana DVR de 25 horas y compatibilidad con transcripciones en directo.
 * **LiveEventEncodingType.Standard**: un codificador en directo local envía una secuencia única de velocidad de bits al evento en directo y Media Services crea varias secuencias de velocidad de bits. Si la fuente de contribución tiene una resolución de 720p o más, el valor preestablecido **Default720p** codificará un conjunto de seis pares de velocidad de bits-resolución.
 * **LiveEventEncodingType.Premium1080p**: un codificador en directo local envía una secuencia única de velocidad de bits al evento en directo y Media Services crea varias secuencias de velocidad de bits. El valor preestablecido Default1080p especifica el conjunto de salida de pares de resolución-velocidad de bits.
 
@@ -45,7 +46,7 @@ Un [evento en directo](/rest/api/media/liveevents) se puede establecer en una co
 
 ![Diagrama de ejemplo de evento en directo de tránsito con Media Services](./media/live-streaming/pass-through.svg)
 
-Cuando se utiliza el **evento en directo** de tránsito, se confía en el codificador en directo local para generar una secuencia de vídeo con varias velocidades de bits y enviarla como fuente de contribución al evento en directo (mediante el protocolo RTMP o MP4 fragmentado). El evento en directo lleva a cabo las secuencias de vídeo entrantes sin ningún otro procesamiento. Este tipo de evento en directo de tránsito está optimizado para eventos en directo de larga duración o para el streaming en directo lineal 24x365. Al crear este tipo de evento en directo, especifique None (LiveEventEncodingType.None).
+Cuando se utiliza el **evento en directo** de tránsito básico o estándar, se confía en el codificador en directo local para generar una secuencia de vídeo con varias velocidades de bits y enviarla como fuente de contribución al evento en directo (mediante el protocolo RTMP o MP4 fragmentado). El evento en directo lleva a cabo las secuencias de vídeo entrantes sin ningún otro procesamiento. Este tipo de evento en directo de tránsito está optimizado para eventos en directo de larga duración o para el streaming en directo lineal 24x365. Al crear este tipo de evento en directo, especifique el tránsito "básico" o "estándar". (LiveEventEncodingType.PassThroughStandard).
 
 Puede enviar la fuente de contribución a resoluciones de hasta 4K y a una velocidad de fotogramas de 60 fotogramas/segundo, con códecs de vídeo H.264/AVC o H.265/HEVC (solo ingesta Smooth) y códecs de audio AAC (AAC-LC, HE-AACv1 o HE-AACv2). Para obtener más información, vea [Comparación de tipos de objetos LiveEvent](live-event-types-comparison-reference.md).
 

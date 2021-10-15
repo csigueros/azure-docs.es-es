@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/11/2021
 ms.author: b-juche
-ms.openlocfilehash: 94528abaf90a94c59dd97c9a4ae0d15162914bc7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 84ccb06b6be84c26ce9adf5d0c8e25d45190fa2b
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751380"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407919"
 ---
 # <a name="create-volume-replication-for-azure-netapp-files"></a>Creación de una replicación de volúmenes para Azure NetApp Files
 
@@ -50,7 +50,7 @@ Debe crear un volumen de destino en el que desee que se repliquen los datos del 
 1. La cuenta de destino debe estar en una región distinta de la región del volumen de origen. Si es necesario, cree una cuenta de NetApp en la región de Azure que se usará para la replicación siguiendo los pasos descritos en [Creación de una cuenta de NetApp](azure-netapp-files-create-netapp-account.md).   
 También puede seleccionar una cuenta de NetApp existente en otra región.  
 
-2. Si es necesario, cree un grupo de capacidad en la cuenta de NetApp recién creada siguiendo los pasos descritos en [Configuración de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md).   
+2. Si fuera necesario, cree un grupo de capacidad en la cuenta de NetApp recién creada siguiendo los pasos descritos en [Creación de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md).   
 
     También puede seleccionar un grupo de capacidad existente para hospedar el volumen de destino de replicación.  
 

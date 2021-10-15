@@ -13,12 +13,12 @@ ms.date: 07/22/2021
 ms.author: shermanouko
 ms.custom: aaddev, has-adal-ref
 ms.reviewer: aiwang, marsma
-ms.openlocfilehash: 07f6c7f481e815e788b22782f01ad9369bd2c9f6
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 1f4a710beba53987ce555aad5526298f81d0a43c
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123039702"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232306"
 ---
 # <a name="get-a-complete-list-of-apps-using-adal-in-your-tenant"></a>Obtención de una lista completa de aplicaciones que usan ADAL en el inquilino
 
@@ -28,9 +28,13 @@ La compatibilidad con la Biblioteca de autenticación de Active Directory (ADAL
 
 Los libros son un conjunto de consultas que recopilan y visualizan información que está disponible en los registros de Azure Active Directory (Azure AD). [Obtenga más información sobre el esquema de registros de inicio de sesión aquí](../reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md). El libro Inicios de sesión del portal de administración de Azure AD ahora tiene una tabla que le ayudará a determinar qué aplicaciones usan ADAL y con qué frecuencia se usan. En primer lugar, detallaremos cómo acceder al libro antes de mostrar la visualización de la lista de aplicaciones.
 
-## <a name="step-1-integrate-audit-logs-with-azure-monitor"></a>Paso 1: Integración de registros de auditoría con Azure Monitor
+## <a name="step-1-send-azure-ad-sign-in-events-to-azure-monitor"></a>Paso 1: Envío de eventos de inicio de sesión de Azure AD a Azure Monitor
 
-Siga los pasos descritos en [Integración de registros de inicio de sesión y auditoría de Azure AD con Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) antes de acceder al libro. Solo se almacenarán los eventos de inicio de sesión y auditoría creados después de la integración de Azure Monitor.
+Azure AD no envía eventos de inicio de sesión a Azure Monitor de forma predeterminada, que es lo que requiere el libro de inicios de sesión de Azure Monitor.
+
+Configure AD para enviar eventos de inicio de sesión a Azure Monitor siguiendo los pasos descritos en [Integración de los registros de inicio de sesión y auditoría de Azure AD con Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md). En el paso **Configuración de diagnóstico**, active la casilla **SignInLogs**.
+
+Ningún evento de inicio de sesión que se haya producido *antes* de configurar Azure AD para enviar los eventos a Azure Monitor aparecerá en el libro de inicios de sesión.
 
 ## <a name="step-2-access-sign-ins-workbook-in-azure-portal"></a>Paso 2: Acceso al libro de inicios de sesión en Azure Portal
 

@@ -2,13 +2,13 @@
 title: Implementación de la recuperación ante desastres con VMware Site Recovery Manager
 description: Implemente la recuperación ante desastres con VMware Site Recovery Manager (SRM) en la nube privada de Azure VMware Solution.
 ms.topic: how-to
-ms.date: 08/18/2021
-ms.openlocfilehash: d9a224f0aba33420359d50441fe44e6602df7fb0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/04/2021
+ms.openlocfilehash: 2cefe85f71c770ce29a14fb4aad7a91efd91651c
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128668930"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129430105"
 ---
 # <a name="deploy-disaster-recovery-with-vmware-site-recovery-manager"></a>Implementación de la recuperación ante desastres con VMware Site Recovery Manager
 
@@ -59,6 +59,8 @@ En el diagrama se muestra el flujo de trabajo de la instancia principal de Azure
 :::image type="content" source="media/vmware-srm-vsphere-replication/site-recovery-manager-workflow.png" alt-text="Diagrama en el que se muestra el flujo de trabajo de implementación de VMware Site Recovery Manager en Azure VMware Solution." border="false":::
 
 ## <a name="prerequisites"></a>Requisitos previos
+
+Asegúrese de que ha proporcionado explícitamente al usuario remoto los roles de administrador de VRM y administrador de SRM en el vCenter remoto.
 
 ### <a name="scenario-on-premises-to-azure-vmware-solution"></a>Escenario: del entorno local a Azure VMware Solution 
 

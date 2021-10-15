@@ -1,26 +1,21 @@
 ---
-title: Recursos útiles al trabajar con Azure Sentinel | Microsoft Docs
+title: Recursos útiles al trabajar con Azure Sentinel
 description: En este documento encontrará una lista de recursos de gran utilidad al trabajar con Azure Sentinel.
 services: sentinel
-documentationcenter: na
 author: yelevin
 manager: rkarlin
-editor: ''
 ms.assetid: 9b4c8e38-c986-4223-aa24-a71b01cb15ae
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/03/2021
 ms.author: yelevin
-ms.openlocfilehash: 247b025524a029fcb68fbe0682b365e9b7f240b5
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 47ccfea5b666e3c600454fec5d2e8dc801b78bc2
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128565180"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129358091"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Recursos útiles al trabajar con Azure Sentinel
 
@@ -45,7 +40,7 @@ Para más información, consulte [Conectores de Azure Logic Apps](/connectors/).
 
 En la tabla siguiente se describen las diferencias entre cuadernos de estrategias, libros y cuadernos en Azure Sentinel:
 
-|  |Playbooks  |Workbooks  |Cuaderno  |
+| Category |Playbooks  |Workbooks  |Cuaderno  |
 |---------|---------|---------|---------|
 |**Personas**     |   <ul><li>Ingenieros de SOC</li><li>Analistas de todos los niveles</li></ul>      | <ul><li> Ingenieros de SOC</li><li>Analistas de todos los niveles</li></ul>       | <ul><li>Buscadores de amenazas y analistas de los niveles 2 y 3</li><li>Investigadores de incidentes</li><li>Científicos de datos</li><li>Investigadores de seguridad</li></ul>       |
 |**Usos**     | Automatización de tareas sencillas y repetibles:<ul><li>Ingesta de datos externos </li><li>Enriquecimiento de datos con TI, búsquedas de GeoIP, etc. </li><li> Investigación </li><li>Corrección </li></ul>       | <ul><li>Visualización</li></ul>        |   <ul><li>Consulta de datos de Azure Sentinel y datos externos </li><li>Enriquecimiento de datos con TI, búsquedas de GeoIP y búsquedas de WhoIs, etc. </li><li> Investigación </li><li> Visualización </li><li> Búsqueda </li><li>Aprendizaje automático y análisis de macrodatos </li></ul>      |

@@ -3,13 +3,13 @@ title: Administración de una solicitud de soporte técnico de Azure
 description: Describe cómo ver solicitudes de soporte técnico, enviar mensajes, cambiar el nivel de gravedad de las solicitudes, compartir información de diagnóstico con el soporte técnico de Azure, volver a abrir una solicitud de soporte técnico cerrada y cargar archivos.
 tags: billing
 ms.topic: how-to
-ms.date: 09/01/2021
-ms.openlocfilehash: f1930402c0f458962c95f8f4fe0f1011f1dcca49
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 09/30/2021
+ms.openlocfilehash: 8e7b074883fe2dcfb79913e54cf7180e26f29c2a
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123426389"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353208"
 ---
 # <a name="manage-an-azure-support-request"></a>Administración de una solicitud de soporte técnico de Azure
 
@@ -52,7 +52,7 @@ En esta página, puede buscar, filtrar y ordenar solicitudes de soporte técnico
 
 ## <a name="share-diagnostic-information-with-azure-support"></a>Compartir información de diagnóstico con el soporte técnico de Azure
 
-Al crear una solicitud de soporte técnico, se puede seleccionar **Sí** o **No** en la sección **Compartir información de diagnóstico**. Esta opción determina si Soporte técnico de Azure puede recopilar [información de diagnóstico](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) de los recursos de Azure que pueda ayudar a resolver el problema.
+Al crear una solicitud de soporte técnico, se puede seleccionar **Sí** o **No** en la sección **Compartir información de diagnóstico**. Esta opción determina si Soporte técnico de Azure puede recopilar [información de diagnóstico](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) como, por ejemplo, [archivos de registro](how-to-create-azure-support-request.md#advanced-diagnostic-information-logs), de los recursos de Azure que pueda ayudar a resolver el problema.
 
 Para cambiar la selección de **Compartir información de diagnóstico** una vez creada la solicitud:
 

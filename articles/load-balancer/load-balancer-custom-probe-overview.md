@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 57be98a76621d04ec14af04166117a5f62a40227
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: bb7505fe23079b13e702dec70bc9cc362cd7b848
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129061872"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388268"
 ---
 # <a name="load-balancer-health-probes"></a>Sondeos de estado de Load Balancer
 
@@ -47,7 +47,6 @@ Los sondeos de estado admiten varios protocolos. La disponibilidad de un protoco
 La configuración del sondeo de estado se compone de los siguientes elementos:
 
 - Duración del intervalo entre sondeos
-- Número de respuestas de sondeo que han de observarse antes de que el sondeo pase a un estado diferente
 - Protocolo del sondeo
 - Puerto del sondeo
 - Ruta de acceso HTTP que se va a usar para HTTP GET al utilizar sondeos HTTP(S)
@@ -57,25 +56,20 @@ La configuración del sondeo de estado se compone de los siguientes elementos:
 
 ## <a name="understanding-application-signal-detection-of-the-signal-and-reaction-of-the-platform"></a>Descripción de la señal de aplicación, detección de la señal y reacción de la plataforma
 
-El número de respuestas de sondeo se aplica a:
+El valor interval determina la frecuencia con la que el sondeo de estado sondeará una respuesta de las instancias del grupo de back-end. Si se produce un error en el sondeo de estado, marcará inmediatamente las instancias del grupo de back-end como incorrectas. Del mismo modo, en el siguiente sondeo de estado correcto, el sondeo de estado volverá a marcar inmediatamente las instancias del grupo de back-end como correctas.
 
-- el número de sondeos correctos que permiten que una instancia se marque como activa y
-- el número de sondeos con tiempo de espera expirado que hacen que una instancia se marque como inactiva.
+Podemos ilustrar aún más el comportamiento con un ejemplo, donde el intervalo de sondeo de estado se ha establecido en 5 segundos. Dado que la hora a la que se envía un sondeo no se sincroniza con el momento en que la aplicación puede cambiar de estado, el tiempo total que tarda el sondeo de estado en reflejar el estado de la aplicación puede incluirse en uno de los dos escenarios siguientes:
 
-Los valores de intervalo y tiempo de espera especificados determinan si una instancia se marca como activa o inactiva.  La duración del intervalo multiplicado por el número de respuestas de sondeo determina el período durante el cual se deben detectar las respuestas de sondeo.  El servicio reaccionará después de que se hayan logrado los sondeos necesarios.
-
-Se puede ilustrar mejor el comportamiento con un ejemplo. Si ha establecido el número de respuestas de sondeo en 2 y el intervalo en 5 segundos, esto significa que se deben observar dos errores de tiempo de espera expirado de sondeo en un intervalo de 10 segundos.  Dado que la hora a la que se envía un sondeo no está sincronizada cuando la aplicación puede cambiar de estado, se puede enlazar el tiempo con la detección mediante dos escenarios:
-
-1. Si la aplicación comienza a producir una respuesta de sondeo con tiempo de espera expirado justo antes de que llegue el primer sondeo, la detección de estos eventos tardará 10 segundos (intervalos de 2 x 5 segundos) más lo que tarda la aplicación en empezar a señalar un error de tiempo de espera expirado cuando llega el primer sondeo.  Puede suponer que esta detección tarda algo más de 10 segundos.
-2. Si la aplicación comienza a producir una respuesta de sondeo con tiempo de espera expirado justo después de que llegue el primer sondeo, la detección de estos eventos no comenzará hasta que llegue el siguiente sondeo (con el tiempo de espera expirado) más otros 10 segundos (intervalos de 2 x 5 segundos).  Puede suponer que esta detección tarda poco menos de 15 segundos.
+1. Si la aplicación comienza a producir una respuesta de sondeo con tiempo de espera expirado justo antes de que llegue el siguiente sondeo, la detección de estos eventos tardará 5 segundos más lo que tarda la aplicación en empezar a señalar un error de tiempo de espera expirado cuando llega el sondeo.  Puede suponer que esta detección tarda algo más de 5 segundos.
+2. Si la aplicación comienza a producir una respuesta de sondeo con tiempo de espera expirado justo después de que llegue el siguiente sondeo, la detección de estos eventos no comenzará hasta que llegue el sondeo (con el tiempo de espera expirado) más otros 5 segundos.  Puede suponer que esta detección tarda poco menos de 10 segundos.
 
 En este ejemplo, una vez que se ha producido la detección, la plataforma tarda una pequeña cantidad de tiempo en reaccionar a este cambio.  Esto significa que, dependiendo de: 
 
 1. el momento en que la aplicación empieza a cambiar de estado,
-2. el momento en que se detecta este cambio y se cumplen los criterios necesarios (número de sondeos enviados en el intervalo especificado) y
+2. el momento en que se detecta este cambio (cuando se envía el siguiente sondeo de estado) y
 3. el momento en que la detección se haya comunicado a través de la plataforma, 
 
-puede asumir que la reacción a un sondeo con tiempo de espera expirado tardará entre poco más de 10 segundos como mínimo y algo más de 15 segundos como máximo en reaccionar ante un cambio en la señal de la aplicación.  Este ejemplo tiene como fin ilustrar lo que está teniendo lugar; no obstante, no es posible predecir una duración exacta aparte de la orientación aproximada que se acaba de mostrar.
+puede asumir que la reacción a un sondeo con tiempo de espera expirado tardará entre poco más de 5 segundos como mínimo y algo más de 10 segundos como máximo en reaccionar ante un cambio en la señal de la aplicación.  Este ejemplo tiene como fin ilustrar lo que está teniendo lugar; no obstante, no es posible predecir una duración exacta aparte de la orientación aproximada que se acaba de mostrar.
 
 >[!NOTE]
 >El sondeo de estado comprobará todas las instancias en ejecución en el grupo de back-end. Si se detiene una instancia, no se sondeará hasta que se haya iniciado de nuevo.
@@ -114,7 +108,7 @@ A continuación se muestra cómo puede expresar este tipo de configuración de s
         "protocol": "Tcp",
         "port": 1234,
         "intervalInSeconds": 5,
-        "numberOfProbes": 2
+        "numberOfProbes": 1
       },
 ```
 
@@ -147,7 +141,7 @@ A continuación se muestra cómo puede expresar este tipo de configuración de s
         "port": 80,
         "requestPath": "/",
         "intervalInSeconds": 5,
-        "numberOfProbes": 2
+        "numberOfProbes": 1
       },
 ```
 
@@ -159,7 +153,7 @@ A continuación se muestra cómo puede expresar este tipo de configuración de s
         "port": 443,
         "requestPath": "/",
         "intervalInSeconds": 5,
-        "numberOfProbes": 2
+        "numberOfProbes": 1
       },
 ```
 
@@ -183,7 +177,6 @@ Cuando se usa un rol web, el código de sitio web normalmente se ejecuta en w3wp
 Los sondeos de estado TCP, HTTP y HTTPS se consideran en buen estado y marcan el punto de conexión de back-end como tal en los casos siguientes:
 
 * El sondeo de estado es correcto después de arrancar la máquina virtual.
-* Se ha obtenido el número especificado de sondeos necesarios para marcar el punto de conexión de back-end como en buen estado.
 
 Cualquier punto de conexión de back-end que haya logrado un estado correcto se considera apto para recibir nuevos flujos.  
 

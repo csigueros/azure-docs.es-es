@@ -1,22 +1,22 @@
 ---
 title: Extensibilidad de Python de la imagen de Docker precompilada
 titleSuffix: Azure Machine Learning
-description: Extensión de imágenes de Docker precompiladas con la solución de extensibilidad de paquetes de Python
+description: Extensión de imágenes de Docker precompiladas con la solución de extensibilidad de paquetes de Python.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: ssambare
 author: shivanissambare
 ms.date: 05/25/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
-ms.openlocfilehash: bf579687f728739eb3f597bd3d02a8190d8c88b4
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 16191b274f840438cac8deab6754991b7b9e29df
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123435949"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129425019"
 ---
 # <a name="python-package-extensibility-for-prebuilt-docker-images-preview"></a>Extensibilidad de paquetes de Python para imágenes de Docker precompiladas (versión preliminar)
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/11/2021
 ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: 83835941ae2ec1f45eab7de25d862034069770f2
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: f65b925bf9546c179f0c420a56911ac37b451a7c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123213874"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124792566"
 ---
 ## <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a><a name="locations"></a>Regiones de Azure para las ubicaciones de ExpressRoute dentro de una región geopolítica.
 La siguiente tabla proporciona un mapa de las regiones de Azure para las ubicaciones de ExpressRoute dentro de una región geopolítica.
@@ -22,7 +22,7 @@ La siguiente tabla proporciona un mapa de las regiones de Azure para las ubicaci
 | --- | --- | --- |
 | **Australia Government** |Centro de Australia, Centro de Australia 2 |Canberra, Canberra 2 |
 | **Europa** | Centro de Francia, Sur de Francia, Norte de Alemania, Centro-oeste de Alemania, Norte de Europa, Este de Noruega, Oeste de Noruega, Norte de Suiza, Oeste de Suiza, Oeste de Reino Unido, Sur de Reino Unido, Oeste de Europa |Ámsterdam, Ámsterdam2, Berlín, Copenhague, Dublín, Dublín2, Fráncfort, Fráncfort2, Ginebra, Londres, Londres2, Madrid, Marsella, Milán, Newport (Gales), Oslo, París, Stavanger, Estocolmo, Zúrich |
-| **Norteamérica** |Este de EE. UU., oeste de EE. UU., Este de EE. UU. 2, Oeste de EE.UU. 2, centro de EE. UU., Centro-sur de EE. UU.., centro-norte de EE. UU., centro-oeste de EE. UU., centro de Canadá y Este de Canadá |Atlanta, Chicago, Chicago2, Ciudad de Quebec, Dallas, Denver, Las Vegas, Los Angeles, Los Chicago2, Miami, Minneapolis, Montreal, Nueva York, Phoenix, Querétaro(Mexico), Quincy, San Antonio, Seattle, Silicon Valley, Silicon Angeles2, Toronto, Valley2, Vancouver, Washington D. C., Washington D. C. 2 |
+| **Norteamérica** |Este de EE. UU., oeste de EE. UU., Este de EE. UU. 2, Oeste de EE. UU. 2, Oeste de EE. UU. 3, Centro de EE. UU., Centro-sur de EE. UU., Centro-norte de EE. UU., Centro-oeste de EE. UU., Centro de Canadá y Este de Canadá |Atlanta, Chicago, Chicago2, Ciudad de Quebec, Dallas, Denver, Las Vegas, Los Angeles, Los Chicago2, Miami, Minneapolis, Montreal, Nueva York, Phoenix, Querétaro(Mexico), Quincy, San Antonio, Seattle, Silicon Valley, Silicon Angeles2, Toronto, Valley2, Vancouver, Washington D. C., Washington D. C. 2 |
 | **Asia** | Este de Asia y Sudeste de Asia | Bangkok, Hong Kong, Hong Kong2, Yakarta, Kuala Lumpur, Singapur, Singapur2, Taipei |
 | **India** | India occidental, India central, India del Sur |Chennai (Madrás), Chennai (Madrás)2, Mumbai (Bombay), Pune |
 | **Japón** | Japón Occidental y Japón Oriental |Osaka, Tokio, Tokyo2 |

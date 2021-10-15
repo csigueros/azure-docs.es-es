@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 09/21/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f97d2c7ac7026032344f7f08f80cb28bcb0d3d71
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a30dc564dced8d3306c4645ca48b6331e1f6959b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128618965"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355759"
 ---
 # <a name="conditional-access-session"></a>Acceso condicional: Sesión
 
@@ -26,7 +26,7 @@ En una directiva de acceso condicional, un administrador puede usar controles de
 
 ## <a name="application-enforced-restrictions"></a>Restricciones que exige la aplicación
 
-Las organizaciones pueden usar este control para requerir que Azure AD transmita la información del dispositivo a la aplicación en la nube seleccionada. La información del dispositivo permite que las aplicaciones de nube sepan si una conexión se inicia desde un dispositivo compatible o unido al dominio. Este control solo admite Exchange Online y SharePoint Online como aplicaciones de nube seleccionadas. Cuando se selecciona, la aplicación de nube usa la información del dispositivo para proporcionar a los usuarios una experiencia completa o limitada, según el estado del dispositivo.
+Las organizaciones pueden usar este control para requerir que Azure AD transmita la información del dispositivo a la aplicación en la nube seleccionada. La información del dispositivo permite que las aplicaciones de nube sepan si una conexión se inicia desde un dispositivo compatible o unido al dominio y altera la experiencia de la sesión. Este control solo admite Exchange Online y SharePoint Online como aplicaciones de nube seleccionadas. Cuando se selecciona, la aplicación en la nube usa la información del dispositivo para proporcionar a los usuarios, en función del estado del dispositivo, una experiencia limitada (cuando el dispositivo no está administrado) o una experiencia completa (cuando el dispositivo está administrado y es compatible).
 
 Para obtener más información sobre el uso y la configuración de las restricciones que exige la aplicación, consulte los siguientes artículos:
 

@@ -3,12 +3,12 @@ title: Mejora del rendimiento de las aplicaciones de Azure con Advisor
 description: Use recomendaciones sobre rendimiento de Azure Advisor para mejorar la velocidad y la capacidad de respuesta de las aplicaciones empresariales críticas.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: a2813699e082afbc263775821839ed6946e26c1c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7229f4a786fc0afc43793ffe730470427ca2b107
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121724789"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234933"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Mejora del rendimiento de las aplicaciones de Azure con Azure Advisor
 
@@ -155,7 +155,7 @@ Azure Advisor identifica contenedores de Azure Cosmos DB que usan un tamaño de 
 ## <a name="consider-using-accelerated-writes-feature-in-your-hbase-cluster-to-improve-cluster-performance"></a>Consideración de la posibilidad de usar la característica de escrituras aceleradas del clúster de HBase para mejorar el rendimiento del clúster
 Azure Advisor analiza los registros del sistema de los últimos 7 días e identifica si el clúster ha encontrado los escenarios siguientes:
 1. Latencia de tiempo de sincronización de WAL alta 
-2. Número elevado de solicitudes de escritura (al menos tres en una hora de Windows de más de 1000 avg_write_requests/second/node)
+2. Número elevado de solicitudes de escritura (al menos ventanas de una hora de más de 1000 avg_write_requests/second/node)
 
 Estas condiciones indican que el clúster sufre latencias de escritura elevadas. Podría ser debido a una gran carga de trabajo realizada en el clúster. Para mejorar el rendimiento del clúster, es posible que quiera considerar la posibilidad de usar la característica de escrituras aceleradas proporcionada por Azure HDInsight HBase. La característica Escrituras aceleradas para clústeres de HDInsight Apache HBase adjunta discos SSD administrados a cada RegionServer (nodo de trabajo) en lugar de usar almacenamiento en la nube. Como resultado, los discos administrados ofrecen una baja latencia de escritura y una mejor resistencia para las aplicaciones. Para [obtener más información](../hdinsight/hbase/apache-hbase-accelerated-writes.md#how-to-enable-accelerated-writes-for-hbase-in-hdinsight) sobre esta característica
 

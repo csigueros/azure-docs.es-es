@@ -7,21 +7,18 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 04/16/2021
-ms.openlocfilehash: e3f310fb7544ed92dcf096dcf0d6e276a01fa7de
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 2af1e7f9e1b787e73247d9537b4a8876cc4f7220
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124732978"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361212"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>Funciones de transformación en Power Query para la limpieza y transformación de datos
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 La limpieza y transformación de datos en Azure Data Factory permite la ágil preparación, y limpieza y transformación de datos sin código a escala de nube mediante la traducción de scripts ```M``` de Power Query al script de Data Flow. ADF se integra en [Power Query online](/powerquery-m/power-query-m-reference) y pone las funciones ```M``` de Power Query a disposición para la limpieza y transformación de datos a través de la ejecución de Spark con la infraestructura de Spark de flujo de datos. 
-
-> [!NOTE]
-> Power Query en ADF está actualmente disponible en versión preliminar pública.
 
 Actualmente no se admiten todas las funciones de Power Query M para la limpieza y transformación de datos, a pesar de estar disponibles durante la creación. Al compilar las recopilaciones, aparecerá el siguiente mensaje de error si no se admite una función:
 
@@ -104,19 +101,42 @@ Mantener y quitar la parte superior, mantener el rango (funciones M correspondie
 
 ## <a name="m-script-workarounds"></a>Soluciones alternativas de script M
 
-### <a name="for-splitcolumn-there-is-an-alternate-for-split-by-length-and-by-position"></a>Para ```SplitColumn``` hay una alternativa para dividir por longitud y por posición
+### ```SplitColumn```
+
+A continuación se muestra una alternativa para dividir por longitud y por posición.
 
 * Table.AddColumn(Source, "Primeros caracteres", each Text.Start([Email], 7), type text)
 * Table.AddColumn(#"Primeros caracteres insertados", "Rango de texto", each Text.Middle([Email], 4, 9), type text)
 
 Se puede acceder a esta opción desde "Extraer" en la cinta de opciones.
 
-:::image type="content" source="media/wrangling-data-flow/pq-split.png" alt-text="Power Query Agregar columna":::
+:::image type="content" source="media/wrangling-data-flow/power-query-split.png" alt-text="Power Query Agregar columna":::
 
-### <a name="for-tablecombinecolumns"></a>Para ```Table.CombineColumns```
+### ```Table.CombineColumns```
 
 * Table.AddColumn(RemoveEmailColumn, "Nombre", each [FirstName] & " " & [LastName])
 
+### <a name="pivots"></a>Elementos dinámicos
+
+* Seleccione la transformación dinámica en el editor de PQ y seleccione la columna dinámica.
+
+![Elemento común de dinamización de Power Query](media/wrangling-data-flow/power-query-pivot-1.png)
+
+* A continuación, seleccione la columna de valor y la función de agregado.
+
+![Selector de dinamización de Power Query](media/wrangling-data-flow/power-query-pivot-2.png)
+
+* Al hacer clic en Aceptar, verá los datos en el editor actualizados con los valores dinamizados.
+* También verá un mensaje de advertencia que indica que la transformación puede no ser compatible.
+* Para corregir esta advertencia, expanda la lista dinámica manualmente mediante el editor de PQ.
+* Seleccione la opción Editor avanzado en la cinta de opciones.
+* Expansión manual de la lista de valores dinamizados
+* Reemplace List.Distinct() por la lista de valores como este:
+```
+#"Pivoted column" = Table.Pivot(Table.TransformColumnTypes(#"Changed column type 1", {{"genres", type text}}), {"Drama", "Horror", "Comedy", "Musical", "Documentary"}, "genres", "Rating", List.Average)
+in
+  #"Pivoted column"
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

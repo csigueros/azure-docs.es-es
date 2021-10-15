@@ -17,12 +17,12 @@ ms.date: 9/01/2021
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 828f4bc269e5d7ec5b0d46c473d2abbf2c200222
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: e5c4dd695cb9761721386eb98e18f00ad53bdc26
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220605"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129231318"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>Automatización de la administración con la extensión del Agente de IaaS de SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -90,7 +90,7 @@ Puede optar por registrar la extensión IaaS de SQL en tres modos de administrac
 
 - El modo **ligero** copia los archivos binarios de la extensión en la máquina virtual, pero no instala el agente. El modo ligero _solo_ admite el cambio del tipo de licencia y la edición de SQL Server, y proporciona administración limitada del portal. Use esta opción con máquinas virtuales con SQL Server con varias instancias o con aquellas que participan en una instancia de clúster de conmutación por error (FCI). El modo ligero es el modo de administración predeterminado cuando se usa la característica [registro automático](sql-agent-extension-automatic-registration-all-vms.md), o cuando no se especifica un tipo de administración durante el registro manual. Si se usa el modo ligero, no se produce ningún impacto en la memoria ni en la CPU, ni conlleva costos asociados. 
 
-- El modo **completo** instala el agente SQL IaaS en la máquina virtual para ofrecer toda la funcionalidad. Úselo para administrar una VM con SQL Server con una sola instancia. El modo completo instala dos servicios de Windows que tienen un impacto mínimo en la memoria y la CPU (se pueden supervisar mediante el administrador de tareas). No hay ningún costo asociado al uso del modo de administración completa. Se requieren permisos de administrador del sistema. A partir de septiembre de 2021, el reinicio del servicio SQL Server ya no es necesario al registrar la máquina virtual de SQL Server en modo de administración completa. 
+- El modo **completo** instala el agente SQL IaaS en la máquina virtual para ofrecer toda la funcionalidad. Úselo para administrar una VM con SQL Server con una sola instancia. El modo completo instala dos servicios de Windows que tienen un impacto mínimo en la memoria y en la CPU (se pueden supervisar mediante el administrador de tareas). No hay ningún costo asociado al uso del modo de administración completa. Se requieren permisos de administrador del sistema. A partir de septiembre de 2021, el reinicio del servicio SQL Server ya no es necesario al registrar la máquina virtual de SQL Server en modo de administración completa. 
 
 - El modo **NoAgent** está dedicado a SQL Server 2008 y SQL Server 2008 R2 instalados en Windows Server 2008. Si se usa el modo NoAgent, ni la memoria ni la CPU resultan afectadas. No hay ningún costo asociado al uso del modo de administración NoAgent, el servicio SQL Server no se reinicia y no se instala un agente en la máquina virtual. 
 

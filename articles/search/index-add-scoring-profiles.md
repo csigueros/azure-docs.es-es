@@ -8,12 +8,12 @@ ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/16/2021
-ms.openlocfilehash: 186fa5fe490541ce465eca37cf21a6a63923e2ee
-ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
+ms.openlocfilehash: 986bc72d135cbbfceeb4b7e60556673a8dd8edbc
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112321889"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275855"
 ---
 # <a name="add-scoring-profiles-to-a-search-index"></a>Incorporación de perfiles de puntuación a un índice de búsqueda
 
@@ -27,7 +27,7 @@ Los perfiles de puntuación se insertan en definiciones de índice e incluyen pr
 
 ## <a name="what-is-a-scoring-profile"></a>¿Qué es un perfil de puntuación?
 
-Un perfil de puntuación es parte de la definición del índice que se compone de campos, funciones y parámetros ponderados. El propósito de un perfil de puntuación es aumentar o ampliar los documentos coincidentes en función de los criterios que proporcione. 
+Los perfiles de puntuación es parte de la definición del índice y se componen de campos, funciones y parámetros ponderados. El propósito de los perfiles de puntuación es aumentar o ampliar el número de documentos coincidentes en función de los criterios que proporcione. 
 
 En la definición siguiente se muestra un perfil simple denominado "geo". Potencia los resultados que tengan el término de búsqueda en el campo hotelName. También usa la función `distance` para dar prioridad a los resultados que están a menos de 10 kilómetros de la ubicación actual. Si alguien busca el término "inn" y este término forma parte del nombre del hotel, los documentos que incluyan hoteles con "inn" en un radio de 10 km de la ubicación actual aparecerán primero en los resultados de búsqueda.  
 
@@ -75,7 +75,7 @@ Vea el [Ejemplo ampliado](#bkmk_ex) para revisar un ejemplo más detallado de un
 
 ## <a name="how-scores-are-computed"></a>Procedimiento para calcular las puntuaciones
 
-Las puntuaciones se calculan para las consultas de búsqueda de texto completo, con el fin de clasificar las coincidencias más relevantes y devolverlas en la parte superior de la respuesta. La puntuación general de cada documento es una agregación de las puntuaciones individuales de cada campo, donde la puntuación individual de cada campo se calcula en función de la frecuencia del término y la frecuencia del documento de los términos buscados dentro de ese campo (conocido como [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) o frecuencia de términos-frecuencia de documento inversa). 
+Las puntuaciones se calculan para las consultas de búsqueda de texto completo, con el fin de clasificar por orden de prioridad las coincidencias más relevantes y devolverlas al principio de la respuesta. La puntuación general de cada documento es una agregación de las puntuaciones individuales de cada campo, donde la puntuación individual de cada campo se calcula en función de la frecuencia del término y la frecuencia del documento de los términos buscados dentro de ese campo (conocido como [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) o frecuencia de términos-frecuencia de documento inversa). 
 
 > [!Tip]
 > Puede usar el parámetro [featuresMode](index-similarity-and-scoring.md#featuresmode-parameter-preview) para solicitar detalles de puntuación adicionales con los resultados de la búsqueda (incluidas las puntuaciones de nivel de campo).

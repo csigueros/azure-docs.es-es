@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: e55564ab1534b145958e128f58d50911ae9c51fa
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 2ace40157681b250b56fcd595486260f07ec80c3
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746292"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400712"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-azure-virtual-desktop"></a>Configuración de la aceleración por la unidad de procesamiento gráfico (GPU) para Azure Virtual Desktop
 
@@ -23,10 +23,11 @@ Siga las instrucciones de este artículo para crear una máquina virtual de Azur
 
 ## <a name="select-an-appropriate-gpu-optimized-azure-virtual-machine-size"></a>Selección de un tamaño de máquina virtual de Azure optimizada para la GPU adecuada
 
-Seleccione uno de los tamaños de máquina virtual de la [serie NV](../virtual-machines/nv-series.md), [serie NVv3](../virtual-machines/nvv3-series.md) o [serie NVv4](../virtual-machines/nvv4-series.md). Estos tamaños se adaptan a la virtualización de aplicaciones y escritorio, y permiten que la mayoría de aplicaciones y la interfaz de usuario de Windows se aceleren por GPU. La elección correcta para el grupo host depende de una serie de factores, incluidas las cargas de trabajo de la aplicación en cuestión, la calidad de la experiencia del usuario deseada y el costo. En general, las GPU más grandes y más aptas ofrecen una mejor experiencia de usuario en una densidad de usuario determinada, mientras que los tamaños de GPU más pequeños y fraccionarios permiten un control más específico sobre el costo y la calidad.
+Seleccione uno de los tamaños de máquina virtual de la [serie NV](../virtual-machines/nv-series.md), [serie NVv3](../virtual-machines/nvv3-series.md) o [serie NVv4](../virtual-machines/nvv4-series.md). Estos tamaños se adaptan a la virtualización de aplicaciones y escritorio, y permiten que la mayoría de aplicaciones y la interfaz de usuario de Windows se aceleren por GPU. La elección correcta para el grupo host depende de una serie de factores, incluidas las cargas de trabajo de la aplicación en cuestión, la calidad de la experiencia del usuario deseada y el costo. En general, las GPU más grandes y más aptas ofrecen una mejor experiencia de usuario en una densidad de usuario determinada, mientras que los tamaños de GPU más pequeños y fraccionarios permiten un control más específico sobre el costo y la calidad. Considere la posibilidad de retirar la máquina virtual de la serie NV al seleccionar la máquina virtual; vea los detalles sobre la [retirada de la serie NV](../virtual-machines/nv-series-retirement.md).
 
 >[!NOTE]
 >Las máquinas virtuales de la serie NC, NCv2, NCv3, ND y NDv2 de Azure no suelen ser adecuadas para los hosts de sesión de Azure Virtual Desktop. Estas máquinas virtuales se adaptan a las herramientas especializadas de aprendizaje automático o de proceso de alto rendimiento, como las creadas con NVIDIA CUDA. No admiten la aceleración de GPU para la mayoría de las aplicaciones o la interfaz de usuario de Windows.
+
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>Creación de un grupo host, aprovisionamiento de la máquina virtual y configuración de un grupo de aplicaciones
 
@@ -36,6 +37,9 @@ Azure Virtual Desktop admite la representación y la codificación de la aceler
 
 * Windows 10, versión 1511 o posterior
 * Windows Server 2016 o posterior
+
+>[!NOTE]
+>El sistema operativo de varias sesiones no aparece específicamente, pero la licencia GRID de instancias de NV admite 25 usuarios simultáneos; vea la [serie NV](../virtual-machines/nv-series.md).
 
 También debe configurar un grupo de aplicaciones o usar el grupo de aplicaciones de escritorio predeterminado (denominado "Grupo de aplicaciones de escritorio") que se crea automáticamente cuando se crea un nuevo grupo host. Para instrucciones, consulte [Tutorial: Administración de grupos de aplicaciones en Azure Virtual Desktop](./manage-app-groups.md).
 

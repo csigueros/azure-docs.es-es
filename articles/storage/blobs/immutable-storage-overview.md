@@ -10,12 +10,12 @@ ms.date: 08/31/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: ca0ec185721b0e35c15dfe99e361ff024cf01a78
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c923af2d4260afba8ed8347c6723119278ab1c62
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128584224"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278640"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Almacenamiento de datos de blobs críticos para la empresa con almacenamiento inmutable
 
@@ -122,7 +122,7 @@ Las directivas de inmutabilidad se admiten para las cuentas de almacenamiento nu
 
 ### <a name="access-tiers"></a>Niveles de acceso
 
-Todos los niveles de acceso a blobs admiten almacenamiento inmutable. Puede cambiar el nivel de acceso de un blob con la operación Set Blob Tier. Para obtener más información, vea [Niveles de acceso de Azure Blob Storage: frecuente, esporádico y archivo](storage-blob-storage-tiers.md).
+Todos los niveles de acceso a blobs admiten almacenamiento inmutable. Puede cambiar el nivel de acceso de un blob con la operación Set Blob Tier. Para más información, consulte [Niveles de acceso frecuente, esporádico y de archivo de los datos de blob](access-tiers-overview.md).
 
 ### <a name="redundancy-configurations"></a>Configuraciones de redundancia
 

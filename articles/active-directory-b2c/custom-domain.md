@@ -8,22 +8,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 09/15/2021
 ms.author: mimart
 ms.subservice: B2C
+ms.custom: b2c-support
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b64806b3683db8f6cd3ec665b462f4f6f26397eb
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: ceb265ef339d39f14dbc042914e471c692ae6420
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770157"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128568566"
 ---
 # <a name="enable-custom-domains-for-azure-active-directory-b2c"></a>Habilitación de dominios personalizados para Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 En este artículo se describe cómo habilitar dominios personalizados en las direcciones URL de redireccionamiento de Azure Active Directory B2C (Azure AD B2C). El uso de un dominio personalizado con la aplicación proporciona una experiencia de usuario más fluida. Desde la perspectiva del usuario, permanecen en el dominio durante el proceso de inicio de sesión en lugar de redirigirse al dominio predeterminado de Azure AD B2C *&lt;nombre-de-inquilino&gt;.b2clogin.com*.
 
@@ -36,8 +35,8 @@ Puede habilitar dominios personalizados para Azure AD B2C mediante [Azure Front
 En el diagrama siguiente se muestra la integración de Azure Front Door:
 
 1. Desde una aplicación, un usuario selecciona el botón de inicio de sesión, que le lleva a la página de inicio de sesión de Azure AD B2C. Esta página especifica un nombre de dominio personalizado.
-1. El explorador web resuelve el nombre de dominio personalizado en la dirección IP de Azure Front Door. Durante la resolución DNS, un registro de nombre canónico (CNAME) con un nombre de dominio personalizado apunta al host de front-end predeterminado de Front Door (por ejemplo, `contoso.azurefd.net`). 
-1. El tráfico dirigido al dominio personalizado (por ejemplo, `login.contoso.com`) se enruta al host de front-end predeterminado de Front Door especificado (`contoso.azurefd.net`).
+1. El explorador web resuelve el nombre de dominio personalizado en la dirección IP de Azure Front Door. Durante la resolución DNS, un registro de nombre canónico (CNAME) con un nombre de dominio personalizado apunta al host de front-end predeterminado de Front Door (por ejemplo, `contoso-frontend.azurefd.net`). 
+1. El tráfico dirigido al dominio personalizado (por ejemplo, `login.contoso.com`) se enruta al host de front-end predeterminado de Front Door especificado (`contoso-frontend.azurefd.net`).
 1. Azure Front Door invoca el contenido de Azure AD B2C mediante el dominio predeterminado de Azure AD B2C `<tenant-name>.b2clogin.com`. La solicitud al punto de conexión de Azure AD B2C contiene el nombre de dominio personalizado original.
 1. Azure AD B2C responde a la solicitud mostrando el contenido pertinente y el dominio personalizado original.
 
@@ -100,11 +99,12 @@ Siga estos pasos para crear una instancia de Front Door para el inquilino de Azu
   
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione **Directorio + suscripción** y elija el directorio que contiene la suscripción de Azure que quiera usar para Azure Front Door. *No* debe ser el directorio que contiene el inquilino de Azure AD B2C.
+1. Para elegir el directorio que contiene la suscripción de Azure que desea usar para Azure Front Door, *no* el directorio que contiene el inquilino de Azure AD B2C, seleccione el icono **Directories + subscriptions** (Directorios y suscripciones) de la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD en la lista **Nombre de directorio** y, después, seleccione **Cambiar**. 
 1. En la página principal o en el menú de Azure Portal, seleccione **Crear un recurso**. Seleccione **Redes** > **Ver todas** > **Front Door**.
 1. En la pestaña **Conceptos básicos** de la página **Crear una instancia de Front Door**, escriba o seleccione la siguiente información y, a continuación, seleccione **Siguiente: Configuration** (Siguiente: Configuración).
 
-    | Configuración | Value |
+    | Configuración | Valor |
     | --- | --- |
     | **Suscripción** | Seleccione la suscripción a Azure. |    
     | **Grupo de recursos** | Seleccione un grupo de recursos existente o seleccione **Crear** para crear uno.|
@@ -137,7 +137,7 @@ Un back-end hace referencia a su [nombre de inquilino de Azure AD B2C](tenant-
 
 1. En la hoja **Agregar un back-end**, seleccione la información siguiente y, después, **Agregar**.
 
-    | Parámetro | Value |
+    | Configuración | Value |
     | --- | --- |
     | **Tipo de host de back-end**| Seleccione **Host personalizado**.| 
     | **Nombre de host de back-end**| Seleccione el nombre de su [Azure AD B2C](tenant-management.md#get-your-tenant-name), `<tenant-name>.b2clogin.com`. Por ejemplo, contoso.b2clogin.com.|
@@ -171,11 +171,11 @@ En este paso, agregará el dominio personalizado que registró en el [paso 1](#
 
 ### <a name="31-create-a-cname-dns-record"></a>3.1 Creación de un registro de DNS de CNAME
 
-Para poder usar un dominio personalizado con Front Door, antes hay que crear un registro de nombre canónico (CNAME) con su proveedor de dominios para señalar a su host de front-end predeterminado de Front Door (como por ejemplo, contoso.azurefd.net).
+Para poder usar un dominio personalizado con Front Door, antes hay que crear un registro de nombre canónico (CNAME) con su proveedor de dominios para señalar a su host de front-end predeterminado de Front Door (como por ejemplo, contoso-frontend.azurefd.net).
 
 Un registro CNAME es un tipo de registro de DNS que asigna un nombre de dominio de origen a un nombre de dominio de destino (alias). En el caso de Azure Front Door, el nombre del dominio de origen es su nombre de dominio personalizado, mientras que el nombre del dominio de destino es el nombre de host predeterminado de Front Door que configuró en el [paso 2.1](#21-add-frontend-host). 
 
-Una vez que Front Door compruebe el registro CNAME que ha creado, el tráfico dirigido al dominio personalizado de origen (como login.contoso.com) se enrutará al host del front-end predeterminado de Front Door del destino especificado, como `contoso.azurefd.net`. Para obtener más información, consulte [Adición de un dominio personalizado a una instancia de Front Door](../frontdoor/front-door-custom-domain.md). 
+Una vez que Front Door compruebe el registro CNAME que ha creado, el tráfico dirigido al dominio personalizado de origen (como login.contoso.com) se enrutará al host del front-end predeterminado de Front Door del destino especificado, como `contoso-frontend.azurefd.net`. Para obtener más información, consulte [Adición de un dominio personalizado a una instancia de Front Door](../frontdoor/front-door-custom-domain.md). 
 
 Para crear un registro CNAME para un dominio personalizado:
 
@@ -187,13 +187,13 @@ Para crear un registro CNAME para un dominio personalizado:
 
     | Source          | Tipo  | Destination           |
     |-----------------|-------|-----------------------|
-    | `<login.contoso.com>` | CNAME | `contoso.azurefd.net` |
+    | `<login.contoso.com>` | CNAME | `contoso-frontend.azurefd.net` |
 
    - Origen: escriba el nombre de dominio personalizado (por ejemplo, login.contoso.com).
 
    - Escriba:  Escriba *CNAME*.
 
-   - Destino: escriba el host de front-end de Front Door que ha creado en el [paso 2.1](#21-add-frontend-host). Debe tener el siguiente formato: _&lt;nombre de host&gt;_ .azurefd.net. Por ejemplo, `contoso.azurefd.net`.
+   - Destino: escriba el host de front-end de Front Door que ha creado en el [paso 2.1](#21-add-frontend-host). Debe tener el siguiente formato: _&lt;nombre de host&gt;_ .azurefd.net. Por ejemplo, `contoso-frontend.azurefd.net`.
 
 1. Guarde los cambios.
 
@@ -253,7 +253,8 @@ Para configurar Azure Blob Storage para el uso compartido de recursos entre orí
 ## <a name="test-your-custom-domain"></a>Prueba de un dominio personalizado
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 1. En **Directivas**, seleccione **Flujos de usuario (directivas)** .
 1. Seleccione un flujo de usuario y luego **Ejecutar flujo de usuario**.
@@ -375,7 +376,7 @@ Después de agregar el dominio personalizado y configurar la aplicación, los us
 - **Causas posibles**: este problema puede estar relacionado con la configuración de DNS o la configuración de back-end de Azure Front Door. 
 - **Solución:**  
     1. Asegúrese de que el dominio personalizado esté [registrado y comprobado correctamente](#step-1-add-a-custom-domain-name-to-your-azure-ad-b2c-tenant) en el inquilino de Azure AD B2C.
-    1. Asegúrese de que el [dominio personalizado](../frontdoor/front-door-custom-domain.md) esté correctamente configurado. El registro `CNAME` del dominio personalizado debe apuntar al host de front-end predeterminado de Azure Front Door (por ejemplo, contoso.azurefd.net).
+    1. Asegúrese de que el [dominio personalizado](../frontdoor/front-door-custom-domain.md) esté correctamente configurado. El registro `CNAME` del dominio personalizado debe apuntar al host de front-end predeterminado de Azure Front Door (por ejemplo, contoso-frontend.azurefd.net).
     1. Asegúrese de que la [configuración del grupo de back-end de Azure Front Door](#22-add-backend-and-backend-pool) apunte al inquilino donde haya configurado el nombre de dominio personalizado y donde se almacenen el flujo de usuario o las directivas personalizadas.
 
 
@@ -409,6 +410,10 @@ Azure Front Door pasa la dirección IP original del usuario. Esta es la direcci�
 
 Para usar su propio firewall de aplicaciones web delante de Azure Front Door, debe configurar y asegurarse de que todo funciona correctamente con los flujos de usuario de Azure AD B2C o con las directivas personalizadas.  
 
+### <a name="can-my-azure-front-door-instance-be-hosted-in-a-different-subscription-than-my-azure-ad-b2c-tenant"></a>¿Se puede hospedar mi instancia de Azure Front Door en una suscripción que no es la de mi inquilino de Azure AD B2C?
+    
+Sí, Azure Front Door puede estar en una suscripción diferente.
+    
 ## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre las [solicitudes de autorización de OAuth](protocols-overview.md).

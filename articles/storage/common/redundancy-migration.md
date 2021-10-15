@@ -10,12 +10,12 @@ ms.date: 08/16/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5b561e233deb5478be89f965bb059e68cfb7134f
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 47445520e92f6c7f4a8e5eb78c404b6875dbe017
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122271207"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274071"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Cambio en la forma en que se replican las cuentas de almacenamiento
 
@@ -151,7 +151,7 @@ Siga estos pasos para solicitar una migración en vivo:
 > [!NOTE]
 > Los recursos compartidos de archivos Premium solo están disponibles para LRS y ZRS.
 >
-> Las cuentas de almacenamiento de GZRS no admiten actualmente el nivel de archivo. Consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](../blobs/storage-blob-storage-tiers.md) para más información.
+> Las cuentas de almacenamiento de GZRS no admiten actualmente el nivel de archivo. Para más información, consulte [Niveles de acceso frecuente, esporádico y de archivo de los datos de blob](../blobs/access-tiers-overview.md).
 >
 > Los discos administrados solo están disponible para LRS y no se pueden migrar a ZRS. Puede almacenar instantáneas e imágenes de discos administrados SSD estándar en un almacenamiento HDD estándar y [elegir entre las opciones LRS y ZRS](https://azure.microsoft.com/pricing/details/managed-disks/). Para más información sobre la integración con conjuntos de disponibilidad, consulte [Introducción a los discos administrados de Azure](../../virtual-machines/managed-disks-overview.md#integration-with-availability-sets).
 

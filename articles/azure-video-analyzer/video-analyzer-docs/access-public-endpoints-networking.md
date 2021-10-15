@@ -3,12 +3,12 @@ title: Redes y puntos de conexión públicos
 description: Azure Video Analyzer expone un conjunto de puntos de conexión de red pública que permiten diferentes escenarios de producto, incluida la administración, la ingesta y la reproducción. En este artículo se explica cómo acceder a las redes y los puntos de conexión públicos.
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: 4a15893e718f716f4d3858ad6823ab0c3aa0e46c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0debf9b00bc8c3d78810fb377aa6e065589e6f96
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128699467"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389653"
 ---
 # <a name="public-endpoints-and-networking"></a>Redes y puntos de conexión públicos
 
@@ -41,7 +41,7 @@ En esta sección se proporciona una lista de puntos de conexión de Video Analyz
 * **Autenticación y autorización**: la autenticación inicial se realiza a través de un token de aprovisionamiento de corta duración emitido por las API de administración de Video Analyzer. Una vez completado el protocolo de enlace inicial, el módulo y el servicio intercambian un conjunto de claves de autorización de rotación automática que se usan a partir de este momento.
 * **Requisito**: el acceso a este punto de conexión es necesario para el funcionamiento correcto del módulo perimetral de Video Analyzer. El módulo perimetral dejará de funcionar si no se puede acceder a este punto de conexión en un período de 36 horas.
 
-## <a name="telemetry"></a>Telemetría:
+## <a name="telemetry"></a>Telemetría
 
 * **Propósito:** envío periódico opcional de datos de telemetría que permite a Microsoft comprender mejor cómo se usa el módulo perimetral de Video Analyzer e identificar proactivamente las mejoras futuras que se pueden realizar en la compatibilidad, el rendimiento y otras áreas del producto.
 * **Autenticación y autorización**: la autorización se basa en una clave establecida previamente.
@@ -51,6 +51,31 @@ En esta sección se proporciona una lista de puntos de conexión de Video Analyz
 
 > [!NOTE]
 > La lista de puntos de conexión que se describe en este artículo no está pensada para ser una lista completa de los puntos de conexión de los servicios asociados. Es una lista informativa de los puntos de conexión necesarios para el funcionamiento normal de Video Analyzer. Consulte la documentación de cada servicio individual de Azure para obtener una lista completa de los puntos de conexión expuestos por cada servicio correspondiente.
+
+## <a name="azure-storage"></a>Almacenamiento de Azure
+
+* **Propósito**: grabar datos de audio, vídeo e inferencia cuando las canalizaciones (TODO: vínculo) están configuradas para almacenar vídeo en la nube a través del nodo Receptor de vídeo (TODO: vínculo a la sección en pipeline.md).
+* **Autenticación y autorización**: la autorización se realiza mediante la aplicación de la autenticación y autorización del servicio Azure Storage estándar. En este caso, se accede al almacenamiento a través de direcciones URL de SAS específicas del contenedor.
+* **Requisito**: el acceso a este punto de conexión solo es necesario cuando se configura una canalización perimetral de Video Analyzer para archivar el vídeo en la nube.
+
+## <a name="iot-hub"></a>IoT Hub
+
+* **Propósito**: control y plano de datos para dispositivos Azure IoT Hub y Edge.
+* **Autenticación y autorización**: consulte la documentación de Azure IoT Hub.
+* **Requisito**: se requiere un dispositivo perimetral configurado correctamente y que funcione con Azure IoT Edge Runtime para asegurarse de que el módulo perimetral de Azure Video Analyzer funciona correctamente.
+
+## <a name="114----tls-encryption"></a>1.1.4    Cifrado TLS 
+
+* **Cifrado y autenticación de servidor**: todos los puntos de conexión de Video Analyzer se exponen a través de puntos de conexión compatibles con TLS 1.2.
+
+## <a name="115----references"></a>1.1.5    Referencias 
+
+Público:
+
+* [Introducción a Azure Resource Manager](../../azure-resource-manager/management/overview.md)
+* [Información de los puntos de conexión de Azure IoT Hub](../../iot-hub/iot-hub-devguide-endpoints.md)
+* [¿Qué es Azure Private Link?](../../private-link/private-link-overview.md)
+* [Introducción a las etiquetas de servicio de Azure](../../virtual-network/service-tags-overview.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

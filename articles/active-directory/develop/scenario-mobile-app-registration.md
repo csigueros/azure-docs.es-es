@@ -13,12 +13,12 @@ ms.date: 08/18/2021
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 7fa12eca00bca011107f48c6f1b282dded4f3b5a
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: dba6dcf0dded3db4c1cf1ddc26071e9803b55cd6
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122444553"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232924"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registro de aplicaciones móviles que llaman a las API web
 
@@ -32,9 +32,9 @@ Los tipos de cuenta admitidos en sus aplicaciones móviles dependen de la experi
 
 La mayoría de las aplicaciones móviles usan la autenticación interactiva. Si la aplicación usa esta forma de autenticación, puede iniciar la sesión de los usuarios desde cualquier [tipo de cuenta](quickstart-register-app.md).
 
-### <a name="audience-for-integrated-windows-authentication-username-password-and-b2c"></a>Audiencia para la autenticación integrada de Windows, con nombre de usuario y contraseña, y B2C
+### <a name="audience-for-integrated-windows-authentication-username-password-and-b2c"></a>Audiencia para la autenticación integrada de Windows, nombre de usuario y contraseña, y B2C
 
-Si tiene una aplicación para la Plataforma universal de Windows (UWP), puede usar la autenticación integrada de Windows (IWA) para iniciar la sesión de los usuarios. Para usar IWA o la autenticación con un nombre de usuario y una contraseña, la aplicación debe iniciar la sesión de los usuarios en su propio inquilino de desarrollador de línea de negocio (LOB). En un escenario de fabricante de software independiente (ISV), la aplicación puede iniciar la sesión de los usuarios en organizaciones de Azure Active Directory. Estos flujos de autenticación no son compatibles con las cuentas personales de Microsoft.
+Si tiene una aplicación de Plataforma universal de Windows (UWP), puede usar la autenticación integrada de Windows (IWA) para iniciar la sesión de los usuarios. Para usar IWA o la autenticación con un nombre de usuario y una contraseña, la aplicación debe iniciar la sesión de los usuarios en su propio inquilino de desarrollador de línea de negocio (LOB). En un escenario de fabricante de software independiente (ISV), la aplicación puede iniciar la sesión de los usuarios en organizaciones de Azure Active Directory. Estos flujos de autenticación no son compatibles con las cuentas personales de Microsoft.
 
 También puede iniciar la sesión de los usuarios mediante identidades sociales que pasen una directiva y una autoridad de B2C. Para usar este método, solo puede usar la autenticación interactiva y la autenticación con nombre de usuario y contraseña. La autenticación con nombre de usuario y contraseña solo se admite actualmente en Xamarin.iOS, Xamarin.Android y UWP.
 

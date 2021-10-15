@@ -1,20 +1,21 @@
 ---
-title: Procesamiento de la fuente de cambios en Azure Blob Storage | Microsoft Docs
+title: Procesamiento de la fuente de cambios en Azure Blob Storage
+titleSuffix: Azure Storage
 description: Obtenga información sobre cómo procesar los registros de fuente de cambios en una aplicación cliente de .NET.
 author: tamram
 ms.author: tamram
-ms.date: 09/08/2020
+ms.date: 10/01/2021
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d43b91fcebff017d6d18ee736cfddc858650fc7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: cbd15bdc337bdb4a7221f634e6f9a66d4d503fe6
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128620205"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400807"
 ---
 # <a name="process-change-feed-in-azure-blob-storage"></a>Procesamiento de la fuente de cambios en Azure Blob Storage
 
@@ -31,7 +32,6 @@ Para más información sobre la fuente de cambios, consulte [Fuente de cambios e
 dotnet add package Azure.Storage.Blobs --version 12.5.1
 dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.4
 ```
-
 
 ## <a name="read-records"></a>Lectura de registros
 
@@ -218,4 +218,5 @@ La hora de inicio que proporcione se redondea hacia abajo a la hora más cercana
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre los registros de la fuente de cambios. Consulte [Fuente de cambios en Azure Blob Storage](storage-blob-change-feed.md).
+- [Información general sobre la protección de datos](data-protection-overview.md)
+- [Fuente de cambios en Azure Blob Storage](storage-blob-change-feed.md)

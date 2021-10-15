@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf76e5ffc7b3eabae7366805ed1a87d262854992
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3875beb50cf0bf1a177889a2f49b730d2528e204
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128630117"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388007"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>¿Qué es un token de actualización principal?
 
@@ -67,9 +67,12 @@ En escenarios de dispositivos registrados de Azure AD, el complemento WAM de Az
 > [!NOTE]
 > Los proveedores de identidades de terceros necesitan admitir el protocolo WS-Trust para permitir la emisión de PRT en dispositivos Windows 10. Sin WS-Trust, no se puede emitir un PRT para los usuarios de dispositivos unidos a Azure AD híbrido o unidos a Azure AD. En ADFS solo se requieren puntos de conexión usernamemixed. Tanto adfs/services/trust/2005/windowstransport como adfs/services/trust/13/windowstransport se deben habilitar como puntos de conexión accesibles desde la intranet y **NO deben exponerse** como accesible desde la extranet mediante el Proxy de aplicación web.
 
+> [!NOTE]
+> Las directivas de acceso condicional de Azure AD no se evalúan cuando se emiten los PRT.
+
 ## <a name="what-is-the-lifetime-of-a-prt"></a>¿Cuál es la duración de un PRT?
 
-Una vez emitido, un PRT es válido durante 90 días y se renueva continuamente siempre y cuando el usuario use activamente el dispositivo.  
+Una vez emitido, un PRT es válido durante 14 días y se renueva continuamente siempre y cuando el usuario use activamente el dispositivo.  
 
 ## <a name="how-is-a-prt-used"></a>¿Cómo se usa un PRT?
 
@@ -90,6 +93,9 @@ Un PRT se renueva de dos maneras diferentes:
 En un entorno de ADFS, no se requiere una línea de visión directa al controlador de dominio para renovar el PRT. La renovación del PRT solo requiere los puntos de conexión /adfs/services/trust/2005/usernamemixed y /adfs/services/trust/13/usernamemixed habilitados en el servidor proxy mediante el protocolo WS-Trust.
 
 Los puntos de conexión de transporte de Windows solo son necesarios para la autenticación de contraseña cuando se cambia una contraseña, no para la renovación del PRT.
+
+> [!NOTE]
+> Las directivas de acceso condicional de Azure AD no se evalúan cuando se renuevan los PRT.
 
 ### <a name="key-considerations"></a>Consideraciones clave
 
@@ -118,7 +124,7 @@ Cuando un usuario inicia una interacción con el explorador, el explorador (o la
 Un PRT puede recibir una notificación de autenticación multifactor (MFA) en escenarios concretos. Cuando se usa un PRT basado en MFA para solicitar tokens para las aplicaciones, la notificación de MFA se transfiere a esos tokens. Esta funcionalidad proporciona a los usuarios una experiencia perfecta ya que evita el desafío de MFA en cada aplicación que lo requiera. Un PRT puede recibir una notificación de MFA de las maneras siguientes:
 
 * **Inicio de sesión con Windows Hello para empresas**: Windows Hello para empresas reemplaza las contraseñas y usa claves criptográficas para proporcionar autenticación segura en dos fases. Windows Hello para empresas es específico de un usuario de un dispositivo y requiere MFA para el aprovisionamiento. Cuando un usuario inicia sesión con Windows Hello para empresas, el PRT del usuario recibe una notificación de MFA. Este escenario también se aplica a los usuarios que inician sesión con tarjetas inteligentes si la autenticación de la tarjeta inteligente genera una notificación de MFA desde ADFS.
-   * Como Windows Hello para empresas se considera autenticación multifactor, la notificación de MFA se actualiza cuando se actualiza el propio PRT, por lo que la duración de MFA se extenderá continuamente cuando los usuarios inicien sesión con WIndows Hello para empresas
+   * Como Windows Hello para empresas se considera autenticación multifactor, la notificación de MFA se actualiza cuando se actualiza el propio PRT, por lo que la duración de MFA se extenderá continuamente cuando los usuarios inicien sesión con Windows Hello para empresas.
 * **MFA durante el inicio de sesión interactivo de WAM**: durante una solicitud de token a través de WAM, si a un usuario se le exige MFA para acceder a la aplicación, el PRT que se renueva durante esta interacción se graba con una notificación de MFA.
    * En este caso, la notificación de MFA no se actualiza continuamente, por lo que la duración de MFA se basa en la duración establecida en el directorio.
    * Cuando se usan un PRT y un RT anteriores existentes para acceder a una aplicación, estos se consideran como la primera prueba de autenticación. Se requiere un nuevo AT con una segunda prueba y una notificación de MFA impresa. Este además emite un nuevo PRT y RT.

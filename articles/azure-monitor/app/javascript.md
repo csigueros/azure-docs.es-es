@@ -4,12 +4,12 @@ description: Obtenga recuentos de sesiones y vistas de página, además de datos
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 4ce6481a35b8a214a2203a165161183d384b4ea0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6e3b7601605eecafa969eec78b82b863580ecc2e
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128662179"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235751"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas web
 
@@ -218,7 +218,7 @@ La mayoría de los campos de configuración tienen un nombre que permite estable
 | enable&#8203;AjaxErrorStatusText | Si es true, incluye el texto de datos de error de respuesta en el evento de dependencia en solicitudes AJAX erróneas. | boolean<br/> false |
 | enable&#8203;AjaxPerfTracking |Marca para habilitar la búsqueda y la inclusión de intervalos de window.performance de explorador adicionales en las métricas notificadas de `ajax` (XHR y Fetch). | boolean<br/> false |
 | maxAjaxPerf&#8203;LookupAttempts | Número máximo de veces que se deben buscar los intervalos de window.performance (si están disponibles). Esto es necesario, ya que no todos los exploradores rellenan window.performance antes de notificar el final de la solicitud de XHR y para las solicitudes de fetch se agregan después de su terminación.| NUMERIC<br/> 3 |
-| ajaxPerfLookupDelay | Cantidad de tiempo que hay que esperar antes de volver a intentar encontrar los intervalos de windows.performance para una solicitud `ajax`. El tiempo se da en milisegundos y se pasa directamente a setTimeout(). | NUMERIC<br/> 25 ms |
+| ajaxPerfLookupDelay | La cantidad de tiempo que hay que esperar antes de volver a intentar encontrar los intervalos de windows.performance para una solicitud `ajax`. El tiempo se expresa en milisegundos y se pasa directamente a setTimeout(). | NUMERIC<br/> 25 ms |
 | enableUnhandled&#8203;PromiseRejection&#8203;Tracking | Si es true, los rechazos de promise no controlados se recopilarán automáticamente y se notificarán como un error de JavaScript. Cuando disableExceptionTracking es true (no realizar seguimiento de excepciones), el valor de configuración se omite y los rechazos de promise no controlados no se notifican. | boolean<br/> false |
 | disable&#8203;InstrumentationKey&#8203;Validation | Si es true, se omite la comprobación de validación de la clave de instrumentación. | boolean<br/>false |
 | enablePerfMgr | Si está habilitado (true), se creará un valor perfEvents local para el código que se ha instrumentado para emitir perfEvents (a través del asistente doPerf()). Se puede usar para identificar problemas de rendimiento en el SDK en función de su uso o de manera opcional dentro de su propio código instrumentado. [Puede encontrar más detalles en la documentación básica](https://github.com/microsoft/ApplicationInsights-JS/blob/master/docs/PerformanceMonitoring.md). Desde v2.5.7 | boolean<br/>false |

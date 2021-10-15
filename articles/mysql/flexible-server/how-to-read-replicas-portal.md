@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/17/2021
-ms.openlocfilehash: 61e2f33511e6a200258ed16b5ef191e153553db8
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 711b35ec11d42ae16a4b4db08d17e85b5217d41f
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122652992"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387529"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-flexible-server-using-the-azure-portal"></a>Creación y administración de réplicas de lectura en el servidor flexible de Azure Database for MySQL mediante Azure Portal
 
@@ -25,7 +25,8 @@ En este artículo, obtendrá información sobre cómo crear y administrar las r�
 > [!Note]
 >
 > * La réplica no se admite en el servidor con alta disponibilidad habilitada. 
->
+> 
+> * La característica de réplica de lectura solo está disponible para los servidores flexibles de Azure Database for MySQL en los planes de tarifa De uso general u Optimizada para memoria. Asegúrese de que el servidor de origen esté en uno de estos planes de tarifa.
 > * Si GTID está habilitado en un servidor principal (`gtid_mode` = ON), las réplicas recién creadas también tendrán GTID habilitado y usarán la replicación basada en GTID. Para más información, consulte [Identificador de transacción global (GTID)](concepts-read-replicas.md#global-transaction-identifier-gtid).
 
 ## <a name="prerequisites"></a>Prerrequisitos
@@ -49,7 +50,7 @@ Para crear un servidor de réplica de lectura, puede seguir estos siguientes pas
 
    :::image type="content" source="./media/how-to-read-replica-portal/add-replica.png" alt-text="Azure Database for MySQL: Replicación":::
 
-5. Escriba un nombre para el servidor de réplica.
+5. Escriba un nombre para el servidor de réplica. Si la región admite zonas de disponibilidad, puede seleccionar la zona de disponibilidad que prefiera.
 
     :::image type="content" source="./media/how-to-read-replica-portal/replica-name.png" alt-text="Azure Database for MySQL: nombre de réplica":::
 

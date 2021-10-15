@@ -10,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 69d6cae5ccb26ef35fd121c32a9f111ff64b7a11
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: b131d20122ca2440698fed301768d1fe961ac286
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129215289"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129390356"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparación para implementar la solución IoT Edge en producción
 
@@ -362,7 +362,7 @@ Antes de implementar módulos en dispositivos de producción IoT Edge, asegúres
 
 En los tutoriales y otra documentación, le indicamos que utilice las mismas credenciales de registro de contenedor en el dispositivo IoT Edge que en la máquina de desarrollo. Estas instrucciones solo pretenden ayudarle a configurar entornos de pruebas y desarrollo con mayor facilidad, y no deben seguirse en un escenario de producción.
 
-Para obtener un acceso más seguro al registro, tiene una selección de [opciones de autenticación](../container-registry/container-registry-authentication.md). Un método de autenticación conocido y recomendado consiste en usar una entidad de servicio de Active Directory que sea adecuada para que las aplicaciones o los servicios extraigan imágenes de contenedor de forma automática o cualquier otra forma desatendida (sin supervisión directa), como lo hacen los dispositivos IoT Edge.
+Para obtener un acceso más seguro al registro, tiene una selección de [opciones de autenticación](../container-registry/container-registry-authentication.md). Un método de autenticación conocido y recomendado consiste en usar una entidad de servicio de Active Directory que sea adecuada para que las aplicaciones o los servicios extraigan imágenes de contenedor de forma automática o cualquier otra forma desatendida (sin supervisión directa), como lo hacen los dispositivos IoT Edge. Otra opción es usar tokens con ámbito de repositorio, que permiten crear identidades de larga o corta duración que solo existen en la instancia de Azure Container Registry en la que se crearon y el acceso de ámbito a nivel de repositorio.
 
 Para crear una entidad de servicio, ejecute los dos scripts como se describe en [Creación de una entidad de servicio](../container-registry/container-registry-auth-service-principal.md#create-a-service-principal). Estos scripts realizan las siguientes tareas:
 
@@ -375,6 +375,16 @@ Para autenticarse con una entidad de servicio, proporcione el id y la contraseñ
 * Como nombre de usuario o id. de cliente, especifique el identificador de la entidad de servicio.
 
 * Como contraseña o secreto de cliente, especifique la contraseña de la entidad de servicio.
+
+<br>
+
+Para crear tokens con ámbito de repositorio, consulte [Creación de un token con permisos orientados al repositorio](../container-registry/container-registry-repository-scoped-permissions.md).
+
+Para autenticarse mediante tokens con ámbito de repositorio, proporcione el nombre del token y la contraseña que obtuvo después de crear el token con ámbito de repositorio. Especifique estas credenciales en el manifiesto de implementación.
+
+* Para el nombre de usuario, especifique el nombre de usuario del token.
+
+* Para la contraseña, especifique una de las contraseñas del token.
 
 > [!NOTE]
 > Después de implementar una autenticación de seguridad mejorada, deshabilite el valor **Usuario administrador** para que el acceso de nombre de usuario y contraseña predeterminados deje de estar disponible. En el registro de contenedor en Azure Portal, seleccione del menú del panel izquierdo, dentro de **Configuración**, la opción **Claves de acceso**.

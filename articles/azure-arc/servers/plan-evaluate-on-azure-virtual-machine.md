@@ -1,20 +1,23 @@
 ---
 title: Evaluación de servidores habilitados para Azure Arc con una máquina virtual de Azure
 description: Aprenda a evaluar servidores habilitados para Azure Arc mediante una máquina virtual de Azure.
-ms.date: 09/20/2021
+ms.date: 10/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 8f32fee62e98730a391c3f025a96259358b027d1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 54656e0701857fd3badbcec619b2185917935857
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128645310"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389824"
 ---
 # <a name="evaluate-azure-arc-enabled-servers-on-an-azure-virtual-machine"></a>Evaluación de servidores habilitados para Azure Arc en una máquina virtual de Azure
 
 Los servidores habilitados para Azure Arc están diseñados para ayudarle a conectar a Azure los servidores que se ejecutan en el entorno local o en otras nubes. Lo habitual es no usar servidores habilitados para Azure Arc en máquinas virtuales de Azure porque las mismas funcionalidades están disponibles de forma nativa para estas máquinas virtuales, incluida una representación de la máquina virtual en Azure Resource Manager, extensiones de máquina virtual, identidades administradas y Azure Policy. Si intenta instalar servidores habilitados para Azure Arc en una máquina virtual de Azure, recibirá un mensaje de error que indica que no se admite y se cancelará la instalación del agente.
 
 Aunque no puede instalar servidores habilitados para Azure Arc en una máquina virtual de Azure en escenarios de producción, es posible configurar servidores habilitados para Azure Arc que se ejecuten en una máquina virtual de Azure *solo con fines de evaluación y prueba*. Este artículo le ayudará a configurar una máquina virtual de Azure para poder usar en ella servidores habilitados para Azure Arc.
+
+> [!NOTE]
+> Los pasos de este artículo están destinados a máquinas virtuales hospedadas en la nube de Azure. Los servidores habilitados para Azure Arc no se admiten en máquinas virtuales que se ejecutan en Azure Stack Hub o Azure Stack Edge.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -24,7 +27,7 @@ Aunque no puede instalar servidores habilitados para Azure Arc en una máquina v
 * Una cuenta con privilegios elevados (es decir, un administrador o como raíz) en la máquina virtual y acceso RDP o SSH a la máquina virtual.
 * Para registrar y administrar la VM de Azure con servidores habilitados para Azure Arc, debe ser miembro del rol [Administrador de recursos de Azure Connected Machine](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator) o [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) del grupo de recursos.
 
-## <a name="plan"></a>Planear
+## <a name="plan"></a>Plan
 
 Para empezar a administrar la VM de Azure como un servidor habilitado para Azure Arc, debe realizar los siguientes cambios en la VM de Azure para poder instalar y configurar servidores habilitados para Azure Arc.
 

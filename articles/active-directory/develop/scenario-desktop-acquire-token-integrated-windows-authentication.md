@@ -1,7 +1,7 @@
 ---
 title: Adquisición de un token para llamar a una API web mediante la autenticación integrada de Windows (aplicación de escritorio) | Azure
 titleSuffix: Microsoft identity platform
-description: Aprenda a crear una aplicación de escritorio que llame a las API web con el fin de adquirir un token para la aplicación con la autenticación integrada de Windows.
+description: Aprenda a crear una aplicación de escritorio que llame a las API web con el fin de adquirir un token para la aplicación mediante la autenticación integrada de Windows.
 services: active-directory
 author: maliksahil
 manager: CelesteDG
@@ -12,20 +12,20 @@ ms.workload: identity
 ms.date: 08/25/2021
 ms.author: sahmalik
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 182bed366dd59b99232608042bbe96aefaa6a8fa
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 67b2c1ac6b9a73444639bb174eacfbf5d685ce92
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124837921"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234839"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token-using-integrated-windows-authentication"></a>Aplicación de escritorio que llama a las API web: adquisición de un token mediante la autenticación integrada de Windows
 
-Para iniciar la sesión de un usuario de dominio en un equipo unido a un dominio o a Azure AD, use la autenticación integrada de Windows (IWA).
+Para iniciar la sesión de un usuario en un dominio o una máquina unida a Azure AD, use la autenticación integrada de Windows (IWA).
 
 ## <a name="constraints"></a>Restricciones
 
-- La autenticación integrada de Windows solo es útil para usuarios *federados*, es decir, los usuarios creados en Active Directory y respaldados por Azure AD. Los usuarios creados directamente en Azure AD sin el respaldo de Active Directory, conocidos como usuarios *administrados*, no pueden usar este flujo de autenticación. Esta limitación no afecta al flujo de nombre de usuario y contraseña.
+- La autenticación integrada de Windows está disponible solo para usuarios *federados*, es decir, los usuarios creados en Active Directory y respaldados por Azure AD. Los usuarios creados directamente en Azure AD sin el respaldo de Active Directory, conocidos como usuarios *administrados*, no pueden usar este flujo de autenticación. Esta limitación no afecta al flujo de nombre de usuario y contraseña.
 - IWA no omite [la autenticación multifactor (MFA)](../authentication/concept-mfa-howitworks.md). Si se ha configurado MFA, IWA podría producir un error si es necesario un desafío de MFA, porque MFA necesita interacción del usuario.
 
     IWA no es interactiva, pero MFA requiere interactividad del usuario. El usuario no es quien controla si el proveedor de identidades solicita que se realice MFA, sino el administrador de inquilinos. Por lo que se ha observado, MFA se requiere al iniciar sesión desde otro país o región, cuando no se está conectado a través de VPN a una red corporativa y, a veces, incluso cuando se está. No espere un conjunto determinista de reglas. Azure AD usa inteligencia artificial para aprender continuamente si se requiere MFA. Si se produce un error de IWA, recurra a un mensaje de usuario como la autenticación interactiva o el flujo de código de dispositivo.

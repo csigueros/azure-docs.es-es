@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 03/16/2020
-ms.openlocfilehash: ae8bbad9d99837bd1cd0d21b66a37c895b816f2a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/01/2020
+ms.openlocfilehash: 3aa0ddf4a9013d5f64584fbe93a795f6420dc410
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128642671"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389980"
 ---
 # <a name="set-up-an-azure-marketplace-subscription-for-hosted-test-drives"></a>Configuración de una suscripción a Azure Marketplace para las versiones de prueba hospedadas
 
@@ -65,7 +65,32 @@ Explica cómo configurar una suscripción a Azure Marketplace para versiones de 
 
             :::image type="content" source="./media/test-drive/add-client-secret-customer.png" alt-text="Adición de un secreto de cliente.":::
 
-5. Agregue el rol Entidad de servicio a la aplicación para permitir que la aplicación de Azure AD quite usuarios de su inquilino de Azure.
+5. Agregue el rol Entidad de servicio a la aplicación para permitir que la aplicación de Azure AD quite usuarios de su inquilino de Azure. Existen dos opciones para completar este paso.
+
+    **Opción 1**
+
+    1. Busque **roles y administradores de Azure AD** y seleccione el servicio.
+
+        :::image type="content" source="./media/test-drive/active-ad-roles.png" alt-text="Muestra cómo buscar roles y administradores de Azure AD.":::
+
+    2. En la página **Todos los roles**, busque el rol **Administrador de usuarios** y haga doble clic en **Administrador de usuarios**.
+
+        :::image type="content" source="./media/test-drive/user-administrator.png" alt-text="Muestra cómo buscar y seleccionar Administrador de usuarios.":::
+
+    3. Seleccione **Agregar asignaciones**.
+
+        :::image type="content" source="./media/test-drive/add-assignments-1.png" alt-text="Muestra el botón Agregar asignaciones.":::
+
+    4. Busque y seleccione la aplicación creada anteriormente y, a continuación, **Agregar**.
+
+        :::image type="content" source="./media/test-drive/add-assignments-2.png" alt-text="Muestra una asignación de aplicación completada correctamente.":::
+
+    5. Observe que el rol de entidad de servicio se asignó correctamente a la aplicación:
+
+        :::image type="content" source="./media/test-drive/successful-assignment.png" alt-text="Muestra el rol de entidad de servicio asignado correctamente a la aplicación.":::
+
+    **Opción 2**
+
     1. Abra un símbolo del sistema de PowerShell de nivel administrativo.
     2. Install-Module MSOnline (ejecute este comando si MSOnline no está instalado).
     3. Connect-MsolService (esto mostrará una ventana emergente; inicie sesión con el inquilino organizacional recién creado).
@@ -73,7 +98,7 @@ Explica cómo configurar una suscripción a Azure Marketplace para versiones de 
     5. $sp = Get-MsolServicePrincipal -AppPrincipalId $applicationId.
     6. Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMemberObjectId $sp.ObjectId -RoleMemberType servicePrincipal.
 
-        :::image type="content" source="./media/test-drive/sign-in-to-account.png" alt-text="Inicio de sesión en su cuenta.":::
+         :::image type="content" source="./media/test-drive/sign-in-to-account.png" alt-text="Inicio de sesión en su cuenta.":::
 
 6. Cree un nuevo grupo de seguridad y agréguelo a la aplicación Canvas (Power Apps). Este paso solo es aplicable a las ofertas de aplicación Canvas (Power Apps).
     1. Crear un nuevo grupo de seguridad.

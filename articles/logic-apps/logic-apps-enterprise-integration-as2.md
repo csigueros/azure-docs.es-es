@@ -1,19 +1,19 @@
 ---
 title: Intercambio de mensajes AS2 en flujos de trabajo B2B
-description: Intercambio de mensajes AS2 entre entidades mediante la creación de flujos de trabajo con Azure Logic Apps y Enterprise Integration Pack.
+description: Intercambio de mensajes AS2 entre asociados mediante la creación de flujos de trabajo con Azure Logic Apps y Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 8b42987055ca2e2b6533ae2f9d45b4bb62fbe016
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 8023073aecae3a1f97c82a16a5be952df7425186
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129082454"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129399664"
 ---
 # <a name="exchange-as2-messages-using-workflows-in-azure-logic-apps"></a>Intercambio de mensajes AS2 mediante flujos de trabajo en Azure Logic Apps
 
@@ -23,7 +23,9 @@ Para enviar y recibir mensajes AS2 en los flujos de trabajo que crea mediante Az
 
   Excepto para el seguimiento, **AS2 (v2)** proporciona mejor rendimiento, las mismas funcionalidades que la versión original, es nativo del entorno de ejecución de Azure Logic Apps y presenta importantes mejoras de rendimiento en cuanto al tamaño de los mensajes, la capacidad de proceso y la latencia. Además, el conector v2 no requiere la creación de una conexión a la cuenta de integración. En su lugar, tal y como se describe en los requisitos previos, asegúrese de vincular la cuenta de integración al recurso de la aplicación lógica donde planea usar el conector.
 
-* Si trabaja con el tipo de recurso **Aplicación lógica (estándar)** , actualmente solo está disponible el conector **AS2** original. Para más información sobre esta versión, consulte la [página de referencia del conector](/connectors/as2/), en la cual se describen los desencadenadores, acciones y límites que se documentan en el archivo de Swagger del conector.
+* Si trabaja con el tipo de recurso **Aplicación lógica (estándar)** , actualmente solo está disponible el conector **AS2** original.
+
+  Para más información técnica sobre esta versión del conector **AS2** original, consulte la [página de referencia del conector](/connectors/as2/) en la cual se describen los desencadenadores, acciones y límites que se documentan en el archivo de Swagger del conector.
 
 ### <a name="consumption"></a>[Consumo](#tab/consumption)
 
@@ -82,7 +84,7 @@ Para más información sobre los límites del conector AS2 para los flujos de tr
 
 * Al menos dos [asociados comerciales](logic-apps-enterprise-integration-partners.md) en la cuenta de integración. Las definiciones de ambos asociados deben usar el mismo calificador de *identidad empresarial*, que es **AS2Identity** en este escenario.
 
-* Un [contrato AS2](logic-apps-enterprise-integration-agreements.md) en la cuenta de integración entre las entidades que participan en el flujo de trabajo. En cada contrato hacen falta un asociado anfitrión y un asociado invitado.
+* Un [contrato AS2](logic-apps-enterprise-integration-agreements.md) en la cuenta de integración entre las entidades que participan en el flujo de trabajo. En cada contrato hacen falta un asociado anfitrión y un asociado invitado. El contenido de los mensajes entre usted y el otro asociado debe coincidir con el tipo de acuerdo.
 
 * El recurso de aplicación lógica y el flujo de trabajo en los que quiere usar las operaciones AS2.
 
@@ -119,9 +121,9 @@ Para más información sobre los límites del conector AS2 para los flujos de tr
 
    | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|
-   | **Mensaje que se codificará** | Yes | Carga útil del mensaje. |
-   | **AS2 desde** | Yes | Identificador empresarial del remitente del mensaje según lo especificado por su contrato AS2. |
-   | **AS2 hasta** | Yes | Identificador empresarial del receptor del mensaje según lo especificado por su contrato AS2. |
+   | **Mensaje que se codificará** | Sí | Carga útil del mensaje. |
+   | **AS2 desde** | Sí | Identificador empresarial del remitente del mensaje según lo especificado por su contrato AS2. |
+   | **AS2 hasta** | Sí | Identificador empresarial del receptor del mensaje según lo especificado por su contrato AS2. |
    ||||
 
    Por ejemplo, la carga del mensaje es la salida del contenido del **cuerpo** del desencadenador Request:
@@ -146,7 +148,7 @@ Para más información sobre los límites del conector AS2 para los flujos de tr
    | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|
    | **Nombre de la conexión** | Sí | Un nombre para la conexión |
-   | **cuenta de integración** | Yes | En la lista de cuentas de integración disponibles, seleccione la cuenta que desea usar. |
+   | **cuenta de integración** | Sí | En la lista de cuentas de integración disponibles, seleccione la cuenta que desea usar. |
    ||||
 
    Por ejemplo:
@@ -159,9 +161,9 @@ Para más información sobre los límites del conector AS2 para los flujos de tr
 
    | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|
-   | **Mensaje que se codificará** | Yes | Carga útil del mensaje. |
-   | **AS2 desde** | Yes | Identificador empresarial del remitente del mensaje según lo especificado por su contrato AS2. |
-   | **AS2 hasta** | Yes | Identificador empresarial del receptor del mensaje según lo especificado por su contrato AS2. |
+   | **Mensaje que se codificará** | Sí | Carga útil del mensaje. |
+   | **AS2 desde** | Sí | Identificador empresarial del remitente del mensaje según lo especificado por su contrato AS2. |
+   | **AS2 hasta** | Sí | Identificador empresarial del receptor del mensaje según lo especificado por su contrato AS2. |
    ||||
 
    Por ejemplo, la carga del mensaje es la salida del contenido del **cuerpo** del desencadenador Request:
@@ -208,7 +210,7 @@ Para más información sobre los límites del conector AS2 para los flujos de tr
    | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|
    | **Nombre de la conexión** | Sí | Un nombre para la conexión |
-   | **cuenta de integración** | Yes | En la lista de cuentas de integración disponibles, seleccione la cuenta que desea usar. |
+   | **cuenta de integración** | Sí | En la lista de cuentas de integración disponibles, seleccione la cuenta que desea usar. |
    ||||
 
    Por ejemplo:

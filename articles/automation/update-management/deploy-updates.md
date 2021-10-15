@@ -3,14 +3,14 @@ title: Creación de implementaciones de actualizaciones para Update Management e
 description: En este artículo se describe cómo programar implementaciones de actualizaciones y revisar su estado.
 services: automation
 ms.subservice: update-management
-ms.date: 06/24/2021
+ms.date: 08/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: de148858ba5c88e8dbbf2693dadc818b8c66e833
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 1d8ad9b41f9d193624d9c3501493c525777832eb
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768333"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350629"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Implementación de actualizaciones y revisión de los resultados
 
@@ -169,6 +169,36 @@ Seleccione **Todos los registros** para ver todas las entradas de registro cread
 Seleccione **Salida** para ver el flujo de trabajo del runbook que administra la implementación de actualizaciones en las máquinas virtuales de destino.
 
 Seleccione **Errores** para ver información detallada acerca de los errores de la implementación.
+
+## <a name="deploy-updates-across-azure-tenants"></a>Implementación de actualizaciones en inquilinos de Azure
+
+Si tiene máquinas que necesitan revisión en otro inquilino de Azure que informan a Update Management, tiene que usar una de las soluciones alternativas siguientes para programarlas. Puede usar el cmdlet [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule) con el parámetro `ForUpdateConfiguration` para crear una programación. Puede usar el cmdlet [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration) y pasar las máquinas del otro inquilino al parámetro `NonAzureComputer`. El ejemplo siguiente muestra cómo hacerlo.
+
+```azurepowershell-interactive
+$nonAzurecomputers = @("server-01", "server-02")
+
+$startTime = ([DateTime]::Now).AddMinutes(10)
+
+$sched = New-AzAutomationSchedule `
+    -ResourceGroupName mygroup `
+    -AutomationAccountName myaccount `
+    -Name myupdateconfig `
+    -Description test-OneTime `
+    -OneTime `
+    -StartTime $startTime `
+    -ForUpdateConfiguration
+
+New-AzAutomationSoftwareUpdateConfiguration  `
+    -ResourceGroupName $rg `
+    -AutomationAccountName <automationAccountName> `
+    -Schedule $sched `
+    -Windows `
+    -NonAzureComputer $nonAzurecomputers `
+    -Duration (New-TimeSpan -Hours 2) `
+    -IncludedUpdateClassification Security,UpdateRollup `
+    -ExcludedKbNumber KB01,KB02 `
+    -IncludedKbNumber KB100
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

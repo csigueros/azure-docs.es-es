@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2021
 ms.author: ofshezaf
-ms.openlocfilehash: 828524e225f660cab2c11d23c5657ca82ae8781e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 091181388656dd02ee438d1e5ef77a19d489205a
+ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124796521"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129419095"
 ---
 # <a name="azure-sentinel-information-model-asim-schemas-public-preview"></a>Esquemas del modelo de información de Azure Sentinel (ASIM) (versión preliminar pública)
 
@@ -50,7 +50,7 @@ Los siguientes conceptos ayudan a comprender los documentos de referencia de esq
 |**Tipos de campo**     |  Cada campo de esquema tiene un tipo. El área de trabajo de Log Analytics tiene un conjunto limitado de tipos de datos. Por lo tanto, Azure Sentinel utiliza un tipo lógico para muchos campos de esquema, algo que Log Analytics no aplica, pero que es necesario a efectos de compatibilidad de los esquemas. Los tipos de campo lógicos garantizan que los valores y los nombres de campo sean coherentes entre orígenes.  <br><br>Para obtener más información, consulte [Tipos lógicos](#logical-types).     |
 |**Clase de campo**     |Los campos pueden tener varias clases, que definen cuándo debe implementar los campos un analizador: <br><br>-    Los campos **obligatorios** deben aparecer en cada analizador. Si su origen no proporciona información para este valor, o no se pueden agregar los datos de otro modo, no admitirá la mayoría de los elementos de contenido que hacen referencia al esquema normalizado.<br>-  Los campos **recomendados** deben normalizarse si están disponibles. Sin embargo, es posible que no estén disponibles en todos los orígenes, y cualquier elemento de contenido que haga referencia a dicho esquema normalizado debe tener en cuenta la disponibilidad. <br>-  Los campos **opcionales**, si están disponibles, se pueden normalizar o dejar en su formato original. Normalmente, un analizador mínimo no los normaliza por motivos de rendimiento.    |
 |**Entidades**     | Los eventos evolucionan en torno a entidades, como usuarios, hosts, procesos o archivos, y cada entidad puede requerir varios campos para describirlo. Por ejemplo, un host puede tener un nombre y una dirección IP. <br><br>Un único registro puede incluir varias entidades del mismo tipo, como un host de origen y de destino. <br><br>El modelo de información de Azure Sentinel define cómo describir las entidades de forma coherente; por su parte, las entidades permiten ampliar los esquemas. <br><br>Por ejemplo, aunque el esquema de sesión de red no incluye información de proceso, algunos orígenes de eventos proporcionan información de este tipo que se puede agregar. Para obtener más información, consulte [Entidades](#entities). |
-|**Alias**     |  En algunos casos, los distintos usuarios esperan que un campo tenga nombres diferentes. Por ejemplo, en la terminología de DNS, cabría esperar un campo denominado `query`, mientras que, en términos más generales, contiene un nombre de dominio. Los alias resuelven este problema de ambigüedad al permitir varios nombres para un valor especificado. La clase de alias sería la misma que la del campo al que se ha asociado el alias.       |
+|**Alias**     |  En algunos casos, los distintos usuarios esperan que un campo tenga nombres diferentes. Por ejemplo, en la terminología de DNS, cabría esperar un campo denominado `query`, mientras que, en términos más generales, contiene un nombre de dominio. Los alias resuelven este problema de ambigüedad al permitir varios nombres para un valor especificado. La clase de alias sería la misma que la del campo al que se ha asociado el alias.<br><br>Tenga en cuenta que Log Analytics no admite la creación de alias. Para implementar analizadores de alias, cree una copia del valor original mediante el operador `extend`.        |
 | | |
 
 ## <a name="logical-types"></a>Tipos lógicos

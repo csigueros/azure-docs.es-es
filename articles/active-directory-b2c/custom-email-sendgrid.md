@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 09/15/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: daee0bc89804b8fe72845c411224b689452fe7d2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 67c5c15b81bf2007494cb78496a655e4e0d833fb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121723239"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128568494"
 ---
 # <a name="custom-email-verification-with-sendgrid"></a>Verificación de correo electrónico personalizado con SendGrid
 
@@ -49,7 +49,8 @@ Asegúrese de completar la sección en la que [crea una clave de API de SendGrid
 A continuación, almacene la clave de API de SendGrid en una clave de directiva de Azure AD B2C que servirá de referencia para las directivas.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro **Directorio + suscripción** en el menú superior y elija el directorio de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 1. En la página de introducción, seleccione **Identity Experience Framework**.
 1. Seleccione **Claves de directiva** y luego **Agregar**.
@@ -205,7 +206,9 @@ La estructura del objeto JSON se define mediante los identificadores de la notac
 Agregue la siguiente transformación de notificaciones al elemento `<ClaimsTransformations>` dentro de `<BuildingBlocks>`. Realice las siguientes actualizaciones en el XML de la transformación de notificaciones:
 
 * Actualice el valor `template_id` de InputParameter con el identificador de la plantilla transaccional de SendGrid que creó anteriormente en [Creación de la plantilla de SendGrid](#create-sendgrid-template).
-* Actualice el valor de dirección de `from.email`. Use una dirección de correo electrónico válida para evitar que el correo electrónico de verificación se marque como correo no deseado.
+* Actualice el valor de dirección de `from.email`. Use una dirección de correo electrónico válida para evitar que el correo electrónico de verificación se marque como correo no deseado. 
+   > [!NOTE]
+   > Esta dirección de correo electrónico se debe comprobar en SendGrid en Autenticación del remitente con autenticación de dominio o autenticación de remitente único.
 * Actualice el valor del parámetro de entrada de la línea de asunto `personalizations.0.dynamic_template_data.subject` con una línea de asunto adecuada para su organización.
 
 ```xml

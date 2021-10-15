@@ -1,26 +1,26 @@
 ---
-title: Copiar datos de Drill con Azure Data Factory
+title: Copia de datos de Drill
+description: Aprenda a copiar datos de Drill en almacenes de datos receptores compatibles mediante una actividad de copia en una canalización de Azure Data Factory o de Synapse Analytics.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre cómo copiar datos de Drill en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 4584dc7977cdb9772b8e6b6cfdf0f180a5b528f6
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: f01bb384ae6f49bf6996f5549323e3e506bef7a6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123312990"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124778027"
 ---
-# <a name="copy-data-from-drill-using-azure-data-factory"></a>Copiar datos de Drill con Azure Data Factory
+# <a name="copy-data-from-drill-using-azure-data-factory-or-synapse-analytics"></a>Copia de datos de Drill con Azure Data Factory o Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de Drill. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
+En este artículo se explica cómo usar la actividad de copia en una canalización de Azure Data Factory o Synapse Analytics para copiar datos de Drill. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -31,7 +31,7 @@ Este conector Drill es compatible con las actividades siguientes:
 
 Puede copiar datos de Drill en cualquier almacén de datos de receptor admitido. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
-Azure Data Factory proporciona un controlador integrado para habilitar la conectividad. Por lo tanto, no es necesario instalar manualmente ningún controlador mediante este conector.
+El servicio proporciona un controlador integrado para habilitar la conectividad. Por lo tanto, no es necesario instalar manualmente ningún controlador mediante este conector.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -49,7 +49,7 @@ Siga estos pasos para crear un servicio vinculado a Drill en la interfaz de usua
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Captura de pantalla de la creación de un servicio vinculado con la interfaz de usuario de Azure Data Factory":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Captura de pantalla de la creación de un nuevo servicio vinculado con la interfaz de usuario de Azure Data Factory.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -203,4 +203,4 @@ Para copiar datos de Drill, establezca el tipo de origen de la actividad de copi
 Para obtener información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

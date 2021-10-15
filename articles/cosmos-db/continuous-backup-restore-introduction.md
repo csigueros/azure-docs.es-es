@@ -8,12 +8,12 @@ ms.date: 07/29/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.custom: references_regions
-ms.openlocfilehash: a8862f0b71a6b3f8bba21bdd4ab40290a00d0959
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: e7d46d1680e11307eb873383e91e6e682f545549
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323022"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546572"
 ---
 # <a name="continuous-backup-with-point-in-time-restore-in-azure-cosmos-db"></a>Copia de seguridad continua con la característica de restauración a un momento dado de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -111,7 +111,9 @@ Actualmente, la funcionalidad de restauración a un momento dado tiene las sigui
 
 * No se admiten cuentas de escritura de varias regiones.
 
-* En las cuentas habilitadas para Azure Synapse Link, los datos del almacén analítico no se incluyen en las copias de seguridad y restauraciones. Cuando Synapse Link esté habilitado, Azure Cosmos DB seguirá haciendo copias de seguridad automáticamente de los datos del almacén de transacciones en el intervalo programado de copias de seguridad. En este momento, no se admite la copia de seguridad ni la restauración automáticas de los datos del almacén analítico.
+* Azure Synapse Link y el modo de copia de seguridad periódica pueden coexistir en la misma cuenta de base de datos. Sin embargo, los datos del almacén analítico no se incluyen en las copias de seguridad y restauraciones. Cuando Synapse Link esté habilitado, Azure Cosmos DB seguirá haciendo copias de seguridad automáticamente de los datos del almacén de transacciones en el intervalo programado de copias de seguridad. 
+
+* Azure Synapse Link y el modo de copia de seguridad continua no pueden coexistir en la misma cuenta de base de datos. Actualmente, las cuentas de base de datos con Synapse Link habilitado no pueden usar el modo de copia de seguridad continua y viceversa.
 
 * La cuenta restaurada se crea en la misma región en la que existe la cuenta de origen. No se puede restaurar una cuenta en una región en la que la cuenta de origen no existe.
 

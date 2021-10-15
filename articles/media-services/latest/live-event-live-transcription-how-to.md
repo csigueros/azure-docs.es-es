@@ -59,7 +59,7 @@ Para crear un evento en directo con la transcripción activada, envíe la operac
 PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview&autoStart=true 
 ```
 
-La operación tiene el cuerpo siguiente (en el que se crea un evento en directo con paso a través mediante RTMP como protocolo de ingesta). Observe que se ha agregado una propiedad de transcripciones.
+La operación tiene el cuerpo siguiente (en el que se crea un evento en directo con tránsito mediante RTMP como protocolo de ingesta). Observe que se ha agregado una propiedad de transcripciones.
 
 ```
 {
@@ -93,7 +93,7 @@ La operación tiene el cuerpo siguiente (en el que se crea un evento en directo 
       }
     },
     "encoding": {
-      "encodingType": "None"
+      "encodingType": "PassthroughBasic"
     },
     "transcriptions": [
       {

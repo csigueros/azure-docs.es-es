@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: error-reference
 ms.date: 03/26/2021
 ms.author: inhenkel
-ms.openlocfilehash: bd8a980d6f8cf7f71dbbfb5f099a12ca966be9ac
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 24428aeb07548556a96c292b6dc1be0f2014a479
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128661647"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389843"
 ---
 # <a name="media-services-live-event-error-codes"></a>Códigos de error de eventos en directo de Media Services
 
@@ -60,7 +60,7 @@ Al suscribirse a los eventos de [Event Grid](../../event-grid/index.yml) para un
 >| Descripción|Los flujos ingeridos del codificador entrante con velocidades de fotogramas superaron el máximo permitido de 30 fps para codificar canales o eventos en directo. |
 >| Solución propuesta|Compruebe el valor preestablecido del codificador para reducir la velocidad de fotogramas a menos de 36 fps. |
 >|**MPE_INGEST_VIDEO_RESOLUTION_NOT_SUPPORTED** ||
->| Descripción|Las transmisiones recibidas del codificador entrante superaron las siguientes resoluciones permitidas: 1920 x 1088 para la codificación de canales o eventos en directo y 4096 x 2160 para canales o eventos en directo de paso a través. |
+>| Descripción|Las transmisiones ingeridas del codificador entrante superaron las siguientes resoluciones permitidas: 1920 x 1088 para la codificación de canales o eventos en directo y 4096 x 2160 para canales o eventos en directo de tránsito básicos y estándar. |
 >| Solución propuesta|Compruebe el valor preestablecido del codificador para reducir la resolución de vídeo de modo que no supere el límite. |
 >|**MPE_INGEST_RTMP_TOO_LARGE_UNPROCESSED_FLV** |
 >| Descripción|El evento en directo ha recibido una gran cantidad de datos de audio a la vez, o una gran cantidad de datos de vídeo sin ningún fotograma clave. Hemos desconectado el codificador para darle la oportunidad de volver a intentarlo con los datos correctos. |

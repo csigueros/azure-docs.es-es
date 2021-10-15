@@ -4,27 +4,25 @@ description: Use Azure Resource Manager y Azure PowerShell para implementar rec
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 3058265fee62143f88bbd87e69c58dd4ff597920
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/01/2021
+ms.openlocfilehash: cc6c8e05f5e6f37a8ac832ac5ee8fae386a627f1
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124793804"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387722"
 ---
 # <a name="deploy-resources-with-bicep-and-azure-powershell"></a>Implementación de recursos con Bicep y Azure PowerShell
 
 En este artículo, se explica el uso de Azure PowerShell con archivos de Bicep para implementar recursos en Azure. Si no conoce los conceptos de implementación y administración de las soluciones de Azure, consulte [Introducción a Bicep](overview.md).
 
-Para implementar archivos Bicep, necesita [Azure PowerShell versión 5.6.0 o posterior](/powershell/azure/install-az-ps).
-
 ## <a name="prerequisites"></a>Requisitos previos
 
-Necesita un archivo de Bicep para implementarlo. El nombre del archivo local que se utiliza en este artículo es _C:\MyTemplates\azuredeploy.bicep_.
+Necesita un archivo de Bicep para implementarlo. El archivo debe ser local.
 
-Debe instalar Azure PowerShell y conectarse a Azure:
+Necesita Azure PowerShell y estar conectado a Azure:
 
-- **Instale los cmdlets de Azure PowerShell en el equipo local.** Para más información, consulte el artículo de [introducción a Azure PowerShell](/powershell/azure/get-started-azureps).
+- **Instale los cmdlets de Azure PowerShell en el equipo local.** Para implementar archivos Bicep, necesita [Azure PowerShell](/powershell/azure/install-az-ps) versión **5.6.0 o posterior**. Para más información, consulte el artículo de [introducción a Azure PowerShell](/powershell/azure/get-started-azureps).
 - **Conéctese a Azure con [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)** . Si tiene varias suscripciones de Azure, es posible que también tenga que ejecutar [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Para más información, consulte [Use multiple Azure subscriptions](/powershell/azure/manage-subscriptions-azureps) (Uso de varias suscripciones de Azure).
 
 Si no tiene instalado PowerShell, puede usar Azure Cloud Shell. Para más información, consulte [Implementación de archivos Bicep desde Azure Cloud Shell](./deploy-cloud-shell.md).
@@ -139,15 +137,15 @@ Para pasar un archivo de parámetros local, use el parámetro `TemplateParameter
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile <path-to-bicep> `
-  -TemplateParameterFile c:\MyTemplates\storage.parameters.json
+  -TemplateFile c:\BicepFiles\storage.bicep `
+  -TemplateParameterFile c:\BicepFiles\storage.parameters.json
 ```
 
 Para pasar un archivo de parámetros externo, use el parámetro `TemplateParameterUri`:
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile <path-to-bicep> `
+  -TemplateFile c:\BicepFiles\storage.bicep `
   -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.parameters.json
 ```
 
@@ -157,11 +155,11 @@ Antes de implementar el archivo Bicep, puede obtener una vista previa de los cam
 
 ## <a name="deploy-template-specs"></a>Especificaciones de la implementación de la plantilla
 
-Actualmente, Azure PowerShell no admite la creación de especificaciones de plantilla mediante archivos Bicep. Pero puede crear un archivo de Bicep con el recurso [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) para implementar una especificación de plantilla. En el [ejemplo Creación de una especificación de plantilla](https://github.com/Azure/azure-docs-bicep-samples/blob/main/samples/create-template-spec/azuredeploy.bicep) se muestra cómo crear una especificación de plantilla en un archivo de Bicep. También puede compilar el archivo Bicep en una plantilla ARM JSON mediante la CLI de Bicep y, a continuación, crear una especificación de plantilla con la plantilla JSON.
+Actualmente, Azure PowerShell no admite la creación de especificaciones de plantilla mediante archivos Bicep. Pero puede crear un archivo de Bicep con el recurso [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) para implementar una especificación de plantilla. En el [ejemplo Creación de una especificación de plantilla](https://github.com/Azure/azure-docs-bicep-samples/blob/main/samples/create-template-spec/azuredeploy.bicep) se muestra cómo crear una especificación de plantilla en un archivo de Bicep. También puede compilar el archivo Bicep en JSON mediante la CLI de Bicep y luego crear una especificación de plantilla con la plantilla JSON.
 
 ## <a name="deployment-name"></a>Nombre de implementación
 
-Al implementar un archivo Bicep, puede asignarle un nombre a la implementación. Este nombre puede ayudarle a recuperar la implementación del historial de implementaciones. Si no especifica un nombre para la implementación, se utilizará el nombre del archivo Bicep. Por ejemplo, si implementa un archivo de Bicep llamado `azuredeploy.bicep` y no especifica ningún nombre para la implementación, se le asignará el nombre `azuredeploy`.
+Al implementar un archivo Bicep, puede asignarle un nombre a la implementación. Este nombre puede ayudarle a recuperar la implementación del historial de implementaciones. Si no especifica un nombre para la implementación, se utilizará el nombre del archivo Bicep. Por ejemplo, si implementa un archivo de Bicep llamado `main.bicep` y no especifica ningún nombre para la implementación, se le asignará el nombre `main`.
 
 Cada vez que se ejecuta una implementación, se agrega una entrada al historial de implementación del grupo de recursos con el nombre de la implementación. Si ejecuta otra implementación y le asigna el mismo nombre, la entrada anterior se reemplazará por la implementación actual. Si desea que todas las entradas del historial de implementaciones sean diferentes, asigne un nombre único a cada implementación.
 
@@ -189,6 +187,4 @@ Para evitar conflictos con las implementaciones simultáneas y garantizar que la
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para revertir a una implementación correcta cuando se produce un error, consulte [Revertir en caso de error a una implementación correcta](../templates/rollback-on-error.md).
 - Para entender cómo definir parámetros en el archivo, consulte [Nociones sobre la estructura y la sintaxis de los archivos Bicep](file.md).
-- Para más información sobre la implementación de una plantilla que requiere un token de SAS, vea [Implementación de una plantilla de Resource Manager privada con el token de SAS](../templates/secure-template-with-sas-token.md).

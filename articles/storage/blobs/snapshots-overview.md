@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/02/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 5eaefbe835d7660de8bd0712d55c75149cc588a8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 437211ae50404443dee30e5a9c8141ea09d69244
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128591090"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278571"
 ---
 # <a name="blob-snapshots"></a>Instantáneas de blob
 
@@ -71,7 +71,7 @@ En las siguientes situaciones, se muestra cómo se ven incrementados los cargos 
 
 Crear una instantánea, que es una copia de solo lectura de un blob, puede conllevar cargos adicionales de almacenamiento de datos en la cuenta. Al diseñar una aplicación, es importante tener en cuenta cómo se pueden acumular estos gastos para que pueda de minimizar los costos.
 
-Las versiones de blobs, al igual que las instantáneas de blobs, se facturan con la misma tarifa que los datos activos. La forma en que se facturan las instantáneas depende de si ha establecido explícitamente el nivel del blob base o de cualquiera de sus instantáneas (o versiones). Para más información sobre los niveles de blobs, consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](storage-blob-storage-tiers.md).
+Las versiones de blobs, al igual que las instantáneas de blobs, se facturan con la misma tarifa que los datos activos. La forma en que se facturan las instantáneas depende de si ha establecido explícitamente el nivel del blob base o de cualquiera de sus instantáneas (o versiones). Para más información sobre los niveles de los blobs, consulte [Niveles de acceso frecuente, esporádico y de archivo de los datos de blobs](access-tiers-overview.md).
 
 Si no ha cambiado el nivel de un blob o de una instantánea, se le facturarán los bloques únicos de datos en ese blob, sus instantáneas y las versiones que pueda tener. Para más información, consulte [Facturación cuando el nivel de blob no se ha establecido explícitamente](#billing-when-the-blob-tier-has-not-been-explicitly-set).
 

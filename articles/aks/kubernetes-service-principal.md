@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 04/22/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 332866c49470ed47f3c3de65b03ffd07003f6d13
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: c2ad9c6eae22db2d940942c0ec15c6b1116a54cd
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122253256"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353019"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entidades de servicio con Azure Kubernetes Service (AKS)
 
@@ -38,9 +38,9 @@ También necesita tener instalado Azure PowerShell, versión 5.0.0 o posterior.
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Cuando crea un clúster de AKS en Azure Portal o mediante el comando [az aks create][az-aks-create], Azure puede generar automáticamente una entidad de servicio.
+Cuando crea un clúster de AKS en Azure Portal o mediante el comando [az aks create][az-aks-create], Azure crea una identidad administrada.
 
-En el siguiente ejemplo de la CLI de Azure, no se especifica una entidad de servicio. En este escenario, la CLI de Azure crea un entidad de servicio para el clúster de AKS. Para completar esta operación correctamente, la cuenta debe tener los derechos apropiados para crear una entidad de servicio.
+En el siguiente ejemplo de la CLI de Azure, no se especifica una entidad de servicio. En este escenario, la CLI de Azure crea un entidad de servicio para el clúster de AKS. 
 
 ```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup
@@ -48,9 +48,9 @@ az aks create --name myAKSCluster --resource-group myResourceGroup
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-Cuando crea un clúster de AKS en Azure Portal o mediante el comando [New-AzAksCluster][new-azakscluster], Azure puede generar automáticamente una entidad de servicio.
+Cuando crea un clúster de AKS en Azure Portal o mediante el comando [New-AzAksCluster][new-azakscluster], Azure puede generar una identidad administrada.
 
-En el siguiente ejemplo de Azure PowerShell, no se especifica una entidad de servicio. En este escenario, Azure PowerShell crea una entidad de servicio para el clúster de AKS. Para completar esta operación correctamente, la cuenta debe tener los derechos apropiados para crear una entidad de servicio.
+En el siguiente ejemplo de Azure PowerShell, no se especifica una entidad de servicio. En este escenario, Azure PowerShell crea un entidad de servicio para el clúster de AKS. 
 
 ```azurepowershell-interactive
 New-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup

@@ -1,6 +1,6 @@
 ---
-title: Adición de asignaciones de XSLT para transformaciones XML en flujos de trabajo
-description: Cree y agregue asignaciones de XSLT a fin de transformar XML para flujos de trabajo en Azure Logic Apps con Enterprise Integration Pack.
+title: Adición de asignaciones XSLT para transformar XML en flujos de trabajo
+description: Agregue asignaciones XSLT para transformar XML en flujos de trabajo con Azure Logic Apps y Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,14 +8,14 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/14/2021
-ms.openlocfilehash: 71083bf7eaddb04f322245ca5e33971ff2d79c53
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 55c6d6c20b98415fa09725d4101317ae6c43e23f
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128549878"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359483"
 ---
-# <a name="add-xslt-maps-for-xml-transformation-in-azure-logic-apps"></a>Adición de asignaciones XSLT para la transformación XML en Azure Logic Apps
+# <a name="add-xslt-maps-to-transform-xml-in-workflows-with-azure-logic-apps"></a>Adición de asignaciones XSLT para transformar XML en flujos de trabajo con Azure Logic Apps
 
 Para convertir XML entre formatos, el flujo de trabajo de la aplicación lógica puede usar asignaciones con la acción **Transformar XML**. Una asignación es un documento XML que usa el Lenguaje de transformación basado en hojas de estilo (XSLT) para describir cómo convertir datos de XML a otro formato. La asignación consta de un esquema XML de origen como entrada y un esquema XML de destino como salida. Puede definir una transformación básica, como copiar un nombre y una dirección de un documento a otro. O bien puede crear transformaciones más complejas mediante las operaciones de asignación integradas. Puede utilizar diferentes funciones integradas para manipular o controlar los datos, incluidos aspectos como las manipulaciones de cadenas, las asignaciones condicionales, las expresiones aritméticas, los formateadores de tiempo y fecha, e incluso las construcciones en bucle.
 
@@ -31,7 +31,7 @@ Por ejemplo, imagine que recibe periódicamente pedidos o facturas B2B de un cli
 >   Estos flujos de trabajo se ejecutan en Azure Logic Apps de inquilino único, que ofrece opciones dedicadas y flexibles para recursos de proceso y memoria. 
 >   Sin embargo, el tipo de recurso de aplicación lógica estándar actualmente no admite la referencia a ensamblados externos desde asignaciones. Además, actualmente solo se admite el Lenguaje de transformación basado en hojas de estilo (XSLT) 1.0.
 
-Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](logic-apps-overview.md) Para obtener más información sobre la integración empresarial B2B, revise [Flujos de trabajo de integración empresarial B2B con Azure Logic Apps y Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
+Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](logic-apps-overview.md) Para más información sobre la integración empresarial B2B, revise [Flujos de trabajo de integración empresarial B2B con Azure Logic Apps y Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -49,13 +49,13 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
    > [!NOTE]
    > En los monitores de alta resolución, puede que experimente un [problema de visualización con el diseñador de mapas](/visualstudio/designers/disable-dpi-awareness) en Visual Studio. Para resolver este problema de visualización, o bien [reinicie Visual Studio en modo de no reconocimiento de PPP](/visualstudio/designers/disable-dpi-awareness#restart-visual-studio-as-a-dpi-unaware-process) o agregue el [valor del registro DPIUNAWARE](/visualstudio/designers/disable-dpi-awareness#add-a-registry-entry).
 
-* Un [recurso de cuenta de integración](logic-apps-enterprise-integration-create-integration-account.md) donde se definen y almacenan artefactos, como socios comerciales, contratos, certificados, entre otros, para su uso en los flujos de trabajo de integración empresarial y B2B. Este recurso tiene que satisfacer los siguientes requisitos:
+* Un [recurso de cuenta de integración](logic-apps-enterprise-integration-create-integration-account.md), donde se definen y almacenan artefactos, como socios comerciales, contratos, certificados, entre otros, para su uso en los flujos de trabajo de integración empresarial y B2B. Este recurso tiene que satisfacer los siguientes requisitos:
 
   * Estar asociado a la misma suscripción de Azure que el recurso de aplicación lógica.
 
   * Existir en la misma ubicación o región de Azure que el recurso de aplicación lógica donde piensa usar la acción **Transformar XML**.
 
-  * Si usa el [tipo de recurso **Aplicación lógica (consumo)** ](logic-apps-overview.md#resource-type-and-host-environment-differences), tendrá que [vincular la cuenta de integración al recurso de aplicación lógica](logic-apps-enterprise-integration-create-integration-account.md#link-account) para poder utilizar los artefactos en el flujo de trabajo.
+  * Si usa el tipo de recurso [**Logic App (Consumption)**](logic-apps-overview.md#resource-type-and-host-environment-differences) (Aplicación lógica [Consumo]), tendrá que [vincular la cuenta de integración al recurso de aplicación lógica](logic-apps-enterprise-integration-create-integration-account.md#link-account) para poder utilizar los artefactos en el flujo de trabajo.
 
     Para crear y agregar asignaciones para usarlas en flujos de trabajo de **aplicación lógica (consumo)** , todavía no necesita un recurso de aplicación lógica. Sin embargo, cuando esté listo para usar esas asignaciones en los flujos de trabajo, el recurso de aplicación lógica necesitará una cuenta de integración vinculada que almacene esas asignaciones.
 
@@ -64,7 +64,7 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
     Todavía necesita una cuenta de integración para almacenar otros artefactos, como asociados, contratos y certificados, junto con el uso de las operaciones [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) y [EDIFACT](logic-apps-enterprise-integration-edifact.md). Pero no es necesario vincular el recurso de aplicación lógica a la cuenta de integración, por lo que la funcionalidad de vinculación no existe. La cuenta de integración todavía tiene que cumplir otros requisitos, como usar la misma suscripción de Azure y existir en la misma ubicación que el recurso de aplicación lógica.
 
     > [!NOTE]
-    > Actualmente, solo el tipo de recurso **Aplicación lógica (consumo)** admite operaciones de [RosettaNet](logic-apps-enterprise-integration-rosettanet.md). El tipo de recurso **Aplicación lógica (estándar)** no incluye operaciones de [RosettaNet](logic-apps-enterprise-integration-rosettanet.md).
+    > Actualmente, solo el tipo de recurso **Logic App (Consumption)** (Aplicación lógica [Consumo]) admite operaciones de [RosettaNet](logic-apps-enterprise-integration-rosettanet.md). El tipo de recurso **Logic App (Standard)** (Aplicación lógica [Estándar]) no incluye operaciones de [RosettaNet](logic-apps-enterprise-integration-rosettanet.md).
 
 * Aunque **Logic App (Consumption)** (Aplicación lógica [consumo]) admite la referencia a ensamblados externos desde las asignaciones, **Logic App (Standard)** (Aplicación lógica [estándar]) no admite esta funcionalidad. La referencia a un ensamblado permite llamadas directas desde asignaciones XSLT a código .NET personalizado.
 

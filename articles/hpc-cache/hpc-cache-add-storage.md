@@ -4,15 +4,15 @@ description: Definición de los destinos de almacenamiento para que Azure HPC Ca
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 09/22/2021
 ms.custom: subject-rbac-steps
 ms.author: v-erkel
-ms.openlocfilehash: 3ea51d88d65b8016e68673703ee823df19bcf608
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 016a62bc7713b389e8baf7d0a5b5aeefceb81f2b
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114294960"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129271977"
 ---
 # <a name="add-storage-targets"></a>Incorporación de destinos de almacenamiento
 
@@ -401,7 +401,7 @@ En Azure Portal, abra la instancia de caché y haga clic en **Destinos de almace
 
 Haga clic en el nombre de un destino de almacenamiento para abrir su página de detalles.
 
-Lea [Editar destinos de almacenamiento](hpc-cache-edit-storage.md) para obtener más información.
+Lea [Visualización y administración de destinos de almacenamiento](manage-storage-targets.md) y [Edición de los destinos de almacenamiento](hpc-cache-edit-storage.md) para más información.
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 

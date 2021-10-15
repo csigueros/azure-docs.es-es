@@ -6,12 +6,12 @@ ms.custom: devx-track-java
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
-ms.openlocfilehash: be1d54007017ce9b5abb774e75ddfd799f83c612
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.openlocfilehash: d47de5dd9af7b6d769c31d4909103616293a5a60
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113287319"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361669"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Uso de Java y Gradle para crear y publicar una función en Azure
 
@@ -27,7 +27,7 @@ Para desarrollar funciones con Java, debe tener instalado lo siguiente:
 - [Kit para desarrolladores de Java](/azure/developer/java/fundamentals/java-support-on-azure), versión 8
 - [CLI de Azure]
 - [Azure Functions Core Tools](./functions-run-local.md#v2), versión 2.6.666 u otra posterior
-- [Gradle](https://gradle.org/), versión 4.10 y superior
+- [Gradle](https://gradle.org/), versión 6.8 y superior
 
 Necesita también una suscripción de Azure activa. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -126,7 +126,7 @@ De este modo, se crean los siguientes recursos en Azure, en función de los valo
 
 + Un grupo de recursos Se le ha asignado el nombre de _resourceGroup_ que proporcionó anteriormente.
 + Una cuenta de almacenamiento Necesaria con Functions. El nombre se genera aleatoriamente según los requisitos de nombre de la cuenta de almacenamiento.
-+ Plan de App Service. El hospedaje del plan de consumo sin servidor de la aplicación de funciones de la región _appRegion_ especificada. El nombre se genera aleatoriamente.
++ Plan de App Service. El hospedaje del plan de consumo sin servidor de la aplicación de funciones de la _región_ especificada. El nombre se genera aleatoriamente.
 + Aplicación de funciones. Una aplicación de funciones es la unidad de implementación y ejecución de las funciones. El nombre es _appName_, anexado a un número generado de forma aleatoria. 
 
 La implementación también empaqueta los archivos de proyecto y los implementa en la nueva aplicación de funciones mediante la [implementación de archivos zip](functions-deployment-technologies.md#zip-deploy), con el modo de ejecución desde el paquete habilitado.
@@ -142,7 +142,7 @@ Puede obtener la dirección URL necesaria para desencadenar la función, con la 
 
 1. Vaya a [Azure Portal], inicie sesión, escriba el nombre de _appName_ para la aplicación de funciones en **Buscar** en la parte superior de la página y presione Entrar.
  
-1. En la aplicación de funciones, seleccione **Funciones**, elija la función y, a continuación, haga clic en **</> Obtener la dirección URL de la función** en la parte superior derecha. 
+1. En la aplicación de funciones, seleccione **Funciones**, elija la función y, a continuación, haga clic en **Obtener la dirección URL de la función** en la parte superior derecha. 
 
     :::image type="content" source="./media/functions-create-first-java-gradle/get-function-url-portal.png" alt-text="Copiar la dirección URL de la función desde Azure Portal":::
 

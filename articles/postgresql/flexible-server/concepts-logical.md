@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/30/2021
-ms.openlocfilehash: 5030abe5dbc93a1b04588d548d353701a5a77ad4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/01/2021
+ms.openlocfilehash: 5298b572c24d174842da1c9e29b01a1d98f47a39
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128559273"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387361"
 ---
 # <a name="logical-replication-and-logical-decoding-in-azure-database-for-postgresql---flexible-server"></a>Replicación lógica y descodificación lógica en Azure Database for PostgreSQL con servidor flexible
 
@@ -104,12 +104,21 @@ Visite la documentación de PostgreSQL para comprender mejor la [replicación l�
 
 ### <a name="pglogical-extension"></a>Extensión pglogical
 
-Este es un ejemplo de configuración de pglogical en el servidor de bases de datos de proveedor y suscriptor. Para más información, consulte la documentación de la extensión pglogical. Asegúrese también de que ha realizado las tareas de requisitos previos enumeradas anteriormente.
+Este es un ejemplo de configuración de pglogical en el servidor de bases de datos de proveedor y suscriptor. Para más información, consulte la [documentación de la extensión pglogical](https://www.2ndquadrant.com/en/resources/pglogical/pglogical-docs). Asegúrese también de que ha realizado las tareas de requisitos previos enumeradas anteriormente.
+
 
 1. Instale la extensión pglogical en los servidores de bases de datos del proveedor y el suscriptor.
     ```SQL
    \C myDB
    CREATE EXTENSION pglogical;
+   ```
+2. Si el usuario de replicación no es el usuario de administración del servidor (que creó el servidor), asegúrese de asignar los privilegios `azure_pg_admin` y `replication` al usuario. Como alternativa, puede conceder el usuario administrador al usuario de replicación. Consulte la [documentación de pglogical](https://www.2ndquadrant.com/en/resources/pglogical/pglogical-docs/#limitations-and-restrictions) para los detalles.
+   ```SQL
+   GRANT azure_pg_admin, replication to myUser;
+   ```
+   o
+   ```SQL
+   GRANT myAdminUser to myUser;
    ```
 2. En el servidor de bases de datos del **proveedor** (origen/publicador), cree el nodo de proveedor.
    ```SQL

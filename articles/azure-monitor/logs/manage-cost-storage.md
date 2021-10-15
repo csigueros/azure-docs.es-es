@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/23/2021
 ms.author: bwren
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8cedd159c1c4c8a7d5309024d66ddc104c07506b
-ms.sourcegitcommit: 149815030568fb4d4dd2e2025a18dc64fc190d07
+ms.openlocfilehash: 0e894fc6c6e210249e591ed7f9b9b662ff5ae187
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129062094"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272934"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Administrar el uso y los costos con los registros de Azure Monitor    
 
@@ -229,7 +229,7 @@ Para establecer la retención de un tipo de datos determinado (en este ejemplo, 
     }
 ```
 
-Los valores válidos para `retentionInDays` oscilan entre 30 y 730.
+Los valores válidos para `retentionInDays` oscilan entre 4 y 730.
 
 Los tipos de datos `Usage` y `AzureActivity` no se pueden establecer con la retención personalizada. Adoptan el máximo de la retención predeterminada del área de trabajo o 90 días. 
 

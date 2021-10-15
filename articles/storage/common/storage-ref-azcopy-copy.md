@@ -8,12 +8,12 @@ ms.date: 09/01/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 4cb943230c0211c67caf5d7a074d21077358c143
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d6256fdb15fd4e1e5674ab9aa24002027ed712d9
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128605456"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273540"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -358,7 +358,7 @@ Cadena **--list-of-versions** Especifica un archivo en el que cada id. de versi�
 
 **--s2s-handle-invalid-metadata** string   Especifica cómo se administran las claves de metadatos no válidas. Opciones disponibles: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (El valor predeterminado es `ExcludeIfInvalid`).
 
-**--s2s-preserve-access-tier** Conserva el nivel de acceso durante la copia de servicio a servicio. Consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](../blobs/storage-blob-storage-tiers.md) para asegurarse de que la cuenta de almacenamiento de destino admite la configuración del nivel de acceso. En los casos en los que no se admite la configuración del nivel de acceso, use s2sPreserveAccessTier=false para omitir la copia del nivel de acceso. (El valor predeterminado es `true`).
+**--s2s-preserve-access-tier** Conserva el nivel de acceso durante la copia de servicio a servicio. Consulte [Niveles de acceso frecuente, esporádico y de archivo de los datos de blob](../blobs/access-tiers-overview.md) para asegurarse de que la cuenta de almacenamiento de destino admite la configuración del nivel de acceso. En los casos en los que no se admite la configuración del nivel de acceso, use s2sPreserveAccessTier=false para omitir la copia del nivel de acceso. (El valor predeterminado es `true`).
 
 **--s2s-preserve-blob-tags** Se conservan las etiquetas de índice durante la transferencia entre servicios de un almacenamiento de blobs a otro.
 

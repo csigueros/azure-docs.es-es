@@ -13,18 +13,18 @@ ms.date: 03/03/2021
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 8a8aab447007eb574a7a4bc532d8177bd0d8b345
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: a11022fa0334ec353b574363934339e2b93b75eb
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102122483"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235726"
 ---
 # <a name="considerations-for-using-universal-windows-platform-with-msalnet"></a>Consideraciones para usar la Plataforma universal de Windows con MSAL.NET
 Los desarrolladores de aplicaciones que usan la Plataforma universal de Windows (UWP) con MSAL.NET deben tener en cuenta los conceptos que se presentan en este artículo.
 
 ## <a name="the-usecorporatenetwork-property"></a>La propiedad UseCorporateNetwork
-En la plataforma de Windows Runtime (WinRT), `PublicClientApplication` tiene la propiedad booleana `UseCorporateNetwork`. Esta propiedad permite que las aplicaciones Windows 10 y las aplicaciones para UWP se beneficien de la autenticación integrada de Windows (IWA) si el usuario ha iniciado sesión en una cuenta que tenga un inquilino de Azure Active Directory (Azure AD) federado. Los usuarios que hayan iniciado sesión en el sistema operativo también pueden usar el inicio de sesión único (SSO). Al establecer la propiedad `UseCorporateNetwork`, MSAL.NET usa un agente de autenticación web (WAB).
+En la plataforma de Windows Runtime (WinRT), `PublicClientApplication` tiene la propiedad booleana `UseCorporateNetwork`. Esta propiedad permite que las aplicaciones de Windows 10 y las aplicaciones para UWP se beneficien de la autenticación integrada de Windows (IWA) si el usuario ha iniciado sesión en una cuenta que tenga un inquilino de Azure Active Directory (Azure AD) federado. Los usuarios que hayan iniciado sesión en el sistema operativo también pueden usar el inicio de sesión único (SSO). Al establecer la propiedad `UseCorporateNetwork`, MSAL.NET usa un agente de autenticación web (WAB).
 
 > [!IMPORTANT]
 > Si establece la propiedad `UseCorporateNetwork` en true, se da por supuesto que el desarrollador de aplicaciones ha habilitado IWA en la aplicación. Para habilitar IWA:

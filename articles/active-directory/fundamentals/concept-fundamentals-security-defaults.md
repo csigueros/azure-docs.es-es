@@ -12,12 +12,12 @@ manager: karenhoran
 ms.reviewer: lvandenende
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 83a2c5bca5837919015125d6c421dccfef5bf58c
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: b88cb7baa3c8eb8d40bd23d8697f563406bd1fdb
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129079454"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129535011"
 ---
 # <a name="what-are-security-defaults"></a>¿Cuáles son los valores de seguridad predeterminados?
 
@@ -58,7 +58,7 @@ Todos los usuarios del inquilino deben registrarse para la autenticación multif
 
 Los usuarios con acceso a cuentas con privilegios tienen un mayor acceso a su entorno. Dadas las facultades de estas cuentas, debe tratarlas con un cuidado especial. Un método común para mejorar la protección de las cuentas con privilegios es exigir una forma de verificación de la cuenta más estricta para iniciar sesión. En Azure AD, puede exigir el uso de Multi-Factor Authentication para conseguir una verificación de cuentas más estricta.
 
-Una vez finalizado el registro con Azure AD Multi-Factor Authentication, los nueve roles de administrador de Azure AD siguientes deberán realizar una autenticación adicional cada vez que inicien sesión:
+Una vez finalizado el registro con Azure AD Multi-Factor Authentication, los roles de administrador de Azure AD siguientes deberán realizar una autenticación adicional cada vez que inicien sesión:
 
 - Administrador global
 - Administrador de aplicaciones

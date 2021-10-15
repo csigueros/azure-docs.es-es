@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 08/09/2021
-ms.openlocfilehash: c94ca45d77ccab14c7e10ac831aa9d59ee0e0e2d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: c99d3dde29edbd0e43f883ff9b31e054cea1a720
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124763298"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278887"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Novedades de Azure Sentinel
 
@@ -150,7 +150,7 @@ Para más información, consulte:
 - [Procedimientos recomendados para la recopilación de datos](best-practices-data.md)
 
 > [!TIP]
-> Puede encontrar más instrucciones agregadas en nuestra documentación en los artículos conceptuales y de instrucciones pertinentes. Para obtener más información, consulte las [referencias de procedimientos adicionales](best-practices.md#additional-best-practice-references).
+> Puede encontrar más instrucciones agregadas en nuestra documentación en los artículos conceptuales y de instrucciones pertinentes. Para más información, consulte [Referencia a procedimientos recomendados](best-practices.md#best-practice-references).
 >
 
 ## <a name="july-2021"></a>Julio de 2021

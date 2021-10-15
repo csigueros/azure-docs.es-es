@@ -1,26 +1,26 @@
 ---
-title: 'Precio de procesos reservados en Azure Database for PostgreSQL: servidor único'
+title: 'Precio de procesos reservados: Azure Database for PostgreSQL'
 description: Pago por adelantado de recursos de proceso de Azure Database for PostgreSQL con capacidad reservada
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/16/2020
-ms.openlocfilehash: 958663ffc0b05b55d837ae565ee48ee03a54b0ba
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/01/2021
+ms.openlocfilehash: 9d8c0a4f550442b59a65993aceba37a1672ce078
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128674744"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389501"
 ---
-# <a name="prepay-for-azure-database-for-postgresql---single-server-compute-resources-with-reserved-capacity"></a>Pago por adelantado de recursos de proceso servidor único de Azure Database for PostgreSQL con capacidad reservada
+# <a name="prepay-for-azure-database-for-postgresql-compute-resources-with-reserved-capacity"></a>Pago por adelantado de recursos de proceso de Azure Database for PostgreSQL con capacidad reservada
 
 Ahora Azure Database for PostgreSQL le ayuda a ahorrar mediante el pago por adelantado de los recursos de proceso en comparación con los precios de pago por uso. Con la capacidad reservada de Azure Database for PostgreSQL, se realiza un compromiso inicial en el servidor de PostgreSQL durante un periodo de un año o tres años con el fin de obtener un descuento importante en los costos de proceso. Para comprar capacidad reservada de Azure Database for PostgreSQL, debe especificar la región de Azure, el tipo de implementación, el nivel de rendimiento y el periodo. </br>
 
 No es necesario asignar la reserva a servidores concretos de Azure Database for PostgreSQL. Una instancia de Azure Database for PostgreSQL que ya está en ejecución (o las que se han implementado recientemente) obtendrá de forma automática la ventaja de los precios reservados. Al comprar una reserva, se adelanta el pago de los costos de proceso durante un período de uno a tres años. En cuanto se compra una reserva, los costos de proceso de Azure Database for PostgreSQL que coincidan con los atributos de reserva dejan de pagarse según las tarifas de pago por uso. La reserva no cubre los cargos por software, redes o almacenamiento asociados al servidor de bases de datos de PostgreSQL. Al final del plazo de reserva, la ventaja en la facturación expira y las instancias de Azure Database for PostgreSQL se facturan según los precios de pago por uso. Las reservas no se renuevan automáticamente. Para obtener información sobre precios, vea [Oferta de capacidad reservada de Azure Database for PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/). </br>
 
 > [!IMPORTANT]
-> Los precios de la capacidad reservada están disponibles para Azure Database for PostgreSQL tanto en las opciones de implementación [de un solo servidor](./overview.md#azure-database-for-postgresql---single-server) y de [Hyperscale Citus](./overview.md#azure-database-for-postgresql--hyperscale-citus). Para obtener información sobre los precios de la instancia reservada en Hyperscale (Citus), consulte [esta página](concepts-hyperscale-reserved-pricing.md).
+> Los precios de la capacidad reservada están disponibles para Azure Database for PostgreSQL en las opciones de implementación de [un solo servidor](./overview.md#azure-database-for-postgresql---single-server), [servidor flexible](flexible-server/overview.md) y [Hiperescala Citus](./overview.md#azure-database-for-postgresql--hyperscale-citus). Para obtener información sobre los precios de la instancia reservada en Hyperscale (Citus), consulte [esta página](concepts-hyperscale-reserved-pricing.md).
 
 Puede comprar capacidad reservada de Azure Database for PostgreSQL en [Azure Portal](https://portal.azure.com/). Pague la reserva [por adelantado o mensualmente](../cost-management-billing/reservations/prepare-buy-reservation.md). Para comprar capacidad reservada:
 

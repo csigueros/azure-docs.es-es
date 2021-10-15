@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 1ad358c428f80e2e8bebcecf73cc89ddd5c37bc7
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: ce91f89e8974517d56aa7f1de55d01b9353106e7
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110454428"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129358568"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Bring Your Own Key (claves administradas por el cliente) con Media Services
 
@@ -21,7 +21,7 @@ Bring Your Own Key (BYOK) es una iniciativa de Azure para ayudar a los clientes 
 
 ## <a name="keys-and-key-management"></a>Claves y administración de claves
 
-Puede usar su propia clave con Media Services cuando use la API Media Services 2020-05-01. Se crea una clave de cuenta predeterminada para todas las cuentas que se cifran mediante una clave del sistema propiedad de Media Services. Cuando use su propia clave, la clave de cuenta se cifrará con la clave. Las claves de contenido se cifran mediante la clave de cuenta. También se cifran las direcciones URL de JobInputHttp y las claves de validación de tokens simétricos.
+Puede usar su propia clave con Media Services cuando use la API Media Services 2020-05-01 o posterior. Se crea una clave de cuenta predeterminada para todas las cuentas que se cifran mediante una clave del sistema propiedad de Media Services. Cuando use su propia clave, la clave de cuenta se cifrará con la clave. Las claves de contenido se cifran mediante la clave de cuenta. También se cifran las direcciones URL de JobInputHttp y las claves de validación de tokens simétricos.
 
 :::image type="content" source="./media/customer-managed-key/customer-managed-key.svg" alt-text="Una clave administrada por el cliente reemplaza una clave administrada por el sistema":::.
 

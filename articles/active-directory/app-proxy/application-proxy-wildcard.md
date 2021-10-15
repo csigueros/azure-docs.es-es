@@ -12,12 +12,12 @@ ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: da2ea074a717189c038705f95f77e538d1bd9680
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 60565787588bf2c061945ba0e99207d853caadc8
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111962152"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232981"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicaciones con comodín en Application Proxy de Azure Active Directory
 
@@ -47,7 +47,7 @@ Aunque las direcciones URL internas y externas pueden usar dominios diferentes, 
 
 La creación de una aplicación comodín se basa en el mismo [flujo de publicación de aplicaciones](application-proxy-add-on-premises-application.md) que está disponible para las demás aplicaciones. La única diferencia es que se incluye un carácter comodín en las direcciones URL y, quizá, la configuración del inicio de sesión único.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para comenzar, asegúrese de que reúne estos requisitos.
 

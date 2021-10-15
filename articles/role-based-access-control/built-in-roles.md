@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 08/20/2021
+ms.date: 09/28/2021
 ms.custom: generated
-ms.openlocfilehash: b1c1944ddf5fdae42bea41482d429a207190d11f
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 02fbc7d0ec30181ccfbd44a2a80c70084a23e4d9
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122771135"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427920"
 ---
 # <a name="azure-built-in-roles"></a>Roles integrados de Azure
 
@@ -22,7 +22,7 @@ El [control de acceso basado en rol de Azure (Azure RBAC)](overview.md) tiene va
 
 En este artículo se enumeran los roles integrados de Azure. Si busca los roles Administrador de Azure Active Directory (Azure AD), consulte [Roles integrados de Azure AD](../active-directory/roles/permissions-reference.md).
 
-En la tabla siguiente se proporciona una breve descripción de cada rol integrado. Haga clic en el nombre del rol para ver la lista de `Actions`, `NotActions`, `DataActions` y `NotDataActions` para cada rol. Para obtener información sobre lo que significan estas acciones y cómo se aplican a la administración y a los planos de datos, consulte [Descripción de definiciones de roles de Azure](role-definitions.md).
+En la tabla siguiente se proporciona una breve descripción de cada rol integrado. Haga clic en el nombre del rol para ver la lista de `Actions`, `NotActions`, `DataActions` y `NotDataActions` para cada rol. Para obtener información sobre lo que significan estas acciones y cómo se aplican a los planos de control y de datos, consulte [Descripción de las definiciones de roles de Azure](role-definitions.md).
 
 ## <a name="all"></a>All
 
@@ -79,7 +79,11 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **Web** |  |  |
 > | [Colaborador de datos de Azure Maps](#azure-maps-data-contributor) | Conde acceso para leer, escribir y eliminar datos relacionados con mapas desde una cuenta de mapas de Azure. | 8f5e0ce6-4f7b-4dcf-bddf-e6f48634a204 |
 > | [Azure Maps Data Reader](#azure-maps-data-reader) | Concede acceso de lectura a los datos de los mapas de una cuenta de Azure Maps. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
+> | [Colaborador en Config Server de Azure Spring Cloud](#azure-spring-cloud-config-server-contributor) | Permite el acceso de lectura, escritura y eliminación en Config Server en Azure Spring Cloud. | a06f5c24-21a7-4e1a-aa2b-f19eb6684f5b |
+> | [Lectura en Config Server de Azure Spring Cloud](#azure-spring-cloud-config-server-reader) | Permite el acceso de lectura a Config Server en Azure Spring Cloud. | d04c6db6-4947-4782-9e91-30a88feb7be7 |
 > | [Lector de datos de Azure Spring Cloud](#azure-spring-cloud-data-reader) | Permite el acceso de lectura a los datos de Azure Spring Cloud. | b5537268-8956-4941-a8f0-646150406f0c |
+> | [Colaborador en Service Registry de Azure Spring Cloud](#azure-spring-cloud-service-registry-contributor) | Permite el acceso de lectura, escritura y eliminación en el registro de servicios de Azure Spring Cloud. | f5880b48-c26d-48be-b172-7927bfa1c8f1 |
+> | [Lectura en Service Registry de Azure Spring Cloud](#azure-spring-cloud-service-registry-reader) | Permite el acceso de lectura en el registro de servicios de Azure Spring Cloud. | cff1b556-2399-4e7e-856d-a8f754be7b65 |
 > | [Administrador de cuenta de Media Services](#media-services-account-administrator) | Crear, leer, modificar y eliminar cuentas de Media Services; acceso de solo lectura a otros recursos de Media Services. | 054126f8-9a2b-4f1c-a9ad-eca461f08466 |
 > | [Administrador de eventos en directo de Media Services](#media-services-live-events-administrator) | Crear, leer, modificar y eliminar eventos en directo, recursos, filtros de recursos y localizadores de streaming; acceso de solo lectura a otros recursos de Media Services. | 532bc159-b25e-42c0-969e-a1d439f60d77 |
 > | [Operador multimedia de Media Services](#media-services-media-operator) | Crear, leer, modificar y eliminar recursos, filtros de recursos, localizadores de streaming y trabajos; acceso de solo lectura a otros recursos de Media Services. | e4395492-1534-4db2-bedf-88c14621589c |
@@ -90,10 +94,10 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | [Colaborador del servicio Search](#search-service-contributor) | Permite administrar los servicios de Búsqueda, pero no acceder a ellos. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
 > | [Lector AccessKey de SignalR](#signalr-accesskey-reader) | Lee las claves de acceso de SignalR Service. | 04165923-9d83-45d5-8227-78b77b0a687e |
 > | [Servidor de aplicaciones de SignalR (versión preliminar)](#signalr-app-server-preview) | Permite que el servidor de aplicaciones acceda al servicio SignalR con opciones de autenticación de AAD. | 420fcaa2-552c-430f-98ca-3264be4806c7 |
-> | [Colaborador de SignalR](#signalr-contributor) | Crea, lee, actualiza y elimina recursos del servicio SignalR. | 8cf5e20a-e4b2-4e9d-b3a1-5ceb692c2761 |
-> | [Colaborador sin servidor de SignalR (versión preliminar)](#signalr-serverless-contributor-preview) | Permite que el servicio de acceso a la aplicación esté en modo sin servidor con opciones de autenticación de AAD. | fd53cd77-2268-407a-8f46-7e7863d0f521 |
+> | [Propietario de la API REST de SignalR](#signalr-rest-api-owner) | Acceso completo a las API REST de Azure SignalR Service. | fd53cd77-2268-407a-8f46-7e7863d0f521 |
+> | [Lector de la API REST de SignalR](#signalr-rest-api-reader) | Acceso de solo lectura a las API REST de Azure SignalR Service. | ddde6b66-c0df-4114-a159-3618637b3035 |
 > | [Propietario de SignalR Service](#signalr-service-owner) | Acceso completo a las API REST de Azure SignalR Service. | 7e4f1700-ea5a-4f59-8f37-079cfe29dce3 |
-> | [Lector de SignalR Service (versión preliminar)](#signalr-service-reader-preview) | Acceso de solo lectura a las API REST de Azure SignalR Service. | ddde6b66-c0df-4114-a159-3618637b3035 |
+> | [Colaborador de SignalR y Web PubSub](#signalrweb-pubsub-contributor) | Crea, lee, actualiza y elimina recursos del servicio SignalR. | 8cf5e20a-e4b2-4e9d-b3a1-5ceb692c2761 |
 > | [Colaborador de plan web](#web-plan-contributor) | Permite administrar los planes web para sitios web, pero no acceder a ellos. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 > | [Colaborador de sitio web](#website-contributor) | Permite administrar los sitios web (no planes web), pero no acceder a ellos. | de139f84-1756-47ae-9be6-808fbbe84772 |
 > | **Contenedores** |  |  |
@@ -111,6 +115,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | [Lector de Azure Kubernetes Service RBAC](#azure-kubernetes-service-rbac-reader) | Permite el acceso de solo lectura para ver la mayoría de los objetos en un espacio de nombres. No permite la visualización de roles o enlaces de roles. Este rol no permite visualización de secretos, ya que leer el contenido de estos permite el acceso a las credenciales de ServiceAccount en el espacio de nombres, que permitiría el acceso a la API como cualquier ServiceAccount en el espacio de nombres (una forma de elevación de privilegios). Al aplicar este rol en el ámbito del clúster, se proporcionará acceso a todos los espacios de nombres. | 7f6c6a51-bcf8-42ba-9220-52d62157d7db |
 > | [Escritor de Azure Kubernetes Service RBAC](#azure-kubernetes-service-rbac-writer) | Permite el acceso de lectura y escritura a la mayoría de los objetos de un espacio de nombres. Este rol no permite ver ni modificar roles ni enlaces de roles. Sin embargo, este rol permite acceder a secretos y ejecutar pods como cualquier ServiceAccount en el espacio de nombres, por lo que se puede usar para obtener los niveles de acceso de la API de cualquier ServiceAccount en el espacio de nombres. Al aplicar este rol en el ámbito del clúster, se proporcionará acceso a todos los espacios de nombres. | a7ffa36f-339b-4b5c-8bdf-e2c188b2c0eb |
 > | **Bases de datos** |  |  |
+> | [Azure Connected SQL Server Onboarding](#azure-connected-sql-server-onboarding) | Permite el acceso de lectura y escritura a los recursos de Azure para SQL Server en servidores habilitados para Arc. | e8113dce-c529-4d33-91fa-e9b972617508 |
 > | [Rol de lector de cuentas de Cosmos DB](#cosmos-db-account-reader-role) | Puede leer los datos de cuentas de Azure Cosmos DB. Vea [Colaborador de cuenta de DocumentDB](#documentdb-account-contributor) para administrar cuentas de Azure Cosmos DB. | fbdf93bf-df7d-467e-a4d2-9458aa1360c8 |
 > | [Operador de Cosmos DB](#cosmos-db-operator) | Permite administrar las cuentas de Azure Cosmos DB, pero no acceder a los datos que contienen. Evita el acceso a las claves de cuenta y a las cadenas de conexión. | 230815da-be43-4aae-9cb4-875f7bd000aa |
 > | [CosmosBackupOperator](#cosmosbackupoperator) | Puede enviar una solicitud de restauración para una base de datos de Cosmos DB o un contenedor de una cuenta | db7b14f2-5adf-42da-9f96-f2ee17bab5cb |
@@ -121,7 +126,6 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | [Colaborador de Instancia administrada de SQL](#sql-managed-instance-contributor) | Permite administrar Instancias administradas de SQL y la configuración de red necesaria, pero no puede conceder acceso a otros usuarios. | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
 > | [Administrador de seguridad SQL](#sql-security-manager) | Permite administrar las directivas relacionadas con seguridad de bases de datos y servidores SQL, pero no acceder a ellas. | 056cd41c-7e88-42e1-933e-88ba6a50c9c3 |
 > | [Colaborador de SQL Server](#sql-server-contributor) | Permite administrar bases de datos y servidores SQL, pero no acceder a ellos, ni a sus directivas relacionadas con la seguridad. | 6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437 |
-> | [Azure Connected SQL Server Onboarding](#azure-connected-sql-server-onboarding) | Permite el acceso de lectura y escritura a los recursos de Azure para SQL Server en servidores habilitados para Arc. | e8113dce-c529-4d33-91fa-e9b972617508 |
 > | **Analytics** |  |  |
 > | [Propietario de los datos de Azure Event Hubs](#azure-event-hubs-data-owner) | Concede acceso total a los recursos de Azure Event Hubs. | f526a384-b230-433a-b45c-95f59c4a2dec |
 > | [Receptor de datos de Azure Event Hubs](#azure-event-hubs-data-receiver) | Concede acceso de recepción a los recursos de Azure Event Hubs. | a638d3c7-ab3a-418d-83e6-5f17a39d4fde |
@@ -132,9 +136,9 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | [Colaborador de Domain Services para HDInsight](#hdinsight-domain-services-contributor) | Puede leer, crear, modificar y eliminar operaciones relacionadas con Domain Services para HDInsight Enterprise Security Package | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
 > | [Colaborador de Log Analytics](#log-analytics-contributor) | Un colaborador de Log Analytics puede leer todos los datos de supervisión y editar la configuración de supervisión. La edición de la configuración de supervisión incluye la posibilidad de agregar la extensión de máquina virtual a las máquinas virtuales, leer las claves de las cuentas de almacenamiento para poder configurar la recopilación de registros de Azure Storage, agregar soluciones y configurar Azure Diagnostics en todos los recursos de Azure. | 92aaf0da-9dab-42b6-94a3-d43ce8d16293 |
 > | [Lector de Log Analytics](#log-analytics-reader) | Un lector de Log Analytics puede ver y buscar todos los datos de supervisión, así como consultar la configuración de supervisión, incluida la de Azure Diagnostics en todos los recursos de Azure. | 73c42c96-874c-492b-b04d-ab87d138a893 |
-> | [Conservador de datos de Purview](#purview-data-curator) | El conservador de datos de Microsoft.Purview puede crear, leer, modificar y eliminar objetos de datos del catálogo y establecer relaciones entre objetos. Este rol está en versión preliminar y está sujeto a cambios. | 8a3c2885-9b38-4fd2-9d99-91af537c1347 |
-> | [Lector de datos de Purview](#purview-data-reader) | El lector de datos de Microsoft.Purview puede leer objetos de datos del catálogo. Este rol está en versión preliminar y está sujeto a cambios. | ff100721-1b9d-43d8-af52-42b69c1272db |
-> | [Administrador de orígenes de datos de Purview](#purview-data-source-administrator) | El administrador de orígenes de datos de Microsoft.Purview puede administrar orígenes de datos y análisis de datos. Este rol está en versión preliminar y está sujeto a cambios. | 200bba9e-f0c8-430f-892b-6f0794863803 |
+> | [Conservador de datos de Purview (heredado)](#purview-data-curator-legacy) | El conservador de datos de Microsoft.Purview es un rol heredado puede crear, leer, modificar y eliminar objetos de datos del catálogo y establecer relaciones entre objetos. Este rol ha entrado en desuso recientemente en el acceso basado en roles de Azure y se ha introducido un nuevo conservador de datos en el plano de datos de Azure Purview. Consulte [Control de acceso en Azure Purview: roles](../purview/catalog-permissions.md#roles). | 8a3c2885-9b38-4fd2-9d99-91af537c1347 |
+> | [Lector de datos de Purview (heredado)](#purview-data-reader-legacy) | El lector de datos de Microsoft.Purview es un rol heredado que puede leer objetos de datos del catálogo. Este rol ha entrado en desuso recientemente en el acceso basado en roles de Azure y se ha introducido un nuevo lector de datos en el plano de datos de Azure Purview. Consulte [Control de acceso en Azure Purview: roles](../purview/catalog-permissions.md#roles). | ff100721-1b9d-43d8-af52-42b69c1272db |
+> | [Administrador de orígenes de datos de Purview (heredado)](#purview-data-source-administrator-legacy) | El administrador de orígenes de datos de Microsoft.Purview es un rol heredado que puede administrar orígenes de datos y exámenes de datos. Este rol ha entrado en desuso recientemente en el acceso basado en roles de Azure y se ha introducido un nuevo administrador de orígenes de datos en el plano de datos de Azure Purview. Consulte [Control de acceso en Azure Purview: roles](../purview/catalog-permissions.md#roles). | 200bba9e-f0c8-430f-892b-6f0794863803 |
 > | [Colaborador del registro de esquemas (versión preliminar)](#schema-registry-contributor-preview) | Leer, escribir y eliminar esquemas y grupos del registro de esquemas. | 5dffeca3-4936-4216-b2bc-10343a5abb25 |
 > | [Lector del registro de esquemas (versión preliminar)](#schema-registry-reader-preview) | Leer y enumerar grupos y esquemas del registro de esquemas. | 2c56ea50-c6b3-40a6-83c0-9d98858bc7d2 |
 > | **Blockchain** |  |  |
@@ -282,6 +286,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | [Colaborador del área de trabajo de Desktop Virtualization](#desktop-virtualization-workspace-contributor) | Colaborador del área de trabajo de Desktop Virtualization. | 21efdde3-836f-432b-bf3d-3e8e734d4b2b |
 > | [Lector del área de trabajo de Desktop Virtualization](#desktop-virtualization-workspace-reader) | Lector del área de trabajo de Desktop Virtualization. | 0fa44ee9-7a7d-466b-9bb2-2bf446b1204d |
 > | [Lector de copias de seguridad de disco](#disk-backup-reader) | Proporciona permiso para realizar copias de seguridad del almacén para realizar copias de seguridad de disco. | 3e5e47e6-65f7-47ef-90b5-e5dd4d455f24 |
+> | [Operador de grupo de discos](#disk-pool-operator) | Proporcione permiso al proveedor de recursos StoragePool para administrar los discos agregados a un grupo de discos. | 60fc6e62-5479-42d4-8bf4-67625fcc2840 |
 > | [Operador de restauración de disco](#disk-restore-operator) | Proporciona permiso para realizar copias de seguridad del almacén para realizar restauraciones de disco. | b50d9833-a0cb-478e-945f-707fcc997c13 |
 > | [Colaborador de instantáneas de discos](#disk-snapshot-contributor) | Proporciona permiso para realizar copias de seguridad del almacén para administrar instantáneas de disco. | 7efff54f-a5b4-42b5-a1c5-5411624893ce |
 > | [Colaborador de colecciones de trabajos de Scheduler](#scheduler-job-collections-contributor) | Permite administrar colecciones de trabajos de Scheduler, pero no acceder a ellas. | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
@@ -603,6 +608,7 @@ Cree y administre máquinas virtuales, administre discos e instantáneas de disc
 > | --- | --- |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Leer roles y asignaciones de roles |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/availabilitySets/* | Crear y administrar conjuntos de disponibilidad de proceso |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/cloudServices/* | Crear y administrar Cloud Services (soporte extendido) |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/locations/* | Crear y administrar ubicaciones de proceso |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/* | Realizar todas las acciones de las máquinas virtuales, como las de creación, actualización, eliminación, inicio, reinicio y apagado. Ejecutar scripts en máquinas virtuales. |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachineScaleSets/* | Crear y administrar conjuntos de escalado de máquinas virtuales |
@@ -638,6 +644,7 @@ Cree y administre máquinas virtuales, administre discos e instantáneas de disc
 > | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Creación y administración de una implementación |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
+> | Microsoft.SerialConsole/serialPorts/connect/action | Conectar a un puerto serie |
 > | [Microsoft.SqlVirtualMachine](resource-provider-operations.md#microsoftsqlvirtualmachine)/* |  |
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/listKeys/action | Devuelve las claves de acceso de la cuenta de almacenamiento especificada. |
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/read | Devuelve la lista de cuentas de almacenamiento u obtiene las propiedades de la cuenta de almacenamiento especificada. |
@@ -697,6 +704,7 @@ Cree y administre máquinas virtuales, administre discos e instantáneas de disc
         "Microsoft.ResourceHealth/availabilityStatuses/read",
         "Microsoft.Resources/deployments/*",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.SerialConsole/serialPorts/connect/action",
         "Microsoft.SqlVirtualMachine/*",
         "Microsoft.Storage/storageAccounts/listKeys/action",
         "Microsoft.Storage/storageAccounts/read",
@@ -2990,9 +2998,91 @@ Concede acceso de lectura a los datos de los mapas de una cuenta de Azure Maps. 
 }
 ```
 
+### <a name="azure-spring-cloud-config-server-contributor"></a>Colaborador en Config Server de Azure Spring Cloud
+
+Permite el acceso de lectura, escritura y eliminación en Config Server en Azure Spring Cloud. [Más información](../spring-cloud/how-to-access-data-plane-azure-ad-rbac.md)
+
+> [!div class="mx-tableFixed"]
+> | Acciones | Descripción |
+> | --- | --- |
+> | *Ninguna* |  |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | [Microsoft.AppPlatform](resource-provider-operations.md#microsoftappplatform)/Spring/configService/read | Permite leer el contenido de la configuración (por ejemplo, application.yaml) para una instancia de servicio específica de Azure Spring Cloud. |
+> | [Microsoft.AppPlatform](resource-provider-operations.md#microsoftappplatform)/Spring/configService/write | Escribe el contenido del servidor de configuración para una instancia de servicio específica de Azure Spring Cloud. |
+> | [Microsoft.AppPlatform](resource-provider-operations.md#microsoftappplatform)/Spring/configService/delete | Elimina el contenido del servidor de configuración para una instancia de servicio específica de Azure Spring Cloud. |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allow read, write and delete access to Azure Spring Cloud Config Server",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/a06f5c24-21a7-4e1a-aa2b-f19eb6684f5b",
+  "name": "a06f5c24-21a7-4e1a-aa2b-f19eb6684f5b",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.AppPlatform/Spring/configService/read",
+        "Microsoft.AppPlatform/Spring/configService/write",
+        "Microsoft.AppPlatform/Spring/configService/delete"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Spring Cloud Config Server Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="azure-spring-cloud-config-server-reader"></a>Lectura en Config Server de Azure Spring Cloud
+
+Permite el acceso de lectura a Config Server en Azure Spring Cloud. [Más información](../spring-cloud/how-to-access-data-plane-azure-ad-rbac.md)
+
+> [!div class="mx-tableFixed"]
+> | Acciones | Descripción |
+> | --- | --- |
+> | *Ninguna* |  |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | [Microsoft.AppPlatform](resource-provider-operations.md#microsoftappplatform)/Spring/configService/read | Permite leer el contenido de la configuración (por ejemplo, application.yaml) para una instancia de servicio específica de Azure Spring Cloud. |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allow read access to Azure Spring Cloud Config Server",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/d04c6db6-4947-4782-9e91-30a88feb7be7",
+  "name": "d04c6db6-4947-4782-9e91-30a88feb7be7",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.AppPlatform/Spring/configService/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Spring Cloud Config Server Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="azure-spring-cloud-data-reader"></a>Lector de datos de Azure Spring Cloud
 
-Permite el acceso de lectura a los datos de Azure Spring Cloud [Más información](../spring-cloud/how-to-access-data-plane-azure-ad-rbac.md)
+Permite el acceso de lectura a los datos de Azure Spring Cloud.
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |
@@ -3024,6 +3114,88 @@ Permite el acceso de lectura a los datos de Azure Spring Cloud [Más informació
     }
   ],
   "roleName": "Azure Spring Cloud Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="azure-spring-cloud-service-registry-contributor"></a>Colaborador en Service Registry de Azure Spring Cloud
+
+Permite el acceso de lectura, escritura y eliminación en el registro de servicios de Azure Spring Cloud. [Más información](../spring-cloud/how-to-access-data-plane-azure-ad-rbac.md)
+
+> [!div class="mx-tableFixed"]
+> | Acciones | Descripción |
+> | --- | --- |
+> | *Ninguna* |  |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | [Microsoft.AppPlatform](resource-provider-operations.md#microsoftappplatform)/Spring/eurekaService/read | Permite leer la información de registro de aplicaciones de usuario para una instancia de servicio específica de Azure Spring Cloud. |
+> | [Microsoft.AppPlatform](resource-provider-operations.md#microsoftappplatform)/Spring/eurekaService/write | Permite escribir la información de registro de aplicaciones de usuario para una instancia de servicio específica de Azure Spring Cloud. |
+> | [Microsoft.AppPlatform](resource-provider-operations.md#microsoftappplatform)/Spring/eurekaService/delete | Permite eliminar la información de registro de aplicaciones de usuario para una instancia de servicio específica de Azure Spring Cloud. |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allow read, write and delete access to Azure Spring Cloud Service Registry",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/f5880b48-c26d-48be-b172-7927bfa1c8f1",
+  "name": "f5880b48-c26d-48be-b172-7927bfa1c8f1",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.AppPlatform/Spring/eurekaService/read",
+        "Microsoft.AppPlatform/Spring/eurekaService/write",
+        "Microsoft.AppPlatform/Spring/eurekaService/delete"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Spring Cloud Service Registry Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="azure-spring-cloud-service-registry-reader"></a>Lectura en Service Registry de Azure Spring Cloud
+
+Permite el acceso de lectura en el registro de servicios de Azure Spring Cloud. [Más información](../spring-cloud/how-to-access-data-plane-azure-ad-rbac.md)
+
+> [!div class="mx-tableFixed"]
+> | Acciones | Descripción |
+> | --- | --- |
+> | *Ninguna* |  |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | [Microsoft.AppPlatform](resource-provider-operations.md#microsoftappplatform)/Spring/eurekaService/read | Permite leer la información de registro de aplicaciones de usuario para una instancia de servicio específica de Azure Spring Cloud. |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allow read access to Azure Spring Cloud Service Registry",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/cff1b556-2399-4e7e-856d-a8f754be7b65",
+  "name": "cff1b556-2399-4e7e-856d-a8f754be7b65",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.AppPlatform/Spring/eurekaService/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Spring Cloud Service Registry Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -3567,58 +3739,9 @@ Permite que el servidor de aplicaciones acceda al servicio SignalR con opciones 
 }
 ```
 
-### <a name="signalr-contributor"></a>Colaborador de SignalR
+### <a name="signalr-rest-api-owner"></a>Propietario de la API REST de SignalR
 
-Crea, lee, actualiza y elimina recursos del servicio SignalR.
-
-> [!div class="mx-tableFixed"]
-> | Acciones | Descripción |
-> | --- | --- |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/* |  |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Leer roles y asignaciones de roles |
-> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Creación y administración de una alerta de métricas clásica |
-> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Creación y administración de una implementación |
-> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Creación y actualización de una incidencia de soporte técnico |
-> | **NotActions** |  |
-> | *Ninguna* |  |
-> | **DataActions** |  |
-> | *Ninguna* |  |
-> | **NotDataActions** |  |
-> | *Ninguna* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Create, Read, Update, and Delete SignalR service resources",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/8cf5e20a-e4b2-4e9d-b3a1-5ceb692c2761",
-  "name": "8cf5e20a-e4b2-4e9d-b3a1-5ceb692c2761",
-  "permissions": [
-    {
-      "actions": [
-        "Microsoft.SignalRService/*",
-        "Microsoft.Authorization/*/read",
-        "Microsoft.Insights/alertRules/*",
-        "Microsoft.Resources/subscriptions/resourceGroups/read",
-        "Microsoft.Resources/deployments/*",
-        "Microsoft.Support/*"
-      ],
-      "notActions": [],
-      "dataActions": [],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "SignalR Contributor",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-### <a name="signalr-serverless-contributor-preview"></a>Colaborador sin servidor de SignalR (versión preliminar)
-
-Permite que el servicio de acceso a la aplicación esté en modo sin servidor con opciones de autenticación de AAD.
+Acceso completo a las API REST de Azure SignalR Service.
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |
@@ -3628,6 +3751,16 @@ Permite que el servicio de acceso a la aplicación esté en modo sin servidor co
 > | *Ninguna* |  |
 > | **DataActions** |  |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/clientToken/action | Genere un AccessToken para que el cliente se conecte a ASRS, el token expirará en 5 minutos de manera predeterminada. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/hub/send/action | Difunde mensajes a todas las conexiones de cliente en el concentrador. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/send/action | Difunde el mensaje al grupo. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/read | Comprueba la existencia del grupo o la existencia del usuario en el grupo. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/write | Se une a grupos o los abandona. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/send/action | Envía mensajes directamente a una conexión de cliente. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/read | Comprueba la existencia de la conexión de cliente. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/write | Cierra la conexión de cliente. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/send/action | Envía mensajes a un usuario, que puede tener varias conexiones de cliente. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/read | Comprueba la existencia del usuario. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/write | Modifica un usuario. |
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
@@ -3636,7 +3769,7 @@ Permite que el servicio de acceso a la aplicación esté en modo sin servidor co
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets your app access service in serverless mode with AAD auth options.",
+  "description": "Full access to Azure SignalR Service REST APIs",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/fd53cd77-2268-407a-8f46-7e7863d0f521",
   "name": "fd53cd77-2268-407a-8f46-7e7863d0f521",
   "permissions": [
@@ -3644,12 +3777,65 @@ Permite que el servicio de acceso a la aplicación esté en modo sin servidor co
       "actions": [],
       "notActions": [],
       "dataActions": [
-        "Microsoft.SignalRService/SignalR/auth/clientToken/action"
+        "Microsoft.SignalRService/SignalR/auth/clientToken/action",
+        "Microsoft.SignalRService/SignalR/hub/send/action",
+        "Microsoft.SignalRService/SignalR/group/send/action",
+        "Microsoft.SignalRService/SignalR/group/read",
+        "Microsoft.SignalRService/SignalR/group/write",
+        "Microsoft.SignalRService/SignalR/clientConnection/send/action",
+        "Microsoft.SignalRService/SignalR/clientConnection/read",
+        "Microsoft.SignalRService/SignalR/clientConnection/write",
+        "Microsoft.SignalRService/SignalR/user/send/action",
+        "Microsoft.SignalRService/SignalR/user/read",
+        "Microsoft.SignalRService/SignalR/user/write"
       ],
       "notDataActions": []
     }
   ],
-  "roleName": "SignalR Serverless Contributor (Preview)",
+  "roleName": "SignalR REST API Owner",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="signalr-rest-api-reader"></a>Lector de la API REST de SignalR
+
+Acceso de solo lectura a las API REST de Azure SignalR Service.
+
+> [!div class="mx-tableFixed"]
+> | Acciones | Descripción |
+> | --- | --- |
+> | *Ninguna* |  |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/read | Comprueba la existencia del grupo o la existencia del usuario en el grupo. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/read | Comprueba la existencia de la conexión de cliente. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/read | Comprueba la existencia del usuario. |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read-only access to Azure SignalR Service REST APIs",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/ddde6b66-c0df-4114-a159-3618637b3035",
+  "name": "ddde6b66-c0df-4114-a159-3618637b3035",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.SignalRService/SignalR/group/read",
+        "Microsoft.SignalRService/SignalR/clientConnection/read",
+        "Microsoft.SignalRService/SignalR/user/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "SignalR REST API Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -3718,20 +3904,23 @@ Acceso completo a las API REST de Azure SignalR Service.
 }
 ```
 
-### <a name="signalr-service-reader-preview"></a>Lector de SignalR Service (versión preliminar)
+### <a name="signalrweb-pubsub-contributor"></a>Colaborador de SignalR y Web PubSub
 
-Acceso de solo lectura a las API REST de Azure SignalR Service.
+Crea, lee, actualiza y elimina recursos del servicio SignalR.
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |
 > | --- | --- |
-> | *Ninguna* |  |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/* |  |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Leer roles y asignaciones de roles |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Creación y administración de una alerta de métricas clásica |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Creación y administración de una implementación |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Creación y actualización de una incidencia de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/read | Comprueba la existencia del grupo o la existencia del usuario en el grupo. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/read | Comprueba la existencia de la conexión de cliente. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/read | Comprueba la existencia del usuario. |
+> | *Ninguna* |  |
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
@@ -3740,22 +3929,25 @@ Acceso de solo lectura a las API REST de Azure SignalR Service.
   "assignableScopes": [
     "/"
   ],
-  "description": "Read-only access to Azure SignalR Service REST APIs",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/ddde6b66-c0df-4114-a159-3618637b3035",
-  "name": "ddde6b66-c0df-4114-a159-3618637b3035",
+  "description": "Create, Read, Update, and Delete SignalR service resources",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/8cf5e20a-e4b2-4e9d-b3a1-5ceb692c2761",
+  "name": "8cf5e20a-e4b2-4e9d-b3a1-5ceb692c2761",
   "permissions": [
     {
-      "actions": [],
-      "notActions": [],
-      "dataActions": [
-        "Microsoft.SignalRService/SignalR/group/read",
-        "Microsoft.SignalRService/SignalR/clientConnection/read",
-        "Microsoft.SignalRService/SignalR/user/read"
+      "actions": [
+        "Microsoft.SignalRService/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Support/*"
       ],
+      "notActions": [],
+      "dataActions": [],
       "notDataActions": []
     }
   ],
-  "roleName": "SignalR Service Reader (Preview)",
+  "roleName": "SignalR/Web PubSub Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -4592,6 +4784,47 @@ Permite el acceso de lectura y escritura a la mayoría de los objetos de un espa
 ## <a name="databases"></a>Bases de datos
 
 
+### <a name="azure-connected-sql-server-onboarding"></a>Incorporación de SQL Server conectado a Azure
+
+Permite el acceso de lectura y escritura a los recursos de Azure para SQL Server en servidores habilitados para Arc. [Más información](/sql/sql-server/azure-arc/connect)
+
+> [!div class="mx-tableFixed"]
+> | Acciones | Descripción |
+> | --- | --- |
+> | Microsoft.AzureArcData/sqlServerInstances/read | Recupera un recurso de instancia de SQL Server. |
+> | Microsoft.AzureArcData/sqlServerInstances/write | Actualiza un recurso de instancia de SQL Server. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Microsoft.AzureArcData service role to access the resources of Microsoft.AzureArcData stored with RPSAAS.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/e8113dce-c529-4d33-91fa-e9b972617508",
+  "name": "e8113dce-c529-4d33-91fa-e9b972617508",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.AzureArcData/sqlServerInstances/read",
+        "Microsoft.AzureArcData/sqlServerInstances/write"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Connected SQL Server Onboarding",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="cosmos-db-account-reader-role"></a>Rol de lector de cuentas de Cosmos DB
 
 Puede leer los datos de cuentas de Azure Cosmos DB. Vea [Colaborador de cuenta de DocumentDB](#documentdb-account-contributor) para administrar cuentas de Azure Cosmos DB. [Más información](../cosmos-db/role-based-access-control.md)
@@ -5326,46 +5559,6 @@ Permite administrar bases de datos y servidores SQL, pero no acceder a ellos, ni
 }
 ```
 
-### <a name="azure-connected-sql-server-onboarding"></a>Azure Connected SQL Server Onboarding
-
- Permite el acceso de lectura y escritura a los recursos de Azure para SQL Server en servidores habilitados para Arc.
-
-> [!div class="mx-tableFixed"]
-> | Acciones | Descripción |
-> | --- | --- |
-> |Microsoft.AzureArcData/sqlServerInstances/read| Lee la información de recursos de Azure. |
-> |Microsoft.AzureArcData/sqlServerInstances/write| Escribe información de recursos de Azure.  |
-> | **NotActions** |  |
-> | *Ninguna* |  |
-> | **DataActions** |  |
-> | *Ninguna* |  |
-> | **NotDataActions** |  |
-> | *Ninguna* |  | 
-
-```json
-{
-    "id": "/providers/Microsoft.Authorization/roleDefinitions/e8113dce-c529-4d33-91fa-e9b972617508",
-    "properties": {
-        "roleName": "Azure Connected SQL Server Onboarding",
-        "description": "Microsoft.AzureArcData service role to access the resources of Microsoft.AzureArcData stored with RPSAAS.",
-        "assignableScopes": [
-            "/"
-        ],
-        "permissions": [
-            {
-                "actions": [
-                    "Microsoft.AzureArcData/sqlServerInstances/read",
-                    "Microsoft.AzureArcData/sqlServerInstances/write"
-                ],
-                "notActions": [],
-                "dataActions": [],
-                "notDataActions": []
-            }
-        ]
-    }
-}
-```
-
 ## <a name="analytics"></a>Análisis
 
 
@@ -5800,9 +5993,9 @@ Un lector de Log Analytics puede ver y buscar todos los datos de supervisión, a
 }
 ```
 
-### <a name="purview-data-curator"></a>Conservador de datos de Purview
+### <a name="purview-data-curator-legacy"></a>Conservador de datos de Purview (heredado)
 
-El conservador de datos de Microsoft.Purview puede crear, leer, modificar y eliminar objetos de datos del catálogo y establecer relaciones entre objetos. Este rol está en versión preliminar y está sujeto a cambios.
+El conservador de datos de Microsoft.Purview es un rol heredado puede crear, leer, modificar y eliminar objetos de datos del catálogo y establecer relaciones entre objetos. Este rol ha entrado en desuso recientemente en el acceso basado en roles de Azure y se ha introducido un nuevo conservador de datos en el plano de datos de Azure Purview. Consulte [Control de acceso en Azure Purview: roles](../purview/catalog-permissions.md#roles).
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |
@@ -5821,7 +6014,7 @@ El conservador de datos de Microsoft.Purview puede crear, leer, modificar y elim
   "assignableScopes": [
     "/"
   ],
-  "description": "The Microsoft.Purview data curator can create, read, modify and delete catalog data objects and establish relationships between objects. This role is in preview and subject to change.",
+  "description": "The Microsoft.Purview data curator is a legacy role that can create, read, modify and delete catalog data objects and establish relationships between objects. We have recently deprecated this role from Azure role-based access and introduced a new data curator inside Azure Purview data plane. See https://docs.microsoft.com/azure/purview/catalog-permissions#roles",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/8a3c2885-9b38-4fd2-9d99-91af537c1347",
   "name": "8a3c2885-9b38-4fd2-9d99-91af537c1347",
   "permissions": [
@@ -5837,15 +6030,15 @@ El conservador de datos de Microsoft.Purview puede crear, leer, modificar y elim
       "notDataActions": []
     }
   ],
-  "roleName": "Purview Data Curator",
+  "roleName": "Purview Data Curator (Legacy)",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### <a name="purview-data-reader"></a>Lector de datos de Purview
+### <a name="purview-data-reader-legacy"></a>Lector de datos de Purview (heredado)
 
-El lector de datos de Microsoft.Purview puede leer objetos de datos del catálogo. Este rol está en versión preliminar y está sujeto a cambios.
+El lector de datos de Microsoft.Purview es un rol heredado que puede leer objetos de datos del catálogo. Este rol ha entrado en desuso recientemente en el acceso basado en roles de Azure y se ha introducido un nuevo lector de datos en el plano de datos de Azure Purview. Consulte [Control de acceso en Azure Purview: roles](../purview/catalog-permissions.md#roles).
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |
@@ -5863,7 +6056,7 @@ El lector de datos de Microsoft.Purview puede leer objetos de datos del catálog
   "assignableScopes": [
     "/"
   ],
-  "description": "The Microsoft.Purview data reader can read catalog data objects. This role is in preview and subject to change.",
+  "description": "The Microsoft.Purview data reader is a legacy role that can read catalog data objects. We have recently deprecated this role from Azure role-based access and introduced a new data reader inside Azure Purview data plane. See https://docs.microsoft.com/azure/purview/catalog-permissions#roles",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/ff100721-1b9d-43d8-af52-42b69c1272db",
   "name": "ff100721-1b9d-43d8-af52-42b69c1272db",
   "permissions": [
@@ -5878,15 +6071,15 @@ El lector de datos de Microsoft.Purview puede leer objetos de datos del catálog
       "notDataActions": []
     }
   ],
-  "roleName": "Purview Data Reader",
+  "roleName": "Purview Data Reader (Legacy)",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### <a name="purview-data-source-administrator"></a>Administrador de orígenes de datos de Purview
+### <a name="purview-data-source-administrator-legacy"></a>Administrador de orígenes de datos de Purview (heredado)
 
-El administrador de orígenes de datos de Microsoft.Purview puede administrar orígenes de datos y análisis de datos. Este rol está en versión preliminar y está sujeto a cambios.
+El administrador de orígenes de datos de Microsoft.Purview es un rol heredado que puede administrar orígenes de datos y exámenes de datos. Este rol ha entrado en desuso recientemente en el acceso basado en roles de Azure y se ha introducido un nuevo administrador de orígenes de datos en el plano de datos de Azure Purview. Consulte [Control de acceso en Azure Purview: roles](../purview/catalog-permissions.md#roles).
 
 > [!div class="mx-tableFixed"]
 > | Acciones | Descripción |
@@ -5905,7 +6098,7 @@ El administrador de orígenes de datos de Microsoft.Purview puede administrar or
   "assignableScopes": [
     "/"
   ],
-  "description": "The Microsoft.Purview data source administrator can manage data sources and data scans. This role is in preview and subject to change.",
+  "description": "The Microsoft.Purview data source administrator is a legacy role that can manage data sources and data scans. We have recently deprecated this role from Azure role-based access and introduced a new data source admin inside Azure Purview data plane. See https://docs.microsoft.com/azure/purview/catalog-permissions#roles",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/200bba9e-f0c8-430f-892b-6f0794863803",
   "name": "200bba9e-f0c8-430f-892b-6f0794863803",
   "permissions": [
@@ -5921,7 +6114,7 @@ El administrador de orígenes de datos de Microsoft.Purview puede administrar or
       "notDataActions": []
     }
   ],
-  "roleName": "Purview Data Source Administrator",
+  "roleName": "Purview Data Source Administrator (Legacy)",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -12252,6 +12445,7 @@ Permite administrar el servicio Site Recovery, excepto la creación de almacenes
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/replicationJobs/* | Crea y administra los trabajos de replicación |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/replicationPolicies/* | Crea y administra las directivas de replicación |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/replicationRecoveryPlans/* | Crea y administra planes de recuperación |
+> | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/replicationVaultSettings/* |  |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/storageConfig/* | Crea y administra la configuración de almacenamiento del almacén de Recovery Services |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/tokenInfo/read |  |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/usages/read | Devuelve los detalles de uso de un almacén de Recovery Services. |
@@ -12298,6 +12492,7 @@ Permite administrar el servicio Site Recovery, excepto la creación de almacenes
         "Microsoft.RecoveryServices/vaults/replicationJobs/*",
         "Microsoft.RecoveryServices/vaults/replicationPolicies/*",
         "Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/*",
+        "Microsoft.RecoveryServices/vaults/replicationVaultSettings/*",
         "Microsoft.RecoveryServices/Vaults/storageConfig/*",
         "Microsoft.RecoveryServices/Vaults/tokenInfo/read",
         "Microsoft.RecoveryServices/Vaults/usages/read",
@@ -12376,6 +12571,7 @@ Permite realizar una conmutación por error o una conmutación por recuperación
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/replicationRecoveryPlans/testFailover/action | Prueba el plan de recuperación de conmutación por error |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/replicationRecoveryPlans/testFailoverCleanup/action | Prueba el plan de recuperación de limpieza de la conmutación por error |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/replicationRecoveryPlans/unplannedFailover/action | Plan de recuperación de conmutación por error |
+> | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/replicationVaultSettings/read | Lee cualquiera.  |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/monitoringAlerts/* | Lee las alertas del almacén de Recovery Services |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/monitoringConfigurations/notificationConfiguration/read |  |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/storageConfig/read |  |
@@ -12452,6 +12648,7 @@ Permite realizar una conmutación por error o una conmutación por recuperación
         "Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/testFailover/action",
         "Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/testFailoverCleanup/action",
         "Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/unplannedFailover/action",
+        "Microsoft.RecoveryServices/vaults/replicationVaultSettings/read",
         "Microsoft.RecoveryServices/Vaults/monitoringAlerts/*",
         "Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read",
         "Microsoft.RecoveryServices/Vaults/storageConfig/read",
@@ -12508,6 +12705,7 @@ Permite visualizar el estado de Site Recovery, pero no realizar otras operacione
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/replicationJobs/read | Lee todos los trabajos |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/replicationPolicies/read | Lee todas las directivas |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/replicationRecoveryPlans/read | Lee todos los planes de recuperación |
+> | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/replicationVaultSettings/read | Lee cualquiera.  |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/storageConfig/read |  |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/tokenInfo/read |  |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/usages/read | Devuelve los detalles de uso de un almacén de Recovery Services. |
@@ -12557,6 +12755,7 @@ Permite visualizar el estado de Site Recovery, pero no realizar otras operacione
         "Microsoft.RecoveryServices/vaults/replicationJobs/read",
         "Microsoft.RecoveryServices/vaults/replicationPolicies/read",
         "Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/read",
+        "Microsoft.RecoveryServices/vaults/replicationVaultSettings/read",
         "Microsoft.RecoveryServices/Vaults/storageConfig/read",
         "Microsoft.RecoveryServices/Vaults/tokenInfo/read",
         "Microsoft.RecoveryServices/Vaults/usages/read",
@@ -13409,6 +13608,55 @@ Proporciona permiso para realizar copias de seguridad del almacén para realizar
     }
   ],
   "roleName": "Disk Backup Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="disk-pool-operator"></a>Operador de grupo de discos
+
+Proporcione permiso al proveedor de recursos StoragePool para administrar los discos agregados a un grupo de discos.
+
+> [!div class="mx-tableFixed"]
+> | Acciones | Descripción |
+> | --- | --- |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/write | Crea un nuevo disco o actualiza uno ya existente |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/read | Obtiene las propiedades de un disco |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Leer roles y asignaciones de roles |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Creación y administración de una alerta de métricas clásica |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Creación y administración de una implementación |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Used by the StoragePool Resource Provider to manage Disks added to a Disk Pool.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/60fc6e62-5479-42d4-8bf4-67625fcc2840",
+  "name": "60fc6e62-5479-42d4-8bf4-67625fcc2840",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Compute/disks/write",
+        "Microsoft.Compute/disks/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Disk Pool Operator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/15/2021
 ms.custom: seodec18
-ms.openlocfilehash: db2c4e50b4de7a680b114582baf1361ee4d75fb8
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 017e1ce50c121860038594279a339a03f17bc180
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768819"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363063"
 ---
 # <a name="speech-service-release-notes"></a>Notas de la versión del servicio Voz
 
@@ -40,7 +40,7 @@ ms.locfileid: "122768819"
 - **C++/C#/Java**: hemos agregado la nueva API `GetActivationPhrasesAsync()` a la clase `VoiceProfileClient` para recibir una lista de frases de activación válidas en la fase de inscripción de Speaker Recognition para escenarios de reconocimiento independientes. 
     - **Importante**: la característica Speaker Recognition está en versión preliminar. Todos los perfiles de voz creados en la versión preliminar se interrumpirán 90 días después de que la característica Speaker Recognition se haya movido de la versión preliminar a disponibilidad general. En ese momento, los perfiles de voz de la versión preliminar dejarán de funcionar.
 - **Python**: se ha agregado [compatibilidad con la identificación continua del lenguaje (LID)](./how-to-automatic-language-detection.md?pivots=programming-language-python) en los objetos `SpeechRecognizer` y `TranslationRecognizer` existentes. 
-- **Python**: se ha agregado un [nuevo objeto de Python](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.sourcelanguagerecognizer?view=azure-python) llamado `SourceLanguageRecognizer` para realizar una operación de LID única o continua (sin reconocimiento ni traducción). 
+- **Python**: se ha agregado un [nuevo objeto de Python](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.sourcelanguagerecognizer) llamado `SourceLanguageRecognizer` para realizar una operación de LID única o continua (sin reconocimiento ni traducción). 
 - **JavaScript**: se ha agregado la API `getActivationPhrasesAsync` a la clase `VoiceProfileClient` para recibir una lista de frases de activación válidas en la fase de inscripción de Speaker Recognition para escenarios de reconocimiento independientes. 
 - **JavaScript**: la API `enrollProfileAsync` de `VoiceProfileClient` ahora se puede esperar asincrónicamente. Consulte [este código de identificación independiente](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/javascript/node/speaker-recognition/identification/independent-identification.js) para ver un ejemplo de uso.
 
@@ -602,7 +602,7 @@ Y sigan sanos.
     | `es-MX` | 1,58 USD | un peso cincuenta y ocho centavos |
     | `es-ES` | 1,58 USD | un dólar con cincuenta y ocho centavos |
 
-    * Compatibilidad con la moneda negativa (por ejemplo, "-€325") en las siguientes configuraciones regionales: `en-US`, `en-GB`, `fr-FR`, `it-IT`, `en-AU`,`en-CA`.
+    * Compatibilidad con la moneda negativa (por ejemplo, "-325 &euro;") en las siguientes configuraciones regionales: `en-US`, `en-GB`, `fr-FR`, `it-IT`,`en-AU`, `en-CA`.
 
 * Mejora de la lectura de direcciones en `pt-PT`.
 * Se han corregido problemas de pronunciación de Natasha (`en-AU`) y Libby (`en-UK`) en la palabra en inglés "for" y "four".

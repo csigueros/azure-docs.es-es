@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Aprenda a crear conjuntos de datos de Azure Machine Learning para acceder a los datos necesarios en las ejecuciones de experimentos de aprendizaje automático.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
 ms.custom: contperf-fy21q1, data4ml
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 07/06/2021
-ms.openlocfilehash: 5443386a8e62d6576d73161519546e368f41ad82
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: f640165420f06a85633d4db30d6338f4bfa205c4
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121860892"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428376"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Creación de conjuntos de datos de Azure Machine Learning
 
@@ -223,7 +223,7 @@ file_dataset = file_dataset.filter(file_dataset.file_metadata['Size'] < 100000)
 file_dataset = file_dataset.filter((file_dataset.file_metadata['CreatedTime'] < datetime(2020,1,1)) | (file_dataset.file_metadata['CanSeek'] == False))
 ```
 
-Los **conjuntos de datos con etiqueta** creados a partir de [proyectos de etiquetado de datos](how-to-create-labeling-projects.md) son un caso especial. Estos conjuntos de datos son un tipo de TabularDataset formado por archivos de imagen. Con estos tipos de conjuntos de datos, puede usar el método [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) para filtrar imágenes por metadatos y por valores de columna como `label` y `image_details`.
+Los **conjuntos de datos con etiqueta** creados a partir de [proyectos de etiquetado de imágenes](how-to-create-image-labeling-projects.md) son un caso especial. Estos conjuntos de datos son un tipo de TabularDataset formado por archivos de imagen. Con estos tipos de conjuntos de datos, puede usar el método [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) para filtrar imágenes por metadatos y por valores de columna como `label` y `image_details`.
 
 ```python
 # Dataset that only contains records where the label column value is dog

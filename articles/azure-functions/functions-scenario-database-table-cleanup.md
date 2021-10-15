@@ -4,13 +4,13 @@ description: Use Azure Functions para programar una tarea que se conecte a Azure
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 10/02/2019
-ms.openlocfilehash: 0b5e255d7d108eb063ece4e5489a8762261a0bed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 10/04/2021
+ms.openlocfilehash: d1e98f180579ec7dd070fcbb9adf2e7ede7b15fe
+ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88207267"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129418843"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Uso de Azure Functions para conectarse a una base de datos de Azure SQL Database
 
@@ -44,9 +44,15 @@ Una aplicación de función hospeda la ejecución de sus funciones en Azure. Com
 
 Anteriormente debe haber publicado la aplicación en Azure. Si todavía no lo ha hecho, [publique la aplicación de función en Azure](functions-develop-vs.md#publish-to-azure).
 
-1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto de aplicación de funciones y elija **Publicar** > **Editar configuración de Azure App Service**. Seleccione **Agregar configuración**, en **Nuevo nombre de configuración de aplicación**, escriba `sqldb_connection` y seleccione **Aceptar**.
+1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto de aplicación de funciones y elija **Publicar**.
 
-    ![Configuración de la aplicación para la aplicación de función.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
+1. En la página **Publicar**, seleccione los puntos suspensivos (`...`) en el área **Hospedaje** y elija **Administrar la configuración de Azure App Service**. 
+
+    ![Administrar la configuración de Azure App Service de la aplicación de funciones.](./media/functions-scenario-database-table-cleanup/publish-new-resource.png)
+
+1. En **Configuración de la aplicación**, seleccione **Agregar configuración** y, en **Nuevo nombre de configuración de aplicación**, escriba `sqldb_connection` y seleccione **Aceptar**.
+
+    ![Agregar una configuración de aplicación para la aplicación de funciones.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 
 1. En la nueva configuración **sqldb_connection**, pegue la cadena de conexión que copió en la sección anterior en el campo **Local** y reemplace los marcadores de posición `{your_username}` y `{your_password}` por valores reales. Seleccione **Insertar un valor desde Local** para copiar el valor actualizado en el campo **Remoto** y seleccione **Aceptar**.
 

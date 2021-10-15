@@ -1,20 +1,20 @@
 ---
-title: Administración de una cuenta de marketplace comercial en el Centro de partners de Microsoft - Azure Marketplace
-description: Aprenda a administrar una cuenta de marketplace comercial en el Centro de partners del Microsoft.
+title: Administración de una cuenta de Marketplace comercial en el Centro de partners
+description: Administre una cuenta de Marketplace comercial en el Centro de partners.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: varsha-sarah
 ms.author: vavargh
 ms.date: 09/27/2021
-ms.openlocfilehash: 9e30cc845fbc4ec2aefc062780f53e3bb0f02161
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: f6730ad58491fb24dbc025eaa44fbc7d7bdade58
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129082613"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359823"
 ---
-# <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Administración de la cuenta de marketplace comercial en el Centro de partners
+# <a name="manage-a-commercial-marketplace-account-in-partner-center"></a>Administración de una cuenta de Marketplace comercial en el Centro de partners
 
 **Roles adecuados**
 
@@ -33,11 +33,11 @@ Si aún no lo ha hecho, usted (o el administrador de la organización) debe acce
 
 1. Inicie sesión en el [panel del marketplace comercial](https://partner.microsoft.com/dashboard/home) en el Centro de partners con la cuenta a la que quiere acceder. Si tiene varias cuentas y ha iniciado sesión con otra, puede [cambiar de cuenta](switch-accounts.md).
 
-1. En la parte superior derecha, seleccione **Configuración** (icono del engranaje) y, después, **Configuración del modelo de inquilino**.
+1. Seleccione **Configuración** (icono de engranaje) en la esquina superior derecha y, luego, **Configuración de cuenta**.
 
     [ ![Captura de pantalla del menú de configuración de cuenta en el Centro de partners.](./media/manage-accounts/settings-account-workspaces.png) ](./media/manage-accounts/settings-account-workspaces.png#lightbox)
 
-1. En **Configuración de la cuenta** seleccione **Legal**. A continuación, seleccione la pestaña **Desarrollador** para ver los detalles relacionados con su cuenta de marketplace comercial.
+1. En **Configuración de cuenta**, seleccione **Legal** y, a continuación, la pestaña **Desarrollador** para ver los detalles relacionados con su cuenta de marketplace comercial.
 
     [ ![Captura de pantalla de la pestaña Desarrollador de la página legal en Configuración de la cuenta.](./media/manage-accounts/developer-tab-workspaces.png) ](./media/manage-accounts/developer-tab-workspaces.png#lightbox)
 
@@ -50,7 +50,7 @@ Si aún no lo ha hecho, usted (o el administrador de la organización) debe acce
 
    :::image type="content" source="media/manage-accounts/settings-account.png" alt-text="Captura de pantalla que muestra la opción Configuración de cuenta en el Centro de partners.":::
 
-1. En **Configuración de la cuenta** seleccione **Legal**. A continuación, seleccione la pestaña **Desarrollador** para ver los detalles relacionados con su cuenta de marketplace comercial.
+1. En **Configuración de cuenta**, seleccione **Legal** y, a continuación, la pestaña **Desarrollador** para ver los detalles relacionados con su cuenta de marketplace comercial.
 
    :::image type="content" source="media/manage-accounts/developer-tab.png" alt-text="Captura de pantalla que muestra la pestaña Desarrollador." lightbox="media/manage-accounts/developer-tab.png":::
 
@@ -137,6 +137,8 @@ Para acceder a la página Contratos:
 La sección **Se requieren acciones** puede aparecer en la parte superior de esta página si hay actualizaciones del contrato que requieren su atención. Para aceptar un contrato actualizado, lea primero la versión del contrato vinculado y seleccione **Aceptar el contrato**.
 
 ## <a name="set-up-a-payout-profile"></a>Configuración de un perfil de pago
+
+Para tener una oferta comercializable en Azure Marketplace, se debe enviar y validar un perfil de impuestos y de pago en el Centro de partners.  Antes de crear un perfil de pago, es necesario enviar un perfil de impuestos. El envío de un perfil de impuestos puede tardar hasta 48 horas en validarse.
 
 Un perfil de pago es la cuenta bancaria a la que se envían los ingresos de sus ventas. Esta cuenta bancaria debe estar en el mismo país o región en el que se ha registrado su cuenta del Centro de partners. Para más información sobre un perfil de pago, consulte [Configuración de la cuenta de pago y los formularios de impuestos](/partner-center/set-up-your-payout-account).
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/06/2020
-ms.openlocfilehash: c19c25e43fc8f7905d7cee9f344999a26f28bc17
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 2fd44eb0eca6986111a8300bdd4f48bda611d08d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122178218"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128569609"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Solución de supervisión de contenedores en Azure Monitor
 
@@ -18,15 +18,20 @@ ms.locfileid: "122178218"
 
 En este artículo se describe cómo configurar y usar la solución de supervisión de contenedores de Azure Monitor, que le permite ver y administrar los hosts de contenedores de Docker y Windows en una sola ubicación. Docker es un sistema de virtualización de software que usa para crear contenedores que automatizan la implementación de software en su infraestructura de TI.
 
+> [!IMPORTANT]
+> La solución Container Monitoring se está eliminando gradualmente. Para supervisar entornos de Kubernetes, se recomienda usar [Azure Monitor Container Insights](container-insights-onboard.md)
+
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 La solución muestra qué contenedores están en ejecución, qué imagen de contenedor están ejecutando y dónde se ejecutan los contenedores. Puede ver información de auditoría detallada que muestra los comandos que se usan con los contenedores. Y, para solucionar los problemas de los contenedores, puede ver y buscar registros centralizados sin tener que ver los hosts de Docker o Windows de forma remota. Puede encontrar los contenedores que están causando ruido o realizando un consumo excesivo de recursos en un host. También puede ver la información centralizada acerca de la CPU, la memoria, el almacenamiento y el uso y el rendimiento de la red en relación con los contenedores. En equipos con Windows, puede centralizar y comparar registros de Windows Server, Hyper-V y contenedores de Docker. La solución es compatible con los siguientes orquestadores de contenedores:
 
 - Docker Swarm
 - DC/OS
-- Kubernetes
 - Service Fabric
-- Red Hat OpenShift
+
+Se recomienda usar de Azure Monitor Container Insights para supervisar Kubernetes y Red Hat OpenShift:
+- AKS ([configuración de Container Insights para AKS](container-insights-enable-existing-clusters.md))
+- Red Hat OpenShift ([configuración de Container Insights mediante Azure Arc](container-insights-enable-arc-enabled-clusters.md))
 
 Si tiene contenedores implementados en [Azure Service Fabric](../../service-fabric/service-fabric-overview.md), le recomendamos habilitar la [solución de Service Fabric](../../service-fabric/service-fabric-diagnostics-oms-setup.md) y esta solución para incluir la supervisión de eventos del clúster. Antes de habilitar la solución de Service Fabric, consulte [Uso de la solución de Service Fabric](../../service-fabric/service-fabric-diagnostics-event-analysis-oms.md) para comprender qué proporciona y cómo se usa.
 
@@ -126,7 +131,7 @@ Después de instalar Docker, use la siguientes opciones para el host de contened
 Inicie el contenedor que quiere supervisar. Modifique y use el ejemplo siguiente:
 
 ```
-sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
+sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest
 ```
 
 **Para todos los hosts de contenedores de Linux para Azure Government incluido CoreOS:**
@@ -134,7 +139,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 Inicie el contenedor que quiere supervisar. Modifique y use el ejemplo siguiente:
 
 ```
-sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
+sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest
 ```
 
 **Cambio de un agente de Linux instalado a un agente en un contenedor**
@@ -148,7 +153,7 @@ Puede ejecutar el agente de Log Analytics como un servicio global en Docker Swar
 - Ejecute lo siguiente en el nodo principal.
 
     ```
-    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers -e WSID="<WORKSPACE ID>" -e KEY="<PRIMARY KEY>" -p 25225:25225 -p 25224:25224/udp  --restart-condition=on-failure microsoft/oms
+    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers -e WSID="<WORKSPACE ID>" -e KEY="<PRIMARY KEY>" -p 25225:25225 -p 25224:25224/udp  --restart-condition=on-failure mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest
     ```
 
 ##### <a name="secure-secrets-for-docker-swarm"></a>Protección de secretos de Docker Swarm
@@ -177,7 +182,7 @@ En Docker Swarm, una vez que se crea el secreto del identificador de área de tr
 3. Ejecute el comando siguiente para montar los secretos en el agente de Log Analytics en contenedores.
 
     ```
-    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure microsoft/oms
+    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest
     ```
 
 #### <a name="configure-a-log-analytics-agent-for-red-hat-openshift"></a>Configurar un agente de Log Analytics para Red Hat OpenShift
@@ -214,7 +219,7 @@ En esta sección, se describen los pasos necesarios para instalar al agente de L
     ```
     [ocpadmin@khm-0 ~]$ oc describe ds oms  
     Name:           oms  
-    Image(s):       microsoft/oms  
+    Image(s):       mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest  
     Selector:       name=omsagent  
     Node-Selector:  zone=default  
     Labels:         agentVersion=1.4.0-12  
@@ -278,7 +283,7 @@ Siga este procedimiento si quiere usar secretos para proteger el identificador y
     ```
     [ocpadmin@khocp-master-0 ~]$ oc describe ds oms  
     Name:           oms  
-    Image(s):       microsoft/oms  
+    Image(s):       mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest  
     Selector:       name=omsagent  
     Node-Selector:  zone=default  
     Labels:         agentVersion=1.4.0-12  

@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo actualizar un clúster de Azure Ku
 services: container-service
 ms.topic: article
 ms.date: 12/17/2020
-ms.openlocfilehash: 2b839350b8f993d107bce67266600d2f4b2386fd
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 0f4e364cd3de9093b84e3ae02c4337361985959a
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129217379"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350972"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Actualización de un clúster de Azure Kubernetes Service (AKS)
 
@@ -176,6 +176,13 @@ az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrad
 ## <a name="using-cluster-auto-upgrade-with-planned-maintenance"></a>Uso de la actualización automática del clúster con mantenimiento planeado
 
 Si usa el mantenimiento planeado, así como la actualización automática, la actualización se iniciará durante la ventana de mantenimiento especificada. Para más información sobre el mantenimiento planeado, consulte [Uso del mantenimiento planeado a fin de programar ventanas de mantenimiento para el clúster de Azure Kubernetes Service (AKS) (versión preliminar)][planned-maintenance].
+
+## <a name="special-considerations-for-node-pools-that-span-multiple-availability-zones"></a>Consideraciones especiales para los grupos de nodos que abarcan varias zonas de disponibilidad
+
+AKS usa el equilibrio de zona de mejor esfuerzo en grupos de nodos. Durante una sobrecarga de actualización, las zonas de los nodos de sobrecarga en VMSS se desconocen con antelación. Esto puede provocar temporalmente una configuración de zona desequilibrada durante una actualización. Sin embargo, AKS elimina los nodos de sobrecarga una vez completada la actualización y conserva el equilibrio de zona original. Si desea mantener las zonas equilibradas durante la actualización, aumente la sobrecarga a un múltiplo de tres nodos. Después, VMSS equilibrará los nodos entre las zonas de disponibilidad con el equilibrio de zona de mejor esfuerzo.
+
+Si tiene PVC con el respaldo de discos LRS de Azure, se enlazarán a una zona determinada y es posible que no se recuperen inmediatamente si el nodo de sobrecarga no coincide con la zona de PVC. Esto podría provocar un tiempo de inactividad en la aplicación cuando la operación de actualización continúa purgando nodos, pero los PC están enlazados a una zona. Para controlar este caso y mantener la alta disponibilidad, configure un [presupuesto de interrupciones de pods](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) en la aplicación. Esto permite a Kubernetes respetar los requisitos de disponibilidad durante la operación de purga de la actualización. 
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

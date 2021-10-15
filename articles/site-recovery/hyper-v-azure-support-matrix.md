@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 7/14/2020
 author: Sharmistha-Rai
 ms.author: sharrai
-ms.openlocfilehash: 7c64aee5177adf7ee1d5f5d47ba80c5e25a53002
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: b8771e26f51dd54595ebefdb5ad5230c7257907a
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122444801"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536659"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales locales de Hyper-V en Azure
 
@@ -146,7 +146,7 @@ Servicio Import/Export | No | No
 Cuentas de Azure Storage con firewall habilitado | Sí. Para almacenamiento de destino y en caché. | Sí. Para almacenamiento de destino y en caché.
 Modificar cuenta de almacenamiento | No. No se puede modificar la cuenta de Azure Storage de destino después de habilitar la replicación. Para modificarla, deshabilite la recuperación ante desastres y vuelva a habilitarla. | No
 Opción de transferencia segura | Sí | Sí
-
+Arranque seguro UEFI | No | No
 
 ## <a name="azure-compute-features"></a>Características de proceso de Azure
 

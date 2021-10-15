@@ -4,13 +4,13 @@ description: Utilice bucles y matrices en un archivo de Bicep para implementar v
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/23/2021
-ms.openlocfilehash: adb05c5af042e0c9f54e925f82097a1721f40073
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 09/30/2021
+ms.openlocfilehash: fadd3cfac94889a187409e95331190b7d7b98b73
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128662103"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362998"
 ---
 # <a name="resource-iteration-in-bicep"></a>Iteración de recursos en Bicep
 
@@ -46,7 +46,7 @@ Los bucles se pueden usar para declarar varios recursos al:
   }]
   ```
 
-  Para obtener más información, consulte [Matriz de bucles](#loop-array).
+  Para obtener más información, vea [Matriz de bucles](#loop-array).
 
 - Iteración en una matriz y un índice.
 
@@ -194,6 +194,8 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for i in 
 ```
 
 Para una implementación puramente secuencial, establezca el tamaño del lote en 1.
+
+El decorador `batchSize` está en el [espacio de nombres sys](bicep-functions.md#namespaces-for-functions). Si necesita diferenciar este decorador de otro elemento con el mismo nombre, ponga **sys** delante: `@sys.batchSize(2)`
 
 ## <a name="iteration-for-a-child-resource"></a>Iteración para un recurso secundario
 

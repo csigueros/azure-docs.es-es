@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/20/2021
+ms.date: 09/28/2021
 ms.author: tisande
-ms.openlocfilehash: dea28832bb607da722653c398cc234d54d2ffcc9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 251f534669333c17a4bb408a23b33f73c79c9e9f
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128618635"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129229716"
 ---
 # <a name="how-to-configure-the-azure-cosmos-db-integrated-cache-preview"></a>Cómo configurar la caché integrada de Azure Cosmos DB (versión preliminar)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -66,7 +66,7 @@ Si usa el SDK de Java, también debe establecer manualmente [contentResponseOnWr
 
 ## <a name="adjust-request-consistency"></a>Ajuste de la coherencia de la solicitud
 
-Debe ajustar la coherencia de la solicitud para que tenga un estado de evento. Si no lo hace, la solicitud siempre omitirá la caché integrada. La manera más fácil de configurar la coherencia de los eventos para todas las operaciones de lectura, es [establecerla en el nivel de cuenta](consistency-levels.md#configure-the-default-consistency-level). También puede configurar la coherencia en el [nivel de solicitud](how-to-manage-consistency.md#override-the-default-consistency-level); esto se recomienda si solo quiere que un subconjunto de las lecturas use la memoria caché integrada.
+Debe ajustar la coherencia de la solicitud en sesión o eventual. Si no lo hace, la solicitud siempre omitirá la caché integrada. La manera más fácil de configurar una coherencia específica para todas las operaciones de lectura es [establecerla en el nivel de cuenta](consistency-levels.md#configure-the-default-consistency-level). También puede configurar la coherencia en el [nivel de solicitud](how-to-manage-consistency.md#override-the-default-consistency-level); esto se recomienda si solo quiere que un subconjunto de las lecturas use la memoria caché integrada.
 
 > [!NOTE]
 > Si usa el SDK de Python, **debe** establecer explícitamente el nivel de coherencia de cada solicitud. Tenga en cuenta que la configuración predeterminada del nivel de cuenta no se aplicará automáticamente.

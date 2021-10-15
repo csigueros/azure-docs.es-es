@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/21/2021
-ms.openlocfilehash: 9501c49bec8d2a632387ecb9b620dcbdc5a0ac1c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5505350cffbda3b84e800b34be7094818fdb125c
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751272"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230596"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Introducción a la auditoría de SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -238,9 +238,9 @@ Los registros de Azure Monitor proporcionan conclusiones operativas en tiempo r
 Las principales diferencias entre la auditoría de las bases de datos de Instancia administrada de Azure SQL y las bases de datos de SQL Server son las siguientes:
 
 - En Instancia administrada de Azure SQL, la auditoría funciona en el nivel de servidor y los archivos de registro `.xel` se almacenan en la cuenta de Azure Blob Storage.
-- En SQL Server, la auditoría funciona en el nivel de servidor, pero los eventos se almacenan en registros de eventos de Windows o del sistema de archivos.
+- En SQL Server, la auditoría funciona en el nivel de servidor, pero almacena los eventos se almacenan en el sistema de archivos y en los registros de eventos de Windows.
 
-En las instancias administradas, la auditoría de XEvent admite Azure Blob Storage como destino. **No se admiten** archivos ni registros de Windows.
+En las instancias administradas, la auditoría de XEvent admite Azure Blob Storage como destino. **No se admiten** los registros de archivos ni de Windows.
 
 Las principales diferencias en la sintaxis de `CREATE AUDIT` para la auditoría en Azure Blob Storage son:
 

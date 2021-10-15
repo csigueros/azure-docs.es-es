@@ -7,16 +7,16 @@ ms.custom: references_regions
 ms.date: 06/30/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: bc356e828adbe9b2d93a202f6b58673dd4ec5efc
-ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
+ms.openlocfilehash: 709721139fa652798c5cc67b7f54e1b7452505a3
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113125913"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273882"
 ---
 # <a name="data-locations-for-azure-virtual-desktop"></a>Ubicaciones de datos para Azure Virtual Desktop
 
-Azure Virtual Desktop está disponible actualmente para todas las ubicaciones geográficas. Los administradores pueden elegir la ubicación para almacenar los datos de usuario cuando creen las máquinas virtuales del grupo de hosts y los servicios asociados, como los servidores de archivos. Obtenga más información sobre las ubicaciones geográficas de Azure en el [mapa de centros de datos de Azure](https://azuredatacentermap.azurewebsites.net/).
+Azure Virtual Desktop está disponible actualmente para todas las ubicaciones geográficas. Los administradores pueden elegir la ubicación para almacenar los datos de usuario cuando creen las máquinas virtuales del grupo de hosts y los servicios asociados, como los servidores de archivos. Más información sobre las ubicaciones geográficas de Azure en [Residencia de datos en Azure](https://azure.microsoft.com/global-infrastructure/data-residency/#overview).
 
 >[!NOTE]
 >Microsoft no controla ni limita las regiones en las que usted o sus usuarios pueden acceder a los datos específicos de la aplicación o del usuario.

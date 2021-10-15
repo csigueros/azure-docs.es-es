@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: marsma
 ms.custom: aaddev
-ms.openlocfilehash: fd160749fef327efa21094ba69daf2db88449918
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 858234982aa4a148fe6af71ba8993923e80044dd
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113357488"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230194"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>Aplicación de página única: Inicio y cierre de sesión
 
@@ -454,9 +454,9 @@ function App() {
 
 ---
 
-## <a name="sign-out-with-a-popup-window"></a>Cierre de sesión con una ventana emergente
+## <a name="sign-out-with-a-pop-up-window"></a>Cierre de sesión con una ventana emergente
 
-MSAL.js v2 proporciona un método `logoutPopup` que borra la memoria caché en el almacenamiento del explorador y abre una ventana emergente a la página de cierre de sesión de Azure Active Directory (Azure AD). Después de cerrar la sesión, Azure AD redirige el elemento emergente a la aplicación y MSAL.js lo cierra.
+MSAL.js v2 proporciona un método `logoutPopup` que borra la caché en el almacenamiento del explorador y abre una ventana emergente a la página de cierre de sesión de Azure Active Directory (Azure AD). Después de cerrar la sesión, Azure AD redirige el elemento emergente a la aplicación y MSAL.js lo cierra.
 
 Puede configurar el URI al que Azure AD debe realizar el redireccionamiento tras el cierre de sesión. Para ello, establezca `postLogoutRedirectUri`. Este URI se debe registrar como un URI de redireccionamiento en el registro de la aplicación.
 
@@ -485,7 +485,7 @@ await myMsal.logoutPopup(logoutRequest);
 ```
 # <a name="javascript-msaljs-v1"></a>[JavaScript (MSAL.js v1)](#tab/javascript1)
 
-No se admite el cierre de sesión con una ventana emergente en MSAL.js v1
+El cierre de sesión con una ventana emergente no se admite en MSAL.js v1
 
 # <a name="angular-msaljs-v2"></a>[Angular (MSAL.js v2)](#tab/angular2)
 
@@ -512,7 +512,7 @@ logout() {
 
 # <a name="angular-msaljs-v1"></a>[Angular (MSAL.js v1)](#tab/angular1)
 
-No se admite el cierre de sesión con una ventana emergente en MSAL Angular v1
+El cierre de sesión con una ventana emergente no se admite en MSAL Angular v1
 
 # <a name="react"></a>[React](#tab/react)
 

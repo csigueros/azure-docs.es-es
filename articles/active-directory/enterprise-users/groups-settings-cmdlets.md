@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e45101caec9127c39837d015d6a5117c7e2ae775
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: cdd7eb4acf93270ece6215492d79dd12e5d6d0dc
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114472049"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272346"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets de Azure Active Directory para configurar las opciones de grupo
 
@@ -33,6 +33,9 @@ Para más información sobre cómo evitar que los usuarios no administradores cr
 Los grupos de Microsoft 365 se configuran mediante un objeto Settings y un objeto SettingsTemplate. Al principio no ve ningún objeto de configuración en el directorio porque este se ha configurado de forma predeterminada. Para cambiar la configuración predeterminada, debe crear un nuevo objeto Settings utilizando una plantilla SettingsTemplate. Las plantillas de configuración las define Microsoft. Hay varias plantillas de configuración diferentes. Para configurar los valores del grupo de Microsoft 365 para su directorio, se utiliza la plantilla denominada "Group.Unified". Para configurar los valores del grupo de Microsoft 365 en un único grupo, utilice la plantilla denominada "Group.Unified.Guest". Esta plantilla se usa para administrar el acceso de invitado a un grupo de Microsoft 365. 
 
 Los cmdlets forman parte del módulo Azure Active Directory PowerShell V2. Para obtener instrucciones sobre cómo descargar e instalar el módulo en el equipo, consulte el artículo [Azure Active Directory PowerShell versión 2](/powershell/azure/active-directory/overview). Puede instalar la versión 2 del módulo desde [la Galería de PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
+
+>[!Note]
+>Con la configuración en vigor para restringir la adición de invitados a grupos de Microsoft 365, los administradores seguirán agregando usuarios invitados a los grupos de Microsoft 365. La configuración impedirá que los usuarios que no son administradores agreguen usuarios invitados a grupos de Microsoft 365.
 
 ## <a name="install-powershell-cmdlets"></a>Instalación de los cmdlets de PowerShell
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 09/08/2021
 ms.author: alkohli
-ms.openlocfilehash: a2aa8d3cecab71b354df2ff258bfa47ee77c97f9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 67cddd1839e666d4908706a1bbdaccbbd3565704
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128619597"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351434"
 ---
 # <a name="manage-azure-stack-edge-secrets-using-azure-key-vault"></a>Administración de secretos de Azure Stack Edge mediante Azure Key Vault 
 
@@ -37,7 +37,7 @@ Para el servicio Azure Stack Edge, la integración con Key Vault proporciona las
 
 ## <a name="generate-activation-key-and-create-key-vault"></a>Generación de una clave de activación y creación de un almacén de claves
 
-Se crea un almacén de claves para el recurso de Azure Stack Edge durante el proceso de generación de claves de activación. El almacén de claves se crea en el mismo grupo de recursos donde está el recurso de Azure Stack Edge. Se requieren permisos de colaborador en el almacén de claves. 
+Se crea un almacén de claves para el recurso de Azure Stack Edge durante el proceso de generación de claves de activación. El almacén de claves se crea en el mismo grupo de recursos donde está el recurso de Azure Stack Edge. Se requiere permiso de colaborador en el almacén de claves. 
 
 ### <a name="prerequisites-for-key-vault"></a>Requisitos previos para un almacén de claves
 

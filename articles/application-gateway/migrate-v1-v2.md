@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 4757a8237aa6226b78e7c1e79ba50710e31d28e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 000daf7c60d0bc823aacdab85de42af3b6cbbf55
+ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99594272"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129419057"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migración de Azure Application Gateway y Firewall de aplicaciones web de v1 a v2
 
@@ -84,6 +84,7 @@ Para ejecutar el script:
     -resourceId <v1 application gateway Resource ID>
     -subnetAddressRange <subnet space you want to use>
     -appgwName <string to use to append>
+    -AppGwResourceGroupName <resource group name you want to use>
     -sslCertificates <comma-separated SSLCert objects as above>
     -trustedRootCertificates <comma-separated Trusted Root Cert objects as above>
     -privateIpAddress <private IP string>
@@ -101,8 +102,9 @@ Para ejecutar el script:
      $appgw.Id
      ```
 
-   * **subnetAddressRange: [cadena]:  obligatorio**. Se trata el espacio de direcciones IP que ha asignado (o quiere asignar) a la nueva subred que contiene la nueva puerta de enlace v2. Debe especificarse en la notación CIDR. Por ejemplo: 10.0.0.0/24. No es necesario crear de antemano esta subred, ya que el script la crea automáticamente si no existe.
+   * **subnetAddressRange: [cadena]:  obligatorio**. Se trata el espacio de direcciones IP que ha asignado (o quiere asignar) a la nueva subred que contiene la nueva puerta de enlace v2. Debe especificarse en la notación CIDR. Por ejemplo: 10.0.0.0/24. No es necesario crear esta subred de antemano, pero el CIDR debe formar parte del espacio de direcciones de la red virtual. El script lo crea automáticamente si no existe y, si existe, usará el existente (asegúrese de que la subred esté vacía, solo contenga la puerta de enlace v2 si existe y tenga suficientes direcciones IP disponibles).
    * **appgwName: [cadena]: opcional**. Se trata de una cadena que se especifica para su uso como nombre de la nueva puerta de enlace Standard_v2 o WAF_v2. Si no se proporciona este parámetro, se usará el nombre de la puerta de enlace v1 existente con el sufijo *_v2* anexado.
+   * **AppGwResourceGroupName: [String]: opcional**. Nombre del grupo de recursos en el que desea que se creen los recursos de Application Gateway v2 (el valor predeterminado será `<v1-app-gw-rgname>`)
    * **sslCertificates: [PSApplicationGatewaySslCertificate]: opcional**.  La lista separada por comas de objetos PSApplicationGatewaySslCertificate que cree para representar los certificados TLS/SSL de la puerta de enlace v1 debe cargarse en la nueva puerta de enlace v2. Para cada uno de los certificados TLS/SSL configurados para la puerta de enlace Standard v1 o WAF v1, puede crear un objeto PSApplicationGatewaySslCertificate con el comando `New-AzApplicationGatewaySslCertificate` que se muestra aquí. Necesita la ruta de acceso del archivo del certificado TLS/SSL y la contraseña.
 
      Este parámetro solo es opcional si no tiene agentes de escucha HTTPS configurados para la puerta de enlace v1 o WAF. Si tiene al menos un programa de instalación del agente de escucha HTTPS, debe especificar este parámetro.
@@ -140,6 +142,7 @@ Para ejecutar el script:
       -resourceId /subscriptions/8b1d0fea-8d57-4975-adfb-308f1f4d12aa/resourceGroups/MyResourceGroup/providers/Microsoft.Network/applicationGateways/myv1appgateway `
       -subnetAddressRange 10.0.0.0/24 `
       -appgwname "MynewV2gw" `
+      -AppGwResourceGroupName "MyResourceGroup" `
       -sslCertificates $mySslCert1,$mySslCert2 `
       -trustedRootCertificates $trustedCert `
       -privateIpAddress "10.0.0.1" `

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 04/14/2021
 ms.author: rolyon
-ms.openlocfilehash: f0fc0611e48f25c8faec415b8702a420402280c5
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 1f1b8f627a60a6e9f9b866ffb48324ecd146ffbe
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109483846"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362080"
 ---
 # <a name="steps-to-assign-an-azure-role"></a>Pasos para asignar un rol de Azure
 
@@ -50,7 +50,7 @@ Los demás roles integrados permiten la administración de recursos específicos
 
 1. En ese artículo, vaya a la categoría de servicio (por ejemplo, proceso, almacenamiento y bases de datos) del recurso al que quiere conceder permisos. La forma más fácil de encontrar lo que busca es normalmente buscar en la página una palabra clave significativa, como "blob", "máquina virtual", etc.
 
-1. Revise los roles enumerados en la categoría de servicio e identifique las operaciones específicas que necesite. De nuevo, empiece siempre por el rol más restrictivo.
+1. Revise los roles enumerados en la categoría de servicio e identifique las acciones específicas que necesite. De nuevo, empiece siempre por el rol más restrictivo.
 
     Por ejemplo, si una entidad de seguridad necesita leer blobs en una cuenta de Azure Storage, pero no necesita obtener acceso de escritura, seleccione el rol [Lector de datos de blobs de almacenamiento](built-in-roles.md#storage-blob-data-reader) en lugar de [Colaborador de datos de blobs de almacenamiento](built-in-roles.md#storage-blob-data-contributor) (en ningún caso seleccione el rol [Propietario de datos de blobs de almacenamiento](built-in-roles.md#storage-blob-data-owner)). Siempre puede actualizar las asignaciones de roles más adelante según sea necesario.
 

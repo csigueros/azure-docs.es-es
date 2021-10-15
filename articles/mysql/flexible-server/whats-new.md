@@ -6,13 +6,13 @@ ms.service: mysql
 ms.author: jtoland
 ms.custom: mvc
 ms.topic: conceptual
-ms.date: 08/17/2021
-ms.openlocfilehash: cfbff4be8048090ec606fd8640281dccd17fe084
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/29/2021
+ms.openlocfilehash: 377c9fc994c4d26b67791e3eb525c7fba75a9d78
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128598011"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388895"
 ---
 # <a name="whats-new-in-azure-database-for-mysql---flexible-server-preview"></a>Novedades de Azure Database for MySQL: servidor flexible (versión preliminar)
 
@@ -21,6 +21,40 @@ ms.locfileid: "128598011"
 [Azure Database for MySQL: servidor flexible](./overview.md#azure-database-for-mysql---flexible-server-preview) es un modo de implementación diseñado para proporcionar un control más granular y una mayor flexibilidad sobre las funciones de administración de bases de datos y las opciones de configuración, si se compara con el modo de implementación de servidor único. El servicio admite actualmente la versiones de la comunidad de MySQL 5.7 y 8.0.
 
 En este artículo se resumen las nuevas versiones y características de Azure Database for MySQL: servidor flexible a partir de enero de 2021. Las listas aparecen en orden cronológico inverso, con las actualizaciones más recientes en primer lugar.
+## <a name="october-2021"></a>Octubre de 2021
+- **Selección de Availability Zones al crear réplicas de lectura**
+
+    Al crear una réplica de lectura, tiene la opción de seleccionar la ubicación de Availability Zones que prefiera. Una zona de disponibilidad es una oferta de alta disponibilidad que protege las aplicaciones y los datos de los errores que se producen en el centro de datos. Las zonas de disponibilidad son ubicaciones físicas exclusivas dentro de una región de Azure. [Más información](../flexible-server/concepts-read-replicas.md)
+
+- **Réplicas de lectura en Azure Database for MySQL: los servidores flexibles ya no estarán disponibles en las SKU ampliables**
+    
+    No podrá crear réplicas de lectura nuevas ni mantener las existentes en el servidor del nivel ampliable. Con el interés de proporcionar una buena experiencia de consulta y desarrollo para los niveles de SKU ampliables, se interrumpirá la compatibilidad con la creación y el mantenimiento de réplicas de lectura para servidores en el plan de tarifa ampliable. 
+
+    Si ya tiene una instancia de Azure Database for MySQL: servidor flexible con réplica de lectura habilitada, tendrá que escalar verticalmente el servidor a los planes de tarifa optimizada para memoria o de uso general, o bien eliminar la réplica de lectura en un plazo de 60 días. Después del período de 60 días, aunque puede seguir usando el servidor principal para las operaciones de lectura y escritura, la replicación en los servidores de réplica de lectura se detendrá. En el caso de los servidores recién creados, la opción de réplica de lectura solo estará disponible para los planes de tarifa optimizada para memoria y de uso general.  
+
+ 
+
+## <a name="september-2021"></a>Septiembre de 2021
+
+Esta versión de Azure Database for MySQL: servidor flexible incluye las siguientes actualizaciones.
+
+- **Disponibilidad en tres regiones de Azure adicionales**
+
+  La versión preliminar pública de Azure Database for MySQL: servidor flexible ya está disponible en las siguientes regiones de Azure:
+
+  - Oeste de Reino Unido
+  - Este de Canadá
+  - Japón Occidental
+
+- **Correcciones de errores**
+
+  La creación de alta disponibilidad de la misma zona se corrige en las siguientes regiones:
+
+  - Centro de la India
+  - Este de Asia
+  - Centro de Corea del Sur
+  - Norte de Sudáfrica
+  - Norte de Suiza
 
 ## <a name="august-2021"></a>Agosto de 2021
 

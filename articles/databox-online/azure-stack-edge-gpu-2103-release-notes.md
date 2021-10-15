@@ -1,19 +1,18 @@
 ---
 title: Notas de la versión de Azure Stack Edge Pro 2103
 description: Aquí se describen las incidencias críticas pendientes y las resoluciones de Azure Stack Edge Pro, versión 2103.
-services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
 ms.date: 03/23/2021
 ms.author: alkohli
-ms.openlocfilehash: d6909492d09cb751ba8206599470f776d1fa0aa0
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: bb1250b4ed5c2b447f0f0f8edb5ec50d59ba079f
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133914"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129356272"
 ---
 # <a name="azure-stack-edge-2103-release-notes"></a>Notas de la versión 2013 de Azure Stack Edge
 
@@ -77,7 +76,7 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos que s
 
 | No. | Característica | Problema | Soluciones alternativas o comentarios |
 | --- | --- | --- | --- |
-| **1.** |Azure Stack Edge Pro y Azure SQL | La creación de una base de datos SQL requiere acceso de administrador.   |Lleve a cabo los pasos siguientes en lugar de los pasos 1 y 2 de [https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database](../iot-edge/tutorial-store-data-sql-server.md#create-the-sql-database). <ul><li>En la interfaz de usuario local del dispositivo, habilite la interfaz de proceso. Seleccione **Proceso > Número de puerto > Habilitar para el proceso > Aplicar**.</li><li>Descargue `sqlcmd` en la máquina cliente desde https://docs.microsoft.com/sql/tools/sqlcmd-utility. </li><li>Conéctese a la dirección IP de la interfaz de proceso (el puerto que se habilitó), agregando ",1401" al final de la dirección.</li><li>El comando final tendrá el siguiente aspecto: sqlcmd -S {IP de interfaz},1401-U SA -P "Con1raseña!Segura".</li>Tras este cambio, los pasos 3 y 4 de la documentación actual deben ser idénticos. </li></ul> |
+| **1.** |Azure Stack Edge Pro y Azure SQL | La creación de una base de datos SQL requiere acceso de administrador.   |Realice los pasos siguientes, en lugar de los pasos 1 a 2 del [Tutorial: Almacenamiento de datos en el perímetro con bases de datos de SQL Server](../iot-edge/tutorial-store-data-sql-server.md#create-the-sql-database). <ul><li>En la interfaz de usuario local del dispositivo, habilite la interfaz de proceso. Seleccione **Proceso > Número de puerto > Habilitar para el proceso > Aplicar**.</li><li>Descargue `sqlcmd` en la máquina cliente desde la [utilidad sqlcmd](/sql/tools/sqlcmd-utility) </li><li>Conéctese a la dirección IP de la interfaz de proceso (el puerto que se habilitó), agregando ",1401" al final de la dirección.</li><li>El comando final tendrá el siguiente aspecto: sqlcmd -S {IP de interfaz},1401-U SA -P "Con1raseña!Segura".</li>Tras este cambio, los pasos 3 y 4 de la documentación actual deben ser idénticos. </li></ul> |
 | **2.** |Actualizar| No se admiten los cambios incrementales en los blobs restaurados mediante la funcionalidad de **actualización**. |En los puntos de conexión de blob, las actualizaciones parciales de los blobs después de la funcionalidad de actualización pueden dar lugar a que las actualizaciones no se carguen en la nube. Por ejemplo, supongamos una secuencia de acciones como la siguiente:<ul><li>Crear un blob en la nube. O bien, eliminar del dispositivo un blob cargado previamente.</li><li>Actualizar el blob desde la nube en el dispositivo mediante la funcionalidad de actualización.</li><li>Actualizar solo una parte del blob mediante las API REST de Azure SDK.</li></ul>Estas acciones pueden dar lugar a que las secciones actualizadas del blob no se actualicen en la nube. <br>**Solución alternativa**: use herramientas como robocopy o la copia normal de archivos con el Explorador o la línea de comandos para reemplazar los blobs completos.|
 |**3.**|Limitaciones|En una limitación, si no se permiten nuevas escrituras en el dispositivo, las escrituras realizadas por el cliente NFS generarán el error "Permiso denegado".| El error se mostrará como se indica a continuación:<br>`hcsuser@ubuntu-vm:~/nfstest$ mkdir test`<br>mkdir: no se puede crear el directorio 'test': Permiso denegado|
 |**4.**|Ingesta de Blob Storage|Si usa AzCopy versión 10 para la ingesta de Blob Storage, ejecute AzCopy con el siguiente argumento: `Azcopy <other arguments> --cap-mbps 2000`.| Si no se proporcionan estos límites para AzCopy, se podría enviar un gran número de solicitudes al dispositivo, lo que provocaría problemas con el servicio.|

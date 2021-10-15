@@ -4,12 +4,12 @@ description: ¿No ve los datos en Azure Application Insights? Pruebe aquí.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: 828eab154c09e3e623b5cfb84d6fc72d2bd480f5
-ms.sourcegitcommit: 8154d7f8642d783f637cf6d857b4abbe28033f53
+ms.openlocfilehash: 3565ca98f61099fb4b2cf2f0c9bf69dbeaa721b5
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2021
-ms.locfileid: "113616152"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429402"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Solución de problemas cuando no hay datos: Application Insights para .NET/.NET Core
 
@@ -221,9 +221,10 @@ Siga estas instrucciones para capturar registros de solución de problemas para 
 
 ### <a name="net-framework"></a>.NET Framework
 
-1. Instale el paquete [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) de NuGet. La versión que instale debe coincidir con la versión de `Microsoft.ApplicationInsighs` instalada actualmente.
+> [!NOTE]
+> A partir de la versión 2.14, el paquete [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) ya no es necesario, los registros del SDK ahora se recopilan con el paquete [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/). No se requiere ningún paquete adicional.
 
-2. Modifique el archivo applicationinsights.config para incluir lo siguiente:
+1. Modifique el archivo applicationinsights.config para incluir lo siguiente:
 
     ```xml
     <TelemetryModules>
@@ -236,9 +237,9 @@ Siga estas instrucciones para capturar registros de solución de problemas para 
     ```
     La aplicación debe tener permisos de escritura en la ubicación configurada.
 
-3. Reinicie el proceso para que el SDK adopte esta nueva configuración.
+2. Reinicie el proceso para que el SDK adopte esta nueva configuración.
 
-4. Revierta estos cambios cuando haya terminado.
+3. Revierta estos cambios cuando haya terminado.
 
 ### <a name="net-core"></a>.NET Core
 
@@ -295,7 +296,7 @@ dotnet-trace collect --process-id <PID> --providers Microsoft-ApplicationInsight
 
 ## <a name="how-to-remove-application-insights"></a>Eliminación de Application Insights
 
-Aprenda a quitar Application Insights en Visual Studio siguiendo los pasos que se indican en el [artículo](./remove-application-insights.md) sobre la eliminación.
+Aprenda a quitar Application Insights en Visual Studio siguiendo los pasos que se indican en el [artículo sobre cómo quitar Application Insights](./remove-application-insights.md).
 
 ## <a name="still-not-working"></a>Sigue sin funcionar...
 * [Página de preguntas y respuestas de Microsoft sobre Application Insights](/answers/topics/azure-monitor.html)

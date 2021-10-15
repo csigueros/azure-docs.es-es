@@ -10,19 +10,19 @@ ms.author: magoedte
 ms.date: 08/17/2021
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c40a8b002605b8776ac04d2af0d920b824aaeab0
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 898fc7b2574040ef6095178eae9cd8e7ee747ef9
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122396657"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352903"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Introducción a Azure Automation State Configuration
 
 Azure Automation State Configuration es un servicio de administración de configuración de Azure que le permite escribir, administrar y compilar [configuraciones](/powershell/scripting/dsc/configurations/configurations) de PowerShell Desired State Configuration (DSC) para nodo de cualquier centro de datos en la nube local. El servicio también importa [recursos de DSC](/powershell/scripting/dsc/resources/resources) y asigna configuraciones a los nodos de destino, todos en la nube. Para acceder a Azure Automation State Configuration desde Azure Portal, seleccione **State Configuration (DSC)** en **Administración de configuración**.
 
 > [!NOTE]
-> Antes de habilitar State Configuration de Automation, nos gustaría que conociera la [configuración de invitados de Azure Policy](../governance/policy/concepts/guest-configuration.md), que puede auditar o configurar los ajustes dentro de las máquinas que se ejecutan en Azure o en las máquinas fuera de Azure conectadas con [servidores habilitados para Arc](../azure-arc/servers/overview.md). La configuración de invitados de Azure Policy ofrece una funcionalidad similar y está diseñada para aprovechar las ventajas de la tecnología más reciente en Azure.
+> Antes de habilitar Automation State Configuration, debe saber que ahora hay una versión más reciente de DSC en versión preliminar, administrada por una característica de Azure Policy denominada [configuración de invitado](../governance/policy/concepts/guest-configuration.md). El servicio de configuración de invitado combina características de la extensión DSC, Azure Automation State Configuration y las características que más solicitan los clientes en sus comentarios. La configuración de invitado también incluye la compatibilidad con máquinas híbridas a través de [servidores habilitados para Arc](../azure-arc/servers/overview.md).
 
 Puede utilizar Azure Automation State Configuration para administrar diversas máquinas:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2021
 ms.author: bagol
-ms.openlocfilehash: 545ab178c99b8d5ab6db1d6619a9859eb3133306
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 9f6585cec5c52dd2255fca2a31e2f92853954370
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124781351"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129279020"
 ---
 # <a name="troubleshoot-your-cef-or-syslog-data-connector"></a>Solución de problemas del conector de datos CEF o Syslog
 
@@ -504,7 +504,7 @@ En tales casos, siga solucionando problemas y verifique lo siguiente:
 
 - Asegúrese de que puede ver los registros que se escriben en el archivo de registro local, ya sea **/var/log/messages** o **/var/log/syslog**
 
-- Asegúrese de que puede ver los paquetes de datos que fluyen en los puertos 25524 o 25526 o ambos.
+- Asegúrese de que puede ver los paquetes de datos que fluyen en los puertos 25224, 25226 o en ambos.
 
 - Asegúrese de que la máquina virtual tiene una conexión saliente al puerto 443 a través de TCP, o de que puede conectarse a los [puntos de conexión de Log Analytics](../azure-monitor/agents/log-analytics-agent.md#network-requirements).
 

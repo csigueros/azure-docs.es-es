@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: cd4dcb4bac5f2876db9af194abc5835c1d0f5a3c
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: 4fb5bcc0ae5be35f740bc39bc0cf4a9221363358
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113586984"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274375"
 ---
 # <a name="manage-your-cache"></a>Administración de la caché
 
@@ -35,7 +35,7 @@ Los botones que se encuentran en la parte superior de la página pueden ayudarlo
 Lea más información sobre estas opciones a continuación.
 
 > [!TIP]
-> También puede administrar destinos de almacenamiento individuales. Lea [Administración de destinos de almacenamiento](manage-storage-targets.md) para más información.
+> También puede administrar destinos de almacenamiento individuales. Lea [Visualización y administración de destinos de almacenamiento](manage-storage-targets.md) para más información.
 
 Haga clic en la imagen siguiente para ver un [vídeo](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) que muestra las tareas de administración de caché.
 

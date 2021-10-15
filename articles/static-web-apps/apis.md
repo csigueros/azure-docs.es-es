@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 08/24/2021
 ms.author: cshoe
-ms.openlocfilehash: d7716c6d91ac0f7c8c699d14f265e00f5535a00d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 95e180d34577f94f96b3e35c1f2432d85eb946a9
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124730399"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361408"
 ---
 # <a name="api-support-in-azure-static-web-apps-with-azure-functions"></a>Compatibilidad de API en Azure Static Web Apps con Azure Functions
 
@@ -41,7 +41,7 @@ En la tabla siguiente se comparan las diferencias entre el uso de funciones admi
 | [Identidad administrada](../app-service/overview-managed-identity.md) | ✕ | ✔ |
 | Administración de tokens de [autenticación y autorización de Azure App Service](../app-service/configure-authentication-provider-aad.md) | ✕ | ✔ |
 | Funciones de API disponibles fuera de Azure Static Web Apps | ✕ | ✔ |
-| Configuración de la aplicación almacenada en Azure Key Vault | ✕ | ✔ |
+| [Referencias de Key Vault](../app-service/app-service-key-vault-references.md) | ✕ | ✔ |
 
 ## <a name="configuration"></a>Configuración
 
@@ -49,7 +49,7 @@ Los puntos de conexión de API están a disposición de la aplicación web a tra
 
 | Funciones administradas | Traiga sus propias funciones |
 | --- | --- |
-| Aunque la ruta de _api_ es fija, tiene control sobre la ubicación de la carpeta de la aplicación de funciones administrada. Para cambiar esta ubicación, [edite el archivo YAML del flujo de trabajo](build-configuration.md), que se encuentra en la carpeta _.github/workflows_ de su repositorio. | Las solicitudes a la ruta de _api_ se envían a la aplicación de Azure Functions existente. |
+| Aunque la ruta de _api_ es fija, tiene control sobre la ubicación de la carpeta de código fuente de la aplicación de funciones administrada. Para cambiar esta ubicación, [edite el archivo YAML del flujo de trabajo](build-configuration.md), que se encuentra en la carpeta _.github/workflows_ de su repositorio. | Las solicitudes a la ruta de _api_ se envían a la aplicación de Azure Functions existente. |
 
 ## <a name="troubleshooting-and-logs"></a>Solución de problemas y registros
 

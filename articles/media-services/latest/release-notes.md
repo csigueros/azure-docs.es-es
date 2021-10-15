@@ -12,12 +12,12 @@ ms.custom: references_regions
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 4a2c4959d6a84e8561ac23924207744b6c65f88b
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 90f6470171db4be4e0d883196495ddaba16772fb
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129053489"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362771"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -32,6 +32,9 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 
 ## <a name="september-2021"></a>Septiembre de 2021
 
+### <a name="new-basic-pass-through-live-event-sku"></a>Nueva SKU básica de eventos en directo y de tránsito
+
+La nueva SKU básica de eventos en directo y de tránsito permite a los clientes crear eventos en directo a un [precio inferior](https://azure.microsoft.com/pricing/details/media-services/). Es similar a los eventos en directo y de tránsito estándar, pero con menos límites de ancho de banda de entrada, menos salida en directo permitida, distintos límites de longitud de ventana de DVR y sin acceso a la transcripción en directo. Consulte la [comparación de tipos de eventos en directo](./live-event-types-comparison-reference.md#types-comparison) para más detalles.
 
 ### <a name="improved-scale-management-and-monitoring-for-a-streaming-endpoint-in-the-portal"></a>Mejora de la administración y la supervisión del escalado de un punto de conexión de streaming en el portal
 
@@ -209,7 +212,7 @@ Vea el anuncio oficial de [las actualizaciones de Azure](https://azure.microsoft
 
 ### <a name="standard-encoder-support-for-v2-api-features"></a>Compatibilidad del codificador estándar con las características de la versión 2 de la API
 
-Además de la nueva compatibilidad agregada con la codificación HEVC (H.265), las siguientes características están disponibles en la versión 2020-05-01 de la API de codificación.
+Además de la nueva compatibilidad agregada con la codificación HEVC (H.265), las siguientes características están disponibles en la versión 2020-05-01 (o posterior) de la API de codificación.
 
 - Se admite la unión de varios archivos de entrada mediante la nueva compatibilidad con **JobInputClip**.
     - Hay un ejemplo disponible para .NET que muestra cómo [unir dos recursos](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_StitchTwoAssets).

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 37d9bd78a80ac52d2a790537bf47e33807720349
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 426fe2bee411b5db40314ba6ff4087c37aad657c
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85202966"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129544856"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -115,7 +115,7 @@ El elemento **OutputClaim** contiene los atributos siguientes:
 | ClaimTypeReferenceId | Sí | Una referencia a un ClaimType ya definido en la sección ClaimsSchema de la directiva.
 | TransformationClaimType | Sí | Un identificador para hacer referencia a un tipo de notificación de transformación. Cada transformación de notificación tiene sus propios valores. Consulte la [referencia de la transformación de notificaciones](#claims-transformations-reference) para obtener una lista completa de los valores disponibles. |
 
-Si la notificación de entrada y la notificación de salida son del mismo tipo (cadena o booleano), puede usar la misma notificación de entrada como de salida. En este caso, la transformación de notificaciones cambia la notificación de entrada por el valor de salida.
+Las notificaciones de entrada y salida usadas en la transformación de notificaciones deben ser distintas. No se puede usar la misma notificación de entrada como notificación de salida.
 
 ## <a name="example"></a>Ejemplo
 

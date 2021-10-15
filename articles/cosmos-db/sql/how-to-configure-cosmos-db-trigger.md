@@ -4,14 +4,14 @@ description: Aprenda a configurar el registro y la directiva de conexión que ut
 author: ealsur
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 10/04/2021
 ms.author: maquaran
-ms.openlocfilehash: 44e738cc50feb66fc8806236be388b6baa18a17f
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 409cf65dc9b79707a7508590b370b63325101f67
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123114336"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427388"
 ---
 # <a name="how-to-configure-logging-and-connectivity-with-the-azure-functions-trigger-for-cosmos-db"></a>Configuración del registro y la conectividad con el desencadenador de Azure Functions para Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -68,7 +68,7 @@ Hay dos valores de configuración clave disponibles para configurar la directiva
 }
 ```
 
-Donde `connectionMode` debe tener el modo de conexión deseado (directa o puerta de enlace) y `protocol` el protocolo de conexión deseado (Tcp o Https). 
+Donde `connectionMode` debe tener el modo de conexión deseado (directo o puerta de enlace) y `protocol` el protocolo de conexión deseado (TCP para el modo directo o HTTP para el modo de puerta de enlace).
 
 Si el proyecto de Azure Functions funciona con el runtime de Azure Functions V1, la configuración tiene una pequeña diferencia en el nombre, debe usar `documentDB` en lugar de `cosmosDB`:
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/24/2021
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: 18055232714914456ec2db51891edc70ac89057e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 91637d6f508eb198345add5ad40fed52a67ec952
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124779642"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457722"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>Carga de archivos de un dispositivo a la nube con IoT Hub (.NET)
 
@@ -59,7 +59,7 @@ Al final de este tutorial, ejecutará dos aplicaciones de consola de .NET:
     dotnet --version
     ```
 
-* Descargue los ejemplos en C# de Azure IoT de [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) y extraiga el archivo ZIP.
+* Descargue los ejemplos en C# de Azure IoT de [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip) y extraiga el archivo ZIP.
 
 * Asegúrese de que el puerto 8883 está abierto en el firewall. En el ejemplo de este artículo se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y para saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
@@ -77,7 +77,7 @@ Al final de este tutorial, ejecutará dos aplicaciones de consola de .NET:
 
 En este artículo, usará un ejemplo del repositorio ejemplos de C# para Azure IoT que descargó anteriormente como aplicación de dispositivo. Puede abrir los archivos siguientes mediante Visual Studio, Visual Studio Code o un editor de texto de su elección.  
 
-El ejemplo se encuentra en **azure-iot-samples-csharp-master\iot-hub\Samples\device\FileUploadSample** en la carpeta donde extrajo los ejemplos de C# para Azure IoT.
+El ejemplo se encuentra en **azure-iot-samples-csharp-main\iot-hub\Samples\device\FileUploadSample** en la carpeta donde extrajo los ejemplos de C# para Azure IoT.
 
 Examine el código de **FileUpLoadSample.cs**. Este archivo contiene la lógica de ejemplo principal. Después de crear el cliente de dispositivo de IoT Hub, sigue el procedimiento estándar de tres partes para cargar archivos desde un dispositivo:
 
@@ -225,7 +225,7 @@ Ahora está listo para ejecutar las aplicaciones.
 
 
 
-1. A continuación, ejecute la aplicación de dispositivo para cargar el archivo en Azure Storage. Abra un nuevo símbolo del sistema y cambie las carpetas a **azure-iot-samples-csharp-master\iot-hub\Samples\device\FileUploadSample** en la carpeta donde expandió los ejemplos de C# para Azure IoT. Ejecute los comandos siguientes: Reemplace el valor del marcador de posición `{Your device connection string}` en el segundo comando por la cadena de conexión de dispositivo que copió anteriormente en [Registro de un nuevo dispositivo en el centro de IoT](#register-a-new-device-in-the-iot-hub).
+1. A continuación, ejecute la aplicación de dispositivo para cargar el archivo en Azure Storage. Abra un nuevo símbolo del sistema y cambie las carpetas a **azure-iot-samples-csharp-main\iot-hub\Samples\device\FileUploadSample** en la carpeta donde expandió los ejemplos de C# para Azure IoT. Ejecute los comandos siguientes: Reemplace el valor del marcador de posición `{Your device connection string}` en el segundo comando por la cadena de conexión de dispositivo que copió anteriormente en [Registro de un nuevo dispositivo en el centro de IoT](#register-a-new-device-in-the-iot-hub).
 
     ```cmd/sh
     dotnet restore

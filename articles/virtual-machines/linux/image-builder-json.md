@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 703c2023103d9225e5dfad5bd0d288164350122f
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: d10c64af28f6b8dacdbc28d7d29c691fe50580e2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450348"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128569340"
 ---
 # <a name="create-an-azure-image-builder-template"></a>Creación de una plantilla de Azure Image Builder 
 
@@ -25,32 +25,31 @@ Azure Image Builder utiliza un archivo .json para trasladar la información al s
 Este es el formato de plantilla básico:
 
 ```json
- { 
+  { 
     "type": "Microsoft.VirtualMachineImages/imageTemplates", 
     "apiVersion": "2020-02-14", 
     "location": "<region>", 
     "tags": {
-        "<name": "<value>",
-        "<name>": "<value>"
-     },
-    "identity":{},           
+      "<name>": "<value>",
+      "<name>": "<value>"
+    },
+    "identity": {},          
     "dependsOn": [], 
     "properties": { 
-        "buildTimeoutInMinutes": <minutes>, 
-        "vmProfile": 
-            {
-            "vmSize": "<vmSize>",
+      "buildTimeoutInMinutes": <minutes>, 
+      "vmProfile": {
+        "vmSize": "<vmSize>",
         "proxyVmSize": "<vmSize>",
-            "osDiskSizeGB": <sizeInGB>,
-            "vnetConfig": {
-                "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
-                }
-            },
-        "source": {}, 
-        "customize": {}, 
-        "distribute": {} 
-      } 
- } 
+        "osDiskSizeGB": <sizeInGB>,
+        "vnetConfig": {
+          "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
+        }
+      },
+      "source": {}, 
+      "customize": {}, 
+      "distribute": {} 
+    } 
+  } 
 ```
 
 
@@ -143,11 +142,11 @@ Obligatoria: para que Image Builder tenga permisos de lectura y escritura de im�
 
 ```json
     "identity": {
-    "type": "UserAssigned",
-          "userAssignedIdentities": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
             "<imgBuilderId>": {}
         }
-        },
+    },
 ```
 
 
@@ -177,10 +176,10 @@ El generador de imágenes de Azure admite Windows Server y el cliente, así com
 ```json
         "source": {
             "type": "PlatformImage",
-                "publisher": "Canonical",
-                "offer": "UbuntuServer",
-                "sku": "18.04-LTS",
-                "version": "latest"
+            "publisher": "Canonical",
+            "offer": "UbuntuServer",
+            "sku": "18.04-LTS",
+            "version": "latest"
         },
 ```
 
@@ -218,7 +217,7 @@ Establece la imagen de origen como una imagen administrada existente de una máq
 ```json
         "source": { 
             "type": "ManagedImage", 
-                "imageId": "/subscriptions/<subscriptionId>/resourceGroups/{destinationResourceGroupName}/providers/Microsoft.Compute/images/<imageName>"
+            "imageId": "/subscriptions/<subscriptionId>/resourceGroups/{destinationResourceGroupName}/providers/Microsoft.Compute/images/<imageName>"
         }
 ```
 
@@ -236,7 +235,7 @@ Establece la imagen de origen en una versión de la imagen existente de una gale
         "source": { 
             "type": "SharedImageVersion", 
             "imageVersionID": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/p  roviders/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageDefinitionName/versions/<imageVersion>" 
-   } 
+        } 
 ```
 
 El `imageVersionId` debe ser el valor de ResourceId de la versión de la imagen. Use [lista de versiones de imagen con firma de Azure](/cli/azure/sig/image-version#az_sig_image_version_list) para obtener una lista de las versiones de imagen.
@@ -308,13 +307,13 @@ El personalizador de shell admite la ejecución de scripts de shell. Los scripts
             "sha256Checksum": "<sha256 checksum>"       
         }, 
     ], 
-        "customize": [ 
+    "customize": [ 
         { 
             "type": "Shell", 
             "name": "<name>", 
             "inline": "<commands to run>"
-        }, 
-    ], 
+    }, 
+    ],
 ```
 
 SO compatible: Linux 
@@ -397,7 +396,7 @@ El personalizador de shell admite la ejecución de scripts de PowerShell y coman
              "validExitCodes": "<exit code>",
              "runElevated": "<true or false>" 
          } 
-    ], 
+     ], 
 ```
 
 SO compatible: Windows y Linux
@@ -455,16 +454,16 @@ Este personalizador se basa en el [aprovisionador de Windows Update de la comuni
 
 ```json
      "customize": [
-            {
-                "type": "WindowsUpdate",
-                "searchCriteria": "IsInstalled=0",
-                "filters": [
+          {
+               "type": "WindowsUpdate",
+               "searchCriteria": "IsInstalled=0",
+               "filters": [
                     "exclude:$_.Title -like '*Preview*'",
                     "include:$true"
-                            ],
-                "updateLimit": 20
-            }
-               ], 
+               ],
+               "updateLimit": 20
+          }
+     ], 
 ```
 
 SO compatible: Windows
@@ -580,7 +579,7 @@ El resultado de la imagen será un recurso de imagen administrada.
        "location": "<region>",
        "runOutputName": "<name>",
        "artifactTags": {
-            "<name": "<value>",
+            "<name>": "<value>",
             "<name>": "<value>"
         }
 }
@@ -596,7 +595,7 @@ Propiedades de la distribución:
  
 > [!NOTE]
 > El grupo de recursos de destino debe existir.
-> Si quiere que la imagen se distribuya a otra región, el tiempo de implementación será mayor. 
+> Si quiere que la imagen se distribuya a otra región, aumentará el tiempo de implementación. 
 
 ### <a name="distribute-sharedimage"></a>Distribución: sharedImage 
 La Galería de imágenes compartidas de Azure es un nuevo servicio de administración de imágenes que permite administrar la replicación de las regiones de la imagen, el control de versiones y el uso compartido de imágenes personalizadas. Azure Image Builder admite la distribución con este servicio, por lo que puede distribuir imágenes a las regiones admitidas por las galerías de imágenes compartidas. 
@@ -642,7 +641,7 @@ Propiedades de la distribución para las galerías de imágenes compartidas:
 
 
 > [!NOTE]
-> Si la plantilla de imagen y la definición `image definition` a la que se hace referencia no están en la misma ubicación, se necesitará tiempo adicional para crear las imágenes. En la actualidad, Image Builder no tiene un parámetro `location` para el recurso de versión de la imagen, este se toma de su `image definition` primaria. Por ejemplo, si una definición de imagen está en la región westus y quiere que la versión de la imagen se replique en eastus, se copia un blob en westus, se crea un recurso de versión de imagen a partir de él en westus y, a continuación, se replica en eastus. Para evitar el tiempo de replicación adicional, asegúrese de que la definición `image definition` y la plantilla de imagen se encuentren en la misma ubicación.
+> Si la plantilla de imagen y la definición `image definition` a la que se hace referencia no están en la misma ubicación, se necesitará tiempo adicional para crear las imágenes. En la actualidad, Image Builder no tiene un parámetro `location` para el recurso de versión de la imagen, este se toma de su `image definition` primaria. Por ejemplo, si una definición de imagen está en la región westus y quiere que la versión de la imagen se replique en eastus, se copia un blob en westus, se crea un recurso de versión de imagen a partir de él en westus y, después, se replica en eastus. Para evitar el tiempo de replicación adicional, asegúrese de que la definición `image definition` y la plantilla de imagen se encuentren en la misma ubicación.
 
 
 ### <a name="distribute-vhd"></a>Distribución: VHD  
@@ -653,7 +652,7 @@ Puede generar un disco duro virtual. A continuación, puede copiar el disco duro
     "type": "VHD",
     "runOutputName": "<VHD name>",
     "tags": {
-        "<name": "<value>",
+        "<name>": "<value>",
         "<name>": "<value>"
     }
 }

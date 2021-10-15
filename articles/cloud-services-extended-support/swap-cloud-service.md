@@ -7,13 +7,12 @@ author: surbhijain
 ms.author: surbhijain
 ms.reviewer: gachandw
 ms.date: 04/01/2021
-ms.custom: ''
-ms.openlocfilehash: 3321152d5d7b753ddca23a8810f0d1ae1b3d4399
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: cd13a7f69d3085786407a405598df4bc7b8e0ef9
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122967027"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129358442"
 ---
 # <a name="swap-or-switch-deployments-in-azure-cloud-services-extended-support"></a>Cambio de una implementación a otra en Azure Cloud Services (soporte extendido)
 
@@ -31,7 +30,6 @@ Para cambiar de una implementación a otra puede usar una plantilla de Azure Res
 Tras la implementación del segundo servicio en la nube, ambos servicios en la nube tienen la propiedad SwappableCloudService establecida para que se apunten entre sí. Cualquier actualización posterior de estos servicios en la nube deberá especificar que esta propiedad ha fallado, de modo que devolverá un error que indique que la propiedad SwappableCloudService no se puede eliminar ni actualizar.
 
 Una vez establecida, la propiedad SwappableCloudService se trata como propiedad de solo lectura. No se puede eliminar ni cambiar a otro valor. Al eliminar uno de los servicios en la nube (del par intercambiable) se borrará la propiedad SwappableCloudService del servicio en la nube restante.
-
 
 ## <a name="arm-template"></a>Plantilla ARM
 
@@ -65,7 +63,7 @@ Para ahorrar costos de proceso, puede eliminar uno de los servicios en la nube (
 
 ## <a name="rest-api"></a>API REST
 
-Para usar la [API REST](https://review.docs.microsoft.com/rest/api/compute/load-balancers/swap-public-ip-addresses?branch=net202102) con el fin de cambiar a una nueva implementación de servicios en la nube en Azure Cloud Services (soporte extendido), use el siguiente comando y configuración de JSON:
+Para usar la [API REST](/rest/api/compute/load-balancers/swap-public-ip-addresses) con el fin de cambiar a una nueva implementación de servicios en la nube en Azure Cloud Services (soporte extendido), use el siguiente comando y configuración de JSON:
 
 ```http
 POST https://management.azure.com/subscriptions/subid/providers/Microsoft.Network/locations/westus/setLoadBalancerFrontendPublicIpAddresses?api-version=2021-02-01

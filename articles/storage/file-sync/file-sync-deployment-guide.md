@@ -8,12 +8,12 @@ ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 75e8b7482e9d810caf0afb0818d53df141908708
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: cce87bbcd8a4a2db5d400b41948e9dcf4598b331
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609277"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129390299"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementación de Azure File Sync
 
@@ -234,7 +234,7 @@ El agente de Azure File Sync es un paquete descargable que permite la sincroniza
 Puede descargar el agente desde el [Centro de descarga de Microsoft](https://go.microsoft.com/fwlink/?linkid=858257). Una finalice la descarga, haga doble clic en el paquete MSI para iniciar la instalación del agente de Azure File Sync.
 
 > [!IMPORTANT]
-> Si piensa usar Azure File Sync con un clúster de conmutación por error, el agente de Azure File Sync se debe instalar en todos los nodos del clúster. Cada nodo del clúster debe estar registrado para funcionar con Azure File Sync.
+> Si piensa usar Azure File Sync con un clúster de conmutación por error, el agente de Azure File Sync se debe instalar en todos los nodos del clúster. Cada nodo del clúster debe registrarse para trabajar con Azure File Sync. El único escenario admitido por Azure File Sync es el clúster de conmutación por error de Windows Server con discos en clúster. Consulte [Clústeres de conmutación por error](file-sync-planning.md#failover-clustering) para Azure File Sync.
 
 Se recomienda hacer lo siguiente:
 - Dejar la ruta de instalación predeterminada (C:\Archivos de programa\Azure\StorageSyncAgent), para simplificar las operaciones de solución de problemas y mantenimiento del servidor.

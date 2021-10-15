@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 91ef36a5dbbfb7e0edb7fe1d75d77d2f2dc4870b
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: ef1cce7905e07c1fa407c0194d585bb196ecdfd6
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113357614"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232211"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Problemas conocidos en los exploradores Internet Explorer y Microsoft Edge (MSAL.js)
 
@@ -36,7 +36,7 @@ La causa de la mayoría de estos problemas es la siguiente. El almacenamiento de
 
     `Error :login_required; Error description:AADSTS50058: A silent sign-in request was sent but no user is signed in. The cookies used to represent the user's session were not sent in the request to Azure AD. This can happen if the user is using Internet Explorer or Edge, and the web app sending the silent sign-in request is in different IE security zone than the Azure AD endpoint (login.microsoftonline.com)`
 
-- **La ventana emergente no se cierra o se bloquea cuando se usa el inicio de sesión a través de la ventana emergente para realizar la autenticación**. Cuando se realiza la autenticación mediante la ventana emergente de Microsoft Edge o IE (InPrivate), después de escribir las credenciales y realizar el inicio de sesión, si intervienen varios dominios de las zonas de seguridad en la navegación, la ventana emergente no se cierra porque MSAL.js pierde el identificador de la ventana emergente.
+- **La ventana emergente no se cierra o se bloquea cuando se usa el inicio de sesión a través de la ventana emergente para realizar la autenticación**. Cuando se realiza la autenticación mediante la ventana emergente de Microsoft Edge o IE (InPrivate), después de escribir las credenciales e iniciar sesión, si intervienen varios dominios de las zonas de seguridad en la navegación, la ventana emergente no se cierra porque `MSAL.js` pierde el identificador de esta.
 
 ### <a name="update-fix-available-in-msaljs-023"></a>Actualización: Corrección disponible en MSAL.js 0.2.3
 Las correcciones para los problemas del bucle de redireccionamiento de la autenticación se han publicado en [MSAL.js 0.2.3](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases). Habilite la marca `storeAuthStateInCookie` en la configuración de MSAL.js para usar esta solución. De manera predeterminada, esta marca se establece en "false".
@@ -44,7 +44,7 @@ Las correcciones para los problemas del bucle de redireccionamiento de la autent
 Cuando la marca `storeAuthStateInCookie` está habilitada, MSAL.js usará las cookies del navegador para almacenar el estado de solicitud requerido para la validación de los flujos de autenticación.
 
 > [!NOTE]
-> Esta solución aún no está disponible para los encapsulados msal-angular y msal-angularjs. Esta solución no soluciona el problema con las ventanas emergentes.
+> Esta corrección todavía no está disponible para los contenedores `msal-angular` y `msal-angularjs`. Esta corrección no soluciona el problema con las ventanas emergentes.
 
 Use las soluciones que tiene a continuación.
 
@@ -63,7 +63,7 @@ Tenga en cuenta que esto no solucionará el problema de exploración de InPrivat
 
 ## <a name="issues-due-to-popup-blockers"></a>Problemas debidos a los bloqueadores de ventanas emergentes
 
-Hay casos en que las ventanas emergentes se bloquean en IE o Microsoft Edge; por ejemplo, cuando aparece una segunda ventana emergente durante la [autenticación multifactor](../authentication/concept-mfa-howitworks.md). Recibirá una alerta en el explorador para permitir la ventana emergente una vez o siempre. Si elige permitir, el explorador abre automáticamente la ventana emergente y se devuelve un identificador `null`. Como resultado, la biblioteca no tiene un controlador para la ventana y no hay forma de cerrar la ventana emergente. Este problema no ocurre en Chrome cuando le solicita que permita las ventanas emergentes, porque no abre automáticamente las ventanas emergentes.
+Hay casos en que las ventanas emergentes se bloquean en IE o Microsoft Edge; por ejemplo, cuando aparece una segunda ventana emergente durante la [autenticación multifactor](../authentication/concept-mfa-howitworks.md). Recibirá una alerta en el explorador para permitir la ventana emergente una vez o siempre. Si elige permitirla, el explorador abre automáticamente la ventana emergente y se devuelve un identificador `null`. Como resultado, la biblioteca no tiene un controlador para la ventana y no hay forma de cerrarla. Este problema no ocurre en Chrome cuando le solicita que permita las ventanas emergentes, porque no abre automáticamente las ventanas emergentes.
 
 Como **solución**, los desarrolladores deberán permitir ventanas emergentes en IE y Microsoft Edge antes de comenzar a usar la aplicación para evitar este problema.
 

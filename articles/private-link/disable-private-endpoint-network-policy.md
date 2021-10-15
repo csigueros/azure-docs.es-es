@@ -9,19 +9,19 @@ ms.topic: how-to
 ms.date: 08/26/2021
 ms.author: allensu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c06ad374e46e9900ba99a95708e19a63498719ec
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 6d4671823f5eb3f186007aea46983860269d916b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123101553"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361753"
 ---
 # <a name="manage-network-policies-for-private-endpoints"></a>Administración de directivas de red de puntos de conexión privados
 
 Las directivas de red, como los grupos de seguridad de red (NSG), no eran compatibles con los puntos de conexión privados. Para implementar un punto de conexión privado en una determinada subred, se necesitaba un valor de desactivación explícito en dicha subred. Este valor solo se puede aplicar al punto de conexión privado. Para otros recursos de la subred, el acceso se controla en función de las reglas de seguridad del grupos de seguridad de red.
 
 > [!IMPORTANT]
-> La compatibilidad de NSG y UDR con puntos de conexión privados se encuentra en versión preliminar pública.
+> La compatibilidad de NSG y UDR con puntos de conexión privados se encuentra en versión preliminar pública. Para obtener más información, vea [Versión preliminar pública de la compatibilidad UDR de Private Link](https://azure.microsoft.com/updates/public-preview-of-private-link-udr-support/) y [Versión preliminar pública de la compatibilidad del grupo de seguridad de red de Private Link](https://azure.microsoft.com/updates/public-preview-of-private-link-network-security-group-support/).
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Al usar el portal para crear un punto de conexión privado, el valor `PrivateEndpointNetworkPolicies` se deshabilita automáticamente como parte del proceso de creación. La implementación mediante otros clientes requiere un paso adicional para cambiar este valor. 

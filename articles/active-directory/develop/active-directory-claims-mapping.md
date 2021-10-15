@@ -2,7 +2,6 @@
 title: Personalización de las notificaciones de aplicación del inquilino de Azure AD (PowerShell)
 titleSuffix: Microsoft identity platform
 description: Aprenda a personalizar las notificaciones emitidas en tokens para una aplicación en un inquilino de Azure Active Directory específico.
-services: active-directory
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
@@ -13,12 +12,12 @@ ms.topic: how-to
 ms.date: 06/16/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 302ab2b6f3060213a79b88ce6358cd842f74a425
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 71677a085627f46a995530c522a3a480be188042
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123425561"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350996"
 ---
 # <a name="customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant"></a>Personalizar las notificaciones emitidas en tokens para una determinada aplicación de un inquilino
 
@@ -47,7 +46,7 @@ Al crear una directiva de asignación de notificaciones, también puede emitir u
 Para comenzar, realice uno de los pasos siguientes:
 
 1. Descargue la [versión preliminar pública más reciente del módulo de PowerShell de Azure AD](https://www.powershellgallery.com/packages/AzureADPreview).
-1. Ejecute el comando [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0-preview) para iniciar sesión en la cuenta de administrador de Azure AD. Ejecute este comando cada vez que inicie una nueva sesión.
+1. Ejecute el comando [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0-preview&preserve-view=true) para iniciar sesión en la cuenta de administrador de Azure AD. Ejecute este comando cada vez que inicie una nueva sesión.
 
    ``` powershell
    Connect-AzureAD -Confirm

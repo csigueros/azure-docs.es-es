@@ -3,12 +3,12 @@ title: Detalles de la estructura de definición de directivas
 description: Describe cómo se usan las definiciones de directiva para establecer convenciones para los recursos de Azure de su organización.
 ms.date: 09/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: e285ca8c47d73f8b9a23c005be8c8b88d38db879
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 7665d2b3855765c0d3c60cdb9c7181720835a963
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123436111"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129456981"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -774,6 +774,8 @@ Azure Policy admite los siguientes tipos de efecto:
 Para obtener información detallada sobre cada efecto, el orden de evaluación, las propiedades y algunos ejemplos, consulte [Descripción de los efectos de Azure Policy](effects.md).
 
 ### <a name="policy-functions"></a>Funciones de directiva
+
+Las funciones se pueden usar para introducir más lógica en una regla de directiva. Se resuelven dentro de la [regla de directiva](#policy-rule) de una definición de directiva y dentro de los [valores de parámetro asignados a las definiciones de directiva en una iniciativa](initiative-definition-structure.md#passing-a-parameter-value-to-a-policy-definition).
 
 Se pueden usar todas las [funciones de plantilla de Resource Manager](../../../azure-resource-manager/templates/template-functions.md) dentro de una regla de directivas, excepto las siguientes funciones y funciones definidas por el usuario:
 

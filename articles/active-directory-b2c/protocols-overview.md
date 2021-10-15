@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ed393f721d4461ebadea41f8dad707d4881865cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9a79322439db33620b67ff568387a5750f7ee5c
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "78183912"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350588"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: Protocolos de autenticación
 Azure Active Directory B2C (Azure AD B2C) proporciona identidad como servicio para sus aplicaciones gracias a la compatibilidad con dos protocolos estándar del sector: OpenID Connect y OAuth 2.0. Aunque el servicio cumple con la norma, pueden existir diferencias sutiles entre dos implementaciones cualesquiera de estos protocolos.
@@ -40,7 +40,10 @@ https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token
 
 En casi todos los flujos de OAuth y OpenID Connect hay cuatro partes implicadas en el intercambio:
 
-![Diagrama que muestra los cuatro roles de OAuth 2.0](./media/protocols-overview/protocols_roles.png)
+
+
+
+:::image type="content" source="./media/protocols-overview/protocols_roles.png" alt-text="Diagrama que muestra los cuatro roles de OAuth 2.0.":::
 
 * El **servidor de autorización** es el punto de conexión de Azure AD. Controla de manera segura todo lo relacionado con el acceso y la información de usuario. También controla las relaciones de confianza entre las partes de un flujo. Es responsable de garantizar la identidad del usuario, conceder y revocar el acceso a los recursos y emitir tokens. También es conocido como proveedor de identidades.
 

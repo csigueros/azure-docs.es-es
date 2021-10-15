@@ -9,12 +9,12 @@ ms.service: web-application-firewall
 ms.date: 11/20/2020
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a1710b293278e3b36fdabdf70bd698d8408e946d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 847a0fc7f1867c2a4ea1f620a60f6236efebf4ce
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128680079"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129358714"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Creación y uso de reglas personalizadas de Firewall de aplicaciones web v2 en Application Gateway
 
@@ -539,6 +539,66 @@ Código JSON correspondiente:
             "operator": "Contains",
             "matchValues": [
               "'--"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+```
+
+## <a name="example-7"></a>Ejemplo 7
+
+No es raro ver Azure Front Door implementado delante de Application Gateway.  Para asegurarse de que el tráfico recibido por Application Gateway procede de la implementación de Front Door, el procedimiento recomendado es comprobar si el encabezado `X-Azure-FDID` contiene el valor único esperado.  Para más información, consulte [¿Cómo puedo hacer que Azure Front Door sea el único que tenga acceso a mi back-end?](../../frontdoor/front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-)
+
+Lógica: **not** p
+
+```azurepowershell
+$expectedFDID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+$variable = New-AzApplicationGatewayFirewallMatchVariable `
+   -VariableName RequestHeaders `
+   -Selector X-Azure-FDID
+
+$condition = New-AzApplicationGatewayFirewallCondition `
+   -MatchVariable $variable `
+   -Operator Equal `
+   -MatchValue $expectedFDID `
+   -Transform Lowercase `
+   -NegationCondition $True
+
+$rule = New-AzApplicationGatewayFirewallCustomRule `
+   -Name blockNonAFDTraffic `
+   -Priority 2 `
+   -RuleType MatchRule `
+   -MatchCondition $condition `
+   -Action Block
+```
+
+Y este es el código JSON correspondiente:
+
+```json
+  {
+    "customRules": [
+      {
+        "name": "blockNonAFDTraffic",
+        "priority": 2,
+        "ruleType": "MatchRule",
+        "action": "Block",
+        "matchConditions": [
+          {
+            "matchVariables": [
+                {
+                    "variableName": "RequestHeaders",
+                    "selector": "X-Azure-FDID"
+                }
+            ],
+            "operator": "Equal",
+            "negationConditon": true,
+            "matchValues": [
+                "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+            ],
+            "transforms": [
+                "Lowercase"
             ]
           }
         ]

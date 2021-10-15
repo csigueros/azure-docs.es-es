@@ -6,13 +6,13 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/06/2021
-ms.openlocfilehash: 03d29f6f6265c214427e208de4bc9177659bb473
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 10/04/2021
+ms.openlocfilehash: 57ff7e6dd0d87115e171123d4e268edadb56b227
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122823908"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129456373"
 ---
 # <a name="tips-for-better-performance-in-azure-cognitive-search"></a>Sugerencias para mejorar el rendimiento en Azure Cognitive Search
 
@@ -140,3 +140,4 @@ Revise estos artículos adicionales relacionados con el análisis del rendimient
 + [Análisis del rendimiento](search-performance-analysis.md)
 + [Selección de un nivel de servicio](search-sku-tier.md)
 + [Aumento de capacidad (réplicas y particiones)](search-capacity-planning.md#adjust-capacity)
++ [Caso práctico: Uso de Cognitive Search para posibilitar escenarios complejos de inteligencia artificial](https://techcommunity.microsoft.com/t5/azure-ai/case-study-effectively-using-cognitive-search-to-support-complex/ba-p/2804078)

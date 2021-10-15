@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/15/2021
 ms.author: bagol
-ms.openlocfilehash: 21775c8d6e9743b65a791abb946c571862b68156
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4bdb65fddfe7f72407c432fd03cce0558637ab39
+ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128617571"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129419019"
 ---
 # <a name="azure-sentinel-dns-normalization-schema-reference-public-preview"></a>Referencia del esquema de normalización de DNS de Azure Sentinel (versión preliminar pública)
 
@@ -105,7 +105,18 @@ Están disponibles los siguientes parámetros de filtrado:
 | **eventtype**| string | Filtre solo las consultas de DNS del tipo especificado. Si no se especifica ningún valor, solo se devuelven consultas de búsqueda. |
 ||||
 
-Para filtrar los resultados mediante un parámetro, tendrá que especificar el parámetro en el analizador. 
+Por ejemplo, para filtrar solo las consultas de DNS del último día que no pudieron resolver el nombre de dominio, utilice:
+
+```kql
+imDns (responsecodename = 'NXDOMAIN', starttime = ago(1d), endtime=now())
+```
+
+Para filtrar solo las consultas de DNS para una lista especificada de nombres de dominio, use:
+
+```kql
+let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co",...]);
+imDns (domain_has_any = torProxies)
+```
 
 ## <a name="normalized-content"></a>Contenido normalizado
 
@@ -187,7 +198,7 @@ Los campos siguientes son específicos de los eventos de DNS. Dicho esto, muchos
 
 | **Campo** | **Clase** | **Tipo** | **Notas** |
 | --- | --- | --- | --- |
-| **SrcIpAddr** | Mandatory | Dirección IP | Dirección IP del cliente que envía la solicitud de DNS. En una solicitud de DNS recursiva, este valor suele ser el dispositivo de informes y, en la mayoría de los casos, está establecido en `127.0.0.1`.<br><br>Ejemplo: `192.168.12.1` |
+| **SrcIpAddr** | Recomendado | Dirección IP | Dirección IP del cliente que envía la solicitud de DNS. En una solicitud de DNS recursiva, este valor suele ser el dispositivo de informes y, en la mayoría de los casos, está establecido en `127.0.0.1`.<br><br>Ejemplo: `192.168.12.1` |
 | **SrcPortNumber** | Opcional | Entero | Puerto de origen de la consulta de DNS.<br><br>Ejemplo: `54312` |
 | **DstIpAddr** | Opcionales | Dirección IP | Dirección IP del servidor que recibe la solicitud de DNS. En una solicitud de DNS normal, este valor suele ser el dispositivo de informes y, en la mayoría de los casos, está establecido en `127.0.0.1`.<br><br>Ejemplo: `127.0.0.1` |
 | **DstPortNumber** | Opcional | Entero  | Número de puerto de destino.<br><br>Ejemplo: `53` |
@@ -195,7 +206,7 @@ Los campos siguientes son específicos de los eventos de DNS. Dicho esto, muchos
 | <a name=query></a>**DnsQuery** | Mandatory | FQDN | Dominio que debe resolverse. <br><br>**Nota**: Algunos orígenes envían esta consulta en otros formatos. Por ejemplo, en el propio protocolo DNS, la consulta incluye un punto ( **.** ) al final, que se debe quitar.<br><br>Si bien el protocolo DNS permite varias consultas en una sola solicitud, este escenario es poco frecuente, si es que siquiera se produce. Si la solicitud tiene varias consultas, almacene la primera en este campo y, opcionalmente, mantenga el resto en el campo [AdditionalFields](#additionalfields).<br><br>Ejemplo: `www.malicious.com` |
 | **Dominio** | Alias | | Alias de [Query](#query). |
 | **DnsQueryType** | Opcional | Entero | Este campo puede contener [códigos de tipo de registro de recursos DNS](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>Ejemplo: `28`|
-| **DnsQueryTypeName** | Mandatory | Enumerated | Este campo puede contener nombres de [tipo de registro de recursos DNS](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>**Nota:** IANA no define las mayúsculas y minúsculas de los valores, por lo que el análisis debe normalizarlas según sea necesario. Si el origen solo proporciona un código de tipo de consulta numérico y no un nombre de tipo de consulta, el analizador debe incluir una tabla de búsqueda para enriquecerla con este valor.<br><br>Ejemplo: `AAAA`|
+| **DnsQueryTypeName** | Recomendado | Enumerated | Este campo puede contener nombres de [tipo de registro de recursos DNS](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>**Nota:** IANA no define las mayúsculas y minúsculas de los valores, por lo que el análisis debe normalizarlas según sea necesario. Si el origen solo proporciona un código de tipo de consulta numérico y no un nombre de tipo de consulta, el analizador debe incluir una tabla de búsqueda para enriquecerla con este valor.<br><br>Ejemplo: `AAAA`|
 | <a name=responsename></a>**DnsResponseName** | Opcional | String | Contenido de la respuesta, tal como se incluye en el registro.<br> <br> Los datos de la respuesta de DNS son incoherentes entre los dispositivos de informes, son complejos de analizar y tienen menos valor para el análisis independiente del origen. Por lo tanto, el modelo de información no requiere análisis y normalización, y Azure Sentinel utiliza una función auxiliar para proporcionar la información de respuesta. Para obtener más información, consulte [Control de la respuesta de DNS](#handling-dns-response).|
 | <a name=responsecodename></a>**DnsResponseCodeName** |  Mandatory | Enumerated | El [código de respuesta de DNS](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>**Nota:** IANA no define las mayúsculas y minúsculas de los valores, por lo que el análisis debe normalizarlas. Si el origen solo proporciona un código de respuesta numérico y no un nombre de código de respuesta, el analizador debe incluir una tabla de búsqueda para enriquecerla con este valor. <br><br> Si este registro representa una solicitud y no una respuesta, establézcalo en **NA**. <br><br>Ejemplo: `NXDOMAIN` |
 | **DnsResponseCode** | Opcional | Entero | El [código de respuesta numérico de DNS](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>Ejemplo: `3`|

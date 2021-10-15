@@ -7,12 +7,12 @@ ms.date: 06/28/2019
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 8a39c2b06ca8a0f852891acb60ba199fc2c6db5c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 26d81a492b12cd2dd7f1d4de260aa22ac4e73a3e
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96024136"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234459"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Procedimientos recomendados para la configuración de dispositivos en una solución de IoT
 
@@ -20,7 +20,7 @@ La administración automática de dispositivos en Azure IoT Hub automatiza mucha
 
 * **Integrador o fabricante de hardware de IoT**: fabricantes de hardware de IoT, integradores que ensamblan hardware de diversos fabricantes o proveedores que proporcionan hardware para una implementación de IoT que fabrican o integran otros proveedores. Intervienen en el desarrollo y la integración de firmware, sistemas operativos integrados y software integrado.
 
-* **Desarrollador de soluciones de IoT**: el desarrollo de soluciones de IoT suelen realizarlo los desarrolladores de soluciones. Este desarrollador puede formar parte de un equipo interno o ejercer como integrador de sistemas especializado en esta actividad. El desarrollador de soluciones de IoT puede desarrollar diversos componentes de la solución de IoT desde cero, integrar varios componentes estándar o de código abierto o personalizar un [acelerador de soluciones de IoT](../iot-accelerators/index.yml).
+* **Desarrollador de soluciones de IoT**: el desarrollo de soluciones de IoT suelen realizarlo los desarrolladores de soluciones. Este desarrollador puede formar parte de un equipo interno o ejercer como integrador de sistemas especializado en esta actividad. El desarrollador de soluciones de IoT puede desarrollar diversos componentes de la solución de IoT desde cero, o bien integrar varios componentes estándar o de código abierto.
 
 * **Operador de soluciones de IoT**: una vez que la solución de IoT se implementa, requiere operaciones, supervisión, actualizaciones y mantenimiento a largo plazo. De estas tareas puede encargarse un equipo interno formado por especialistas en tecnología de la información, equipos de operaciones de hardware y mantenimiento y especialistas en dominios que supervisan que la infraestructura de IoT funciona de manera correcta globalmente.
 

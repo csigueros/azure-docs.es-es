@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 09/27/2021
-ms.openlocfilehash: 6efbd254a74d2432985d451adf67a33b74d2e2c4
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: eadbeee57960577f12f880b4582e820eddb63e3c
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129081930"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234383"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Creación de una oferta de Dynamics 365 for Operations
 
@@ -28,7 +28,7 @@ Revise el artículo [Planeamiento de una oferta de Dynamics 365](marketplace-dy
 
 [!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
-#### <a name="workspaces-view"></a>[Vista "Áreas de trabajo"](#tab/workspaces-view)
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
 
 1. Inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2166002).
 
@@ -104,13 +104,13 @@ Para más información, consulte [Clientes potenciales a partir de la oferta en 
 
 ## <a name="business-applications-isv-program"></a>Programa para ISV de Business Applications
 
-La oferta se inscribe inicialmente en el nivel Estándar. Si la solución cumple los criterios de idoneidad del programa, puede solicitar una actualización al nivel Premium, que ofrece ventajas de programa ampliadas. Si lo hace, asegúrese de completar el [módulo de venta conjunta](https://aka.ms/BizAppsISVProgram) antes de publicar la oferta.
+La oferta se inscribe inicialmente en el nivel Estándar.
 
-Seleccione la casilla para solicitar una actualización al nivel Premium.
+Antes de publicar la oferta, complete el [módulo de venta conjunto](https://aka.ms/BizAppsISVProgram).
 
 Seleccione **Guardar borrador** antes de pasar a la siguiente pestaña del menú de navegación izquierdo, **Propiedades**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Configuración de las propiedades de la oferta](dynamics-365-operations-properties.md)
+- Configuración de [propiedades](dynamics-365-operations-properties.md) de la oferta
 - [Procedimientos recomendados para la publicación de ofertas](gtm-offer-listing-best-practices.md)

@@ -1,7 +1,6 @@
 ---
 title: Azure AD acceso híbrido seguro | Microsoft Docs
 description: En este artículo se describen las soluciones de asociados para integrar las aplicaciones locales, de nube pública o de nube privada heredadas con Azure AD.
-services: active-directory
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
@@ -11,12 +10,12 @@ ms.workload: identity
 ms.date: 8/17/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc8d5d0b62f75d73bbe8879739069f1d28ce15bb
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8294a0d3668077a1ead9ccb8b2f020360a75dc37
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128642612"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273711"
 ---
 # <a name="secure-hybrid-access-secure-legacy-apps-with-azure-active-directory"></a>Acceso híbrido seguro: Protección de aplicaciones heredadas con Azure Active Directory
 
@@ -56,13 +55,13 @@ Los siguientes asociados ofrecen soluciones pre compiladas para admitir **direct
 
 - [Silverfort Authentication Platform](../manage-apps/silverfort-azure-ad-integration.md)
 
-- [Strata](https://docs.microsoft.com/azure/active-directory/saas-apps/maverics-identity-orchestrator-saml-connector-tutorial)
+- [Strata](../saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md)
 
 Los siguientes asociados ofrecen soluciones predefinidas e instrucciones detalladas para la integración con Azure AD.
 
-- [Cisco AnyConnect](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-anyconnect)
+- [Cisco AnyConnect](../saas-apps/cisco-anyconnect.md)
 
-- [Fortinet](https://docs.microsoft.com/azure/active-directory/saas-apps/fortigate-ssl-vpn-tutorial)
+- [Fortinet](../saas-apps/fortigate-ssl-vpn-tutorial.md)
 
 - [Palo Alto Networks Global Protect](../saas-apps/paloaltoadmin-tutorial.md)
 

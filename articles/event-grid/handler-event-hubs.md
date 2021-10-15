@@ -2,13 +2,13 @@
 title: Event Hub como controlador de eventos para eventos de Azure Event Grid
 description: Aquí se describe cómo puede usar los centros de eventos como controladores de eventos para eventos de Event Grid.
 ms.topic: conceptual
-ms.date: 09/28/2021
-ms.openlocfilehash: 6ba4dec31a93b01804779cd9f614e64854fe6cce
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 09/30/2021
+ms.openlocfilehash: 590364d759fe6f628cfaa306d162d00f575c0622
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129215042"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354426"
 ---
 # <a name="event-hub-as-an-event-handler-for-azure-event-grid-events"></a>Centro de eventos como controlador de eventos para eventos de Azure Event Grid
 Un controlador de eventos es el lugar al que se envía el evento. El controlador realiza una acción para procesar el evento. Varios servicios de Azure se configuran automáticamente para controlar los eventos y **Azure Event Hubs** es uno de ellos. 
@@ -72,6 +72,17 @@ Consulte los siguientes ejemplos:
   }
 }
 ```
+
+## <a name="delivery-properties"></a>Propiedades de entrega
+Las suscripciones a eventos permiten configurar encabezados HTTP que se incluyen en los eventos entregados. Esta capacidad permite establecer encabezados personalizados que un destino requiere. Puede establecer encabezados personalizados en los eventos que se entregan a Azure Event Hubs.
+
+Si necesita publicar eventos en una partición concreta de un centro de eventos, establezca la propiedad `ParitionKey` en la suscripción a eventos para especificar la clave de partición que identifica la partición del centro de eventos de destino.
+
+| Nombre de encabezado | Tipo de encabezado |
+| :-- | :-- |
+|`PartitionKey` | estática |
+
+Para obtener más información, vea [Propiedades de entrega personalizadas](delivery-properties.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte el artículo [Controladores de eventos](event-handlers.md) para obtener una lista de controladores de eventos compatibles. 

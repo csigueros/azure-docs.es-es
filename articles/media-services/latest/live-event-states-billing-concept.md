@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: inhenkel
-ms.openlocfilehash: f17c2fcd5793412716c72f02c7cfbe670360fa33
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 961c563a12a3edf4df5c898f0c8ee8f1a5b2daf0
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106123284"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129390128"
 ---
 # <a name="live-event-states-and-billing"></a>Estados y facturación de eventos en directo
 
@@ -29,7 +29,7 @@ En Azure Media Services, un evento en directo comienza la facturación tan pront
 Si **LiveEventEncodingType** en el [evento en directo](/rest/api/media/liveevents) está establecido en Estándar o Premium1080p, Media Services cerrará automáticamente cualquier evento en directo que tenga aún el estado **En ejecución** doce horas después de que se pierda la fuente de entrada y si no hay ninguna **salida en directo** en ejecución. Sin embargo, se le facturará por el tiempo que el evento en directo haya estado en el estado **En ejecución**.
 
 > [!NOTE]
-> Los eventos en directo de tránsito no se cierran automáticamente y se deben detener explícitamente a través de la API para evitar una facturación excesiva.
+> Los eventos en directo de tránsito (básico o estándar) NO se cierran automáticamente y se deben detener explícitamente a través de la API para evitar una facturación excesiva.
 
 ## <a name="states"></a>States
 

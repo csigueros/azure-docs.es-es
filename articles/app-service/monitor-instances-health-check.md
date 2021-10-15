@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/19/2021
 ms.author: msangapu
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: 3efac96949d701bbc0147abf8712d4995f781d47
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 37b876b177b7879c57255619d3f5e7e113a2a284
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122771849"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278074"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>Supervisión de instancias de App Service mediante la comprobación de estado
 
@@ -29,8 +29,8 @@ En este artículo se usa la comprobación de estado en Azure Portal para supervi
 - Además, al escalar vertical u horizontalmente, App Service hace ping en la ruta de acceso de comprobación de estado para asegurarse de que las nuevas instancias están listas.
 
 > [!NOTE]
-> La comprobación de estado no sigue 302 redirecciones. A lo sumo, se reemplaza una instancia por hora, con un máximo de tres instancias al día por plan de App Service.
->
+>- La comprobación de estado no sigue 302 redirecciones. A lo sumo, se reemplaza una instancia por hora, con un máximo de tres instancias al día por plan de App Service.
+>- Tenga en cuenta que si la comprobación de estado muestra el estado `Waiting for health check response`, es probable que se deba a un error en la comprobación debido a un código de estado HTTP 307, lo que puede ocurrir si tiene habilitada la redirección HTTPS pero se ha `HTTPS Only` deshabilitado.
 
 ## <a name="enable-health-check"></a>Habilitación de la comprobación de estado
 

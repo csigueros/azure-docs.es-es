@@ -10,15 +10,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 04/06/2021
+ms.date: 10/01/2021
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b364e74df7e6069407b0bcc3a6cfccd2ead09eae
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 3273285aeee7497c43fc4002b2bdabe0b6ef13de
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110690857"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129390071"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Solución de problemas de Azure RBAC
 
@@ -26,7 +26,7 @@ En este artículo se responden algunas preguntas comunes acerca del control de a
 
 ## <a name="azure-role-assignments-limit"></a>Límite de asignaciones de roles de Azure
 
-Azure admite hasta **2000** asignaciones de roles por suscripción. Este límite incluye las asignaciones de roles en los ámbitos de suscripción, grupo de recursos y recurso. Si aparece el mensaje de error "No se pueden crear más asignaciones de roles (código: RoleAssignmentLimitExceeded)" al intentar asignar un rol, pruebe a reducir el número de asignaciones de roles de la suscripción.
+Azure admite hasta **2000** asignaciones de roles por suscripción. Este límite incluye las asignaciones de roles en los ámbitos de suscripción, grupo de recursos y recurso, pero no en el ámbito de grupo de administración. Si aparece el mensaje de error "No se pueden crear más asignaciones de roles (código: RoleAssignmentLimitExceeded)" al intentar asignar un rol, pruebe a reducir el número de asignaciones de roles de la suscripción.
 
 > [!NOTE]
 > El límite de **2000** asignaciones de roles por suscripción es fijo y no se puede aumentar.
@@ -46,6 +46,13 @@ $scope = "/subscriptions/<subscriptionId>"
 $ras = Get-AzRoleAssignment -Scope $scope | Where-Object {$_.scope.StartsWith($scope)}
 $ras.Count
 ```
+
+## <a name="azure-role-assignments-limit-for-management-groups"></a>Límite de asignaciones de roles de Azure para grupos de administración
+
+Azure admite hasta **500** asignaciones de roles por grupo de administración. Este límite es diferente del límite de asignaciones de roles por suscripción.
+
+> [!NOTE]
+> El límite de **500** asignaciones de roles por grupo de administración es fijo y no se puede aumentar.
 
 ## <a name="problems-with-azure-role-assignments"></a>Problemas con las asignaciones de roles de Azure
 

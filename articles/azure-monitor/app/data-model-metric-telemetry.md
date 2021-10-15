@@ -4,12 +4,12 @@ description: Modelo de datos de Application Insights para la telemetría de mét
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: f8e787b8a94987e7d68e12a0e4e69f4c63e21e19
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: df3ce8715134aa51ee819210cad4caf126f0e492
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87320585"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129229608"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Telemetría de métricas: Modelo de datos de Application Insights
 
@@ -68,4 +68,3 @@ La métrica con la propiedad personalizada `CustomPerfCounter` establecida en `t
 - Obtenga información sobre cómo usar la [API de Application Insights para eventos y métricas personalizados](./api-custom-events-metrics.md#trackmetric).
 - Consulte [modelo de datos](data-model.md) para los tipos y el modelo de datos de Application Insights.
 - Consulte las [plataformas](./platforms.md) compatibles con Application Insights.
-

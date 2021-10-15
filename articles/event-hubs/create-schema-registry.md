@@ -4,14 +4,14 @@ description: En este artículo se muestra cómo crear un registro de esquemas en
 ms.topic: how-to
 ms.date: 06/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: 1155ef818cf6c82d3159c146006b16d811efeac8
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 360f81157f5431a6e6e70a25ef33e707c57cc91a
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110788445"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536614"
 ---
-# <a name="create-an-azure-event-hubs-schema-registry-preview"></a>Creación de un registro de esquemas de Azure Event Hubs (versión preliminar)
+# <a name="create-an-azure-event-hubs-schema-registry--preview"></a>Creación de un registro de esquemas de Azure Event Hubs (versión preliminar)
 En este artículo se muestra cómo crear un grupo de esquemas con esquemas en un registro de esquemas hospedado en Azure Event Hubs. Para obtener información general sobre la característica de Registro de esquemas de Azure Event Hubs, vea [Registro de esquemas de Azure en Event Hubs](schema-registry-overview.md).
 
 > [!NOTE]

@@ -10,13 +10,13 @@ ms.workload: identity
 ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
-ms.date: 07/19/2021
-ms.openlocfilehash: 4a7fdf12ecf123c1fb741dcbd2706f7ca9a1d5c2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/15/2021
+ms.openlocfilehash: ce9de190c5754102b9ac66602818b25e960ae8dd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732447"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128570262"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Supervisión de Azure AD B2C con Azure Monitor
 
@@ -34,6 +34,10 @@ En este artículo, aprenderá a transferir los registros a un área de trabajo d
 
 > [!IMPORTANT]
 > Al planear la transferencia de registros de Azure AD B2C a diferentes soluciones de supervisión, o repositorio, tenga en cuenta lo siguiente. Los registros de Azure AD B2C contienen datos personales. Estos datos se deben procesar de una manera que garantice la seguridad adecuada de los datos personales, incluida la protección frente al procesamiento no autorizado o ilícito, utilizando las medidas técnicas u organizativas adecuadas.
+
+Vea este vídeo para aprender a configurar la supervisión de Azure AD B2C mediante Azure Monitor.  
+
+>[!Video https://www.youtube.com/embed/tF2JS6TGc3g]
 
 ## <a name="deployment-overview"></a>Introducción a la implementación
 
@@ -60,7 +64,8 @@ En resumen, usará Azure Lighthouse para permitir que un usuario o grupo del in
 En primer lugar, cree o elija un grupo de recursos que contenga el área de trabajo de Log Analytics de destino que recibirá los datos de Azure AD B2C. El nombre del grupo de recursos se especificará al implementar la plantilla de Azure Resource Manager.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el **inquilino de Azure AD**.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD en la lista **Nombre de directorio** y, después, seleccione **Cambiar**.
 1. [Cree un grupo de recursos](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) o elija uno existente. En este ejemplo, se usa un grupo de recursos denominado _azure-ad-b2c-monitor_.
 
 ## <a name="2-create-a-log-analytics-workspace"></a>2. Creación de un área de trabajo de Log Analytics
@@ -68,7 +73,8 @@ En primer lugar, cree o elija un grupo de recursos que contenga el área de trab
 Un **área de trabajo de Log Analytics** es un entorno único de datos de registro de Azure Monitor. Esta área de trabajo de Log Analytics se usará para recopilar datos de los [registros de auditoría](view-audit-logs.md) de Azure AD B2C y, a continuación, visualizarlos con consultas y libros o crear alertas.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el **inquilino de Azure AD**.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD en la lista **Nombre de directorio** y, después, seleccione **Cambiar**.
 1. [Crear un área de trabajo de Log Analytics](../azure-monitor/logs/quick-create-workspace.md). En este ejemplo se usa un área de trabajo de Log Analytics denominada _AzureAdB2C_, en un grupo de recursos denominado _azure-ad-b2c-monitor_.
 
 ## <a name="3-delegate-resource-management"></a>3. Administración de recursos delegados
@@ -80,7 +86,8 @@ En este paso, se elige el inquilino de Azure AD B2C como **proveedor de servici
 En primer lugar, obtenga el **identificador de inquilino** del directorio de Azure AD B2C (también conocido como identificador de directorio).
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de **Azure AD B2C**.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Seleccione **Azure Active Directory** y luego **Información general**.
 1. Anote el **Identificador de inquilino**.
 
@@ -101,12 +108,13 @@ Para facilitar la administración, se recomienda usar _grupos_ de usuarios de Az
 Para la creación de la autorización y delegación personalizada en Azure Lighthouse, se usa una plantilla de Azure Resource Manager que concede acceso a Azure AD B2C al grupo de recursos de Azure AD que creó anteriormente (por ejemplo, _azure-ad-b2c-monitor_). Implemente la plantilla desde el ejemplo de GitHub mediante el botón **Deploy to Azure** (Implementar en Azure), que abre Azure Portal y le permite configurar e implementar la plantilla directamente en el portal. Para estos pasos, asegúrese de que ha iniciado sesión en su inquilino de Azure AD (no en el inquilino de Azure AD B2C).
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de **Azure AD**.
-3. Use el botón **Deploy to Azure** (Implementar en Azure) para abrir Azure Portal e implementar la plantilla directamente en el portal. Para más información, consulte [Creación de una plantilla de Azure Resource Manager](../lighthouse/how-to/onboard-customer.md#create-an-azure-resource-manager-template).
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD en la lista **Nombre de directorio** y, después, seleccione **Cambiar**.
+1. Use el botón **Deploy to Azure** (Implementar en Azure) para abrir Azure Portal e implementar la plantilla directamente en el portal. Para más información, consulte [Creación de una plantilla de Azure Resource Manager](../lighthouse/how-to/onboard-customer.md#create-an-azure-resource-manager-template).
 
    [![Implementación en Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure-ad-b2c%2Fsiem%2Fmaster%2Ftemplates%2FrgDelegatedResourceManagement.json)
 
-4. En la página **Implementación personalizada**, especifique la siguiente información:
+1. En la página **Implementación personalizada**, especifique la siguiente información:
 
    | Campo                 | Definición                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
    | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -137,15 +145,10 @@ Después de implementar la plantilla, la proyección de recursos puede tardar un
 Una vez que haya implementado la plantilla y esperado unos minutos a que se complete la proyección de recursos, siga estos pasos para asociar la suscripción al directorio de Azure AD B2C.
 
 1. Cierre la sesión de Azure Portal si está iniciada actualmente (esto permite actualizar las credenciales de la sesión en el paso siguiente).
-2. Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de administrador de **Azure AD B2C**. Esta cuenta debe ser miembro del grupo de seguridad que especificó en el paso [Administración de recursos delegados](#3-delegate-resource-management).
-3. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal.
-4. Seleccione el directorio de Azure AD que contiene la suscripción de Azure y el grupo de recursos _azure-ad-b2c-monitor_ que creó.
-
-   ![Cambiar de directorio](./media/azure-monitor/azure-monitor-portal-03-select-subscription.png)
-
-5. Verifique haber seleccionado el directorio y la suscripción correctos. En este ejemplo, todos los directorios y suscripciones están seleccionados.
-
-   ![Todos los directorios seleccionados en el filtro Directorio y suscripción](./media/azure-monitor/azure-monitor-portal-04-subscriptions-selected.png)
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de administrador de **Azure AD B2C**. Esta cuenta debe ser miembro del grupo de seguridad que especificó en el paso [Administración de recursos delegados](#3-delegate-resource-management).
+1. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones** de la lista **Nombre de directorio**, busque el directorio de Azure AD que contiene la suscripción de Azure y el grupo de recursos _azure-ad-b2c-monitor_ que ha creado y, después, seleccione **Cambiar**.
+1. Verifique haber seleccionado el directorio y la suscripción correctos.
 
 ## <a name="5-configure-diagnostic-settings"></a>5. Configuración de valores de diagnóstico
 
@@ -164,7 +167,8 @@ Ya está listo para [crear configuraciones de diagnóstico](../active-directory/
 Para establecer la configuración de supervisión de los registros de actividad de Azure AD B2C:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con su cuenta de administrador de Azure AD B2C. Esta cuenta debe ser miembro del grupo de seguridad que especificó en el paso [Selección de un grupo de seguridad](#32-select-a-security-group).
-1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
 1. Seleccione **Azure Active Directory**.
 1. En **Supervisión**, seleccione **Configuración de diagnóstico**.
 1. Si hay una configuración para el recurso, verá una lista de opciones ya configuradas. Puede seleccionar **Agregar configuración de diagnóstico** para agregar una nueva configuración o **Editar** para modificar una existente. Cada configuración no puede tener más de uno de los tipos de destino.

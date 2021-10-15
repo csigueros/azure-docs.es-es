@@ -4,15 +4,15 @@ description: Aprenda a implementar un grupo de discos de Azure.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 09/29/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f0f648f7f8c04aeb6ed97a0c58fa157e743da5f1
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 72a25b6bc51732ac9b598cbcb6b45f9ac84fc21b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114436976"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351053"
 ---
 # <a name="deploy-an-azure-disk-pool-preview"></a>Implementación de un grupo de discos de Azure (versión preliminar)
 
@@ -35,7 +35,7 @@ Para implementar correctamente un grupo de discos, debe tener:
 
 Si va a usar el módulo de Azure PowerShell, instale la [versión 6.1.0 u otra más reciente](/powershell/module/az.diskpool/?view=azps-6.1.0&preserve-view=true).
 
-Si va a usar la CLI de Azure, [instale la versión más reciente](/cli/azure/disk-pool?view=azure-cli-latest).
+Si va a usar la CLI de Azure, [instale la versión más reciente](/cli/azure/disk-pool).
 
 ## <a name="register-your-subscription-for-the-preview"></a>Registro de la suscripción para la versión preliminar
 
@@ -71,7 +71,7 @@ Para que un disco pueda usarse en un grupo de discos, debe cumplir los siguiente
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 1. Busque y seleccione el grupo de recursos que contiene los discos o cada disco.
 1. Seleccione **Access Control (IAM)** .
-1. En la página **Agregar asignación de roles (versión preliminar)** , seleccione **Colaborador de la máquina virtual** en la lista de roles.
+1. Seleccione **Agregar asignación de roles (versión preliminar)** y luego **Operador de grupo de discos** en la lista de roles.
 
     Si lo prefiere, puede crear su propio rol personalizado. Un rol personalizado para los grupos de discos debe tener los siguientes permisos de RBAC para que funcione: **Microsoft.Compute/disks/write** y **Microsoft.Compute/disks/read**.
 

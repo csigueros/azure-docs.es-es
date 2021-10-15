@@ -3,12 +3,12 @@ title: 'Funciones de Bicep: any'
 description: Describe la función any que está disponible en Bicep para convertir tipos.
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: 00d99a9329f48b089563b4366ae9683ce2874901
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 2826f6180bc8ba4c476fd067a19db25b52f5d65b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124827584"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353708"
 ---
 # <a name="any-function-for-bicep"></a>Función any para Bicep
 
@@ -24,6 +24,8 @@ Esta función no existe en el entorno en tiempo de ejecución de las plantillas 
 `any(value)`
 
 Devuelve un valor que es compatible con cualquier tipo de datos.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 

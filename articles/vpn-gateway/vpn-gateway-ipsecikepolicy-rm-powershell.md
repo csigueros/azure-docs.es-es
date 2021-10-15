@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6bbea74f635375785f325f48a2babb01af7c8228
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f990fb196311945642e918e9b38ec1a32a15fcc6
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114463197"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129270474"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurar una directiva de IPsec o IKE para conexiones VPN de sitio a sitio o de red virtual a red virtual
 
@@ -35,7 +35,7 @@ En este artículo se proporcionan instrucciones para crear y configurar una dire
 
 > [!IMPORTANT]
 > 1. Tenga en cuenta que la directiva de IPsec/IKE solo funciona en las SKU de puerta de enlace siguiente:
->    * ***VpnGw1, VpnGw2, VpnGw3*** (basadas en enrutamiento)
+>    * ***VpnGw1~5 y VpnGw1AZ~5AZ*** (basadas en rutas)
 >    * ***Standard** _ y _ *_HighPerformance_** (basadas en rutas)
 > 2. Solo se puede especificar ***una*** combinación de directivas para una conexión dada.
 > 3. Es preciso especificar todos los algoritmos y parámetros de IKE (modo principal) e IPsec (modo rápido). No se permite la especificación de una directiva parcial.

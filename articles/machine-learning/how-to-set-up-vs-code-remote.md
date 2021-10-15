@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 07/15/2021
-ms.openlocfilehash: b3e30a4914ac52c9d9661d3b6d6e07f54f0afdc6
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: b7f3ce1bdb295dfd4bd14b28b45bccf470e377b3
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114230421"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129423545"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Conexión a una instancia de proceso de Azure Machine Learning en Visual Studio Code (versión preliminar)
 

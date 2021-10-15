@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 0931d5668835229be858a8725fd1a2d90c81081d
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: eaa4eafa283ad46ae977d9449dcf9f9273bef38c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113432957"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128669120"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Consideraciones de red para una instancia de App Service Environment #
 
@@ -49,7 +49,7 @@ El tamaño de la subred que se utiliza para hospedar una instancia de ASE no se 
    > [!NOTE]
    > Puede no haber nada más en la subred excepto el ASE. Asegúrese de elegir un espacio de direcciones que pueda crecer en el futuro. No puede cambiar esta configuración posteriormente. Se recomienda un tamaño de `/24` con doscientas cincuenta y seis direcciones.
 
-Al escalar o reducir verticalmente, se agregan nuevos roles del tamaño adecuado y, a continuación, las cargas de trabajo se migran del tamaño actual al tamaño de destino. Las máquinas virtuales originales se quitan solo después de que se hayan migrado las cargas de trabajo. Si tuviera un ASE con 100 instancias ASP, habría un período en el que se necesitaría el doble del número de máquinas virtuales.  Es por esta razón que se recomienda el uso de un "/24" para acomodar cualquier cambio que pueda necesitar.  
+Al escalar o reducir verticalmente, se agregan nuevos roles del tamaño adecuado y, a continuación, las cargas de trabajo se migran del tamaño actual al tamaño de destino. Las máquinas virtuales originales no se quitan hasta que las cargas de trabajo se hayan migrado. Si tuviera un ASE con 100 instancias ASP, habría un período en el que se necesitaría el doble del número de máquinas virtuales.  Es por esta razón que se recomienda el uso de un "/24" para acomodar cualquier cambio que pueda necesitar.  
 
 ## <a name="ase-dependencies"></a>Dependencias de ASE ##
 

@@ -4,13 +4,13 @@ description: En este artículo se indica cómo usar Update Management para admin
 services: automation
 ms.subservice: update-management
 ms.topic: conceptual
-ms.date: 01/27/2021
-ms.openlocfilehash: c86c9049bc0afc81f5dfd8553d2aa98cfd4b1a46
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/25/2021
+ms.openlocfilehash: 932f5d93c5fa67de486ddb9cabaafd68384f0db8
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98915989"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357481"
 ---
 # <a name="manage-updates-and-patches-for-your-vms"></a>Administración de actualizaciones y revisiones para las máquinas virtuales
 
@@ -49,6 +49,22 @@ Revise [Supervisión de las actualizaciones de software](view-update-assessments
 Después de revisar los resultados de cumplimiento, la fase de implementación de las actualizaciones de software es el proceso de implementación de las actualizaciones de software. Para instalar actualizaciones, programe una implementación que esté en consonancia con su ventana de programación y servicio de versiones. Puede elegir los tipos de actualizaciones que quiere incluir en la implementación. Por ejemplo, puede incluir actualizaciones de seguridad o críticas y excluir paquetes acumulativos de actualizaciones.
 
 Revise [implementación de actualizaciones de software](deploy-updates.md) para aprender a programar una implementación de actualizaciones.
+
+## <a name="exclude-updates"></a>Excluir actualizaciones
+
+En algunas variantes de Linux, como Red Hat Enterprise Linux, las actualizaciones de nivel de sistema operativo pueden producirse mediante paquetes. Esto puede llevar a ejecuciones de Update Management en las que cambia el número de versión del sistema operativo. Como Update Management usa los mismos métodos para actualizar paquetes que un administrador utiliza localmente en la máquina Linux, este comportamiento es deliberado.
+
+Para evitar la actualización de la versión del sistema operativo con las implementaciones de Update Management, use la característica **Exclusión**.
+
+En Red Hat Enterprise Linux, el nombre del paquete para excluir es `redhat-release-server.x86_64`.
+
+## <a name="linux-update-classifications"></a>Clasificaciones de actualizaciones de Linux
+
+Al implementar actualizaciones en una máquina Linux, puede seleccionar clasificaciones de actualizaciones. Esta opción filtra las actualizaciones que cumplen los criterios especificados. Este filtro se aplica localmente en el equipo cuando se implementa la actualización.
+
+Dado que Update Management realiza el enriquecimiento de actualizaciones en la nube, puede marcar algunas actualizaciones en Update Management como de impacto para la seguridad, aunque la máquina local no tenga esa información. Si aplica actualizaciones críticas a una máquina Linux, puede haber actualizaciones que no estén marcadas como de impacto para la seguridad en esa máquina y que, por lo tanto, no se apliquen. Sin embargo, es posible que Update Management todavía notifique que esa máquina no es compatible porque tiene información adicional acerca de la actualización pertinente.
+
+La implementación de actualizaciones mediante la clasificación de actualizaciones no funciona en las versiones RTM de CentOS. Para implementar correctamente actualizaciones para CentOS, seleccione todas las clasificaciones para asegurarse de que se aplican las actualizaciones. Para SUSE, al seleccionar SOLO **Otras actualizaciones** como clasificación, puede que se instalen algunas actualizaciones de seguridad si están relacionadas con Zypper (administrador de paquetes) o se requieren sus dependencias en primer lugar. Este comportamiento es una limitación de zypper. En algunos casos, puede que se le pida volver a ejecutar la implementación de actualizaciones y, a continuación, comprobar la implementación a través del registro de actualizaciones.
 
 ## <a name="review-update-deployments"></a>Visualización de las implementaciones de actualizaciones
 

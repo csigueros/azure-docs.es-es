@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 09/29/2021
 ms.author: b-juche
-ms.openlocfilehash: 5b1c1a5216b7a1ad5b23167e776f2b0bbb0a578f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4f1f766fbec4c9e09d1ebd5e982254cdcbd85403
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104591000"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273332"
 ---
 # <a name="manage-disaster-recovery-using-cross-region-replication"></a>Administración de la recuperación ante desastres mediante la replicación entre regiones 
 
@@ -59,7 +59,12 @@ Cuando necesite activar el volumen de destino (por ejemplo, si desea conmutar po
 Después de la recuperación ante desastres, puede reactivar el volumen de origen mediante una operación de resincronización.  La operación de resincronización invierte el proceso de replicación y sincroniza los datos del volumen de destino con el volumen de origen.  
 
 > [!IMPORTANT] 
-> La operación de resincronización sobrescribe los datos del volumen de origen con los datos del volumen de destino.  La interfaz de usuario le advierte sobre la potencial pérdida de datos. Se le pedirá que confirme la acción de resincronización antes de iniciar la operación.
+> La operación de resincronización sincroniza los volúmenes de origen y destino mediante la actualización incremental del volumen de origen con las más recientes actualizaciones del volumen de destino, en función de las últimas instantáneas comunes disponibles. Esta operación evita la necesidad de sincronizar todo el volumen en la mayoría de los casos, porque los cambios realizados en el volumen de destino *después* de la instantánea común más reciente serán lo único que tendrá que replicarse en el volumen de origen.  
+> 
+> La operación de resincronización sobrescribe los datos más recientes (que la instantánea más común) del volumen de origen con los datos actualizados del volumen de destino. La interfaz de usuario le advierte sobre la potencial pérdida de datos. Se le pedirá que confirme la acción de resincronización antes de iniciar la operación.  
+> 
+> En caso de que el volumen de origen no haya sobrevivido al desastre y, por tanto, no existan instantáneas comunes, todos los datos del destino se volverán a sincronizar con un volumen de origen recién creado.
+
 
 1. Para resincronizar la replicación, seleccione el volumen de *origen*. Haga clic en **Replicación** en el servicio de almacenamiento. A continuación, haga clic en **Resincronizar**.  
 

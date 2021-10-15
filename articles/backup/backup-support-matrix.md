@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones de compatibilidad y limitaciones
 ms.topic: conceptual
 ms.date: 09/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7448b8c5fa4882f9579b60d7d723d88e98ca7683
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: eee136952f2830e8d204a2d5346c97101be2a7da
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128658628"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363422"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de compatibilidad para Azure Backup
 
@@ -160,7 +160,7 @@ Azure Backup ha agregado la característica Restauración entre regiones para re
 
 La comprobación del estado de los recursos funciona en las condiciones siguientes:
 
-|     |     |
+| Comprobación-del-estado-de-recursos    | Detalles    |
 | --- | --- |
 | **Recursos compatibles** | Almacén de Recovery Services |
 | **Regiones admitidas** | Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro y sur de EE. UU., Centro y norte de EE. UU., Centro-oeste de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Oeste de EE. UU. 3, Este de Canadá, Centro de Canadá, Norte de Europa, Oeste de Europa, Oeste de Reino Unido, Sur de Reino Unido, Centro de Francia, Sur de Francia, Centro de Suecia, Sur de Suecia, Asia Pacífico, Sudeste de Asia, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Este de Australia, Centro de Australia, Centro de Australia 2, Sudeste de Australia, Norte de Sudáfrica, Oeste de Sudáfrica, Norte de Emiratos Árabes, Centro de Emiratos Árabes Unidos, Sudeste de Brasil, Sur de Brasil, Norte de Suiza, Oeste de Suiza, Este de Noruega, Oeste de Noruega, Norte de Alemania, Centro-oeste de Alemania, India occidental, Centro de la India, India meridional, JIO de India occidental, JIO de India Central. |

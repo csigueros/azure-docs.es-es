@@ -8,14 +8,14 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/14/2021
-ms.openlocfilehash: fa900b7df1db1efbc8fe28a96cd2048113d7390d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c140c8495b1179298d6ca0029f430896aab55f7f
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128550381"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129360845"
 ---
-# <a name="create-and-manage-integration-accounts-for-b2b-workflows-in-azure-logic-apps-using-the-enterprise-integration-pack"></a>Creación y administración de cuentas de integración para flujos de trabajo B2B en Azure Logic Apps con Enterprise Integration Pack
+# <a name="create-and-manage-integration-accounts-for-b2b-workflows-in-azure-logic-apps-with-the-enterprise-integration-pack"></a>Creación y administración de cuentas de integración para flujos de trabajo B2B en Azure Logic Apps con Enterprise Integration Pack
 
 Para poder crear flujos de trabajo de integración de negocio a negocio (B2B) y de empresa mediante Azure Logic Apps, debe crear un recurso de *cuenta de integración*. Esta cuenta es un contenedor escalable basado en la nube en Azure que simplifica la forma de almacenar y administrar artefactos B2B que se definen y usan en los flujos de trabajo de escenarios B2B. Tales artefactos incluyen [entidades](logic-apps-enterprise-integration-partners.md), [contratos](logic-apps-enterprise-integration-agreements.md), [mapas](logic-apps-enterprise-integration-maps.md), [esquemas](logic-apps-enterprise-integration-schemas.md), [certificados](logic-apps-enterprise-integration-certificates.md), etc. También debe tener una cuenta de integración para intercambiar electrónicamente mensajes B2B con otras organizaciones. Cuando otras organizaciones usen protocolos y formatos de mensaje diferentes de los que usa su organización, debe convertir estos formatos para que el sistema de su organización pueda procesar esos mensajes. Entre los protocolos estándar del sector admitidos están [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), [EDIFACT](logic-apps-enterprise-integration-edifact.md) y [RosettaNet](logic-apps-enterprise-integration-rosettanet.md).
 

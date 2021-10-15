@@ -1,19 +1,20 @@
 ---
-title: 'Niveles de rendimiento del almacenamiento de blobs en bloques: Azure Storage'
+title: Niveles de rendimiento del almacenamiento de blobs en bloques
+titleSuffix: Azure Storage
 description: Describe las diferencias entre los niveles de rendimiento Premium y Estándar para el almacenamiento de blobs en bloques de Azure.
 author: normesta
 ms.author: normesta
-ms.date: 05/17/2021
+ms.date: 09/23/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 222a0f3c327c476ef372117ff0734b6739faf9db
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1e0ac8784a8a4e5077d600b2582bc7ce3e7d981b
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128588701"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129279191"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>Niveles de rendimiento para el almacenamiento de blobs en bloques
 
@@ -53,7 +54,7 @@ El almacenamiento de rendimiento Premium es perfecto para cargas de trabajo que 
 
 ## <a name="standard-performance"></a>Rendimiento Estándar
 
-El rendimiento Estándar admite distintos [niveles de acceso](storage-blob-storage-tiers.md) para almacenar los datos de la manera más rentable. Está optimizado para una alta capacidad y un alto rendimiento en grandes conjuntos de datos.
+El rendimiento Estándar admite distintos [niveles de acceso](access-tiers-overview.md) para almacenar los datos de la manera más rentable. Está optimizado para una alta capacidad y un alto rendimiento en grandes conjuntos de datos.
 
 - **Conjuntos de datos de copia de seguridad y recuperación ante desastres**. El almacenamiento de rendimiento estándar ofrece niveles de servicio rentables, por lo que es un caso de uso perfecto para los conjuntos de datos de recuperación ante desastres a corto y largo plazo, las copias de seguridad secundarias y el archivado de datos de cumplimiento.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ac4a35b5a73cb87e3e7962729fdccd89c5f82c57
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2d7b5505092e2dfe32624545128be4ce4dbb3459
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121729851"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278944"
 ---
 # <a name="symmetric-key-attestation"></a>Atestación de clave simétrica
 
@@ -58,7 +58,7 @@ Cuando un dispositivo se atesta con una inscripción individual, el dispositivo 
 
 Para ver ejemplos de código que crea un token de SAS, consulte [Tokens de seguridad](../iot-hub/iot-hub-dev-guide-sas.md#security-token-structure).
 
-La creación de tokens de seguridad para la atestación de clave simétrica es compatible con el SDK de Azure IoT para C. Para obtener un ejemplo del uso del SDK de Azure IoT para C para realizar la atestación con una inscripción individual, consulte [Aprovisionamiento de un dispositivo simulado con claves simétricas](quick-create-simulated-device-symm-key.md).
+La creación de tokens de seguridad para la atestación de clave simétrica es compatible con el SDK de Azure IoT para C. Para ver un ejemplo del uso del SDK de Azure IoT para C para realizar la atestación con una inscripción individual, consulte [Aprovisionamiento de un dispositivo con claves simétricas](quick-create-simulated-device-symm-key.md).
 
 
 ## <a name="group-enrollments"></a>Inscripciones de grupo
@@ -182,6 +182,6 @@ Si las claves de dispositivo no se instalan en la fábrica, se debe utilizar un 
 
 Ahora que tiene un conocimiento de la atestación de clave simétrica, consulte los artículos siguientes para aprender más sobre el tema:
 
-* [Guía de inicio rápido: Aprovisionamiento de un dispositivo simulado con claves simétricas](quick-create-simulated-device-symm-key.md)
+* [Inicio rápido: Aprovisionamiento de un dispositivo simulado con clave simétrica](quick-create-simulated-device-symm-key.md)
 * [Conceptos sobre el aprovisionamiento](about-iot-dps.md#provisioning-process)
 * [Introducción al uso del aprovisionamiento automático](./quick-setup-auto-provision.md) 

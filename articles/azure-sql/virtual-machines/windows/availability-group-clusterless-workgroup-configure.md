@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 2daf927ff9e0a99845ec6fb0283b550856ebfc47
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 86714655c05968a32e16c83b714705929baf1ca7
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572405"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233680"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Configuración de un grupo de disponibilidad de grupo de trabajo 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -74,7 +74,7 @@ Para configurar el sufijo DNS, siga estos pasos:
 
 ## <a name="edit-a-host-file"></a>Edición de un archivo host
 
-Puesto que no hay ninguna instancia de Active Directory, no hay forma de autenticar las conexiones de Windows. Por tanto, para asignar la confianza, edite el archivo host con un editor de texto. 
+Al no haber ninguna instancia de Active Directory, no hay forma de autenticar las conexiones de Windows. Por tanto, para asignar la confianza, edite el archivo host con un editor de texto. 
 
 Para editar el archivo host, siga estos pasos:
 

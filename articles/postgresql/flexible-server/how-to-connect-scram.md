@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 06/23/2021
-ms.openlocfilehash: 7fc67ab7162c7fe62df226fd39aefcd350bbdf82
-ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
+ms.date: 10/01/2021
+ms.openlocfilehash: ad7cbfc7c06a86cca79930c9745160cc9af4697f
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112897289"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388876"
 ---
 # <a name="scram-authentication-in-azure-database-for-postgresql---flexible-server"></a>Autenticación de SCRAM en Azure Database for PostgreSQL: Servidor flexible
 
@@ -84,6 +84,9 @@ Para acceder al servidor de bases de datos PostgreSQL mediante el método de aut
     ```
 
 8. Después, puede conectarse al servidor desde el cliente que admite la autenticación SCRAM.
+
+> [!Note] 
+> No se admite la autenticación SCRAM cuando se conecta a la instancia de [PgBouncer](concepts-pgbouncer.md) administrada integrada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Creación y administración de redes virtuales en Servidor flexible de Azure Database for PostgreSQL mediante la CLI de Azure](./how-to-manage-virtual-network-cli.md).

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 08/24/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0c1871921160b0b5862e7655a3826949406ac111
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: 9774eef558b02bef4ef9ec9ecacd6e5a132fd244
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122777806"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128570317"
 ---
 # <a name="set-up-a-sign-up-and-sign-in-flow-in-azure-active-directory-b2c"></a>Configuración de un flujo de registro e inicio de sesión en Azure Active Directory B2C
 
@@ -34,6 +34,10 @@ La directiva de registro e inicio de sesión permite a los usuarios:
 * Restablecimiento de contraseña
 
 ![Flujo de edición de perfiles](./media/add-sign-up-and-sign-in-policy/add-sign-up-and-sign-in-flow.png)
+
+Vea este vídeo para obtener información sobre el funcionamiento de la directiva de registro e inicio de sesión del usuario. 
+
+>[!Video https://www.youtube.com/embed/c8rN1ZaR7wk]
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

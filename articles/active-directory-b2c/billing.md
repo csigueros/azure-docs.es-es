@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 08/26/2021
+ms.date: 09/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7b0b5a35a85a8b0564112d62401c722e65505f2e
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: be29232e78ff3cbfa2aec9f880e42774ad0b2376
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123186234"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128570094"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modelo de facturación para Azure Active Directory B2C
 
@@ -69,14 +69,15 @@ Se puede usar una suscripción vinculada a un inquilino de Azure AD B2C para la 
 ### <a name="create-the-link"></a>Crear el vínculo
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene la suscripción de Azure que quiere usar (*no* el directorio que contiene el inquilino de Azure AD B2C).
-3. Seleccione **Crear un recurso**, escriba `Active Directory B2C` en el campo **Buscar en Marketplace** y, a continuación, seleccione **Azure Active Directory B2C**.
-4. Seleccione **Crear**.
-5. Seleccione **Vincular un inquilino de Azure AD B2C existente a mi suscripción de Azure**.
-6. Seleccione **Inquilino de Azure AD B2C** en la lista desplegable. Solo se muestran los inquilinos para los que es administrador global y que aún no están vinculados a una suscripción. El campo **Nombre del recurso de Azure AD B2C** se rellena con el nombre de dominio del inquilino de Azure AD B2C que seleccione.
-7. Seleccione una **Suscripción** activa de Azure de la que sea administrador.
-8. En **Grupo de recursos**, seleccione **Crear nuevo** y, luego, especifique la **Ubicación del grupo de recursos**. Aquí la configuración del grupo de recursos no tiene ningún efecto en la ubicación, el rendimiento o el estado de facturación del inquilino de Azure AD B2C.
-9. Seleccione **Crear**.
+1. Asegúrese de que usa el directorio que tiene la suscripción de Azure AD, no el que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD en la lista **Nombre de directorio** y, después, seleccione **Cambiar**.
+1. Seleccione **Crear un recurso**, escriba `Active Directory B2C` en el campo **Buscar en Marketplace** y, a continuación, seleccione **Azure Active Directory B2C**.
+1. Seleccione **Crear**.
+1. Seleccione **Vincular un inquilino de Azure AD B2C existente a mi suscripción de Azure**.
+1. Seleccione **Inquilino de Azure AD B2C** en la lista desplegable. Solo se muestran los inquilinos para los que es administrador global y que aún no están vinculados a una suscripción. El campo **Nombre del recurso de Azure AD B2C** se rellena con el nombre de dominio del inquilino de Azure AD B2C que seleccione.
+1. Seleccione una **Suscripción** activa de Azure de la que sea administrador.
+1. En **Grupo de recursos**, seleccione **Crear nuevo** y, luego, especifique la **Ubicación del grupo de recursos**. Aquí la configuración del grupo de recursos no tiene ningún efecto en la ubicación, el rendimiento o el estado de facturación del inquilino de Azure AD B2C.
+1. Seleccione **Crear**.
 
     ![Página de creación de recursos de Azure AD B2C en Azure Portal](./media/billing/portal-01-create-b2c-resource-page.png)
 
@@ -90,15 +91,17 @@ Para cambiar el plan de tarifa, siga estos pasos.
 
 1. Inicie sesión en Azure Portal.
 
-2. Seleccione el filtro **Directorio + suscripción** en el menú superior y, luego, el directorio que contiene la suscripción de Azure a la que está vinculado el inquilino de Azure B2C (*no* seleccione el propio inquilino de Azure AD B2C).
+1. Para seleccionar el directorio que contiene la suscripción de Azure a la que está vinculado el inquilino de Azure B2C, no el propio inquilino de Azure AD B2C, seleccione el icono **Directories + subscriptions** (Directorios y suscripciones) de la barra de herramientas del portal.
 
-3. En el cuadro de búsqueda de la parte superior del portal, escriba el nombre del inquilino de Azure AD B2C. A continuación, seleccione el inquilino en los resultados de la búsqueda en **Recursos**.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD en la lista **Nombre de directorio** y, después, seleccione **Cambiar**.
 
-4. En la página **Información general** del recurso, en **Plan de tarifa**, seleccione **cambiar**.
+1. En el cuadro de búsqueda de la parte superior del portal, escriba el nombre del inquilino de Azure AD B2C. A continuación, seleccione el inquilino en los resultados de la búsqueda en **Recursos**.
+
+1. En la página **Información general** del recurso, en **Plan de tarifa**, seleccione **cambiar**.
 
    ![Cambiar el plan de tarifa](media/billing/change-pricing-tier.png)
  
-5. Seleccione el plan de tarifa que incluya las características que quiera habilitar.
+1. Seleccione el plan de tarifa que incluya las características que quiera habilitar.
 
    ![Selección del plan de tarifa](media/billing/select-tier.png)
 
@@ -111,22 +114,18 @@ Este cambio al modo de facturación de usuarios activos mensuales (MAU) es **irr
 A continuación, se muestra cómo hacer el cambio a la facturación MAU para un recurso de Azure AD B2C existente:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como propietario de la suscripción con acceso administrativo para el recurso de Azure AD B2C.
-
-2. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, seleccione el directorio de Azure AD B2C que quiere actualizar a la facturación MAU.<br/>
-
-    ![Filtro de directorio y suscripción en Azure Portal](./media/billing/portal-mau-01-select-b2c-directory.png)
-
-3. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
-
-4. En la página **Información general** del inquilino de Azure AD B2C, seleccione el vínculo en **Nombre de recurso**. Se le dirigirá al recurso de Azure AD B2C en el inquilino de Azure AD.<br/>
+1. Para seleccionar el directorio de Azure AD B2C que quiere actualizar a la facturación MAU, seleccione el icono **Directories + subscriptions** (Directorios y suscripciones) en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. En el menú de la izquierda, seleccione **Azure AD B2C**. O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C**.
+1. En la página **Información general** del inquilino de Azure AD B2C, seleccione el vínculo en **Nombre de recurso**. Se le dirigirá al recurso de Azure AD B2C en el inquilino de Azure AD.<br/>
 
     ![Vínculo de recurso de Azure AD B2C resaltado en Azure Portal](./media/billing/portal-mau-02-b2c-resource-link.png)
 
-5. En la página **Información general** del recurso de Azure AD B2C, en **Unidades facturables**, seleccione el vínculo **Per Authentication (Change to MAU)** (Por autenticación [cambiar a MAU]).<br/>
+1. En la página **Información general** del recurso de Azure AD B2C, en **Unidades facturables**, seleccione el vínculo **Per Authentication (Change to MAU)** (Por autenticación [cambiar a MAU]).<br/>
 
     ![Vínculo para cambiar a MAU resaltado en Azure Portal](./media/billing/portal-mau-03-change-to-mau-link.png)
 
-6. Seleccione **Confirmar** para completar la actualización a la facturación MAU.<br/>
+1. Seleccione **Confirmar** para completar la actualización a la facturación MAU.<br/>
 
     ![Cuadro de diálogo de confirmación de facturación basada en MAU en Azure Portal](./media/billing/portal-mau-04-confirm-change-to-mau.png)
 

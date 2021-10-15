@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/03/2021
 ms.author: qpetraroia
 author: qpetraroia
-ms.openlocfilehash: 1c0a7768c0f5e30d9d5ab3b0fa32b0eb6f4946c3
-ms.sourcegitcommit: d137460f55a38a0e8f8b9e6594e480d5e5f662ed
+ms.openlocfilehash: 24c81290bce53e1399379103ac3d17ea735222a4
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112428409"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235295"
 ---
 # <a name="use-planned-maintenance-to-schedule-maintenance-windows-for-your-azure-kubernetes-service-aks-cluster-preview"></a>Uso del mantenimiento planeado a fin de programar ventanas de mantenimiento para el clúster de Azure Kubernetes Service (AKS) (versión preliminar)
 

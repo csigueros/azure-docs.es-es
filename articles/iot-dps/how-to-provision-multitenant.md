@@ -7,16 +7,16 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 0b88923ff6447785a4ef5a7c80e1ff44d1a2b9cb
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: e1c8734b6adcf478216aa8d5d123e95e369d5b58
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777390"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274735"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Cómo aprovisionar para el multiinquilinato 
 
-En este artículo se muestra cómo aprovisionar de forma segura varios dispositivos de claves simétricas para un grupo de centros de IoT mediante una [directiva de asignación](concepts-service.md#allocation-policy). Las directivas de asignación definidas por el servicio de aprovisionamiento admiten una gran variedad de escenarios de asignación. Dos escenarios comunes son:
+En este artículo se muestra cómo aprovisionar de forma segura varios dispositivos de claves simétricas simuladas para un grupo de centros de IoT mediante una [directiva de asignación](concepts-service.md#allocation-policy). Las directivas de asignación definidas por el servicio de aprovisionamiento admiten una gran variedad de escenarios de asignación. Dos escenarios comunes son:
 
 * **Geolocalización o geolatencia**: puesto que un dispositivo se mueve entre ubicaciones, la latencia de red se mejora mediante su aprovisionamiento en el centro de IoT más cercano a cada ubicación. En este escenario, se selecciona un grupo de centros de IoT, que abarcan varias regiones, para las inscripciones. La directiva de asignación **Latencia más baja** está seleccionada para estas inscripciones. Esta directiva hace que Device Provisioning Service evalúe la latencia del dispositivo y determine el centro de IoT más cercano del grupo de centros de IOT. 
 
@@ -298,9 +298,9 @@ En esta sección, actualizará un ejemplo de aprovisionamiento en el SDK de C pa
 
 El código de ejemplo simula una secuencia de arranque de dispositivo que envía la solicitud de aprovisionamiento a la instancia de Device Provisioning Service. La secuencia de arranque hará que se reconozca y se asigne el dispositivo al centro de IoT más cercano según la latencia.
 
-1. En Azure Portal, seleccione la pestaña **Información general** para su servicio Device Provisioning y anote el valor de **_Ámbito de id_**.
+1. En Azure Portal, seleccione la pestaña **Información general** para la instancia de Device Provisioning Service y anote el valor de **_Ámbito de id_**.
 
-    ![Extracción de información del punto de conexión del servicio Device Provisioning desde la hoja del portal](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
+    ![Extracción de información del punto de conexión del servicio Device Provisioning desde la hoja del portal](./media/quick-create-simulated-device-x509/copy-id-scope.png) 
 
 1. Abra **~/azure-iot-sdk-c/provisioning\_client/samples/prov\_dev\_client\_sample/prov\_dev\_client\_sample.c** para editar en ambas máquinas virtuales.
 

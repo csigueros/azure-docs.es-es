@@ -1,14 +1,14 @@
 ---
 title: Creación de autorizaciones aptas
 description: Al incorporar clientes a Azure Lighthouse, puede permitir que los usuarios del inquilino de administración adopten un rol superior cuando sea necesario.
-ms.date: 08/26/2021
+ms.date: 09/08/2021
 ms.topic: how-to
-ms.openlocfilehash: 1754a7d43f184e340badb7adb29de8caa3901372
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: b36c3a91c780c2d374ceafe14a671aaa135a2d3c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123038691"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777837"
 ---
 # <a name="create-eligible-authorizations"></a>Creación de autorizaciones aptas
 
@@ -58,11 +58,11 @@ No puede usar autorizaciones aptas con entidades de servicio, ya que actualmente
 > [!NOTE]
 > Para cada autorización apta, asegúrese de crear también una autorización permanente (activa) para el mismo id. de entidad de seguridad con un rol diferente, como Lector (u otro rol integrado de Azure que incluya acceso de lectura). Si no incluye una autorización permanente con acceso de lectura, el usuario no podrá elevar su rol en Azure Portal.
 
-### <a name="role"></a>Role
+### <a name="role"></a>Rol
 
 Cada autorización apta debe incluir un [rol integrado de Azure](../../role-based-access-control/built-in-roles.md) que el usuario podrá usar cuando sea necesario.
 
-El rol puede ser cualquier rol integrado de Azure que sea compatible con la administración de recursos delegados de Azure, excepto el de administrador de acceso de los usuarios.
+El rol puede ser cualquier rol integrado de Azure que sea [compatible con la administración de recursos delegados de Azure](../concepts/tenants-users-roles.md#role-support-for-azure-lighthouse), excepto el de administrador de acceso de los usuarios.
 
 > [!IMPORTANT]
 > Si incluye varias autorizaciones aptas que usan el mismo rol, cada una de las autorizaciones aptas debe tener la misma configuración de directiva de acceso.

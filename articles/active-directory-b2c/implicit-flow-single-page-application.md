@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7c3197a8eb9f6734cdd04d609ea0f59465ffa86d
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 31dd0096140544db9c1265999b8c0c709def9cda
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110535517"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350060"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Inicio de sesión de página única mediante el flujo implícito de OAuth 2.0 con Azure Active Directory B2C
 
-Muchas aplicaciones modernas tienen un front-end de aplicación de página única escrito principalmente en JavaScript. A menudo, la aplicación se escribe con una plataforma como React, Angular o Vue.js. Las aplicaciones de una sola página y otras aplicaciones JavaScript que se ejecutan principalmente en un explorador tienen algunos retos adicionales para la autenticación:
+Muchas aplicaciones modernas tienen un front-end de aplicación de página única (SPA) escrito principalmente en JavaScript. A menudo, la aplicación se escribe con una plataforma como React, Angular o Vue.js. Las aplicaciones de página única y otras aplicaciones JavaScript que se ejecutan principalmente en un explorador tienen algunos retos adicionales para la autenticación:
 
 - Las características de seguridad de estas aplicaciones son diferentes de las de las aplicaciones web tradicionales basadas en el servidor.
 - Muchos proveedores de identidades y servidores de autorización no admiten solicitudes de uso compartido de recursos entre orígenes (CORS).
@@ -68,7 +68,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 En este punto se pedirá al usuario que complete el flujo de trabajo de la directiva. Puede que el usuario tenga que escribir su nombre de usuario y contraseña, iniciar sesión con una identidad social, registrarse en el directorio o realizar otros pasos. Las acciones del usuario dependerán de cómo se defina el flujo de usuario.
 
-Cuando el usuario haya completado el flujo de usuario, Azure AD devuelve una respuesta a la aplicación en el valor que ha usado para `redirect_uri`. Usa el método especificado en el parámetro `response_mode`. La respuesta es exactamente la misma para cada uno de los escenarios de acción del usuario, independientemente del flujo de usuario que se haya ejecutado.
+Cuando el usuario haya completado el flujo de usuario, Azure AD B2C devuelve una respuesta a la aplicación en el valor que ha usado para `redirect_uri`. Usa el método especificado en el parámetro `response_mode`. La respuesta es exactamente la misma para cada uno de los escenarios de acción del usuario, independientemente del flujo de usuario que se haya ejecutado.
 
 ### <a name="successful-response"></a>Respuesta correcta
 Una respuesta correcta que usa `response_mode=fragment` y `response_type=id_token+token` es como la siguiente, con saltos de línea para mejorar la legibilidad:
@@ -126,7 +126,9 @@ Una de las propiedades de este documento de configuración es `jwks_uri`. El val
 https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/discovery/v2.0/keys
 ```
 
-Para determinar qué flujo de usuario se ha usado para firmar un token de identificador (y de dónde obtener los metadatos), tiene dos opciones. En primer lugar, el nombre del flujo de usuario se incluye en la notificación `acr` en `id_token`. Para obtener más información sobre cómo analizar las notificaciones de un token de identificador, vea [Azure AD B2C: referencia de tokens](tokens-overview.md). La otra opción consiste en codificar el flujo de usuario en el valor del parámetro `state` al emitir la solicitud. Después, descodifique el parámetro `state` para determinar qué flujo de usuario se ha usado. Cualquiera de estos métodos es válido.
+Para determinar qué flujo de usuario se ha usado para firmar un token de identificador (y de dónde obtener los metadatos), tiene dos opciones:
+-  El nombre del flujo de usuario se incluye en la notificación `acr` en `id_token`. Para obtener más información sobre cómo analizar las notificaciones de un token de identificador, vea [Azure AD B2C: referencia de tokens](tokens-overview.md). 
+- La otra opción consiste en codificar el flujo de usuario en el valor del parámetro `state` al emitir la solicitud. Después, descodifique el parámetro `state` para determinar qué flujo de usuario se ha usado. Cualquiera de estos métodos es válido.
 
 Cuando haya adquirido el documento de metadatos del punto de conexión de metadatos de OpenID Connect, podrá usar las claves públicas RSA-256 (que están ubicadas en este punto de conexión) para validar la firma del token de identificador. Podría haber varias claves enumeradas en este punto de conexión en cualquier momento, cada una identificada con una `kid`. El encabezado de `id_token` también contiene una notificación `kid`. Indica cuál de estas claves se ha usado para firmar el token de identificador. Para obtener más información, incluida la información para [validar los tokens](tokens-overview.md), vea [Azure AD B2C: referencia de tokens](tokens-overview.md).
 <!--TODO: Improve the information on this-->
@@ -150,7 +152,7 @@ Cuando haya validado el token de identificador, podrá iniciar una sesión con e
 ## <a name="get-access-tokens"></a>Obtención de tokens de acceso
 Si lo único que sus aplicaciones web necesitan hacer es ejecutar flujos de usuario, puede omitir las secciones siguientes. La información de las siguientes secciones es válida solo para las aplicaciones web que necesitan realizar llamadas autenticadas a una API web y que están protegidas por Azure AD B2C.
 
-Ahora que ha iniciado la sesión del usuario en su aplicación de una página, puede obtener tokens de acceso para llamar a las API web que están protegidas por Azure AD. Incluso si ya ha recibido un token mediante el tipo de respuesta `token`, puede usar este método para adquirir tokens para recursos adicionales sin redirigir al usuario para que vuelva a iniciar sesión.
+Ahora que ha iniciado la sesión del usuario en su aplicación de página única, puede obtener tokens de acceso para llamar a las API web que Azure AD protege. Incluso si ya ha recibido un token mediante el tipo de respuesta `token`, puede usar este método para adquirir tokens para recursos adicionales sin redirigir al usuario para que vuelva a iniciar sesión.
 
 En el flujo de aplicación web normal, realizaríamos una solicitud al punto de conexión `/token`. Sin embargo, el punto de conexión no admite solicitudes CORS, por lo que las llamadas a AJAX para obtener un token de actualización no son una opción. En su lugar, puede usar el flujo implícito en un elemento iframe HTML oculto para obtener nuevos tokens para otras API web. Aquí se muestra un ejemplo, con saltos de línea por motivos de legibilidad:
 

@@ -1,14 +1,14 @@
 ---
 title: Supervisión de los recursos delegados a escala
 description: Con Azure Lighthouse, puede usar los registros de Azure Monitor de forma escalable en los inquilinos del cliente.
-ms.date: 08/12/2021
+ms.date: 09/30/2021
 ms.topic: how-to
-ms.openlocfilehash: d261fd41c300f317e34ff7cacafa53911b7bbc12
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7ae54918ffad64e6b9790c4458717807cacd09ad
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124736607"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363245"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Supervisión de los recursos delegados a escala
 
@@ -23,7 +23,7 @@ En este tema se muestra cómo usar los [registros de Azure Monitor](../../azure-
 
 Para recopilar datos, deberá crear áreas de trabajo de Log Analytics. Estas áreas de trabajo de Log Analytics son entornos únicos para los datos que recopila Azure Monitor. Cada área de trabajo tiene su propio repositorio de datos y configuración, y las soluciones y orígenes de datos están configurados para almacenar sus datos en una determinada área de trabajo.
 
-Se recomienda crear estas áreas de trabajo directamente en los inquilinos del cliente. De esta forma, los datos permanecen en sus respectivos inquilinos en lugar de exportarse al suyo. Esto también permite la supervisión centralizada de los recursos o servicios que admite Log Analytics, lo que le proporciona más flexibilidad respecto a los tipos de datos que supervisa.
+Se recomienda crear estas áreas de trabajo directamente en los inquilinos del cliente. De esta forma, los datos permanecen en sus respectivos inquilinos en lugar de exportarse al suyo. La creación de áreas de trabajo en los inquilinos del cliente permite la supervisión centralizada de los recursos o servicios que admite Log Analytics, lo que le proporciona más flexibilidad respecto a los tipos de datos que supervisa. Las áreas de trabajo creadas en inquilinos de cliente son necesarias para recopilar información de la [configuración de diagnóstico](../..//azure-monitor/essentials/diagnostic-settings.md).
 
 > [!TIP]
 > Cualquier cuenta de Automation usada para acceder a los datos de un área de trabajo de Log Analytics debe crearse en el mismo inquilino que el área de trabajo.

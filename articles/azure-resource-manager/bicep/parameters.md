@@ -4,13 +4,13 @@ description: Se describe cómo definir parámetros en un archivo Bicep.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/13/2021
-ms.openlocfilehash: b53402dfaa274c57d40ef7814b7920dc7eb0a8c7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/01/2021
+ms.openlocfilehash: b90fb108df58c41578bf9472390574b4bc174111
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128619521"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363509"
 ---
 # <a name="parameters-in-bicep"></a>Parámetros en Bicep
 
@@ -54,9 +54,32 @@ Puede usar otro valor de parámetro para compilar un valor predeterminado. La pl
 
 :::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/parameters/parameterswithfunctions.bicep" highlight="2":::
 
-## <a name="secure-parameters"></a>Parámetros seguros
+## <a name="decorators"></a>Elementos Decorator
 
-Los parámetros usan decoradores para restricciones o metadatos. Los decoradores tienen el formato `@expression` y se colocan encima de la declaración del parámetro.
+Los parámetros usan decoradores para restricciones o metadatos. Los decoradores tienen el formato `@expression` y se colocan encima de la declaración del parámetro. Puede marcar un parámetro como seguro, especificar los valores permitidos, establecer la longitud mínima y máxima de una cadena, establecer el valor mínimo y máximo de un entero y proporcionar una descripción del parámetro.
+
+En el ejemplo siguiente, se muestran dos usos comunes de los decoradores.
+
+```bicep
+@secure()
+param demoPassword string
+
+@description('Must be at least Standard_A3 to support 2 NICs.')
+param virtualMachineSize string = 'Standard_DS1_v2'
+```
+
+Los decoradores están en el [espacio de nombres sys](bicep-functions.md#namespaces-for-functions). Si tiene que diferenciar un decorador de otro elemento con el mismo nombre, anteceda el decorador con `sys`. Por ejemplo, si el archivo de Bicep incluye un parámetro llamado `description`, debe agregar el espacio de nombres sys al usar el decorador **description**.
+
+```bicep
+@sys.description('The name of the instance.')
+param name string
+@sys.description('The description of the instance to display.')
+param description string
+```
+
+Los decoradores disponibles se describen en las secciones siguientes.
+
+### <a name="secure-parameters"></a>Parámetros seguros
 
 Puede marcar los parámetros de objeto o cadena como seguros. El valor de un parámetro seguro no se guarda en el historial de implementaciones y no se registra.
 
@@ -68,7 +91,7 @@ param demoPassword string
 param demoSecretObject object
 ```
 
-## <a name="allowed-values"></a>Valores permitidos
+### <a name="allowed-values"></a>Valores permitidos
 
 Puede definir valores permitidos para un parámetro. Los valores permitidos se proporcionan en una matriz. Se produce un error en la implementación durante la validación si se pasa un valor para el parámetro que no es uno de los valores permitidos.
 
@@ -80,7 +103,7 @@ Puede definir valores permitidos para un parámetro. Los valores permitidos se p
 param demoEnum string
 ```
 
-## <a name="length-constraints"></a>Restricciones de longitud
+### <a name="length-constraints"></a>Restricciones de longitud
 
 Puede especificar la longitud mínima y máxima de los parámetros de matriz y de cadena. Puede establecer una o las dos restricciones. Para las cadenas, la longitud indica el número de caracteres. Para las matrices, la longitud indica el número de elementos de la matriz.
 
@@ -96,7 +119,7 @@ param storageAccountName string
 param appNames array
 ```
 
-## <a name="integer-constraints"></a>Restricciones de enteros
+### <a name="integer-constraints"></a>Restricciones de enteros
 
 Puede establecer valores mínimos y máximos para los parámetros de entero. Puede establecer una o las dos restricciones.
 
@@ -106,7 +129,7 @@ Puede establecer valores mínimos y máximos para los parámetros de entero. Pue
 param month int
 ```
 
-## <a name="description"></a>Descripción
+### <a name="description"></a>Descripción
 
 Para ayudar a los usuarios a comprender el valor que se debe proporcionar, agregue una descripción al parámetro. Al implementar la plantilla a través del portal, el texto que proporciona de la descripción se usa automáticamente como sugerencia para ese parámetro. Agregue solo una descripción cuando el texto proporcione más información de la que se puede deducir del nombre del parámetro.
 

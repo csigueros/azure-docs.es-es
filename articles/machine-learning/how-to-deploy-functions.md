@@ -1,22 +1,22 @@
 ---
-title: Implementación de modelos de Machine Learning en aplicaciones de Azure Functions (versión preliminar)
+title: Implementación de modelos de ML en aplicaciones de Azure Functions (versión preliminar)
 titleSuffix: Azure Machine Learning
 description: Aprenda a usar Azure Machine Learning para empaquetar e implementar un modelo como servicio web en una aplicación de Azure Functions.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-ms.author: vaidyas
-author: vaidya-s
+ms.subservice: mlops
+ms.author: ssambare
+author: shivanissambare
 ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: how-to
 ms.custom: racking-python, devx-track-azurecli
-ms.openlocfilehash: bdeecf02e81ba3c8143f707896bbf3e5c36cf212
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 736568527f629b0552b3829815e02c288edeead1
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107885405"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714720"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Implementación de un modelo de Machine Learning en Azure Functions (versión preliminar)
 

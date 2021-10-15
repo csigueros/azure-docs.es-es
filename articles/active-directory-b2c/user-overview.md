@@ -7,25 +7,25 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 10/01/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 4b35cfeded13a50e5e27c240b0826f1d108ff7eb
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 4a21ba7191bab596818324f23235a9dc610ade1e
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107529454"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351333"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Introducción a las cuentas de usuario en Azure Active Directory B2C
 
-En Azure Active Directory B2C (Azure AD B2C), se pueden crear varios tipos de cuentas. Azure Active Directory, Active Directory B2B y Active Directory B2C comparten los tipos de cuentas de usuario que se pueden usar.
+En Azure Active Directory B2C (Azure AD B2C), se pueden crear varios tipos de cuentas. Azure Active Directory (Azure AD), Azure Active Directory B2B (Azure AD B2B) y Azure Active Directory B2C (Azure AD B2C) en los tipos de cuentas de usuario que se pueden usar.
 
 Están disponibles los siguientes tipos de cuentas:
 
 - **Cuenta profesional**: una cuenta profesional puede tener acceso a los recursos en un inquilino y, con un rol de administrador, puede administrar inquilinos.
-- **Cuenta de invitado**: una cuenta de invitado solo puede ser una cuenta de Microsoft o un usuario de Azure Active Directory que se pueda utilizar para tener acceso a aplicaciones o administrar inquilinos.
+- **Cuenta de invitado**: una cuenta de invitado solo puede ser una cuenta de Microsoft o un usuario de Azure AD que se pueda utilizar para tener acceso a aplicaciones o administrar inquilinos.
 - **Cuenta de consumidor**: cuenta que utiliza un usuario de las aplicaciones que se han registrado con Azure AD B2C. Las cuentas de consumidor pueden ser creadas por:
   - El usuario que pasa por un flujo de usuario de registro en una aplicación de Azure AD B2C
   - Uso de Microsoft Graph API

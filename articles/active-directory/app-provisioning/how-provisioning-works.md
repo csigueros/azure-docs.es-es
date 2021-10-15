@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 06/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 415824041c8e721c96ad9a9d480d5e50436310e4
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
+ms.openlocfilehash: 957ee0b5a7301fa1959b3a88450dd047bfacaad5
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112964777"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353678"
 ---
 # <a name="how-application-provisioning-works-in-azure-active-directory"></a>Funcionamiento del aprovisionamiento de aplicaciones en Azure Active Directory
 
@@ -81,7 +81,10 @@ Puede usar filtros de ámbito para definir reglas basadas en atributos que deter
 
 El servicio de aprovisionamiento de usuarios de Azure AD se puede usar para aprovisionar usuarios de B2B (o invitados) en Azure AD para aplicaciones SaaS. Sin embargo, para que los usuarios de B2B inicien sesión en la aplicación SaaS mediante Azure AD, esta debe tener su funcionalidad de inicio de sesión único basado en SAML configurada de una forma concreta. Para más información acerca de cómo configurar aplicaciones SaaS para admitir inicios de sesión de usuarios de B2B, consulte [Configuración de aplicaciones de SaaS para la colaboración B2B](../external-identities/configure-saas-apps.md).
 
-Tenga en cuenta que el elemento userPrincipalName de un usuario invitado suele almacenarse como "alias#EXT#@domain.com". Si el elemento userPrincipalName se incluye en las asignaciones de atributos como atributo de origen, #EXT# se quita de dicho elemento. Si necesita que el elemento #EXT# esté presente, reemplace userPrincipalName por originalUserPrincipalName como atributo de origen. 
+> [!NOTE]
+El elemento userPrincipalName de un usuario invitado suele mostrarse como "alias#EXT#@domain.com". Si el elemento userPrincipalName se incluye en las asignaciones de atributos como atributo de origen, #EXT# se quita de dicho elemento. Si necesita que el elemento #EXT# esté presente, reemplace userPrincipalName por originalUserPrincipalName como atributo de origen. 
+
+userPrincipalName = alias@domain.com originalUserPrincipalName = alias#EXT#@domain.com
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>Ciclos de aprovisionamiento: inicial e incremental.
 

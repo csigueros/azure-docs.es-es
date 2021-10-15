@@ -6,12 +6,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 10/09/2020
-ms.openlocfilehash: 2b1ba0779649c4955987c7dae9802cefaba89b79
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 92819c28002c79ff905174e5b2f94779050237fd
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97109353"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129356710"
 ---
 # <a name="find-tenant-id-object-id-and-partner-association-details"></a>Búsqueda del id. de inquilino, el id. de objeto y los detalles de la asociación de asociados
 
@@ -57,14 +57,15 @@ Si necesita obtener capturas de pantallas de estos elementos en Azure Cloud Shel
 1. Inicie sesión en el [portal de administración de Office 365](https://portal.office.com/adminportal/home) con una cuenta en el inquilino que quiera, mediante los derechos administrativos adecuados.
 2. En el menú de la izquierda, expanda la sección **Centros de administración** que está en la parte inferior y, a continuación, seleccione la opción Azure Active Directory para iniciar la consola de administración en una nueva ventana del explorador.
 3. Seleccione **Usuarios**.
-4. Busque el usuario que quiera y, a continuación, seleccione el nombre de la cuenta para ver la información de perfil de la cuenta de ese usuario.
+4. Busque el usuario que quiera y seleccione el nombre de la cuenta para ver la información de perfil de la cuenta de ese usuario.
 5. El id. de objeto se encuentra en la sección de identidad de la derecha.
 
     :::image type="content" source="media/tenant-and-object-id/azure-ad-admin-center.png" alt-text="Centro de administración de Azure Active Directory.":::
 
 6. Para buscar las **asignaciones de roles**, seleccione el **Control de acceso (IAM)** en el menú de la izquierda y, a continuación, **Asignación de roles**.
 
-    :::image type="content" source="https://docs.microsoft.com/azure/role-based-access-control/media/role-assignments-portal/role-assignments.png" alt-text="Asignaciones de roles para los recursos de Azure.":::
+    :::image type="content" source="../role-based-access-control/media/role-assignments-portal/rg-role-assignments.png" alt-text="Asignaciones de roles para los recursos de Azure.":::
+
 
 ## <a name="find-ids-for-debugging"></a>Búsqueda de id. para la depuración
 

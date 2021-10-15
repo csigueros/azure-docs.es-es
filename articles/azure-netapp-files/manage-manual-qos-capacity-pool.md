@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 18333b7c9fded73d330cacd6322b0869bf65f9d9
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: dd92472ff810a46743ffa08b1ea2fdd8f9e01da7
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112071090"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407596"
 ---
 # <a name="manage-a-manual-qos-capacity-pool"></a>Administración de un grupo de capacidad de QoS manual
 
@@ -31,7 +31,7 @@ Vea [Jerarquía de almacenamiento de Azure NetApp Files](azure-netapp-files-unde
 
 Para crear un nuevo grupo de capacidad mediante el tipo de QoS manual:
 
-1. Siga los pasos que se indican en [Configuración de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md).  
+1. Siga los pasos que se indican en [Creación de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md).  
 
 2. En la ventana Nuevo grupo de capacidad, seleccione el tipo **QoS manual**.  
 
@@ -68,7 +68,7 @@ Si un volumen se incluye en un grupo de capacidad de QoS manual, puede modificar
 
 ## <a name="next-steps"></a>Pasos siguientes  
 
-* [Configuración de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md)
+* [Creación de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md)
 * [Métricas de Azure NetApp Files](azure-netapp-files-metrics.md)
 * [Consideraciones sobre el rendimiento de Azure NetApp Files](azure-netapp-files-performance-considerations.md)
 * [Solución de problemas de grupos de capacidad](troubleshoot-capacity-pools.md)

@@ -13,12 +13,12 @@ ms.date: 06/08/2021
 ms.author: jmprieur
 ms.reviewer: saeeda, shermanouko
 ms.custom: devx-track-csharp, aaddev, has-adal-ref
-ms.openlocfilehash: 72537e46d7d249190585552e0a8ee11c43e40340
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2148aa8deaa698c10918ee7a6b667c7d90286448
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128566565"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355088"
 ---
 # <a name="migrate-confidential-client-applications-from-adalnet-to-msalnet"></a>Migración de aplicaciones cliente confidenciales de ADAL.NET a MSAL.NET
 
@@ -38,7 +38,7 @@ Para los registros de aplicaciones:
    - Cadena de `resourceId`. Esta variable es el URI del identificador de la aplicación de la API web a la que desea llamar.
    - Instancia de `IClientAssertionCertificate` o `ClientAssertion`. Esta instancia proporciona las credenciales de cliente de la aplicación para demostrar la identidad de esta.
 
-1. Tras haber identificado que tiene aplicaciones que usan ADAL.NET, instale el paquete NuGet de MSAL.NET [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) y actualice sus referencias de la biblioteca de proyectos. Para obtener más información, consulte cómo [instalar un paquete NuGet](https://www.bing.com/search?q=install+nuget+package). Si quiere usar serializadores de caché de tokens, instale también [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web).
+1. Tras haber identificado que tiene aplicaciones que usan ADAL.NET, instale el paquete NuGet de MSAL.NET [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) y actualice sus referencias de la biblioteca de proyectos. Para obtener más información, consulte cómo [instalar un paquete NuGet](https://www.bing.com/search?q=install+nuget+package). Si quiere usar serializadores de caché de tokens, instale también [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache).
 
 1. Actualice el código según el escenario de cliente confidencial. Algunos pasos son comunes y se aplican en todos los escenarios de cliente confidenciales. Otros pasos son únicos para cada escenario. 
 

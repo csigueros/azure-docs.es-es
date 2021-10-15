@@ -12,18 +12,18 @@ ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: ba29c7577bd725cf0c165e0cae8374d3c4bb647c
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 5a13171d234664ca09508f2404acb95e468f9d7c
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108187125"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232325"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-sso-to-your-apps-with-application-proxy"></a>Delegación restringida de Kerberos para el inicio de sesión único (SSO) para las aplicaciones con Application Proxy
 
-Puede proporcionar un inicio de sesión único para las aplicaciones locales publicadas a través de Proxy de aplicación que se protegen con la autenticación integrada de Windows. Estas aplicaciones requieren un vale Kerberos para el acceso. Proxy de aplicación usa la Delegación restringida de Kerberos (KCD) para admitir estas aplicaciones. 
+Puede proporcionar un inicio de sesión único para las aplicaciones locales publicadas a través de Application Proxy que se protegen con la autenticación integrada de Windows. Estas aplicaciones requieren un vale Kerberos para el acceso. Proxy de aplicación usa la Delegación restringida de Kerberos (KCD) para admitir estas aplicaciones. 
 
-Puede habilitar el inicio de sesión único a sus aplicaciones mediante la autenticación integrada de Windows (IWA) dando permiso a los conectores del proxy de aplicación en Active Directory para suplantar a los usuarios. Los conectores usan este permiso para enviar y recibir tokens en su nombre.
+Puede habilitar el inicio de sesión único en sus aplicaciones mediante la autenticación integrada de Windows (IWA) dando a los conectores de Application Proxy permiso en Active Directory para suplantar a los usuarios. Los conectores usan este permiso para enviar y recibir tokens en su nombre.
 
 ## <a name="how-single-sign-on-with-kcd-works"></a>Cómo funciona el inicio de sesión único con KCD
 En este diagrama se explica el flujo que se crea cuando un usuario intenta tener acceso a una aplicación local que usa IWA.
@@ -42,7 +42,7 @@ En este diagrama se explica el flujo que se crea cuando un usuario intenta tener
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar a trabajar con el inicio de sesión único para aplicaciones con autenticación integrada de Windows, asegúrese de que el entorno está preparado con los siguientes ajustes y configuraciones:
 
-* Sus aplicaciones, como las aplicaciones web de SharePoint, están establecidas para usar la autenticación de Windows integrada. Para más información, consulte [Habilitar la compatibilidad con la autenticación Kerberos](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd759186(v=ws.11)) o, para SharePoint, consulte [Planear la autenticación Kerberos en SharePoint 2013](/SharePoint/security-for-sharepoint-server/kerberos-authentication-planning).
+* Sus aplicaciones, como las aplicaciones web de SharePoint, están establecidas para usar la autenticación integrada de Windows. Para más información, consulte [Habilitar la compatibilidad con la autenticación Kerberos](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd759186(v=ws.11)) o, para SharePoint, consulte [Planear la autenticación Kerberos en SharePoint 2013](/SharePoint/security-for-sharepoint-server/kerberos-authentication-planning).
 * Todas las aplicaciones tienen [nombres de entidad de seguridad de servicio](https://social.technet.microsoft.com/wiki/contents/articles/717.service-principal-names-spns-setspn-syntax-setspn-exe.aspx).
 * El servidor que ejecuta el conector y el que ejecuta la aplicación están unidos a dominio y forman parte del mismo dominio o dominios de confianza. Para obtener más información sobre la unión a un dominio, consulte [Unir un equipo a un dominio](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807102(v=ws.11)).
 * El servidor que ejecuta el conector tiene acceso para leer el atributo TokenGroupsGlobalAndUniversal de los usuarios. Esta configuración predeterminada que podría verse afectada por la seguridad del entorno.
@@ -88,8 +88,8 @@ La configuración de Active Directory varía, en función de si el conector de P
 1. Publique la aplicación según las instrucciones de [Publicar aplicaciones con el proxy de aplicación](../app-proxy/application-proxy-add-on-premises-application.md). Asegúrese de seleccionar **Azure Active Directory** como **Método de autenticación previa**.
 2. Cuando la aplicación aparezca en la lista de aplicaciones empresariales, selecciónela y haga clic en **Inicio de sesión único**.
 3. Establezca el modo de inicio de sesión único en **Autenticación integrada de Windows**.  
-4. Escriba el **SPN de la aplicación interno** del servidor de aplicaciones. En este ejemplo, el SPN para nuestra aplicación publicada es http/www.contoso.com. Este SPN debe estar en la lista de servicios a los que el conector puede presentar credenciales delegadas. 
-5. Elija la **Identidad de inicio de sesión delegada** que va a usar el conector en nombre de los usuarios. Para más información, vea [Trabajar con identidades en la nube y locales diferentes](#working-with-different-on-premises-and-cloud-identities)
+4. Escriba el **SPN de la aplicación interno** del servidor de aplicaciones. En este ejemplo, el SPN de nuestra aplicación publicada es `http/www.contoso.com`. Este SPN debe estar en la lista de servicios a los que el conector puede presentar credenciales delegadas.
+5. Elija la **Identidad de inicio de sesión delegada** que va a usar el conector en nombre de los usuarios. Para más información, consulte [Trabajar con diferentes identidades locales y de nube](#working-with-different-on-premises-and-cloud-identities).
 
    ![Configuración avanzada de aplicaciones](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  
 
