@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9292ad6e167e62b27fa3b646a1b60ba7176ff87
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 46a8e61f296d430713812007b93f1b34cea8588a
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129367590"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129811559"
 ---
 # <a name="conditional-access-resilience-defaults"></a>Acceso condicional: valores predeterminados de resistencia
 
@@ -39,8 +39,8 @@ Durante una interrupción, el servicio de autenticación de copia de seguridad v
 | Descripción de la sesión | El acceso se le concede |
 | --- | --- |
 | Nueva sesión | No |
-| Sesión existente: ninguna directiva de acceso condicional configurada | Yes |
-| Sesión existente: las directivas de acceso condicional configuradas y los controles necesarios, como MFA, se satisficieron previamente | Yes |
+| Sesión existente: ninguna directiva de acceso condicional configurada | Sí |
+| Sesión existente: las directivas de acceso condicional configuradas y los controles necesarios, como MFA, se satisficieron previamente | Sí |
 | Sesión existente: las directivas de acceso condicional configuradas y los controles necesarios, como MFA, no se satisficieron previamente | Determinado por los valores predeterminados de resistencia |
 
 Cuando una sesión existente expira durante una interrupción de Azure AD, la solicitud de un nuevo token de acceso se enruta al servicio de autenticación de copia de seguridad y se revalúan todas las directivas de acceso condicional. Si no hay directivas de acceso condicional o todos los controles necesarios, como MFA, se satisficieron previamente al principio de la sesión, el servicio de autenticación de copia de seguridad emite un nuevo token de acceso para ampliar la sesión. 
@@ -76,7 +76,7 @@ No es posible realizar un simulacro mediante el servicio de autenticación de co
 
 Puede configurar los valores predeterminados de resistencia de acceso condicional desde Azure Portal, MS Graph API o PowerShell. 
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 1.  Vaya a **Azure Portal** > **Seguridad** > **Acceso condicional**
 1.  Seleccione una directiva existente o cree una nueva.
@@ -86,7 +86,7 @@ Puede configurar los valores predeterminados de resistencia de acceso condiciona
 
 ### <a name="ms-graph-apis"></a>MS Graph API
 
-También puede administrar los valores predeterminados de resistencia para las directivas de acceso condicional mediante MS Graph API y el [Explorador de Microsoft Graph](/graph/graph-explorer). 
+También puede administrar los valores predeterminados de resistencia para las directivas de acceso condicional mediante MS Graph API y el [Explorador de Microsoft Graph](/graph/graph-explorer/graph-explorer-overview). 
 
 Dirección URL de solicitud de ejemplo: 
 

@@ -8,16 +8,16 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 10/01/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 1129b4cf06a2de01438f2c83500eee84240183fc
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 900010fd454e356b43eb7cb5b2ee0379bdf90beb
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129705258"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129367575"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-the-azure-cli"></a>Creación de una máquina virtual con una dirección IP privada estática mediante la CLI de Azure
 
-A una máquina virtual (VM) se le asigna automáticamente una dirección IP privada de un intervalo que el usuario especifique. Este intervalo se basa en la subred en la que se implementa la máquina virtual. La máquina virtual conserva la dirección hasta que se elimina. Azure asigna dinámicamente la siguiente dirección IP privada disponible desde la subred en la que se crea una máquina virtual. Asigne una dirección IP estática a la máquina virtual si quiere disponer de una dirección IP específica de la subred.
+A una máquina virtual (VM) se le asigna automáticamente una dirección IP privada de un intervalo que el usuario especifique. Este intervalo se basa en la subred en la que se implementa la máquina virtual. La VM conserva la dirección hasta que se elimina. Azure asigna dinámicamente la siguiente dirección IP privada disponible desde la subred en la que se crea una máquina virtual. Asigne una dirección IP estática a la máquina virtual si quiere disponer de una dirección IP específica de la subred.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -57,7 +57,7 @@ Con el comando siguiente, se crea una máquina virtual con Windows Server. Cuan
 
 En esta sección, cambiará la dirección IP privada de **dinámica** a **estática** para la máquina virtual que creó anteriormente. 
 
-Use [az network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update) para actualizar la configuración de la interfaz de red.
+Use [az network nic ip-config update](/cli/azure/network/nic/ipconfig#az_network_nic_ip_config_update) para actualizar la configuración de la interfaz de red.
 
 El comando siguiente cambia la dirección IP privada de la máquina virtual a estática:
 

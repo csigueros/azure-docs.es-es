@@ -6,12 +6,12 @@ ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
-ms.openlocfilehash: a90d9a82ff26c62423651d8d1b16173300147a1c
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 939eb89de2e347aeec2d8946f456f5ba2aa6be29
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129536775"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658583"
 ---
 # <a name="replicate-on-premises-machines-by-using-private-endpoints"></a>Replicación de máquinas locales mediante puntos de conexión privados
 
@@ -41,7 +41,7 @@ En el diagrama siguiente se muestra el flujo de trabajo de la replicación en un
 - Se requiere una dirección IP adicional en la red de derivación para la conectividad de los puntos de conexión privados a una cuenta de almacenamiento en caché. Puede usar cualquier método de conectividad entre el entorno local y su punto de conexión de la cuenta de almacenamiento. Por ejemplo, puede usar Internet o Azure [ExpressRoute](../expressroute/index.yml). El establecimiento de un vínculo privado es opcional. Solo se pueden crear puntos de conexión privados para el almacenamiento en cuentas De uso general v2. Para más información sobre los precios de la transferencia de datos en cuentas De uso general v2, consulte los [precios de blobs en páginas de Azure](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
 
 > [!NOTE]
-> Al configurar puntos de conexión privados para proteger máquinas físicas y de VMware, deberá instalar MySQL en el servidor de configuración manualmente. Siga [estos pasos](https://docs.microsoft.com/azure/site-recovery/vmware-azure-deploy-configuration-server#configure-settings) para realizar la instalación manual. 
+> Al configurar puntos de conexión privados para proteger máquinas físicas y de VMware, deberá instalar MySQL en el servidor de configuración manualmente. Siga [estos pasos](vmware-azure-deploy-configuration-server.md#configure-settings) para realizar la instalación manual. 
 
  ## <a name="create-and-use-private-endpoints-for-site-recovery"></a>Creación y uso de puntos de conexión privados para la recuperación del sitio
 

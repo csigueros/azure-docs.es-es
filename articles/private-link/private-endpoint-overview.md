@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/09/2021
 ms.author: allensu
-ms.openlocfilehash: 0d613d7d207da8632fe7a2767d6440ee62378866
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 692bcd4900ae960928a66eaa63b02c6ddf12f2bf
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129359406"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705282"
 ---
 # <a name="what-is-azure-private-endpoint"></a>¿Qué es un punto de conexión privado de Azure?
 
@@ -88,11 +88,12 @@ En la tabla siguiente se enumeran los recursos disponibles que admiten un punto 
 | **Azure Event Grid** | Microsoft.EventGrid/domains | dominio |
 | **Azure Event Grid** | Microsoft.EventGrid/topics  | Tema de Event Grid |
 | **Centro de eventos de Azure** | Microsoft.EventHub/namespaces | espacio de nombres |
+| **Azure HDInsight** | Microsoft.HDInsight/clusters | cluster |
 | **Azure API for FHIR** | Microsoft.HealthcareApis/services | service |
 | **Azure Keyvault HSM** | Microsoft.Keyvault/managedHSMs | HSM |
 | **Azure Key Vault** | Microsoft.KeyVault/vaults | almacén |
 | **Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces | amlworkspace |
-| **Azure Migrate** | Microsoft.Migrate/assessmentProjects | project |
+| **Azure Migrate** | Microsoft.Migrate/assessmentProjects | proyecto |
 | **Application Gateway** | Microsoft.Network/applicationgateways | puerta de enlace de aplicación |
 | **Servicio Private Link** (su propio servicio) |  Microsoft.Network/privateLinkServices | empty |
 | **Power BI** | Microsoft.PowerBI/privateLinkServicesForPowerBI | Power BI |

@@ -12,25 +12,14 @@ ms.date: 09/20/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 06745d9a3ba5cb1e50e1adf23e88f442bcc31ab0
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 32961477c21c55c21705790495436e2ed10b72fc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129658507"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128568422"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Recopilación de registros de Azure Active Directory B2C con Application Insights
-
-[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
-
-::: zone pivot="b2c-user-flow"
-
-[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
 
 En este artículo se proporcionan los pasos para recopilar registros de Active Directory B2C (Azure AD B2C) de forma que pueda diagnosticar problemas con sus directivas personalizadas. Application Insights proporciona un modo de diagnosticar excepciones y visualizar problemas de rendimiento de la aplicación. Azure AD B2C incluye una característica para enviar datos a Application Insights.
 
@@ -204,6 +193,4 @@ Para mejorar el rendimiento del entorno de producción y mejorar la experiencia 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Aprenda a [solucionar los problemas de las directivas personalizadas de Azure AD B2C](troubleshoot.md)
-
-::: zone-end
+- Aprenda a [solucionar los problemas de las directivas personalizadas de Azure AD B2C](troubleshoot-custom-policies.md)

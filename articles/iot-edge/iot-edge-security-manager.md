@@ -9,12 +9,12 @@ ms.reviewer: eustacea
 ms.date: 09/17/2021
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: fedb06a23a71dbe30954154daa6d314267268551
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: d07f0073141632477a64b2c1cc4bc3a9b8e8d458
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129659685"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233525"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Administrador de seguridad de IoT Edge
 
@@ -151,7 +151,7 @@ Otro principio básico para el demonio de seguridad de IoT Edge es minimizar la 
 Otro principio básico para el entorno de ejecución del módulo de IoT Edge es minimizar la renovación.  Para obtener el máximo nivel de confianza, el entorno de ejecución del módulo de IoT Edge puede acoplarse estrechamente con la raíz de confianza de hardware de dispositivo y funcionar como código nativo.  En estos casos, es habitual actualizar el software de IoT Edge a través de las rutas de actualización seguras de la raíz de confianza del hardware en lugar de los mecanismos de actualización del sistema operativo, lo que puede ser complicado.  La renovación de seguridad es una recomendación para los dispositivos IoT, pero los requisitos excesivos de actualización o las cargas de actualizaciones de gran tamaño pueden expandir de muchas maneras la superficie expuesta a amenazas. Por ejemplo, puede verse tentado a omitir algunas actualizaciones para maximizar la disponibilidad del dispositivo. Por tanto, el diseño del entorno de ejecución del módulo de IoT Edge es conciso para que la base informática de confianza bien aislada no crezca con el fin de incentivar las actualizaciones frecuentes.
 :::moniker-end
 
-### <a name="architecture"></a>Architecture
+### <a name="architecture"></a>Arquitectura
 
 <!--1.1-->
 :::moniker range="iotedge-2018-06"
@@ -269,11 +269,11 @@ El objetivo del administrador de seguridad de IoT Edge es identificar y aislar l
 
 Aprenda a proteger el administrador de seguridad de Azure IoT con el Módulo de plataforma segura (TPM) mediante TPM virtuales o de software:  
 
-Cree y aprovisione un [dispositivo IoT Edge con un TPM virtual en una máquina virtual con Linux](how-to-provision-devices-at-scale-linux-tpm.md).
+Cree y aprovisione un [dispositivo IoT Edge con un TPM virtual en una máquina virtual con Linux](how-to-auto-provision-simulated-device-linux.md).
 
 <!--1.1-->
 :::moniker range="iotedge-2018-06"
-Cree y aprovisione un [dispositivo IoT Edge con un TPM simulado en Windows](how-to-provision-devices-at-scale-windows-tpm.md).
+Cree y aprovisione un [dispositivo IoT Edge con un TPM simulado en Windows](how-to-auto-provision-simulated-device-windows.md).
 :::moniker-end
 
 ## <a name="next-steps"></a>Pasos siguientes

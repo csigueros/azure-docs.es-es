@@ -3,12 +3,12 @@ title: Autenticación de Azure Active Directory para Application Insights (vers
 description: Aprenda a habilitar la autenticación de Azure Active Directory (Azure AD) para asegurarse de que solo se ingiera telemetría autenticada en los recursos de Application Insights.
 ms.topic: conceptual
 ms.date: 08/02/2021
-ms.openlocfilehash: b38e3498ae61c9639c71eb358a4089dc59243616
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 573a7807f6561dfb326bfa247b12ccafa0857152
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129857718"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359880"
 ---
 # <a name="azure-ad-authentication-for-application-insights-preview"></a>Autenticación de Azure Active Directory para Application Insights (versión preliminar)
 Application Insights ahora admite la autenticación de Azure Active Directory (Azure AD). Mediante Azure AD, puede asegurarse de que solo se ingieren los datos de telemetría autenticados en los recursos de Application Insights. 
@@ -135,7 +135,7 @@ appInsights.defaultClient.aadTokenCredential = credential;
 > [!NOTE]
 > La compatibilidad con Azure AD en el agente de Java de Application Insights se incluye a partir de la version [Java 3.2.0-BETA](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0-BETA). 
 
-1. [Configure la aplicación con el agente de Java.](java-in-process-agent.md#get-started)
+1. [Configure la aplicación con el agente de Java.](java-in-process-agent.md#quickstart)
 
     > [!IMPORTANT]
     > Use la cadena de conexión completa que incluye “IngestionEndpoint” al configurar la aplicación con el agente de Java. Por ejemplo, `InstrumentationKey=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX;IngestionEndpoint=https://XXXX.applicationinsights.azure.com/`.
