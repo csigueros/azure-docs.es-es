@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 0916439ef75c73d59ada1f9a832b95e733520c9c
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: 09bd0cf6a43934ea7a0e973b64c434b705d9ea36
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129401035"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129716044"
 ---
 # <a name="live-event-types-comparison"></a>Comparación de tipos de objetos LiveEvent
 
@@ -135,6 +135,7 @@ Por ejemplo, si envía una fuente de contribución a 720p a un evento en directo
 ### <a name="bitrate-of-contribution-feed-and-output-layers"></a>Velocidad de bits de la fuente de contribución y las capas de salida
 
 El codificador en directo está configurado para respetar la configuración de velocidad de bits en el valor predeterminado, con independencia de la velocidad de bits de la fuente de contribución. Por lo tanto, puede que la velocidad de bits de las capas de salida supere la de la fuente de contribución. Por ejemplo, si se envía en una fuente de contribución con una resolución de 720p a 1 Mbps, las capas de salida serán las mismas que en la [tabla](live-event-types-comparison-reference.md#output-video-streams-for-default720p) anterior.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -13,14 +13,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 02/10/2021
+ms.date: 10/04/2021
 ms.author: b-juche
-ms.openlocfilehash: ac83e5a9366a12c5adce0e08f04f2bb28a7d788d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2a3e97096109ce89f481b2abca2dc7b5a3a237e6
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100374888"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407881"
 ---
 # <a name="troubleshoot-azure-netapp-files-resource-provider-errors"></a>Solución de errores del proveedor de recursos de Azure NetApp Files 
 
@@ -30,13 +30,13 @@ En este artículo se describen los errores comunes del proveedor de recursos de 
 
 La ***creación de `netAppAccounts` se ha restringido en esta región.***
 
-Esta situación se produce cuando la suscripción se incluye en la lista de espera de Azure NetApp Files y el usuario intenta crear una cuenta de NetApp.
+Esta situación se produce cuando el usuario intenta crear una cuenta de NetApp.
 
 * Causa:   
 El proveedor de recursos de Azure para Azure NetApp Files no se ha registrado correctamente. 
  
 * Solución:   
-Después de que la suscripción se haya incluido en la lista de espera, realice todos los pasos descritos en [Registro del proveedor de recursos de Azure NetApp](azure-netapp-files-register.md#resource-provider).
+Complete todos los pasos descritos en [Registro del proveedor de recursos de NetApp](azure-netapp-files-register.md).
 
 ***No se puede cambiar BareMetalTenantId.***  
 
@@ -317,7 +317,7 @@ Asegúrese de que la operación se haya especificado correctamente y que esté d
 
 ***No se puede cambiar OwnerId***
 
-Este error se produce al intentar cambiar la propiedad OwnerId del volumen. El cambio de OwnerId no es una operación admitida. 
+Este error se produce al intentar cambiar la propiedad `OwnerId` del volumen. El cambio de `OwnerId` no es una operación admitida. 
 
 * Causa:   
 La propiedad `OwnerId` se establece cuando se crea el volumen. Posteriormente, no se puede cambiar.

@@ -1,6 +1,6 @@
 ---
-title: Configuración de un grupo de capacidad de Azure NetApp Files | Microsoft Docs
-description: Describe cómo configurar un grupo de capacidad para poder crear volúmenes en él.
+title: Creación de un grupo de capacidad de Azure NetApp Files | Microsoft Docs
+description: Aquí se describe cómo configurar un grupo de capacidad para poder crear volúmenes en él.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/14/2021
 ms.author: b-juche
-ms.openlocfilehash: e49a68ee4c4e4f60d8af6919e4eaec33ac0086aa
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 3488b6807982f97cd5feef9b07a6dc7cbe180dcd
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112071918"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407558"
 ---
-# <a name="set-up-a-capacity-pool"></a>Configuración de un grupo de capacidad
+# <a name="create-a-capacity-pool-for-azure-netapp-files"></a>Creación de un grupo de capacidad de Azure NetApp Files
 
-Configurar un grupo de capacidad le permite crear volúmenes en él.  
+La creación de un grupo de capacidad le permite crear volúmenes en él.  
 
 ## <a name="before-you-begin"></a>Antes de empezar 
 

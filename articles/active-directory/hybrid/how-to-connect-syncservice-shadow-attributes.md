@@ -2,26 +2,20 @@
 title: Atributos paralelos del servicio de sincronización de Azure AD Connect | Microsoft Docs
 description: Describe cómo funcionan los atributos paralelos en el servicio de sincronización de Azure AD Connect.
 services: active-directory
-documentationcenter: ''
 author: billmath
-manager: daveba
-editor: ''
-ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 07/13/2017
+ms.date: 09/29/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 128303cb51b39db8442fdda71f949db17923bfa2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b2274099803961fb477f0929c801e2fc341dd4b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90088977"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355274"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Atributos paralelos del servicio de sincronización de Azure AD Connect
 La mayoría de los atributos se representan del mismo modo en Azure AD, ya que se encuentran en el Active Directory local. Pero algunos atributos tienen algún tratamiento especial y el valor del atributo en Azure AD puede ser distinto de lo que sincroniza Azure AD Connect.
@@ -62,9 +56,62 @@ En este caso **smtp:abbie.spencer\@fabrikam.com** se quitó porque no se ha comp
 
 Esta lógica para proxyAddresses se conoce como **ProxyCalc**. ProxyCalc se llama con cada cambio en un usuario cuando:
 
-- Al usuario se ha asignado un plan de servicio que incluye Exchange Online, incluso si el usuario no se tiene licencia para Exchange. Por ejemplo, si al usuario se le asigna la SKU de Office E3, pero solo se asignó SharePoint Online. Esto ocurre incluso si el buzón sigue siendo local.
+- Al usuario se ha asignado un plan de servicio que incluye Exchange Online, incluso si el usuario no se tiene licencia para Exchange. Por ejemplo, si al usuario se le asigna la SKU de Office E3, pero solo se asignó SharePoint Online. Esta condición ocurre incluso si el buzón sigue siendo local.
 - El atributo msExchRecipientTypeDetails tiene un valor.
 - Realiza un cambio en proxyAddresses o userPrincipalName.
+
+ProxyCalc corregirá una dirección si ShadowProxyAddresses contiene un dominio no comprobado y el usuario en la nube tiene una de las siguientes propiedades configuradas. 
+- El usuario tiene una licencia con un plan de tipo de servicio de EXO habilitado (excepto MyAnalytics).  
+- El usuario tiene MSExchRemoteRecipientType establecido (no null).  
+- El usuario se considera un recurso compartido.
+
+Para que se considere un recurso compartido, el usuario en la nube tendrá uno de los siguientes valores establecidos en CloudMSExchRecipientDisplayType. 
+
+ |Tipo para mostrar de objeto|Valor (decimal)|
+ |-----|-----|
+ |MailboxUser|  0|
+ |DistributionGroup|    1|
+ |PublicFolder| 2|
+ |DynamicDistributionGroup| 3|
+ |Organización| 4|
+ |PrivateDistributionList|  5|
+ |RemoteMailUser|   6|
+ |ConferenceRoomMailbox|    7|
+ |EquipmentMailbox| 8|
+ |ArbitrationMailbox|   10|
+ |MailboxPlan|  11|
+ |LinkedUser|   12|
+ |RoomList| 15|
+ |SyncedMailboxUser|    -2147483642|
+ |SyncedUDGasUDG|   -2147483391|
+ |SyncedUDGasContact|   -2147483386|
+ |SyncedPublicFolder|   -2147483130|
+ |SyncedDynamicDistributionGroup|   -2147482874|
+ |SyncedRemoteMailUser| -2147482106|
+ |SyncedConferenceRoomMailbox|  -2147481850|
+ |SyncedEquipmentMailbox|   -2147481594|
+ |SyncedUSGasUDG|   -2147481343|
+ |SyncedUSGasContact|   -2147481338|
+ |ACLableSyncedMailboxUser| -1073741818|
+ |ACLableSyncedRemoteMailUser|  -1073740282|
+ |ACLableSyncedUSGasContact|    -1073739514|
+ |SyncedUSGasUSG|   -1073739511|
+ |SecurityDistributionGroup|    1043741833|
+ |SyncedUSGasUSG|   1073739511|
+ |ACLableSyncedUSGasContact|    1073739514|
+ |Grupo de roles RBAC|  1073741824|
+ |ACLableMailboxUser|   1073741824|
+ |ACLableRemoteMailUser|    1073741830|
+
+
+>[!NOTE]
+> CloudMSExchRecipientDisplayType no es visible desde el lado de Azure AD y solo se puede ver mediante algo como el cmdlet [Get-Recipient](/powershell/module/exchange/get-recipient) de Exchange Online.  
+>
+>Ejemplo:
+> ```PowerShell
+>   Get-Recipient admin | fl *type*
+> ```
+>
 
 ProxyCalc puede tardar algún tiempo en procesar un cambio en un usuario y no está sincronizado con el proceso de exportación de Azure AD Connect.
 

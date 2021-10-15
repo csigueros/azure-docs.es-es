@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/20/2021
+ms.date: 09/28/2021
 ms.author: tisande
-ms.openlocfilehash: 39b385096fadb5d410520889c0aa8f1a07f1a67a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ebf9eb5e06b98bdd573d91f0a57daeb9d81b1f50
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128616562"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230577"
 ---
 # <a name="azure-cosmos-db-integrated-cache---overview-preview"></a>Caché integrada de Azure Cosmos DB: información general (versión preliminar)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -90,7 +90,7 @@ La caché de consulta almacenará en caché automáticamente los tokens de conti
 
 La caché integrada solo admite la [coherencia](consistency-levels.md) posible y de sesión. Si una lectura tiene un prefijo coherente, obsolescencia limitada o coherencia alta, siempre omitirá la caché integrada.
 
-La manera más fácil de configurar la coherencia posible o de sesión para todas las lecturas consiste en [establecerla en el nivel de cuenta](consistency-levels.md#configure-the-default-consistency-level). Sin embargo, si solo desea que algunas de las lecturas tengan coherencia final, también puede configurar la coherencia en el [nivel de solicitud](how-to-manage-consistency.md#override-the-default-consistency-level).
+La manera más fácil de configurar la coherencia posible o de sesión para todas las lecturas consiste en [establecerla en el nivel de cuenta](consistency-levels.md#configure-the-default-consistency-level). Sin embargo, si solo desea que algunas de las lecturas tengan coherencia específica, también puede configurar la coherencia en el [nivel de solicitud](how-to-manage-consistency.md#override-the-default-consistency-level).
 
 ### <a name="session-consistency"></a>Coherencia de sesión
 
@@ -139,8 +139,8 @@ Al usar la caché integrada, resulta útil supervisar algunas métricas clave. L
 - `IntegratedCacheEvictedEntriesSize`: la cantidad media de datos expulsados debido a la LRU de la caché integrada en los nodos de puerta de enlace dedicada. Este valor no incluye los datos que hayan expiraron debido a que se superó el tiempo de `MaxIntegratedCacheStaleness`.
 - `IntegratedCacheItemExpirationCount`: el número de elementos que se expulsan de la caché integrada debido a que las lecturas puntuales almacenadas en caché superan el tiempo `MaxIntegratedCacheStaleness`. Este valor es un promedio de las instancias de caché integradas en todos los nodos de puerta de enlace dedicada.
 - `IntegratedCacheQueryExpirationCount`: el número de consultas que se expulsan de la caché integrada debido a que las consultas almacenadas en caché superan el tiempo `MaxIntegratedCacheStaleness`. Este valor es un promedio de las instancias de caché integradas en todos los nodos de puerta de enlace dedicada.
-- `IntegratedCacheItemHitRate`: la proporción de lecturas puntuales que usaban la caché (de todas las lecturas puntuales enrutadas a través de la puerta de enlace dedicada con coherencia final). Este valor es un promedio de las instancias de caché integradas en todos los nodos de puerta de enlace dedicada.
-- `IntegratedCacheQueryHitRate`: la proporción de consultas que usaban la caché (de todas las consultas enrutadas a través de la puerta de enlace dedicada con coherencia final). Este valor es un promedio de las instancias de caché integradas en todos los nodos de puerta de enlace dedicada.
+- `IntegratedCacheItemHitRate`: la proporción de lecturas puntuales que usaban la caché (de todas las lecturas puntuales enrutadas a través de la puerta de enlace dedicada con coherencia final o de sesión). Este valor es un promedio de las instancias de caché integradas en todos los nodos de puerta de enlace dedicada.
+- `IntegratedCacheQueryHitRate`: la proporción de consultas que usaban la caché (de todas las consultas enrutadas a través de la puerta de enlace dedicada con coherencia final o de sesión). Este valor es un promedio de las instancias de caché integradas en todos los nodos de puerta de enlace dedicada.
 
 Todas las métricas existentes están disponibles, de manera predeterminada, en la hoja **Métricas** (no en la hoja de métricas clásica):
 

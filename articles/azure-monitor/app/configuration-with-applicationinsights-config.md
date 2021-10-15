@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.custom: devx-track-csharp
 ms.reviewer: olegan
-ms.openlocfilehash: 1e9f3a07d08579314a47db7ecf9ad1b9cef947c6
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: e1ea1a1e02b4b09e64054e9369caee4202a0b1b5
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114289865"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235694"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configuración del SDK de Application Insights con ApplicationInsights.config o .xml
 El SDK de Application Insights para .NET consta de varios paquetes de NuGet. El [paquete principal](https://www.nuget.org/packages/Microsoft.ApplicationInsights) proporciona la API para enviar telemetría a Application Insights. Los [paquetes adicionales](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) proporcionan *módulos* e *inicializadores* de telemetría para hacer un seguimiento automático de la aplicación y su contexto. Si ajusta el archivo de configuración, puede habilitar o deshabilitar los módulos e inicializadores de telemetría, y establecer los parámetros para algunos de ellos.
@@ -71,7 +71,7 @@ Informa del [tiempo de respuesta y del código del resultado](../../azure-monito
 * `Microsoft.ApplicationInsights.Web.ExceptionTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web)
 * `Microsoft.ApplicationInsights.WindowsServer.UnobservedExceptionTelemetryModule` - Realiza un seguimiento de excepciones de tareas inadvertidas.
-* `Microsoft.ApplicationInsights.WindowsServer.UnhandledExceptionTelemetryModule` - Realiza un seguimiento de excepciones no controladas para roles de trabajo, servicios de Windows y aplicaciones de consola.
+* `Microsoft.ApplicationInsights.WindowsServer.UnhandledExceptionTelemetryModule`: realiza un seguimiento de excepciones no controladas para roles de trabajo, servicios de Windows y aplicaciones de consola.
 * [Application Insights Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) .
 
 ### <a name="eventsource-tracking"></a>Seguimiento de EventSource

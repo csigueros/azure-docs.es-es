@@ -5,12 +5,12 @@ author: anilmur
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: d24ddd090f9acffc3dd19643d4004dbb58fc344d
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: e86d2eb8883efb887a598f93d191ae9070ef2b67
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114603853"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129403010"
 ---
 # <a name="customer-managed-keys-with-azure-video-analyzer"></a>Claves administradas por el cliente con Azure Video Analyzer
 
@@ -20,7 +20,7 @@ Bring Your Own Key (BYOK) es una iniciativa de Azure para ayudar a los clientes 
 
 Se crea una clave de cuenta para todas las cuentas de Video Analyzer. De forma predeterminada, esta clave de cuenta se cifra mediante una clave del sistema propiedad de Video Analyzer (es decir, una clave administrada por el sistema). En su lugar, puede usar su propia clave con Azure Video Analyzer. En ese caso, la clave de cuenta se cifra con la clave. Las directivas de acceso y los metadatos de recursos de vídeo se cifran mediante la clave de cuenta.
 
-Video Analyzer usa una identidad administrada asignada por el usuario para leer la clave de una instancia de Key Vault de su propiedad. Debe proporcionar la identidad administrada asignada por el usuario al crear o actualizar la cuenta de Video Analyzer y asignar el [control de acceso basado en rol de Azure]../../role-based-access-control/overview.md) a la instancia de Key Vault. Video Analyzer requiere que el almacén Key Vault esté en la misma región que la cuenta y que tenga habilitada la eliminación temporal y la protección de purgas.
+Video Analyzer usa una identidad administrada asignada por el usuario para leer la clave de una instancia de Key Vault de su propiedad. Debe proporcionar la identidad administrada asignada por el usuario al crear o actualizar la cuenta de Video Analyzer y asignar el [control de acceso basado en roles de Azure](../../role-based-access-control/overview.md) a la instancia de Key Vault. Video Analyzer requiere que el almacén Key Vault esté en la misma región que la cuenta y que tenga habilitada la eliminación temporal y la protección de purgas.
 
 La clave puede ser una clave RSA 2048, 3072 o 4096, y se admiten las claves de software y HSM.
 

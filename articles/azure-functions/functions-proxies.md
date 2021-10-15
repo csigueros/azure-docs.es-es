@@ -3,21 +3,23 @@ title: Uso de servidores proxy en Azure Functions
 description: Información general sobre cómo usar Azure Functions Proxies
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: fb263239f99bcb4ec4c893b700d5c1cce078659f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 34873d3d7e0200d2c6ee58096af880f26c428732
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96601380"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429611"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Uso de Azure Functions Proxies
 
 En este artículo se explica cómo configurar y usar Azure Functions Proxies. Con esta característica, puede especificar puntos de conexión en su aplicación de función que se implementan con otro recurso. Puede utilizar a estos servidores proxy para dividir una API grande en varias Function App (como en una arquitectura de microservicio), mientras que presenta una superficie de API única para los clientes.
 
+Se aplica la facturación estándar de Functions a las ejecuciones de proxy. Para más información, consulte los [precios de Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
+
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE] 
-> Se aplica la facturación estándar de Functions a las ejecuciones de proxy. Para más información, consulte los [precios de Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
+> También debería considerar el uso de [Azure API Management](../api-management/api-management-key-concepts.md) para su aplicación. Proporciona las mismas funcionalidades que los servidores proxy de Functions, así como otras herramientas para compilar y mantener API, como la integración de OpenAPI, la limitación de velocidad y las directivas avanzadas. 
 
 ## <a name="create-a-proxy"></a><a name="create"></a>Creación de un proxy
 

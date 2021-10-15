@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
-ms.date: 09/14/2021
-ms.openlocfilehash: 71b2e494d8a570c38180f4dfc86bda87b23f4e95
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/04/2021
+ms.openlocfilehash: 403f3c82bbb5a387e7611a6d98ce808ded599146
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128554592"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129456297"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -79,7 +79,7 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
   
 - **Propagación inicial**
 
-  Al agregar bases de datos, grupos elásticos o instancias administradas a un grupo de conmutación por error, hay una fase de propagación inicial antes de que se inicie la replicación de datos. Esta fase de propagación inicial es la operación más larga y costosa. Una vez completada, se sincronizan los datos y, luego, solo se replican los cambios de datos posteriores. El tiempo que tarda en completarse la propagación inicial depende del tamaño de los datos, del número de bases de datos replicadas y de la velocidad del vínculo entre las entidades del grupo de conmutación por error. En circunstancias normales, la velocidad de inicialización típica es de hasta 500 GB por hora para SQL Database, y de hasta 360 GB por hora en el caso de SQL Managed Instance. La propagación se realiza en paralelo para todas las bases de datos.
+  Al agregar bases de datos, grupos elásticos o instancias administradas a un grupo de conmutación por error, hay una fase de propagación inicial antes de que se inicie la replicación de datos. Esta fase de propagación inicial es la operación más larga y costosa. Una vez completada, se sincronizan los datos y, luego, solo se replican los cambios de datos posteriores. El tiempo que tarda la propagación inicial en completarse depende del tamaño de sus datos, la cantidad de bases de datos replicadas, la carga en las bases de datos primarias y la velocidad del enlace entre la primaria y la secundaria. En circunstancias normales, la velocidad de inicialización típica es de hasta 500 GB por hora para SQL Database, y de hasta 360 GB por hora en el caso de SQL Managed Instance. La propagación se realiza en paralelo para todas las bases de datos.
 
   En el caso de SQL Managed Instance, al estimar el tiempo de la fase de inicialización inicial, tenga en cuenta la velocidad del vínculo de ExpressRoute entre las dos instancias. Si la velocidad del vínculo entre las dos instancias es más lenta de lo necesario, es probable que el tiempo de propagación resulte muy afectado. Puede usar la velocidad de propagación indicada, el número de bases de datos, el tamaño total de los datos y la velocidad del vínculo para calcular cuánto tardará la fase de propagación inicial antes de que se inicie la replicación de los datos. Por ejemplo, en el caso de una sola base de datos de 100 GB, la fase de inicialización inicial tardaría aproximadamente 1,2 horas si el vínculo es capaz de insertar 84 GB por hora y si no hay otras bases de datos que se vayan a inicializar. Si el vínculo solo puede transferir 10 GB por hora, la propagación de una base de datos de 100 GB tardará aproximadamente 10 horas. Si hay que replicar varias bases de datos, la propagación se ejecutará en paralelo y, cuando se combina con una velocidad de vínculo baja, la fase de propagación inicial puede tardar mucho más tiempo, en especial si la propagación paralela de los datos de todas las bases de datos supera el ancho de banda de vínculo disponible. Si el ancho de banda de red entre dos instancias es limitado y va a agregar varias instancias administradas a un grupo de conmutación por error, considere la posibilidad de hacerlo de manera secuencial, una por una. Dada una SKU de puerta de enlace con el tamaño adecuado entre las dos instancias administradas, y si el ancho de banda de la red corporativa lo permite, se pueden lograr velocidades de hasta 360 GB.  
 
@@ -100,21 +100,21 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 
 - **Directiva de conmutación por error automática**
 
-  De manera predeterminada, un grupo de conmutación por error se configura con una directiva de conmutación por error automática. Azure desencadena la conmutación por error cuando se detecta el error y el período de gracia ha expirado. El sistema debe comprobar que la interrupción no se pueda mitigar mediante la [infraestructura de alta disponibilidad](high-availability-sla.md) integrada debido a la escala del impacto. Si desea controlar el flujo de trabajo de la conmutación por error desde la aplicación o manualmente, puede desactivar la conmutación por error automática.
+  De manera predeterminada, un grupo de conmutación por error se configura con una directiva de conmutación por error automática. El sistema desencadena una conmutación por error una vez detectado el error y si el período de gracia ha expirado. El sistema debe comprobar que la interrupción no se pueda mitigar mediante la [infraestructura de alta disponibilidad](high-availability-sla.md) integrada debido a la escala del impacto. Si desea controlar el flujo de trabajo de la conmutación por error desde la aplicación o manualmente, puede desactivar la conmutación por error automática.
   
   > [!NOTE]
-  > Dado que la comprobación de la escala de la interrupción y la rapidez con que se puede mitigar conllevan acciones humanas por parte del equipo de operaciones, el período de gracia no se puede establecer por debajo de una hora. Esta limitación se aplica a todas las bases de datos del grupo de conmutación por error, independientemente de su estado de sincronización de datos.
+  > Dado que la comprobación de la escala de la interrupción y la rapidez con que se puede mitigar conllevan acciones humanas, el período de gracia no se puede establecer por debajo de una hora. Esta limitación se aplica a todas las bases de datos del grupo de conmutación por error, independientemente de su estado de sincronización de datos.
 
 - **Directiva de conmutación por error de solo lectura**
 
   De forma predeterminada, se deshabilita la conmutación por error del agente de escucha de solo lectura. Se asegura de que el rendimiento de la réplica principal no se ve afectado cuando la base de datos secundaria está sin conexión. En cambio, también significa que las sesiones de solo lectura no podrán conectarse hasta que se recupere la base de datos secundaria. Si no puede tolerar tiempo de inactividad en las sesiones de solo lectura pero sí, usar la base de datos principal para el tráfico de solo lectura y el de lectura y escritura a costa de la posible degradación del rendimiento de esta, puede habilitar la conmutación por error para el agente de escucha de solo lectura mediante la configuración de la propiedad `AllowReadOnlyFailoverToPrimary`. En ese caso, el tráfico de solo lectura se redirigirá automáticamente a la base de datos principal si la secundaria no está disponible.
 
   > [!NOTE]
-  > La propiedad `AllowReadOnlyFailoverToPrimary` solo surte efecto si la directiva de conmutación automática por error está habilitada y Azure ha desencadenado una conmutación por error automática. En ese caso, si la propiedad se establece en true, la nueva base de datos principal atenderá a las sesiones de lectura y escritura, y de solo lectura.
+  > La propiedad `AllowReadOnlyFailoverToPrimary` solo surte efecto si la directiva de conmutación automática por error está habilitada y si se ha desencadenado una conmutación por error automática. En ese caso, si la propiedad se establece en true, la nueva base de datos principal atenderá a las sesiones de lectura y escritura, y de solo lectura.
 
 - **Conmutación por error planeada**
 
-   La conmutación por error planeada realiza una sincronización completa entre las bases de datos principales y secundarias antes de que el rol principal pase a la secundaria. De esta manera se garantiza que no hay pérdida de datos. La conmutación por error planeada se usa en los siguientes escenarios:
+   La conmutación por error planeada realiza una sincronización de datos completa entre las bases de datos principales y secundarias antes de que el rol principal pase a la secundaria. De esta manera se garantiza que no hay pérdida de datos. La conmutación por error planeada se usa en los siguientes escenarios:
 
   - Realizar simulacros de recuperación ante desastres (DR) en producción cuando no es aceptable la pérdida de datos
   - Reubicar las bases de datos a una región diferente
@@ -122,15 +122,15 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 
 - **Conmutación por error no planeada**
 
-   La conmutación por error no planeada o forzada cambia inmediatamente el rol principal a la base de datos secundaria sin sincronización con la principal. Esta operación dará lugar a la pérdida de datos. La conmutación por error no planeada se usa como método de recuperación durante las interrupciones cuando no es posible acceder a la base de datos principal. Cuando la base de datos principal original vuelve a estar en línea, se conecta de nuevo automáticamente sin sincronización y se convierte en una nueva base de datos secundaria.
+   La conmutación por error no planeada o forzada cambia inmediatamente el rol secundario al rol primario sin tener que esperar a que los cambios recientes se propaguen desde el rol primario. Esta operación puede ocasionar pérdida de datos. La conmutación por error no planeada se usa como método de recuperación durante las interrupciones cuando no es posible acceder a la base de datos principal. Cuando se mitiga la interrupción, la base de datos principal anterior se vuelve a conectar automáticamente y se convierte en una nueva base de datos secundaria. Asimismo, se puede ejecutar una conmutación por error planeada para realizar una conmutación por recuperación y devolver las réplicas a sus roles principal y secundario originales.
 
 - **Conmutación por error manual**
 
-  Puede iniciar manualmente la conmutación por error en cualquier momento, independientemente de la configuración de la conmutación por error automática. Si la directiva de conmutación por error automática no está configurada, se requiere la conmutación por error manual para recuperar las bases de datos del grupo de conmutación por error a la base de datos secundaria. Puede iniciar una conmutación por error forzada o sencilla (con sincronización total de los datos). El segundo caso se podría usar para reubicar la base de datos principal en la región secundaria. Cuando se completa la conmutación por error, los registros de DNS se actualizan automáticamente para garantizar la conectividad a la nueva base de datos principal.
+  Puede iniciar manualmente la conmutación por error en cualquier momento, independientemente de la configuración de la conmutación por error automática. Durante una interrupción que afecta a la principal, si la directiva de conmutación automática por error no está configurada, se requiere una conmutación por error manual para promover la base de datos secundaria al rol principal. Puede iniciar una conmutación por error forzada (no planeada) o que sea sencilla (planeada). Una conmutación por error sencilla solo es posible cuando la base de datos principal anterior es accesible y se puede usar para reubicar la región principal en la secundaria sin perder los datos. Cuando se completa una conmutación por error, los registros de DNS se actualizan automáticamente para garantizar la conectividad a la nueva base de datos principal.
 
 - **Período de gracia con pérdida de datos**
 
-  Como las bases de datos principal y secundaria se sincronizan con la replicación asincrónica, la conmutación por error puede provocar pérdida de datos. Puede personalizar la directiva de conmutación por error automática para que refleje la tolerancia de la aplicación a la pérdida de datos. Si configura `GracePeriodWithDataLossHours`, puede controlar durante cuánto tiempo espera el sistema antes de iniciar la conmutación por error que es probable que genere una pérdida de datos.
+  Como las bases de datos secundarias se sincronizan con la replicación asincrónica, la conmutación por error automática puede provocar la pérdida de datos. Puede personalizar la directiva de conmutación por error automática para que refleje la tolerancia de la aplicación a la pérdida de datos. Si configura `GracePeriodWithDataLossHours`, puede controlar durante cuánto tiempo espera el sistema antes de iniciar la conmutación por error forzada, aunque es probable que genere una pérdida de datos.
 
 - **Varios grupos de conmutación por error**
 

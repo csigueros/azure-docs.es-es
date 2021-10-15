@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/25/2021
 ms.author: sahmalik
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: ae84fd2fb25a78687f3103a193e584efc14614ca
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 08c14161ea5a108c1c6205f352485c348871bae5
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124837918"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234877"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token-using-username-and-password"></a>Aplicación de escritorio que llama a las API web: adquisición de un token mediante el nombre de usuario y la contraseña
 
@@ -25,7 +25,7 @@ También puede adquirir un token proporcionando el nombre de usuario y la contra
 
 ## <a name="this-flow-isnt-recommended"></a>Este flujo no es recomendable.
 
-*No se recomienda* el flujo de nombre de usuario y contraseña porque no es seguro que la aplicación le pida a un usuario la contraseña. Para más información, consulte [¿Cuál es la solución al creciente problema de las contraseñas?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). El flujo preferido para adquirir un token de forma silenciosa en equipos unidos a un dominio de Windows es la [autenticación integrada de Windows](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). También puede usar [flujo de código de dispositivo](https://aka.ms/msal-net-device-code-flow).
+*No se recomienda* el flujo de nombre de usuario y contraseña porque no es seguro que la aplicación le pida a un usuario la contraseña. Para más información, consulte [¿Cuál es la solución al creciente problema de las contraseñas?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). El flujo preferido para adquirir un token de forma silenciosa en máquinas unidas a un dominio de Windows es la [autenticación integrada de Windows](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). También puede usar [flujo de código de dispositivo](https://aka.ms/msal-net-device-code-flow).
 
 El empleo de un nombre de usuario y una contraseña resulta útil en algunos casos, como los escenarios de DevOps. Pero si quiere usar un nombre de usuario y una contraseña en escenarios interactivos en los que proporciona su propia interfaz de usuario, piense en cómo dejar de hacerlo. Al usar un nombre de usuario y una contraseña, está renunciando a una serie de cosas:
 

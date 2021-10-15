@@ -6,13 +6,13 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
-ms.date: 08/07/2019
-ms.openlocfilehash: f73091552a78760024189b173897913edca724bb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/29/2021
+ms.openlocfilehash: e5d5104e0f2215e81b5539296ff18572375a8a28
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100593408"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362401"
 ---
 # <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Banco de pruebas de rendimiento de recomendaciones de pruebas para Azure NetApp Files
 
@@ -21,6 +21,8 @@ En este artículo se entregan recomendaciones de pruebas comparativas de rendimi
 ## <a name="overview"></a>Información general
 
 Para entender las características de rendimiento de un volumen de Azure NetApp Files, puede usar la herramienta de código abierto [FIO](https://github.com/axboe/fio) para ejecutar una serie de pruebas comparativas y simular diversas cargas de trabajo. FIO se puede instalar en los sistemas operativos Linux y Windows.  Es una herramienta excelente para obtener una instantánea rápida tanto del IOPS como del rendimiento de un volumen.
+
+Azure NetApp Files *no* recomienda usar la utilidad `dd` como herramienta de pruebas comparativas de línea de base. Debe usar una carga de trabajo de aplicación real, una simulación de carga de trabajo y herramientas de pruebas comparativas y análisis (por ejemplo, Oracle AWR con Oracle o el equivalente de IBM para DB2) para establecer y analizar un rendimiento óptimo de la infraestructura. Herramientas como FIO, vdbench e iometer tienen su lugar en la determinación de las máquinas virtuales de los límites de almacenamiento, haciendo coincidir los parámetros de la prueba con las mezclas reales de cargas de trabajo de la aplicación para obtener resultados más útiles. Sin embargo, siempre es mejor probar con la aplicación del mundo real.  
 
 ### <a name="vm-instance-sizing"></a>Tamaño de instancia de la máquina virtual
 

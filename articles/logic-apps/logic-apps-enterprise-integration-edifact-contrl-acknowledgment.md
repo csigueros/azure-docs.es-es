@@ -8,16 +8,16 @@ ms.author: psrivas
 ms.reviewer: estfan, divswa, azla
 ms.topic: reference
 ms.date: 07/25/2021
-ms.openlocfilehash: 056538b5a6b52fcae646f5f03c6e39c8fce6429f
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 8fe32a9ce7fc6d02e32c31a2e698df81857b541e
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768081"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129401377"
 ---
 # <a name="contrl-acknowledgments-and-error-codes-for-edifact-messages-in-azure-logic-apps"></a>Confirmaciones CONTRL y códigos de error para los mensajes EDIFACT en Azure Logic Apps
 
-En Azure Logic Apps, puede crear flujos de trabajo que controlen los mensajes EDIFACT para la comunicación del intercambio electrónico de datos (EDI) al usar las operaciones **EDIFACT**. En la mensajería EDI, las confirmaciones proporcionan el estado del procesamiento de un intercambio EDI. Al recibir un intercambio, la [acción **Descodificación EDIFACT Decode**](logic-apps-enterprise-integration-edifact-decode.md) puede devolver uno o varios tipos de confirmaciones al emisor en función de los tipos de confirmación que estén habilitados y el nivel de validación especificado.
+En Azure Logic Apps, puede crear flujos de trabajo que controlen los mensajes EDIFACT para la comunicación del intercambio electrónico de datos (EDI) al usar las operaciones **EDIFACT**. En la mensajería EDI, las confirmaciones proporcionan el estado del procesamiento de un intercambio EDI. Al recibir un intercambio, la [acción **Descodificación EDIFACT Decode**](logic-apps-enterprise-integration-edifact.md) puede devolver uno o varios tipos de confirmaciones al emisor en función de los tipos de confirmación que estén habilitados y el nivel de validación especificado.
 
 En este tema se proporciona información general breve sobre la confirmación CONTRL de EDIFACT, los segmentos de confirmación CONTRL en un intercambio y los códigos de error que se utilizan en esos segmentos.
 
@@ -30,7 +30,7 @@ Para los mensajes con codificación EDIFACT, la confirmación CONTRL (ACK) sirve
 >
 > Debe informarse de los errores en mensajes CONTRL recibidos por otros medios distintos a un mensaje CONTRL. Si uno o más mensajes CONTRL se incluyen en un intercambio que contiene mensajes de datos, el mensaje CONTRL generado como respuesta a ese intercambio se genera como si no hubiera mensajes CONTRL en el intercambio recibido.
 
-Como confirmación técnica, el mensaje CONTRL indica que el destinatario del intercambio recibió el intercambio en cuestión más lo siguiente:
+Como confirmación técnica, el mensaje CONTRL indica que el destinatario del intercambio recibió el intercambio en cuestión y que tiene las siguientes responsabilidades:
 
 * Partes comprobadas del intercambio a fin de confirmar la precisión sintáctica de los elementos de datos copiados en el segmento Respuesta del intercambio (UCI) de los informes.
 * Acepta la responsabilidad de notificar al emisor la aceptación o el rechazo de las demás partes del intercambio.
@@ -39,7 +39,7 @@ Como confirmación técnica, el mensaje CONTRL indica que el destinatario del in
 > [!NOTE]
 > Una confirmación técnica de CONTRL informa del estado `Rejected` solo cuando el mensaje EDIFACT entrante es un duplicado o si existen errores en el sobre,como un problema con el juego de caracteres. EDIFACT no informa del estado `Interchange accepted with errors` en una confirmación técnica de CONTRL, porque x12 utiliza el campo TA104 en una confirmación TA1. Si se acepta parte del mensaje EDIFACT, la confirmación técnica CONTRL informa de un estado `Accepted`. En algunos escenarios, si se rechaza parte del mensaje, la confirmación de CONTRL de todos modos informa del estado `Accepted`. En tales escenarios, el elemento UCI5 puede informar del error.
 
-Como confirmación funcional, el mensaje CONTRL informa del estado, como aceptación o rechazo, del intercambio, el grupo o el mensaje recibido, incluido cualquier error o funcionalidad no admitida. El mensaje también indica que el destinatario del intercambio:
+Como confirmación funcional, el mensaje CONTRL informa del estado (como la aceptación o el rechazo) del intercambio, el grupo o el mensaje recibido, incluido cualquier error o funcionalidad no admitida. El mensaje también indica que el destinatario del intercambio:
 
 * Recibió los niveles del intercambio confirmado a los que se hace referencia.
 * Comprobó que no hay ningún error sintáctico grave en el nivel confirmado al que se hace referencia que evite un procesamiento posterior del intercambio.
@@ -205,8 +205,8 @@ En la tabla siguiente se enumeran los códigos de error admitidos según la defi
 | 18 | Error no especificado | Notificación de que se ha identificado un error, pero no se ha determinado su naturaleza. | No |
 | 19 | Notación decimal no válida | Notificación de que el carácter indicado como notación decimal en UNA no es válido, o la notación decimal utilizada en un elemento de datos no es coherente con la indicada en UNA. | No |
 | 20 | Carácter no válido como carácter de servicio | Notificación de que un carácter recomendado en UNA no es válido como carácter de servicio. | No |
-| 21 | Carácter(es) no válido(s) | Notificación de que uno o varios de los caracteres utilizados en el intercambio no son válidos, como se muestra en el identificador sintáctico indicado en el segmento UNB. El carácter no válido forma parte del nivel al que se hace referencia o aparece inmediatamente después de la parte identificada del intercambio. | Sí |
-| 22 | Caracteres de servicio no válidos | Notificación de que los caracteres de servicio utilizados en el intercambio no son caracteres de servicio válidos, como se recomienda en el segmento UNA, o bien no se trata de uno de los caracteres de servicio predeterminados. Si el código se emplea en el segmento UCS o UCD, el carácter no válido aparece inmediatamente después de la parte identificada del intercambio. | No |
+| 21 | Carácter(es) no válido(s) | Notificación de que uno o varios de los caracteres que se usan en el intercambio no son válidos, tal como se muestra en el identificador sintáctico indicado en el segmento UNB. El carácter no válido forma parte del nivel al que se hace referencia o aparece inmediatamente después de la parte identificada del intercambio. | Sí |
+| 22 | Caracteres de servicio no válidos | Notificación de que los caracteres de servicio utilizados en el intercambio no son caracteres de servicio válidos, tal como se recomienda en el segmento UNA, o bien no se trata de uno de los caracteres de servicio predeterminados. Si el código se emplea en el segmento UCS o UCD, el carácter no válido aparece inmediatamente después de la parte identificada del intercambio. | No |
 | 23 | Remitente de intercambio desconocido | Notificación de que el remitente del intercambio (S002) es desconocido. | No |
 | 24 | Demasiado antiguo | Notificación de que el grupo o el intercambio recibidos son más antiguos que un límite especificado en IA o determinado por el destinatario. | No |
 | 25 | Indicador de prueba no admitido | Notificación de que el procesamiento de prueba no puede efectuarse para el intercambio, grupo, mensaje o paquete identificado. | No |

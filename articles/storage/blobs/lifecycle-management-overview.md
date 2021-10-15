@@ -10,12 +10,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: 99fe642b2b18beef27238c7092c8fcbfab4164a2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 245bcbfd59644946ac6f039e35fe02147054cc8c
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128570880"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273238"
 ---
 # <a name="optimize-costs-by-automatically-managing-the-data-lifecycle"></a>Optimizar los costes mediante la administración automática del ciclo de vida de los datos
 
@@ -400,5 +400,5 @@ Cuando se mueve un blob desde un nivel de acceso a otro, su hora de última modi
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Configurar una directiva de administración del ciclo de vida](lifecycle-management-policy-configure.md)
-- [Niveles de acceso de Azure Blob Storage: frecuente, esporádico y archivo](storage-blob-storage-tiers.md)
+- [Niveles de acceso frecuente, esporádico y de archivo de los datos de blob](access-tiers-overview.md)
 - [Administración y búsqueda de datos en Azure Blob Storage con el Índice de blobs](storage-manage-find-blobs.md)

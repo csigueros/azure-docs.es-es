@@ -9,12 +9,12 @@ ms.date: 08/24/2021
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
-ms.openlocfilehash: 6c204308cff285860c0e887d41eca56ecc220226
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: c65cd9e9e6d80222f60a3ee060ba697743713738
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123039060"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362726"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Uso de Visual Studio Code para desarrollar y depurar módulos para Azure IoT Edge
 
@@ -64,14 +64,13 @@ Para compilar e implementar la imagen del módulo, necesita Docker para compilar
     > [!TIP]
     > Puede usar un registro de Docker local con fines de prototipo y prueba en lugar de un registro en la nube.
 
-A menos que esté desarrollando el módulo en C, también necesitará la [herramienta de desarrollo de Azure IoT EdgeHub](https://pypi.org/project/iotedgehubdev/) basada en Python con el fin de configurar el entorno de desarrollo local para depurar, ejecutar y probar la solución de IoT Edge. Si aún no lo ha hecho, instale [Python (2.7/3.6/3.7) y Pip](https://www.python.org/) y después **iotedgehubdev** mediante la ejecución de este comando en el terminal.
+A menos que esté desarrollando el módulo en C, también necesitará la [herramienta de desarrollo de Azure IoT EdgeHub](https://pypi.org/project/iotedgehubdev/) basada en Python con el fin de configurar el entorno de desarrollo local para depurar, ejecutar y probar la solución de IoT Edge. Si aún no lo ha hecho, instale [Python (2.7/3.6/3.7/3.8) y Pip](https://www.python.org/) y después **iotedgehubdev** mediante la ejecución de este comando en el terminal.
 
    ```cmd
    pip install --upgrade iotedgehubdev
    ```
 
 > [!NOTE]
-> Actualmente, iotedgehubdev usa una biblioteca docker-py que no es compatible con Python 3.8.
 >
 > Si tiene varias versiones de Python, incluida la versión Python 2.7 preinstalada (por ejemplo, en Ubuntu o macOS), asegúrese de que usa los valores `pip` o `pip3` correctos para instalar **iotedgehubdev**.
 

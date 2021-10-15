@@ -4,15 +4,15 @@ description: En este tutorial se describe cómo examinar los datos de Azure Data
 author: shsandeep123
 ms.author: sandeepshah
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 05/08/2021
-ms.openlocfilehash: 1c4801814e77efdb681f32ea35d4dfb68618900b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 093375e30fa9f9a3d6a558c5e230a8bc81a701ad
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121736369"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215783"
 ---
 # <a name="register-and-scan-azure-data-lake-storage-gen1"></a>Registro y examen de Azure Data Lake Storage Gen1
 
@@ -62,16 +62,16 @@ Puede Agregar la MSI del catálogo en el nivel de suscripción, grupo de recurso
 
 1. En [Azure Portal](https://portal.azure.com), busque la suscripción, el grupo de recursos o el recurso (por ejemplo, una cuenta de almacenamiento de Azure Data Lake Storage Gen1) que desea permitir que el catálogo examine.
 
-2. Haga clic en **Información general** y, a continuación, seleccione **Explorador de datos**.
+2. Seleccione **Información general** y, a continuación, seleccione **Explorador de datos**.
 
    :::image type="content" source="./media/register-scan-adls-gen1/access-control.png" alt-text="Elegir control de acceso":::
 
-3. Haga clic en **Acceso** en la barra de navegación superior.
+3. Seleccione **Acceso** en la barra de navegación superior.
 
-   :::image type="content" source="./media/register-scan-adls-gen1/access.png" alt-text="Clic en Acceso":::
+   :::image type="content" source="./media/register-scan-adls-gen1/access.png" alt-text="Seleccione Acceso":::.
 
-4. Haga clic en **Agregar**. Agregue el **Catálogo e Purview** en la selección Seleccionar usuario o grupo. Seleccione los permisos **Lectura** y **Ejecución**. Asegúrese de elegir **Esta carpeta y todos los elementos secundarios** y **Una entrada de permiso de acceso y una entrada de permiso predeterminada** en la opción Agregar a, como se muestra en la siguiente captura de pantalla. Haga clic en **Aceptar**
-   :::image type="content" source="./media/register-scan-adls-gen1/gen1-managed-service-identity-authentication.png" alt-text="Detalles de la autenticación de MSI":::
+4. Seleccione **Agregar**. Agregue el **Catálogo e Purview** en la selección Seleccionar usuario o grupo. Seleccione los permisos **Lectura** y **Ejecución**. Asegúrese de elegir **Esta carpeta y todos los elementos secundarios** y **Una entrada de permiso de acceso y una entrada de permiso predeterminada** en la opción Agregar a, como se muestra en la siguiente captura de pantalla. Seleccione **Aceptar**
+   :::image type="content" source="./media/register-scan-adls-gen1/gen1-managed-service-identity-authentication.png" alt-text="Detalles de la autenticación de MSI":::.
    
 > [!Tip]
 > Una **entrada de permiso de acceso** es un entrada de permiso sobre los archivos y carpetas *actuales*.
@@ -118,16 +118,16 @@ Para usar una entidad de servicio, primero debe crear una según se indica en es
 
 1. En [Azure Portal](https://portal.azure.com), busque la suscripción, el grupo de recursos o el recurso (por ejemplo, una cuenta de almacenamiento de Azure Data Lake Storage Gen1) que desea permitir que el catálogo examine.
 
-2. Haga clic en **Información general** y, a continuación, seleccione **Explorador de datos**.
+2. Seleccione **Información general** y, a continuación, seleccione **Explorador de datos**.
 
    :::image type="content" source="./media/register-scan-adls-gen1/access-control.png" alt-text="Elegir control de acceso":::
 
-3. Haga clic en **Acceso** en la barra de navegación superior.
+3. Seleccione **Acceso** en la barra de navegación superior.
 
-   :::image type="content" source="./media/register-scan-adls-gen1/access.png" alt-text="Clic en Acceso":::
+   :::image type="content" source="./media/register-scan-adls-gen1/access.png" alt-text="Seleccione Acceso":::.
 
-4. Haga clic en **Agregar**. Agregue la **aplicación de la entidad de servicio** en la selección Seleccionar usuario o grupo. Seleccione los permisos **Lectura** y **Ejecución**. Asegúrese de elegir **Esta carpeta y todos los elementos secundarios** y **Una entrada de permiso de acceso y una entrada de permiso predeterminada** en la opción Agregar a, como se muestra en la siguiente captura de pantalla. Haga clic en **Aceptar**
-   :::image type="content" source="./media/register-scan-adls-gen1/gen1-service-principal-permissions.png" alt-text="Detalles de autenticación de la entidad de servicio":::
+4. Seleccione **Agregar**. Agregue la **aplicación de la entidad de servicio** en la selección Seleccionar usuario o grupo. Seleccione los permisos **Lectura** y **Ejecución**. Asegúrese de elegir **Esta carpeta y todos los elementos secundarios** y **Una entrada de permiso de acceso y una entrada de permiso predeterminada** en la opción Agregar a, como se muestra en la siguiente captura de pantalla. Seleccione **Aceptar**
+   :::image type="content" source="./media/register-scan-adls-gen1/gen1-service-principal-permissions.png" alt-text="Detalles de autenticación de la entidad de servicio":::.
 
 > [!Tip]
 > Una **entrada de permiso de acceso** es un entrada de permiso sobre los archivos y carpetas *actuales*.
@@ -167,7 +167,7 @@ En la pantalla Register sources (Registrar orígenes) (Azure Data Lake Storage G
 
 Para crear y ejecutar un nuevo examen, siga estos pasos:
 
-1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de Purview Studio.
+1. Seleccione la pestaña **Mapa de datos** en el panel izquierdo de [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Seleccione el origen de Azure Data Lake Storage Gen1 que registró.
 

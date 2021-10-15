@@ -14,12 +14,12 @@ ms.date: 08/24/2021
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
-ms.openlocfilehash: d32a4ec02585de7a34c3d21633454accaa11d69c
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: 1d3257980d628a627b9a4896e2511812240454f8
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122777518"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129229893"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de inicio de sesión único
 
@@ -30,7 +30,7 @@ En el siguiente diagrama de protocolo se describe la secuencia de inicio de sesi
 ![Flujo de trabajo del inicio de sesión único (SSO)](./media/single-sign-on-saml-protocol/active-directory-saml-single-sign-on-workflow.png)
 
 > [!NOTE]
-> En este artículo se describe el uso de SAML para el inicio de sesión único. Para obtener más información sobre otras formas de administrar el inicio de sesión único (por ejemplo, mediante OpenID Connect o la Autenticación integrada de Windows), consulte [Inicio de sesión único en aplicaciones de Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+> En este artículo se describe el uso de SAML para el inicio de sesión único. Para obtener más información sobre otras formas de administrar el inicio de sesión único (por ejemplo, mediante OpenID Connect o la autenticación integrada de Windows), consulte [Inicio de sesión único en aplicaciones de Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="authnrequest"></a>AuthnRequest
 

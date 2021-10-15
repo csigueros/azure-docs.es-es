@@ -1,6 +1,6 @@
 ---
-title: Configuración de registros de diagnóstico mediante la API REST de Azure Monitor
-description: Aprenda a configurar registros de diagnóstico para Azure Data Factory mediante la API REST de Azure Monitor.
+title: Configuración de registros de diagnóstico mediante la API de REST de Azure Monitor
+description: Aprenda a configurar registros de diagnóstico para Azure Data Factory mediante la API de REST de Azure Monitor.
 author: minhe-msft
 ms.author: hemin
 ms.reviewer: jburchel
@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 09/02/2021
-ms.openlocfilehash: 309b900f6c5f2ffe8cc0fd9101e7aa0408cb2dd2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a78d3e68841e4463d4f66f24821b5e42c7650f44
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124837979"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400446"
 ---
-# <a name="setup-diagnostic-logs-via-the-azure-monitor-rest-api"></a>Configuración de registros de diagnóstico mediante la API REST de Azure Monitor
+# <a name="set-up-diagnostic-logs-via-the-azure-monitor-rest-api"></a>Configuración de registros de diagnóstico mediante la API de REST de Azure Monitor
 
-En este artículo se describe cómo configurar registros de diagnóstico para Azure Data Factory mediante la API REST de Azure Monitor.
+En este artículo se describe cómo configurar registros de diagnóstico para Azure Data Factory mediante la API de REST de Azure Monitor.
 
 ## <a name="diagnostic-settings"></a>Configuración de diagnóstico
 
@@ -30,7 +30,9 @@ Use la configuración de diagnóstico para configurar los registros de diagnóst
 * Si se establecen directivas de retención, pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado, las directivas de retención no surten ningún efecto. Por ejemplo, esta condición puede ocurrir cuando solo se seleccionan las opciones de registros de Event Hubs o de Monitor.
 * Las directivas de retención se aplican por día. El límite entre los días se produce a la medianoche de la hora universal coordinada (UTC). Al final del día, se eliminan los registros de los días que superan la directiva de retención. Por ejemplo, si tuviera una directiva de retención de un día, se eliminarían los registros de anteayer al principio del día de hoy.
 
-## <a name="enable-diagnostic-logs-via-the-azure-monitor-rest-api"></a>Habilitación de registros de diagnóstico mediante la API REST de Azure Monitor
+## <a name="enable-diagnostic-logs-via-the-monitor-rest-api"></a>Habilitación de registros de diagnóstico mediante la API de REST de Monitor
+
+Use la API de REST de supervisión para habilitar los registros de diagnóstico.
 
 ### <a name="create-or-update-a-diagnostics-setting-in-the-monitor-rest-api"></a>Creación o actualización de una configuración de diagnóstico en la API REST de Monitor
 
@@ -44,7 +46,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 #### <a name="headers"></a>encabezados
 
 * Reemplace `{api-version}` por `2016-09-01`.
-* Reemplace `{resource-id}` por el identificador del recurso para el que quiere editar la configuración de diagnóstico. Para más información, consulte el artículo sobre el [uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
+* Reemplace `{resource-id}` por el identificador del recurso para el que quiere editar la configuración de diagnóstico. Para obtener más información, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
 * Establezca el encabezado `Content-Type` en `application/json`.
 * Establezca el encabezado de autorización en un token web de JSON que se obtiene de Azure Active Directory (AAD). Par más información, consulte [Solicitudes de autenticación](../active-directory/develop/authentication-vs-authorization.md).
 
@@ -164,7 +166,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 #### <a name="headers"></a>encabezados
 
 * Reemplace `{api-version}` por `2016-09-01`.
-* Reemplace `{resource-id}` por el identificador del recurso para el que quiere editar la configuración de diagnóstico. Para más información, consulte el artículo sobre el [uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
+* Reemplace `{resource-id}` por el identificador del recurso para el que quiere editar la configuración de diagnóstico. Para obtener más información, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
 * Establezca el encabezado `Content-Type` en `application/json`.
 * Establezca el encabezado de autorización en un token web de JSON que obtuvo de Azure AD. Par más información, consulte [Solicitudes de autenticación](../active-directory/develop/authentication-vs-authorization.md).
 
@@ -217,7 +219,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-Para más información, consulte [Configuración de diagnóstico](/rest/api/monitor/diagnosticsettings).
+Para obtener más información, consulte [Configuración de diagnóstico](/rest/api/monitor/diagnosticsettings).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

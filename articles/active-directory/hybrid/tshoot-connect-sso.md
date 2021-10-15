@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba5db5208d53996d074dca15bdc8b7b3088e4dec
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 546a7bfbda3f037f3ad40ca9c5d59353cc1de0eb
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113111202"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129349599"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solución de problemas de inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -128,8 +128,12 @@ Si el procedimiento de solución de problemas no sirve de ayuda, restablezca man
    >La cuenta de administrador de dominio usada no puede ser miembro del grupo Usuarios protegidos. De lo contrario, la operación presentará un error.
 
 2. Llame a `Disable-AzureADSSOForest -OnPremCredentials $creds`. Este comando quita la cuenta de equipo `AZUREADSSOACC` del controlador de dominio local para este bosque de Active Directory específico.
-3. Repita los pasos anteriores para cada bosque de Active Directory en el que se configuró la característica.
 
+   >[!NOTE]
+   >Si por algún motivo no puede acceder a AD local, puede omitir los **pasos 3.1** y **3.2** y, en su lugar, llamar a `Disable-AzureADSSOForest -DomainFqdn <Domain name from the output list in step 2>`. 
+   
+3. Repita los pasos anteriores para cada bosque de Active Directory en el que se configuró la característica.
+ 
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>Paso 4: Habilitación de SSO de conexión directa para cada bosque de Active Directory
 
 1. Llame a `Enable-AzureADSSOForest`. Cuando se le pida, escriba las credenciales del administrador de dominio para el bosque de Active Directory deseado.

@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 09/29/2021
 ms.custom: references_regions
-ms.openlocfilehash: 3da9051a1f089d487be7021bf9341a95bae62b08
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 98aec7fc2a3857ac50125e7e49c5f9ab105a49d7
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110614377"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129535923"
 ---
 # <a name="add-spell-check-to-queries-in-cognitive-search"></a>Adición de la corrección ortográfica a las consultas en Cognitive Search
 
@@ -23,19 +23,27 @@ ms.locfileid: "110614377"
 
 Se pueden mejorar las coincidencias mediante la corrección ortográfica de los términos de consulta de búsqueda individuales antes de que lleguen al motor de búsqueda. El parámetro **speller** es compatible con todos los tipos de consulta: [simple](query-simple-syntax.md), [completa](query-lucene-syntax.md) y [semántica](semantic-how-to-query-request.md), la nueva opción, actualmente en versión preliminar pública.
 
+Speller se publicó junto con la [versión preliminar de búsqueda semántica](semantic-search-overview.md) y comparte el parámetro queryLanguage, pero hay que tener en cuenta que es una característica independiente con sus propios requisitos previos. No se aplican registros ni cargos adicionales por usar esta función.
+
 ## <a name="prerequisites"></a>Requisitos previos
 
-El corrector ortográfico se lanzó conjuntamente con la [versión preliminar de la búsqueda semántica](semantic-search-overview.md). De por sí, es obligatorio [registrarse](https://aka.ms/SemanticSearchPreviewSignup), pero ello no supone ningún costo ni conlleva restricciones de nivel. El corrector ortográfico está disponible en las [mismas regiones](semantic-search-overview.md#availability-and-pricing) que la búsqueda semántica.
+Para usar la revisión ortográfica, necesitará lo siguiente:
 
-Una vez procesado el registro, necesitará lo siguiente:
++ Un servicio de búsqueda de nivel básico o superior, en cualquier región.
 
-+ Índice de búsqueda existente, con contenido en un [idioma admitido](#supported-languages). Actualmente, la corrección ortográfica no funciona con [sinónimos](search-synonyms.md). Evite su uso en índices que especifiquen una asignación de sinónimos en cualquier definición de campo.
++ Índice de búsqueda existente, con contenido en un [idioma admitido](#supported-languages).
 
-+ Un cliente de búsqueda para el envío de consultas
++ [Una solicitud de consulta](/rest/api/searchservice/preview-api/search-documents) que tenga "api-version=2020-06-30-Preview", "speller=lexicon" y "queryLanguage" establecidos en un [idioma admitido](#supported-languages). El corrector ortográfico funciona con las cadenas que se pasan en el parámetro de "búsqueda". No es compatible con los filtros.
 
-  El cliente de búsqueda debe admitir las API REST en versión preliminar en la solicitud de consulta. Puede usar [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md) o código que haya modificado para realizar llamadas de REST a las API en versión preliminar.
+Use un cliente de búsqueda que admita las API de versión preliminar en la solicitud de consulta. Para REST, Puede usar [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md) o código que haya modificado para realizar llamadas de REST a las API en versión preliminar. También puede usar las versiones beta de los SDK de Azure.
 
-+ [Una solicitud de consulta](/rest/api/searchservice/preview-api/search-documents) que invoque la corrección ortográfica debe tener "api-version=2020-06-30-Preview", "speller=lexicon" y "queryLanguage" establecidos en un [idioma admitido](#supported-languages).
+| Biblioteca de cliente | Versiones |
+|----------|----------|
+| API DE REST | [2021-04-30 (versión preliminar)](/rest/api/searchservice/index-preview) o 2020-06-30 (versión preliminar) |
+| SDK de Azure para .NET | [versión 11.3.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.3.0-beta.2) | 
+| SDK de Azure para Java |  [versión 11.4.0-beta.2](https://search.maven.org/artifact/com.azure/azure-search-documents/11.4.0-beta.2/jar) |
+| SDK de Azure para JavaScript | [versión 11.2.0-beta.2](https://www.npmjs.com/package/@azure/search-documents/v/11.2.0-beta.2) |
+| SDK de Azure para Python | [versión 11.2.0b3](https://pypi.org/project/azure-search-documents/11.2.0b3/) |
 
 ## <a name="spell-correction-with-simple-search"></a>Corrección ortográfica con búsqueda simple
 
@@ -55,7 +63,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## <a name="spell-correction-with-full-lucene"></a>Corrección ortográfica con sintaxis de Lucene completa
 
-La corrección ortográfica se produce en términos de consulta individuales que se someten a análisis, por lo que puede usar el parámetro speller con algunas consultas de Lucene, pero no con otras.
+La corrección ortográfica se produce en términos de consulta individuales que se someten a análisis de texto, por lo que puede usar el parámetro "speller" con algunas consultas de Lucene, pero no con otras.
 
 + Los formularios de consulta incompatibles que omiten el análisis de texto incluyen: caracteres comodín, expresiones regulares, coincidencias parciales.
 + Los formularios de consulta compatibles incluyen: búsqueda con campo, proximidad, priorización por término.
@@ -93,7 +101,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## <a name="supported-languages"></a>Idiomas compatibles
 
-En la tabla siguiente se pueden encontrar los valores válidos de la corrección ortográfica para queryLanguage. Esta lista es un subconjunto de los [idiomas admitidos (referencia de API REST)](/rest/api/searchservice/preview-api/search-documents#queryLanguage). Si usa leyendas y respuestas semánticas sin corrección ortográfica, puede elegir entre la lista más grande de idiomas y variantes.
+Los valores que se pueden usar en queryLanguage se pueden encontrar en la tabla siguiente, que se ha copiado de la lista de [idiomas admitidos (referencia de la API de REST)](/rest/api/searchservice/preview-api/search-documents#queryLanguage).
 
 | Lenguaje | queryLanguage |
 |----------|---------------|
@@ -101,18 +109,25 @@ En la tabla siguiente se pueden encontrar los valores válidos de la corrección
 | Español [ES] | ES, ES-ES (valor predeterminado)|
 | Francés [FR] | FR, FR-FR (valor predeterminado) |
 | Alemán [DE] | DE, DE-DE (valor predeterminado) |
+| Neerlandés (Países Bajos) | NL, NL-BE, NL-NL (valor predeterminado) |
 
-## <a name="language-considerations"></a>Consideraciones de idioma
+### <a name="querylanguage-considerations"></a>Consideraciones sobre queryLanguage
 
-El parámetro queryLanguage necesario para la corrección ortográfica debe ser coherente con los [analizadores de idioma](index-add-language-analyzers.md) asignados a las definiciones de campo en el esquema de índice. Por ejemplo, si el contenido de un campo se indexó mediante el analizador de idioma "fr.microsoft", las consultas, la corrección ortográfica y las leyendas y respuestas semánticas deben usar una biblioteca de idioma francés de algún tipo.
+Tal como se indicó anteriormente, una solicitud de consulta solo puede tener un parámetro queryLanguage, pero ese parámetro lo comparten varias características, cada una de las cuales admite una cohorte diferente de idiomas. Si solo usa el corrector ortográfico, la lista de idiomas admitidos en la tabla anterior es la lista completa. 
+
+### <a name="language-analyzer-considerations"></a>Consideraciones sobre el analizador de idiomas
+
+Los índices con contenido que no está en inglés suelen usar [analizadores de idioma](index-add-language-analyzers.md) en campos que no están en inglés para aplicar las reglas lingüísticas del idioma nativo.
+
+Si va a agregar un corrector ortográfico al contenido que también se somete a análisis de idioma, obtendrá mejores resultados si usa el mismo idioma en cada paso de la indexación y el procesamiento de consultas. Por ejemplo, si el contenido de un campo se indexó mediante el analizador de idioma "fr.microsoft", las consultas, la corrección ortográfica y las leyendas y respuestas semánticas deben usar una biblioteca o un lexicón de francés de algún tipo.
 
 Para recapitular cómo se usan las bibliotecas de idioma en Cognitive Search:
 
-+ Los analizadores de idioma se pueden invocar durante la indexación y la ejecución de consultas, y pueden ser de Lucene completo (por ejemplo, "de.lucene") o de Microsoft ("de.microsoft").
++ Los analizadores de idioma se pueden invocar durante la indexación y la ejecución de consultas, y pueden ser de Apache Lucene (por ejemplo, "de.lucene") o de Microsoft ("de.microsoft").
 
 + Los léxicos de idioma invocados durante la corrección ortográfica se especifican mediante uno de los códigos de idioma de la tabla anterior.
 
-En una solicitud de consulta, el valor de queryLanguage se aplica por igual al corrector ortográfico, las [respuestas](semantic-answers.md) y las leyendas. No hay ninguna invalidación de las partes individuales de una respuesta semántica. 
+En una solicitud de consulta, el valor asignado a queryLanguage se aplica por igual al corrector ortográfico, las [respuestas](semantic-answers.md) y las leyendas. 
 
 > [!NOTE]
 > La coherencia de idioma entre varios valores de propiedad solo es un problema si usa analizadores de idioma. Si usa analizadores independientes del idioma (como keyword, simple, standard, stop, whitespace o `standardasciifolding.lucene`), el valor de queryLanguage puede ser cualquiera que desee.

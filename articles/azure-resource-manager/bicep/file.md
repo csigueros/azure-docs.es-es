@@ -2,13 +2,13 @@
 title: Estructura y sintaxis de un archivo Bicep
 description: Describe la estructura y las propiedades de un archivo Bicep mediante la sintaxis declarativa.
 ms.topic: conceptual
-ms.date: 09/21/2021
-ms.openlocfilehash: f0fb7214d261c686273e275cb0d3d18b1d393f6b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/01/2021
+ms.openlocfilehash: e627821f80f76ff536859fd643bd01c55d50ab7e
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128654335"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350408"
 ---
 # <a name="understand-the-structure-and-syntax-of-bicep-files"></a>Nociones sobre la estructura y la sintaxis de los archivos Bicep
 
@@ -175,6 +175,17 @@ En la tabla siguiente se describen los decoradores disponibles y cómo usarlos.
 | minValue | int | int | Valor mínimo del parámetro entero. Este valor es inclusivo. |
 | secure | string, object | ninguno | Marca el parámetro como seguro. El valor de un parámetro seguro no se guarda en el historial de implementaciones y no se registra. Para más información, consulte [Protección de cadenas y objetos](data-types.md#secure-strings-and-objects). |
 
+Los decoradores están en el [espacio de nombres sys](bicep-functions.md#namespaces-for-functions). Si tiene que diferenciar un decorador de otro elemento con el mismo nombre, anteceda el decorador con `sys`. Por ejemplo, si el archivo de Bicep incluye un parámetro llamado `description`, debe agregar el espacio de nombres sys al usar el decorador **description**.
+
+```bicep
+@sys.description('The name of the instance.')
+param name string
+@sys.description('The description of the instance to display.')
+param description string
+```
+
+Para obtener más información, vea [Decoradores](parameters.md#decorators).
+
 ## <a name="variables"></a>variables
 
 Utilice variables para expresiones complejas que se repiten en un archivo Bicep. Por ejemplo, puede agregar una variable para un nombre de recurso que se construye mediante la concatenación de varios valores.
@@ -281,6 +292,8 @@ resource storageAccountResources 'Microsoft.Storage/storageAccounts@2019-06-01' 
   ...
 }]
 ```
+
+El decorador `batchSize` está en el [espacio de nombres sys](bicep-functions.md#namespaces-for-functions). Si necesita diferenciar este decorador de otro elemento con el mismo nombre, ponga **sys** delante: `@sys.batchSize(2)`.
 
 Para más información, consulte [Implementación en lotes.](loop-resources.md#deploy-in-batches)
 

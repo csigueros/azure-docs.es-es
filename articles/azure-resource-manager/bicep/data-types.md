@@ -2,13 +2,13 @@
 title: Tipos de datos de Bicep
 description: Describe los tipos de datos disponibles en Bicep.
 ms.topic: conceptual
-ms.date: 09/22/2021
-ms.openlocfilehash: 936f17273a95ceb77030497b27f7f73defc37896
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 09/30/2021
+ms.openlocfilehash: e2dffac58c3fec1b6c29d2c5e1542c9fec7ec0e4
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128624405"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357934"
 ---
 # <a name="data-types-in-bicep"></a>Tipos de datos de Bicep
 
@@ -83,9 +83,7 @@ Actualmente no se admiten formatos de número de punto flotante, decimal o binar
 
 ## <a name="objects"></a>Objetos
 
-Los objetos comienzan con una llave de apertura (`{`) y terminan con una llave de cierre (`}`). En Bicep, un objeto se debe declarar en varias líneas. Cada propiedad de un objeto consta de una clave y un valor. La clave y el valor están separados por dos puntos (`:`). Un objeto permite cualquier propiedad de cualquier tipo.
-
-En Bicep, la clave no está entre comillas. No use comas entre las propiedades.
+Los objetos comienzan con una llave de apertura (`{`) y terminan con una llave de cierre (`}`). En Bicep, un objeto se debe declarar en varias líneas. Cada propiedad de un objeto consta de una clave y un valor. La clave y el valor están separados por dos puntos (`:`). Un objeto permite cualquier propiedad de cualquier tipo. No use comas entre las propiedades.
 
 ```bicep
 param exampleObject object = {
@@ -93,6 +91,23 @@ param exampleObject object = {
   id: '123-abc'
   isCurrent: true
   tier: 1
+}
+```
+
+En Bicep, las comillas se permiten opcionalmente en las claves de propiedad de objeto:
+
+```bicep
+var test = {
+  'my - special. key': 'value'
+}
+```
+
+En el ejemplo anterior, las comillas se usan cuando las claves de propiedad del objeto contienen caracteres especiales.  Por ejemplo, espacio, "-" o ".". En el ejemplo siguiente se muestra cómo usar la interpolación en claves de propiedad de objeto.
+
+```bicep
+var stringVar = 'example value'
+var objectVar = {
+  '${stringVar}': 'this value'
 }
 ```
 

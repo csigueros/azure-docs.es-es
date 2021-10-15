@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 04/28/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9fc7a8d5b27da251f13f2c9dfeffa03f7cdbd149
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f10c1f70026b905521193a0dd511ba1e65de6849
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114452565"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274033"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Administración de módulos en Azure Automation
 
@@ -30,9 +30,6 @@ Cuando se crea una cuenta de Automation, Azure Automation importa algunos módul
 
 Cuando Automation ejecuta trabajos de compilación de runbook y DSC, carga los módulos en espacios aislados en los que se pueden ejecutar los runbooks y se pueden compilar las configuraciones de DSC. Automation también coloca automáticamente los recursos de DSC en los módulos del servidor de extracción de DSC. Las máquinas pueden extraer los recursos cuando aplican las configuraciones de DSC.
 
->[!NOTE]
->Asegúrese de importar solo los módulos necesarios para los runbooks y las configuraciones de DSC. No es recomendable importar el módulo Az raíz, ya que incluye muchos otros módulos que es posible que no necesite, lo que puede causar problemas de rendimiento. En su lugar, importe módulos individuales, como Az.Compute.
-
 El espacio aislado de nube admite 48 llamadas del sistema como máximo y, por motivos de seguridad, restringe todas las demás. Otras funcionalidades, como la administración de credenciales y algunas redes, no se admiten en el espacio aislado de nube.
 
 Debido al número de módulos y cmdlets incluidos, es difícil saber de antemano cuál de los cmdlets realizará llamadas no admitidas. Por lo general, se han detectado problemas con cmdlets que requieren acceso con privilegios elevados, que requieren una credencial como parámetro o con cmdlets relacionados con redes. Los cmdlets que realizan operaciones de red de pila completa no se admiten en el espacio aislado, lo que incluye [Connect-AipService](/powershell/module/aipservice/connect-aipservice) del módulo AIPService de PowerShell y [Resolve-DnsName](/powershell/module/dnsclient/resolve-dnsname) del módulo DNSClient.
@@ -44,19 +41,28 @@ Estas son limitaciones conocidas del espacio aislado. La solución recomendada e
 
 ## <a name="default-modules"></a>Módulos predeterminados
 
-En la tabla siguiente se enumeran los módulos que importa Azure Automation de forma predeterminada al crear la cuenta de Automation. Automation puede importar versiones más recientes de estos módulos. Pero no se puede quitar la versión original de la cuenta de Automation aunque se elimine una versión más reciente. Tenga en cuenta que estos módulos predeterminados incluyen varios módulos de AzureRM.
+Todas las nuevas cuentas de Automation tienen la versión más reciente del módulo Az de PowerShell importado de manera predeterminada. El módulo Az reemplaza a AzureRM y es el módulo recomendado para usar con Azure. Los **módulos predeterminados** de la nueva cuenta de Automation incluyen los 24 módulos AzureRM existentes y más de 60 módulos Az.
+
+Hay una opción nativa para actualizar los módulos al módulo Az más reciente por el usuario para las cuentas de Automation. La operación controlará todas las dependencias del módulo en el back-end, lo que elimina las complicaciones de actualizar los módulos [manualmente](../automation-update-azure-modules.md#update-az-modules) o ejecutar el runbook para [actualizar los módulos de Azure](../automation-update-azure-modules.md#obtain-a-runbook-to-use-for-updates).  
+
+Si la cuenta de Automation existente solo tiene módulos AzureRM, la opción [Actualizar módulos Az](../automation-update-azure-modules.md#update-az-modules) actualizará la cuenta de Automation con la versión seleccionada por el usuario del módulo Az.  
+
+Si la cuenta de Automation existente tiene AzureRM y algunos módulos Az, la opción importará los módulos Az restantes a la cuenta de Automation. Los módulos Az existentes tendrán preferencia y la operación de actualización no actualizará esos módulos. Esto es para asegurarse de que la operación del módulo de actualización no conduce a ningún error de ejecución de runbook mediante la actualización involuntaria de un módulo que usa un runbook. La manera recomendada para este escenario es eliminar primero los módulos Az existentes y, a continuación, realizar las operaciones de actualización para importar el módulo Az más reciente en la cuenta de Automation. Estos tipos de módulos, no importados de manera predeterminada, se conocen como **personalizados**.  Los módulos **personalizados** siempre tendrán preferencia sobre los módulos **predeterminados**.  
+
+Por ejemplo: si ya tiene el módulo `Az.Aks` importado con la versión 2.3.0 que proporciona el módulo Az 6.3.0 e intenta actualizar el módulo Az a la versión 6.4.0 más reciente. La operación de actualización importará todos los módulos Az desde el paquete 6.4.0, excepto `Az.Aks`. Para tener la versión más reciente de `Az.Aks`, elimine primero el módulo existente y, a continuación, realice la operación de actualización, o bien también puede actualizar este módulo por separado, como se describe en [Importación de módulos Az](#import-az-modules) para importar una versión diferente de un módulo específico.  
+
+En la tabla siguiente se enumeran los módulos que importa Azure Automation de manera predeterminada al crear la cuenta de Automation. Automation puede importar versiones más recientes de estos módulos. Pero no se puede quitar la versión original de la cuenta de Automation aunque se elimine una versión más reciente.
 
 Los módulos predeterminados también se conocen como módulos globales. En Azure Portal, la propiedad **Módulo global** será **true** al ver un módulo que se importó al crear la cuenta.
 
 ![Captura de pantalla de la propiedad Módulo global en Azure portal](../media/modules/automation-global-modules.png)
-
-Automation no importa el módulo Az raíz automáticamente en ninguna cuenta de Automation nueva o existente. Para más información sobre cómo trabajar con estos módulos, consulte [Migración a los módulos Az](#migrate-to-az-modules).
 
 > [!NOTE]
 > No es recomendable alterar módulos y runbooks de cuentas de Automation utilizadas para la implementación de la característica [Start/Stop VMs during off-hours](../automation-solution-vm-management.md).
 
 |Nombre del módulo|Versión|
 |---|---|
+|Az.* | Consulte la lista completa en **Detalles del paquete** en [Galería de PowerShell](https://www.powershellgallery.com/packages/Az).|
 | AuditPolicyDsc | 1.1.0.0 |
 | Azure | 1.0.3 |
 | Azure.Storage | 1.0.3 |
@@ -81,10 +87,6 @@ Automation no importa el módulo Az raíz automáticamente en ninguna cuenta de 
 | xDSCDomainjoin | 1.1 |
 | xPowerShellExecutionPolicy | 1.1.0.0 |
 | xRemoteDesktopAdmin | 1.1.0.0 |
-
-## <a name="az-modules"></a>Modules Az
-
-En Az.Automation, la mayoría de los cmdlets tienen los mismos nombres utilizados para los módulos AzureRM, excepto que el prefijo `AzureRM` se ha cambiado por `Az`. Para obtener una lista de módulos Az que no siguen esta convención de nomenclatura, vea la [lista de excepciones](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters).
 
 ## <a name="internal-cmdlets"></a>Cmdlets internos
 
@@ -122,8 +124,8 @@ En esta sección se explica cómo migrar a los módulos Az en Automation. Para m
 
 No es recomendable ejecutar módulos Az y AzureRM en la misma cuenta de Automation. Cuando esté seguro de que quiere migrar de AzureRM a Az, es mejor confirmar completamente una migración entera. Automation suele reutilizar espacios aislados dentro de la cuenta de Automation para ahorrar en los tiempos de inicio. Si no realiza una migración completa del módulo, puede iniciar un trabajo que usa solo módulos AzureRM y luego iniciar otro trabajo que usa solo módulos Az. El espacio aislado pronto se bloquea, y recibe un error que indica que los módulos no son compatibles. Esta situación da lugar a bloqueos que se producen aleatoriamente de cualquier runbook o configuración específicos.
 
->[!NOTE]
->Cuando se crea una cuenta de Automation, incluso después de la migración a módulos Az, Automation instala los módulos AzureRM de forma predeterminada. Es posible actualizar los runbooks de tutorial con los cmdlets de AzureRM, aunque no debe ejecutar estos runbooks.
+> [!NOTE]
+> Cuando se crea una cuenta de Automation, incluso después de la migración a módulos Az, Automation instala los módulos AzureRM de manera predeterminada.
 
 ### <a name="test-your-runbooks-and-dsc-configurations-prior-to-module-migration"></a>Prueba de los runbooks y las configuraciones de DSC antes de la migración de módulos
 
@@ -148,7 +150,7 @@ Al importar un módulo Az en la cuenta de Automation, no se importa automáticam
 * Cuando un runbook importa el módulo de forma explícita con la instrucción[using module](/powershell/module/microsoft.powershell.core/about/about_using#module-syntax). La instrucción using se admite a partir de Windows PowerShell 5.0 y es compatible con las clases y la importación de tipos de enumeración.
 * Cuando un runbook importa otro módulo dependiente.
 
-Puede importar los módulos Az en la cuenta de Automation desde Azure Portal. No olvide importar solo los módulos Az que necesite, no todos los módulos Az que estén disponibles. Dado que [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) es una dependencia para los otros módulos Az, asegúrese de importar este módulo antes que cualquier otro.
+Puede importar los módulos Az en la cuenta de Automation desde Azure Portal. Dado que [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) es una dependencia para los otros módulos Az, asegúrese de importar este módulo antes que cualquier otro.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Busque y seleccione **Cuentas de Automation**.

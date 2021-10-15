@@ -2,14 +2,14 @@
 title: Compatibilidad con el nivel de archivo
 description: Conozca más sobre la compatibilidad del nivel de acceso de archivo para Azure Backup.
 ms.topic: conceptual
-ms.date: 09/10/2021
+ms.date: 09/29/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0468e463caa6d589b22596d2fe845014e96e10b8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: bc3ea68353f7e6cc3bb16a11e8a7868df2b02310
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128632469"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534932"
 ---
 # <a name="archive-tier-support"></a>Compatibilidad con el nivel de archivo
 
@@ -232,8 +232,8 @@ La detención de la protección y la eliminación de los datos eliminan todos lo
 
 | Cargas de trabajo | Vista previa | Disponibilidad general |
 | --- | --- | --- |
-| SQL Server en VM de Azure | Centro-sur de EE. UU., Centro-norte de EE. UU., Oeste de Europa | Este de Australia, Centro de la India, Norte de Europa, Sudeste Asiático, Este de Asia, Sudeste de Australia, Centro de Canadá, Sur de Brasil, Este de Canadá, Centro de Francia, Sur de Francia, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Sur de la India, Oeste de Reino Unido, Sur de Reino Unido, Centro de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU, Este de EE. UU. |
-| Azure Virtual Machines | Este de EE. UU., Este de EE. UU. 2, Centro-sur de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU., Centro-norte de EE. UU., Sur de Brasil, Este de Canadá, Centro de Canadá, Oeste de Europa, Sur de Reino Unido, Oeste de Reino Unido, Este de Asia, Este de Japón, Sur de la India, Sudeste de Asia, Este de Australia, Centro de la India, Norte de Europa, Sudeste de Australia, Centro de Francia, Sur de Francia, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur | Ninguno |
+| SQL Server en VM de Azure | None | Este de Australia, Centro de la India, Norte de Europa, Sudeste de Asia, Este de Asia, Australia Sudeste, Centro de Canadá, Sur de Brasil, Este de Canadá, Centro de Francia, Sur de Francia, Este de Japón, Oeste de Japón, Centro de Corea, Sur de Corea, Sur de la India, Oeste de Reino Unido, Sur de Reino Unido, Centro de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU., Este de EE. UU., Centro-sur de EE. UU., Centro-norte de EE. UU., Europa occidental, US Gov Virginia, US Gov Texas, US Gov Arizona. |
+| Azure Virtual Machines | Este de EE. UU., Este de EE. UU. 2, Centro-sur de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU., Centro-norte de EE. UU., Sur de Brasil, Este de Canadá, Centro de Canadá, Oeste de Europa, Sur de Reino Unido, Oeste de Reino Unido, Este de Asia, Este de Japón, Sur de la India, Sudeste de Asia, Este de Australia, Centro de la India, Norte de Europa, Sudeste de Australia, Centro de Francia, Sur de Francia, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur. | Ninguno |
 
 ## <a name="error-codes-and-troubleshooting-steps"></a>Códigos de error y pasos de solución de problemas
 

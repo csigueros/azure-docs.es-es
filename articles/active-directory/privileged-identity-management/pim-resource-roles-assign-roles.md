@@ -4,7 +4,7 @@ description: Aprenda a asignar roles de recursos de Azure en Azure AD Privileged
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: KarenH444
 ms.service: active-directory
 ms.devlang: na
 ms.topic: how-to
@@ -15,12 +15,12 @@ ms.date: 09/28/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55ba6435ca8ea3b46051080eb6f33ebfca4e02bd
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 0837fc83bec560f12c31da1d9f0001b5bdd7768f
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129272763"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129669936"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Asignación de roles de recursos de Azure en Privileged Identity Management
 

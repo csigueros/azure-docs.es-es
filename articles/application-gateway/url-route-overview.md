@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 09/10/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 7a24b9631362618ee3be5e94066ac5267ac85962
-ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
+ms.openlocfilehash: e84ee56b57c4e97e2fd77e38acf45fc0d426fb58
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113504880"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129277088"
 ---
 # <a name="url-path-based-routing-overview"></a>Información general del enrutamiento basado en URL
 
@@ -64,7 +64,7 @@ El elemento UrlPathMap se utiliza para especificar patrones de ruta de acceso pa
 
 ### <a name="pathpattern"></a>PathPattern
 
-PathPattern es la lista de patrones de ruta de acceso con los que se buscan coincidencias. Cada uno de ellos debe comenzar con / y el único lugar donde se permite un carácter "*" es al final, después de un carácter "/". La cadena que se suministra al comprobador de rutas de acceso no incluye texto después del primer "?" o "#", y esos caracteres no se permiten. En caso contrario, todos los caracteres admitidos en una dirección URL se permiten en PathPattern.
+PathPattern es la lista de patrones de ruta de acceso con los que se buscan coincidencias. Cada ruta de acceso debe comenzar por / y puede usar \* como carácter comodín. La cadena que se suministra al comprobador de rutas de acceso no incluye texto después del primer "?" o "#", y esos caracteres no se permiten. En caso contrario, todos los caracteres admitidos en una dirección URL se permiten en PathPattern.
 
 Los patrones admitidos dependen de si se implementa Application Gateway v1 o v2:
 
@@ -75,7 +75,7 @@ Las reglas de ruta de acceso no distinguen mayúsculas de minúsculas.
 |Patrón de ruta de acceso de v1  |¿Se admite?  |
 |---------|---------|
 |`/images/*`     |sí|
-|`/images*`     |Sí|
+|`/images*`     |sí|
 |`/images/*.jpg`     |No|
 |`/*.jpg`     |No|
 |`/Repos/*/Comments/*`     |No|
@@ -88,7 +88,7 @@ Las reglas de ruta de acceso no distinguen mayúsculas de minúsculas.
 |Patrón de ruta de acceso de v2  |¿Se admite?  |
 |---------|---------|
 |`/images/*`     |sí|
-|`/images*`     |Sí|
+|`/images*`     |sí|
 |`/images/*.jpg`     |No|
 |`/*.jpg`     |No|
 |`/Repos/*/Comments/*`     |No|

@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q2
-ms.openlocfilehash: 84fbea3d7d38e16a2069c40a459d5f86e7412a09
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ca8f0349692b8a72d8a8b5953723249934a6f672
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108739050"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428623"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Aprendizaje de refuerzo (versión preliminar) con Azure Machine Learning
 
@@ -214,6 +214,7 @@ else:
 ```
 
 ## <a name="create-a-reinforcement-learning-estimator"></a>Creación de un experimento de aprendizaje de refuerzo
+
 Use la clase [ReinforcementLearningEstimator](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator) para enviar un trabajo de entrenamiento a Azure Machine Learning.
 
 Azure Machine Learning usa las clases de estimador para encapsular la información de la configuración de ejecución. Esto le permite especificar cómo configurar una ejecución de script. 

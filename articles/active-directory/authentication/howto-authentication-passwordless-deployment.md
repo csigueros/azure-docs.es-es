@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3427384d41b4ebdd5f65d9c7e9ecdde911b5f08e
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: a1c8f1117053e6076d2281036ecc63f1cbf97d15
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129807652"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352745"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planeamiento de una implementación de autenticación sin contraseña en Azure Active Directory
 

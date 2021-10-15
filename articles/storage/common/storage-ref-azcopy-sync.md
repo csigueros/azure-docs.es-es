@@ -8,12 +8,12 @@ ms.date: 09/01/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 9ba814b4188984f3a0f6dbe16e866d6184d8cf2b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6acafe9f1fab42f5dde74eaaa4426f1953bf0f9b
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128547668"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275418"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -169,7 +169,7 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--recursive**    `True` de forma predeterminada, busca en los subdirectorios de forma recursiva al sincronizar entre directorios. (El valor predeterminado es `True`).
 
-**--s2s-preserve-access-tier**: conserva el nivel de acceso durante la copia de servicio a servicio. Consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](../blobs/storage-blob-storage-tiers.md) para asegurarse de que la cuenta de almacenamiento de destino admite la configuración del nivel de acceso. En los casos en los que no se admite el establecimiento del nivel de acceso, use s2sPreserveAccessTier=false para omitir la copia del nivel de acceso. (El valor predeterminado es `true`).
+**--s2s-preserve-access-tier**: conserva el nivel de acceso durante la copia de servicio a servicio. Consulte [Niveles de acceso frecuente, esporádico y de archivo de los datos de blob](../blobs/access-tiers-overview.md) para asegurarse de que la cuenta de almacenamiento de destino admite la configuración del nivel de acceso. En los casos en los que no se admite el establecimiento del nivel de acceso, use s2sPreserveAccessTier=false para omitir la copia del nivel de acceso. (El valor predeterminado es `true`).
 
 **--s2s-preserve-blob-tags** Se conservan las etiquetas de índice durante la sincronización entre servicios de un almacenamiento de blobs a otro.
 

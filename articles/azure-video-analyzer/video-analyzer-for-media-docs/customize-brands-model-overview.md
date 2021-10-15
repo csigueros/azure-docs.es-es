@@ -4,12 +4,12 @@ description: En este artículo se proporciona información general sobre qué es
 ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: juliako
-ms.openlocfilehash: b698bce219468ee44a78aea7b8e449b603ecd975
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b8516ca1d1d5d7020d645f54b1962076e9792f36
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128665670"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232634"
 ---
 # <a name="customize-a-brands-model-in-video-analyzer-for-media"></a>Personalización de un modelo de marcas en Video Analyzer for Media
 
@@ -23,7 +23,7 @@ En la presentación "Microsoft Build 2017 Day 2" la marca "Microsoft Windows" ap
 
 ![Introducción a las marcas](./media/content-model-customization/brands-overview.png)
 
-Hablar sobre ventanas en el contexto de la construcción no detectará la palabra "Windows" como marca, y lo mismo sucede con Box, Apple, Fox, etc., según los algoritmos avanzados de Machine Learning que saben como eliminar la ambigüedad por el contexto. La detección de marcas funciona con todos los idiomas admitidos.  
+Hablar sobre Windows en el contexto de la construcción no detectará la palabra "Windows" como marca, y lo mismo sucede con Box, Apple, Fox, etc., según los algoritmos avanzados de Machine Learning que saben cómo eliminar la ambigüedad por el contexto. La detección de marcas funciona con todos los idiomas admitidos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

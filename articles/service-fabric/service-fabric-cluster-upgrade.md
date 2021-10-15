@@ -3,12 +3,12 @@ title: Actualización de clústeres de Azure Service Fabric
 description: Más información sobre las opciones para actualizar el clúster de Azure Service Fabric
 ms.topic: conceptual
 ms.date: 03/26/2021
-ms.openlocfilehash: 9af6a9b4d515fcede5bc0444a93ae8118077e7dd
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 7fad28e0357b26b0b8753496310c7788f6dbb0c8
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738759"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129401155"
 ---
 # <a name="upgrading-and-updating-azure-service-fabric-clusters"></a>Actualización de clústeres de Azure Service Fabric
 
@@ -27,6 +27,9 @@ Puede configurar el clúster para recibir actualizaciones automáticas de Servic
 También puede establecer el modo de actualización del clúster y seleccionar una versión en tiempo de ejecución [mediante una plantilla de Resource Manager](service-fabric-cluster-upgrade-version-azure.md#resource-manager-template).
 
 Las actualizaciones automáticas son el modo de actualización recomendado, ya que esta opción garantiza que el clúster permanezca en un estado compatible y se beneficia de las correcciones y características más recientes, a la vez que permite programar actualizaciones de una manera que sea menos problemática para las cargas de trabajo mediante una estrategia de [implementación en lanzamientos](#wave-deployment-for-automatic-upgrades).
+
+> [!NOTE]
+> Si cambia un clúster existente al modo automático, el clúster se inscribirá para el siguiente período de actualización a partir de una nueva versión. Las nuevas versiones se anuncian en el [blog del equipo de Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric). Por período de actualización, se elige la ruta de actualización más alta posible; consulte [versiones compatibles](service-fabric-versions.md). El modo de actualización manual desencadena una actualización inmediata. 
 
 ## <a name="wave-deployment-for-automatic-upgrades"></a>Implementación en lanzamientos para actualizaciones automáticas
 

@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Use una instancia aislada de Azure Virtual Network para proteger el entorno de entrenamiento de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
 ms.date: 09/24/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions
-ms.openlocfilehash: 1bb8066af887005848f711437d33257ae2118e46
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 4fe1a4f9966e5342ee4f8a12d2b24b3a449efbae
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129093485"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424338"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Protección de un entorno de entrenamiento de Azure Machine Learning con redes virtuales
 
@@ -231,7 +231,7 @@ Al habilitar la opción **Ninguna dirección IP pública**, la instancia de proc
 
 Para que las **conexiones de salida** funcionen, debe configurar un firewall de salida, como Azure Firewall, con rutas definidas por el usuario. Por ejemplo, puede usar un firewall definido con la [configuración de entrada o salida](how-to-access-azureml-behind-firewall.md) y enrutar el tráfico a él. Para ello, defina una tabla de rutas en la subred en la que se implementa la instancia de proceso. La entrada de la tabla de rutas puede configurar el próximo salto de la dirección IP privada del firewall con el prefijo de dirección 0.0.0.0/0.
 
-Una instancia de proceso con la opción **Ninguna dirección IP pública** habilitada **no tiene requisitos de comunicación entrantes** de la red pública de Internet, en comparación con los de la instancia de proceso de la IP pública. En concreto, no se requiere ninguna regla de NSG de entrada (`BatchNodeManagement`, `AzureMachineLearning`).
+Una instancia de proceso con la opción **Ninguna dirección IP pública** habilitada **no tiene requisitos de comunicación entrantes** de la red pública de Internet, en comparación con los de la instancia de proceso de la IP pública. En concreto, no se requiere ninguna regla de NSG de entrada (`BatchNodeManagement`, `AzureMachineLearning`). Todavía debe permitir la entrada desde el origen de **VirtualNetwork**, cualquier origen de puerto, destino de **VirtualNetwork** y puerto de destino de **29876, 29877, 44224**.
 
 Una instancia de proceso con la opción **Ninguna dirección IP pública** también requiere que deshabilite las directivas de red de los puntos de conexión privados y las directivas de red del servicio Private Link. Estos requisitos proceden de los puntos de conexión privados y del servicio Azure Private Link y no son específicos de Azure Machine Learning. Siga las instrucciones indicadas en [Deshabilitación de directivas de red para la dirección IP de origen del servicio Private Link](../private-link/disable-private-link-service-network-policy.md) para establecer los parámetros `disable-private-endpoint-network-policies` y `disable-private-link-service-network-policies` en la subred de la red virtual.
 

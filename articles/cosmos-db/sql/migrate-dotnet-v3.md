@@ -6,13 +6,13 @@ ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 08/26/2021
-ms.openlocfilehash: 9ee782734baaf8947aa4e4f930cac874e32a5df6
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/04/2021
+ms.openlocfilehash: 58ea7624b32b7730863fe3d29f6d9245c4199d25
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124788199"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129535296"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-net-sdk-v3"></a>Migración de la aplicación para usar el SDK de .NET v3 de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -55,8 +55,7 @@ La mayoría de las funciones de red, la lógica de reintento y los niveles infer
 ## <a name="why-migrate-to-the-net-v3-sdk"></a>Por qué migrar al SDK de .NET v3
 
 Además de las numerosas mejoras de facilidad de uso y rendimiento, las inversiones en nuevas características realizadas en el último SDK no se trasladarán a las versiones anteriores.
-
-Aunque no hay ningún plan inmediato para [retirar la compatibilidad con los SDK 2.0](sql-api-sdk-dotnet.md), estos se reemplazarán por versiones más recientes en el futuro y el SDK pasará al modo de mantenimiento. Para lograr la mejor experiencia de desarrollo, se recomienda empezar siempre con la versión compatible del SDK más reciente.
+El SDK v2 está actualmente en modo de mantenimiento. Para lograr la mejor experiencia de desarrollo, se recomienda empezar siempre con la versión compatible del SDK más reciente.
 
 ## <a name="major-name-changes-from-v2-sdk-to-v3-sdk"></a>Principales cambios de nombre del SDK v2 al SDK v3
 
@@ -196,7 +195,7 @@ Algunas opciones de `ConnectionPolicy` han cambiado de nombre o se han reemplaza
 | SDK de .NET v2 | SDK de .NET v3 |
 |-------------|-------------|
 |`EnableEndpointRediscovery`|`LimitToEndpoint`: ahora el valor se ha invertido, si `EnableEndpointRediscovery` estaba establecido en `true`, `LimitToEndpoint` debería estar establecido en `false`. Antes de usar esta configuración, debe comprender [cómo afecta al cliente](troubleshoot-sdk-availability.md).|
-|`ConnectionProtocol`|Quitado. El protocolo está asociado al modo, ya sea puerta de enlace (HTTPS) o directo (TCP).|
+|`ConnectionProtocol`|Quitado. El protocolo está asociado al modo, ya sea puerta de enlace (HTTPS) o directo (TCP). El modo directo con el protocolo HTTPS ya no se admite en el SDK V3; por ello, se recomienda usar el protocolo TCP. |
 |`MediaRequestTimeout`|Quitado. Ya no se admiten datos adjuntos.|
 
 ### <a name="session-token"></a>Token de sesión

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc57addda6b2e94307aecb5715cd0d3e51a0b745
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 8f0dcffa6c027fb520d8a3a4551223ea28e5d09b
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124748564"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230216"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archivo de ¿Cuáles son las novedades de Azure Active Directory?
 
@@ -5371,7 +5371,7 @@ Para obtener más información para que una aplicación se muestre en la galerí
 
 **Tipo:** **Categoría del servicio:** Nueva característica **Funcionalidad del producto:** B2B B2B/B2C
 
-Las organizaciones que usan las funcionalidades de colaboración B2B de Azure Active Directory (Azure AD) para invitar a los usuarios invitados de organizaciones asociadas a su instancia de Azure AD, ahora pueden proporcionar a estos usuarios B2B acceso a las aplicaciones locales. Estas aplicaciones locales pueden usar la autenticación basada en SAML o la autenticación de Windows integrada (IWA) con la delegación limitada de kerberos (KCD).
+Las organizaciones que usan las funcionalidades de colaboración B2B de Azure Active Directory (Azure AD) para invitar a los usuarios invitados de organizaciones asociadas a su instancia de Azure AD, ahora pueden proporcionar a estos usuarios B2B acceso a las aplicaciones locales. Estas aplicaciones locales pueden usar la autenticación basada en SAML o la autenticación integrada de Windows (IWA) con la delegación limitada de Kerberos (KCD).
 
 Para obtener más información, consulte [Conceder a los usuarios de B2B en Azure AD acceso a las aplicaciones locales](../external-identities/hybrid-cloud-to-on-premises.md).
 

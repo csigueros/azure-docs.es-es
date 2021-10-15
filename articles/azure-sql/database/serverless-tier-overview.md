@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: mathoma, wiassaf
-ms.date: 7/29/2021
-ms.openlocfilehash: ac1241b28ae85f19aa4bfdbc1a92310b64d88462
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 9/28/2021
+ms.openlocfilehash: cc9c0f35be998e8ef3947946c84bc67a94f125cb
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745757"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235637"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sin servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -50,7 +50,7 @@ Este nivel de proceso sin servidor ofrece una relación entre precio y rendimien
 
 ### <a name="scenarios-well-suited-for-serverless-compute"></a>Escenarios adecuados para el proceso sin servidor
 
-- Bases de datos con patrones de uso impredecibles e intermitentes, intercalados con períodos de inactividad y menor uso promedio de proceso a lo largo del tiempo.
+- Bases de datos únicas con patrones de uso impredecibles e intermitentes, intercalados con períodos de inactividad y menor uso promedio de proceso a lo largo del tiempo.
 - Bases de datos únicas en el nivel de proceso aprovisionado con frecuentes cambios de escala y clientes que prefieren delegar el cambio de escala del proceso en el servicio.
 - Nuevas bases de datos únicas sin historial de uso donde el tamaño de proceso es difícil (o incluso imposible) de estimar antes de la implementación en SQL Database.
 
@@ -161,7 +161,7 @@ Si el conjunto de resultados no está vacío, significa que hay sesiones que imp
 
 Si el conjunto de resultados está vacío, todavía es posible que las sesiones estuvieran abiertas, posiblemente durante un corto periodo de tiempo, en algún momento anterior durante el periodo de retraso de la pausa automática. Para ver si dicha actividad se ha producido durante el período de retraso, puede usar [Auditoría de Azure SQL](auditing-overview.md) y examinar los datos de auditoría del período pertinente.
 
-La presencia de sesiones abiertas, con o sin uso simultáneo de CPU en el grupo de recursos de usuario, es la razón más común de que una base de datos sin servidor no se pause automáticamente según lo previsto. Tenga en cuenta que algunas [características](#auto-pausing) no admiten la pausa automática, pero sí el escalado automático.
+La presencia de sesiones abiertas, con o sin uso simultáneo de CPU en el grupo de recursos de usuario, es la razón más común de que una base de datos sin servidor no se pause automáticamente según lo previsto.
 
 ### <a name="auto-resuming"></a>Reanudación automática
 
@@ -190,7 +190,7 @@ También se desencadena la reanudación automática durante la implementación d
 
 ### <a name="connectivity"></a>Conectividad
 
-Si una base de datos sin servidor está en pausa, la primera vez que se inicie sesión se reanudará la base de datos y se devolverá un error con el código 40613 que indica que la base de datos no está disponible. Una vez que se reanude la base de datos, será necesario intentar iniciar sesión de nuevo para establecer la conectividad. No es necesario modificar los clientes de la base de datos con lógica de reintento de conexión.
+Si una base de datos sin servidor está en pausa, la primera vez que se inicie sesión se reanudará la base de datos y se devolverá un error con el código 40613 que indica que la base de datos no está disponible. Una vez que se reanude la base de datos, será necesario intentar iniciar sesión de nuevo para establecer la conectividad. No es necesario modificar los clientes de la base de datos con lógica de reintento de conexión.  Para ver las opciones de lógica de reintento de conexión integradas en el controlador SqlClient, consulte [Lógica de reintento configurable en SqlClient](/sql/connect/ado-net/configurable-retry-logic).
 
 ### <a name="latency"></a>Latencia
 
@@ -377,7 +377,7 @@ La [calculadora de precios de Azure SQL Database](https://azure.microsoft.com/pr
 
 ### <a name="example-scenario"></a>Escenario de ejemplo
 
-Considere la posibilidad de una base de datos sin servidor configurada con 1 núcleo virtual como mínimo y 4 como máximo.  Esto equivale aproximadamente a 3 GB de memoria como mínimo y a 12 GB de memoria como máximo.  Supongamos que la demora de la pausa automática se establece en 6 horas y la carga de trabajo de la base de datos está activa durante las primeras 2 horas de un período de 24 horas e inactiva el resto del tiempo.    
+Considere la posibilidad de una base de datos sin servidor configurada con 1 núcleo virtual como mínimo y 4 como máximo.  Esta configuración equivale aproximadamente a 3 GB de memoria como mínimo y a 12 GB de memoria como máximo.  Supongamos que la demora de la pausa automática se establece en 6 horas y la carga de trabajo de la base de datos está activa durante las primeras 2 horas de un período de 24 horas e inactiva el resto del tiempo.    
 
 En este caso, la base de datos se facturará por proceso y almacenamiento durante las primeras 8 horas.  Aunque la base de datos está inactiva después de la segunda hora, se le seguirá facturando por el proceso de las 6 horas siguientes en función del proceso mínimo aprovisionado mientras la base de datos está en línea.  Solo se facturará por el almacenamiento el resto del período de 24 horas mientras la base de datos está en pausa.
 

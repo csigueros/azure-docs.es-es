@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo solucionar problemas y resolver pr
 services: container-service
 ms.topic: troubleshooting
 ms.date: 09/24/2021
-ms.openlocfilehash: 10f30ccd5efbc612c3b51c273347c872bfae1c17
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 28807736cf6f58334eb4e6cf674e2c514df9c427
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129058479"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235276"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
 
@@ -147,7 +147,7 @@ Tanto AKS como la plataforma de Azure implementan las restricciones de nomenclat
 * Los nombres de clúster deben tener entre 1 y 63 caracteres. Los únicos caracteres permitidos son letras, números, guiones y guiones bajos. El primer y el último carácter deben ser una letra o un número.
 * El nombre del grupo de recursos *MC_* o del nodo de AKS combina el nombre del grupo de recursos y el nombre del recurso. La sintaxis generada automáticamente de `MC_resourceGroupName_resourceName_AzureRegion` no puede tener más de 80 caracteres. Si es necesario, disminuya la longitud del nombre del grupo de recursos o del nombre del clúster de AKS. También puede [personalizar el nombre del grupo de recursos del nodo](cluster-configuration.md#custom-resource-group-name).
 * *dnsPrefix* debe empezar y terminar con valores alfanuméricos, y debe tener entre 1 y 54 caracteres. Los caracteres válidos incluyen valores alfanuméricos y guiones (-). *dnsPrefix* no puede incluir caracteres especiales, como un punto (.).
-* Los nombres de grupo del nodo de AKS deben estar en minúsculas y tener entre 1 y 11 caracteres, en el caso de grupos de nodos de Linux, y entre 1 y 6 caracteres si son grupos de nodos de Windows. El nombre debe empezar por una letra y los únicos caracteres permitidos son letras y números.
+* Los nombres de grupo del nodo de AKS deben estar en minúsculas y tener entre 1 y 11 caracteres, en el caso de grupos de nodos de Linux, y entre 1 y 6 caracteres si son grupos de nodos de Windows. El nombre debe empezar por una letra y los únicos caracteres permitidos son letras y números.
 * El *admin-username*, que establece el nombre de usuario de administrador para los nodos de Linux, debe empezar con una letra, solo puede contener letras, números, guiones y caracteres de subrayado, y tiene una longitud máxima de 64 caracteres.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Recibo errores cuando intento crear, actualizar, escalar, eliminar o actualizar un clúster, donde se indica que no se permite la operación porque hay otra en curso.

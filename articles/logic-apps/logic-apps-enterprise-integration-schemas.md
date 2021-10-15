@@ -1,6 +1,6 @@
 ---
-title: Adición de esquemas para la validación XML en flujos de trabajo
-description: Agregue esquemas para validar documentos XML para flujos de trabajo en Azure Logic Apps mediante Enterprise Integration Pack.
+title: Incorporación de esquemas para validar XML en flujos de trabajo
+description: Agregue esquemas para validar documentos XML en flujos de trabajo con Azure Logic Apps y Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,18 +8,18 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/14/2021
-ms.openlocfilehash: f80ed9c7fa9aa2d291e4f045b6cfc7da695cb22b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2c64deb35d89d6e1381fd3b296c7c73d82567ade
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128611441"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363846"
 ---
-# <a name="add-schemas-to-validate-xml-documents-for-workflows-in-azure-logic-apps"></a>Adición de esquemas para validar documentos XML para flujos de trabajo en Azure Logic Apps
+# <a name="add-schemas-to-validate-xml-in-workflows-with-azure-logic-apps"></a>Incorporación de esquemas para validar XML en flujos de trabajo con Azure Logic Apps
 
 Para comprobar que los documentos usan XML válido y tienen los datos esperados en el formato predefinido, el flujo de trabajo de la aplicación lógica puede usar esquemas XML con la acción **Validación XML**. Un esquema XML describe un documento empresarial representado en XML mediante la [definición de esquema XML (XSD)](https://www.w3.org/TR/xmlschema11-1/).
 
-Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](logic-apps-overview.md) Para obtener más información sobre la integración empresarial B2B, revise [Flujos de trabajo de integración empresarial B2B con Azure Logic Apps y Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
+Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](logic-apps-overview.md) Para más información sobre la integración empresarial B2B, revise [Flujos de trabajo de integración empresarial B2B con Azure Logic Apps y Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -37,13 +37,13 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
    > [!NOTE]
    > En los monitores de alta resolución, puede que experimente un [problema de visualización con el diseñador de mapas](/visualstudio/designers/disable-dpi-awareness) en Visual Studio. Para resolver este problema de visualización, o bien [reinicie Visual Studio en modo de no reconocimiento de PPP](/visualstudio/designers/disable-dpi-awareness#restart-visual-studio-as-a-dpi-unaware-process) o agregue el [valor del registro DPIUNAWARE](/visualstudio/designers/disable-dpi-awareness#add-a-registry-entry).
 
-* Un [recurso de cuenta de integración](logic-apps-enterprise-integration-create-integration-account.md) donde se definen y almacenan artefactos, como socios comerciales, contratos, certificados, entre otros, para su uso en los flujos de trabajo de integración empresarial y B2B. Este recurso tiene que satisfacer los siguientes requisitos:
+* Un [recurso de cuenta de integración](logic-apps-enterprise-integration-create-integration-account.md), donde se definen y almacenan artefactos, como socios comerciales, contratos, certificados, entre otros, para su uso en los flujos de trabajo de integración empresarial y B2B. Este recurso tiene que satisfacer los siguientes requisitos:
 
-  * Está asociada a la misma suscripción de Azure que el recurso de aplicación lógica.
+  * Estar asociado a la misma suscripción de Azure que el recurso de aplicación lógica.
 
   * Existe en la misma ubicación o región de Azure que el recurso de aplicación lógica donde piensa usar la acción **Validación de XML**.
 
-  * Si usa el [tipo de recurso **Aplicación lógica (consumo)** ](logic-apps-overview.md#resource-type-and-host-environment-differences), tendrá que [vincular la cuenta de integración al recurso de aplicación lógica](logic-apps-enterprise-integration-create-integration-account.md#link-account) para poder utilizar los artefactos en el flujo de trabajo.
+  * Si usa el tipo de recurso [**Logic App (Consumption)**](logic-apps-overview.md#resource-type-and-host-environment-differences) (Aplicación lógica [Consumo]), tendrá que [vincular la cuenta de integración al recurso de aplicación lógica](logic-apps-enterprise-integration-create-integration-account.md#link-account) para poder utilizar los artefactos en el flujo de trabajo.
 
     Para crear y agregar esquemas con el fin de usarlos en flujos de trabajo de **aplicación lógica (consumo)** , todavía no necesita un recurso de aplicación lógica. Sin embargo, cuando tenga todo listo para usar dichos esquemas en los flujos de trabajo, el recurso de aplicación lógica requiere una cuenta de integración vinculada que almacene los esquemas.
 
@@ -52,7 +52,7 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
     Todavía necesita una cuenta de integración para almacenar otros artefactos, como asociados, contratos y certificados, junto con el uso de las operaciones [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) y [EDIFACT](logic-apps-enterprise-integration-edifact.md). Pero no es necesario vincular el recurso de aplicación lógica a la cuenta de integración, por lo que la funcionalidad de vinculación no existe. La cuenta de integración todavía tiene que cumplir otros requisitos, como usar la misma suscripción de Azure y existir en la misma ubicación que el recurso de aplicación lógica.
 
     > [!NOTE]
-    > Actualmente, solo el tipo de recurso **Aplicación lógica (consumo)** admite operaciones de [RosettaNet](logic-apps-enterprise-integration-rosettanet.md). El tipo de recurso **Aplicación lógica (estándar)** no incluye operaciones de [RosettaNet](logic-apps-enterprise-integration-rosettanet.md).
+    > Actualmente, solo el tipo de recurso **Logic App (Consumption)** (Aplicación lógica [Consumo]) admite operaciones de [RosettaNet](logic-apps-enterprise-integration-rosettanet.md). El tipo de recurso **Logic App (Standard)** (Aplicación lógica [Estándar]) no incluye operaciones de [RosettaNet](logic-apps-enterprise-integration-rosettanet.md).
 
 * Si el esquema es de [2 MB o menos](#smaller-schema), puede agregarlo a la cuenta de integración *directamente* desde Azure Portal. Sin embargo, si el esquema tiene un tamaño superior a 2 MB, pero inferior al [límite de tamaño para esquemas](logic-apps-limits-and-config.md#artifact-capacity-limits), puede cargarlo en una cuenta de almacenamiento de Azure. Para agregar ese esquema a la cuenta de integración, puede vincular a la cuenta de almacenamiento desde la cuenta de integración. Para esta tarea, necesita estos elementos:
 

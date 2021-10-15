@@ -3,12 +3,12 @@ title: Temas avanzados de actualización de aplicación
 description: En este artículo se tratan algunos temas avanzados relacionados con la actualización de una aplicación de Service Fabric.
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 6604300328f2d243077ba341a9028221438dce9d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dca3ec669fde61be86f2424d9b314b4b26546c55
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98792055"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363318"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Actualización de la aplicación de Service Fabric: temas avanzados
 
@@ -48,11 +48,11 @@ Hay varias maneras de configurar el retraso en el lado del servicio.
     Update-ServiceFabricService [-Stateless] [-ServiceName] <Uri> [-InstanceCloseDelayDuration <TimeSpan>]`
     ```
 
- * **Al crear o actualizar un servicio existente mediante la plantilla de ARM**, especifique el valor de `InstanceCloseDelayDuration` (versión de API mínima admitida: 01-11-2019-versión preliminar):
+ * **Al crear o actualizar un servicio existente mediante la plantilla de ARM**, especifique el valor de `InstanceCloseDelayDuration` (versión de API mínima admitida: 2020-03-01):
 
     ```ARM template to define InstanceCloseDelayDuration of 30seconds
     {
-      "apiVersion": "2019-11-01-preview",
+      "apiVersion": "2020-03-01",
       "type": "Microsoft.ServiceFabric/clusters/applications/services",
       "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
       "location": "[variables('clusterLocation')]",

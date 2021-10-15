@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/18/2021
+ms.date: 09/02/2021
 ms.author: aahi
-ms.openlocfilehash: 2bd9d1c6a76e8bf2726831859045363809458228
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 68f320a7af2d41bfb29f6d7f7f84ccdf718044d7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123122948"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124799096"
 ---
 ## <a name="install-the-container"></a>Instalación del contenedor
 
@@ -50,6 +50,22 @@ Este comando:
 - Expone el puerto TCP 5000 y asigna un seudo-TTY para el contenedor.
 - Acepta el contrato de licencia para el usuario final (CLUF) y los términos de AI (RAI) responsables.
 - Una vez que se produce la salida, quita automáticamente el contenedor. La imagen del contenedor sigue estando disponible en el equipo host.
+
+### <a name="run-the-container-with-client-library-support"></a>Ejecución del contenedor con compatibilidad con la biblioteca cliente
+
+A partir de la versión `3.0.017010001-onprem-amd64` del contenedor (o si usa el contenedor `latest`), puede ejecutar Text Analytics para que el contenedor de mantenimiento funcione con la operación de mantenimiento de [biblioteca cliente](../quickstarts/client-libraries-rest-api.md) de Text Analytics. Para ello, agregue el parámetro siguiente al comando `docker run`:
+
+`enablelro=true`
+
+Después, cuando autentique el cliente de Text Analytics, use el punto de conexión en el que se ejecuta el contenedor:
+
+`http://localhost:5000`
+
+Por ejemplo, si usa C#, usaría el código siguiente:
+
+```csharp
+var client = new TextAnalyticsClient("http://localhost:5000", "your-text-analytics-key");
+```
 
 ### <a name="demo-ui-to-visualize-output"></a>Interfaz de usuario de demostración para visualizar la salida
 

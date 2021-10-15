@@ -1,9 +1,7 @@
 ---
 title: 'Azure AD Connect: Historial de lanzamiento de versiones | Microsoft Docs'
 description: En este artículo se muestran todas las versiones de Azure AD Connect y Sincronización de Azure AD.
-services: active-directory
 author: billmath
-manager: daveba
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
@@ -13,12 +11,12 @@ ms.subservice: hybrid
 ms.author: rodejo
 ms.custom: has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2238916ec3ea13abd342ca0156271c1e87f5ed9c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c9cc55100001f1210255a465b5622e1b862674bf
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128659103"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352180"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historial de lanzamiento de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -61,6 +59,26 @@ Sin embargo, si quiere obtener las características y actualizaciones más recie
  - Si sigue usando una versión anterior de Windows Server, debe usar Azure AD Connect V1.6. Puede descargar la versión más reciente de Azure AD Connect V1 mediante [este vínculo](https://www.microsoft.com/download/details.aspx?id=103336). 
  - A partir de ahora solo se aplican cambios críticos a las versiones V1, y es posible que no encuentre algunas de las características y correcciones de V2 en los lanzamientos V1, por lo que debe actualizar a la versión V2 lo antes posible.
 
+## <a name="20280"></a>2.0.28.0
+
+>[!NOTE] 
+> Esto es una versión de actualización de mantenimiento de Azure AD Connect. Esta versión requiere Windows Server 2016 o posterior.
+
+### <a name="release-status"></a>Estado de la versión
+30/09/2021: publicado solo para descargas, no está disponible para actualización automática.
+
+### <a name="bug-fixes"></a>Corrección de errores
+ - En la página Permisos de escritura diferida de grupos del Asistente se ha quitado un botón de descarga de un script de PowerShell y se ha cambiado el texto de la página del asistente para incluir un vínculo de más información, que vincula a un artículo en línea donde se puede encontrar el script de PowerShell.
+
+ - Se ha corregido un error por el que el asistente bloqueaba incorrectamente la instalación cuando la versión de .NET en el servidor era posterior a la versión 4.6, debido a que faltaban claves del Registro. Esas claves del Registro no son necesarias y solo deben bloquear la instalación si se establecen intencionadamente en false.
+
+- Se ha corregido un error por el que se generaba un error si se encontraban objetos fantasma durante la inicialización de un paso de sincronización. Esto bloqueaba el paso de sincronización o quitaba objetos transitorios. Ahora se omiten los objetos fantasma.
+Nota: Un objeto fantasma es un marcador de posición para un objeto que no está ahí o que aún no se ha visto, por ejemplo, si un objeto de origen tiene una referencia para un objeto de destino que no está allí, se crea el objeto de destino como fantasma.
+
+### <a name="functional-changes"></a>Cambios funcionales
+
+ - Se ha realizado un cambio que permite a un usuario anular la selección de objetos y atributos de la lista de inclusión, incluso si están en uso. En lugar de bloquear esto, ahora se proporciona una advertencia. 
+
 ## <a name="16142"></a>1.6.14.2
 >[!NOTE] 
 >Este es un lanzamiento de actualización de Azure AD Connect. Esta versión está pensada para los clientes que ejecutan una versión anterior de Windows Server y no pueden actualizar su servidor a Windows Server 2016 o a una versión posterior en estos momentos. No puede usar esta versión para actualizar un servidor de Azure AD Connect V2.0.
@@ -70,8 +88,8 @@ Sin embargo, si quiere obtener las características y actualizaciones más recie
 21/9/2021: publicado para descarga y actualización automática.
 
 ### <a name="functional-changes"></a>Cambios funcionales
- - Hemos agregado las versiones más recientes de los conectores MIM (1.1.1610.0). Puede encontrar más información en la [página del historial de lanzamientos de los conectores MIM](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#1116100-september-2021).
- - Hemos agregado una opción de configuración para deshabilitar la característica de coincidencia parcial en Azure AD Connect. Recomendamos a los clientes que deshabiliten la coincidencia parcial a menos que la necesiten para admitir cuentas exclusivas de la nube. En [este artículo](https://docs.microsoft.com/powershell/module/msonline/set-msoldirsyncfeature?view=azureadps-1.0#example-2--block-soft-matching-for-the-tenant) se explica cómo deshabilitar la coincidencia parcial.
+ - Hemos agregado las versiones más recientes de los conectores MIM (1.1.1610.0). Puede encontrar más información en la [página del historial de lanzamientos de los conectores MIM](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#1116100-september-2021).
+ - Hemos agregado una opción de configuración para deshabilitar la característica de coincidencia parcial en Azure AD Connect. Recomendamos a los clientes que deshabiliten la coincidencia parcial a menos que la necesiten para admitir cuentas exclusivas de la nube. En [este artículo](/powershell/module/msonline/set-msoldirsyncfeature#example-2--block-soft-matching-for-the-tenant) se explica cómo deshabilitar la coincidencia parcial.
 
 ### <a name="bug-fixes"></a>Corrección de errores
  - Se ha corregido un error por el que la configuración de DesktopSSO no se conservaba después de la actualización desde una versión anterior.
@@ -100,8 +118,8 @@ Sin embargo, si quiere obtener las características y actualizaciones más recie
  - Hemos creado nuevos cmdlets de PowerShell de Kerberos de AAD "\*-AADKerberosServer" para agregar una regla de transformación de notificaciones a la entidad de servicio de AAD.
 
 ### <a name="functional-changes"></a>Cambios funcionales
- - Hemos agregado las versiones más recientes de los conectores MIM (1.1.1610.0). Puede encontrar más información en la [página del historial de lanzamientos de los conectores MIM](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#1116100-september-2021).
- - Hemos agregado una opción de configuración para deshabilitar la característica de coincidencia parcial en Azure AD Connect. Recomendamos a los clientes que deshabiliten la coincidencia parcial a menos que la necesiten para admitir cuentas exclusivas de la nube. En [este artículo](https://docs.microsoft.com/powershell/module/msonline/set-msoldirsyncfeature?view=azureadps-1.0#example-2--block-soft-matching-for-the-tenant) se explica cómo deshabilitar la coincidencia parcial.
+ - Hemos agregado las versiones más recientes de los conectores MIM (1.1.1610.0). Puede encontrar más información en la [página del historial de lanzamientos de los conectores MIM](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#1116100-september-2021).
+ - Hemos agregado una opción de configuración para deshabilitar la característica de coincidencia parcial en Azure AD Connect. Recomendamos a los clientes que deshabiliten la coincidencia parcial a menos que la necesiten para admitir cuentas exclusivas de la nube. En [este artículo](/powershell/module/msonline/set-msoldirsyncfeature#example-2--block-soft-matching-for-the-tenant) se explica cómo deshabilitar la coincidencia parcial.
 
 ## <a name="20100"></a>2.0.10.0
 
@@ -178,12 +196,12 @@ No hay cambios funcionales en esta versión.
 ### <a name="functional-changes"></a>Cambios funcionales
  - Se han actualizado los componentes de LocalDB para SQL Server a SQL 2019. 
  - Esta versión requiere Windows Server 2016 o una versión posterior debido a los requisitos de SQL Server 2019. Tenga en cuenta que no se admite una actualización local de Windows Server en un servidor de Azure AD Connect, por lo que puede que tenga que usar una [migración oscilante](how-to-upgrade-previous-version.md#swing-migration).
- -  En esta versión se aplica el uso de TLS 1.2. Si ha habilitado su servidor de Windows Server para TLS 1.2, AADConnect usará este protocolo. Si TLS 1.2 no está habilitado en el servidor, verá un mensaje de error al intentar instalar AADConnect y su instalación no continuará hasta que no habilite TLS 1.2. Tenga en cuenta que puede usar los nuevos cmdlets "Set-ADSyncToolsTls12" para habilitar TLS 1.2 en el servidor.
- -  Con esta versión, puede usar un usuario con el rol de usuario "Administrador de identidad híbrida" para autenticarse al instalar Azure AD Connect. Ya no necesita el rol de administrador global.
- - Se ha actualizado la biblioteca en tiempo de ejecución de Visual C++ a la versión 14 como requisito previo para SQL Server 2019  
- -  En esta versión se usa la biblioteca MSAL para la autenticación y se ha quitado la antigua biblioteca ADAL, que se retirará en 2022.   
- -  De acuerdo con la guía de seguridad de Windows, ya no se aplica ningún permiso para AdminSDHolders. Se ha cambiado el parámetro "SkipAdminSdHolders" a "IncludeAdminSdHolders" en el módulo ADSyncConfig.psm1.
- -  Ahora, las contraseñas se volverán a evaluar cuando una contraseña expirada pase a estar "no expirada", independientemente de si se ha cambiado la contraseña. Si para un usuario la contraseña está establecida en "Debe cambiar la contraseña en el siguiente inicio de sesión" y esta marca se borra (es decir, se anula la expiración de la contraseña), el estado "no expirada" y el hash de contraseña se sincronizan con Azure AD. De este modo, cuando el usuario intente iniciar sesión en Azure AD, podrá usar la contraseña no expirada.
+ -    En esta versión se aplica el uso de TLS 1.2. Si ha habilitado su servidor de Windows Server para TLS 1.2, AADConnect usará este protocolo. Si TLS 1.2 no está habilitado en el servidor, verá un mensaje de error al intentar instalar AADConnect y su instalación no continuará hasta que no habilite TLS 1.2. Tenga en cuenta que puede usar los nuevos cmdlets "Set-ADSyncToolsTls12" para habilitar TLS 1.2 en el servidor.
+ -    Con esta versión, puede usar un usuario con el rol de usuario "Administrador de identidad híbrida" para autenticarse al instalar Azure AD Connect. Ya no necesita el rol de administrador global.
+ - Se ha actualizado la biblioteca en tiempo de ejecución de Visual C++ a la versión 14 como requisito previo para SQL Server 2019    
+ -    En esta versión se usa la biblioteca MSAL para la autenticación y se ha quitado la antigua biblioteca ADAL, que se retirará en 2022.    
+ -    De acuerdo con la guía de seguridad de Windows, ya no se aplica ningún permiso para AdminSDHolders. Se ha cambiado el parámetro "SkipAdminSdHolders" a "IncludeAdminSdHolders" en el módulo ADSyncConfig.psm1.
+ -    Ahora, las contraseñas se volverán a evaluar cuando una contraseña expirada pase a estar "no expirada", independientemente de si se ha cambiado la contraseña. Si para un usuario la contraseña está establecida en "Debe cambiar la contraseña en el siguiente inicio de sesión" y esta marca se borra (es decir, se anula la expiración de la contraseña), el estado "no expirada" y el hash de contraseña se sincronizan con Azure AD. De este modo, cuando el usuario intente iniciar sesión en Azure AD, podrá usar la contraseña no expirada.
 Para sincronizar una contraseña expirada de Active Directory con Azure Active Directory, use la característica de [sincronización de contraseñas temporales](how-to-connect-password-hash-synchronization.md#synchronizing-temporary-passwords-and-force-password-change-on-next-logon) de Azure AD Connect. Tenga en cuenta que tendrá que habilitar la escritura diferida de contraseñas para usar esta característica, por lo que la contraseña que se actualiza se reescribe también en Active Directory.
  - Se han agregado dos nuevos cmdlets al módulo ADSyncTools para habilitar o recuperar la configuración de TLS 1.2 de Windows Server. 
    - Get-ADSyncToolsTls12
@@ -191,67 +209,67 @@ Para sincronizar una contraseña expirada de Active Directory con Azure Active D
    
 Puede usar estos cmdlets para recuperar el estado de habilitación de TLS 1.2 o configurarlo según sea necesario. Tenga en cuenta que TLS 1.2 debe estar habilitado en el servidor para que la instalación o AADConnect se ejecuten correctamente.
 
- -  Se ha renovado ADSyncTools con varios cmdlets nuevos y mejorados. En el [artículo sobre ADSyncTools](reference-connect-adsynctools.md) se ofrecen más detalles de estos cmdlets. 
+ -    Se ha renovado ADSyncTools con varios cmdlets nuevos y mejorados. En el [artículo sobre ADSyncTools](reference-connect-adsynctools.md) se ofrecen más detalles de estos cmdlets. 
   Los siguientes cmdlets se han agregado o actualizado: 
-    - Clear-ADSyncToolsMsDsConsistencyGuid  
-    - ConvertFrom-ADSyncToolsAadDistinguishedName   
+    - Clear-ADSyncToolsMsDsConsistencyGuid    
+    - ConvertFrom-ADSyncToolsAadDistinguishedName    
     - ConvertFrom-ADSyncToolsImmutableID    
-    - ConvertTo-ADSyncToolsAadDistinguishedName 
-    - ConvertTo-ADSyncToolsCloudAnchor  
-    - ConvertTo-ADSyncToolsImmutableID  
+    - ConvertTo-ADSyncToolsAadDistinguishedName    
+    - ConvertTo-ADSyncToolsCloudAnchor    
+    - ConvertTo-ADSyncToolsImmutableID    
     - Export-ADSyncToolsAadDisconnectors    
-    - Export-ADSyncToolsObjects 
-    - Export-ADSyncToolsRunHistory  
-    - Get-ADSyncToolsAadObject  
+    - Export-ADSyncToolsObjects    
+    - Export-ADSyncToolsRunHistory    
+    - Get-ADSyncToolsAadObject    
     - Get-ADSyncToolsMsDsConsistencyGuid    
-    - Import-ADSyncToolsObjects 
-    - Import-ADSyncToolsRunHistory  
-    - Remove-ADSyncToolsAadObject   
+    - Import-ADSyncToolsObjects    
+    - Import-ADSyncToolsRunHistory    
+    - Remove-ADSyncToolsAadObject    
     - Search-ADSyncToolsADobject    
     - Set-ADSyncToolsMsDsConsistencyGuid    
-    - Trace-ADSyncToolsADImport 
+    - Trace-ADSyncToolsADImport    
     - Trace-ADSyncToolsLdapQuery    
--   Ahora se usa el punto de conexión V2 para la importación y la exportación, y se ha corregido el problema del cmdlet Get-ADSyncAADConnectorExportApiVersion. Puede leer más información sobre el punto de conexión V2 en el artículo [API de punto de conexión de Azure AD Connect Sync V2](how-to-connect-sync-endpoint-api-v2.md).
--   Se han agregado las siguientes propiedades de usuario nuevas para la sincronización entre AD local y Azure AD: 
-    - employeeType  
-    - employeeHireDate  
--   Esta versión requiere la instalación de PowerShell 5.0 o una versión posterior en Windows Server. Tenga en cuenta que esta versión forma parte de Windows Server 2016 y versiones más recientes.   
--   Se han aumentado los límites de sincronización de grupos a un máximo de 250 000 miembros con el nuevo punto de conexión V2.
--   El conector LDAP genérico y el conector SQL genérico se han actualizado a las versiones más recientes. Obtenga más información sobre estos conectores aquí:
+-    Ahora se usa el punto de conexión V2 para la importación y la exportación, y se ha corregido el problema del cmdlet Get-ADSyncAADConnectorExportApiVersion. Puede leer más información sobre el punto de conexión V2 en el artículo [API de punto de conexión de Azure AD Connect Sync V2](how-to-connect-sync-endpoint-api-v2.md).
+-    Se han agregado las siguientes propiedades de usuario nuevas para la sincronización entre AD local y Azure AD:    
+    - employeeType    
+    - employeeHireDate    
+-    Esta versión requiere la instalación de PowerShell 5.0 o una versión posterior en Windows Server. Tenga en cuenta que esta versión forma parte de Windows Server 2016 y versiones más recientes.    
+-    Se han aumentado los límites de sincronización de grupos a un máximo de 250 000 miembros con el nuevo punto de conexión V2.
+-    El conector LDAP genérico y el conector SQL genérico se han actualizado a las versiones más recientes. Obtenga más información sobre estos conectores aquí:
     - [Documentación de referencia del conector LDAP genérico](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap)
     - [Documentación de referencia del conector SQL genérico](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql)
--   En el Centro de administración de M365, ahora se informa de la versión del cliente de AADConnect cada vez que hay una actividad de exportación a Azure AD. Esto garantiza que el Centro de administración de M365 siempre tiene la versión más actualizada del cliente de AADConnect y puede detectar cuándo se usa una versión obsoleta.
+-    En el Centro de administración de M365, ahora se informa de la versión del cliente de AADConnect cada vez que hay una actividad de exportación a Azure AD. Esto garantiza que el Centro de administración de M365 siempre tiene la versión más actualizada del cliente de AADConnect y puede detectar cuándo se usa una versión obsoleta.
 
 ### <a name="bug-fixes"></a>Corrección de errores
 - Se ha corregido un error de accesibilidad en el que el lector de pantalla anunciaba un rol incorrecto del vínculo "Más información".
--   Se ha corregido un error por el que las reglas de sincronización con valores de precedencia grandes (por ejemplo, 387163089) provocaban errores en la actualización. Se ha actualizado el procedimiento almacenado "mms_UpdateSyncRulePrecedence" para convertir el número de precedencia en un entero antes de incrementar el valor.
--   Se ha corregido un error por el que los permisos de escritura diferida de grupos no se establecen en la cuenta de sincronización al importar una configuración de escritura diferida de grupos. Ahora se establecen los permisos de escritura diferida de grupos si esta está habilitada en la configuración importada.
--   Se ha actualizado el agente de Azure AD Connect Health a la versión 3.1.110.0 para corregir un error de instalación.
--   Se está observando un problema con los atributos no predeterminados de las configuraciones exportadas en las que los atributos de extensión de directorio están configurados. Al importar estas configuraciones a un nuevo servidor o una nueva instalación, la lista de inclusión de atributos se invalida en el paso de configuración de la extensión de directorio. De este modo, después de la importación, solo los atributos predeterminados y de extensión de directorio se seleccionan en el administrador de servicios de sincronización (los atributos no predeterminados no se incluyen en la instalación, por lo que el usuario debe volver a habilitarlos manualmente desde el administrador de servicios de sincronización si quiere que sus reglas de sincronización importadas funcionen). Ahora se actualiza el conector de AAD antes de configurar la extensión de directorio para mantener los atributos existentes de la lista de inclusión de atributos.
--   Se ha corregido un problema de accesibilidad por el que el grosor de la fuente del encabezado de página está establecido en "Delgado". Ahora el grosor de la fuente se establece en "Negrita" para el título de página, y esto se aplica al encabezado de todas las páginas.
--   El nombre de la función Get-AdObject en ADSyncSingleObjectSync.ps1 se ha cambiado a Get-AdDirectoryObject para evitar confusiones con el cmdlet de AD.
--   La función de SQL "mms_CheckSynchronizationRuleHasUniquePrecedence" permite la precedencia de duplicados en las reglas de sincronización de salida en diferentes conectores. Se ha quitado la condición que permite la precedencia de reglas duplicadas.
--   Se ha corregido un error por el que el cmdlet de sincronización de un solo objeto falla cuando los datos del flujo de atributos son NULL, por ejemplo, al exportar una operación de eliminación.  
--   Se ha corregido un error por el que la instalación no se realiza correctamente debido a que no se puede iniciar el servicio de arranque de ADSync. Ahora se ha agrega la cuenta de servicio de sincronización al grupo de usuarios local integrado antes de iniciar el servicio de arranque.
--   Se ha corregido un problema de accesibilidad por el que la pestaña activa del asistente para AAD Connect no mostraba el color correcto en el tema de contraste alto. El código de color seleccionado se sobrescribía debido a una condición que faltaba en la configuración del código de color normal.
--   Se ha solucionado un problema por el que los usuarios tenían permiso para anular la selección de objetos y atributos usados en las reglas de sincronización mediante la interfaz de usuario y PowerShell. Ahora se muestra un mensaje de error descriptivo si intenta anular la selección de cualquier atributo u objeto que se use en las reglas de sincronización.
--   Se han realizado algunas actualizaciones en el "código de configuración de la migración" para comprobar y corregir el problema de compatibilidad con versiones anteriores cuando el script se ejecuta en una versión anterior de Azure AD Connect.  
--   Se ha corregido un error por el cual, cuando PHS intenta buscar un objeto incompleto, no usa el mismo algoritmo para resolver el controlador de dominio que el que usó originalmente para capturar las contraseñas. En concreto, ignora la información asociada con el controlador de dominio. La búsqueda de objetos incompletos debe usar la misma lógica para buscar el controlador de dominio en ambas instancias.
--   Se ha corregido un error por el que AADConnect no podía leer los elementos de Application Proxy mediante Microsoft Graph debido a un problema de permisos al llamar a Microsoft Graph directamente en función del identificador de cliente de AAD Connect. Para solucionar este problema, se ha quitado la dependencia de Microsoft Graph y, en su lugar, ahora se usa AAD PowerShell para trabajar con los objetos de aplicación de Application Proxy.
--   Se ha quitado el límite de miembros de escritura diferida para la regla de sincronización "Out to AD - Group SOAInAAD Exchange".  
--   Se ha corregido un error por el cual, si el cambio de los permisos de la cuenta del conector involucra un objeto que no ha cambiado desde la última importación diferencial, no se importará con una importación diferencial. Ahora se muestra una advertencia que alerta al usuario del problema.
--   Se ha corregido un problema de accesibilidad por el que el lector de pantalla no lee la posición del botón de radio. Se ha agregado información sobre la posición al campo de texto de accesibilidad del botón de radio.
--   Se ha actualizado el pack del agente de autenticación de paso a través. El pack anterior no incluía la URL de respuesta correcta para la aplicación propia de HIP en US Gov.  
--   Se ha corregido un error por el que se producía una excepción "stopped-extension-dll-exception" al exportar el conector de AAD después de realizar una instalación limpia de la versión 1.6.X.X de AADConnect (la cual usa de forma predeterminada DirSyncWebServices API V2) mediante una base de datos existente. Anteriormente, solo se establecía la versión de exportación en v2 para una actualización; esto se ha cambiado para que también se establezca en una instalación limpia.
--   El módulo "ADSyncPrep.psm1" ya no se usa y se ha quitado de la instalación.
+-    Se ha corregido un error por el que las reglas de sincronización con valores de precedencia grandes (por ejemplo, 387163089) provocaban errores en la actualización. Se ha actualizado el procedimiento almacenado "mms_UpdateSyncRulePrecedence" para convertir el número de precedencia en un entero antes de incrementar el valor.
+-    Se ha corregido un error por el que los permisos de escritura diferida de grupos no se establecen en la cuenta de sincronización al importar una configuración de escritura diferida de grupos. Ahora se establecen los permisos de escritura diferida de grupos si esta está habilitada en la configuración importada.
+-    Se ha actualizado el agente de Azure AD Connect Health a la versión 3.1.110.0 para corregir un error de instalación.
+-    Se está observando un problema con los atributos no predeterminados de las configuraciones exportadas en las que los atributos de extensión de directorio están configurados. Al importar estas configuraciones a un nuevo servidor o una nueva instalación, la lista de inclusión de atributos se invalida en el paso de configuración de la extensión de directorio. De este modo, después de la importación, solo los atributos predeterminados y de extensión de directorio se seleccionan en el administrador de servicios de sincronización (los atributos no predeterminados no se incluyen en la instalación, por lo que el usuario debe volver a habilitarlos manualmente desde el administrador de servicios de sincronización si quiere que sus reglas de sincronización importadas funcionen). Ahora se actualiza el conector de AAD antes de configurar la extensión de directorio para mantener los atributos existentes de la lista de inclusión de atributos.
+-    Se ha corregido un problema de accesibilidad por el que el grosor de la fuente del encabezado de página está establecido en "Delgado". Ahora el grosor de la fuente se establece en "Negrita" para el título de página, y esto se aplica al encabezado de todas las páginas.
+-    El nombre de la función Get-AdObject en ADSyncSingleObjectSync.ps1 se ha cambiado a Get-AdDirectoryObject para evitar confusiones con el cmdlet de AD.
+-    La función de SQL "mms_CheckSynchronizationRuleHasUniquePrecedence" permite la precedencia de duplicados en las reglas de sincronización de salida en diferentes conectores. Se ha quitado la condición que permite la precedencia de reglas duplicadas.
+-    Se ha corregido un error por el que el cmdlet de sincronización de un solo objeto falla cuando los datos del flujo de atributos son NULL, por ejemplo, al exportar una operación de eliminación.    
+-    Se ha corregido un error por el que la instalación no se realiza correctamente debido a que no se puede iniciar el servicio de arranque de ADSync. Ahora se ha agrega la cuenta de servicio de sincronización al grupo de usuarios local integrado antes de iniciar el servicio de arranque.
+-    Se ha corregido un problema de accesibilidad por el que la pestaña activa del asistente para AAD Connect no mostraba el color correcto en el tema de contraste alto. El código de color seleccionado se sobrescribía debido a una condición que faltaba en la configuración del código de color normal.
+-    Se ha solucionado un problema por el que los usuarios tenían permiso para anular la selección de objetos y atributos usados en las reglas de sincronización mediante la interfaz de usuario y PowerShell. Ahora se muestra un mensaje de error descriptivo si intenta anular la selección de cualquier atributo u objeto que se use en las reglas de sincronización.
+-    Se han realizado algunas actualizaciones en el "código de configuración de la migración" para comprobar y corregir el problema de compatibilidad con versiones anteriores cuando el script se ejecuta en una versión anterior de Azure AD Connect.    
+-    Se ha corregido un error por el cual, cuando PHS intenta buscar un objeto incompleto, no usa el mismo algoritmo para resolver el controlador de dominio que el que usó originalmente para capturar las contraseñas. En concreto, ignora la información asociada con el controlador de dominio. La búsqueda de objetos incompletos debe usar la misma lógica para buscar el controlador de dominio en ambas instancias.
+-    Se ha corregido un error por el que AADConnect no podía leer los elementos de Application Proxy mediante Microsoft Graph debido a un problema de permisos al llamar a Microsoft Graph directamente en función del identificador de cliente de AAD Connect. Para solucionar este problema, se ha quitado la dependencia de Microsoft Graph y, en su lugar, ahora se usa AAD PowerShell para trabajar con los objetos de aplicación de Application Proxy.
+-    Se ha quitado el límite de miembros de escritura diferida para la regla de sincronización "Out to AD - Group SOAInAAD Exchange".    
+-    Se ha corregido un error por el cual, si el cambio de los permisos de la cuenta del conector involucra un objeto que no ha cambiado desde la última importación diferencial, no se importará con una importación diferencial. Ahora se muestra una advertencia que alerta al usuario del problema.
+-    Se ha corregido un problema de accesibilidad por el que el lector de pantalla no lee la posición del botón de radio. Se ha agregado información sobre la posición al campo de texto de accesibilidad del botón de radio.
+-    Se ha actualizado el pack del agente de autenticación de paso a través. El pack anterior no incluía la URL de respuesta correcta para la aplicación propia de HIP en US Gov.    
+-    Se ha corregido un error por el que se producía una excepción "stopped-extension-dll-exception" al exportar el conector de AAD después de realizar una instalación limpia de la versión 1.6.X.X de AADConnect (la cual usa de manera predeterminada DirSyncWebServices API V2) mediante una base de datos existente.    Anteriormente, solo se establecía la versión de exportación en v2 para una actualización; esto se ha cambiado para que también se establezca en una instalación limpia.
+-    El módulo "ADSyncPrep.psm1" ya no se usa y se ha quitado de la instalación.
 
 ### <a name="known-issues"></a>Problemas conocidos
--   El asistente de AADConnect muestra la opción "Importar configuración de sincronización" como "Versión preliminar", pero esta característica está disponible con carácter general.
--   Es posible que algunos conectores de Active Directory se instalen en un orden diferente cuando se usa la salida del script de configuración de la migración para instalar el producto. 
--   La página de opciones de inicio de sesión del usuario en el asistente para Azure AD Connect indica el rol "Administrador de empresa". Este término ya no se usa y debe reemplazarse por "Administrador global".
--   La opción "Exportar configuración" no funciona cuando la opción de inicio de sesión se ha configurado para usar PingFederate.
--   Aunque Azure AD Connect se puede implementar con el rol "Administrador de identidad híbrida", para configurar el autoservicio de restablecimiento de contraseña, seguirá siendo necesario que el usuario tenga el rol "Administrador global".
--   Al importar la configuración de AADConnect durante la implementación para conectarse con un inquilino diferente al de la configuración original de AADConnect, los atributos de extensión de directorio no se configuran correctamente.
+-    El asistente de AADConnect muestra la opción "Importar configuración de sincronización" como "Versión preliminar", pero esta característica está disponible con carácter general.
+-    Es posible que algunos conectores de Active Directory se instalen en un orden diferente cuando se usa la salida del script de configuración de la migración para instalar el producto. 
+-    La página de opciones de inicio de sesión del usuario en el asistente para Azure AD Connect indica el rol "Administrador de empresa". Este término ya no se usa y debe reemplazarse por "Administrador global".
+-    La opción "Exportar configuración" no funciona cuando la opción de inicio de sesión se ha configurado para usar PingFederate.
+-    Aunque Azure AD Connect se puede implementar con el rol "Administrador de identidad híbrida", para configurar el autoservicio de restablecimiento de contraseña, seguirá siendo necesario que el usuario tenga el rol "Administrador global".
+-    Al importar la configuración de AADConnect durante la implementación para conectarse con un inquilino diferente al de la configuración original de AADConnect, los atributos de extensión de directorio no se configuran correctamente.
 
 ## <a name="1640"></a>1.6.4.0
 
@@ -286,7 +304,7 @@ Puede usar estos cmdlets para recuperar el estado de habilitación de TLS 1.2 o
  - Se han actualizado las reglas de sincronización predeterminadas para limitar la pertenencia en los grupos reescritos a 50 000 miembros.
    - Se han agregado nuevas reglas de sincronización predeterminadas para limitar el recuento de pertenencias en la reescritura de grupos (Out to AD - Group Writeback Member Limit) y la sincronización de grupos a los grupos de Azure Active Directory (Out to AAD - Group Writeup Member Limit).
    - Se ha agregado el atributo de miembro a la regla "Out to AD - Group SOAInAAD - Exchange" para limitar los miembros de los grupos que se reescriben a 50 000.
- - Se han actualizado las reglas de sincronización para admitir la reescritura de grupos v2. - Si se clona la regla "In from AAD - Group SOAInAAD" y se actualiza AADConnect.
+ - Se han actualizado las reglas de sincronización para admitir la escritura diferida de grupos v2. - Si se clona la regla "In from AAD - Group SOAInAAD" y se actualiza AADConnect.
      - La regla actualizada se deshabilitará de manera predeterminada, por lo que el valor de targetWritebackType será NULL.
      - AADConnect reescribirá todos los grupos en la nube (incluidos los grupos de seguridad de Azure Active Directory habilitados para la reescritura) como grupos de distribución.
    -Si se clona la regla "Out to AD - Group SOAInAAD" y se actualiza AADConnect.
@@ -324,7 +342,7 @@ Puede usar estos cmdlets para recuperar el estado de habilitación de TLS 1.2 o
  - Se ha quitado la columna explícita de la página de búsqueda de CS en la interfaz de usuario de sincronización antigua.
  - Se ha agregado una interfaz de usuario adicional al flujo de reescritura de grupos para solicitar credenciales al usuario o para que configure sus propios permisos mediante el módulo ADSyncConfig, si aún no se han proporcionado credenciales en un paso anterior.
  - Creación automática de MSA para la cuenta de servicio de ADSync en un controlador de dominio. 
- -  Se ha agregado la capacidad para establecer y obtener la característica de reescritura de grupos V2 de DirSync de Azure Active Directory en los cmdlets existentes:
+ - Se ha agregado la capacidad para establecer y obtener la característica de reescritura de grupos V2 de DirSync de Azure Active Directory en los cmdlets existentes:
     - Set-ADSyncAADCompanyFeature
     - Get-ADSyncAADCompanyFeature
  - Se han agregado dos cmdlets para leer la versión de API de AWS.
@@ -465,7 +483,7 @@ Esta compilación de revisión corrige un problema en la compilación 1.5.20.0 
 - Se ha agregado la capacidad de dirigirse a un agente específico desde la nube para probar la conectividad del agente.
 
 ### <a name="fixed-issues"></a>Problemas corregidos
-- La versión 1.4.18.0 tenía un error en el que el cmdlet de PowerShell para DSSO utilizaba las credenciales de inicio de sesión de Windows en lugar de las credenciales de administrador proporcionadas durante la ejecución de PS. Como resultado, no era posible habilitar DSSO en varios bosques mediante la interfaz de usuario de Azure AD Connect. 
+- La versión 1.4.18.0 tenía un error en el que el cmdlet de PowerShell para DSSO utilizaba las credenciales de inicio de sesión de Windows en lugar de las credenciales de administrador proporcionadas durante la ejecución de PS. Como resultado, no era posible habilitar DSSO en varios bosques mediante la interfaz de usuario de Azure AD Connect. 
 - Se ha realizado una corrección para habilitar DSSO simultáneamente en todos los bosques mediante la interfaz de usuario de Azure AD Connect.
 
 ## <a name="14320"></a>1.4.32.0
@@ -519,13 +537,13 @@ Se corrigió un error en la utilidad de compresión de errores de sincronizació
 - Se impide el error de configuración del filtrado de grupos por dominio y filtros de unidad organizativa. El filtrado de grupos mostrará un error cuando el dominio o la unidad organizativa del grupo especificado ya se hayan filtrado y evitará que el usuario prosiga hasta que no se resuelva el problema.
 - Los usuarios ya no pueden crear un conector para Active Directory Domain Services o Windows Azure Active Directory en la interfaz de usuario de Synchronization Service Manager.
 - Se corrigió la accesibilidad de los controles de interfaz de usuario personalizados en Synchronization Service Manager.
-- Se han habilitado seis tareas de administración de federación para todos los métodos de inicio de sesión en Azure AD Connect.  (Antes, solo estaba disponible la tarea “Actualización del certificado TLS/SSL de AD FS” en todos los inicios de sesión).
+- Se han habilitado seis tareas de administración de federación para todos los métodos de inicio de sesión en Azure AD Connect.  (Antes, solo estaba disponible la tarea "Actualización del certificado TLS/SSL de AD FS" en todos los inicios de sesión).
 - Se ha agregado una advertencia al cambiar el método de inicio de sesión de federación a PHS o PTA que indica que todos los dominios de Azure AD y usuarios se convertirán a la autenticación administrada.
-- Se han quitado los certificados de firma de tokens de la tarea "Restablecer Azure AD y confianza de AD FS" y se ha agregado una subtarea independiente para actualizar estos certificados.
-- Se ha agregado una nueva tarea de administración de federación denominada “Administrar certificados” que tiene subtareas para actualizar los certificados de firma de tokens o TLS de la granja de servidores de AD FS.
+- Se han quitado los certificados de firma de tokens de la tarea "Restablecer Azure AD y confianza de AD FS" y se ha agregado una subtarea independiente para actualizar estos certificados.
+- Se ha agregado una nueva tarea de administración de federación denominada "Administrar certificados" que tiene subtareas para actualizar los certificados de firma de tokens o TLS de la granja de servidores de AD FS.
 - Se ha agregado una nueva subtarea de administración de federación llamada "Especificar servidor principal" que permite a los administradores especificar un nuevo servidor principal para la granja de servidores de AD FS.
-- Se ha agregado una nueva tarea de administración de federación denominada "Administrar servidores" que tiene subtareas para implementar un servidor de AD FS, implementar un servidor proxy de aplicación web y especificar el servidor principal.
-- Se ha agregado una nueva tarea de administración de federación denominada "Ver configuración de federación" que muestra la configuración actual de AD FS.  (Debido a esta incorporación, se ha quitado la configuración de AD FS de la página "Revisar su solución").
+- Se ha agregado una nueva tarea de administración de federación denominada "Administrar servidores" que tiene subtareas para implementar un servidor de AD FS, implementar un servidor proxy de aplicación web y especificar el servidor principal.
+- Se ha agregado una nueva tarea de administración de federación denominada "Ver configuración de federación" que muestra la configuración actual de AD FS.  (Debido a esta incorporación, se ha quitado la configuración de AD FS de la página "Revisar su solución").
 
 ### <a name="fixed-issues"></a>Problemas corregidos
 - Se ha resuelto un problema de error de sincronización en el escenario donde un objeto de usuario que asume su objeto de contacto correspondiente tiene una referencia automática (por ejemplo, el usuario es su propio administrador).
@@ -547,9 +565,9 @@ Se corrigió un error en la utilidad de compresión de errores de sincronizació
 >
 > Para resolver esto, deberá importar el módulo **AdSync** y ejecutar el cmdlet `Set-ADSyncDirSyncConfiguration` de PowerShell en el servidor de Azure AD Connect.  Puede usar los pasos siguientes:
 >
->1. Abra PowerShell en modo de administrador.
->2. Ejecute `Import-Module "ADSync"`.
->3. Ejecute `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`.
+>1.    Abra PowerShell en modo de administrador.
+>2.    Ejecute `Import-Module "ADSync"`.
+>3.    Ejecute `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`.
  
 ### <a name="release-status"></a>Estado de la versión 
 

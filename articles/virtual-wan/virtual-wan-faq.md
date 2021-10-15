@@ -1,18 +1,17 @@
 ---
 title: Preguntas más frecuentes sobre Azure Virtual WAM | Microsoft Docs
 description: Vea las respuestas a preguntas frecuentes sobre redes, clientes, puertas de enlace, dispositivos, asociados y conexiones de Azure Virtual WAN.
-services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: troubleshooting
 ms.date: 08/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: c4c31314ca8e559748425518258e0eec965d9c09
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: eaeefcfc48492686abc88215e80bc6d74a836f4f
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124754444"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129545046"
 ---
 # <a name="virtual-wan-faq"></a>Preguntas más frecuentes sobre Virtual WAN
 
@@ -34,9 +33,9 @@ Virtual WAN se ofrece en dos variedades: Básico y Estándar. En la instancia de
 
 ### <a name="how-are-availability-zones-and-resiliency-handled-in-virtual-wan"></a>¿Cómo se administran Availability Zones y la resistencia en Virtual WAN?
 
-Virtual WAN es una colección de centros de conectividad y servicios que están disponibles en el centro de conectividad. El usuario puede tener tantas instancias de Virtual WAN como necesite. En un centro de Virtual WAN hay varios servicios, como VPN, ExpressRoute, etc. Cada uno de estos servicios se implementa automáticamente en Availability Zones (excepto Azure Firewall), siempre y cuando la región admita Availability Zones. Si una región se convierte en una zona de disponibilidad después de la implementación inicial en el centro de conectividad, el usuario puede volver a crear las puertas de enlace, lo que desencadenará una implementación de Availability Zones. Todas las puertas de enlace se aprovisionan en un centro de conectividad como activo-activo, lo que implica que hay resistencia integrada dentro de un centro de conectividad. Los usuarios pueden conectarse a varios centros de conectividad si desean resistencia entre regiones. 
+Virtual WAN es una colección de centros de conectividad y servicios que están disponibles en el centro de conectividad. El usuario puede tener tantas instancias de Virtual WAN como necesite. En un centro de Virtual WAN hay varios servicios, como VPN, ExpressRoute, etc. Cada uno de estos servicios se implementa automáticamente en Availability Zones (excepto Azure Firewall), siempre y cuando la región admita Availability Zones. Si una región se convierte en una zona de disponibilidad después de la implementación inicial en el centro de conectividad, el usuario puede volver a crear las puertas de enlace, lo que desencadenará una implementación de Availability Zones. Todas las puertas de enlace se aprovisionan en un centro de conectividad como activo-activo, lo que implica que hay resistencia integrada dentro de un centro de conectividad. Los usuarios pueden conectarse a varios centros de conectividad si desean resistencia entre regiones. 
 
-Actualmente, Azure Firewall se puede implementar de modo que admita Availability Zones mediante el portal de Azure Firewall Manager, [PowerShell](/powershell/module/az.network/new-azfirewall?view=azps-6.3.0#example-6--create-a-firewall-with-no-rules-and-with-availability-zones) o la CLI. De momento no hay forma de configurar un firewall existente para implementarlo en zonas de disponibilidad. Tiene que eliminar y volver a implementar la instancia de Azure Firewall. 
+Actualmente, Azure Firewall se puede implementar de modo que admita Availability Zones mediante el portal de Azure Firewall Manager, [PowerShell](/powershell/module/az.network/new-azfirewall#example-6--create-a-firewall-with-no-rules-and-with-availability-zones) o la CLI. De momento no hay forma de configurar un firewall existente para implementarlo en zonas de disponibilidad. Tiene que eliminar y volver a implementar la instancia de Azure Firewall. 
 
 Aunque el concepto de Virtual WAN es global, el recurso de Virtual WAN real se basa en Resource Manager y se implementa de forma regional. En caso de que la propia región de Virtual WAN tenga un problema, todos los centros de conectividad de esa instancia de Virtual WAN seguirán funcionando tal cual, pero el usuario no podrá crear nuevos centros de conectividad hasta que la región de Virtual WAN esté disponible.
 
@@ -192,7 +191,7 @@ Se puede crear una configuración simple de una instancia de Virtual WAN con un 
 
 ### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other-v2v-transit"></a>¿Pueden las redes virtuales radiales conectadas a un centro virtual comunicarse entre sí (tránsito V2V)?
 
-Sí. Virtual WAN estándar admite la conectividad transitiva entre redes virtuales mediante el centro de conectividad de Virtual WAN al que están conectadas las redes virtuales. En la terminología de Virtual WAN, llamamos a estas rutas de acceso "tránsito local de red virtual de Virtual WAN" en el caso de las redes virtuales conectadas a un centro de conectividad de Virtual WAN dentro de una única región, y "tránsito global de red virtual de Virtual WAN" en el caso de las redes virtuales conectadas mediante varios centros de conectividad de Virtual WAN en dos o más zonas.
+Sí. Virtual WAN estándar admite la conectividad transitiva entre redes virtuales mediante el centro de conectividad de Virtual WAN al que están conectadas las redes virtuales. En la terminología de Virtual WAN, llamamos a estas rutas de acceso "tránsito local de red virtual de Virtual WAN" en el caso de las redes virtuales conectadas a un centro de conectividad de Virtual WAN dentro de una única región, y "tránsito global de red virtual de Virtual WAN" en el caso de las redes virtuales conectadas mediante varios centros de conectividad de Virtual WAN en dos o más zonas.
 
 En algunos escenarios, además del tránsito local o global de red virtual de Virtual WAN, las redes virtuales de radio también se pueden emparejar directamente entre sí mediante el [emparejamiento de red virtual](../virtual-network/virtual-network-peering-overview.md). En este caso, el emparejamiento de red virtual tiene prioridad sobre la conexión transitiva del centro de conectividad de Virtual WAN.
 
@@ -253,10 +252,10 @@ La ruta predeterminada no se origina en el centro de conectividad de Virtual WAN
 Si un centro de conectividad virtual aprende la misma ruta de varios centros de conectividad remotos, el orden en el que decide es el siguiente:
 
 1. Coincidencia de prefijo más larga.
-1. Rutas locales entre centros de conectividad (el centro de conectividad virtual asigna 65520-65520 para AS entre centros de conectividad).
+1. Rutas locales en vez de rutas entre centros de conectividad.
 1. Rutas estáticas en vez de BGP: en el contexto de la decisión tomada por el enrutador del centro de conectividad virtual. Sin embargo, si la decisión la toma VPN Gateway cuando un sitio anuncia rutas a través de BGP o proporciona prefijos de dirección estática, es posible que se prefieran rutas estáticas a rutas BGP.
 1. ExpressRoute (ER) en lugar de VPN: se prefiere ER frente a VPN cuando el contexto es un centro de conectividad local. La conectividad de tránsito entre circuitos ExpressRoute solo está disponible a través de Global Reach. Por lo tanto, en escenarios en los que el circuito ExpressRoute está conectado a un centro de conectividad y hay otro circuito ExpressRoute conectado a un centro de conectividad diferente con una conexión VPN, es posible que se prefiera la VPN para escenarios entre centros de conectividad.
-1. Longitud de la ruta de acceso del sistema autónomo.
+1. Longitud de la ruta de acceso de AS (los centros virtuales anteponen rutas con la ruta de acceso de AS 65520-65520 cuando se anuncian rutas entre sí).
 
 ### <a name="does-the-virtual-wan-hub-allow-connectivity-between-expressroute-circuits"></a>¿El centro de conectividad de Virtual WAN permite la conectividad entre circuitos ExpressRoute?
 

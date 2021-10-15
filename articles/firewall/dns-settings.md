@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 05/26/2021
+ms.date: 09/28/2021
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e4543af78b173632e3374567e9a199f182679e8f
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: e3c1da0e21f13357c5c537da2530e012101423dd
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110701713"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215707"
 ---
 # <a name="azure-firewall-dns-settings"></a>Configuración DNS de Azure Firewall
 
@@ -21,7 +21,7 @@ Puede configurar un servidor DNS personalizado y habilitar el proxy DNS para Azu
 
 ## <a name="dns-servers"></a>Servidores DNS
 
-Un servidor DNS mantiene y resuelve los nombres de dominio en direcciones IP. De forma predeterminada, Azure Firewall usa Azure DNS para la resolución de nombres. La configuración de **servidor DNS** le permite configurar sus propios servidores DNS para la resolución de nombres de Azure Firewall. Puede configurar un único servidor o varios servidores.
+Un servidor DNS mantiene y resuelve los nombres de dominio en direcciones IP. De forma predeterminada, Azure Firewall usa Azure DNS para la resolución de nombres. La configuración de **servidor DNS** le permite configurar sus propios servidores DNS para la resolución de nombres de Azure Firewall. Puede configurar un único servidor o varios servidores. Si configura varios servidores DNS, el servidor que se usa se elige aleatoriamente.
 
 > [!NOTE]
 > En el caso de instancias de Azure Firewall administradas mediante Azure Firewall Manager, la configuración de DNS se establece en la directiva de Azure Firewall asociada.
@@ -80,6 +80,8 @@ Hay dos tipos de función de almacenamiento en caché que se producen cuando Azu
 - **Caché negativa**: la resolución de DNS no obtiene respuesta ni resolución. El firewall almacena en caché esta información durante una hora.
 
 El proxy DNS almacena todas las direcciones IP resueltas de FQDN en reglas de red. Como procedimiento recomendado, use FQDN que se resuelvan en una dirección IP.
+
+Si se produce un error en la conexión, el proxy DNS no realiza reintentos ni conmutaciones por error a otros servidores DNS, incluido Azure DNS.
 
 ### <a name="policy-inheritance"></a>Herencia de directivas
 

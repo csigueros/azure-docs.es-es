@@ -1,39 +1,39 @@
 ---
-title: Servicios y categorías admitidos de los registros de recursos de Azure Monitor
-description: Referencia de Azure Monitor para conocer el esquema de los eventos y servicios admitidos para los registros de recursos de Azure.
+title: Categorías admitidas en los registros de recursos de Azure Monitor
+description: Comprenda los servicios admitidos y los esquemas de eventos para los registros de recursos de Azure Monitor.
 ms.topic: reference
 ms.date: 09/10/2021
-ms.openlocfilehash: c92f20d4a757ef69d334345619bdc2d585648d5d
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 9c41c714d2913247a6b0d00e3b242da9c59e038e
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129211259"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457760"
 ---
-# <a name="supported-categories-for-azure-resource-logs"></a>Categorías admitidas en los registros de recursos de Azure
+# <a name="supported-categories-for-azure-monitor-resource-logs"></a>Categorías admitidas en los registros de recursos de Azure Monitor
 
 > [!NOTE]
 > Esta lista se genera automáticamente. Cualquier modificación realizada en esta lista a través de GitHub puede sobrescribirse sin previo aviso. Póngase en contacto con el autor de este artículo para obtener más información sobre cómo hacer actualizaciones permanentes.
 
-Los [registros de recursos de Azure Monitor](../essentials/platform-logs-overview.md) son los registros emitidos por los servicios de Azure que describen el funcionamiento de dichos servicios o recursos. Todos los registros de recursos disponibles a través de Azure Monitor comparten un esquema común de nivel superior, con flexibilidad para que cada servicio emita propiedades únicas para sus propios eventos.
+Los [registros de recursos de Azure Monitor](../essentials/platform-logs-overview.md) son los registros emitidos por los servicios de Azure que describen el funcionamiento de dichos servicios o recursos. Todos los registros de recursos disponibles en Azure Monitor comparten un esquema de nivel superior común. Cada servicio tiene la flexibilidad de emitir propiedades únicas para sus propios eventos.
 
 Los registros de recurso se conocían anteriormente como registros de diagnóstico. El nombre se cambió en octubre de 2019, dado que los tipos de registros recopilados por Azure Monitor evolucionaron para incluir algo más que tan solo el recurso de Azure.
 
-Una combinación del tipo de recurso (disponible en la propiedad `resourceId`) y la `category` identifica un esquema de forma única. Hay un esquema común para todos los registros de recursos con campos específicos de servicio que se han agregado para distintas categorías de registros. Para obtener más información, consulte [Esquema específico de servicio y común para los registros de recursos de Azure](/azure/azure-monitor/essentials/resource-logs-schema).
+Una combinación del tipo de recurso (disponible en la propiedad `resourceId`) y la categoría permite identificar un esquema de forma única. Hay un esquema común para todos los registros de recursos con campos específicos de servicio que se hayan agregado para distintas categorías de registros. Para obtener más información, consulte [Esquema específico de servicio y común para los registros de recursos de Azure](/azure/azure-monitor/essentials/resource-logs-schema).
 
-## <a name="costs"></a>Costos
+## <a name="costs"></a>Costes
 
-[Log Analytics de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/), [Azure Storage](https://azure.microsoft.com/product-categories/storage/), el [centro de eventos](https://azure.microsoft.com/pricing/details/event-hubs/) y los asociados que se integran directamente con Azure Monitor ([por ejemplo, Datadog](../../partner-solutions/datadog/overview.md)) tienen costos asociados con la ingesta y el almacenamiento de datos. Compruebe los vínculos anteriores a las páginas de precios de estos servicios para comprender esos costos. Los registros de recursos son solo un tipo de datos que se pueden enviar a estas ubicaciones. 
+[Log Analytics de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/), [Azure Storage](https://azure.microsoft.com/product-categories/storage/), el [Azure Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/) y los asociados que se integran directamente con Azure Monitor ([por ejemplo, Datadog](../../partner-solutions/datadog/overview.md)) tienen costos asociados con la ingesta y el almacenamiento de datos. Compruebe las páginas de precios vinculadas en la oración anterior para comprender los costos de esos servicios. Los registros de recursos son solo un tipo de datos que se pueden enviar a estas ubicaciones. 
 
-Además, puede haber costos asociados a la exportación de algunas categorías de registros de recursos a esas ubicaciones. En la tabla siguiente se muestran estos registros con los posibles costos de exportación. Para más información sobre los precios de exportación, consulte la sección *Registros de la plataforma* de la [página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
+Además, puede haber costos asociados a la exportación de algunas categorías de registros de recursos a esas ubicaciones. En la tabla de la siguiente sección se muestran estos registros con los posibles costos de exportación. Para obtener más información sobre los precios de exportación, consulte la sección **Registros de la plataforma** de la [página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## <a name="supported-log-categories-per-resource-type"></a>Categorías de registro admitidas por tipo de recurso
 
 A continuación, se muestra una lista de los tipos de registros disponibles para cada tipo de recurso. 
 
-Es posible que algunas categorías solo se admitan para tipos específicos de recursos. Consulte la documentación específica de recurso si cree que falta un recurso. Por ejemplo, las categorías Microsoft.Sql/servers/databases no están disponibles para todos los tipos de bases de datos. Para más información, consulte la [información sobre el registro de diagnóstico de SQL Database](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
+Es posible que algunas categorías solo se admitan para tipos específicos de recursos. Consulte la documentación específica del recurso si cree que falta un recurso. Por ejemplo, las categorías Microsoft.Sql/servers/databases no están disponibles para todos los tipos de bases de datos. Para más información, consulte la [información sobre el registro de diagnóstico de SQL Database](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
 
-Si le parece que falta algo, puede escribir un comentario de GitHub en la parte inferior de este artículo.
+Si todavía falta algo, puede escribir un comentario de GitHub en la parte inferior de este artículo.
 
 
 ## <a name="microsoftaaddomainservices"></a>Microsoft.AAD/DomainServices
@@ -62,11 +62,11 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
-|ApplicationAuditLogs|Registros de auditoría de aplicación|Yes|
-|FarmManagementLogs|Registros de administración de granja|Yes|
-|FarmOperationLogs|Registros de operaciones de granja|Yes|
-|ProviderAuthLogs|Registros de autenticación de proveedor|Yes|
-|SatelliteLogs|Registros de satélite|Yes|
+|ApplicationAuditLogs|Registros de auditoría de aplicación|Sí|
+|FarmManagementLogs|Registros de administración de granja|Sí|
+|FarmOperationLogs|Registros de operaciones de granja|Sí|
+|ProviderAuthLogs|Registros de autenticación de proveedor|Sí|
+|SatelliteLogs|Registros de satélite|Sí|
 |WeatherLogs|Registros meteorológicos|Sí|
 
 
@@ -83,7 +83,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
 |GatewayLogs|Registros relacionados con la puerta de enlace de ApiManagement|No|
-|WebSocketConnectionLogs|Registros relacionados con las conexiones de Websocket|Yes|
+|WebSocketConnectionLogs|Registros relacionados con las conexiones de Websocket|Sí|
 
 
 ## <a name="microsoftappconfigurationconfigurationstores"></a>Microsoft.AppConfiguration/configurationStores
@@ -99,7 +99,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
 |ApplicationConsole|Consola de aplicación|No|
-|IngressLogs|Registros de entrada|Yes|
+|IngressLogs|Registros de entrada|Sí|
 |SystemLogs|Registros del sistema|No|
 
 
@@ -117,7 +117,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
-|AuditEvent|AuditEvent|Yes|
+|AuditEvent|AuditEvent|Sí|
 |DscNodeStatus|DscNodeStatus|No|
 |JobLogs|JobLogs|No|
 |JobStreams|JobStreams|No|
@@ -182,7 +182,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
-|ConnectedClientList|Lista de clientes conectados|Yes|
+|ConnectedClientList|Lista de clientes conectados|Sí|
 
 
 ## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft.Cdn/cdnwebapplicationfirewallpolicies
@@ -437,7 +437,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
-|Escalado automático|Registros de escalado automático|Yes|
+|Escalado automático|Registros de escalado automático|Sí|
 
 
 ## <a name="microsoftdesktopvirtualizationworkspaces"></a>Microsoft.DesktopVirtualization/workspaces
@@ -588,7 +588,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
 |AuditLogs|Registros de auditoría|No|
-|DiagnosticLogs|Registros de diagnóstico|Yes|
+|DiagnosticLogs|Registros de diagnóstico|Sí|
 
 
 ## <a name="microsofthealthcareapisworkspacesdicomservices"></a>Microsoft.HealthcareApis/workspaces/dicomservices
@@ -716,7 +716,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
-|PipelineDiagnostics|Registros de diagnóstico de canalización|Yes|
+|PipelineDiagnostics|Registros de diagnóstico de canalización|Sí|
 |PipelineOperational|Registros operativos de canalización|Sí|
 
 
@@ -834,7 +834,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
-|ExpressRouteCircuitIpfix|Registros de flujo IPFIX del circuito de ExpressRoute|Yes|
+|ExpressRouteCircuitIpfix|Registros de flujo IPFIX del circuito de ExpressRoute|Sí|
 
 
 ## <a name="microsoftnotificationhubsnamespaces"></a>Microsoft.NotificationHubs/namespaces
@@ -878,7 +878,7 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 |---|---|---|
 |DataSensitivityLogEvent|DataSensitivity|Sí|
 |ScanStatusLogEvent|ScanStatus|No|
-|Seguridad|PurviewAccountAuditEvents|Yes|
+|Seguridad|PurviewAccountAuditEvents|Sí|
 
 
 ## <a name="microsoftrecoveryservicesvaults"></a>Microsoft.RecoveryServices/Vaults
@@ -920,8 +920,8 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
-|Análisis|Análisis|Yes|
-|DataConnectors|Recopilación de datos: conectores|Yes|
+|Análisis|Análisis|Sí|
+|DataConnectors|Recopilación de datos: conectores|Sí|
 
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
@@ -942,8 +942,8 @@ Si le parece que falta algo, puede escribir un comentario de GitHub en la parte 
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
-|ConnectivityLogs|Registros de conectividad para el servicio Azure Web PubSub|Yes|
-|HttpRequestLogs|Registros de solicitudes HTTP para el servicio Azure Web PubSub|Yes|
+|ConnectivityLogs|Registros de conectividad para el servicio Azure Web PubSub|Sí|
+|HttpRequestLogs|Registros de solicitudes HTTP para el servicio Azure Web PubSub|Sí|
 |MessagingLogs|Registros de mensajería para el servicio Azure Web PubSub|Sí|
 
 

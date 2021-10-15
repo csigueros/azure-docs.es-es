@@ -1,7 +1,6 @@
 ---
 title: 'Migración a Azure AD MFA con federaciones: Azure Active Directory'
 description: Guía paso a paso para pasar de Servidor Azure MFA local a Azure AD MFA con federación
-services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
@@ -11,12 +10,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b34538fb4d0c9dc7beb0defd22f0aa78207f0a3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0c5d92d16f5ac9fcd8aa69ce9fd71f4844a77d28
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730792"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352708"
 ---
 # <a name="migrate-to-azure-ad-mfa-with-federation"></a>Migración a Azure AD MFA con federación
 
@@ -65,7 +64,7 @@ Get-AdfsAdditionalAuthenticationRule
 Para ver las relaciones de confianza para usuario autenticado existentes, ejecute el siguiente comando y reemplace RPTrustName por el nombre de la regla de notificaciones de relación de confianza para usuario autenticado: 
 
 ```powershell
-(Get-AdfsRelyingPartyTrust -Name “RPTrustName”).AdditionalAuthenticationRules 
+(Get-AdfsRelyingPartyTrust -Name "RPTrustName").AdditionalAuthenticationRules 
 ```
 
 #### <a name="access-control-policies"></a>Directivas de control de acceso
@@ -92,7 +91,7 @@ Necesitará un grupo específico en el que colocar a los usuarios para los que q
 
 Para buscar el SID del grupo, use el comando siguiente, con el nombre del grupo.
 
-`Get-ADGroup “GroupName”`
+`Get-ADGroup "GroupName"`
 
 ![Imagen de la captura de pantalla en la que se muestran los resultados del script Get-ADGroup.](./media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/find-the-sid.png)
 
@@ -112,7 +111,7 @@ Asegúrese de revisar [Procedimiento para elegir proveedores de autenticación a
 Ejecute el siguiente cmdlet de PowerShell: 
 
 ```powershell
-(Get-AdfsRelyingPartyTrust -Name “RPTrustName”).AdditionalAuthenticationRules
+(Get-AdfsRelyingPartyTrust -Name "RPTrustName").AdditionalAuthenticationRules
 ```
 
  
@@ -126,7 +125,7 @@ Value = "AzureMfaAuthentication");
 not exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
 Value=="YourGroupSid"]) => issue(Type = 
 "https://schemas.microsoft.com/claims/authnmethodsproviders", Value = 
-"AzureMfaServerAuthentication");’
+"AzureMfaServerAuthentication");'
 ```
 
 En el ejemplo siguiente se da por supuesto que las reglas de notificación actuales están configuradas para solicitar MFA cuando los usuarios se conectan desde fuera de la red. En este ejemplo se incluyen las reglas adicionales que debe anexar.
@@ -137,12 +136,12 @@ Set-AdfsAdditionalAuthenticationRule -AdditionalAuthenticationRules 'c:[type ==
 "https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = 
 "https://schemas.microsoft.com/claims/multipleauthn" );
  c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == 
-“YourGroupSID"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders", 
+"YourGroupSID"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders", 
 Value = "AzureMfaAuthentication");
 not exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
-Value==“YourGroupSid"]) => issue(Type = 
+Value=="YourGroupSid"]) => issue(Type = 
 "https://schemas.microsoft.com/claims/authnmethodsproviders", Value = 
-"AzureMfaServerAuthentication");’
+"AzureMfaServerAuthentication");'
 ```
 
 
@@ -156,12 +155,12 @@ Set-AdfsRelyingPartyTrust -TargetName AppA -AdditionalAuthenticationRules 'c:[ty
 "https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = 
 "https://schemas.microsoft.com/claims/multipleauthn" );
 c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == 
-“YourGroupSID"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders", 
+"YourGroupSID"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders", 
 Value = "AzureMfaAuthentication");
 not exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
-Value==“YourGroupSid"]) => issue(Type = 
+Value=="YourGroupSid"]) => issue(Type = 
 "https://schemas.microsoft.com/claims/authnmethodsproviders", Value = 
-"AzureMfaServerAuthentication");’
+"AzureMfaServerAuthentication");'
 ```
 
 
@@ -183,7 +182,7 @@ Para los dominios federados, MFA se puede aplicar mediante el acceso condicional
 
 Si la marca SupportsMFA está establecida en False, es probable que no use Azure MFA; probablemente utilice reglas de notificaciones en usuarios de confianza de AD FS para invocar MFA.
 
-Puede comprobar el estado de la marca SupportsMFA con el siguiente [cmdlet de Windows PowerShell](/powershell/module/msonline/get-msoldomainfederationsettings?view=azureadps-1.0):
+Puede comprobar el estado de la marca SupportsMFA con el siguiente [cmdlet de Windows PowerShell](/powershell/module/msonline/get-msoldomainfederationsettings):
 
 ```powershell
 Get-MsolDomainFederationSettings –DomainName yourdomain.com
@@ -328,12 +327,12 @@ Por ejemplo, quite lo siguiente de las reglas:
  
 ```console
 c:[Type == &quot;https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid&quot;, Value ==
-“**YourGroupSID**&quot;] => issue(Type = &quot;https://schemas.microsoft.com/claims/authnmethodsproviders&quot;,
+&quot;**YourGroupSID**&quot;] => issue(Type = &quot;https://schemas.microsoft.com/claims/authnmethodsproviders&quot;,
 Value = &quot;AzureMfaAuthentication");
 not exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid",
 Value=="YourGroupSid"]) => issue(Type =
 "https://schemas.microsoft.com/claims/authnmethodsproviders", Value =
-"AzureMfaServerAuthentication");’
+"AzureMfaServerAuthentication");'
 ```
 
 ### <a name="disable-mfa-server-as-an-authentication-provider-in-ad-fs"></a>Deshabilitación del servidor MFA como proveedor de autenticación en AD FS

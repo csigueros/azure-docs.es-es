@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 04/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: dcff46bb93d09d086000dad6e983275d87bc8950
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: 56aae1a4bce6b4226918b5b34309a8f8dd647e78
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113587380"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275798"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Configuración de valores adicionales de Azure HPC Cache
 
@@ -81,7 +81,7 @@ Considere la posibilidad de usar una caché de prueba para comprobar y refinar l
 
 ### <a name="refresh-storage-target-dns"></a>Actualización del DNS de destino de almacenamiento
 
-Si el servidor DNS actualiza las direcciones IP, los destinos de almacenamiento NFS asociados dejarán de estar disponibles de manera temporal. Lea cómo actualizar las direcciones IP del sistema DNS personalizado en [Administración de destinos de almacenamiento](manage-storage-targets.md#update-ip-address-custom-dns-configurations-only).
+Si el servidor DNS actualiza las direcciones IP, los destinos de almacenamiento NFS asociados dejarán de estar disponibles de manera temporal. Lea cómo actualizar las direcciones IP del sistema DNS personalizado en [Vista y administración de destinos de almacenamiento](manage-storage-targets.md#update-ip-address-custom-dns-configurations-only).
 
 ## <a name="view-snapshots-for-blob-storage-targets"></a>Visualización de instantáneas de destinos de almacenamiento de blobs
 

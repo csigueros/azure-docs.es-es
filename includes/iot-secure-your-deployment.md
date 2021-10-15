@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: iot-fundamentals
 author: robinsh
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 597bcf9d7654b88cb4a3f9b7df32ea1c7b770da2
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: f1256eb3be414679a84701c6ea96ac9a72d9caa2
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109508432"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129236374"
 ---
 En este artículo se proporciona el siguiente nivel de detalle para proteger la infraestructura de Internet de las cosas (IoT) basada en IoT de Azure. Incluye vínculos a detalles de niveles de implementación para configurar e implementar cada componente. También se proporcionan comparaciones y opciones entre diversos métodos que compiten entre sí.
 
@@ -29,7 +29,7 @@ La protección de la implementación de IoT de Azure se puede dividir en las sig
 
 ## <a name="secure-device-provisioning-and-authentication"></a>Seguridad en el aprovisionamiento y la autenticación de dispositivos
 
-Los aceleradores de soluciones de IoT protegen los dispositivos de IoT según los dos métodos siguientes:
+Las soluciones de IoT protegen los dispositivos IoT según los dos métodos siguientes:
 
 * Proporciona una clave de identidad única (tokens de seguridad) para cada dispositivo, que puede usar el dispositivo para comunicarse con el centro de IoT.
 

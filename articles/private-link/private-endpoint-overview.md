@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/09/2021
 ms.author: allensu
-ms.openlocfilehash: f7af65c111659a1794fbdedb89d541009d269b66
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 0d613d7d207da8632fe7a2767d6440ee62378866
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124791887"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359406"
 ---
 # <a name="what-is-azure-private-endpoint"></a>¿Qué es un punto de conexión privado de Azure?
 
@@ -158,7 +158,7 @@ En la tabla siguiente se incluye una lista de las limitaciones conocidas al usar
 | El tráfico destinado a un punto de conexión privado mediante una ruta definida por el usuario puede ser asimétrico. | El tráfico devuelto desde un punto de conexión privado omite una aplicación virtual de red (NVA) e intenta volver a la máquina virtual de origen. | La traducción de direcciones de red (SNAT) de origen se usa para garantizar el enrutamiento simétrico. Para todo el tráfico destinado a un punto de conexión privado a través de una UDR, se recomienda el tráfico SNAT en la NVA. |
 
 > [!IMPORTANT]
-> La compatibilidad de NSG y UDR con puntos de conexión privados se encuentra en versión preliminar pública.
+> La compatibilidad de NSG y UDR con puntos de conexión privados se encuentra en versión preliminar pública en regiones exclusivas. Para obtener más información, vea [Versión preliminar pública de la compatibilidad UDR de Private Link](https://azure.microsoft.com/updates/public-preview-of-private-link-udr-support/) y [Versión preliminar pública de la compatibilidad del grupo de seguridad de red de Private Link](https://azure.microsoft.com/updates/public-preview-of-private-link-network-security-group-support/).
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="public-preview-limitations"></a>Limitaciones de la vista preliminar pública

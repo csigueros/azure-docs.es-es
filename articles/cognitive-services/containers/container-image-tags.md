@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 09/09/2021
 ms.author: aahi
-ms.openlocfilehash: ef022368a2dd15b2a1651affd9f54d94a05adc6b
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3d6466f97e3126bb20028f1e99e75c2b365a6033
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124750683"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533863"
 ---
 # <a name="azure-cognitive-services-container-image-tags-and-release-notes"></a>Etiquetas de imágenes de contenedor de Azure Cognitive Services notas de la versión
 
@@ -137,19 +137,25 @@ La imagen de contenedor [Custom Speech-to-text][sp-cstt] se puede encontrar en l
 
 # <a name="latest-version"></a>[La versión más reciente](#tab/current)
 
-Nota de la versión `2.14.0-amd64`:
+Nota de la versión `2.15.0-amd64`:
 
-Versión mensual normal
+**Correcciones**
+* Se ha corregido el problema de inicio del contenedor que puede producirse cuando el cliente lo ejecuta en algunos entornos de RHEL.
+* Se ha corregido el problema de error nulo de descarga del modelo que suele suceder en algunos casos cuando el cliente descarga modelos personalizados.
 
 Tenga en cuenta que debido a la característica de listas de frases, el tamaño de esta imagen de contenedor ha aumentado.
 
 | Etiquetas de imagen                    | Notas | Digest                                                                   |
 |-------------------------------|:------|:-------------------------------------------------------------------------|
-| `latest`                      |       | `sha256:c83c4691f89dfcad9c92d8c73e24b23946706936e2c8a76b1cb278260448ebb9`|
-| `2.14.0-amd64`                |       | `sha256:c83c4691f89dfcad9c92d8c73e24b23946706936e2c8a76b1cb278260448ebb9`|
+| `latest`                      |       | `sha256:0f40d4cb0c22b3df49854272fcc69765e061519889804ad6105e5ce721b4094f`|
+| `2.15.0-amd64`                |       | `sha256:0f40d4cb0c22b3df49854272fcc69765e061519889804ad6105e5ce721b4094f`|
 
 
 # <a name="previous-version"></a>[Versión anterior](#tab/previous)
+
+Nota de la versión `2.14.0-amd64`:
+
+Versión mensual normal
 
 Nota de la versión `2.13.0-amd64`:
 
@@ -213,6 +219,8 @@ Nota de la versión `2.5.0-amd64`:
 
 | Etiquetas de imagen                    | Notas               |
 |-------------------------------|:--------------------|
+| `2.14.0-amd64`                |                     |
+| `2.13.0-amd64`                |                     |
 | `2.12.1-amd64`                |                     |
 | `2.11.0-amd64`                |                     |
 | `2.10.0-amd64`                |                     |
@@ -293,16 +301,204 @@ Desde la versión 2.5.0 de Speech-to-text, se admiten imágenes en la región d
 
 # <a name="latest-version"></a>[La versión más reciente](#tab/current)
 
-Nota de la versión `2.14.0-amd64-<locale>`:
+Nota de la versión `2.15.0-amd64-<locale>`:
 
-Versión mensual normal
+**Correcciones**
+* Se ha corregido el problema de inicio del contenedor que puede producirse cuando el cliente lo ejecuta en algunos entornos de RHEL.
 
 Tenga en cuenta que debido a la característica de listas de frases, el tamaño de esta imagen de contenedor ha aumentado. 
 
 | Etiquetas de imagen                    | Notas                                                                                                |
 |-------------------------------|:-----------------------------------------------------------------------------------------------------|
 | `latest`                      | Imagen de contenedor con la configuración regional `en-US`.                                                             |
-| `2.14.0-amd64-<locale>`       | Sustituya `<locale>` por una de las configuraciones regionales disponibles que se muestran a continuación. Por ejemplo, `2.14.0-amd64-en-us`.|
+| `2.15.0-amd64-<locale>`       | Sustituya `<locale>` por una de las configuraciones regionales disponibles que se muestran a continuación. Por ejemplo, `2.15.0-amd64-en-us`.|
+
+Este contenedor tiene las siguientes configuraciones regionales disponibles.
+
+| Configuración regional para la versión 2.15.0          | Notas                                    | Digest                                                                    |
+|-----------------------------|:-----------------------------------------|:--------------------------------------------------------------------------|
+| `ar-ae`                     | Imagen de contenedor con la configuración regional `ar-AE`. | `sha256:d2c650631f10bb3d13b90ac13cc8f9780a791b6b6eae4d3663703d61d4fcfa0b` |
+| `ar-bh`                     | Imagen de contenedor con la configuración regional `ar-BH`. | `sha256:7dddd89b8b4bf37ab90d1940344ffea2058234328bca2b549cd37e4343f553f3` |
+| `ar-eg`                     | Imagen de contenedor con la configuración regional `ar-EG`. | `sha256:b7efc1801d4d3f04349495ac7d22bf33a497fd1a84bfffeb410acb159c533aef` |
+| `ar-iq`                     | Imagen de contenedor con la configuración regional `ar-IQ`. | `sha256:4979c5c0081efa70c6fc8dcd332a832eee97a4b04b0cbfc384764fe0d86567e1` |
+| `ar-jo`                     | Imagen de contenedor con la configuración regional `ar-JO`. | `sha256:770b2986c9563d980b4558502799d3b8250a7d7219b57c57ed9d7184f9022b90` |
+| `ar-kw`                     | Imagen de contenedor con la configuración regional `ar-KW`. | `sha256:d2c650631f10bb3d13b90ac13cc8f9780a791b6b6eae4d3663703d61d4fcfa0b` |
+| `ar-lb`                     | Imagen de contenedor con la configuración regional `ar-LB`. | `sha256:51f5cd8e34df11675da0c4f7fd4e13c00cecbbede60437fefc038e3a21137558` |
+| `ar-om`                     | Imagen de contenedor con la configuración regional `ar-OM`. | `sha256:c34b2659629285e82f1bed7e50c6f6ee80f6c9ddb1ed6962af4875303fe0b11f` |
+| `ar-qa`                     | Imagen de contenedor con la configuración regional `ar-QA`. | `sha256:d2c650631f10bb3d13b90ac13cc8f9780a791b6b6eae4d3663703d61d4fcfa0b` |
+| `ar-sa`                     | Imagen de contenedor con la configuración regional `ar-SA`. | `sha256:d2c650631f10bb3d13b90ac13cc8f9780a791b6b6eae4d3663703d61d4fcfa0b` |
+| `ar-sy`                     | Imagen de contenedor con la configuración regional `ar-SY`. | `sha256:b3d3da168b41f08156b9df8e9dd5030e73edb49be71d05f8e7af0e6e8ed9f706` |
+| `bg-bg`                     | Imagen de contenedor con la configuración regional `bg-BG`. | `sha256:1dd1a311b7e4b7e10dc91836b0d211f1545e6437e6a7814624684c5d71491cc1` |
+| `ca-es`                     | Imagen de contenedor con la configuración regional `ca-ES`. | `sha256:e0f7df4badc9ccd4b6cdd08eec7c88258a7e09e0647abbb900bd4df114599473` |
+| `cs-cz`                     | Imagen de contenedor con la configuración regional `cs-CZ`. | `sha256:5dab3f7de27f841c2f7ca8a6829eb6ad8f28ab3af62b60fa7e306132b87c7621` |
+| `da-dk`                     | Imagen de contenedor con la configuración regional `da-DK`. | `sha256:bd35ad26cba823f99d917a726ce5d915fb9dfa6c50d522c23904b7e4236ac4d8` |
+| `de-de`                     | Imagen de contenedor con la configuración regional `de-DE`. | `sha256:2ce791d2e99c9a7b2ea74978d97f3d433bf6069a2f3f664f98154afef211182e` |
+| `el-gr`                     | Imagen de contenedor con la configuración regional `el-GR`. | `sha256:5be44216c88ad990592205d01249f5cec661e96409ea56099126c5d7c94ced21` |
+| `en-au`                     | Imagen de contenedor con la configuración regional `en-AU`. | `sha256:2a038ff2195b76e461ad06de8b402e24394a1f00147853aab148517614c21d5e` |
+| `en-ca`                     | Imagen de contenedor con la configuración regional `en-CA`. | `sha256:9cc83d8d00d6ab436f2bf8a8094b6e12d8770ea7383db034a46a32e16ce1fbd2` |
+| `en-gb`                     | Imagen de contenedor con la configuración regional `en-GB`. | `sha256:561e476e9a65446adf7faa5a4966ee9533ce0d24c4543a21347f7f3b3fb25198` |
+| `en-hk`                     | Imagen de contenedor con la configuración regional `en-HK`. | `sha256:f13e37cb642c93734839136779357aed562d738f1029e0f724950a79e241b954` |
+| `en-ie`                     | Imagen de contenedor con la configuración regional `en-IE`. | `sha256:375d0abe0627959e11f496b889f227b13b021d7509573e5e0d5c7854be684000` |
+| `en-in`                     | Imagen de contenedor con la configuración regional `en-IN`. | `sha256:45c88bbe82902d192ed5acff707a26e9d2e126a3f75b982a9871a56c5d6a88b3` |
+| `en-nz`                     | Imagen de contenedor con la configuración regional `en-NZ`. | `sha256:43e8e036d51ce9cd717d12fecff0e8cbe6d3380484132def9150dc28d28a2367` |
+| `en-ph`                     | Imagen de contenedor con la configuración regional `en-PH`. | `sha256:b90ce831b16ae8c19b2cabbb100ef934e5123ae55ff655b5d05ae56d47cc6ca9` |
+| `en-sg`                     | Imagen de contenedor con la configuración regional `en-SG`. | `sha256:2a4559e4fe9b69642e84cf9a349d2183bba5704c095a8ab8f418774d6cdc6dd9` |
+| `en-us`                     | Imagen de contenedor con la configuración regional `en-US`. | `sha256:bcad8e08c3309e8386d2cdabbbaa940dc438f15ef981fd2f458bd75167f3ab54` |
+| `en-za`                     | Imagen de contenedor con la configuración regional `en-ZA`. | `sha256:7b083e13cc36621d80b8909a5497cd245693be7ea08bf6504b570f0842db5be2` |
+| `es-ar`                     | Imagen de contenedor con la configuración regional `es-AR`. | `sha256:4334226f55e2545705c6d7ba0ce844a06c2c92added3997e611a72dec1a4f2c3` |
+| `es-bo`                     | Imagen de contenedor con la configuración regional `es-BO`. | `sha256:0975691a18470ff69c12e1ef8a644447dad11da057c19e554f5f7b4db72ca5fc` |
+| `es-cl`                     | Imagen de contenedor con la configuración regional `es-CL`. | `sha256:c44bdff4174fc83959511e64dd8ed2bdb6806d12a3ff5d5c70b94c3fee7ee2f8` |
+| `es-co`                     | Imagen de contenedor con la configuración regional `es-CO`. | `sha256:15e046b7ae1b47b32258bd80c5d609c148a5c1d2d01ba319c49df834e1e8f193` |
+| `es-cr`                     | Imagen de contenedor con la configuración regional `es-CR`. | `sha256:8706ca92a56c6a32cec7d7c0d490d3ce16d52888518df93bae9ed0ad6981632c` |
+| `es-cu`                     | Imagen de contenedor con la configuración regional `es-CU`. | `sha256:99f6fec4002825e9e4e6dafafe1347e3ffd75f313c4db35d6b3bac3616bf4e30` |
+| `es-do`                     | Imagen de contenedor con la configuración regional `es-DO`. | `sha256:44cf6984f82f0eb286fec16dcd142c21d3f86b36ba9fc364e305c9ce15b723b4` |
+| `es-ec`                     | Imagen de contenedor con la configuración regional `es-EC`. | `sha256:079808b43605b7386a4af22b18e295cbb377dce83c3a81dbae7aba980a022c3e` |
+| `es-es`                     | Imagen de contenedor con la configuración regional `es-ES`. | `sha256:f678a5dd24dd4ffbea1872ec545de0e1ec2cd4326b9383ba6b1c041a375693ff` |
+| `es-gt`                     | Imagen de contenedor con la configuración regional `es-GT`. | `sha256:b541dd582365e727f0deccbf50ed7ae1ad11f525b02a5e9d97c8fe796f5f4054` |
+| `es-hn`                     | Imagen de contenedor con la configuración regional `es-HN`. | `sha256:859cff274dac5370c00c279b003b4cbcd194e982e3e5d26c65fda7fb71cbdc8d` |
+| `es-mx`                     | Imagen de contenedor con la configuración regional `es-MX`. | `sha256:01dc0b5cb4effba99d071292d7fbc709ed4a64f89eadc809f86ea97501f6e411` |
+| `es-ni`                     | Imagen de contenedor con la configuración regional `es-NI`. | `sha256:7f4572b7dd89ac1b5376050f6b35226fb9aec52eea9405969cc684175487e699` |
+| `es-pa`                     | Imagen de contenedor con la configuración regional `es-PA`. | `sha256:da29fe62e9e32de8d954d2bd9ee739dd8d24b31cd4943df79dda5f10f5814b08` |
+| `es-pe`                     | Imagen de contenedor con la configuración regional `es-PE`. | `sha256:cefd94d4b3fbdfd2b66994e970024922dcba2edf8b8b9da6f66affe540b24ee6` |
+| `es-pr`                     | Imagen de contenedor con la configuración regional `es-PR`. | `sha256:1622652a17e67d9cf28a407bc37067c0d06b496fef4bfc121566a054b5529613` |
+| `es-py`                     | Imagen de contenedor con la configuración regional `es-PY`. | `sha256:18b729556bafdcd42e6c71e52b2dde4f50a358cbbafb8774b565f157744bbd50` |
+| `es-sv`                     | Imagen de contenedor con la configuración regional `es-SV`. | `sha256:6192e1752fe67d6fad7ee977899847616e20612d13fe62d869591e0bbaa9b98c` |
+| `es-us`                     | Imagen de contenedor con la configuración regional `es-US`. | `sha256:05268165b9192848af5c20b66d0dd36ab6f32eb4d8f14be05cbb99e82c02bef6` |
+| `es-uy`                     | Imagen de contenedor con la configuración regional `es-UY`. | `sha256:cacc39fa400e40d92530d90e4ce266fb33251f771b9809c48814c30b98bc0631` |
+| `es-ve`                     | Imagen de contenedor con la configuración regional `es-VE`. | `sha256:2607efa555ab788fc6e8065e70c853a4aafcfd544d3b83964604f4de4a1a698d` |
+| `et-ee`                     | Imagen de contenedor con la configuración regional `et-EE`. | `sha256:ed9c87c68be413dbd37f166906a81ca195ac13a176b77ee05a6fcc74a5d7c4aa` |
+| `fi-fi`                     | Imagen de contenedor con la configuración regional `fi-FI`. | `sha256:d68902cf6ae127401d3b76deff8977e2570a7c93ed1ea412991b5a24258a4ecc` |
+| `fr-ca`                     | Imagen de contenedor con la configuración regional `fr-CA`. | `sha256:73af6f6cc0c199509f7f36c4ce3745f9f098f215e76d3bc6186c0afad169e590` |
+| `fr-fr`                     | Imagen de contenedor con la configuración regional `fr-FR`. | `sha256:2f6627d46f11f78fb60681edd80646f274a90950735e29b75cf0bacf2ff1977e` |
+| `ga-ie`                     | Imagen de contenedor con la configuración regional `ga-IE`. | `sha256:51baee622521baabf97df36ee0855158a57795b0af25081656afec59edbc9586` |
+| `gu-in`                     | Imagen de contenedor con la configuración regional `gu-IN`. | `sha256:41d74cef7c62996b51c179ff523a6a81fdb9dfecbc818386d703633176802a7b` |
+| `hi-in`                     | Imagen de contenedor con la configuración regional `hi-IN`. | `sha256:6bd7ecadd5031c66f798c0307eb85bdf98b912c5d3ffd81dd93a7325e164dbba` |
+| `hr-hr`                     | Imagen de contenedor con la configuración regional `hr-HR`. | `sha256:bab0220a4968a23bea4616421b81199cf5eb195e041c1ba78b23c7fee12473c7` |
+| `hu-hu`                     | Imagen de contenedor con la configuración regional `hu-HU`. | `sha256:5aaaaf0a65790dcf57adf8bc6647b8bfb86d0d287d0a9d7a04efb8ec793fe750` |
+| `it-it`                     | Imagen de contenedor con la configuración regional `it-IT`. | `sha256:aa4c24a470b246bb77d00c11aed16042e8e7516fd1fe9df294e7c1337e4ecaaf` |
+| `ja-jp`                     | Imagen de contenedor con la configuración regional `ja-JP`. | `sha256:ff2ede2432a62a40237f6a72a6e60884f14b70bfbf22fc5c304e5491e57a163d` |
+| `ko-kr`                     | Imagen de contenedor con la configuración regional `ko-KR`. | `sha256:5208472ce238b2a71390564535c077bafd9ca8333bb05e89d23e95462d6930f9` |
+| `lt-lt`                     | Imagen de contenedor con la configuración regional `lt-LT`. | `sha256:27ccc4ed68df0ac08c5cca4b365904292f2dc0294dd35f507aba7228ed6184ac` |
+| `lv-lv`                     | Imagen de contenedor con la configuración regional `lv-LV`. | `sha256:238141d56fcd9ed45462dfd6189f252c2ef82f9d2c78b2d31ec1d35d4006b2b1` |
+| `mr-in`                     | Imagen de contenedor con la configuración regional `mr-IN`. | `sha256:80015aea35aee6bdf9fd0dfcc07ed944b971e2910cb5f87f659df5a699d4ea4a` |
+| `mt-mt`                     | Imagen de contenedor con la configuración regional `mt-MT`. | `sha256:e92f28a42dc7f78042cf232662a0f6841c6eee7eba1c2df7a98b11b68bffb146` |
+| `nb-no`                     | Imagen de contenedor con la configuración regional `nb-NO`. | `sha256:9263f969b4305f11954c38b1fce443f7c4f0b258fdd376d2446a0d0146decc69` |
+| `nl-nl`                     | Imagen de contenedor con la configuración regional `nl-NL`. | `sha256:2ad8e5d741723d5457f5698c5f6c2bdbbca9d8e405582aa68ea86bad60e88ff7` |
+| `pl-pl`                     | Imagen de contenedor con la configuración regional `pl-PL`. | `sha256:d872ae9cbfbc7baf76c21144fdda28ef908922d14cd2b76c527eb0af24a72bf6` |
+| `pt-br`                     | Imagen de contenedor con la configuración regional `pt-BR`. | `sha256:881a2b767b0cbc0fe5f5960a83f6126bff0f3adff8d9aefe85dbba00a0f0b586` |
+| `pt-pt`                     | Imagen de contenedor con la configuración regional `pt-PT`. | `sha256:df48b6c13b55f483dff794110e47f9735accfa84ec025028f5334954dbb6f947` |
+| `ro-ro`                     | Imagen de contenedor con la configuración regional `ro-RO`. | `sha256:058482ae932fde66ecfb990c23d5c49d2cffb4c47c99f4a1551b582aa0a26af4` |
+| `ru-ru`                     | Imagen de contenedor con la configuración regional `ru-RU`. | `sha256:27b9215c6034cae40be0b3b7b19a366cd134b0ec51ade33d90245cdf32205fc4` |
+| `sk-sk`                     | Imagen de contenedor con la configuración regional `sk-SK`. | `sha256:544686ad0e4a7ab4e33735dba769b5ce11057bf81e6714d124f0230389c473c0` |
+| `sl-si`                     | Imagen de contenedor con la configuración regional `sl-SI`. | `sha256:bf6e5d3e2536de160a79957b063935627d98f15359f673f89b4a55934ca06209` |
+| `sv-se`                     | Imagen de contenedor con la configuración regional `sv-SE`. | `sha256:7cf5498bab1a5b28131d12c72a0ea107f2d00e562c51f37cbb87032dbcf50f17` |
+| `ta-in`                     | Imagen de contenedor con la configuración regional `ta-IN`. | `sha256:0ea488d1dec874d527938e622ec61406ac3d79e99cb7d905042b55bbc6d675c9` |
+| `te-in`                     | Imagen de contenedor con la configuración regional `te-IN`. | `sha256:8030a1ee3d71b857f1138be2357c4b82113813899e35a0a01a7f465b4f17dd2f` |
+| `th-th`                     | Imagen de contenedor con la configuración regional `th-TH`. | `sha256:fabe5868e4cb793e6ff0b7dd24bfe1aa2a5f8f833e44b0b414cf2a11531a37bc` |
+| `tr-tr`                     | Imagen de contenedor con la configuración regional `tr-TR`. | `sha256:eef963f3fc2ea78f806f233c2eb3500dd74e9f82e54a37a7a21ab294ea8adb83` |
+| `zh-cn`                     | Imagen de contenedor con la configuración regional `zh-CN`. | `sha256:e9f280bf51858e332cdb6a0cc0609ff89c4092e21053249125700efa85d543de` |
+| `zh-hk`                     | Imagen de contenedor con la configuración regional `zh-HK`. | `sha256:73a5f5553c64af018ba7e3202668ca7964143b0fc25d60e33b0c76a60687add8` |
+| `zh-tw`                     | Imagen de contenedor con la configuración regional `zh-TW`. | `sha256:8254191226a38235eedaacf603958b66b24e560d3fb56e1e40b5b0c8bae5b520` |
+
+
+# <a name="previous-version"></a>[Versión anterior](#tab/previous)
+
+Nota de la versión `2.14.0-amd64-<locale>`:
+
+Versión mensual normal
+
+Nota de la versión `2.13.0-amd64-<locale>`:
+
+Versión mensual normal
+
+Nota de la versión `2.12.1-amd64-<locale>`:
+
+**Característica**
+* Actualice a los modelos más recientes.
+
+Nota de la versión `2.11.0-amd64-<locale>`:
+
+**Característica**
+* Actualice a los modelos más recientes.
+
+**Correcciones**
+* Las entradas de usuario siguen distinguiendo mayúsculas de minúsculas.
+
+Nota de la versión `2.10.0-amd64-<locale>`:
+
+**Característica**
+* Actualice a los modelos más recientes.
+
+Nota de la versión `2.9.0-amd64-<locale>`:
+
+**Característica**
+* Más detalles de error de problemas al capturar modelos personalizados por identificador.
+* Se admite la hipótesis de forma predeterminada en los resultados de la conversación.
+
+Nota de la versión `2.7.0-amd64-<locale>`:
+
+**Características**
+* Compatibilidad con las siguientes configuraciones regionales nuevas:
+    * ar-bh, ar-iq, ar-jo, ar-lb, ar-om, ar-sy
+    * bg-bg
+    * el-gr
+    * en-hk, en-ie, en-ph, en-sg, en-za
+    * es-ar, es-bo, es-cl, es-co, es-cr, es-cu, es-do, es-ec, es-gt, es-pa, es-pe, es-pr, es-py, es-sv, es-us, es-uy, es-ve
+    * et-ee
+    * ga-ie
+    * hr-hr
+    * hu-HU
+    * lt-lt
+    * lv-lv
+    * mt-mt
+    * ro-ro
+    * sk-sk
+    * sl-sl
+* La puntuación está habilitada de forma predeterminada.
+
+Tenga en cuenta que debido a las listas de frases incluidas, el tamaño de esta imagen de contenedor ha aumentado. 
+
+Nota de la versión `2.6.0-amd64-<locale>`:
+
+**Características**
+* Se ha actualizado a los modelos más recientes y se ha migrado completamente a .NET 3.1
+* Compatibilidad con Phraselist v2
+* Se admiten listas de frases en las siguientes configuraciones regionales:
+    * en-au
+    * en-ca
+    * en-gb
+    * en-in
+    * es-es
+    * zh-CN
+* Se admite la nueva configuración regional `cs-CZ`. 
+    * Actualmente, no se admite el uso de mayúsculas ni el de puntuación.
+
+**Correcciones**
+* Se ha corregido un problema por el que las puntuaciones de confianza eran siempre 1 en el modo Diarización.
+* Se ha migrado a la API TextAnalytics 3.0
+
+Tenga en cuenta que debido a las listas de frases incluidas, el tamaño de esta imagen de contenedor ha aumentado. 
+
+Nota de la versión `2.5.0-amd64-<locale>`:
+
+**Características**
+* Compatibilidad con la nube de Azure for US Government
+
+**Correcciones**
+* Corrige un problema con la ejecución de un usuario no raíz en el modo Diarización
+
+| Etiquetas de imagen                  | Notas                                    |
+|-----------------------------|:-----------------------------------------|
+| `2.14.0-amd64-<locale>`     | Sustituya `<locale>` por una de las configuraciones regionales disponibles que se muestran a continuación. Por ejemplo, `2.14.0-amd64-en-us`.|
+| `2.13.0-amd64-<locale>`     | Sustituya `<locale>` por una de las configuraciones regionales disponibles que se muestran a continuación. Por ejemplo, `2.13.0-amd64-en-us`.|
+| `2.12.1-amd64-<locale>`     | Sustituya `<locale>` por una de las configuraciones regionales disponibles que se muestran a continuación. Por ejemplo, `2.12.1-amd64-en-us`.|
+| `2.11.0-amd64-<locale>`     | Sustituya `<locale>` por una de las configuraciones regionales disponibles que se muestran a continuación. Por ejemplo, `2.11.0-amd64-en-us`.|
+| `2.10.0-amd64-<locale>`     | Sustituya `<locale>` por una de las configuraciones regionales disponibles que se muestran a continuación. Por ejemplo, `2.10.0-amd64-en-us`.|
+| `2.9.0-amd64-<locale>`      | Sustituya `<locale>` por una de las configuraciones regionales disponibles que se muestran a continuación. Por ejemplo, `2.9.0-amd64-en-us`. |
+| `2.7.0-amd64-<locale>`      | Sustituya `<locale>` por una de las configuraciones regionales disponibles que se muestran a continuación. Por ejemplo, `2.7.0-amd64-en-us`. |
+| `2.6.0-amd64-<locale>`      | Sustituya `<locale>` por una de las configuraciones regionales disponibles que se muestran a continuación. Por ejemplo, `2.6.0-amd64-en-us`. |
+| `2.5.0-amd64-<locale>`      | Sustituya `<locale>` por una de las configuraciones regionales disponibles que se muestran a continuación. Por ejemplo, `2.5.0-amd64-en-us`. |
+
 
 Este contenedor tiene las siguientes configuraciones regionales disponibles.
 
@@ -390,103 +586,6 @@ Este contenedor tiene las siguientes configuraciones regionales disponibles.
 | `zh-cn`                     | Imagen de contenedor con la configuración regional `zh-CN`. | `sha256:2ec742699abb843b91f9516cb863d66ecf5f38d5350c3c23c693dcb2f5804c66` |
 | `zh-hk`                     | Imagen de contenedor con la configuración regional `zh-HK`. | `sha256:34f21fed7129dbeaef6476b286e5d6741b635f034ea038b8fe467512ee0092e2` |
 | `zh-tw`                     | Imagen de contenedor con la configuración regional `zh-TW`. | `sha256:f2e2dc638ac2e58177302947df30bea7448563a012deb3e4f48f345c09902bb0` |
-
-
-# <a name="previous-version"></a>[Versión anterior](#tab/previous)
-
-Nota de la versión `2.13.0-amd64-<locale>`:
-
-Versión mensual normal
-
-Nota de la versión `2.12.1-amd64-<locale>`:
-
-**Característica**
-* Actualice a los modelos más recientes.
-
-Nota de la versión `2.11.0-amd64-<locale>`:
-
-**Característica**
-* Actualice a los modelos más recientes.
-
-**Correcciones**
-* Las entradas de usuario siguen distinguiendo mayúsculas de minúsculas.
-
-Nota de la versión `2.10.0-amd64-<locale>`:
-
-**Característica**
-* Actualice a los modelos más recientes.
-
-Nota de la versión `2.9.0-amd64-<locale>`:
-
-**Característica**
-* Más detalles de error de problemas al capturar modelos personalizados por identificador.
-* Se admite la hipótesis de forma predeterminada en los resultados de la conversación.
-
-Nota de la versión `2.7.0-amd64-<locale>`:
-
-**Características**
-* Compatibilidad con las siguientes configuraciones regionales nuevas:
-    * ar-bh, ar-iq, ar-jo, ar-lb, ar-om, ar-sy
-    * bg-bg
-    * el-gr
-    * en-hk, en-ie, en-ph, en-sg, en-za
-    * es-ar, es-bo, es-cl, es-co, es-cr, es-cu, es-do, es-ec, es-gt, es-pa, es-pe, es-pr, es-py, es-sv, es-us, es-uy, es-ve
-    * et-ee
-    * ga-ie
-    * hr-hr
-    * hu-HU
-    * lt-lt
-    * lv-lv
-    * mt-mt
-    * ro-ro
-    * sk-sk
-    * sl-sl
-* La puntuación está habilitada de forma predeterminada.
-
-Tenga en cuenta que debido a las listas de frases incluidas, el tamaño de esta imagen de contenedor ha aumentado. 
-
-Nota de la versión `2.6.0-amd64-<locale>`:
-
-**Características**
-* Se ha actualizado a los modelos más recientes y se ha migrado completamente a .NET 3.1
-* Compatibilidad con Phraselist v2
-* Se admiten listas de frases en las siguientes configuraciones regionales:
-    * en-au
-    * en-ca
-    * en-gb
-    * en-in
-    * es-es
-    * zh-CN
-* Se admite la nueva configuración regional `cs-CZ`. 
-    * Actualmente, no se admite el uso de mayúsculas ni el de puntuación.
-
-**Correcciones**
-* Se ha corregido un problema por el que las puntuaciones de confianza eran siempre 1 en el modo Diarización.
-* Se ha migrado a la API TextAnalytics 3.0
-
-Tenga en cuenta que debido a las listas de frases incluidas, el tamaño de esta imagen de contenedor ha aumentado. 
-
-Nota de la versión `2.5.0-amd64-<locale>`:
-
-**Características**
-* Compatibilidad con la nube de Azure for US Government
-
-**Correcciones**
-* Corrige un problema con la ejecución de un usuario no raíz en el modo Diarización
-
-| Etiquetas de imagen                  | Notas                                    |
-|-----------------------------|:-----------------------------------------|
-| `2.13.0-amd64-<locale>`     | Sustituya `<locale>` por una de las configuraciones regionales disponibles que se muestran a continuación. Por ejemplo, `2.13.0-amd64-en-us`.|
-| `2.12.1-amd64-<locale>`     | Sustituya `<locale>` por una de las configuraciones regionales disponibles que se muestran a continuación. Por ejemplo, `2.12.1-amd64-en-us`.|
-| `2.11.0-amd64-<locale>`     | Sustituya `<locale>` por una de las configuraciones regionales disponibles que se muestran a continuación. Por ejemplo, `2.11.0-amd64-en-us`.|
-| `2.10.0-amd64-<locale>`     | Sustituya `<locale>` por una de las configuraciones regionales disponibles que se muestran a continuación. Por ejemplo, `2.10.0-amd64-en-us`.|
-| `2.9.0-amd64-<locale>`      | Sustituya `<locale>` por una de las configuraciones regionales disponibles que se muestran a continuación. Por ejemplo, `2.9.0-amd64-en-us`. |
-| `2.7.0-amd64-<locale>`      | Sustituya `<locale>` por una de las configuraciones regionales disponibles que se muestran a continuación. Por ejemplo, `2.7.0-amd64-en-us`. |
-| `2.6.0-amd64-<locale>`      | Sustituya `<locale>` por una de las configuraciones regionales disponibles que se muestran a continuación. Por ejemplo, `2.6.0-amd64-en-us`. |
-| `2.5.0-amd64-<locale>`      | Sustituya `<locale>` por una de las configuraciones regionales disponibles que se muestran a continuación. Por ejemplo, `2.5.0-amd64-en-us`. |
-
-
-Este contenedor tiene las siguientes configuraciones regionales disponibles.
 
 | Configuración regional para la versión 2.13.0          | Notas                                    | Digest                                                                    |
 |-----------------------------|:-----------------------------------------|:--------------------------------------------------------------------------|

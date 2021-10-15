@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/27/2021
 ms.author: phjensen
-ms.openlocfilehash: 0a2a110b483d7f5f5618e5679e4479ebf1d313b8
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: a580a135d2158234c84f3378b024997679ad6017
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123438127"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124778331"
 ---
 # <a name="release-notes-for-azure-application-consistent-snapshot-tool"></a>Notas de la versión de la herramienta Azure Application Consistent Snapshot
 
@@ -59,7 +59,7 @@ AzAcSnap v5.0 (compilación: 20210421.6349) se ha publicado para disponibilidad 
 
 La versión preliminar de AzAcSnap v 5.0 (compilación: 20210318.30771) se ha publicado con las siguientes correcciones y mejoras:
 
-- Se ha quitado la necesidad de agregar el usuario AZACSNAP al SAP HANA bases de los inquilinos, consulte la sección [Habilitar la comunicación con SAP Hana](azacsnap-installation.md#enable-communication-with-sap-hana).
+- Se ha quitado la necesidad de agregar el usuario AZACSNAP a las bases de datos del inquilino de SAP HANA. Consulte la sección [Habilitación de la comunicación con la base datos](azacsnap-installation.md#enable-communication-with-database).
 - Corrección para permitir una [restauración](azacsnap-cmd-ref-restore.md) con volúmenes configurados con QoS manual.
 - Se ha agregado un control mutex para limitar las conexiones SSH para Azure Large Instance.
 - Corrija el instalador para controlar los nombres de ruta de acceso con espacios y otros problemas relacionados.

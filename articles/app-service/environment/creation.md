@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/07/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 0ed8291fd038f49e079bc3851b340bd7c9af5538
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: fdf74a88a34f9d497bc23b9fed00c8fa55b6875a
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124836366"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129236093"
 ---
 # <a name="create-an-app-service-environment"></a>Creación de una instancia de App Service Environment
 > [!NOTE]
@@ -51,7 +51,7 @@ Existen tres tipos de implementación diferentes:
 - redundancia de zona
 - grupo host
 
-El ASE de zona única está disponible en todas las regiones en las que ASEv3 esté disponible. Cuando se tiene un ASE de zona única, se tiene una cargo de instancia mínima del plan App Service de una instancia de Windows Isolated v2. En cuanto tenga una o varias instancias, ese cargo desaparecerá. No es un cargo acumulativo. 
+El ASE de zona única está disponible en todas las regiones en las que ASEv3 esté disponible. Cuando se tiene un ASE de zona única, se tiene una cargo de instancia mínima del plan App Service de una instancia de Windows Isolated v2. En cuanto tenga una o varias instancias, ese cargo desaparecerá. No es un cargo acumulativo. 
 
 En un ASE con redundancia de zona, las aplicaciones se reparten entre tres zonas de la misma región. El ASE con redundancia de zona está disponible en un subconjunto de regiones compatibles con ASE limitadas principalmente por las regiones que admiten zonas de disponibilidad. Si tiene un ASE con redundancia de zona, el tamaño más pequeño del plan de App Service es de tres instancias. Esto garantiza que haya una instancia en cada zona de disponibilidad. Los planes de App Service se pueden escalar verticalmente a una o varias instancias a la vez. El escalado no tiene que estar en unidades de tres, pero la aplicación solo se equilibra entre todas las zonas de disponibilidad cuando el número total de instancias es múltiplo de tres. Un ASE con redundancia de zona tiene el triple de infraestructura y se crea con componentes con redundancia de zona para que, si incluso dos de las tres zonas quedan fuera de servicio por cualquier motivo, las cargas de trabajo permanezcan disponibles. Debido al aumento de las necesidades del sistema, el cargo mínimo por un ASE con redundancia de zona es de nueve instancias. Si tiene menos de nueve instancias totales del plan de App Service en su ASEv3, la diferencia se cobrará como Windows I1v2. Si tiene nueve o más instancias, no hay ningún cargo adicional por tener un ASE con redundancia de zona. Para más información sobre la redundancia de zona, lea [Regiones y zonas de disponibilidad][AZoverview].
 

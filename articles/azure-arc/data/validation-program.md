@@ -9,12 +9,12 @@ author: MikeRayMSFT
 ms.author: mikeray
 description: En este artículo se describe el programa de validación para las distribuciones de Kubernetes para los servicios de datos habilitados para Azure Arc.
 keywords: Kubernetes, Arc, Azure, K8s, validación, servicios de datos, SQL Managed Instance
-ms.openlocfilehash: 1935648b2d3de48aecf9878865f377c41c8498cc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 90158be8a28aae08cbc377aa776947096597a601
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780480"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273844"
 ---
 # <a name="azure-arc-enabled-data-services-kubernetes-validation"></a>Validación de Kubernetes de los servicios de datos habilitados para Azure Arc
 
@@ -31,7 +31,7 @@ Si desea ver cómo se validan todos los componentes habilitados para Azure Arc,
 
 ### <a name="dell"></a>Dell
 
-|Solución y versión | Versión de Kubernetes | Versión de servicios de datos habilitados para Azure Arc | Versión del motor de SQL | Versión de Hiperescala de PostgreSQL
+|Solución y versión | Versión de Kubernetes | Versión de servicios de datos habilitados para Azure Arc | Versión de SQL Server | Versión de Hiperescala de PostgreSQL
 |-----|-----|-----|-----|-----|
 | Dell EMC PowerFlex |1.19.7|v1.0.0_2021-07-30|SQL Server 2019 (15.0.4123) | |
 | PowerFlex, versión 3.6 |1.19.7|v1.0.0_2021-07-30|SQL Server 2019 (15.0.4123) | |
@@ -65,7 +65,7 @@ Si desea ver cómo se validan todos los componentes habilitados para Azure Arc,
 
 ## <a name="data-services-validation-process"></a>Proceso de validación de servicios de datos
 
-El complemento de servicios de datos habilitados para Azure Arc de Sonobuoy automatiza el aprovisionamiento y la prueba de Servicios de datos habilitados para Azure Arc en un clúster de Kubernetes.
+El complemento de servicios de datos habilitados para Azure Arc de Sonobuoy automatiza el aprovisionamiento y la prueba de Servicios de datos habilitados para Azure Arc en un clúster de Kubernetes.
 
 ### <a name="prerequisites"></a>Requisitos previos
 

@@ -5,17 +5,17 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: include
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: b64cf919c0197ccc8e7128a045db0eee27356c78
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 6f950725e0cb889a55f39cd4fe1dd00760274880
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123355462"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124778906"
 ---
-| Recurso | Límite |
+| Resource | Límite |
 | --- | --- |
 | Recursos de Azure Front Door por suscripción | 100 |
 | Hosts de front-end, que incluye los dominios personalizados por recurso | 500 |
@@ -89,3 +89,5 @@ ms.locfileid: "123355462"
 * Número máximo de caracteres del valor de encabezado de acción del motor de reglas: 640 caracteres.
 * Número máximo de caracteres del valor de encabezado de condición del motor de reglas: 256 caracteres.
 * Tamaño máximo del encabezado ETag: 128 bytes
+
+Para obtener más información sobre los límites que se aplican a las configuraciones del motor de reglas, vea [Terminología del motor de reglas](../articles/frontdoor/front-door-rules-engine.md#terminology).

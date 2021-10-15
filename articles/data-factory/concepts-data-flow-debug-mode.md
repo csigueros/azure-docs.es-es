@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
-ms.openlocfilehash: e6b1524f15f07bc1cb17842c5fca167016136ae0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/01/2021
+ms.openlocfilehash: 8d052be49a545e34ce44dc53174a5dbca7c3d220
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124828441"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129402973"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Modo de depuración de flujos de datos de asignación
 
@@ -32,7 +32,7 @@ Cuando active el control deslizante, se le pedirá que seleccione la configuraci
 
 :::image type="content" source="media/data-flow/debug-new-1.png" alt-text="Selección del IR de depuración":::
 
-Cuando el modo de depuración está activado, creará interactivamente el flujo de datos con un clúster de Spark activo. Una vez que desactive la depuración, se cerrará la sesión. Debe tener en cuenta los gastos por hora que genera Azure Databricks durante el tiempo que tiene la sesión de depuración activa.
+Cuando el modo de depuración está activado, creará interactivamente el flujo de datos con un clúster de Spark activo. Una vez que desactive la depuración, se cerrará la sesión. Debe tener en cuenta los gastos por hora que genera Data Factory durante el tiempo que tiene la sesión de depuración activa.
 
 En la mayoría de los casos, se recomienda crear instancias de Data Flow en modo de depuración para poder validar la lógica de negocios y ver las transformaciones de datos antes de publicar el trabajo. Use el botón "Depurar" del panel de la canalización para probar el flujo de datos en una canalización.
 

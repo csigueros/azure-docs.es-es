@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9067282b5303d2e0033853b223f05174781899be
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: 25911573c8cc991206974e9a80bb52f8a3ae609e
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123215415"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230539"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Configuración del Servidor Azure Multi-Factor Authentication para trabajar con AD FS en Windows Server
 
@@ -58,7 +58,7 @@ Antes de comenzar, tenga en cuenta lo siguiente:
    ![Instalación del adaptador de ADFS desde la consola del Servidor MFA](./media/howto-mfaserver-adfs-2012/server.png)
 
 5. Si se muestra la ventana de Active Directory, eso significa dos cosas. El equipo está unido a un dominio y la configuración de Active Directory para proteger la comunicación entre el adaptador de AD FS y el servicio Multi-Factor Authentication está incompleta. Haga clic en **Siguiente** para completar esta configuración automáticamente o marque la casilla **Omitir configuración automática de Active Directory y configurar los parámetros manualmente**. Haga clic en **Next**.
-6. Si se muestran las ventanas de grupo local, eso significa dos cosas. El equipo no está unido a un dominio y la configuración del grupo local para proteger la comunicación entre el adaptador de AD FS y el servicio Multi-Factor Authentication está incompleta. Haga clic en **Siguiente** para completar esta configuración automáticamente o marque la casilla **Omitir configuración automática de grupo local y configurar los parámetros manualmente**. Haga clic en **Next**.
+6. Si se muestra la ventana de grupo local, eso significa dos cosas. El equipo no está unido a un dominio y la configuración del grupo local para proteger la comunicación entre el adaptador de AD FS y el servicio Multi-Factor Authentication está incompleta. Haga clic en **Siguiente** para completar esta configuración automáticamente o marque la casilla **Omitir configuración automática de grupo local y configurar los parámetros manualmente**. Haga clic en **Next**.
 7. En el asistente para la instalación, haga clic en **Siguiente**. Servidor Azure Multi-Factor Authentication crea el grupo PhoneFactor Admins y agrega la cuenta de servicio de AD FS al grupo PhoneFactor Admins.
 8. En la página **Iniciar instalador**, haga clic en **Siguiente**.
 9. En el instalador del adaptador de AD FS de Multi-Factor Authentication, haga clic en **Siguiente**.

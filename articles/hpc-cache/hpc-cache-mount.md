@@ -4,14 +4,14 @@ description: Conexión de clientes a un servicio de Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 09/27/2021
 ms.author: v-erkel
-ms.openlocfilehash: 4e3c2a336d58e90bc446c77b164148359f9588fd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ab66fc29a29461e6808686aa53b520144b39a1e1
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128675917"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274204"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Montaje de la instancia de Azure HPC Cache
 
@@ -85,7 +85,7 @@ Siga este procedimiento para crear el comando de montaje.
 
    Para obtener más información sobre la característica de espacio de nombres agregado de Azure HPC Cache, lea [Planeamiento del espacio de nombres agregado](hpc-cache-namespace.md).
 
-1. El campo **Comando de montaje** en el paso tres se rellena automáticamente con un comando de montaje personalizado que utiliza la dirección de montaje, la ruta de acceso del espacio de nombres virtual y la ruta de acceso del cliente que ha establecido en los campos anteriores.
+1. El campo **Comando de montaje** se rellena automáticamente con un comando de montaje personalizado que utiliza la dirección de montaje, la ruta de acceso del espacio de nombres virtual y la ruta de acceso del cliente que ha establecido en los campos anteriores.
 
    Haga clic en el símbolo de copia en el lado derecho del campo para copiarlo automáticamente en el portapapeles.
 

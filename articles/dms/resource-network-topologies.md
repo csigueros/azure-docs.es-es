@@ -2,22 +2,20 @@
 title: Topologías de red para migraciones de Instancia administrada de SQL
 titleSuffix: Azure Database Migration Service
 description: Obtenga información sobre las configuraciones de origen y destino para migrar Instancia administrada de Azure SQL mediante Azure Database Migration Service.
-services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: reference
 ms.date: 01/08/2020
-ms.openlocfilehash: 0799e8c76bc5d3969943d766aa83de40659a236a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4a4cdce5ae20147bbf25a82401c9993a620320e5
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101093368"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363038"
 ---
 # <a name="network-topologies-for-azure-sql-managed-instance-migrations-using-azure-database-migration-service"></a>Topologías de red para migraciones de Instancia administrada de Azure SQL mediante Azure Database Migration Service
 
@@ -46,7 +44,7 @@ Use esta topología de red si su entorno requiere uno o varios de los siguientes
 
 **Requisitos**
 
-- La red virtual que utiliza Azure Database Migration Service para este escenario también debe estar conectada a la red local mediante (https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+- La red virtual que utiliza Azure Database Migration Service para este escenario también debe estar conectada a la red local mediante [ExpressRoute](../expressroute/expressroute-introduction.md) o [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 - Configure el [emparejamiento de red virtual](../virtual-network/virtual-network-peering-overview.md) entre la red virtual que se usa para Instancia administrada de SQL y Azure Database Migration Service.
 
 ## <a name="cloud-to-cloud-migrations-shared-virtual-network"></a>Migraciones de nube a nube: red virtual compartida

@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a48a9f4ded6386b4b5a4ea2d02d796b8e5ed4f7
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: a1a6ff8a64ac82b27df6e49ef7f500af3fd65316
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129213921"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352724"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>¿Cómo funciona la escritura diferida del autoservicio de restablecimiento de contraseña en Azure Active Directory?
 
@@ -51,7 +51,7 @@ Para empezar a trabajar con la escritura diferida de SSPR, realice el siguiente 
 
 ## <a name="how-password-writeback-works"></a>Funcionamiento de la escritura diferida de contraseñas
 
-Si un usuario con federación o sincronización de hash de contraseñas cambia o restablece su contraseña en la nube, ocurre lo siguiente:
+Si un usuario federado o configurado con autenticación transferida y sincronización de hash de contraseñas cambia o restablece su contraseña en la nube, ocurre lo siguiente:
 
 1. Se comprueba qué tipo de contraseña tiene el usuario. Si la contraseña del usuario se administra en el entorno local:
    * Se comprueba si el servicio de escritura diferida está en funcionamiento. Si es así, el usuario puede continuar.

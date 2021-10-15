@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2079905f81b770039a9b71b2e8e4f21553da099f
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: 49963f7c2625a0aa454d8a1bac5ff001cb4debe9
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114202996"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230919"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory"></a>Habilitación del inicio de sesión con una clave de seguridad sin contraseña en recursos locales con Azure Active Directory 
 
@@ -47,8 +47,8 @@ Las organizaciones también deben cumplir los siguientes requisitos de software.
 - Debe tener la versión 1.4.32.0 o una versión posterior de [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect).
   - Para más información sobre las opciones de autenticación híbrida de Azure AD disponibles, consulte el artículo sobre cómo [seleccionar el método de autenticación adecuado para la solución de identidad híbrida de Azure Active Directory](../hybrid/choose-ad-authn.md) y cómo [seleccionar el tipo de instalación que se va a usar para Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md).
 - Los controladores de dominio de Windows Server deben tener instaladas las siguientes revisiones:
-    - Para Windows Server 2016: https://support.microsoft.com/help/4534307/windows-10-update-kb4534307
-    - Para Windows Server 2019: https://support.microsoft.com/help/4534321/windows-10-update-kb4534321
+    - Para [Windows Server 2016](https://support.microsoft.com/help/4534307/windows-10-update-kb4534307)
+    - Para [Windows Server 2019](https://support.microsoft.com/help/4534321/windows-10-update-kb4534321)
 
 ### <a name="supported-scenarios"></a>Escenarios admitidos
 
@@ -201,7 +201,8 @@ Si realiza una instalación limpia de una máquina unida a Azure AD híbrido de
 
 Asegúrese de que se han revisado suficientes controladores de dominio para responder a tiempo para atender la solicitud de recursos. Para comprobar si puede ver un controlador de dominio que ejecute la característica, revise la salida de `nltest /dsgetdc:contoso /keylist /kdc`.
 
-Nota: Este modificador /KeyList del comando nltest se puede encontrar en el cliente de Windows 10 v2004 y superior
+> [!NOTE]
+> El modificador `/keylist` del comando `nltest` está disponible en el cliente Windows 10 v2004 y versiones posteriores.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

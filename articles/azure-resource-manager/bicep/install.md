@@ -2,14 +2,14 @@
 title: Configuración de entornos de desarrollo e implementación de Bicep
 description: Configuración de entornos de desarrollo e implementación de Bicep
 ms.topic: conceptual
-ms.date: 09/10/2021
+ms.date: 10/01/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 545ed61de0499904c728293e472ce3101f4e7350
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: db0fe243dea09a431adc47f064d87c5e9a2ee7a8
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124793671"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363634"
 ---
 # <a name="install-bicep-tools"></a>Instalación de herramientas de Bicep
 
@@ -40,7 +40,7 @@ Para implementar archivos Bicep desde una canalización de Azure, consulte [Inte
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Debe tener instalada la CLI de Azure, versión 2.20.0 o posterior. Para instalar o actualizar la CLI de Azure, consulte:
+Debe tener instalada la CLI de Azure, **versión 2.20.0 o posterior**. Para instalar o actualizar la CLI de Azure, consulte:
 
 - [Instalación de la CLI de Azure en Windows](/cli/azure/install-azure-cli-windows)
 - [Instalación de la CLI de Azure en Linux](/cli/azure/install-azure-cli-linux)
@@ -52,7 +52,7 @@ Para comprobar su versión actual, ejecute:
 az --version
 ```
 
-Ahora tiene todo lo que necesita para [implementar](deploy-cli.md) y [descompilar](decompile.md) archivos de Bicep. Tiene todo porque la CLI de Azure 2.20.0 o posterior instala automáticamente la CLI de Bicep cuando se ejecuta un comando que la necesita.
+Ahora tiene todo lo que necesita para [implementar](deploy-cli.md) y [descompilar](decompile.md) archivos de Bicep. Tiene todo porque la CLI de Azure instala automáticamente la CLI de Bicep cuando se ejecuta un comando que la necesita.
 
 Para iniciar manualmente la instalación de la CLI de Bicep, use:
 
@@ -79,7 +79,7 @@ Para más comandos, consulte la [CLI de Bicep](bicep-cli.md).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Debe tener instalado Azure PowerShell, versión 5.6.0 o posterior. Para actualizar o instalar, consulte [Instalación de Azure PowerShell](/powershell/azure/install-az-ps).
+Debe tener instalado Azure PowerShell, **versión 5.6.0 o posterior**. Para actualizar o instalar, consulte [Instalación de Azure PowerShell](/powershell/azure/install-az-ps).
 
 Azure PowerShell no instala automáticamente la CLI de Bicep. En su lugar, tiene que [instalar manualmente la CLI de Bicep](#install-manually).
 
@@ -88,7 +88,7 @@ Azure PowerShell no instala automáticamente la CLI de Bicep. En su lugar, tiene
 
 Cuando instale manualmente la CLI de Bicep, ejecute los comandos de Bicep con la sintaxis `bicep`, en lugar de la sintaxis `az bicep` para CLI de Azure.
 
-Para implementar archivos de Bicep, use la CLI de Bicep, versión 0.3.1 o posterior. Para comprobar la versión de la CLI de Bicep, ejecute:
+Para comprobar la versión de la CLI de Bicep, ejecute:
 
 ```cmd
 bicep --version

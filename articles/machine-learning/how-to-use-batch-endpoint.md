@@ -4,23 +4,23 @@ titleSuffix: Azure Machine Learning
 description: En este artículo, aprenderá a crear un punto de conexión por lotes para puntuar continuamente datos de gran tamaño por lotes.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: conceptual
 author: tracych
 ms.author: tracych
 ms.reviewer: laobri
 ms.date: 8/11/2021
 ms.custom: how-to, devplatv2
-ms.openlocfilehash: b68ba3f0221aa97307e746d192de65b2915d2e4b
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: e113fdebb7c6cf11b486bb958ab04af8e37a5e89
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122419554"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428053"
 ---
 # <a name="use-batch-endpoints-preview-for-batch-scoring"></a>Uso de puntos de conexión por lotes (versión preliminar) para la puntuación por lotes
 
-En este artículo, aprenderá a usar puntos de conexión por lotes (versión preliminar) para realizar la puntuación por lotes. Los puntos de conexión por lotes simplifican el proceso de hospedar los modelos para la puntuación por lotes, por lo que puede centrarse en el aprendizaje automático y dejar a un lado la infraestructura. Después de crear un punto de conexión por lotes, puede desencadenar trabajos de puntuación por lotes con la CLI de Azure o desde cualquier plataforma mediante una biblioteca HTTP y la API REST. Para más información, consulte [¿Qué son los puntos de conexión de Azure Machine Learning (versión preliminar)?](concept-endpoints.md).
+En este artículo, aprenderá a usar puntos de conexión por lotes (versión preliminar) para realizar la puntuación por lotes. Los puntos de conexión por lotes simplifican el proceso de hospedar los modelos para la puntuación por lotes, por lo que puede centrarse en el aprendizaje automático y dejar a un lado la infraestructura. Después de crear un punto de conexión por lotes, puede desencadenar trabajos de puntuación por lotes con la CLI de Azure o desde cualquier plataforma mediante una biblioteca HTTP y la API REST. Para obtener más información, consulte [¿Qué son los puntos de conexión de Azure Machine Learning (versión preliminar)?](concept-endpoints.md)
 
 En este artículo, aprenderá a realizar las siguientes tareas:
 

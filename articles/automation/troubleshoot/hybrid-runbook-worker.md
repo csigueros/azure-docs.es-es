@@ -1,23 +1,23 @@
 ---
-title: Solución de problemas de Hybrid Runbook Worker de Azure Automation
-description: En este artículo se explica cómo solucionar los problemas que surgen con instancias de Hybrid Runbook Worker de Azure Automation.
+title: Solución de problemas de Hybrid Runbook Worker basado en agentes en Azure Automation
+description: En este artículo se explica cómo solucionar los problemas que surgen con instancias de Hybrid Runbook Worker basado en agentes de Azure Automation.
 services: automation
 ms.subservice: ''
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/11/2021
+ms.date: 09/24/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9b06213416241f671dd0e6ef56a7660a3af5f6e8
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 824925f4c3616b91f10fc3bae4bdaa1f5a0bb5ee
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108123904"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129277164"
 ---
-# <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Solución de incidencias de Hybrid Runbook Worker
+# <a name="troubleshoot-agent-based-hybrid-runbook-worker-issues-in-automation"></a>Solución de problemas de Hybrid Runbook Worker basado en agentes en Automation
 
-En este artículo se proporciona información sobre cómo solucionar problemas con las instancias de Hybrid Runbook Worker de Azure Automation. Para obtener información general, consulte [Información general sobre Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md).
+En este artículo se proporciona información sobre cómo solucionar problemas con las instancias de Hybrid Runbook Worker basado en agentes de Azure Automation. Para solucionar problemas de los trabajos basados en extensiones, consulte [Solución de problemas de Hybrid Runbook Worker basado en extensiones en Automation](./extension-based-hybrid-runbook-worker.md). Para obtener información general, consulte [Información general sobre Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md).
 
 ## <a name="general"></a>General
 
@@ -147,7 +147,7 @@ El runbook produce un error cuando intenta ejecutar `Set-AzStorageBlobContent` y
 
 #### <a name="cause"></a>Causa
 
- Este error está causado por el comportamiento del nombre de archivo largo de las llamadas a `[System.IO.Path]::GetFullPath()` que agrega rutas de acceso UNC.
+ Este error está causado por el comportamiento del nombre de archivo largo de las llamadas a `[System.IO.Path]::GetFullPath()`, que agrega rutas de acceso UNC.
 
 #### <a name="resolution"></a>Solución
 
@@ -254,7 +254,7 @@ Este problema se puede deber a que el firewall de red o de proxy está bloqueand
 
 #### <a name="resolution"></a>Solución
 
-Los registros se almacenan localmente en cada Hybrid Worker en C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Puede comprobar si hay algún evento de advertencia o de error en los registros de eventos **Registro de aplicaciones y servicios\Microsoft-SMA\Operations** y **Registro de aplicaciones y servicios\Operations Manager**. Estos registros indican una conectividad u otro tipo de problema que afecta a la habilitación del rol a Azure Automation, o bien a un problema detectado durante las operaciones normales. Para obtener ayuda adicional para solucionar problemas relacionados con el agente de Log Analytics, consulte [Procedimientos para solucionar problemas relacionados con el agente de Log Analytics para Windows](../../azure-monitor/agents/agent-windows-troubleshoot.md).
+Los registros se almacenan localmente en cada Hybrid Worker en C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Puede comprobar si hay algún evento de advertencia o de error en los registros de eventos **Registro de aplicaciones y servicios\Microsoft-SMA\Operations** y **Registro de aplicaciones y servicios\Operations Manager**. Estos registros indican una conectividad u otro tipo de problema que afecta a la habilitación del rol a Azure Automation, o bien a un problema detectado durante las operaciones normales. Para obtener más ayuda para solucionar problemas relacionados con el agente de Log Analytics, consulte [Procedimientos para solucionar problemas relacionados con el agente de Log Analytics para Windows](../../azure-monitor/agents/agent-windows-troubleshoot.md).
 
 Los roles de Hybrid Worker envían [salida y mensajes de los runbooks](../automation-runbook-output-and-messages.md) a Azure Automation de la misma manera en que los trabajos de runbook que se ejecutan en la nube envían salida y mensajes. Puede habilitar los flujos Detallado y Progreso del mismo modo que haría para los runbooks.
 
@@ -264,7 +264,7 @@ Los roles de Hybrid Worker envían [salida y mensajes de los runbooks](../automa
 
 Un script que se ejecuta en una instancia de Hybrid Runbook Worker de Windows no puede conectarse como se esperaba a Microsoft 365 en un espacio aislado de Orchestrator. El script usa [Connect-MsolService](/powershell/module/msonline/connect-msolservice) para la conexión. 
 
-Si ajusta **Orchestrator.Sandbox.exe.config** para establecer el proxy y la lista de omisión, el espacio aislado sigue sin conectarse correctamente. Sin embargo, un archivo **Powershell_ise.exe.config** con la misma configuración de proxy y lista de omisión parece funcionar como se espera. Los registros de Service Management Automation (SMA) y los registros de PowerShell no ofrecen ninguna información relacionada con el proxy.
+Si ajusta **Orchestrator.Sandbox.exe.config** para establecer el proxy y la lista de omisión, el espacio aislado sigue sin conectarse correctamente. Sin embargo, un archivo **Powershell_ise.exe.config** con la misma configuración de proxy y lista de omisión parece funcionar como se espera. Los registros de Service Management Automation (SMA) y los registros de PowerShell no ofrecen ninguna información sobre el proxy.
 
 #### <a name="cause"></a>Causa
 

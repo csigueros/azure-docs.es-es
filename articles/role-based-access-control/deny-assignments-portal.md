@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1e644d81c2a47ec07833010ae93f4dbb0c57474b
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 1581139a2bd941f32afbcd4f0ecbefc60c068d80
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106077846"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353493"
 ---
 # <a name="list-azure-deny-assignments-using-the-azure-portal"></a>Enumeración de asignaciones de denegación de Azure mediante Azure Portal
 
@@ -92,14 +92,14 @@ Siga estos pasos para enumerar detalles adicionales sobre una asignación de den
 
     | Tipo de acción | Descripción |
     | --- | --- |
-    | **Acciones**  | Operaciones de administración denegadas. |
-    | **NotActions** | Operaciones de administración que se excluyen de la operación de administración denegada. |
-    | **DataActions**  | Operaciones de datos denegadas. |
-    | **NotDataActions** | Operaciones de datos que se excluyen de la operación de datos denegada. |
+    | **Acciones**  | Acciones de plano de control denegadas. |
+    | **NotActions** | Acciones del plano de control excluidas de las acciones de plano de control denegadas. |
+    | **DataActions**  | Acciones de plano de datos denegadas. |
+    | **NotDataActions** | Acciones del plano de datos excluidas de las acciones de plano de datos denegadas. |
 
     Para el ejemplo mostrado en la captura de pantalla anterior, los siguientes son los permisos efectivos:
 
-    - Se deniegan todas las operaciones de almacenamiento en el plano de datos, excepto las operaciones de proceso.
+    - Se deniegan todas las acciones de almacenamiento en el plano de datos, excepto las acciones de proceso.
 
 1. Para ver las propiedades de una asignación de denegación, haga clic en **Propiedades**.
 

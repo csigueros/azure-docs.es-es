@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/13/2021
+ms.date: 10/05/2021
 ms.author: b-juche
-ms.openlocfilehash: 4311070b594b7cfadde4845bf7e9f8380b8657bf
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 22424e6d8498535c2b4b884834439a4f1882ab9d
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128577021"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537252"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Arquitecturas de las soluciones con Azure NetApp Files
 En este artículo se proporcionan referencias a los procedimientos recomendados que pueden ayudarle a comprender las arquitecturas de soluciones para usar Azure NetApp Files.  
@@ -53,6 +53,7 @@ En esta sección se proporcionan referencias para las aplicaciones de Windows y 
 
 ### <a name="file-sharing-and-global-file-caching"></a>Uso compartido de archivos y almacenamiento en caché global de archivos
 
+* [Recuperación ante desastres para los recursos compartidos de archivos de Enterprise con Azure NetApp Files y los espacios de nombres DFS](https://techcommunity.microsoft.com/t5/azure-architecture-blog/disaster-recovery-for-enterprise-file-shares/ba-p/2808757)
 * [¿Quiere crear su propia instancia de Azure NFS? Cómo lidiar con los recursos compartidos de archivos Linux en la nube](https://cloud.netapp.com/blog/ma-anf-blg-build-your-own-linux-nfs-file-shares)
 * [Compartir archivos empresariales distribuidos globalmente con Azure NetApp Files y NetApp Global File Cache](https://f.hubspotusercontent20.net/hubfs/525875/NA-580-0521-Architecture-Doc-R3.pdf)
 * [Cumplimiento de la nube para Azure NetApp Files](https://cloud.netapp.com/hubfs/Cloud%20Compliance%20for%20Azure%20NetApp%20Files%20-%20November%202020.pdf)

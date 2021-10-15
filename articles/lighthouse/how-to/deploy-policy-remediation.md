@@ -1,14 +1,14 @@
 ---
 title: Implementación de una directiva que se pueda corregir
 description: Para implementar directivas que usan una tarea de corrección a través de Azure Lighthouse, deberá crear una identidad administrada en el inquilino del cliente.
-ms.date: 09/13/2021
+ms.date: 09/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 2270644a2d3e841a40046743bd6092a3ba44105d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5783d753fabb7246914056139fb9a081b7684b9c
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128611460"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362276"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Implementación de una directiva que se pueda corregir en una suscripción delegada
 
@@ -24,6 +24,9 @@ Al incorporar un cliente a Azure Lighthouse, use una [plantilla de Azure Resourc
 Para permitir que **principalId**  cree una identidad administrada en el inquilino del cliente, debe establecer su **roleDefinitionId**  en **Administrador de acceso de usuario**. Aunque por lo general este rol no se admite, se puede usar en este escenario concreto, lo que permite a las cuentas de usuario con este permiso asignar uno o varios roles integrados específicos a identidades administradas. Estos roles se definen en la propiedad **delegatedRoleDefinitionIds** y pueden incluir cualquier [rol integrado de Azure compatible](../concepts/tenants-users-roles.md#role-support-for-azure-lighthouse), excepto el propietario o administrador de acceso de usuario.
 
 Una vez que se incorpora el cliente, el **principalId**  creado en esta autorización podrá asignar estos roles integrados a identidades administradas en el inquilino del cliente. Sin embargo, no tendrán ningún otro permiso asociado normalmente al rol Administrador de acceso de usuario.
+
+> [!NOTE]
+> Las [asignaciones de roles](../../role-based-access-control/role-assignments-steps.md#step-5-assign-role) entre inquilinos deben realizarse actualmente a través de las API, no en Azure Portal.
 
 En el ejemplo siguiente se muestra un **principalId**  que tendrá el rol Administrador de acceso de usuario. Este usuario podrá asignar dos roles integrados a identidades administradas en el inquilino del cliente: Colaborador y Colaborador de Log Analytics.
 
@@ -45,7 +48,7 @@ Una vez que haya creado el usuario con los permisos necesarios, tal y como se ha
 
 Por ejemplo, supongamos que desea habilitar diagnósticos en los recursos de Azure Key Vault en el inquilino del cliente, tal como se muestra en este [ejemplo ](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-enforce-keyvault-monitoring). Un usuario del inquilino de administración con los permisos adecuados (como se ha descrito anteriormente) implementaría una [plantilla de Azure Resource Manager](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json) para habilitar este escenario.
 
-Tenga en cuenta que la creación de la asignación de directiva que se va a usar con una suscripción delegada debe realizarse actualmente a través de las API, no en Azure Portal. Al hacerlo, **apiVersion** se debe establecer en **2019-04-01-preview**, que incluye la nueva propiedad **delegatedManagedIdentityResourceId**. Esta propiedad permite incluir una identidad administrada que reside en el inquilino del cliente (en una suscripción o un grupo de recursos que se ha incorporado a Azure Lighthouse).
+Tenga en cuenta que la creación de la asignación de directiva que se va a usar con una suscripción delegada debe realizarse actualmente a través de las API, no en Azure Portal. Al hacerlo, **apiVersion** se debe establecer en **2020-10-01-preview**, que incluye la nueva propiedad **delegatedManagedIdentityResourceId**. Esta propiedad permite incluir una identidad administrada que reside en el inquilino del cliente (en una suscripción o un grupo de recursos que se ha incorporado a Azure Lighthouse).
 
 En el ejemplo siguiente se muestra una asignación de roles con **delegatedManagedIdentityResourceId**.
 

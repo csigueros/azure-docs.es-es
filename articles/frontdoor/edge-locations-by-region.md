@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 05/25/2021
 ms.author: duau
 ms.custom: references_regions
-ms.openlocfilehash: d4e383b1bb0287d0a5fc9d8b72d3af4440dab4ae
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 051d9b0f3f2d4a2d100f27f80e095431b2837fd8
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129091296"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361458"
 ---
 # <a name="azure-front-door-edge-locations-by-metro"></a>Ubicaciones perimetrales de Azure Front Door por área metropolitana
 > [!div class="op_single_selector"]
@@ -22,7 +22,7 @@ ms.locfileid: "129091296"
 > * [Ubicaciones perimetrales por abreviatura](edge-locations-abbreviation.md)
 > 
 
-En este artículo se enumeran las áreas metropolitanas actuales que contienen ubicaciones perimetrales, ordenadas por región, para Azure Front Door. Cada área metropolitana puede contener más de una ubicación perimetral. Actualmente, Azure Front Door tiene 117 ubicaciones perimetrales en 100 ciudades metropolitanas.
+En este artículo se enumeran las áreas metropolitanas actuales que contienen ubicaciones perimetrales, ordenadas por región, para Azure Front Door. Cada área metropolitana puede contener más de una ubicación perimetral. Actualmente, Azure Front Door tiene 118 ubicaciones perimetrales en 100 ciudades metropolitanas.
 
 ## <a name="microsoft-edge-locations"></a>Ubicaciones perimetrales de Microsoft
 

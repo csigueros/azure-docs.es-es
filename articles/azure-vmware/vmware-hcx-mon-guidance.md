@@ -2,15 +2,23 @@
 title: Guía de VMware HCX Mobility Optimized Networking (MON)
 description: Obtenga información sobre casos de uso específicos de Azure VMware Solution para Mobility Optimized Networking (MON).
 ms.topic: reference
-ms.date: 09/07/2021
-ms.openlocfilehash: 19e8fce28bc9582c388a6c2667fa6dfc6ca64636
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/04/2021
+ms.openlocfilehash: 1b170615b5a0ec0df81a8be7c71b8ac5ae17a24a
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128646234"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424736"
 ---
 # <a name="vmware-hcx-mobility-optimized-networking-mon-guidance"></a>Guía de VMware HCX Mobility Optimized Networking (MON)
+
+>[!IMPORTANT] 
+>Antes de habilitar HCX MON, lea las siguientes limitaciones y configuraciones no admitidas:
+>
+>[Configuraciones de origen no admitidas para HCX NE](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-DBDB4D1B-60B6-4D16-936B-4AC632606909.html)
+> 
+>[Limitaciones de cualquier implementación de HCX, incluido MON](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-BEC26054-D560-46D0-98B4-7FF09501F801.html)
+
 
 [HCX Mobility Optimized Networking (MON)](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-0E254D74-60A9-479C-825D-F373C41F40BC.html) es una característica opcional que se puede habilitar al usar [HCX Network Extension (NE)](configure-hcx-network-extension.md). MON proporciona un enrutamiento óptimo del tráfico en determinados escenarios para evitar el desvío de tráfico entre los recursos locales y los recursos basados en la nube en redes extendidas. 
 

@@ -2,10 +2,8 @@
 title: Implementación de DBMS de Azure Virtual Machines de SQL Server para la carga de trabajo de SAP | Microsoft Docs
 description: Implementación de DBMS de Azure Virtual Machines de SQL Server para la carga de trabajo de SAP
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msjuergent
 manager: bburns
-editor: ''
 tags: azure-resource-manager
 keywords: Azure, SQL Server, SAP, AlwaysOn
 ms.service: virtual-machines-sap
@@ -15,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 06/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 66426b6e48c15882f884657fbf8e75f44e500eb8
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: b9d44e718329c836b1e4fc63861f52cc37458a79
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114467645"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352418"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implementación de DBMS de Azure Virtual Machines de SQL Server para la carga de trabajo de SAP NetWeaver
 
@@ -320,7 +318,7 @@ En este documento se describen las diferentes áreas que se deben tener en cuent
 
 En general, debería considerar usar las versiones más recientes de SQL Server para ejecutar la carga de trabajo de SAP en IaaS de Azure. Las versiones más recientes de SQL Server ofrecen una mejor integración en algunos de los servicios y funcionalidades de Azure o disponer de cambios que optimicen las operaciones en una infraestructura de IaaS de Azure.
 
-Se recomienda revisar el artículo [Qué es SQL Server en Azure Virtual Machines (Windows)] [https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview ] antes de continuar.
+Se recomienda revisar el artículo [Qué es SQL Server en Azure Virtual Machines (Windows)](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) antes de continuar.
 
 En las secciones siguientes se agregan y mencionan fragmentos de partes de la documentación del vínculo anterior. Se describen de forma más detallada algunos conceptos y se mencionan consideraciones sobre SAP. Sin embargo, se recomienda encarecidamente consultar la documentación anterior primero antes de leer la documentación específica de SQL Server.
 
@@ -488,9 +486,9 @@ La funcionalidad de creación de reflejo de la base de datos, que es compatible 
 
 Al igual que con las implementaciones exclusivas en la nube, el método más fácil es tener otra configuración de dominio en Azure con el fin de albergar esas máquinas virtuales de DBMS (e, idealmente, las máquinas virtuales de SAP específicas) dentro de un dominio.
 
-Si un dominio no es posible, también se pueden usar certificados para los puntos de conexión de reflejo de la base de datos, como se describe aquí: <https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql>
+Si un dominio no es posible, se pueden usar certificados para los puntos de conexión de creación de reflejo de la base de datos como se describe aquí: [Uso de certificados para un punto de conexión de creación de reflejo de la base de datos (Transact-SQL)](/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql).
 
-Aquí encontrará un tutorial para configurar la creación de reflejo de la base de datos en Azure: <https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server> 
+Aquí encontrará un tutorial para configurar la creación de reflejo de la base de datos en Azure: [Creación de reflejo de la base de datos (SQL Server)](/sql/database-engine/database-mirroring/database-mirroring-sql-server).
 
 ### <a name="sql-server-always-on"></a>SQL Server AlwaysOn
 Como AlwaysOn es compatible con un entorno de SAP local (consulte la nota de SAP [1772688]), se puede usar en combinación con SAP en Azure. Hay algunas consideraciones especiales respecto a implementar el agente de escucha de grupo de disponibilidad de SQL Server (no debe confundirse con el conjunto de disponibilidad de Azure), ya que Azure en este momento no permite crear un objeto AD o DNS como en las implementaciones locales. Por lo tanto, hay que realizar otros pasos de instalación para solucionar el comportamiento específico de Azure.

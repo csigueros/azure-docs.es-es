@@ -3,12 +3,12 @@ title: Consulta de las copias de seguridad con Azure Resource Graph (ARG)
 description: Aprenda más sobre cómo consultar información sobre la copia de seguridad de los recursos de Azure mediante Azure Resource Graph (ARG).
 ms.topic: conceptual
 ms.date: 05/21/2021
-ms.openlocfilehash: 252c921ce911777315ab043501359b5eb74cf176
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e9caa1d4d8de77efe9acb31c0cec3be5741b69c7
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733257"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129236055"
 ---
 # <a name="query-your-backups-using-azure-resource-graph-arg"></a>Consulta de las copias de seguridad con Azure Resource Graph (ARG)
 
@@ -109,6 +109,17 @@ RecoveryServicesResources
 | extend datasourceType = case(type == 'microsoft.recoveryservices/vaults/backuppolicies', properties.backupManagementType,type == 'microsoft.dataprotection/backupVaults/backupPolicies',properties.datasourceTypes[0],'--')
 | project id,name,vaultName,resourceGroup,properties,datasourceType
 | where datasourceType == 'AzureIaasVM'
+```
+
+### <a name="list-all-vms-associated-with-a-given-backup-policy"></a>Enumeración de todas las máquinas virtuales asociadas a una directiva de copia de seguridad determinada
+
+```kusto
+RecoveryServicesResources
+| where type == "microsoft.recoveryservices/vaults/backupfabrics/protectioncontainers/protecteditems"
+| project propertiesJSON = parse_json(properties)
+| where propertiesJSON.backupManagementType == "AzureIaasVM"
+| project VMID=propertiesJSON.sourceResourceId, PolicyID=propertiesJSON.policyId
+| where PolicyID == "<ARM ID of the given policy>"
 ```
 
 ### <a name="list-all-backup-policies-used-for-azure-databases-for-postgresql-servers"></a>Enumeración de todas las directivas de copia de seguridad usadas para servidores de Azure Database for PostgreSQL

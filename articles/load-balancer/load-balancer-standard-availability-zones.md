@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 87a7d10c9748a2e173d8f43dcca3611666277792
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 06b8e193f48a4e1d3956c8c40ee03dfd11a4a088
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128653712"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129276026"
 ---
 # <a name="load-balancer-and-availability-zones"></a>Load Balancer y Availability Zones
 
@@ -59,7 +59,7 @@ En el caso de un servidor front-end de equilibrador de carga interno, se agrega 
 
 ## <a name="non-zonal"></a>No zonal
 
-Los equilibradores de carga también se pueden crear en una configuración no zonal mediante un front-end "sin zona" (dirección IP pública o prefijo de dirección IP pública).  Esta opción no ofrece una garantía de redundancia. Tenga en cuenta que todas las direcciones IP públicas que [se actualicen](https://docs.microsoft.com/azure/virtual-network/public-ip-upgrade-portal) de una SKU Básica a otra Estándar serán de tipo "sin zona".
+Los equilibradores de carga también se pueden crear en una configuración no zonal mediante un front-end "sin zona" (dirección IP pública o prefijo de dirección IP pública).  Esta opción no ofrece una garantía de redundancia. Tenga en cuenta que todas las direcciones IP públicas que [se actualicen](../virtual-network/public-ip-upgrade-portal.md) serán de tipo "sin zona".
 
 ## <a name="design-considerations"></a><a name="design"></a> Consideraciones de diseño
 
@@ -78,7 +78,7 @@ El uso de varios front-ends le permite equilibrar la carga del tráfico en más 
 
 ### <a name="transition-between-regional-zonal-models"></a>Transición entre modelos zonales regionales
 
-En el caso de que una región se amplíe para que tenga [zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview), las direcciones IP de front-end existentes permanecerán no zonales. Para asegurarse de que la arquitectura puede aprovechar las ventajas de las nuevas zonas, se recomienda crear nuevas direcciones IP de front-end y replicar las reglas y configuraciones adecuadas para usar estas nuevas direcciones IP públicas.
+En el caso de que una región se amplíe para que tenga [zonas de disponibilidad](../availability-zones/az-overview.md), permanecerán no zonales. Para asegurarse de que la arquitectura puede aprovechar las ventajas de las nuevas zonas, se recomienda crear nuevas direcciones IP de front-end y replicar las reglas y configuraciones adecuadas para usar estas nuevas direcciones IP públicas.
 
 ### <a name="control-vs-data-plane-implications"></a>Implicaciones de los planos de control frente a los planos de datos
 

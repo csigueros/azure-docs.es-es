@@ -1,6 +1,6 @@
 ---
 title: Validación de XML en flujos de trabajo de integración empresarial
-description: Validación de XML usando esquemas en Azure Logic Apps con Enterprise Integration Pack
+description: Validación de XML con esquemas en flujos de trabajo mediante Azure Logic Apps y Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,18 +8,18 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/15/2021
-ms.openlocfilehash: 842b26502dcfa073bca21891eed44fe990037f06
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f295054913dbf275533d4d14f39497071c6984a8
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128660811"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353230"
 ---
-# <a name="validate-xml-for-workflows-in-azure-logic-apps"></a>Validación de XML para flujos de trabajo en Azure Logic Apps
+# <a name="validate-xml-in-workflows-with-azure-logic-apps"></a>Validación de XML en flujos de trabajo con Azure Logic Apps
 
 En los escenarios de negocio a negocio (B2B) de integración empresarial, a menudo las entidades de un contrato deben asegurarse de que los mensajes que intercambian sean válidos antes de que pueda empezar el procesamiento de datos. El flujo de trabajo de la aplicación lógica puede validar documentos y mensajes XML mediante la acción **Validación XML** y un [esquema](logic-apps-enterprise-integration-schemas.md) predefinido.
 
-Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](logic-apps-overview.md) Para obtener más información sobre la integración empresarial B2B, revise [Flujos de trabajo de integración empresarial B2B con Azure Logic Apps y Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
+Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](logic-apps-overview.md) Para más información sobre la integración empresarial B2B, revise [Flujos de trabajo de integración empresarial B2B con Azure Logic Apps y Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -29,7 +29,7 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
 
   Si tiene un flujo de trabajo en blanco, use el desencadenador que desee. En este ejemplo se usa el desencadenador de solicitud.
 
-* Un [recurso de cuenta de integración](logic-apps-enterprise-integration-create-integration-account.md) donde se definen y almacenan artefactos, como socios comerciales, contratos, certificados, entre otros, para su uso en los flujos de trabajo de integración empresarial y B2B. Este recurso tiene que satisfacer los siguientes requisitos:
+* Un [recurso de cuenta de integración](logic-apps-enterprise-integration-create-integration-account.md), donde se definen y almacenan artefactos, como socios comerciales, contratos, certificados, entre otros, para su uso en los flujos de trabajo de integración empresarial y B2B. Este recurso tiene que satisfacer los siguientes requisitos:
 
   * Estar asociado a la misma suscripción de Azure que el recurso de aplicación lógica.
 
@@ -46,7 +46,7 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
     Todavía necesita una cuenta de integración para almacenar otros artefactos, como asociados, contratos y certificados, junto con el uso de las operaciones [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) y [EDIFACT](logic-apps-enterprise-integration-edifact.md). Pero no es necesario vincular el recurso de aplicación lógica a la cuenta de integración, por lo que la funcionalidad de vinculación no existe. La cuenta de integración todavía tiene que cumplir otros requisitos, como usar la misma suscripción de Azure y existir en la misma ubicación que el recurso de aplicación lógica.
 
     > [!NOTE]
-    > Actualmente, solo el tipo de recurso **Aplicación lógica (consumo)** admite operaciones de [RosettaNet](logic-apps-enterprise-integration-rosettanet.md). El tipo de recurso **Aplicación lógica (estándar)** no incluye operaciones de [RosettaNet](logic-apps-enterprise-integration-rosettanet.md).
+    > Actualmente, solo el tipo de recurso **Logic App (Consumption)** (Aplicación lógica [Consumo]) admite operaciones de [RosettaNet](logic-apps-enterprise-integration-rosettanet.md). El tipo de recurso **Logic App (Standard)** (Aplicación lógica [Estándar]) no incluye operaciones de [RosettaNet](logic-apps-enterprise-integration-rosettanet.md).
 
 ## <a name="add-xml-validation-action"></a>Incorporación de la acción de validación XML
 

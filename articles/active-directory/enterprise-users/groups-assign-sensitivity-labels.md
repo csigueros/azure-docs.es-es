@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/01/2021
+ms.date: 09/28/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05ea462d08c50e6483aeb0968b00b6b18d0e7397
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: b3285c18394c8c59d17e41b3a3eb3fd43428cd61
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129092683"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129229589"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Asignación de etiquetas de confidencialidad a grupos de Microsoft 365 en Azure Active Directory
 
@@ -117,7 +117,7 @@ La opción de etiqueta de confidencialidad solo se muestra para los grupos cuand
 
 1. Las etiquetas se publican en el Centro de cumplimiento de Microsoft 365 de esta organización de Azure AD.
 1. La característica está habilitada: EnableMIPLabels está establecido en true en el módulo Azure AD PowerShell.
-1. Las etiquetas están sincronizadas con Azure AD con el cmdlet Execute-AzureAdLabelSync en el módulo Seguridad y cumplimiento de PowerShell.
+1. Las etiquetas están sincronizadas con Azure AD con el cmdlet Execute-AzureAdLabelSync en el módulo Security & Compliance de PowerShell.
 1. El grupo es un grupo de Microsoft 365.
 1. La organización tiene una licencia activa de Azure Active Directory Premium P1.
 1. El usuario que inició la sesión actual tiene privilegios suficientes para asignar etiquetas. El usuario debe ser un administrador global, un administrador de grupo o el propietario del grupo.

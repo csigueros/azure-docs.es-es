@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 835c102cffa7fb956d284792fd144cccadfa94b4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9c167752881d1a6be7b51db16e2556ac3c781bd0
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128582997"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129455463"
 ---
 # <a name="conditional-access-filters-for-devices-preview"></a>Acceso condicional: filtros para dispositivos (versión preliminar)
 
@@ -121,7 +121,7 @@ Los siguientes atributos de dispositivo se pueden usar con la condición de filt
 | model | Equals, NotEquals, StartsWith, NotStartsWith, EndsWith, NotEndsWith, Contains, NotContains, In, NotIn | Cualquier cadena | (device.model -notContains “Surface”) |
 | operatingSystem | Equals, NotEquals, StartsWith, NotStartsWith, EndsWith, NotEndsWith, Contains, NotContains, In, NotIn | Un sistema operativo válido (como Windows, iOS o Android) | (device.operatingSystem -eq “Windows”) |
 | operatingSystemVersion | Equals, NotEquals, StartsWith, NotStartsWith, EndsWith, NotEndsWith, Contains, NotContains, In, NotIn | Una versión de sistema operativo válida (como 6.1 para Windows 7, 6.2 para Windows 8 o 10.0 para Windows 10) | (device.operatingSystemVersion -in [“10.0.18363”, “10.0.19041”, “10.0.19042”]) |
-| pyhsicalIds | Contains, NotContains | Por ejemplo, todos los dispositivos Windows Autopilot almacenan ZTDId (un valor único asignado a todos los dispositivos Windows Autopilot importados) en la propiedad physicalIds del dispositivo. | (device.devicePhysicalIDs -contains "[ZTDId]") |
+| physicalIds | Contains, NotContains | Por ejemplo, todos los dispositivos Windows Autopilot almacenan ZTDId (un valor único asignado a todos los dispositivos Windows Autopilot importados) en la propiedad physicalIds del dispositivo. | (device.devicePhysicalIDs -contains "[ZTDId]") |
 | profileType | Equals, NotEquals | Un tipo de perfil válido establecido para un dispositivo. Los valores admitidos son: RegisteredDevice (valor predeterminado), SecureVM (se usa para máquinas virtuales Windows en Azure habilitadas con el inicio de sesión de Azure AD), Printer (se usa para impresoras), Shared (se usa para dispositivos compartidos) y IoT (se usa para dispositivos IoT). | (device.profileType -notIn [“Printer”, “Shared”, “IoT”] |
 | systemLabels | Contains, NotContains | Lista de etiquetas que el sistema aplica al dispositivo. Algunos de los valores admitidos son: AzureResource (se usa para máquinas virtuales Windows en Azure habilitadas con el inicio de sesión de Azure AD), M365Managed (se usa para dispositivos administrados mediante Escritorio administrado de Microsoft) y MultiUser (se usa para dispositivos compartidos). | (device.systemLabels -contains "M365Managed") |
 | trustType | Equals, NotEquals | Un estado registrado válido para dispositivos. Los valores admitidos son: AzureAD (se usa para dispositivos unidos a Azure AD), ServerAD (se usa para dispositivos unidos a Azure AD híbrido), Workplace (se usa para dispositivos registrados en Azure AD). | (device.trustType -notIn ‘ServerAD, Workplace’) |

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2021
-ms.openlocfilehash: 3a9669b2c569947c76f4f2b92fa316f3b09ab517
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1968bb34d124fa37a51b296071ee24b3eae47772
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128577923"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273730"
 ---
 # <a name="use-role-based-authorization-in-azure-cognitive-search"></a>Uso de la autorización basada en roles en Azure Cognitive Search
 
@@ -49,7 +49,7 @@ No hay ninguna restricción regional, de nivel o de precios para usar RBAC en Az
 | [Propietario](../role-based-access-control/built-in-roles.md#owner) | Operaciones de servicio (disponible con carácter general) | Acceso total al recurso de búsqueda, incluida la capacidad de asignar roles de Azure. Los administradores de suscripciones son miembros de manera predeterminada. |
 | [Colaborador](../role-based-access-control/built-in-roles.md#contributor) | Operaciones de servicio (disponible con carácter general) | El mismo nivel de acceso que Propietario, menos la capacidad de asignar roles o cambiar opciones de autorización. |
 | [Lector](../role-based-access-control/built-in-roles.md#reader) | Operaciones de servicio (disponible con carácter general) | Acceso limitado a la información parcial del servicio. En el portal, el rol Lector puede acceder a la información de la página Información general del servicio, en la sección Essentials y en la pestaña Supervisión. Todas las demás pestañas y páginas están fuera de los límites. </br></br>Este rol tiene acceso a la información del servicio: grupo de recursos, estado del servicio, ubicación, nombre e identificador de la suscripción, etiquetas, dirección URL, plan de tarifa, réplicas, particiones y unidades de búsqueda. </br></br>Este rol también tiene acceso a las métricas del servicio: latencia de búsqueda, porcentaje de solicitudes limitadas y promedio de consultas por segundo. </br></br>No hay acceso a las claves de API, las asignaciones de roles, el contenido (índices o asignaciones de sinónimos) ni las métricas de contenido (almacenamiento consumido, número de objetos). |
-| [Colaborador del servicio Search](../role-based-access-control/built-in-roles.md#search-service-contributor) | Operaciones de servicio (disponible con carácter general) y objetos y contenido de nivel superior (versión preliminar) | Este rol es una combinación de Colaborador en el nivel de servicio, pero con acceso total a todas las acciones con índices, mapas de sinónimos, indexadores, orígenes de datos y conjuntos de aptitudes a través de [`Microsoft.Search/searchServices/*`](/azure/role-based-access-control/resource-provider-operations#microsoftsearch) en el nivel de contenido. Este rol está pensado para administradores de servicios de búsqueda que necesitan administrar por completo el servicio y su contenido. Para la administración de contenido, debe registrarse para obtener la versión preliminar. </br></br>Al igual que Colaborador, los miembros de este rol no pueden realizar ni administrar asignaciones de roles ni cambiar opciones de autorización. |
+| [Colaborador del servicio Search](../role-based-access-control/built-in-roles.md#search-service-contributor) | Operaciones de servicio (disponible con carácter general) y objetos de nivel superior (versión preliminar) | Este rol es una combinación de Colaborador en el nivel de servicio, pero con acceso total a todas las acciones con índices, mapas de sinónimos, indexadores, orígenes de datos y conjuntos de aptitudes a través de [`Microsoft.Search/searchServices/*`](/azure/role-based-access-control/resource-provider-operations#microsoftsearch). Este rol está pensado para administradores de servicios de búsqueda que necesitan administrar por completo el servicio. </br></br>Al igual que Colaborador, los miembros de este rol no pueden realizar ni administrar asignaciones de roles ni cambiar opciones de autorización. |
 | [Colaborador de datos de índice de búsqueda](../role-based-access-control/built-in-roles.md#search-index-data-contributor) | Colección de documentos (versión preliminar) | Proporciona acceso completo al contenido en todos los índices del servicio de búsqueda. Este rol está pensado para desarrolladores o propietarios de índices que necesitan importar, actualizar o consultar la colección de documentos de un índice. |
 | [Lector de datos de índice de búsqueda](../role-based-access-control/built-in-roles.md#search-index-data-reader) | Colección de documentos (versión preliminar) | Proporciona acceso de solo lectura a los índices de búsqueda en el servicio de búsqueda. Este rol está pensado para aplicaciones y usuarios que ejecutan consultas. |
 
@@ -129,7 +129,7 @@ Si usa Postman u otra herramienta de pruebas web, consulte la sugerencia de la p
 1. [Asigne roles](#assign-roles) en el servicio y compruebe que funcionen correctamente en el plano de datos.
 
 > [!TIP]
-> Las llamadas a la API de REST de administración se autentican mediante Azure Active Directory. Para obtener instrucciones sobre cómo configurar una solicitud y un principio de seguridad, consulte la entrada de blog [API de REST de Azure con Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/) (en inglés). El ejemplo anterior se probó con las instrucciones y la colección de Postman que se proporcionan en la entrada de blog.
+> Las llamadas a la API REST de administración se autentican mediante Azure Active Directory. Para obtener instrucciones sobre cómo configurar una solicitud y un principio de seguridad, consulte esta entrada de blog sobre [API REST de Azure con Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). El ejemplo anterior se probó con las instrucciones y la colección de Postman proporcionadas en esa entrada de blog.
 
 ---
 
@@ -239,6 +239,8 @@ var tokenCredential =  new ClientSecretCredential(aadTenantId, aadClientId, aadS
 SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, tokenCredential);
 ```
 
+Puede encontrar más información sobre el uso de la [autenticación de AAD con el SDK de Azure para .NET](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity) en el repositorio de GitHub del SDK.
+
 > [!NOTE]
 > Si obtiene un error 403, compruebe que el servicio de búsqueda esté inscrito en el programa en versión preliminar y que su servicio esté configurado para asignaciones de roles en versión preliminar.
 
@@ -291,4 +293,4 @@ No se pueden combinar los pasos uno y dos. En el paso uno, "disableLocalAuth" de
 Para volver a habilitar la autenticación de clave, ejecute de nuevo la última solicitud, estableciendo "disableLocalAuth" en "false". El servicio de búsqueda reanudará la aceptación de las claves de API en la solicitud automáticamente (suponiendo que se especifiquen).
 
 > [!TIP]
-> Las llamadas a la API de REST de administración se autentican mediante Azure Active Directory. Para obtener instrucciones sobre cómo configurar una solicitud y un principio de seguridad, consulte la entrada de blog [API de REST de Azure con Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/) (en inglés). El ejemplo anterior se probó con las instrucciones y la colección de Postman que se proporcionan en la entrada de blog.
+> Las llamadas a la API REST de administración se autentican mediante Azure Active Directory. Para obtener instrucciones sobre cómo configurar una solicitud y un principio de seguridad, consulte esta entrada de blog sobre [API REST de Azure con Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). El ejemplo anterior se probó con las instrucciones y la colección de Postman proporcionadas en esa entrada de blog.

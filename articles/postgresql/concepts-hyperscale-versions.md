@@ -6,19 +6,23 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 08/03/2021
-ms.openlocfilehash: 8dd0929d56bac0b2f825d976ba07bd0956c0d063
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/01/2021
+ms.openlocfilehash: 63f9cf024101fee3049eddc5f91497ab978d2821
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124755190"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129399695"
 ---
 # <a name="supported-database-versions-in-azure-database-for-postgresql--hyperscale-citus"></a>Versiones de base de datos compatibles en Azure Database for PostgreSQL para Hiperescala (Citus)
 
 ## <a name="postgresql-versions"></a>Versiones de PostgreSQL
 
 La versión de PostgreSQL que se ejecuta en un grupo de servidores de Hiperescala (Citus) se puede personalizar durante la creación. Actualmente Hiperescala (Citus) admite las siguientes versiones principales:
+
+### <a name="postgresql-version-14"></a>PostgreSQL, versión 14
+
+La versión secundaria actual es la 14.0. Consulte la [documentación de PostgreSQL](https://www.postgresql.org/docs/14/release-14.html) para obtener más información sobre las mejoras y correcciones de esta versión secundaria.
 
 ### <a name="postgresql-version-13"></a>PostgreSQL, versión 13
 
@@ -38,7 +42,7 @@ No se admite la versión 10 de PostgreSQL ni las anteriores para Azure Database
 
 ## <a name="citus-and-other-extension-versions"></a>Citus y otras versiones de extensión
 
-En función de la versión de PostgreSQL que se ejecute en un grupo de servidores, también se instalarán diferentes [versiones de las extensiones de Postgres](concepts-hyperscale-extensions.md).  En concreto, Postgres 13 viene con Citus 10, y las versiones anteriores de Postgres vienen con Citus 9.5.
+En función de la versión de PostgreSQL que se ejecute en un grupo de servidores, también se instalarán diferentes [versiones de las extensiones de Postgres](concepts-hyperscale-extensions.md). En concreto, las versiones 12-14 de Postgres vienen con Citus 10, y las versiones anteriores de Postgres vienen con Citus 9.5.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

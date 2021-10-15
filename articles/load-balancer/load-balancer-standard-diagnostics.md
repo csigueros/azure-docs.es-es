@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2021
 ms.author: allensu
-ms.openlocfilehash: d044ddbde293721e26ed491e237aa5b89075f72a
-ms.sourcegitcommit: d01c2b2719e363178720003b67b968ac2a640204
+ms.openlocfilehash: c0502b880d23e9f0a63564f11473f48e1c01b096
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122455839"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129236562"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico de Standard Load Balancer con métricas, alertas y estado de los recursos
 
@@ -74,7 +74,7 @@ Para ver las métricas de los recursos de Load Balancer Estándar:
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Recuperación de las métricas multidimensionales mediante programación con API
 
-Para obtener orientación de API para recuperar las definiciones y los valores de las métricas multidimensionales, consulte el [tutorial sobre la API REST de supervisión de Azure](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Estas métricas se pueden escribir en una cuenta de almacenamiento agregando una [configuración de diagnóstico](../azure-monitor/essentials/diagnostic-settings.md) para la categoría "Todas las métricas". 
+Para obtener orientación de API para recuperar las definiciones y los valores de las métricas multidimensionales, consulte el [tutorial sobre la API REST de supervisión de Azure](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-definitions). Estas métricas se pueden escribir en una cuenta de almacenamiento agregando una [configuración de diagnóstico](../azure-monitor/essentials/diagnostic-settings.md) para la categoría "Todas las métricas". 
 
 ### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Escenarios comunes de diagnóstico y vistas recomendadas
 
@@ -152,7 +152,7 @@ Si las métricas señalan que hay riesgo de error del [flujo saliente](./load-ba
 Para ver el uso y asignación de puertos SNAT:
 1. Establezca la agregación de tiempo del gráfico en 1 minuto para procurar que se muestren los datos deseados.
 1. Seleccione **Used SNAT Ports** (Puertos SNAT usados) o **Allocated SNAT Ports** (Puertos SNAT asignados) como tipo de métrica y **Promedio** como agregación.
-    * De forma predeterminada, estas métricas son el número promedio de puertos SNAT asignados a cada VM o VMSS de back-end, o usados por estas, y se corresponde con todas las direcciones IP de front-end públicas asignadas a la instancia de Load Balancer, agregadas a través de TCP y UDP.
+    * De manera predeterminada, estas métricas son el número promedio de puertos SNAT asignados a cada VM o conjunto de escalado de máquinas virtuales de back-end, o usados por estas, y se corresponde con todas las direcciones IP de front-end públicas asignadas a la instancia de Load Balancer, agregadas a través de TCP y UDP.
     * Para ver los puertos SNAT totales usados por (o asignados a) el equilibrador de carga, use la agregación de métricas **Suma**.
 1. Filtre por un **Tipo de protocolo** específico, un conjunto de **IP de back-end** y/o **IP de front-end**.
 1. Para supervisar el estado por instancia de front-end o back-end, use una división. 

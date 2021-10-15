@@ -2,13 +2,13 @@
 title: 'Funciones de Bicep: scopes'
 description: Describe las funciones que se usarán en un archivo de Bicep para recuperar valores sobre la implementación.
 ms.topic: conceptual
-ms.date: 09/10/2021
-ms.openlocfilehash: 4432aa528dbdd565128a15eb79d4b4c01572c924
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/30/2021
+ms.openlocfilehash: ee7ea8efbb19048ff5aa6b6ead2bf9d2495ad23a
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124827453"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129360240"
 ---
 # <a name="scope-functions-for-bicep"></a>Funciones de ámbito para Bicep
 
@@ -21,6 +21,8 @@ En este artículo se describen las funciones de Bicep para obtener valores de á
 `managementGroup(name)`
 
 Devuelve un objeto utilizado para establecer el ámbito en un grupo de administración.
+
+Espacio de nombres: [az](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="remarks"></a>Comentarios
 
@@ -64,6 +66,8 @@ Devuelve un objeto utilizado para establecer el ámbito en un grupo de recursos.
 Or
 
 Devuelve un objeto que representa el grupo de recursos actual.
+
+Espacio de nombres: [az](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="remarks"></a>Comentarios
 
@@ -156,6 +160,8 @@ Or
 
 Devuelve detalles sobre la suscripción para la implementación actual.
 
+Espacio de nombres: [az](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="remarks"></a>Comentarios
 
 La función de suscripción tiene dos usos distintos. Un uso es establecer el ámbito en un [módulo](modules.md#configure-module-scopes) o en un [tipo de recurso de extensión](scope-extension-resources.md). El otro uso es para obtener detalles sobre la suscripción actual. La colocación de la función determina su uso. Cuando se usa para establecer la propiedad `scope`, devuelve un objeto de ámbito.
@@ -207,6 +213,8 @@ output subscriptionOutput object = subscription()
 `tenant()`
 
 Devuelve un objeto utilizado para establecer el ámbito en el inquilino.
+
+Espacio de nombres: [az](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="remarks"></a>Comentarios
 

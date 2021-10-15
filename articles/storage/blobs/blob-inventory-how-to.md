@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: normesta
 ms.reviewer: klaasl
 ms.subservice: blobs
-ms.openlocfilehash: 67bd943028ba321aa4fa3a5acca30e80cfc36a32
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ace430aa1e48d7e769f82d7258da241a0716a16d
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128615574"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129455652"
 ---
 # <a name="enable-azure-storage-blob-inventory-reports"></a>Habilitación de los informes de inventario de blobs de Azure Storage
 
@@ -63,7 +63,7 @@ Para habilitar los informes de inventario de blobs, agregue una directiva con un
 
 <a id="powershell"></a>
 
-Puede habilitar el hospedaje de sitios web estáticos con el módulo de Azure PowerShell.
+Puede agregar, editar o quitar una directiva mediante el módulo de Azure PowerShell.
 
 1. Abra una ventana de comando de Windows PowerShell.
 
@@ -75,7 +75,7 @@ Puede habilitar el hospedaje de sitios web estáticos con el módulo de Azure Po
    Connect-AzAccount
    ```
 
-4. Si su identidad se asocia a más de una suscripción, establezca su suscripción activa en la suscripción de la cuenta de almacenamiento que hospedará el sitio web estático.
+4. Si su identidad está asociada a más de una suscripción, establezca la suscripción activa.
 
    ```powershell
    $context = Get-AzSubscription -SubscriptionId <subscription-id>
@@ -123,11 +123,11 @@ Puede habilitar el hospedaje de sitios web estáticos con el módulo de Azure Po
 
 <a id="cli"></a>
 
-Puede habilitar el hospedaje de sitios web estáticos mediante la [Interfaz de la línea de comandos (CLI) de Azure](/cli/azure/).
+Puede agregar, editar o quitar una directiva mediante la [Interfaz de la línea de comandos de Azure (CLI)](/cli/azure/).
 
 1. En primer lugar, abra [Azure Cloud Shell](../../cloud-shell/overview.md) o, si ha [instalado](/cli/azure/install-azure-cli) la CLI de Azure localmente, abra una aplicación de consola de comandos como Windows PowerShell.
 
-2. Si su identidad se asocia a más de una suscripción, establezca su suscripción activa en la suscripción de la cuenta de almacenamiento que hospedará el sitio web estático.
+2. Si su identidad está asociada a más de una suscripción, establezca la suscripción activa.
 
    ```azurecli
       az account set --subscription <subscription-id>

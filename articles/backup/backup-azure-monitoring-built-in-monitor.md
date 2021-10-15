@@ -4,12 +4,12 @@ description: En este artículo se obtiene información sobre las funcionalidades
 ms.topic: conceptual
 ms.date: 08/06/2021
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: ca99be06934c9eca8a762b4990e89d8818ac3f5c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f3d353f7d42baf1f9cc968cb37baac1077a35085
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128627242"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129231679"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Supervisión de cargas de trabajo de Azure Backup
 
@@ -59,6 +59,8 @@ El servicio define los siguientes escenarios como escenarios susceptibles de gen
 - Errores de copia de seguridad y restauración
 - Copia de seguridad correcta con advertencias para el agente de Microsoft Azure Recovery Services (MARS)
 - Detener la protección con conservación de datos/Detener la protección con eliminación de datos
+- Funcionalidad de eliminación temporal deshabilitada para el almacén
+- Tipo de copia de seguridad no compatible para cargas de trabajo de base de datos
 
 ### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Aquí se muestran las alertas de las siguientes soluciones de Azure Backup
 
@@ -72,7 +74,7 @@ El servicio define los siguientes escenarios como escenarios susceptibles de gen
 
 ### <a name="consolidated-alerts"></a>Alertas consolidadas
 
-En el caso de soluciones de copia de seguridad de la carga de trabajo de Azure, como SQL y SAP HANA, las copias de seguridad de registros se pueden generar con mucha frecuencia (hasta cada 15 minutos, según la directiva). Por lo tanto, también es posible que los errores de copia de seguridad de registros sean muy frecuentes (hasta cada 15 minutos). En este escenario, el usuario final puede verse abrumado si se genera una alerta para cada caso de error. Así, se envía una alerta para el primer caso y, si los errores posteriores se deben a la misma causa principal, no se generan más alertas. La primera alerta se actualiza con el recuento de errores. Pero, si el usuario la desactiva, el siguiente caso desencadenará otra alerta y se tratará como la primera alerta de ese caso. Así es cómo Azure Backup realiza la consolidación de alertas para las copias de seguridad de SQL y SAP HANA.
+En el caso de soluciones de copia de seguridad de la carga de trabajo de Azure, como SQL y SAP HANA, las copias de seguridad de registros se pueden generar con mucha frecuencia (hasta cada 15 minutos, según la directiva). Por lo tanto, también es posible que los errores de copia de seguridad de registros sean muy frecuentes (hasta cada 15 minutos). En este escenario, el usuario final puede verse abrumado si se genera una alerta para cada caso de error. Así, se envía una alerta para el primer caso y, si los errores posteriores se deben a la misma causa principal, no se generan más alertas. La primera alerta se actualiza con el recuento de errores. Pero, si el usuario la desactiva, el siguiente caso desencadenará otra alerta y se tratará como la primera alerta de ese caso. Así es cómo Azure Backup realiza la consolidación de alertas para las copias de seguridad de SQL y SAP HANA. Los trabajos de copia de seguridad a petición no se consolidan.
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Excepciones cuando una alerta no se genera
 

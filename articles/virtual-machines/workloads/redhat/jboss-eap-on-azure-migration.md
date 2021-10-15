@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: redhat
 ms.assetid: 9b37b2c4-5927-4271-85c7-19adf33d838b
 ms.date: 06/08/2021
-ms.openlocfilehash: 1671b0c4ba57faa6dc631c50cc273678c72b379b
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 188e40f9bc3d2d23035549578cdc6440af60a3e5
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124730137"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359237"
 ---
 # <a name="how-to-migrate-java-applications-to-jboss-eap-on-azure-vms-and-virtual-machine-scale-sets"></a>Cómo migrar aplicaciones Java a JBoss EAP en máquinas virtuales y conjuntos de escalado de máquinas virtuales de Azure
 
@@ -248,7 +248,7 @@ Puede exponer la aplicación mediante los métodos siguientes, lo que es adecuad
 Una vez alcanzados los objetivos de migración que se han definido antes de la migración, realice pruebas integrales de aceptación para comprobar que todo funciona según lo previsto. Entre los temas de mejoras posteriores a la migración se incluyen, entre otros:
 
 * Usar Azure Storage para servir el contenido estático montado en las máquinas virtuales. Para obtener más información, consulte [Adjuntar o desasociar un disco de datos a una máquina virtual](../../../devtest-labs/devtest-lab-attach-detach-data-disk.md)
-* Implementar las aplicaciones en el clúster de JBoss migrado con Azure DevOps. Para más información, consulte la [documentación de introducción a Azure DevOps](/azure/devops/get-started/?view=azure-devops).
+* Implementar las aplicaciones en el clúster de JBoss migrado con Azure DevOps. Para más información, consulte la [documentación de introducción a Azure DevOps](/azure/devops/get-started).
 * Considere la posibilidad de usar [Application Gateway](../../../application-gateway/index.yml).
 * Mejorar la topología de red con servicios avanzados de equilibrio de carga. Para más información, consulte [Uso de servicios de equilibrio de carga en Azure](../../../traffic-manager/traffic-manager-load-balancing-azure.md).
 * Aproveche las identidades administradas de Azure para los secretos administrados y asigne un control de acceso basado en roles (RBAC) a los recursos de Azure. Para obtener más información, consulte [¿Qué son las identidades administradas para recursos de Azure?](../../../active-directory/managed-identities-azure-resources/overview.md)

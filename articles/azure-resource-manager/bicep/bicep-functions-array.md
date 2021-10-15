@@ -4,13 +4,13 @@ description: Describe las funciones que se usarán en un archivo de Bicep para t
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
-ms.date: 09/10/2021
-ms.openlocfilehash: 69a937a68e2f73eaf911f2cb80cf09bab7d78eed
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/30/2021
+ms.openlocfilehash: 69e1e3c9574d6a32663186d46c1af3dceb422f4a
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124794108"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357631"
 ---
 # <a name="array-functions-for-bicep"></a>Funciones de matriz para Bicep
 
@@ -21,6 +21,8 @@ En este artículo se describen las funciones de Bicep para trabajar con matrices
 `array(convertToArray)`
 
 Convierte el valor en una matriz.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -62,6 +64,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 `concat(arg1, arg2, arg3, ...)`
 
 Combina varias matrices y devuelve la matriz concatenada.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -106,6 +110,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 `contains(container, itemToFind)`
 
 Comprueba si una matriz contiene un valor, un objeto contiene una clave o una cadena contiene una subcadena. La comparación de cadena distingue mayúsculas de minúsculas. Pero, cuando se prueba si un objeto contiene una clave, la comparación no distingue mayúsculas de minúsculas.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -160,6 +166,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Determina si una matriz, un objeto o una cadena están vacíos.
 
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
@@ -198,6 +206,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Devuelve el primer elemento de la matriz o el primer carácter de la cadena.
 
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
@@ -235,6 +245,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 `intersection(arg1, arg2, arg3, ...)`
 
 Devuelve una única matriz u objeto con los elementos comunes de los parámetros.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -316,7 +328,7 @@ output commonDown array = intersection(array2, array3, array1)
 
 El resultado del ejemplo anterior es:
 
-| Nombre | Tipo | Value |
+| Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
 | commonUp | array | [1, 2, 3] |
 | commonDown | array | [3, 2, 1] |
@@ -326,6 +338,8 @@ El resultado del ejemplo anterior es:
 `last (arg1)`
 
 Devuelve el último elemento de la matriz o el último carácter de la cadena.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -364,6 +378,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 `length(arg1)`
 
 Devuelve el número de elementos de una matriz, caracteres de una cadena o propiedades de nivel raíz de un objeto.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -415,6 +431,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Devuelve el valor máximo de una matriz de enteros o una lista separada por comas de enteros.
 
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
@@ -454,6 +472,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 `min(arg1)`
 
 Devuelve el valor mínimo de una matriz de enteros o una lista separada por comas de enteros.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -495,6 +515,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Crea una matriz de enteros a partir de un entero de inicio y contiene el número de elementos.
 
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
@@ -528,6 +550,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 `skip(originalValue, numberToSkip)`
 
 Devuelve una matriz con todos los elementos después del número especificado de la matriz, o devuelve una cadena con todos los caracteres después del número especificado en la cadena.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -571,6 +595,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 Devuelve una matriz con el número especificado de elementos desde el inicio de la matriz, o una cadena con el número especificado de caracteres desde el inicio de la cadena.
 
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
@@ -612,6 +638,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 `union(arg1, arg2, arg3, ...)`
 
 Devuelve una única matriz u objeto con todos los elementos de los parámetros. Los valores o las claves duplicados solo se incluyen una vez.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 

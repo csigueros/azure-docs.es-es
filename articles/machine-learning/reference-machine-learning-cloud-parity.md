@@ -9,14 +9,14 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 07/16/2021
+ms.date: 08/24/2021
 ms.custom: references_regions
-ms.openlocfilehash: 1c26761fe23fb1a7558100dea3cb74d7b078550d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8c05b77a77bbcbfc977dadb22151f0086001b859
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749497"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359448"
 ---
 # <a name="azure-machine-learning-feature-availability-across-clouds-regions"></a>Disponibilidad de características de Azure Machine Learning entre regiones de nubes en la nube
 
@@ -62,7 +62,7 @@ La información del resto de este documento proporciona información sobre qué 
 | Compatibilidad con Virtual Network (VNet) para aprendizaje                                | Disponibilidad general                   | SÍ                | SÍ         |
 | Compatibilidad con Virtual Network (VNet) para inferencia                               | Disponibilidad general                   | SÍ                | SÍ         |
 | Autenticación de puntos de conexión de puntuación                                            | Vista previa pública       | SÍ                | SÍ         |
-| Punto de conexión privado de área de trabajo                                                 | Disponibilidad general  |  Vista previa pública  |  Vista previa pública |
+| Punto de conexión privado de área de trabajo                                                 | GA  |  GA  |  GA |
 | ACI detrás de VNet                                                            | Vista previa pública       | No                 | No          |
 | ACR detrás de VNet                                                            | Disponibilidad general       | SÍ                 | SÍ          |
 | IP privada de clúster de AKS                                                  | Vista previa pública       | No                 | No          |
@@ -80,7 +80,7 @@ La información del resto de este documento proporciona información sobre qué 
 | [Integración con Visual Studio Code](how-to-setup-vs-code.md)                                             | Vista previa pública       | No                 | No          |
 | [Integración con Event Grid](how-to-use-event-grid.md)                                                     | Vista previa pública       | No                 | No          |
 | [Integración de Azure Stream Analytics con Azure Machine Learning](../stream-analytics/machine-learning-udf.md)               | Vista previa pública       | No                 | No          |
-| **[Etiquetado](how-to-create-labeling-projects.md)** |   | | |
+| **Etiquetado de [imágenes](how-to-create-image-labeling-projects.md) y [texto](how-to-create-text-labeling-projects.md)** |   | | |
 | Etiquetado del Portal de administración de proyectos                                        | Disponibilidad general                   | SÍ                | SÍ         |
 | Portal de etiquetador                                                            | Disponibilidad general                   | SÍ                | SÍ         |
 | Etiquetado mediante recursos privados                                          | Disponibilidad general                   | SÍ                | SÍ         |

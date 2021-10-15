@@ -10,24 +10,23 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: lajanuar
-ms.openlocfilehash: f5dd72328180574809c812d670f8165ad84963ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: afb0e616f01342c94734155e96367f0b453e313a
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98897754"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129401871"
 ---
 # <a name="how-to-translate-behind-ip-firewalls-with-translator"></a>Traducción detrás de firewalls de direcciones IP con Translator
 
-Translator puede traducir detrás de los firewalls utilizando el filtrado de nombres de dominio o de direcciones IP. El filtrado de nombres de dominio es el método preferido. **No se recomienda** ejecutar Microsoft Translator desde detrás de un firewall con filtrado de direcciones IP. Es probable que la configuración se interrumpa en el futuro sin previo aviso.
+Translator puede traducir detrás de los firewalls utilizando el filtrado de nombres de dominio o de direcciones IP. El filtrado de nombres de dominio es el método preferido. Si sigue necesitando el filtrado de IP, se recomienda obtener los [detalles de las direcciones IP mediante la etiqueta de servicio](../../virtual-network/service-tags-overview.md#service-tags-on-premises). Translator está bajo la etiqueta de servicio "CognitiveServicesManagement". 
 
-## <a name="translator-ip-addresses"></a>Direcciones IP de Translator
-Direcciones IP de api.cognitive.microsofttranslator.com en Translator al 21 de agosto de 2019:
+**No se recomienda** ejecutar Microsoft Translator detrás de un firewall con filtrado de direcciones IP específicas. Es probable que la configuración se interrumpa en el futuro sin previo aviso.
 
-* **Asia Pacífico:** 20.40.125.208, 20.43.88.240, 20.184.58.62, 40.90.139.163, 104.44.89.44
-* **Europa:** 40.90.138.4, 40.90.141.99, 51.105.170.64, 52.155.218.251
-* **Norteamérica:** 40.90.139.36, 40.90.139.2, 40.119.2.134, 52.224.200.129, 52.249.207.163
+Las direcciones IP de los puntos de conexión geográficos de Translator el 21 de septiembre de 2021 son:
 
-## <a name="next-steps"></a>Pasos siguientes
-> [!div class="nextstepaction"]
-> [Traducción detrás de firewalls de direcciones IP en Translator](reference/v3-0-translate.md)
+|Geography|URL base (punto de conexión geográfico)|Direcciones IP|
+|:--|:--|:--|
+|Estados Unidos|api-nam.cognitive.microsofttranslator.com|20.42.6.144, 20.49.96.128, 40.80.190.224, 40.64.128.192|
+|Europa|api-eur.cognitive.microsofttranslator.com|20.50.1.16, 20.38.87.129|
+|Asia Pacífico|api-apc.cognitive.microsofttranslator.com|40.80.170.160, 20.43.132.96, 20.37.196.160, 20.43.66.16|

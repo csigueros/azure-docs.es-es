@@ -3,15 +3,15 @@ title: Creación de runbooks modulares en Azure Automation
 description: En este artículo se indica cómo crear un runbook al que llama otro runbook.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/13/2021
+ms.date: 09/22/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cbbf9be820d46875618cae76edb5f76bbfbb5e0f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b6ced29de1ddc71d44d1b93f6b46982865f62014
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128675371"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353435"
 ---
 # <a name="create-modular-runbooks-in-automation"></a>Creación de runbooks modulares en Automation
 
@@ -95,12 +95,11 @@ En el ejemplo siguiente se inicia un runbook secundario con parámetros y se esp
 # Ensure that the runbook does not inherit an AzContext
 Disable-AzContextAutosave -Scope Process
 
-# Connect to Azure with user-assigned managed identity
-Connect-AzAccount -Identity
-$identity = Get-AzUserAssignedIdentity -ResourceGroupName <ResourceGroupName> -Name <UserAssignedManagedIdentity>
-Connect-AzAccount -Identity -AccountId $identity.ClientId
+# Connect to Azure with system-assigned managed identity
+$AzureContext = (Connect-AzAccount -Identity).context
 
-$AzureContext = Set-AzContext -SubscriptionId ($identity.id -split "/")[2]
+# set and store context
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
 
 $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
 
@@ -108,9 +107,14 @@ Start-AzAutomationRunbook `
     -AutomationAccountName 'MyAutomationAccount' `
     -Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
-    -AzContext $AzureContext `
+    -DefaultProfile $AzureContext `
     -Parameters $params -Wait
 ```
+
+Si desea que el runbook se ejecute con la identidad administrada asignada por el sistema, deje el código tal y como está. Si prefiere usar una identidad administrada asignada por el usuario, haga lo siguiente:
+1. En la línea 5, quite `$AzureContext = (Connect-AzAccount -Identity).context`.
+1. Reemplace el valor por `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`.
+1. Escriba el id. de cliente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

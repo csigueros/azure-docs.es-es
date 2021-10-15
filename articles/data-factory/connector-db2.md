@@ -1,29 +1,29 @@
 ---
-title: Copia de datos de DB2 mediante Azure Data Factory
+title: Copia de datos de DB2
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre cómo copiar datos desde DB2 a almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
+description: Obtenga información sobre cómo copiar datos de DB2 en almacenes de datos receptores compatibles a través de una actividad de copia en una canalización de Azure Data Factory o Synapse Analytics.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 01680713d0e21baa3433e79474a4ba4567d5c644
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: def376920d111f915edfa7f367fcbedd4bc370f4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123313067"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124778065"
 ---
-# <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copia de datos desde DB2 mediante Azure Data Factory
+# <a name="copy-data-from-db2-using-azure-data-factory-or-synapse-analytics"></a>Copia de datos de DB2 con Azure Data Factory o Synapse Analytics
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-onprem-db2-connector.md)
 > * [Versión actual](connector-db2.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde una base de datos DB2. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
+En este artículo se resume el uso de la actividad de copia en canalizaciones de Azure Data Factory y Synapse Analytics para copiar datos de una base de datos DB2. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -103,12 +103,12 @@ Propiedades habituales dentro de la cadena de conexión:
 | database |Nombre de la base de datos DB2. |Sí |
 | authenticationType |Tipo de autenticación usado para conectarse a la base de datos DB2.<br/>El valor permitido es: **Básico**. |Sí |
 | username |Especifique el nombre de usuario para conectarse a la base de datos DB2. |Sí |
-| password |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
-| packageCollection    | Especifique en dónde crea ADF automáticamente los paquetes necesarios al consultar la base de datos. Si no se establece, Data Factory utiliza {username} como valor predeterminado. | No |
+| password |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura, o bien [haga referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
+| packageCollection    | Especifique en dónde crea el servicio automáticamente los paquetes necesarios al consultar la base de datos. Si no se establece, el servicio utiliza {username} como valor predeterminado. | No |
 | certificateCommonName | Al usar el cifrado de Capa de sockets seguros (SSL) o de Seguridad de la capa de transporte (TLS), debe escribir un valor para el nombre común del certificado. | No |
 
 > [!TIP]
-> Si recibe un mensaje de error que indica `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`, el motivo es que no se ha creado un paquete necesario para el usuario. De forma predeterminada, ADF intentará crear un paquete en la colección con nombre como el usuario que haya usado para conectarse a DB2. Especifique la propiedad de colección de paquetes para indicar en dónde quiere que ADF cree los paquetes necesarios al consultar la base de datos.
+> Si recibe un mensaje de error que indica `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`, el motivo es que no se ha creado un paquete necesario para el usuario. De manera predeterminada, el servicio intentará crear un paquete en la colección con nombre como el usuario que haya usado para conectarse a DB2. Especifique la propiedad de colección de paquetes para indicar en dónde quiere que el servicio cree los paquetes necesarios al consultar la base de datos.
 
 **Ejemplo**:
 
@@ -262,9 +262,9 @@ Si estaba usando un origen de tipo `RelationalSource`, todavía se admite tal cu
 
 ## <a name="data-type-mapping-for-db2"></a>Asignación de tipos de datos de DB2
 
-Al copiar datos desde DB2, se utilizan las siguientes asignaciones de tipos de datos de DB2 en los tipos de datos provisionales de Azure Data Factory. Consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md) para información sobre cómo la actividad de copia asigna el tipo de datos y el esquema de origen al receptor.
+Al copiar datos desde DB2, se utilizan las siguientes asignaciones de tipos de datos de la solución a los tipos de datos provisionales usados internamente dentro del servicio. Consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md) para información sobre cómo la actividad de copia asigna el tipo de datos y el esquema de origen al receptor.
 
-| Tipo de base de datos DB2 | Tipo de datos provisionales de Data Factory |
+| Tipo de base de datos DB2 | Tipo de datos de servicio provisional |
 |:--- |:--- |
 | BigInt |Int64 |
 | Binary |Byte[] |
@@ -298,4 +298,4 @@ Al copiar datos desde DB2, se utilizan las siguientes asignaciones de tipos de d
 Para obtener información detallada sobre las propiedades, consulte [Actividad de búsqueda](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, vea [Almacenes de datos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

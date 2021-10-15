@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8acfbdba72eaaee65e7421f503462c6346776384
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d196fa6eabd0a6f9fc08b8d1b1d60e649d02ee1b
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124786548"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234972"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Aplicación de escritorio que llama a las API web: Registro de aplicación
 
@@ -33,7 +33,7 @@ Si la aplicación de escritorio usa la autenticación interactiva, puede iniciar
 
 ### <a name="audience-for-desktop-app-silent-flows"></a>Audiencia para flujos silenciosos de la aplicación de escritorio
 
-- Para usar la autenticación integrada o un nombre de usuario y una contraseña, la aplicación debe iniciar la sesión de los usuarios en su propio inquilino, por ejemplo, si es un desarrollador de línea de negocio (LOB). O bien, en organizaciones de Azure Active Directory, la aplicación debe iniciar la sesión de los usuarios en su propio inquilino si se trata de un escenario de ISV. Estos flujos de autenticación no son compatibles con las cuentas personales de Microsoft.
+- Para usar la autenticación integrada de Windows o un nombre de usuario y una contraseña, la aplicación debe iniciar la sesión de los usuarios en su propio inquilino, por ejemplo, si es un desarrollador de línea de negocio (LOB). O bien, en organizaciones de Azure Active Directory, la aplicación debe iniciar la sesión de los usuarios en su propio inquilino si se trata de un escenario de ISV. Estos flujos de autenticación no son compatibles con las cuentas personales de Microsoft.
 - Si inicia la sesión de los usuarios con identidades sociales que pasan una autoridad y directiva de negocio a comercio (B2C), solo puede usar la autenticación interactiva y de nombre de usuario y contraseña.
 
 ## <a name="redirect-uris"></a>URI de redirección

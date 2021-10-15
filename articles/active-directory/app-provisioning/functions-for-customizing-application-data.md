@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/30/2021
+ms.date: 09/21/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: c91d4f98928f2d446a15b123a4155b971377159a
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 2173afc4d96bd387f264d313696c41f0e6cbd84e
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223827"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272189"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Referencia para la escritura de expresiones para la asignación de atributos en Azure Active Directory
 
@@ -38,7 +38,7 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
 ## <a name="list-of-functions"></a>Lista de funciones
 
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [AppRoleAssignmentsComplex](#approleassignmentscomplex) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [CDate](#cdate) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateAdd](#dateadd) &nbsp;&nbsp;&nbsp;&nbsp; [DateDiff](#datediff) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IgnoreFlowIfNullOrEmpty](#ignoreflowifnullorempty) &nbsp;&nbsp;&nbsp;&nbsp;[IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) &nbsp;&nbsp; &nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Now](#now) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [AppRoleAssignmentsComplex](#approleassignmentscomplex) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [CDate](#cdate) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateAdd](#dateadd) &nbsp;&nbsp;&nbsp;&nbsp; [DateDiff](#datediff) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IgnoreFlowIfNullOrEmpty](#ignoreflowifnullorempty) &nbsp;&nbsp;&nbsp;&nbsp;[IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) &nbsp;&nbsp; &nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Now](#now) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp; [PCase](#pcase) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
 
 ---
 ### <a name="append"></a>Append
@@ -260,7 +260,7 @@ devuelve una cadena de fecha y hora que representa una fecha a la que se ha agre
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
 | **interval** |Requerido | String | Intervalo de tiempo que desea agregar. Consulte los valores aceptados se debajo de esta tabla. |
-| **value** |Obligatorio | Número | el número de unidades que desea agregar. Puede ser positivo (para obtener fechas futuras) o negativo (para obtener fechas del pasado). |
+| **value** |Obligatorio | Number | el número de unidades que desea agregar. Puede ser positivo (para obtener fechas futuras) o negativo (para obtener fechas del pasado). |
 | **dateTime** |Requerido | DateTime | DateTime que representa la fecha a la que se agrega el intervalo. |
 
 La cadena de **intervalo** debe tener uno de los valores siguientes: 
@@ -613,24 +613,24 @@ devuelve “Joh”.
 
 | Carácter con marca diacrítica  | Carácter normalizado | Carácter con marca diacrítica  | Carácter normalizado | 
 | --- | --- | --- | --- | 
-| ä, à, â, ã, å, á, ą, ă | a | Ä, À, Â, Ã, Å, Á, Ą, Ă | A | 
-| æ | ae | Æ | AE | 
-| ç, č, ć | c | Ç, Č, Ć | C | 
-| ď | d | Ď | D | 
-| ë, è, é, ê, ę, ě, ė | e | Ë, È, É, Ê, Ę, Ě, Ė | E | 
-| ğ | e | Ğ | G | 
-| Ï, Î, Ì, Í, İ | I | ï, î, ì, í, ı | i | 
-| ľ, ł | l |  Ł, Ľ | L | 
-| ñ, ń, ň | n |  Ñ, Ń, Ň | N | 
-| ö, ò, ő, õ, ô, ó | o |  Ö, Ò, Ő, Õ, Ô, Ó | O | 
-| ø | oe |  Ø | OE | 
-| ř | r |  Ř | R | 
+| ä, à, â, ã, å, á, ą, ă, ā, ā́, ā̀, ā̂, ā̃, ǟ, ā̈, ǡ, a̱, å̄ | a | Ä, À, Â, Ã, Å, Á, Ą, Ă, Ā, Ā́, Ā̀, Ā̂, Ā̃, Ǟ, Ā̈, Ǡ, A̱, Å̄ | A | 
+| æ, ǣ | ae | Æ, Ǣ | AE | 
+| ç, č, ć, c̄, c̱ | c | Ç, Č, Ć, C̄, C̱ | C | 
+| ď, d̄, ḏ | d | Ď, D̄, Ḏ | D | 
+| ë, è, é, ê, ę, ě, ė, ē, ḗ, ḕ, ē̂, ē̃, ê̄, e̱, ë̄, e̊̄ | e | Ë, È, É, Ê, Ę, Ě, Ė, Ē, Ḗ, Ḕ, Ē̂, Ē̃, Ê̄, E̱, Ë̄, E̊̄ | E | 
+| ğ, ḡ, g̱ | e | Ğ, Ḡ, G̱ | G | 
+| ï, î, ì, í, ı, ī, ī́, ī̀, ī̂, ī̃, i̱ | i | Ï, Î, Ì, Í, İ, Ī, Ī́, Ī̀, Ī̂, Ī̃, I̱ | I |  
+| ľ, ł, l̄, ḹ, ḻ | l |  Ł, Ľ, L̄, Ḹ, Ḻ | L | 
+| ñ, ń, ň, n̄, ṉ | n |  Ñ, Ń, Ň, N̄, Ṉ | No | 
+| ö, ò, ő, õ, ô, ó, ō, ṓ, ṑ, ō̂, ō̃, ȫ, ō̈, ǭ, ȭ, ȱ, o̱ | o |  Ö, Ò, Ő, Õ, Ô, Ó, Ō, Ṓ, Ṑ, Ō̂, Ō̃, Ȫ, Ō̈, Ǭ, Ȭ, Ȱ, O̱ | O | 
+| ø, ø̄, œ̄  | oe |  Ø, Ø̄, Œ̄ | OE | 
+| ř, r̄, ṟ, ṝ | r |  Ř, R̄, Ṟ, Ṝ | R | 
 | ß | ss | | | 
-| š, ś, ș, ş | s |  Š, Ś, Ș, Ş | S | 
-| ť, ț | t | Ť, Ț | T | 
-| ü, ù, û, ú, ů, ű | u |  Ü, Ù, Û, Ú, Ů, Ű | U | 
-| ÿ, ý | y | Ÿ, Ý | Y | 
-| ź, ž, ż | z | Ź, Ž, Ż | Z | 
+| š, ś, ș, ş, s̄, s̱ | s |  Š, Ś, Ș, Ş, S̄, S̱ | S | 
+| ť, ț, t̄, ṯ | t | Ť, Ț, T̄, Ṯ | T | 
+| ü, ù, û, ú, ů, ű, ū, ū́, ū̀, ū̂, ū̃, u̇̄, ǖ, ṻ, ṳ̄, u̱ | u |  Ü, Ù, Û, Ú, Ů, Ű, Ū, Ū́, Ū̀, Ū̂, Ū̃, U̇̄, Ǖ, Ṻ, Ṳ̄, U̱ | U | 
+| ÿ, ý, ȳ, ȳ́, ȳ̀, ȳ̃, y̱ | y | Ÿ, Ý, Ȳ, Ȳ́, Ȳ̀, Ȳ̃, Y̱ | Y | 
+| ź, ž, ż, z̄, ẕ | z | Ź, Ž, Ż, Z̄, Ẕ | Z | 
 
 
 #### <a name="remove-diacritics-from-a-string"></a>Quitar los signos diacríticos de una cadena
@@ -688,6 +688,49 @@ Valor de ejemplo devuelto *7/2/2021 3:33:38 PM*
 
 
 ---
+### <a name="pcase"></a>PCase
+**Función:** PCase(source, wordSeparators)
+
+**Descripción:** la función PCase convierte el primer carácter de cada palabra de una cadena a mayúsculas, y todos los demás caracteres se convierten a minúsculas.
+
+**Parámetros:** 
+
+| Nombre | Obligatorio/opcional | Tipo | Notas |
+| --- | --- | --- | --- |
+| **de origen** |Obligatorio |String |Un valor **source** que se va a convertir en mayúsculas o minúsculas. |
+| **wordSeparators** |Opcional |String |Especifique un conjunto de caracteres que se usarán como separadores de palabras (por ejemplo: " ,-'"). |
+
+**Observaciones**:
+
+* Si no se especifica el parámetro *wordSeparators,* , PCase invoca internamente la función de .NET [ToTitleCase](/dotnet/api/system.globalization.textinfo.totitlecase) para convertir la cadena de *origen* en mayúsculas y minúsculas correctas. La función de .NET *ToTitleCase* admite un conjunto completo de [categorías de caracteres Unicode](https://www.unicode.org/reports/tr44/#General_Category_Values) como separadores de palabras. 
+  * Carácter de espacio
+  * Carácter de nueva línea
+  * Caracteres de *control*, como CRLF
+  * Caracteres de control *Format*
+  * Caracteres *ConnectorPunctuation*, como el guion bajo
+  * Caracteres *DashPunctuation*, como guiones (incluidos caracteres como guion corto, guion largo, guion doble, etc.)
+  * Caracteres *OpenPunctuation* y *ClosePunctuation* que se producen en pares, como paréntesis, corchetes, corchetes angulares, etc. 
+  * Caracteres *InitialQuotePunctuation* and *FinalQuotePunctuation*, como comillas simples, comillas dobles y comillas angulares. 
+  * Caracteres *OtherPunctuation*, como signo de exclamación, signo de número, signo de porcentaje, Y comercial, asterisco, coma, punto, dos puntos, punto y coma, etc. 
+  * Caracteres *MathSymbol*, como signo más, signo menor y mayor que, línea vertical, tilde, signo igual, etc.
+  * Caracteres *CurrencySymbol*, como signo de dólar, signo de céntimos, signo de libras, signo de euro, etc. 
+  * Caracteres *ModifierSymbol*, como acento largo, acentos, puntas de flecha, etc. 
+  * Caracteres *OtherSymbol*, como el signo de copyright, el signo de grado, el signo registrado, etc. 
+* Si se especifica el parámetro *wordSeparators*, PCase solo usa los caracteres especificados como separadores de palabras. 
+
+**Ejemplo**:
+
+Supongamos que va a obtener los atributos *firstName* y *lastName* de SAP SuccessFactors y en RR. HH. ambos atributos están en mayúsculas. Con la función PCase, puede convertir el nombre a mayúsculas y minúsculas como se muestra a continuación. 
+
+| Expression | Entrada | Resultados | Notas |
+| --- | --- | --- | --- |
+| `PCase([firstName])` | *firstName* = "PABLO GONSALVES (SECOND)" | "Pablo Gonsalves (Second)" | Como no se especifica el parámetro *wordSeparators*, la función *PCase* usa el juego de caracteres separadores de palabras predeterminado. |
+| `PCase([lastName]," '-")` | *lastName* = "PINTO-DE'SILVA" | "Pinto-De'Silva" | La función *PCase* usa caracteres en el parámetro *wordSeparators* para identificar palabras y transformarlas en mayúsculas y minúsculas correctas. |
+| `PCase(Join(" ",[firstName],[lastName]))` | *firstName* = GREGORY, *lastName* = "JAMES" | "Gregory James" | Puede anidar la función Join en PCase. Como no se especifica el parámetro *wordSeparators*, la función *PCase* usa el juego de caracteres separadores de palabras predeterminado.  |
+
+
+---
+
 ### <a name="removeduplicates"></a>RemoveDuplicates
 **Función:** RemoveDuplicates(attribute)
 

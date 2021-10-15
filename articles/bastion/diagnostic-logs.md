@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: ba31710e13ef786f2e4ede68541f1a5884306669
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4803ddf4c3d570e9bd52832ec4120c42972003eb
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730207"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458214"
 ---
 # <a name="enable-and-work-with-bastion-resource-logs"></a>Habilitación y uso de registros de recursos de Bastion
 
@@ -48,7 +48,7 @@ Para acceder a los registros de diagnóstico, puede usar directamente la cuenta 
    ![Seleccionar la ubicación de almacenamiento](./media/diagnostic-logs/3-resource-location.png)
 4. Busque el archivo JSON creado por Azure Bastion que contiene los datos del registro de diagnóstico del período de tiempo al que ha navegado.
 
-5. Descargue el archivo JSON del contenedor de blobs de almacenamiento. A continuación se muestra una entrada de ejemplo del archivo JSON como referencia:
+5. Descargue el archivo JSON del contenedor de blobs de almacenamiento. A continuación se muestra una entrada de ejemplo de un inicio de sesión correcto del archivo JSON como referencia:
 
    ```json
    { 
@@ -69,6 +69,7 @@ Para acceder a los registros de diagnóstico, puede usar directamente la cuenta 
       "message":"Successfully Connected.",
       "resourceType":"VM",
       "targetVMIPAddress":"172.16.1.5",
+      "userEmail":"<userAzureAccountEmailAddress>"
       "tunnelId":"<tunnelID>"
    },
    "FluentdIngestTimestamp":"2019-10-03T16:03:34.0000000Z",
@@ -76,7 +77,37 @@ Para acceder a los registros de diagnóstico, puede usar directamente la cuenta 
    "CustomerSubscriptionId":"<subscripionID>"
    }
    ```
-
+   
+   A continuación se muestra una entrada de ejemplo de un inicio de sesión incorrecto (por ejemplo, debido a un nombre de usuario o contraseña incorrectos) del archivo JSON:
+   
+   ```json
+   { 
+   "time":"2019-10-03T16:03:34.776Z",
+   "resourceId":"/SUBSCRIPTIONS/<subscripionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.NETWORK/BASTIONHOSTS/MYBASTION-BASTION",
+   "operationName":"Microsoft.Network/BastionHost/connect",
+   "category":"BastionAuditLogs",
+   "level":"Informational",
+   "location":"eastus",
+   "properties":{ 
+      "userName":"<username>",
+      "userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36",
+      "clientIpAddress":"131.107.159.86",
+      "clientPort":24039,
+      "protocol":"ssh",
+      "targetResourceId":"/SUBSCRIPTIONS/<subscripionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/LINUX-KEY",
+      "subscriptionId":"<subscripionID>",
+      "message":"Login Failed",
+      "resourceType":"VM",
+      "targetVMIPAddress":"172.16.1.5",
+      "userEmail":"<userAzureAccountEmailAddress>"
+      "tunnelId":"<tunnelID>"
+   },
+   "FluentdIngestTimestamp":"2019-10-03T16:03:34.0000000Z",
+   "Region":"eastus",
+   "CustomerSubscriptionId":"<subscripionID>"
+   }
+   ```
+   
 ## <a name="next-steps"></a>Pasos siguientes
 
 Lea el artículo sobre [preguntas frecuentes de Bastion](bastion-faq.md).

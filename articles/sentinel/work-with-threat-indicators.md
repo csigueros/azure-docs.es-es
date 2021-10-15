@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/27/2021
 ms.author: yelevin
-ms.openlocfilehash: 0ce6c7ced310fa467adbdc707d25bb5efc0f02bc
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 05aa211d5a96b712862fbb8c81e10ba313ef3b74
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124763317"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278797"
 ---
 # <a name="work-with-threat-indicators-in-azure-sentinel"></a>Trabajo con los indicadores de amenazas en Azure Sentinel
 
@@ -33,10 +33,6 @@ Puede integrar la inteligencia sobre amenazas (TI) en Azure Sentinel a través d
 - **Detecte las amenazas** y genere alertas e incidentes de seguridad utilizando las plantillas de reglas incorporadas de **Análisis** basadas en la inteligencia de amenazas importada.
 
 - **Visualice información clave** sobre la inteligencia de amenazas importada en Azure Sentinel con el **libro de trabajo de inteligencia sobre amenazas**.
-
-> [!IMPORTANT]
-> Actualmente, las características indicadas están en VERSIÓN PRELIMINAR. En la página [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) se incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en versión beta, versión preliminar o que todavía no se han publicado para su disponibilidad general.
->
 
 ## <a name="view-your-threat-indicators-in-azure-sentinel"></a>Consulta de los indicadores de amenazas en Azure Sentinel
 
@@ -139,6 +135,10 @@ Según la configuración predeterminada, cada vez que se ejecute la regla en su 
 En Azure Sentinel, las alertas generadas a partir de las reglas de análisis también generan incidentes de seguridad que se encuentran en **Incidentes** en **Administración de amenazas** en el menú de Azure Sentinel. Los incidentes son aquello que los equipos de operaciones de seguridad investigarán y cuyas prioridades evaluarán para determinar las acciones de respuesta adecuadas. Encontrará información detallada en este [Tutorial: Investigación de incidentes con Azure Sentinel](./investigate-cases.md).
 
 ## <a name="detect-threats-using-matching-analytics-public-preview"></a>Detección de amenazas mediante análisis de coincidencia (versión preliminar pública)
+
+> [!IMPORTANT]
+> El análisis de coincidencias está actualmente en VERSIÓN PRELIMINAR. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+>
 
 [Cree una regla](detect-threats-built-in.md#use-built-in-analytics-rules) mediante la plantilla de regla de **Análisis de coincidencias de Inteligencia sobre amenazas de Microsoft** integrada para que Azure Sentinel coincida con los datos de inteligencia sobre amenazas generados por Microsoft con los registros que ha ingerido para Azure Sentinel.
 

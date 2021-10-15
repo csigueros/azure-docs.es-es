@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: 2a0a104b4ad76c94d467c01fe8be421e5b96c435
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: da47d07b804dfee46299ef75e81261171880ea76
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123541684"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232078"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Cuaderno de estrategias para abordar requisitos de seguridad comunes con Azure SQL Database y Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

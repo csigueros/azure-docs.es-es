@@ -2,18 +2,17 @@
 title: Errores de Key Vault comunes en Application Gateway
 titleSuffix: Azure Application Gateway
 description: En este artículo se identifican los problemas relacionados con el almacén de claves y se ofrecen soluciones para resolverlos y así poder realizar operaciones de Application Gateway sin problemas.
-services: application-gateway
 author: jaesoni
 ms.service: application-gateway
 ms.topic: reference
 ms.date: 07/12/2021
 ms.author: jaysoni
-ms.openlocfilehash: 4f873e6fb751f3b368d86413c201b70634d9c7ce
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: cfcacf84b5a35862c3ef1423ed58ff4d5d7f3142
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128644094"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272327"
 ---
 # <a name="common-key-vault-errors-in-azure-application-gateway"></a>Errores comunes del almacén de claves en Azure Application Gateway
 
@@ -24,7 +23,7 @@ En este artículo encontrará información para comprender los detalles de los c
 
 ## <a name="list-of-error-codes-and-their-details"></a>Lista de códigos de error y sus detalles
 
-En las secciones siguientes se indican varios errores que pueden producirse. Puede encontrar los detalles en Azure Advisor y usar este artículo de solución de problemas para solucionar esos errores. Para obtener más información, consulte [Creación de alertas de Azure Advisor para nuevas recomendaciones mediante Azure Portal](https://docs.microsoft.com/azure/advisor/advisor-alerts-portal).
+En las secciones siguientes se indican varios errores que pueden producirse. Puede encontrar los detalles en Azure Advisor y usar este artículo de solución de problemas para solucionar esos errores. Para obtener más información, consulte [Creación de alertas de Azure Advisor para nuevas recomendaciones mediante Azure Portal](../advisor/advisor-alerts-portal.md).
 
 > [!NOTE]
 > Azure Application Gateway genera registros para el diagnóstico del almacén de claves cada cuatro horas. Si el diagnóstico continúa mostrando el error después de que haya corregido la configuración, es posible que deba esperar a que se actualicen los registros.
@@ -120,5 +119,5 @@ Seleccione **Almacenes eliminados administrados**. En esta opción, puede encont
 
 Estos artículos de solución de problemas pueden resultarle útiles a medida que use Application Gateway:
 
-- [Información general sobre Resource Health de Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/resource-health-overview)
-- [Solución de problemas de afinidad de sesión en Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/how-to-troubleshoot-application-gateway-session-affinity-issues)
+- [Información general sobre Resource Health de Azure Application Gateway](resource-health-overview.md)
+- [Solución de problemas de afinidad de sesión en Azure Application Gateway](how-to-troubleshoot-application-gateway-session-affinity-issues.md)

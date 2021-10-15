@@ -8,18 +8,18 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/15/2021
-ms.openlocfilehash: 027c1f44d756494432a076ec32f06e627f916b99
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 84d0e0b509505e6d56e39294b3e2819e4b03e024
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128553739"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350005"
 ---
-# <a name="transform-xml-for-workflows-in-azure-logic-apps"></a>Transformación XML para flujos de trabajo en Azure Logic Apps
+# <a name="transform-xml-in-workflows-with-azure-logic-apps"></a>Transformación de XML en flujos de trabajo con Azure Logic Apps
 
 En escenarios de integración empresarial de negocio a negocio (B2B), puede que tenga que convertir XML entre formatos. El flujo de trabajo de la aplicación lógica puede transformar XML mediante la acción **Transformar XML** y una [*asignación*](logic-apps-enterprise-integration-maps.md) predefinida. Por ejemplo, imagine que recibe periódicamente pedidos o facturas B2B de un cliente que usa el formato de fecha añoMesDía (AAAAMMDD), mientras que su organización emplea el formato de fecha mesDíaAño (MMDDAAAA). Puede crear y usar una asignación que transforme el formato de fecha añoMesDía en mesDíaAño antes de almacenar los detalles del pedido o la factura en la base de datos de actividad de los clientes.
 
-Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](logic-apps-overview.md) Para obtener más información sobre la integración empresarial B2B, revise [Flujos de trabajo de integración empresarial B2B con Azure Logic Apps y Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
+Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](logic-apps-overview.md) Para más información sobre la integración empresarial B2B, revise [Flujos de trabajo de integración empresarial B2B con Azure Logic Apps y Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -27,7 +27,7 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
 
 * Un flujo de trabajo de aplicaciones lógicas que ya se inicie con un desencadenador para poder agregar la acción **Transformar XML** donde sea necesario en el flujo de trabajo.
 
-* Un [recurso de cuenta de integración](logic-apps-enterprise-integration-create-integration-account.md) donde se definen y almacenan artefactos, como socios comerciales, contratos, certificados, entre otros, para su uso en los flujos de trabajo de integración empresarial y B2B. Este recurso tiene que satisfacer los siguientes requisitos:
+* Un [recurso de cuenta de integración](logic-apps-enterprise-integration-create-integration-account.md), donde se definen y almacenan artefactos, como socios comerciales, contratos, certificados, entre otros, para su uso en los flujos de trabajo de integración empresarial y B2B. Este recurso tiene que satisfacer los siguientes requisitos:
 
   * Estar asociado a la misma suscripción de Azure que el recurso de aplicación lógica.
 
@@ -44,7 +44,7 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
     Todavía necesita una cuenta de integración para almacenar otros artefactos, como asociados, contratos y certificados, junto con el uso de las operaciones [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) y [EDIFACT](logic-apps-enterprise-integration-edifact.md). Pero no es necesario vincular el recurso de aplicación lógica a la cuenta de integración, por lo que la funcionalidad de vinculación no existe. La cuenta de integración todavía tiene que cumplir otros requisitos, como usar la misma suscripción de Azure y existir en la misma ubicación que el recurso de aplicación lógica.
 
     > [!NOTE]
-    > Actualmente, solo el tipo de recurso **Aplicación lógica (consumo)** admite operaciones de [RosettaNet](logic-apps-enterprise-integration-rosettanet.md). El tipo de recurso **Aplicación lógica (estándar)** no incluye operaciones de [RosettaNet](logic-apps-enterprise-integration-rosettanet.md).
+    > Actualmente, solo el tipo de recurso **Logic App (Consumption)** (Aplicación lógica [Consumo]) admite operaciones de [RosettaNet](logic-apps-enterprise-integration-rosettanet.md). El tipo de recurso **Logic App (Standard)** (Aplicación lógica [Estándar]) no incluye operaciones de [RosettaNet](logic-apps-enterprise-integration-rosettanet.md).
 
 ## <a name="add-transform-xml-action"></a>Incorporación de una acción Transformar XML
 

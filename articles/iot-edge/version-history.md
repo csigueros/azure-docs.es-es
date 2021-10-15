@@ -7,12 +7,12 @@ ms.date: 04/07/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 334173ceb422db765c86ea05912817a02346f997
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7449043475389797be17c20a03e86fc3fbf5bdbe
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128578361"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359114"
 ---
 # <a name="azure-iot-edge-versions-and-release-notes"></a>Versiones de Azure IoT Edge y notas de la versión
 
@@ -24,8 +24,8 @@ Azure IoT Edge es un producto creado a partir del proyecto de IoT Edge de códig
 
 La documentación de IoT Edge de este sitio está disponible para dos versiones diferentes del producto, de modo que pueda elegir el contenido que se aplica a su entorno de IoT Edge. Actualmente, las versiones compatibles son:
 
-* **IoT Edge 1.2** incluye contenido adicional para nuevas características y funcionalidades disponibles en la versión estable más reciente.
-* **IoT Edge 1.1 (LTS)** es la primera versión de compatibilidad a largo plazo (LTS) de IoT Edge. La documentación de esta versión cubre todas las características y capacidades de todas las versiones anteriores hasta 1.1. Esta versión de la documentación será estable a través de la duración admitida de la versión 1.1 y no reflejará las nuevas características publicadas en versiones posteriores.
+* **IoT Edge 1.2** incluye contenido para nuevas características y funcionalidades disponibles en la versión estable más reciente.
+* **IoT Edge 1.1 (LTS)** es la primera versión de compatibilidad a largo plazo (LTS) de IoT Edge. La documentación de esta versión cubre todas las características y capacidades de todas las versiones anteriores hasta 1.1. Esta versión de la documentación será estable a través de la duración admitida de la versión 1.1 y no reflejará las nuevas características publicadas en versiones posteriores. IoT Edge 1.1 LTS recibirá soporte técnico hasta el 3 de diciembre de 2022 para que coincida con el [ciclo de vida de versión de .NET Core 3.1](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 Para más información sobre las versiones de IoT Edge, consulte [Sistemas compatibles con Azure IoT Edge](support.md).
 

@@ -1,30 +1,29 @@
 ---
 title: Etiquetado de imágenes y documentos de texto
 title.suffix: Azure Machine Learning
-description: Aprenda a usar las herramientas de etiquetado de datos para preparar rápidamente los datos de texto o imagen para Machine Learning en un proyecto de etiquetado de datos.
+description: Use herramientas de etiquetado de datos para etiquetar rápidamente texto o imágenes para Machine Learning en un proyecto de etiquetado de datos.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 09/24/2021
 ms.custom: data4ml
-ms.openlocfilehash: 491ee8134d17eac9e0abb54780f2aa39e1323e6c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: d07a48267effa51a721d1b64c79bc0a6ba7d439f
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114446261"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429649"
 ---
 # <a name="labeling-images-and-text-documents"></a>Etiquetado de imágenes y documentos de texto
 
-Después de que el administrador del proyecto [cree un proyecto de etiquetado de datos](./how-to-create-labeling-projects.md#create-a-data-labeling-project) en Azure Machine Learning, puede usar la herramienta de etiquetado para preparar rápidamente los datos para un proyecto de Machine Learning. En este artículo se describe:
+Una vez que el administrador del proyecto crea un [proyecto de etiquetado de datos de imagen](./how-to-create-image-labeling-projects.md) o un [proyecto de etiquetado de datos de texto](./how-to-create-text-labeling-projects.md) en Azure Machine Learning, puede usar la herramienta de etiquetado para preparar rápidamente los datos para un proyecto de Machine Learning. En este artículo se describe:
 
 > [!div class="checklist"]
 > * Cómo acceder a proyectos de etiquetado
 > * Herramientas de etiquetado
 > * Cómo usar las herramientas para tareas específicas de etiquetado
-
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -63,7 +62,7 @@ Los algoritmos de aprendizaje automático se pueden desencadenar durante el etiq
 
 En las primeras fases de un proyecto de etiquetado, es posible que el modelo de Machine Learning sea suficientemente preciso para preetiquetar un pequeño subconjunto de imágenes. Una vez que se etiqueten estas imágenes, el proyecto de etiquetado volverá al etiquetado manual para recopilar más datos para la siguiente ronda del entrenamiento del modelo. Con el paso del tiempo, el modelo pasará a ser más seguro en una mayor proporción de imágenes, lo cual dará como resultado posteriormente un mayor número de tareas preetiquetadas en el proyecto.
 
-## <a name="image-tasks"></a>Tareas de imagen
+## <a name="image-tasks"></a><a name="image-tasks"></a> Tareas de imagen
 
 En las tareas de clasificación de imágenes, puede elegir ver varias imágenes simultáneamente. Use los iconos situados encima del área de imagen para seleccionar el diseño.
 
@@ -163,13 +162,13 @@ Para eliminar *todos* los polígonos de la imagen actual, seleccione la herramie
 
 Después de crear los polígonos de una imagen, seleccione **Submit** (Enviar) para guardar el trabajo; de lo contrario, no se guardará el trabajo en curso.
 
-## <a name="annotate-text-preview"></a>Anotación de texto (versión preliminar)
+## <a name="label-text-preview"></a><a name="label-text"></a>Texto de etiqueta (versión preliminar)
 
 > [!IMPORTANT]
 > El etiquetado de texto se encuentra en versión preliminar pública.
 > Se ofrece la versión preliminar sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Al anotar texto, use la barra de herramientas para:
+Al etiquetar el texto, use la barra de herramientas para:
 
 * Aumentar o reducir el tamaño del texto
 * Cambio de la fuente

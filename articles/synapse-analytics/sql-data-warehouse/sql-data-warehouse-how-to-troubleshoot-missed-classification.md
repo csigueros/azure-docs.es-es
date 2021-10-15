@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 10/01/2021
 ms.custom: template-how-to
 ms.reviewer: wiassaf
-ms.openlocfilehash: 1fa0394f3e711ec172f5a3ad32288f63bcf55dce
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 6cf1564ccc62d6429da56bc8116b124b44b58653
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129390466"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129728406"
 ---
 # <a name="troubleshooting-a-misclassified-workload-in-azure-synapse-analytics"></a>Solución de problemas de una carga de trabajo mal clasificada en Azure Synapse Analytics
 
@@ -40,7 +40,7 @@ Para solucionar problemas de un escenario de carga de trabajo mal clasificado, s
 
 ### <a name="workload-groups"></a>Grupos de carga de trabajo
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure portal
 
 Para obtener una lista de todos los grupos de cargas de trabajo (incluidos los grupos de cargas de trabajo del sistema) y los detalles asociados en el Azure Portal:
 
@@ -65,7 +65,7 @@ Para más información, consulte [sys.workload_management_workload_groups](/sql/
 
 ### <a name="workload-classifiers"></a>Clasificadores de cargas de trabajo
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure portal
 
 Para enumerar todos los clasificadores de cargas de trabajo (incluidos los clasificadores definidos por el sistema) por grupo de cargas de trabajo en Azure Portal, vea los números enumerados en la columna **Clasificadores** de la tabla de grupo de cargas de trabajo (consulte la sección anterior).
 
@@ -102,7 +102,7 @@ El primer paso para solucionar un problema de carga de trabajo clasificada erró
 SELECT * FROM sys.dm_pdw_exec_requests;
 ```
 
-Para más información, consulte [sys.dm_pdw_exec_requests](/sql/relational-databases/system-catalog-views/sys-dm-pdw-exec-requests-transact-sql).
+Para más información, consulte [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql).
 
 ## <a name="common-scenarios-of-misclassified-workloads"></a>Escenarios comunes de cargas de trabajo mal clasificadas
 

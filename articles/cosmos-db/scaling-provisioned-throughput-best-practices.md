@@ -8,12 +8,12 @@ ms.date: 08/20/2021
 ms.author: dech
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: c9ec0f3eb2846a6d5eb281202ebd9f9c278bdd70
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: c8a2ab0b904c60e2d1d1c44a9d596cf62d0403d6
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124798985"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546046"
 ---
 # <a name="best-practices-for-scaling-provisioned-throughput-rus"></a>Procedimientos recomendados para escalar el rendimiento aprovisionado (RU/s) 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -33,9 +33,13 @@ Cuando envía una solicitud para aumentar las RU/s de la base de datos o contene
 - **Escalado vertical asincrónico**
     - Cuando las RU/s solicitadas son superiores a lo que puede ser compatible con el diseño de partición física, Azure Cosmos DB dividirá las particiones físicas existentes. Esto sucede hasta que el recurso tiene el número mínimo de particiones necesarias para admitir las RU/s solicitadas. 
     - Como resultado, la operación puede tardar algún tiempo en completarse, normalmente de 4 a 6 horas.
- 
 Cada partición física puede admitir un máximo de 10 000 RU/s (se aplica a todas las API) de rendimiento y 50 GB de almacenamiento (se aplica a todas las API, excepto Cassandra, que tiene 30 GB de almacenamiento). 
 
+- **Escalado vertical instantáneo**
+    - Para realizar la operación de reducción vertical, Azure Cosmos DB no necesita dividir ni agregar nuevas particiones. 
+    - Como resultado, la operación se completa inmediatamente y las RU están disponibles para su uso. 
+    - El resultado clave de esta operación es que se reducirán las RU por intervalo de partición.
+    
 ## <a name="how-to-scale-up-rus-without-changing-partition-layout"></a>Escalado vertical de las RU/s sin cambiar el diseño de la partición
 
 ### <a name="step-1-find-the-current-number-of-physical-partitions"></a>Paso 1: Buscar el número actual de particiones físicas. 

@@ -6,12 +6,12 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: bwren
 ms.author: bwren
 ms.date: 05/07/2021
-ms.openlocfilehash: eb5766214fff67bf7e45998c9f89c640433bbe99
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 04662b734f86905f0064bad43ecbecd84bc48042
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128652460"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129401396"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportación de datos del área de trabajo de Log Analytics en Azure Monitor (versión preliminar)
 La exportación de datos del área de trabajo de Log Analytics en Azure Monitor permite exportar continuamente los datos de las tablas seleccionadas del área de trabajo de Log Analytics en una cuenta de Azure Storage o Azure Event Hubs a medida que se recopilan. En este artículo se ofrecen detalles sobre esta característica y pasos para configurar la exportación de datos en las áreas de trabajo.
@@ -32,16 +32,45 @@ La exportación de datos del área de trabajo de Log Analytics permite exportar 
 
 ## <a name="limitations"></a>Limitaciones
 
-- Actualmente, la configuración se puede realizar mediante solicitudes REST o la CLI. Todavía no se admiten Azure Portal o PowerShell.
+- Actualmente, la configuración solo se puede realizar mediante solicitudes REST o la CLI. Todavía no se admiten Azure Portal o PowerShell.
 - La opción `--export-all-tables` de la CLI y REST no se admite y se quitará. Debe proporcionar la lista de tablas en las reglas de exportación de manera explícita.
-- Las tablas admitidas actualmente se limitan a las especificadas en la sección [Tablas admitidas](#supported-tables) más adelante. Por ejemplo, actualmente no se admiten las tablas de registro personalizadas.
+- Las tablas admitidas se limitan a las especificadas en la sección [Tablas admitidas](#supported-tables) que tiene más adelante. 
+- Las tablas de registro personalizadas existentes no se admiten en la exportación. Se admite una nueva versión de registro personalizada disponible en marzo de 2022.
 - Si la regla de exportación de datos incluye una tabla no admitida, la operación se realizará correctamente, pero no se exportará ningún dato de esa tabla hasta que se admita. 
 - Si la regla de exportación de datos incluye una tabla que no existe, se producirá un error `Table <tableName> does not exist in the workspace`.
-- La exportación de datos estará disponible en todas las regiones, pero actualmente no está disponible en las siguientes: Norte de Suiza, Oeste de Suiza, Centro-oeste de Alemania, Centro de Australia 2, Centro de Emiratos Árabes Unidos, Norte de Emiratos Árabes Unidos, Japón Occidental, Sudeste de Brasil, Este de Noruega, Oeste de Noruega, Sur de Francia, Sur de la India, Sur de Corea del Sur, Centro de la India (Jio), Oeste de la India (Jio), Este de Canadá, Oeste de EE. UU. 3, Centro de Suecia, Sur de Suecia, nubes de Administración Pública y China.
-- Puede definir hasta 10 reglas habilitadas en el área de trabajo. Se permiten reglas adicionales, pero en estado de deshabilitación. 
+- Puede definir hasta 10 reglas habilitadas en el área de trabajo. Se permiten reglas adicionales cuando se deshabilitan. 
 - El destino debe ser único en todas las reglas de exportación del área de trabajo.
-- La cuenta de almacenamiento de destino o el centro de eventos deben estar en la misma región que el área de trabajo de Log Analytics.
-- Los nombres de las tablas que se vayan a exportar no pueden tener más de 60 caracteres para una cuenta de almacenamiento, ni más de 47 caracteres en el caso de un centro de eventos. Las tablas con nombres más largos no se exportarán.
+- Los destinos deben estar en la misma región que el área de trabajo de Log Analytics.
+- Los nombres de tablas no pueden tener más de 60 caracteres cuando se exporta a la cuenta de almacenamiento y 47 caracteres cuando se exporta al centro de eventos. Las tablas con nombres más largos no se exportarán.
+- La exportación de datos estará disponible en todas las regiones, pero actualmente se admite en: 
+    - Centro de Australia
+    - Este de Australia
+    - Sudeste de Australia
+    - Sur de Brasil
+    - Centro de Canadá
+    - Centro de la India
+    - Centro de EE. UU.
+    - Este de Asia
+    - Este de EE. UU.
+    - Este de EE. UU. 2
+    - Centro de Francia
+    - Centro-oeste de Alemania
+    - Japón Oriental
+    - Centro de Corea del Sur
+    - Centro-Norte de EE. UU
+    - Norte de Europa
+    - Norte de Sudáfrica
+    - Centro-sur de EE. UU.
+    - Sudeste de Asia
+    - Norte de Suiza
+    - Oeste de Suiza
+    - Norte de Emiratos Árabes Unidos
+    - Sur de Reino Unido
+    - Oeste de Reino Unido
+    - Centro-Oeste de EE. UU.
+    - Oeste de Europa
+    - Oeste de EE. UU.
+    - Oeste de EE. UU. 2
 
 ## <a name="data-completeness"></a>Integridad de los datos
 La exportación de datos continuará reintentando el envío de datos durante un máximo de 30 minutos, en el caso de que el destino no esté disponible. Si sigue sin estar disponible después de 30 minutos, los datos se descartarán hasta que el destino esté disponible.

@@ -4,13 +4,13 @@ description: Describe las funciones que se usarán en un archivo de Bicep para r
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/10/2021
-ms.openlocfilehash: e909ea77da32675beec6d5117430717acf274ab1
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/30/2021
+ms.openlocfilehash: 9d06bd78d7ba6dcf0f73326f744e975a9c4e3f53
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124731098"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352396"
 ---
 # <a name="deployment-functions-for-bicep"></a>Funciones de implementación para Bicep
 
@@ -21,6 +21,8 @@ En este artículo se describen las funciones de Bicep para obtener valores relac
 `deployment()`
 
 Devuelve información sobre la operación de implementación actual.
+
+Espacio de nombres: [az](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -110,6 +112,8 @@ El ejemplo anterior devuelve el objeto siguiente:
 `environment()`
 
 Devuelve información sobre el entorno de Azure que se usa para la implementación.
+
+Espacio de nombres: [az](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="return-value"></a>Valor devuelto
 

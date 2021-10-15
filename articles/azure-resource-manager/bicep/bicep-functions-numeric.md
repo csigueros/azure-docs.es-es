@@ -4,13 +4,13 @@ description: Se describen las funciones que se usan en un archivo de Bicep para 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/10/2021
-ms.openlocfilehash: 8df0aec96001aa5b1a7cdd7342fe663f0bfa2da0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/30/2021
+ms.openlocfilehash: b5230d9fd7f228981c3ac3ec899ae8b641cc74fb
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124758491"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355330"
 ---
 # <a name="numeric-functions-for-bicep"></a>Funciones numéricas de Bicep
 
@@ -23,6 +23,8 @@ Algunas de las funciones numéricas JSON de Azure Resource Manager se reemplazan
 `int(valueToConvert)`
 
 Convierte el valor especificado en un entero.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -55,6 +57,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 `max (arg1)`
 
 Devuelve el valor máximo de una matriz de enteros o una lista separada por comas de enteros.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 
@@ -95,6 +99,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 `min (arg1)`
 
 Devuelve el valor mínimo de una matriz de enteros o una lista separada por comas de enteros.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Parámetros
 

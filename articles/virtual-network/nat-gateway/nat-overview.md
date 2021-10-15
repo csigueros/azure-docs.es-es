@@ -9,12 +9,12 @@ ms.subservice: nat
 ms.topic: conceptual
 ms.date: 06/29/2021
 ms.author: allensu
-ms.openlocfilehash: afaee074fcfda1713031468a18039aac8aa398ca
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: dfd00b0eb924c13cc68dbf0d6d1b1833c3ad7893
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114297070"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129236622"
 ---
 # <a name="what-is-virtual-network-nat"></a>¿Qué es NAT de Virtual Network?
 
@@ -120,6 +120,7 @@ Queremos saber cómo podemos mejorar el servicio. Proponga lo que debemos crear 
 * NAT es compatible con la dirección IP pública de la SKU estándar, el prefijo de IP pública y los recursos del equilibrador de carga. Ni los recursos básicos (por ejemplo, el equilibrador de carga básico) ni los productos derivados de ellos son compatibles con NAT.  Los recursos básicos se deben colocar en una subred que no esté configurada con NAT.
 * Se admite la familia de direcciones IPv4.  NAT no interactúa con la familia de direcciones IPv6.  NAT no se puede implementar en una subred con un prefijo IPv6.
 * NAT no puede abarcar varias redes virtuales.
+* NAT no se puede implementar en una [subred de puerta de enlace](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

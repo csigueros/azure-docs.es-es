@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 36d36101cc7a7a4efff66e680f47431933ddf569
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 58509ca09bc17911d4a1a16955f97396c082e7de
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128630838"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273124"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Introducción a blobs en páginas de Azure
 
@@ -27,7 +27,7 @@ Las características clave de los blobs en páginas de Azure son la interfaz RES
 
 ## <a name="restrictions"></a>Restricciones
 
-Los blobs en páginas solo pueden usar el **nivel de acceso frecuente**, no pueden usar los niveles de acceso **esporádico** o **de archivo**. Para más información sobre los niveles de acceso, consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](storage-blob-storage-tiers.md).
+Los blobs en páginas solo pueden usar el **nivel de acceso frecuente**, no pueden usar los niveles de acceso **esporádico** o **de archivo**. Para más información sobre los niveles de acceso, consulte [Niveles de acceso frecuente, esporádico y de archivo de datos de los blobs](access-tiers-overview.md).
 
 ## <a name="sample-use-cases"></a>Casos de uso de ejemplo
 

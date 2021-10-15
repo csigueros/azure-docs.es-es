@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Obtenga información acerca de cómo conectarse de manera segura al almacenamiento de datos en Azure con los conjuntos de datos y almacenes de datos de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 601be8409db22162a410d481e6609d378718a7b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b439f65f2807d2d076363938169631651b85d20
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102503596"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129430162"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Acceso seguro a datos en Azure Machine Learning
 
@@ -61,7 +61,7 @@ A continuación se indican los servicios de almacenamiento basados en la nube de
 + Recurso compartido de archivos de Azure
 + Azure Data Lake
 + Azure Data Lake Gen2
-+ Azure SQL Database
++ Azure SQL Database
 + Azure Database for PostgreSQL
 + Sistema de archivos de Databricks
 + Azure Database for MySQL
@@ -116,7 +116,7 @@ El etiquetado de grandes cantidades de datos a menudo ha resultado un dolor de c
 
 Azure Machine Learning le proporciona una ubicación central para crear, administrar y supervisar proyectos de etiquetado. Los proyectos de etiquetado ayudan a coordinar los datos, las etiquetas y los miembros del equipo, lo que le permite administrar de forma más eficaz las tareas de etiquetado. Actualmente, las tareas admitidas son la clasificación de imágenes (de varias etiquetas y de varias clases) y la identificación de objetos mediante cuadros de límite.
 
-Cree un [proyecto de etiquetado de datos](how-to-create-labeling-projects.md) y genere un conjunto de datos para su uso en experimentos de aprendizaje automático.
+Cree un [proyecto de etiquetado de imágenes](how-to-create-image-labeling-projects.md) o un [proyecto de etiquetado de texto](how-to-create-text-labeling-projects.md) y genere un conjunto de datos que puede usar en experimentos de aprendizaje automático.
 
 <a name="drift"></a>
 

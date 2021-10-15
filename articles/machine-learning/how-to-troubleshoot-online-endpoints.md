@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Aprenda a solucionar algunos errores comunes de implementación y puntuación con puntos de conexión en línea administrados.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 author: petrodeg
 ms.author: petrodeg
 ms.reviewer: laobri
 ms.date: 05/13/2021
 ms.topic: troubleshooting
 ms.custom: devplatv2
-ms.openlocfilehash: 0edd6b7e9ac3229483d53d0e91c49f06633f5e51
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: e4c4b611b4316f0e9a950c9f13144e37c9c1762b
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129218458"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129425761"
 ---
 # <a name="troubleshooting-managed-online-endpoints-deployment-and-scoring-preview"></a>Solución de problemas de implementación y puntuación de puntos de conexión en línea administrados (versión preliminar)
 
@@ -195,6 +195,7 @@ Para ejecutar el archivo `score.py` proporcionado como parte de la implementaci�
     - Un paquete que se importó pero no está en el entorno de Conda
     - Un error de sintaxis
     - Un error en el método `init()`
+- Si `get-logs` no genera ningún registro, normalmente significa que el contenedor no se ha podido iniciar. Para depurar este problema, intente realizar una [implementación local](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/how-to-troubleshoot-online-endpoints.md#deploy-locally) en su lugar.
 - Los sondeos de preparación o ejecución no están configurados correctamente.
 - Hay un error en la configuración del entorno del contenedor, como una dependencia que falta.
 

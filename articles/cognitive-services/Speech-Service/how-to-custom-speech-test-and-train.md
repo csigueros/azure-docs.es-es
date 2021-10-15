@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 09/16/2021
 ms.author: pafarley
-ms.openlocfilehash: 79846dcb5acb50549231d247530512564ae1beea
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 046499f32050bf856e6eb39874f3f7b0f0fa2e51
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123542537"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128569499"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparación de los datos para Habla personalizada
 
@@ -153,7 +153,8 @@ Además, querrá tener en cuenta las siguientes restricciones:
 
 ## <a name="pronunciation-data-for-training"></a>Datos de pronunciación para entrenamiento
 
-Si hay términos poco comunes sin pronunciaciones estándar que los usuarios van a encontrar o utilizar, puede proporcionar un archivo de pronunciación personalizado para mejorar el reconocimiento. 
+Si hay términos poco comunes sin pronunciaciones estándar que los usuarios van a encontrar o utilizar, puede proporcionar un archivo de pronunciación personalizado para mejorar el reconocimiento. Para obtener una lista de idiomas que admiten la pronunciación personalizada, vea **Pronunciación** en la columna **Personalizaciones** de la [tabla de conversión de voz en texto](language-support.md#speech-to-text).
+
 > [!IMPORTANT]
 > No se recomienda utilizar archivos de pronunciación personalizados para modificar la pronunciación de palabras comunes.
 
@@ -166,13 +167,6 @@ Proporcione las pronunciaciones en un único archivo de texto. Esto incluye ejem
 | IEEE | AI TRIPLE I |
 
 La forma hablada es la secuencia fonética deletreada. Puede estar compuesta de letras, palabras, sílabas o una combinación de las tres.
-
-La pronunciación personalizada está disponible en inglés (`en-US`) y en alemán (`de-DE`). En esta tabla se muestran los caracteres admitidos por idioma:
-
-| Idioma | Configuración regional | Characters |
-|----------|--------|------------|
-| Inglés | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
-| Alemán | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 
 Utilice la tabla siguiente para asegurarse de que el formato del archivo de datos relacionado con las pronunciaciones sea correcto. Los archivos de pronunciación son pequeños y no deberían superar unos pocos KB.
 

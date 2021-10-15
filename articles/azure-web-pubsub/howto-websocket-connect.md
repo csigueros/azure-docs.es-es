@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: how-to
 ms.date: 08/26/2021
-ms.openlocfilehash: 939bc5b6c4b272174d99787e89f04a7431a45d68
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 02e7afa9b8c454b3520db933d76149973b50c699
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124827472"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275171"
 ---
 #  <a name="start-a-websocket-connection-to-azure-web-pubsub"></a>Inicio de una conexión de WebSocket a Azure Web PubSub
 
@@ -31,7 +31,7 @@ El portal también proporciona una herramienta para generar la dirección URL de
 > Asegúrese de incluir solo los roles necesarios al generar el token.
 >
 
-Para simplificar el flujo de trabajo de ejemplo, en las secciones siguientes, usamos esta dirección URL generada temporalmente desde el portal para que el cliente establezca conexión. Usamos `<Client_URL_From_Portal>` para representar el valor. El token generado expira en un plazo de 50 minutos de forma predeterminada, por lo que no olvide volver a generar uno cuando expire.
+Para simplificar el flujo de trabajo de ejemplo, en las secciones siguientes, usamos esta dirección URL generada temporalmente desde el portal para que el cliente establezca conexión. Usamos `<Client_URL_From_Portal>` para representar el valor. El token generado expira en un plazo de 60 minutos de manera predeterminada, por lo que no olvide volver a generar uno cuando expire.
 
 El servicio admite dos tipos de clientes de WebSocket, uno que es el cliente de WebSocket simple y el otro, el cliente de WebSocket PubSub. A continuación, se muestra cómo estos dos tipos de clientes se conectan al servicio. Para más información sobre estos clientes, consulte [Protocolos de cliente de WebSocket para Azure Web PubSub](./concept-client-protocols.md).
 

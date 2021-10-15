@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/03/2021
-ms.openlocfilehash: 0a7bca44ccee4e836fd5aa8e0ef44412e1fc6985
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/29/2021
+ms.openlocfilehash: 6a1c13d8557b49b1481e94bc95eef10fd5e658f6
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124836204"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230254"
 ---
 # <a name="copy-data-from-and-to-salesforce-using-azure-data-factory-or-azure-synapse-analytics"></a>Copia de datos en Salesforce con origen y destino mediante Azure Data Factory o Azure Synapse Analytics
 
@@ -41,6 +41,9 @@ En concreto, este conector de Salesforce admite:
 - La copia de datos desde y hacia producción, espacio aislado y dominio personalizado de Salesforce.
 
 El conector de Salesforce se basa en la API REST/Bulk de Salesforce. Al copiar datos desde Salesforce, el conector elige automáticamente entre REST y las API masivas en función del tamaño de los datos; cuando el conjunto de resultados es grande, se usa la API masiva para mejorar el rendimiento. Puede establecer explícitamente la versión de API que se usa para leer y escribir datos mediante la [propiedad `apiVersion`](#linked-service-properties) en el servicio vinculado.
+
+>[!NOTE]
+>El conector ya no establece la versión predeterminada para Salesforce API. Por compatibilidad con versiones anteriores, si se estableció una versión de API predeterminada antes, sigue funcionando. El valor predeterminado es 45,0 para source y 40,0 para sink.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

@@ -1,14 +1,14 @@
 ---
 title: Experiencias de administración entre inquilinos
 description: Azure Lighthouse habilita y mejora las experiencias entre inquilinos en muchos servicios de Azure.
-ms.date: 07/20/2021
+ms.date: 09/30/2021
 ms.topic: conceptual
-ms.openlocfilehash: c57afabe5f3aaf49ef1f1868c04c60af4298381d
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: a6ad75df4e22f56c8bcb0f28586c736fc6b04a49
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114440916"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129349777"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
@@ -101,7 +101,7 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 - [Log Analytics](../../azure-monitor/logs/service-providers.md): consulte datos de áreas de trabajo remotas situadas en varios inquilinos (tenga en cuenta que las cuentas de Automation que se usan para acceder a datos desde áreas de trabajo que se encuentran en inquilinos de cliente deben crearse en el mismo inquilino).
 - Cree, vea y administre [alertas de métricas](../../azure-monitor/alerts/alerts-metric.md), [alertas de registro](../../azure-monitor/alerts/alerts-log.md) y [alertas de registros de actividad](../../azure-monitor/alerts/alerts-activity-log.md) en los inquilinos del cliente.
 - Cree alertas en inquilinos de cliente que desencadenen la automatización, como los runbooks de Azure Automation o Azure Functions, en el inquilino que realiza la administración a través de webhooks
-- Creación de una [configuración de diagnóstico](../..//azure-monitor/essentials/diagnostic-settings.md) en inquilinos de cliente para enviar registros de recursos a áreas de trabajo en el inquilino de administración
+- Creación de una [configuración de diagnóstico](../..//azure-monitor/essentials/diagnostic-settings.md) en áreas de trabajo creadas en inquilinos de cliente para enviar registros de recursos a áreas de trabajo en el inquilino de administración
 - Para las cargas de trabajo de SAP, [supervise las métricas de soluciones de SAP con una vista agregada a través de los inquilinos del cliente](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293).
 
 [Redes de Azure](../../networking/fundamentals/networking-overview.md):

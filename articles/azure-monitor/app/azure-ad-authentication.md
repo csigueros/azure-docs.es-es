@@ -3,12 +3,12 @@ title: Autenticación de Azure Active Directory para Application Insights (vers
 description: Aprenda a habilitar la autenticación de Azure Active Directory (Azure AD) para asegurarse de que solo se ingiera telemetría autenticada en los recursos de Application Insights.
 ms.topic: conceptual
 ms.date: 08/02/2021
-ms.openlocfilehash: 9d93da1a8567a7c50dac43c29e3a962652ceee33
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: b38e3498ae61c9639c71eb358a4089dc59243616
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123111474"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857718"
 ---
 # <a name="azure-ad-authentication-for-application-insights-preview"></a>Autenticación de Azure Active Directory para Application Insights (versión preliminar)
 Application Insights ahora admite la autenticación de Azure Active Directory (Azure AD). Mediante Azure AD, puede asegurarse de que solo se ingieren los datos de telemetría autenticados en los recursos de Application Insights. 
@@ -135,7 +135,7 @@ appInsights.defaultClient.aadTokenCredential = credential;
 > [!NOTE]
 > La compatibilidad con Azure AD en el agente de Java de Application Insights se incluye a partir de la version [Java 3.2.0-BETA](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0-BETA). 
 
-1. [Configure la aplicación con el agente de Java.](java-in-process-agent.md#quickstart)
+1. [Configure la aplicación con el agente de Java.](java-in-process-agent.md#get-started)
 
     > [!IMPORTANT]
     > Use la cadena de conexión completa que incluye “IngestionEndpoint” al configurar la aplicación con el agente de Java. Por ejemplo, `InstrumentationKey=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX;IngestionEndpoint=https://XXXX.applicationinsights.azure.com/`.
@@ -174,7 +174,7 @@ A continuación se muestra un ejemplo sobre cómo configurar el agente de Java p
       "type": "UAMI", 
       "clientId":"<USER-ASSIGNED MANAGED IDENTITY CLIENT ID>" 
     } 
-  }  
+  }     
 } 
 ```
 :::image type="content" source="media/azure-ad-authentication/user-assigned-managed-identity.png" alt-text="Captura de pantalla de la identidad administrada asignada por el usuario." lightbox="media/azure-ad-authentication/user-assigned-managed-identity.png":::
@@ -188,11 +188,11 @@ A continuación se muestra un ejemplo sobre cómo configurar el agente de Java p
   "connectionString": "App Insights Connection String with IngestionEndpoint",
    "preview": { 
         "authentication": { 
-        "enabled": true, 
-        "type": "CLIENTSECRET", 
-        "clientId":"<YOUR CLIENT ID>", 
-        "clientSecret":"<YOUR CLIENT SECRET>", 
-        "tenantId":"<YOUR TENANT ID>" 
+          "enabled": true, 
+          "type": "CLIENTSECRET", 
+          "clientId":"<YOUR CLIENT ID>", 
+          "clientSecret":"<YOUR CLIENT SECRET>", 
+          "tenantId":"<YOUR TENANT ID>" 
     } 
   } 
 } 
@@ -206,11 +206,9 @@ A continuación se muestra un ejemplo sobre cómo configurar el agente de Java p
 > [!NOTE]
 > La autenticación de Azure AD solo está disponible para Python v2.7, v3.6 y v3.7. La compatibilidad con Azure AD en el SDK de Python de Opencensus para Application Insights se incluye a partir de la versión beta [opencensus-ext-azure 1.1b0](https://pypi.org/project/opencensus-ext-azure/1.1b0/).
 
-
-Construya las [credenciales](/python/api/overview/azure/identity-readme?view=azure-python#credentials) adecuadas y páselas al constructor del exportador de Azure Monitor. Asegúrese de que la cadena de conexión está configurada con la clave de instrumentación y el punto de conexión de ingesta del recurso.
+Construya las [credenciales](/python/api/overview/azure/identity-readme#credentials) adecuadas y páselas al constructor del exportador de Azure Monitor. Asegúrese de que la cadena de conexión está configurada con la clave de instrumentación y el punto de conexión de ingesta del recurso.
 
 A continuación se muestran los siguientes tipos de autenticación que los exportadores de Azure Monitor para Opencensus admiten. Se recomienda usar identidades administradas en entornos de producción.
-
 
 #### <a name="system-assigned-managed-identity"></a>Identidad administrada asignada por el sistema
 
@@ -278,17 +276,17 @@ Puede deshabilitar la autenticación local mediante Azure Portal, Azure Policy o
 
 ### <a name="azure-portal"></a>Azure portal
 
-1.  En el recurso de Application Insights, seleccione **Propiedades** en el título *Configurar* del menú de la izquierda. A continuación, seleccione **Habilitado (haga clic para cambiar)** si la autenticación local está habilitada. 
+1. En el recurso de Application Insights, seleccione **Propiedades** en el título *Configurar* del menú de la izquierda. A continuación, seleccione **Habilitado (haga clic para cambiar)** si la autenticación local está habilitada. 
 
-    :::image type="content" source="./media/azure-ad-authentication/enabled.png" alt-text="Captura de pantalla de Propiedades con el título *Configurar* seleccionado y el botón de autenticación local Habilitado (haga clic para cambiar).":::
+   :::image type="content" source="./media/azure-ad-authentication/enabled.png" alt-text="Captura de pantalla de Propiedades con el título *Configurar* seleccionado y el botón de autenticación local Habilitado (haga clic para cambiar).":::
 
-1. Seleccione **Deshabilitado** y aplique los cambios. 
+1. Seleccione **Deshabilitado** y aplique los cambios.
 
-    :::image type="content" source="./media/azure-ad-authentication/disable.png" alt-text="Captura de pantalla de la autenticación local con el botón habilitado o deshabilitado resaltado.":::
+   :::image type="content" source="./media/azure-ad-authentication/disable.png" alt-text="Captura de pantalla de la autenticación local con el botón habilitado o deshabilitado resaltado.":::
 
 1. Una vez que el recurso haya deshabilitado la autenticación local, verá la información correspondiente en el panel **Información general**.
 
-    :::image type="content" source="./media/azure-ad-authentication/overview.png" alt-text="Captura de pantalla de la pestaña Información general con Deshabilitado (haga clic para cambiar) resaltado.":::
+   :::image type="content" source="./media/azure-ad-authentication/overview.png" alt-text="Captura de pantalla de la pestaña Información general con Deshabilitado (haga clic para cambiar) resaltado.":::
 
 ### <a name="azure-policy"></a>Azure Policy 
 
@@ -436,7 +434,7 @@ Los pasos siguientes deben consistir en revisar el control de acceso del recurso
 
 El SDK de .NET de Application Insights emite registros de errores mediante el origen del evento. Para obtener más información sobre la recopilación de registros de origen del evento, visite Solución de problemas de [Solución de problemas cuando no hay datos: Application Insights para .NET/.NET Core](asp-net-troubleshoot-no-data.md#PerfView).
 
-Si el SDK no puede obtener un token, el mensaje de excepción se registra como: “No se pudo obtener el token de AAD. Mensaje de error: ”
+Si el SDK no puede obtener un token, el mensaje de excepción se registra como: "No se pudo obtener el token de AAD. Mensaje de error: "
 
 ### <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
@@ -462,7 +460,7 @@ Puede inspeccionar el tráfico de red mediante una herramienta como Fiddler. Par
 
 O bien, agregue los siguientes argumentos de JVM al ejecutar la aplicación:`-Djava.net.useSystemProxies=true -Dhttps.proxyHost=localhost -Dhttps.proxyPort=8888`
 
-Si Azure AD está habilitado en el agente, el tráfico saliente incluirá el encabezado HTTP “Autorización”.
+Si Azure AD está habilitado en el agente, el tráfico saliente incluirá el encabezado HTTP "Autorización".
 
 
 #### <a name="401-unauthorized"></a>401 No autorizado 
@@ -499,25 +497,25 @@ Si se ve la siguiente excepción en el archivo de registro `com.microsoft.aad.ms
 
 #### <a name="invalid-clientid"></a>ClientId no válido
 
-Si se ve la siguiente excepción en el archivo de registro `com.microsoft.aad.msal4j.MsalServiceException: Application with identifier <CLIENT_ID> was not found in the directory`, indica que el agente no estaba adquiriendo correctamente el token de acceso y el motivo probable podría ser que ha proporcionado un “clientId” no válido o erróneo en la configuración del secreto de cliente.
+Si se ve la siguiente excepción en el archivo de registro `com.microsoft.aad.msal4j.MsalServiceException: Application with identifier <CLIENT_ID> was not found in the directory`, indica que el agente no estaba adquiriendo correctamente el token de acceso y el motivo probable podría ser que ha proporcionado un "clientId" no válido o erróneo en la configuración del secreto de cliente.
 
  Esto puede pasar si el administrador del inquilino no es el que ha instalado el administrador del inquilino o no ha recibido el consentimiento de ningún usuario del inquilino. Es posible que haya enviado la solicitud de autenticación al inquilino incorrecto.
 
 ### <a name="python"></a>[Python](#tab/python)
 
-#### <a name="error-starts-with-credential-error-with-no-status-code"></a>El error comienza por “error de credencial” (sin código de estado)
+#### <a name="error-starts-with-credential-error-with-no-status-code"></a>El error comienza por "error de credencial" (sin código de estado)
 
 Hay algo incorrecto relacionado con la credencial que está usando y el cliente no puede obtener un token para la autorización. Este problema normalmente se debe a la falta de los datos necesarios para el estado. Un ejemplo sería pasar un elemento ManagedIdentityCredential del sistema, pero el recurso no está configurado para usar la identidad administrada por el sistema.
 
-#### <a name="error-starts-with-authentication-error-with-no-status-code"></a>El error comienza por “error de autenticación” (sin código de estado)
+#### <a name="error-starts-with-authentication-error-with-no-status-code"></a>El error comienza por "error de autenticación" (sin código de estado)
 
 El cliente no pudo autenticarse con la credencial dada. Normalmente se produce cuando la credencial usada no tiene asignaciones de roles correctas.
 
-#### <a name="im-getting-a-status-code-400-in-my-error-logs"></a>Obtengo un código de estado 400 en los registros de errores
+#### <a name="im-getting-a-status-code-400-in-my-error-logs"></a>Obtengo un código de estado 400 en los registros de errores
 
 Probablemente falte una credencial o la credencial esté establecida en `None`, pero el recurso de Application Insights está configurado con `DisableLocalAuth: true`. Asegúrese de que va a pasar una credencial válida y de que tiene permiso para acceder al recurso de Application Insights.
 
-#### <a name="im-getting-a-status-code-403-in-my-error-logs"></a>Obtengo un código de estado 403 en los registros de errores
+#### <a name="im-getting-a-status-code-403-in-my-error-logs"></a>Obtengo un código de estado 403 en los registros de errores
 
 Normalmente se produce cuando las credenciales proporcionadas no conceden acceso a la telemetría de ingesta para el recurso de Application Insights. Asegúrese de que el recurso de IA tiene las asignaciones de roles correctas.
 

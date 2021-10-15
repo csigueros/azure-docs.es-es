@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 09/15/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 95fe619ecb33e3b7e79c37b4cddb5950836b4cd5
-ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
+ms.openlocfilehash: 12c7b70b2c1128cac943c8d1d61ad84113eb87f5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113223723"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128570133"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Establecimiento de direcciones URL de redireccionamiento en b2clogin.com para Azure Active Directory B2C
 
@@ -45,7 +45,7 @@ Cuando use *b2clogin.com* como la dirección URL de redireccionamiento:
 
 * Se reduce el espacio que los servicios de Microsoft consumen en el encabezado de las cookies.
 * Las direcciones URL ya no incluyen una referencia a Microsoft.
-* El código de cliente de JavaScript se admite (actualmente en [versión preliminar](javascript-and-page-layout.md)) en páginas personalizadas. Debido a las restricciones de seguridad, el código JavaScript y los elementos de formulario HTML se quitan de las páginas personalizadas si se usa *login.microsoftonline.com*.
+* El [código de cliente de JavaScript](javascript-and-page-layout.md) se admite en páginas personalizadas. Debido a las restricciones de seguridad, el código JavaScript y los elementos de formulario HTML se quitan de las páginas personalizadas si se usa *login.microsoftonline.com*.
 
 ## <a name="overview-of-required-changes"></a>Información general de los cambios necesarios
 

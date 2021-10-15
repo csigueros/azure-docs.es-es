@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: pafarley
 ms.custom: references_regions
-ms.openlocfilehash: 0df6b9575c562ba6b469191efdefd5d5d8226ca9
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 7937ce57cc432143d449f398a0a433686a6671ed
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123544031"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129547045"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Compatibilidad con idiomas y voces en el servicio de voz
 
@@ -57,61 +57,62 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Árabe (Emiratos Árabes Unidos)      | `ar-AE` | Texto                                   |                           |                          |
 | Árabe (Yemen)                     | `ar-YE` | Texto                                   |                           |                          |
 | Búlgaro (Bulgaria)               | `bg-BG` | Texto                                   |                           |                          |
-| Catalán (España)                    | `ca-ES` | Texto                                   | Sí                          |                          |
+| Catalán (España)                    | `ca-ES` | Texto<br>Pronunciación                  | Sí                          |                          |
 | Chino (cantonés, tradicional)   | `zh-HK` | Audio (20201015)<br>Texto                 |        Sí                   |                          |
 | Chino (mandarín, simplificado)     | `zh-CN` | Audio (20200910)<br>Texto                 |     Sí                      | Sí                         |
 | Chino (mandarín, Taiwán)       | `zh-TW` | Audio (20190701, 20201015)<br>Texto                 |           Sí                |                          |
-| Croata (Croacia)                 | `hr-HR` | Texto                                   |                           |                          |
-| Checo (República Checa)             | `cs-CZ` | Texto                                   |                           |                          |
-| Danés (Dinamarca)                   | `da-DK` | Texto                                   | Sí                          |                          |
+| Croata (Croacia)                 | `hr-HR` | Texto<br>Pronunciación                  |                           |                          |
+| Checo (República Checa)             | `cs-CZ` | Texto<br>Pronunciación                  |                           |                          |
+| Danés (Dinamarca)                   | `da-DK` | Texto<br>Pronunciación                  | Sí                          |                          |
 | Neerlandés (Países Bajos)                | `nl-NL` | Audio (20201015)<br>Texto<br>Pronunciación|    Sí                       |                          |
-| Inglés (Australia)                | `en-AU` | Audio (20201019)<br>Texto                 | Sí                          |                          |
-| Inglés (Canadá)                   | `en-CA` | Audio (20201019)<br>Texto                 | Sí                          |                          |
-| Inglés (Ghana)                    | `en-GH` | Texto                                   |                           |                          |
-| Inglés (Hong Kong)                | `en-HK` | Texto                                   |                           |                          |
-| Inglés (India)                    | `en-IN` | Audio (20200923)<br>Texto                 |                          |                          |
-| Inglés (Irlanda)                  | `en-IE` | Texto                                   |                           |                          |
-| Inglés (Kenia)                    | `en-KE` | Texto                                   |                           |                          |
-| Inglés (Nueva Zelanda)              | `en-NZ` | Audio (20201019)<br>Texto                 |                          |                          |
-| Inglés (Nigeria)                  | `en-NG` | Texto                                   |                           |                          |
-| Inglés (Filipinas)              | `en-PH` | Texto                                   |                           |                          |
-| Inglés (Singapur)                | `en-SG` | Texto                                   |                           |                          |
-| Inglés (Sudáfrica)             | `en-ZA` | Texto                                   |                           |                          |
-| Inglés (Tanzania)                 | `en-TZ` | Texto                                   |                           |                          |
+| Inglés (Australia)                | `en-AU` | Audio (20201019)<br>Texto<br>Pronunciación| Sí                          |                          |
+| Inglés (Canadá)                   | `en-CA` | Audio (20201019)<br>Texto<br>Pronunciación| Sí                          |                          |
+| Inglés (Ghana)                    | `en-GH` | Texto<br>Pronunciación                  |                           |                          |
+| Inglés (Hong Kong)                | `en-HK` | Texto<br>Pronunciación                  |                           |                          |
+| Inglés (India)                    | `en-IN` | Audio (20200923)<br>Texto<br>Pronunciación |                          |                          |
+| Inglés (Irlanda)                  | `en-IE` | Texto<br>Pronunciación                  |                           |                          |
+| Inglés (Kenia)                    | `en-KE` | Texto<br>Pronunciación                  |                           |                          |
+| Inglés (Nueva Zelanda)              | `en-NZ` | Audio (20201019)<br>Texto<br>Pronunciación |                          |                          |
+| Inglés (Nigeria)                  | `en-NG` | Texto<br>Pronunciación                  |                           |                          |
+| Inglés (Filipinas)              | `en-PH` | Texto<br>Pronunciación                  |                           |                          |
+| Inglés (Singapur)                | `en-SG` | Texto<br>Pronunciación                  |                           |                          |
+| Inglés (Sudáfrica)             | `en-ZA` | Texto<br>Pronunciación                  |                           |                          |
+| Inglés (Tanzania)                 | `en-TZ` | Texto<br>Pronunciación                  |                           |                          |
 | Inglés (Reino Unido)           | `en-GB` | Audio (20201019)<br>Texto<br>Pronunciación| Sí                          | Sí                         |
 | Spanish (Traditional Sort) - Spain            | `en-US` | Audio (20201019, 20210223)<br>Texto<br>Pronunciación| Sí                          | Sí                         |
-| Estonio (Estonia)                  | `et-EE` | Texto                                   |                           |                          |
-| Filipino (Filipinas)             | `fil-PH`| Texto                                   |                           |                          |
-| Finés (Finlandia)                  | `fi-FI` | Texto                                   |     Sí                      |                          |
+| Estonio (Estonia)                  | `et-EE` | Texto<br>Pronunciación                  |                           |                          |
+| Filipino (Filipinas)             | `fil-PH`| Texto<br>Pronunciación                  |                           |                          |
+| Finés (Finlandia)                  | `fi-FI` | Texto<br>Pronunciación                  |     Sí                      |                          |
 | Francés (Canadá)                    | `fr-CA` | Audio (20201015)<br>Texto<br>Pronunciación|     Sí                      |                          |
 | Francés (Francia)                    | `fr-FR` | Audio (20201015)<br>Texto<br>Pronunciación|      Sí                     |                          |
 | Francés (Suiza)               | `fr-CH` | Texto<br>Pronunciación                  |                           |                          |
 | Alemán (Austria)                   | `de-AT` | Texto<br>Pronunciación                  |                           |                          |
+| Alemán (Suiza)               | `de-CH` | Texto<br>Pronunciación                  |                           |                          |
 | Alemán (Alemania)                   | `de-DE` | Audio (20190701, 20200619, 20201127)<br>Texto<br>Pronunciación|  Sí                         |                          |
 | Griego (Grecia)                     | `el-GR` | Texto                                   |  Sí                         |                          |
 | Gujarati (India)                  | `gu-IN` | Texto                                   |                           |                          |
 | Hebreo (Israel)                    | `he-IL` | Texto                                   |                           |                          |
 | Hindi (India)                      | `hi-IN` | Audio (20200701)<br>Texto                 |     Sí                      |                          |
-| Húngaro (Hungría)                | `hu-HU` | Texto                                   |                           |                          |
-| Indonesio (Indonesia)             | `id-ID` | Texto                                   |                           |                          |
-| Irlandés (Irlanda)                     | `ga-IE` | Texto                                   |                           |                          |
+| Húngaro (Hungría)                | `hu-HU` | Texto<br>Pronunciación                  |                           |                          |
+| Indonesio (Indonesia)             | `id-ID` | Texto<br>Pronunciación                  |                           |                          |
+| Irlandés (Irlanda)                    | `ga-IE` | Texto<br>Pronunciación                  |                           |                          |
 | Italiano (Italia)                    | `it-IT` | Audio (20201016)<br>Texto<br>Pronunciación|      Sí                     |                          |
 | Japonés (Japón)                   | `ja-JP` | Texto                                   |      Sí                     |                          |
 | Coreano (Corea)                     | `ko-KR` | Audio (20201015)<br>Texto                 |      Sí                     |                          |
-| Letón (Letonia)                   | `lv-LV` | Texto                                   |                           |                          |
-| Lituano (Lituania)             | `lt-LT` | Texto                                   |                           |                          |
+| Letón (Letonia)                   | `lv-LV` | Texto<br>Pronunciación                  |                           |                          |
+| Lituano (Lituania)             | `lt-LT` | Texto<br>Pronunciación                  |                           |                          |
 | Malayo (Malasia)                   | `ms-MY` | Texto                                   |                           |                          |
 | Maltés (Malta)                    | `mt-MT` | Texto                                   |                           |                          |
 | Maratí (India)                    | `mr-IN` | Texto                                   |                           |                          |
 | Noruego (Bokmål, Noruega)         | `nb-NO` | Texto                                   |     Sí                      |                          |
 | Persa (Irán)                     | `fa-IR` | Texto                                   |                           |                          |
-| Polaco (Polonia)                    | `pl-PL` | Texto                                   |       Sí                    |                          |
+| Polaco (Polonia)                    | `pl-PL` | Texto<br>Pronunciación                  |       Sí                    |                          |
 | Portugués (Brasil)                | `pt-BR` | Audio (20190620, 20201015)<br>Texto<br>Pronunciación|          Sí                 |                          |
 | Portugués (Portugal)              | `pt-PT` | Texto<br>Pronunciación                  |             Sí              |                          |
-| Rumano (Rumanía)                 | `ro-RO` | Texto                                   |  Sí                         |                          |
+| Rumano (Rumanía)                 | `ro-RO` | Texto<br>Pronunciación                  |  Sí                         |                          |
 | Ruso (Rusia)                   | `ru-RU` | Audio (20200907)<br>Texto                 |                Sí           |                          |
-| Eslovaco (Eslovaquia)                  | `sk-SK` | Texto                                   |                           |                          |
-| Esloveno (Eslovenia)               | `sl-SI` | Texto                                   |                           |                          |
+| Eslovaco (Eslovaquia)                  | `sk-SK` | Texto<br>Pronunciación                  |                           |                          |
+| Esloveno (Eslovenia)               | `sl-SI` | Texto<br>Pronunciación                  |                           |                          |
 | Español (Argentina)                | `es-AR` | Texto<br>Pronunciación                  |                           |                          |
 | Español (Bolivia)                  | `es-BO` | Texto<br>Pronunciación                  |                           |                          |
 | Español (Chile)                    | `es-CL` | Texto<br>Pronunciación                  |                           |                          |
@@ -134,8 +135,8 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Español (Uruguay)                  | `es-UY` | Texto<br>Pronunciación                  |                           |                          |
 | Español (EE. UU.)                      | `es-US` | Texto<br>Pronunciación                  |                           |                          |
 | Español (Venezuela)                | `es-VE` | Texto<br>Pronunciación                  |                           |                          |
-| Swahili (Kenia)                    | `sw-KE` | Texto<br>Pronunciación                  |                           |                          |
-| Sueco (Suecia)                   | `sv-SE` | Texto                                   |   Sí                        |                          |
+| Swahili (Kenia)                    | `sw-KE` | Texto                                   |                           |                          |
+| Sueco (Suecia)                   | `sv-SE` | Texto<br>Pronunciación                  |   Sí                        |                          |
 | Tamil (India)                      | `ta-IN` | Texto                                   |                           |                          |
 | Telugu (India)                     | `te-IN` | Texto                                   |                           |                          |
 | Tailandés (Tailandia)                    | `th-TH` | Texto                                   |      Sí                     |                          |
@@ -158,7 +159,6 @@ Las voces neuronales se pueden usar para que las interacciones con los bots de c
 > [!NOTE]
 > Las voces neuronales se crean a partir de ejemplos que usan una frecuencia de muestreo de 24 kHz.
 > Todas las voces pueden aumentar o reducir las frecuencias de muestreo al sintetizar.
-
 
 | Idioma | Configuración regional | Sexo | Nombre de voz | Compatibilidad de estilo |
 |---|---|---|---|---|
@@ -216,22 +216,24 @@ Las voces neuronales se pueden usar para que las interacciones con los bots de c
 | Inglés (Sudáfrica) | `en-ZA` | Female | `en-ZA-LeahNeural` <sup>Nuevo</sup> | General |
 | Inglés (Sudáfrica) | `en-ZA` | Male | `en-ZA-LukeNeural` <sup>Nuevo</sup> | General |
 | Inglés (Reino Unido) | `en-GB` | Female | `en-GB-LibbyNeural` | General |
-| Inglés (Reino Unido) | `en-GB` | Female | `en-GB-MiaNeural` | General |
+| Inglés (Reino Unido) | `en-GB` | Female | `en-GB-SoniaNeural` <sup>Nuevo</sup> | General |
+| Inglés (Reino Unido) | `en-GB` | Female | `en-GB-MiaNeural`<sup>Se retirará el 30 de octubre; consulte la información que tiene a continuación.</sup> | General |
 | Inglés (Reino Unido) | `en-GB` | Male | `en-GB-RyanNeural` | General |
 | Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-AriaNeural` | General, varios estilos de voz disponibles [mediante SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-JennyNeural` | General, varios estilos de voz disponibles [mediante SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Spanish (Traditional Sort) - Spain | `en-US` | Male | `en-US-GuyNeural` | General, varios estilos de voz disponibles [mediante SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-AmberNeural` <sup>Nuevo</sup> | General |
-| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-AshleyNeural` <sup>Nuevo</sup> | General |
-| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-CoraNeural` <sup>Nuevo</sup> | General |
-| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-ElizabethNeural` <sup>Nuevo</sup> | General |
-| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-MichelleNeural` <sup>Nuevo</sup> | General |
-| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-MonicaNeural` <sup>Nuevo</sup> | General |
-| Spanish (Traditional Sort) - Spain | `en-US` | Niño | `en-US-AnaNeural` <sup>Nuevo</sup> | General |
-| Spanish (Traditional Sort) - Spain | `en-US` | Male | `en-US-BrandonNeural` <sup>Nuevo</sup> | General |
-| Spanish (Traditional Sort) - Spain | `en-US` | Male | `en-US-ChristopherNeural` <sup>Nuevo</sup> | General |
-| Spanish (Traditional Sort) - Spain | `en-US` | Male | `en-US-JacobNeural` <sup>Nuevo</sup> | General |
-| Spanish (Traditional Sort) - Spain | `en-US` | Male | `en-US-EricNeural` <sup>Nuevo</sup> | General |
+| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-SaraNeural` <sup>Nuevo</sup> | General, varios estilos de voz disponibles [mediante SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-AmberNeural` | General |
+| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-AshleyNeural` | General |
+| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-CoraNeural` | General |
+| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-ElizabethNeural` | General |
+| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-MichelleNeural`| General |
+| Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-MonicaNeural` | General |
+| Spanish (Traditional Sort) - Spain | `en-US` | Niño | `en-US-AnaNeural`| General |
+| Spanish (Traditional Sort) - Spain | `en-US` | Male | `en-US-BrandonNeural` | General |
+| Spanish (Traditional Sort) - Spain | `en-US` | Male | `en-US-ChristopherNeural`  | General |
+| Spanish (Traditional Sort) - Spain | `en-US` | Male | `en-US-JacobNeural` | General |
+| Spanish (Traditional Sort) - Spain | `en-US` | Male | `en-US-EricNeural` | General |
 | Estonio (Estonia) | `et-EE` | Female | `et-EE-AnuNeural` | General |
 | Estonio (Estonia) | `et-EE` | Male | `et-EE-KertNeural` | General |
 | Finés (Finlandia) | `fi-FI` | Female | `fi-FI-NooraNeural` | General |
@@ -336,6 +338,10 @@ Las voces neuronales se pueden usar para que las interacciones con los bots de c
 | Galés (Reino Unido) | `cy-GB` | Female | `cy-GB-NiaNeural` | General | 
 | Galés (Reino Unido) | `cy-GB` | Male | `cy-GB-AledNeural` | General | 
 
+> [!IMPORTANT]
+> La voz `en-GB-MiaNeural` en inglés (Reino Unido) se retirará el **30 de octubre de 2021**. Todas las solicitudes de servicio a `en-GB-MiaNeural` se volverán a dirigir automáticamente a `en-GB-SoniaNeural` después del **30 de octubre de 2021**.
+> Si usa el contenedor TTS neuronal, [descargue](speech-container-howto.md#get-the-container-image-with-docker-pull) e implemente la versión más reciente antes del **30 de octubre de 2021**. Después del **30 de octubre de 2021**, se rechazarán todas las solicitudes con versiones anteriores.
+
 #### <a name="neural-voices-in-preview"></a>Voces neuronales en versión preliminar
 
 Las siguientes voces neuronales se encuentran en versión preliminar pública. 
@@ -343,6 +349,10 @@ Las siguientes voces neuronales se encuentran en versión preliminar pública.
 | Idioma                         | Configuración regional  | Sexo | Nombre de voz                             | Compatibilidad de estilo |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
 | Spanish (Traditional Sort) - Spain | `en-US` | Female | `en-US-JennyMultilingualNeural` <sup>Nuevo</sup> | Funcionalidades generales multilingües disponibles [mediante SSML](speech-synthesis-markup.md#create-an-ssml-document) |
+| Chino (mandarín, simplificado) | `zh-CN` | Female | `zh-CN-XiaochenNeural` <sup>Nuevo</sup> | Optimizado para conversaciones espontáneas |
+| Chino (mandarín, simplificado) | `zh-CN` | Female | `zh-CN-XiaoyanNeural` <sup>Nuevo</sup> | Optimizado para el servicio al cliente |
+| Chino (mandarín, simplificado) | `zh-CN` | Female | `zh-CN-XiaoshuangNeural` <sup>Nuevo</sup> | Voz secundaria, optimizada para la historia y el chat secundarios; varios estilos de voz [disponibles mediante SSML](speech-synthesis-markup.md#adjust-speaking-styles).|
+| Chino (mandarín, simplificado) | `zh-CN` | Female | `zh-CN-XiaoqiuNeural` <sup>Nuevo</sup> | Optimizado para la narración |
 
 > [!IMPORTANT]
 > Las voces en versión preliminar pública solo están disponibles en tres regiones del servicio: Este de EE. UU., Oeste de Europa y Sudeste de Asia.
@@ -363,6 +373,9 @@ Para más información sobre cómo configurar y ajustar las voces neuronales, po
 ### <a name="standard-voices"></a>Voces estándar
 
 Hay más de 75 voces estándar disponibles en más de 45 idiomas y configuraciones regionales, lo que le permite convertir texto en voz sintetizada. Para más información acerca de la disponibilidad regional, consulte las [regiones](regions.md#neural-and-standard-voices).
+
+> [!IMPORTANT]
+> Vamos a retirar las voces estándar el **31 de agosto de 2024** y ya no se admitirán después de esa fecha.Lo anunciamos en los correos electrónicos enviados a todas las suscripciones de Voz existentes creadas antes del **31 de agosto de 2021**. Durante el período de retirada (**del 31 de agosto de 2021** - **al 31 de agosto de 2024**), los usuarios de voz estándar existentes pueden seguir usando sus voces estándar, pero todos los nuevos usuarios o nuevos recursos de voz deben usar las voces neuronales.
 
 > [!NOTE]
 > Con dos excepciones, las voces neuronales estándar se crean a partir de ejemplos que usan una frecuencia de muestreo de 16 kHz.
@@ -491,83 +504,103 @@ Seleccione la configuración regional adecuada que coincida con los datos de ent
 
 ## <a name="speech-translation"></a>Traducción de voz
 
-**Speech Translation** API admite varios idiomas para la traducción de voz a voz y de texto a voz. El idioma de origen debe incluirse siempre en la siguiente tabla de conversión de voz en texto. Los idiomas de destino admitidos dependen de si el destino de traducción es voz o texto. Puede traducir la voz entrante en más de [60 idiomas](https://www.microsoft.com/translator/business/languages/). Un subconjunto de estos idiomas está disponible para la [síntesis de voz](language-support.md#text-languages).
+**Speech Translation** API admite varios idiomas para la traducción de voz a voz y de texto a voz. El idioma de origen debe incluirse siempre en la siguiente tabla de conversión de voz en texto. Los idiomas de destino admitidos dependen de si el destino de traducción es voz o texto. Puede traducir la voz entrante a cualquiera de los [idiomas admitidos](https://www.microsoft.com/translator/business/languages/). Un subconjunto de estos idiomas está disponible para la [síntesis de voz](language-support.md#text-languages).
 
 ### <a name="text-languages"></a>Idiomas de texto
 
 | Idioma de texto           | Código de lenguaje |
 |:------------------------|:-------------:|
-| Afrikáans               | `af`          |
-| Árabe                  | `ar`          |
-| Bengalí                  | `bn`          |
-| Bosnio (latino)         | `bs`          |
-| Búlgaro               | `bg`          |
-| Cantonés (tradicional) | `yue`         |
-| Catalán                 | `ca`          |
-| Chino simplificado      | `zh-Hans`     |
-| Chino tradicional     | `zh-Hant`     |
-| Croata                | `hr`          |
-| Checo                   | `cs`          |
-| Danés                  | `da`          |
-| Neerlandés                   | `nl`          |
-| Inglés                 | `en`          |
-| Estonio                | `et`          |
-| Fiyiano                  | `fj`          |
-| Filipino                | `fil`         |
-| Finés                 | `fi`          |
-| Francés                  | `fr`          |
-| Alemán                  | `de`          |
-| Griego                   | `el`          |
-| Gujarati                | `gu`          |
-| Criollo haitiano          | `ht`          |
-| Hebreo                  | `he`          |
-| Hindi                   | `hi`          |
-| Hmong Daw               | `mww`         |
-| Húngaro               | `hu`          |
-| Indonesio              | `id`          |
-| Irlandés                   | `ga`          |
-| Italiano                 | `it`          |
-| Japonés                | `ja`          |
-| Canarés                 | `kn`          |
-| Kiswahili               | `sw`          |
-| Klingon                 | `tlh-Latn`    |
-| Klingon (plqaD)         | `tlh-Piqd`    |
-| Coreano                  | `ko`          |
-| Letón                 | `lv`          |
-| Lituano              | `lt`          |
-| Malgache                | `mg`          |
-| Malayo                   | `ms`          |
-| Malayalam               | `ml`          |
-| Maltés                 | `mt`          |
-| Maori                   | `mi`          |
-| Maratí                 | `mr`          |
-| Noruego               | `nb`          |
-| Persa                 | `fa`          |
-| Polaco                  | `pl`          |
-| Portugués (Brasil)     | `pt-br`       |
-| Portugués (Portugal)   | `pt-pt`       |
-| Punjabi                 | `pa`          |
-| Otomí Querétaro         | `otq`         |
-| Rumano                | `ro`          |
-| Ruso                 | `ru`          |
-| Samoano                  | `sm`          |
-| Serbio (cirílico)      | `sr-Cyrl`     |
-| Serbio (latino)         | `sr-Latn`     |
-| Eslovaco                  | `sk`          |
-| Esloveno               | `sl`          |
-| Español                 | `es`          |
-| Sueco                 | `sv`          |
-| Tahitiano                | `ty`          |
-| Tamil                   | `ta`          |
-| Telugu                  | `te`          |
-| Tailandés                    | `th`          |
-| Tongano                  | `to`          |
-| Turco                 | `tr`          |
-| Ucraniano               | `uk`          |
-| Urdu                    | `ur`          |
-| Vietnamita              | `vi`          |
-| Galés                   | `cy`          |
-| Maya Yucateco            | `yua`         |
+| Afrikáans | `af` |
+| Albanés | `sq` |
+| Amárico | `am` |
+| Árabe | `ar` |
+| Armenio | `hy` |
+| Asamés | `as` |
+| Azerbaiyano | `az` |
+| Bengalí | `bn` |
+| Bosnio (latino) | `bs` |
+| Búlgaro | `bg` |
+| Cantonés (tradicional) | `yue` |
+| Catalán | `ca` |
+| Chino (clásico) | `lzh` |
+| Chino simplificado | `zh-Hans` |
+| Chino tradicional | `zh-Hant` |
+| Croata | `hr` |
+| Checo | `cs` |
+| Danés | `da` |
+| Dari | `prs` |
+| Neerlandés | `nl` |
+| Inglés | `en` |
+| Estonio | `et` |
+| Fiyiano | `fj` |
+| Filipino | `fil` |
+| Finés | `fi` |
+| Francés | `fr` |
+| Francés (Canadá) | `fr-ca` |
+| Alemán | `de` |
+| Griego | `el` |
+| Gujarati | `gu` |
+| Criollo haitiano | `ht` |
+| Hebreo | `he` |
+| Hindi | `hi` |
+| Hmong Daw | `mww` |
+| Húngaro | `hu` |
+| Islandés | `is` |
+| Indonesio | `id` |
+| Inuktitut | `iu` |
+| Irlandés | `ga` |
+| Italiano | `it` |
+| Japonés | `ja` |
+| Canarés | `kn` |
+| Kazajo | `kk` |
+| Jemer | `km` |
+| Klingon | `tlh-Latn` |
+| Klingon (plqaD) | `tlh-Piqd` |
+| Coreano | `ko` |
+| Kurdo (central) | `ku` |
+| Kurdo (norte) | `kmr` |
+| Lao | `lo` |
+| Letón | `lv` |
+| Lituano | `lt` |
+| Malgache | `mg` |
+| Malayo | `ms` |
+| Malayalam | `ml` |
+| Maltés | `mt` |
+| Maori | `mi` |
+| Maratí | `mr` |
+| Myanmar | `my` |
+| Nepalí | `ne` |
+| Noruego | `nb` |
+| Odia | `or` |
+| Pastún | `ps` |
+| Persa | `fa` |
+| Polaco | `pl` |
+| Portugués (Brasil) | `pt` |
+| Portugués (Portugal) | `pt-pt` |
+| Punjabi | `pa` |
+| Otomí Querétaro | `otq` |
+| Rumano | `ro` |
+| Ruso | `ru` |
+| Samoano | `sm` |
+| Serbio (cirílico) | `sr-Cyrl` |
+| Serbio (latino) | `sr-Latn` |
+| Eslovaco | `sk` |
+| Esloveno | `sl` |
+| Español | `es` |
+| Swahili | `sw` |
+| Sueco | `sv` |
+| Tahitiano | `ty` |
+| Tamil | `ta` |
+| Telugu | `te` |
+| Tailandés | `th` |
+| Tigriña | `ti` |
+| Tongano | `to` |
+| Turco | `tr` |
+| Ucraniano | `uk` |
+| Urdu | `ur` |
+| Vietnamita | `vi` |
+| Galés | `cy` |
+| Maya Yucateco | `yua` |
 
 ## <a name="speaker-recognition"></a>Speaker Recognition
 

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: d206e92eeea06b8e8a95a74c7a253eae5280eb5f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d78616830c47cb2a50292a226cf1d79e0ece58ba
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128607812"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129545084"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Uso de redes kubenet con intervalos de direcciones IP propios en Azure Kubernetes Service (AKS)
 
@@ -54,7 +54,7 @@ Con *Azure CNI*, cada pod recibe una dirección IP en la subred IP y puede comun
 * Para utilizar kubenet, se necesitan tablas de rutas y rutas definidas por el usuario, lo que agrega complejidad a las operaciones.
 * Por su diseño, kubenet no permite el direccionamiento directo de pods.
 * A diferencia de los clústeres de Azure CNI, no se permite que varios clústeres de kubenet compartan una subred.
-* Si proporciona su propia subred, tendrá que administrar los grupos de seguridad de red (NSG) asociados a dicha subred. AKS no modificará ninguno de los NSG asociados a esa subred. También debe asegurarse de que las reglas de seguridad de los NSG permiten el tráfico entre el nodo y el CIDR del pod.
+* AKS no aplica grupos de seguridad de red (NSG) a su subred y no modificará ninguno de los grupos de seguridad de red asociados a esa subred. Si proporciona su propia subred y agrega grupos de seguridad de red asociados a ella, debe asegurarse de que las reglas de seguridad de los NSG permiten el tráfico entre el CIDR de nodo y de pod. Para obtener más información, consulte [Grupos de seguridad de red][aks-network-nsg].
 * Las características **no admitidas en kubenet** son:
    * [Directivas de red de Azure](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy), aunque sí se admiten las de Calico
    * [Grupos de nodos de Windows](./windows-faq.md)
@@ -254,6 +254,7 @@ Con un clúster de AKS implementado en la subred de red virtual existente, ahora
 <!-- LINKS - Internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-network-concepts]: concepts-network.md
+[aks-network-nsg]: concepts-network.md#network-security-groups
 [az-group-create]: /cli/azure/group#az_group_create
 [az-network-vnet-create]: /cli/azure/network/vnet#az_network_vnet_create
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac

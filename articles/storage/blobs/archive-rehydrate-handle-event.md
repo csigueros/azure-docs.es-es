@@ -10,12 +10,12 @@ ms.date: 08/11/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 3ce2f92f88e24eb634222db5ffab45acaf1a5820
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 06239708293be94f13c62cab7004c7a57d00eea1
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128577999"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275513"
 ---
 # <a name="run-an-azure-function-in-response-to-a-blob-rehydration-event"></a>Ejecución de una función de Azure en respuesta a un evento de rehidratación de blobs
 
@@ -303,7 +303,7 @@ Para obtener más información sobre cómo filtrar eventos en Event Grid, consul
 
 ## <a name="see-also"></a>Vea también
 
-- [Niveles de acceso de Azure Blob Storage: frecuente, esporádico y archivo](storage-blob-storage-tiers.md)
+- [Niveles de acceso frecuente, esporádico y de archivo de los datos de blob](access-tiers-overview.md)
 - [Introducción a la rehidratación de blobs desde el nivel de archivo](archive-rehydrate-overview.md)
 - [Rehidratación de un blob archivado en un nivel en línea](archive-rehydrate-to-online-tier.md)
 - [Reacción a eventos de Blob Storage](storage-blob-event-overview.md)

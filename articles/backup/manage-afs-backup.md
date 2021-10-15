@@ -3,12 +3,12 @@ title: Administración de copias de seguridad de recursos compartidos de archivo
 description: En este artículo se describen las tareas comunes para administrar y supervisar los recursos compartidos de archivos de Azure de los que Azure Backup realiza una copia de seguridad.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 784b22f11b57fb025f6d9401e10d527c83751898
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 973c28b2c8caac4d2acda9e2cd976f9ceb8c387c
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88757632"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534043"
 ---
 # <a name="manage-azure-file-share-backups"></a>Administración de copias de seguridad de recursos compartidos de archivos de Azure
 
@@ -27,6 +27,10 @@ Para abrir la página **Backup Jobs** (Trabajos de copia de seguridad), siga est
 1. Después de seleccionar **Aceptar**, el panel **Trabajos de copia de seguridad** muestra el estado de todos los trabajos. Seleccione el nombre de la carga de trabajo correspondiente al recurso compartido de archivos que desea supervisar.
 
    ![Nombre de la carga de trabajo](./media/manage-afs-backup/workload-name.png)
+
+## <a name="monitor-using-azure-backup-reports"></a>Supervisión mediante informes de Azure Backup
+
+Azure Backup proporciona una solución de informes que usa los [registros de Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md) y los [libros de Azure](../azure-monitor/visualize/workbooks-overview.md). Estos recursos le permitirán obtener información valiosa sobre sus copias de seguridad. Puede aprovechar estos informes para obtener visibilidad de los elementos de copia de seguridad de Azure Files, los trabajos en el nivel de elemento y los detalles de las directivas activas. Con la característica "Informe de correo electrónico" disponible en los Informes de Backup, puede crear tareas automatizadas para recibir informes periódicos por correo electrónico. [Aprenda](/azure/backup/configure-reports#get-started) cómo configurar y ver los informes de Azure Backup.
 
 ## <a name="create-a-new-policy"></a>Creación de una nueva directiva
 

@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 08/16/2021
 ms.author: memildin
-ms.openlocfilehash: 529a88c2af5c47cb329006b58f2439ab95f40ba2
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: a57a94b8ee0bb91deb0b15a3da0265af15dbc3a3
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122228748"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536310"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja los puntos de conexión con la solución EDR integrada de Security Center: Microsoft Defender para punto de conexión
 
@@ -37,7 +37,7 @@ Microsoft Defender para punto de conexión es una solución integral de segurida
 |----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Estado de la versión:                               | • Integración con Defender para punto de conexión para Windows, disponibilidad general (GA)<br> • Integración con Defender para punto de conexión para Linux, versión preliminar                                                                                                                                     |
 | Precios:                                     | Requiere [Azure Defender para servidores](defender-for-servers-introduction.md).                                                                                                                                                                                                           |
-| Entornos admitidos:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Máquinas de Azure Arc que ejecutan Windows o Linux<br>:::image type="icon" source="./media/icons/yes-icon.png":::Máquinas virtuales de Azure que ejecutan Linux ([versiones admitidas](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux))<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Máquinas virtuales de Azure que ejecutan Windows Server 2019, 2016, 2012 R2 o 2008 R2 SP1; [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md); o [Sesión múltiple de Windows 10 Enterprise](../virtual-desktop/windows-10-multisession-faq.yml) (anteriormente Enterprise para escritorios virtuales [EVD])<br>:::image type="icon" source="./media/icons/no-icon.png"::: Máquinas virtuales de Azure que ejecutan Windows 10 (excepto EVD o WVD)           |
+| Entornos admitidos:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Máquinas de Azure Arc que ejecutan Windows o Linux<br>:::image type="icon" source="./media/icons/yes-icon.png":::Máquinas virtuales de Azure que ejecutan Linux ([versiones admitidas](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux))<br>:::image type="icon" source="./media/icons/yes-icon.png"::: VM de Azure que ejecutan Windows Server 2022, 2019, 2016, 2012 R2 o 2008 R2 SP1, [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md) o la [Sesión múltiple de Windows 10 Enterprise](../virtual-desktop/windows-10-multisession-faq.yml) (anteriormente Enterprise para escritorios virtuales [EVD]).<br>:::image type="icon" source="./media/icons/no-icon.png"::: Máquinas virtuales de Azure que ejecutan Windows 10 (excepto EVD o WVD)           |
 | Roles y permisos necesarios:              | • Para habilitar o deshabilitar la integración: **Administrador de seguridad** o **Propietario**<br>• Para ver alertas de Defender para punto de conexión en Security Center:**Lector de seguridad**, **Lector**, **Colaborador de grupo de recursos**, **Propietario de grupo de recursos**, **Administrador de seguridad**, **Propietario de suscripción** o **Colaborador de suscripción** |
 | Nubes:                                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet                                                         |
 |                                              |                                                                                                                                                                                                                                                                                       |
@@ -258,14 +258,14 @@ En el caso de puntos de conexión que ejecuten Linux:
 
 ### <a name="whats-this-mdewindows--mdelinux-extension-running-on-my-machine"></a>¿Qué es esta extensión "MDE.Windows"/"MDE.Linux" que se está ejecutando en mi máquina?
 
-En el pasado, el agente de Log Analytics aprovisionaba Microsoft Defender para punto de conexión. Cuando [ampliamos la compatibilidad para incluir Windows Server 2019](release-notes.md#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-released-for-general-availability-ga) y Linux, también agregamos una extensión para realizar una incorporación automática. 
+En el pasado, el agente de Log Analytics aprovisionaba Microsoft Defender para punto de conexión. Cuando [ampliamos la compatibilidad para incluir Windows Server 2019](release-notes-archive.md#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-released-for-general-availability-ga) y Linux, también agregamos una extensión para realizar una incorporación automática. 
 
 Security Center implementa automáticamente la extensión en máquinas que ejecutan los siguientes sistemas operativos:
 
 - Windows Server 2019
 - Windows 10 Virtual Desktop (WVD)
 - Otras versiones de Windows Server si Security Center no reconoce la versión del sistema operativo (por ejemplo, cuando se usa una imagen de máquina virtual personalizada). En este caso, el agente de Log Analytics sigue aprovisionando Microsoft Defender para punto de conexión.
-- Linux
+- Linux.
 
 > [!IMPORTANT]
 > Si elimina la extensión MDE.Windows, no quitará Microsoft Defender para punto de conexión. en "retirar", consulte [Retirada de los servidores de Windows](/microsoft-365/security/defender-endpoint/configure-server-endpoints).

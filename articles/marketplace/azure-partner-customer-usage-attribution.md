@@ -4,14 +4,14 @@ description: Conozca en líneas generales el seguimiento del uso por parte de lo
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 04/12/2021
+ms.date: 10/04/2021
 ms.custom: devx-track-terraform, devx-track-azurepowershell
-ms.openlocfilehash: 9536002cb5c3e30f32479b74e761d7128090af26
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4c6eaf47035d78a283b4e27bf86e1550ad7279d1
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121729778"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457057"
 ---
 # <a name="azure-customer-usage-attribution"></a>Atribución del uso de Azure por parte de los clientes
 
@@ -263,7 +263,7 @@ Vea instrucciones paso a paso con capturas de pantallas en [Uso de los servicios
 Un asesor técnico para los asociados de Microsoft le contactará para programar una llamada y determinar sus necesidades.
 
 ## <a name="report"></a>Informe
-Los informes de uso de Azure de los que se realiza un seguimiento a través de la atribución del uso del cliente no están disponibles actualmente para asociados de ISV. La adición de informes al programa de Marketplace comercial en el Centro de partners para cubrir la atribución del uso del cliente está prevista para la segunda mitad de 2021.
+Los informes de uso de Azure de los que se realiza un seguimiento a través de la atribución del uso del cliente no están disponibles actualmente para asociados de ISV. La adición de informes al programa de Marketplace comercial en el Centro de partners para cubrir la atribución del uso del cliente está prevista para la segunda mitad de 2022.
 
 ## <a name="faq"></a>Preguntas más frecuentes
 

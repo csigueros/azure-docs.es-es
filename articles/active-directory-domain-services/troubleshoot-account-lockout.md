@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: 3341f290a5a5bb169b6e70ea22459a2afafedbbc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 487befb0e0d48a1ccf61a38af29c17c596fa70b8
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103198953"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350081"
 ---
 # <a name="troubleshoot-account-lockout-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Solucionar problemas de bloqueo de cuenta con un dominio administrado Azure Active Directory Domain Services
 
@@ -97,9 +97,12 @@ Por ejemplo: si tiene un servidor RADIUS, que puede reenviar la autenticación a
 
 03/04 19:07:35 [LOGON] [10753] contoso: SamLogon: Transitive Network logon of contoso\Nagappan.Veerappan from  (via LOB11-RADIUS) Returns 0xC000006A
 
-Habilite RDP en los controladores de dominio del grupo de seguridad de red para el back-end para configurar la captura de diagnósticos (es decir, Netlogon) https://docs.microsoft.com/azure/active-directory-domain-services/alert-nsg#inbound-security-rules. Si ya ha modificado el grupo de seguridad de red predeterminado, siga el método de PSlet para habilitar https://docs.microsoft.com/azure/active-directory-domain-services/network-considerations#port-3389---management-using-remote-desktop.
+Habilite RDP en los controladores de dominio del grupo de seguridad de red para el back-end para configurar la captura de diagnósticos (es decir, netlogon).
+[Reglas de seguridad de entrada](alert-nsg.md#inbound-security-rules)
 
-Para habilitar el inicio de sesión de Netlogon en cualquier servidor: https://docs.microsoft.com/troubleshoot/windows-client/windows-security/enable-debug-logging-netlogon-service
+Si ya ha modificado el NSG predeterminado, siga estos pasos: [Puerto 3389: administración mediante escritorio remoto](network-considerations.md#port-3389---management-using-remote-desktop).
+
+Para habilitar el registro de Netlogon en cualquier servidor, siga estos pasos: [Habilitación del registro de depuración para el servicio Netlogon](/troubleshoot/windows-client/windows-security/enable-debug-logging-netlogon-service).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

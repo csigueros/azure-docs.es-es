@@ -5,16 +5,16 @@ description: Obtenga información acerca de cómo usar las tareas de copias de s
 services: api-management
 author: dlepow
 ms.service: api-management
-ms.topic: article
-ms.date: 08/20/2021
-ms.author: danlep
+ms.topic: how-to
+ms.date: 10/03/2021
+ms.author: apimpm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e00882764283fec7ec9ab3252b5997f682411557
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b356d18c1a0c6a29d4fce142fc05e449f08f70d2
+ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128652688"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129419152"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Azure API Management
 
@@ -29,7 +29,7 @@ En esta guía se muestra cómo automatizar las operaciones de copia de seguridad
 > [!IMPORTANT]
 > La operación de restauración no cambia la configuración del nombre de host personalizado del servicio de destino. Se recomienda usar el mismo nombre de host personalizado y el mismo certificado TLS para los servicios activos y en espera, de modo que, una vez finalizada la operación de restauración, el tráfico pueda redirigirse a la instancia en espera mediante un simple cambio de DNS CNAME.
 >
-> La operación de copia de seguridad no captura los datos de registro previamente agregados usados en los informes mostrados en la hoja Analytics de Azure Portal.
+> La operación de copia de seguridad no captura los datos de registro previamente agregados usados en los informes mostrados en la hoja **Analytics** de Azure Portal.
 
 > [!WARNING]
 > Cada copia de seguridad expira después de treinta días. Si intenta restaurar una copia de seguridad una vez transcurrido el período de expiración de treinta días, se producirá un error en la restauración con un mensaje `Cannot restore: backup expired`.
@@ -41,7 +41,7 @@ En esta guía se muestra cómo automatizar las operaciones de copia de seguridad
 ## <a name="authenticating-azure-resource-manager-requests"></a>Solicitudes de autenticación del Administrador de recursos de Azure
 
 > [!IMPORTANT]
-> La API de REST para copia de seguridad y restauración utiliza el Administrador de recursos de Azure y tiene un mecanismo de autenticación diferente que las API de REST para administrar las entidades de la administración de API. Los pasos de esta sección describen cómo autenticar las solicitudes del Administrador de recursos de Azure. Par obtener más información, consulte [Solicitudes de autenticación del Administrador de recursos de Azure](/rest/api/index).
+> La API de REST para copia de seguridad y restauración utiliza el Administrador de recursos de Azure y tiene un mecanismo de autenticación diferente que las API de REST para administrar las entidades de la administración de API. Los pasos de esta sección describen cómo autenticar las solicitudes del Administrador de recursos de Azure. Par obtener más información, consulte [Solicitudes de autenticación del Administrador de recursos de Azure](/rest/api/azure).
 
 Todas las tareas que se realizan en los recursos mediante Azure Resource Manager deben autenticarse con Azure Active Directory con los siguientes pasos:
 
@@ -122,6 +122,25 @@ Reemplace `{tenant id}`, `{application id}` y `{redirect uri}` mediante las sigu
     > [!NOTE]
     > El token puede expirar tras un período determinado. Vuelva a ejecutar el ejemplo de código para generar un token nuevo.
 
+## <a name="accessing-azure-storage"></a>Acceso a Azure Storage
+
+API Management usará la cuenta de Azure Storage que especifique para las operaciones de copia de seguridad y restauración. Al ejecutar una operación de copia de seguridad o restauración, debe configurar el acceso a la cuenta de almacenamiento. API Management admite dos mecanismos de acceso de almacenamiento: una clave de acceso de Azure Storage (el valor predeterminado) o una identidad administrada de API Management.
+
+### <a name="configure-storage-account-access-key"></a>Configuración de la clave de acceso de la cuenta de almacenamiento
+
+Para ver los pasos, consulte [Administración de las claves de acceso de la cuenta de almacenamiento](../storage/common/storage-account-keys-manage.md?tabs=azure-portal).
+
+### <a name="configure-api-management-managed-identity"></a>Configuración de la identidad administrada de API Management
+
+> [!NOTE]
+> El uso de una identidad administrada de API Management para operaciones de almacenamiento durante la copia de seguridad y la restauración requiere la versión `2021-04-01-preview` o posterior de la API de REST de API Management.
+
+1. Habilite una [identidad administrada asignada por el sistema o por el usuario para API Management](api-management-howto-use-managed-service-identity.md) en la instancia de API Management.
+
+    * Si habilita una identidad administrada asignada por el usuario, tome nota del **id. de cliente** de la identidad.
+    * Si va a realizar una copia de seguridad y restaurar contenido en diferentes instancias de API Management, habilite una identidad administrada en las instancias de origen y de destino.
+1. Asigne a la identidad la función **Colaborador de datos de blobs de almacenamiento**, en el ámbito de la cuenta de almacenamiento que se usa para realizar copias de seguridad y restauraciones. Puede usar [Azure Portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) u otras herramientas de Azure para asignar el rol.
+
 ## <a name="calling-the-backup-and-restore-operations"></a>Llamada a operaciones de copia de seguridad y restauración
 
 Las API REST son [servicio API Management: Copia de seguridad](/rest/api/apimanagement/2020-12-01/api-management-service/backup) y [servicio API Management: Restauración](/rest/api/apimanagement/2020-12-01/api-management-service/restore).
@@ -148,22 +167,53 @@ donde:
 -   `subscriptionId`: identificador de la suscripción que contiene el servicio API Management del que intenta crear una copia de seguridad
 -   `resourceGroupName` : nombre del grupo de recursos del servicio Azure API Management
 -   `serviceName` : el nombre del servicio API Management del que desea crear una copia de seguridad que se especificó durante su creación
--   `api-version`: reemplace por una versión compatible de la API REST, como `2020-12-01`
+-   `api-version`: una versión válida de la API de REST, como `2020-12-01` o `2021-04-01-preview`.
 
-En el cuerpo de la solicitud, especifique el nombre de la copia de seguridad, el nombre del contenedor de blobs, la clave de acceso y el nombre de la cuenta de almacenamiento de Azure de destino:
+En el cuerpo de la solicitud, especifique el nombre de la cuenta de almacenamiento de destino, el nombre del contenedor de blobs, el nombre de la copia de seguridad y el tipo de acceso al almacenamiento. Si el contenedor de almacenamiento no existe, la operación de copia de seguridad lo creará.
+
+#### <a name="access-using-storage-access-key"></a>Acceso mediante la clave de acceso de almacenamiento
 
 ```json
 {
     "storageAccount": "{storage account name for the backup}",
-    "accessKey": "{access key for the account}",
     "containerName": "{backup container name}",
-    "backupName": "{backup blob name}"
+    "backupName": "{backup blob name}",
+    "accessKey": "{access key for the account}"
 }
 ```
 
+#### <a name="access-using-managed-identity"></a>Acceso mediante la identidad administrada
+
+> [!NOTE]
+> El uso de una identidad administrada de API Management para operaciones de almacenamiento durante la copia de seguridad y la restauración requiere la versión `2021-04-01-preview` o posterior de la API de REST de API Management.
+
+**Acceso con una identidad administrada asignada por el sistema**
+
+```json
+{
+    "storageAccount": "{storage account name for the backup}",
+    "containerName": "{backup container name}",
+    "backupName": "{backup blob name}",
+    "accessType": "SystemAssignedManagedIdentity"
+}
+```
+
+**Acceso con una identidad administrada asignada por el usuario**
+
+```json
+{
+    "storageAccount": "{storage account name for the backup}",
+    "containerName": "{backup container name}",
+    "backupName": "{backup blob name}",
+    "accessType": "UserAssignedManagedIdentity",
+    "clientId": "{client ID of user-assigned identity}"
+}
+```
+
+
 Establezca el valor del encabezado de solicitud `Content-Type` en `application/json`.
 
-La creación de una copia de seguridad es una operación de larga ejecución que puede tardar más de un minuto en completarse. Si la solicitud se realizó correctamente y empezó el proceso de copia de seguridad, recibirá un código de estado de respuesta `202 Accepted` con un encabezado `Location`. Realice solicitudes "GET" en la URL del encabezado `Location` para averiguar el estado de la operación. Mientras se crea la copia de seguridad, recibirá el código de estado "202 Aceptado". El código de respuesta `200 OK` indica que la operación de copia de seguridad se ha completado correctamente.
+La creación de una copia de seguridad es una operación de larga ejecución que puede tardar más de un minuto en completarse. Si la solicitud se realizó correctamente y empezó el proceso de copia de seguridad, recibirá un código de estado de respuesta `202 Accepted` con un encabezado `Location`. Realice solicitudes `GET` en la URL del encabezado `Location` para averiguar el estado de la operación. Mientras se crea la copia de seguridad, recibirá el código de estado `202 Accepted`. El código de respuesta `200 OK` indica que la operación de copia de seguridad se ha completado correctamente.
 
 ### <a name="restore-an-api-management-service"></a><a name="step2"> </a>Restaurar el servicio API Management
 
@@ -178,22 +228,52 @@ donde:
 -   `subscriptionId`: identificador de la suscripción que contiene el servicio API Management en el que se restaura una copia de seguridad.
 -   `resourceGroupName`: nombre del grupo de recursos que contiene el servicio Azure API Management en el que se restaura una copia de seguridad.
 -   `serviceName`: el nombre del servicio API Management que desea restaurar que se especificó durante su creación.
--   `api-version`: reemplazar por `api-version=2020-12-01`
+-   `api-version`: una versión válida de la API de REST, como `2020-12-01` o `2021-04-01-preview`.
 
-En el cuerpo de la solicitud, especifique la ubicación del archivo de copia de seguridad. Es decir, agregue el nombre de la cuenta de almacenamiento de Azure, la clave de acceso, el nombre del contenedor de blob y el nombre de la copia de seguridad:
+En el cuerpo de la solicitud, especifique el nombre de la cuenta de almacenamiento existente, el nombre del contenedor de blobs, el nombre de la copia de seguridad y el tipo de acceso al almacenamiento. 
+
+#### <a name="access-using-storage-access-key"></a>Acceso mediante la clave de acceso de almacenamiento
 
 ```json
 {
     "storageAccount": "{storage account name for the backup}",
-    "accessKey": "{access key for the account}",
     "containerName": "{backup container name}",
-    "backupName": "{backup blob name}"
+    "backupName": "{backup blob name}",
+    "accessKey": "{access key for the account}"
+}
+```
+
+#### <a name="access-using-managed-identity"></a>Acceso mediante la identidad administrada
+
+> [!NOTE]
+> El uso de una identidad administrada de API Management para operaciones de almacenamiento durante la copia de seguridad y la restauración requiere la versión `2021-04-01-preview` o posterior de la API de REST de API Management.
+
+**Acceso con una identidad administrada asignada por el sistema**
+
+```json
+{
+    "storageAccount": "{storage account name for the backup}",
+    "containerName": "{backup container name}",
+    "backupName": "{backup blob name}",
+    "accessType": "SystemAssignedManagedIdentity"
+}
+```
+
+**Acceso con una identidad administrada asignada por el usuario**
+
+```json
+{
+    "storageAccount": "{storage account name for the backup}",
+    "containerName": "{backup container name}",
+    "backupName": "{backup blob name}",
+    "accessType": "UserAssignedManagedIdentity",
+    "clientId": "{client ID of user-assigned identity}"
 }
 ```
 
 Establezca el valor del encabezado de solicitud `Content-Type` en `application/json`.
 
-La restauración es una operación de larga duración que puede tardar 30 minutos o más en completarse. Si la solicitud se realizó correctamente y empezó el proceso de restauración, recibirá un código de estado de respuesta `202 Accepted` con un encabezado `Location`. Realice solicitudes "GET" en la URL del encabezado `Location` para averiguar el estado de la operación. Mientras se realiza la restauración, recibirá el código de estado "202 Aceptado". El código de respuesta `200 OK` indica que la operación de restauración se ha completado correctamente.
+La restauración es una operación de larga duración que puede tardar 30 minutos o más en completarse. Si la solicitud se realizó correctamente y empezó el proceso de restauración, recibirá un código de estado de respuesta `202 Accepted` con un encabezado `Location`. Realice solicitudes "GET" en la URL del encabezado `Location` para averiguar el estado de la operación. Mientras se realiza la restauración, recibirá el código de estado `202 Accepted`. El código de respuesta `200 OK` indica que la operación de restauración se ha completado correctamente.
 
 > [!IMPORTANT]
 > **La SKU** en la que desea restaurar el servicio **debe coincidir** con la SKU del servicio del que ha creado una copia de seguridad que desea restaurar.
@@ -205,14 +285,24 @@ La restauración es una operación de larga duración que puede tardar 30 minuto
 -   Mientras la copia de seguridad esté en curso, **evite hacer cambios de administración en el servicio**, como una actualización o un cambio a una versión anterior de una SKU, el cambio en un nombre de dominio, etc.
 -   La restauración de una **copia de seguridad se garantiza solo durante 30 días** a partir del momento en que esta se crea.
 -   Es posible que los **cambios** que se realicen en la configuración del servicio (por ejemplo, las API, las directivas y la apariencia del portal para desarrolladores) mientras se está realizando la operación de copia de seguridad **no se incluyan en la copia de seguridad y se pierdan**.
--   Si la cuenta de Azure Storage está habilitada para [firewall][azure-storage-ip-firewall], el cliente debe **permitir** el conjunto de [direcciones IP del plano de control de Azure API Management][control-plane-ip-address] en su cuenta de almacenamiento para que su copia de seguridad o la restauración funcionen. La cuenta de Azure Storage puede estar en cualquier región de Azure excepto en la que se encuentra el servicio API Management. Por ejemplo, si el servicio API Management está en Oeste de EE. UU., la cuenta de Azure Storage puede estar en Oeste de EE. UU. 2 y el cliente debe abrir la dirección IP del plano de control 13.64.39.16 (dirección IP del plano de control de API Management de Oeste de EE. UU.) en el firewall. Esto se debe a que a las solicitudes a Azure Storage no se les aplica SNAT a una dirección IP pública desde Compute > (plano de control de Azure API Management) en la misma región de Azure. Ala solicitud de almacenamiento entre regiones se le aplicará SNAT a la dirección IP pública.
+
 -   [Uso compartido de recursos entre orígenes (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) **no** debería estar habilitado en Blob Storage en la cuenta de Azure Storage.
 -   **La SKU** en la que desea restaurar el servicio **debe coincidir** con la SKU del servicio del que ha creado una copia de seguridad que desea restaurar.
+
+## <a name="storage-networking-constraints"></a>Restricciones de redes de almacenamiento
+
+### <a name="access-using-storage-access-key"></a>Acceso mediante la clave de acceso de almacenamiento
+
+Si la cuenta de almacenamiento tiene el **[firewall][azure-storage-ip-firewall] habilitado** y se usa una clave de almacenamiento para el acceso, entonces el cliente debe **Permitir** el conjunto de [Direcciones IP del plano de control de Azure API Management][control-plane-ip-address] en su cuenta de almacenamiento para que las copias de seguridad o las restauraciones funcionen. La cuenta de almacenamiento puede estar en cualquier región de Azure excepto en la que se encuentra el servicio API Management. Por ejemplo, si el servicio API Management está en Oeste de EE. UU., la cuenta de Azure Storage puede estar en Oeste de EE. UU. 2 y el cliente debe abrir la dirección IP del plano de control 13.64.39.16 (dirección IP del plano de control de API Management de Oeste de EE. UU.) en el firewall. Esto se debe a que a las solicitudes a Azure Storage no se les aplica SNAT a una dirección IP pública desde Proceso > (plano de control de Azure API Management) en la misma región de Azure. A la solicitud de almacenamiento entre regiones se le aplicará SNAT a la dirección IP pública.
+
+### <a name="access-using-managed-identity"></a>Acceso mediante la identidad administrada
+
+Si se usa una identidad administrada asignada por el sistema de API Management para acceder a una cuenta de almacenamiento habilitada con firewall, asegúrese de que la cuenta de almacenamiento [permita el acceso a servicios de confianza de Azure](../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services).
 
 ## <a name="what-is-not-backed-up"></a>De lo que no se hace una copia de seguridad
 -   Los **datos de uso** con los que se crean informes de análisis **no se incluyen** en la copia de seguridad. La [API de REST de Azure API Management][azure api management rest api] permite recibir de forma periódica informes de análisis para guardarlos en un lugar seguro.
 -   Certificados [TLS/SSL de dominio personalizado](configure-custom-domain.md).
--   [Certificado de entidad de certificación personalizado](api-management-howto-ca-certificates.md), que incluye certificados raíz o intermedios cargados por el cliente.
+-   [Certificados personalizados de entidades de certificación](api-management-howto-ca-certificates.md), que incluyen certificados raíz o intermedios cargados por el cliente.
 -   Configuración de integración de [red virtual](api-management-using-with-vnet.md).
 -   Configuración de [identidad administrada](api-management-howto-use-managed-service-identity.md).
 -   Configuración de [diagnóstico de Azure Monitor](api-management-howto-use-azure-monitor.md).
@@ -223,12 +313,12 @@ La frecuencia con la que se crean las copias de seguridad afecta al objetivo de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte los recursos siguientes para ver distintos tutoriales del proceso de copia de seguridad y restauración.
+Consulte los siguientes recursos relacionados para el proceso de copia de seguridad y restauración:
 
--   [Replicate Azure API Management Accounts (Réplica de cuentas de Administración de API de Azure)](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 -   [Automating API Management Backup and Restore with Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps) (Automatización de la copia de seguridad y restauración de API Management con Logic Apps)
--   [Azure API Management: Backing Up and Restoring Configuration](/archive/blogs/stuartleeks/azure-api-management-backing-up-and-restoring-configuration) (Azure API Management: copia de seguridad y restauración de la configuración)
-    _El enfoque detallado por Stuart no coincide con la orientación oficial, pero es interesante._
+- [Migración de Azure API Management entre regiones](api-management-howto-migrate.md)
+
+El nivel **Premium** de API Management también admite la [redundancia de zona](zone-redundancy.md), ya que proporciona resistencia y alta disponibilidad a una instancia de servicio en una región (ubicación) de Azure específica.
 
 [backup an api management service]: #step1
 [restore an api management service]: #step2

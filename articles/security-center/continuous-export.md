@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 07/07/2021
+ms.date: 10/05/2021
 ms.author: memildin
-ms.openlocfilehash: 1d8feb49be378abed2a63030c6329e9e8a13d48a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e2b1b238e7f893df5eb56818f256eb324c5be6aa
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750728"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536044"
 ---
 # <a name="continuously-export-security-center-data"></a>Exportación continua de alertas y recomendaciones de seguridad
 
@@ -209,6 +209,9 @@ Ahora verá las nuevas alertas o recomendaciones de Azure Security Center (segú
 ## <a name="manual-one-time-export-of-alerts-and-recommendations"></a>Exportación manual de un solo uso de alertas y recomendaciones
 
 Para descargar un informe en formato CSV con alertas o recomendaciones, abra las páginas **Alertas de seguridad** o **Recomendaciones** y seleccione el botón para **Download CSV report** (Descargar informe en CSV).
+
+> [!TIP]
+> Debido a las limitaciones de Azure Resource Graph, los informes se limitan a un tamaño de archivo de 13 000 filas. Si observa errores relacionados con la exportación de demasiados datos, intente limitar la salida seleccionando un conjunto más pequeño de suscripciones para exportar.
 
 :::image type="content" source="./media/continuous-export/download-alerts-csv.png" alt-text="Descargar datos de alertas como un archivo CSV." lightbox="./media/continuous-export/download-alerts-csv.png":::
 

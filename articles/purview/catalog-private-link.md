@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 925c556ccc5657af604eb80d5d697ed6ebcb5260
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 9d92a1baddbd12f80084dbbdb9a9205edb3f56b1
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/29/2021
-ms.locfileid: "129210656"
+ms.locfileid: "129272858"
 ---
 # <a name="use-private-endpoints-for-your-azure-purview-account"></a>Uso de puntos de conexión privados para la cuenta de Azure Purview
 
@@ -87,7 +87,7 @@ Si creó un punto de conexión privado del _portal_ para su cuenta de Purview **
 
         3. Rellene la información básica.
 
-        4. En la pestaña **Recurso**, seleccione **Microsoft.Purview/portal** como **Tipo de recurso**.
+        4. En la pestaña **Recurso**, seleccione **Microsoft.Purview/account** como **Tipo de recurso**.
 
         5. En **Recurso**, seleccione la cuenta de Azure Purview y en **Subrecurso de destino**, seleccione **portal**.
 

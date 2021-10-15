@@ -11,16 +11,16 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efe7a8d1969f457a70326edb99652eb8f25d27b8
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 422a273f0bc5fbeccf61f3af1ddb4edc9b95e36b
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113213892"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232484"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Conceder a los usuarios B2B de Azure AD acceso a las aplicaciones locales
 
-Las organizaciones que usan las funcionalidades de colaboración B2B de Azure Active Directory (Azure AD) para invitar a los usuarios invitados de organizaciones asociadas a su instancia de Azure AD, ahora pueden proporcionar a estos usuarios B2B acceso a las aplicaciones locales. Estas aplicaciones locales pueden usar la autenticación basada en SAML o la autenticación de Windows integrada (IWA) con la delegación limitada de kerberos (KCD).
+Las organizaciones que usan las funcionalidades de colaboración B2B de Azure Active Directory (Azure AD) para invitar a los usuarios invitados de organizaciones asociadas a su instancia de Azure AD, ahora pueden proporcionar a estos usuarios B2B acceso a las aplicaciones locales. Estas aplicaciones locales pueden usar la autenticación basada en SAML o la autenticación integrada de Windows (IWA) con la delegación limitada de Kerberos (KCD).
 
 ## <a name="access-to-saml-apps"></a>Acceso a las aplicaciones SAML
 
@@ -44,7 +44,7 @@ Para proporcionar a los usuarios B2B acceso a las aplicaciones locales que está
 - **Autorización mediante un objeto de usuario B2B en el directorio local**. La aplicación debe poder realizar comprobaciones de acceso de usuario y conceder acceso a los recursos correctos. IWA y KCD requieren un objeto de usuario en Windows Server Active Directory local para realizar esta autorización. Como se describe en [Cómo funciona el inicio de sesión único con KCD](../app-proxy/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), Application Proxy necesita este objeto de usuario para suplantar al usuario y obtener un token de Kerberos para la aplicación. 
 
    > [!NOTE]
-   > Al configurar Application Proxy de Azure AD, asegúrese de que la opción **Identidad de inicio de sesión delegada** esté establecida en **Nombre principal del usuario** (valor predeterminado) en la configuración de Autenticación integrada de Windows (IWA).
+   > Al configurar Application Proxy de Azure AD, asegúrese de que la opción **Identidad de inicio de sesión delegada** esté establecida en **Nombre principal del usuario** (valor predeterminado) en la configuración de autenticación integrada de Windows (IWA).
 
    En el escenario de usuario B2B, hay dos métodos disponibles que se pueden usar para crear los objetos de usuario invitado que son necesarios para la autorización en el directorio local:
 

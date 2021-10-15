@@ -10,13 +10,13 @@ ms.subservice: service-overview
 ms.custom: sqldbrb=2, references_regions
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/22/2021
-ms.openlocfilehash: 256f8f6f792f9bf373af4be9b429a9485b17b7a8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/24/2021
+ms.openlocfilehash: c73546c23a619f1d38caf10383097b4ded638581
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730497"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129057291"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Novedades de Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -132,8 +132,9 @@ Las características siguientes están habilitadas en el modelo de implementaci�
 
 ## <a name="known-issues"></a>Problemas conocidos
 
-|Problema  |Fecha de detección  |Status  |Fecha de resolución  |
+|Incidencia  |Fecha de detección  |Estado  |Fecha de resolución  |
 |---------|---------|---------|---------|
+|[Mensaje de error engañoso en Azure Portal que sugiere la recreación de la entidad de servicio](#misleading-error-message-on-azure-portal-suggesting-recreation-of-the-service-principal)|Septiembre de 2021|||
 |[Cambiar el tipo de conexión no afecta a las conexiones a través del punto de conexión del grupo de conmutación por error](#changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint)|Enero de 2021|Tiene solución alternativa||
 |[Se puede producir un error transitorio en el procedimiento sp_send_dbmail cuando se usa el parámetro @query](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|Enero de 2021|Tiene solución alternativa||
 |[Las transacciones distribuidas se pueden ejecutar después de quitar Managed Instance del grupo de confianza de servidor](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Octubre de 2020|Tiene solución alternativa||
@@ -167,6 +168,18 @@ Las características siguientes están habilitadas en el modelo de implementaci�
 |La restauración de una base de datos a un momento dado del nivel de servicio Crítico para la empresa al De uso general no se completará correctamente si la base de datos de origen contiene objetos OLTP en memoria.||Resuelto|Octubre de 2019|
 |Característica Correo electrónico de base de datos con servidores de correo externos (que no son de Azure) mediante una conexión segura||Resuelto|Octubre de 2019|
 |Las bases de datos independientes no se admiten en la Instancia administrada de SQL||Resuelto|Agosto de 2019|
+
+### <a name="misleading-error-message-on-azure-portal-suggesting-recreation-of-the-service-principal"></a>Mensaje de error engañoso en Azure Portal que sugiere la recreación de la entidad de servicio
+
+La hoja de _administración de Active Directory_ de Azure Portal para Azure SQL Managed Instance puede mostrar el siguiente mensaje de error aunque la entidad de servicio ya exista:
+
+"Instancia administrada necesita una entidad de seguridad para acceder a Azure Active Directory. Haga clic aquí para crear una entidad de servicio".
+
+Puede ignorar este mensaje de error si la entidad de servicio de la instancia administrada ya existe o la autenticación de AAD en la instancia administrada funciona. 
+
+Para comprobar si existe una entidad de servicio, vaya a la página _Aplicaciones de Enterprise_ en Azure Portal, elija _Identidades administradas_ en la lista desplegable _Tipo de aplicación_, haga clic en _Aplicar_ y escriba el nombre de la instancia administrada en el cuadro de búsqueda. Si el nombre de instancia aparece en la lista de resultados, la entidad de servicio ya existe y no se necesitan más acciones.
+
+Si ya ha seguido las instrucciones del mensaje de error y ha hecho clic en el vínculo del mensaje de error, se ha recreado la entidad de servicio de la instancia administrada. En ese caso, asigne permisos de lectura de Azure AD a la entidad de servicio recién creada para que la autenticación de Azure AD funcione correctamente. Para ello, puede siga estas [instrucciones](./authentication-aad-configure.md?tabs=azure-powershell#powershell) a través de Azure PowerShell.
 
 ### <a name="changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint"></a>Cambiar el tipo de conexión no afecta a las conexiones a través del punto de conexión del grupo de conmutación por error
 

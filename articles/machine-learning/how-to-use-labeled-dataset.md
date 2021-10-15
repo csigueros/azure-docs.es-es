@@ -5,16 +5,16 @@ description: Aprenda a exportar etiquetas de datos desde los proyectos de etique
 author: nibaccam
 ms.author: nibaccam
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
 ms.custom: data4ml
 ms.date: 05/14/2020
-ms.openlocfilehash: e46d088180666523c27d86a98d740fa49f5214f2
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 2af916866aa78a081f8769322a80f4d846c89d3e
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112460493"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424092"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Creación y exploración de un conjunto de datos de Azure Machine Learning con etiquetas
 
@@ -22,7 +22,7 @@ En este artículo, aprenderá a exportar las etiquetas de datos desde un proyect
 
 ## <a name="what-are-datasets-with-labels"></a>Qué son los conjuntos de datos con etiquetas 
 
-Los conjuntos de datos de Azure Machine Learning se conocen como conjuntos de datos con etiquetas. Estos tipos específicos de conjuntos de datos con etiquetas solo se crean como salida de los proyectos de etiquetado de datos de Azure Machine Learning. Cree un proyecto de etiquetado de datos con [estos pasos](how-to-create-labeling-projects.md). Machine Learning admite proyectos de etiquetado de datos para la clasificación de imágenes (de varias etiquetas o varias clases) y la identificación de objetos mediante rectángulos de selección.
+Los conjuntos de datos de Azure Machine Learning se conocen como conjuntos de datos con etiquetas. Estos tipos específicos de conjuntos de datos con etiquetas solo se crean como salida de los proyectos de etiquetado de datos de Azure Machine Learning. Cree un proyecto de etiquetado de datos [para el etiquetado de imágenes](how-to-create-image-labeling-projects.md) o el [etiquetado de texto](how-to-create-text-labeling-projects.md). Machine Learning admite proyectos de etiquetado de datos para la clasificación de imágenes (de varias etiquetas o varias clases) y la identificación de objetos mediante rectángulos de selección.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -30,7 +30,7 @@ Los conjuntos de datos de Azure Machine Learning se conocen como conjuntos de da
 * [SDK de Azure Machine Learning para Python](/python/api/overview/azure/ml/intro) o acceso a [Azure Machine Learning Studio](https://ml.azure.com/).
     * Instalación del paquete [azure-contrib-dataset](/python/api/azureml-contrib-dataset/)
 * Un área de trabajo de Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
-* Acceda a un proyecto de etiquetado de datos de Azure Machine Learning. Si no tiene un proyecto de etiquetado, siga [estos pasos](how-to-create-labeling-projects.md) para crearlo.
+* Acceda a un proyecto de etiquetado de datos de Azure Machine Learning. Si no tiene un proyecto de etiquetado, primero cree uno para el [etiquetado de imágenes](how-to-create-image-labeling-projects.md) o el [etiquetado de texto](how-to-create-text-labeling-projects.md).
 
 ## <a name="export-data-labels"></a>Exportación de etiquetas de datos 
 

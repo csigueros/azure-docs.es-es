@@ -2,18 +2,18 @@
 title: Conexión a una red virtual mediante Azure API Management
 description: Obtenga información sobre cómo configurar una conexión a una red virtual en Azure API Management y acceder a servicios web con esta.
 services: api-management
-author: vladvino
+author: dlepow
 ms.service: api-management
 ms.topic: how-to
 ms.date: 08/10/2021
-ms.author: apimpm
+ms.author: danlep
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 6eb89c069cb8ce1017b84f5c886231ae767a25a8
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 008e3874961af2c3e8ff8dfe3f162254fb9d5f5e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123537412"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128669253"
 ---
 # <a name="connect-to-a-virtual-network-using-azure-api-management"></a>Conexión a una red virtual mediante Azure API Management
 
@@ -109,7 +109,8 @@ Una vez que haya conectado el servicio API Management a la red virtual, podrá a
 
 :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-add-api.png" alt-text="Adición de una API desde la red virtual":::
 
-## <a name="network-configuration"></a>Configuración de red
+## <a name="common-network-configuration-issues"></a><a name="network-configuration-issues"> </a>Problemas comunes de configuración de red
+
 Revise las secciones siguientes para conocer más opciones de configuración de red. 
 
 Estas opciones abordan problemas de errores de configuración comunes que pueden producirse al implementar el servicio API Management en una red virtual.
@@ -148,7 +149,7 @@ Cuando la instancia del servicio de API Management se hospeda en una red virtual
 | * / 25, 587, 25028                       | Salida           | TCP                | VIRTUAL_NETWORK/INTERNET            | Conexión a la retransmisión de SMTP para enviar correos electrónicos                    | Externa e interna  |
 | * / 6381 - 6383              | Entrada y salida | TCP                | VIRTUAL_NETWORK/VIRTUAL_NETWORK     | Acceso al servicio de Redis para las directivas de [almacenamiento en memoria caché](api-management-caching-policies.md) entre máquinas         | Externa e interna  |
 | * / 4290              | Entrada y salida | UDP                | VIRTUAL_NETWORK/VIRTUAL_NETWORK     | Sincronización de contadores para las directivas de [límite de velocidad](api-management-access-restriction-policies.md#LimitCallRateByKey) entre máquinas         | Externa e interna  |
-| * / 6390                       | Entrada            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Equilibrador de carga de la infraestructura de Azure                          | Externa e interna  |
+| * / 6390                       | Entrada            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | **Equilibrador de carga de la infraestructura de Azure**                          | Externa e interna  |
 
 #### <a name="stv1"></a>[stv1](#tab/stv1)
 
@@ -166,7 +167,7 @@ Cuando la instancia del servicio de API Management se hospeda en una red virtual
 | * / 25, 587, 25028                       | Salida           | TCP                | VIRTUAL_NETWORK/INTERNET            | Conexión a la retransmisión de SMTP para enviar correos electrónicos                    | Externa e interna  |
 | * / 6381 - 6383              | Entrada y salida | TCP                | VIRTUAL_NETWORK/VIRTUAL_NETWORK     | Acceso al servicio de Redis para las directivas de [almacenamiento en memoria caché](api-management-caching-policies.md) entre máquinas         | Externa e interna  |
 | * / 4290              | Entrada y salida | UDP                | VIRTUAL_NETWORK/VIRTUAL_NETWORK     | Sincronización de contadores para las directivas de [límite de velocidad](api-management-access-restriction-policies.md#LimitCallRateByKey) entre máquinas         | Externa e interna  |
-| * / *                         | Entrada            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Equilibrador de carga de la infraestructura de Azure                          | Externa e interna  |
+| * / *                         | Entrada            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure Infrastructure Load Balancer (crítico para la SKU prémium)                         | Externa e interna  |
 
 ---
 
@@ -207,10 +208,14 @@ Permita la conectividad de red saliente para el CAPTCHA del portal para desarrol
   Al usar la extensión de API Management desde dentro de una red virtual, se requiere el acceso saliente a `dc.services.visualstudio.com` en `port 443` para habilitar el flujo de registros de diagnóstico desde Azure Portal. Este acceso ayuda a solucionar los problemas que pueden surgir al usar la extensión.
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer  
-  No es necesario permitir las solicitudes entrantes desde la etiqueta de servicio `AZURE_LOAD_BALANCER` para la SKU `Developer`, ya que solo se implementa una unidad de proceso detrás de ella. Sin embargo, la entrada desde [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) se convierte en crítica al escalar a una SKU superior, como `Premium`, ya que un error en el sondeo de estado del equilibrador de carga produce un error en una implementación.
+  No es necesario permitir las solicitudes entrantes desde la etiqueta de servicio `AZURE_LOAD_BALANCER` para la SKU `Developer`, ya que solo se implementa una unidad de proceso detrás de ella. Sin embargo, la entrada desde `AZURE_LOAD_BALANCER` se convierte en **crítica** al escalar a una SKU superior, como `Premium`, ya que un error en el sondeo de estado del equilibrador de carga bloquea todo el acceso de entrada al plano de control y al plano de datos.
 
 ### <a name="application-insights"></a>Application Insights  
   Si ha habilitado la supervisión de [Azure Application Insights](api-management-howto-app-insights.md) en API Management, permita la conectividad de salida hacia el [punto de conexión de telemetría](../azure-monitor/app/ip-addresses.md#outgoing-ports) desde la red virtual.
+
+### <a name="kms-endpoint"></a>Punto de conexión de KMS
+
+Al agregar máquinas virtuales que ejecutan Windows en la red virtual, permita la conectividad saliente en el puerto 1688 al [punto de conexión de KMS](/troubleshoot/azure/virtual-machines/custom-routes-enable-kms-activation#solution) en la nube. Esta configuración enruta tráfico de máquina virtual Windows al servidor de Azure Key Management Services (KMS) para completar la activación de Windows.
 
 ### <a name="force-tunneling-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance"></a>Forzar la tunelización del tráfico al firewall local mediante ExpressRoute o una aplicación virtual de red  
   Normalmente, puede configurar y definir su propia ruta predeterminada (0.0.0.0/0) que fuerza a todo el tráfico de la subred delegada de API Management a pasar a través de un firewall local o a una aplicación virtual de red. El flujo de tráfico interrumpe la conectividad con Azure API Management porque el tráfico saliente está bloqueado de forma local o porque se usa NAT para convertirlo en un conjunto de direcciones irreconocibles que no funcionan con varios puntos de conexión de Azure. Puede resolver este problema mediante un par de métodos: 
@@ -230,6 +235,7 @@ Permita la conectividad de red saliente para el CAPTCHA del portal para desarrol
       - Diagnósticos de Azure Portal
       - Retransmisión de SMTP
       - CAPTCHA del portal para desarrolladores
+      - Servidor de KMS de Azure
 
 ## <a name="routing"></a>Enrutamiento
 
@@ -289,7 +295,7 @@ Las direcciones IP siguientes se dividen según el **entorno de Azure**. Cuando 
 | Azure Public| Oeste de Suiza| 51.107.96.8|
 | Azure Public| Centro de Emiratos Árabes Unidos| 20.37.81.41|
 | Azure Public| Norte de Emiratos Árabes Unidos| 20.46.144.85|
-| Azure Public| Sur de Reino Unido 2| 51.145.56.125|
+| Azure Public| Sur de Reino Unido| 51.145.56.125|
 | Azure Public| Oeste de Reino Unido| 51.137.136.0|
 | Azure Public| Centro-Oeste de EE. UU.| 52.253.135.58|
 | Azure Public| Oeste de Europa| 51.145.179.78|
@@ -335,7 +341,7 @@ Las direcciones IP siguientes se dividen según el **entorno de Azure**. Cuando 
   | **Obligatorio** | Seleccione esta opción para revisar la conectividad a los servicios de Azure necesarios para API Management. Un error indica que la instancia no puede realizar operaciones básicas para administrar las API. |
   | **Opcional** | Seleccione esta opción para revisar la conectividad a servicios opcionales. Un error indica únicamente que la funcionalidad específica no funcionará (por ejemplo, SMTP). Un error puede provocar una degradación en la capacidad de usar y supervisar la instancia de API Management y proporcionar el Acuerdo de Nivel de Servicio confirmado. |
 
-  Para solucionar problemas de conectividad, revise las [opciones de configuración de red](#network-configuration) y corrija la configuración de red necesaria.
+  Para solucionar problemas de conectividad, revise las [opciones de configuración de red](#network-configuration-issues) y corrija la configuración de red necesaria.
 
 * **Actualizaciones incrementales**  
   Al realizar cambios en la red, consulte [NetworkStatus API](/rest/api/apimanagement/2020-12-01/network-status) para validar si el servicio API Management no ha perdido el acceso a los recursos críticos. El estado de conectividad debe actualizarse cada 15 minutos.

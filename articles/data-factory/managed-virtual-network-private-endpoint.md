@@ -7,17 +7,17 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions, devx-track-azurepowershell
-ms.date: 07/20/2021
-ms.openlocfilehash: 29bd9cf165ef8247a4185b17d479b01c4e14fa87
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/28/2021
+ms.openlocfilehash: f9c07abdfe512c2564fdfe1595f16db8a6372a8b
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638346"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230246"
 ---
-# <a name="azure-data-factory-managed-virtual-network-preview"></a>Red virtual administrada de Azure Data Factory (versión preliminar)
+# <a name="azure-data-factory-managed-virtual-network"></a>Red virtual administrada de Azure Data Factory
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 En este artículo se explica la red virtual administrada y los puntos de conexión privados administrados en Azure Data Factory.
 
@@ -36,9 +36,6 @@ Ventajas del uso de una red virtual administrada:
 
 > [!IMPORTANT]
 >Actualmente, la red virtual administrada solo se admite en la misma región que Azure Data Factory.
-
-> [!Note]
->Como la red virtual administrada de Azure Data Factory todavía está en versión preliminar pública, no hay ninguna garantía de Acuerdo de Nivel de Servicio.
 
 > [!Note]
 >El entorno público de ejecución de integración de Azure existente no puede cambiar al entorno de ejecución de Azure en la red virtual administrada de Azure Data Factory y viceversa.
@@ -83,6 +80,9 @@ Entre las funcionalidades de la creación interactiva se incluyen probar la cone
 Por diseño, el entorno de ejecución de integración de Azure en la red virtual administrada tiene un tiempo en la cola más largo que el entorno de ejecución de Azure, ya que no se reserva un nodo de proceso por factoría de datos, por lo que hay una preparación antes de que se inicie cada actividad y se produce principalmente en la unión a una red virtual y no al entorno de ejecución de integración de Azure. En el caso de las actividades que no son de copia, incluida la actividad de canalización y la actividad externa, hay un período de vida (TTL) de 60 minutos al desencadenarlas por primera vez. Dentro de TTL, el tiempo de cola es más corto porque el nodo ya está preparado. 
 > [!NOTE]
 > La actividad de copia todavía no tiene compatibilidad con TTL.
+
+> [!NOTE]
+> No se admiten 2 DIU para actividad de copia en la red virtual administrada.
 
 ## <a name="create-managed-virtual-network-via-azure-powershell"></a>Creación de una red virtual administrada mediante Azure PowerShell
 ```powershell
@@ -132,19 +132,20 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 ### <a name="supported-data-sources"></a>Orígenes de datos compatibles
 Los orígenes de datos siguientes tienen compatibilidad nativa con puntos de conexión privados y se pueden conectar a través de Private Link desde una red virtual administrada por ADF.
 - Azure Blob Storage (sin incluir la cuenta de almacenamiento V1)
-- Azure Table Storage (sin incluir la cuenta de almacenamiento V1)
-- Azure Files (sin incluir la cuenta de almacenamiento V1)
-- Azure Data Lake Gen2
-- Azure SQL Database (sin incluir Azure SQL Managed Instance)
-- Azure Synapse Analytics
-- Azure CosmosDB SQL
-- Azure Key Vault
-- Servicio Azure Private Link
-- Azure Search
+- Azure Cognitive Search
+- API de SQL de Azure Cosmos DB
+- Azure Data Lake Storage Gen2
+- Azure Database for MariaDB
 - Azure Database for MySQL
 - Azure Database for PostgreSQL
-- Azure Database for MariaDB
+- Azure Files (sin incluir la cuenta de almacenamiento V1)
+- Azure Key Vault
 - Azure Machine Learning
+- Servicio Azure Private Link
+- Azure Purview
+- Azure SQL Database (sin incluir Azure SQL Managed Instance)
+- Azure Synapse Analytics
+- Azure Table Storage (sin incluir la cuenta de almacenamiento V1)
 
 > [!Note]
 > Todavía puede acceder a todos los orígenes de datos admitidos por Data Factory a través de la red pública.

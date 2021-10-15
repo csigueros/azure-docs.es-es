@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 8/26/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
-ms.openlocfilehash: 5ff554193f40f8a4d80038e9786c454845f7febe
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 77728c7b61fc6b76cb5ecb51ff1d90e0c0a93e99
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123440081"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129535537"
 ---
 # <a name="manage-a-new-application-with-the-open-service-mesh-osm-azure-kubernetes-service-aks-add-on"></a>Administración de una aplicación nueva con el complemento Open Service Mesh (OSM) de Azure Kubernetes Service (AKS)
 
@@ -125,7 +125,7 @@ En primer lugar, se obtendrá el nombre del pod de `bookbuyer`.
 kubectl get pod -n bookbuyer
 ```
 
-Debería ver una salida similar a la siguiente. El pod de `bookbuyer` tendrá un nombre único anexado.
+Debería ver una salida similar a la siguiente. El pod de `bookbuyer` tiene un nombre único anexado.
 
 ```Output
 NAME                         READY   STATUS    RESTARTS   AGE
@@ -420,4 +420,4 @@ trafficsplit.split.smi-spec.io/bookstore-split created
 
 Configure un túnel de reenvío de puertos al pod de `bookbuyer`, y ahora debería ver los libros que se compran del servicio `bookstore` v2. Si sigue observando el incremento de las compras, debería notar un incremento más rápido de las que se realizan por medio del servicio `bookstore` v2.
 
-![IU de libros comprados de bookbuyer en OSM](./media/aks-osm-addon/osm-bookbuyer-traffic-split-ui.png)
+![Interfaz de usuario de libros comprados de bookbuyer en OSM](./media/aks-osm-addon/osm-bookbuyer-traffic-split-ui.png)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 6/12/2017
 ms.author: lemai
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9c31040ec13084f9e4b08bbc9a347e4ad44975bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 73d51b68cafba5f2abab375dc5b1b90706a370db
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89021262"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361732"
 ---
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Sustitución de las API Start Node y Stop node con la API Node Transition
 
@@ -34,8 +34,7 @@ Se han solucionado estos problemas anteriores en un nuevo conjunto de API.  La n
 
 **Uso**
 
-Si la API Node Transition no lanza una excepción al invocarla, significa que el sistema ha aceptado la operación asincrónica y que la ejecutará.  Una llamada correcta no implica que la operación haya finalizado aún.  Para obtener información sobre el estado actual de la operación, llame a la API Node Transition Progress (administrada: [GetNodeTransitionProgressAsync()][gntp]) con el GUID utilizado al invocar la API Node Transition para realizar esta operación.  La API Node Transition Progress devuelve un objeto NodeTransitionProgress.  La propiedad State de este objeto especifica el estado actual de la operación.  Si el estado es “Running”, significa que la operación está en ejecución.  Si el estado es Completed, significa que la operación ha finalizado sin errores.  Si el estado es Faulted, significa que se ha producido un problema al ejecutar la operación.  La propiedad Exception de la propiedad Result indica de qué problema se trata.  Consulte https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate para obtener más información sobre la propiedad Estado y la sección "Ejemplo de uso" más adelante para ver los ejemplos de código.
-
+Si la API Node Transition no lanza una excepción al invocarla, significa que el sistema ha aceptado la operación asincrónica y que la ejecutará.  Una llamada correcta no implica que la operación haya finalizado aún.  Para obtener información sobre el estado actual de la operación, llame a la API Node Transition Progress (administrada: [GetNodeTransitionProgressAsync()][gntp]) con el GUID utilizado al invocar la API Node Transition para realizar esta operación.  La API Node Transition Progress devuelve un objeto NodeTransitionProgress.  La propiedad State de este objeto especifica el estado actual de la operación.  Si el estado es "Running", significa que la operación está en ejecución.  Si el estado es Completed, significa que la operación ha finalizado sin errores.  Si el estado es Faulted, significa que se ha producido un problema al ejecutar la operación.  La propiedad Exception de la propiedad Result indica de qué problema se trata.  Consulte [TestCommandProgressState Enum](/dotnet/api/system.fabric.testcommandprogressstate) para obtener más información sobre la propiedad State y la sección "Ejemplo de uso" más adelante para ver los ejemplos de código.
 
 **Diferenciar entre un nodo detenido y un nodo inactivo** Si un nodo está *detenido* con la API Node Transition, el resultado de una consulta de nodo (administrada [GetNodeListAsync()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) mostrará que este nodo tiene un valor true para la propiedad *IsStopped*.  Tenga en cuenta que este valor es diferente del valor de la propiedad *NodeStatus*, que será *Down* (Apagado).  Si la propiedad *NodeStatus* tiene el valor *Down*, pero *IsStopped* es false, entonces significa que el nodo no se ha detenido con la API Node Transition y que está *apagado* por alguna otra razón.  Si la propiedad *IsStopped* es true y la propiedad *NodeStatus* es *Down*, entonces significa que se ha detenido con la API Node Transition.
 

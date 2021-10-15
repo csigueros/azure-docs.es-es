@@ -5,14 +5,14 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: conceptual
-ms.date: 09/01/2021
+ms.date: 10/01/2021
 ms.author: duau
-ms.openlocfilehash: aa109544ce890c4a8fae4775010a722791fbe5a7
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 61a712fa747252b07a513cfa6e18e3f3b4a67e6c
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123426083"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400731"
 ---
 # <a name="about-azure-route-server-support-for-expressroute-and-azure-vpn"></a>Compatibilidad de Azure Route Server con ExpressRoute y VPN de Azure
 
@@ -34,7 +34,7 @@ Por ejemplo, en el siguiente diagrama:
 También puede reemplazar el dispositivo SDWAN por Azure VPN Gateway. Dado que Azure VPN Gateway y ExpressRoute están totalmente administrados, solo tiene que habilitar el intercambio de rutas para las dos redes locales para que se comuniquen entre sí.
 
 > [!IMPORTANT] 
-> Azure VPN Gateway debe estar configurado en modo [**activo-activo**](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md).
+> Azure VPN Gateway debe estar configurado en modo [**activo-activo**](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md) y tener el valor de ASN establecido en 65515.
 >
 
 ![Diagrama que muestra ExpressRoute y VPN Gateway configurados con Route Server.](./media/expressroute-vpn-support/expressroute-and-vpn-with-route-server.png)

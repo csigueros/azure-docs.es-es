@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 10/04/2021
 ms.author: b-juche
-ms.openlocfilehash: a37ce583e5392099c923e9bc0a7a3363fa7b97c0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4fc34329ec7f318d79dd04e271db7b37b7e1cc59
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128576860"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533630"
 ---
 # <a name="create-a-dual-protocol-volume-for-azure-netapp-files"></a>Creación de un volumen de dos protocolos para Azure NetApp Files
 
@@ -30,7 +30,7 @@ Para crear volúmenes NFS, consulte [Creación de un volumen NFS](azure-netapp-f
 ## <a name="before-you-begin"></a>Antes de empezar 
 
 * Debe haber creado ya un grupo de capacidad.  
-    Consulte [Configuración de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md).   
+    Consulte [Creación de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md).   
 * Debe haber una subred delegada en Azure NetApp Files.  
     Consulte [Delegación de una subred en Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
@@ -109,6 +109,9 @@ Para crear volúmenes NFS, consulte [Creación de un volumen NFS](azure-netapp-f
         ![Crear un volumen](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Creación de una subred](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+
+    * **Características de red**  
+        En las regiones admitidas, puede especificar si quiere usar funciones de red **Básicas** o **Estándar** para el volumen. Consulte [Configurar características de red para un volumen](configure-network-features.md) y [Directrices para el planeamiento de la red de Azure NetApp Files](azure-netapp-files-network-topologies.md) para obtener más detalles.
 
     * Si desea aplicar una directiva de instantáneas existente al volumen, haga clic en **Mostrar la sección avanzada** para expandirla, especifique si quiere ocultar la ruta de acceso de la instantánea y seleccione una directiva de instantáneas en el menú desplegable. 
 

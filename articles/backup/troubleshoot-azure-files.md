@@ -3,12 +3,12 @@ title: Solución de problemas de copia de seguridad de recursos compartidos de a
 description: Este artículo contiene información para solución de problemas que se producen al proteger recursos compartidos de archivos de Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 86324c80f0df70713c6ea76a43e4b9da50c1fae6
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 942574fafe6a68b601f3ed4c428dc74fb02719a5
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111555027"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129532505"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Solución de problemas al realizar copias de seguridad de recursos compartidos de archivos de Azure
 
@@ -25,8 +25,10 @@ En este artículo se proporciona información de solución de problemas para cua
   >Todos los recursos compartidos de archivos de una cuenta de almacenamiento solo se pueden proteger en un almacén de Recovery Services. Puede usar [este script](scripts/backup-powershell-script-find-recovery-services-vault.md) para encontrar el almacén de Recovery Services donde está registrada la cuenta de almacenamiento.
 
 - Asegúrese de que el recurso compartido de archivos no esté presente en ninguna de las cuentas de almacenamiento no admitidas. Puede consultar la [Matriz de compatibilidad de copia de seguridad de recursos compartidos de archivos de Azure](azure-file-share-support-matrix.md) para encontrar las cuentas de almacenamiento admitidas.
+- Asegúrese de que la cuenta de almacenamiento y el almacén de Recovery Services están presentes en la misma región.
 - Asegúrese de que la longitud combinada del nombre de la cuenta de almacenamiento y el nombre del grupo de recursos no supere los 84 caracteres en el caso de cuentas de almacenamiento nuevas y 77 caracteres en el caso de cuentas de almacenamiento clásicas.
-- Compruebe la configuración del firewall de la cuenta de almacenamiento para asegurarse de que está habilitada la opción de permitir que los servicios de Microsoft de confianza accedan a la cuenta de almacenamiento.
+- Compruebe la configuración del firewall de la cuenta de almacenamiento para asegurarse de que se concede la excepción "_Permitir que los servicios de Azure de la lista de servicios de confianza accedan a esta cuenta de almacenamiento_". Puede consultar [este vínculo](/azure/storage/common/storage-network-security?tabs=azure-portal#manage-exceptions) para ver los pasos para conceder la excepción.
+
 
 ### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>Error en la detección de estados del portal de las cuentas de almacenamiento
 

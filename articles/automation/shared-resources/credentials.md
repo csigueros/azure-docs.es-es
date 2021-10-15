@@ -3,15 +3,15 @@ title: Administración de credenciales en Azure Automation
 description: En este artículo se explica cómo crear recursos de credenciales y usarlos en un runbook o una configuración de DSC.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 12/22/2020
+ms.date: 09/22/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6220a44e952aa4d9856ac5fc2077d254103d4a2c
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 2a78f9636a29c8e48c8d3e1c38d7127bd3ba84b7
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107834289"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354041"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Administración de credenciales en Azure Automation
 
@@ -24,7 +24,7 @@ Un recurso de credencial de Automation incluye un objeto que contiene credencial
 
 ## <a name="powershell-cmdlets-used-to-access-credentials"></a>Cmdlets de PowerShell usados para acceder a credenciales
 
-Los cmdlets de la tabla siguiente permiten crear y administrar credenciales de Automation con PowerShell. Se suministran como un componente de los [módulos Az](modules.md#az-modules).
+Los cmdlets de la tabla siguiente permiten crear y administrar credenciales de Automation con PowerShell. Se suministran como un componente de los módulos Az.
 
 | Cmdlet | Descripción |
 |:--- |:--- |
@@ -116,17 +116,33 @@ $securePassword = $myCredential.Password
 $password = $myCredential.GetNetworkCredential().Password
 ```
 
-También puede usar una credencial para autenticarse en Azure con [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). En la mayoría de las circunstancias, deberá usar una [cuenta de ejecución](../automation-security-overview.md#run-as-accounts) y recuperar la conexión con [Get-AzAutomationConnection](../automation-connections.md).
+También puede usar una credencial para autenticarse en Azure con [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) después de conectarse primero a una [identidad administrada](../automation-security-overview.md#managed-identities-preview). En ese ejemplo se usa una [identidad administrada asignada por el sistema](../enable-managed-identity-for-automation.md).
 
 ```powershell
-$myCred = Get-AutomationPSCredential -Name 'MyCredential'
+# Ensures you do not inherit an AzContext in your runbook
+Disable-AzContextAutosave -Scope Process
+
+# Connect to Azure with system-assigned managed identity
+$AzureContext = (Connect-AzAccount -Identity).context
+
+# set and store context
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
+
+# Get credential
+$myCred = Get-AutomationPSCredential -Name "MyCredential"
 $userName = $myCred.UserName
 $securePassword = $myCred.Password
 $password = $myCred.GetNetworkCredential().Password
 
 $myPsCred = New-Object System.Management.Automation.PSCredential ($userName,$securePassword)
 
-Connect-AzAccount -Credential $myPsCred
+# Connect to Azure with credential
+$AzureContext = (Connect-AzAccount -Credential $myPsCred -TenantId $AzureContext.Subscription.TenantId).context
+
+# set and store context
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription `
+    -TenantId $AzureContext.Subscription.TenantId `
+    -DefaultProfile $AzureContext
 ```
 
 # <a name="python-2"></a>[Python 2](#tab/python2)

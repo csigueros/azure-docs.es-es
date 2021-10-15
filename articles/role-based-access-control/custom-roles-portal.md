@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 08/27/2021
 ms.author: rolyon
-ms.openlocfilehash: de888e76e9ba27fa653905084193e6f8e25d2a81
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: dddcbef1b43866a7cba631cd565856aef787ec8b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123315377"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129360934"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Creación o actualización de roles personalizados de Azure mediante Azure Portal
 
@@ -184,7 +184,7 @@ Siga los pasos que se indican a continuación para agregar o quitar permisos par
 
     ![Lista de incorporación de permisos](./media/shared/add-permissions-list.png)
 
-1. Si busca permisos que se apliquen al plano de datos, haga clic en **Acciones de datos**. De lo contrario, deje la opción de alternancia establecida en **Acciones**, para que se muestren los permisos que se aplican al plano de administración. Para más información acerca de las diferencias entre el plano de administración y el plano de datos, consulte [Operaciones de administración y datos](role-definitions.md#management-and-data-operations).
+1. Si busca permisos que se apliquen al plano de datos, haga clic en **Acciones de datos**. De lo contrario, deje la opción de alternancia establecida en **Acciones**, para que se muestren los permisos que se aplican al plano de control. Para más información acerca de las diferencias entre el plano de control y el plano de datos, consulte [Acciones de control y datos](role-definitions.md#control-and-data-actions).
 
 1. Si es necesario, actualice la cadena de búsqueda para refinar aún más la búsqueda.
 

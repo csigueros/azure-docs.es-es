@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 42e244249ecb0539637918ae2439bdb4f5da4b38
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 0bbbe80a9f4c743fb658aa313641ab790e194509
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588486"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234345"
 ---
 # <a name="tutorial-to-configure-nevis-with-azure-active-directory-b2c-for-passwordless-authentication"></a>Tutorial para configurar Nevis con Azure Active Directory B2C para la autenticación sin contraseña
 

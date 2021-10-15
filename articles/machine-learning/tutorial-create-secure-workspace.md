@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Cree un área de trabajo de Azure Machine Learning y los servicios de Azure necesarios dentro de una red virtual segura.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.reviewer: jhirono
 ms.author: larryfr
 author: blackmist
 ms.date: 09/15/2021
 ms.topic: how-to
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: f0b4f19e8c1e06aa8ab5657fd1c70a75814451ad
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ad81535a8287a4b89f978c4c2523b664375d23d6
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128612194"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428737"
 ---
 # <a name="how-to-create-a-secure-workspace"></a>Procedimiento para crear un área de trabajo segura
 
@@ -37,8 +37,8 @@ En este tutorial, realizará las siguientes tareas:
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, los cinco primeros pasos de este tutorial también se pueden completar seleccionando el botón "Implementar en Azure". Puede continuar leyendo en la sección sobre cómo [conectar al área de trabajo](#connect-to-the-workspace).
 
-[![Implementar en Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-advanced%2Fazuredeploy.json)
-[![Implementar en Azure Gov](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazuregov.svg?sanitize=true)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-advanced%2Fazuredeploy.json)
+[![Implementar en Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-workspace-vnet%2Fazuredeploy.json)
+[![Implementar en Azure Gov](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazuregov.svg?sanitize=true)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-workspace-vnet%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -176,6 +176,9 @@ Para crear un cliente de red virtual, siga estos pasos:
     :::image type="content" source="./media/tutorial-create-secure-workspace/storage-file-private-endpoint-config.png" alt-text="Interfaz de usuario para configurar el punto de conexión privado de archivo":::
 
 1. Seleccione __Revisar + crear__. Compruebe que la información es correcta y seleccione __Crear__.
+
+> [!TIP]
+> Si tiene previsto usar [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) en la canalización, también es necesario configurar los subrecursos de **cola** y de **tabla** de destino de los puntos de conexión privados. ParallelRunStep usa la cola y la tabla en segundo plano para la programación y distribución de tareas.
 
 ## <a name="create-a-key-vault"></a>Creación de un Almacén de claves
 

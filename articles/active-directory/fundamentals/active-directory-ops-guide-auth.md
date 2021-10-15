@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 197b04a659ff2635742907339ba9b48e00668cff
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e3fd54dba324ddd8e7340e47d6b7f63ee6b2ea5b
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124732741"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233373"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guía de referencia de operaciones de administración de autenticación de Azure Active Directory
 
@@ -115,7 +115,7 @@ Microsoft también le recomienda que se ponga en contacto con los propietarios d
 
 ### <a name="on-premises-authentication"></a>Autenticación local
 
-La autenticación federada con la Autenticación integrada de Windows (IWA) o la autenticación administrada de inicio de sesión único (SSO) de conexión directa con la sincronización de hash de contraseña o la autenticación de paso a través, es la mejor experiencia de usuario cuando use la red corporativa relacionada con los controladores de dominio locales. Gracias a ello, se minimiza la fatiga de la petición de credenciales y reduce el riesgo de que los usuarios caigan en ataques de suplantación de identidad. Si ya usa la autenticación administrada en la nube con PHS o PTA, pero los usuarios todavía tienen que escribir su contraseña al autenticarse de forma local, debe implementar de inmediato el [SSO de conexión directa](../hybrid/how-to-connect-sso.md). Por otro lado, si está federado con planes para migrar definitivamente a la autenticación administrada en la nube, debe implementar el SSO de conexión directa como parte del proyecto de migración.
+La autenticación federada con la integrada de Windows (IWA) o la autenticación administrada de inicio de sesión único (SSO) de conexión directa con la sincronización de hash de contraseña o la autenticación de paso a través, es la mejor experiencia de usuario cuando use la red corporativa relacionada con los controladores de dominio locales. Gracias a ello, se minimiza la fatiga de la petición de credenciales y reduce el riesgo de que los usuarios caigan en ataques de suplantación de identidad. Si ya usa la autenticación administrada en la nube con PHS o PTA, pero los usuarios todavía tienen que escribir su contraseña al autenticarse de forma local, debe implementar de inmediato el [SSO de conexión directa](../hybrid/how-to-connect-sso.md). Por otro lado, si está federado con planes para migrar definitivamente a la autenticación administrada en la nube, debe implementar el SSO de conexión directa como parte del proyecto de migración.
 
 ### <a name="device-trust-access-policies"></a>Directivas de acceso de confianza de dispositivos
 

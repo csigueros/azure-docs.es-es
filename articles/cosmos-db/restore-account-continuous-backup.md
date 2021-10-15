@@ -8,12 +8,12 @@ ms.date: 07/29/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 62f2491bdd1d3b24be50410a88dcb2114e867913
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1f8622b37055cf8585e9c43f2e822756ac06d1de
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121781212"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352199"
 ---
 # <a name="restore-an-azure-cosmos-db-account-that-uses-continuous-backup-mode"></a>Restauración de una cuenta de Azure Cosmos DB que usa el modo de copia de seguridad continua
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -49,6 +49,8 @@ Puede usar Azure Portal para restaurar toda una cuenta activa o una selección d
    :::image type="content" source="./media/restore-account-continuous-backup/restore-live-account-portal.png" alt-text="Restauración de una cuenta activa después de una modificación accidental con Azure Portal." border="true" lightbox="./media/restore-account-continuous-backup/restore-live-account-portal.png":::
 
 1. Después de seleccionar los parámetros anteriores, haga clic en el botón **Enviar** para iniciar una restauración. El coste de restauración es un cargo único que se basa en el tamaño de los datos y en el coste del almacenamiento de copia de seguridad en la región seleccionada. Para más información, consulte la sección de [precios](continuous-backup-restore-introduction.md#continuous-backup-pricing).
+
+La eliminación de la cuenta de origen mientras una restauración está en curso podría dar lugar a un error en la restauración.
 
 ### <a name="use-event-feed-to-identify-the-restore-time"></a><a id="event-feed"></a>Uso de una fuente de eventos para identificar la hora de restauración
 

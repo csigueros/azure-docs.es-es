@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: eliotga
-ms.openlocfilehash: c9397351d1b6be5533f3a5eb9206dfd97311d9a1
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: ff65da89c12366fe477ca0f93779a8b2188d4ef3
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109483360"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129277278"
 ---
 # <a name="iot-hub-device-provisioning-service-dps-terminology"></a>Terminología de IoT Hub Device Provisioning Service (DPS)
 
@@ -33,7 +33,7 @@ El punto de conexión de aprovisionamiento de dispositivos es el único que usan
 
 ## <a name="linked-iot-hubs"></a>Centros de IoT vinculados
 
-El servicio Device Provisioning solo puede aprovisionar los dispositivos para los centros de IoT que se hayan vinculado a él. Vincular un centro de IoT a una instancia del servicio Device Provisioning proporciona los permisos de lectura/escritura del servicio al registro de dispositivos del centro de IoT; con el vínculo, el servicio puede registrar un identificador de dispositivo y establecer la configuración inicial en el dispositivo gemelo. Los centros de IoT vinculados pueden estar en cualquier región de Azure. Puede vincular centros de otras suscripciones a su servicio de aprovisionamiento.
+El servicio Device Provisioning solo puede aprovisionar los dispositivos para los centros de IoT que se hayan vinculado a él. Vincular un centro de IoT a una instancia de Device Provisioning Service proporciona los permisos de lectura/escritura del servicio al registro de dispositivos del centro de IoT; con el vínculo, el servicio puede registrar un identificador de dispositivo y establecer la configuración inicial en el dispositivo gemelo. Los centros de IoT vinculados pueden estar en cualquier región de Azure. Puede vincular centros de otras suscripciones a su servicio de aprovisionamiento.
 
 
 ## <a name="allocation-policy"></a>Directiva de asignación

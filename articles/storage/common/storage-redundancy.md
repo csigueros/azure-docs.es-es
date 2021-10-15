@@ -6,21 +6,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/13/2021
+ms.date: 08/18/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 186219af41630cf66f6addc65edfe31aef1dbb03
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 72b8df5a79ae1d4da9821d6d7d275dc5744ebb17
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122270959"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272744"
 ---
 # <a name="azure-storage-redundancy"></a>Redundancia de Azure Storage
 
 Azure Storage siempre almacena varias copias de los datos, con el fin de protegerlos de eventos planeados y no planeados, como errores transitorios del hardware, interrupciones del suministro eléctrico o cortes de la red y desastres naturales masivos. La redundancia garantiza que la cuenta de almacenamiento cumple sus objetivos de disponibilidad y durabilidad, aunque se produzcan errores.
 
-A la hora de decidir qué opción de redundancia es la más adecuada para su escenario, intente buscar un equilibrio entre bajo costo y alta disponibilidad. Entre los factores que ayudan a determinar qué opción de redundancia debe elegir se incluye:  
+A la hora de decidir qué opción de redundancia es la más adecuada para su escenario, intente buscar un equilibrio entre bajo costo y alta disponibilidad. Entre los factores que ayudan a determinar qué opción de redundancia debe elegir se incluye:
 
 - Cómo se replican los datos en la región primaria.
 - Si los datos se replicarán en una segunda ubicación que está alejada geográficamente de la región primaria, para protegerse frente a desastres regionales.
@@ -133,14 +133,11 @@ GZRS y RA-GZRS se admiten en las siguientes regiones:
 - (Asia Pacífico) Este de Asia
 - (Asia Pacífico) Sudeste de Asia
 - (Asia Pacífico) Este de Australia
-- (Asia Pacífico) Centro de la India
 - (Asia Pacífico) Este de Japón
-- (Asia Pacífico) Centro de Corea del Sur
 - (Canadá) Centro de Canadá
 - (Europa) Norte de Europa
 - (Europa) Oeste de Europa
 - (Europa) Centro de Francia
-- (Europa) Centro-oeste de Alemania
 - (Europa) Este de Noruega
 - (Europa) Sur de Reino Unido
 - (Sudamérica) Sur de Brasil
@@ -163,7 +160,7 @@ El almacenamiento con redundancia geográfica (con GRS o GZRS) replica los datos
 
 ### <a name="design-your-applications-for-read-access-to-the-secondary"></a>Diseño de aplicaciones para el acceso de lectura a la región secundaria
 
-Si la cuenta de almacenamiento está configurada para usar el acceso de lectura a la región secundaria, puede diseñar sus aplicaciones para que fácilmente pasen a leer datos de la región secundaria si la región primaria deja de estar disponible por cualquier motivo. 
+Si la cuenta de almacenamiento está configurada para usar el acceso de lectura a la región secundaria, puede diseñar sus aplicaciones para que fácilmente pasen a leer datos de la región secundaria si la región primaria deja de estar disponible por cualquier motivo.
 
 La región secundaria siempre está disponible para el acceso de lectura después de habilitar RA-GRS o RA-GRS, por lo que puede probar la aplicación de antemano para asegurarse de que leerá desde la región secundaria si se produce una interrupción. Para obtener más información sobre cómo diseñar aplicaciones para aprovechar las ventajas de la redundancia geográfica, consulte [Uso de redundancia geográfica para diseñar aplicaciones de alta disponibilidad](geo-redundant-design.md).
 
@@ -224,7 +221,7 @@ En la tabla siguiente se muestran las opciones de redundancia que admite cada ti
 |:-|:-|:-|:-|
 | Uso general v2<br /> Uso general v1<br /> Blobs en bloques Premium<br /> Blob heredado<br /> Recursos compartidos de archivos Prémium | Uso general v2<br /> Blobs en bloques Premium<br /> Recursos compartidos de archivos Prémium | Uso general v2<br /> Uso general v1<br /> Blob heredado | Uso general v2 |
 
-Todos los datos de todas las cuentas de almacenamiento se copian según la opción de redundancia de la cuenta de almacenamiento. Se copian los objetos, incluidos los blobs en bloques, blobs en anexos, blobs en páginas, colas, tablas y archivos. Se copian los datos de todos los niveles de servicio, incluido el nivel de archivo. Para más información sobre los niveles de blobs, consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](../blobs/storage-blob-storage-tiers.md).
+Todos los datos de todas las cuentas de almacenamiento se copian según la opción de redundancia de la cuenta de almacenamiento. Se copian los objetos, incluidos los blobs en bloques, blobs en anexos, blobs en páginas, colas, tablas y archivos. Se copian los datos de todos los niveles de servicio, incluido el nivel de archivo. Para más información sobre los niveles de los blobs, consulte [Niveles de acceso frecuente, esporádico y de archivo de los datos de blobs](../blobs/access-tiers-overview.md).
 
 Para más información sobre los precios de las diferentes opciones de redundancia, consulte [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 

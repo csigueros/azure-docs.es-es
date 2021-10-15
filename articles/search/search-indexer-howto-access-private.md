@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/13/2021
-ms.openlocfilehash: 79bb517faffdda7e9d7ddef45e7b52f5e81dc201
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 484f52656c5e49113d50f25a94a33b94ed886ab0
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128589689"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359205"
 ---
 # <a name="make-indexer-connections-through-a-private-endpoint"></a>Establecimiento de conexiones del indexador a través de un punto de conexión privado
 
@@ -56,7 +56,13 @@ También puede consultar los recursos de Azure para los que se admiten conexione
 En el resto de este artículo, se usa una combinación de Azure Portal, o la [CLI de Azure](/cli/azure/), si lo prefiere, y [Postman](https://www.postman.com/), o cualquier otro cliente HTTP como [curl](https://curl.se/), si lo prefiere, para demostrar las llamadas API de REST.
 
 > [!NOTE]
-> Para crear una conexión de punto de conexión privado a Azure Data Lake Storage Gen2, debe crear dos puntos de conexión privados. Un punto de conexión privado con el valor de groupID de "dfs" y otro punto de conexión privado con el valor de groupID de "blob".
+> Hay varios orígenes de datos de Azure Cognitive Search y otras configuraciones que requieren la creación de más de un vínculo privado compartido para funcionar correctamente. Esta es una lista de las configuraciones con este requisito y qué identificadores de grupo son necesarios para cada una:
+> * **Origen de datos de Azure Data Lake Storage Gen2**: cree dos vínculos privados compartidos: un vínculo privado compartido con el groupID "dfs" y otro vínculo privado compartido con el groupID "blob".
+> * **Conjunto de aptitudes con el almacén de conocimiento configurado**: se necesitan uno o dos vínculos privados compartidos, en función de las proyecciones establecidas para el almacén de conocimiento:
+>   * Si usa proyecciones de blobs o archivos, cree un vínculo privado compartido con el groupID "blob". 
+>   * Si usa proyecciones de tablas, cree un vínculo privado compartido con el groupID "table". 
+>   * En caso de que se utilicen proyecciones de blobs o archivos y de tablas, cree dos vínculos privados compartidos: uno con groupID "blob" y otro con groupID "table". 
+> * **Indizador con la caché habilitada**: cree dos vínculos privados compartidos: un vínculo privado compartido con el groupID "table" y otro vínculo privado compartido con el groupID "blob".
 
 ## <a name="set-up-indexer-connection-through-private-endpoint"></a>Configuración de una conexión del indexador a través de un punto de conexión privado
 
@@ -70,25 +76,25 @@ Los ejemplos de este artículo se basan en los siguientes supuestos:
 
 Los pasos para restringir el acceso varían según el recurso. En los siguientes escenarios se muestran tres de los tipos más comunes de recursos.
 
-- Escenario 1: origen de datos
+- Escenario 1: Azure Storage
 
-    A continuación se muestra un ejemplo de cómo configurar una cuenta de almacenamiento de Azure. Si selecciona esta opción y deja la página vacía, significa que no se admite tráfico de redes virtuales.
+    A continuación, se muestra un ejemplo de cómo configurar el firewall de una cuenta de almacenamiento de Azure. Si selecciona esta opción y deja la página vacía, significa que no se admite tráfico de redes virtuales.
 
     ![Captura de pantalla del panel "Firewalls y redes virtuales" del almacenamiento de Azure, en la que se muestra la opción para permitir el acceso a las redes seleccionadas](media\search-indexer-howto-secure-access\storage-firewall-noaccess.png)
 
 - Escenario 2: Azure Key Vault
 
-    A continuación se muestra un ejemplo de cómo configurar Azure Key Vault.
+    A continuación, se muestra un ejemplo de cómo configurar el firewall de Azure Key Vault.
  
     ![Captura de pantalla del panel "Firewalls y redes virtuales" de Azure Key Vault, en la que se muestra la opción para permitir el acceso a las redes seleccionadas](media\search-indexer-howto-secure-access\key-vault-firewall-noaccess.png)
     
 - Escenario 3: Azure Functions
 
-    No se necesitan cambios en la configuración de red para Azure Functions. En los siguientes pasos, al crear el punto de conexión privado compartido, la función solo permitirá automáticamente el acceso a través de un vínculo privado, después de crear un punto de conexión privado compartido a la función.
+    No se necesitan cambios en la configuración de red para los firewalls de Azure Functions. En los siguientes pasos, al crear el punto de conexión privado compartido, la función solo permitirá automáticamente el acceso a través de un vínculo privado, después de crear un punto de conexión privado compartido a la función.
 
 ### <a name="step-2-create-a-shared-private-link-resource-to-the-azure-resource"></a>Paso 2: Creación de un recurso de vínculo privado compartido al recurso de Azure
 
-En la siguiente sección se describe cómo crear un recurso de vínculo privado compartido usando Azure Portal o la CLI de Azure.
+En la siguiente sección se describe cómo crear un recurso de vínculo privado compartido usando Azure Portal o la CLI de Azure. 
 
 #### <a name="option-1-portal"></a>Opción 1: Azure Portal
 

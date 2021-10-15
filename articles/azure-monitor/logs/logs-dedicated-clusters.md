@@ -6,12 +6,12 @@ author: yossi-y
 ms.author: yossiy
 ms.date: 07/29/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 3aafeacbd07e386a23b289db0452a7425e18f567
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a1236e1b68b90e9a1e48d61fa1b425ba26ead14b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128632621"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351400"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Clústeres dedicados de registros de Azure Monitor
 
@@ -30,7 +30,7 @@ Las funcionalidades que requieren clústeres dedicados son las siguientes:
 
 ## <a name="management"></a>Administración 
 
-Los clústeres dedicados se administran con un recurso de Azure que representa clústeres de registro de Azure Monitor. Las operaciones se realizan mediante programación mediante la [CLI](/cli/azure/monitor/log-analytics/cluster?view=azure-cli-latest), [PowerShell](/powershell/module/az.operationalinsights) o [REST](/rest/api/loganalytics/clusters).
+Los clústeres dedicados se administran con un recurso de Azure que representa clústeres de registro de Azure Monitor. Las operaciones se realizan mediante programación mediante la [CLI](/cli/azure/monitor/log-analytics/cluster), [PowerShell](/powershell/module/az.operationalinsights) o [REST](/rest/api/loganalytics/clusters).
 
 Una vez creado un clúster, las áreas de trabajo se pueden vincular a dicho clúster y los nuevos datos ingeridos en estas se almacenan en el clúster. Las áreas de trabajo se pueden desvincular de un clúster en cualquier momento y los nuevos datos se almacenarán en clústeres compartidos de Log Analytics. La operación de vinculación y desvinculación no afecta a las consultas y al acceso a los datos antes y después de la operación sujeta a la retención en las áreas de trabajo. El clúster y las áreas de trabajo deben estar en la misma región para permitir la vinculación.
 
@@ -622,12 +622,12 @@ Authorization: Bearer <token>
 - La caja de seguridad no está disponible actualmente en China. 
 
 - El [cifrado doble](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) se configura automáticamente para los clústeres creados a partir de octubre de 2020 en las regiones compatibles. Puede comprobar si el clúster está configurado para el cifrado doble mediante el envío de una solicitud GET en el clúster y observando que el valor `isDoubleEncryptionEnabled` sea `true` para los clústeres con el cifrado doble habilitado. 
-  - Si crea un clúster y recibe un error que indica que la región no admite el cifrado doble para clústeres, puede crear el clúster sin cifrado doble agregando `"properties": {"isDoubleEncryptionEnabled": false}` en el cuerpo de la solicitud REST.
+  - Si crea un clúster y recibe un error que indica que la región no admite el cifrado doble para clústeres, puede crear el clúster sin cifrado doble si agrega `"properties": {"isDoubleEncryptionEnabled": false}` en el cuerpo de la solicitud REST.
   - La configuración de cifrado doble no se puede cambiar después de crear el clúster.
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
-- Si se produce un error de conflicto al crear un clúster, es posible que haya eliminado el clúster en los últimos 14 días y que esté en un estado de eliminación temporal. El nombre del clúster permanece reservado durante el período de eliminación temporal y no se puede crear un nuevo clúster con ese nombre. El nombre se libera después del período de eliminación temporal cuando el clúster se elimina de forma permanente.
+- Si se produce un error de conflicto al crear un clúster, es posible que haya eliminado el clúster en los últimos 14 días y que esté en un estado de eliminación temporal. El nombre del clúster permanece reservado durante el período de eliminación temporal y no se puede crear un nuevo clúster con ese nombre. El nombre se libera después del período de eliminación temporal cuando el clúster se elimina de forma permanente.
 
 - Si actualiza el clúster mientras este está en el estado de aprovisionamiento o actualización, se producirá un error en la actualización.
 

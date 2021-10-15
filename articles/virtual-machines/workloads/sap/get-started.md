@@ -13,15 +13,15 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/24/2021
+ms.date: 10/01/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ac0c2795f5af31cec40d03ec1889f333441ae25
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 9e875e71a3faaa7314322c170ca09e3b65f5f8ca
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129054820"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129399553"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso de Azure para hospedar y ejecutar escenarios de carga de trabajo de SAP
 
@@ -80,6 +80,7 @@ En esta sección encontrará información sobre cómo configurar el inicio de se
 En esta sección encontrará documentos sobre la integración de Microsoft Power BI en orígenes de datos de SAP, así como la integración de Azure Data Factory en SAP BW.
 
 ## <a name="change-log"></a>Registro de cambios
+- 1 de octubre de 2021: se ha agregado un vínculo a la nueva arquitectura de Azure Backup para el documento de copia de seguridad de SAP HANA en la tabla de contenido. Se ha agregado un enlace al servicio Azure Backup para Oracle DBMS en [Implementación de Oracle DBMS de Azure Virtual Machines para la carga de trabajo de SAP](./dbms_guide_oracle.md).
 - 24 de septiembre de 2021: cambio en [Escalabilidad horizontal de SAP HANA de HSR con Pacemaker en máquinas virtuales de Azure en SLES](./sap-hana-high-availability-scale-out-hsr-suse.md), [Alta disponibilidad del escalado vertical de SAP HANA con Azure NetApp Files en Red Hat Enterprise Linux](./sap-hana-high-availability-netapp-files-red-hat.md) y [Escalabilidad horizontal de SAP HANA de HSR con Pacemaker en máquinas virtuales de Azure en RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) para ajustar las instrucciones de creación del archivo sudoers (para HANA srHook).
 - 15 de septiembre de 2021: introducción a la nueva configuración de HADR para SAP ASE en [Implementación de DBMS de Azure Virtual Machines de SAP ASE para la carga de trabajo de SAP](./dbms_guide_sapase.md).
 - 8 de septiembre de 2021: adición de un grupo de capacidad de QoS manual a [Volúmenes NFS v4.1 en Azure NetApp Files para SAP HANA](./hana-vm-operations-netapp.md).

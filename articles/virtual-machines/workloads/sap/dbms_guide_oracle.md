@@ -12,15 +12,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/18/2021
+ms.date: 10/01/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd4b8ccf3147e349b9625d5912e5d603415ec39a
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 3c04c2824b005adfc3e04d710b0e55c7f52c99b1
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112297510"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129403008"
 ---
 # <a name="azure-virtual-machines-oracle-dbms-deployment-for-sap-workload"></a>Implementación de DBMS de Oracle de Azure Virtual Machines para la carga de trabajo de SAP
 
@@ -415,6 +415,7 @@ Para la funcionalidad de copia de seguridad y restauración, las SAP BR*Tools pa
 También se puede usar el servicio Azure Backup para ejecutar una copia de seguridad de máquina virtual coherente con la aplicación. En el artículo [Planeación de la infraestructura de copia de seguridad de máquinas virtuales en Azure](../../../backup/backup-azure-vms-introduction.md) se explica cómo Azure Backup usa la funcionalidad de Windows VSS para ejecutar copias de seguridad coherentes con la aplicación. Las versiones de Oracle Database que se admiten en Azure y SAP pueden aprovechar la funcionalidad VSS para las copias de seguridad. Para más información, consulte [Basic concepts of database backup and recovery with VSS](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/ntqrf/basic-concepts-of-database-backup-and-recovery-with-vss.html#GUID-C085101B-237F-4773-A2BF-1C8FD040C701) (Conceptos básicos de copia de seguridad y recuperación de bases de datos con VSS) en la documentación de Oracle.
 
 
+
 ### <a name="high-availability"></a>Alta disponibilidad
 Oracle Data Guard se admite con fines de alta disponibilidad y recuperación ante desastres. Para lograr una conmutación por error automática en Data Guard, debe usar Fast-Start Failover (FSFA). La funcionalidad Observador (FSFA) desencadena la conmutación por error. Si no usa FSFA, solo puede usar una configuración de conmutación por error manual.
 
@@ -517,6 +518,9 @@ En las máquinas virtuales de Azure de la serie M, cuando se usa el Acelerador d
 Para utilizar la funcionalidad de copia de seguridad y restauración, se admite SAP BR*Tools for Oracle del mismo modo que en un servidor físico e Hyper-V. También se admite Oracle Recovery Manager (RMAN) para las copias de seguridad en disco y las restauraciones desde disco.
 
 Para más información sobre cómo puede usar los servicios Azure Backup y Recovery para crear una copia de seguridad de las bases de datos de Oracle y recuperarlas, consulte el artículo [Copia de seguridad y recuperación de una base de datos de Oracle Database 12c en una máquina virtual Linux de Azure](../oracle/oracle-overview.md).
+
+El [servicio Azure Backup](../../../backup/backup-overview.md) también es compatible con las copias de seguridad de Oracle, tal como se describe en el artículo [Copias de seguridad y recuperación de una base de datos de Oracle Database 19c en una VM Linux de Azure mediante Azure Backup](../oracle/oracle-database-backup-azure-backup.md).
+
 
 ### <a name="high-availability"></a>Alta disponibilidad
 Oracle Data Guard se admite con fines de alta disponibilidad y recuperación ante desastres. Para lograr una conmutación por error automática en Data Guard, debe usar Fast-Start Failover (FSFA). La funcionalidad Observador (FSFA) desencadena la conmutación por error. Si no usa FSFA, solo puede usar una configuración de conmutación por error manual. Para más información, consulte [Implementación de Oracle Data Guard en una máquina virtual Linux en Azure](../oracle/configure-oracle-dataguard.md).

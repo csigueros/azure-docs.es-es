@@ -3,12 +3,12 @@ title: Administración de bases de datos de SAP HANA con copia de seguridad en m
 description: En este artículo, aprenderá las tareas comunes para administrar y supervisar las bases de datos de SAP HANA que se ejecutan en máquinas virtuales de Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: d514a8f790f906a4830672dc726c03ad2cf41a2c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2e793cddeb4e751c47ffa82786f24e65a0873faf
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128662255"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129231375"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Administración y supervisión de bases de datos de SAP HANA de las que se ha realizado copia de seguridad
 
@@ -84,7 +84,8 @@ Estas copias de seguridad a petición también se mostrarán en la lista de punt
 
 #### <a name="restore"></a>Restauración
 
-Las restauraciones desencadenadas a partir de clientes nativos de HANA (mediante **Backint**) para restaurar en la misma máquina pueden [supervisarse](#monitor-manual-backup-jobs-in-the-portal) desde la página **Trabajos de copia de seguridad**.
+Las restauraciones desencadenadas a partir de clientes nativos de HANA (mediante **Backint**) para restaurar en **la misma máquina** pueden [supervisarse](#monitor-manual-backup-jobs-in-the-portal) desde la página **Trabajos de copia de seguridad**.
+No se permiten restauraciones desencadenadas desde clientes nativos de HANA para restaurar en otra máquina. Esto se debe a que el servicio Azure Backup no puede autenticar el servidor de destino, según las reglas de RBAC de Azure, para la restauración.
 
 #### <a name="delete"></a>Eliminar
 

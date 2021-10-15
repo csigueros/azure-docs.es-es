@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59597fefe4d3cb0032f8c9ccfbf317c593fd34a9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7eb9dc44cb84a432b78ebe1740c7cee35c978fbe
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124748521"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272301"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>¿Cuáles son las novedades de Azure Active Directory?
 
@@ -68,7 +68,7 @@ Ahora se admite el inicio de sesión único (SSO) nativo y el acceso condicional
 **Funcionalidad del producto:** Identity Governance
  
 
-Hemos publicado la Graph API de MS beta para revisiones de acceso de Azure AD. La API tiene métodos para devolver una lista de nombres de revisor contactados además del tipo de revisor. [Más información](/graph/api/resources/accessreviewinstance?view=graph-rest-beta).
+Hemos publicado la Graph API de MS beta para revisiones de acceso de Azure AD. La API tiene métodos para devolver una lista de nombres de revisor contactados además del tipo de revisor. [Más información](/graph/api/resources/accessreviewinstance?view=graph-rest-beta&preserve-view=true).
  
 ---
 
@@ -186,7 +186,7 @@ Los usuarios a los que se les haya asignado el rol Administrador de usuarios ya 
 **Categoría del servicio:** Microsoft Identity Manager  
 **Funcionalidad del producto:** Administración del ciclo de vida de la identidad
  
-El conector Windows Azure AD para FIM está inmovilizado y en desuso. Se ha reemplazado la solución de uso de FIM y del conector Azure AD. Las implementaciones existentes deben migrar a [Azure AD Connect](../hybrid/whatis-hybrid-identity.md), la sincronización de Azure AD Connect o el [conector de Microsoft Graph](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-connector-graph), ya que las interfaces internas usadas por el conector Azure AD para FIM se van a quitar de Azure AD. [Más información](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-deprecated-features).
+El conector Windows Azure AD para FIM está inmovilizado y en desuso. Se ha reemplazado la solución de uso de FIM y del conector Azure AD. Las implementaciones existentes deben migrar a [Azure AD Connect](../hybrid/whatis-hybrid-identity.md), la sincronización de Azure AD Connect o el [conector de Microsoft Graph](/microsoft-identity-manager/microsoft-identity-manager-2016-connector-graph), ya que las interfaces internas usadas por el conector Azure AD para FIM se van a quitar de Azure AD. [Más información](/microsoft-identity-manager/microsoft-identity-manager-2016-deprecated-features).
 
 ---
 
@@ -212,7 +212,7 @@ Consulte [Azure Active Directory Connect V2.0](../hybrid/whatis-azure-ad-connect
  
 La implementación de la sincronización de MIM, el servicio, el portal o CM en Windows Server 2008 R2, o mediante SQL Server 2008 R2 como base de datos subyacente, está en desuso, ya que estas plataformas ya no están en soporte estándar. Se recomienda instalar la sincronización de MIM y otros componentes en Windows Server 2016 o versiones posteriores, y con SQL Server 2016 o posterior.
 
-La implementación de MIM para Privileged Access Management con un controlador de dominio de Windows Server 2012 R2 en el bosque PRIV está en desuso. Use Windows Server 2016 o Active Directory posterior con nivel funcional de Windows Server 2016 para el dominio de bosque PRIV. El nivel funcional de Windows Server 2012 R2 todavía se permite para el dominio de un bosque CORP. [Más información](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-supported-platforms).
+La implementación de MIM para Privileged Access Management con un controlador de dominio de Windows Server 2012 R2 en el bosque PRIV está en desuso. Use Windows Server 2016 o Active Directory posterior con nivel funcional de Windows Server 2016 para el dominio de bosque PRIV. El nivel funcional de Windows Server 2012 R2 todavía se permite para el dominio de un bosque CORP. [Más información](/microsoft-identity-manager/microsoft-identity-manager-2016-supported-platforms).
 
 ---
 
@@ -273,7 +273,7 @@ Para obtener más información sobre Aplicaciones, consulte [Inicio de sesión e
 **Categoría del servicio:** MS Graph  
 **Funcionalidad del producto:** Experiencia para el desarrollador
  
-Las directivas de métodos de autenticación de aplicaciones de MS Graph permiten a los administradores de TI aplicar una vigencia a las credenciales secretas de contraseñas de aplicaciones o bloquear por completo el uso de secretos. Es posible aplicar directivas a todo un inquilino como una configuración predeterminada o limitar su ámbito a aplicaciones o entidades de servicio específicas. [Más información](/graph/api/resources/policy-overview?view=graph-rest-beta).
+Las directivas de métodos de autenticación de aplicaciones de MS Graph permiten a los administradores de TI aplicar una vigencia a las credenciales secretas de contraseñas de aplicaciones o bloquear por completo el uso de secretos. Es posible aplicar directivas a todo un inquilino como una configuración predeterminada o limitar su ámbito a aplicaciones o entidades de servicio específicas. [Más información](/graph/api/resources/policy-overview?view=graph-rest-beta&preserve-view=true).
  
 ---
 
@@ -315,7 +315,7 @@ Ahora puede enviar los usuarios de riesgo y los registros de detecciones de ries
 **Categoría del servicio:** Proxy de aplicaciones  
 **Funcionalidad del producto:** Control de acceso
  
-El tipo de recurso onPremisesPublishing incluye ahora la propiedad "isBackendCertificateValidationEnabled", que indica si la validación de certificados SSL de back-end está habilitada para la aplicación. Para todas las nuevas aplicaciones de Application Proxy, la propiedad se establecerá en "true" de manera predeterminada. Para todas las aplicaciones ya existentes, la propiedad se establecerá en "false". Para obtener más información, consulte [Tipo de recurso onPremisesPublishing](/graph/api/resources/onpremisespublishing?view=graph-rest-beta).
+El tipo de recurso onPremisesPublishing incluye ahora la propiedad "isBackendCertificateValidationEnabled", que indica si la validación de certificados SSL de back-end está habilitada para la aplicación. Para todas las nuevas aplicaciones de Application Proxy, la propiedad se establecerá en "true" de manera predeterminada. Para todas las aplicaciones ya existentes, la propiedad se establecerá en "false". Para obtener más información, consulte [Tipo de recurso onPremisesPublishing](/graph/api/resources/onpremisespublishing?view=graph-rest-beta&preserve-view=true).
  
 ---
 
@@ -474,7 +474,7 @@ Cuando los administradores crean revisiones de acceso de asignaciones a roles co
 **Categoría del servicio:** Otros  
 **Funcionalidad del producto:** Administración del ciclo de vida de dispositivos
  
-La compatibilidad de Microsoft Graph con la configuración de movilidad (MDM/MAM) de Azure AD está en versión preliminar pública. Los administradores pueden configurar el ámbito de usuario y las direcciones URL de aplicaciones MDM como Intune mediante Microsoft Graph v1.0. Para obtener más información, consulte [Tipo de recurso mobilityManagementPolicy](/graph/api/resources/mobilitymanagementpolicy?view=graph-rest-beta).
+La compatibilidad de Microsoft Graph con la configuración de movilidad (MDM/MAM) de Azure AD está en versión preliminar pública. Los administradores pueden configurar el ámbito de usuario y las direcciones URL de aplicaciones MDM como Intune mediante Microsoft Graph v1.0. Para obtener más información, consulte [Tipo de recurso mobilityManagementPolicy](/graph/api/resources/mobilitymanagementpolicy?view=graph-rest-beta&preserve-view=true).
 
 ---
 
@@ -548,7 +548,7 @@ Con la actualización Windows 10 21H1, Windows Hello admite ahora varias cámara
 **Categoría del servicio:** Revisiones de acceso  
 **Funcionalidad del producto:** Identity Governance
  
-Microsoft Graph API está ahora en v1.0 y admite características de revisiones de acceso plenamente configurables. [Más información](/graph/api/resources/accessreviewsv2-root?view=graph-rest-1.0).
+Microsoft Graph API está ahora en v1.0 y admite características de revisiones de acceso plenamente configurables. [Más información](/graph/api/resources/accessreviewsv2-root?view=graph-rest-1.0&preserve-view=true).
  
 ---
 
@@ -839,8 +839,8 @@ Para mostrar su aplicación en la galería de aplicaciones de Azure AD, lea los
 
 Hemos actualizado el texto de la pantalla "Acceso condicional" que se muestra a los usuarios cuando se bloquea su acceso a los recursos corporativos. Este bloqueo se mantendrá hasta que inscriban su dispositivo en la administración de dispositivos móviles. Estas mejoras se aplican a las plataformas Android e iOS/iPadOS. Se ha cambiado lo siguiente:
 
-- De "Ayúdenos a garantizar la seguridad de su dispositivo." a "Configuración del dispositivo para obtener acceso".
-- De "Ha iniciado sesión correctamente, pero su administrador requiere que Microsoft administre su dispositivo para poder acceder a este recurso." a "[Nombre de la organización] requiere que proteja este dispositivo para poder acceder a los datos, los archivos y el correo electrónico de [nombre de la organización]". 
+- De "Ayúdenos a garantizar la seguridad de su dispositivo" a "Configuración del dispositivo para obtener acceso".
+- De "Ha iniciado sesión correctamente, pero su administrador requiere que Microsoft administre su dispositivo para poder acceder a este recurso" a "[Nombre de la organización] requiere que proteja este dispositivo para poder acceder a los datos, los archivos y el correo electrónico de [nombre de la organización]". 
 - De "Inscribirse ahora" a "Continuar".
 
 La información que se incluye en [Inscriba su dispositivo empresarial Android](https://support.microsoft.com/topic/enroll-your-android-enterprise-device-d661c82d-fa28-5dfd-b711-6dff41ae83bb) no está actualizada.

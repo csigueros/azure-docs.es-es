@@ -8,18 +8,29 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 08/26/2021
+ms.date: 09/20/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b8ceea26ed7a5e58e890c4e313b00f1f4f37f4e7
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+zone_pivot_groups: b2c-policy-type
+ms.openlocfilehash: 06745d9a3ba5cb1e50e1adf23e88f442bcc31ab0
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122967804"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658507"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Recopilación de registros de Azure Active Directory B2C con Application Insights
+
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+::: zone pivot="b2c-user-flow"
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 En este artículo se proporcionan los pasos para recopilar registros de Active Directory B2C (Azure AD B2C) de forma que pueda diagnosticar problemas con sus directivas personalizadas. Application Insights proporciona un modo de diagnosticar excepciones y visualizar problemas de rendimiento de la aplicación. Azure AD B2C incluye una característica para enviar datos a Application Insights.
 
@@ -35,17 +46,19 @@ Si aún no tiene una, cree una instancia de Application Insights en su suscripci
 > [!TIP]
 > Se puede usar una sola instancia de Application Insights para varios inquilinos de Azure AD B2C. Después, en la consulta, puede filtrar por inquilino o nombre de directiva. Para obtener más información, [consulte los ejemplos de registros en Application Insights](#see-the-logs-in-application-insights).
 
-Para usar una instancia de salida de Application Insights en su suscripción, siga estos pasos:
+Para usar una instancia existente de Application Insights en su suscripción, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene la suscripción de Azure (no el directorio de Azure AD B2C).
+1. Asegúrese de que usa el directorio de Azure AD que tiene la suscripción de Azure y no el de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD en la lista **Nombre de directorio** y, después, seleccione **Cambiar**.
 1. Abra el recurso de Application Insights que creó anteriormente.
 1. En la página **Información general**, anote la **Clave de instrumentación**.
 
 Para crear una instancia de Application Insights en su suscripción, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene la suscripción de Azure (no el directorio de Azure AD B2C).
+1. Asegúrese de que usa el directorio de Azure AD que tiene la suscripción de Azure y no el de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD en la lista **Nombre de directorio** y, después, seleccione **Cambiar**.
 1. Seleccione **Crear un recurso** en el panel de navegación izquierdo.
 1. Busque y seleccione **Application Insights** y, luego, seleccione **Crear**.
 1. Complete el formulario, seleccione **Revisar y crear** y seleccione **Crear**.
@@ -191,4 +204,6 @@ Para mejorar el rendimiento del entorno de producción y mejorar la experiencia 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Aprenda a [solucionar los problemas de las directivas personalizadas de Azure AD B2C](troubleshoot-custom-policies.md)
+- Aprenda a [solucionar los problemas de las directivas personalizadas de Azure AD B2C](troubleshoot.md)
+
+::: zone-end

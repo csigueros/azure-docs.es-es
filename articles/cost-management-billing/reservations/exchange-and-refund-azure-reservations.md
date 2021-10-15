@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 04/14/2021
 ms.author: banders
-ms.openlocfilehash: d45682a3ccdc67cdbff8ef0c1edd542817875fbc
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 56ebba760defcb47d336874294255e2e97e5a151
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111891561"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546235"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Autoservicio de cambios y reembolsos de reservas de Azure
 
@@ -80,6 +80,7 @@ Si la compra original se realizó como uso por encima del límite, tanto la fact
 ### <a name="pay-as-you-go-invoice-payments-and-csp-program"></a>Pagos mediante factura de pago por uso y programa CSP
 
 La factura de compra de la reserva original se cancela y luego se crea una nueva factura para el reembolso. En el caso de los cambios, la nueva factura muestra el reembolso y la nueva compra. El importe del reembolso se ajusta con la compra. Si solo reembolsó una reserva, Microsoft se queda con la cantidad prorrateada y se ajusta a una futura compra de reserva. Si adquirió una reserva con la tarifa de pago por uso y posteriormente cambia a la tarifa CSP, la reserva se puede devolver y volver a comprar sin penalización.
+No puede realizar un reembolso de autoservicio en CSP; para cualquier solicitud de reembolso, póngase en contacto con el soporte técnico a través de su CSP.
 
 ### <a name="pay-as-you-go-credit-card-customers"></a>Clientes con tarjeta de crédito de pago por uso
 

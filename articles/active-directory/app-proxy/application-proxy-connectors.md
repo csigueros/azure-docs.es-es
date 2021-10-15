@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: ae7da354b16dbea3e84f8d75fbf97e805387c4b0
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 066690f69922ba8df7e7df8739d4c4bf521eb5c3
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111952110"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230938"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Descripción de los conectores del Proxy de aplicación de Azure AD
 
@@ -33,7 +33,7 @@ Para implementar correctamente Proxy de aplicación necesita al menos un conecto
 ### <a name="windows-server"></a>Windows Server
 Se necesita un servidor en el que se ejecute Windows Server 2012 R2 o superior en el que se pueda instalar el conector del proxy de la aplicación. El servidor tiene que conectarse a los servicios de Application Proxy de Azure y a las aplicaciones locales que se publiquen.
 
-El servidor de Windows debe tener habilitado TLS 1.2 antes de instalar el conector del proxy de aplicación. Para habilitar TLS 1.2 en el servidor:
+El servidor debe tener habilitado TLS 1.2 antes de instalar el conector de Application Proxy. Para habilitar TLS 1.2 en el servidor:
 
 1. Establezca las siguientes claves del Registro:
 

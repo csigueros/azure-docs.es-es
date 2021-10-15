@@ -13,12 +13,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 98ae81626db637f5b0bd6bfe9e294c32293d09e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7709877fe88e5580e938176bd6340590cc36169b
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98755066"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129231394"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Adquisición y almacenamiento en caché de tokens con la biblioteca de autenticación de Microsoft (MSAL)
 
@@ -93,7 +93,7 @@ Por lo general, el método de adquisición de un token depende de si es una apli
 Para las aplicaciones cliente públicas (aplicación de escritorio o móvil):
 
 - A menudo adquiere tokens de forma interactiva, haciendo que el usuario inicie sesión mediante una interfaz de usuario o una ventana emergente.
-- Puede [obtener un token de forma automática](msal-authentication-flows.md#integrated-windows-authentication) mediante la autenticación integrada (IWA/Kerberos) si la aplicación de escritorio se ejecuta en un equipo de Windows unido a un dominio o a Azure.
+- Puede [obtener un token de forma automática](msal-authentication-flows.md#integrated-windows-authentication) mediante la autenticación integrada de Windows (IWA/Kerberos) si la aplicación de escritorio se ejecuta en un equipo Windows unido a un dominio o a Azure.
 - Puede [obtener un token con un nombre de usuario y contraseña](msal-authentication-flows.md#usernamepassword) en las aplicaciones cliente de escritorio de .NET Framework, aunque no es recomendable. No utilice un nombre de usuario y contraseña en aplicaciones cliente confidenciales.
 - Puede adquirir un token mediante el [flujo de código de dispositivo](msal-authentication-flows.md#device-code) en aplicaciones que se ejecutan en dispositivos que no tienen un explorador web. Se proporciona al usuario una dirección URL y un código y, a continuación, el usuario va a un explorador web de otro dispositivo y escribe el código e inicia sesión. Después, Azure AD envía un token de nuevo al dispositivo sin explorador.
 

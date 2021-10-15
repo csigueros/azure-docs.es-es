@@ -1,15 +1,15 @@
 ---
 title: Incorporación de un cliente a Azure Lighthouse
 description: Aprenda a incorporar un cliente a Azure Lighthouse para permitir que los usuarios de su inquilino accedan a sus recursos y los administren.
-ms.date: 08/26/2021
+ms.date: 09/30/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1d060a7e1a6f9b0ae17e90b1094ec0a5da744e5f
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 3dbd3eb285a0135ca1b86294c5d3a41ef88a8472
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123469687"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353306"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Incorporación de un cliente a Azure Lighthouse
 
@@ -338,6 +338,7 @@ Si no puede incorporar correctamente el cliente, o si los usuarios tienen proble
 - El proveedor de recursos **Microsoft.ManagedServices** se debe registrar para la suscripción delegada. Esto se debería realizar automáticamente durante la implementación, pero si no es así, puede [registrarlo manualmente](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 - Las autorizaciones no deben incluir ningún usuario con el rol integrado [Propietario](../../role-based-access-control/built-in-roles.md#owner) ni ningún rol integrado con [DataActions](../../role-based-access-control/role-definitions.md#dataactions).
 - Los grupos se deben crear con [**Tipo de grupo**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types) establecido en **Security** y no en **Microsoft 365**.
+- Si se concedió acceso a un grupo, compruebe que el usuario sea miembro de ese grupo. Si no, puede [agregarlo al grupo mediante Azure AD](../../active-directory/fundamentals/active-directory-groups-members-azure-portal.md), sin tener que realizar otra implementación. Tenga en cuenta que los [propietarios de grupos](../../active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners.md) no son necesariamente miembros de los grupos que administran y es posible que deban agregarse para tener acceso.
 - Puede experimentarse un retraso adicional antes de que se habilite el acceso para [grupos anidados](../..//active-directory/fundamentals/active-directory-groups-membership-azure-portal.md).
 - Los [roles integrados de Azure](../../role-based-access-control/built-in-roles.md) que se incluyen en las autorizaciones no deben incluir ningún rol en desuso. Si un rol integrado de Azure cae en desuso, los usuarios que se hayan incorporado con ese rol perderán el acceso, y usted no podrá incorporar delegaciones adicionales. Para solucionarlo, actualice la plantilla para usar solo roles integrados admitidos y, a continuación, realice una nueva implementación.
 

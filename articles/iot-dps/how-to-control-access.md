@@ -5,15 +5,15 @@ author: anastasia-ms
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/22/2021
 ms.author: v-stharr
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: cf2934c57441176034d28a7b60e33c639977e62d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: dc33bf659785419619afe4f393a8a1ed09142452
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124779604"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272536"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Control de acceso al servicio Azure IoT Hub Device Provisioning
 
@@ -63,7 +63,7 @@ El token de seguridad se pasa en el encabezado de solicitud de  **autorizació
 
 Los valores esperados son:
 
-| Value  | Descripción |
+| Valor  | Descripción |
 |:-------|:------------|
 | `{signature}`  | Cadena de firma HMAC-SHA256 del formulario:  `{URL-encoded-resourceURI} + "\n" + expiry`.  **Importante**: La clave se descodifica en Base64 y se utiliza para realizar el cálculo de HMAC-SHA256. |
 | `{expiry}`  | Cadenas UTF8 para el número de segundos transcurridos desde el tiempo 00:00:00 UTC el 1 de enero de 1970.  |
@@ -122,13 +122,9 @@ Si usa un grupo de inscripción basado en claves simétricas, primero debe gener
 
 Si ha configurado un grupo de inscripciones o inscripción individual para la autenticación basada en certificados X.509, el dispositivo deberá usar su certificado X.509 emitido para dar fe de la API de dispositivos. Consulte los artículos siguientes sobre cómo configurar la inscripción y generar el certificado de dispositivo.
 
-* Inicio rápido: [Aprovisionamiento de un dispositivo X.509 simulado en Azure IoT Hub mediante Python](quick-create-simulated-device-x509-python.md?tabs=linux)
+* Inicio rápido: [Aprovisionamiento de un dispositivo X.509 simulado en Azure IoT Hub](quick-create-simulated-device-x509.md)
 
-* Inicio rápido: [Aprovisionamiento de un dispositivo X.509 simulado en Azure IoT Hub mediante Node.js](quick-create-simulated-device-x509-node.md)
-
-* Inicio rápido: [Inscripción de dispositivos X.509 en Azure Device Provisioning Service mediante Python](quick-enroll-device-x509-python.md)
-
-* Inicio rápido: [Inscripción de dispositivos X.509 en Azure Device Provisioning Service mediante Node.js](quick-enroll-device-x509-node.md)
+* Guía de inicio rápido: [Inscripción de dispositivos X.509 en Azure Device Provisioning Service](quick-enroll-device-x509.md)
 
 Una vez configurada la inscripción y emitido el certificado de dispositivo, en el ejemplo siguiente se muestra cómo autenticarse en la API de dispositivos con el certificado X.509 del dispositivo.
 
@@ -268,7 +264,7 @@ Por ejemplo, un servicio generado con el uso de la directiva de acceso compartid
 * nombre de la directiva: `enrollmentread`,
 * cualquier fecha de expiración.backn
 
-![Creación de una directiva de acceso compartido para la instancia de servicio de aprovisionamiento de dispositivos en el portal][img-add-shared-access-policy]
+![Creación de una directiva de acceso compartido para la instancia de Device Provisioning Service en el portal][img-add-shared-access-policy]
 
 ```javascript
 var endpoint ="mydps.azure-devices-provisioning.net";

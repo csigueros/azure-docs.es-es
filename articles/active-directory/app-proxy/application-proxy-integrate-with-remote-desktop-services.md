@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/12/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: aa5c8ae942bb48c78526867eb44cc2084c056d48
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+ms.openlocfilehash: 1f35dfff5c9c29766abf97d32496ca3056ed7e40
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113649667"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457000"
 ---
 # <a name="publish-remote-desktop-with-azure-active-directory-application-proxy"></a>Publicación de Escritorio Remoto con el Proxy de aplicación de Azure Active Directory
 
@@ -61,6 +61,7 @@ Una vez configurados RDS y el proxy de aplicación de Azure AD para su entorno, 
    - Dirección URL externa: este campo se rellena automáticamente según el nombre de la aplicación, pero puede modificarlo. Los usuarios visitarán esta dirección URL cuando tengan acceso a RDS.
    - Método de autenticación previa: Azure Active Directory
    - Traducir URL en encabezados: No
+   - Usar cookie de solo HTTP: No
 2. Asigne usuarios a la aplicación publicada de RD. Asegúrese también de que todos tienen acceso a RDS.
 3. Deje el método de inicio de sesión único de la aplicación como **Se desactivó el inicio de sesión único de Azure AD**.
 

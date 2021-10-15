@@ -1,15 +1,15 @@
 ---
 title: Trabajo con grandes conjuntos de datos
 description: Aprenda a obtener, paginar, omitir y aplicar formato a registros de grandes conjuntos de datos mientras trabaja con Azure Resource Graph.
-ms.date: 08/17/2021
+ms.date: 09/29/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b306b52c02a251abf1d781ccce586e4b94c8264b
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 142effe9a4d4d46f04b1a9a018fc366fba69428c
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323742"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274849"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabajo con grandes conjuntos de datos de recursos de Azure
 
@@ -38,10 +38,7 @@ En la [API REST](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resource
 
 El control que sea _más restrictivo_ ganará. Por ejemplo, si la consulta usa los operadores **top** o **limit** y el resultado va a ser un número de registros superior a **First**, el número máximo de registros devueltos será igual a **First**. Igualmente, si **top** o **limit** son más pequeños que **First**, el conjunto de registros devuelto sería el valor más pequeño que configure **top** o **limit**.
 
-**First** actualmente tiene un valor máximo permitido de _5000_, que lo alcanza mediante la [paginación de resultados](#paging-results) de _1000_ registros a la vez.
-
-> [!IMPORTANT]
-> Cuando la opción **First** está configurada para ser mayor que _1000_ registros, la consulta debe **proyectar** el campo **id** para que funcione la paginación. Si no se encuentra en la consulta, la respuesta no se [paginará](#paging-results) y los resultados se limitan a _1000_ registros.
+**First** tiene un valor permitido máximo de _1000_.
 
 ## <a name="skipping-records"></a>Omisión de registros
 

@@ -1,14 +1,14 @@
 ---
 title: Configuraciones de microagente (versión preliminar)
 description: El recopilador envía todos los datos actuales inmediatamente después de realizar cualquier cambio de configuración. Después se aplican los cambios.
-ms.date: 08/18/2021
+ms.date: 10/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: 432cf82f436e0a70b52d33d77c9002b549f96398
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 43a26a73f97c9d424998a4ff35d1304c0baf6fc0
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122398149"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428452"
 ---
 # <a name="micro-agent-configurations-preview"></a>Configuraciones de microagente (versión preliminar)
 
@@ -19,7 +19,7 @@ El comportamiento del microagente se configura mediante un conjunto de propiedad
 Después de cualquier cambio en la configuración, el recopilador enviará inmediatamente todos los datos de eventos no enviados. Una vez enviados los datos, se aplicarán los cambios y se reiniciarán todos los recopiladores.
 
 > [!Note]
-> Se admite la configuración Modo de agregación, Tamaño de caché y Frecuencia, pero no se pueden configurar.
+> La configuración del modo de agregación es compatible, pero no se puede configurar.
 
 ## <a name="event-based-collectors-configurations"></a>Configuraciones de recopiladores basados en eventos
 

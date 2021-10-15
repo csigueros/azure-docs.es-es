@@ -4,12 +4,12 @@ description: Describe cómo realizar una copia de seguridad y llevar a cabo la r
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 89514bad58633727b5189c7d0daecccf5372efea
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: 6f669a7382cfe7dad4c1a58186ce3c6a30f49063
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123214985"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533962"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Copia de seguridad y restauración de máquinas virtuales de con PowerShell
 
@@ -529,6 +529,12 @@ Una vez que se haya completado el trabajo de restauración, use el cmdlet [Get-A
 $restorejob = Get-AzRecoveryServicesBackupJob -Job $restorejob -VaultId $targetVault.ID
 $details = Get-AzRecoveryServicesBackupJobDetail -Job $restorejob -VaultId $targetVault.ID
 ```
+
+#### <a name="using-managed-identity-to-restore-disks"></a>Uso de una identidad administrada para restaurar discos
+
+Azure Backup también permite usar una identidad administrada (MSI) durante la operación de restauración para acceder a las cuentas de almacenamiento en las que se deben restaurar los discos. Esta opción solo se admite actualmente para la restauración de discos administrados.
+
+Si quiere utilizar la identidad administrada asignada por el sistema del almacén para restaurar discos, pase una marca adicional * **-UseSystemAssignedIdentity** _ al comando Restore-AzRecoveryServicesBackupItem. Si quiere usar una identidad administrada asignada por el usuario, pase el parámetro _*_ -UserAssignedIdentityId_** con el identificador de ARM de la identidad administrada del almacén como valor del parámetro. Consulte [este artículo](encryption-at-rest-with-cmk.md#enable-managed-identity-for-your-recovery-services-vault) para obtener información sobre cómo habilitar la identidad administrada de los almacenes. 
 
 #### <a name="restore-selective-disks"></a>Restauración selectiva de discos
 

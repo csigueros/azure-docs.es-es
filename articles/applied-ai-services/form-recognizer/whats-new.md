@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 09/30/2021
 ms.author: lajanuar
-ms.openlocfilehash: d575af739fa299cc32576bd2798eeb8165fe37c2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3adffbac5641c2791c5ef683b5c4d687331a1c3b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128590045"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350170"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
@@ -24,11 +24,15 @@ El servicio Form Recognizer se actualiza de forma continuada. Marque esta págin
 
 ## <a name="september-2021"></a>Septiembre de 2021
 
-"Corrección de la extracción de nombres inexacta en los id. precompilados (licencia del controlador) cuando hay unb sufijo o punto en el nombre."
+[Características avanzadas del explorador de métricas de Azure](/azure/azure-monitor/essentials/metrics-charts) disponibles en la página de descripción general de recursos de Form Recognizer en Azure Portal.
 
-[Características avanzadas del explorador de métricas de Azure](/azure/azure-monitor/essentials/metrics-charts) disponibles en la página de descripción general de recursos de Form Recognizer en Azure Portal. 
+### <a name="monitoring-menu"></a>Menú Supervisión
 
-:::image type="content" source="media/portal-metrics.png" alt-text="Captura de pantalla: gráficos de métricas en Azure Portal.":::
+:::image type="content" source="media/portal-metrics.png" alt-text="Captura de pantalla que muestra el menú de supervisión en Azure Portal":::
+
+### <a name="charts"></a>Gráficos
+
+:::image type="content" source="media/portal-metrics-charts.png" alt-text="Captura de pantalla que muestra un gráfico de métricas de ejemplo en Azure Portal.":::
 
 ## <a name="july-2021"></a>Julio de 2021
 

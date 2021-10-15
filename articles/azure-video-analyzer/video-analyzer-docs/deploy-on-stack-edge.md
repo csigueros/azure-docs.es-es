@@ -3,12 +3,12 @@ title: Implementación de Azure Video Analyzer en Azure Stack Edge
 description: En este artículo se indican los pasos que ayudan a implementar Azure Video Analyzer en Azure Stack Edge.
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: 1cfcd7956cd14d0c687c8619732523a5d7bba4c0
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: da14368846cd87d5d4e231933cec0068a4e558f9
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114605204"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546630"
 ---
 # <a name="deploy-azure-video-analyzer-on-azure-stack-edge"></a>Implementación de Azure Video Analyzer en Azure Stack Edge
 
@@ -175,6 +175,40 @@ Un manifiesto de implementación es un documento JSON que describe qué módulos
     "allowUnsecuredEndpoints": true,
     "telemetryOptOut": false
     ```
+1. Seleccione **Agregar**.  
+
+Agregue el módulo perimetral del simulador RTSP.
+
+1. En la sección **Módulos IoT Edge** de la página, haga clic en la lista desplegable **Agregar** y seleccione **Agregar módulo IoT Edge** para mostrar la página **Agregar módulo IoT Edge**.
+1. En la pestaña **Configuración del módulo**, proporcione un nombre para el módulo y especifique el URI de imagen del contenedor:   
+    Ejemplos:
+    
+    * **Nombre del módulo IoT Edge**: rtspsim
+    * **URI de imagen**: mcr.microsoft.com/lva-utilities/rtspsim-live555:1.2  
+
+
+1. Abra la pestaña **Opciones de creación del contenedor**.
+ 
+    Copie y pegue el siguiente código JSON en el cuadro de texto.
+    
+    ```
+    {
+        "HostConfig": {
+            "Binds": [
+               "/home/localedgeuser/samples/input/:/live/mediaServer/media/"
+            ],
+            "PortBindings": {
+                    "554/tcp": [
+                        {
+                        "HostPort": "554"
+                        }
+                    ]
+            }
+        }
+    }
+    ```
+1. Seleccione **Agregar**.  
+
 1. Seleccione **Siguiente: Rutas** para continuar con la sección de rutas. Especifique las rutas.
 
     En NAME, escriba **AVAToHub** y, en VALUE, escriba **FROM /messages/modules/avaedge/outputs/ INTO $upstream**
@@ -193,6 +227,8 @@ Un manifiesto de implementación es un documento JSON que describe qué módulos
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/deploy-on-stack-edge/copy-provisioning-token.png" alt-text="Copia de token":::
+
+
 
 #### <a name="optional-setup-docker-volume-mounts"></a>(Opcional) Configuración de montajes de volumen de Docker
 
@@ -268,7 +304,7 @@ En estos pasos se explica cómo crear un usuario de puerta de enlace y configura
                     "Mounts": 
                     [
                         {
-                            "Target": "/var/media",
+                            "Target": "/live/mediaServer/media",
                             "Source": "media",
                             "Type": "volume"
                         }
