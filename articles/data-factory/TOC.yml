@@ -318,7 +318,7 @@ items:
             href: connector-azure-databricks-delta-lake.md
           - name: Azure File Storage
             href: connector-azure-file-storage.md
-          - name: Azure SQL Database
+          - name: "Azure\_SQL\_Database"
             href: connector-azure-sql-database.md
             displayName: upsert
           - name: Instancia administrada de Azure SQL
@@ -981,6 +981,8 @@ items:
                 href: connector-troubleshoot-dynamics-dataverse.md
               - name: 'FTP, SFTP y HTTP'
                 href: connector-troubleshoot-ftp-sftp-http.md
+              - name: Hive
+                href: connector-troubleshoot-hive.md
               - name: Oracle
                 href: connector-troubleshoot-oracle.md
               - name: Formato ORC

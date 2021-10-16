@@ -1017,8 +1017,6 @@
                   href: app/devops.md
                 - name: 'Separación de desarrollo, prueba y producción'
                   href: app/separate-resources.md
-                - name: ¿Cómo ... en Application Insights?
-                  href: app/how-do-i.md
                 - name: Administración de Application Insights
                   href: app/powershell.md
                 - name: Administración de Azure Cloud Services

@@ -245,7 +245,7 @@
               displayName: 'scale server, reset password'
         - name: Reinicio del servidor
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-restart-server-portal.md
             - name: Azure CLI
               href: howto-restart-server-cli.md
@@ -253,7 +253,7 @@
               href: howto-restart-server-powershell.md
         - name: Reglas de firewall
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-manage-firewall-using-portal.md
               displayName: 'firewall, portal, rules'
             - name: CLI de Azure
@@ -308,7 +308,7 @@
           displayName: 'application development, TLS'
         - name: Configuración de parámetros del servidor
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-configure-server-parameters-using-portal.md
               displayName: 'application development, server parameters'
             - name: Azure CLI
@@ -319,7 +319,7 @@
               displayName: 'application development, server parameters'
         - name: Almacenamiento de crecimiento automático
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-auto-grow-storage-portal.md
               displayName: 'business continuity, scale , storage'
             - name: Azure CLI
@@ -330,7 +330,7 @@
               displayName: 'business continuity, scale , storage'
         - name: Registros de acceso
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-configure-server-logs-in-portal.md
               displayName: 'access logs, monitor'
             - name: Azure CLI
@@ -525,7 +525,7 @@
       items:
         - name: Administración de un servicio
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: flexible-server/how-to-manage-server-portal.md
             - name: Azure CLI
               href: flexible-server/how-to-manage-server-cli.md
@@ -563,7 +563,7 @@
               href: flexible-server/how-to-connect-scram.md
         - name: Configuración de parámetros del servidor
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: flexible-server/howto-configure-server-parameters-using-portal.md
               displayName: 'application development, server parameters'
             - name: CLI de Azure
@@ -581,7 +581,7 @@
               href: flexible-server/how-to-restart-server-cli.md
         - name: Restauración de un servidor
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: flexible-server/how-to-restore-server-portal.md
             - name: CLI de Azure
               href: flexible-server/how-to-restore-server-cli.md
@@ -630,12 +630,17 @@
           items:
             - name: Datos de partición en nodos de trabajo
               href: tutorial-hyperscale-shard.md
-        - name: Diseño de una base de datos multiinquilino
-          href: tutorial-design-database-hyperscale-multi-tenant.md
-          displayName: 'hyperscale, tutorial, multi-tenant'
-        - name: Diseño de un panel en tiempo real
-          href: tutorial-design-database-hyperscale-realtime.md
-          displayName: 'hyperscale, tutorial, real-time'
+            - name: Diseño de una base de datos multiinquilino
+              href: tutorial-design-database-hyperscale-multi-tenant.md
+              displayName: 'hyperscale, tutorial, multi-tenant'
+            - name: Diseño de un panel en tiempo real
+              href: tutorial-design-database-hyperscale-realtime.md
+              displayName: 'hyperscale, tutorial, real-time'
+        - name: Administrar
+          items:
+            - name: Acceso privado
+              href: tutorial-hyperscale-private-access.md
+              displayName: 'hyperscale, tutorial, private'
     - name: Conceptos
       items:
         - name: Nivel Basic
@@ -651,11 +656,16 @@
               href: concepts-hyperscale-choose-distribution-column.md
             - name: Colocación de tabla
               href: concepts-hyperscale-colocation.md
-        - name: Seguridad
+        - name: Acceso a datos y seguridad
           items:
-            - name: Reglas de firewall
+            - name: Información general
+              href: concepts-hyperscale-security-overview.md
+            - name: Acceso público
               href: concepts-hyperscale-firewall-rules.md
               displayName: 'firewall, rules, hyperscale'
+            - name: Acceso privado
+              href: concepts-hyperscale-private-access.md
+              displayName: 'private, link, hyperscale'
             - name: Configuración de SSL
               href: concepts-hyperscale-ssl-connection-security.md
               displayName: 'hyperscale, ssl'
@@ -702,11 +712,18 @@
               href: howto-hyperscale-scale-grow.md
             - name: Reequilibrio de particiones
               href: howto-hyperscale-scale-rebalance.md
-        - name: Reglas de firewall
+        - name: Acceso a datos y seguridad
           items:
-            - name: Azure portal
-              href: howto-hyperscale-manage-firewall-using-portal.md
-              displayName: 'firewall rule, hyperscale'
+            - name: Acceso público
+              items:
+                - name: Azure portal
+                  href: howto-hyperscale-manage-firewall-using-portal.md
+                  displayName: 'firewall rule, hyperscale'
+            - name: Acceso privado
+              items:
+                - name: Azure portal
+                  href: howto-hyperscale-private-access.md
+                  displayName: 'network, private link'
         - name: Creación de usuarios
           href: howto-hyperscale-create-users.md
         - name: Datos distribuidos

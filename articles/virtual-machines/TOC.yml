@@ -987,7 +987,7 @@
     - name: Información general
       displayName: 'managed disks, introduction to managed disks'
       href: managed-disks-overview.md
-    - name: Selección de un tipo de disco para máquinas virtuales de IaaS
+    - name: Tipos de disco
       href: disks-types.md
     - name: Opciones de redundancia de disco
       href: disks-redundancy.md
@@ -1385,7 +1385,7 @@
           href: ../virtual-network/virtual-networks-static-private-ip-arm-cli.md?context=/azure/virtual-machines/context/context
     - name: 'Creación de una máquina virtual: varias IP'
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: ../virtual-network/virtual-network-multiple-ip-addresses-portal.md?context=/azure/virtual-machines/context/context
         - name: Azure PowerShell
           href: ../virtual-network/virtual-network-multiple-ip-addresses-powershell.md?context=/azure/virtual-machines/context/context

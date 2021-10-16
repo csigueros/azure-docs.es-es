@@ -103,7 +103,7 @@
               displayName: firewall
         - name: Configuración de parámetros del servidor
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-server-parameters.md
               displayName: server parameters
             - name: Azure CLI
@@ -213,7 +213,7 @@
               displayName: 'performance, query store'
             - name: Información de rendimiento de consultas
               href: concepts-query-performance-insight.md
-              displayName: query performance insights
+              displayName: Query Performance Insight
             - name: Recomendaciones de rendimiento
               href: concepts-performance-recommendations.md
               displayName: recommendation
@@ -430,7 +430,7 @@
           href: flexible-server/how-to-connect-tls-ssl.md
         - name: Configuración de parámetros del servidor
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: flexible-server/how-to-configure-server-parameters-portal.md
               displayName: server parameters
             - name: Azure CLI
@@ -511,7 +511,7 @@
           items:
             - name: Administración de un servicio
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: flexible-server/how-to-manage-server-portal.md
                 - name: CLI de Azure
                   href: flexible-server/how-to-manage-server-cli.md
@@ -523,7 +523,7 @@
                   href: flexible-server/how-to-restart-stop-start-server-cli.md
             - name: Reinicio del servidor
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: flexible-server/how-to-restart-server-portal.md
                 - name: CLI de Azure
                   href: flexible-server/how-to-restart-stop-start-server-cli.md
@@ -576,7 +576,7 @@
           items:
             - name: Restauración de un servidor
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: flexible-server/how-to-restore-server-portal.md
                 - name: CLI de Azure
                   href: flexible-server/how-to-restore-server-cli.md

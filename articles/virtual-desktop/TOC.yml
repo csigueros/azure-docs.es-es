@@ -220,8 +220,6 @@
   items:
     - name: 'Información general sobre solución de problemas, comentarios y soporte técnico'
       href: troubleshoot-set-up-overview.md
-    - name: Identificación y diagnóstico de problemas
-      href: diagnostics-role-service.md
     - name: Característica de introducción
       href: troubleshoot-getting-started.md
     - name: Creación de grupos de hosts
