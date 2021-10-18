@@ -3,12 +3,12 @@ title: Redes y puntos de conexión públicos
 description: Azure Video Analyzer expone un conjunto de puntos de conexión de red pública que permiten diferentes escenarios de producto, incluida la administración, la ingesta y la reproducción. En este artículo se explica cómo acceder a las redes y los puntos de conexión públicos.
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: 0debf9b00bc8c3d78810fb377aa6e065589e6f96
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: ad02a9ddd0ff2893e14d48f6698c83108f1acd63
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129389653"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659609"
 ---
 # <a name="public-endpoints-and-networking"></a>Redes y puntos de conexión públicos
 
@@ -52,9 +52,9 @@ En esta sección se proporciona una lista de puntos de conexión de Video Analyz
 > [!NOTE]
 > La lista de puntos de conexión que se describe en este artículo no está pensada para ser una lista completa de los puntos de conexión de los servicios asociados. Es una lista informativa de los puntos de conexión necesarios para el funcionamiento normal de Video Analyzer. Consulte la documentación de cada servicio individual de Azure para obtener una lista completa de los puntos de conexión expuestos por cada servicio correspondiente.
 
-## <a name="azure-storage"></a>Almacenamiento de Azure
+## <a name="azure-storage"></a>Azure Storage
 
-* **Propósito**: grabar datos de audio, vídeo e inferencia cuando las canalizaciones (TODO: vínculo) están configuradas para almacenar vídeo en la nube a través del nodo Receptor de vídeo (TODO: vínculo a la sección en pipeline.md).
+* **Propósito**: grabar datos de audio, vídeo e inferencia cuando las [canalizaciones](pipeline.md) están configuradas para almacenar vídeo en la nube por medio del nodo [Receptor de vídeo](pipeline.md#video-sink).
 * **Autenticación y autorización**: la autorización se realiza mediante la aplicación de la autenticación y autorización del servicio Azure Storage estándar. En este caso, se accede al almacenamiento a través de direcciones URL de SAS específicas del contenedor.
 * **Requisito**: el acceso a este punto de conexión solo es necesario cuando se configura una canalización perimetral de Video Analyzer para archivar el vídeo en la nube.
 
@@ -64,11 +64,11 @@ En esta sección se proporciona una lista de puntos de conexión de Video Analyz
 * **Autenticación y autorización**: consulte la documentación de Azure IoT Hub.
 * **Requisito**: se requiere un dispositivo perimetral configurado correctamente y que funcione con Azure IoT Edge Runtime para asegurarse de que el módulo perimetral de Azure Video Analyzer funciona correctamente.
 
-## <a name="114----tls-encryption"></a>1.1.4    Cifrado TLS 
+##  <a name="tls-encryption"></a>Cifrado TLS 
 
 * **Cifrado y autenticación de servidor**: todos los puntos de conexión de Video Analyzer se exponen a través de puntos de conexión compatibles con TLS 1.2.
 
-## <a name="115----references"></a>1.1.5    Referencias 
+##  <a name="references"></a>Referencias 
 
 Público:
 

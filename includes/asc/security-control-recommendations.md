@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 09/05/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 9e8b25e4cdfe9cb3b54968a524fe030872f2cd91
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 5ef21b7d66532adad450dadf0d6c0c57b73ae8c6
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123646360"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129725901"
 ---
 <table class="tg">
 <thead>
@@ -99,7 +99,7 @@ ms.locfileid: "123646360"
   <tr>
     <td class="tg-lboi"><strong>0</strong></td>
     <td class="tg-lboi"><strong>Habilitar Azure Defender</strong> - Use estas recomendaciones para habilitar cualquiera de los <a href="/azure/security-center/azure-defender">planes de Azure Defender</a>.</td>
-    <td class="tg-lboi" width=55%>- Los clústeres de Kubernetes habilitados para Azure Arc deben tener la extensión de Azure Defender instalada.<br />- Se debe habilitar Azure Defender para App Service.<br />-Se debe habilitar Azure Defender para servidores de Microsoft Azure SQL Database.<br />-Se debe habilitar Azure Defender para registros de contenedor.<br />- Se debe habilitar Azure Defender para DNS<br />-Se debe habilitar Azure Defender para Key Vault.<br />-Se debe habilitar Azure Defender para Kubernetes.<br />- Se debe habilitar Azure Defender para Resource Manager<br />-Se debe habilitar Azure Defender para servidores.<br />- Azure Defender para servidores debe estar habilitado en el área de trabajo<br />-Se debe habilitar Azure Defender para servidores SQL Server en las máquinas.<br />-Se debe habilitar Azure Defender para Storage.</td>
+    <td class="tg-lboi" width=55%>- Los clústeres de Kubernetes habilitados para Azure Arc deben tener la extensión de Azure Defender instalada<br />- Se debe habilitar Azure Defender para App Service.<br />-Se debe habilitar Azure Defender para servidores de Microsoft Azure SQL Database.<br />-Se debe habilitar Azure Defender para registros de contenedor.<br />- Se debe habilitar Azure Defender para DNS<br />-Se debe habilitar Azure Defender para Key Vault.<br />-Se debe habilitar Azure Defender para Kubernetes.<br />- Se debe habilitar Azure Defender para Resource Manager<br />-Se debe habilitar Azure Defender para servidores.<br />- Azure Defender para servidores debe estar habilitado en el área de trabajo<br />-Se debe habilitar Azure Defender para servidores SQL Server en las máquinas.<br />-Se debe habilitar Azure Defender para Storage.</td>
   </tr>
 </tbody>
 </table>

@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 09/13/2021
+ms.date: 10/13/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: devx-track-js
-ms.openlocfilehash: 8e609268258142875ebbe924f3cfbdebc94911f8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 115876aab202c550d694267294345b5472ad1f2a
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128601733"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129811722"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Administración de la indexación en la API de Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -361,17 +361,17 @@ Al quitar índices y ejecutar consultas de inmediato que tienen filtros en los �
 
 ## <a name="reindex-command"></a>Comando ReIndex
 
-El comando `reIndex` volverá a crear todos los índices de una colección. En la mayoría de los casos, esto no es necesario. Sin embargo, en raros casos, el rendimiento de las consultas puede mejorar después de ejecutar el comando `reIndex`.
+El comando `reIndex` volverá a crear todos los índices de una colección. En algunos casos excepcionales, el rendimiento de las consultas u otros problemas de índice de la colección pueden resolverse ejecutando el comando `reIndex`. Si tiene problemas con la indexación, se recomienda volver a crear los índices con el comando `reIndex`. 
 
 Puede ejecutar el comando `reIndex` con la siguiente sintaxis:
 
 `db.runCommand({ reIndex: <collection> })`
 
-Puede usar la siguiente sintaxis para comprobar si necesita ejecutar el comando `reIndex`:
+Puede usar la sintaxis siguiente para comprobar si la ejecución del comando `reIndex` mejoraría el rendimiento de las consultas en la colección:
 
 `db.runCommand({"customAction":"GetCollection",collection:<collection>, showIndexes:true})`
 
-Salida del ejemplo:
+Resultados del ejemplo:
 
 ```
 {
@@ -402,7 +402,7 @@ Salida del ejemplo:
 }
 ```
 
-Si `reIndex` es necesario, **requiresReIndex** será true. Si `reIndex` no es necesario, se omitirá esta propiedad.
+Si `reIndex` mejorará el rendimiento de las consultas, **requiresReIndex** será true. Si `reIndex` no mejora el rendimiento de las consultas, se omitirá esta propiedad.
 
 ## <a name="migrate-collections-with-indexes"></a>Migración de colecciones con índices
 

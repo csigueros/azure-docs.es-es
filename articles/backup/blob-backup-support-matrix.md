@@ -2,14 +2,14 @@
 title: Matriz de compatibilidad para la copia de seguridad de blobs de Azure
 description: Proporciona un resumen de opciones y limitaciones de compatibilidad a la hora de realizar copias de seguridad en blobs de Azure.
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 10/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 921f08a80511766f55e179fccde38a061800061e
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: d0b524ba2865aa72f6fce88e326fffde435f71c3
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129533176"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714158"
 ---
 # <a name="support-matrix-for-azure-blobs-backup"></a>Matriz de compatibilidad para la copia de seguridad de blobs de Azure
 
@@ -23,7 +23,7 @@ La copia de seguridad operativa de blobs está disponible en todas las regiones 
 
 La copia de seguridad operativa de blobs usa la restauración a un momento dado de los blobs, el control de versiones de blobs, la eliminación temporal de blobs, la fuente de cambios para blobs y el bloqueo de eliminación para proporcionar una solución de copia de seguridad local. Por lo tanto, las limitaciones que se aplican a estas funcionalidades también se aplican a la copia de seguridad operativa.
 
-**Escenarios admitidos:** La copia de seguridad operativa solo admite blobs en bloques en las cuentas de almacenamiento v2 estándar de uso general. Por lo tanto, no se admiten las cuentas ADLS Gen2. Además, los blobs en páginas, los blobs en anexos y los blobs prémium de la cuenta de almacenamiento no se restaurarán y solo se restaurarán los blobs en bloques.
+**Escenarios admitidos:** La copia de seguridad operativa solo admite blobs en bloques en las cuentas de almacenamiento v2 estándar de uso general. Las cuentas de almacenamiento con el espacio de nombres jerárquico habilitado (es decir, cuentas de ADLS Gen2) no se admiten.   <br><br>   Además, los blobs en páginas, los blobs en anexos y los blobs prémium de la cuenta de almacenamiento no se restaurarán y solo se restaurarán los blobs en bloques.
 
 **Otras limitaciones:**
 

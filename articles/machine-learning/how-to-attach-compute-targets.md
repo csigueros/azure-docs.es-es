@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/18/2021
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1
-ms.openlocfilehash: af5d5914d0a90c2c142582e5cdf2105982205f04
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: d6a50982b546ae5d4e615c2e3cfc2b2dcd955a0f
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129427692"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713254"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>Configuración de destinos de proceso para el entrenamiento y la implementación de modelos
 
@@ -32,7 +32,7 @@ En este artículo, aprenderá a configurar el área de trabajo para usar estos r
 * Azure Databricks: se usa como destino de proceso de entrenamiento solo en [canalizaciones de aprendizaje automático](how-to-create-machine-learning-pipelines.md)
 * Análisis con Azure Data Lake
 * Azure Container Instances
-* Azure Kubernetes Service y Kubernetes habilitado para Azure Arc (versión preliminar)
+* Azure Kubernetes Service y Kubernetes habilitado para Azure Arc (versión preliminar)
 
 Para usar destinos de proceso administrados por Azure Machine Learning, consulte:
 
@@ -350,7 +350,7 @@ Las instancias de Azure Container Instances (ACI) se crean dinámicamente al imp
 Azure Machine Learning proporciona las siguientes opciones para adjuntar sus propios clústeres de Kubernetes para el entrenamiento:
 
 * [Azure Kubernetes Service](../aks/intro-kubernetes.md). Azure Kubernetes Service proporciona un clúster gestionado en Azure.
-* [Azure Arc Kubernetes](../azure-arc/kubernetes/overview.md). Use clústeres de Kubernetes habilitados para Azure Arc si el clúster se hospeda fuera de Azure.
+* [Azure Arc Kubernetes](../azure-arc/kubernetes/overview.md). Use clústeres de Kubernetes habilitados para Azure Arc si el clúster está hospedado fuera de Azure.
 
 [!INCLUDE [arc-enabled-machine-learning-create-training-compute](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
@@ -361,7 +361,7 @@ compute_target.detach()
 ```
 
 > [!WARNING]
-> La desasociación de un clúster  **no elimina el clúster**. Para eliminar un clúster de Azure Kubernetes Service, consulte [Uso de la CLI de Azure con AKS](../aks/kubernetes-walkthrough.md#delete-the-cluster). Para eliminar un clúster de Azure Arc Kubernetes habilitado, consulte [Inicio rápido de Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md#7-clean-up-resources).
+> La desasociación de un clúster  **no elimina el clúster**. Para eliminar un clúster de Azure Kubernetes Service, consulte [Uso de la CLI de Azure con AKS](../aks/kubernetes-walkthrough.md#delete-the-cluster). Para eliminar un clúster de Kubernetes habilitado para Azure Arc, vea [Inicio rápido de Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md#7-clean-up-resources).
 
 ## <a name="notebook-examples"></a>Ejemplos de cuadernos
 

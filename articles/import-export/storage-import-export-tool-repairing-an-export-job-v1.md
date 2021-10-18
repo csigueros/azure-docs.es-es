@@ -5,17 +5,21 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 10/04/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: d84f26b2764a103a9b504c1480e88b58fed3c201
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e1768c506928642ec7742ea8713b98ad4f154ed1
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98706064"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709222"
 ---
 # <a name="repairing-an-export-job"></a>Reparación de un trabajo de exportación
+
+> [!IMPORTANT]
+> La herramienta Azure Import/Export ya no admite la reparación de trabajos. En la versión 1.5.0.300 y posteriores, deberá corregir los problemas en la exportación de blobs y, a continuación, [crear un nuevo trabajo de exportación](storage-import-export-data-from-blobs.md?tabs=azure-portal#step-1-create-an-export-job).
+
 Cuando haya finalizado un trabajo de exportación, puede ejecutar la herramienta Microsoft Azure Import/Export de manera local para:  
   
 1.  Descargar los archivos que el servicio Azure Import/Export no pudo exportar.  
@@ -152,7 +156,7 @@ Cualquier componente que no supere la comprobación lo descargará la herramient
   
 ## <a name="next-steps"></a>Pasos siguientes
  
-* [Configuración de la herramienta Azure Import/Export](storage-import-export-tool-setup-v1.md)   
+<!--* [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)-->
 * [Preparación de unidades de disco duro para un trabajo de importación](storage-import-export-data-to-blobs.md#step-1-prepare-the-drives)   
 * [Revisión del estado del trabajo con archivos de registro de copia](storage-import-export-tool-reviewing-job-status-v1.md)   
-* [Reparación de un trabajo de importación](storage-import-export-tool-repairing-an-import-job-v1.md)
+<!--* [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md)-->

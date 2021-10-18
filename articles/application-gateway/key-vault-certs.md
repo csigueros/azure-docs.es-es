@@ -7,21 +7,21 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: victorh
-ms.openlocfilehash: 55ad3c97fd70db854faf3d2181a55630d04f5e41
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 15119b3196735e2358b76c1a804ca25f67b05efa
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129215099"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129809941"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Terminación TLS con certificados de Key Vault
 
 [Azure Key Vault](../key-vault/general/overview.md) es un almacén de secretos administrado por la plataforma que puede usar para proteger los secretos, las claves y los certificados TLS/SSL. Azure Application Gateway admite la integración con Key Vault para certificados de servidor adjuntos a clientes de escucha con HTTPS habilitado. Esta compatibilidad está limitada a la versión 2 de la SKU de Application Gateway.
 
-La integración de Key Vault ofrece dos modelos para la terminación TLS:
+Application Gateway ofrece dos modelos para la terminación TLS:
 
-- Proporcione explícitamente los certificados TLS/SSL asociados al cliente de escucha. Este modelo es la forma tradicional para pasar los certificados TLS/SSL a Application Gateway para la terminación TLS.
-- Opcionalmente, proporcione una referencia a un certificado de Key Vault existente o un secreto al crear un cliente de escucha habilitado para HTTPS.
+- Proporcione los certificados TLS/SSL asociados al cliente de escucha. Este modelo es la forma tradicional para pasar los certificados TLS/SSL a Application Gateway para la terminación TLS.
+- Proporcione una referencia a un certificado de Key Vault existente o un secreto al crear un cliente de escucha habilitado para HTTPS.
 
 La integración de Application Gateway con Key Vault ofrece muchas ventajas, incluidas las siguientes:
 
@@ -36,11 +36,11 @@ La integración de Application Gateway con Key Vault ofrece muchas ventajas, inc
 
 Actualmente, Application Gateway solo admite certificados validados por software. Los certificados validados por el módulo de seguridad de hardware (HSM) no se admiten. 
 
-Después de configurar Application Gateway para usar certificados de Key Vault, sus instancias recuperan el certificado de Key Vault y lo instalan localmente para la terminación TLS. Además, las instancias sondean Key Vault en intervalos de cuatro horas para recuperar una versión renovada del certificado, si existe. Si se encuentra un certificado actualizado, el certificado TLS/SSL asociado actualmente al cliente de escucha HTTPS rota automáticamente. 
+Después de configurar Application Gateway para usar certificados de Key Vault, sus instancias recuperan el certificado de Key Vault y lo instalan localmente para la terminación TLS. Las instancias sondean Key Vault en intervalos de cuatro horas para recuperar una versión renovada del certificado, si existe. Si se encuentra un certificado actualizado, el certificado TLS/SSL asociado actualmente al cliente de escucha HTTPS rota automáticamente. 
 
 Application Gateway usa un identificador secreto en Key Vault para hacer referencia a los certificados. Para Azure PowerShell, la CLI de Azure o Azure Resource Manager, se recomienda encarecidamente usar un identificador secreto que no especifique una versión. De este modo, Application Gateway rotará automáticamente el certificado si hay una versión más reciente disponible en el almacén de claves. Un ejemplo de un URI de secreto sin una versión es `https://myvault.vault.azure.net/secrets/mysecret/`.
 
-Azure Portal solo admite certificados de Key Vault, no secretos. Application Gateway todavía admite la referencia a secretos de Key Vault, pero solo a través de recursos que no son del portal, como PowerShell, la CLI de Azure, las API y las plantillas de Azure Resource Manager (plantillas de ARM). 
+Azure Portal solo admite certificados de Key Vault, no secretos. Application Gateway todavía admite la referencia a secretos de Key Vault, pero solo a través de recursos que no son del portal, como PowerShell, la CLI de Azure, las API y las plantillas de Azure Resource Manager (plantillas de ARM).
 
 > [!WARNING]
 > Azure Application Gateway actualmente solo admite cuentas de Key Vault de la misma suscripción que el recurso de Application Gateway. Si elige un almacén de claves de una suscripción que no es la suya de Application Gateway, se producirá un error.

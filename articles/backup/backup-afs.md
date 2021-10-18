@@ -2,13 +2,13 @@
 title: Copia de seguridad de los recursos compartidos de archivos de Azure en Azure Portal
 description: Aprenda a usar Azure Portal para realizar copias de seguridad de recursos compartidos de archivos de Azure en almacenes de Recovery Services
 ms.topic: conceptual
-ms.date: 05/07/2021
-ms.openlocfilehash: 807a173112d0bb85c008403028ab76000a3096db
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.date: 10/08/2021
+ms.openlocfilehash: 8e50cee7e177375fae41ef6fb3a27f871427342c
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129427977"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714413"
 ---
 # <a name="back-up-azure-file-shares"></a>Copia de seguridad de recursos compartidos de archivos de Azure
 
@@ -85,9 +85,9 @@ En los pasos siguientes se explica cómo puede configurar la copia de seguridad 
 
          ![Cree una nueva directiva.](./media/backup-afs/create-new-policy.png)
 
-      1. Se abre el panel de contexto **Directiva de copia de seguridad** a la derecha. Especifique un nombre de directiva en el cuadro de texto y elija el período de retención según sus requisitos. De forma predeterminada, solo está habilitada la opción de retención diaria. Si quiere elegir una retención semanal, mensual o anual, seleccione la casilla correspondiente y especifique el valor de retención deseado.
+      1. Siga los pasos 3 a 7 de la sección [Creación de una nueva directiva](manage-afs-backup.md#create-a-new-policy).
 
-      1. Después de especificar los valores de retención y un nombre de directiva válido, seleccione **Aceptar**.<br>
+      1. Después de definir todos los atributos de la directiva, haga clic en **Aceptar**.
 
          ![Proporcionar el nombre de la directiva y los valores de retención](./media/backup-afs/policy-name.png)
 
@@ -147,9 +147,9 @@ En los pasos siguientes se explica cómo puede configurar la copia de seguridad 
 
          1. Seleccione el texto del vínculo **Crear una nueva directiva**.
 
-         2. Se abre el panel de contexto **Directiva de copia de seguridad** a la derecha. Especifique un nombre de directiva en el cuadro de texto y elija el período de retención según sus requisitos. De forma predeterminada, solo está habilitada la opción de retención diaria. Si quiere elegir una retención semanal, mensual o anual, seleccione la casilla correspondiente y especifique el valor de retención deseado.
+         2. Siga los pasos 3 a 7 de la sección [Creación de una nueva directiva](manage-afs-backup.md#create-a-new-policy).
 
-         3. Después de especificar los valores de retención y un nombre de directiva válido, seleccione **Aceptar**.
+         3. Después de definir todos los atributos de la directiva, haga clic en **Aceptar**.
 
             ![Creación de una directiva de copia de seguridad](./media/backup-afs/create-new-backup-policy.png)
 

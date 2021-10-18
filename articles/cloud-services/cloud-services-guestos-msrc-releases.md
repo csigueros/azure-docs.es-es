@@ -11,47 +11,44 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/17/2021
+ms.date: 10/8/2021
 ms.author: gunnarc
-ms.openlocfilehash: c3119136c6c64c67921474c64b266b22708168a7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 76807a8f653de9a48c91c5d6429869ae0e5c9312
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128655911"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129728881"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se realizan para la [familia][family-explain] determinada en la que se introdujeron.
 
 ## <a name="september-2021-guest-os"></a>SO invitado de septiembre de 2021
 
->[!NOTE] 
-
->El sistema operativo invitado de septiembre se está implementando actualmente en las máquinas virtuales del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Se incluyen las siguientes revisiones en el sistema operativo invitado de septiembre. Esta lista está sujeta a cambios. 
 
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-|  Versión 21-09 |  [5005568]  |  Actualización acumulativa más reciente (LCU) | 6.35 | 14 de septiembre de 2021 |
-|  Versión 21-09 |  [5005563]  |  Actualizaciones acumulativas de IE | 2.114, 3.101, 4.94 | 14 de septiembre de 2021 |
-|  Versión 21-09 |  [5005573]  |  Actualización acumulativa más reciente (LCU) | 5.59 | 14 de septiembre de 2021 |
-|  Versión 21-09 |  [4578952]  |  Acumulación de seguridad y calidad de .NET Framework 3.5  | 2.114 | 16 de febrero de 2021 |
-|  Versión 21-09 |  [4578955]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2  | 2.114 | 8 de junio de 2021 |
-|  Versión 21-09 |  [4578953]  |  Acumulación de seguridad y calidad de .NET Framework 3.5  | 4.94 | 16 de febrero de 2021 |
-|  Versión 21-09 |  [4578956]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2  | 4.94 | 16 de febrero de 2021 |
-|  Versión 21-09 |  [4578950]  |  Acumulación de seguridad y calidad de .NET Framework 3.5  | 3.101 | 16 de febrero de 2021 |
-|  Versión 21-09 |  [4578954]  |  . Acumulación de seguridad y calidad de .NET Framework 4.5.2  | 3.101 | 16 de febrero de 2021 |
-|  Versión 21-09 |  [5004335]  |  . Actualización acumulativa de .NET Framework 3.5 y 4.7.2  | 6.35 | 10 de agosto de 2021 |
-|  Versión 21-09 |  [5005633]  |  Acumulación mensual  | 2.114 | 14 de septiembre de 2021 |
-|  Versión 21-09 |  [5005623]  |  Acumulación mensual  | 3.101 | 14 de septiembre de 2021 |
-|  Versión 21-09 |  [5005613]  |  Acumulación mensual  | 4.94 | 14 de septiembre de 2021 |
-|  Versión 21-09 |  [5001401]  |  Actualización de la pila de servicio  | 3.101 | 13 de abril de 2021 |
-|  Versión 21-09 |  [5001403]  |  Actualización de la pila de servicio  | 4.94 | 13 de abril de 2021 |
-|  Versión 21-09 OOB |  [4578013]  |  Actualización de seguridad independiente  | 4.94 | 19 de agosto de 2020 |
-|  Versión 21-09 |  [5005698]  |  Actualización de la pila de servicio  | 5.59 | 14 de septiembre de 2021 |
-|  Versión 21-09 |  [5004378]  |  Actualización de la pila de servicio  | 2.114 | 13 de julio de 2021 |
-|  Versión 21-09 |  5005701  |  Actualización de la pila de servicio  | 6.35 | 10 de agosto de 2021 |
-|  Versión 21-09 |  [4494175]  |  Microcódigo  | 5.59 | 1 de septiembre de 2020 |
-|  Versión 21-09 |  [4494174]  |  Microcódigo  | 6.35 | 1 de septiembre de 2020 |
+|  Versión 21-09 |  [5005568]  |  Actualización acumulativa más reciente (LCU) | [6.35] | 14 de septiembre de 2021 |
+|  Versión 21-09 |  [5005563]  |  Actualizaciones acumulativas de IE | [2.114], [3.101], [4.94] | 14 de septiembre de 2021 |
+|  Versión 21-09 |  [5005573]  |  Actualización acumulativa más reciente (LCU) | [5.59] | 14 de septiembre de 2021 |
+|  Versión 21-09 |  [4578952]  |  Acumulación de seguridad y calidad de .NET Framework 3.5  | [2.114] | 16 de febrero de 2021 |
+|  Versión 21-09 |  [4578955]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2  | [2.114] | 8 de junio de 2021 |
+|  Versión 21-09 |  [4578953]  |  Acumulación de seguridad y calidad de .NET Framework 3.5  | [4.94] | 16 de febrero de 2021 |
+|  Versión 21-09 |  [4578956]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2  | [4.94] | 16 de febrero de 2021 |
+|  Versión 21-09 |  [4578950]  |  Acumulación de seguridad y calidad de .NET Framework 3.5  | [3.101] | 16 de febrero de 2021 |
+|  Versión 21-09 |  [4578954]  |  . Acumulación de seguridad y calidad de .NET Framework 4.5.2  | [3.101] | 16 de febrero de 2021 |
+|  Versión 21-09 |  [5004335]  |  . Actualización acumulativa de .NET Framework 3.5 y 4.7.2  | [6.35] | 10 de agosto de 2021 |
+|  Versión 21-09 |  [5005633]  |  Acumulación mensual  | [2.114] | 14 de septiembre de 2021 |
+|  Versión 21-09 |  [5005623]  |  Acumulación mensual  | [3.101] | 14 de septiembre de 2021 |
+|  Versión 21-09 |  [5005613]  |  Acumulación mensual  | [4.94] | 14 de septiembre de 2021 |
+|  Versión 21-09 |  [5001401]  |  Actualización de la pila de servicio  | [3.101] | 13 de abril de 2021 |
+|  Versión 21-09 |  [5001403]  |  Actualización de la pila de servicio  | [4.94] | 13 de abril de 2021 |
+|  Versión 21-09 OOB |  [4578013]  |  Actualización de seguridad independiente  | [4.94] | 19 de agosto de 2020 |
+|  Versión 21-09 |  [5005698]  |  Actualización de la pila de servicio  | [5.59] | 14 de septiembre de 2021 |
+|  Versión 21-09 |  [5004378]  |  Actualización de la pila de servicio  | [2.114] | 13 de julio de 2021 |
+|  Versión 21-09 |  5005701  |  Actualización de la pila de servicio  | [6.35] | 10 de agosto de 2021 |
+|  Versión 21-09 |  [4494175]  |  Microcódigo  | [5.59] | 1 de septiembre de 2020 |
+|  Versión 21-09 |  [4494174]  |  Microcódigo  | [6.35] | 1 de septiembre de 2020 |
 
 [5005568]: https://support.microsoft.com/kb/5005568
 [5005563]: https://support.microsoft.com/kb/5005563
@@ -73,6 +70,11 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [5004378]: https://support.microsoft.com/kb/5004378
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
+[2.114]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.101]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.94]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.59]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.35]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 
 ## <a name="august-2021-guest-os"></a>SO invitado de agosto de 2021

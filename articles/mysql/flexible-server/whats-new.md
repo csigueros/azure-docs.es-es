@@ -4,15 +4,15 @@ description: 'Conozca las actualizaciones recientes de Azure Database for MySQL:
 author: hjtoland3
 ms.service: mysql
 ms.author: jtoland
-ms.custom: mvc
+ms.custom: mvc, references_regions
 ms.topic: conceptual
 ms.date: 09/29/2021
-ms.openlocfilehash: 377c9fc994c4d26b67791e3eb525c7fba75a9d78
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 4a74fb34eb750924f9d8c08225edd10a5a220084
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129388895"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129657861"
 ---
 # <a name="whats-new-in-azure-database-for-mysql---flexible-server-preview"></a>Novedades de Azure Database for MySQL: servidor flexible (versión preliminar)
 
@@ -21,10 +21,12 @@ ms.locfileid: "129388895"
 [Azure Database for MySQL: servidor flexible](./overview.md#azure-database-for-mysql---flexible-server-preview) es un modo de implementación diseñado para proporcionar un control más granular y una mayor flexibilidad sobre las funciones de administración de bases de datos y las opciones de configuración, si se compara con el modo de implementación de servidor único. El servicio admite actualmente la versiones de la comunidad de MySQL 5.7 y 8.0.
 
 En este artículo se resumen las nuevas versiones y características de Azure Database for MySQL: servidor flexible a partir de enero de 2021. Las listas aparecen en orden cronológico inverso, con las actualizaciones más recientes en primer lugar.
+
 ## <a name="october-2021"></a>Octubre de 2021
+
 - **Selección de Availability Zones al crear réplicas de lectura**
 
-    Al crear una réplica de lectura, tiene la opción de seleccionar la ubicación de Availability Zones que prefiera. Una zona de disponibilidad es una oferta de alta disponibilidad que protege las aplicaciones y los datos de los errores que se producen en el centro de datos. Las zonas de disponibilidad son ubicaciones físicas exclusivas dentro de una región de Azure. [Más información](../flexible-server/concepts-read-replicas.md)
+    Al crear una réplica de lectura, tiene la opción de seleccionar la ubicación de Availability Zones que prefiera. Una zona de disponibilidad es una oferta de alta disponibilidad que protege las aplicaciones y los datos de los errores que se producen en el centro de datos. Las zonas de disponibilidad son ubicaciones físicas exclusivas dentro de una región de Azure. [Más información](../flexible-server/concepts-read-replicas.md).
 
 - **Réplicas de lectura en Azure Database for MySQL: los servidores flexibles ya no estarán disponibles en las SKU ampliables**
     
@@ -32,7 +34,11 @@ En este artículo se resumen las nuevas versiones y características de Azure Da
 
     Si ya tiene una instancia de Azure Database for MySQL: servidor flexible con réplica de lectura habilitada, tendrá que escalar verticalmente el servidor a los planes de tarifa optimizada para memoria o de uso general, o bien eliminar la réplica de lectura en un plazo de 60 días. Después del período de 60 días, aunque puede seguir usando el servidor principal para las operaciones de lectura y escritura, la replicación en los servidores de réplica de lectura se detendrá. En el caso de los servidores recién creados, la opción de réplica de lectura solo estará disponible para los planes de tarifa optimizada para memoria y de uso general.  
 
+ - **Supervisión de Azure Database for MySQL: servidor flexible con Libros de Azure Monitor**
  
+     Azure Database for MySQL: servidor flexible ahora está integrado en Libros de Azure Monitor. Los libros proporcionan un lienzo flexible para el análisis de datos y la creación de informes visuales completos en el Azure Portal. Con esta integración, el servidor tiene un vínculo a los libros y algunas plantillas de ejemplo, lo que ayuda a supervisar el servicio a gran escala. Estas plantillas se pueden editar, personalizar según los requisitos del cliente y anclarse al panel para crear una vista centrada y organizada de los recursos de Azure. Actualmente están disponibles las plantillas [Información de rendimiento de consultas](./tutorial-query-performance-insights.md), [Auditoría](./tutorial-configure-audit.md) e Información general de instancias. [Más información](./concepts-workbooks.md).
+
+- **Pago por adelantado de recursos de proceso de Azure Database for MySQL con instancias reservadas** Azure Database for MySQL: servidor flexible ahora le ayuda a ahorrar dinero mediante el pago por adelantado de recursos de proceso en comparación con los precios de pago por uso. Con las instancias reservadas de Azure Database for MySQL se realiza un compromiso inicial en el servidor MySQL sobre un periodo de entre uno y tres años con el fin de obtener un descuento importante en los costos de proceso. También puede intercambiar una reserva de Azure Database for MySQL: servidor único por servidor flexible. [Más información](../concept-reserved-pricing.md).
 
 ## <a name="september-2021"></a>Septiembre de 2021
 
@@ -40,21 +46,21 @@ Esta versión de Azure Database for MySQL: servidor flexible incluye las siguien
 
 - **Disponibilidad en tres regiones de Azure adicionales**
 
-  La versión preliminar pública de Azure Database for MySQL: servidor flexible ya está disponible en las siguientes regiones de Azure:
+   La versión preliminar pública de Azure Database for MySQL: servidor flexible ya está disponible en las siguientes regiones de Azure:
 
-  - Oeste de Reino Unido
-  - Este de Canadá
-  - Japón Occidental
+   - Oeste de Reino Unido
+   - Este de Canadá
+   - Japón Occidental
 
 - **Correcciones de errores**
 
-  La creación de alta disponibilidad de la misma zona se corrige en las siguientes regiones:
+   La creación de alta disponibilidad de la misma zona se corrige en las siguientes regiones:
 
-  - Centro de la India
-  - Este de Asia
-  - Centro de Corea del Sur
-  - Norte de Sudáfrica
-  - Norte de Suiza
+   - Centro de la India
+   - Este de Asia
+   - Centro de Corea del Sur
+   - Norte de Sudáfrica
+   - Norte de Suiza
 
 ## <a name="august-2021"></a>Agosto de 2021
 
@@ -86,19 +92,21 @@ Esta versión de Azure Database for MySQL: servidor flexible incluye las siguien
 
 - **Disponibilidad en cuatro regiones de Azure adicionales**
 
-  La versión preliminar pública de Azure Database for MySQL: servidor flexible ya está disponible en las siguientes regiones de Azure. [Más información](overview.md#azure-regions):
+   La versión preliminar pública de Azure Database for MySQL: servidor flexible ya está disponible en las siguientes regiones de Azure:
 
-  - Sudeste de Australia
-  - Norte de Sudáfrica
-  - Asia Oriental (Hong Kong)
-  - Centro de la India
+   - Sudeste de Australia
+   - Norte de Sudáfrica
+   - Asia Oriental (Hong Kong)
+   - Centro de la India
 
-- **Problema conocido**
+   [Más información](overview.md#azure-regions).
 
-  - Inmediatamente después de la conmutación por error del  servidor de alta disponibilidad con redundancia de zona, los clientes no se pueden conectar al servidor si usan SSL con ssl_mode VERIFY_IDENTITY. Este problema se puede mitigar si se usa ssl_mode como VERIFY_CA.
-  - No se puede crear el servidor de alta disponibilidad en la misma zona en las siguientes regiones: Centro de la India, Este de Asia, Centro de Corea del Sur, Norte de Sudáfrica, Norte de Suiza.
-  - En un escenario poco frecuente y después de la conmutación por error de alta disponibilidad, el servidor principal estará en modo read_only. Para resolver el problema, actualice el valor "read_only" de la hoja de parámetros del servidor a OFF.
-  - Después de escalar correctamente Proceso en la hoja Proceso y almacenamiento, las IOPS se restablecen al valor predeterminado de SKU. Para evitar el problema, los clientes pueden volver a escalar las IOPS en la hoja Proceso y almacenamiento al valor deseado (establecido previamente) después de la implementación de proceso y el consiguiente restablecimiento de las IOPS.
+- **Problemas conocidos**
+
+   - Inmediatamente después de la conmutación por error del  servidor de alta disponibilidad con redundancia de zona, los clientes no se pueden conectar al servidor si usan SSL con ssl_mode VERIFY_IDENTITY. Este problema se puede mitigar si se usa ssl_mode como VERIFY_CA.
+   - No se puede crear el servidor de alta disponibilidad en la misma zona en las siguientes regiones: Centro de la India, Este de Asia, Centro de Corea del Sur, Norte de Sudáfrica, Norte de Suiza.
+   - En un escenario poco frecuente y después de la conmutación por error de alta disponibilidad, el servidor principal estará en modo read_only. Para resolver el problema, actualice el valor "read_only" de la hoja de parámetros del servidor a OFF.
+   - Después de escalar correctamente Proceso en la hoja Proceso y almacenamiento, las IOPS se restablecen al valor predeterminado de SKU. Para evitar el problema, los clientes pueden volver a escalar las IOPS en la hoja Proceso y almacenamiento al valor deseado (establecido previamente) después de la implementación de proceso y el consiguiente restablecimiento de las IOPS.
 
 ## <a name="july-2021"></a>Julio de 2021
 
@@ -145,9 +153,9 @@ Esta versión de Azure Database for MySQL: servidor flexible incluye las siguien
 
   Esta versión incluye correcciones para problemas conocidos relacionados con la conmutación por error forzada para asegurarse de que los parámetros del servidor y los cambios de IOPS adicionales se conserven entre las conmutaciones por error.
 
-- **Problema conocido**
+- **Problemas conocidos**
 
-  - El intento de realizar una operación de escalado o reducción verticales de proceso en un servidor existente con menos de 20 GB de almacenamiento aprovisionado no se completará correctamente. Para resolver el problema, escale verticalmente el almacenamiento aprovisionado a 20 GB y vuelve a intentar la operación de escalado de proceso.
+   - El intento de realizar una operación de escalado o reducción verticales de proceso en un servidor existente con menos de 20 GB de almacenamiento aprovisionado no se completará correctamente. Para resolver el problema, escale verticalmente el almacenamiento aprovisionado a 20 GB y vuelve a intentar la operación de escalado de proceso.
 
 ## <a name="may-2021"></a>Mayo de 2021
 
@@ -167,9 +175,9 @@ Esta versión de Azure Database for MySQL: servidor flexible incluye las siguien
 
 - **Problemas conocidos**
 
-  - Los cambios de IOPS adicionales no surten efecto en los servidores habilitados con alta disponibilidad con redundancia de zona. Para evitar el problema, los clientes pueden deshabilitar la alta disponibilidad, escalar las IOPS y volver a habilitar la alta disponibilidad con redundancia de zona.
-  - Después de forzar la conmutación por error, la zona de disponibilidad en espera no se refleja de manera exacta en el portal. (No hay solución alternativa)
-  - Los cambios en los parámetros del servidor no surten efecto en el servidor habilitado para la alta disponibilidad con redundancia de zona después de la conmutación por error forzada. (No hay solución alternativa)
+   - Los cambios de IOPS adicionales no surten efecto en los servidores habilitados con alta disponibilidad con redundancia de zona. Para evitar el problema, los clientes pueden deshabilitar la alta disponibilidad, escalar las IOPS y volver a habilitar la alta disponibilidad con redundancia de zona.
+   - Después de forzar la conmutación por error, la zona de disponibilidad en espera no se refleja de manera exacta en el portal. (No hay solución alternativa)
+   - Los cambios en los parámetros del servidor no surten efecto en el servidor habilitado para la alta disponibilidad con redundancia de zona después de la conmutación por error forzada. (No hay solución alternativa)
 
 ## <a name="april-2021"></a>Abril de 2021
 
@@ -209,8 +217,8 @@ Esta versión de Azure Database for MySQL: servidor flexible incluye las siguien
 
 - **Problemas conocidos**
 
-  - Se aplica SSL\TLS 1.2 y no se puede deshabilitar. (No hay soluciones alternativas)
-  - Hay errores de aprovisionamiento intermitentes en los servidores aprovisionados en una red virtual. La solución alternativa es reintentar el aprovisionamiento del servidor hasta que se ejecute correctamente.
+   - Se aplica SSL\TLS 1.2 y no se puede deshabilitar. (No hay soluciones alternativas)
+   - Hay errores de aprovisionamiento intermitentes en los servidores aprovisionados en una red virtual. La solución alternativa es reintentar el aprovisionamiento del servidor hasta que se ejecute correctamente.
 
 ## <a name="february-2021"></a>Febrero de 2021
 
@@ -230,7 +238,7 @@ Esta versión de Azure Database for MySQL: servidor flexible incluye las siguien
 
 - **Hasta 10 réplicas de lectura para MySQL: servidor flexible**
 
-  Servidor flexible ahora admite la replicación asincrónica de datos desde un servidor de Azure Database for MySQL (el "origen") hasta 10 servidores de Azure Database for MySQL (las "réplicas") en la misma región. Esta funcionalidad permite que las cargas de trabajo con lectura intensiva se escalen horizontalmente y se equilibren entre los servidores de réplica según las preferencias del usuario. [Más información](concepts-read-replicas.md).
+  Servidor flexible ahora admite la replicación asincrónica de datos de un servidor de Azure Database for MySQL (el "origen") hasta en diez servidores de Azure Database for MySQL (las "réplicas") de la misma región. Esta funcionalidad permite que las cargas de trabajo con lectura intensiva se escalen horizontalmente y se equilibren entre los servidores de réplica según las preferencias del usuario. [Más información](concepts-read-replicas.md).
 
 ## <a name="contacts"></a>Contactos
 

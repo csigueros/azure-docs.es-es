@@ -5,18 +5,21 @@ author: mksuni
 ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/01/2021
-ms.openlocfilehash: 9d8c0a4f550442b59a65993aceba37a1672ce078
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.date: 10/06/2021
+ms.openlocfilehash: 02c8e93603672f18c456911a99503f05c78bd323
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129389501"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658125"
 ---
 # <a name="prepay-for-azure-database-for-postgresql-compute-resources-with-reserved-capacity"></a>Pago por adelantado de recursos de proceso de Azure Database for PostgreSQL con capacidad reservada
 
+[!INCLUDE[applies-to-postgres-single-flexible-server-hyperscale](includes/applies-to-postgres-single-flexible-server-hyperscale.md)]
+
 Ahora Azure Database for PostgreSQL le ayuda a ahorrar mediante el pago por adelantado de los recursos de proceso en comparación con los precios de pago por uso. Con la capacidad reservada de Azure Database for PostgreSQL, se realiza un compromiso inicial en el servidor de PostgreSQL durante un periodo de un año o tres años con el fin de obtener un descuento importante en los costos de proceso. Para comprar capacidad reservada de Azure Database for PostgreSQL, debe especificar la región de Azure, el tipo de implementación, el nivel de rendimiento y el periodo. </br>
 
+## <a name="how-does-the-instance-reservation-work"></a>Funcionamiento de la reserva de instancias
 No es necesario asignar la reserva a servidores concretos de Azure Database for PostgreSQL. Una instancia de Azure Database for PostgreSQL que ya está en ejecución (o las que se han implementado recientemente) obtendrá de forma automática la ventaja de los precios reservados. Al comprar una reserva, se adelanta el pago de los costos de proceso durante un período de uno a tres años. En cuanto se compra una reserva, los costos de proceso de Azure Database for PostgreSQL que coincidan con los atributos de reserva dejan de pagarse según las tarifas de pago por uso. La reserva no cubre los cargos por software, redes o almacenamiento asociados al servidor de bases de datos de PostgreSQL. Al final del plazo de reserva, la ventaja en la facturación expira y las instancias de Azure Database for PostgreSQL se facturan según los precios de pago por uso. Las reservas no se renuevan automáticamente. Para obtener información sobre precios, vea [Oferta de capacidad reservada de Azure Database for PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/). </br>
 
 > [!IMPORTANT]
@@ -30,6 +33,13 @@ Puede comprar capacidad reservada de Azure Database for PostgreSQL en [Azure Por
 
 Para información sobre cómo se les cobra a los clientes de empresa y a los de pago por uso las compras de reservas, consulte [Información sobre el uso de reservas de Azure para la inscripción Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) y [Información sobre el uso de reservas de Azure para suscripciones de pago por uso](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
+## <a name="reservation-exchanges-and-refunds"></a>Cambios de reserva y reembolsos
+
+Puede intercambiar una reserva por otra del mismo tipo, también puede intercambiar una de Azure Database for PostgreSQL: servidor único por servidor flexible. Además es posible reembolsar una reserva si ya no la necesita. Puede usar Azure Portal para intercambiar o reembolsar una reserva. Para más información, consulte [Autoservicio de intercambios y reembolsos de reservas de Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
+
+## <a name="reservation-discount"></a>Descuentos por reserva
+
+Puede ahorrar hasta un 65 % en costos de proceso con las instancias reservadas. Para encontrar el descuento aplicable en su caso, visite la [hoja Reserva de Azure Portal](https://aka.ms/reservations) y compruebe el ahorro por plan de tarifa y región. Las instancias reservadas le ayudan a administrar mejor las cargas de trabajo, el presupuesto y la previsión, gracias al pago por adelantado en períodos de un año o de tres años. También se pueden intercambiar o cancelar las reservas a medida que cambien las necesidades del negocio.
 
 ## <a name="determine-the-right-server-size-before-purchase"></a>Determinación del tamaño del servidor adecuado antes de la compra
 
@@ -61,14 +71,30 @@ En la siguiente tabla se describen los campos obligatorios.
 | Término | Un año
 | Cantidad | Número de recursos de proceso que se compran dentro de la reserva de capacidad reservada de Azure Database for PostgreSQL. La cantidad es un número de núcleos virtuales de la región de Azure y el nivel de rendimiento seleccionados que se están reservando y obtendrán el descuento de facturación. Por ejemplo, si ejecuta o planea ejecutar servidores de Azure Database for PostgreSQL con la capacidad total de proceso de 16 núcleos virtuales Gen5 en la región Este de EE. UU., tendrá que especificar la cantidad como 16 para maximizar las ventajas de todos los servidores.
 
-## <a name="cancel-exchange-or-refund-reservations"></a>Cancelación, intercambio o reembolso de reservas
+## <a name="reserved-instances-api-support"></a>Soporte técnico de la API de instancias reservadas
 
-Puede cancelar, intercambiar o reembolsar reservas con ciertas limitaciones. Para más información, consulte [Autoservicio de intercambios y reembolsos de reservas de Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
+Use las API de Azure para obtener información mediante programación para su organización sobre el servicio de Azure o las reservas de software. Por ejemplo, use las API para:
+
+- Buscar las reservas que desee comprar
+- Adquisición de una reserva
+- Visualización de las reservas adquiridas
+- Ver y administrar el acceso a las reservas
+- Dividir o combinar reservas
+- Cambiar el ámbito de las reservas
+ 
+Para más información, consulte [APIs for Azure reservation automation](../cost-management-billing/reservations/reservation-apis.md) (API de automatización de reservas de Azure).
 
 ## <a name="vcore-size-flexibility"></a>Flexibilidad de tamaño del núcleo virtual
 
 La flexibilidad de tamaño del núcleo virtual le ayuda a escalar o reducir verticalmente dentro de un nivel de rendimiento y una región, sin perder los beneficios de la capacidad reservada. Si escala a núcleos virtuales superiores a su capacidad reservada, se le facturará el exceso de núcleos virtuales con precios de pago por uso.
 
+## <a name="how-to-view-reserved-instance-purchase-details"></a>Visualización de los detalles de la compra de instancias reservadas
+
+Puede ver los detalles de la compra de una instancia reservada por medio del [menú Reservas en el lado izquierdo de Azure Portal](https://aka.ms/reservations). Para obtener más información, vea [Aplicación de un descuento por reserva a un servidor individual Azure Database for PostgreSQL](../cost-management-billing/reservations/understand-reservation-charges-postgresql.md).
+
+## <a name="reserved-instance-expiration"></a>Expiración de las instancias reservadas
+
+Recibirá notificaciones por correo electrónico, la primera, 30 días antes de la expiración de la reserva y otra al expirar. Una vez que expire la reserva, las máquinas virtuales implementadas seguirán ejecutándose y se facturarán mediante una tasa de pago por uso. Para obtener más información, vea [Instancias reservadas de Azure Database for PostgreSQL](../cost-management-billing/reservations/understand-reservation-charges-postgresql.md).
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Ponerse en contacto con nosotros
 

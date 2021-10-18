@@ -7,13 +7,13 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 09/27/2021
-ms.openlocfilehash: c50a36c521848956577fd0e8f53bdb2dceaaee8f
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.date: 10/11/2021
+ms.openlocfilehash: 0ef727d47949acb1d095bbfb3890021b273c50db
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129084063"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129811205"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Panel de uso de los análisis de marketplace comercial
 
@@ -45,7 +45,7 @@ En el [panel Uso](https://go.microsoft.com/fwlink/?linkid=2166106) se muestran l
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
 1. En la página principal, seleccione el icono **Información**.
 
-    [ ![Muestra el icono "Información" en la página principal del Centro de partners.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+    [ ![Se muestra el icono "Información" en la página principal del Centro de partners.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
 
 1. En el menú de la izquierda, seleccione **Uso**.
 
@@ -62,7 +62,7 @@ En las secciones siguientes se describe cómo usar el panel de Uso y cómo leer 
 
 ### <a name="month-range"></a>Intervalo mensual
 
-#### <a name="workspaces-view"></a>[Vista "Áreas de trabajo"](#tab/workspaces-view)
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
 
 Puede encontrar una selección del intervalo mensual en la esquina superior derecha de cada página. Puede personalizar salida de los gráficos de la página **Uso** seleccionando un intervalo mensual basado en los últimos 6 o 12 meses, o seleccionando un intervalo mensual personalizado con una duración máxima de 12 meses. El intervalo mensual predeterminado (período de cálculo) es de seis meses.
 
@@ -191,7 +191,7 @@ _**Tabla 1: diccionario de términos de datos**_
 | Acción realizada a las | Acción realizada a las | **Aplicable a las ofertas con dimensiones de medidores personalizados**.<br>Indica la hora en que el publicador ha reconocido el uso por encima del límite por parte del cliente para la dimensión de medidor personalizado de la oferta como genuino o falso.<br>_Si el publicador no tiene ofertas con dimensiones de medidores personalizados y exporta esta columna a través del acceso mediante programación, el valor será NULL._ | ActionTakenAt |
 | Acción realizada por | Acción realizada por | **Aplicable a las ofertas con dimensiones de medidores personalizados**.<br>Indica la persona que ha reconocido el uso por encima del límite por parte del cliente para la dimensión de medidor personalizado de la oferta como genuino o falso.<br>_Si el publicador no tiene ofertas con dimensiones de medidores personalizados y exporta esta columna a través del acceso mediante programación, el valor será NULL._ | ActionTakenBy |
 | Impacto financiero estimado (USD) | Impacto financiero estimado en USD | **Aplicable a las ofertas con dimensiones de medidores personalizados**.<br>Cuando el Centro de partners marca como anómalo un uso por encima del límite por parte del cliente para la dimensión de medidor personalizado de la oferta, el campo especifica el impacto financiero estimado (en USD) del uso anómalo por encima del límite.<br>_Si el publicador no tiene ofertas con dimensiones de medidores personalizados y exporta esta columna mediante programación, el valor será NULL._ | EstimatedFinancialImpactUSD |
-| N/D | Id. de recurso | Identificador completo del recurso, incluido el nombre del recurso y el tipo de recurso. Tenga en cuenta que se trata de un campo de datos disponible solo en los informes de descarga.<br>Utilice el formato:<br> /subscriptions/{guid}/resourceGroups/{nombre-del-grupo-de-recursos}/{espacio-de-nombres-del-proveedor-de-recursos}/{tipo-de-recurso}/{nombre-del-recurso} | N/D |
+| N/D | Id. de recurso | Identificador completo del recurso, incluido el nombre del recurso y el tipo de recurso. Tenga en cuenta que se trata de un campo de datos disponible solo en los informes de descarga.<br>Utilice el formato:<br> /subscriptions/{guid}/resourceGroups/{nombre-del-grupo-de-recursos}/{espacio-de-nombres-del-proveedor-de-recursos}/{tipo-de-recurso}/{nombre-del-recurso}<br>**Nota**: Este campo dejará de usarse el 20/10/2021. | N/D |
 |||||
 
 ### <a name="usage-page-filters"></a>Filtros de la página de uso

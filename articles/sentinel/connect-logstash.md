@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 37b09e09207b91e966fef7249cc38a2f13fe4e68
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5f6765d4e6fc60a4b1d34846b1279456e1e8dca7
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121747147"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754299"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Uso de Logstash para conectar orígenes de datos a Azure Sentinel
 
@@ -48,7 +48,7 @@ El motor de Logstash consta de tres componentes:
 >
 > - Microsoft no admite complementos de salida de terceros de Logstash para Azure Sentinel ni ningún otro complemento de Logstash o componente de ningún tipo.
 >
-> - El complemento de salida de Logstash de Azure Sentinel solo admite las **versiones de Logstash de 7.0 a 7.9.**
+> - El complemento de salida de Logstash de Azure Sentinel solo admite las **versiones de Logstash de 7.0 a 7.15**.
 
 El complemento de salida de Azure Sentinel para Logstash envía datos con formato JSON al área de trabajo de Log Analytics, mediante la API REST de recopilación de datos HTTP de Log Analytics. Los datos se ingieren en los registros personalizados.
 

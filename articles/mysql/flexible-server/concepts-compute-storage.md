@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: d38c2518b3504b79f70c58aff1e6cf832d05c8a5
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8388df72352669eb81a22df392ca077f91d13cfb
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128633932"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754660"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opciones de proceso y almacenamiento de Azure Database for MySQL: servidor flexible (versión preliminar)
 
@@ -101,11 +101,11 @@ Se recomienda que <!--turn on storage auto-grow or to--> configure una alerta qu
 
 ### <a name="storage-auto-grow"></a>Crecimiento automático del almacenamiento
 
-El crecimiento automático del almacenamiento impide que el servidor se quede sin almacenamiento y se vuelva de solo lectura. Si el crecimiento automático del almacenamiento está habilitado, el almacenamiento crece automáticamente sin afectar a la carga de trabajo. El crecimiento automático del almacenamiento está habilitado de manera predeterminada para todos los nuevos servidores creados. En cuanto a los servidores con un almacenamiento aprovisionado menor o igual a 100 GB, el tamaño del almacenamiento aprovisionado se incrementa en 5 GB cuando el almacenamiento disponible es inferior al 10 % del almacenamiento aprovisionado. En los servidores con más de 100 GB de almacenamiento aprovisionado, el tamaño del almacenamiento aprovisionado se incrementa en un 5 % cuando el espacio de almacenamiento disponible está por debajo de 10 GB del tamaño del almacenamiento aprovisionado. Se aplican los límites máximos de almacenamiento según lo especificado anteriormente.
+El crecimiento automático del almacenamiento impide que el servidor se quede sin almacenamiento y se vuelva de solo lectura. Si el crecimiento automático del almacenamiento está habilitado, el almacenamiento crece automáticamente sin afectar a la carga de trabajo. El crecimiento automático del almacenamiento está habilitado de manera predeterminada para todos los nuevos servidores creados. En cuanto a los servidores con un almacenamiento aprovisionado menor o igual a 100 GB, el tamaño del almacenamiento aprovisionado se incrementa en 5 GB cuando el almacenamiento disponible es inferior al 10 % del almacenamiento aprovisionado. En los servidores con más de 100 GB de almacenamiento aprovisionado, el tamaño del almacenamiento aprovisionado se incrementa en un 5 % cuando el espacio de almacenamiento disponible está por debajo de 10 GB del tamaño del almacenamiento aprovisionado. Se aplican los límites máximos de almacenamiento según lo especificado anteriormente. Actualice la instancia del servidor para ver el almacenamiento actualizado aprovisionado en la hoja Proceso y almacenamiento. 
 
 Por ejemplo, si ha aprovisionado 1000 GB de almacenamiento y el uso real supera los 990 GB, el tamaño del almacenamiento del servidor se incrementa a 1050 GB. Como alternativa, si ha aprovisionado 10 GB de almacenamiento, el tamaño del almacenamiento aumenta a 15 GB cuando queda menos de 1 GB de almacenamiento.
 
-Recuerde que el almacenamiento solo se puede escalar verticalmente, no reducir.
+Recuerde que el almacenamiento una vez autoescalado verticalmente, no se puede reducir verticalmente.
 
 ## <a name="iops"></a>E/S
 

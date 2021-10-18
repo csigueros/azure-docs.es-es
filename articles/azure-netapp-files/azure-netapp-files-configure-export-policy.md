@@ -7,13 +7,13 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 08/06/2021
-ms.openlocfilehash: f930c52c4b913e9411c6f619231fb50d0bb6cc5c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 10/11/2021
+ms.openlocfilehash: 2412673dd71c6fbe6a1f070451db24d748694a8d
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733397"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129811126"
 ---
 # <a name="configure-export-policy-for-nfs-or-dual-protocol-volumes"></a>Configuración de la directiva de exportación para volúmenes NFS o de protocolo dual
 
@@ -44,7 +44,7 @@ Puede crear hasta cinco reglas en la directiva de exportación.
 
       ![Opciones de seguridad de Kerberos](../media/azure-netapp-files/kerberos-security-options.png) 
 
-    * **Acceso raíz**: Especifique si la cuenta `root` puede acceder al volumen.  De forma predeterminada, el acceso a la raíz se establece en **On** y la cuenta `root` tiene acceso al volumen.
+    * **Acceso raíz**: Especifique si la cuenta `root` puede acceder al volumen.  De forma predeterminada, el acceso a la raíz se establece en **On** y la cuenta `root` tiene acceso al volumen.  Esta opción no está disponible para volúmenes Kerberos NFSv4.1.
 
       ![Directiva de exportación](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 

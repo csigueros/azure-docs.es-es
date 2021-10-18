@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: ee18a405ca6c6a9d2e6a3a6cceb5c0ff89b5cf73
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3126eb9a2c3289f6fbc97a14fadf94300d1c2e84
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124748595"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129728786"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Selección de la opción adecuada de MySQL Server en Azure
 
@@ -111,7 +111,7 @@ Las principales diferencias entre estas opciones se mencionan en la siguiente ta
 | [**Supervisión**](flexible-server/concepts-monitoring.md) | | | |
 | Integración y alertas de Azure Monitor | Compatible | Compatible | Administrado por el usuario |
 | Supervisión de las operaciones de base de datos | Compatible | Compatible | Administrado por el usuario |
-| Información del rendimiento de las consultas | Compatible | No compatible | Administrado por el usuario |
+| Información del rendimiento de las consultas | Compatible | Compatible (mediante Workbooks)| Administrado por el usuario |
 | Registros del servidor | Compatible | Compatible (mediante registros de diagnóstico) | Administrado por el usuario |
 | Registros de auditoría | Compatible | Compatible | Compatible | 
 | Registros de errores | No compatible | Compatible | Compatible |

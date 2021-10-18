@@ -5,17 +5,21 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 10/04/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: b0eeb73ffb5436284f4f23cef943db0a3307a2b2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 63394c71642917c37bd0383682b64b70f3b870ee
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564575"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709270"
 ---
 # <a name="repairing-an-import-job"></a>Reparación de un trabajo de importación
+
+> [!IMPORTANT]
+> La herramienta Azure Import/Export ya no admite la reparación de trabajos. En la versión 1.5.0.300 y posteriores, deberá corregir los problemas en la importación de blobs y, a continuación, [crear un nuevo trabajo de importación](storage-import-export-data-to-blobs.md?tabs=azure-portal#step-2-create-an-import-job).
+
 El servicio Microsoft Azure Import/Export puede dar error al copiar algunos de los archivos o partes de un archivo en Azure Blob service. Estas son algunas razones de los errores:  
   
 -   Archivos dañados  
@@ -24,7 +28,7 @@ El servicio Microsoft Azure Import/Export puede dar error al copiar algunos de l
   
 -   La clave de la cuenta de almacenamiento cambió mientras se transfería el archivo.  
   
-Puede ejecutar la herramienta Microsoft Azure Import/Export con los archivos de registro de copia del trabajo de importación. La herramienta carga los archivos o las partes de un archivo que faltan en la cuenta de almacenamiento de Windows Azure para completar el trabajo de importación.  
+Puede ejecutar la herramienta Microsoft Azure Import/Export con los archivos de registro de copia del trabajo de importación. La herramienta carga los archivos o las partes de un archivo que faltan en la cuenta de almacenamiento de Windows Azure para completar el trabajo de importación.
   
 ## <a name="repairimport-parameters"></a>Parámetros de RepairImport
 
@@ -99,7 +103,7 @@ Después de poner los archivos necesarios a disposición de la herramienta o act
   
 ## <a name="next-steps"></a>Pasos siguientes
  
-* [Configuración de la herramienta Azure Import/Export](storage-import-export-tool-setup-v1.md)   
+<!--* [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)- ARCHIVED-->   
 * [Preparación de unidades de disco duro para un trabajo de importación](storage-import-export-data-to-blobs.md#step-1-prepare-the-drives)   
 * [Revisión del estado del trabajo con archivos de registro de copia](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Reparación de un trabajo de exportación](./storage-import-export-tool-repairing-an-export-job-v1.md)

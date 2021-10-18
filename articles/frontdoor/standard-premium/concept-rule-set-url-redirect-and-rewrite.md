@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: article
 ms.date: 02/18/2021
 ms.author: yuajia
-ms.openlocfilehash: 382a4c040c7a519462ee3e35119b9471031e0724
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e758560eed1ffb01117764f9399aa6f4f4b1395
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101098224"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857557"
 ---
 # <a name="url-redirect-and-url-rewrite-with-azure-front-door-standardpremium-preview"></a>Redirección de URL y reescritura de URL con Azure Front Door Estándar/Premium (versión preliminar)
 
@@ -74,6 +74,10 @@ Puede configurar el redireccionamiento de URL a través del conjunto de reglas.
 ### <a name="source-pattern"></a>Patrón de origen
 
 El patrón de origen es la ruta de acceso URL en la solicitud de origen que se va a reemplazar. Actualmente, el patrón de origen usa una coincidencia basada en el prefijo. Para una coincidencia con todas las ruta de acceso de las direcciones URL, use una barra (/) como valor de patrón de origen.
+
+Para el patrón de origen de reescritura de direcciones URL, solo se tiene en cuenta la ruta de acceso después de la configuración de ruta "patrones de coincidencia". Por ejemplo, tiene el siguiente formato de dirección URL entrante `<Frontend-domain>/<route-patterns-to-match-path>/<Rule-URL-Rewrite-Source-pattern>`, solo `/<Rule-URL-Rewrite-Source-pattern>` será considerado por el motor de reglas como el patrón de origen que se va a reescribir. Por lo tanto, cuando tenga una regla de reescritura de URL con coincidencia de patrón de origen, el formato de la URL saliente será `<Frontend-domain>/<route-patterns-to-match-path>/<Rule-URL-Rewrite-destination>`.
+
+En escenarios en los que se debe quitar el segmento `/<route-patterns-to-match-path` de la ruta de acceso URL, establezca la ruta de acceso Origen del grupo Origen en la configuración de ruta en `/`.
 
 ### <a name="destination"></a>Destination
 

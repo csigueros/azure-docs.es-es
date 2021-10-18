@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 3fe90f5c9038c37e3ac3e9fba357ea27ca089679
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8e14e1fd97bbf3e0fe83c1b7e0eeae1cf446e74d
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121747558"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129811233"
 ---
 # <a name="face-detection-and-attributes"></a>Atributos y detección de caras
 
@@ -34,6 +34,8 @@ Los puntos de referencia de cara son un conjunto de puntos fáciles de encontrar
 ![Diagrama de cara con los 27 puntos de referencia etiquetados](../Images/landmarks.1.jpg)
 
 Las coordenadas de los puntos se devuelven en unidades de píxeles.
+
+Actualmente, el modelo Detection_03 cuenta con la detección de punto de referencia más precisa. Los puntos de referencia de ojos y pupilas que devuelve son lo suficientemente precisos como para permitir el seguimiento de la mirada de la cara.
 
 ## <a name="attributes"></a>Atributos
 

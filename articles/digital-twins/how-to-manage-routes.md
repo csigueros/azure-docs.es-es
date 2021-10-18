@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/30/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4e9bfa2dc340f567a6c2b7c4ab5d45cfeaa41e6c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 99fbf0a6ecd232ae646639e84864addd103c1f5a
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128661020"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129807785"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Administración de puntos de conexión y rutas en Azure Digital Twins
 
@@ -42,9 +42,12 @@ Siga las instrucciones que se indican a continuación si piensa usar la CLI de A
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Creación de un punto de conexión para Azure Digital Twins
 
 Estos son los tipos de puntos de conexión admitidos que puede crear para la instancia:
-* [Event Grid](../event-grid/overview.md) 
-* [Event Hubs](../event-hubs/event-hubs-about.md)
-* [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
+* Tema de [Event Grid](../event-grid/overview.md)
+* Concentrador [Event Hubs](../event-hubs/event-hubs-about.md)
+* Tema de [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
+
+>[!NOTE]
+> Para puntos de conexión Event Grid, solo se admiten **temas** de Event Grid. Los **dominios** de Event Grid no se admiten como puntos de conexión.
 
 Para obtener más información sobre los distintos tipos de puntos de conexión, vea [Elección entre los distintos servicios de mensajería de Azure](../event-grid/compare-messaging-services.md).
 
@@ -58,7 +61,7 @@ Utilice el gráfico siguiente para ver qué recursos se deben configurar antes d
 
 | Tipo de punto de conexión | Recursos necesarios (vinculados a instrucciones de creación) |
 | --- | --- |
-| Punto de conexión de Event Grid | [Tema de Event Grid](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) |
+| Punto de conexión de Event Grid | [Tema de Event Grid](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)<br/>*el esquema de eventos debe ser Esquema de Event Grid o Esquema de eventos en la nube v1.0 |
 | Punto de conexión de Event Hubs | [Espacio de nombres de&nbsp;Event&nbsp;Hubs](../event-hubs/event-hubs-create.md)<br/><br/>[centro de eventos](../event-hubs/event-hubs-create.md)<br/><br/>(Opcional) [regla de autorización](../event-hubs/authorize-access-shared-access-signature.md) para la autenticación basada en claves | 
 | Extremo del bus de servicio | [Espacio de nombres de Service Bus](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md)<br/><br/>[Tema de Service Bus](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md)<br/><br/> (Opcional) [regla de autorización](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature) para la autenticación basada en claves|
 

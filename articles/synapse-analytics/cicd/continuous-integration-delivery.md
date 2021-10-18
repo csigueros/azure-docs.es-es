@@ -1,213 +1,212 @@
 ---
-title: Integración y entrega continuas para las áreas de trabajo de Synapse
-description: Aprenda a usar la integración y la entrega continuas para implementar los cambios en el área de trabajo de un entorno (desarrollo, prueba o producción) a otro.
+title: Integración y entrega continuas en Azure Synapse Analytics
+description: Aprenda a usar la integración continua y entrega continua (CI/CD) para implementar cambios entre entornos en un área de trabajo de Azure Synapse Analytics.
 author: liudan66
 ms.service: synapse-analytics
 ms.subservice: cicd
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 10/08/2021
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: b21bc818d83c3a48973b1121fb2f24f87638890b
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 3269bfed98264574d5b44759cceae6e1613eb5f8
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129219347"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129729394"
 ---
-# <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integración y entrega continuas para las áreas de trabajo de Azure Synapse
+# <a name="continuous-integration-and-delivery-for-an-azure-synapse-analytics-workspace"></a>Integración y entrega continuas en un área de trabajo de Azure Synapse Analytics
 
-## <a name="overview"></a>Información general
+La integración continua (CI) es el proceso de automatización de la compilación y las pruebas de código cada vez que un miembro del equipo confirma un cambio en el control de versiones. La entrega continua (CD) es el proceso de compilación, pruebas, configuración e implementación desde varios entornos de prueba o ensayo en un entorno de producción.
 
-La integración continua (CI) es el proceso de automatizar la compilación y las pruebas de código cada vez que un miembro del equipo confirma cambios en el control de versiones. La implementación continua (CD) es el proceso de compilar, probar, configurar e implementar desde varios entornos de pruebas o ensayo en un entorno de producción.
+En un área de trabajo de Azure Synapse Analytics, CI/CD mueve todas las entidades de un entorno (desarrollo, prueba, producción) a otro. La promoción del área de trabajo a otra área de trabajo es un proceso de dos partes. En primer lugar, use una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/overview.md) para crear o actualizar recursos del área de trabajo (los grupos y el área de trabajo). Luego migre artefactos, como scripts de SQL y cuadernos, definiciones de trabajos de Spark, canalizaciones, conjuntos de datos y flujos de datos, mediante las herramientas de CI/CD de Azure Synapse en Azure DevOps o en GitHub. 
 
-En las áreas de trabajo de Azure Synapse Analytics, la integración continua y entrega continua (CI/CD) mueve todas las entidades de un entorno (desarrollo, prueba, producción) a otro. Para promover un área de trabajo a otro, hay dos partes. En primer lugar, use una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/overview.md) para crear o actualizar recursos del área de trabajo (los grupos y el área de trabajo). A continuación, migre los artefactos (scripts SQL, el cuaderno, la definición de trabajos de Spark, las canalizaciones, los conjuntos de datos, los flujos de datos, etc.) con las herramientas de CI/CD de Azure Synapse Analytics en Azure DevOps o GitHub. 
+En este artículo se explica cómo usar una canalización de versión de Azure DevOps y Acciones de GitHub para automatizar la implementación de un área de trabajo de Azure Synapse en varios entornos.
 
-En este artículo se describe cómo usar una canalización de versión de Azure DevOps y una acción de GitHub para automatizar la implementación de un área de trabajo de Azure Synapse en varios entornos.
+## <a name="prerequisites"></a>Prerrequisitos
 
-## <a name="prerequisites"></a>Requisitos previos
-
-Estos requisitos previos y estas configuraciones deben estar en vigor para automatizar la implementación de un área de trabajo de Azure Synapse en varios entornos.
+Para automatizar la implementación de un área de trabajo de Azure Synapse en varios entornos, deben haberse aplicado los siguientes requisitos previos y configuraciones.
 
 ### <a name="azure-devops"></a>Azure DevOps
 
-- Se ha preparado un proyecto de Azure DevOps para ejecutar la canalización de versión.
-- [Conceda a los usuarios que van a registrar acceso "Básico" al código a nivel de organización](/azure/devops/organizations/accounts/add-organization-users?view=azure-devops&tabs=preview-page&preserve-view=true), con el fin de que puedan ver el repositorio.
-- Conceda derechos de propietario al repositorio de Azure Synapse.
+- Prepare un proyecto de Azure DevOps para ejecutar la canalización de versión.
+- [Conceda a los usuarios que vayan a registrar código acceso Básico en el nivel de organización](/azure/devops/organizations/accounts/add-organization-users?view=azure-devops&tabs=preview-page&preserve-view=true) para que puedan ver el repositorio.
+- Conceda permiso de propietario al repositorio de Azure Synapse.
 - Asegúrese de que ha creado un agente de máquina virtual de Azure DevOps auto-hospedado o use un agente hospedado de Azure DevOps.
-- Permisos para [ crear una conexión con el servicio Azure Resource Manager para el grupo de recursos](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml&preserve-view=true).
+- Conceda permisos para [ crear una conexión del servicio Azure Resource Manager para el grupo de recursos](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml&preserve-view=true).
 - Los administradores de Azure Active Directory (Azure AD) deben [instalar la extensión Azure DevOps Synapse Workspace Deployment Agent en la organización de Azure DevOps](/azure/devops/marketplace/install-extension).
 - Cree o designe una cuenta de servicio existente para que se ejecute la canalización. Puede usar un token de acceso personal, en lugar de una cuenta de servicio, pero las canalizaciones no funcionarán después de que se elimine la cuenta de usuario.
 
 ### <a name="github"></a>GitHub
 
-- Un repositorio de GitHub con los artefactos del área de trabajo de Synapse y la plantilla de área de trabajo 
-- Asegúrese de haber creado un ejecutor autohospedado o use uno hospedado en GitHub.
+- Cree un repositorio de GitHub que contenga los artefactos del área de trabajo de Azure Synapse y la plantilla del área de trabajo. 
+- Asegúrese de haber creado un ejecutor auto-hospedado o use uno hospedado en GitHub.
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-- En Azure AD, cree una entidad de servicio para usarla en la implementación si va a usar una. 
-- Para usar una identidad administrada, debe habilitar la identidad administrada asignada por el sistema en su máquina virtual de Azure como agente o ejecutor, y agregarla a Synapse Studio como administrador de Synapse.
-- Para poder realizar esta acción, es preciso tener derechos de administrador en Azure AD.
+- En Azure AD, si va a usar una entidad de servicio, cree una para usarla en la implementación. 
+- Si va a usar una identidad administrada, habilite la identidad administrada asignada por el sistema en la máquina virtual de Azure como agente o ejecutor y luego agréguela a Azure Synapse Studio como administrador de Synapse.
+- Use el rol de administrador de Azure AD para llevar a cabo estas acciones.
 
 ### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
 > [!NOTE]
-> Estos requisitos previos de pueden automatizar e implementar mediante la misma canalización, una plantilla de Resource Manager o la CLI de Azure, pero el proceso no se describe en este artículo.
+> Estos requisitos previos se pueden automatizar e implementar mediante la misma canalización, una plantilla de ARM o la CLI de Azure, aunque estos procesos no se explican en este artículo.
 
-- El área de trabajo de "origen" que se usa para el desarrollo se debe configurar con un repositorio de Git en Synapse Studio. Para más información, consulte [Control de código fuente en Synapse Studio](source-control.md#configuration-method-2-manage-hub).
+- El área de trabajo "de origen" que se usa para el desarrollo se debe configurar con un repositorio de Git en Azure Synapse Studio. Para obtener más información, vea [Control de código fuente en Azure Synapse Studio](source-control.md#configuration-method-2-manage-hub).
 
-- Un área de trabajo en blanco en la que realizar la implementación. Para configurar el área de trabajo en blanco:
+- Configure un área de trabajo en blanco para implementarla:
 
-  1. Cree de un área de trabajo de Azure Synapse Analytics.
-  1. Conceda tanto al agente de máquina virtual como al colaborador de la entidad de servicio los derechos necesarios en el grupo de recursos en el que se hospeda la nueva área de trabajo.
-  1. En el área de trabajo de destino, no configure la conexión del repositorio de Git.
-  1. En Azure Portal, busque la nueva área de trabajo Azure Synapse Analytics y concédase, tanto a usted como a todo aquel que vaya a ejecutar la canalización de Azure DevOps, derechos de propietario del área de trabajo de Azure Synapse Analytics. 
-  1. Agregue el agente de máquina virtual de Azure DevOps y la entidad de servicio al rol Colaborador del área de trabajo (se debería haber heredado, pero compruebe que es así).
-  1. En el área de trabajo de Azure Synapse Analytics, vaya a **Studio** > **Administrar** > **IAM**. Agregue el agente de máquina virtual de Azure DevOps y la entidad de servicio al grupo de administradores del área de trabajo.
-  1. Abra la cuenta de almacenamiento que se usa para el área de trabajo. En IAM, agregue el agente de máquina virtual y la entidad de servicio al rol Colaborador de Seleccionar datos de Storage Blob.
+  1. Cree una nueva área de trabajo de Azure Synapse.
+  1. Conceda al agente de máquina virtual y a la entidad de servicio permiso de colaborador en el grupo de recursos en el que está hospedada la nueva área de trabajo.
+  1. En el área de trabajo, no configure la conexión del repositorio de Git.
+  1. En Azure Portal, busque la nueva área de trabajo de Azure Synapse y luego concédase a sí mismo y al usuario que va a ejecutar la canalización de Azure DevOps del área de trabajo de Azure Synapse permiso de propietario. 
+  1. Agregue el agente de máquina virtual de Azure DevOps y la entidad de servicio al rol de colaborador del área de trabajo. (El rol debe haberse heredado, pero compruebe que es así).
+  1. En el área de trabajo de Azure Synapse, vaya a **Studio** > **Administrar** > **Control de acceso**. Agregue el agente de máquina virtual de Azure DevOps y la entidad de servicio al grupo de administradores del área de trabajo.
+  1. Abra la cuenta de almacenamiento que se usa para el área de trabajo. En el panel **Administración de identidad y acceso**, agregue el agente de máquina virtual y la entidad de servicio al rol de colaborador de datos de blob de Storage.
   1. Cree un almacén de claves en la suscripción de soporte técnico y asegúrese de que tanto el área de trabajo existente como la nueva tienen, al menos, permisos GET y LIST en el almacén.
   1. Para que la implementación automatizada funcione, asegúrese de que las cadenas de conexión especificadas en los servicios vinculados están en el almacén de claves.
 
-### <a name="additional-prerequisites"></a>Requisitos previos adicionales
+### <a name="other-prerequisites"></a>Otros requisitos previos
  
- - En la tarea de implementación del área de trabajo no se crean grupos de Spark ni entornos de ejecución de integración autohospedados. Si tiene un servicio vinculado que usa un entorno de ejecución de integración autohospedado, créelo manualmente en la nueva área de trabajo.
- - Si los elementos del área de trabajo de desarrollo están asociados a los grupos específicos, asegúrese de tener el mismo nombre de los grupos en el área de trabajo de destino que ha creado o parametrice los grupos en el archivo de parámetros.  
- - Si los grupos de SQL aprovisionados se pausan al intentar realizar la implementación, esta podría no realizarse.
+- Los grupos de Spark y los entornos de ejecución de integración autohospedados no se crean en una tarea de implementación del área de trabajo. Si tiene un servicio vinculado que use un entorno de ejecución de integración autohospedado, cree este último manualmente en la nueva área de trabajo.
+- Si los elementos del área de trabajo de desarrollo están asociados a los grupos concretos, asegúrese de crear o parametrizar los mismos nombres para los grupos del área de trabajo de destino en el archivo de parámetros.  
+- Si los grupos de SQL aprovisionados se pausan al intentar realizar la implementación, esta podría no realizarse.
 
-Para más información, consulte el artículo sobre [CI/CD en Azure Synapse Analytics, parte 4: la canalización de versión](https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434). 
+Para obtener más información, vea [CI/CD en Azure Synapse Analytics, parte 4: la canalización de versión](https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434). 
 
 
 ## <a name="set-up-a-release-pipeline-in-azure-devops"></a>Configuración de una canalización de versión en Azure DevOps
 
-En esta parte, obtendrá información sobre cómo implementar un área de trabajo de Synapse en Azure DevOps. 
+En esta sección va a aprender a implementar un área de trabajo de Azure Synapse en Azure DevOps. 
 
-1.  En [Azure DevOps](https://dev.azure.com/), abra el proyecto creado para la versión.
+1. En [Azure DevOps](https://dev.azure.com/), abra el proyecto creado para la versión.
 
-1.  En el lado izquierdo de la página, seleccione **Canalizaciones** y después **Versiones**.
+1. En el menú izquierdo,seleccione **Canalizaciones** > **Versiones**.
 
-    ![Selección de Canalizaciones, Versiones](media/create-release-1.png)
+    :::image type="content" source="media/create-release-pipeline.png" alt-text="Captura de pantalla que muestra la selección de Canalizaciones y luego de Versiones en el menú de Azure DevOps.":::        
+ 
+1. Selecciona **Nueva canalización**. Si tiene canalizaciones existentes, seleccione **Nueva** > **Nueva canalización de versión**.
 
-1.  Seleccione **Nueva canalización** o, si tiene canalizaciones existentes, seleccione **Nueva** y, luego **Nueva canalización de versión**.
+1. Seleccione la plantilla **Fase vacía**.
 
-1.  Seleccione la plantilla **Fase vacía**.
+    :::image type="content" source="media/create-release-select-empty.png" alt-text="Captura de pantalla que muestra la selección de la plantilla Trabajo vacío.":::
 
-    ![Selección de Trabajo vacío](media/create-release-select-empty.png)
+1. En **Nombre de la fase**, escriba el nombre del entorno.
 
-1.  En el cuadro **Nombre de la fase**, escriba el nombre del entorno.
+1. Seleccione **Agregar artefacto** y luego seleccione el repositorio de Git configurado con Azure Synapse Studio en el entorno de desarrollo. Seleccione el repositorio de Git en el que administra los grupos y la plantilla de ARM del área de trabajo. Si usa GitHub como origen, cree una conexión de servicio para la cuenta de GitHub y los repositorios de incorporación de cambios. Para obtener más información, vea [Conexiones de servicio](/azure/devops/pipelines/library/service-endpoints).
 
-1.  Seleccione **Agregar artefacto** y, luego, elija el mismo repositorio de Git configurado con la instancia de Synapse Studio de desarrollo. Seleccione el repositorio de Git que usó para administrar la plantilla de Resource Manager de grupos y áreas de trabajo. Si usa GitHub como origen, debe crear una conexión de servicio para la cuenta de GitHub y los repositorios de incorporación de cambios. Para más información, consulte [Conexiones de servicio](/azure/devops/pipelines/library/service-endpoints). 
+    :::image type="content" source="media/release-creation-github.png" alt-text="Captura de pantalla que muestra la selección de GitHub para agregar una rama de publicación para un nuevo artefacto.":::
 
-    ![Adición de una rama de publicación](media/release-creation-github.png)
+1. Seleccione la rama de plantilla de ARM del recurso. En **Versión predeterminada**, seleccione **Más reciente de la rama predeterminada**.
 
-1.  Seleccione la rama de la plantilla de Resource Manager para la actualización de recursos. En **Versión predeterminada**, seleccione **Más reciente de la rama predeterminada**.
+    :::image type="content" source="media/release-creation-arm-template-branch.png" lightbox="media/release-creation-arm-template-branch.png" alt-text="Captura de pantalla que muestra la configuración de la rama de plantilla de ARM del recurso.":::
 
-    ![Adición de una plantilla de Resource Manager](media/release-creation-arm-branch.png)
+1. En la **Rama predeterminada** de los artefactos, seleccione la [rama de publicación](source-control.md#configure-publishing-settings) del repositorio. De manera predeterminada, la rama de publicación es `workspace_publish`. En **Versión predeterminada**, seleccione **Más reciente de la rama predeterminada**.
 
-1.  Seleccione la [rama de publicación](source-control.md#configure-publishing-settings) del repositorio en **Rama predeterminada**. De forma predeterminada, esta rama de publicación es `workspace_publish`. En **Versión predeterminada**, seleccione **Más reciente de la rama predeterminada**.
+    :::image type="content" source="media/release-creation-publish-branch.png" alt-text="Captura de pantalla que muestra el establecimiento de la rama de artefactos.":::
 
-    ![Agregar un artefacto](media/release-creation-publish-branch.png)
+### <a name="set-up-a-stage-task-for-an-arm-template-to-create-and-update-a-resource"></a>Configuración de una tarea de fase para una plantilla de ARM a fin de crear y actualizar un recurso 
 
-### <a name="set-up-a-stage-task-for-an-arm-template-to-create-and-update-resource"></a>Configuración de una tarea de fase para una plantilla de Resource Manager para crear y actualizar recursos 
-
-Si tiene una plantilla de Resource Manager para implementar un recurso, como un área de trabajo de Azure Synapse, grupos de Spark y SQL o un almacén de claves, agregue una tarea de implementación de Azure Resource Manager para crear o actualizar esos recursos:
+Si tiene una plantilla de ARM que implementa un recurso, como un área de trabajo de Azure Synapse, un grupo de Spark y de SQL o un almacén de claves, agregue una tarea de implementación de Azure Resource Manager para crear o actualizar esos recursos:
 
 1. En la vista de fase, seleccione **Ver tareas de la fase**.
 
-    ![Vista de fase](media/release-creation-stage-view.png)
+    :::image type="content" source="media/release-creation-stage-view.png" alt-text="Captura de pantalla que muestra el establecimiento de la vista de la fase.":::
 
 1. Cree una nueva tarea. Busque **Implementación de una plantilla de Resource Manager** y, después, seleccione **Agregar**.
 
-1. En la tarea de implementación, seleccione la suscripción, el grupo de recursos y la ubicación del área de trabajo de destino. Proporcione las credenciales si es necesario.
+1. En la pestaña **Tareas** de la implementación, seleccione la suscripción, el grupo de recursos y la ubicación del área de trabajo. Proporcione las credenciales si es necesario.
 
-1. En la lista **Acción**, seleccione **Create or update resource group** (Crear o actualizar grupo de recursos).
+1. En **Acción**, seleccione **Creación o actualización del grupo de recursos**.
 
-1. Seleccione el botón de puntos suspensivos ( **...** ) situado junto al cuadro **Plantilla**. Busque la plantilla de Azure Resource Manager de su área de trabajo de destino.
+1. En **Plantilla**, seleccione el botón de puntos suspensivos ( **…** ). Vaya a la plantilla de ARM del área de trabajo.
 
-1. Seleccione **…** junto al cuadro **Parámetros de plantilla** para elegir el archivo de parámetros.
+1. En **Parámetros de la plantilla**, seleccione **…** para elegir el archivo de parámetros.
 
-1. Seleccione **…** junto al cuadro **Reemplazar parámetros de plantilla** y escriba los valores de los parámetros deseados del área de trabajo de destino. 
+    :::image type="content" source="media/pools-resource-deploy.png" lightbox="media/pools-resource-deploy.png" alt-text="Captura de pantalla que muestra la implementación del área de trabajo y los grupos.":::
 
-1. Seleccione **Incremental** para el **Modo de implementación**.
-    
-    ![Implementación de áreas de trabajo y grupos](media/pools-resource-deploy.png)
+1. En **Reemplazar parámetros de plantilla**, seleccione **…** y escriba los valores de parámetro que quiere usar para el área de trabajo. 
 
-1. (Opcional) Agregue **Azure PowerShell** para la asignación de roles de área de trabajo de concesión y actualización. Si usa la canalización de versión para crear un área de trabajo de Synapse, la entidad de servicio de la canalización se agrega como administrador del área de trabajo predeterminada. Puede ejecutar PowerShell para conceder a otras cuentas acceso al área de trabajo. 
-    
-    ![Concesión de permisos](media/release-creation-grant-permission.png)
+1. En **Modo de implementación**, seleccione **Incremental**.
 
- > [!WARNING]
-> En el modo de implementación completa, se **eliminarán** aquellos recursos que existan en el grupo de recursos, pero no estén especificados en la nueva plantilla de Resource Manager. Para más información, consulte [Modos de implementación de Azure Resource Manager](../../azure-resource-manager/templates/deployment-modes.md).
+1. (Opcional) Agregue **Azure PowerShell** para la concesión y actualice la asignación de roles del área de trabajo. Si usa una canalización de versión para crear un área de trabajo de Azure Synapse, la entidad de servicio de la canalización se agrega como administrador predeterminado del área de trabajo. Puede ejecutar PowerShell para conceder a otras cuentas acceso al área de trabajo. 
 
-### <a name="set-up-a-stage-task-for-synapse-artifacts-deployment"></a>Configuración de una tarea de fase para la implementación de artefactos de Synapse 
+    :::image type="content" source="media/release-creation-grant-permission.png" lightbox="media/release-creation-grant-permission.png" alt-text="Captura de pantalla que muestra la ejecución de un script de PowerShell para conceder permisos.":::
 
-Use la extensión [Synapse workspace deployment](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy) para implementar otros elementos del área de trabajo de Synapse, como conjuntos de datos, scripts de SQL, cuadernos, definiciones de trabajos de Spark, flujos de datos, canalizaciones, servicios vinculados, credenciales e instancias de IR (Integration Runtime).  
+> [!WARNING]
+> En el modo de implementación completa, se *eliminan* los recursos del grupo de recursos que no están especificados en la nueva plantilla de ARM. Para más información, consulte [Modos de implementación de Azure Resource Manager](../../azure-resource-manager/templates/deployment-modes.md).
 
-1. Busque y obtenga la extensión en el **marketplace de Azure DevOps**(https://marketplace.visualstudio.com/azuredevops) 
+### <a name="set-up-a-stage-task-for-azure-synapse-artifacts-deployment"></a>Configuración de una tarea de fase para la implementación de artefactos de Azure Synapse 
 
-     ![Obtención de una extensión](media/get-extension-from-market.png)
+Use la extensión [Implementación de área de trabajo de Synapse](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy) para implementar otros elementos en el área de trabajo de Azure Synapse. Los elementos que puede implementar incluyen conjuntos de datos, scripts de SQL y cuadernos, una definición de trabajo de Spark, un flujo de datos, una canalización, un servicio vinculado, credenciales y un entorno de ejecución de integración.  
 
-1. Seleccione una organización para instalar la extensión. 
+1. Busque y obtenga la extensión en [Visual Studio Marketplace](https://marketplace.visualstudio.com/azuredevops).
 
-     ![Instalación de la extensión](media/install-extension.png)
+    :::image type="content" source="media/get-extension-marketplace.png" alt-text="Captura de pantalla que muestra la extensión Implementación de área de trabajo de Synapse como aparece en Visual Studio Marketplace.":::
 
-1. Asegúrese de que se haya concedido a la entidad de servicio de la canalización de Azure DevOps el permiso de suscripción y de que esté asignada como administrador del área de trabajo de destino. 
+1. Seleccione la organización de Azure DevOps en la que quiere instalar la extensión. 
 
-1. Cree una nueva tarea. Busque **Synapse workspace deployment** y, luego, seleccione **Agregar**.
+    :::image type="content" source="media/install-extension.png" alt-text="Captura de pantalla que muestra la selección de una organización en la que instalar la extensión Implementación de área de trabajo de Synapse.":::
 
-     ![Adición de extensiones](media/add-extension-task.png)
+1. Asegúrese de que se haya concedido a la entidad de servicio de la canalización de Azure DevOps el permiso de suscripción y de que esté asignada como administrador del área de trabajo de Synapse. 
 
-1.  En la tarea, seleccione **...** junto al cuadro **Plantilla** para elegir el archivo de plantilla.
+1. Para crear una nueva tarea, busque **Implementación de área de trabajo de Synapse** y seleccione **Agregar**.
 
-1. Seleccione **…** junto al cuadro **Parámetros de plantilla** para elegir el archivo de parámetros.
+    :::image type="content" source="media/add-extension-task.png" alt-text="Captura de pantalla que muestra la búsqueda de Implementación de área de trabajo de Synapse para crear una tarea.":::
 
-1. Seleccione la conexión, el grupo de recursos y el nombre del área de trabajo de destino. 
+1. En la tarea, junto a **Plantilla**, seleccione **…** para elegir el archivo de plantilla.
 
-1. Seleccione **…** que se encuentran junto al cuadro **Reemplazar parámetros de plantilla** y escriba los valores de parámetro deseados para el área de trabajo de destino, incluidas las cadenas de conexión y las claves de cuenta que se usan en los servicios vinculados. Para obtener más información, consulte [CI/CD en Azure Synapse Analytics](https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434).
+1. Junto a **Parámetros de la plantilla**, seleccione **…**  para elegir el archivo de parámetros.
 
-    ![Implementación del área de trabajo de Synapse](media/create-release-artifacts-deployment.png)
+1. Seleccione una conexión, un grupo de recursos y un nombre para el área de trabajo. 
+
+1. Junto a **Reemplazar parámetros de plantilla**, seleccione **…** . Escriba los valores de parámetro que quiere usar para el área de trabajo, incluidas las cadenas de conexión y las claves de cuenta que se usan en los servicios vinculados. Para obtener más información, consulte [CI/CD en Azure Synapse Analytics](https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434).
+
+    :::image type="content" source="media/create-release-artifacts-deployment.png" lightbox="media/create-release-artifacts-deployment.png" alt-text="Captura de pantalla que muestra la configuración de la tarea de implementación de Synapse para el área de trabajo.":::
 
 > [!IMPORTANT]
-> En escenarios de CI/CD, el tipo de entorno de ejecución de integración (IR) en otros entornos debe ser el mismo. Por ejemplo, si tiene un IR autohospedado en el entorno de desarrollo, el mismo IR también debe ser de tipo autohospedado en otros entornos, como los de prueba y producción. Del mismo modo, si va a compartir los entornos de ejecución de integración entre varias fases, tendrá que configurarlos como autohospedados vinculados en todos los entornos: desarrollo, prueba y producción.
+> En escenarios de CI/CD, el tipo de entorno de ejecución de integración de otros entornos debe ser el mismo. Por ejemplo, si tiene un entorno de ejecución de integración auto-hospedado en el entorno de desarrollo, el mismo entorno de ejecución de integración debe ser auto-hospedado en otros entornos, como los de prueba y producción. Del mismo modo, si va a compartir entornos de ejecución de integración entre varias fases, tiene que vincularlos y auto-hospedarlos en todos los entornos, como los de desarrollo, prueba y producción.
 
-### <a name="create-release-for-deployment"></a>Creación de una versión para la implementación 
+### <a name="create-a-release-for-deployment"></a>Creación de una versión para implementación 
 
-Después de guardar todos los cambios, puede seleccionar **Create release** (Crear versión) para crear manualmente una versión. Para automatizar la creación de versiones, consulte [Desencadenadores de versión de Azure DevOps](/azure/devops/pipelines/release/triggers).
+Después de guardar todos los cambios, puede seleccionar **Crear versión** para crear manualmente una versión. Para aprender a automatizar la creación de versiones, vea [Desencadenadores de versión de Azure DevOps](/azure/devops/pipelines/release/triggers).
 
-   ![Selección de Crear versión](media/release-creation-manually.png)
+:::image type="content" source="media/release-creation-manually.png" lightbox="media/release-creation-manually.png" alt-text="Captura de pantalla que muestra el panel Nueva canalización de versión, con Crear versión resaltado.":::
 
-## <a name="set-up-a-release-with-github-action"></a>Configuración de una versión con una acción de GitHub 
+## <a name="set-up-a-release-in-github-actions"></a>Configuración de una versión en Acciones de GitHub 
 
-En esta parte, obtendrá información sobre cómo crear flujos de trabajo de GitHub mediante Acciones de GitHub para implementar el área de trabajo de Synapse.
-Puede usar la [acción de implementación de plantilla de Azure Resource Manager](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) con el fin de automatizar la implementación de una plantilla de Azure Resource Manager (plantilla de ARM) en Azure, para el área de trabajo y los grupos de proceso.
+En esta sección va a aprender a crear flujos de trabajo de GitHub mediante Acciones de GitHub para la implementación del área de trabajo de Azure Synapse.
 
-### <a name="workflow-file-overview"></a>Información general sobre el archivo de flujo de trabajo
+Puede usar la [Acción de GitHub para la plantilla de Azure Resource Manager](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) con el fin de automatizar la implementación de una plantilla de ARM en Azure para el área de trabajo y los grupos de proceso.
 
-Un flujo de trabajo de Acciones de GitHub se define mediante un archivo YAML (.yml) en la ruta de acceso /.github/workflows/ de su repositorio. En esta definición se incluyen los diversos pasos y parámetros que componen el flujo de trabajo.
+### <a name="workflow-file"></a>Archivo de flujo de trabajo
 
-El archivo tiene dos secciones:
+Defina un flujo de trabajo de Acciones de GitHub en un archivo YAML (.yml) en la ruta de acceso */.github/workflows/* del repositorio. La definición contiene los distintos pasos y parámetros que componen el flujo de trabajo.
+
+El archivo .yml tiene dos secciones:
 
 |Sección  |Tareas  |
 |---------|---------|
 |**Autenticación** | 1. Defina una entidad de servicio. <br /> 2. Cree un secreto de GitHub. |
-|**Implementar** | 1. Implemente los artefactos del área de trabajo. |
+|**Implementar** | Implemente los artefactos del área de trabajo. |
 
-### <a name="configure-the-github-secrets"></a>Configuración de los secretos de GitHub
+### <a name="configure-github-actions-secrets"></a>Configuración de secretos de Acciones de GitHub
 
-Los secretos son variables de entorno cifradas. Cualquier persona con acceso de colaborador a este repositorio puede usar estos secretos para Acciones.
+Los secretos de Acciones de GitHub son variables de entorno cifradas. Cualquier persona que tenga permiso de colaborador en este repositorio puede usar estos secretos para interactuar con Acciones en el repositorio.
 
-1. Vaya al repositorio y seleccione **Configuración**; a continuación, vaya a "Secretos" y haga clic en "Nuevo secreto".
+1. En el repositorio de GitHub, seleccione la pestaña **Configuración** y luego **Secretos** > **Nuevo secreto del repositorio**.
 
-    ![Crear un secreto](media/create-secret-new.png)
+    :::image type="content" source="media/create-secret-new.png" lightbox="media/create-secret-new.png" alt-text="Captura de pantalla que muestra los elementos de GitHub que se van a seleccionar para crear un nuevo secreto del repositorio.":::
 
-1. Agregue nuevos secretos para el Id. y el secreto de cliente si usa la entidad de servicio para la implementación. También puede optar por guardar el Id. de suscripción y el de inquilino como secretos. 
+1. Agregue un nuevo secreto para el identificador de cliente, y un nuevo secreto de cliente si usa la entidad de servicio para la implementación. También puede guardar el identificador de suscripción y el identificador de inquilino como secretos. 
 
 ### <a name="add-your-workflow"></a>Agregar el flujo de trabajo
 
-Vaya a **Acciones** en su repositorio de GitHub. 
+En el repositorio de GitHub, vaya a **Acciones**. 
 
-1. Seleccione **Set up your workflow yourself** (Configure el flujo de trabajo usted mismo). 
-1. Elimine todo lo que aparezca después de la sección `on:` del archivo de flujo de trabajo. Por ejemplo, el flujo de trabajo restante puede tener el siguiente aspecto. 
+1. Seleccione **Set up your workflow yourself** (Configure el flujo de trabajo usted mismo).
+1. En el archivo de flujo de trabajo, elimine todo lo que aparezca después de la sección `on:`. Por ejemplo, el flujo de trabajo restante puede tener el aspecto de este ejemplo: 
 
     ```yaml
     name: CI
@@ -219,11 +218,11 @@ Vaya a **Acciones** en su repositorio de GitHub.
         branches: [ master ]
     ```
 
-1. Cambie el nombre del flujo de trabajo, busque la acción de implementación del área de trabajo de Synapse en Marketplace y agregue la acción. 
+1. Cambie el nombre del flujo de trabajo. En la pestaña **Marketplace**, busque la acción Implementación de área de trabajo de Synapse y agregue la acción. 
 
-     ![Búsqueda de la acción](media/search-the-action.png)
+    :::image type="content" source="media/search-action.png" lightbox="media/search-action.png" alt-text="Captura de pantalla que muestra la búsqueda de la tarea Implementación de área de trabajo de Synapse en la pestaña Marketplace.":::
 
-1. Especifique los valores necesarios y la plantilla de área de trabajo.
+1. Establezca los valores necesarios y la plantilla de área de trabajo:
 
     ```yaml
     name: workspace deployment
@@ -233,10 +232,10 @@ Vaya a **Acciones** en su repositorio de GitHub.
             branches: [ publish_branch ]
     jobs:
         release:
-            # You can also use the self-hosted runners
+            # You also can use the self-hosted runners.
             runs-on: windows-latest
             steps:
-            # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+            # Checks out your repository under $GITHUB_WORKSPACE, so your job can access it.
             - uses: actions/checkout@v2
             - uses: azure/synapse-workspace-deployment@release-1.0
             with:
@@ -254,35 +253,34 @@ Vaya a **Acciones** en su repositorio de GitHub.
               managedIdentity: 'False'
     ``` 
 
-1. Ya tiene todo listo para confirmar los cambios. Seleccione "Iniciar confirmación", escriba el título y agregue una descripción (opcional). A continuación, haga clic en "Confirmar nuevo archivo".
+1. Ya está listo para confirmar los cambios. Seleccione **Iniciar confirmación**, escriba el título y agregue una descripción (opcional). Luego seleccione **Confirmar nuevo archivo**.
 
-    ![Confirmación del flujo de trabajo](media/commit-the-workflow.png)    
+    :::image type="content" source="media/commit-workflow.png" lightbox="media/commit-workflow.png" alt-text="Captura de pantalla que muestra la confirmación del flujo de trabajo en GitHub.":::
 
+   El archivo aparece en la carpeta *.github/workflows* del repositorio.
 
-1. El archivo aparecerá en la carpeta `.github/workflows` del repositorio.
-
-> [!NOTE]
-> La identidad administrada solo se admite en máquinas virtuales autohospedadas de Azure. Configure el ejecutor como autohospedado. Habilite la identidad administrada asignada por el sistema para su máquina virtual y agréguela a Synapse Studio como administrador de Synapse.
+   > [!NOTE]
+   > La identidad administrada solo se admite en máquinas virtuales auto-hospedadas de Azure. Asegúrese de establecer el ejecutor en auto-hospedado. Habilite la identidad administrada asignada por el sistema de la máquina virtual y agréguela a Azure Synapse Studio como administrador de Synapse.
 
 ### <a name="review-your-deployment"></a>Revisar la implementación
 
-1. Vaya a "Acciones" en su repositorio de GitHub.
-1. Abra el primer resultado para ver registros detallados de la ejecución de su flujo de trabajo.
+1. En el repositorio de GitHub, vaya a **Acciones**.
+1. Para ver registros detallados de la ejecución del flujo de trabajo,abra el primer resultado:
 
-    ![Revisión de la implementación](media/review-deploy-status.png)    
+    :::image type="content" source="media/review-deploy-status.png" lightbox="media/review-deploy-status.png" alt-text="Captura de pantalla que muestra la selección del registro de implementación del área de trabajo en el repositorio Acciones de GitHub.":::
 
-## <a name="use-custom-parameters-of-the-workspace-template"></a>Uso de parámetros personalizados de la plantilla de área de trabajo 
+## <a name="create-custom-parameters-in-the-workspace-template"></a>Creación de parámetros personalizados en la plantilla del área de trabajo 
 
-Usa integración continua y entrega continua automatizadas y desea cambiar algunas propiedades durante la implementación, pero las propiedades no están parametrizadas de forma predeterminada. En ese caso, puede invalidar la plantilla de parámetros predeterminada.
+Si usa CI/CD automatizadas y quiere cambiar algunas propiedades durante la implementación pero estas no están parametrizadas de manera predeterminada, puede reemplazar la plantilla de parámetros predeterminada.
 
-Para ello, debe crear una plantilla de parámetros personalizada, un archivo denominado **template-parameters-definition.json**, en la carpeta raíz de la rama de colaboración de Git. Debe usar ese nombre de archivo exacto. Al realizar la publicación desde la rama de colaboración, el área de trabajo de Synapse leerá este archivo y usará su configuración para generar los parámetros. Si no se encuentra ningún archivo, se usa la plantilla de parámetros predeterminada.
+Para reemplazar la plantilla de parámetros predeterminada, cree una plantilla de parámetros personalizada de nombre *template-parameters-definition.json* en la carpeta raíz de la rama de colaboración de Git. Debe usar este nombre de archivo exacto. Cuando el área de trabajo de Azure Synapse publica desde la rama de colaboración, lee este archivo y usa su configuración para generar los parámetros. Si el área de trabajo de Azure Synapse no encuentra ese archivo, usa la plantilla de parámetros predeterminada.
 
 ### <a name="custom-parameter-syntax"></a>Sintaxis de los parámetros personalizados
 
-A continuación, se indican algunas directrices para crear el archivo de parámetros personalizados:
+Puede usar las siguientes instrucciones para crear un archivo de parámetros personalizado:
 
 * Escriba la ruta de acceso de la propiedad en el tipo de entidad correspondiente.
-* El establecimiento de un nombre de propiedad en `*` indica que quiere parametrizar todas las propiedades que incluye (solo hasta el primer nivel, no de forma recursiva). También puede proporcionar excepciones a esta configuración.
+* El establecimiento de un nombre de propiedad en `*` indica que quiere parametrizar todas las propiedades que incluye (solo hasta el primer nivel, no de forma recursiva). Puede establecer excepciones a esta configuración.
 * El establecimiento del valor de una propiedad como una cadena indica que quiere parametrizar la propiedad. Use el formato `<action>:<name>:<stype>`.
    *  `<action>` puede ser uno de estos caracteres:
       * `=` significa que el valor actual se debe conservar como el predeterminado para el parámetro.
@@ -290,11 +288,11 @@ A continuación, se indican algunas directrices para crear el archivo de paráme
       * `|` es un caso especial para los secretos de Azure Key Vault para cadenas de conexión o claves.
    * `<name>` es el nombre del parámetro. Si está en blanco, toma el nombre de la propiedad. Si el valor empieza por un carácter `-`, el nombre está abreviado. Por ejemplo, `AzureStorage1_properties_typeProperties_connectionString` se abreviará a `AzureStorage1_connectionString`.
    * `<stype>` es el tipo del parámetro. Si `<stype>` está en blanco, el tipo predeterminado es `string`. Valores admitidos: `string`, `securestring`, `int`, `bool`, `object`, `secureobject` y `array`.
-* Si se ha especificado una matriz en el archivo, significa que la propiedad coincidente de la plantilla es una matriz. Synapse itera todos los objetos de la matriz y usa la definición que se ha especificado. El segundo objeto, una cadena, se convierte en el nombre de la propiedad, que se utiliza como el nombre del parámetro para cada iteración.
+* Si se ha especificado una matriz en el archivo, significa que la propiedad coincidente de la plantilla es una matriz. Azure Synapse recorre en iteración todos los objetos de la matriz mediante la definición que se ha especificado. El segundo objeto, una cadena, se convierte en el nombre de la propiedad, que se utiliza como el nombre del parámetro para cada iteración.
 * Una definición no puede ser específica de una instancia de recurso. Cualquier definición se aplica a todos los recursos de ese tipo.
-* De forma predeterminada, todas las cadenas seguras, como los secretos de Key Vault, las cadenas de conexión, las claves y los tokens, están parametrizadas.
+* De manera predeterminada, todas las cadenas seguras (como los secretos de Key Vault) y las cadenas seguras (como las cadenas de conexión, las claves y los tokens) están parametrizadas.
 
-### <a name="parameter-template-definition-samples"></a>Ejemplos de definición de una plantilla de parámetros 
+### <a name="parameter-template-definition-example"></a>Ejemplo de definición de plantilla de parámetros 
 
 Este es un ejemplo del aspecto de la definición de una plantilla de parámetros:
 
@@ -371,56 +369,56 @@ Este es un ejemplo del aspecto de la definición de una plantilla de parámetros
 }
 ```
 
-Esta es una explicación de cómo se construye la plantilla anterior, desglosada por tipo de recurso.
+Esta es una explicación de cómo se ha construido la plantilla anterior, por tipo de recurso.
 
-#### <a name="notebooks"></a>Cuaderno 
+**`notebooks`**
 
-* Cualquier propiedad de la ruta de acceso `properties/bigDataPool/referenceName` se parametriza con su valor predeterminado. Puede parametrizar el grupo de Spark asociado en todos los archivos de cuaderno. 
+- Cualquier propiedad de la ruta de acceso `properties/bigDataPool/referenceName` está parametrizada con su valor predeterminado. Puede parametrizar un grupo de Spark asociado para cada archivo del cuaderno. 
 
-#### <a name="sql-scripts"></a>Scripts de SQL 
+**`sqlscripts`**
 
-* Las propiedades (poolName y databaseName) de la ruta de acceso `properties/content/currentConnection` se parametrizan como cadenas sin los valores predeterminados en la plantilla. 
+- En la ruta de acceso `properties/content/currentConnection`, las propiedades `poolName` y `databaseName` están parametrizadas como cadenas sin los valores predeterminados en la plantilla. 
 
-#### <a name="pipelines"></a>Procesos
+**`pipelines`**
 
-* Cualquier propiedad de la ruta de acceso `activities/typeProperties/waitTimeInSeconds` está parametrizada. Cualquier actividad en una canalización que tiene una propiedad de nivel de código denominada `waitTimeInSeconds` (por ejemplo, la actividad `Wait`) está parametrizada como un número, con un nombre predeterminado. Sin embargo, no tendrá un valor predeterminado en la plantilla de Resource Manager. Será una entrada obligatoria durante la implementación de Resource Manager.
-* De forma similar, una propiedad denominada `headers` (por ejemplo, en una actividad `Web`) está parametrizada con el tipo `object` (Object). Tiene un valor predeterminado, que es el mismo que el de la factoría de origen.
+- Cualquier propiedad de la ruta de acceso `activities/typeProperties/waitTimeInSeconds` está parametrizada. Cualquier actividad en una canalización que tiene una propiedad de nivel de código denominada `waitTimeInSeconds` (por ejemplo, la actividad `Wait`) está parametrizada como un número, con un nombre predeterminado. La propiedad no tiene un valor predeterminado en la plantilla de Resource Manager, sino que necesita entrada durante la implementación de Resource Manager.
+- La propiedad `headers` (por ejemplo, en una actividad `Web`) está parametrizada con el tipo `object` (objeto). La propiedad `headers` tiene un valor predeterminado que es el mismo que el de la factoría de origen.
 
-#### <a name="integrationruntimes"></a>IntegrationRuntimes
+**`integrationRuntimes`**
 
-* Todas las propiedades bajo la ruta de acceso `typeProperties` están parametrizadas con sus valores predeterminados correspondientes. Por ejemplo, hay dos propiedades en las propiedades de tipo `IntegrationRuntimes`: `computeProperties` y `ssisProperties`. Ambos tipos de propiedades se crean con sus valores predeterminados y tipos (objeto) respectivos.
+- Todas las propiedades de la ruta de acceso `typeProperties` están parametrizadas con sus valores predeterminados correspondientes. Por ejemplo, hay dos propiedades bajo las propiedades de tipo `IntegrationRuntimes`: `computeProperties` y `ssisProperties`. Ambos tipos de propiedades se crean con sus valores predeterminados y tipos (objeto) respectivos.
 
-#### <a name="triggers"></a>Desencadenadores
+**`triggers`**
 
-* En `typeProperties`, hay dos propiedades parametrizadas. La primera de ellas es `maxConcurrency`, que tiene especificado un valor predeterminado y es de tipo `string`. Tiene el nombre de parámetro predeterminado `<entityName>_properties_typeProperties_maxConcurrency`.
-* La propiedad `recurrence` también está parametrizada. En ella, se especifica que todas las propiedades de ese nivel están parametrizadas como cadenas, con valores predeterminados y los nombres de parámetro. Una excepción es la propiedad `interval`, que está parametrizada como el tipo `int`. El sufijo del nombre del parámetro es `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. De forma similar, la propiedad `freq` es una cadena y está parametrizada como una cadena. Sin embargo, la propiedad `freq` está parametrizada sin un valor predeterminado. El nombre está abreviado y con un sufijo. Por ejemplo, `<entityName>_freq`.
+- En `typeProperties` hay dos propiedades parametrizadas:
+  - La propiedad `maxConcurrency` tiene un valor predeterminado y es de tipo `string`. El nombre de parámetro predeterminado de la propiedad `maxConcurrency` es `<entityName>_properties_typeProperties_maxConcurrency`.
+  - La propiedad `recurrence` también está parametrizada. Todas las propiedades bajo la propiedad `recurrence` están establecidas para parametrizarse como cadenas, con valores predeterminados y nombres de parámetro. Una excepción es la propiedad `interval`, que está parametrizada como tipo `int`. El sufijo del nombre del parámetro es `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. De forma similar, la propiedad `freq` es una cadena y está parametrizada como una cadena. Sin embargo, la propiedad `freq` está parametrizada sin un valor predeterminado. El nombre está abreviado y con un sufijo, como `<entityName>_freq`.
 
-#### <a name="linkedservices"></a>LinkedServices
+**`linkedServices`**
 
-* Los servicios vinculados son únicos. Dado que los servicios vinculados y los conjuntos de datos tienen una gran variedad de tipos, puede proporcionar una personalización específica de tipo. En este ejemplo, para todos los servicios vinculados de tipo `AzureDataLakeStore`, se aplicará una plantilla específica. Para todos los demás (a través de `*`), se aplicará otra plantilla.
-* La propiedad `connectionString` se parametrizará como un valor `securestring`. No tendrá un valor predeterminado. Tendrá un nombre de parámetro abreviado con el sufijo `connectionString`.
-* La propiedad `secretAccessKey` resulta ser `AzureKeyVaultSecret` (por ejemplo, en un servicio vinculado de Amazon S3). Se parametriza automáticamente como un secreto de Azure Key Vault y se captura desde el almacén de claves configurado. También puede parametrizar el propio almacén de claves.
+- Los servicios vinculados son únicos. Dado que los servicios vinculados y los conjuntos de datos tienen una gran variedad de tipos, puede proporcionar una personalización específica de tipo. En el ejemplo anterior, para todos los servicios vinculados de tipo `AzureDataLakeStore`, se aplica una plantilla específica. Para todos los demás (identificados mediante el carácter `*`), se aplica otra plantilla.
+- La propiedad `connectionString` está parametrizada como un valor `securestring`. No tiene un valor predeterminado. El nombre de parámetro está abreviado y tiene un sufijo `connectionString`.
+- La propiedad `secretAccessKey` está parametrizada como un valor `AzureKeyVaultSecret` (por ejemplo, en un servicio vinculado de Amazon S3). La propiedad se parametriza automáticamente como un secreto de Azure Key Vault y se captura desde el almacén de claves configurado. También puede parametrizar el propio almacén de claves.
 
-#### <a name="datasets"></a>Conjuntos de datos
+**`datasets`**
 
-* Aunque la personalización específica de tipos está disponible para conjuntos de datos, puede proporcionar configuración sin necesidad de una configuración explícita de nivel \*. En el ejemplo anterior, todas las propiedades del conjunto de datos de `typeProperties` están parametrizadas.
-
+- Aunque puede personalizar tipos de conjuntos de datos, no se requiere una configuración explícita de nivel \*. En el ejemplo anterior, todas las propiedades del conjunto de datos de `typeProperties` están parametrizadas.
 
 ## <a name="best-practices-for-cicd"></a>Procedimientos recomendados para CI/CD
 
-Si usa la integración de Git con el área de trabajo de Azure Synapse y tiene una canalización de CI/CD que mueve los cambios del entorno de desarrollo al de prueba y, luego, al de producción, es aconsejable realice estos procedimientos:
+Si usa la integración de Git con el área de trabajo de Azure Synapse y tiene una canalización de CI/CD que mueve los cambios de desarrollo a pruebas y luego a producción, es aconsejable realizar estos procedimientos recomendados:
 
--   **Integración de Git**. Configure solo el área de trabajo de Azure Synapse de desarrollo con integración de Git. Los cambios en las áreas de trabajo de prueba y producción se implementan a través de CI/CD y no se necesita la integración de Git.
--   **Prepare los grupos antes de la migración de los artefactos**. Si tiene un script de SQL o un cuaderno asociados a grupos del área de trabajo de desarrollo, se espera el mismo nombre de los grupos en distintos entornos. 
--   **Infraestructura como código (IaC)** . Administración de la infraestructura (redes, máquinas virtuales, equilibradores de carga y topología de conexión) en un modelo descriptivo, donde se usa el mismo control de versiones que utiliza el equipo de DevOps para el código fuente. 
--   **Otros**. Consulte [Procedimientos recomendados para artefactos de ADF](../../data-factory/continuous-integration-delivery.md#best-practices-for-cicd).
+-   **Integre solo el área de trabajo de desarrollo con Git**. Si usa la integración de Git, integre solo el área de trabajo de Azure Synapse de *implementación* con Git. Los cambios en las áreas de trabajo de prueba y producción se implementan a través de CI/CD y no se necesita la integración de Git.
+-   **Prepare los grupos antes de migrar los artefactos**. Si tiene un script de SQL o un cuaderno asociados a grupos del área de trabajo de desarrollo, use el mismo nombre para los grupos de los distintos entornos. 
+-   **Sincronice el control de versiones de la infraestructura como escenarios de código**. Para administrar la infraestructura (redes, máquinas virtuales, equilibradores de carga y topología de conexión) de un modelo descriptivo, use el mismo control de versiones que emplea el equipo de DevOps para el código fuente. 
+-   **Revise los procedimientos recomendados de Azure Data Factory**. Si usa Data Factory, vea los [procedimientos recomendados para artefactos de Data Factory](../../data-factory/continuous-integration-deployment.md#best-practices-for-cicd).
 
-## <a name="troubleshooting-artifacts-deployment"></a>Solución de problemas en la implementación de artefactos 
+## <a name="troubleshoot-artifacts-deployment"></a>Solución de problemas de implementación de artefactos 
 
-### <a name="use-the-azure-synapse-analytics-workspace-deployment-task"></a>Use la tarea de implementación del área de trabajo de Azure Synapse Analytics
+### <a name="use-the-synapse-workspace-deployment-task"></a>Uso de la tarea de implementación del área de trabajo de Synapse
 
-En Azure Synapse Analytics, hay varios artefactos que no son recursos de Azure Resource Manager. Esto difiere con respecto a Azure Data Factory. La tarea de implementación de la plantilla de Resource Manager no funcionará correctamente para implementar artefactos de Azure Synapse Analytics.
+En Azure Synapse, a diferencia de Data Factory, algunos artefactos no son recursos de Resource Manager. No se puede usar la tarea de implementación de plantilla de ARM para implementar artefactos de Azure Synapse. En su lugar, use la tarea de implementación de área de trabajo de Synapse.
  
 ### <a name="unexpected-token-error-in-release"></a>Error de token inesperado en la versión
 
-Cuando el archivo de parámetros tiene valores de parámetro que no son de escape, la canalización de versión no podrá analizar el archivo y generará el error "token inesperado". Se recomienda invalidar los parámetros o usar Azure Key Vault para recuperar los valores de los parámetros. Como alternativa, también puede usar caracteres de escape dobles.
+Si el archivo de parámetros tiene valores de parámetro sin escape, la canalización de versión no puede analizar el archivo y genera un error `unexpected token`. Se sugiere reemplazar los parámetros o usar Key Vault para recuperar los valores de parámetro. También puede usar caracteres de escape doble para resolver el problema.
