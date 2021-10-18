@@ -42,6 +42,8 @@ items:
         items:
           - name: Procedimientos recomendados de implementación
             href: deployment-best-practices.md
+          - name: Arquitectura de cuentas
+            href: concept-best-practices-accounts.md
           - name: Arquitectura de colecciones
             href: concept-best-practices-collections.md
           - name: Directrices de precios
@@ -279,6 +281,8 @@ items:
         href: /python/api/azure-mgmt-purview/
       - name: REST
         href: /rest/api/purview/
+      - name: Utilidades de herramientas de código abierto de Azure Purview
+        href: tutorial-purview-tools.md
       - name: Guía de implementación de funciones de ABAP
         href: abap-functions-deployment-guide.md
       - name: Preguntas más frecuentes

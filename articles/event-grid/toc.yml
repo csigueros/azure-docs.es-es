@@ -309,7 +309,7 @@
           href: consume-private-endpoints.md
         - name: Configuración de la dirección IP del firewall
           href: configure-firewall.md
-        - name: Protección de webhook con Azure Active Directory
+        - name: "Entrega de eventos en puntos de conexión protegidos por Azure Active\_Directory"
           href: secure-webhook-delivery.md
     - name: Solución de problemas
       items:

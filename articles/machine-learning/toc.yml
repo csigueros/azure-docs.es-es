@@ -57,11 +57,14 @@
               href: tutorial-train-models-with-aml.md
             - name: 2. Implementar un modelo
               href: tutorial-deploy-models-with-aml.md
-        - name: Regresión con aprendizaje automático automatizado (datos de taxis de Nueva York)
+        - name: Machine Learning Automatizado
           items:
-            - name: Entrenamiento automático de un modelo de Machine Learning
+            - name: Regresión (datos de taxis de Nueva York)
               displayName: 'automl, automated, auto ml,'
               href: tutorial-auto-train-models.md
+            - name: Detección de objetos con AutoML
+              displayName: 'automl, automated, auto ml, computer vision, images'
+              href: tutorial-auto-train-image-models.md
         - name: Modelos de puntuación de Batch con canalizaciones
           displayName: pipelines
           href: tutorial-pipeline-batch-scoring-classification.md
@@ -502,7 +505,7 @@
           displayName: 'automl, auto ml'
           items:
             - name: Uso de Machine Learning automatizado (Python)
-              displayName: SDK automl
+              displayName: 'SDK, automl'
               href: how-to-configure-auto-train.md
             - name: Uso de ML automatizado (interfaz)
               href: how-to-use-automated-ml-for-ml-models.md
@@ -512,6 +515,15 @@
             - name: Entrenamiento automático de un modelo de previsión
               displayName: time series
               href: how-to-auto-train-forecast.md
+            - name: Preparación de datos de imagen para modelos de Computer Vision (Python)
+              displayName: 'SDK, automl, image, datasets, conversion scripts, schema'
+              href: how-to-prepare-datasets-for-automl-images.md
+            - name: Entrenamiento automático de modelos de Computer Vision (Python)
+              displayName: 'SDK, automl, image'
+              href: how-to-auto-train-image-models.md
+            - name: Entrenamiento automático de un modelo de detección de objetos pequeños
+              displayName: 'computer vision, image'
+              href: how-to-use-automl-small-object-detect.md
             - name: Divisiones de datos y validación cruzada (Python)
               displayName: 'automl, feature engineering, feature importance'
               href: how-to-configure-cross-validation-data-splits.md
@@ -759,6 +771,9 @@
     - name: "CLI\_(v1)"
       displayName: 'extension, command line, command-line, az, ci/cd, automate, automated'
       href: reference-azure-machine-learning-cli.md
+    - name: Esquemas de datos de imagen para AutoML
+      displayName: 'automl, schema, data'
+      href: reference-automl-images-schema.md
     - name: Referencia del módulo del diseñador
       displayName: 'module, reference, algorithm, studio'
       href: algorithm-module-reference/module-reference.md

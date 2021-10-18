@@ -60,6 +60,8 @@
           href: multi-factor-authentication-faq.yml
     - name: Protección con contraseña
       items:
+        - name: Comprobación de directiva de contraseña combinada
+          href: concept-password-ban-bad-combined-policy.md
         - name: Eliminación de contraseñas no seguras en la nube
           href: concept-password-ban-bad.md
         - name: Eliminación de contraseñas no seguras en dispositivos locales

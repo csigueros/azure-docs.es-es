@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 title: Documentación de Azure Maps
-summary: 'Microsoft Azure Maps proporciona a todos los desarrolladores, independientemente de cuál sea su sector, eficaces funcionalidades geoespaciales. Esas funcionalidades geoespaciales vienen empaquetadas con los datos de asignación más recientes. Azure Maps está disponible para aplicaciones web y para dispositivos móviles. Azure Maps es un conjunto de API REST compatible con Azure One API. A continuación encontrará una descripción general de alto nivel de los servicios que Azure Maps ofrece: Maps, Search, Routing, Traffic, Mobility, Weather, Time Zones, Geolocation, Geofencing, Map Data, Creator y Spatial Operations. Los SDK de web y Android hacen que el desarrollo sea sencillo, flexible y portátil en varias plataformas.'
+summary: 'Microsoft Azure Maps proporciona a todos los desarrolladores, independientemente de cuál sea su sector, eficaces funcionalidades geoespaciales. Esas funcionalidades geoespaciales vienen empaquetadas con los datos de asignación más recientes. Azure Maps está disponible para aplicaciones web y para dispositivos móviles. Azure Maps es un conjunto de API REST compatible con Azure One API. A continuación encontrará una descripción general de alto nivel de los servicios que Azure Maps ofrece: Maps, Search, Routing, Traffic, Weather, Time Zones, Geolocation, Geofencing, Map Data, Creator y Spatial Operations. Los SDK de web y Android hacen que el desarrollo sea sencillo, flexible y portátil en varias plataformas.'
 metadata:
   title: Documentación de Azure Maps | Microsoft Docs
   description: Obtenga información sobre Azure Maps y cómo usarlo para proporcionar servicios geoespaciales a su aplicación web o móvil.
   ms.service: azure-maps
   ms.topic: landing-page
-  author: anastasia-ms
-  ms.author: v-stharr
-  ms.date: 1/15/2020
-  ms.openlocfilehash: 0f2f5ff726fb723e6481d03e5d8019be45fb9100
-  ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+  author: stevemunk
+  ms.author: v-munksteve
+  ms.date: 10/13/2021
+  ms.openlocfilehash: 21efc1c783be18875d17f72879d7251beec28641
+  ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/06/2021
-  ms.locfileid: "113303965"
+  ms.lasthandoff: 10/14/2021
+  ms.locfileid: "130000487"
 landingContent:
 - title: Acerca de Azure Maps
   linkLists:
@@ -42,6 +42,8 @@ landingContent:
       url: quick-demo-map-app.md
     - text: Creación de una aplicación Android mediante Azure Maps
       url: quick-android-map.md
+    - text: Creación de una aplicación iOS mediante Azure Maps
+      url: quick-iOS-app.md
   - linkListType: concept
     links:
     - text: Elección del plan de tarifa adecuado para la cuenta de Maps
@@ -156,6 +158,16 @@ landingContent:
       url: clustering-point-data-android-sdk.md
     - text: Uso de expresiones de estilo controladas por datos
       url: data-driven-style-expressions-android-sdk.md
+- title: Desarrollo con el SDK de iOS
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creación de una aplicación iOS mediante Azure Maps
+      url: quick-iOS-app.md
+  - linkListType: how-to-guide
+    links:
+    - text: Introducción al control de mapa iOS
+      url: how-to-use-ios-map-control-library.md
 - title: Desarrollo con Location Based Services
   linkLists:
   - linkListType: concept
@@ -230,22 +242,6 @@ landingContent:
     links:
     - text: Componente de mapa interactivo
       url: /powerapps/maker/canvas-apps/geospatial-component-map
-- title: Desarrollo con Mobility Services
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Servicios de movilidad
-      url: mobility-service-data-structure.md
-  - linkListType: how-to-guide
-    links:
-    - text: Solicitud de rutas públicas de tránsito
-      url: how-to-request-transit-data.md
-    - text: Solicitud de datos públicos de tránsito en tiempo real
-      url: how-to-request-real-time-data.md
-  - linkListType: reference
-    links:
-    - text: Servicios de movilidad
-      url: /rest/api/maps/mobility
 - title: Desarrollo con servicios Weather
   linkLists:
   - linkListType: concept

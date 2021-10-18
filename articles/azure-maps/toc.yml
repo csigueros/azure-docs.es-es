@@ -12,6 +12,8 @@ items:
         href: quick-demo-map-app.md
       - name: Creación de una aplicación de Android
         href: quick-android-map.md
+      - name: Creación de una aplicación iOS
+        href: quick-iOS-app.md
   - name: Tutoriales
     items:
       - name: Tutoriales de SDK web
@@ -88,8 +90,6 @@ items:
             href: render-coverage.md
           - name: Cobertura de enrutamiento
             href: routing-coverage.md
-          - name: Cobertura de movilidad
-            href: mobility-coverage.md
           - name: Cobertura de meteorología
             href: weather-coverage.md
       - name: Compatibilidad de localización
@@ -98,8 +98,6 @@ items:
         href: supported-map-styles.md
       - name: Niveles de zoom y cuadrícula de mosaico
         href: zoom-levels-and-tile-grid.md
-      - name: Servicios de movilidad
-        href: mobility-service-data-structure.md
       - name: Conceptos de servicios Weather
         href: weather-services-concepts.md
       - name: Preguntas frecuentes de servicios Weather
@@ -141,10 +139,6 @@ items:
             href: how-to-use-best-practices-for-routing.md
           - name: Representación de datos personalizados en un mapa estático
             href: how-to-render-custom-data.md
-          - name: Solicitud de rutas públicas de tránsito
-            href: how-to-request-transit-data.md
-          - name: Solicitud de datos públicos de tránsito en tiempo real
-            href: how-to-request-real-time-data.md
           - name: Solicitud de datos meteorológicos en tiempo real y de previsión meteorológica
             href: how-to-request-weather-data.md
           - name: Solicitud de datos de elevación
@@ -283,6 +277,10 @@ items:
             href: data-driven-style-expressions-android-sdk.md
           - name: Reacción a eventos
             href: android-map-events.md
+      - name: Desarrollo con el SDK de iOS
+        items:
+          - name: Introducción al control de mapa iOS
+            href: how-to-use-ios-map-control-library.md
       - name: "Uso de Azure Maps en Power\_BI"
         items:
           - name: Introducción
@@ -293,6 +291,8 @@ items:
             href: power-bi-visual-add-bubble-layer.md
           - name: Adición de una capa de gráfico de barras
             href: power-bi-visual-add-bar-chart-layer.md
+          - name: Adición de una capa de mapa térmico
+            href: power-bi-visual-add-heat-map-layer.md
           - name: Adición de una capa de referencia
             href: power-bi-visual-add-reference-layer.md
           - name: Adición de una capa de icono
@@ -333,8 +333,6 @@ items:
             href: /rest/api/maps/elevation
           - name: Servicio de geolocalización
             href: /rest/api/maps/geolocation
-          - name: Servicios de movilidad
-            href: /rest/api/maps/mobility
           - name: Render Service
             href: /rest/api/maps/render
           - name: Render Service v2

@@ -97,7 +97,20 @@
         - name: "Configuración de red avanzada en Azure Percept\_DK"
           href: how-to-set-up-advanced-network-settings.md
         - name: Conexión de Azure Percept a través de redes 5G o LTE
-          href: connect-over-cellular.md
+          items:
+            - name: Conexión de Azure Percept a través de redes 5G o LTE
+              href: connect-over-cellular.md
+              items:
+                - name: Conexión mediante módem USB
+                  href: connect-over-cellular-usb.md
+                - name: Conexión mediante puerta de enlace de telefonía móvil
+                  href: connect-over-cellular-gateway.md
+                - name: "Conexión mediante Vodafone Connect\_4G frente a módem USB"
+                  href: connect-over-cellular-usb-vodafone.md
+                - name: Conexión mediante módem USB Multitech
+                  href: connect-over-cellular-usb-multitech.md
+                - name: "Conexión mediante el kit para desarrolladores de Quectel\_5G"
+                  href: connect-over-cellular-usb-quectel.md
         - name: "Conexión a Azure Percept\_DK a través de SSH"
           href: how-to-ssh-into-percept-dk.md
         - name: "Conexión a Azure Percept\_DK a través de cable serie"

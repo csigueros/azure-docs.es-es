@@ -190,6 +190,8 @@
               href: spot-node-pool.md
             - name: Uso de grupos de nodos del sistema
               href: use-system-pools.md
+            - name: Uso de grupos de nodos de interfaz del sistema de WebAssembly (WASI)
+              href: use-wasi-node-pools.md
         - name: Implementación de AKS con Terraform
           href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
@@ -392,6 +394,8 @@
                   href: open-service-mesh-open-source-observability.md
                 - name: Personalización de la experiencia de la CLI de OSM
                   href: open-service-mesh-customize-add-on-experience.md
+                - name: "Exclusión del intervalo de direcciones\_IP y puertos"
+                  href: open-service-mesh-ip-port-exclusion.md
             - name: Configuración de Azure Monitor
               href: open-service-mesh-azure-monitor.md
             - name: Solución de problemas de OSM

@@ -17,7 +17,7 @@
 - name: Tutoriales
   items:
     - name: Integración con un WAF
-      href: app-service-app-service-environment-web-application-firewall.md
+      href: integrate-with-application-gateway.md
     - name: Configuración personalizada de ASE
       href: app-service-app-service-environment-custom-settings.md
 - name: Ejemplos
@@ -62,22 +62,16 @@
       items:
         - name: ASEv1
           href: app-service-app-service-environment-intro.md
-        - name: Creación de ASEv1
-          href: app-service-web-how-to-create-an-app-service-environment.md
+        - name: Creación de ASEv1 a partir de una plantilla
+          href: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
         - name: Configuración de ASEv1
           href: app-service-web-configure-an-app-service-environment.md
-        - name: Creación de un ASEv1 interno
-          href: app-service-environment-with-internal-load-balancer.md
-        - name: Creación de un ASEv1 interno a partir de una plantilla
-          href: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
         - name: Configuración de escalado automático en ASEv1
           href: app-service-environment-auto-scale.md
         - name: Escalado horizontal de una aplicación en ASEv1
           href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
         - name: Arquitectura de red
           href: app-service-app-service-environment-network-architecture-overview.md
-        - name: Creación de una aplicación web en ASEv1
-          href: app-service-web-how-to-create-a-web-app-in-an-ase.md
         - name: Conexión al back-end
           href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
         - name: Configuración de ExpressRoute

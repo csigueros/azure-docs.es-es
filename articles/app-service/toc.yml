@@ -74,7 +74,7 @@
           href: tutorial-multi-container-app.md
     - name: Acceso seguro a SQL Database
       href: app-service-web-tutorial-connect-msi.md
-    - name: Hospedaje de API de RESTful
+    - name: Hospedaje de una API RESTful
       href: app-service-web-tutorial-rest-api.md
     - name: Asignación de dominios personalizados
       href: app-service-web-tutorial-custom-domain.md

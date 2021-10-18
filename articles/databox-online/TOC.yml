@@ -9,7 +9,7 @@
           href: azure-stack-edge-gpu-overview.md
     - name: Guías de inicio rápido
       items:
-        - name: Introducción
+        - name: Primeros pasos
           href: azure-stack-edge-gpu-quickstart.md
     - name: Tutoriales
       items:
@@ -374,10 +374,12 @@
               href: azure-stack-edge-gpu-recover-device-failure.md
         - name: Supervisión
           items:
+            - name: Revisar alertas
+              href: azure-stack-edge-alerts.md
+            - name: Uso de reglas para las notificaciones de alertas
+              href: azure-stack-edge-gpu-manage-device-event-alert-notifications.md
             - name: Uso de gráficos de métricas
               href: azure-stack-edge-monitor.md
-            - name: Administración de alertas de eventos de dispositivo
-              href: azure-stack-edge-gpu-manage-device-event-alert-notifications.md
             - name: Uso del panel de Kubernetes
               href: azure-stack-edge-gpu-monitor-kubernetes-dashboard.md
             - name: Uso de Azure Monitor

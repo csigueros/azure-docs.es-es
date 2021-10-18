@@ -9,12 +9,12 @@ metadata:
   author: hickeys
   ms.author: hickeys
   ms.date: 08/19/2021
-  ms.openlocfilehash: 86238a56af7d5d5e7f8e105bbe487994dffa207f
-  ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+  ms.openlocfilehash: d503930da03d2a86e141513ce1ff16ee06ffd950
+  ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/07/2021
-  ms.locfileid: "129661474"
+  ms.lasthandoff: 10/14/2021
+  ms.locfileid: "129984333"
 landingContent:
 - title: Acerca de Azure Fluid Relay
   linkLists:
@@ -24,11 +24,37 @@ landingContent:
       url: overview/overview.md
     - text: Arquitectura de Azure Fluid Relay
       url: concepts/architecture.md
-- title: Procedimientos e inicios rápidos
-  linkLists:
+    - text: Compatibilidad con las versiones de Fluid Framework
+      url: concepts/version-compatibility.md
   - linkListType: get-started
     links:
     - text: Aprovisionamiento de un servicio Azure Fluid Relay
       url: how-tos/provision-fluid-azure-portal.md
     - text: 'Inicio rápido: aplicación que tira dados'
       url: quickstarts/quickstart-dice-roll.md
+- title: Adentrarse más
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Autenticación y autorización en una aplicación
+      url: concepts/authentication-authorization.md
+    - text: Cifrado de datos en Azure Fluid Relay
+      url: concepts/data-encryption.md
+    - text: Estructuras de datos distribuidos (DDS)
+      url: concepts/data-structures.md
+    - text: Contrato de token de Azure Fluid Relay
+      url: how-tos/fluid-json-web-token.md
+- title: Uso de Azure Fluid
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 'Procedimiento: Conexión a un servicio Azure Fluid Relay'
+      url: how-tos/connect-fluid-azure-service.md
+    - text: 'Procedimiento: Escritura de un TokenProvider con una función de Azure'
+      url: how-tos/azure-function-token-provider.md
+    - text: 'Procedimiento: Uso de AzureClient para pruebas locales'
+      url: how-tos/local-mode-with-azure-client.md
+    - text: Eliminación de contenedores de Fluid en el servidor de Microsoft Azure Fluid Relay
+      url: how-tos/container-deletion.md
+    - text: 'Procedimiento: uso de la automatización de pruebas con Azure Fluid Relay'
+      url: how-tos/test-automation.md

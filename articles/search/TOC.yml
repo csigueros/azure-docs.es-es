@@ -198,6 +198,8 @@
           items:
             - name: Autenticación basada en claves
               href: search-security-api-keys.md
+            - name: Autenticación de Azure AD
+              href: search-howto-aad.md
             - name: Autorización basada en roles
               href: search-security-rbac.md
             - name: "Configuración de un firewall de\_IP"
@@ -400,6 +402,8 @@
               href: knowledge-store-projection-shape.md
             - name: Definición de proyecciones
               href: knowledge-store-projections-examples.md
+            - name: Ejemplo de proyección
+              href: knowledge-store-projection-example-long.md
             - name: Visualización con el Explorador de Storage
               href: knowledge-store-view-storage-explorer.md
             - name: Conexión con Power BI
