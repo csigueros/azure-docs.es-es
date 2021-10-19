@@ -51,7 +51,7 @@ La siguiente es una lista de comprobación rápida de los procedimientos recomen
 
 Para obtener más información, vea los [procedimientos recomendados de tamaño de máquinas virtuales](performance-guidelines-best-practices-vm-size.md) generales. 
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Almacenamiento
 
 La siguiente es una lista de comprobación rápida de los procedimientos recomendados de configuración del almacenamiento para ejecutar la instancia de SQL Server en la máquina virtual de Azure: 
 
@@ -78,7 +78,7 @@ La siguiente es una lista de comprobación rápida de los procedimientos recomen
 
 Para obtener más información, vea los [procedimientos recomendados de almacenamiento](performance-guidelines-best-practices-storage.md) generales. 
 
-## <a name="sql-server-features"></a>características de SQL Server
+## <a name="sql-server-features"></a>Características de SQL Server
 
 A continuación se muestra una lista de comprobación rápida de los procedimientos recomendados para las opciones de configuración de SQL Server al ejecutar las instancias de SQL Server en una máquina virtual de Azure en producción: 
 
@@ -105,7 +105,7 @@ A continuación se muestra una lista de comprobación rápida de los procedimien
 - Aproveche las ventajas de las nuevas [características de SQL Server](/sql/sql-server/what-s-new-in-sql-server-ver15) disponibles para la versión que se va a usar.
 - Tenga en cuenta las diferencias en las [características admitidas](/sql/sql-server/editions-and-components-of-sql-server-version-15) entre las ediciones que está considerando implementar.
 
-## <a name="azure-features"></a>de Windows Azure
+## <a name="azure-features"></a>Características de Azure
 
 La siguiente es una lista de comprobación rápida de los procedimientos recomendados para una guía específica de Azure al ejecutar la instancia de SQL Server en una máquina virtual de Azure:
 
