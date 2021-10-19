@@ -8,41 +8,64 @@ ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/05/2021
-ms.openlocfilehash: 83b40121de72dc45582ded94580154f5124817b0
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 1c47e42f3186d573fb57f1ebaa89140e0c713c0e
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129061017"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129614613"
 ---
-# <a name="create-azure-data-factory-data-flow"></a>Creación de un flujo de datos con Azure Data Factory
+# <a name="create-azure-data-factory-data-flows"></a>Creación de un flujo de datos de Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
-Los flujos de datos de asignación de ADF proporcionan una manera de transformar los datos a escala sin necesidad de programar. Puede diseñar un trabajo de transformación de datos en el diseñador de flujos de datos realizando una serie de transformaciones. Comience realice todas las transformaciones que desee en el origen y, después, continúe con los pasos de transformación de datos. A continuación, complete el flujo de datos con los receptores para enviar los resultados a un destino.
+Los flujos de datos de asignación proporcionan una manera de transformar los datos a escala sin necesidad de programar. Puede diseñar un trabajo de transformación de datos en el diseñador de flujos de datos realizando una serie de transformaciones. Comience realice todas las transformaciones que desee en el origen y, después, continúe con los pasos de transformación de datos. A continuación, complete el flujo de datos con los receptores para enviar los resultados a un destino.
 
-Primero, cree una factoría de datos V2 en Azure Portal. Después de crear la nueva factoría, seleccione "Abrir" en el icono "Abrir Azure Data Factory Studio" para iniciar la interfaz de usuario de Data Factory.
+## <a name="steps-to-create-a-new-data-flow"></a>Pasos para crear un nuevo flujo de datos
 
-:::image type="content" source="media/data-flow/v2portal.png" alt-text="Captura de pantalla en la que se muestra el panel Nueva factoría de datos con la opción V2 seleccionada en la versión":::.
+# <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
-Cuando esté en la interfaz de usuario de Data Factory, puede usar flujos de datos de ejemplo. Los ejemplos están disponibles en la galería de plantillas de ADF. En ADF, seleccione el icono "Plantillas de canalización" en la sección "Detectar más" de la página principal y elija la categoría Data Flow en la galería de plantillas.
+Primero, [cree una factoría de datos V2](quickstart-create-data-factory-portal.md) en Azure Portal. Después de crear la factoría, seleccione el icono **Abrir Azure Data Factory Studio** en el portal para iniciar Data Factory Studio.
 
-:::image type="content" source="media/data-flow/template.png" alt-text="Captura de pantalla en la que se muestra la pestaña Data Flow con la opción para transformar datos con Data Flow seleccionada":::.
+:::image type="content" source="media/data-flow-create/open-data-factory-studio-from-portal.png" alt-text="Muestra una captura de pantalla de cómo abrir Data Factory Studio desde Azure Portal.":::
 
-Se le pedirá que escriba la información de la cuenta de Azure Blob Storage.
+Puede agregar flujos de datos de ejemplo desde la galería de plantillas. Para examinar la galería, seleccione la pestaña **Autor** en Data Factory Studio y haga clic en el signo más para elegir **Canalización** | **Galería de plantillas**.
 
-:::image type="content" source="media/data-flow/template2.png" alt-text="Captura de pantalla en la que se muestra el panel para la transformación de datos con Data Flow, donde puede especificar entradas de usuario":::.
+:::image type="content" source="media/data-flow-create/open-template-gallery-from-data-factory.png" alt-text="Muestra cómo abrir la galería de plantillas en Data Factory.":::
 
-[Aquí encontrará los datos usados en estos ejemplos](https://github.com/kromerm/adfdataflowdocs/tree/master/sampledata). Descargue los datos de ejemplo y guarde los archivos en las cuentas de Azure Blob Storage para poder ejecutar los ejemplos.
+Seleccione la categoría Data Flow para elegir entre las plantillas disponibles.
 
-## <a name="create-new-data-flow"></a>Creación de un flujo de datos
+:::image type="content" source="media/data-flow-create/template-gallery-filtered-for-data-flow.png" alt-text="Muestra la galería de plantillas filtrada por flujos de datos.":::
 
-Use el botón más situado en la interfaz de usuario de ADF para crear flujos de datos.
+También puede agregar flujos de datos directamente a la factoría de datos sin usar una plantilla. Seleccione la pestaña **Autor** en Data Factory Studio y haga clic en el signo más para elegir **Flujo de datos** | **Flujo de datos**.  
 
-:::image type="content" source="media/data-flow/newresource.png" alt-text="Captura de pantalla en la que se muestra Data Flow seleccionado en el menú Recursos de fábrica":::.
+:::image type="content" source="media/data-flow-create/create-data-flow-directly.png" alt-text="Muestra una captura de pantalla de cómo crear directamente un flujo de datos vacío.":::
+
+# <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
+
+Primero, [cree un área de trabajo de Synapse](../synapse-analytics/quickstart-create-workspace.md) desde Azure Portal. Después de crear la nueva área de trabajo, seleccione el icono **Abrir Azure Studio** para iniciar la interfaz de usuario de Data Factory.
+    
+:::image type="content" source="media/data-flow-create/open-synapse-studio-from-portal.png" alt-text="Muestra una captura de pantalla de cómo abrir Synapse Studio desde Azure Portal.":::
+
+Puede agregar flujos de datos de ejemplo desde la galería de plantillas.  Para examinar la galería, seleccione la pestaña **Integrar** en Synapse Studio y haga clic en el signo más para elegir **Examinar galería**.
+
+:::image type="content" source="media/data-flow-create/open-template-gallery-from-synapse.png" alt-text="Muestra cómo abrir la galería de plantillas en Data Factory.":::
+
+Filtre por "Categoría: Flujo de datos" para elegir entre las plantillas disponibles.
+
+:::image type="content" source="media/data-flow-create/synapse-template-gallery-filtered-for-data-flow.png" alt-text="Muestra la galería de plantillas filtrada por flujos de datos.":::
+
+También puede agregar flujos de datos directamente al área de trabajo sin usar una plantilla. Seleccione la pestaña **Integrar** en Synapse Studio y haga clic en el signo más para elegir **Canalización**.  A continuación, en la canalización, expanda la opción **Mover y transformar** de la sección Actividades y arrastre un **flujo de datos** al lienzo de la canalización.
+
+:::image type="content" source="media/data-flow-create/create-pipeline-in-synapse.png" alt-text="Muestra una captura de pantalla de cómo crear directamente una canalización vacía.":::
+
+:::image type="content" source="media/data-flow-create/add-data-flow-to-pipeline-synapse.png" alt-text="Muestra una captura de pantalla de cómo agregar un flujo de datos vacío a una canalización directamente.":::
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Empiece a crear la transformación de datos con una [transformación de origen](data-flow-source.md).
+* [Tutorial: Transformación de datos mediante flujos de datos de asignación](tutorial-data-flow.md)
+* Empiece a crear la transformación de datos con una [transformación de origen](data-flow-source.md).

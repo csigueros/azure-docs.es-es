@@ -1,5 +1,6 @@
 ---
-title: Acceso híbrido seguro de Azure AD con F5 | Microsoft Docs
+title: Protección del acceso híbrido con F5
+titleSuffix: Azure AD
 description: Integración del administrador de directivas de acceso de F5 BIG-IP y Azure Active Directory para el acceso híbrido seguro
 services: active-directory
 author: davidmu1
@@ -12,14 +13,14 @@ ms.date: 11/12/2020
 ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.reviewer: miccohen
-ms.openlocfilehash: a5066eece8950d4e9dffabedb2e0cca4c527353f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e5f17826d4a578f0c82a5e1e58abf54d4abac252
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124822990"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129620666"
 ---
-# <a name="f5-big-ip-access-policy-manager-and-azure-active-directory-integration-for-secure-hybrid-access"></a>Integración del administrador de directivas de acceso de F5 BIG-IP y Azure Active Directory para el acceso híbrido seguro
+# <a name="integrate-f5-big-ip-with-azure-active-directory"></a>Integración de F5 BIG-IP con Azure Active Directory
 
 La proliferación de la movilidad y la constante evolución del panorama de amenazas está haciendo aumentar la vigilancia sobre el acceso a los recursos y la gobernanza, lo cual ha situado a [Confianza cero](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) al frente y en el centro de todos los programas de modernización.
 En Microsoft y F5, sabemos que esta transformación digital implica normalmente un recorrido de varios años para cualquier empresa, lo que puede significar que algunos recursos críticos queden expuestos hasta su modernización. La motivación detrás del acceso híbrido seguro de F5 BIG-IP y Azure Active Directory no solo pretende mejorar el acceso remoto a las aplicaciones locales, sino también reforzar la posición general de seguridad de estos servicios vulnerables.

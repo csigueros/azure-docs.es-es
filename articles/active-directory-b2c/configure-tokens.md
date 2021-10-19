@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 10/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: dad937a385f22444baafb00c46de503b836b27f4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9ca7d1b5f5e8a9958d072317bfb2d01bd7a9199e
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128575545"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129611842"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configuración de tokens en Azure Active Directory B2C
 
@@ -61,6 +61,11 @@ Para configurar la duración del token de flujo del usuario:
 1. Seleccione **Propiedades**.
 1. En **Vigencia del token**, ajuste las propiedades para satisfacer las necesidades de su aplicación.
 1. Haga clic en **Save**(Guardar).
+
+
+
+:::image type="content" source="./media/configure-tokens/configure-tokens.png" alt-text="configure los tokens de flujos de usuario en Azure Portal.":::
+
 
 ::: zone-end
 

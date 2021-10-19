@@ -1,5 +1,5 @@
 ---
-title: Punto de conexión con varios orígenes de Azure CDN (versión preliminar)
+title: Punto de conexión con varios orígenes de Azure CDN
 description: Empiece a trabajar con el punto de conexión con varios orígenes de Azure CDN.
 services: cdn
 author: asudbring
@@ -8,12 +8,12 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 08/18/2021
 ms.author: allensu
-ms.openlocfilehash: 06d0e35534db97f1de48c55f9cc6f46f979514fa
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 1e17c747c87a5abb184ae4b7b263a8b5bd1a3a49
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122444842"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129855999"
 ---
 # <a name="azure-cdn-endpoint-multi-origin"></a>Punto de conexión con varios orígenes de Azure CDN
 
@@ -22,6 +22,8 @@ La compatibilidad con varios orígenes elimina el tiempo de inactividad y crea r
 Al elegir varios orígenes en un punto de conexión de Azure CDN, la redundancia dispersa el riesgo al sondear el estado de cada origen y conmutar por error si es necesario.
 
 Configure uno o más grupos de origen y elija un grupo de origen predeterminado. Cada grupo de origen es una colección de uno o varios orígenes que pueden asumir cargas de trabajo similares.
+
+El primer grupo de origen se establece como el grupo de origen predeterminado. La característica de varios orígenes se habilita cuando se selecciona un grupo de origen predeterminado para el punto de conexión de CDN. Una vez habilitada la característica de varios orígenes, no se puede deshabilitar y el grupo de origen predeterminado no se puede eliminar. El grupo de origen predeterminado se usa para enrutar las solicitudes al origen. Puede actualizar la configuración del grupo de origen y cambiar a una única configuración de origen. También puede cambiar la designación del grupo de origen predeterminado por otro grupo de origen.
 
 > [!NOTE]
 > Actualmente, esta característica solo está disponible en Azure CDN de Microsoft. 
@@ -64,7 +66,7 @@ Configure uno o más grupos de origen y elija un grupo de origen predeterminado.
 
 2. Escriba o seleccione la siguiente información en la configuración de **Add Origin** (Agregar origen):
 
-   | Configuración           | Value                                                                 |
+   | Configuración           | Valor                                                                 |
    |-------------------|-----------------------------------------------------------------------|
    | Nombre        | Escriba un nombre para el origen.        |
    | Tipo de origen | Seleccione **Almacenamiento**, **Servicio en la nube**, **Aplicación web** u **Origen personalizado**.                                   |

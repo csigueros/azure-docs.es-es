@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c3096da8b3c83dbfe8cfdd6a5fa4d177241334de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6f7001b9eabd34774930378d0656b4ad7ef3c25
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97693504"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857804"
 ---
 # <a name="specify-a-customer-provided-key-on-a-request-to-blob-storage-with-net"></a>Especificar una clave proporcionada por el cliente en una solicitud a Blob Storage con .NET
 
@@ -29,7 +29,7 @@ Para obtener más información sobre cómo autenticarse con la biblioteca de cli
 
 ## <a name="use-a-customer-provided-key-to-write-to-a-blob"></a>Uso de una clave proporcionada por el cliente para escribir en un blob
 
-En el ejemplo siguiente se proporciona una clave AES-256 al cargar un blob con la biblioteca cliente v12 para Blob Storage. En el ejemplo se usa el objeto [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) para autorizar la solicitud de escritura con Azure AD, pero también se puede autorizar la solicitud con credenciales de clave compartida.
+En el ejemplo siguiente se proporciona una clave AES-256 al cargar un blob con la biblioteca cliente v12 para Blob Storage. En el ejemplo se usa el objeto [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) para autorizar la solicitud de escritura con Azure AD, pero también se puede autorizar la solicitud con credenciales de clave compartida. Para más información sobre el uso de la clase DefaultAzureCredential para autorizar a una identidad administrada el acceso a Azure Storage, consulte [Biblioteca cliente de Azure Identity para .NET](/dotnet/api/overview/azure/identity-readme).
 
 ```csharp
 async static Task UploadBlobWithClientKey(Uri blobUri,

@@ -1,5 +1,6 @@
 ---
-title: Preguntas más frecuentes sobre los certificados de administración de aplicaciones de Azure Active Directory
+title: Preguntas más frecuentes sobre los certificados de administración de aplicaciones
+titleSuffix: Azure AD
 description: Obtenga respuestas a las preguntas más frecuentes (P + F) sobre la administración de certificados para aplicaciones mediante Azure Active Directory como proveedor de identidades (IdP).
 services: active-directory
 author: davidmu1
@@ -11,14 +12,14 @@ ms.topic: reference
 ms.date: 03/19/2021
 ms.author: davidmu
 ms.reviewer: sureshja, saumadan
-ms.openlocfilehash: 497cc5b00db313c8bccbb31130ea7656634d051d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3f94c7eae439303f2954b8ab62f499b789902e79
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121723109"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619944"
 ---
-# <a name="azure-active-directory-azure-ad-application-management-certificates-frequently-asked-questions"></a>Preguntas más frecuentes sobre los certificados de administración de aplicaciones de Azure Active Directory (Azure AD)
+# <a name="azure-active-directory-application-management-certificates-frequently-asked-questions"></a>Preguntas más frecuentes sobre los certificados de administración de aplicaciones de Azure Active Directory
 
 Esta página responde a las preguntas más frecuentes sobre la administración de certificados para aplicaciones que usan Azure Active Directory (Azure AD) como proveedor de identidades (IdP).
 

@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 09/23/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b84c73e5286dc633b54ade2d59d43957f517361e
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: eb883fafd7c738ca99fe2282edb67d1849b9b1af
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129057669"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858165"
 ---
 # <a name="using-a-system-assigned-managed-identity-for-an-azure-automation-account-preview"></a>Uso de una identidad administrada asignada por el sistema para una cuenta de Azure Automation (versión preliminar)
 
@@ -23,7 +23,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 - Una cuenta de Azure Automation Para obtener instrucciones, consulte [Creación de una cuenta de Azure Automation](./quickstarts/create-account-portal.md).
 
-- La versión más reciente de los módulos de cuenta de Azure. Actualmente, es la versión 2.2.8. (Consulte [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/) para obtener más información sobre esta versión).
+- La versión más reciente de los módulos Az de PowerShell: Az.Accounts, Az.Resources, Az.Automation, Az.KeyVault.
 
 - Un recurso de Azure al que desea acceder desde el runbook de Automation. Este recurso debe tener un rol definido para la identidad administrada, lo que ayuda al runbook de Automation a autenticar el acceso al recurso. Para agregar roles, debe ser propietario del recurso en el inquilino de Azure AD correspondiente.
 

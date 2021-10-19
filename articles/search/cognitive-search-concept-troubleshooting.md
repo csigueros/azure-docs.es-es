@@ -7,18 +7,18 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/16/2021
-ms.openlocfilehash: 2c8cbc3496b0a7b12f8df114ed2aa993ee5cb1a7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 054abdaeb184a37a995f14ab6196c378abbb470b
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128610871"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707683"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Sugerencias para el enriquecimiento con IA en Azure Cognitive Search
 
 En este artículo encontrará una lista de sugerencias y trucos para avanzar sin pausa a medida que empieza a usar las funcionalidades de enriquecimiento con IA en Azure Cognitive Search. 
 
-Si aún no lo ha hecho, siga las instrucciones de [Tutorial: Obtenga información sobre cómo llamar a las API de enriquecimiento con IA](cognitive-search-quickstart-blob.md) para practicar la aplicación de los enriquecimientos con IA a un origen de datos de blobs.
+Si aún no lo ha hecho, consulte los inicios rápidos [Creación de un conjunto de aptitudes y una traducción de texto](cognitive-search-quickstart-blob.md) o [Creación de un conjunto de aptitudes de imagen de OCR](cognitive-search-quickstart-ocr.md) para obtener una introducción al enriquecimiento de datos de blobs.
 
 ## <a name="tip-1-start-with-a-small-dataset"></a>Sugerencia 1: Comience con un pequeño conjunto de datos.
 La mejor forma de detectar problemas rápidamente es aumentar la velocidad de solución de esos problemas. La mejor forma de reducir el tiempo de indexación es reducir el número de documentos que se indexarán. 

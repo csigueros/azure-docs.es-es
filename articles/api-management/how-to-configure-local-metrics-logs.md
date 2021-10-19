@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/11/2021
 ms.author: danlep
-ms.openlocfilehash: 94dde4e35a072431fbcc5a30b3257b7a70b59e44
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 421111e289ffba14b792af5cf810ac562164c846
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128551125"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660844"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configuración de los registros y las métricas locales para la puerta de enlace autohospedada de Azure API Management
 
@@ -30,6 +30,9 @@ La puerta de enlace autohospedada admite [StatsD](https://github.com/statsd/stat
 ### <a name="deploy-statsd-and-prometheus-to-the-cluster"></a>Implementación de StatsD y Prometheus en el clúster
 
 A continuación se muestra un ejemplo de configuración de YAML para la implementación de StatsD y Prometheus en el clúster de Kubernetes en el que se implementa una puerta de enlace autohospedada. También crea un [servicio](https://kubernetes.io/docs/concepts/services-networking/service/) para cada uno de ellos. La puerta de enlace autohospedada publicará métricas en el servicio StatsD. Se obtendrá acceso al panel de Prometheus mediante su servicio.
+
+> [!NOTE]
+> En el ejemplo siguiente se extrae una imagen de contenedor público de Docker Hub. Se recomienda configurar un secreto de extracción para autenticarse mediante una cuenta de Docker Hub en lugar de realizar una solicitud de extracción anónima. Para mejorar la confiabilidad al trabajar con contenido público, importe y administre la imagen en un registro de contenedor privado de Azure. [Más información sobre cómo trabajar con imágenes públicas.](../container-registry/buffer-gate-public-content.md)
 
 ```yaml
 apiVersion: v1

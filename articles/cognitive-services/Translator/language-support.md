@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: lajanuar
-ms.openlocfilehash: 17d6120a951af052c82f06ed62025279011018a6
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 0055cae979e1ab116d71a387f3f9d7e61afb9d32
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867557"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754489"
 ---
 # <a name="translator-language-support"></a>Idiomas admitidos en Translator
 
@@ -39,6 +39,7 @@ ms.locfileid: "122867557"
 | Asamés | `as` |✔|✔||||
 | Azerbaiyano | `az` |✔|✔||||
 | Bengalí | `bn` |✔|✔|✔||✔|
+| Bashkir | `ba` |✔|||||
 | Bosnio (latino) | `bs` |✔|✔|✔||✔|
 | Búlgaro | `bg` |✔|✔|✔|✔|✔|
 | Cantonés (tradicional) | `yue` |✔|✔||||
@@ -50,6 +51,7 @@ ms.locfileid: "122867557"
 | Checo | `cs` |✔|✔|✔|✔|✔|
 | Danés | `da` |✔|✔|✔|✔|✔|
 | Dari | `prs` |✔|✔||||
+| Divehi | `dv` |✔|||✔||
 | Neerlandés | `nl` |✔|✔|✔|✔|✔|
 | Inglés | `en` |✔|✔|✔|✔|✔|
 | Estonio | `et` |✔|✔|✔|✔||
@@ -58,6 +60,7 @@ ms.locfileid: "122867557"
 | Finés | `fi` |✔|✔|✔|✔|✔|
 | Francés | `fr` |✔|✔|✔|✔|✔|
 | Francés (Canadá) | `fr-ca` |✔|✔||||
+| Georgiano | `ka` |✔|||✔||
 | Alemán | `de` |✔|✔|✔|✔|✔|
 | Griego | `el` |✔|✔|✔|✔|✔|
 | Gujarati | `gu` |✔|✔|✔|✔||
@@ -80,15 +83,19 @@ ms.locfileid: "122867557"
 | Coreano | `ko` |✔|✔|✔|✔|✔|
 | Kurdo (central) | `ku` |✔|✔||✔||
 | Kurdo (norte) | `kmr` |✔|✔||||
+| Kirguís | `ky` |✔|||||
 | Lao | `lo` |✔|✔||✔||
 | Letón | `lv` |✔|✔|✔|✔|✔|
 | Lituano | `lt` |✔|✔|✔|✔|✔|
+| Macedonio | `mk` |✔|||✔||
 | Malgache | `mg` |✔|✔|✔|||
 | Malayo | `ms` |✔|✔|✔|✔|✔|
 | Malayalam | `ml` |✔|✔||||
 | Maltés | `mt` |✔|✔|✔|✔|✔|
 | Maori | `mi` |✔|✔|✔|||
 | Maratí | `mr` |✔|✔|✔|||
+| Mongol (cirílico) | `mn-Cyrl` |✔|||||
+| Mongol (tradicional) | `mn-Mong` |✔|||✔||
 | Myanmar | `my` |✔|✔||✔||
 | Nepalí | `ne` |✔|✔||||
 | Noruego | `nb` |✔|✔|✔|✔|✔|
@@ -112,13 +119,18 @@ ms.locfileid: "122867557"
 | Sueco | `sv` |✔|✔|✔|✔|✔|
 | Tahitiano | `ty` |✔| |✔|✔||
 | Tamil | `ta` |✔|✔|||✔|
+| Tatar | `tt` |✔|||||
 | Telugu | `te` |✔|✔||||
 | Tailandés | `th` |✔| |✔|✔|✔|
+| Tibetano | `bo` |✔||||
 | Tigriña | `ti` |✔|✔||||
 | Tongano | `to` |✔|✔|✔|||
 | Turco | `tr` |✔|✔|✔|✔|✔|
+| Turcomano | `tk` |✔||||
 | Ucraniano | `uk` |✔|✔|✔|✔|✔|
 | Urdu | `ur` |✔|✔|✔|✔|✔|
+| Uigur | `ug` |✔||||
+| Uzbeko (caracteres latinos) | `uz` |✔|||✔||
 | Vietnamita | `vi` |✔|✔|✔|✔|✔|
 | Galés | `cy` |✔|✔|✔|✔|✔|
 | Maya Yucateco | `yua` |✔|✔||✔||

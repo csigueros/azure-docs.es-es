@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2021
-ms.openlocfilehash: ce9fd7bd2b123877f73978caaabafca8c767c2be
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
+ms.openlocfilehash: ceb57d364cca4b05d170ad6e42e8894f9a1ce86e
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114674337"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710249"
 ---
 # <a name="monitor-virtual-machines-with-azure-monitor-configure-monitoring"></a>Supervisión de máquinas virtuales con Azure Monitor: configuración de la supervisión
 Este artículo forma parte del escenario [Supervisión de máquinas virtuales y sus cargas de trabajo en Azure Monitor](monitor-virtual-machine.md). Se describe cómo configurar la supervisión de las máquinas virtuales híbridas y de Azure en Azure Monitor.
@@ -69,31 +69,31 @@ El agente de Log Analytics para Linux y Windows lleva a cabo la comunicación de
 :::image type="content" source="media/monitor-virtual-machines/network-diagram.png" alt-text="Diagrama que muestra la red." lightbox="media/monitor-virtual-machines/network-diagram.png":::
 
 ### <a name="gateway"></a>Puerta de enlace
-Con la puerta de enlace de Log Analytics, puede canalizar las comunicaciones desde las máquinas locales a través de una única puerta de enlace. Sin embargo, no puede usar los agentes del servidor habilitado para Azure Arc con la puerta de enlace de Log Analytics. Si la directiva de seguridad requiere una puerta de enlace, deberá instalar manualmente los agentes para las máquinas locales. Para más información sobre cómo configurar y usar la puerta de enlace de Log Analytics, consulte [Conexión de equipos sin acceso a Internet mediante la puerta de enlace de Log Analytics en Azure Monitor](../agents/gateway.md).
+Con la puerta de enlace de Log Analytics, puede canalizar las comunicaciones desde las máquinas locales a través de una única puerta de enlace. Sin embargo, no puede usar los agentes del servidor habilitado para Azure Arc con la puerta de enlace de Log Analytics. Si la directiva de seguridad requiere una puerta de enlace, deberá instalar manualmente los agentes para las máquinas locales. Para más información sobre cómo configurar y usar la puerta de enlace de Log Analytics, consulte [Conexión de equipos sin acceso a Internet mediante la puerta de enlace de Log Analytics en Azure Monitor](../agents/gateway.md).
 
 ### <a name="azure-private-link"></a>Azure Private Link
 Mediante Azure Private Link, puede crear un punto de conexión privado para el área de trabajo de Log Analytics. Una vez configurado, las conexiones al área de trabajo se deben realizar mediante este punto de conexión privado. Private Link funciona mediante invalidaciones de DNS, por lo que no hay ningún requisito de configuración en los agentes individuales. Para más información sobre Private Link, consulte [Uso de Azure Private Link para conectar redes a Azure Monitor de forma segura](../logs/private-link-security.md).
 
 ## <a name="prepare-hybrid-machines"></a>Preparación de máquinas híbridas
-Una máquina híbrida es cualquier máquina que no se ejecute en Azure. Es una máquina virtual que se ejecuta o está hospedada en otra nube, o una máquina virtual o física que se ejecuta localmente en el centro de datos. Use [servidores habilitados para Azure Arc](../../azure-arc/servers/overview.md) en las máquinas híbridas para que pueda administrarlas de forma similar a las máquinas virtuales de Azure. Puede usar VM Insights en Azure Monitor para usar el mismo proceso para habilitar la supervisión de servidores habilitados para Azure Arc del mismo modo que para las máquinas virtuales de Azure. Para obtener una guía completa sobre cómo preparar las máquinas híbridas para Azure, consulte [Planeación e implementación de servidores habilitados para Azure Arc](../../azure-arc/servers/plan-at-scale-deployment.md). Esta tarea incluye habilitar las máquinas individuales y usar [Azure Policy](../../governance/policy/overview.md) para habilitar todo el entorno híbrido a gran escala.
+Una máquina híbrida es cualquier máquina que no se ejecute en Azure. Es una máquina virtual que se ejecuta o está hospedada en otra nube, o una máquina virtual o física que se ejecuta localmente en el centro de datos. Use [servidores habilitados para Azure Arc](../../azure-arc/servers/overview.md) en las máquinas híbridas para que pueda administrarlas de forma similar a las máquinas virtuales de Azure. Puede usar VM Insights en Azure Monitor para usar el mismo proceso para habilitar la supervisión de servidores habilitados para Azure Arc del mismo modo que para las máquinas virtuales de Azure. Para obtener una guía completa sobre cómo preparar las máquinas híbridas para Azure, consulte [Planeación e implementación de servidores habilitados para Azure Arc](../../azure-arc/servers/plan-at-scale-deployment.md). Esta tarea incluye habilitar las máquinas individuales y usar [Azure Policy](../../governance/policy/overview.md) para habilitar todo el entorno híbrido a gran escala.
 
-No hay ningún costo más para los servidores habilitados para Azure Arc, pero puede haber algún costo para las distintas opciones que habilite. Para más información, consulte [Precios de Azure Arc](https://azure.microsoft.com/pricing/details/azure-arc/). Hay un costo por los datos recopilados en el área de trabajo después de que las máquinas híbridas estén habilitadas para VM Insights.
+No hay ningún costo más para los servidores habilitados para Azure Arc, pero puede haber algún costo para las distintas opciones que habilite. Para más información, consulte [Precios de Azure Arc](https://azure.microsoft.com/pricing/details/azure-arc/). Hay un costo por los datos recopilados en el área de trabajo después de que las máquinas híbridas estén habilitadas para VM Insights.
 
-### <a name="machines-that-cant-use-azure-arcenabled-servers"></a>Máquinas que no pueden usar servidores habilitados para Azure Arc
-Si tiene máquinas híbridas que cumplan los siguientes criterios, no podrán usar servidores habilitados para Azure Arc: 
+### <a name="machines-that-cant-use-azure-arc-enabled-servers"></a>Máquinas que no pueden usar servidores habilitados para Azure Arc
+Si tiene máquinas híbridas que cumplan los siguientes criterios, no podrán usar servidores habilitados para Azure Arc:
 
 - El sistema operativo de la máquina no es compatible con los agentes del servidor habilitado para Azure Arc. Para más información, consulte [Sistemas operativos admitidos](../../azure-arc/servers/agent-overview.md#prerequisites).
-- La directiva de seguridad no permite que las máquinas se conecten directamente a Azure. El agente de Log Analytics puede usar la [puerta de enlace de Log Analytics](../agents/gateway.md) independientemente de si los servidores habilitados para Azure Arc están instalados o no. Los agentes del servidor habilitado para Azure Arc se deben conectar directamente a Azure.
+- La directiva de seguridad no permite que las máquinas se conecten directamente a Azure. El agente de Log Analytics puede usar la [puerta de enlace de Log Analytics](../agents/gateway.md) independientemente de si los servidores habilitados para Azure Arc están instalados o no. Los agentes del servidor habilitado para Azure Arc se deben conectar directamente a Azure.
 
 Puede supervisar estas máquinas con Azure Monitor, pero debe instalar manualmente sus agentes. Para instalar manualmente el agente de Log Analytics y el agente de dependencias en esas máquinas híbridas, consulte [Habilitación de VM Insights para una máquina virtual híbrida](vminsights-enable-hybrid.md).
 
 > [!NOTE]
-> El punto de conexión privado para los servidores habilitados para Azure Arc está actualmente en versión preliminar pública. El punto de conexión permite que las máquinas híbridas se conecten de forma segura a Azure mediante una dirección IP privada de la red virtual.
+> El punto de conexión privado para los servidores habilitados para Azure Arc está actualmente en versión preliminar pública. El punto de conexión permite que las máquinas híbridas se conecten de forma segura a Azure mediante una dirección IP privada de la red virtual.
 
 ## <a name="enable-vm-insights-on-machines"></a>Habilitación de VM Insights en las máquinas
 Después de habilitar VM Insights en una máquina, este instala el agente de Log Analytics y el agente de dependencias, se conecta a un área de trabajo y comienza a recopilar datos de rendimiento. Puede empezar a usar vistas y libros de rendimiento para analizar las tendencias de diversas métricas del sistema operativo invitado, habilitar la característica de mapa de VM Insights para analizar los procesos en ejecución y las dependencias entre las máquinas y recopilar los datos necesarios para crear una variedad de reglas de alertas.
 
-Puede habilitar VM Insights en las máquinas individuales mediante los mismos métodos que para las máquinas virtuales de Azure y los servidores habilitados para Azure Arc. Estos métodos incluyen la incorporación de máquinas individuales con Azure Portal o plantillas de Azure Resource Manager, o la habilitación de máquinas a gran escala mediante Azure Policy. No hay ningún costo directo para VM Insights, pero hay un costo por la ingesta y retención de los datos recopilados en el área de trabajo de Log Analytics.
+Puede habilitar VM Insights en las máquinas individuales mediante los mismos métodos que para las máquinas virtuales de Azure y los servidores habilitados para Azure Arc. Estos métodos incluyen la incorporación de máquinas individuales con Azure Portal o plantillas de Azure Resource Manager, o la habilitación de máquinas a gran escala mediante Azure Policy. No hay ningún costo directo para VM Insights, pero hay un costo por la ingesta y retención de los datos recopilados en el área de trabajo de Log Analytics.
 
 Para conocer las distintas opciones para habilitar VM Insights para las máquinas, consulte [Información general sobre la habilitación de VM Insights](vminsights-enable-overview.md). Para crear una directiva que habilite automáticamente VM Insights en las máquinas nuevas a medida que se crean, consulte [Habilitación de VM Insights mediante Azure Policy](vminsights-enable-policy.md).
 
@@ -110,7 +110,7 @@ Cree una única DCR para cada grupo de recursos con máquinas que se van a super
 
 Tenga cuidado de no enviar datos a los registros porque serían redundantes con los datos ya recopilados por el agente de Log Analytics.
 
-Puede instalar un agente de Azure Monitor en las máquinas individuales mediante los mismos métodos que para las máquinas virtuales de Azure y los servidores habilitados para Azure Arc. Estos métodos incluyen la incorporación de máquinas individuales con Azure Portal o plantillas de Resource Manager, o la habilitación de máquinas a gran escala mediante Azure Policy. En el caso de las máquinas híbridas que no puedan usar servidores habilitados para Azure Arc, instale el agente manualmente.
+Puede instalar un agente de Azure Monitor en las máquinas individuales mediante los mismos métodos que para las máquinas virtuales de Azure y los servidores habilitados para Azure Arc. Estos métodos incluyen la incorporación de máquinas individuales con Azure Portal o plantillas de Resource Manager, o la habilitación de máquinas a gran escala mediante Azure Policy. En el caso de las máquinas híbridas que no puedan usar servidores habilitados para Azure Arc, instale el agente manualmente.
 
 Para crear una DCR e implementar el agente de Azure Monitor en uno o varios agentes mediante Azure Portal, consulte [Configuración de la recopilación de datos para el agente de Azure Monitor (versión preliminar)](../agents/data-collection-rule-azure-monitor-agent.md). Se describen otros métodos de instalación en [Instalación del agente de Azure Monitor (versión preliminar)](../agents/azure-monitor-agent-install.md). Para crear una directiva que implemente automáticamente el agente y la DCR en las máquinas nuevas a medida que se crean, consulte [Implementación de Azure Monitor a gran escala mediante Azure Policy](../deploy-scale.md#azure-monitor-agent).
 

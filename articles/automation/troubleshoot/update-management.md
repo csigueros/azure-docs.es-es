@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.date: 06/10/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 735677886493bace8bb831eae1c974bb0483b0c1
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: bf9804b0881e02b1a4f58e5923c33840d06e37e2
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122771840"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706470"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Solución de problemas de Update Management
 
@@ -78,7 +78,7 @@ En el caso de la máquina Linux, Update Management muestra actualizaciones espec
 
 Cuando se realiza una evaluación de las actualizaciones del sistema operativo pendientes para la máquina Linux, Update Management utiliza los archivos [Open Vulnerability and Assessment Language ](https://oval.mitre.org/) (OVAL) proporcionados por el proveedor de distribución de Linux para la clasificación. La categorización se realiza para las actualizaciones de Linux como **Seguridad** u **Otras**, en función de los archivos OVAL, que indica que las actualizaciones tratan problemas de seguridad o vulnerabilidades. Sin embargo, cuando se ejecuta la programación de actualización, lo hace en la máquina Linux mediante el administrador de paquetes adecuado, como YUM, APT o ZYPPER, para instalarlas. El administrador de paquetes para la distribución de Linux puede tener un mecanismo diferente para clasificar las actualizaciones, donde los resultados pueden diferir de los que se obtienen de los archivos OVAL mediante Update Management.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Puede comprobar manualmente el equipo Linux, las actualizaciones aplicables y su clasificación según el administrador de paquetes de la distribución. Para saber qué actualizaciones clasifica el administrador de paquetes como **Seguridad**, ejecute los siguientes comandos.
 
@@ -122,7 +122,7 @@ Este error puede ocurrir debido a uno de los siguientes motivos:
 
 * Es posible que también note que la máquina muestra un estado de `Non-compliant` en **Cumplimiento**. Al mismo tiempo, **Análisis de escritorio del agente** informa el agente como `Disconnected`.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 * Ejecute el solucionador de problemas para [Windows](update-agent-issues.md#troubleshoot-offline) o [Linux](update-agent-issues-linux.md#troubleshoot-offline), según el sistema operativo.
 
@@ -180,7 +180,7 @@ Este problema puede deberse a problemas de configuración local o a que la confi
 
 * Es posible que se haya alcanzado una cuota definida en el área de trabajo y que impida el almacenamiento de datos adicional.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 1. Ejecute el solucionador de problemas para [Windows](update-agent-issues.md#troubleshoot-offline) o [Linux](update-agent-issues-linux.md#troubleshoot-offline), según el sistema operativo.
 
@@ -223,7 +223,7 @@ Error details: Unable to register Automation Resource Provider for subscriptions
 
 El proveedor de recursos de Automation no está registrado en la suscripción.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Para registrar el proveedor de recursos de Automation, realice los pasos siguientes en Azure Portal.
 
@@ -340,7 +340,7 @@ Las máquinas aparecen en los resultados de la consulta de azure Resource Graph,
 
 5. Si la máquina no está configurada como Hybrid Runbook Worker del sistema, revise los siguientes métodos para habilitar la máquina usando uno de ellos:
 
-   - Desde la [cuenta de Automation](../update-management/enable-from-automation-account.md) de una o varias máquinas de Azure o que no sean de Azure, incluidos servidores habilitados para Arc.
+   - Desde su [cuenta de Automation](../update-management/enable-from-automation-account.md) para una o más máquinas de Azure o que no sean de Azure, incluidos servidores habilitados para Azure Arc.
 
    - Use el [runbook](../update-management/enable-from-runbook.md) **Enable-AutomationSolution** para automatizar la incorporación de VM de Azure.
 
@@ -372,7 +372,7 @@ Este error puede ocurrir debido a uno de los siguientes motivos:
 
 * La imagen de máquina virtual que se implementará puede provenir de una máquina clonada que no se haya preparado mediante la preparación del sistema (sysprep) con el agente de Log Analytics para Windows instalado.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Para ayudar a determinar el problema exacto con la VM, ejecute la consulta siguiente en el área de trabajo de Log Analytics que está vinculada a su cuenta de Automation.
 
@@ -420,7 +420,7 @@ The client has permission to perform action 'Microsoft.Compute/virtualMachines/w
 
 Este error se produce cuando se crea una implementación de actualización que tiene máquinas virtuales de Azure en otro inquilino que se incluye en una implementación de actualización.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Use la solución alternativa siguiente para programar estos elementos. Puede usar el cmdlet [New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule) con el parámetro `ForUpdateConfiguration` para crear una programación. Después, use el cmdlet [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration) y pase las máquinas del otro inquilino al parámetro `NonAzureComputer`. El ejemplo siguiente muestra cómo hacerlo:
 
@@ -444,7 +444,7 @@ Aunque haya establecido la opción **Reboot Control** (Control de reinicio) en *
 
 Windows Update se puede modificar mediante varias claves del Registro, cualquiera de ellas puede modificar el comportamiento del reinicio.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Revise las claves del Registro enumeradas en [Configuración de actualizaciones automáticas mediante la edición del Registro](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) y [Claves del Registro usadas para administrar reinicios](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) para asegurarse de que las máquinas estén configuradas correctamente.
 
@@ -487,7 +487,7 @@ Al inscribir una máquina Windows en Update Management, puede ver las actualizac
 
 En Windows, las actualizaciones se instalan automáticamente en cuanto están disponibles. Este comportamiento puede producir confusión si no ha programado que una actualización se implemente en la máquina.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 La clave del Registro `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU` se establece de manera predeterminada en un valor de 4: `auto download and install`.
 
@@ -509,7 +509,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 La máquina ya se ha implementado en otra área de trabajo para Update Management.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 1. Siga los pasos de [Las máquinas no se muestran en el portal en Update Management](#nologs) para asegurarse de que la máquina envía notificaciones al área de trabajo adecuada.
 2. Limpie los artefactos en la máquina mediante la [eliminación del grupo Hybrid Runbook](../automation-windows-hrw-install.md#remove-a-hybrid-worker-group) y vuelva a intentarlo.
@@ -540,7 +540,7 @@ Access is denied. (Exception form HRESULT: 0x80070005(E_ACCESSDENIED))
 
 Un proxy, una puerta de enlace o un firewall pueden estar bloqueando la comunicación de red.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Revise la red y asegúrese de que están permitidas las direcciones y los puertos adecuados. Consulte los [requisitos de red](../automation-hybrid-runbook-worker.md#network-planning) para obtener una lista de puertos y direcciones que Update Management necesita y las instancias de Hybrid Runbook Worker.
 
@@ -558,7 +558,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 Hybrid Runbook Worker no pudo generar un certificado autofirmado.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Verifique que la cuenta del sistema tiene acceso de lectura a la carpeta **C:\ProgramData\Microsoft\Crypto\RSA** e inténtelo de nuevo.
 
@@ -589,7 +589,7 @@ Para más información sobre las ventanas de mantenimiento, consulte la [instala
 
 El agente de actualización (Agente de Windows Update en Windows, el administrador de paquetes para la distribución de Linux) no está configurado correctamente. Update Management se basa en el agente de actualización de la máquina para proporcionar las actualizaciones necesarias, el estado de la revisión y los resultados de las revisiones implementadas. Sin esta información, Update Management no puede informar correctamente de las revisiones que son necesarias o que están instaladas.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Intente realizar actualizaciones de forma local en la máquina. Si esta operación falla, suele significar que hay un error de configuración con el agente de actualización.
 
@@ -639,7 +639,7 @@ Causas posibles:
 * La máquina es inaccesible.
 * Las actualizaciones tenían dependencias que no se resolvieron.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Si se producen errores durante una ejecución de actualizaciones después de que se haya iniciado correctamente, [compruebe el trabajo de salida](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) desde la máquina afectada en la ejecución. Puede encontrar mensajes de error específicos procedentes de las máquinas que puede investigar e intentar solucionar. Update Management requiere que el administrador de paquetes tenga un estado correcto para que las implementaciones de actualizaciones se realicen con éxito.
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 07/08/2021
+ms.date: 10/07/2021
 ms.author: lajanuar
-ms.openlocfilehash: 43220ce85bf02919a0ccf069bc9646a16c3a0a26
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: 448b13d1406587c36b729b3258d8ca375a0914ae
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129155360"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706575"
 ---
 # <a name="create-and-use-managed-identity-for-your-form-recognizer-resource"></a>Creación y uso de identidades administradas para el recurso de Form Recognizer
 
@@ -35,7 +35,7 @@ La identidad administrada admite cuentas de Azure Blob Storage de acceso privado
 >
 > * Si piensa analizar los datos de almacenamiento con la [**Herramienta de etiquetado de ejemplo de Form Recognizer (FOTT)**](https://fott-2-1.azurewebsites.net/) debe implementar la herramienta detrás de la red virtual o el firewall.
 >
-> * Las API Analyze [**Receipt**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync), [**Business Card**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync), [**Invoice**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291), [**Identity Document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707) y [**Custom Form**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) pueden extraer datos de un solo documento mediante la publicación de solicitudes como contenido binario sin formato. En estos escenarios, no hay ningún requisito para una credencial de identidad administrada.
+> * Las API Analyze [**Receipt**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync), [**Business Card**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync), [**Invoice**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291), [**ID document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707) y [**Custom Form**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) pueden extraer datos de un solo documento mediante la publicación de solicitudes como contenido binario sin formato. En estos escenarios, no hay ningún requisito para una credencial de identidad administrada.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

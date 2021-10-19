@@ -9,16 +9,16 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
 ms.custom: ''
-ms.openlocfilehash: 4f657e742165bdb87e1cc1c021966dc2e5473e81
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d64d0bead5df1aa8b91ae39a79c1255eaac51f27
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128647740"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706166"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Administración de los costos y el uso de AWS en Azure
 
-Una vez que haya instalado y configurado la integración de informes de uso y costos de AWS para Azure Cost Management, estará listo para empezar a administrar los costos y el uso de AWS. Este artículo le ayudará a comprender cómo usar el análisis de costos y los presupuestos en Cost Management para administrar los costos y el uso de AWS.
+Una vez que haya instalado y configurado la integración de informes de uso y costo de AWS para Cost Management, estará listo para empezar a administrar los costos y el uso de AWS. Este artículo le ayudará a comprender cómo usar el análisis de costos y los presupuestos en Cost Management para administrar los costos y el uso de AWS.
 
 Si no ha configurado aún la integración, consulte [Set up and configure AWS Usage report integration](aws-integration-set-up-configure.md) (Instalación y configuración de la integración de los informes de uso de AWS).
 
@@ -151,7 +151,7 @@ Este error significa que Cost Management no puede llamar a la API de AWS AssumeR
 
 **Código de error:** _AccessDeniedReportDefinitions_
 
-Este error significa que Cost Management no puede ver las definiciones de los informes de Costo y Uso. Este permiso se usa para comprobar que el valor de CUR está definido tal como se espera en Azure Cost Management. Consulte [Crear un informe de uso y costo en AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws).
+Este error significa que Cost Management no puede ver las definiciones de los informes de Costo y Uso. Este permiso se usa para comprobar que el valor de CUR está definido tal como se espera en Cost Management. Consulte [Crear un informe de uso y costo en AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws).
 
 ### <a name="collection-failed-with-access-denied---list-reports"></a>Error de recopilación con acceso denegado: enumerar informes
 

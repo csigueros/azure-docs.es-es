@@ -12,14 +12,14 @@ ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: davidmu
 ms.reviewer: hirsin
-ms.openlocfilehash: 9f8608330d5f74ef2e1262b7c3dff82be746c884
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: db874b82a8d0c966dbe6cdbecd14cf3c5fe521d2
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129059179"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615740"
 ---
-# <a name="disable-auto-acceleration-to-a-federated-idp-during-user-sign-in-with-home-realm-discovery-policy"></a>Deshabilitación de la aceleración automática en un IDP federado durante el inicio de sesión de usuario con la directiva de detección del dominio de inicio
+# <a name="disable-auto-acceleration-sign-in-in-azure-active-directory"></a>Deshabilitación del inicio de sesión de aceleración automática en Azure Active Directory
 
 La [directiva de detección del dominio de inicio](/graph/api/resources/homeRealmDiscoveryPolicy) (HRD) ofrece a los administradores varias maneras de controlar cómo y dónde se autentican sus usuarios. La sección `domainHintPolicy` de la directiva de HRD se usa para ayudar a migrar usuarios federados a credenciales administradas en la nube como [FIDO](../authentication/howto-authentication-passwordless-security-key.md), asegurándose de que siempre visitan la página de inicio de sesión de Azure AD y no se aceleran automáticamente a un IDP federado como consecuencia de las sugerencias de dominio.
 

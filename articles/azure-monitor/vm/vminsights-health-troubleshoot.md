@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/25/2021
-ms.openlocfilehash: a02b7d6fa5ef8369578f89a452df95a50ca34204
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 13de7b055820ac680e8b513198224bcfd6421e11
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123425183"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708863"
 ---
 # <a name="troubleshoot-vm-insights-guest-health-preview"></a>Solución de problemas de estado de invitado de VM Insights (versión preliminar)
 En este artículo se describen los pasos para solucionar problemas que puede seguir cuando tenga problemas con el estado de las instancias de VM Insights.
@@ -62,7 +62,7 @@ Probablemente se deba a que el agente invitado de máquina virtual no ha podido 
 
 ### <a name="upgrade-available-message-is-still-displayed-after-upgrading-guest-health"></a>El mensaje de actualización disponible sigue mostrándose después de actualizar el estado del invitado 
 
-- Compruebe que la máquina virtual se ejecuta en Azure global. Aún no se admiten servidores habilitados para Arc.
+- Compruebe que la máquina virtual se ejecuta en Azure global. Aún no se admiten servidores habilitados para Azure Arc.
 - Compruebe que la región y la versión del sistema operativo de la máquina virtual se admiten tal y como se describe en [Habilitación del estado de invitado de Azure Monitor para VM (versión preliminar)](vminsights-health-enable.md).
 - Compruebe que la extensión de estado del invitado se ha instalado correctamente con el código de salida 0.
 - Compruebe que la extensión del agente de Azure Monitor se ha instalado correctamente.

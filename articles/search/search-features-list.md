@@ -1,5 +1,5 @@
 ---
-title: Introducción a las características
+title: Descripciones de características
 titleSuffix: Azure Cognitive Search
 description: Explore las categorías de características de Azure Cognitive Search.
 manager: nitinme
@@ -7,17 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: f25f67839c0bf859e020859db60027d9a5b2db91
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.date: 10/06/2021
+ms.openlocfilehash: 714dc6ac27f466c98e5c74bc16a9cfa3c5cd30cf
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114729160"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129620286"
 ---
 # <a name="features-of-azure-cognitive-search"></a>Características de Azure Cognitive Search
 
-Azure Cognitive Search proporciona un motor de búsqueda de texto completo, un almacenamiento persistente de índices de búsqueda, inteligencia artificial integrada que se usa durante la indexación para extraer más texto y estructura, API y herramientas. En la tabla siguiente se resumen las características por categoría. Para obtener más información sobre la comparación de Cognitive Search con otras tecnologías de búsqueda, consulte [¿Qué es Azure Cognitive Search?](search-what-is-azure-search.md).
+Azure Cognitive Search proporciona un motor de búsqueda de texto completo, un almacenamiento persistente de índices de búsqueda, inteligencia artificial integrada que se usa durante la indexación para extraer más texto y estructura, API y herramientas. 
+
+En la tabla siguiente se resumen las características por categoría. Para obtener más información sobre la comparación de Cognitive Search con otras tecnologías de búsqueda, consulte [Comparación de las opciones de búsqueda](search-what-is-azure-search.md#compare-search-options).
 
 ## <a name="indexing-features"></a>Características de indexación
 

@@ -4,12 +4,12 @@ description: En este artículo se describe cómo puede detener la supervisión d
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bd13c3e3c3a1aca3253bc43377a15324db2cc4fb
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: b8f548b8e9440804ae6a7ff293c35e7107cfc4c8
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319942"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708920"
 ---
 # <a name="how-to-stop-monitoring-your-hybrid-cluster"></a>Cómo detener la supervisión del clúster híbrido
 
@@ -17,7 +17,7 @@ Después de habilitar la supervisión del clúster de Kubernetes, puede detenerl
 
 - Motor de AKS en Azure y Azure Stack
 - OpenShift versión 4 y versiones posteriores
-- Kubernetes habilitado para Azure Arc (versión preliminar)
+- Kubernetes habilitado para Azure Arc (versión preliminar)
 
 ## <a name="how-to-stop-monitoring-using-helm"></a>Cómo detener la supervisión con Helm
 
@@ -57,7 +57,7 @@ Los pasos siguientes se aplican a los siguientes entornos:
 
 El cambio de configuración puede tardar unos minutos en completarse. Dado que Helm realiza un seguimiento de las versiones incluso después de eliminarlas, es posible auditar el historial de un clúster e incluso recuperar una versión con `helm rollback`.
 
-## <a name="how-to-stop-monitoring-on-arc-enabled-kubernetes"></a>Cómo detener la supervisión en Kubernetes habilitado para Arc
+## <a name="how-to-stop-monitoring-on-azure-arc-enabled-kubernetes"></a>Cómo detener la supervisión en Kubernetes habilitado para Azure Arc
 
 ### <a name="using-powershell"></a>Usar PowerShell
 
@@ -89,7 +89,7 @@ El cambio de configuración puede tardar unos minutos en completarse. Dado que H
 El script *disable-monitoring.ps1* usa el inicio de sesión de dispositivo interactivo. Si prefiere el inicio de sesión no interactivo, puede usar una entidad de servicio existente o crear otra que tenga los permisos necesarios, tal y como se describe en [Requisitos previos](container-insights-enable-arc-enabled-clusters.md#prerequisites). Para usar la entidad de servicio, tendrá que pasar los parámetros $servicePrincipalClientId, $servicePrincipalClientSecret y $tenantId con los valores de la entidad de servicio que ha pensado usar para el script enable-monitoring.ps1.
 
 ```powershell
-$subscriptionId = "<subscription Id of the Azure Arc connected cluster resource>"
+$subscriptionId = "<subscription Id of the Azure Arc-connected cluster resource>"
 $servicePrincipal = New-AzADServicePrincipal -Role Contributor -Scope "/subscriptions/$subscriptionId"
 
 $servicePrincipalClientId =  $servicePrincipal.ApplicationId.ToString()
@@ -142,7 +142,7 @@ Por ejemplo:
 El script *disable-monitoring.sh* de Bash usa el inicio de sesión de dispositivo interactivo. Si prefiere el inicio de sesión no interactivo, puede usar una entidad de servicio existente o crear otra que tenga los permisos necesarios, tal y como se describe en [Requisitos previos](container-insights-enable-arc-enabled-clusters.md#prerequisites). Para usar la entidad de servicio, tendrá que pasar los valores --client-id, --client-secret y --tenant-id de la entidad de servicio que ha pensado usar para el script *enable-monitoring.sh* de Bash.
 
 ```bash
-subscriptionId="<subscription Id of the Azure Arc connected cluster resource>"
+subscriptionId="<subscription Id of the Azure Arc-connected cluster resource>"
 servicePrincipal=$(az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${subscriptionId}")
 servicePrincipalClientId=$(echo $servicePrincipal | jq -r '.appId')
 

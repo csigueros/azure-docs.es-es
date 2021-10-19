@@ -1,5 +1,5 @@
 ---
-title: Aplicación de descuentos de reserva a Azure Synapse Analytics | Microsoft Docs
+title: Aplicación de descuentos de reserva a Azure Synapse Analytics (solo almacenes de datos) | Microsoft Docs
 description: Obtenga información sobre cómo aplicar descuentos de reserva a Azure Synapse Analytics para ayudarle a ahorrar dinero.
 author: yashesvi
 ms.reviewer: yashar
@@ -8,20 +8,20 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 1d1ac2d61b8ef70b63f174431168a169868a989b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4d8560484e085f44553c717b10c18920725be212
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128625209"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710233"
 ---
-# <a name="how-reservation-discounts-apply-to-azure-synapse-analytics"></a>Aplicación de descuentos de reserva a Azure Synapse Analytics
+# <a name="how-reservation-discounts-apply-to-azure-synapse-analytics-data-warehousing-only"></a>Aplicación de descuentos de reserva a Azure Synapse Analytics (solo almacenes de datos)
 
 Después de comprar capacidad reservada de Azure Synapse Analytics, el descuento de reserva se aplica automáticamente a las instancias aprovisionadas que existen en esa región. El descuento de la reserva se aplica al uso que emite el medidor de cDWU de Azure Synapse Analytics. El almacenamiento y las redes se cargan con tarifas de pago por uso.
 
 ## <a name="reservation-discount-application"></a>Aplicación del descuento de reserva
 
-El descuento sobre la capacidad reservada de Azure Synapse Analytics se aplica a los almacenes en ejecución por hora. Si no tiene un almacén implementado durante una hora, se pierde la capacidad reservada para esa hora. No se transfiere.
+El descuento sobre la capacidad reservada de Azure Synapse Analytics se aplica a los almacenes de datos en ejecución por hora. Si no tiene un almacén implementado durante una hora, se pierde la capacidad reservada para esa hora. No se transfiere.
 
 Después de la compra, la reserva que ha adquirido se asocia al uso de Azure Synapse Analytics emitido al ejecutar los almacenes en cualquier momento. Si apaga algunos almacenes, los descuentos de reserva se aplican automáticamente a otros almacenes que coincidan.
 

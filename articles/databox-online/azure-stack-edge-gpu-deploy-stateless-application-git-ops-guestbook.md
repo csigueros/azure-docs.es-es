@@ -1,6 +1,6 @@
 ---
-title: Implementación de una aplicación `Guestbook` PHP en Kubernetes habilitado para Arc en un dispositivo Azure Stack Edge Pro con GPU | Microsoft Docs
-description: Se describe cómo se implementa una aplicación sin estado de `Guestbook` PHP con Redis mediante GitOps en un clúster de Kubernetes habilitado para Arc de un dispositivo Azure Stack Edge Pro.
+title: Implementación de una aplicación `Guestbook` PHP en Kubernetes habilitado para Azure Arc en un dispositivo Azure Stack Edge Pro con GPU | Microsoft Docs
+description: Se describe cómo se implementa una aplicación sin estado `Guestbook` PHP con Redis mediante GitOps en un clúster de Kubernetes habilitado para Azure Arc de un dispositivo Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 4c5a361fafeaed6452481adc9e6eae856828bfda
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: bcf2b8e97a00e693825124e92acd0f551ebfde14
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128635591"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709777"
 ---
-# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Implementación de una aplicación sin estado de `Guestbook` PHP con Redis en un clúster de Kubernetes habilitado para Arc en Azure Stack Edge Pro con GPU
+# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-azure-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Implementación de una aplicación sin estado `Guestbook` PHP con Redis en un clúster de Kubernetes habilitado para Azure Arc en Azure Stack Edge Pro con GPU
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
@@ -25,9 +25,9 @@ En este artículo se muestra cómo compilar e implementar una aplicación web se
 - Varias instancias de Redis replicadas para atender las lecturas
 - Varias instancias de front-end web
 
-La implementación se realiza mediante GitOps en el clúster de Kubernetes habilitado para Arc en un dispositivo Azure Stack Edge Pro. 
+La implementación se realiza mediante GitOps en el clúster de Kubernetes habilitado para Azure Arc en un dispositivo Azure Stack Edge Pro. 
 
-Este procedimiento está dirigido a los usuarios que han examinado las [cargas de trabajo de Kubernetes en un dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-kubernetes-workload-management.md) y están familiarizados con los conceptos de [¿Qué es Kubernetes habilitado para Azure Arc (versión preliminar)?](../azure-arc/kubernetes/overview.md)
+Este procedimiento está dirigido a los usuarios que han examinado las [cargas de trabajo de Kubernetes en un dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-kubernetes-workload-management.md) y están familiarizados con los conceptos de [¿Qué es Kubernetes habilitado para Azure Arc (versión preliminar)?](../azure-arc/kubernetes/overview.md)
 
 > [!NOTE]
 > Este artículo contiene referencias al término *esclavo*, un término que Microsoft ya no usa. Cuando se quite el término del software, se quitará también del artículo.
@@ -83,7 +83,7 @@ Siga estos pasos para configurar el recurso de Azure Arc para implementar una co
 
 1. Vaya a **Configuraciones** y seleccione **+Agregar configuración**.
 
-    ![Captura de pantalla que muestra el clúster de Kubernetes habilitado para Azure Arc con la opción Agregar configuración seleccionada.](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
+    ![Captura de pantalla que muestra el clúster de Kubernetes habilitado para Azure Arc con la opción Agregar configuración seleccionada.](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
 
 1. En **Agregar configuración**, escriba los valores adecuados para los campos y seleccione **Aplicar**.
 
@@ -104,11 +104,11 @@ Siga estos pasos para configurar el recurso de Azure Arc para implementar una co
 
 1. Se inicia la implementación de la configuración y **Operator state** (Estado del operador) aparece como **Pendiente**. 
 
-    ![Captura de pantalla que muestra el clúster de Kubernetes habilitado para Azure Arc en un estado pendiente cuando se actualiza.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
+    ![Captura de pantalla que muestra el clúster de Kubernetes habilitado para Azure Arc en un estado pendiente cuando se actualiza.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
 
 1. La implementación tarda un par de minutos. Una vez finalizada, **Operator state** (Estado del operador) se muestra como **Instalado**.
 
-    ![Captura de pantalla que muestra el clúster de Kubernetes habilitado para Azure Arc en un estado instalado.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
+    ![Captura de pantalla que muestra el clúster de Kubernetes habilitado para Azure Arc en un estado instalado.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
 
 ## <a name="verify-deployment"></a>Comprobación de la implementación
 

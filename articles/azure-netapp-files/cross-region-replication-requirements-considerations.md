@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/04/2021
+ms.date: 10/07/2021
 ms.author: b-juche
-ms.openlocfilehash: b94374d8eaa0efac50989a388686f96d9bae0622
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 6e711f3101426f59aead80b84b88350af86bbd6b
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111537140"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129669195"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>Requisitos y consideraciones del uso de la replicación entre regiones 
 
@@ -33,7 +33,7 @@ Tenga en cuenta los siguientes requisitos y consideraciones [sobre el uso de la 
 * La cuenta de destino debe estar en una región distinta de la región del volumen de origen. También puede seleccionar una cuenta de NetApp existente en otra región.  
 * El volumen de destino de replicación es de solo lectura hasta que [conmute por error a la región de destino](cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume) para permitir la lectura y escritura del volumen de destino. 
 * La replicación de Azure NetApp Files no admite actualmente varias suscripciones; todas las replicaciones deben realizarse en una sola suscripción.
-* Puede configurar un máximo de cinco volúmenes para la replicación dentro de una sola suscripción por región. Puede abrir una incidencia de soporte técnico para solicitar un aumento de la cuota predeterminada de cinco volúmenes de destino de replicación (por suscripción en una región). 
+* Consulte [límites de recursos](azure-netapp-files-resource-limits.md) para obtener el número máximo de volúmenes de destino de replicación entre regiones. Puede abrir una incidencia de soporte técnico para [solicitar un aumento del límite](azure-netapp-files-resource-limits.md#request-limit-increase) de la cuota predeterminada de volúmenes de destino de replicación (por suscripción en una región).
 * Pueden pasar hasta cinco minutos hasta que la interfaz refleje una instantánea recién agregada en el volumen de origen.  
 * No se admiten las topologías en cascada y de distribución ramificada de entrada y salida.
 * En este momento no se admite la configuración de la replicación de volúmenes para los volúmenes de origen creados a partir de una instantánea.

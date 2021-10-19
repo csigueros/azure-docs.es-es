@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: a188812751552532ae1536529b12e54d55a24a2b
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f66591f1f6fb20951a956e166645d63129f209b7
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "126056659"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129638221"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemas operativos y controladores compatibles
 
 ### <a name="nvidia-tesla-cuda-drivers"></a>Controladores NVIDIA Tesla (CUDA)
 
-Los controladores NVIDIA Tesla (CUDA) para máquinas virtuales de las series NC, NCv2, NCv3, NCasT4_v3, ND y NDv2 (opcionales para la serie NV) solo se admiten en las distribuciones de sistemas operativos enumeradas en la tabla siguiente. Los vínculos de descarga de controladores están actualizados en el momento de la publicación. Para ver los controladores más recientes, visite el sitio web de [NVIDIA](https://www.nvidia.com/).
+Los controladores NVIDIA Tesla (CUDA) para VM de las series NC, NCv2, NCv3, NCasT4_v3, ND y NDv2 (opcionales para la serie NV) se prueban en los sistemas operativos enumeradas en la tabla siguiente. El controlador CUDA es genérico y no específico de Azure. Para ver los controladores más recientes, visite el sitio web de [NVIDIA](https://www.nvidia.com/).
 
 > [!TIP]
 > Como alternativa a la instalación manual de controladores de CUDA en una máquina virtual de Windows Server, puede implementar una imagen de [Data Science Virtual Machine](../articles/machine-learning/data-science-virtual-machine/overview.md) de Azure. Las ediciones de DSVM para Windows Server 2016 preinstalan los controladores NVIDIA CUDA, la biblioteca CUDA Deep Neural Network Library y otras herramientas.

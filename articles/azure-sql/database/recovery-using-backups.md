@@ -12,12 +12,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: mathoma, danil
 ms.date: 11/13/2020
-ms.openlocfilehash: e1a6887efc2b0220ae92b372c2c9fd2ff91cc8fa
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d313f521a13ae49f8701614d1b1331d34960ae77
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121722975"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619488"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Recuperación de una base de datos de Azure SQL Database o Instancia administrada de Azure SQL mediante copias de seguridad automatizadas
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -69,6 +69,9 @@ Puede restaurar una base de datos independiente, agrupada o de instancia a un mo
 Una vez completada, la restauración creará una nueva base de datos en el mismo servidor que la base de datos original. La base de datos restaurada se cobra según la tarifa normal en función de su nivel de servicio y tamaño de proceso. No se aplican cargos hasta que finaliza la restauración de la base de datos.
 
 Por lo general, una base de datos se restaura a un punto anterior para fines de recuperación. Puede tratar la base de datos restaurada como sustituta de la base de datos original o usarla como origen de datos para actualizar la base de datos original.
+
+> [!IMPORTANT]
+> Solo puede ejecutar la restauración en el mismo servidor, ya que la restauración entre servidores no es compatible con la restauración a un momento dado.
 
 - **Sustituto de base de datos**
 

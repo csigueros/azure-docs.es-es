@@ -4,16 +4,16 @@ description: En este artículo se describe cómo actualizar Container Insights p
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cff5933db1d74e9853120a07444e399005b2e498
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0d48ae48c667422b68c39570eb0003ff2e648267
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128620832"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706872"
 ---
 # <a name="how-to-update-container-insights-to-enable-metrics"></a>Procedimiento para actualizar Container Insights para habilitar métricas
 
-Container Insights presenta compatibilidad para recopilar métricas de pods y nodos de clústeres de Kubernetes habilitados para Azure Kubernetes Services (AKS) y Azure Arc, y escribirlos en el almacén de métricas de Azure Monitor. La finalidad de este cambio es presentar los cálculos de agregado (Avg, Count, Max, Min, Sum) de mejor forma y más oportuna en los gráficos de rendimiento, así como ofrecer compatibilidad con el anclaje de gráficos de rendimiento en los paneles de Azure Portal y compatibilidad con alertas de métricas.
+Container Insights presenta compatibilidad para recopilar métricas de pods y nodos de clústeres de Kubernetes habilitados para Azure Arc y Azure Kubernetes Services (AKS), así como para escribirlos en el almacén de métricas de Azure Monitor. La finalidad de este cambio es presentar los cálculos de agregado (Avg, Count, Max, Min, Sum) de mejor forma y más oportuna en los gráficos de rendimiento, así como ofrecer compatibilidad con el anclaje de gráficos de rendimiento en los paneles de Azure Portal y compatibilidad con alertas de métricas.
 
 >[!NOTE]
 >Esta característica no admite actualmente clústeres de Red Hat OpenShift en Azure.
@@ -23,17 +23,17 @@ Las siguientes métricas están habilitadas como parte de esta característica:
 
 | Espacio de nombres de métricas | Métrica | Descripción |
 |------------------|--------|-------------|
-| Insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount, diskUsedPercentage, | Como métricas de *nodo* incluyen *host* como dimensión. También incluyen el<br> nombre del nodo como valor de la dimensión *host*. |
+| Insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, **cpuUsageAllocatablePercentage**, **memoryWorkingSetAllocatablePercentage**, **memoryRssAllocatablePercentage**, nodesCount, diskUsedPercentage, | Como métricas de *nodo* incluyen *host* como dimensión. También incluyen el<br> nombre del nodo como valor de la dimensión *host*. |
 | Insights.container/pods | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | Como métricas de *pod*, incluyen las siguientes dimensiones: ControllerName, espacio de nombres de Kubernetes, nombre y fase. |
-| Insights.container/containers | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage | |
-| Insights.container/persistentvolumes | pvUsageExceededPercentage | |
+| Insights.container/containers | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage, **cpuThresholdViolated**, **memoryRssThresholdViolated**, **memoryWorkingSetThresholdViolated** | |
+| Insights.container/persistentvolumes | pvUsageExceededPercentage, **pvUsageThresholdViolated** | |
 
-Para admitir estas nuevas capacidades, en la versión se incluye un nuevo agente en contenedores, versión **microsoft/oms:ciprod05262020** para AKS y versión **microsoft/oms:ciprod09252020** para clústeres de Kubernetes habilitados para Azure Arc. Las nuevas implementaciones de AKS incluyen este cambio de configuración y estas funcionalidades de forma automática. La actualización del clúster para admitir esta funcionalidad se puede realizar desde Azure Portal o Azure PowerShell, o con la CLI de Azure. Con Azure PowerShell y la CLI. Se puede habilitar en cada clúster o en todos los clústeres de la suscripción.
+Para admitir estas nuevas capacidades, en la versión se incluye un nuevo agente en contenedores, versión **microsoft/oms:ciprod05262020** para AKS y versión **microsoft/oms:ciprod09252020** para clústeres de Kubernetes habilitados para Azure Arc. Las nuevas implementaciones de AKS incluyen este cambio de configuración y estas funcionalidades de forma automática. La actualización del clúster para admitir esta funcionalidad se puede realizar desde Azure Portal o Azure PowerShell, o con la CLI de Azure. Con Azure PowerShell y la CLI. Se puede habilitar en cada clúster o en todos los clústeres de la suscripción.
 
-Cada proceso asigna el rol **Publicador de métricas de supervisión** al MSI asignado del usuario o entidad de servicio del clúster para el complemento de supervisión de modo que los datos recopilados por el agente se puedan publicar en el recurso de los clústeres. El rol Publicador de métricas de supervisión tiene permiso únicamente para insertar métricas en el recurso; no puede modificar ningún estado, actualizar el recurso ni leer datos. Para más información sobre este rol, vea el [rol del publicador de métricas de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher). El requisito de rol Publicador de métricas de supervisión no es aplicable a clústeres de Kubernetes habilitados para Azure Arc.
+Cada proceso asigna el rol **Publicador de métricas de supervisión** al MSI asignado del usuario o entidad de servicio del clúster para el complemento de supervisión de modo que los datos recopilados por el agente se puedan publicar en el recurso de los clústeres. El rol Publicador de métricas de supervisión tiene permiso únicamente para insertar métricas en el recurso; no puede modificar ningún estado, actualizar el recurso ni leer datos. Para más información sobre este rol, vea el [rol del publicador de métricas de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher). El requisito de rol Publicador de métricas de supervisión no es aplicable a clústeres de Kubernetes habilitados para Azure Arc.
 
 > [!IMPORTANT]
-> La actualización no es necesaria para clústeres de Kubernetes habilitados para Azure Arc, ya que estos ya tienen la versión mínima necesaria del agente. La asignación del rol **Publicador de métricas de supervisión** a la entidad de servicio del clúster o a la MSI asignada por el usuario para el complemento de supervisión se realiza automáticamente al usar Azure Portal, Azure PowerShell o CLI de Azure.
+> La actualización no es necesaria para clústeres de Kubernetes habilitados para Azure Arc, ya que estos ya tienen la versión mínima necesaria del agente. La asignación del rol **Publicador de métricas de supervisión** a la entidad de servicio del clúster o a la MSI asignada por el usuario para el complemento de supervisión se realiza automáticamente al usar Azure Portal, Azure PowerShell o CLI de Azure.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -41,7 +41,7 @@ Antes de actualizar el clúster, confirme lo siguiente:
 
 * Las métricas personalizadas solo están disponibles en un subconjunto de regiones de Azure. [Aquí](../essentials/metrics-custom-overview.md#supported-regions) se documenta una lista de regiones admitidas.
 
-* Es miembro del rol **[Propietario](../../role-based-access-control/built-in-roles.md#owner)** en el recurso de clúster de AKS para habilitar la recopilación de métricas de rendimiento personalizadas de nodos y pods. Este requisito no se aplica a clústeres de Kubernetes habilitados para Azure Arc.
+* Es miembro del rol **[Propietario](../../role-based-access-control/built-in-roles.md#owner)** en el recurso de clúster de AKS para habilitar la recopilación de métricas de rendimiento personalizadas de nodos y pods. Este requisito no se aplica a clústeres de Kubernetes habilitados para Azure Arc.
 
 Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe ejecutar la versión 2.0.59 de la CLI de Azure, o cualquier versión posterior. Para identificar la versión, ejecute `az --version`. Si necesita instalar o actualizar la CLI de Azure, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 

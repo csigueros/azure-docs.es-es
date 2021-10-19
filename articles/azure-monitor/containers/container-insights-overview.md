@@ -3,12 +3,12 @@ title: Introducción a Container Insights | Microsoft Docs
 description: En este artículo se describe Container Insights, que supervisa la solución AKS Container Insights y el valor que entrega mediante la supervisión del estado de los clústeres de AKS y Container Instances en Azure.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 56222eb90534537df237ec2c5d29a5969f150e60
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b1e7b3e6d3c72dbc65169c48f1d12de6ca712a45
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738493"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708907"
 ---
 # <a name="container-insights-overview"></a>Introducción a Container Insights
 
@@ -19,7 +19,7 @@ Container Insights es una característica diseñada para supervisar el rendimien
 - [Azure Container Instances](../../container-instances/container-instances-overview.md)
 - Clústeres de Kubernetes autoadministrados que se hospedan en [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) o en el entorno local
 - [Red Hat OpenShift en Azure](../../openshift/intro-openshift.md)
-- [Kubernetes habilitado para Azure Arc](../../azure-arc/kubernetes/overview.md) (versión preliminar)
+- [Kubernetes habilitado para Azure Arc](../../azure-arc/kubernetes/overview.md) (versión preliminar)
 
 Container Insights es compatible con los clústeres que ejecutan los sistemas operativos Linux y Windows Server 2019. Los entornos de ejecución de contenedor que admite son Docker, Moby y cualquiera compatible con CRI, como CRI-O y ContainerD.
 
@@ -47,7 +47,7 @@ Container Insights ofrece una experiencia de supervisión completa con diferente
     >La compatibilidad con Red Hat OpenShift en Azure es una característica que se encuentra en versión preliminar pública en este momento.
     >
 
-* Supervise las cargas de trabajo de contenedor [implementadas en Kubernetes habilitado para Azure Arc (versión preliminar)](../../azure-arc/kubernetes/overview.md).
+* Supervise las cargas de trabajo de contenedor [implementadas en Kubernetes habilitado para Azure Arc (versión preliminar)](../../azure-arc/kubernetes/overview.md).
 
 Estas son las principales diferencias al supervisar un clúster de Windows Server en comparación con un clúster de Linux:
 

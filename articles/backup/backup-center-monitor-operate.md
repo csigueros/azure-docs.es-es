@@ -3,12 +3,12 @@ title: Supervisión y funcionamiento de copias de seguridad con el Centro de cop
 description: En este artículo se explica cómo supervisar y usar las copias de seguridad a gran escala con el Centro de copias de seguridad.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 86b81110d6abeb1425e18ee45dfe65a96f69687d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cab9e710cfe4bf43b0d225d64e8f64b16c09e3a6
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102506132"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659856"
 ---
 # <a name="monitor-and-operate-backups-using-backup-center"></a>Supervisión y funcionamiento de copias de seguridad con el Centro de copias de seguridad
 
@@ -88,6 +88,14 @@ El Centro de copias de seguridad permite ver y editar la información clave de c
 Al seleccionar el elemento de menú **Directivas de copia de seguridad**, podrá ver todas las directivas que ha creado en el conjunto de copias de seguridad. Puede filtrar la lista por suscripción de almacén, grupo de recursos, tipo de origen de datos y almacén. Al hacer clic con el botón derecho en un elemento de la cuadrícula, puede ver los elementos asociados a esa directiva, editarla o incluso eliminarla, en caso de ser necesario.
 
 ![Centro de copias de seguridad: directivas](./media/backup-center-monitor-operate/backup-center-policies.png)
+
+
+## <a name="resource-centric-views"></a>Vistas centralizadas de recursos
+
+Si su organización hace una copia de seguridad de varios recursos en un almacén común y cada propietario de recursos solo quiere ver información de copia de seguridad de los recursos que posee, puede usar la vista centralizada de recursos en el Centro de Backup. Para usar la vista centralizada de recursos, active la casilla "Mostrar solo información sobre los orígenes de datos a los que tengo acceso". Actualmente, esta opción es compatible con las siguientes pestañas: **Información general**, **Instancias de Backup**, **Trabajos** y **Alertas**. Las cargas de trabajo admitidas son VM de Azure, SQL en VM de Azure, SAP HANA en VM de Azure, blobs de Azure y discos de Azure.
+
+> [!NOTE]
+> Los usuarios seguirán necesitando tener los permisos de RBAC en el almacén, incluso si usan la vista centralizada de recursos. El propósito de esta vista es que los usuarios individuales eviten ver la información de los recursos (por ejemplo, las VM ) que no poseen.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

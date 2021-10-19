@@ -6,20 +6,20 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: 4165768837f590690a39226b983b4d32361957e3
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.date: 10/06/2021
+ms.openlocfilehash: 5ea2c908cce37e19023e27b0e3e4cc76f778b7f0
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114730565"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129620172"
 ---
-# <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Configuración del almacenamiento en caché para el enriquecimiento en Azure Cognitive Search
+# <a name="configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Configuración del almacenamiento en caché para el enriquecimiento incremental en Azure Cognitive Search
 
 > [!IMPORTANT] 
 > Esta característica se encuentra en versión preliminar pública en los [Términos de uso complementarios](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). La [API REST de versión preliminar](/rest/api/searchservice/index-preview) admite esta característica.
 
-En este artículo se muestra cómo agregar almacenamiento en caché a una canalización de enriquecimiento para que pueda modificar incrementalmente los pasos sin tener que volver a compilar cada vez. De forma predeterminada, un conjunto de aptitudes no tiene estado y el cambio de cualquier parte de su composición requiere una nueva ejecución completa del indexador. Con el enriquecimiento incremental, el indexador puede determinar qué partes del árbol del documento deben actualizarse en función de los cambios detectados en las definiciones del conjunto de aptitudes o el indexador. La salida procesada existente se conserva y se reutiliza siempre que sea posible. 
+En este artículo se explica cómo agregar almacenamiento en caché a una canalización de enriquecimiento para que pueda modificar incrementalmente los pasos sin tener que volver a compilarlo todo cada vez. De forma predeterminada, un conjunto de aptitudes no tiene estado y el cambio de cualquier parte de su composición requiere una nueva ejecución completa del indexador. Con el enriquecimiento incremental, el indexador puede determinar qué partes del árbol del documento deben actualizarse en función de los cambios detectados en las definiciones del conjunto de aptitudes o el indexador. La salida procesada existente se conserva y se reutiliza siempre que sea posible. 
 
 El contenido almacenado en caché se coloca en Azure Storage con la información de la cuenta proporcionada. El contenedor, denominado `ms-az-search-indexercache-<alpha-numerc-string>`, se crea al ejecutar el indexador. Debe considerarse como un componente interno administrado por el servicio de búsqueda y no debe modificarse.
 
@@ -29,12 +29,9 @@ Si no está familiarizado con la configuración de indexadores, comience con la 
 
 Si tiene un indexador existente que ya tiene un conjunto de aptitudes, siga los pasos de esta sección para agregar el almacenamiento en caché. Como operación única, tendrá que restablecer y volver a ejecutar el indexador en su totalidad para que el procesamiento incremental pueda surtir efecto.
 
-> [!TIP]
-> Como prueba de concepto, puede ejecutar este [inicio rápido del portal](cognitive-search-quickstart-blob.md) para crear los objetos necesarios y, a continuación, usar Postman o el portal para realizar las actualizaciones. Es posible que desee adjuntar un recurso de Cognitive Services facturable. Al ejecutar el indexador varias veces, se agotará la asignación diaria gratuita para poder completar todos los pasos.
-
 ### <a name="step-1-get-the-indexer-definition"></a>Paso 1: Obtención de la definición del indexador
 
-Comience con un indexador válido y existente que tenga estos componentes: origen de datos, conjunto de aptitudes, índice. El indexador debe ser ejecutable. 
+Comience con un indexador válido y existente que tenga estos componentes: origen de datos, conjunto de aptitudes, índice. El indexador debe ser ejecutable.
 
 Con un cliente de API, construya una [solicitud GET Indexer](/rest/api/searchservice/get-indexer) para obtener la configuración actual del indexador. Cuando se usa la versión preliminar de API para realizar una solicitud GET Indexer, se agrega a las definiciones una propiedad `cache` establecida en NULL.
 

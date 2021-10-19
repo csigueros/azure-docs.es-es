@@ -9,12 +9,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sashan, moslake
 ms.date: 05/18/2021
-ms.openlocfilehash: 16782538918c0477b969f95b7730b38221f97f82
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 2fa7a60b4f0cbc7e72304c1b01444bf9a9f6a842
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111415217"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667637"
 ---
 # <a name="azure-sql-managed-instance---compute-hardware-in-the-vcore-service-tier"></a>Azure SQL Managed Instance: hardware de proceso en el nivel de servicio de núcleo virtual
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -35,9 +35,9 @@ Entre las opciones de nivel de servicio del modelo de compra de núcleo virtual 
 |**Caso de uso**|**Uso general**|**Crítico para la empresa**|
 |---|---|---|
 |Más adecuado para|La mayoría de las cargas de trabajo empresariales. Ofrece opciones de proceso y almacenamiento equilibradas y escalables pensando en el presupuesto. |Ofrece a las aplicaciones empresariales la mayor resistencia a los errores mediante el uso de varias réplicas aisladas y proporciona el mayor rendimiento de E/S.|
-|Storage|Usa el almacenamiento remoto. 32 GB - 8 TB |Usa almacenamiento local de SSD. 32 GB - 4 TB |
+|Storage|Usa el almacenamiento remoto. 32 GB - 8 TB </br> 16 TB (versión preliminar), según el número de núcleos; solo Gen5 |Usa almacenamiento local de SSD. 32 GB - 4 TB |
 |IOPS y rendimiento (aproximado)|consulte [Introducción a los límites de recursos de Instancia administrada de Azure SQL](../managed-instance/resource-limits.md#service-tier-characteristics).|consulte [Introducción a los límites de recursos de Instancia administrada de Azure SQL](../managed-instance/resource-limits.md#service-tier-characteristics).|
-|Disponibilidad|1 réplica, sin réplicas de escalado de lectura|3 réplicas, 1 [réplica de escalado de lectura](../database/read-scale-out.md),<br/>Alta disponibilidad (HA) con redundancia de zona|
+|Disponibilidad|1 réplica, sin réplicas de escalado de lectura|4 réplicas, 1 [réplica de escalado de lectura](../database/read-scale-out.md),<br/> 2 réplicas de alta disponibilidad (HA)|
 |Copias de seguridad|[Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)](../../storage/common/geo-redundant-design.md), de 1 a 35 días (7 días de forma predeterminada)|[RA-GRS](../../storage/common/geo-redundant-design.md), de 1 a 35 días (7 días de forma predeterminada)|
 |En memoria|No compatible|Compatible|
 ||||

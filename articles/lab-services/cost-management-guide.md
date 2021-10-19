@@ -5,12 +5,12 @@ author: rbest
 ms.author: rbest
 ms.date: 08/16/2020
 ms.topic: article
-ms.openlocfilehash: 29f6be5319c5a142ad3ea0d73deb2f95d8cb0d7a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 05613d4e019d5cef18130dfd39b74c1da6b9768c
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94659733"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660445"
 ---
 # <a name="cost-management-for-azure-lab-services"></a>Administración de costos de Azure Lab Services
 
@@ -18,12 +18,12 @@ Para Azure Lab Services, la administración de costos se puede dividir en dos á
 
 ## <a name="estimate-the-lab-costs"></a>Estimación de los costos del laboratorio
 
-Cada panel de laboratorio tiene una sección **Costos y facturación** que presenta una estimación aproximada de lo que va a costar el laboratorio ese mes. La estimación de costos resume el uso por horas con el número máximo de usuarios por el costo estimado por hora. Para obtener la estimación más precisa, configure el laboratorio, incluyendo la [programación](how-to-create-schedules.md). El panel reflejará el costo estimado. 
+Cada panel de laboratorio tiene una sección **Costos y facturación** que presenta una estimación aproximada de lo que va a costar el laboratorio ese mes. La estimación de costos resume el uso por horas con el número máximo de usuarios por el costo estimado por hora. Para obtener la estimación más precisa, configure el laboratorio, incluyendo la [programación](how-to-create-schedules.md). El panel reflejará el costo estimado.
 
 Esta estimación podría no mostrar todos los costos posibles. No se incluyen algunos recursos:
 
-- El costo de preparación de la plantilla. La cantidad de tiempo necesaria para crear la plantilla puede variar considerablemente. El costo de ejecutar la plantilla es el mismo que el costo de laboratorio general por hora. 
-- Cualquier costo de la [galería de imágenes compartidas](how-to-use-shared-image-gallery.md), ya que una galería puede compartirse entre varios laboratorios. 
+- El costo de preparación de la plantilla. La cantidad de tiempo necesaria para crear la plantilla puede variar considerablemente. El costo de ejecutar la plantilla es el mismo que el costo de laboratorio general por hora.
+- Cualquier costo de la [galería de imágenes compartidas](how-to-use-shared-image-gallery.md), ya que una galería puede compartirse entre varios laboratorios.
 - Horas utilizadas cuando el creador del laboratorio inicia una máquina virtual (VM).
 
 > [!div class="mx-imgBorder"]
@@ -31,7 +31,7 @@ Esta estimación podría no mostrar todos los costos posibles. No se incluyen al
 
 ## <a name="analyze-the-previous-months-usage"></a>Análisis del uso del mes anterior
 
-El análisis de costos sirve para revisar el uso del mes anterior a fin de ayudarle a determinar cualquier ajuste necesario para el laboratorio. Puede encontrar el desglose de los costos anteriores en el [análisis del costo de la suscripción](../cost-management-billing/costs/quick-acm-cost-analysis.md). En Azure Portal, escriba **Suscripciones** en el campo de búsqueda y seleccione la opción **Suscripciones**. 
+El análisis de costos sirve para revisar el uso del mes anterior a fin de ayudarle a determinar cualquier ajuste necesario para el laboratorio. Puede encontrar el desglose de los costos anteriores en el [análisis del costo de la suscripción](../cost-management-billing/costs/quick-acm-cost-analysis.md). En Azure Portal, escriba **Suscripciones** en el campo de búsqueda y seleccione la opción **Suscripciones**.
 
 > [!div class="mx-imgBorder"]
 > ![Captura de pantalla que muestra el cuadro de búsqueda y la opción Suscripciones.](./media/cost-management-guide/subscription-search.png)
@@ -57,7 +57,7 @@ La siguiente captura de pantalla muestra un ejemplo de análisis de costos.
 > [!div class="mx-imgBorder"]
 > ![Captura de pantalla que muestra un análisis de costos de ejemplo para una suscripción.](./media/cost-management-guide/cost-analysis.png)
 
-Hay seis columnas de forma predeterminada: **Recurso**, **Tipo de recurso**, **Ubicación**, **Nombre del grupo de recursos**, **Etiquetas** y **Costo**. La columna **Recurso** contiene la información sobre la cuenta de laboratorio, el nombre del laboratorio y la máquina virtual. Las filas que muestran la cuenta de laboratorio, el nombre del laboratorio y el valor predeterminado (segunda y tercera filas) son el costo del laboratorio. Las máquinas virtuales usadas tienen un costo que puede ver para las filas que muestran la cuenta de laboratorio, el nombre del laboratorio, el valor predeterminado y el nombre de la máquina virtual. 
+Hay seis columnas de forma predeterminada: **Recurso**, **Tipo de recurso**, **Ubicación**, **Nombre del grupo de recursos**, **Etiquetas** y **Costo**. La columna **Recurso** contiene la información sobre la cuenta de laboratorio, el nombre del laboratorio y la máquina virtual. Las filas que muestran la cuenta de laboratorio, el nombre del laboratorio y el valor predeterminado (segunda y tercera filas) son el costo del laboratorio. Las máquinas virtuales usadas tienen un costo que puede ver para las filas que muestran la cuenta de laboratorio, el nombre del laboratorio, el valor predeterminado y el nombre de la máquina virtual.
 
 En este ejemplo, al sumar la primera fila y la segunda (ambas comienzan por **aaalab/dockerlab**), se obtiene el costo total del laboratorio "dockerlab" de la cuenta de laboratorio "aaalab".
 
@@ -68,7 +68,7 @@ Para obtener el costo total de la galería de imágenes, cambie el tipo de recur
 
 ## <a name="separate-the-costs"></a>Separación de los costos
 
-Algunas universidades han usado la cuenta de laboratorio y el grupo de recursos como formas de separar las clases. Cada clase tiene su propia cuenta de laboratorio y su propio grupo de recursos. 
+Algunas universidades han usado la cuenta de laboratorio y el grupo de recursos como formas de separar las clases. Cada clase tiene su propia cuenta de laboratorio y su propio grupo de recursos.
 
 En el panel de análisis de costos, agregue un filtro basado en el nombre del grupo de recursos con el nombre del grupo de recursos adecuado para la clase. Con ello, solo estarán visibles los costos de esa clase. Esto permite una demarcación más clara entre las clases al visualizar los costos. Puede usar la característica de [exportación programada](../cost-management-billing/costs/tutorial-export-acm-data.md) del análisis de costos para descargar los costos de cada clase en archivos independientes.
 
@@ -83,70 +83,70 @@ Las características de apagado automático le permiten evitar el malgasto de ho
 > [!div class="mx-imgBorder"]
 > ![Captura de pantalla que muestra los tres valores de apagado automático.](./media/cost-management-guide/auto-shutdown-disconnect.png)
 
-Puede configurar estos valores tanto a nivel de cuenta de laboratorio como a nivel de laboratorio. Si los habilita a nivel de la cuenta de laboratorio, se aplican a todos los laboratorios que se encuentran en la cuenta de laboratorio. En todas las nuevas cuentas de laboratorio, esta configuración está activada de forma predeterminada. 
+Puede configurar estos valores tanto a nivel de cuenta de laboratorio como a nivel de laboratorio. Si los habilita a nivel de la cuenta de laboratorio, se aplican a todos los laboratorios que se encuentran en la cuenta de laboratorio. En todas las nuevas cuentas de laboratorio, esta configuración está activada de forma predeterminada.
 
 #### <a name="automatically-disconnect-users-from-virtual-machines-that-the-os-deems-idle"></a>Desconexión automática de los usuarios de las máquinas virtuales que el sistema operativo considere inactivas
 
 > [!NOTE]
 > Esta opción solo está disponible para las máquinas virtuales Windows.
 
-Cuando la opción **Desconectar a los usuarios cuando las máquinas virtuales estén inactivas** está activada, se desconecta al usuario de las máquinas del laboratorio cuando el sistema operativo Windows considera que la sesión está inactiva (lo que incluye las máquinas virtuales de plantilla). La [definición de inactividad del sistema operativo Windows](/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) usa dos criterios: 
+Cuando la opción **Desconectar a los usuarios cuando las máquinas virtuales estén inactivas** está activada, se desconecta al usuario de las máquinas del laboratorio cuando el sistema operativo Windows considera que la sesión está inactiva (lo que incluye las máquinas virtuales de plantilla). La [definición de inactividad del sistema operativo Windows](/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) usa dos criterios:
 
-* Ausencia de usuario: no hay ninguna entrada del teclado ni del mouse.
-* Ausencia de consumo de recursos: Todos los procesadores y todos los discos han estado inactivos durante un cierto porcentaje de tiempo.
+- Ausencia de usuario: no hay ninguna entrada del teclado ni del mouse.
+- Ausencia de consumo de recursos: Todos los procesadores y todos los discos han estado inactivos durante un cierto porcentaje de tiempo.
 
-Los usuarios verán un mensaje similar al siguiente en la máquina virtual antes de que se desconecten: 
+Los usuarios verán un mensaje similar al siguiente en la máquina virtual antes de que se desconecten:
 
 > [!div class="mx-imgBorder"]
 > ![Captura de pantalla que muestra un mensaje de advertencia de que una sesión ha pasado el tiempo límite de inactividad y se desconectará.](./media/cost-management-guide/idle-timer-expired.png)
- 
-La máquina virtual sigue en ejecución cuando se desconecta al usuario. Si el usuario inicia sesión para conectarse de nuevo a la máquina virtual, las ventanas o los archivos que se habían abierto o el trabajo sin guardar antes de la desconexión seguirán estando ahí. En este estado, dado que la máquina virtual está en ejecución, sigue contando como activa y acumula costos. 
- 
+
+La máquina virtual sigue en ejecución cuando se desconecta al usuario. Si el usuario inicia sesión para conectarse de nuevo a la máquina virtual, las ventanas o los archivos que se habían abierto o el trabajo sin guardar antes de la desconexión seguirán estando ahí. En este estado, dado que la máquina virtual está en ejecución, sigue contando como activa y acumula costos.
+
 Para apagar automáticamente las máquinas virtuales Windows inactivas que están desconectadas, use la combinación de los valores **Desconectar a los usuarios cuando las máquinas virtuales estén inactivas** y **Apagar las máquinas virtuales cuando los usuarios se desconecten**.
 
 Por ejemplo, supongamos que configura las opciones de la siguiente manera:
- 
-* **Desconectar a los usuarios cuando las máquinas virtuales estén inactivas**: 15 minutos después de detectarse el estado de inactividad.
-* **Apagar las máquinas virtuales cuando los usuarios se desconecten**: 5 minutos después de que el usuario se desconecte.
- 
-Las máquinas virtuales Windows se apagarán automáticamente 20 minutos después de que el usuario deje de usarlas. 
- 
+
+- **Desconectar a los usuarios cuando las máquinas virtuales estén inactivas**: 15 minutos después de detectarse el estado de inactividad.
+- **Apagar las máquinas virtuales cuando los usuarios se desconecten**: 5 minutos después de que el usuario se desconecte.
+
+Las máquinas virtuales Windows se apagarán automáticamente 20 minutos después de que el usuario deje de usarlas.
+
 > [!div class="mx-imgBorder"]
 > ![Diagrama que muestra la combinación de valores que resulta en el cierre automático de la máquina virtual.](./media/cost-management-guide/vm-idle-diagram.png)
 
 #### <a name="automatically-shut-down-virtual-machines-when-users-disconnect"></a>Apagado automático de las máquinas virtuales cuando los usuarios se desconecten
- 
+
 El valor **Apagar las máquinas virtuales cuando los usuarios se desconectan** admite máquinas virtuales Windows y Linux. Cuando esta opción está activada, el apagado automático se realizará cuando:
- 
-* En Windows, la conexión a Escritorio remoto (RDP) está desconectada.
-* En Linux, la conexión SSH está desconectada.
- 
-> [!NOTE]
-> Solo se admiten [distribuciones y versiones específicas de Linux](../virtual-machines/extensions/diagnostics-linux.md#supported-linux-distributions).
- 
-Puede especificar el tiempo que las máquinas virtuales deben esperar a que el usuario vuelva a conectarse antes de que se apaguen automáticamente. 
+
+- En Windows, la conexión a Escritorio remoto (RDP) está desconectada.
+- En Linux, la conexión SSH está desconectada.
+
+> [!IMPORTANT]
+> Solo se admiten [distribuciones y versiones específicas de Linux](../virtual-machines/extensions/diagnostics-linux.md#supported-linux-distributions).  La configuración de apagado no es compatible con la imagen de [Data Science Virtual Machine imagen de Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804).
+
+Puede especificar el tiempo que las máquinas virtuales deben esperar a que el usuario vuelva a conectarse antes de que se apaguen automáticamente.
 
 #### <a name="automatically-shut-down-virtual-machines-that-are-started-but-users-dont-connect"></a>Apagado automático de las máquinas virtuales que se han iniciado, pero a las que los usuarios no se conectan
- 
+
 En un laboratorio, un usuario puede iniciar una máquina virtual pero no llegar a conectarse a ella. Por ejemplo:
- 
-* Una programación en el laboratorio inicia todas las máquinas virtuales de la sesión de una clase, pero algunos alumnos no aparecen o no se conectan a sus máquinas. 
-* Un usuario inicia una máquina virtual, pero se olvida de conectarse. 
- 
-El valor **Apagar las máquinas virtuales cuando los usuarios no se conecten** detectará estos casos y apagará automáticamente las máquinas virtuales. 
- 
+
+- Una programación en el laboratorio inicia todas las máquinas virtuales de la sesión de una clase, pero algunos alumnos no aparecen o no se conectan a sus máquinas.
+- Un usuario inicia una máquina virtual, pero se olvida de conectarse.
+
+El valor **Apagar las máquinas virtuales cuando los usuarios no se conecten** detectará estos casos y apagará automáticamente las máquinas virtuales.
+
 Para información sobre cómo configurar y habilitar el apagado automático de las máquinas virtuales al desconectarse, consulte estos artículos:
 
-* [Configuración del apagado automático de las máquinas virtuales de una cuenta de laboratorio](how-to-configure-lab-accounts.md)
-* [Configuración del apagado automático de las máquinas virtuales de un laboratorio](how-to-enable-shutdown-disconnect.md)
+- [Configuración del apagado automático de las máquinas virtuales de una cuenta de laboratorio](how-to-configure-lab-accounts.md)
+- [Configuración del apagado automático de las máquinas virtuales de un laboratorio](how-to-enable-shutdown-disconnect.md)
 
 ### <a name="scheduled-time-vs-quota-time"></a>Tiempo programado frente a tiempo de cuota
 
-Entender el [tiempo programado](classroom-labs-concepts.md#schedules) frente al [tiempo de cuota](classroom-labs-concepts.md#quota) le permite configurar un laboratorio de la manera que mejor se ajuste a las necesidades del profesor y los alumnos. 
+Entender el [tiempo programado](classroom-labs-concepts.md#schedules) frente al [tiempo de cuota](classroom-labs-concepts.md#quota) le permite configurar un laboratorio de la manera que mejor se ajuste a las necesidades del profesor y los alumnos.
 
-El tiempo programado es una hora establecida a la que todas las máquinas virtuales de los alumnos se han iniciado y están disponibles para conectarse. Normalmente, el tiempo programado se usa cuando todos los alumnos tienen su propia máquina virtual y están siguiendo las instrucciones del profesor a una hora establecida durante el día (como las horas de clase). La desventaja es que todas las máquinas virtuales de los alumnos se inician y están acumulando costos, aunque algún alumno no inicie sesión en la máquina virtual. 
+El tiempo programado es una hora establecida a la que todas las máquinas virtuales de los alumnos se han iniciado y están disponibles para conectarse. Normalmente, el tiempo programado se usa cuando todos los alumnos tienen su propia máquina virtual y están siguiendo las instrucciones del profesor a una hora establecida durante el día (como las horas de clase). La desventaja es que todas las máquinas virtuales de los alumnos se inician y están acumulando costos, aunque algún alumno no inicie sesión en la máquina virtual.
 
-El tiempo de cuota es el tiempo asignado a cada alumno, que este puede usar como decida, y que se suele usar para el estudio independiente. Las máquinas virtuales no se inician hasta que el alumno inicia la máquina virtual. 
+El tiempo de cuota es el tiempo asignado a cada alumno, que este puede usar como decida, y que se suele usar para el estudio independiente. Las máquinas virtuales no se inician hasta que el alumno inicia la máquina virtual.
 
 Un laboratorio puede usar el tiempo de cuota, tiempo programado o una combinación de ambos. Si una clase no necesita tiempo programado, use solo el tiempo de cuota para un uso más eficaz de las máquinas virtuales.
 
@@ -154,9 +154,9 @@ Un laboratorio puede usar el tiempo de cuota, tiempo programado o una combinaci�
 
 En la programación puede agregar un tipo de evento de solo detención, que detiene todas las máquinas a una hora determinada. Algunos propietarios de laboratorio establecen un evento de solo detención cada día a medianoche para reducir el costo y el uso de cuota si un alumno olvida apagar la máquina virtual que está usando. El inconveniente de este tipo de evento es que todas las máquinas virtuales se apagan, aunque un alumno esté usando una de ellas.
 
-### <a name="other-costs-related-to-labs"></a>Otros costos relacionados con los laboratorios 
+### <a name="other-costs-related-to-labs"></a>Otros costos relacionados con los laboratorios
 
-Hay costos que no se incluyen en Lab Services, pero que se pueden asociar a un servicio de laboratorio. Puede conectar una galería de imágenes compartidas a un laboratorio, pero no se mostrará en los costos de Lab Services, aunque tiene costos. Para ayudar a reducir los costos generales, debe quitar las imágenes no usadas de la galería, ya que las imágenes tienen un costo de almacenamiento heredado. 
+Hay costos que no se incluyen en Lab Services, pero que se pueden asociar a un servicio de laboratorio. Puede conectar una galería de imágenes compartidas a un laboratorio, pero no se mostrará en los costos de Lab Services, aunque tiene costos. Para ayudar a reducir los costos generales, debe quitar las imágenes no usadas de la galería, ya que las imágenes tienen un costo de almacenamiento heredado.
 
 Los laboratorios pueden tener conexiones a otros recursos de Azure a través de una red virtual. Cuando se quita un laboratorio, debe quitar la red virtual y los demás recursos.
 

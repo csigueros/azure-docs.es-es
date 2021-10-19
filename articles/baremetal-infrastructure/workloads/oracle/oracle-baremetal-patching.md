@@ -3,21 +3,21 @@ title: Consideraciones de aplicación de revisiones de BareMetal para Oracle
 description: Obtenga información acerca de las consideraciones de aplicación de revisiones de kernel o sistema operativo correspondientes a BareMetal Infrastructure para Oracle.
 ms.topic: reference
 ms.subservice: baremetal-oracle
-ms.date: 04/14/2021
-ms.openlocfilehash: 1c7a4a4f9e2395bbe29ab8bf27b18afb21f98917
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.date: 10/06/2021
+ms.openlocfilehash: c842ad56e6777817e5db84e51a4d1302aebf5a63
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110578574"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129657499"
 ---
 # <a name="patching-considerations-for-baremetal-for-oracle"></a>Consideraciones de aplicación de revisiones de BareMetal para Oracle
 
-En este artículo, examinaremos consideraciones importantes de aplicación de revisiones de kernel o sistema operativo correspondientes a BareMetal Infrastructure para Oracle.
+En este artículo, examinaremos consideraciones importantes de aplicación de revisiones de kernel o sistema operativo (SO) correspondientes a BareMetal Infrastructure para Oracle.
 
-Para lograr un rendimiento de red y estabilidad del sistema adecuados, instale la versión específica del sistema operativo de los controladores eNIC y fNIC, tal y como se muestra en la siguiente tabla de compatibilidad. 
+Para lograr un rendimiento de red y estabilidad del sistema adecuados, instale la versión específica del sistema operativo de los controladores eNIC y fNIC. Consulte la siguiente tabla de compatibilidad para obtener más detalles. 
 
-Los servidores se entregan a los clientes con versiones compatibles. Sin embargo, durante la aplicación de revisiones del kernel o sistema operativo, los controladores se pueden revertir a las versiones predeterminadas del controlador. Por lo tanto, asegúrese de confirmar que se esté ejecutando la versión adecuada del controlador después de las operaciones de aplicación de revisiones del sistema operativo o kernel.
+Los servidores se entregan a los clientes con versiones compatibles. Sin embargo, durante la revisión del kernel o del sistema operativo, los controladores se pueden revertir a las versiones predeterminadas del controlador. Por lo tanto, asegúrese de confirmar que esté ejecutando la versión adecuada del controlador después de las revisiones del sistema operativo o kernel.
 
 | Fabricante del sistema operativo | Versión del paquete del sistema operativo | Versión de firmware | Controlador eNIC | Controlador fNIC |
 | --- | --- | --- | --- | --- |

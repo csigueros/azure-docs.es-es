@@ -7,35 +7,37 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/10/2021
-ms.openlocfilehash: 5b28540f30c23abc4ba1d58f6984524984f2c001
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 10/08/2021
+ms.openlocfilehash: 841cd106f1c54e1c35d3b2785eb942842d77f825
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740226"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706757"
 ---
 # <a name="knowledge-store-projections-in-azure-cognitive-search"></a>"Proyecciones" en un almacén de conocimiento en Azure Cognitive Search
 
-Las proyecciones, un elemento del [almacén de conocimiento](knowledge-store-concept-intro.md), son vistas de documentos enriquecidos que se pueden guardar en el almacenamiento físico con fines de minería de datos de conocimiento. Una proyección le permite "proyectar" los datos en una forma que se adapte a sus necesidades y manteniendo las relaciones para que herramientas como Power BI puedan leer los datos sin ningún trabajo adicional.
+Las proyecciones son el elemento de una definición de [almacén de conocimiento](knowledge-store-concept-intro.md) que especifica la expresión física de los datos en Azure Storage. Una definición de proyección determina el número y el tipo de estructuras de datos en Azure Storage.
 
-Las proyecciones pueden ser tabulares, donde los datos se articulan en filas y columnas en Azure Table Storage, u objetos JSON almacenados en Azure Blob Storage o imágenes binarias también almacenadas en Blob Storage. Puede definir varias proyecciones de los datos a medida que se enriquecen. Estas distintas proyecciones resultan útiles cuando quiere que los mismos datos tengan formas diferentes para casos de uso individuales.
+## <a name="types-of-data-structures"></a>Tipos de estructuras de datos
 
-El almacén de conocimiento admite tres tipos de proyecciones:
+Un almacén de conocimiento es una construcción lógica que se expresa físicamente en Azure Storage como tablas, objetos JSON o archivos de imagen binarios.
 
-+ **Tablas**: Para los datos que se representan mejor como filas y columnas, las proyecciones de tabla le permiten definir una forma esquematizada o una proyección en el almacenamiento de tablas. Solo los objetos JSON válidos se pueden proyectar como tablas. Puesto que un documento enriquecido puede contener nodos que no son objetos JSON con nombre, agregará una [aptitud Conformador o usará la forma insertada](knowledge-store-projection-shape.md) en una aptitud para crear un objeto JSON válido. 
+| Proyección | Storage | Uso |
+|------------|---------|-------|
+| Tablas | Azure Table Storage | Se usa para los datos que se representan mejor como filas y columnas. Las proyecciones de tabla permiten definir una forma o proyección esquematizadas. Solo los objetos JSON válidos se pueden proyectar como tablas. Puesto que un documento enriquecido puede contener nodos que no son objetos JSON con nombre, agregará una [aptitud Conformador o usará la forma insertada](knowledge-store-projection-shape.md) en una aptitud para crear un objeto JSON válido. |
+| Objetos | Azure Blob Storage | Se usa cuando necesita una representación JSON de los datos y enriquecimientos. Al igual que con las proyecciones de tabla, solo los objetos JSON válidos se pueden proyectar como objetos y el modelado puede ayudarle a hacerlo. |
+| Archivos | Azure Blob Storage | Se usa cuando necesita guardar archivos de imagen binarios normalizados. |
 
-+ **Objetos**: si necesita una representación JSON de los datos y enriquecimientos, use proyecciones de objeto para guardar la salida como blobs. Al igual que con las proyecciones de tabla, solo los objetos JSON válidos se pueden proyectar como objetos y el modelado puede ayudarle a hacerlo.
+Puede definir varias proyecciones de los datos a medida que se enriquecen. Estas distintas proyecciones resultan útiles cuando quiere que los mismos datos tengan formas diferentes para casos de uso individuales.
 
-+ **Archivos**: Cuando necesita guardar las imágenes extraídas de los documentos, las proyecciones de archivos le permiten guardar las imágenes normalizadas en el almacenamiento de blobs.
+## <a name="basic-definition"></a>Definición básica
 
-Para ver las proyecciones definidas en contexto, consulte [Creación de un almacén de conocimiento con REST](knowledge-store-create-rest.md).
+Las proyecciones son una matriz de colecciones complejas bajo una definición `knowledgeStore` en un [objeto de conjunto de aptitudes](/rest/api/searchservice/create-skillset). 
 
-## <a name="basic-pattern"></a>Patrón básico
+Cada conjunto de tablas, objetos y archivos es un *grupo de proyectos* y puede tener varios grupos si los requisitos de almacenamiento incluyen la compatibilidad con diferentes herramientas y escenarios. Dentro de un único grupo, puede tener múltiples tablas, objetos y archivos. 
 
-Las proyecciones son una matriz de colecciones complejas bajo una definición `knowledgeStore` en un objeto de conjunto de aptitudes. Cada conjunto de tablas, objetos y archivos es un *grupo de proyectos* y puede tener varios grupos si los requisitos de almacenamiento incluyen la compatibilidad con diferentes herramientas y escenarios. Dentro de un único grupo, puede tener múltiples tablas, objetos y archivos. 
-
-Normalmente solo se usa un grupo, pero en el ejemplo siguiente se muestran dos para ilustrar el patrón cuando existen varios grupos.
+Normalmente solo se usa un grupo, pero en el ejemplo siguiente se muestran dos para reforzar la idea de los grupos múltiples.
 
 ```json
 "knowledgeStore" : {
@@ -55,7 +57,7 @@ Normalmente solo se usa un grupo, pero en el ejemplo siguiente se muestran dos p
 }
 ```
 
-### <a name="projection-groups"></a>Grupos de proyecciones
+## <a name="data-isolation-and-relatedness"></a>Aislamiento de datos y relación
 
 Tener varios conjuntos de combinaciones de tabla-objeto-archivo es útil para la compatibilidad de distintos escenarios. Puede usar un conjunto para diseñar y depurar un conjunto de aptitudes, y capturar la salida para un examen posterior, mientras que un segundo conjunto recopila la salida usada para una aplicación en línea y un tercero se usa para las cargas de trabajo de ciencia de datos.
 

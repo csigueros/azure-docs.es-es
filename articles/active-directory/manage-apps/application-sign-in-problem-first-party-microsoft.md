@@ -1,5 +1,6 @@
 ---
-title: Problemas de inicio de sesión en una aplicación de Microsoft | Microsoft Docs
+title: Problemas de inicio de sesión en una aplicación de Microsoft
+titleSuffix: Azure AD
 description: Solución de problemas comunes que aparecen al iniciar sesión en aplicaciones propias de Microsoft mediante Azure AD (por ejemplo, Microsoft 365).
 services: active-directory
 author: davidmu1
@@ -12,16 +13,16 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c52cd2062745bd3506f687492dff240d15bbcc1b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 345d5e014631ef4f4a5dc0897face90a6267d032
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738890"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619092"
 ---
-# <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas de inicio de sesión en una aplicación de Microsoft
+# <a name="problems-signing-in-to-a-microsoft-application-in-azure-active-directory"></a>Problemas al iniciar sesión en una aplicación de Microsoft en Azure Active Directory
 
-Las aplicaciones de Microsoft (como Exchange, SharePoint, Yammer, etc.) se asignan y administran de manera algo diferente que las aplicaciones SaaS de terceros u otras aplicaciones que integra con Azure AD para el inicio de sesión único.
+Las aplicaciones de Microsoft (como Exchange, SharePoint, Yammer, etc.) se asignan y administran de manera algo diferente a las aplicaciones SaaS de terceros u otras aplicaciones que se integran con Azure AD para el inicio de sesión único.
 
 Hay tres maneras principales en que un usuario puede acceder a una aplicación publicada por Microsoft.
 

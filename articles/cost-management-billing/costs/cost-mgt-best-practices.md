@@ -3,22 +3,22 @@ title: Optimización de la inversión en la nube con Azure Cost Management
 description: Este artículo le ayuda a obtener el máximo partido de las inversiones en la nube, reducir los costos y evaluar dónde se invierte su dinero.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/02/2021
+ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 26b48e4f5ed50b547c8ec628fc534e24dfeb252e
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 5ea9f5a857c28195d0aa82a1314df839ab2236e8
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609548"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705903"
 ---
-# <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Optimización de la inversión en la nube con Azure Cost Management
+# <a name="how-to-optimize-your-cloud-investment-with-cost-management"></a>Optimización de la inversión en la nube con Cost Management
 
-Azure Cost Management le proporciona herramientas para planear, analizar y reducir los gastos para maximizar la inversión en la nube. Este documento le proporciona un enfoque metódico para la administración de costos y resalta las herramientas disponibles para abordar los desafíos de la organización en materia de costos. Azure facilita la creación e implementación de soluciones en la nube. Sin embargo, es importante que esas soluciones estén optimizadas para minimizar el costo para la organización. Seguir los principios descritos en este documento y el uso de las herramientas le ayudarán a asegurarse de que la organización está preparada para el éxito.
+Cost Management le proporciona herramientas para planear, analizar y reducir los gastos para maximizar la inversión en la nube. Este documento le proporciona un enfoque metódico para la administración de costos y resalta las herramientas disponibles para abordar los desafíos de la organización en materia de costos. Azure facilita la creación e implementación de soluciones en la nube. Sin embargo, es importante que esas soluciones estén optimizadas para minimizar el costo para la organización. Seguir los principios descritos en este documento y el uso de las herramientas le ayudarán a asegurarse de que la organización está preparada para el éxito.
 
 ## <a name="methodology"></a>Metodología
 
@@ -162,7 +162,7 @@ Las etiquetas son una manera eficaz de comprender los costos que abarcan varios 
 
 Del mismo modo, también puede tener aplicaciones web o entornos, como pruebas o producción, que usan recursos en varias suscripciones que pertenecen a distintos equipos. Para comprender mejor el costo total de las cargas de trabajo, etiquete los recursos que usan. Cuando las etiquetas se aplican correctamente, puede aplicarlas como filtro en análisis de costos para comprender mejor las tendencias.
 
-Después de planear el etiquetado de recursos, puede configurar una definición de Azure Policy para aplicar el etiquetado en los recursos. Vea el vídeo [Revisión de las directivas de etiquetas con Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) para conocer las herramientas disponibles para aplicar el etiquetado de recursos escalable en su organización. Para ver otros vídeos, visite el [canal de YouTube de Cost Management](https://www.youtube.com/c/AzureCostManagement).
+Después de planear el etiquetado de recursos, puede configurar una definición de Azure Policy para aplicar el etiquetado en los recursos. Vea el vídeo [Revisión de las directivas de etiquetas con Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) para conocer las herramientas disponibles para aplicar el etiquetado de recursos escalable. Para ver otros vídeos, visite el [canal de YouTube de Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/nHQYcYGKuyw]
 
@@ -231,4 +231,4 @@ Para más información, consulte [Calculadora de ahorro de la Ventaja híbrida d
 Azure también tiene un servicio que le permite crear servicios que aprovechan la capacidad sobrante en Azure para disponer de tarifas reducidas. Para más información, consulte [Uso de máquinas virtuales de prioridad baja con Batch](../../batch/batch-low-pri-vms.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Si no está familiarizado con Cost Management, puede consultar [¿Qué es Azure Cost Management?](../cost-management-billing-overview.md) para obtener información sobre cómo le ayuda a supervisar y controlar el gasto de Azure y para optimizar el uso de recursos.
+- Si no está familiarizado con Cost Management, puede consultar [¿Qué es Cost Management?](../cost-management-billing-overview.md) para obtener información sobre cómo le ayuda a supervisar y controlar el gasto de Azure y para optimizar el uso de recursos.

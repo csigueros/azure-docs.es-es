@@ -5,14 +5,14 @@ author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 10/06/2021
 ms.author: shants
-ms.openlocfilehash: 0f1d65c7caa9073fa66fe3920b2b39bc9c5a5d11
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: cb1a4cc1e0c1539ab56b986a35084fa761d85438
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122687710"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129657537"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Mantenimiento de máquinas virtuales en Azure
 
@@ -35,7 +35,7 @@ Dentro de una máquina virtual, puede obtener una notificación sobre el próxim
 
 La mayoría de las actualizaciones de plataforma no afectan a las máquinas virtuales del cliente. Cuando no es posible realizar una actualización sin causar impacto, Azure elige el mecanismo de actualización con menor impacto en las máquinas virtuales del cliente. 
 
-La mayor parte del mantenimiento sin impacto pone en pausa la máquina virtual durante menos de 10 segundos. En algunos casos, Azure usa mecanismos de mantenimiento de conservación de memoria. Estos mecanismos ponen en pausa la máquina virtual durante un máximo de 30 segundos y conservan la memoria en la RAM. La máquina virtual se reanuda y su reloj se sincroniza automáticamente. 
+La mayor parte del mantenimiento sin impacto pone en pausa la máquina virtual durante menos de 10 segundos. En algunos casos, Azure usa mecanismos de mantenimiento de conservación de memoria. Estos mecanismos ponen en pausa la VM durante un máximo de 30 segundos y conservan la memoria en la RAM. La máquina virtual se reanuda y su reloj se sincroniza automáticamente. 
 
 El mantenimiento de conservación de memoria funciona para más del 90 por ciento de las máquinas virtuales de Azure. No funciona para las series H, M, N y G. Azure usa cada vez más las tecnologías de migración en vivo y mejora el mecanismo de mantenimiento que conserva la memoria para así reducir la duración de la pausa.  
 

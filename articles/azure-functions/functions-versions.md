@@ -4,12 +4,12 @@ description: Azure Functions admite varias versiones del runtime. Conozca las di
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 09/22/2021
-ms.openlocfilehash: 85df4bec5eb4802820a8837a1bb23394851aca42
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 516bcbdd00ae4b116326e797746485c82be9c3fb
+ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128637636"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129740519"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Introducción a las versiones de tiempo de ejecución de Azure Functions
 
@@ -74,19 +74,14 @@ Cualquier aplicación de funciones anclada a `~2.0` se sigue ejecutando en .NET 
 
 Azure Functions versión 4.x (versión preliminar) es una versión muy compatible con la versión 3.x.  Muchas aplicaciones se pueden actualizar a 4.x sin ningún cambio de código. Asegúrese de ejecutar unas pruebas exhaustivas antes de cambiar la versión principal en las aplicaciones de producción.
 
-Para migrar una aplicación de 3.x a 4.x, haga lo siguiente:
+Para migrar una aplicación de la versión 3.x a la 4.x, establezca la configuración `FUNCTIONS_EXTENSION_VERSION` de la aplicación en `~4` con el siguiente comando de la CLI de Azure:
 
-- Establezca la configuración `FUNCTIONS_EXTENSION_VERSION` de la aplicación en `~4` con el siguiente comando de la CLI de Azure:
+```bash
+az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
 
-    ```bash
-    az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
-    ```
-
-- Para las aplicaciones de funciones de Windows, el motor de ejecución requiere que .NET 6.0 esté habilitado con el siguiente comando de la CLI de Azure:
-
-    ```bash
-    az functionapp config set --net-framework-version v6.0 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
-    ```
+# For Windows function apps only, also enable .NET 6.0 that is needed by the runtime
+az functionapp config set --net-framework-version v6.0 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
+```
 
 ### <a name="breaking-changes-between-3x-and-4x"></a>Cambios importantes entre 3.x y 4.x
 
@@ -101,6 +96,13 @@ A continuación se indican algunos cambios que se deben tener en cuenta antes de
 - Azure Functions 4.x exige [requisitos de versión mínima](https://github.com/Azure/Azure-Functions/issues/1987) para las extensiones. Actualice a la versión más reciente de las extensiones afectadas. Para lenguajes que no son .NET, [actualice](./functions-bindings-register.md#extension-bundles) a la versión 2.x del conjunto de extensiones o a una versión posterior.
 
 - Ahora se aplican tiempos de espera predeterminados y máximos en las aplicaciones de funciones de consumo para Linux 4.x.
+
+- Application Insights ya no se incluye de forma predeterminada en la versión 4.x. Ahora está disponible como una extensión independiente.
+    - En el caso de las aplicaciones .NET en proceso, agregue el paquete de extensión [Microsoft.Azure.WebJobs.Extensions.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ApplicationInsights/) a la aplicación de funciones.
+    - Para aplicaciones :NET aisladas:
+        - Agregue el paquete de extensión [Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights/) a la aplicación de funciones.
+        - Actualice los paquetes [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/) y [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/) a las versiones más recientes.
+    - Para otros lenguajes, una actualización futura para los [conjuntos de extensiones de Azure Functions](functions-bindings-register.md#extension-bundles) incluirá la extensión de Application Insights. La aplicación usará automáticamente el nuevo paquete cuando esté disponible.
 
 #### <a name="languages"></a>Idiomas
 

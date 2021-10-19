@@ -1,5 +1,6 @@
 ---
-title: Acceso híbrido seguro de Azure AD con la guía de implementación de F5 | Microsoft Docs
+title: Protección del acceso híbrido con la guía de implementación de F5
+titleSuffix: Azure AD
 description: Tutorial para implementar la máquina virtual de F5 BIG-IP Virtual Edition (VE) en IaaS de Azure para el acceso híbrido seguro
 services: active-directory
 author: davidmu1
@@ -13,14 +14,14 @@ ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.reviewer: miccohen
-ms.openlocfilehash: f33e9a8207e3b8e6986999b7ea19aedbcb19b4da
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2bc309ed4d4fcfcc205ff3b464d23769d1e2182c
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749208"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129611864"
 ---
-# <a name="tutorial-to-deploy-f5-big-ip-virtual-edition-vm-in-azure-iaas-for-secure-hybrid-access"></a>Tutorial para implementar la máquina virtual de F5 BIG-IP Virtual Edition en IaaS de Azure para el acceso híbrido seguro
+# <a name="deploy-an-f5-big-ip-virtual-edition-vm-to-azure-active-directory"></a>Implementación de una VM de F5 BIG-IP Virtual Edition en Azure Active Directory
 
 Este tutorial le guía a través del proceso completo de implementación de BIG-IP Vitural Edition (VE) en IaaS de Azure. Al final de este tutorial tendrá:
 
@@ -245,7 +246,7 @@ De forma predeterminada, las redes virtuales de Azure y las subredes asociadas s
 
  |     Campo   |   Valor        |
  |:------------|:------------|
- |Origen| Any|
+ |Source| Any|
  |Source port ranges| *|
  |Direcciones IP de destino|Lista separada por comas de todas las IP privadas secundarias de la máquina virtual de BIG-IP|
  |Puertos de destino| 80, 443|

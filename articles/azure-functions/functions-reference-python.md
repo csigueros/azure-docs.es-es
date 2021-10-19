@@ -4,12 +4,12 @@ description: Aprenda a desarrollar funciones con Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: d44de94ef30976a35bbfeddf68b60068b952fbde
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 940ad3d08069ee51a9d138585b6e7dca0af49996
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450888"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658916"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guía de Azure Functions para desarrolladores de Python
 
@@ -98,7 +98,7 @@ La carpeta de proyecto principal (<project_root>) puede contener los siguientes 
 
 * *local.settings.json*: se usa para almacenar la configuración y las cadenas de conexión de la aplicación cuando se ejecuta localmente. Este archivo no se publica en Azure. Para más información, consulte [local.settings.file](functions-develop-local.md#local-settings-file).
 * *requirements.txt*: contiene la lista de paquetes de Python que se instalan al publicar en Azure.
-* *host.json*: contiene las opciones de configuración global que afectan a todas las funciones de una aplicación de funciones. Este archivo se publica en Azure. No todas las opciones se admiten cuando se ejecuta localmente. Para más información, consulte [host.json](functions-host-json.md).
+* *host.json*: contiene las opciones de configuración global que afectan a todas las funciones de una instancia de aplicación de funciones. Este archivo se publica en Azure. No todas las opciones se admiten cuando se ejecuta localmente. Para más información, consulte [host.json](functions-host-json.md).
 * *.vscode/* : (Opcional) Contiene la configuración de VSCode de almacenamiento. Para más información, consulte [Configuración de VSCode](https://code.visualstudio.com/docs/getstarted/settings).
 * *.venv/* : (Opcional) Contiene un entorno virtual de Python usado para el desarrollo local.
 * *Dockerfile*: (Opcional) se usa al publicar el proyecto en un [contenedor personalizado](functions-create-function-linux-custom-image.md).

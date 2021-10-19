@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 09/14/2021
+ms.date: 10/07/2021
 ms.author: rolyon
 ms.reviewer: abhijeetsinha
 ms.custom: generated, it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a057cbd765e58cf4eca509af38e74e62168cddc2
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: b1cbd4732513b9c9bcc40f6eafb0a792b2d3ca06
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129058140"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667884"
 ---
 # <a name="azure-ad-built-in-roles"></a>Roles integrados de Azure AD
 
@@ -57,6 +57,7 @@ En este artículo se enumeran los roles integrados de Azure AD que se pueden asi
 > | [Escritores de directorios](#directory-writers) | Puede leer y escribir información básica del directorio. Para conceder acceso a aplicaciones; no pensado para los usuarios. | 9360feb5-f418-4baa-8175-e2a00bac4301 |
 > | [Administrador de nombres de dominio](#domain-name-administrator) | Puede administrar los nombres de dominio en la nube y en el entorno local. | 8329153b-31d0-4727-b945-745eb3bc5f31 |
 > | [Administrador de Dynamics 365](#dynamics-365-administrator) | Puede administrar todos los aspectos del producto Dynamics 365. | 44367163-eba1-44c3-98af-f5787879f96a |
+> | [Administrador de Edge](#edge-administrator) | Administración de todos los aspectos de Microsoft Edge. | 3f1acade-1e04-4fbc-9b69-f0302cd84aef |
 > | [Administrador de Exchange](#exchange-administrator) | Puede administrar todos los aspectos del producto Exchange. | 29232cdf-9323-42fd-ade2-1d097af3e4de |
 > | [Administrador de destinatarios de Exchange](#exchange-recipient-administrator) | Puede crear o actualizar los destinatarios de Exchange Online dentro de la organización de Exchange Online. | 31392ffb-586c-42d1-9346-e59415a2cc4e |
 > | [Administrador de flujos de usuarios con identificador externo](#external-id-user-flow-administrator) | Puede crear y administrar todos los aspectos de los flujos de usuario. | 6e591065-9bad-43ed-90f3-e9424366d2f0 |
@@ -252,7 +253,7 @@ El rol [Administrador de directivas de autenticación](#authentication-policy-ad
 > | --- | --- |
 > | microsoft.directory/users/authenticationMethods/create | Crear métodos de autenticación para los usuarios |
 > | microsoft.directory/users/authenticationMethods/delete | Eliminar métodos de autenticación para los usuarios |
-> | microsoft.directory/users/authenticationMethods/standard/restrictedRead | Leer las propiedades estándar de los métodos de autenticación que no incluyen información de identificación personal |
+> | microsoft.directory/users/authenticationMethods/standard/restrictedRead | Leer las propiedades estándar de los métodos de autenticación que no incluyen información de identificación personal para los usuarios |
 > | microsoft.directory/users/authenticationMethods/basic/update | Actualizar las propiedades básicas de los métodos de autenticación para los usuarios |
 > | microsoft.directory/users/invalidateAllRefreshTokens | Forzar el cierre de sesión mediante la invalidación de tokens de actualización de usuarios |
 > | microsoft.directory/users/password/update | Restablecer las contraseñas para todos los usuarios |
@@ -758,6 +759,17 @@ los usuarios con este rol tienen permisos globales en Microsoft Dynamics 365 Onl
 > | microsoft.office365.supportTickets/allEntities/allTasks | Crear y administrar las solicitudes de servicio de Microsoft 365 |
 > | microsoft.office365.webPortal/allEntities/standard/read | Leer las propiedades básicas de todos los recursos en el centro de administración de Microsoft 365 |
 
+## <a name="edge-administrator"></a>Administrador de Edge
+
+Los usuarios con este rol pueden crear y administrar la lista de sitios de empresa necesaria para Internet Explorer en Microsoft Edge. Este rol concede permisos para crear, editar y publicar la lista de sitios y, además, permite el acceso para administrar incidencias de soporte técnico. [Más información](https://go.microsoft.com/fwlink/?linkid=2165707)
+
+> [!div class="mx-tableFixed"]
+> | Acciones | Descripción |
+> | --- | --- |
+> | microsoft.edge/allEntities/allProperties/allTasks | Administrar todos los aspectos de Microsoft Edge |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Crear y administrar las solicitudes de servicio de Microsoft 365 |
+> | microsoft.office365.webPortal/allEntities/standard/read | Leer las propiedades básicas de todos los recursos en el centro de administración de Microsoft 365 |
+
 ## <a name="exchange-administrator"></a>Administrador de Exchange
 
 los usuarios con este rol tienen permisos globales en Microsoft Exchange Online, cuando el servicio está presente. También se ofrece la capacidad de crear y administrar todos los grupos de Microsoft 365, administrar las incidencias de soporte técnico y supervisar el estado del servicio. Más información en [Acerca de los roles de administrador de Microsoft 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
@@ -977,7 +989,7 @@ Los usuarios de este rol pueden leer la configuración y la información adminis
 > | microsoft.directory/applications/allProperties/read | Leer todas las propiedades (incluidas las propiedades con privilegios) en todos los tipos de aplicaciones |
 > | microsoft.directory/applications/synchronization/standard/read | Lectura de la configuración de aprovisionamiento asociada al objeto de aplicación |
 > | microsoft.directory/auditLogs/allProperties/read | Leer todas las propiedades de los registros de auditoría, incluidas las propiedades con privilegios |
-> | microsoft.directory/users/authenticationMethods/standard/restrictedRead | Leer las propiedades estándar de los métodos de autenticación que no incluyen información de identificación personal |
+> | microsoft.directory/users/authenticationMethods/standard/restrictedRead | Leer las propiedades estándar de los métodos de autenticación que no incluyen información de identificación personal para los usuarios |
 > | microsoft.directory/authorizationPolicy/standard/read | Leer las propiedades estándar de las directivas de autorización |
 > | microsoft.directory/bitlockerKeys/key/read | Leer los metadatos y la clave de BitLocker en los dispositivos |
 > | microsoft.directory/cloudAppSecurity/allProperties/read | Leer todas las propiedades de Cloud App Security |
@@ -1123,7 +1135,6 @@ Los usuarios con este rol pueden crear, administrar e implementar la configuraci
 > | microsoft.directory/applications/audience/update | Actualizar la propiedad de público para las aplicaciones |
 > | microsoft.directory/applications/authentication/update | Actualizar la autenticación en todos los tipos de aplicaciones |
 > | microsoft.directory/applications/basic/update | Actualizar las propiedades básicas de las aplicaciones |
-> | microsoft.directory/applications/credentials/update | Actualizar las credenciales de la aplicación |
 > | microsoft.directory/applications/notes/update | Actualizar las notas de las aplicaciones |
 > | microsoft.directory/applications/owners/update | Actualizar los propietarios de las aplicaciones |
 > | microsoft.directory/applications/permissions/update | Actualizar los permisos expuestos y los necesarios en todos los tipos de aplicaciones |

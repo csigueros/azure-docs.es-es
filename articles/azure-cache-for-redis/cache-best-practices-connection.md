@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo hacer que las conexiones de Azure 
 author: shpathak-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 08/25/2021
+ms.date: 10/11/2021
 ms.author: shpathak
-ms.openlocfilehash: a0dd6e3e8f4c2a7645da1ceccf77f7607d2b84b3
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 02b5c4bd42abc9c36ef971b053979d590d1e602d
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128656956"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129808832"
 ---
 # <a name="connection-resilience"></a>Resistencia de la conexión
 
@@ -23,6 +23,23 @@ Configure las conexiones cliente para el reintento de comandos con retroceso exp
 ## <a name="test-resiliency"></a>Prueba de la resistencia
 
 Pruebe la resistencia del sistema a las interrupciones de conexión mediante un [reinicio](cache-administration.md#reboot) para simular una aplicación de revisiones. Para obtener más información sobre las pruebas de rendimiento, vea [Pruebas de rendimiento](cache-best-practices-performance.md).
+
+## <a name="tcp-settings-for-linux-hosted-client-applications"></a>Configuración de TCP para aplicaciones cliente hospedadas en Linux
+
+Algunas versiones de Linux usan la configuración de TCP optimista de forma predeterminada. La configuración de TCP puede crear una situación en la que una conexión de cliente a una memoria caché no se puede restablecer durante mucho tiempo cuando un servidor de Redis deja de responder antes de cerrar la conexión correctamente. El error al restablecer una conexión puede producirse si el nodo principal de Azure Cache For Redis deja de estar disponible, por ejemplo, para el mantenimiento no planeado.
+
+Se recomienda esta configuración de TCP:
+
+|Configuración  |Valor |
+|---------|---------|
+| *net.ipv4.tcp_retries2*   | 5 |
+| *TCP_KEEPIDLE*   | 15 |
+| *TCP_KEEPINTVL*  | 5 |
+| *TCP_KEEPCNT* | 3 |
+
+Plantéese usar el patrón *ForceReconnect*. Para obtener una implementación del patrón, vea el código de [Volver a conectar con el patrón diferido\<T\>](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-lazyreconnect-cs).
+
+Para obtener más información sobre el escenario, consulte [La conexión no se establece de nuevo durante 15 minutos cuando se ejecuta en Linux](https://github.com/StackExchange/StackExchange.Redis/issues/1848#issuecomment-913064646). Aunque este artículo trata sobre la biblioteca StackExchange.Redis, también se ven afectadas otras bibliotecas cliente que se ejecutan en Linux. La explicación sigue siendo útil y se puede generalizar a otras bibliotecas.
 
 ## <a name="configure-appropriate-timeouts"></a>Configuración de tiempos de espera adecuados
 

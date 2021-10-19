@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.service: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 06/25/2021
-ms.openlocfilehash: 24872e96333aeb67661c462e54acebc62b32c8aa
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: e71f6b6dde1ae12a68f425dcb372cca73456de73
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129455425"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858143"
 ---
 # <a name="startstop-vms-v2-preview-overview"></a>Información general sobre Start/Stop VMs v2 (versión preliminar)
 
@@ -45,14 +45,20 @@ Las funciones de desencadenador basadas en cola son necesarias para admitir esta
 
  [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) se usa para configurar y administrar las programaciones de inicio y detención de la actuación de la máquina virtual con una llamada a la función mediante una carga JSON. De manera predeterminada, durante la implementación inicial, crea un total de cinco instancias de Logic Apps para los siguientes escenarios:
 
-- Programado: las acciones de inicio y detención se basan en una programación que se especifica en las máquinas virtuales de Azure Resource Manager y clásicas. **ststv2_vms_Scheduled_start** y **ststv2_vms_Scheduled_stop** configuran el inicio y la detención programados.
+- **Programado**: las acciones de inicio y detención se basan en una programación que se especifica en las máquinas virtuales de Azure Resource Manager y clásicas. **ststv2_vms_Scheduled_start** y **ststv2_vms_Scheduled_stop** configuran el inicio y la detención programados.
 
-- Secuenciado: las acciones de inicio y detención se basan en una programación dirigida a las máquinas virtuales con etiquetas de secuencia predefinidas. Solo se admiten dos etiquetas con nombre: **sequencestart** y **sequencestop**. **ststv2_vms_Sequenced_start** y **ststv2_vms_Sequenced_stop** configuran el inicio y la detención secuenciados.
+- **Secuenciado**: las acciones de inicio y detención se basan en una programación dirigida a las máquinas virtuales con etiquetas de secuenciación predefinidas. Solo se admiten dos etiquetas con nombre: **sequencestart** y **sequencestop**. **ststv2_vms_Sequenced_start** y **ststv2_vms_Sequenced_stop** configuran el inicio y la detención secuenciados. 
+
+    La manera adecuada de usar la funcionalidad de secuencia es crear una etiqueta llamada **sequencestart** en cada máquina virtual que quiera iniciar en una secuencia. El valor de etiqueta debe ser un entero comprendido entre 1 y N para cada máquina virtual del ámbito correspondiente. La etiqueta es opcional y, si no existe, la máquina virtual no participará en la secuenciación. Los mismos criterios se aplican a la detención de máquinas virtuales, con la única diferencia de que el nombre de la etiqueta es diferente y que se usa **sequencestop** en este caso. Debe configurar las dos etiquetas de cada máquina virtual para obtener la acción de inicio y detención.
+
+    Por ejemplo, en la tabla siguiente se muestra cómo dos máquinas virtuales con secuencias opuestas terminan ejecutándose en el mismo orden:
+
+    :::image type="content" source="media/overview/sequence-settings-table.png" alt-text="Tabla que muestra ejemplos de etiquetas de configuración de secuencias":::
 
     > [!NOTE]
     > En este escenario solo se admiten las máquinas virtuales de Azure Resource Manager.
 
-- AutoStop: esta funcionalidad solo se usa para realizar una acción de detención en máquinas virtuales de Azure Resource Manager y clásicas en función de su uso de CPU. También puede ser una *actuación* basada en programación, que crea alertas en máquinas virtuales y en función de la condición, la alerta se desencadena para realizar la acción de detención. **ststv2_vms_AutoStop** configura la funcionalidad de detención automática.
+- **AutoStop**: esta funcionalidad solo se usa para realizar una acción de detención en máquinas virtuales de Azure Resource Manager y clásicas en función de su uso de CPU. También puede ser una *actuación* basada en programación, que crea alertas en máquinas virtuales y en función de la condición, la alerta se desencadena para realizar la acción de detención. **ststv2_vms_AutoStop** configura la funcionalidad de detención automática.
 
 Cada acción de inicio o detención admite la asignación de una o varias suscripciones, grupos de recursos o una lista de máquinas virtuales.
 

@@ -3,20 +3,20 @@ title: Referencia de configuración de aplicación para Azure Functions
 description: Documentación de referencia para la configuración de la aplicación de Azure Functions o de variables de entorno.
 ms.topic: conceptual
 ms.date: 07/27/2021
-ms.openlocfilehash: 6b860e40acd118bc708ab00001707755272525b6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ada3429d32ea08f8185ba19937b963a30400c7b0
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128663618"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659666"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referencia de configuración de aplicación para Azure Functions
 
-La configuración de la aplicación en una aplicación de función contiene opciones de configuración global que afectan a todas las funciones de dicha aplicación. Cuando se ejecuta localmente, se accede a esta configuración como [variables de entorno](functions-develop-local.md#local-settings-file) locales. Este artículo incluye una lista de las opciones de configuración disponibles en las aplicaciones de funciones.
+La configuración de la aplicación en una aplicación de función contiene opciones de configuración que afectan a todas las funciones de dicha aplicación. Cuando se ejecuta localmente, se accede a esta configuración como [variables de entorno](functions-develop-local.md#local-settings-file) locales. Este artículo incluye una lista de las opciones de configuración disponibles en las aplicaciones de funciones.
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-Hay otras opciones de configuración global en el archivo [host.json](functions-host-json.md) y en [local.settings.json](functions-develop-local.md#local-settings-file).
+Hay otras opciones de configuración de aplicación de funciones en el archivo [host.json](functions-host-json.md) y en [local.settings.json](functions-develop-local.md#local-settings-file).
 Los valores de la cadena de conexión de ejemplo están truncados para mejorar la legibilidad.
 
 > [!NOTE]
@@ -47,7 +47,7 @@ Para obtener más información, consulte [Cadenas de conexión](../azure-monitor
 
 De forma predeterminada, [Functions Proxies](functions-proxies.md) usará accesos directos para enviar llamadas API desde servidores proxy directamente a funciones en la misma aplicación de funciones. Se usa este acceso directo en lugar de crear una nueva solicitud HTTP. Esta configuración le permite deshabilitar el comportamiento de ese acceso directo.
 
-|Clave|Value|Descripción|
+|Clave|Valor|Descripción|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|`true`|Las llamadas con una dirección URL de back-end que apunte a una función en la aplicación de funciones local se no se envará directamente a la función. En su lugar, las solicitudes se devuelven al front-end HTTP para la aplicación de funciones.|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|`false`|Las llamadas con una dirección URL de back-end que apunte a una función en la aplicación de funciones local se reenvían directamente a la función. Este es el valor predeterminado. |
@@ -56,7 +56,7 @@ De forma predeterminada, [Functions Proxies](functions-proxies.md) usará acceso
 
 Esta configuración controla si se descodifican los caracteres `%2F` como barras diagonales en los parámetros de ruta cuando se insertan en la dirección URL de back-end.
 
-|Clave|Value|Descripción|
+|Clave|Valor|Descripción|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|`true`|Los parámetros de ruta con barras diagonales codificadas se descodifican. |
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|`false`|Todos los parámetros de ruta se pasan sin cambios, que es el comportamiento predeterminado. |
@@ -259,7 +259,7 @@ Para más información, vea [Dependencias personalizadas](functions-reference-py
 
 La configuración es específica de las aplicaciones de funciones de Python. Define la prioridad del orden de carga del módulo. Cuando las aplicaciones de funciones de Python se enfrentan a problemas relacionados con la colisión de módulos (por ejemplo, cuando se usa protobuf, tensorflow o grpcio en el proyecto), establecer estos valores de la aplicación en `1` debe resolver el problema. De forma predeterminada, este valor está establecido en `0`. Esta marca se encuentra actualmente en versión preliminar.
 
-|Key|Value|Descripción|
+|Key|Valor|Descripción|
 |---|-----|-----------|
 |PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|`0`| Priorice la carga de las bibliotecas de Python de las dependencias internas del trabajo de Python. Las bibliotecas de terceros definidas en requirements.txt se pueden reemplazar. |
 |PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|`1`| Priorice la carga de las bibliotecas de Python desde el paquete de la aplicación definido en requirements.txt. Esto evita que las bibliotecas entren en conflicto con las bibliotecas internas del trabajo de Python. |
@@ -268,7 +268,7 @@ La configuración es específica de las aplicaciones de funciones de Python. Def
 
 La configuración es específica de las aplicaciones de funciones de Python. Si se establece en `1`, el trabajo se puede cargar en las [extensiones de trabajo de Python](functions-reference-python.md#python-worker-extensions) definidas en requirements.txt. Permite que la aplicación de funciones acceda a las nuevas características proporcionadas por paquetes de terceros. También puede cambiar el comportamiento de la carga de funciones y la invocación en la aplicación. Asegúrese de que la extensión que elija sea de confianza, ya que corre el riesgo de usarla. Azure Functions no ofrece ninguna garantía expresa a ninguna extensión. Para más información sobre cómo usar una extensión, visite la página manual de la extensión o el documento léame. De forma predeterminada, este valor se establece en `0`.
 
-|Key|Value|Descripción|
+|Key|Valor|Descripción|
 |---|-----|-----------|
 |PYTHON\_ENABLE\_WORKER\_EXTENSIONS|`0`| Deshabilite cualquier extensión de trabajo de Python. |
 |PYTHON\_ENABLE\_WORKER\_EXTENSIONS|`1`| Permita que el trabajo de Python cargue extensiones de requirements.txt. |
@@ -402,6 +402,6 @@ Indica si todo el tráfico saliente de la aplicación se enruta a través de la 
 
 [Obtenga información acerca de cómo actualizar la configuración de la aplicación](functions-how-to-use-azure-function-app-settings.md#settings)
 
-[Consulte la configuración global en el archivo host.json](functions-host-json.md)
+[Consulte la configuración en el archivo host.json](functions-host-json.md)
 
 [Consulte otros valores de aplicación para aplicaciones de App Service](https://github.com/projectkudu/kudu/wiki/Configurable-settings)

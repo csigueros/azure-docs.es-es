@@ -3,21 +3,21 @@ title: Asignación de costos de Azure
 description: En este artículo se explica cómo crear reglas de asignación de costos para distribuir los costos de las suscripciones, grupos de recursos o etiquetas a otros usuarios.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/10/2021
+ms.date: 10/07/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: b837e5819318707b44932f5915746479e27646ec
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 7696dc683d41080f5be2c97ebcb0cdf314e2098d
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109734907"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706272"
 ---
 # <a name="create-and-manage-azure-cost-allocation-rules-preview"></a>Creación y administración de reglas de asignación de costos de Azure (versión preliminar)
 
-A menudo, las grandes empresas tienen servicios o recursos de Azure que se administran centralmente, pero que los usan diferentes departamentos internos o unidades de negocio. Lo habitual es que el equipo que los administra de forma centralizada quiera repercutir el costo de los servicios compartidos a los departamentos internos o a las unidades de negocio de la organización que los usan de forma activa. Este artículo le ayudará no solo a conocer el concepto de asignación de costos en Azure Cost Management, sino también a usar dicha asignación.
+A menudo, las grandes empresas tienen servicios o recursos de Azure que se administran centralmente, pero que los usan diferentes departamentos internos o unidades de negocio. Lo habitual es que el equipo que los administra de forma centralizada quiera repercutir el costo de los servicios compartidos a los departamentos internos o a las unidades de negocio de la organización que los usan de forma activa. Este artículo le ayudará no solo a conocer el concepto de asignación de costos en Cost Management, sino también a usar dicha asignación.
 
 Con la asignación de costos, es posible reasignar o distribuir los costos de los servicios compartidos de unas suscripciones, grupos de recursos o etiquetas a otras suscripciones, grupos de recursos o etiquetas de la organización. La asignación de costos traslada los costos de los servicios compartidos a otra suscripción, otros grupos de recursos u otras etiquetas, que son propiedad de los departamentos internos o las unidades de negocio que los consumen. En otras palabras, la asignación de costos ayuda a administrar y mostrar la _responsabilidad de los costos_ de un lugar en otro.
 
@@ -26,7 +26,7 @@ La asignación de costos no afecta a su facturación. Las responsabilidades de f
 Los costos asignados se muestran en el análisis de costos. Se muestran como elementos adicionales asociados a las suscripciones de destino, los grupos de recursos o las etiquetas que se especifiquen al crear una regla de asignación de costos.
 
 > [!NOTE]
-> La característica de asignación de costos de Azure Cost Management está actualmente en versión preliminar pública. Es posible que algunas características de Cost Management no sean compatibles o que sus funcionalidades estén limitadas.
+> La característica de asignación de costos de Cost Management está actualmente en versión preliminar pública. Es posible que algunas características de Cost Management no sean compatibles o que sus funcionalidades estén limitadas.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -132,4 +132,4 @@ Los elementos siguientes no son compatibles actualmente con la versión prelimin
 
 - Lea las [preguntas frecuentes de Cost Management + Billing](../cost-management-billing-faq.yml) para más información sobre la asignación de costos.
 - Cree o actualice reglas de asignación mediante la [API REST de asignación de costos](/rest/api/cost-management/costallocationrules)
-- Obtenga más información sobre la [optimización de la inversión en la nube con Azure Cost Management](cost-mgt-best-practices.md)
+- Más información sobre la [optimización de la inversión en la nube con Cost Management](cost-mgt-best-practices.md)

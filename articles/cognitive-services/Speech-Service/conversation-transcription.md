@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/26/2021
 ms.author: pafarley
-ms.openlocfilehash: 0c7fb175d80a35d30649d2e4ce491fe39ac19c70
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: abef7e44ad2e15bda230d28e8dae74a3fd949f88
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539144"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706320"
 ---
 # <a name="what-is-conversation-transcription-preview"></a>¿Qué es la transcripción de conversaciones (versión preliminar)?
 
@@ -55,10 +55,13 @@ Así es a grandes rasgos cómo funciona la transcripción de conversaciones.
 ## <a name="expected-inputs"></a>Entradas esperadas
 
 - **Secuencia de audio de varios canales**: para especificaciones y detalles de diseño, consulte [Micrófono del SDK de dispositivos de voz de Microsoft](./speech-devices-sdk-microphone.md). Para más información o comprar un kit de desarrollo, consulte cómo [obtener Microsoft Speech Devices SDK](./get-speech-devices-sdk.md).
-- **Muestras de voz de usuarios**: la transcripción de conversaciones necesita perfiles de usuario antes de la conversación. Deberá recopilar grabaciones de audio de cada usuario y, luego, enviarlas al [servicio de generación de firmas](https://aka.ms/cts/signaturegenservice) para validar el audio y generar los perfiles de usuario.
+- **Muestras de voz de usuarios**: la transcripción de conversaciones necesita perfiles de usuario antes de la conversación para la identificación del hablante. Deberá recopilar grabaciones de audio de cada usuario y, luego, enviarlas al [servicio de generación de firmas](https://aka.ms/cts/signaturegenservice) para validar el audio y generar los perfiles de usuario.
 
 > [!NOTE]
-> Las muestras de voz de usuarios son opcionales. Sin esta entrada, la transcripción mostrará los distintos oradores, pero se muestran como "Speaker1", "Speaker2", etc., en lugar de reconocerlos como nombres específicos de oradores inscritos previamente.
+> Se requieren ejemplos de voz de usuario para las firmas de voz para la identificación del hablante. Los hablantes que no tengan ejemplos de voz se marcarán como "Sin identificar". Los hablantes no identificados se pueden diferenciar igualmente si la propiedad `DifferentiateGuestSpeakers` está habilitada (consulte el ejemplo siguiente). A continuación, la salida de la transcripción mostrará los hablantes como "Guest_0", "Guest_1", etc., en lugar de reconocerlos como nombres de hablantes específicos inscritos previamente.
+> ```csharp
+> config.SetProperty("DifferentiateGuestSpeakers", "true");
+> ```
 
 
 ## <a name="real-time-vs-asynchronous"></a>Tiempo real frente a asincrónico

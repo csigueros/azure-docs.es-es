@@ -9,22 +9,22 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/29/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 0461228678762adbc4db936c35849f16a482c1a9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 616376d034fd32fae23d24a3a6e12f329604d376
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128605513"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858969"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Procedimientos recomendados para utilizar Key Vault
 
 ## <a name="use-separate-key-vaults"></a>Uso de instancias de Key Vault independientes
 
-Nuestra recomendación es usar un almacén por cada aplicación y cada entorno (desarrollo, preproducción y producción). Esto ayuda a no compartir secretos entre los entornos y, también, a reducir la amenaza en el caso de infracción.
+Nuestra recomendación es usar un almacén por aplicación, entorno (desarrollo, preproducción y producción) y región. Esto ayuda a no compartir secretos entre los entornos y regiones y, también, reduce la amenaza en el caso de infracción.
 
 ### <a name="why-we-recommend-separate-key-vaults"></a>Motivos para recomendar almacenes de claves independientes
 
-Las directivas de Acceso son un concepto de "todo o nada" en Azure Key Vault. Si una identidad tiene un permiso específico (por ejemplo, **Get**), la identidad puede obtener *cualquier* secreto, clave o certificado en el almacén. Esto significa que la agrupación de datos confidenciales en el mismo almacén aumenta el *radio del impacto* de un evento de seguridad, ya que los ataques podrían tener acceso a información confidencial. Para reducir esta posibilidad, tenga en cuenta a qué información confidencial *debería* tener acceso una aplicación concreta y, después, separe los almacenes de claves en función de esta delineación. La separación de almacenes de claves por aplicación es el límite más común.
+La instancia de Key Vault define el límite de seguridad de los secretos almacenados. La agrupación de secretos en el mismo almacén aumenta el *radio del impacto* de un evento de seguridad, ya que los ataques podrían tener acceso a información confidencial. Para reducir esta posibilidad, tenga en cuenta a qué información confidencial *debería* tener acceso una aplicación concreta y, después, separe los almacenes de claves en función de esta delineación. La separación de almacenes de claves por aplicación es el límite más común, pero el límite de seguridad puede ser más granular en el caso de aplicaciones grandes, por ejemplo, por grupo de servicios relacionados.
 
 ## <a name="control-access-to-your-vault"></a>Controlar el acceso al almacén
 

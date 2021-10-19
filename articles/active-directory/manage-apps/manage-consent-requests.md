@@ -1,6 +1,7 @@
 ---
-title: Administración del consentimiento en las aplicaciones y evaluación de las solicitudes de consentimiento en Azure Active Directory
+title: Administración del consentimiento en las aplicaciones y evaluación de las solicitudes de consentimiento
 description: Aprenda a administrar las solicitudes de consentimiento cuando el consentimiento del usuario está deshabilitado o restringido, y a evaluar una solicitud de consentimiento del administrador para todo el inquilino a una aplicación en Azure Active Directory.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -11,14 +12,14 @@ ms.topic: how-to
 ms.date: 08/25/2021
 ms.author: davidmu
 ms.reviewer: phsignor
-ms.openlocfilehash: a6bf1ec1616d45edd08b943b55f2859d7942c908
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 5de11c8f853d471ad616ff0a9df4d01acb896c3f
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123425876"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619811"
 ---
-# <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Administración del consentimiento a las aplicaciones y evaluación de las solicitudes de consentimiento
+# <a name="manage-consent-to-applications-and-evaluate-consent-requests-in-azure-active-directory"></a>Administración del consentimiento en las aplicaciones y evaluación de las solicitudes de consentimiento en Azure Active Directory
 
 Microsoft recomienda [restringir el consentimiento del usuario](../../active-directory/manage-apps/configure-user-consent.md) para permitir que los usuarios solo den su consentimiento para las aplicaciones de publicadores comprobados y únicamente para los permisos que seleccione. En el caso de las aplicaciones que no cumplan esta directiva, el proceso de toma de decisiones se centralizará en el equipo administrador de identidades y seguridad de la organización.
 

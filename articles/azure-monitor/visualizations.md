@@ -1,153 +1,166 @@
 ---
-title: Visualizar datos de Azure Monitor | Microsoft Docs
-description: Proporciona un resumen de los métodos disponibles para visualizar los datos de métricas y de registro almacenados en Azure Monitor.
+title: Visualización de datos de Azure Monitor | Microsoft Docs
+description: Aquí obtendrá un resumen de los métodos disponibles para visualizar los datos de métricas y de registro almacenados en Azure Monitor.
 ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 07/28/2021
-ms.openlocfilehash: 4a98a44cd56691947536779103f55b4e713c74df
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 257ca33952283ba3989ce11a2d933af3feceb8ac
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121724609"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612358"
 ---
-# <a name="visualizing-data-from-azure-monitor"></a>Visualizar datos de Azure Monitor
-En este artículo se proporciona un resumen de los métodos disponibles para visualizar los datos de métricas y de registro almacenados en Azure Monitor.
+# <a name="visualize-data-from-azure-monitor"></a>Visualización de datos de Azure Monitor
+Este artículo le ofrece un resumen de los métodos disponibles para visualizar los datos de métricas y de registro almacenados en Azure Monitor.
 
-Visualizaciones como gráficos y diagramas pueden ayudarlo a analizar los datos de supervisión para explorar en profundidad los problemas e identificar patrones. Según la herramienta que utilice, es posible que también tenga la opción de compartir visualizaciones con otros usuarios dentro y fuera de su organización.
+Visualizaciones como gráficos y diagramas le ayudarán a analizar los datos de supervisión para explorar en profundidad los problemas e identificar patrones. Según la herramienta que use, es posible que también tenga la opción de compartir visualizaciones con otros usuarios dentro y fuera de la organización.
 
 ## <a name="workbooks"></a>Workbooks
-Los [libros](./visualize/workbooks-overview.md) son documentos interactivos que proporcionan información detallada sobre los datos, la investigación y colaboración en el equipo. Algunos ejemplos de libros útiles son las guías de resolución de problemas y los análisis posteriores a incidentes.
+Los [libros](./visualize/workbooks-overview.md) son documentos interactivos que proporcionan información detallada sobre los datos, la investigación y colaboración en el equipo. Los libros son especialmente útiles para las guías de solución de problemas y las memorias posteriores a incidentes.
 
-![Diagrama que muestra capturas de pantalla de varias páginas de un libro, entre las que se incluyen Análisis de vistas de página, Uso y Tiempo invertido en la página.](media/visualizations/workbook.png)
+![Diagrama que muestra capturas de pantalla de tres páginas de un libro, entre las que se incluyen el Análisis de vistas de página, el Uso y el Tiempo invertido en la página.](media/visualizations/workbook.png)
 
-### <a name="advantages"></a>Ventajas
-- Es compatible con las métricas y los registros.
-- Admite parámetros que habilitan los informes interactivos en que, al seleccionar un elemento en una tabla, se actualizarán dinámicamente los gráficos y las visualizaciones asociados.
+Las ventajas de un libro incluyen:
+
+- Compatibilidad con métricas y registros.
+- Admite parámetros que habilitan los informes interactivos en los que, al seleccionar un elemento en una tabla, se actualizarán dinámicamente los gráficos y las visualizaciones asociados.
 - Flujo similar al de los documentos.
-- Opción de libros personales o compartidos.
+- Opciones de libros personales o compartidos.
 - Experiencia de creación sencilla y colaborativa.
-- Las plantillas admiten la galería de plantillas públicas basadas en GitHub.
+- Plantillas que admiten la galería de plantillas públicas basadas en GitHub.
 
 
 ## <a name="azure-dashboards"></a>Paneles de Azure
-Los [paneles de Azure](../azure-portal/azure-portal-dashboards.md) son la tecnología de panel principal de Azure. Son especialmente útiles para proporcionar una hoja de cristal sobre su infraestructura de Azure y servicios, lo que permite identificar rápidamente problemas importantes.
+Los [paneles de Azure](../azure-portal/azure-portal-dashboards.md) son la tecnología de panel principal de Azure. Son especialmente útiles para proporcionar una hoja de cristal sobre la infraestructura y los servicios de Azure, lo que le permite identificar rápidamente problemas importantes.
 
 ![Captura de pantalla que muestra un ejemplo de un panel de Azure con información personalizable.](media/visualizations/dashboard.png)
 
-Este es un tutorial en vídeo sobre la creación de paneles.
+Aquí tiene un vídeo con un tutorial sobre la creación de paneles:
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH]
 
-### <a name="advantages"></a>Ventajas
+Las ventajas de un panel incluyen:
+
 - Integración profunda en Azure. Las visualizaciones se pueden anclar a paneles desde varias páginas de Azure, que incluyen el [Explorador de métricas](essentials/metrics-charts.md), [Log Analytics](logs/log-analytics-overview.md) y [Application Insights](app/app-insights-overview.md).
-- Es compatible con las métricas y los registros.
-- Puede combinar datos de varios orígenes, incluidos los resultados del [Explorador de métricas](essentials/metrics-charts.md), las[ consultas del registro](logs/log-query-overview.md) y los [mapas](app/app-map.md), y la disponibilidad de [Application Insights](app/app-insights-overview.md).
-- Opción de paneles personales o compartidos. Esta actualización también se integra con los [controles de acceso basado en roles (Azure RBAC) de Azure](../role-based-access-control/overview.md).
-- Actualización automática. Las métricas se actualizan según el intervalo de tiempo con un mínimo de cinco minutos. Registra la actualización cada hora, con una opción de actualización manual a petición mediante un clic en el icono "Actualizar" en una visualización determinada o mediante la actualización del panel completo.
+- Compatibilidad con métricas y registros.
+- La capacidad de combinar datos de varios orígenes, incluidos los resultados del [Explorador de métricas](essentials/metrics-charts.md), las [consultas del registro](logs/log-query-overview.md) y los [mapas](app/app-map.md) y la disponibilidad de [Application Insights](app/app-insights-overview.md).
+- Opciones para paneles personales o compartidos a través de la integración con el [control de acceso basado en roles de Azure (RBAC de Azure)](../role-based-access-control/overview.md).
+- Actualización automática. Las métricas se actualizan según el intervalo de tiempo con un mínimo de cinco minutos. Los registros se actualizan cada hora. Puede actualizar manualmente a petición si selecciona el icono **Actualizar** en una visualización o actualizando el panel completo.
 - Paneles de métricas parametrizadas con marca de tiempo y parámetros personalizados.
 - Opciones de diseño flexibles.
 - Modo de pantalla completa.
 
 
-### <a name="limitations"></a>Limitaciones
-- Control limitado sobre las visualizaciones de registros sin compatibilidad con tablas de datos. El número total de series de datos se limita a 50 con otras series de datos agrupadas en _otro_ depósito.
+Entre estas limitaciones se incluyen:
+
+- Control limitado sobre las visualizaciones de registros sin compatibilidad con tablas de datos. Número total de series de datos que se limita a 50 con otras series de datos agrupadas en _otro_ depósito.
 - Los gráficos de registro no son compatibles con los parámetros personalizados.
-- Los gráficos de registro se limitan a los últimos 30 días.
-- Los gráficos de registro solo se pueden anclar a los paneles compartidos.
+- Un período limitado para los gráficos de registros (últimos 30 días).
+- Requisito de que los gráficos de registro se deben anclar a paneles compartidos.
 - No hay interactividad con los datos del panel.
 - Exploración en profundidad contextual limitada.
 
-
-## <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) es particularmente útil para crear informes y paneles centrados en los negocios, así como informes de análisis de tendencias de KPI a largo plazo. Puede [importar los resultados de una consulta de registro](visualize/powerbi.md) en un conjunto de datos de Power BI para poder beneficiarse de sus características, como la combinación de datos de diferentes orígenes y el uso compartido de informes en la web y los dispositivos móviles.
-
-![Power BI](media/visualizations/power-bi.png)
-
-### <a name="advantages"></a>Ventajas
-- Visualizaciones enriquecidas.
-- Amplia interactividad, incluidas las funciones de acercamiento y filtrado cruzado.
-- Fácil de compartir en toda la organización.
-- Integración con otros datos desde varios orígenes de datos.
-- Mejor rendimiento con los resultados almacenados en caché en un cubo.
-
-
-### <a name="limitations"></a>Limitaciones
-- Admiten registros, pero no las métricas.
-- No hay integración de Azure. No puede administrar los paneles y los modelos a través de Azure Resource Manager.
-- Los resultados de las consultas deben importarse en el modelo de Power BI para que se configuren. Limitación de tamaño de los resultados y de actualización.
-- La actualización de datos se limita a ocho veces al día.
-
-
 ## <a name="grafana"></a>Grafana
-[Grafana](https://grafana.com/) es una plataforma abierta que sobresale en paneles operativos. Resulta especialmente útil para detectar, aislar y priorizar los incidentes operativos. Puede agregar el [complemento de origen de datos de Azure Monitor en Grafana](visualize/grafana-plugin.md) a su suscripción de Azure para visualizar los datos de métricas de Azure.
+[Grafana](https://grafana.com/) es una plataforma abierta que destaca en la creación de paneles operativos y en la visualización de datos de rendimiento y disponibilidad. Resulta útil para detectar, aislar y priorizar los incidentes operativos. Grafana incluye la compatibilidad integrada con Azure Monitor, así como el [complemento de Azure Monitor](https://grafana.com/docs/grafana/latest/datasources/azuremonitor/) integrado. También admite la visualización de datos de tres servicios de Azure:
+- Métricas de Azure Monitor, para obtener datos numéricos de series temporales de recursos de Azure. 
+- Registros de Azure Monitor, para obtener registros y datos de rendimiento de recursos de Azure, con los que se pueden realizar consultas mediante el potente lenguaje de consulta Kusto (KQL).
+- Azure Resource Graph, para consultar e identificar rápidamente recursos de Azure en suscripciones.
+
+Grafana funciona con una amplia gama de orígenes de datos y permite crear paneles que combinan datos de supervisión de recursos de Azure, locales u otras nubes. 
 
 ![Captura de pantalla que muestra las visualizaciones de Grafana.](media/visualizations/grafana.png)
 
 > [!IMPORTANT]
-> El explorador Internet Explorer y los exploradores Microsoft Edge más antiguos no son compatibles con Grafana, debe usar un explorador basado en Chromium, incluido Microsoft Edge. Consulte [Exploradores compatibles con Grafana](https://grafana.com/docs/grafana/latest/installation/requirements/#supported-web-browsers).
+> Tenga en cuenta que Internet Explorer 11 solo es compatible con versiones de Grafana anteriores a la versión 6.0. Consulte [Exploradores admitidos para Grafana](https://grafana.com/docs/grafana/latest/installation/requirements/#supported-web-browsers).
 
-### <a name="advantages"></a>Ventajas
+Estas son las ventajas de Grafana, entre otras:
+
 - Visualizaciones enriquecidas.
-- Ecosistema enriquecido de orígenes de datos.
+- Un ecosistema enriquecido de orígenes de datos, en el que se incluye la compatibilidad con orígenes de datos que no son de Azure.
 - Interactividad de datos que incluye la función de acercamiento.
-- Es compatible con parámetros.
+- Anotaciones que permiten la integración de datos de eventos en gráficos.
+- Compatibilidad con parámetros, incluidas las [variables de Azure Monitor](https://grafana.com/docs/grafana/latest/datasources/azuremonitor/template-variables/).
 
-### <a name="limitations"></a>Limitaciones
+Entre estas limitaciones se incluyen:
+
+- No puede administrar los paneles y los modelos a través de Azure Resource Manager.
+- El costo para admitir una infraestructura Grafana adicional o el costo adicional de Grafana Cloud.
+## <a name="power-bi"></a>Power BI
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) es particularmente útil para crear informes y paneles centrados en los negocios, así como informes de análisis de tendencias de KPI a largo plazo. Puede [importar los resultados de una consulta de registro](visualize/powerbi.md) en un conjunto de datos de Power BI para poder beneficiarse de sus características, como la combinación de datos de diferentes orígenes y el uso compartido de informes en la web y los dispositivos móviles.
+
+![Captura de pantalla que muestra un informe de Power BI de ejemplo para las operaciones de TI.](media/visualizations/power-bi.png)
+
+Las ventajas de Power BI incluyen:
+
+- Visualizaciones enriquecidas.
+- Amplia interactividad, incluidas las funciones de acercamiento y filtrado cruzado.
+- Facilidad de uso compartido en toda la organización.
+- Integración con otros datos desde varios orígenes de datos.
+- Mejor rendimiento con los resultados almacenados en caché en un cubo.
+
+Entre estas limitaciones se incluyen:
+
+- Compatibilidad con registros, pero no con métricas.
 - No hay integración de Azure. No puede administrar los paneles y los modelos a través de Azure Resource Manager.
-- Costo para admitir una infraestructura Grafana adicional o costo adicional para Grafana Cloud.
+- La necesidad de que los resultados de la consulta se importen en un modelo de Power BI para la configuración. 
+- Limitación de tamaño de los resultados y de la actualización.
+- La actualización de datos se limita a ocho veces al día.
+
 
 ## <a name="azure-monitor-partners"></a>Asociados de Azure Monitor
-Algunos [asociados de Azure Monitor](./partners.md) pueden proporcionar la funcionalidad de visualización. En el vínculo anterior se enumeran los asociados evaluados por Microsoft. 
+Algunos asociados de Azure Monitor proporcionan la funcionalidad de visualización. Para obtener una lista de asociados que Microsoft haya evaluado, consulte [Integraciones de los asociados de Azure Monitor](./partners.md). 
 
-### <a name="advantages"></a>Ventajas
-- Puede proporcionar visualizaciones rápidas, lo que ahorra tiempo
+Un asociado de Azure Monitor puede proporcionarle visualizaciones rápidas para ahorrar tiempo. 
 
-### <a name="limitations"></a>Limitaciones
-- Puede tener costos adicionales
-- Tiempo para investigar y evaluar las ofertas de asociados
+Entre estas limitaciones se incluyen:
 
-## <a name="build-your-own-custom-application"></a>Compilar su propia aplicación personalizada
-Puede tener acceso a datos de métricas y de registro en Azure Monitor mediante la API con cualquier cliente REST, lo que le permite crear sus propios sitios web y aplicaciones personalizados.
+- Posibles costos adicionales.
+- La necesidad de tener tiempo para investigar y evaluar las ofertas de los asociados.
 
-### <a name="advantages"></a>Ventajas
+## <a name="your-own-custom-application"></a>Su propia aplicación personalizada
+Puede acceder a los datos de registro y las métricas en Azure Monitor a través de una API mediante cualquier cliente de REST. A continuación, puede crear sus propios sitios web y aplicaciones personalizados.
+
+Entre las ventajas de crear una aplicación personalizada se incluyen:
+
 - Flexibilidad completa en cuanto a interfaz de usuario, visualización, interactividad y características.
-- Combine las métricas y los datos de registro con otros orígenes de datos.
+- La capacidad de combinar datos de métricas y de registro con otros orígenes de datos.
 
-### <a name="disadvantages"></a>Inconvenientes
-- Se requiere un trabajo de ingeniería importante.
+Una desventaja importante es que requiere realizar un esfuerzo de ingeniería.
 
 ## <a name="azure-monitor-views"></a>Vistas de Azure Monitor
 
 > [!IMPORTANT]
-> Las vistas están en proceso de quedar en desuso. Consulte la [Guía de transición del diseñador de vistas de Azure Monitor a libros](visualize/view-designer-conversion-overview.md) para obtener instrucciones sobre cómo convertir vistas en libros.
+> Las vistas están en proceso de quedar en desuso. Para obtener instrucciones sobre cómo convertir las vistas en libros, consulte la [guía de transición](visualize/view-designer-conversion-overview.md).
 
-Las [vistas de Azure Monitor](visualize/view-designer.md) le permiten crear visualizaciones personalizadas con datos de registro. Las [soluciones de supervisión](insights/solutions.md) las utilizan para presentar los datos recopilados.
+Las [vistas de Azure Monitor](visualize/view-designer.md) le permiten crear visualizaciones personalizadas mediante los datos de registro. Las [soluciones de supervisión](insights/solutions.md) utilizan vistas para presentar los datos que recopilan.
 
 
 ![Captura de pantalla que muestra un icono de Solución de supervisión de contenedores y la vista detallada de Azure Monitor que se abre al seleccionarlo.](media/visualizations/view.png)
 
-### <a name="advantages"></a>Ventajas
-- Visualizaciones enriquecidas para datos de registro.
-- Exporte e importe las vistas para transferirlas a otros grupos de recursos y suscripciones.
-- Se integran en el modelo de administración de Azure Monitor con áreas de trabajo y soluciones de supervisión.
-- [Filtran](visualize/view-designer-filters.md) los parámetros personalizados.
-- Interactivas, admiten varios niveles de obtención de detalles (vista que explora otra vista)
+Entre las ventajas de las vistas se incluyen:
 
-### <a name="limitations"></a>Limitaciones
-- Admiten registros, pero no las métricas.
-- No hay vistas personales. Disponibles para todos los usuarios con acceso al área de trabajo.
+- Visualizaciones enriquecidas para datos de registro.
+- La capacidad de exportar e importar las vistas para transferirlas a otros grupos de recursos y suscripciones.
+- La integración en el modelo de administración de Azure Monitor con áreas de trabajo y soluciones de supervisión.
+- [Filtran](visualize/view-designer-filters.md) los parámetros personalizados.
+- Interactividad, con compatibilidad para la obtención de detalles de varios niveles (una vista que se profundiza en otra vista).
+
+Entre estas limitaciones se incluyen:
+
+- Compatibilidad con registros, pero no con métricas.
+- No hay vistas personales. Una vista está disponible para todos los usuarios con acceso al área de trabajo.
 - No hay actualizaciones automáticas.
 - Opciones de diseño limitadas.
 - No se admiten las consultas a través de varias áreas de trabajo o aplicaciones de Application Insights.
-- El tamaño de respuesta y el tiempo de ejecución de las consultas se limitan a 8 MB y 110 segundos, respectivamente.
+- Tamaño limitado de respuesta de consulta (8 MB) y tiempo de ejecución de consulta (110 segundos).
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga información sobre los [datos que Azure Monitor recopila](data-platform.md).
 - Obtenga información sobre los [paneles de Azure](../azure-portal/azure-portal-dashboards.md).
-- Más información acerca de [Explorador de métricas](essentials/metrics-getting-started.md).
-- Obtenga información sobre [Workbooks](./visualize/workbooks-overview.md).
-- Obtenga información sobre cómo [importar datos de registro en Power BI](./visualize/powerbi.md).
-- Obtenga información sobre el [complemento de origen de datos de Azure Monitor en Grafana](./visualize/grafana-plugin.md).
+- Obtenga información acerca de el [Explorador de métricas](essentials/metrics-getting-started.md).
+- Obtenga información sobre los [libros](./visualize/workbooks-overview.md).
+- Obtenga información sobre la [importación de datos de registro en Power BI](./visualize/powerbi.md).
+- Obtenga información sobre el [complemento de origen de datos de Azure Monitor para Grafana](./visualize/grafana-plugin.md).
 - Obtenga información sobre las [vistas de Azure Monitor](visualize/view-designer.md).

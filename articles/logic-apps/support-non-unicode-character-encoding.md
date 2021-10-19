@@ -1,16 +1,16 @@
 ---
-title: Compatibilidad con la codificación de caracteres no Unicode en Logic Apps
-description: Trabajar con texto no Unicode en Logic Apps. Convierta cargas de texto a UTF-8 mediante codificación base64 y Azure Functions.
-ms.date: 04/29/2021
-ms.topic: conceptual
-ms.reviewer: logicappspm
+title: Conversión de texto codificado no Unicode según la compatibilidad
+description: Administre los caracteres no Unicode en Azure Logic Apps mediante la conversión de cargas de texto a UTF-8 con codificación base64 y Azure Functions.
+ms.date: 10/05/2021
+ms.topic: how-to
+ms.reviewer: estfan, azla
 ms.service: logic-apps
-ms.openlocfilehash: cabdb2a644870d363265fa39290eb503f72730a9
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 1251a1622e62b7940c25ac810db10f70da560000
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326928"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129618997"
 ---
 # <a name="support-non-unicode-character-encoding-in-logic-apps"></a>Compatibilidad con la codificación de caracteres no Unicode en Logic Apps
 
@@ -24,9 +24,17 @@ Esta solución funciona con flujos de trabajo *multiinquilino* y de *un solo inq
 
 En primer lugar, compruebe que el desencadenador puede identificar correctamente el tipo de contenido. Este paso garantiza que Logic Apps ya no dé por supuesto que el texto es UTF-8. 
 
-Para los desencadenadores con el valor **Inferir tipo de contenido**, elija **No**. Si el desencadenador no tiene esta opción, el tipo de contenido se establece mediante el mensaje entrante. 
+En desencadenadores y acciones que tienen la propiedad **Inferir tipo de contenido**, seleccione **No**.  Normalmente puede encontrar esta propiedad en la lista **Agregar parámetros** de la operación. Sin embargo, si la operación no incluye esta propiedad, el tipo de contenido se establece mediante el mensaje entrante.
 
-Si usa el desencadenador de solicitud HTTP para el contenido `text/plain`, debe establecer el parámetro `charset` en el encabezado `Content-Type` de la llamada. Los caracteres pueden dañarse si no establece el parámetro `charset` o si el parámetro no coincide con el formato de codificación de la carga. Para obtener más información, vea [cómo controlar el tipo de contenido `text/plain`](logic-apps-content-type.md#text-plain).
+En la lista siguiente se muestran algunos de los conectores en los que puede deshabilitar la inferencia automática del tipo de contenido:
+* [OneDrive](/connectors/onedrive/)
+* [Azure Blob Storage](/connectors/azureblob/)
+* [Azure File Storage](/connectors/azurefile/)
+* [Sistema de archivos](/connectors/filesystem/)
+* [Google Drive](/connectors/googledrive/)
+* [SFTP - SSH](/connectors/sftpwithssh/)
+ 
+Si usa el desencadenador de solicitud para el contenido `text/plain`, debe establecer el parámetro `charset` que se encuentra en el encabezado `Content-Type` de la llamada. De lo contrario, los caracteres pueden dañarse o si el parámetro no coincide con el formato de codificación de la carga. Para obtener más información, consulte [cómo controlar el tipo de contenido `text/plain`](logic-apps-content-type.md#text-plain).
 
 Por ejemplo, el desencadenador HTTP convierte el contenido entrante en UTF-8 cuando el encabezado `Content-Type` se establece con el parámetro `charset` correcto:
 

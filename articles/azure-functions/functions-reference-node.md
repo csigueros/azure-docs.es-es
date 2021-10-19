@@ -3,14 +3,14 @@ title: Referencia para desarrolladores de JavaScript para Azure Functions
 description: Obtenga información sobre cómo desarrollar funciones con JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 03/07/2021
+ms.date: 10/07/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: e62e320e2fac2b34e970f983965f9809d62e2103
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fbd291494554c7bbb6e7f79a932717bf81a124c6
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741383"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667599"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guía para el desarrollador de JavaScript para Azure Functions
 
@@ -264,17 +264,15 @@ Devuelve un objeto con nombre que contiene los metadatos de desencadenar y los d
 
 ### <a name="contextdone-method"></a>Método context.done
 
-```js
-context.done([err],[propertyBag])
-```
+Los métodos sincrónicos usan el método **context.done**.
 
-Permite que el tiempo de ejecución sepa que el código se ha completado. Si su función usa la declaración [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function), no es necesario que utilice `context.done()`. La devolución de llamada `context.done` se realiza implícitamente. Las funciones asincrónicas están disponibles en Node 8 o una versión posterior, que requiere la versión 2.x del tiempo de ejecución de Functions.
+|Ejecución sincrónica|Ejecución [asincrónica](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function)<br>(Node 8+, entorno de ejecución de Functions 2+)|
+|--|--|
+|Requerido: `context.done([err],[propertyBag])` para informar al entorno de ejecución de que la función está completa. La ejecución agota el tiempo de espera si no está presente.<br>El método `context.done` le permite devolver un error definido por el usuario al entorno en tiempo de ejecución y un objeto JSON que contiene los datos de enlace de salida. Las propiedades que se pasan a `context.done` sobrescriben lo que ha definido en el objeto `context.bindings`.|No requerid: `context.done`, se llama implícitamente.| 
 
-Si la función no es una función asincrónica, **debe llamar** a `context.done` para informar al entorno de ejecución de que la función está completa. La ejecución agota el tiempo de espera si no está presente.
-
-El método `context.done` le permite devolver un error definido por el usuario al entorno en tiempo de ejecución y un objeto JSON que contiene los datos de enlace de salida. Las propiedades que se pasan a `context.done` sobrescriben lo que ha definido en el objeto `context.bindings`.
 
 ```javascript
+// Synchronous code only
 // Even though we set myOutput to have:
 //  -> text: 'hello world', number: 123
 context.bindings.myOutput = { text: 'hello world', number: 123 };

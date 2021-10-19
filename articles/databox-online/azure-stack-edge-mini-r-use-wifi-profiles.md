@@ -2,18 +2,18 @@
 title: Uso de perfiles de Wi-Fi con dispositivos de Azure Stack Edge Mini R
 description: Aquí se describe cómo crear perfiles de Wi-Fi para dispositivos de Azure Stack Edge Mini R en redes de empresa y redes personales de alta seguridad.
 services: databox
-author: v-dalc@microsoft.com
+author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/24/2021
+ms.date: 10/07/2021
 ms.author: alkohli
-ms.openlocfilehash: 90c7c238cef104eae78618e51fa4b284adcc8f42
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 34fe33f3c1d5be747e96ae71567424026c7c7a2a
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105050332"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129669214"
 ---
 # <a name="use-wi-fi-profiles-with-azure-stack-edge-mini-r-devices"></a>Uso de perfiles de Wi-Fi con dispositivos de Azure Stack Edge Mini R
 
@@ -97,6 +97,8 @@ En un entorno empresarial de alta seguridad, es posible que pueda usar un perfil
 
 Para exportar un perfil para la interfaz de Wi-Fi en el equipo, siga estos pasos:
 
+1. Asegúrese de que el equipo que va a usar para exportar el perfil inalámbrico puede conectarse a la red Wi-Fi que usará el dispositivo.
+
 1. Para ver los perfiles inalámbricos en el equipo, vaya al menú **Inicio**, abra el **símbolo del sistema** (cmd.exe) y escriba este comando:
 
    `netsh wlan show profiles`
@@ -120,14 +122,14 @@ Para exportar un perfil para la interfaz de Wi-Fi en el equipo, siga estos pasos
        All User Profile     : Boat
    ```
 
-2. Para exportar un perfil, escriba el siguiente comando:
+1. Para exportar un perfil, escriba el siguiente comando:
 
-   `netsh wlan export profile name=”<profileName>” folder=”<path>\<profileName>"`
+   `netsh wlan export profile name=”<profileName>” folder=”<path>\<profileName>" key=clear`
 
    Por ejemplo, el siguiente comando guarda el perfil ContosoFTINET en formato XML en la carpeta Descargas para el usuario llamado `gusp`.
 
    ```dos
-   C:\Users\gusp>netsh wlan export profile name="ContosoFTINET" folder=c:Downloads
+   C:\Users\gusp>netsh wlan export profile name="ContosoFTINET" folder=c:Downloads key=clear
 
    Interface profile "ContosoFTINET" is saved in file "c:Downloads\ContosoFTINET.xml" successfully.
    ```

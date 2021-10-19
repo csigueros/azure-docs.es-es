@@ -1,5 +1,6 @@
 ---
 title: Visibilidad y control de aplicaciones con Microsoft Cloud App Security
+titleSuffix: Azure AD
 description: Conozca los métodos para identificar los niveles de riesgo de las aplicaciones, detener vulneraciones y fugas en tiempo real y usar conectores de aplicaciones para aprovechar las ventajas de las API de proveedores para la visibilidad y el gobierno.
 services: active-directory
 author: davidmu1
@@ -12,14 +13,14 @@ ms.date: 07/29/2021
 ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.reviewer: bokacevi, dacurwin
-ms.openlocfilehash: ffc4a35aef2304a650f5673a26f0e4fd532e23be
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 52c17d521ca1a3a4e191c4a4a82d37a98371f879
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738852"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619849"
 ---
-# <a name="cloud-app-visibility-and-control"></a>Control y visibilidad de aplicaciones en la nube
+# <a name="cloud-app-visibility-and-control-in-azure-active-directory"></a>Control y visibilidad de aplicaciones en la nube en Azure Active Directory
 
 Para sacar el máximo partido de las aplicaciones y los servicios en la nube, un equipo de TI debe encontrar el equilibrio adecuado entre respaldar el acceso y conservar el control para proteger datos críticos. Microsoft Cloud App Security proporciona visibilidad enriquecida, control durante el trayecto de los datos y análisis sofisticados para identificar y combatir las ciberamenazas en todos los servicios en la nube de Microsoft y de terceros.
 

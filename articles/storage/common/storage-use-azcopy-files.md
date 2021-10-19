@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 3e60815b2361f4ba14b6a40ded2734c748f8d4ae
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 95a09a19a4bf569680ba3c16214bc10c6be37cd9
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128633704"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129616424"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferencia de datos con AzCopy y File Storage
 
@@ -423,7 +423,7 @@ azcopy copy 'https://mysourceaccount.file.core.windows.net?sv=2018-03-28&ss=bfqt
 Puede sincronizar el contenido de un sistema de archivos local con un recurso compartido de archivos, o bien sincronizar el contenido de un recurso compartido de archivos con otro. También puede sincronizar el contenido de un directorio de un recurso compartido de archivos con el contenido de un directorio que se encuentra en otro recurso compartido de archivos. La sincronización es unidireccional. En otras palabras, tendrá que elegir cuál de estos dos puntos de conexión es el origen y cuál es el destino. La sincronización también usa las API de servidor a servidor.
 
 > [!NOTE]
-> En la actualidad, este escenario solo se admite para las cuentas que no tienen un espacio de nombres jerárquico. La versión actual de AzCopy no se sincroniza entre Azure Files y Blob Storage.
+> Actualmente, este escenario es compatible con las cuentas que han habilitado el espacio de nombres jerárquico a través del punto de conexión de blob.
 
 ### <a name="guidelines"></a>Directrices
 

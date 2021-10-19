@@ -7,15 +7,15 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/18/2020
-ms.openlocfilehash: 47e9b80bb25b7ff14695cc67682265fe338ff76f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 10/06/2021
+ms.openlocfilehash: 1f457f4b86a4f0d6b535b00c45042d5e70a49d2d
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98119108"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129614296"
 ---
-# <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Cómo recompilar un índice en Azure Cognitive Search
+# <a name="rebuild-an-index-in-azure-cognitive-search"></a>Recompilación de un índice en Azure Cognitive Search
 
 En este artículo se explica cómo recompilar un índice de Azure Cognitive Search, las circunstancias en las que las recompilaciones son necesarias y recomendaciones para mitigar el impacto de las recompilaciones en las solicitudes de consulta en curso.
 

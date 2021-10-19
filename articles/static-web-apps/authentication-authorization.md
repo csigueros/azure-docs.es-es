@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 04/09/2021
+ms.date: 10/08/2021
 ms.author: cshoe
-ms.openlocfilehash: 00f01e184b254e4fbc40fefa79506498bae30597
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: e38cc40407f636f8bfd53a9196ecaf9c431d34db
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634915"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129729831"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps"></a>Autenticación y autorización para Azure Static Web Apps
 
@@ -21,7 +21,8 @@ Azure Static Web Apps proporciona una experiencia de autenticación simplificada
 - Cualquier usuario puede autenticarse con un proveedor habilitado.
 - Una vez iniciada la sesión, los usuarios pertenecen a los roles `anonymous` y `authenticated` de forma predeterminada.
 - Los usuarios autorizados obtienen acceso a [rutas](configuration.md#routes) restringidas mediante reglas definidas en el [archivo staticwebapp.config.json](./configuration.md).
-- Los usuarios se unen a los roles personalizados a través de [invitaciones](#invitations) específicas del proveedor o a través de un [registro de proveedor de Azure Active Directory personalizado](./authentication-custom.md).
+- A los usuarios se les asignan roles personalizados mediante el sistema de [invitaciones](#invitations) integrado.
+- Una función de API puede asignar roles personalizados a los usuarios mediante programación durante el inicio de sesión.
 - Todos los proveedores de autenticación están habilitados de forma predeterminada.
   - Para restringir un proveedor de autenticación, [bloquee el acceso](#block-an-authorization-provider) con una regla de ruta personalizada.
 - Estos son los proveedores preconfigurados:
@@ -38,9 +39,11 @@ Cada usuario que tiene acceso a una aplicación web estática pertenece a uno o 
 - **anónimo**: Todos los usuarios pertenecen automáticamente al rol _anónimo_.
 - **autenticado**: Todos los usuarios que inician sesión pertenecen al rol _autenticado_.
 
-Además de los roles integrados, puede crear nuevos roles, asignarlos a los usuarios a través de invitaciones y hacer referencia a ellos en el archivo _staticwebapp.config.json_.
+Además de los roles integrados, puede crear asignar roles personalizados a los usuarios y hacer referencia a ellos en el archivo _staticwebapp.config.json_.
 
 ## <a name="role-management"></a>Administración de roles
+
+# <a name="invitations"></a>[Invitaciones](#tab/invitations)
 
 ### <a name="add-a-user-to-a-role"></a>Adición de un usuario a un rol
 
@@ -104,6 +107,115 @@ Al quitar un usuario, tenga en cuenta los elementos siguientes:
 1. Al quitar un usuario, se invalidan sus permisos.
 1. La propagación mundial puede tardar unos minutos.
 1. Si se vuelve a agregar el usuario a la aplicación, [`userId` cambia](user-information.md).
+
+# <a name="function-preview"></a>[Función (versión preliminar)](#tab/function)
+
+En lugar de usar el sistema de invitaciones integrado, puede usar una función sin servidor para asignar roles a los usuarios mediante programación cuando inicien sesión.
+
+Para asignar roles personalizados en una función, puede definir una función de API a la que se llama automáticamente después de cada vez que un usuario se autentica correctamente con un proveedor de identidades. A la función se le pasa la información del usuario del proveedor. Debe devolver una lista de roles personalizados asignados al usuario.
+
+Entre los usos de ejemplo de esta función se incluyen los siguientes:
+
+- Consulta de una base de datos para determinar qué roles se deben asignar a un usuario
+- Llame a [Microsoft Graph API](https://developer.microsoft.com/graph) para determinar los roles de un usuario en función de su pertenencia a un grupo de Active Directory
+- Determinación de los roles de un usuario en función de las notificaciones devueltas por el proveedor de identidades
+
+> [!NOTE]
+> La capacidad de asignar roles a través de una función solo está disponible cuando [se configura la autenticación personalizada](authentication-custom.md).
+>
+> Cuando esta característica está habilitada, se omiten los roles asignados a través del sistema de invitaciones integrado.
+
+### <a name="configure-a-function-for-assigning-roles"></a>Configuración de una función para asignar roles
+
+Para configurar Static Web Apps con el fin de que use una función de API como función de asignación de roles, agregue una propiedad `rolesSource` a la sección `auth` del [archivo de configuración](configuration.md) de la aplicación. El valor de la propiedad `rolesSource` es la ruta a la función de API.
+
+```json
+{
+  "auth": {
+    "rolesSource": "/api/GetRoles",
+    "identityProviders": {
+      // ...
+    }
+  }
+}
+```
+
+> [!NOTE]
+> Una vez configurada, las solicitudes HTTP externas ya no pueden acceder a la función de asignación de roles.
+
+### <a name="create-a-function-for-assigning-roles"></a>Creación de una función para asignar roles
+
+Después de definir la propiedad `rolesSource` en la configuración de la aplicación, agregue una [función de API](apis.md) en la aplicación web estática en la ruta de acceso especificada. Puede usar una aplicación de función administrada o una aplicación Bring your own function (Traiga su propia función).
+
+Cada vez que un usuario se autentica correctamente con un proveedor de identidades, se llama a la función especificada. A la función se le pasa un objeto JSON en el cuerpo de la solicitud que contiene la información del usuario del proveedor. Para algunos proveedores de identidades, la información del usuario también incluye un objeto `accessToken` que la función puede usar para realizar llamadas API mediante la identidad del usuario.
+
+Esta es una carga de ejemplo de Azure Active Directory:
+
+```json
+{
+  "identityProvider": "aad",
+  "userId": "72137ad3-ae00-42b5-8d54-aacb38576d76",
+  "userDetails": "ellen@contoso.com",
+  "claims": [
+      {
+          "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
+          "val": "ellen@contoso.com"
+      },
+      {
+          "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname",
+          "val": "Contoso"
+      },
+      {
+          "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname",
+          "val": "Ellen"
+      },
+      {
+          "typ": "name",
+          "val": "Ellen Contoso"
+      },
+      {
+          "typ": "http://schemas.microsoft.com/identity/claims/objectidentifier",
+          "val": "7da753ff-1c8e-4b5e-affe-d89e5a57fe2f"
+      },
+      {
+          "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
+          "val": "72137ad3-ae00-42b5-8d54-aacb38576d76"
+      },
+      {
+          "typ": "http://schemas.microsoft.com/identity/claims/tenantid",
+          "val": "3856f5f5-4bae-464a-9044-b72dc2dcde26"
+      },
+      {
+          "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+          "val": "ellen@contoso.com"
+      },
+      {
+          "typ": "ver",
+          "val": "1.0"
+      }
+  ],
+  "accessToken": "eyJ0eXAiOiJKV..."
+}
+```
+
+La función puede usar la información del usuario para determinar qué roles asignar al usuario. Debe devolver una respuesta HTTP 200 con un cuerpo JSON que contenga una lista de nombres de rol personalizados que se asignarán al usuario.
+
+Por ejemplo, para asignar el usuario a los roles `Reader` y `Contributor`, devuelva la siguiente respuesta:
+
+```json
+{
+  "roles": [
+    "Reader",
+    "Contributor"
+  ]
+}
+```
+
+Si no desea asignar ningún rol adicional al usuario, devuelva una matriz `roles` vacía.
+
+Para obtener más información, consulte [Tutorial: asignación de roles personalizados con una función y Microsoft Graph](assign-roles-microsoft-graph.md).
+
+---
 
 ## <a name="remove-personal-identifying-information"></a>Eliminación de la información de identificación personal
 

@@ -1,27 +1,27 @@
 ---
-title: 'Renovación del propietario del grupo expirado de las asignaciones de miembro en Privileged Identity Management: Azure AD | Microsoft Docs'
+title: 'Renovación del propietario del grupo expirado de las asignaciones de miembro en Privileged Identity Management: Azure AD | Microsoft Docs'
 description: Aprenda a ampliar o renovar las asignaciones de grupos con roles asignables en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
-editor: markwahl-msft
+manager: KarenH444
+ms.reviewer: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 06/30/2020
+ms.date: 10/07/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cfbb0be22dee4550050d6af10314f3a3bb1f583
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 791da880607de6e2e3c7ad9a9e94e41c50e5a4be
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87505620"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667675"
 ---
 # <a name="extend-or-renew-privileged-access-group-assignments-preview-in-privileged-identity-management"></a>Ampliación o renovación de las asignaciones de grupos de acceso con privilegios (versión preliminar) en Privileged Identity Management
 

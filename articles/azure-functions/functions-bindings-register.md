@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/14/2020
 ms.author: cshoe
-ms.openlocfilehash: 262e0fc02632465a03391dbfeaa0902d1b6b9ec3
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7267e733971b2abed258ca815a010b13938bc2a6
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609771"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129613479"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registro de las extensiones de enlace de Azure Functions
 
@@ -69,7 +69,7 @@ En los siguientes elementos se describen algunos de los motivos por los que es p
 * Debe tener acceso a una combinación específica de extensiones que no está disponible en un único conjunto.
 
 > [!NOTE]
-> Para instalar manualmente extensiones mediante Core Tools, debe tener instalado el [SDK de .NET Core 2.x](https://dotnet.microsoft.com/download). Azure Functions Core Tools usa el SDK de .NET Core para instalar extensiones de NuGet. No es necesario tener conocimientos de .NET para usar las extensiones de Azure Functions.
+> Para instalar manualmente extensiones mediante Core Tools, debe tener instalado el [SDK de .NET Core 3.1.x](https://dotnet.microsoft.com/download). Azure Functions Core Tools usa el SDK de .NET Core para instalar extensiones de NuGet. No es necesario tener conocimientos de .NET para usar las extensiones de Azure Functions.
 
 Cuando se instalan las extensiones explícitamente, se agrega un archivo de proyecto .NET denominado extensions.csproj a la raíz del proyecto. Este archivo define el conjunto de paquetes NuGet requeridos por las funciones. Aunque puede trabajar con las [referencias de paquetes de NuGet](/nuget/consume-packages/package-references-in-project-files) en este archivo, las herramientas principales le permiten instalar extensiones sin tener que editar manualmente el archivo.
 

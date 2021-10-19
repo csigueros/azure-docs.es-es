@@ -2,16 +2,16 @@
 title: Creación e implementación de especificaciones de plantillas
 description: Describe cómo crear especificaciones de plantilla y compartirlas con otros usuarios de la organización.
 ms.topic: conceptual
-ms.date: 05/04/2021
+ms.date: 10/05/2021
 ms.author: tomfitz
 ms.custom: devx-track-azurepowershell
 author: tfitzmac
-ms.openlocfilehash: bf417b6ca70012a3cf4bce17640aa4bc9ab9fd08
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8d8b582cdae8b387774402869eccf903a1b394b2
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128611213"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129613441"
 ---
 # <a name="azure-resource-manager-template-specs"></a>Especificaciones de plantilla de Azure Resource Manager
 
@@ -23,6 +23,8 @@ Para implementar la especificación de plantilla, use herramientas estándar de 
 
 > [!NOTE]
 > Para usar especificaciones de plantilla con Azure PowerShell, debe instalar la [versión 5.0.0 o posterior](/powershell/azure/install-az-ps). Para usarlas con la CLI de Azure, utilice la [versión 2.14.2 o posterior](/cli/azure/install-azure-cli).
+
+Al diseñar la implementación, tenga en cuenta siempre el ciclo de vida de los recursos, ya que debe agrupar los recursos que compartan un ciclo de vida similar en una sola especificación de plantilla. Por ejemplo, si las implementaciones incluyen varias instancias de Cosmos DB y cada instancia contiene sus propias bases de datos y contenedores. Dado que las bases de datos y los contenedores no cambian mucho, seguramente quiera crear una especificación de plantilla para incluir una instancia de Cosmos DB y sus bases de datos y contenedores subyacentes. A continuación, puede usar las instrucciones condicionales en las plantillas junto con bucles de copia para crear varias instancias de estos recursos.
 
 ### <a name="microsoft-learn"></a>Microsoft Learn
 

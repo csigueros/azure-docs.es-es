@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/22/2021
+ms.date: 10/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 216123a60a69fc696423ac9d129201201cac8fbc
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b4706d8bc9224920afb8e17abca88409d4aff7ab
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124739927"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129617385"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Administración de Azure AD B2C con Microsoft Graph
 
@@ -139,6 +139,7 @@ El recurso de nivel superior para las claves de directiva de Microsoft Graph API
 ## <a name="application-extension-properties"></a>Propiedades de extensión de aplicación
 
 - [Enumerar propiedades de extensión](/graph/api/application-list-extensionproperty)
+- [Eliminar la propiedad de extensión](/graph/api/application-delete-extensionproperty)
 
 Azure AD B2C proporciona un directorio que puede contener 100 atributos personalizados por usuario. En el caso de los flujos de usuarios, estas propiedades de extensión se [administran mediante Azure Portal](user-flow-custom-attributes.md). En el caso de las directivas personalizadas, Azure AD B2C crea la propiedad automáticamente la primera vez que la directiva escribe un valor en la propiedad de extensión.
 

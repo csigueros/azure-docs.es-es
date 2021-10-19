@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/02/2021
-ms.openlocfilehash: 07a4d0b7b932b92307b77420df1a21027df1efb0
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 1463c4e879b364f8242d55aa58b424a8cc6f9cf9
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538064"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706793"
 ---
 # <a name="knowledge-store-in-azure-cognitive-search"></a>Almacén de conocimiento en Azure Cognitive Search
 
-El almacén de conocimiento es una característica de Azure Cognitive Search que envía la salida de una [canalización de enriquecimiento con IA](cognitive-search-concept-intro.md) a tablas y blobs en Azure Storage para realizar análisis independientes o procesos de bajada.
+El almacén de conocimiento es un receptor de datos creado por una [canalización de enriquecimiento con IA](cognitive-search-concept-intro.md) de Cognitive Search que almacena contenido enriquecido en tablas y contenedores de blobs en Azure Storage para el análisis independiente o el procesamiento de nivel inferior en escenarios que no son de búsqueda, como la minería de conocimiento.
 
 Si ha usado aptitudes cognitivas en el pasado, ya sabe que los *conjuntos de aptitudes* mueven un documento a través de una secuencia de enriquecimientos que invocan transformaciones atómicas, como el reconocimiento de entidades o la traducción de texto. El resultado puede ser un índice de búsqueda o proyecciones en un almacén de conocimientos. Las dos salidas, el índice de búsqueda y el almacén de conocimiento son productos de la misma canalización mutuamente excluyentes. Aunque se obtienen de las mismas entradas, se genera una salida estructurada y almacenada que se emplea en aplicaciones diferentes.
 

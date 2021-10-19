@@ -1,76 +1,82 @@
 ---
-title: Protección y aislamiento de clústeres de Azure HDInsight con Private Link (versión preliminar)
-description: Aprenda a aislar los clústeres de Azure HDInsight en una red virtual mediante Azure Private Link.
+title: Habilitación de Private Link en un clúster de HDInsight restringido (versión preliminar)
+description: Aprenda a conectarse fuera del clúster de HDInsight mediante Azure Private Link.
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 4c5e30bfd7afd8a7cd8974544324f6e610736846
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 9f432d37e58069decdc9a97e55d926aed3b7277f
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113438483"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710030"
 ---
-# <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Protección y aislamiento de clústeres de Azure HDInsight con Private Link (versión preliminar)
+# <a name="enable-private-link-on-hdinsight-cluster-preview"></a>Habilitación de Private Link en el clúster de HDInsight (versión preliminar)
 
-En la [arquitectura de red virtual predeterminada](./hdinsight-virtual-network-architecture.md) de Azure HDInsight, el proveedor de recursos (RP) de HDInsight se comunica con el clúster mediante IP públicas. Algunos escenarios requieren el aislamiento de red completo sin usar IP públicas. En este artículo, obtendrá información sobre los controles avanzados que puede usar para crear un clúster de HDInsight privado. Para información sobre cómo restringir el tráfico hacia y desde el clúster sin el aislamiento de red completo, consulte [Control del tráfico de red en Azure HDInsight](./control-network-traffic.md).
+## <a name="overview"></a>Información general
+En este artículo, aprenderá a aprovechar Azure Private Link para conectarse al clúster de HDInsight de forma privada mediante redes de la red troncal de Microsoft. Este artículo es una extensión de nuestro artículo principal [Restricción de la conectividad de clústeres en Azure HDInsight](./hdinsight-restrict-public-connectivity.md), donde nos centramos en restringir la conectividad pública. En el caso de que pueda optar por tener conectividad pública en los clústeres de HDInsight y recursos dependientes y desde ellos, considere la posibilidad de restringir la conectividad del clúster siguiendo las instrucciones del [control del tráfico de red en Azure HDInsight](./control-network-traffic.md).
 
-Puede crear clústeres de HDInsight privados mediante la configuración de propiedades de red específicas en una plantilla de Azure Resource Manager (ARM). Hay dos propiedades que se usan para crear clústeres de HDInsight privados:
+Private Link se puede aprovechar en escenarios entre redes virtuales en los que el emparejamiento de redes virtuales no está disponible o habilitado. Por ejemplo, si quiere integrar Azure Data Factory con Azure HDInsight, donde es necesario que Azure Data Factory se conecte con los clústeres de HDInsight mediante una red privada (p. ej., Private Link) por motivos de cumplimiento y seguridad.
 
-* Establecer `resourceProviderConnection` en "saliente" para quitar las IP públicas.
-* Establecer `privateLink` en "habilitado" para habilitar Azure Private Link y usar [Puntos de conexión privados](../private-link/private-endpoint-overview.md).
+> [!NOTE]
+> Restringir la conectividad pública es un requisito previo para habilitar Private Link y no debe considerarse como la misma funcionalidad.
 
-## <a name="remove-public-ip-addresses"></a>Eliminación de IP públicas
-
-De manera predeterminada, el proveedor de recursos de HDInsight usa una conexión *entrante* al clúster mediante IP públicas. Cuando la propiedad de red `resourceProviderConnection` está establecida en *saliente*, invierte las conexiones al proveedor de recursos de HDInsight para que las conexiones siempre se inicien desde dentro del clúster hacia el RP. Sin una conexión entrante, no son necesarias las IP públicas ni las etiquetas de servicio de entrada.
-
-Los equilibradores de carga básicos que se usan en la arquitectura de red virtual predeterminada proporcionan automáticamente una NAT (traducción de direcciones de red) pública para acceder a las dependencias de salida requeridas, como el RP de HDInsight. Si quiere restringir la conectividad de salida a la red pública de Internet, puede [configurar un firewall](./hdinsight-restrict-outbound-traffic.md), pero no es requisito que lo haga.
-
-La configuración de `resourceProviderConnection` como saliente también le permite acceder a recursos específicos del clúster, como Azure Data Lake Storage Gen2 o metastores externos, mediante puntos de conexión privados. No es obligatorio usar puntos de conexión privados para estos recursos, pero si planea hacerlo, debe configurar los puntos de conexión privados y las entradas DNS `before` de crear el clúster de HDInsight. Es recomendable crear y proporcionar todas las bases de datos SQL externas necesarias, como Apache Ranger, Ambari, Oozie y metastores de Hive, durante la creación del clúster. Todos estos recursos deben ser accesibles desde dentro de la subred del clúster, ya sea a través de su propio punto de conexión privado o de cualquier otro modo.
-
-Al conectarse a Azure Data Lake Storage Gen2 a través de un punto de conexión privado, asegúrese de que la cuenta de almacenamiento de Gen2 tenga un punto de conexión establecido para "blob" y "dfs". Para más información, consulte [Creación de un punto de conexión privado](../storage/common/storage-private-endpoints.md).
-
-En el diagrama siguiente se muestra el aspecto que podría tener una posible arquitectura de red virtual de HDInsight cuando `resourceProviderConnection` está establecido en "saliente":
-
-:::image type="content" source="media/hdinsight-private-link/outbound-resource-provider-connection-only.png" alt-text="Diagrama de una arquitectura de HDInsight que usa una conexión de proveedor de recursos de salida":::
-
-Después de crear el clúster, debe configurar la resolución DNS correspondiente. El registro DNS de nombre canónico (CNAME) siguiente se crea en la zona DNS pública administrada por Azure: `azurehdinsight.net`.
-
-```dns
-<clustername>    CNAME    <clustername>-int
-```
-
-Para acceder al clúster mediante los nombres de dominio completo del clúster, puede usar directamente las IP privadas del equilibrador de carga interno o usar su propia zona DNS privada para reemplazar los puntos de conexión del clúster según corresponda a sus necesidades. Por ejemplo, puede tener una zona DNS privada, `azurehdinsight.net`, y agregar las direcciones IP privadas según sea necesario:
-
-```dns
-<clustername>        A   10.0.0.1
-<clustername-ssh>    A   10.0.0.2
-```
-
-## <a name="enable-private-link"></a>Habilitación de Private Link
-
-Private Link, que está deshabilitado de manera predeterminada, requiere un amplio conocimiento de las redes para configurar correctamente rutas definidas por el usuario (UDR) y reglas de firewall antes de crear un clúster. El uso de este valor es opcional, pero solo está disponible cuando la propiedad de red `resourceProviderConnection` está establecida en *saliente*, tal y como se ha descrito en la sección anterior.
+Private Link es una característica opcional y está deshabilitada de forma predeterminada. La característica solo está disponible cuando la propiedad de red `resourceProviderConnection` se establece en *saliente*, tal como se describe en el artículo [Restricción de la conectividad de clústeres en Azure HDInsight](./hdinsight-restrict-public-connectivity.md).
 
 Cuando `privateLink` está establecido en *habilitado*, se crean [equilibradores de carga estándar](../load-balancer/load-balancer-overview.md) (SLB) y se aprovisiona un servicio Azure Private Link para cada uno de ellos. El servicio Private Link es lo que permite acceder al clúster de HDInsight desde puntos de conexión privados.
 
-Los equilibradores de carga estándar no proporcionan automáticamente la [NAT saliente pública](../load-balancer/load-balancer-outbound-connections.md) como sí lo hacen los equilibradores de carga básicos. Debe proporcionar su propia solución NAT, como [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) o un [firewall](./hdinsight-restrict-outbound-traffic.md), para las dependencias de salida. El clúster de HDInsight de todos modos necesita acceso a sus dependencias de salida. Si no se permiten estas dependencias de salida, puede producirse un error en la creación del clúster.
+## <a name="prerequisites"></a>Prerrequisitos
 
-### <a name="prepare-your-environment"></a>Preparación del entorno
+A diferencia de los equilibradores de carga básicos, los estándar no proporcionan automáticamente la [NAT pública de salida](../load-balancer/load-balancer-outbound-connections.md). Debe proporcionar su propia solución NAT, como una puerta de enlace de NAT o una NAT proporcionada por el [firewall](./hdinsight-restrict-outbound-traffic.md), para conectarse a dependencias de HDInsight públicas de salida. El clúster de HDInsight de todos modos necesita acceso a sus dependencias de salida. Si no se permiten estas dependencias de salida, puede producirse un error en la creación del clúster. También se debe configurar un grupo de seguridad de red en la subred para habilitar la conectividad de salida.
 
-Para crear servicios de vínculo privado de forma correcta, debe [deshabilitar explícitamente las directivas de red para el servicio de vínculo privado](../private-link/disable-private-link-service-network-policy.md).
+### <a name="1--configure-a-default-network-security-group-nsg-on-the-subnet"></a>1. Configuración de un grupo de seguridad de red (NSG) predeterminado en la subred
 
-En el diagrama siguiente se muestra un ejemplo de la configuración de red necesaria antes de crear un clúster. En este ejemplo, todo el tráfico de salida es [forzado](../firewall/forced-tunneling.md) a Azure Firewall mediante UDR y se deben "permitir" las dependencias de salida requeridas en el firewall antes de crear un clúster. En el caso de los clústeres de Enterprise Security Package, el emparejamiento de red virtual puede proporcionar la conectividad de red a Azure Active Directory Domain Services.
+Cree y agregue un grupo de seguridad de red en la subred donde se implementará el clúster de HDInsight.
+
+### <a name="2--disable-network-policies-for-private-link-service"></a>2.  Deshabilitación de las directivas de red para el servicio Private Link
+
+Para crear correctamente servicios de vínculo privado, debe [deshabilitar explícitamente las directivas de red para servicios de vínculo privado](../private-link/disable-private-link-service-network-policy.md).
+
+### <a name="3--configure-a-nat-gateway-on-the-subnet"></a>3.  Configuración de una instancia de NAT Gateway en la subred
+
+Puede optar por usar NAT Gateway si no quiere configurar un firewall ni una aplicación virtual de red (NVA) para NAT. En caso contrario, pase al siguiente requisito previo.
+
+Para empezar, simplemente, agregue una puerta de enlace NAT (con una nueva dirección IP pública en la red virtual) a la subred configurada de la red virtual. Esta puerta de enlace es responsable de traducir la dirección IP interna privada a direcciones públicas cuando el tráfico debe salir de la red virtual.
+
+### <a name="4--using-firewall-or-network-virtual-appliance-nvas-for-nat-optional"></a>4.  Uso de un firewall o una aplicación virtual de red (NVA) para NAT (opcional)
+Para comenzar con una configuración básica, comience por agregar una nueva subred "AzureFirewallSubnet" a la red virtual. Una vez creada, úsela para configurar un nuevo firewall y agregar las directivas de firewall. Una vez configurado el firewall, use la dirección IP privada de este firewall como `nextHopIpAddress` en la tabla de rutas. Agregue esta tabla de rutas a la subred configurada de la red virtual.
+Para obtener más información sobre cómo configurar un firewall, consulte [Control del tráfico de red en Azure HDInsight](./control-network-traffic.md).
+
+En el diagrama siguiente se muestra un ejemplo de la configuración de red necesaria antes de crear un clúster. En este ejemplo, todo el tráfico de salida es forzado a Azure Firewall mediante UDR y se deben "permitir" las dependencias de salida requeridas en el firewall antes de crear un clúster. En el caso de los clústeres de Enterprise Security Package, el emparejamiento de red virtual puede proporcionar la conectividad de red a Azure Active Directory Domain Services.
 
 :::image type="content" source="media/hdinsight-private-link/before-cluster-creation.png" alt-text="Diagrama del entorno de Private Link antes de la creación del clúster":::
 
-Una vez que configura las redes, puede crear un clúster con la conexión del proveedor de recursos saliente y Private Link habilitado, tal como se muestra en la ilustración siguiente. En esta configuración, no hay IP públicas y el servicio Private Link se aprovisiona para cada equilibrador de carga estándar.
+## <a name="manage-private-endpoints-for-azure-hdinsight"></a>Administración de puntos de conexión privados para Azure HDInsight
 
-:::image type="content" source="media/hdinsight-private-link/after-cluster-creation.png" alt-text="Diagrama del entorno de Private Link después de la creación del clúster":::
+Puede usar [puntos de conexión privados](../private-link/private-endpoint-overview.md) para los clústeres de Azure HDInsight para que los clientes de una red virtual (VNet) puedan acceder de forma segura al clúster mediante [Private Link](../private-link/private-link-overview.md). El tráfico de red entre los clientes de la red virtual y el clúster de HDInsight atraviesa una red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet.
 
-### <a name="access-a-private-cluster"></a>Acceso a un clúster privado
+:::image type="content" source="media/hdinsight-private-link/private-endpoint-experience.png" alt-text="Diagrama de la experiencia de administración de puntos de conexión privados":::
 
-Para acceder a los clústeres privados, puede usar directamente las IP privadas del equilibrador de carga interno, o bien puede usar las extensiones DNS de Private Link y puntos de conexión privados. Cuando el valor de `privateLink` está establecido en "habilitado", puede crear sus propios puntos de conexión privados y configurar la resolución DNS a través de zonas DNS privadas.
+Hay dos métodos de aprobación de conexión entre los que puede elegir un consumidor del servicio Private Link (p. ej., Azure Data Factory):
+* **Automático**: si el consumidor del servicio tiene permisos de Azure RBAC en el recurso de HDInsight, el consumidor puede elegir el método de aprobación automático. En este caso, cuando el recurso de HDInsight recibe la solicitud, no se requiere ninguna acción por parte del recurso y la conexión se aprueba automáticamente.
+* **Manual**: por el contrario, si el consumidor del servicio no tiene permisos de Azure RBAC en el recurso de HDInsight, el consumidor puede elegir el método de aprobación manual. En este caso, la solicitud de conexión aparece en los recursos de HDInsight como Pendiente. El recurso de HDInsight debe aprobar manualmente la solicitud para que se puedan establecer conexiones. 
 
+Para administrar puntos de conexión privados, en la vista de clústeres de Azure Portal, vaya a la sección Redes (versión preliminar), en Seguridad y redes. Aquí podrá ver todas las conexiones existentes, los estados de conexión y los detalles del punto de conexión privado.
+También puede aprobar, rechazar o quitar las conexiones existentes. Al crear una conexión privada, puede especificar qué subrecurso de HDInsight (puerta de enlace, nodo principal, etc.) quiere conectar también.
+
+En la siguiente tabla se muestran las distintas acciones del recurso de HDInsight y los estados de conexión resultantes para los puntos de conexión privados. El recurso de HDInsight también puede cambiar el estado de conexión de la conexión de punto de conexión privado en un momento posterior sin la intervención del consumidor. La acción actualizará el estado del punto de conexión en el lado del consumidor.
+
+| Acción del proveedor de servicios | Estado de punto de conexión privado del consumidor del servicio | Descripción |
+| --------- | --------- | --------- |
+| None | Pending | La conexión se crea manualmente y está pendiente de aprobación por parte del propietario del recurso de Private Link. |
+| Aprobación | Aprobado | La conexión se aprobó de forma automática o manual y está lista para usarse. |
+| Reject | Rechazada | El propietario del recurso de vínculo privado rechazó la conexión. |
+| Remove | Escenario desconectado | El propietario del recurso de Private Link quitó la conexión, el punto de conexión privado se vuelve informativo y debe eliminarse para la limpieza. |
+
+## <a name="configure-dns-to-connect-over-private-endpoints"></a>Configuración de DNS para la conexión mediante puntos de conexión privados
+
+Una vez que configura las redes, puede crear un clúster con la conexión del proveedor de recursos saliente y Private Link habilitado, tal como se muestra en la ilustración siguiente.
+Para acceder a clústeres privados, puede usar extensiones de DNS de Private Link y puntos de conexión privados. Cuando el valor de `privateLink` está habilitado, puede crear puntos de conexión privados y configurar la resolución de DNS mediante zonas DNS privadas.
 Las entradas de Private Link creadas en la zona DNS pública `azurehdinsight.net` administrada por Azure son las siguientes:
 
 ```dns
@@ -78,8 +84,8 @@ Las entradas de Private Link creadas en la zona DNS pública `azurehdinsight.net
 <clustername>-int    CNAME    <clustername>-int.privatelink
 <clustername>-ssh    CNAME    <clustername>-ssh.privatelink
 ```
-
-En la imagen siguiente se muestra un ejemplo de las entradas DNS privadas que se necesitan para acceder al clúster desde una red virtual que no está emparejada o no tiene una línea de visión directa respecto de los equilibradores de carga del clúster. Puede usar Azure Private Zone para reemplazar los nombres de dominio completo `*.privatelink.azurehdinsight.net` y resolver las direcciones IP de sus propios puntos de conexión privados.
+En la imagen siguiente se muestra un ejemplo de las entradas de DNS privadas configuradas para habilitar el acceso a un clúster desde una red virtual que no está emparejada o no tiene una línea de visión directa para el clúster. Puede usar la zona privada de Azure para reemplazar los nombres de dominio completos `*.privatelink.azurehdinsight.net` y resolver las direcciones IP de puntos de conexión privados en la red del cliente.
+Esto solo se muestra para `<clustername>.azurehdinsight.net`, pero también se aplica a otros puntos de conexión del clúster.
 
 :::image type="content" source="media/hdinsight-private-link/access-private-clusters.png" alt-text="Diagrama de la arquitectura de Private Link":::
 
@@ -90,8 +96,7 @@ El fragmento de código JSON siguiente incluye las dos propiedades de red que ti
 
 ```json
 networkProperties: {
-    "resourceProviderConnection": "Inbound" | "Outbound",
-    "privateLink": "Enabled" | "Disabled"
+    "resourceProviderConnection": "Inbound" | "Outbound"
 }
 ```
 

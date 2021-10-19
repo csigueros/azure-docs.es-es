@@ -6,12 +6,12 @@ ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/16/2021
-ms.openlocfilehash: 5ff59b0add8a9b3c48ad8ae80a50c0a816c08d6e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f9d47c3c08c450000da34742459a62977e82808a
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104588091"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615129"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introducción a las funciones de ventana de Stream Analytics
 
@@ -24,23 +24,26 @@ Todas las operaciones de [ventana](/stream-analytics-query/windowing-azure-strea
 ![Conceptos de las funciones de ventana de Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
 
 ## <a name="tumbling-window"></a>Ventana de saltos de tamaño constante
-Las funciones de ventana de saltos de tamaño constante se usan para segmentar una transmisión de datos en segmentos de tiempo distintos y realizar una función con ellos, como en el ejemplo siguiente. Los diferenciadores clave de una ventana de saltos de tamaño constante son que se repiten, no se superponen y un evento no puede pertenecer a más de una ventana de saltos de tamaño constante.
+
+Las funciones de [**ventana de saltos de tamaño constante**](/stream-analytics-query/tumbling-window-azure-stream-analytics) se usan para segmentar una transmisión de datos en segmentos de tiempo distintos y realizar una función con ellos, como en el ejemplo siguiente. Los diferenciadores clave de una ventana de saltos de tamaño constante son que se repiten, no se superponen y un evento no puede pertenecer a más de una ventana de saltos de tamaño constante.
 
 ![Ventana de saltos de tamaño constante de Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-tumbling-intro.png)
 
 ## <a name="hopping-window"></a>Ventana de salto
-Las funciones de ventana de salto saltan hacia adelante en el tiempo un período fijo. Puede imaginarlas fácilmente como ventanas de saltos de tamaño constante que pueden superponerse y emitirse con más frecuencia que el tamaño de ventana. Los eventos pueden pertenecer a más de un conjunto de resultados de ventana de salto. Para hacer que una ventana de salto sea igual que una ventana de saltos de tamaño constante, especifique el tamaño de salto de forma que coincida con el tamaño de la ventana. 
+
+Las funciones de [**ventana de salto**](/stream-analytics-query/hopping-window-azure-stream-analytics) saltan hacia adelante en el tiempo un período fijo. Puede imaginarlas fácilmente como ventanas de saltos de tamaño constante que pueden superponerse y emitirse con más frecuencia que el tamaño de ventana. Los eventos pueden pertenecer a más de un conjunto de resultados de ventana de salto. Para hacer que una ventana de salto sea igual que una ventana de saltos de tamaño constante, especifique el tamaño de salto de forma que coincida con el tamaño de la ventana. 
 
 ![Ventana de salto de Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
 
 ## <a name="sliding-window"></a>Ventana deslizante
 
-Las ventanas deslizantes, a diferencia de las ventanas de salto o de salto de tamaño constante, solo generan eventos para puntos en el tiempo cuando el contenido de la ventana cambia realmente. En otras palabras, cuando un evento entra o sale de la ventana. Por tanto, cada ventana tiene al menos un evento. De forma similar a lo que sucede en las ventanas de salto, los eventos pueden pertenecer a más de una ventana deslizante.
+Las [**ventanas deslizantes**](/stream-analytics-query/sliding-window-azure-stream-analytics), a diferencia de las ventanas de salto o de salto de tamaño constante, solo generan eventos para puntos en el tiempo cuando el contenido de la ventana cambia realmente. En otras palabras, cuando un evento entra o sale de la ventana. Por tanto, cada ventana tiene al menos un evento. De forma similar a lo que sucede en las ventanas de salto, los eventos pueden pertenecer a más de una ventana deslizante.
 
-![Ventana deslizante de Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
+![Ventana deslizante de 10 segundos de Stream Analytics](media/stream-analytics-window-functions/sliding-window-updated.png)
 
 ## <a name="session-window"></a>Ventana de sesión
-Las funciones de ventana de sesión agrupan eventos que llegan a la misma hora, filtrando los periodos en los que no hay ningún dato. Tiene tres parámetros principales: tiempo de espera, duración máxima y clave de partición (opcional).
+
+Las funciones de [**ventana de sesión**](/stream-analytics-query/session-window-azure-stream-analytics) agrupan eventos que llegan a la misma hora, filtrando los periodos en los que no hay ningún dato. Tiene tres parámetros principales: tiempo de espera, duración máxima y clave de partición (opcional).
 
 ![Ventana de sesión de Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-session-intro.png)
 
@@ -52,7 +55,7 @@ Cuando se proporciona una clave de partición, los eventos se agrupan por clave,
 
 ## <a name="snapshot-window"></a>Ventana de instantánea
 
-Las ventanas de instantánea agrupan los eventos que tienen la misma marca de tiempo. A diferencia de otros tipos de ventanas, que requieren una función de ventana específica (como [SessionWindow()](/stream-analytics-query/session-window-azure-stream-analytics), puede aplicar una ventana de instantánea si agrega System.Timestamp() a la cláusula GROUP BY.
+Las [**ventanas de instantánea**](/stream-analytics-query/snapshot-window-azure-stream-analytics) agrupan los eventos que tienen la misma marca de tiempo. A diferencia de otros tipos de ventanas, que requieren una función de ventana específica (como [SessionWindow()](/stream-analytics-query/session-window-azure-stream-analytics), puede aplicar una ventana de instantánea si agrega System.Timestamp() a la cláusula GROUP BY.
 
 ![Ventana de instantánea de Stream Analytics](media/stream-analytics-window-functions/snapshot.png)
 

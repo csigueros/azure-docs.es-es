@@ -4,12 +4,12 @@ description: Supervise la aplicación web en tiempo real con métricas personali
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 865de94f1d9b4012a908643bbf87f38aeb8594a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3e19d424f8aa56f37b12ab776c9ff85ca78f6738
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98679473"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129614961"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: supervisión y diagnóstico con una latencia de 1 segundo
 
@@ -245,7 +245,7 @@ Sin embargo, si reconoce y confía en todos los servidores conectados, puede pro
 | .NET Core (destino=.NET Framework)| Se admite (V2.4.1+) | Se admite (V2.4.1+) | Se admite (V2.4.1+) | Se admite (V2.4.1+) | Se admite (V2.4.1+)  |
 | .NET Core (destino=.NET Core)     | Se admite (V2.4.1+) | Admitido*          | Se admite (V2.4.1+) | Se admite (V2.4.1+) | **No admitido**    |
 | Azure Functions v2               | Compatible           | Compatible           | Compatible           | Compatible           | **No admitido**    |
-| Java                             | Se admite (V2.0.0+) | Se admite (V2.0.0+) | **No admitido**   | **No admitido**   | **No admitido**    |
+| Java                             | Se admite (V2.0.0+) | Se admite (V2.0.0+) | **No admitido**   | Compatible (V3.2.0+) | **No admitido**    |
 | Node.js                          | Se admite (V1.3.0+) | Se admite (V1.3.0+) | **No admitido**   | Se admite (V1.3.0+) | **No admitido**    |
 
 Las métricas básicas incluyen la tasa de solicitudes, dependencias y excepciones. Las métricas de rendimiento (contadores de rendimiento) incluyen la memoria y la CPU. La telemetría de ejemplo muestra un flujo de información detallada para las solicitudes y dependencias con errores, excepciones, eventos y seguimientos.

@@ -10,12 +10,12 @@ ms.author: sagopal
 ms.date: 07/27/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-python
-ms.openlocfilehash: e88637f67e8e9db01c46b6de5518c95ad4290ee9
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 5b1a0f5890f55e2dc114801a8f4fd058ef4db69b
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122419206"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660464"
 ---
 # <a name="troubleshoot-environment-image-builds"></a>Solución de problemas en las compilaciones de imágenes
 
@@ -163,6 +163,14 @@ RUN apt-get update && \
 ```
 
 Al ejecutar este comando, se instalan las dependencias de módulo correctas para configurar el entorno. 
+
+### <a name="build-failure-when-using-spark-packages"></a>Error de compilación al usar paquetes de Spark
+
+Configure el entorno para no almacenar previamente en caché los paquetes. 
+
+```python
+env.spark.precache_packages = False
+```
 
 ## <a name="service-side-failures"></a>Errores en el lado de servicio
 

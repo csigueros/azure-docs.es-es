@@ -14,14 +14,14 @@ ms.author: davidmu
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
 ms.reviewer: hirsin
-ms.openlocfilehash: 56a4c06759841e5e011deb5fde50f1e9fe2cbea7
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: a266e60ef3079ecb12b227b047519abad5d26bf1
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129061834"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619735"
 ---
-# <a name="configure-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configuración del comportamiento de inicio de sesión de una aplicación mediante una directiva de detección del dominio de inicio
+# <a name="configure-sign-in-behavior-in-azure-active-directory"></a>Configuración del comportamiento del inicio de sesión en Azure Active Directory
 
 En este artículo se proporciona una introducción a la configuración del comportamiento de autenticación de Azure Active Directory (Azure AD) para los usuarios federados mediante la directiva Detección de dominio principal.  Se trata el uso de la aceleración automática para omitir la pantalla de entrada de nombre de usuario y reenviar automáticamente a los usuarios a los puntos de conexión de inicio de sesión federados.  Microsoft ya no recomienda configurar la aceleración automática, ya que puede impedir el uso de métodos de autenticación más seguros como First Identity Online (FIDO) y dificulta la colaboración.
 

@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 10/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 3e3cb266e9da128e9379d6868d189ac72408c4f7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 05d5d4a3ed9ea9e9ea99cd917762973f2865528f
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128605836"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129657328"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Definición de atributos personalizados en Azure Active Directory B2C
 
@@ -48,7 +48,7 @@ Azure AD B2C le permite ampliar el conjunto de atributos que se almacenan en c
 1. Proporcione un **Nombre** para el atributo personalizado (por ejemplo, "ShoeSize").
 1. Elija un **Tipo de datos**. Solo están disponibles **String**, **Boolean** e **Int**.
 1. Si lo desea, escriba una **Descripción** con fines informativos.
-1. Haga clic en **Crear**.
+1. Seleccione **Crear**.
 
 El atributo personalizado ahora está disponible en la lista de **Atributos de usuario** y puede usarlo en los flujos de usuario. Solo se crea la primera vez que se utiliza en cualquier flujo de usuario y no cuando se agrega a la lista de **atributos de usuario**.
 
@@ -58,9 +58,9 @@ El atributo personalizado ahora está disponible en la lista de **Atributos de u
 
 1. En el inquilino de Azure AD B2C, seleccione **Flujos de usuario**.
 1. Haga clic en la directiva (por ejemplo, "B2C_1_SignupSignin") para abrirla.
-1. Seleccione **Atributos de usuario** y, después, seleccione el atributo personalizado (por ejemplo, "ShoeSize"). Haga clic en **Save**(Guardar).
+1. Seleccione **Atributos de usuario** y, después, seleccione el atributo personalizado (por ejemplo, "ShoeSize"). Seleccione **Guardar**.
 1. Seleccione **Notificaciones de aplicación** y, después, seleccione el atributo personalizado.
-1. Haga clic en **Save**(Guardar).
+1. Seleccione **Guardar**.
 
 Después de crear un usuario mediante un flujo de usuarios que usa el atributo personalizado recién creado, el objeto se puede consultar en el [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer). Como alternativa, puede usar la característica [Ejecutar flujo de usuario](./tutorial-create-user-flows.md) del flujo de usuario para comprobar la experiencia del cliente. Ahora debe ver **ShoeSize** en la lista de atributos que se recopilan durante el viaje de suscripción y en el token enviado de vuelta a la aplicación.
 
@@ -72,7 +72,7 @@ Los atributos de extensión solo se pueden registrar en un objeto de aplicación
 
 ::: zone pivot="b2c-user-flow"
 
-Para obtener el identificador de la aplicación:
+### <a name="get-extensions-apps-application-id"></a>Obtener el id. de la aplicación de extensiones
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
@@ -86,7 +86,7 @@ Para obtener el identificador de la aplicación:
 
 ::: zone pivot="b2c-custom-policy"
 
-Obtención de las propiedades de la aplicación:
+### <a name="get-extensions-apps-application-properties"></a>Obtener las propiedades de la aplicación de extensiones
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
@@ -188,6 +188,36 @@ Microsoft Graph API admite la creación y actualización de un usuario con atrib
 ```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyId": "212342" 
 ``` 
+
+## <a name="remove-extension-attribute"></a>Quitar el atributo de extensión
+
+A diferencia de los atributos integrados, se pueden quitar atributos personalizados o de extensión. También se pueden quitar los valores de los atributos de extensión. 
+
+> [!Important]
+> Antes de quitar el atributo personalizado o de extensión, en cada cuenta del directorio establezca el valor del atributo de extensión en NULL.  De este modo, se quitan explícitamente los valores de los atributos de extensión. A continuación, siga quitando el propio atributo de extensión. El atributo personalizado o de extensión se puede consultar mediante MS Graph API. 
+
+::: zone pivot="b2c-user-flow"
+
+Siga estos pasos para quitar el atributo personalizado o de extensión de un flujo de usuario:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global del inquilino de Azure AD B2C.
+2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C:
+    1.  Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+    1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista del nombre de directorio y seleccione **Cambiar**.
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**.
+1. Seleccione **Atributos de usuario** y luego seleccione el atributo que quiera eliminar.
+1. Seleccione **Eliminar** y **Sí** para confirmar.
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+Para quitar un atributo personalizado, use [MS Graph API](microsoft-graph-operations.md) y el comando [Delete](/graph/api/application-delete-extensionproperty).
+
+::: zone-end
+
+ 
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 04/15/2021
+ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: 28b61781f0b22e79d10d79c1a46e757737a401cf
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 15726451525d3ffcaf2d059b9e6c9dee86058591
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107568758"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710208"
 ---
 # <a name="view-reservation-utilization-after-purchase"></a>Visualización del uso de las reservas después de la compra
 
@@ -45,8 +45,8 @@ Puede obtener el [uso de la reserva](/rest/api/billing/enterprise/billing-enterp
 
 Los usuarios de Power BI tienen dos opciones:
 
-- Conector de Azure Cost Management para Power BI Desktop: los datos de uso y la fecha de compra de las reservas están disponibles en el [conector de Azure Cost Management para Power BI Desktop](/power-bi/desktop-connect-azure-cost-management). Cree los informes que desee mediante el conector.
-- Aplicación Azure Cost Management para Power BI: use [esta aplicación](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp) para obtener informes creados previamente que puede personalizar.
+- Conector de Cost Management para Power BI Desktop: los datos de uso y la fecha de compra de las reservas están disponibles en el [conector de Cost Management para Power BI Desktop](/power-bi/desktop-connect-azure-cost-management). Cree los informes que desee mediante el conector.
+- Aplicación Cost Management para Power BI: use [esta aplicación](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp) para obtener informes creados previamente que puede personalizar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

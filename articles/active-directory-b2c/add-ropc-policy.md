@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: fd50253b5fc77ec1042aada9351e85ee64035ec2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 8a64c0e4a2c6ee080288bd0a700defc4adf598d2
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124740279"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708629"
 ---
 # <a name="set-up-a-resource-owner-password-credentials-flow-in-azure-active-directory-b2c"></a>Configuración del flujo de credenciales de contraseña del propietario del recurso en Azure Active Directory B2C
 
@@ -54,15 +54,18 @@ Al usar el flujo ROPC, tenga en cuenta lo siguiente:
 
 ##  <a name="create-a-resource-owner-user-flow"></a>Creación de un flujo de usuario del propietario del recurso
 
-1. Inicie sesión en Azure Portal como administrador global del inquilino de Azure AD B2C.
-2. Para cambiar al inquilino de Azure AD B2C, seleccione el directorio B2C en la esquina superior derecha del portal.
-3. Seleccione **Flujos de usuario** y **Nuevo flujo de usuario**.
-4. Seleccione **Inicio de sesión con las credenciales de contraseña del propietario del recurso (ROPC)** .
-5. En **Versión**, asegúrese de que se haya seleccionado **Versión preliminar** y, a continuación, seleccione **Crear**.
-7. Proporcione un nombre para el flujo de usuario, como *ROPC_Auth*.
-8. En **Notificaciones de la aplicación**, haga clic en **Mostrar más**.
-9. Seleccione las notificaciones de la aplicación que necesite para su aplicación, como el nombre para mostrar, la dirección de correo electrónico y el proveedor de identidades.
-10. Seleccione **Aceptar** y después **Crear**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como **administrador global** del inquilino de Azure AD B2C.
+2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C:
+    1. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+    1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. En Azure Portal, busque y seleccione **Azure AD B2C**.
+1. Seleccione **Flujos de usuario** y **Nuevo flujo de usuario**.
+1. Seleccione **Inicio de sesión con las credenciales de contraseña del propietario del recurso (ROPC)** .
+1. En **Versión**, asegúrese de que se haya seleccionado **Versión preliminar** y, a continuación, seleccione **Crear**.
+1. Proporcione un nombre para el flujo de usuario, como *ROPC_Auth*.
+1. En **Notificaciones de la aplicación**, haga clic en **Mostrar más**.
+1. Seleccione las notificaciones de la aplicación que necesite para su aplicación, como el nombre para mostrar, la dirección de correo electrónico y el proveedor de identidades.
+1. Seleccione **Aceptar** y después **Crear**.
 
 ::: zone-end
 

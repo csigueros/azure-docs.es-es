@@ -8,17 +8,17 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 09/10/2020
-ms.openlocfilehash: a5050958f01743ff3c6fdcdecfee3067b1d2073e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 10/06/2021
+ms.openlocfilehash: 6dddc7e5a2492aeaf0c15c954f685e10ce475fa7
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98934259"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612947"
 ---
 # <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Traslado del servicio Azure Cognitive Search a otra región de Azure
 
-En ocasiones, los clientes preguntan sobre el traslado de un servicio de búsqueda a otra región. Actualmente, no hay ningún mecanismo ni herramienta integrado que facilite esta tarea, pero este artículo puede ayudarle a comprender los pasos manuales para lograr el mismo resultado.
+En ocasiones, los clientes preguntan sobre el traslado de un servicio de búsqueda a otra región. Actualmente, no hay ningún mecanismo integrado ni herramientas que le ayuden con esa tarea, pero este artículo puede ayudarle a comprender los pasos manuales para volver a crear índices y otros objetos en un nuevo servicio de búsqueda en una región diferente.
 
 > [!NOTE]
 > En Azure Portal, todos los servicios tienen un comando **Export template**. En el caso de Azure Cognitive Search, este comando genera una definición básica de un servicio (nombre, ubicación, nivel, réplica y recuento de particiones), pero no reconoce el contenido del servicio, ni tampoco las claves, roles o registros. Aunque el comando existe, no se recomienda utilizarlo para trasladar un servicio de búsqueda.

@@ -8,12 +8,12 @@ author: sudivate
 ms.author: sudivate
 description: 'En este artículo se proporciona información general conceptual sobre la experiencia del desarrollador de bucles internos para los equipos que adoptan GitOps. '
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, contenedores, CI, CD, Azure DevOps, bucle interno, experiencia del desarrollador
-ms.openlocfilehash: 3c0e8041a31c506c926315381741afd75bb8a806
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.openlocfilehash: 3bd60c3236bb187f14b924f4246d8e6fcfed4ed3
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113598778"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706429"
 ---
 # <a name="inner-loop-developer-experience-for-teams-adopting-gitops"></a>Experiencia del desarrollador de bucles internos para los equipos que adoptan GitOps
 
@@ -90,6 +90,6 @@ Supongamos que Alice quiere actualizar, ejecutar y depurar la aplicación en un 
 > [!NOTE]
 > Busque el código de ejemplo del flujo de trabajo anterior en este [repositorio de GitHub](https://github.com/Azure/arc-cicd-demo-src).
 
-
 ## <a name="next-steps"></a>Pasos siguientes
-Obtenga más información sobre la creación de conexiones entre el clúster y un repositorio de GIT como un [recurso de configuración con Kubernetes habilitado para Azure Arc](./conceptual-configurations.md).
+
+Obtenga más información sobre la creación de conexiones entre el clúster y un repositorio de GIT como un [recurso de configuración con Kubernetes habilitado para Azure Arc](./conceptual-configurations.md).

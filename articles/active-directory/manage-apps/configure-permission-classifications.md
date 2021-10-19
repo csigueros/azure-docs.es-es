@@ -1,5 +1,6 @@
 ---
-title: Configuración de las clasificaciones de permisos con Azure AD
+title: Configuración de las clasificaciones de los permisos
+titleSuffix: Azure AD
 description: Obtenga información acerca de cómo administrar las clasificaciones de permisos delegados.
 services: active-directory
 author: davidmu1
@@ -12,14 +13,14 @@ ms.date: 08/31/2021
 ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 1824eb31b17ba1a46bd5514797e11a502ac4665a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 8a2bfb1e76a323ab3fb9d4daa3bbb3e6ba2408ab
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124810061"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619792"
 ---
-# <a name="configure-permission-classifications"></a>Configuración de las clasificaciones de los permisos
+# <a name="configure-permission-classifications-with-azure-active-directory"></a>Configuración de las clasificaciones de permisos con Azure Active Directory
 
 Las clasificaciones de permisos permiten identificar el impacto que tienen los distintos permisos según las evaluaciones de riesgo y las directivas de la organización. Por ejemplo, puede usar las clasificaciones de permisos en las directivas de consentimiento para identificar el conjunto de permisos a los que los usuarios pueden dar su consentimiento.
 

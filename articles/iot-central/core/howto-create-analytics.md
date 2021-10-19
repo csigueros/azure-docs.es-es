@@ -7,12 +7,12 @@ ms.date: 08/16/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: ad16a831b22097e98bd02b606e3a6596cf4e48f5
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f8f399ec557bbddd031b386d69436f3376ee42b1
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124810940"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129808513"
 ---
 # <a name="how-to-use-analytics-to-analyze-device-data"></a>Cómo usar análisis para analizar los datos del dispositivo
 
@@ -52,6 +52,8 @@ Para empezar, elija un **Grupo de dispositivos** y, a continuación, la telemetr
 ## <a name="interact-with-your-data"></a>Interactúe con los datos
 
 Cuando haya consultado los datos, podrá comenzar a visualizarlos en el gráfico de líneas. Puede mostrar u ocultar la telemetría, cambiar la duración del tiempo o ver los datos en una cuadrícula.
+
+Seleccione **Guardar** para guardar la consulta de análisis. Más adelante, puede recuperar las consultas que guardó.
 
 - **Panel del editor de tiempo:** de manera predeterminada, verá los datos del último día. Puede arrastrar cualquier extremo del control deslizante para cambiar el intervalo de tiempo. También puede utilizar el control de calendario para seleccionar uno de los cubos de hora predefinidos o seleccionar un intervalo de tiempo personalizado. El control de tiempo también tiene un control deslizante de **tamaño de intervalo** que controla el tamaño del intervalo usado para agregar los datos.
 

@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/28/2021
+ms.date: 10/06/2021
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 6042acd29325ab6bb887a74e47ceff115d000a9d
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: da97095edce8c089acd53a8faf8ba353dd39515d
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129360038"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129614220"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Procedimientos recomendados para usar Azure Data Lake Storage Gen2
 
@@ -151,92 +151,32 @@ Empiece por revisar las recomendaciones del artículo [Recomendaciones de seguri
 
 A continuación, revise el artículo [Modelo de control de acceso de Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md) para obtener instrucciones específicas de las cuentas habilitadas para Data Lake Storage Gen2. Este artículo le ayuda a comprender cómo usar roles de control de acceso basado en rol (Azure RBAC) junto con las listas de control de acceso (ACL) para aplicar permisos de seguridad en los directorios y archivos de su sistema de archivos jerárquico. 
 
-## <a name="ingest-data"></a>Ingerir datos
+## <a name="ingest-process-and-analyze"></a>Ingesta, proceso y análisis
 
-En esta sección se resaltan los distintos orígenes de datos y las distintas formas en que esos datos se pueden ingerir en una cuenta de Data Lake Storage Gen2.
+Hay muchos orígenes de datos diferentes así como formas en las que esos datos se pueden ingerir en una cuenta habilitada para Data Lake Storage Gen2. 
 
-#### <a name="ad-hoc-data"></a>Datos ad-hoc
+Por ejemplo, puede ingerir grandes conjuntos de datos de clústeres de HDInsight y Hadoop o de conjuntos más pequeños de datos *ad hoc* para la creación de prototipos de aplicaciones. También puede ingerir datos transmitidos que se hayan generado en diversos orígenes, como aplicaciones, dispositivos y sensores. En este tipo de datos, puede usar herramientas para capturar y procesar los datos evento por evento en tiempo real y, a continuación, escribir los eventos por lotes en su cuenta. También puede ingerir un servidor web que contenga información como el historial de solicitudes de página. En cuanto a los datos de registro, considere la posibilidad de escribir scripts o aplicaciones personalizados para cargar estos datos, de modo que tenga la flexibilidad de incluir su componente de carga de datos como parte de la aplicación de macrodatos más grande. 
 
-Conjuntos de datos más pequeños que se utilizan para la creación de un prototipo de una aplicación de macrodatos. Considere la posibilidad de usar cualquiera de estas herramientas para ingerir datos: 
+Una vez que los datos están disponibles en la cuenta, puede ejecutar análisis sobre esos datos, crear visualizaciones e incluso descargar datos a su máquina local o a otros repositorios, como una base de datos de Azure SQL o una instancia de SQL Server. 
 
-- Azure Portal
-- [Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md)
-- [CLI de Azure](data-lake-storage-directory-file-acl-cli.md)
-- [REST](/rest/api/storageservices/data-lake-storage-gen2)
-- [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/)
-- [Apache DistCp](data-lake-storage-use-distcp.md)
-- [AzCopy](../common/storage-use-azcopy-v10.md)
+En la tabla siguiente se recomiendan herramientas que puede usar para ingerir, analizar, visualizar y descargar datos. Use los vínculos de esta tabla para buscar instrucciones sobre cómo configurar y usar cada herramienta. 
 
-#### <a name="streamed-data"></a>Datos de streaming
+| Propósito | Herramientas y guía de herramientas |
+|---|---|
+| Ingesta de datos ad hoc| Azure Portal, [Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md), [CLI de Azure](data-lake-storage-directory-file-acl-cli.md), [REST](/rest/api/storageservices/data-lake-storage-gen2), [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/), [Apache DistCp](data-lake-storage-use-distcp.md), [AzCopy](../common/storage-use-azcopy-v10.md)|
+| Datos de streaming de ingesta | [HDInsight Storm](../../hdinsight/storm/apache-storm-write-data-lake-store.md), [Azure Stream Analytics](../../stream-analytics/stream-analytics-quick-create-portal.md) |
+| Ingesta de datos relacionales | [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) |
+| Ingesta de registros de servidor web | [Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md), [CLI de Azure](data-lake-storage-directory-file-acl-cli.md), [REST](/rest/api/storageservices/data-lake-storage-gen2), SDK de Azure ([.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md) y [Node.js](data-lake-storage-directory-file-acl-javascript.md)), [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) |
+| Ingesta desde clústeres de HDInsight | [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md), [Apache DistCp](data-lake-storage-use-distcp.md), [AzCopy](../common/storage-use-azcopy-v10.md) |
+| Ingesta desde clústeres de Hadoop | [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md), [Apache DistCp](data-lake-storage-use-distcp.md), [Migrador de WANdisco LiveData para Azure](migrate-gen2-wandisco-live-data-platform.md), [Azure Data Box](data-lake-storage-migrate-on-premises-hdfs-cluster.md) |
+| Ingesta de grandes conjuntos de datos (varios terabytes) | [Información técnica de ExpressRoute](../../expressroute/expressroute-introduction.md) |
+| Proceso y análisis de los datos | [Azure Synapse Analytics](../../synapse-analytics/get-started-analyze-storage.md), [Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), [Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse) |
+| Visualización de datos | [Power BI](/power-query/connectors/datalakestorage), [Aceleración de consultas de Azure Data Lake Storage](data-lake-storage-query-acceleration.md) |
+| Descarga de datos | Azure Portal, [PowerShell](data-lake-storage-directory-file-acl-powershell.md), [CLI de Azure](data-lake-storage-directory-file-acl-cli.md), [REST](/rest/api/storageservices/data-lake-storage-gen2), SDK de Azure ([.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md) y [Node.js](data-lake-storage-directory-file-acl-javascript.md)), [Explorador de Azure Storage](data-lake-storage-explorer.md), [AzCopy](../common/storage-use-azcopy-v10.md#transfer-data), [Azure Data Factory](../../data-factory/copy-activity-overview.md), [Apache DistCp](./data-lake-storage-use-distcp.md) |
 
-Generado por diversos orígenes, como aplicaciones, dispositivos y sensores. Las herramientas que se utilizan para ingerir este tipo de datos suelen capturar y procesar los datos evento por evento en tiempo real y, a continuación, escriben los eventos por lotes en su cuenta. Considere la posibilidad de usar cualquiera de estas herramientas para ingerir datos:
+> [!NOTE]
+> En esta tabla no se refleja la lista completa de servicios de Azure que admiten Data Lake Storage Gen2. Para ver una lista de los servicios de Azure admitidos y su nivel de soporte técnico, consulte el documento en que se indica cuáles son los [servicios de Azure que admiten Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md). 
 
-- [HDInsight Storm](../../hdinsight/storm/apache-storm-write-data-lake-store.md)
-- [Azure Stream Analytics](../../stream-analytics/stream-analytics-quick-create-portal.md)
-
-#### <a name="relational-data"></a>Datos relacionales
-
-Las bases de datos relacionales recopilan un gran número de registros, que pueden proporcionar información clave si se procesan a través de una canalización de big data. Se recomienda usar [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) para ingerir datos relacionales.
-
-#### <a name="web-server-log-data"></a>Datos del registro del servidor web
-
-Archivos de registro que contienen información, como el historial de solicitudes de página. Considere la posibilidad de escribir scripts o aplicaciones personalizados para cargar estos datos, de modo que tenga la flexibilidad de incluir su componente de carga de datos como parte de la aplicación de big data más grande. Considere la posibilidad de usar estas herramientas y SDK:
-
-- [Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md)
-- [CLI de Azure](data-lake-storage-directory-file-acl-cli.md)
-- [REST](/rest/api/storageservices/data-lake-storage-gen2)
-- Azure SDK ([.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md), and [Node.js](data-lake-storage-directory-file-acl-javascript.md))
-- [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)
-
-#### <a name="hdinsight-clusters"></a>Clústeres de HDInsight
-
-La mayoría de los tipos de clúster de HDInsight (Hadoop, HBase, Storm) admiten Data Lake Storage Gen2 como repositorio de almacenamiento de datos. Considere la posibilidad de usar cualquiera de estas herramientas para ingerir datos:
-
-- [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)
-- [Apache DistCp](data-lake-storage-use-distcp.md)
-- [AzCopy](../common/storage-use-azcopy-v10.md)
-
-#### <a name="hadoop-clusters"></a>Clústeres Hadoop
-
-Estos clústeres pueden ejecutarse de forma local o en la nube. Considere la posibilidad de usar cualquiera de estas herramientas para ingerir datos:
-
-- [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)
-- [Apache DistCp](data-lake-storage-use-distcp.md)
-- [WANdisco LiveData Migrator for Azure](migrate-gen2-wandisco-live-data-platform.md)
-- [Azure Data Box](data-lake-storage-migrate-on-premises-hdfs-cluster.md)
-
-#### <a name="large-data-sets"></a>Conjuntos de datos grandes
-
-Para cargar conjuntos de datos cuyo tamaño oscila en varios terabytes, el uso de los métodos descritos anteriormente puede a veces resultar lento y costoso. En esos casos, puede usar Azure ExpressRoute.  
-
-Azure ExpressRoute permite crear conexiones privadas entre los centros de datos de Azure y la infraestructura de un entorno local. Esto ofrece una opción confiable para transferir grandes cantidades de datos. Para más información, consulte [Información general sobre ExpressRoute](../../expressroute/expressroute-introduction.md).
-
-## <a name="process-and-analyze-data"></a>Proceso y análisis de los datos
-
-Una vez que los datos están disponibles en Data Lake Storage Gen2, puede ejecutar análisis sobre esos datos, crear visualizaciones e incluso descargar datos a su máquina local o a otros repositorios, como una base de datos de Azure SQL o una instancia de SQL Server. En las secciones siguientes se recomiendan herramientas que puede usar para analizar, visualizar y descargar datos.
-
-#### <a name="tools-for-analyzing-data"></a>Herramientas para analizar datos
-
-- [Azure Synapse Analytics](../../synapse-analytics/get-started-analyze-storage.md)
-- [HDInsight de Azure](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md)
-- [Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse)
-
-#### <a name="tools-for-visualizing-data"></a>Herramientas para visualizar datos
-
-- [Power BI](/power-query/connectors/datalakestorage)
-- [Aceleración de consultas de Azure Data Lake Storage](data-lake-storage-query-acceleration.md)
-
-#### <a name="tools-for-downloading-data"></a>Herramientas para descargar datos
-
-- Azure Portal
-- [PowerShell](data-lake-storage-directory-file-acl-powershell.md)
-- [CLI de Azure](data-lake-storage-directory-file-acl-cli.md)
-- [REST](/rest/api/storageservices/data-lake-storage-gen2)
-- Azure SDK ([.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md), and [Node.js](data-lake-storage-directory-file-acl-javascript.md))
-- [Explorador de Azure Storage](data-lake-storage-explorer.md)
-- [AzCopy](../common/storage-use-azcopy-v10.md#transfer-data)
-- [Azure Data Factory](../../data-factory/copy-activity-overview.md)
-- [Apache DistCp](./data-lake-storage-use-distcp.md)
 
 ## <a name="monitor-telemetry"></a>Supervisión de la telemetría
 

@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 09/22/2021
-ms.openlocfilehash: 033bd5a96c75a1097438e01390ba800089d89d1d
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 9e35609a6e6d450b2938dfbb4feab319f5a3c9c2
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129426932"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660281"
 ---
 # <a name="network-traffic-flow-when-using-a-secured-workspace"></a>Flujo de tráfico de red al usar un área de trabajo protegida
 
@@ -92,7 +92,7 @@ La generación de perfiles de datos depende de si el servicio administrado de Az
 > [!TIP]
 > Puede proporcionar una entidad de servicio al crear el área de trabajo. Si no lo hace, se crea una automáticamente y tendrá el mismo nombre que el área de trabajo.
 
-Para permitir el acceso a la cuenta de almacenamiento, establezca la configuración __Permitir que los servicios de Azure de la lista de servicios de confianza accedan a esta cuenta de almacenamiento__. Esta configuración permite que el servicio administrado acceda al almacenamiento a través de la red del centro de datos de Azure. 
+Para permitir el acceso a la cuenta de almacenamiento, configure la cuenta de almacenamiento para permitir una __instancia de recurso__ para el área de trabajo o seleccione __Permitir que los servicios de Azure en la lista de servicios de confianza accedan a esta cuenta de almacenamiento__. Esta configuración permite que el servicio administrado acceda al almacenamiento a través de la red del centro de datos de Azure. 
 
 A continuación, agregue la entidad de servicio del área de trabajo al rol de __Lector__ en el punto de conexión privado de la cuenta de almacenamiento. Este rol se usa para comprobar la información del área de trabajo y la subred de almacenamiento. Si son iguales, se permite el acceso. Por último, la entidad de servicio también requiere acceso de __Colaborador de datos de blob__ para la cuenta de almacenamiento.
 

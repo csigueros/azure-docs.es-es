@@ -3,12 +3,12 @@ title: Referencia de host.json para Azure Functions 2.x
 description: Documentación de referencia para el archivo host.json de Azure Functions con el entorno en tiempo de ejecución de la versión 2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: b646c4d263896e1bf4d63bdaf965209c005b8228
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8844e76c7f01bf33bc81ef2fec733b9e538e34cc
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121742653"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660521"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referencia de host.json para Azure Functions 2.x y versiones posteriores 
 
@@ -16,12 +16,15 @@ ms.locfileid: "121742653"
 > * [Versión 1](functions-host-json-v1.md)
 > * [Versión 2 y posteriores](functions-host-json.md)
 
-El archivo de metadatos *host.json* contiene las opciones de configuración global que afectan a todas las funciones de dicha aplicación de función. En este artículo se enumeran los valores que están disponibles a partir de la versión 2.x del entorno en tiempo de ejecución de Azure Functions.  
+El archivo de metadatos host.json contiene las opciones de configuración global que afectan a todas las funciones de dicha instancia de aplicación de funciones. En este artículo se enumeran los valores que están disponibles a partir de la versión 2.x del entorno en tiempo de ejecución de Azure Functions.  
 
 > [!NOTE]
 > Este artículo trata sobre Azure Functions 2.x y versiones posteriores.  Para obtener una referencia de host.json en Functions 1.x, consulte la [referencia de host.json para Azure Functions, versión 1.x](functions-host-json-v1.md).
 
-Otras opciones de configuración de la aplicación de funciones se administran en la [configuración de la aplicación](functions-app-settings.md) (para aplicaciones implementadas) o en el archivo [local.settings.json](functions-develop-local.md#local-settings-file) (para desarrollo local).
+Otras opciones de configuración de la aplicación de funciones se administran según dónde se ejecute la aplicación de funciones:
+
++ **Implementada en Azure**: en la [configuración de la aplicación](functions-app-settings.md). 
++ **En el equipo local**: en el archivo [local.settings.json](functions-develop-local.md#local-settings-file).
 
 Las configuraciones de host.json relacionadas con los enlaces se aplican por igual a cada función de la aplicación de funciones. 
 

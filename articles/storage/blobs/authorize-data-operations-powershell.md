@@ -10,12 +10,12 @@ ms.date: 02/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
-ms.openlocfilehash: dae63f442c2e2df068cc3f17bb5355abd4b7de77
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e83be2c3e6f98d000dfe9623cb90478ec4452053
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128615650"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129859102"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-blob-data"></a>Ejecución de comandos de PowerShell con credenciales de Azure AD para acceder a los datos de blob
 
@@ -86,4 +86,4 @@ En el ejemplo siguiente se muestra cómo crear un contenedor en una nueva cuenta
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Asignación de un rol de Azure el acceso a datos de blob](assign-azure-role-data-access.md).
-- [Autorización del acceso a datos de blobs y colas con identidades administradas para los recursos de Azure](../common/storage-auth-aad-msi.md)
+- [Autorización del acceso a datos de blobs con identidades administradas en recursos de Azure](authorize-managed-identity.md)

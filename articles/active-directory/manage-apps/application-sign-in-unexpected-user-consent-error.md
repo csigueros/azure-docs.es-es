@@ -1,5 +1,6 @@
 ---
-title: Error inesperado al otorgar consentimiento a una aplicación | Microsoft Docs
+title: Error inesperado al otorgar consentimiento a una aplicación
+titleSuffix: Azure AD
 description: Explica los errores que pueden producirse durante el proceso de otorgar su consentimiento a una aplicación y qué puede hacer al respecto
 services: active-directory
 author: davidmu1
@@ -12,14 +13,14 @@ ms.date: 07/11/2017
 ms.author: davidmu
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6203c56d5b05679ce387cd08193fe19e7dad402f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6bb824f9527619033467594a98310663c1113fdc
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738887"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129620742"
 ---
-# <a name="unexpected-error-when-performing-consent-to-an-application"></a>Error inesperado al otorgar consentimiento a una aplicación
+# <a name="unexpected-error-when-performing-consent-to-an-application-in-azure-active-directory"></a>Error inesperado al dar su consentimiento a una aplicación en Azure Active Directory
 
 En este artículo, se explican los errores que pueden producirse durante el proceso de otorgar su consentimiento a una aplicación. Si está solucionando solicitudes de consentimiento inesperadas que no contienen ningún mensaje de error, consulte [Escenarios de autenticación para Azure AD](../develop/authentication-vs-authorization.md).
 

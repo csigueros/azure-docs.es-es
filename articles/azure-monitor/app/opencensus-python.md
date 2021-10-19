@@ -7,12 +7,12 @@ ms.reviewer: mbullwin
 ms.custom: devx-track-python
 author: lzchen
 ms.author: lechen
-ms.openlocfilehash: 988f32cae16a026ddef0294815ffd21ba0d81760
-ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
+ms.openlocfilehash: 98af913787ede9a0c9f543315043540b7994729f
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112991746"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754242"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Configuración de Azure Monitor para la aplicación de Python
 
@@ -27,7 +27,7 @@ Es posible que haya observado que OpenCensus se converge en [OpenTelemetry](http
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-- Instalación de Python. En este artículo se usa [Python 3.7.0](https://www.python.org/downloads/release/python-370/), aunque es probable que las versiones anteriores funcionen con cambios menores. El SDK de Python para OpenCensus solo admite Python v2.7 y v3.4-v3.7.
+- Instalación de Python. En este artículo se usa [Python 3.7.0](https://www.python.org/downloads/release/python-370/), aunque es probable que las versiones anteriores funcionen con cambios menores. El SDK de Python para OpenCensus solo admite Python v2.7 y v3.4 y versiones posteriores.
 - Cree un [recurso](./create-new-resource.md) de Application Insights. Se le asignará su propia clave de instrumentación (iKey) para el recurso.
 
 ## <a name="introducing-opencensus-python-sdk"></a>Introducción al SDK de Python para OpenCensus
@@ -349,47 +349,47 @@ El SDK para Python de Opencensus permite agregar dimensiones personalizadas a la
 
 1. Inserte las etiquetas que quiere usar en el mapa de etiquetas. El mapa de etiquetas actúa como una especie de "grupo" de todas las etiquetas disponibles que puede usar.
 
-```python
-...
-tmap = tag_map_module.TagMap()
-tmap.insert("url", "http://example.com")
-...
-```
+    ```python
+    ...
+    tmap = tag_map_module.TagMap()
+    tmap.insert("url", "http://example.com")
+    ...
+    ```
 
 1. Para una `View` específica, indique las etiquetas que desea usar al grabar métricas con esa vista mediante la clave de etiqueta.
 
-```python
-...
-prompt_view = view_module.View("prompt view",
-                               "number of prompts",
-                               ["url"], # <-- A sequence of tag keys used to specify which tag key/value to use from the tag map
-                               prompt_measure,
-                               aggregation_module.CountAggregation())
-...
-```
+    ```python
+    ...
+    prompt_view = view_module.View("prompt view",
+                                "number of prompts",
+                                ["url"], # <-- A sequence of tag keys used to specify which tag key/value to use from the tag map
+                                prompt_measure,
+                                aggregation_module.CountAggregation())
+    ...
+    ```
 
 1. Asegúrese de usar el mapa de etiquetas al grabar en el mapa de medida. Las claves de etiqueta especificadas en la `View` deben encontrarse en el mapa de etiquetas que se usa para registrar.
 
-```python
-...
-mmap = stats_recorder.new_measurement_map()
-mmap.measure_int_put(prompt_measure, 1)
-mmap.record(tmap) # <-- pass the tag map in here
-...
-```
+    ```python
+    ...
+    mmap = stats_recorder.new_measurement_map()
+    mmap.measure_int_put(prompt_measure, 1)
+    mmap.record(tmap) # <-- pass the tag map in here
+    ...
+    ```
 
 1. En la tabla `customMetrics`, todos los registros de métricas emitidos mediante `prompt_view` tendrán dimensiones personalizadas`{"url":"http://example.com"}`.
 
 1. Para generar etiquetas con valores diferentes con las mismas claves, cree nuevas asignaciones de etiquetas para ellas.
 
-```python
-...
-tmap = tag_map_module.TagMap()
-tmap2 = tag_map_module.TagMap()
-tmap.insert("url", "http://example.com")
-tmap2.insert("url", "https://www.wikipedia.org/wiki/")
-...
-```
+    ```python
+    ...
+    tmap = tag_map_module.TagMap()
+    tmap2 = tag_map_module.TagMap()
+    tmap.insert("url", "http://example.com")
+    tmap2.insert("url", "https://www.wikipedia.org/wiki/")
+    ...
+    ```
 
 #### <a name="performance-counters"></a>Contadores de rendimiento
 

@@ -1,6 +1,7 @@
 ---
-title: 'Uso de restricciones de inquilino para administrar el acceso a las aplicaciones SaaS: Azure AD'
+title: Uso de restricciones de inquilino para administrar el acceso a las aplicaciones SaaS
 description: Cómo usar restricciones de inquilino para administrar los usuarios que pueden tener acceso a las aplicaciones según su inquilino de Azure AD.
+titleSuffix: Azure AD
 author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
@@ -11,14 +12,14 @@ ms.date: 7/30/2021
 ms.author: davidmu
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19f3017aafdf15905d4418213fd1020545e57880
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 029328313ac58a5177f5a5e3c75b86fdc3587b43
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128644303"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129613745"
 ---
-# <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso de restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS
+# <a name="restrict-access-to-a-tenant-in-azure-active-directory"></a>Restringir el acceso a un inquilino en Azure Active Directory
 
 Las organizaciones de gran tamaño que hacen hincapié en la seguridad desean moverse a servicios en la nube como Microsoft 365, pero deben saber que sus usuarios solo podrán acceder a los recursos aprobados. Tradicionalmente, las empresas restringen los nombres de dominio o las direcciones IP cuando desean administrar el acceso. Este enfoque no sirve en un mundo donde las aplicaciones de software como servicio (o SaaS) se hospedan en una nube pública, ejecutándose en nombres de dominio compartidos como [outlook.office.com](https://outlook.office.com/) y [login.microsoftonline.com](https://login.microsoftonline.com/). El bloqueo de estas direcciones evitaría por completo que los usuarios accedieran a Outlook en la web, en lugar de simplemente limitarlos a identidades y recursos aprobados.
 

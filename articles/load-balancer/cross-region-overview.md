@@ -13,16 +13,14 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: f873bec75d0454aed2c6569a8f8dfaa7eaab9868
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.openlocfilehash: cf094664fab07e9a75c890899dff9cd0118d12fc
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122195866"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129614410"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Equilibrador de carga entre regiones (versión preliminar)
-
-Azure Load Balancer distribuye el tráfico de entrada que llega al front-end del equilibrador de carga a las instancias del grupo de servidores back-end.
 
 Azure Standard Load Balancer admite el equilibrio de carga entre regiones que habilita escenarios de alta disponibilidad con redundancia geográfica como, por ejemplo:
 
@@ -37,8 +35,6 @@ Azure Standard Load Balancer admite el equilibrio de carga entre regiones que ha
 > [!IMPORTANT]
 > El equilibrador de carga entre regiones se encuentra actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-El equilibrio de carga entre regiones ofrece las mismas ventajas de alto rendimiento y baja latencia que la instancia de Standard Load Balancer regional. 
 
 La configuración de direcciones IP de front-end del equilibrador de carga entre regiones es estática y se anuncia a través de la [mayoría de las regiones de Azure](#participating-regions).
 
@@ -108,7 +104,7 @@ La **región principal** es donde se implementa el equilibrador de carga entre r
 > [!NOTE]
 > Solo puede implementar el equilibrador de carga entre regiones o la dirección IP pública de nivel global en una de las siete regiones anteriores.
 
-Una **región participante** es aquella en la que la dirección IP pública global del equilibrador de carga está disponible. 
+Una **región participante** es aquella en la que la dirección IP pública global del equilibrador de carga se anuncia.
 
 El tráfico iniciado por el usuario se dirigirá a la región participante más cercana a través de la red principal de Microsoft. 
 

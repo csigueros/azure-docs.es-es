@@ -1,24 +1,24 @@
 ---
 title: Introducción a Azure Cost Management para los asociados
-description: En este artículo se explica cómo los asociados usan las características de Azure Cost Management y cómo permiten a sus clientes el acceso a Cost Management.
+description: En este artículo se explica cómo los asociados usan las características de Cost Management y cómo permiten a sus clientes el acceso a este servicio.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/01/2021
+ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 78a2ef8491eea5fa3df5355236f23be730062108
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d402acaf43682a7c025147fd38bccb9baa033683
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121752003"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705979"
 ---
-# <a name="get-started-with-azure-cost-management-for-partners"></a>Introducción a Azure Cost Management para los asociados
+# <a name="get-started-with-cost-management-for-partners"></a>Introducción a Cost Management para los asociados
 
-Azure Cost Management está disponible de forma nativa para los asociados directos que hayan incorporado sus clientes a un contrato de cliente de Microsoft y hayan [adquirido un plan de Azure](/partner-center/purchase-azure-plan). En este artículo se explica cómo usan los asociados las características de [Azure Cost Management](../index.yml) para ver los costos de las suscripciones en el plan de Azure. También se describe cómo los asociados permiten a sus clientes el acceso a Cost Management a precios minoristas.
+Cost Management está disponible de forma nativa para los asociados directos que hayan incorporado sus clientes a un Contrato de cliente de Microsoft y hayan [adquirido un plan de Azure](/partner-center/purchase-azure-plan). En este artículo se explica cómo usan los asociados las características de [Cost Management](../index.yml) para ver los costos de las suscripciones en el plan de Azure. También se describe cómo los asociados permiten a sus clientes el acceso a Cost Management a precios minoristas.
 
 En el caso de los asociados directos y los proveedores indirectos, tanto el administrador global como los agentes del administrador pueden acceder a Cost Management en el inquilino del asociado y administrar los costos a los precios de la factura.
 
@@ -43,19 +43,19 @@ Este es un ejemplo que muestra los costos para un solo cliente.
 
 [![Ejemplo que muestra los costos para un solo cliente](./media/get-started-partners/customer-costs2.png)](./media/get-started-partners/customer-costs2.png#lightbox)
 
-Toda la funcionalidad disponible en Azure Cost Management también lo está con las API REST. Use las API para automatizar las tareas de administración de costos.
+Toda la funcionalidad disponible en Cost Management también lo está con las API REST. Use las API para automatizar las tareas de administración de costos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Como asociado, Azure Cost Management está disponible de forma nativa solo para las suscripciones que están en el plan de Azure.
+Como asociado, Cost Management está disponible de forma nativa solo para las suscripciones que están en el plan de Azure.
 
-Para habilitar Azure Cost Management en el Azure Portal, debe haber confirmado la aceptación del cliente del Contrato de cliente de Microsoft (en nombre del cliente) y haber pasado al cliente al plan de Azure. Solo los costos de las suscripciones que se pasan al plan de Azure están disponibles en Azure Cost Management.
+Para habilitar Cost Management en Azure Portal, debe haber confirmado la aceptación del cliente del Contrato de cliente de Microsoft (en nombre del cliente) y haber pasado al cliente al plan de Azure. Solo los costos de las suscripciones que se pasan al plan de Azure están disponibles en Cost Management.
 
-Azure Cost Management requiere acceso de lectura a la cuenta de facturación o suscripción.
+Cost Management requiere acceso de lectura a la cuenta de facturación o suscripción.
 
-Para más información sobre cómo permitir y asignar el acceso a Azure Cost Management para una cuenta de facturación, consulte [Asignar roles y permisos de usuarios](/partner-center/permissions-overview). Los roles de **administrador global** y **agente de administración** pueden administrar los costos de una cuenta de facturación.
+Para obtener más información sobre cómo permitir y asignar el acceso a Cost Management para una cuenta de facturación, consulte [Asignar roles y permisos de usuarios](/partner-center/permissions-overview). Los roles de **administrador global** y **agente de administración** pueden administrar los costos de una cuenta de facturación.
 
-Para acceder a Azure Cost Management en el ámbito de la suscripción, cualquier usuario con acceso Azure RBAC a una suscripción puede ver los costos en las tarifas comerciales (pago por uso). Sin embargo, la [directiva de visibilidad de costos para el inquilino del cliente](#enable-the-policy-to-view-azure-usage-charges) debe estar habilitada. Para ver una lista completa de tipos de cuenta admitidos, consulte [Descripción de los datos de Cost Management](understand-cost-mgt-data.md).
+Para acceder a Cost Management en el ámbito de la suscripción, cualquier usuario con acceso de Azure RBAC a una suscripción puede ver los costos en las tarifas comerciales (pago por uso). Sin embargo, la [directiva de visibilidad de costos para el inquilino del cliente](#enable-the-policy-to-view-azure-usage-charges) debe estar habilitada. Para ver una lista completa de tipos de cuenta admitidos, consulte [Descripción de los datos de Cost Management](understand-cost-mgt-data.md).
 
 Al transferir los acuerdos de facturación existentes a un nuevo asociado, las funcionalidades de Cost Management solo están disponibles para la relación de facturación actual con el asociado. Los costos históricos antes de la transferencia al nuevo asociado no se trasladan a la nueva cuenta de facturación. Sin embargo, el historial de costos permanece con la cuenta de facturación asociada original.
 
@@ -99,7 +99,7 @@ Los asociados pueden usar el ámbito para conciliar las facturas. Además, usan 
 
 - Una factura filtrada específica
 - Customer
-- Suscripción
+- Subscription
 - Resource group
 - Recurso
 - Servicio de Azure
@@ -145,7 +145,7 @@ En **Configuración**, seleccione **Directivas**.
 La directiva actual de visibilidad de los costos se muestra para los cargos de **uso de Azure** asociados a las suscripciones del cliente seleccionado.
 ![Directiva para permitir que los clientes vean los cargos de pago por uso](./media/get-started-partners/cost-management-billing-policies.png)
 
-Cuando la directiva se establece en **No**, Azure Cost Management no está disponible para los usuarios de suscripciones asociados al cliente. A menos que la habilite un asociado, la directiva de visibilidad de los costos está deshabilitada de forma predeterminada para todos los usuarios de suscripciones.
+Cuando la directiva se establece en **No**, Cost Management no está disponible para los usuarios de suscripciones asociados con el cliente. A menos que la habilite un asociado, la directiva de visibilidad de los costos está deshabilitada de forma predeterminada para todos los usuarios de suscripciones.
 
 Cuando esta directiva está establecida en **Sí**, los usuarios de suscripciones asociados al inquilino del cliente pueden ver los cargos de uso según las tarifas de pago por uso.
 
@@ -162,8 +162,6 @@ En los ámbitos RBAC de grupo de recursos y suscripción están disponibles el a
 Las vistas amortizadas y los costos reales de las instancias reservadas de los ámbitos Azure RBAC muestran cero cargos. Los costos de la compra de derechos como instancias reservadas y los precios de Marketplace solo se muestran en los ámbitos de facturación del inquilino del asociado en que se realizaron las compras.
 
 Los precios de minoristas que se usan para calcular los costos que se muestran en la vista son los mismos que se muestran en la calculadora de precios de Azure para todos los clientes. Los costos que se muestran no incluyen los descuentos o créditos que el pueda tener el asociado, como créditos obtenidos de asociados, descuentos por nivel y descuentos de servicio global.
-
- 
 
 ## <a name="analyze-costs-in-cost-analysis"></a>Análisis de los costos en el análisis de costos
 
@@ -229,7 +227,7 @@ Los siguientes campos de datos se encuentran en los archivos de detalles de uso 
 | unitOfMeasure | Identifica la unidad en que se cobra el servicio. Por ejemplo, GB y horas. | Identifica la unidad en que se cobra el servicio. Por ejemplo, GB, horas y 10 000 s. |
 | pricingCurrency | Moneda que define el precio unitario. | Moneda de la lista de precios.|
 | billingCurrency | Moneda que define el costo facturado. | La moneda definida como moneda de facturación en la factura. |
-| chargeType | Define el tipo de cargo que representa el costo en Azure Cost Management, como compra y reembolso. | Tipo de cargo o ajuste. No está disponible para la actividad actual. |
+| chargeType | Define el tipo de cargo que representa el costo en Cost Management, como compra y reembolso. | Tipo de cargo o ajuste. No está disponible para la actividad actual. |
 | costinBillingCurrency | Costo combinado o ampliado en la moneda facturada. | N/D |
 | costinPricingCurrency | Costo combinado o ampliado antes de impuestos en la moneda de los precios para poner en correlación con estos. | N/D |
 | **costinUSD** | Costo combinado o ampliado estimado antes de impuestos en USD. | N/D |
@@ -247,7 +245,7 @@ Los siguientes campos de datos se encuentran en los archivos de detalles de uso 
 
 ## <a name="view-partner-earned-credit-pec-resource-costs"></a>Visualización de los costos de recursos de créditos ganados por el asociado (PEC)
 
-En Azure Cost Management, los asociados pueden usar el análisis de costos para ver los costos que recibieron las ventajas de PEC.
+En Cost Management, los asociados pueden usar el análisis de costos para ver los costos que recibieron las ventajas de PEC.
 
 En Azure Portal, inicie sesión en el inquilino del asociado y seleccione **Administración de costos + facturación**. En **Cost Management**, seleccione **Análisis de costos**.
 
@@ -261,7 +259,7 @@ Cuando la propiedad **PartnerEarnedCreditApplied** es _True_, el costo asociado 
 
 Cuando la propiedad **PartnerEarnedCreditApplied** es _False_, el costo asociado no ha satisfecho los requisitos necesarios para el crédito. O bien, el servicio adquirido no reúne los requisitos para ganar créditos de asociado.
 
-Lo habitual es que los datos de uso del servicio tarden entre 8 y 24 horas en aparecer en Cost Management. Para más información, consulte [Retención y actualizaciones de datos de uso y costos](understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). Los créditos PEC aparecen a las 48 horas desde el momento del acceso en Azure Cost Management.
+Lo habitual es que los datos de uso del servicio tarden entre 8 y 24 horas en aparecer en Cost Management. Para más información, consulte [Retención y actualizaciones de datos de uso y costos](understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). Los créditos de PEC aparecen en las 48 horas siguientes al acceso en Cost Management.
 
 
 También puede agrupar y filtrar por la propiedad **PartnerEarnedCreditApplied** mediante las opciones **Agrupar por**. Use las opciones para examinar los costos que tienen y no tienen PEC.
@@ -298,7 +296,7 @@ Para comprobar los datos en la lista de exportaciones, seleccione el nombre de l
 
 Los asociados y los clientes pueden usar las API de Cost Management que se describen en las siguientes secciones para tareas comunes.
 
-### <a name="azure-cost-management-apis---direct-and-indirect-providers"></a>API de Azure Cost Management: proveedores directos e indirectos
+### <a name="cost-management-apis---direct-and-indirect-providers"></a>API de Cost Management: proveedores directos e indirectos
 
 Los asociados con acceso a los ámbitos de facturación en el inquilino de un asociado pueden usar las siguientes API para ver los costos facturados.
 

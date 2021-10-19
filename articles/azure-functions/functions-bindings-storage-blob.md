@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: af8e6a64e94530d6cca1494aff2c3b249186a42e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9ca3471b599e9f0671cd39603d71def344f7d72c
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738546"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660502"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Introducción a los enlaces de Azure Blob Storage para Azure Functions
 
@@ -55,10 +55,10 @@ Las aplicaciones de Functions 1.x tienen automáticamente una referencia al paqu
 
 ## <a name="hostjson-settings"></a>configuración de host.json
 
-> [!NOTE]
-> Esta sección no se aplica cuando se usan versiones de extensión anteriores a 5.0.0. Para esas versiones, no hay ningún valor de configuración global para los blobs.
+En esta sección se describen los valores de configuración de la aplicación de funciones disponibles para las funciones que este enlace. Esta configuración solo se aplica cuando se usa la [versión 5.0.0 de la extensión y versiones posteriores](#storage-extension-5x-and-higher). El siguiente archivo host.json de ejemplo contiene solo la configuración de la versión 2.x+ para este enlace. Para obtener más información sobre la configuración de la aplicación de funciones en las versiones 2.x y posteriores, consulte la [referencia de host.json para Azure Functions](functions-host-json.md).
 
-En esta sección se describen las opciones de configuración global disponibles para este enlace cuando se usa la [versión de extensión 5.0.0 y posteriores](#storage-extension-5x-and-higher). El siguiente archivo *host.json* de ejemplo contiene solo la configuración de la versión 2.x+ de este enlace. Para más información acerca de las opciones de configuración globales de la versión 2.x y posteriores de Functions, consulte [Referencia de host.json para Azure Functions](functions-host-json.md).
+> [!NOTE]
+> Esta sección no se aplica a las versiones de extensión anteriores a 5.0.0. Para esas versiones anteriores, no hay ninguna función de configuración para toda la aplicación de blobs.
 
 ```json
 {

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 7a94d82c3ec2a47869c64520e20bed6cdf58ebdb
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 0cc474ba9566737cb0117cc3a0f2bfb079cdf3d9
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129210539"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129616519"
 ---
 # <a name="labeling-in-azure-purview"></a>Etiquetado en Azure Purview
 
@@ -64,7 +64,7 @@ Las etiquetas de confidencialidad se admiten en Azure Purview para los siguiente
 
 ## <a name="labeling-for-sql-databases"></a>Etiquetado de bases de datos SQL
 
-Además del etiquetado de Purview para las columnas de bases de datos, Microsoft también admite el etiquetado de columnas de bases de datos SQL mediante la clasificación de datos de SQL en [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). Aunque Purview usa las [etiquetas de confidencialidad MIP](/microsoft-365/compliance/sensitivity-labels) globales, SSMS solo usa etiquetas definidas localmente.
+Además del etiquetado de Purview para las columnas de bases de datos, Microsoft también admite el etiquetado de columnas de bases de datos SQL mediante la clasificación de datos de SQL en [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). Aunque Purview usa las [etiquetas de confidencialidad](/microsoft-365/compliance/sensitivity-labels) globales, SSMS solo usa etiquetas definidas localmente.
 
 El etiquetado en Purview y el etiquetado en SSMS son procesos independientes que actualmente no interactúan entre sí. Por lo tanto, **las etiquetas que se aplican en SSMS no se muestran en Purview, y viceversa**. Se recomienda Azure Purview para etiquetar las bases de datos SQL, ya que usa etiquetas MIP globales que se pueden aplicar en varias plataformas.
 

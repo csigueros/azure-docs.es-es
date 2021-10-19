@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: wellee
-ms.openlocfilehash: 8c9ab37e46f23d533550ffc535633575a85937a6
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: dc065e68d513850f9e006371861d087cccc6e155
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122778904"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129669860"
 ---
 # <a name="connect-cross-tenant-vnets-to-a-virtual-wan-hub"></a>Conexión de redes virtuales entre inquilinos a un centro de conectividad de Virtual Wan
 
@@ -28,6 +28,9 @@ En este artículo aprenderá a:
 
 Los pasos necesarios para esta configuración se realizan mediante una combinación de Azure Portal y PowerShell, aunque la característica en sí solo está disponible en PowerShell y la CLI.
 
+>[!NOTE]
+> Tenga en cuenta que las conexiones de Virtual Network entre inquilinos solo se pueden administrar mediante PowerShell o la CLI. **No puede** administrar conexiones de Virtual Network entre inquilinos en Azure Portal.
+> 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 ### <a name="prerequisites"></a>Requisitos previos

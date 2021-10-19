@@ -3,12 +3,12 @@ title: Reenvío de la información de las alertas
 description: Puede enviar información de alertas a los sistemas asociados mediante las reglas de reenvío.
 ms.date: 08/29/2021
 ms.topic: how-to
-ms.openlocfilehash: 2136a58a383bb623edca69cb03c1c9c5530a107f
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: eb902036a286be50dc1f29ccca894f3d422cc59c
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123432406"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612222"
 ---
 # <a name="forward-alert-information"></a>Reenvío de la información de las alertas
 
@@ -98,6 +98,8 @@ Envíe un correo que incluya la información de la alerta. Puede especificar una
 Para definir el correo electrónico de la regla de reenvío, haga lo siguiente:
 
 1. Escriba una sola dirección de correo electrónico. Si tiene que agregar más de un correo electrónico, deberá crear otra acción para cada dirección de correo electrónico.
+
+    :::image type="content" source="media/how-to-forward-alert-information-to-partners/forward-email.png" alt-text="Captura de pantalla de la alerta de reenvío para reenviar las alertas a una dirección de correo electrónico.":::
 
 1. Escriba la zona horaria para la marca de tiempo de la detección de alertas en SIEM.
 

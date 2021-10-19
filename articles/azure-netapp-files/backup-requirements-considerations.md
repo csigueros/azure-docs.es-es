@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 10/07/2021
 ms.author: b-juche
-ms.openlocfilehash: abbf02776d6bc1506912a5bdd1446393b9f678fb
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: f396904b3832403337a6fa4553e2ae4a4b8c86b4
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129094911"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667960"
 ---
 # <a name="requirements-and-considerations-for-azure-netapp-files-backup"></a>Requisitos y consideraciones para la copia de seguridad de archivos de Azure NetApp Files 
 
@@ -45,6 +45,8 @@ Antes de usar la copia de seguridad de Azure NetApp Files es preciso tener en cu
     El volumen del que se debe realizar copia de seguridad requiere una directiva de instantáneas configurada para crear instantáneas. El número configurado de copias de seguridad se almacena en Azure Storage. 
 
 * Si se produce un problema (por ejemplo, no queda espacio suficiente en el volumen) que hace que la directiva de instantáneas deje de crear instantáneas, la característica de copia de seguridad no tendrá instantáneas nueva de las que realizar copias de seguridad. 
+
+* En una configuración de replicación entre regiones, la copia de seguridad de Azure NetApp Files solo se puede configurar en un volumen de origen. Esta opción no se admite en un volumen de *destino* de replicación entre regiones.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

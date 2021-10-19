@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
-ms.date: 06/16/2021
+ms.date: 10/11/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, subject-rbac-steps
-ms.openlocfilehash: 2b8e8c73286eb058f5fcd183ac43998801a0ebe8
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: f04dc73c6137e311b309a2009d6493414591eda5
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123038436"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858931"
 ---
 # <a name="use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
 
@@ -38,11 +38,11 @@ Debe tener permisos suficientes para registrar una aplicación en su inquilino d
 ### <a name="check-azure-ad-permissions"></a>Comprobación de los permisos de Azure AD
 
 1. Seleccione **Azure Active Directory**.
-1. Anote su rol. Si tiene el rol **Usuario**, debe asegurarse de que los no administradores pueden registrar aplicaciones.
+1. Busque su rol en **Información general**->**My feed** (MI fuente). Si tiene el rol **Usuario**, debe asegurarse de que los no administradores pueden registrar aplicaciones.
 
-   ![Busque su rol. Si es usuario, asegúrese de que quienes no son administradores pueden registrar aplicaciones](./media/howto-create-service-principal-portal/view-user-info.png)
+   :::image type="content" source="media/howto-create-service-principal-portal/view-user-info.png" alt-text="Busque su rol. Si es usuario, asegúrese de que los que no sean administradores pueden registrar aplicaciones":::
 
-1. En el panel izquierdo, seleccione **Configuración de usuario**.
+1. En el panel izquierdo, seleccione **Usuarios** y, luego, **Configuración de usuario**.
 1. Compruebe la configuración de **App registrations** (Registros de aplicaciones). Este valor solo puede configurarlo un administrador. Si se configura en **Sí**, cualquier usuario en el inquilino de Azure Active Directory puede registrar una aplicación.
 
 Si la configuración de registro de aplicaciones se establece en **No**, solo los usuarios con un rol de administrador pueden registrar este tipo de aplicaciones. Consulte [Roles integrados de Azure AD](../roles/permissions-reference.md#all-roles) para conocer los roles de administrador disponibles y los permisos específicos en Azure AD que se otorgan a cada uno. Si la cuenta está asignada al rol Usuario, pero la opción Registros de aplicaciones está limitada a los administradores, pida al administrador que le asigne un rol de administrador para poder crear y administrar todos los aspectos de los registros de aplicaciones, o que permita a los usuarios registrar las aplicaciones.
@@ -67,9 +67,9 @@ Para comprobar los permisos de su suscripción:
 
    ![Seleccione la suscripción en la que quiere crear la entidad de servicio](./media/howto-create-service-principal-portal/view-details.png)
 
-1. Seleccione **Ver** en **Asignaciones de roles** para ver los roles asignados y determine si tiene los permisos correspondientes para asignar un rol a una aplicación de AD. En caso contrario, pida al administrador de suscripciones que le agregue al rol Administrador de acceso de usuario. En la imagen siguiente, el usuario está asignado al rol Propietario, lo que significa que el usuario tiene los permisos adecuados.
+1. Seleccione **Asignaciones de roles** para ver los roles asignados y determine si tiene los permisos correspondientes para asignar un rol a una aplicación de AD. En caso contrario, pida al administrador de suscripciones que le agregue al rol Administrador de acceso de usuario. En la imagen siguiente, el usuario está asignado al rol Propietario, lo que significa que el usuario tiene los permisos adecuados.
 
-   ![En este ejemplo se muestra el usuario asignado al rol Propietario](./media/howto-create-service-principal-portal/view-user-role.png)
+   :::image type="content" source="media/howto-create-service-principal-portal/view-user-role.png" alt-text="En este ejemplo se muestra el usuario asignado al rol Propietario":::
 
 ## <a name="register-an-application-with-azure-ad-and-create-a-service-principal"></a>Registro de una aplicación con Azure AD y creación de una entidad de servicio
 

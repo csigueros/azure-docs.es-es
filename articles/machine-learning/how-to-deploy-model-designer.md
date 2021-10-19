@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.reviewer: peterlu
-ms.date: 10/29/2020
+ms.date: 10/08/2021
 ms.topic: how-to
 ms.custom: deploy, studio, designer
-ms.openlocfilehash: 110bb5e6349ab5cb64366ba365ccace8ab029362
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: d2553ddde013c43b9ce4d23d2cc0b4541150e6f3
+ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107949441"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129740491"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Uso de Studio para implementar modelos entrenados en el diseñador
 
@@ -100,7 +100,8 @@ Como alternativa, puede descargar los archivos desde la página de recursos de *
 Después de descargar los archivos necesarios, ya puede implementar el modelo.
 
 1. En la página de recursos de **Modelos**, seleccione el modelo registrado.
-1. Seleccione el botón **Implementar**.
+1. Seleccione **Implementar** y seleccione **Implementar en servicio web**.
+    ![Captura de pantalla del botón de implementación del modelo en la página de recursos](./media/how-to-deploy-model-designer/open-deploy-wizard.png)
 1. En el menú de configuración, escriba la siguiente información:
 
     - Escriba un nombre para el punto de conexión.

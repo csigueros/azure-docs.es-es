@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 10/06/2021
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 40b40d25e47e3951293ebe5a5d58673535b6615e
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 1fbd0c7a3c2a6edc2ffb0f6a5a4124979fc27225
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123470623"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612415"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Servicios de Azure que admiten Azure Data Lake Storage Gen2
 
@@ -46,9 +46,13 @@ En esta tabla se enumeran los servicios de Azure que puede usar con Azure Data L
 |Azure Content Delivery Network|Todavía no se admite|No aplicable|No aplicable|[Indexación y búsqueda de documentos de Azure Data Lake Storage Gen2 (versión preliminar)](../../cdn/cdn-overview.md)|
 |Azure SQL Database|Todavía no se admite|No aplicable|No aplicable|[¿Qué es Azure SQL Database?](../../azure-sql/database/sql-database-paas-overview.md)|
 
+> [!TIP]
+> Para ver cómo se organizan los servicios en categorías como la ingesta, descarga, proceso y visualización, consulte [Ingesta, proceso y análisis](data-lake-storage-data-scenarios.md#ingest-process-and-analyze).
+
 ## <a name="see-also"></a>Consulte también
 
 - [Problemas conocidos con Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 - [Compatibilidad con la característica Blob Storage en cuentas de Azure Storage](storage-feature-support-in-storage-accounts.md)
 - [Plataformas de código abierto que admiten Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md)
 - [Acceso multiprotocolo en Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)
+- [Procedimientos recomendados para usar Azure Data Lake Storage Gen2](data-lake-storage-best-practices.md)

@@ -14,14 +14,14 @@ ms.author: davidmu
 ms.reviewer: saumadan
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c44d2a346dcd77352715b63937e5bad5274f2d1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b3d1ccac8fa8ac0deddb8a581c583779b1fb2386
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738869"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129611807"
 ---
-# <a name="advanced-certificate-signing-options-in-a-saml-token"></a>Opciones avanzadas de firma de certificados en un token SAML
+# <a name="advanced-certificate-signing-options-in-a-saml-token-in-azure-active-directory"></a>Opciones avanzadas de firma de certificados en un token SAML en Azure Active Directory
 
 En la actualidad Azure Active Directory (Azure AD) es compatible con miles de aplicaciones previamente integradas de la galería de aplicaciones de Azure Active Directory. Más de 500 de estas aplicaciones admiten el inicio de sesión único mediante el protocolo [Lenguaje de marcado de aserción de seguridad](https://wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML) 2.0, como la aplicación [NetSuite](https://azuremarketplace.microsoft.com/marketplace/apps/aad.netsuite). Cuando un cliente se autentica en una aplicación a través de Azure AD con SAML, Azure AD envía un token a la aplicación (mediante HTTP POST). Después, la aplicación valida y usa el token para iniciar la sesión del cliente, en lugar de solicitar un nombre de usuario y una contraseña. Estos tokens SAML se firman con el certificado único que se genera en Azure AD y mediante algoritmos estándar específicos.
 

@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: dc89bfcd3d89e6987c2c8b742f5fe2453c273fc7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8aac6f90880775c5a1d7002048c79257b4e5ab85
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121746282"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129855904"
 ---
 # <a name="indexer-access-to-content-protected-by-azure-network-security-features"></a>Acceso del indizador a orígenes de datos mediante las características de seguridad de red de Azure
 
@@ -76,7 +76,7 @@ Con cada ejecución de un indexador dado, Azure Cognitive Search determina el me
 Si el recurso al que intenta acceder el indexador está restringido a solo un determinado conjunto de intervalos IP, deberá expandir el conjunto para incluir los posibles intervalos IP desde los que se puede originar una solicitud del indexador. Como se indicó anteriormente, existen dos entornos posibles en los que se ejecutan los indexadores y de los que pueden originarse solicitudes de acceso. Tendrá que agregar las direcciones IP de **ambos** entornos para que el acceso del indexador funcione.
 
 - Para obtener la dirección IP del entorno privado específico del servicio de búsqueda, use `nslookup` (o `ping`) con el nombre de dominio completo (FQDN) del servicio de búsqueda. Por ejemplo, el nombre de dominio completo de un servicio de búsqueda en la nube pública sería `<service-name>.search.windows.net`. Esta información está disponible en Azure Portal.
-- Las direcciones IP de los entornos multiinquilino están disponibles a través de la etiqueta de servicio `AzureCognitiveSearch`. Las [etiquetas de servicio de Azure](../virtual-network/service-tags-overview.md) tienen un intervalo de direcciones IP publicado para cada servicio, que está disponible a través de una [API de detección (versión preliminar)](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) o un [archivo JSON descargable](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). En cualquier caso, los intervalos IP se desglosan por región: solo puede elegir aquellos asignados para la región en la que se aprovisiona su servicio de búsqueda.
+- Las direcciones IP de los entornos multiinquilino están disponibles a través de la etiqueta de servicio `AzureCognitiveSearch`. Las [etiquetas de servicio de Azure](../virtual-network/service-tags-overview.md) tienen un intervalo de direcciones IP publicado para cada servicio, que está disponible a través de una [API de detección](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) o un [archivo JSON descargable](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). En cualquier caso, los intervalos IP se desglosan por región: solo puede elegir aquellos asignados para la región en la que se aprovisiona su servicio de búsqueda.
 
 En el caso de determinados orígenes de datos, la propia etiqueta de servicio se puede usar directamente en lugar de enumerar la lista de intervalos IP (la dirección IP del servicio de búsqueda se debe seguir usando explícitamente). Estos orígenes de datos restringen el acceso por medio de la configuración de una [regla de grupo de seguridad de red](../virtual-network/network-security-groups-overview.md) que admite de forma nativa la adición de una etiqueta de servicio, a diferencia de las reglas IP, como las que ofrecen Azure Storage, Cosmos DB, Azure SQL, etc. Los orígenes de datos que admiten la posibilidad de utilizar la etiqueta de servicio `AzureCognitiveSearch` directamente, además de la dirección IP del servicio de búsqueda, son:
 

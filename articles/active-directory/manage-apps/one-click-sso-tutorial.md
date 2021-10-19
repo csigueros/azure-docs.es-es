@@ -1,6 +1,7 @@
 ---
-title: Configuración del inicio de sesión único (SSO) mediante un solo clic de una aplicación de Azure Marketplace | Microsoft Docs
+title: Configuración del inicio de sesión único (SSO) mediante un solo clic de una aplicación de Azure Marketplace
 description: Pasos para la configuración del inicio de sesión único mediante un solo clic para una aplicación de Azure Marketplace.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -12,14 +13,14 @@ ms.date: 06/11/2019
 ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.reviewer: ergreenl
-ms.openlocfilehash: dac32dd14e006b1187f62389d3bc38e3c30a890f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 97cdedac91fa80c45ec8b36bad4a1368e48e3e81
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124791467"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615797"
 ---
-# <a name="one-click-app-configuration-of-single-sign-on"></a>Configuración del inicio de sesión único mediante un solo clic de una aplicación
+# <a name="one-click-app-configuration-of-single-sign-on-in-azure-active-directory"></a>Configuración de la aplicación con un solo clic en el inicio de sesión único en Azure Active Directory
 
  En este tutorial, aprenderá a realizar una configuración del inicio de sesión único (SSO) mediante un solo clic para aplicaciones Azure Active Directory (Azure AD) compatibles con SAML de Azure Marketplace.
 

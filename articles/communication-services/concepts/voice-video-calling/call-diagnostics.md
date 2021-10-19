@@ -10,12 +10,12 @@ ms.date: 08/17/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.openlocfilehash: 23307fbfccdce2faa1b6c5808095f0f97c7a0e66
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 23b75ff29e32bafdce320d334d9236902cbe4b2c
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128635895"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667618"
 ---
 # <a name="call-diagnostics"></a>Diagnóstico de llamada
 
@@ -41,7 +41,7 @@ Están disponibles los diagnósticos siguientes para los usuarios:
 | ------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------- |
 | noNetwork                 | No hay red disponible.                                  | - Se establece en `True` cuando no se puede iniciar una llamada porque no hay red disponible. <br/> - Se establece en `False` cuando hay candidatos ICE.                                                                                                  | El dispositivo no está conectado a una red.               |
 | networkRelaysNotReachable | Problemas con una red.                                        | - Se establece en `True` cuando la red tiene alguna restricción que no le permite acceder a las retransmisiones de ACS. <br/> - Se establece en `False` al hacer una llamada nueva.                                                                                                | Durante una llamada cuando la señal WiFi es intermitente. |
-| networkReconnect          | Se perdió la conexión y nos estamos reconectando a la red. | - Se establece en `Poor` cuando se pierde la conectividad del transporte de medios. <br/> - Se establece en `Bad` cuando se desconecta la red. <br/> - Se establece en `Good` cuando se desconecta una sesión nueva.                                                                       | Ancho de banda reducido, sin Internet                          |
+| networkReconnect          | Se perdió la conexión y nos estamos reconectando a la red. | - Se establece en `Bad` cuando se desconecta la red. <br/> - Se establece en `Poor` cuando se pierde la conectividad del transporte de medios. <br/> - Se establece en `Good` cuando se desconecta una sesión nueva.                                                                       | Ancho de banda reducido, sin Internet                          |
 | networkReceiveQuality     | Indicador relacionado con la calidad de la secuencia entrante.                 | - Se establece en `Bad` cuando hay un problema grave al recibir la secuencia. calidad <br/> - Se establece en `Poor` cuando hay un problema leve al recibir la secuencia. calidad <br/> - Se establece en `Good` cuando no hay ningún problema al recibir la secuencia. | Ancho de banda bajo                                       |
 
 ### <a name="audio-values"></a>Valores de audio

@@ -1,6 +1,7 @@
 ---
-title: Uso del informe de actividades para trasladar aplicaciones de AD FS a Azure Active Directory | Microsoft Docs
+title: Uso del informe de actividades para trasladar aplicaciones de AD FS a Azure Active Directory
 description: El informe de actividades de aplicaciones de Servicios de federación de Active Directory (AD FS) permite migrar rápidamente aplicaciones de AD FS a Azure Active Directory (Azure AD). Esta herramienta de migración para AD FS identifica la compatibilidad con Azure AD y proporciona instrucciones de migración.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -12,14 +13,14 @@ ms.date: 01/14/2019
 ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.reviewer: alamaral
-ms.openlocfilehash: 6b60479d1205acdd0d18311791adfc4924913c4e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 00bc79bf0ab078e3a95c958b8c539f453a633e1c
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738773"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129614733"
 ---
-# <a name="use-the-ad-fs-application-activity-report-to-migrate-applications-to-azure-ad"></a>Use el informe de actividades de aplicaciones de AD FS para migrar aplicaciones a Azure AD
+# <a name="review-the-application-activity-report-in-azure-active-directory"></a>Revise el informe de actividad de la aplicación en Azure Active Directory
 
 Muchas organizaciones usan Servicios de federación de Active Directory (AD FS) para proporcionar un inicio de sesión único a las aplicaciones en la nube. El traslado de aplicaciones de AD FS a Azure AD para la autenticación aporta importantes ventajas, especialmente en lo que respecta a la administración de costos y riesgos, a la productividad, al cumplimiento y a la gobernanza. Sin embargo, entender qué aplicaciones son compatibles con Azure AD e identificar los pasos de migración específicos puede llevar mucho tiempo.
 

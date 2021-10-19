@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 2bffc15980013d91bfe24101499550d1dcfea6e2
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 8a979fa56a7a75785220747dc1ee43696e8897d4
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111753240"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710524"
 ---
 # <a name="understanding-azure-virtual-desktop-network-connectivity"></a>Descripción de la conectividad de red de Azure Virtual Desktop
 

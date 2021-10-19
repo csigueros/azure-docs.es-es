@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 07/26/2021
 ms.author: yushwang
-ms.openlocfilehash: 0551cf435b732b621ad5493914251afd67f18882
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: b3619ba68338e40773cdd962298b01806bde5b2b
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114707139"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660635"
 ---
 # <a name="vpn-gateway-faq"></a>Preguntas más frecuentes sobre VPN Gateway
 
@@ -185,6 +185,10 @@ Este es el comportamiento esperado para puertas de enlace de VPN basadas en dire
 Para la configuración de sitio a sitio entre locales se admiten los servidores de Windows Server 2012 con servicio de enrutamiento y acceso remoto (RRAS).
 
 Otras soluciones VPN de software deben funcionar con nuestra puerta de enlace siempre que se ajusten a las implementaciones IPsec estándar de la industria. Póngase en contacto con el proveedor del software para obtener instrucciones de configuración y soporte técnico.
+
+### <a name="can-i-connect-to-azure-gateway-via-point-to-site-when-located-at-a-site-that-has-an-active-site-to-site-connection"></a>¿Puedo conectarme a Azure Gateway a través de la opción Punto a sitio cuando se encuentra en un sitio que tiene una conexión de sitio a sitio activa?
+
+Sí, pero las direcciones IP públicas del cliente de Punto a sitio deben ser diferentes de las direcciones IP públicas que usa el dispositivo VPN de sitio a sitio; de lo contrario, la conexión de punto a sitio no funcionará. Las conexiones de Punto a sitio con IKEv2 no se pueden iniciar desde las mismas direcciones IP públicas donde se configura una conexión VPN de sitio a sitio en la misma instancia de Azure VPN Gateway. 
 
 ## <a name="point-to-site---certificate-authentication"></a><a name="P2S"></a>Punto a sitio: autenticación de certificados
 

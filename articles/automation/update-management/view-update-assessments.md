@@ -5,16 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 06/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 20df340df025ceada8a4b254f317fe2f5d8eecbc
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 1607ad99ffb78a90bcc143ab20829709cec77561
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768900"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706502"
 ---
 # <a name="view-update-assessments-in-update-management"></a>Visualización de las evaluaciones de las actualizaciones en Update Management
 
-En Update Management, puede ver información sobre las máquinas, las actualizaciones que faltan, las implementaciones de actualizaciones y las implementaciones de actualizaciones programadas. Puede ver la información sobre la evaluación en el ámbito de la máquina virtual de Azure seleccionada, desde el servidor habilitado para Arc seleccionado o la cuenta de Automation en todos los equipos y servidores configurados.
+En Update Management, puede ver información sobre las máquinas, las actualizaciones que faltan, las implementaciones de actualizaciones y las implementaciones de actualizaciones programadas. Puede ver la información sobre la evaluación en el ámbito de la máquina virtual de Azure seleccionada desde el servidor habilitado para Azure Arc seleccionado o la cuenta de Automation en todos los equipos y servidores configurados.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -28,13 +28,13 @@ En Update Management, puede ver información sobre las máquinas, las actualizac
 
 [ ![Vista de la evaluación de Update Management de las máquinas virtuales de Azure](./media/view-update-assessments/update-assessment-azure-vm.png)](./media/view-update-assessments/update-assessment-azure-vm-expanded.png#lightbox)
 
-Para ver la evaluación de la actualización desde un servidor habilitado para Arc, vaya a **Servidores: Azure Arc** y seleccione el servidor en la lista. En el menú de la izquierda, seleccione **Actualizaciones de invitado y host**. En la página **Actualizaciones de invitado y host**, seleccione **Ir a Update Management**.
+Para ver la evaluación de la actualización desde un servidor habilitado para Azure Arc, vaya a **Servidores: Azure Arc** y seleccione el servidor en la lista. En el menú de la izquierda, seleccione **Actualizaciones de invitado y host**. En la página **Actualizaciones de invitado y host**, seleccione **Ir a Update Management**.
 
-En Update Management, puede ver información sobre la máquina habilitada para Arc, las actualizaciones que faltan, las implementaciones de actualizaciones y las implementaciones de actualizaciones programadas.
+En Update Management, puede ver información sobre la máquina habilitada para Azure Arc, las actualizaciones que faltan, las implementaciones de actualizaciones y las implementaciones de actualizaciones programadas.
 
 [ ![Vista de la evaluación de Update Management de los servidores habilitados para Arc](./media/view-update-assessments/update-assessment-arc-server.png)](./media/view-update-assessments/update-assessment-arc-server-expanded.png#lightbox)
 
-Para ver la evaluación de las actualizaciones en todos los equipos, incluidos los servidores habilitados para Arc de la cuenta de Automation, vaya a **Cuentas de Automation** y, en la lista, seleccione su cuenta de Automation con Update Management habilitado. En su cuenta de Automation, seleccione **Administración de actualizaciones** en el menú de la izquierda.
+Para ver la evaluación de las actualizaciones en todos los equipos, incluidos los servidores habilitados para Azure Arc de la cuenta de Automation, vaya a **Cuentas de Automation** y, en la lista, seleccione su cuenta de Automation con Update Management habilitado. En su cuenta de Automation, seleccione **Administración de actualizaciones** en el menú de la izquierda.
 
 Las actualizaciones de su entorno se muestran en la página **Administración de actualizaciones**. Si alguna actualización se identifica como ausente, verá una lista de las actualizaciones que faltan en la pestaña **Actualizaciones que faltan**.
 

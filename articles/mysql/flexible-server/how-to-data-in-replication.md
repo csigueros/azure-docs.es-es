@@ -6,12 +6,12 @@ ms.author: sunaray
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/08/2021
-ms.openlocfilehash: 05ccdc3613141e7b04c3255a6035c7a03ad25995
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ee81fa18ac0f6bae6a3aefbfef60333991001dff
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128579736"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129812147"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-flexible-server-data-in-replication"></a>Configuración de la replicación de datos de entrada del servidor flexible de Azure Database for MySQL
 
@@ -164,6 +164,8 @@ En los siguientes pasos se prepara y configura el servidor MySQL hospedado en el
 
    Restaure el archivo de volcado en el servidor creado en el servicio de servidor flexible de Azure Database for MySQL. Consulte [Volcado y restauración](../concepts-migrate-dump-restore.md) para saber cómo restaurar un archivo de volcado en un servidor MySQL. Si el archivo de volcado es grande, cárguelo a una máquina virtual en Azure dentro de la misma región que el servidor de réplica. Restáurelo en el servidor flexible de Azure Database for MySQL desde la máquina virtual.
 
+>[!Note]
+>* Si quiere evitar establecer la base de datos como de solo lectura al realizar un volcado o una recuperación, puede usar [mydumper/myloader](../concepts-migrate-mydumper-myloader.md).
 
 ## <a name="link-source-and-replica-servers-to-start-data-in-replication"></a>Vinculación de los servidores de origen y de réplica para iniciar la replicación de datos de entrada
 
@@ -189,7 +191,8 @@ En los siguientes pasos se prepara y configura el servidor MySQL hospedado en el
      Se recomienda pasar este parámetro como una variable. Para más información, vea los ejemplos siguientes.
 
    > [!NOTE]
-   > Si el servidor de origen se hospeda en una máquina virtual de Azure, establezca la opción "Permitir el acceso a servicios de Azure" en "Activado" para permitir que los servidores de origen y de réplica se comuniquen entre sí. Esta configuración se puede cambiar desde las opciones de **seguridad de conexión**. Para obtener más información, consulte el artículo sobre cómo [administrar reglas de firewall mediante el portal](how-to-manage-firewall-portal.md).
+   > * Si el servidor de origen se hospeda en una máquina virtual de Azure, establezca la opción "Permitir el acceso a servicios de Azure" en "Activado" para permitir que los servidores de origen y de réplica se comuniquen entre sí. Esta configuración se puede cambiar desde las opciones de **seguridad de conexión**. Para más información, consulte [Administración de reglas de firewall mediante el portal](how-to-manage-firewall-portal.md).
+   > * Si usó mydumper/myloader para realizar un volcado de la base de datos, puede obtener master_log_file y master_log_pos del archivo */backup/metadata*. 
 
    **Ejemplos**
 

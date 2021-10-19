@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: aefbd7c64ba243166a2122426a31f8a3996dd97d
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: fe6397b79ff37074342b40880aa5284e020cd8a1
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129361349"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129859201"
 ---
 # <a name="authorize-access-to-blobs-using-azure-active-directory"></a>Autorice el acceso a blobs con Azure Active Directory
 
@@ -30,7 +30,7 @@ Blob Storage admite de forma adicional la creación de firmas de acceso comparti
 
 Cuando una entidad de seguridad (un usuario, un grupo o una aplicación) intenta acceder a un recurso de blob, la solicitud debe autorizarse, a menos que sea un blob disponible para acceso anónimo. Con Azure AD, el acceso a un recurso es un proceso de dos pasos. En primer lugar, se autentica la identidad de la entidad de seguridad y se devuelve un token de OAuth 2.0. Después, el token se pasa como parte de una solicitud a Blob service y el servicio lo usa para autorizar el acceso al recurso especificado.
 
-El paso de autenticación exige que una aplicación solicite un token de acceso de OAuth 2.0 en tiempo de ejecución. Si una aplicación se ejecuta desde una entidad de Azure como una máquina virtual de Azure, un conjunto de escalado de máquinas virtuales o una aplicación de Azure Functions, puede usar una [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md) para acceder a los datos de blobs. Para más información sobre cómo autorizar solicitudes realizadas por una identidad administrada a Azure Blob service, consulte [Autorización del acceso a blobs con Azure Active Directory e identidades administradas para los recursos de Azure](../common/storage-auth-aad-msi.md).
+El paso de autenticación exige que una aplicación solicite un token de acceso de OAuth 2.0 en tiempo de ejecución. Si una aplicación se ejecuta desde una entidad de Azure como una máquina virtual de Azure, un conjunto de escalado de máquinas virtuales o una aplicación de Azure Functions, puede usar una [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md) para acceder a los datos de blobs. Para más información sobre cómo autorizar solicitudes realizadas por una identidad administrada al servicio Blob de Azure, consulte [Autorización del acceso a datos de blobs con identidades administradas en recursos de Azure](authorize-managed-identity.md).
 
 El paso de la autorización exige que se asignen uno o varios roles de Azure a la entidad de seguridad. Azure Storage proporciona roles de Azure que abarcan conjuntos comunes de permisos para datos de blobs. Los roles que se asignan a una entidad de seguridad determinan los permisos que tiene esa entidad de seguridad. Para más información sobre la asignación de roles de Azure para acceder a blobs, consulte [Asignación de un rol de Azure para acceder a datos de blobs](../blobs/assign-azure-role-data-access.md).
 
@@ -105,7 +105,7 @@ PowerShell y la CLI de Azure admiten el inicio de sesión con credenciales de Az
 
 En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades.
 
-| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+| Tipo de cuenta de almacenamiento                | Blob Storage (compatibilidad predeterminada)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
 | De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) |![Sí](../media/icons/yes-icon.png)              | ![No](../media/icons/no-icon.png) |
 | Blobs en bloques Premium          | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png)| ![No](../media/icons/no-icon.png) |

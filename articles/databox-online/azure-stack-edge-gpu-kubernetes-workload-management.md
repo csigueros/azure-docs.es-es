@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 67110a2a2bd7f34c735edd126cfc655f45247fc2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a0b3a5d0cbbae9f25a845f79db35d1049f93f776
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105560240"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710172"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-pro-device"></a>Administración de cargas de trabajo de Kubernetes en un dispositivo Azure Stack Edge Pro
 
@@ -53,11 +53,11 @@ Existen tres formas principales de implementar las cargas de trabajo. Cada una d
 
 - **Implementación de IoT Edge**: Esto se realiza mediante IoT Edge, que se conecta a Azure IoT Hub. Se conecta al clúster de Kubernetes en el dispositivo Azure Stack Edge Pro mediante el espacio de nombres `iotedge`. Los agentes de IoT Edge implementados en este espacio de nombres son responsables de la conectividad con Azure. Se aplica la configuración de `IoT Edge deployment.json` mediante DevOps de CI/CD de Azure. La administración de espacios de nombres y IoT Edge se realiza mediante el operador en la nube.
 
-- **Implementación de Kubernetes habilitado para Azure Arc**: Kubernetes habilitado para Azure Arc es una herramienta de administración híbrida que le permitirá implementar aplicaciones en los clústeres de Kubernetes. Se conecta al clúster de Kubernetes en el dispositivo Azure Stack Edge Pro mediante `azure-arc namespace`. Los agentes implementados en este espacio de nombres son responsables de la conectividad con Azure. La configuración de implementación se aplica mediante la administración de configuraciones basada en GitOps. 
+- **Implementación de Kubernetes habilitado para Azure Arc**: Kubernetes habilitado para Azure Arc es una herramienta de administración híbrida que le permitirá implementar aplicaciones en los clústeres de Kubernetes. Se conecta al clúster de Kubernetes en el dispositivo Azure Stack Edge Pro mediante `azure-arc namespace`. Los agentes implementados en este espacio de nombres son responsables de la conectividad con Azure. La configuración de implementación se aplica mediante la administración de configuraciones basada en GitOps. 
     
-    Kubernetes habilitado para Azure Arc también le permitirá usar Azure Monitor para contenedores para ver y supervisar su clúster. Para más información, vaya a [¿Qué es Kubernetes habilitado para Azure Arc?](../azure-arc/kubernetes/overview.md).
+    Kubernetes habilitado para Azure Arc también le permitirá usar Azure Monitor para contenedores para ver y supervisar su clúster. Para más información, vaya a [¿Qué es Kubernetes habilitado para Azure Arc?](../azure-arc/kubernetes/overview.md).
     
-    A partir de marzo de 2021, Kubernetes habilitado para Azure Arc estará disponible con carácter general para los usuarios y se aplicarán cargos de uso estándar. Como cliente valioso de la versión preliminar, Kubernetes habilitado para Azure Arc estará a su disposición sin cargo alguno para dispositivos de Azure Stack Edge. Para disfrutar de la oferta de la versión preliminar, cree una [solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
+    A partir de marzo de 2021, Kubernetes habilitado para Azure Arc estará disponible con carácter general para los usuarios y se aplicarán cargos de uso estándar. Como cliente valioso de la versión preliminar, Kubernetes habilitado para Azure Arc estará a su disposición sin cargo alguno para dispositivos de Azure Stack Edge. Para disfrutar de la oferta de la versión preliminar, cree una [solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
 
     1. En **Tipo de problema** como **Facturación**.
     2. En **Suscripción**, seleccione la suscripción.

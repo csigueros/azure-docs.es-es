@@ -4,13 +4,13 @@ description: Se describe cómo declarar recursos para implementar en Bicep.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/16/2021
-ms.openlocfilehash: a540a30cd93d9f1dc54f77355f2f6560444131c1
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.date: 10/07/2021
+ms.openlocfilehash: 4b3b355016057af00c361a118aed2728948768dd
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122228565"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659628"
 ---
 # <a name="resource-declaration-in-bicep"></a>Declaración de recursos en Bicep
 
@@ -28,7 +28,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 }
 ```
 
-Establezca un nombre simbólico para el recurso. En el ejemplo anterior, el nombre simbólico es `stg`. Puede usar cualquier valor como nombre simbólico, pero no puede ser el mismo que otro recurso, parámetro o variable del archivo de Bicep. El nombre simbólico no es lo mismo que el nombre del recurso. El nombre simbólico se usa para hacer referencia al recurso en otras partes del archivo de Bicep.
+Establezca un nombre simbólico para el recurso. En el ejemplo anterior, el nombre simbólico es `stg`.  El nombre simbólico no es lo mismo que el nombre del recurso. El nombre simbólico se usa para hacer referencia al recurso en otras partes del archivo de Bicep. Los nombres simbólicos distinguen mayúsculas de minúsculas.  Pueden contener letras, números y _, pero no pueden empezar con un número.
 
 Bicep no admite `apiProfile`, que está disponible en [código JSON de plantillas de Azure Resource Manager (plantillas de ARM)](../templates/syntax.md).
 
@@ -106,7 +106,7 @@ Puede aplicar etiquetas a un recurso durante la implementación. Las etiquetas l
 
 ## <a name="set-managed-identities-for-azure-resources"></a>Establecimiento de identidades administradas para recursos de Azure
 
-Algunos recursos admiten [identidades administradas para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md). Dichos recursos tienen un objeto de identidad en el nivel raíz de la declaración de recursos. 
+Algunos recursos admiten [identidades administradas para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md). Dichos recursos tienen un objeto de identidad en el nivel raíz de la declaración de recursos.
 
 Puede usar identidades administradas asignadas por el sistema o por el usuario.
 
@@ -204,7 +204,7 @@ Para obtener más información sobre los recursos anidados, consulte [Establecim
 
 ### <a name="explicit-dependency"></a>Dependencia explícita
 
-Una dependencia explícita se declara con la propiedad `dependsOn`. La propiedad acepta una matriz de identificadores de recurso, por lo que puede especificar más de una dependencia. 
+Una dependencia explícita se declara con la propiedad `dependsOn`. La propiedad acepta una matriz de identificadores de recurso, por lo que puede especificar más de una dependencia.
 
 En el siguiente ejemplo se muestra una zona DNS denominada `otherZone` que depende de otra denominada `dnsZone`:
 

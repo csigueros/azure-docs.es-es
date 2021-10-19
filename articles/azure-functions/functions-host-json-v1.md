@@ -3,12 +3,12 @@ title: Referencia de host.json para Azure Functions 1.x
 description: Documentación de referencia para el archivo host.json de Azure Functions con el entorno en tiempo de ejecución de la versión 1.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 8466827402a5a5f785b65ea70887cc868f8667af
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5893bf8edc60e6a86aacccff6a798bc63ee655d8
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121742654"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660616"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Referencia de host.json para Azure Functions 1.x
 
@@ -16,7 +16,7 @@ ms.locfileid: "121742654"
 > * [Versión 1](functions-host-json-v1.md)
 > * [Versión 2](functions-host-json.md)
 
-El archivo de metadatos *host.json* contiene las opciones de configuración global que afectan a todas las funciones de dicha aplicación de función. En este artículo se incluye una lista de las opciones de configuración disponibles para el entorno en tiempo de ejecución de la versión 1. El esquema JSON está en http://json.schemastore.org/host.
+El archivo de metadatos *host.json* contiene las opciones de configuración global que afectan a todas las funciones de dicha instancia de aplicación de funciones. En este artículo se incluye una lista de las opciones de configuración disponibles para el entorno en tiempo de ejecución de la versión 1.x. El esquema JSON está en http://json.schemastore.org/host.
 
 > [!NOTE]
 > Este artículo trata sobre Azure Functions 1.x.  Para obtener una referencia de host.json en Functions 2.x y versiones posteriores, consulte [Referencia de host.json para Azure Functions 2.x](functions-host-json.md).
@@ -376,4 +376,4 @@ Conjunto de [directorios de código compartido](functions-reference-csharp.md#wa
 > [Vea cómo actualizar el archivo host.json](functions-reference.md#fileupdate)
 
 > [!div class="nextstepaction"]
-> [Consulte las opciones de configuración global en las variables de entorno](functions-app-settings.md)
+> [Opciones de configuración en las variables de entorno](functions-app-settings.md)

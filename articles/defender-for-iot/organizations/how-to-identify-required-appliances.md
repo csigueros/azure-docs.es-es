@@ -3,12 +3,12 @@ title: Identificación de los dispositivos necesarios
 description: Obtenga información sobre las aplicaciones virtuales y dispositivos de hardware para los sensores certificador de Defender para IoT y la consola de administración local.
 ms.date: 06/21/2021
 ms.topic: how-to
-ms.openlocfilehash: b22f1dc81aee7ee20f4490d716b1e2af953b4553
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: c124ccd69257b9a0b7a57c53b6fa6b0817d95fb6
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113020322"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754356"
 ---
 # <a name="identify-required-appliances"></a>Identificación de los dispositivos necesarios
 
@@ -40,7 +40,7 @@ En esta sección se proporciona información general sobre los modelos de sensor
 | Modelo | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 | HPE EL300 |
 | Puertos de supervisión | Hasta 15 RJ45 u 8 OPT | Hasta 8 RJ45 o 6 OPT | Hasta 4 RJ45 | Hasta 5 RJ45 |
 | Ancho de banda máximo [1](#anchortext) | 3 Gb/s | 1 Gb/s | 200 Mb/s | 100 Mb/s |
-| Número máximo de dispositivos protegidos | 30,000 | 15,000 | 1,000 | 800 |
+| Número máximo de dispositivos protegidos | 10 000 | 10 000 | 1,000 | 800 |
 
 Consulte [Especificaciones del dispositivo](#appliance-specifications) para más detalles del proveedor.
 
@@ -54,12 +54,12 @@ Acerca de cómo traer su propio dispositivo: Revise los modelos compatibles que 
 
 ### <a name="virtual-sensors"></a>Sensores virtuales
 
-En esta sección se proporciona información general sobre los sensores virtuales que están disponibles.
+En esta sección se proporciona información sobre los sensores virtuales que están disponibles.
 
 | Tipo de implementación | Corporativos | Enterprise | SMB |
 |--|--|--|--|
 | Ancho de banda máximo | 2,5 GB/s | 800 MB/s | 160 MB/s |
-| Número máximo de dispositivos protegidos | 30,000 | 10 000 | 800 |
+| Número máximo de dispositivos protegidos | 10 000 | 10 000 | 800 |
 
 ## <a name="on-premises-management-console-appliance"></a>Dispositivo de consola de administración local
 

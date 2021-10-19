@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 2404d8af682f119b68c78d6dc5cacc3d30201c17
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 61253ab7360253e1c6902b6a7b38c9fb53faa3eb
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122397098"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129611755"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configuración de una aplicación de App Service o Azure Functions para usar el inicio de sesión de Azure AD
 
@@ -26,7 +26,7 @@ La característica de autenticación de App Service puede crear automáticamente
 > [!NOTE]
 > La opción para crear un nuevo registro no está disponible para las nubes de la administración pública. En su lugar, [defina un registro por separado](#advanced).
 
-## <a name="create-a-new-app-registration-automatically"></a><a name="express"> </a>Creación de un nuevo registro de aplicaciones automáticamente
+## <a name="option-1-create-a-new-app-registration-automatically"></a><a name="express"> </a> Opción 1: creación de un nuevo registro de aplicaciones automáticamente
 
 Esta opción está diseñada para simplificar la autenticación y requiere unos pocos clics.
 
@@ -47,7 +47,7 @@ De este modo ya estará listo para usar la plataforma de identidad de Microsoft 
 
 Para obtener un ejemplo de configuración de inicio de sesión de Azure AD para una aplicación web con acceso a Azure Storage y Microsoft Graph, consulte [este tutorial](scenario-secure-app-authentication-app-service.md).
 
-## <a name="use-an-existing-registration-created-separately"></a><a name="advanced"> </a>Uso de un registro existente creado por separado
+## <a name="option-2-use-an-existing-registration-created-separately"></a><a name="advanced"> </a> Opción 2: uso de un registro existente creado por separado
 
 También puede registrar manualmente la aplicación en la plataforma de identidad de Microsoft, personalizando el registro y configurando la autenticación de App Service con los detalles de registro. Esto resulta útil, por ejemplo, si quiere usar un registro de aplicaciones de un inquilino de Azure AD diferente de aquel donde está la aplicación.
 

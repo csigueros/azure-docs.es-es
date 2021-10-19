@@ -1,24 +1,24 @@
 ---
 title: Asignar acceso a los datos de Cost Management
-description: Este artículo le guiará a través del proceso para asignar permisos a los datos de Azure Cost Management para obtener varios ámbitos de acceso.
+description: Este artículo le guiará a través del proceso para asignar permisos a los datos de Cost Management para obtener varios ámbitos de acceso.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/27/2021
+ms.date: 10/07/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: secdec18
-ms.openlocfilehash: 9ee0f7f854363389f3e6594946411f05b1b8b790
-ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
+ms.openlocfilehash: dddb6292530687e75e4b5e697f4fc754d98040fb
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112988704"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706244"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Asignar acceso a los datos de Cost Management
 
-En el caso de los usuarios con Contratos Enterprise de Azure, una combinación de permisos otorgados en Azure Portal y Enterprise Portal (Contrato Enterprise) define el nivel de acceso de un usuario a los datos de Azure Cost Management. Para los usuarios con otros tipos de cuenta de Azure, la definición del nivel de acceso de un usuario a los datos de Cost Management es más sencilla con el control de acceso basado en rol de Azure (Azure RBAC). Este artículo le guiará a través del proceso para asignar acceso a los datos de Cost Management. Una vez que se asigna la combinación de permisos, el usuario verá los datos en Cost Management en función de su ámbito de acceso y del ámbito que seleccione en Azure Portal.
+En el caso de los usuarios con Contratos Enterprise de Azure, una combinación de permisos otorgados en Azure Portal y Enterprise Portal (Contrato Enterprise) define el nivel de acceso de un usuario a los datos de Cost Management. Para los usuarios con otros tipos de cuenta de Azure, la definición del nivel de acceso de un usuario a los datos de Cost Management es más sencilla con el control de acceso basado en rol de Azure (Azure RBAC). Este artículo le guiará a través del proceso para asignar acceso a los datos de Cost Management. Una vez que se asigna la combinación de permisos, el usuario verá los datos en Cost Management en función de su ámbito de acceso y del ámbito que seleccione en Azure Portal.
 
 El ámbito que un usuario selecciona se usa en Cost Management para proporcionar la consolidación de datos y controlar el acceso a la información de costos. Cuando se usan los ámbitos, los usuarios no pueden seleccionar varios de ellos. En su lugar, deben seleccionar un ámbito más amplio que abarque los ámbitos secundarios y filtrar lo que quieran ver. Es importante comprender la consolidación de datos porque algunas personas no deberían tener acceso a un ámbito principal que abarque los ámbitos secundarios.
 
@@ -56,7 +56,7 @@ Un usuario debe tener, como mínimo, acceso de lectura a uno o varios de los sig
 - Subscription
 - Resource group
 
-Hay varios ámbitos disponibles después de que los asociados incorporen a los clientes a un contrato de cliente de Microsoft. Los clientes de CSP pueden usar las características de Cost Management cuando están habilitadas por su asociado de CSP. Para más información, consulte [Introducción a Azure Cost Management para asociados](get-started-partners.md).
+Hay varios ámbitos disponibles después de que los asociados incorporen a los clientes a un contrato de cliente de Microsoft. Los clientes de CSP pueden usar las características de Cost Management cuando están habilitadas por su asociado de CSP. Para más información, consulte [Introducción a Cost Management para asociados](get-started-partners.md).
 
 ## <a name="enable-access-to-costs-in-the-azure-portal"></a>Habilitación del acceso a los costos en Azure Portal
 
@@ -161,7 +161,7 @@ Para obtener acceso al grupo de recursos es necesario tener al menos permiso de 
 
 ## <a name="cross-tenant-authentication-issues"></a>Problemas de autenticación a través de inquilinos
 
-Actualmente, Azure Cost Management tiene compatibilidad limitada con la autenticación entre inquilinos. En algunas circunstancias cuando intenta autenticarse en varios inquilinos, puede recibir un error de **acceso denegado** en el análisis de costos. Este problema puede producirse si configura el control de acceso basado en roles de Azure (Azure RBAC) para la suscripción de otro inquilino y, a continuación, intenta ver los datos de costos.
+Actualmente, Cost Management tiene compatibilidad limitada con la autenticación entre inquilinos. En algunas circunstancias cuando intenta autenticarse en varios inquilinos, puede recibir un error de **acceso denegado** en el análisis de costos. Este problema puede producirse si configura el control de acceso basado en roles de Azure (Azure RBAC) para la suscripción de otro inquilino y, a continuación, intenta ver los datos de costos.
 
 *Para solucionar el problema*: Después de configurar Azure RBAC entre inquilinos, espere una hora. A continuación, intente ver el análisis de costos o conceder acceso a Cost Management a los usuarios en ambos inquilinos.  
 
