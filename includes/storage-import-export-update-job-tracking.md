@@ -1,19 +1,19 @@
 ---
-title: archivo de inclusión
-description: archivo de inclusión
+title: Archivo de inclusión
+description: Archivo de inclusión
 author: alkohli
 services: storage
 ms.service: storage
 ms.topic: include
-ms.date: 07/17/2018
+ms.date: 09/28/2021
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: 8ed57cd39580474925e781f3ec8fb05a2299a937
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5aca82d0a3ee290ec7e0f6ad3a32396b51b2aa59
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98701651"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709600"
 ---
 Después de enviar los discos, vuelva a la página **Import/Export** de Azure Portal. 
 
@@ -27,3 +27,7 @@ Para actualizar el número de seguimiento, realice los pasos siguientes.
 3. Seleccione la casilla en **Marcar como enviado**.
 4. Indique el **Operador** y el **Número de seguimiento**.
 5. Realice un seguimiento del progreso del trabajo en el panel del portal. Para obtener una descripción de cada estado de trabajo, vaya a [Ver el estado del trabajo](../articles/import-export/storage-import-export-view-drive-status.md).
+
+> [!NOTE] 
+> Solo puede cancelar un trabajo mientras esté en un estado de creación. Después de proporcionar los detalles de seguimiento, el estado del trabajo cambia a Envío y el trabajo no se puede cancelar.
+

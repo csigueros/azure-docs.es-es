@@ -1,5 +1,5 @@
 ---
-title: Ahorre en Azure Synapse Analytics con la capacidad reservada de Azure
+title: Ahorre cobros en Azure Synapse Analytics (solo almacenamiento de datos) con la capacidad reservada de Azure
 description: Aprenda a ahorrar costos en Azure Synapse Analytics gracias a la capacidad reservada para ahorrar dinero.
 author: bandersmsft
 ms.reviewer: primittal
@@ -8,20 +8,20 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: f738b2e551ecb26426ef25603969fb471ecfa437
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7e5987aee066e8c9e439b2789b1242e1bc541c35
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128666597"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714111"
 ---
-# <a name="save-costs-for-azure-synapse-analytics-charges-with-reserved-capacity"></a>Ahorro en Azure Synapse Analytics con la capacidad reservada
+# <a name="save-costs-for-azure-synapse-analytics-data-warehousing-only-charges-with-reserved-capacity"></a>Ahorre costos para Azure Synapse Analytics (solo almacenamiento de datos) con la capacidad reservada
 
-Para ahorrar dinero con Azure Synapse Analytics, debe realizar una reserva de uso de cDWU durante uno o tres años. Para comprar capacidad reservada de Azure Synapse Analytics, es preciso elegir la región de Azure y el período. Después, se debe agregar la SKU de Azure Synapse Analytics al carro de compra y elegir la cantidad de unidades de cDWU que se desea comprar.
+Para ahorrar dinero con Azure Synapse Analytics (solo almacenamiento de datos), debe realizar una reserva de uso de cDWU durante uno o tres años. Para comprar capacidad reservada de Azure Synapse Analytics, es preciso elegir la región de Azure y el período. Después, se debe agregar la SKU de Azure Synapse Analytics al carro de compra y elegir la cantidad de unidades de cDWU que se desea comprar.
 
 Cuando compra una reserva, el uso de Azure Synapse Analytics que coincida con los atributos de la reserva no se cobra a las tarifas de pago por uso.
 
-Las reservas no cubren los cargos de almacenamiento o de red asociados con el uso de Azure Synapse Analytics.
+Las reservas no cubren los cargos de almacenamiento o de red asociados con el uso de Azure Synapse Analytics, solamente cubre el uso del almacenamiento de datos.
 
 Cuando expira la capacidad reservada, las instancias de Azure Synapse Analytics no dejan de ejecutarse, pero se facturan a la tarifa de pago por uso. Las reservas no se renuevan automáticamente.
 

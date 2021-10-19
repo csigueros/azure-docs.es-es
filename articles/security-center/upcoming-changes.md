@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 10/05/2021
+ms.date: 10/10/2021
 ms.author: memildin
-ms.openlocfilehash: e6d1c8cf55687a8e4d7612ca432a314ae38256bc
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 6a98a5dfbdf47ad9e2b74415786c240b32b3b499
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129534411"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754698"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Próximos cambios importantes en Azure Security Center
 
@@ -30,8 +30,10 @@ Si busca las notas de la versión más recientes, puede encontrarlas en [Novedad
 |----------------------|---------------------------|
 | [Entrada en desuso de una alerta en versión preliminar: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses)             | Octubre de 2021|
 | [La implementación heredada de ISO 27001 se está reemplazando por la nueva ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)| Octubre de 2021|
-| [Cambios en las recomendaciones para administrar soluciones de protección de puntos de conexión](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | Octubre de 2021    |
-| [Mejoras en la recomendación para clasificar datos confidenciales en bases de datos SQL](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)   | T1 2022    |
+| [Cambios en las recomendaciones para administrar soluciones de protección de puntos de conexión](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | Noviembre de 2021| 
+| [La visualización de inventario de las máquinas locales usará una plantilla diferente para el nombre del recurso](#inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name)    | Noviembre de 2021    |
+| [Varios cambios en las recomendaciones de identidad](#multiple-changes-to-identity-recommendations)                                                                                          | Noviembre de 2021    |
+| [Mejoras en la recomendación para clasificar datos confidenciales en bases de datos SQL](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                              | T1 2022    |
 |||
 
 ### <a name="deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses"></a>Entrada en desuso de una alerta en versión preliminar: ARM.MCAS_ActivityFromAnonymousIPAddresses
@@ -45,7 +47,7 @@ Va a entrar en desuso la siguiente alerta en versión preliminar:
 |**VERSIÓN PRELIMINAR: actividad desde direcciones IP de riesgo**<br>(ARM.MCAS_ActivityFromAnonymousIPAddresses)|Se ha detectado actividad de usuarios desde una dirección IP que se ha identificado como una dirección IP de proxy anónima.<br>Estos servidores proxy los usan los usuarios que quieren ocultar la dirección IP del dispositivo y es posible que se usen con fines malintencionados. Esta detección usa un algoritmo de aprendizaje automático que reduce los falsos positivos, como las direcciones IP mal etiquetadas que otros usuarios de la organización usan ampliamente.<br>Requiere una licencia activa de Microsoft Cloud App Security.|
 |||
 
-Hemos creado nuevas alertas que proporcionan esta información y la agregan. Además, la alerta más reciente (ARM_OperationFromSuspiciousIP, ARM_OperationFromSuspiciousProxyIP) no requiere una licencia para Microsoft Cloud App Security.
+Hemos creado nuevas alertas que proporcionan esta información y la agregan. Además, las alertas más recientes (ARM_OperationFromSuspiciousIP y ARM_OperationFromSuspiciousProxyIP) no requieren una licencia para Microsoft Cloud App Security.
 
 ### <a name="legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013"></a>La implementación heredada de ISO 27001 se está reemplazando por la nueva ISO 27001:2013
 
@@ -57,7 +59,7 @@ La implementación heredada de ISO 27001 se eliminará del panel de cumplimiento
 
 ### <a name="changes-to-recommendations-for-managing-endpoint-protection-solutions"></a>Cambios en las recomendaciones para administrar soluciones de protección de puntos de conexión
 
-**Fecha estimada del cambio:** octubre de 2021
+**Fecha estimada del cambio:** noviembre de 2021
 
 En agosto de 2021, hemos agregado dos nuevas recomendaciones **en versión preliminar** para implementar y mantener las soluciones de protección de puntos de conexión en las máquinas. Para obtener información detallada, consulta las [notas de la versión](release-notes.md#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview).
 
@@ -74,6 +76,68 @@ Cuando las recomendaciones se liberan a disponibilidad general, reemplazarán la
 Más información:
 - [Soluciones de protección de puntos de conexión admitidas por Security Center](security-center-services.md#endpoint-supported)
 - [Cómo evalúan estas recomendaciones el estado de las soluciones implementadas](security-center-endpoint-protection.md)
+
+
+
+### <a name="inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name"></a>La visualización de inventario de las máquinas locales usará una plantilla diferente para el nombre del recurso
+
+**Fecha estimada del cambio:** noviembre de 2021
+
+Para mejorar la presentación de los recursos en el [inventario de recursos](asset-inventory.md), quitaremos el elemento "source-computer-IP" de la plantilla para asignar nombres a las máquinas locales.
+
+- **Formato actual:** ``machine-name_source-computer-id_VMUUID``
+- **A partir de la actualización:** ``machine-name_VMUUID``
+
+
+### <a name="multiple-changes-to-identity-recommendations"></a>Varios cambios en las recomendaciones de identidad
+
+**Fecha estimada del cambio:** noviembre de 2021
+
+Security Center incluye varias recomendaciones para mejorar la administración de usuarios y cuentas. En noviembre, realizaremos los cambios que se describen a continuación.
+
+- **Intervalo de actualización mejorado**: actualmente, las recomendaciones de identidad tienen un intervalo de actualización de 24 horas. Esta actualización reducirá ese intervalo a 12 horas.
+
+- **Funcionalidad de exención de cuentas**: Security Center tiene muchas características para personalizar la experiencia y garantizar que la puntuación de seguridad refleje las prioridades de seguridad de la organización. La opción de exención en las recomendaciones de seguridad es una de estas características. Para obtener información general e instrucciones completas, consulte [Exención de recursos y recomendaciones de la puntuación de seguridad](exempt-resource.md). Con esta actualización, podrá excluir cuentas específicas de la evaluación mediante las ocho recomendaciones enumeradas en la tabla siguiente.
+
+    Normalmente, se excluirían las cuentas de emergencia "break glass" de las recomendaciones de MFA, ya que estas cuentas a menudo se excluyen deliberadamente de los requisitos de MFA de una organización. Como alternativa, es posible que tenga cuentas externas a las que le gustaría permitir el acceso, pero que no tienen MFA habilitado.
+
+    > [!TIP]
+    > Al excluir una cuenta, no se mostrará como en estado incorrecto y tampoco hará que una suscripción aparezca en estado incorrecto.
+
+    |Recomendación| Clave de evaluación|
+    |-|-|
+    |[MFA debe estar habilitada en las cuentas con permisos de propietario en la suscripción](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/94290b00-4d0c-d7b4-7cea-064a9554e681)|94290b00-4d0c-d7b4-7cea-064a9554e681|
+    |[MFA debe estar habilitada en las cuentas con permisos de lectura en la suscripción](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/151e82c5-5341-a74b-1eb0-bc38d2c84bb5)|151e82c5-5341-a74b-1eb0-bc38d2c84bb5|
+    |[MFA debe estar habilitada en las cuentas con permisos de escritura en la suscripción](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/57e98606-6b1e-6193-0e3d-fe621387c16b)|57e98606-6b1e-6193-0e3d-fe621387c16b|
+    |[Las cuentas externas con permisos de propietario deben quitarse de la suscripción](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c3b6ae71-f1f0-31b4-e6c1-d5951285d03d)|c3b6ae71-f1f0-31b4-e6c1-d5951285d03d|
+    |[Las cuentas externas con permisos de lectura deben quitarse de la suscripción](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/a8c6a4ad-d51e-88fe-2979-d3ee3c864f8b)|a8c6a4ad-d51e-88fe-2979-d3ee3c864f8b|
+    |[Las cuentas externas con permisos de escritura deben quitarse de la suscripción](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/04e7147b-0deb-9796-2e5c-0336343ceb3d)|04e7147b-0deb-9796-2e5c-0336343ceb3d|
+    |[Las cuentas en desuso con permisos de propietario deben quitarse de la suscripción](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e52064aa-6853-e252-a11e-dffc675689c2)|e52064aa-6853-e252-a11e-dffc675689c2|
+    |[Las cuentas en desuso deben quitarse de la suscripción](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/00c6d40b-e990-6acf-d4f3-471e747a27c4)|00c6d40b-e990-6acf-d4f3-471e747a27c4|
+    |||
+ 
+- **Cambio de nombre de recomendaciones**: a partir de esta actualización, vamos a cambiar el nombre de dos recomendaciones. También estamos revisando sus descripciones. Las claves de evaluación permanecerán sin cambios. 
+
+
+    |Propiedad  |Valor actual  | A partir de la actualización|
+    |---------|---------|---------|
+    |Clave de evaluación     | e52064aa-6853-e252-a11e-dffc675689c2        | Sin cambios|
+    |Nombre     |[Las cuentas en desuso con permisos de propietario deben quitarse de la suscripción](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e52064aa-6853-e252-a11e-dffc675689c2)         |Las suscripciones se deben purgar de las cuentas que están bloqueadas en Active Directory y tienen permisos de propietario.        |
+    |Descripción     |Las cuentas de usuario cuyo inicio de sesión se ha bloqueado deben quitarse de las suscripciones.<br>Estas cuentas pueden ser objetivo de los atacantes que buscan formas de acceder a los datos sin ser detectados.|Las cuentas de usuario cuyo inicio de sesión en Active Directory se haya bloqueado se deben quitar de las suscripciones. Estas cuentas pueden ser objetivo de los atacantes que buscan formas de acceder a los datos sin ser detectados.<br>Más información sobre cómo proteger el perímetro de identidad en [Procedimientos recomendados para la administración de identidades y la seguridad del control de acceso en Azure](/azure/security/fundamentals/identity-management-best-practices.md).|
+    |Directiva relacionada     |[Las cuentas en desuso con permisos de propietario deben quitarse de la suscripción](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2febb62a0c-3560-49e1-89ed-27e074e9f8ad)         |Las suscripciones se deben purgar de las cuentas que están bloqueadas en Active Directory y tienen permisos de propietario. |
+    |||
+
+    |Propiedad  |Valor actual  | A partir de la actualización|
+    |---------|---------|---------|
+    |Clave de evaluación     | 00c6d40b-e990-6acf-d4f3-471e747a27c4        | Sin cambios|
+    |Nombre     |[Las cuentas en desuso deben quitarse de la suscripción](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/00c6d40b-e990-6acf-d4f3-471e747a27c4)|Las suscripciones se deben purgar de las cuentas que están bloqueadas en Active Directory y tienen permisos de lectura y escritura.|
+    |Descripción     |Las cuentas de usuario cuyo inicio de sesión se ha bloqueado deben quitarse de las suscripciones.<br>Estas cuentas pueden ser objetivo de los atacantes que buscan formas de acceder a los datos sin ser detectados.|Las cuentas de usuario cuyo inicio de sesión en Active Directory se haya bloqueado se deben quitar de las suscripciones. Estas cuentas pueden ser objetivo de los atacantes que buscan formas de acceder a los datos sin ser detectados.<br>Más información sobre cómo proteger el perímetro de identidad en [Procedimientos recomendados para la administración de identidades y la seguridad del control de acceso en Azure](/azure/security/fundamentals/identity-management-best-practices.md).|
+    |Directiva relacionada     |[Las cuentas en desuso deben quitarse de la suscripción](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6b1cbf55-e8b6-442f-ba4c-7246b6381474)|Las suscripciones se deben purgar de las cuentas que están bloqueadas en Active Directory y tienen permisos de lectura y escritura.|
+    |||
+ 
+
+
+
 
 ### <a name="enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases"></a>Mejoras en la recomendación para clasificar datos confidenciales en bases de datos SQL
 

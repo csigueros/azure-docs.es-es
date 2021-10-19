@@ -2,15 +2,15 @@
 metadata:
   title: Preguntas frecuentes sobre la copia de seguridad de archivos de Azure
   description: En este artículo, encontrará respuestas a preguntas habituales sobre cómo proteger los recursos compartidos de archivos de Azure con el servicio Azure Backup.
-  ms.date: 04/22/2020
+  ms.date: 10/08/2021
   ms.topic: article
   ms.service: backup
-  ms.openlocfilehash: 22aeb3771f0a1c1d1f7baafc4ce4a2e5885aa4bc
-  ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+  ms.openlocfilehash: 67ee18a0ae7654ad9ff704e66d4e0a70d00dbb4f
+  ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/05/2021
-  ms.locfileid: "129533119"
+  ms.lasthandoff: 10/09/2021
+  ms.locfileid: "129714191"
 title: Preguntas acerca de la copia de seguridad de archivos de Azure
 summary: >
   En este artículo se ofrecen respuestas a preguntas habituales acerca de la copia de seguridad de archivos de Azure. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. También se pueden publicar preguntas sobre el servicio Azure Backup en la [página de preguntas y respuestas de Microsoft para su debate](/answers/topics/azure-backup.html).
@@ -39,7 +39,7 @@ sections:
   - question: >
       ¿Por qué no puedo cambiar el almacén para configurar la copia de seguridad del recurso compartido de archivos?
     answer: >
-      Si la cuenta de almacenamiento ya está registrada con un almacén u otros recursos compartidos de archivos de la cuenta de almacenamiento están protegidos mediante un almacén, no se le ofrece la opción de cambiarla. Todos los recursos compartidos de archivos de una cuenta de almacenamiento solo se pueden proteger en el mismo almacén. Si quiere cambiar el almacén, deberá [detener la protección de todos los recursos compartidos de archivos de la cuenta de almacenamiento](manage-afs-backup.md#stop-protection-on-a-file-share) desde el almacén conectado, [anule el registro](manage-afs-backup.md#unregister-a-storage-account) de la cuenta de almacenamiento y, a continuación, elija otro almacén para la protección.
+      Si la cuenta de almacenamiento ya está registrada con un almacén o si otros recursos compartidos de archivos de la cuenta de almacenamiento están protegidos mediante un almacén, no se le ofrecerá la opción de cambiarla. Todos los recursos compartidos de archivos de una cuenta de almacenamiento solo se pueden proteger en el mismo almacén. Si quiere cambiar el almacén, deberá [detener la protección de todos los recursos compartidos de archivos de la cuenta de almacenamiento](manage-afs-backup.md#stop-protection-on-a-file-share) desde el almacén conectado, [anule el registro](manage-afs-backup.md#unregister-a-storage-account) de la cuenta de almacenamiento y, a continuación, elija otro almacén para la protección.
   - question: >
       ¿Puedo cambiar el almacén en el que hago la copia de seguridad de mis recursos compartidos de archivos?
     answer: >
@@ -207,4 +207,67 @@ sections:
       >[!NOTE]
 
       >Los cambios de directiva solo afectarán a los puntos de recuperación creados como parte de la copia de seguridad programada. En el caso de las copias de seguridad a petición, la retención viene determinada por el valor de **Conservar copia de seguridad hasta** especificado en el momento de realizar la copia de seguridad.
+  - question: >
+      ¿Qué significa el atributo duration en la directiva de copia de seguridad de Azure Files?
+    answer: "El atributo **duration** ayuda a determinar la marca de tiempo de la última copia de seguridad del día. \n\nPor ejemplo, si la **hora de inicio** son las \"x a. m.\" y el valor de **duration** es \"y horas\", las copias de seguridad se programarán entre las \"x a. m.\" y las (x a. m. + y horas) según el atributo **schedule** definido en la directiva. Este atributo le permite asegurarse de que las copias de seguridad solo se desencadenarán durante el horario laboral cuando hay operaciones de actualización frecuentes en el contenido de los recursos compartidos de archivos. Por tanto, la toma de varias instantáneas protegerá los datos de los cambios accidentales.\n"
+  - question: >
+      ¿Cómo se programan las copias de seguridad en función de los atributos: start time, schedule y duration?
+    answer: >
+      Por ejemplo, ha creado una directiva con la siguiente configuración:
+
+
+      - Valor de **Start time** (Hora de inicio): 9:00
+
+      - Valor de **Schedule** (Programación): cada 4 horas
+
+      - Valor de **Duration** (Duración): 12 horas
+
+
+      En función de estos valores, la ventana de copia de seguridad se calcula como 9:00 a (9:00 + 12 horas), es decir, de 9:00 a 21:00 horas. Por lo tanto, todas las copias de seguridad se programarán dentro de esta ventana.
+
+
+      La primera copia de seguridad del día se desencadena a la hora de inicio mencionada en la directiva, es decir, a las 9:00, y la **programación** determina la diferencia de tiempo entre dos copias de seguridad consecutivas, es decir, 4 horas. Con este cálculo, la programación de copia de seguridad sería: a las 9:00, las 13:00 (9:00 + 4 horas), las 17:00 (13:00 + 4 horas) y las 21:00 (17:00 + 4 horas).
+
+
+      Puesto que la hora de finalización de la ventana de copia de seguridad que calculamos era a las 21:00, no se desencadenaría ninguna copia de seguridad después de esta hora.
+  - question: >
+      ¿Por qué aparece el error "La configuración seleccionada desencadenará solo una copia de seguridad al día"?
+    answer: >
+      Este error se produce si especificó una **programación** mayor que la **duración**. Por ejemplo, ha configurado las 9:00 como **hora de inicio**, una **programación** de 6 horas y una **duración** de 4 horas. En este escenario, la única vez que se puede desencadenar el trabajo de copia de seguridad es a las 9:00, ya que la siguiente hora de copia de seguridad, las 15:00 (9:00 + 6 horas) está fuera de la ventana de copia de seguridad: de 9:00 a 13:00 horas (9:00 + 4 horas).
+
+
+      Para corregirlo, se recomienda ajustar la programación o la duración, o seleccionar una frecuencia **diaria** en lugar de **Por hora**.
+  - question: >
+      ¿Por qué aparece el error "La configuración seleccionada amplía la ventana de copia de seguridad al día siguiente"?
+    answer: >
+      Este error se produce si la **hora de inicio** y la **hora de finalización** de la ventana de copia de seguridad, determinadas en función de la **programación** y la **duración** de la copia de seguridad, se producen en dos días diferentes.
+
+
+      Por ejemplo, ha configurado una directiva con los parámetros siguientes:
+
+
+      - Valor de **Schedule** (Programación): cada 4 horas
+
+      - Valor de **Start time** (Hora de inicio): 12:00
+
+      - Valor de **Duration** (Duración): 15 horas
+
+
+      Según esta configuración, la ventana de copia de seguridad será: de 12:00 a 03:00 (12:00 + 15 horas). Dado que las horas de inicio y finalización se encuentran en dos días diferentes, se recomienda ajustar la **hora de inicio** o la **duración** para asegurarse de que caigan en el mismo día.
+
+
+      Supongamos que cambia la hora de inicio a las 06:00 en la configuración anterior. Ahora, la ventana de copia de seguridad será de 06:00 a 21:00 (06:00 + 15 horas). Esta configuración se admite.
+  - question: >
+      ¿Cuál es el impacto en los puntos de recuperación existentes si cambio de frecuencia de "Diaria" a "Por hora"?
+    answer: >
+      Al cambiar de frecuencia **diaria** a **por hora**, el comportamiento es el siguiente:
+
+
+      - **Retención**: Si va a agregar una retención semanal/mensual/anual como parte de la modificación de la directiva, todos los puntos de recuperación futuros creados como parte de la copia de seguridad programada se etiquetarán según la nueva directiva. Todos los puntos de recuperación existentes se seguirán considerando puntos de recuperación diarios y por eso no se etiquetarán como semanal/mensual/anual.
+
+
+      - **Limpieza de instantáneas y puntos de recuperación**:
+
+        - Si se amplía la retención diaria, la fecha de expiración de los puntos de recuperación diarios existentes se actualiza según el valor de retención diaria configurado en la nueva directiva.
+        - Si se reduce la retención diaria, las instantáneas y los puntos de recuperación diarios existentes se marcan para su eliminación en el siguiente trabajo de ejecución de limpieza según el valor de retención diaria configurado en la nueva directiva y después se eliminan.
 additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n- [Solución de problemas al realizar copias de seguridad de recursos compartidos de archivos de Azure](troubleshoot-azure-files.md)"

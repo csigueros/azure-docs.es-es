@@ -1,5 +1,6 @@
 ---
-title: Escenarios comunes de administración de aplicaciones para Azure Active Directory | Microsoft Docs
+title: Escenarios comunes de administración de aplicaciones
+titleSuffix: Azure AD
 description: Centralización de la administración de aplicaciones con Azure AD
 author: davidmu1
 manager: CelesteDG
@@ -11,14 +12,14 @@ ms.date: 03/02/2019
 ms.author: davidmu
 ms.reviewer: napuri
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa4856b95de671cf74905db9c5503def1c36b360
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 3f307cf9e25b3e6e0a3cc00279f9e43f4bca39b4
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824302"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619830"
 ---
-# <a name="centralize-application-management-with-azure-ad"></a>Centralización de la administración de aplicaciones con Azure AD
+# <a name="centralize-application-management-with-azure-active-directory"></a>Centralización de la administración de aplicaciones con Azure Active Directory
 
 Contraseñas, tanto una pesadilla para TI como una molestia para los empleados de todo el mundo. Esta es el motivo por el que cada vez más y más empresas se están pasando a Azure Active Directory, la solución de administración de identidad y acceso de Microsoft para la nube y todos sus otros recursos. Pase de una aplicación a otra sin tener que escribir una contraseña para cada una. Pase de Outlook a WorkDay a ADP tan rápido como pueda abrirlas, de forma rápida y segura. Después, colabore con partners e incluso con otras personas fuera de su organización, todo sin tener que llamar a TI. Lo que es más, Azure AD ayuda a administrar los riesgos al proteger las aplicaciones que usa, con elementos como autenticación multifactor, para verificar quién es; al usar el aprendizaje automático y la inteligencia de seguridad adaptables de forma continua para detectar inicios de sesión sospechosos, lo que le proporciona un acceso seguro a las aplicaciones que necesita, dondequiera que esté. No solo es excelente para los usuarios, sino también para TI. Con las revisiones de acceso Just-in-Time y un conjunto de gobernanza de escala completa, Azure AD le ayuda a mantenerse en cumplimiento, así como a aplicar directivas. Y entienda lo siguiente, incluso puede automatizar el aprovisionamiento de las cuentas de usuario, lo que facilita la administración del acceso. Consulte algunos de los escenarios comunes para los que los clientes usan las funcionalidades de administración de aplicaciones de Azure Active Directory.
 

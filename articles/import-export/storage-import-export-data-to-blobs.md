@@ -1,24 +1,35 @@
 ---
-title: Uso de Azure Import/Export para transferir datos a blobs de Azure | Microsoft Docs
+title: Tutorial para importar datos a Azure Blob Storage con el servicio Azure Import/Export | Microsoft Docs
 description: Aprenda a crear trabajos de importación y exportación en Azure Portal para transferir datos a los blobs de Azure y recibirlos de estos.
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: how-to
-ms.date: 09/02/2021
+ms.topic: tutorial
+ms.date: 10/04/2021
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
-ms.openlocfilehash: 51e70fb16988c0f72cb9b1a35444f55e164839c9
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.custom: tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
+ms.openlocfilehash: 10f2103049b47366a267fdf0412a7e3fb95a95cd
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123451824"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709622"
 ---
-# <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Uso del servicio Azure Import/Export para importar datos de Azure Blob Storage
+# <a name="tutorial-import-data-to-blob-storage-with-azure-importexport-service"></a>Tutorial: Importación de datos a Blob Storage con el servicio Azure Import/Export
 
 Este artículo proporciona instrucciones paso a paso sobre cómo usar el servicio Azure Import/Export para importar de forma segura grandes cantidades de datos a Azure Blob Storage. Para importar datos en los blobs de Azure, el servicio necesita que envíe las unidades de disco cifradas que contienen los datos a un centro de datos de Azure.
+
+En este tutorial, aprenderá a:
+
+> [!div class="checklist"]
+> * Requisitos previos para importar datos a Azure Blob Storage
+> * Paso 1: Preparación de las unidades de disco
+> * Paso 2: Crear un trabajo de importación
+> * Paso 3: Configuración de la clave administrada por el cliente (opcional)
+> * Paso 4: Envío de las unidades de disco
+> * Paso 5: Actualización del trabajo con información de seguimiento
+> * Paso 6: Comprobación de la carga de datos en Azure
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -28,13 +39,13 @@ Debe:
 * Tener una suscripción activa de Azure que pueda usarse para el servicio Import/Export.
 * Tener por lo menos una cuenta de Azure Storage con un contenedor de almacenamiento. Consulte la lista de [las cuenta de almacenamiento y los tipos de almacenamiento admitidos para el servicio Import/Export](storage-import-export-requirements.md).
   * Para obtener información acerca de la creación de una nueva cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](../storage/common/storage-account-create.md).
-  * Para información sobre contenedores de almacenamiento, vaya a [Creación de un contenedor de almacenamiento](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
+  * Para más información sobre la creación de contenedores de almacenamiento, vaya a [Creación de un contenedor de almacenamiento](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
 * Tener un número suficiente de discos de los [tipos admitidos](storage-import-export-requirements.md#supported-disks).
 * Tener un sistema de Windows que ejecute una [versión admitida del sistema operativo](storage-import-export-requirements.md#supported-operating-systems).
 * Habilitar BitLocker en el sistema de Windows. Consulte [Cómo habilitar BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-* [Descargar la versión 1 más reciente de WAImportExport](https://www.microsoft.com/download/details.aspx?id=42659) en el sistema Windows. La versión más reciente de la herramienta tiene actualizaciones de seguridad para permitir un protector externo para la clave de BitLocker, así como la característica actualizada del modo de desbloqueo.
-
-  * Descomprima en la carpeta predeterminada `waimportexportv1`. Por ejemplo, `C:\WaImportExportV1`.
+* Descargue la versión actual de la herramienta Azure Import/Export versión 1, para blobs, en el sistema de Windows:
+  1. [Descargue WAImportExport versión 1](https://www.microsoft.com/download/details.aspx?id=42659). La versión actual es 1.5.0.300.
+  1. Descomprima en la carpeta predeterminada `WaImportExportV1`. Por ejemplo, `C:\WaImportExportV1`.
 * Tener una cuenta de FedEx o DHL. Si quiere usar alguna empresa de mensajería que no sea FedEx o DHL, póngase en contacto con el equipo de operaciones de Azure Data Box en `adbops@microsoft.com`.
   * La cuenta debe ser válida, debe tener saldo positivo y debe tener capacidades de devolución de envíos.
   * Generar un número de seguimiento del trabajo de exportación.
@@ -89,6 +100,9 @@ Realice los pasos siguientes para preparar las unidades de disco.
     |/blobtype:     |Esta opción especifica el tipo de blobs en que desea importar los datos. En el caso de los blobs en bloques, el tipo de blob es `BlockBlob`, mientras que en el caso de los blobs en páginas es `PageBlob`.         |
     |/skipwrite:     | Especifica que no es necesario copiar nuevos datos y que se deben preparar los datos existentes en el disco.          |
     |/enablecontentmd5:     |Cuando esta opción está habilitada, garantiza que se calcula MD5 y se establece como propiedad `Content-md5` en todos los blobs. Esta opción solo se utiliza si se desea usar el campo `Content-md5` después de cargar los datos en Azure. <br> Esta opción no afecta a la comprobación de la integridad de datos (que se produce de forma predeterminada). El valor de aumenta el tiempo necesario para cargar datos en la nube.          |
+
+    > [!NOTE]
+    > Si importa un blob con el mismo nombre que un blob existente del contenedor de destino, el blob importado sobrescribirá el blob existente. En versiones anteriores de la herramienta (anteriores a la versión 1.5.0.300), el nombre del blob importado se cambiaba de forma predeterminada y un parámetro \Disposition le permitía especificar si se debía cambiar el nombre, sobrescribir o pasar por alto el blob en la importación.
 
 8. Repita el paso anterior para cada disco que vaya a enviar. 
 
@@ -352,9 +366,9 @@ Omita este paso y vaya al paso siguiente si desea usar la clave administrada por
 
 ## <a name="step-6-verify-data-upload-to-azure"></a>Paso 6: Comprobación de la carga de datos en Azure
 
-Siga el trabajo hasta su finalización. Una vez que se haya finalizado el trabajo, compruebe que los datos se han cargado en Azure. Elimine los datos de forma local después de comprobar que la carga fue correcta.
+Siga el trabajo hasta su finalización. Una vez que se haya finalizado el trabajo, compruebe que los datos se han cargado en Azure. Elimine los datos de forma local después de comprobar que la carga finalizó correctamente. Para más información, consulte [Revisión de los registros de copia de Import/Export](storage-import-export-tool-reviewing-job-status-v1.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Visualización del estado del trabajo y de la unidad de disco](storage-import-export-view-drive-status.md)
-* [Revisión de los requisitos de Import/Export](storage-import-export-requirements.md)
+* [Revisión de los registros de copia de Import/Export](storage-import-export-tool-reviewing-job-status-v1.md)

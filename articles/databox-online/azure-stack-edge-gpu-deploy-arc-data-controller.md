@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 04/15/2021
 ms.author: alkohli
-ms.openlocfilehash: ebccfdad883242411b4f45b717553ebd25ee69a9
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: e1078bb12b6d33eb4d4d35cc3e1e11f91ef39e9b
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109633526"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705553"
 ---
 # <a name="deploy-azure-data-services-on-your-azure-stack-edge-pro-gpu-device"></a>Implementación de Azure Data Services en el dispositivo Azure Stack Edge Pro con GPU
 
@@ -42,8 +42,8 @@ Antes de comenzar, asegúrese de que:
         1. Identifique la versión del servidor de Kubernetes instalada en el dispositivo. En la interfaz de usuario local del dispositivo, vaya a la página **Actualizaciones de software**. Tome nota de la **versión del servidor de Kubernetes** en esta página.
         1. Descargue un cliente que no esté distanciado más de una versión secundaria de la del maestro. Sin embargo, la versión del cliente puede superar a la del maestro en hasta una versión secundaria. Por ejemplo, un maestro v1.3 debe funcionar con nodos v1.1, v1.2 y v1.3, y debe funcionar con clientes v1.2, v1.3 y v1.4. Para obtener información sobre la versión del cliente de Kubernetes, consulte [Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew) (Versión de Kubernetes y directiva de soporte de asimetría de versiones).
     
-1. Como alternativa, [instale las herramientas de cliente para implementar y administrar los servicios de datos habilitados para Azure Arc](../azure-arc/data/install-client-tools.md). Estas herramientas no son necesarias, pero están recomendadas.  
-1. Asegúrese de que tiene suficientes recursos disponibles en el dispositivo para aprovisionar un controlador de datos y una instancia de SQL Managed Instance. Para el controlador de datos y la instancia de SQL Managed Instance, necesitará un mínimo de 16 GB de RAM y 4 núcleos de CPU. Para obtener instrucciones detalladas, visite [Requisitos mínimos para la implementación de los servicios de datos habilitados para Azure Arc](../azure-arc/data/sizing-guidance.md#minimum-deployment-requirements).
+1. Como alternativa, [instale las herramientas de cliente para implementar y administrar los servicios de datos habilitados para Azure Arc](../azure-arc/data/install-client-tools.md). Estas herramientas no son necesarias, pero están recomendadas.  
+1. Asegúrese de que tiene suficientes recursos disponibles en el dispositivo para aprovisionar un controlador de datos y una instancia de SQL Managed Instance. Para el controlador de datos y la instancia de SQL Managed Instance, necesitará un mínimo de 16 GB de RAM y 4 núcleos de CPU. Para obtener instrucciones detalladas, visite [Requisitos mínimos para la implementación de los servicios de datos habilitados para Azure Arc](../azure-arc/data/sizing-guidance.md#minimum-deployment-requirements).
 
 
 ## <a name="configure-kubernetes-external-service-ips"></a>Configuración de IP del servicio externo de Kubernetes

@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: overview
 ms.custom: contperf-fy21q4
 ms.date: 10/15/2020
-ms.openlocfilehash: 443dcf5bf34622fd0767ac75ece83e3ea6dc3ad0
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 9764afb8bbb0dd6e627336e360ed5b5edc5b8d14
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075572"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129855980"
 ---
 # <a name="what-is-the-microsoft-commercial-marketplace"></a>¿Qué es el marketplace comercial de Microsoft?
 
@@ -43,8 +43,8 @@ Para más información sobre estas ventajas, consulte [Las ventajas del marketpl
 
 El marketplace comercial de Microsoft, como se describe en este artículo, tiene dos tiendas en línea principales: 
 
-- [Microsoft AppSource](https://appsource.microsoft.com/), que contiene soluciones empresariales y Azure Marketplace.
-- [Azure Marketplace](https://azuremarketplace.microsoft.com/), que está diseñado para soluciones de TI.
+- [Microsoft AppSource](https://appsource.microsoft.com/) para soluciones empresariales
+- [Azure Marketplace](https://azuremarketplace.microsoft.com/) para soluciones de TI
 
 > [!NOTE]
 > Otros servicios y software del marketplace comercial también se pueden encontrar en productos de Microsoft como Microsoft 365, Dynamics 365, Microsoft Power Platform y Azure. Nuestras tiendas en línea y experiencias integradas en los productos atraen mensualmente a millones de clientes potenciales. Cada tienda en línea ofrece diferentes escenarios para garantizar que la solución o el servicio están disponibles para los clientes adecuados.

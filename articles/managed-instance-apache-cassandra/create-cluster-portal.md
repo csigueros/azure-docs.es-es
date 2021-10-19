@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 09/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 468f5141d7e28d387719df6bddbf30f5810c5955
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 276ac87c4d1f0c31d75c4dd653aaa5c67f96d6c0
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128557253"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754527"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal-preview"></a>Inicio rápido: Creación de un clúster de Azure Managed Instance for Apache Cassandra desde Azure Portal (versión preliminar)
 
@@ -53,7 +53,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
    * **Confirm Cassandra admin password** (Confirmar contraseña de administrador de Cassandra): vuelva a escribir la contraseña.
 
    > [!NOTE]
-   > Durante la versión preliminar pública, puede crear el clúster de instancia administrada en las regiones *Este de EE. UU., Oeste de EE. UU., Este de EE. UU. 2, Oeste de EE. UU. 2, Centro de EE. UU., Centro-sur de EE. UU., Norte de Europa, Oeste de Europa, Sudeste de Asia y Este de Australia*.
+   > Durante la versión preliminar pública, puede crear el clúster de instancia administrada en las regiones *Este de EE. UU., Oeste de EE. UU., Este de EE. UU. 2, Oeste de EE. UU. 2, Centro de EE. UU., Centro-sur de EE. UU., Norte de Europa, Oeste de Europa, Sudeste de Asia, Centro de la India y Este de Australia*.
 
    :::image type="content" source="./media/create-cluster-portal/create-cluster-page.png" alt-text="Rellenar el formulario de creación del clúster." lightbox="./media/create-cluster-portal/create-cluster-page.png" border="true":::
 

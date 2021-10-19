@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 05/12/2021
 ms.author: lajanuar
 ms.custom: devx-track-js
-ms.openlocfilehash: 18111fcce10b5c139105d19edd3eda68c5dff33c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 880f27665b191df2459cbdc15b6a8afa47fd3f8c
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128652593"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715407"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -190,7 +190,7 @@ Para analizar facturas de una dirección URL, use el método `beginRecognizeInvo
 > [!TIP]
 > También puede analizar imágenes de facturas locales con métodos [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), como **beginRecognizeInvoices**. 
 
-## <a name="analyze-identity-documents"></a>Análisis de documentos de identidad
+## <a name="analyze-id-documents"></a>Análisis de documentos de identificación
 
 En esta sección se muestra cómo analizar y extraer información clave de documentos de identificación emitidos por la administración pública (pasaportes de todo el mundo y permisos de conducir de EE. UU.) mediante el modelo de identificación precompilado de Form Recognizer. Para obtener más información sobre el análisis de documentos de identificación, consulte nuestra [guía conceptual del modelo de identificación precompilado](../../concept-identification-cards.md).
 

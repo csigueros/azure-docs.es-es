@@ -6,12 +6,12 @@ ms.service: private-multi-access-edge-compute-mec
 ms.topic: overview
 ms.date: 06/16/2021
 ms.author: kumud
-ms.openlocfilehash: d5c5c579ecc60e561d34b305468913d0a8635d81
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 1875a2cfaa89a6eeeb45ae2efe84959ff6771268
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114286903"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707340"
 ---
 # <a name="what-is-azure-private-multi-access-edge-compute"></a>¿Qué es el proceso perimetral multiacceso privado de Azure?
 

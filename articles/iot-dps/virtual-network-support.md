@@ -1,26 +1,25 @@
 ---
 title: Compatibilidad de Azure IoT Hub Device Provisioning Service (DPS) con redes virtuales
 description: Uso del patrón de conectividad de redes virtuales con Azure IoT Hub Device Provisioning Service (DPS)
-services: iot-hub
-author: wesmc7777
+services: iot-dps
+author: anastasia-ms
 ms.service: iot-dps
+manager: lizross
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.author: wesmc
-ms.openlocfilehash: f5b1947a8d037dbdd20a3335a79f90ebf10b2ca6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 10/06/2021
+ms.author: v-stharr
+ms.openlocfilehash: 8d90a033f5af5afb55be9585756a7235dc6d89d7
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108749904"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659324"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Compatibilidad de Azure IoT Hub Device Provisioning Service (DPS) con redes virtuales
 
 En este artículo se presenta el patrón de conectividad de red virtual (VNET) para el aprovisionamiento de dispositivos IoT con centros de IoT mediante DPS. Este patrón proporciona conectividad privada entre los dispositivos, DPS y el centro de IoT dentro de una red virtual de Azure propiedad del cliente. 
 
 En la mayoría de los escenarios en los que DPS se ha configurado con una red virtual, la instancia de IoT Hub también se configurará en la misma red virtual. Para información más específica sobre la compatibilidad y la configuración de una red virtual para instancias de IoT Hub, consulte [Compatibilidad de IoT Hub con redes virtuales mediante Private Link e identidad administrada](../iot-hub/virtual-network-support.md).
-
-
 
 ## <a name="introduction"></a>Introducción
 
@@ -41,7 +40,6 @@ Entre los enfoques comunes para restringir la conectividad se incluyen [las regl
 Los dispositivos que operan en redes locales pueden usar el emparejamiento privado de [red privada virtual (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) o [ExpressRoute](https://azure.microsoft.com/services/expressroute/) para conectarse a una red virtual en Azure y acceder a los recursos de DPS a través de puntos de conexión privados. 
 
 Un punto de conexión privado es una dirección IP privada asignada en una red virtual propiedad de un cliente a través de la cual se puede acceder a un recurso de Azure. Al tener un punto de conexión privado para el recurso de DPS, podrá permitir que los dispositivos que funcionan dentro de la red virtual soliciten el aprovisionamiento por el recurso de DPS sin permitir el tráfico al punto de conexión público.
-
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -65,6 +63,11 @@ Tenga en cuenta las siguientes limitaciones actuales de DPS cuando use puntos de
 
 * La directiva de asignación de latencia más baja se usa para asignar un dispositivo al centro de IoT con la latencia más baja. Esta directiva de asignación no es fiable en un entorno de red virtual. 
 
+>[!NOTE]
+>**Consideración sobre la residencia de datos:**
+>
+>DPS proporciona un **punto de conexión global del dispositivo** (`global.azure-devices-provisioning.net`). Sin embargo, cuando se usa el punto de conexión global, los datos se pueden redirigir fuera de la región en la que se creó inicialmente la instancia de DPS. Para garantizar la residencia de datos dentro de la región de DPS inicial, use puntos de conexión privados.
+
 ## <a name="set-up-a-private-endpoint"></a>Configuración de un punto de conexión privado
 
 Para configurar un punto de conexión privado, siga estos pasos:
@@ -77,7 +80,7 @@ Para configurar un punto de conexión privado, siga estos pasos:
 
     ![Aspectos básicos de Crear un punto de conexión privado](./media/virtual-network-support/create-private-endpoint-basics.png)
 
-    | Campo | Value |
+    | Campo | Valor |
     | :---- | :-----|
     | **Suscripción** | Elija la suscripción de Azure que desea que contenga el punto de conexión privado.  |
     | **Grupos de recursos** | Elija o cree un grupo de recursos que contenga el punto de conexión privado. |
@@ -90,7 +93,7 @@ Para configurar un punto de conexión privado, siga estos pasos:
 
     ![Recurso de Crear un punto de conexión privado](./media/virtual-network-support/create-private-endpoint-resource.png)
 
-    | Campo | Value |
+    | Campo | Valor |
     | :---- | :-----|
     | **Suscripción**        | Elija la suscripción de Azure que contiene el recurso de DPS al que apuntará el punto de conexión privado.  |
     | **Tipo de recurso**       | Elija **Microsoft.Devices/ProvisioningServices**. |
@@ -104,13 +107,12 @@ Para configurar un punto de conexión privado, siga estos pasos:
     Haga clic en **Siguiente: Configuración** para configurar la red virtual para el punto de conexión privado.
 
 4. En la página _Crear un punto de conexión privado_ de la sección Configuración, elija la red virtual y la subred donde se creará el punto de conexión privado.
- 
+
     Haga clic en **Siguiente: Etiquetas** y, de manera opcional, proporcione las etiquetas del recurso.
 
     ![Configuración de un punto de conexión privado](./media/virtual-network-support/create-private-endpoint-configuration.png)
 
-6. Haga clic en **Revisar y crear** y luego en **Crear** para crear el recurso del punto de conexión privado.
-
+5. Haga clic en **Revisar y crear** y luego en **Crear** para crear el recurso del punto de conexión privado.
 
 ## <a name="use-private-endpoints-with-devices"></a>Uso de puntos de conexión privados con dispositivos
 
@@ -118,7 +120,7 @@ Para usar puntos de conexión privados con código de aprovisionamiento de dispo
 
 `<Your DPS Tenant Name>.azure-devices-provisioning.net`
 
-La mayor parte del código de ejemplo que se muestra en nuestra documentación y SDK, usa el **punto de conexión de dispositivo global** (`global.azure-devices-provisioning.net`) y el **ámbito de identificador** para resolver un recurso de DPS determinado. Use el punto de conexión de servicio en lugar del punto de conexión de dispositivo global al conectarse a un recurso de DPS mediante vínculos privados para aprovisionar los dispositivos.
+La mayor parte del código de ejemplo que se muestra en nuestra documentación y SDK, usa el **punto de conexión de dispositivo global** (`global.azure-devices-provisioning.net`) y el **ámbito de identificador** para resolver un recurso de DPS determinado. Use el punto de conexión de servicio en lugar del punto de conexión global del dispositivo al conectarse a un recurso de DPS mediante puntos de conexión privados para aprovisionar los dispositivos.
 
 Por ejemplo, la muestra de cliente del dispositivo de aprovisionamiento ([pro_dev_client_sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/prov_dev_client_sample)) en [SDK de Azure IoT](https://github.com/Azure/azure-iot-sdk-c) está diseñado para usar el **punto de conexión de dispositivo global** como URI de aprovisionamiento global (`global_prov_uri`) en [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c)
 
@@ -126,7 +128,7 @@ Por ejemplo, la muestra de cliente del dispositivo de aprovisionamiento ([pro_de
 
 :::code language="c" source="~/iot-samples-c/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c" range="138-144" highlight="3":::
 
-Para usar la muestra con un vínculo privado, el código resaltado anteriormente se cambiaría para usar el punto de conexión de servicio para el recurso de DPS. Por ejemplo, si el punto de conexión de servicio fuera `mydps.azure-devices-provisioning.net`, el código tendría el siguiente aspecto.
+Para usar la muestra con un punto de conexión privado, el código resaltado anteriormente se cambiaría para usar el punto de conexión de servicio para el recurso de DPS. Por ejemplo, si el punto de conexión de servicio fuera `mydps.azure-devices-provisioning.net`, el código tendría el siguiente aspecto.
 
 ```C
 static const char* global_prov_uri = "global.azure-devices-provisioning.net";

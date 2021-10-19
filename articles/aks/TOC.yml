@@ -61,7 +61,7 @@
           href: ./security-controls-policy.md
     - name: Redes
       href: concepts-network.md
-    - name: Storage
+    - name: Almacenamiento
       href: concepts-storage.md
     - name: Escala
       href: concepts-scale.md
@@ -215,7 +215,7 @@
           href: azure-nfs-volume.md
         - name: Azure NetApp Files
           href: azure-netapp-files.md
-        - name: Uso de Ultra Disks de Azure (versión preliminar)
+        - name: Uso de Azure Ultra Disks
           href: use-ultra-disks.md
         - name: Controladores de almacenamiento CSI
           items:

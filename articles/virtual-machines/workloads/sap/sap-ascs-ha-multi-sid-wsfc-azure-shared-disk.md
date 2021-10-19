@@ -16,34 +16,45 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86546995e0b5481daeff32f2fcdae61a4a69524b
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 6b37cdba3f5b95f1e6ecc6b4dab02b5c9d69f109
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112284786"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754413"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-azure-shared-disk"></a>Alta disponibilidad de varios SID de una instancia de ASCS/SCS de SAP con clústeres de conmutación por error de Windows Server y disco compartido de Azure
 
 > ![SO Windows][Logo_Windows] Windows
->
 
 En este artículo nos centraremos en cómo pasar de una sola instalación de ASCS/SCS a una configuración de varios SID de SAP mediante la instalación de instancias en clúster de ASCS/SCS de SAP adicionales en un clúster de conmutación por error de Windows Server (WSFC) existente con un disco compartido de Azure. Cuando se complete este proceso, habrá configurado un clúster de varios identificadores de seguridad para SAP.
 
 ## <a name="prerequisites-and-limitations"></a>Requisitos previos y limitaciones
 
-Actualmente, puede usar discos SSD Premium de Azure como discos compartidos de Azure para la instancia de ASCS/SCS de SAP. Existen las limitaciones siguientes:
+De momento, puede usar discos SSD Premium de Azure como un disco compartido de Azure para la instancia de ASCS/SCS de SAP. Actualmente están en vigor las siguientes limitaciones:
 
--  No se admite el [disco Ultra de Azure](../../disks-types.md#ultra-disk) como disco compartido de Azure para cargas de trabajo de SAP. Actualmente no es posible colocar máquinas virtuales de Azure, con disco Ultra de Azure, en el conjunto de disponibilidad.
--  El [disco compartido de Azure](../../disks-shared.md) con discos SSD Premium solo se admite con máquinas virtuales en el conjunto de disponibilidad. No se admite en la implementación de Availability Zones. 
+-  Un [disco Ultra de Azure](../../disks-types.md#ultra-disk) y los [discos SSD estándar](../../disks-types.md#standard-ssd) no se admiten como discos compartidos de Azure para cargas de trabajo de SAP.
+-  Un [disco compartido de Azure](../../disks-shared.md) con [discos SSD prémium](../../disks-types.md#premium-ssd) es compatible con la implementación de SAP en el conjunto y las zonas de disponibilidad.
+-  Un disco compartido de Azure con discos SSD prémium incluye dos SKU de almacenamiento.
+   - El almacenamiento con redundancia local (LRS) para el disco compartido prémium (skuName: Premium_LRS) es compatible con la implementación en el conjunto de disponibilidad.
+   - El almacenamiento con redundancia de zona (ZRS) para el disco compartido prémium (skuName: Premium_ZRS) es compatible con la implementación en las zonas de disponibilidad.
 -  El valor de disco compartido de Azure [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) determina cuántos nodos de clúster pueden usar el disco compartido. Normalmente, para la instancia de ASCS/SCS de SAP, se configuran dos nodos en el clúster de conmutación por error de Windows, por lo que el valor de `maxShares` debe establecerse en dos.
--  Todas las máquinas virtuales de clúster de ASCS/SCS de SAP deben implementarse en el mismo [grupo con ubicación por proximidad de Azure](../../windows/proximity-placement-groups.md).   
-   Aunque puede implementar máquinas virtuales de clúster de Windows en un conjunto de disponibilidad con disco compartido de Azure sin PPG, PPG garantizará una proximidad física cercana de los discos compartidos de Azure y las máquinas virtuales del clúster, con lo que se conseguirá una menor latencia entre las máquinas virtuales y la capa de almacenamiento.    
+-  Al usar [grupos con ubicación por proximidad de Azure](../../windows/proximity-placement-groups.md) para el sistema SAP, todas las máquinas virtuales que comparten un disco deben formar parte del mismo PPG.
 
-Para más información sobre las limitaciones del disco compartido de Azure, repase minuciosamente la sección [Limitaciones](../../disks-shared.md#limitations) de la documentación del disco compartido de Azure.  
+Para obtener más detalles sobre las limitaciones del disco compartido de Azure, consulte con detenimiento la sección de [limitaciones](../../disks-shared.md#limitations) de la documentación sobre discos compartidos de Azure.
 
-> [!IMPORTANT]
-> Al implementar un clúster de conmutación por error de Windows de ASCS/SCS de SAP con disco compartido de Azure, tenga en cuenta que la implementación funcionará con un solo disco compartido en un clúster de almacenamiento. La instancia de ASCS/SCS de SAP se verá afectada, en el caso de problemas con el clúster de almacenamiento, donde se implementa el disco compartido de Azure.  
+#### <a name="important-consideration-for-premium-shared-disk"></a>Consideraciones importantes del disco compartido prémium
+
+A continuación se incluyen algunos de los puntos importantes que se deben tener en cuenta con respecto al disco compartido prémium de Azure:
+
+- LRS para discos compartidos prémium
+  - La implementación de SAP con LRS para discos compartidos prémium funcionará con un único disco compartido de Azure en un clúster de almacenamiento. La instancia de ASCS/SCS de SAP se vería afectada en caso de problemas con el clúster de almacenamiento donde se ha implementado el disco compartido de Azure.
+
+- ZRS para discos compartidos prémium
+  - La latencia de escritura de ZRS es mayor que la de LRS debido a la copia de datos entre zonas.
+  - La distancia entre las zonas de disponibilidad en una región diferente varía y, con ella, también la latencia de discos ZRS entre zonas de disponibilidad. [Realice pruebas comparativas en los discos](../../disks-benchmarks.md) para identificar la latencia del disco ZRS en su región.
+  - ZRS para discos compartidos prémium replica de forma sincrónica los datos en tres zonas de disponibilidad de la región. En caso de que se produzca alguna incidencia en uno de los clústeres de almacenamiento, ASCS/SCS de SAP seguirá funcionando, ya que la conmutación por error del almacenamiento es transparente en el nivel de aplicación.
+  - Revise la sección de [limitaciones](../../disks-redundancy.md#limitations) de ZRS para discos administrados a fin de obtener más detalles.
 
 > [!IMPORTANT]
 > Debe cumplir las condiciones siguientes:
@@ -99,15 +110,33 @@ Instalaremos un nuevo SID de SAP, **PR2**, además de la instancia de ASCS/SCS d
 
 ### <a name="host-names-and-ip-addresses"></a>Nombres de host y direcciones IP
 
-| Rol de nombre de host | Nombre de host | Dirección IP estática | Conjunto de disponibilidad | Grupo con ubicación por proximidad |
-| --- | --- | --- |---| ---|
-| Primer clúster ASCS/SCS de nodo de clúster |pr1-ascs-10 |10.0.0.4 |pr1-ascs-avset |PR1PPG |
-| Segundo clúster ASCS/SCS de nodo de clúster |pr1-ascs-11 |10.0.0.5 |pr1-ascs-avset |PR1PPG |
-| Nombre de red del clúster | pr1clust |10.0.0.42 (**solo** para el clúster de Win 2016) | N/D | N/D |
-| Nombre de red del clúster de ASCS de **SID1** | pr1-ascscl |10.0.0.43 | N/D | N/D |
-| Nombre de red del clúster de ERS de **SID1** (**solo** para ERS2) | pr1-erscl |10.0.0.44 | N/D | N/D |
-| Nombre de red del clúster de ASCS de **SID2** | pr2-ascscl |10.0.0.45 | N/D | N/D |
-| Nombre de red del clúster de ERS de **SID2** (**solo** para ERS2) | pr1-erscl |10.0.0.46 | N/D | N/D |
+En función del tipo de implementación, los nombres de host y las direcciones IP del escenario serían las siguientes:
+
+**Implementación de SAP en el conjunto de disponibilidad de Azure**
+
+| Rol de nombre de host                                        | Nombre de host   | Dirección IP estática                        | Conjunto de disponibilidad | SkuName de disco |
+| ----------------------------------------------------- | ----------- | ---------------------------------------- | ---------------- | ------------ |
+| Primer clúster ASCS/SCS de nodo de clúster                     | pr1-ascs-10 | 10.0.0.4                                 | pr1-ascs-avset   | Premium_LRS  |
+| Segundo clúster ASCS/SCS de nodo de clúster                     | pr1-ascs-11 | 10.0.0.5                                 | pr1-ascs-avset   |              |
+| Nombre de red del clúster                                  | pr1clust    | 10.0.0.42 (**solo** para el clúster de Win 2016) | N/D              |              |
+| Nombre de red del clúster de ASCS de **SID1**                    | pr1-ascscl  | 10.0.0.43                                | N/D              |              |
+| Nombre de red del clúster de ERS de **SID1** (**solo** para ERS2) | pr1-erscl   | 10.0.0.44                                | N/D              |              |
+| Nombre de red del clúster de ASCS de **SID2**                    | pr2-ascscl  | 10.0.0.45                                | N/D              |              |
+| Nombre de red del clúster de ERS de **SID2** (**solo** para ERS2) | pr1-erscl   | 10.0.0.46                                | N/D              |              |
+
+**Implementación de SAP en zonas de disponibilidad de Azure**
+
+| Rol de nombre de host                                        | Nombre de host   | Dirección IP estática                        | Zona de disponibilidad | SkuName de disco |
+| ----------------------------------------------------- | ----------- | ---------------------------------------- | ----------------- | ------------ |
+| Primer clúster ASCS/SCS de nodo de clúster                     | pr1-ascs-10 | 10.0.0.4                                 | AZ01              | Premium_ZRS  |
+| Segundo clúster ASCS/SCS de nodo de clúster                     | pr1-ascs-11 | 10.0.0.5                                 | AZ02              |              |
+| Nombre de red del clúster                                  | pr1clust    | 10.0.0.42 (**solo** para el clúster de Win 2016) | N/D               |              |
+| Nombre de red del clúster de ASCS de **SID1**                    | pr1-ascscl  | 10.0.0.43                                | N/D               |              |
+| Nombre de red del clúster de ERS de **SID2** (**solo** para ERS2) | pr1-erscl   | 10.0.0.44                                | N/D               |              |
+| Nombre de red del clúster de ASCS de **SID2**                    | pr2-ascscl  | 10.0.0.45                                | N/D               |              |
+| Nombre de red del clúster de ERS de **SID2** (**solo** para ERS2) | pr1-erscl   | 10.0.0.46                                | N/D               |              |
+
+Los pasos mencionados en el documento siguen siendo los mismos para ambos tipos de implementación. Pero si el clúster se ejecuta en un conjunto de disponibilidad, debe implementar LRS para el disco compartido prémium de Azure (Premium_LRS) y, si el clúster se ejecuta en la zona de disponibilidad, implemente ZRS para el disco compartido prémium de Azure (Premium_ZRS). 
 
 ### <a name="create-azure-internal-load-balancer"></a>Creación de una instancia de Azure Internal Load Balancer
 
@@ -158,7 +187,7 @@ Como Enqueue Replication Server 2 (ERS2) también es un clúster, la dirección 
         - 5 **nr** 16 TCP [**51212**]
         - Asocie con la IP de front-end de ERS2 **PR2**, el sondeo de estado y el grupo de back-end existente.  
 
-    - Asegúrese de que el tiempo de expiración de inactividad (minutos) esté establecido en el valor máximo de 30, por ejemplo, y que la dirección IP flotante (Direct Server Return) esté habilitada.
+    - Asegúrese de que el tiempo de expiración de inactividad (minutos) esté establecido en el valor máximo (por ejemplo, 30) y que la dirección IP flotante (Direct Server Return) esté habilitada.
 
 
 ### <a name="create-and-attach-second-azure-shared-disk"></a>Creación y conexión de un segundo disco compartido de Azure
@@ -166,33 +195,42 @@ Como Enqueue Replication Server 2 (ERS2) también es un clúster, la dirección 
 Ejecute este comando en uno de los nodos del clúster. Tendrá que ajustar los valores para el grupo de recursos, la región de Azure, SAPSID, etc.  
 
 ```powershell
-    $ResourceGroupName = "MyResourceGroup"
-    $location = "MyRegion"
-    $SAPSID = "PR2"
-    $DiskSizeInGB = 512
-    $DiskName = "$($SAPSID)ASCSSharedDisk"
-    $NumberOfWindowsClusterNodes = 2
-    $diskConfig = New-AzDiskConfig -Location $location -SkuName Premium_LRS  -CreateOption Empty  -DiskSizeGB $DiskSizeInGB -MaxSharesCount $NumberOfWindowsClusterNodes
+$ResourceGroupName = "MyResourceGroup"
+$location = "MyRegion"
+$SAPSID = "PR2"
+$DiskSizeInGB = 512
+$DiskName = "$($SAPSID)ASCSSharedDisk"
+$NumberOfWindowsClusterNodes = 2
+
+# For SAP deployment in availability set, use below storage SkuName
+$SkuName = "Premium_LRS"
+# For SAP deployment in availability zone, use below storage SkuName
+$SkuName = "Premium_ZRS"
+
+$diskConfig = New-AzDiskConfig -Location $location -SkuName $SkuName  -CreateOption Empty  -DiskSizeGB $DiskSizeInGB -MaxSharesCount $NumberOfWindowsClusterNodes
     
-    $dataDisk = New-AzDisk -ResourceGroupName $ResourceGroupName -DiskName $DiskName -Disk $diskConfig
-    ##################################
-    ## Attach the disk to cluster VMs
-    ##################################
-    # ASCS Cluster VM1
-    $ASCSClusterVM1 = "pr1-ascs-10"
-    # ASCS Cluster VM2
-    $ASCSClusterVM2 = "pr1-ascs-11"
-    # next free LUN number
-    $LUNNumber = 1
-    # Add the Azure Shared Disk to Cluster Node 1
-    $vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $ASCSClusterVM1 
-    $vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun $LUNNumber
-    Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
-    # Add the Azure Shared Disk to Cluster Node 2
-    $vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $ASCSClusterVM2
-    $vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun $LUNNumber
-    Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
-   ```
+$dataDisk = New-AzDisk -ResourceGroupName $ResourceGroupName -DiskName $DiskName -Disk $diskConfig
+##################################
+## Attach the disk to cluster VMs
+##################################
+# ASCS Cluster VM1
+$ASCSClusterVM1 = "pr1-ascs-10"
+# ASCS Cluster VM2
+$ASCSClusterVM2 = "pr1-ascs-11"
+# next free LUN number
+$LUNNumber = 1
+
+# Add the Azure Shared Disk to Cluster Node 1
+$vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $ASCSClusterVM1 
+$vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun $LUNNumber
+Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
+
+# Add the Azure Shared Disk to Cluster Node 2
+$vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $ASCSClusterVM2
+$vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun $LUNNumber
+Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
+```
+
 ### <a name="format-the-shared-disk-with-powershell"></a>Formato del disco compartido con PowerShell
 1. Obtenga el número de disco. Ejecute los comandos de PowerShell en uno de los nodos del clúster:
 
@@ -204,7 +242,7 @@ Ejecute este comando en uno de los nodos del clúster. Tendrá que ajustar los v
     # 3      Msft Virtual Disk               Healthy      Online                512 GB RAW            
 
    ```
-2. Formatee el disco. En este ejemplo, el número de disco es 3. 
+2. Formatee el disco. En este ejemplo, el número de disco es 3. 
 
    ```powershell
     # Format SAP ASCS Disk number '3', with drive letter 'S'
@@ -235,7 +273,7 @@ Ejecute este comando en uno de los nodos del clúster. Tendrá que ajustar los v
 
 4. Registre el disco en el clúster.  
    ```powershell
-     # Add the disk to cluster 
+    # Add the disk to cluster 
     Get-ClusterAvailableDisk -All | Add-ClusterDisk
     # Example output 
     # Name           State  OwnerGroup        ResourceType 
@@ -624,8 +662,8 @@ En el caso de las pruebas de conmutación por error descritas, asumimos que ASCS
 [sap-ha-guide-figure-6005]:media/virtual-machines-shared-sap-high-availability-guide/6005-sap-multi-sid-azure-portal.png
 [sap-ha-guide-figure-6006]:media/virtual-machines-shared-sap-high-availability-guide/6006-sap-multi-sid-sios-replication.png
 
-[sap-ha-guide-figure-6007]:media/virtual-machines-shared-sap-high-availability-guide/6007-sap-multi-sid-ascs-azure-shared-disk-sid1.png
-[sap-ha-guide-figure-6008]:media/virtual-machines-shared-sap-high-availability-guide/6008-sap-multi-sid-ascs-azure-shared-disk-sid2.png
+[sap-ha-guide-figure-6007]:media/virtual-machines-shared-sap-high-availability-guide/6007-sap-multi-sid-ascs-azure-shared-disk-sid-1.png
+[sap-ha-guide-figure-6008]:media/virtual-machines-shared-sap-high-availability-guide/6008-sap-multi-sid-ascs-azure-shared-disk-sid-2.png
 [sap-ha-guide-figure-6009]:media/virtual-machines-shared-sap-high-availability-guide/6009-sap-multi-sid-ascs-azure-shared-disk-dns1.png
 [sap-ha-guide-figure-6010]:media/virtual-machines-shared-sap-high-availability-guide/6010-sap-multi-sid-ascs-azure-shared-disk-dns2.png
 [sap-ha-guide-figure-6011]:media/virtual-machines-shared-sap-high-availability-guide/6011-sap-multi-sid-ascs-azure-shared-disk-dns3.png

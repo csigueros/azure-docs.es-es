@@ -4,14 +4,14 @@ description: En este tutorial, aprenderá a incorporarse a Azure Defender para I
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 10/05/2021
+ms.date: 10/07/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 717b65b78d177e277922687c4c290035b57ab6ab
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: e509b3a1c12c7c7d118eca0b3a2adabe01bdc977
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129537046"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660312"
 ---
 # <a name="tutorial-azure-defender-for-iot-trial-setup"></a>Tutorial: Configuración de la evaluación gratuita de Azure Defender para IoT
 
@@ -246,7 +246,7 @@ Para la validación posterior a la instalación, debe comprobar que el sistema s
 
 ## <a name="configure-a-span-port"></a>Configurar un puerto SPAN
 
-Una instancia de vSwitch no tiene funcionalidades de creación de reflejo, pero se puede usar una solución alternativa para implementar un puerto SPAN. Puede implementar la solución alternativa con ESXi o Hyper-V.
+Un conmutador virtual no tiene funcionalidades de creación de reflejo. Sin embargo, puede usar el modo promiscuo en un entorno de conmutador virtual. El modo promiscuo es un modo de funcionamiento, así como una técnica de seguridad, supervisión y administración, que se define en el conmutador virtual o en el nivel del grupo de puertos. De forma predeterminada, el modo promiscuo está deshabilitado. Cuando el modo promiscuo está habilitado, las interfaces de red de la máquina virtual que se encuentran en el mismo grupo de puertos usarán el modo promiscuo para ver todo el tráfico de red que pasa a través de ese conmutador virtual. Puede implementar una solución alternativa con ESXi o Hyper-V.
 
 :::image type="content" source="media/tutorial-onboarding/purdue-model.png" alt-text="Captura de pantalla de dónde se debe colocar el sensor en la arquitectura.":::
 
@@ -476,5 +476,5 @@ Es posible que tenga que actualizar la pantalla después de cargar el certificad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a configurar [dispositivos adicionales](how-to-install-software.md#about-defender-for-iot-appliances).
+Aprenda a configurar [otros dispositivos](how-to-install-software.md#about-defender-for-iot-appliances).
 Obtenga información sobre la [arquitectura sin agente](architecture.md).

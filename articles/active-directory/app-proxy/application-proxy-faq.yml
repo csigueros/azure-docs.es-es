@@ -12,12 +12,12 @@ metadata:
   ms.date: 04/27/2021
   ms.author: kenwith
   ms.reviewer: japere
-  ms.openlocfilehash: f0d27693bcf378988d70bae2ad45babedea4b858
-  ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+  ms.openlocfilehash: d144b160a940132bdab71362b6322b1e51679006
+  ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/29/2021
-  ms.locfileid: "129234326"
+  ms.lasthandoff: 10/06/2021
+  ms.locfileid: "129619169"
 title: Preguntas más frecuentes sobre Active Directory (Azure AD) Application Proxy
 summary: Esta página responde a las preguntas más frecuentes sobre Azure Active Directory (Azure AD) Application Proxy.
 sections:
@@ -43,7 +43,7 @@ sections:
     answer: ''
   - question: >
       ¿Por qué mi conector todavía usa una versión antigua y no se ha actualizado automáticamente a la versión más reciente?
-    answer: "Esto puede deberse a que el servicio del actualizador no funciona correctamente o a que no hay nuevas actualizaciones disponibles que el servicio pueda instalar.\n\nEl servicio de actualización es correcto si se está ejecutando y no hay ningún error registrado en el registro de eventos (Registros de aplicaciones y servicios -> Microsoft -> AadApplicationProxy -> Updater -> Administrador). \n\n> [!IMPORTANT]\n> Solo se publican las versiones principales para la actualización automática. Se recomienda actualizar el conector manualmente solo si es necesario. Por ejemplo, no puede esperar a una versión principal, porque debe corregir un problema conocido o usar una característica nueva. Para obtener más información sobre las nuevas versiones, el tipo de versión (descarga, actualización automática), correcciones de errores y nuevas características, consulte [Azure AD Application Proxy: Historial de lanzamiento de versiones](./application-proxy-release-version-history.md).\n\nPara actualizar manualmente un conector:\n\n- Descargue la versión más reciente del conector. (Lo encontrará en Application Proxy en Azure Portal. También lo puede encontrar en [Azure AD Application Proxy: Historial de lanzamiento de versiones](./application-proxy-release-version-history.md).\n-   El instalador reinicia los servicios del conector del Azure AD Application Proxy. En algunos casos, es posible que sea necesario reiniciar el servidor si el instalador no puede reemplazar todos los archivos. Por lo tanto, se recomienda cerrar todas las aplicaciones (es decir, el Visor de eventos) antes de iniciar la actualización.\n-   Ejecute al programa de instalación. El proceso de actualización es rápido y no requiere proporcionar ninguna credencial. El conector no se volverá a registrar.\n"
+    answer: "Esto puede deberse a que el servicio del actualizador no funciona correctamente o a que no hay nuevas actualizaciones disponibles que el servicio pueda instalar.\n\nEl servicio de actualización es correcto si se está ejecutando y no hay ningún error registrado en el registro de eventos (Registros de aplicaciones y servicios -> Microsoft -> AadApplicationProxy -> Updater -> Administrador). \n\n> [!IMPORTANT]\n> Solo se publican las versiones principales para la actualización automática. Se recomienda actualizar el conector manualmente solo si es necesario. Por ejemplo, no puede esperar a una versión principal, porque debe corregir un problema conocido o usar una característica nueva. Para obtener más información sobre las nuevas versiones, el tipo de versión (descarga, actualización automática), correcciones de errores y nuevas características, consulte [Azure AD Application Proxy: Historial de lanzamiento de versiones](./application-proxy-release-version-history.md).\n\nPara actualizar manualmente un conector:\n\n- Descargue la versión más reciente del conector. Lo encontrará en Application Proxy en Azure Portal. También lo puede encontrar en [Azure AD Application Proxy: Historial de lanzamiento de versiones](./application-proxy-release-version-history.md).\n-   El instalador reinicia los servicios del conector del Azure AD Application Proxy. En algunos casos, es posible que sea necesario reiniciar el servidor si el instalador no puede reemplazar todos los archivos. Por lo tanto, se recomienda cerrar todas las aplicaciones (es decir, el Visor de eventos) antes de iniciar la actualización.\n-   Ejecute al programa de instalación. El proceso de actualización es rápido y no requiere proporcionar ninguna credencial. El conector no se volverá a registrar.\n"
   - question: >
       ¿Los servicios del conector de Application Proxy se ejecutan en un contexto de usuario distinto del predeterminado?
     answer: >
@@ -118,13 +118,29 @@ sections:
     answer: >
       En la página de registros de aplicaciones puede cambiar la dirección URL de la página principal a la dirección URL externa que quiera ver en la página de aterrizaje. La página especificada se cargará cuando se inicie la aplicación desde Mis aplicaciones o desde el portal de Office 365. Para obtener los pasos de configuración, consulte [Establecer una página principal personalizada para aplicaciones publicadas mediante el Azure AD Application Proxy](application-proxy-configure-custom-home-page.md).
   - question: >
+      ¿Por qué me redirigen a una dirección URL truncada cuando intento acceder a mi aplicación publicada cada vez que la dirección URL contiene un carácter "#" (hashtag)?
+    answer: >
+      Si se configura la autenticación previa de Azure AD y la dirección URL de la aplicación contiene un carácter "#" al intentar acceder a la aplicación por primera vez, se le redirigirá a Azure AD (login.microsoftonline.com) para la autenticación. Una vez completada la autenticación, se le redirigirá a la parte de la dirección URL anterior al carácter "#" y todo lo que viene después de "#" parece omitirse o eliminarse. Por ejemplo, si la dirección URL es `https://www.contoso.com/#/home/index.html`, una vez que se realiza la autenticación de Azure AD, se redirigirá al usuario a `https://www.contoso.com/`.
+
+      Este comportamiento se debe por diseño a la forma en que el explorador considera el carácter "#".
+
+
+      Posibles soluciones o alternativas:
+
+
+      - Configure un redireccionamiento de `https://www.contoso.com` a `https://contoso.com/#/home/index.html`. El usuario debe acceder primero a `https://www.contoso.com`.
+
+      - La dirección URL usada para el primer intento de acceso debe incluir el carácter "#" en formato codificado (%23). Es posible que el servidor publicado no lo acepte.
+
+      - Configure el tipo de autenticación previa de tránsito (no recomendado).
+  - question: >
       ¿Solo se pueden publicar aplicaciones basadas en IIS? ¿Qué ocurre con las aplicaciones web que se ejecutan en servidores web que no son de Windows? ¿El conector tiene que estar instalado en un servidor que tenga a su vez IIS instalado?
     answer: >
       No, no hay ningún requisito de IIS para las aplicaciones que se publican. Puede publicar aplicaciones web que se ejecutan en servidores distintos de Windows Server. Sin embargo, es posible que no pueda usar la autenticación previa con un servidor que no sea de Windows Server, dependiendo de si el servidor web admite Negotiate (la autenticación de Kerberos). IIS no es necesario en el servidor en el que está instalado el conector.
   - question: >
       ¿Puedo configurar Application Proxy para agregar el encabezado HSTS?
     answer: >
-      Application Proxy no agrega automáticamente el encabezado HTTP Strict-Transport-Security a las respuestas HTTPS, pero mantendrá el encabezado si está en la respuesta original enviada por la aplicación publicada. La incorporación de una configuración para habilitar esta funcionalidad está en el mapa de ruta. Si está interesado en una versión preliminar que permite agregar esto a las respuestas, póngase en contacto con aadapfeedback@microsoft.com para más información.
+      Application Proxy no agrega automáticamente el encabezado HTTP Strict-Transport-Security a las respuestas HTTPS, pero mantendrá el encabezado si está en la respuesta original enviada por la aplicación publicada. La incorporación de una configuración para habilitar esta funcionalidad está en el mapa de ruta.
   - question: >
       Autenticación integrada de Windows
     answer: ''
@@ -210,7 +226,7 @@ sections:
   - question: >
       ¿Admite WebSocket el trabajo para aplicaciones que no sean QlikSense y Escritorio remoto cliente web (HTML5)?
     answer: >
-      Actualmente, la compatibilidad con el protocolo de WebSocket todavía está en su versión preliminar pública y es posible que no funcione en otras aplicaciones. Algunos clientes han podido usar correctamente el protocolo WebSocket con otras aplicaciones. Si prueba ese tipo de escenarios, nos encantaría saber más acerca de sus resultados. Envíenos sus comentarios a aadapfeedback@microsoft.com.
+      Actualmente, la compatibilidad con el protocolo de WebSocket todavía está en su versión preliminar pública y es posible que no funcione en otras aplicaciones. Algunos clientes han podido usar correctamente el protocolo WebSocket con otras aplicaciones.
 
 
       Las características (EventLog, PowerShell y Servicios de Escritorio remoto) en Windows Admin Center (WAC) no funcionan actualmente a través de Azure AD Application Proxy.

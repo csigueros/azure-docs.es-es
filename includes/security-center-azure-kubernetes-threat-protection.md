@@ -4,12 +4,12 @@ ms.author: memildin
 manager: rkarlin
 ms.date: 04/07/2021
 ms.topic: include
-ms.openlocfilehash: 24f466e7c9a9e5630510f73652fcf515540bee10
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 0d0a5faa2941e429fab1d6250ef443257024a616
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123646381"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129725570"
 ---
 Azure Defender proporciona protección contra amenazas en tiempo real para los entornos en contenedores y genera alertas de actividades sospechosas. Puede usar esta información para corregir problemas de seguridad y mejorar la seguridad de los contenedores rápidamente.
 
@@ -25,7 +25,7 @@ Azure Defender proporciona protección contra amenazas en diferentes niveles:
     Para obtener una lista de las alertas de nivel de host, consulte la [Tabla de referencia de alertas](../articles/security-center/alerts-reference.md#alerts-containerhost).
 
 
-* **Nivel de clúster (proporcionado por Azure Defender para Kubernetes)** : en el nivel de clúster, la protección contra amenazas consiste en analizar los registros de auditoría de Kubernetes. Para habilitar esta supervisión **sin agente**, habilite Azure Defender. Si su clúster es local o reside en otro proveedor de nube, utilice [Kubernetes habilitado para Arc y la extensión de Azure Defender](../articles/security-center/defender-for-kubernetes-azure-arc.md).
+* **Nivel de clúster (proporcionado por Azure Defender para Kubernetes)** : en el nivel de clúster, la protección contra amenazas consiste en analizar los registros de auditoría de Kubernetes. Para habilitar esta supervisión **sin agente**, habilite Azure Defender. Si su clúster es local o reside en otro proveedor de nube, utilice [Kubernetes habilitado para Azure Arc y la extensión de Azure Defender](../articles/security-center/defender-for-kubernetes-azure-arc.md).
 
     Para generar alertas en este nivel, Azure Defender supervisa los registros de los clústeres. Entre los ejemplos de eventos en este nivel se incluyen los paneles de Kubernetes expuestos y la creación de roles con privilegios elevados y de montajes confidenciales.
 

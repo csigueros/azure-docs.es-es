@@ -8,12 +8,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/25/2021
 ms.author: lajanuar
-ms.openlocfilehash: 6c768f18aa8e58ee82519a1b42c078685db25b0e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 48d8747883bfb3d47368d96cc2d4e52d07c599d9
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128652583"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715476"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -970,7 +970,7 @@ Este contenido JSON se ha abreviado para facilitar la lectura. Consulte la [sali
 
 ## <a name="analyze-identity-id-documents"></a>Análisis de documentos de identidad (ID)
 
-Para empezar a analizar un documento de identificación, use el siguiente comando de cURL. Para más información sobre el análisis de documentos de identificación, consulte la [guía conceptual de documentos de identificación](../../concept-identification-cards.md). Para empezar a analizar un documento de identidad, llame a la API **[Analyze ID Document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707)** mediante el comando de cURL siguiente. Antes de ejecutar el comando, realice estos cambios:
+Para empezar a analizar un documento de identificación, use el siguiente comando de cURL. Para más información sobre el análisis de documentos de identidad, consulte la [guía conceptual de documentos de identidad](../../concept-identification-cards.md). Para empezar a analizar un documento de identidad, llame a la API **[Analyze ID Document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707)** mediante el comando de cURL siguiente. Antes de ejecutar el comando, realice estos cambios:
 
 1. Reemplace `{endpoint}` por el punto de conexión que obtuvo con la suscripción de Form Recognizer.
 1. Reemplace `{your ID document URL}` por la dirección URL de una imagen del recibo.
@@ -979,7 +979,7 @@ Para empezar a analizar un documento de identificación, use el siguiente comand
 #### <a name="request"></a>Solicitud
 
 ```bash
-curl -i -X POST "https://{endpoint}/formrecognizer/v2.1/prebuilt/idDocument/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your identity document URL}'}"
+curl -i -X POST "https://{endpoint}/formrecognizer/v2.1/prebuilt/idDocument/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your ID document URL}'}"
 ```
 
 #### <a name="operation-location"></a>Operation-Location
@@ -1012,10 +1012,10 @@ curl -X GET "https://{endpoint}/formrecognizer/v2.1/prebuilt/businessCard/analyz
 
 Recibirá una respuesta `200 (Success)` con la salida JSON. El primer campo, `"status"`, indica el estado de la operación. Si la operación no está completa, el valor de `"status"` será `"running"` o `"notStarted"`, y debe llamar a la API de nuevo, ya sea manualmente o mediante un script hasta que reciba el valor `succeeded`. Se recomienda un intervalo de uno o varios segundos entre llamadas.
 
-* El campo `"readResults"` contiene todas las líneas de texto que se extrajeron del documento de identificación.
+* El campo `"readResults"` contiene todas las líneas de texto que se extrajeron del documento de identidad.
 * El campo `"documentResults"` contiene una matriz de objetos, donde cada uno de los cuales representa un documento de identificación detectado en el documento de entrada.
 
-A continuación se muestra un documento de identificación de ejemplo y su salida JSON correspondiente
+A continuación se muestra un documento de identidad de ejemplo y su salida JSON correspondiente
 
 * :::image type="content" source="https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/id-license.jpg" alt-text="permiso de conducir de ejemplo":::
 
@@ -1572,7 +1572,7 @@ Recibirá una respuesta `204` de operación correcta que indica que el modelo es
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha usado la API REST de Form Recognizer para entrenar modelos y analizar formularios de maneras diferentes. A continuación, explore la documentación de referencia para encontrar más información sobre la API de Form Recognizer.
+En este inicio rápido, ha usado la API REST de Form Recognizer para analizar formularios de maneras diferentes. A continuación, explore la documentación de referencia para encontrar más información sobre la API de Form Recognizer.
 
 > [!div class="nextstepaction"]
 > [Documentación de referencia de API REST](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)

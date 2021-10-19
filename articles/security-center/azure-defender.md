@@ -3,16 +3,16 @@ title: Introducción a Azure Defender y los planes disponibles
 description: Conozca los planes, las protecciones y las alertas de Azure Defender. A continuación, habilite Azure Defender en sus suscripciones para la seguridad avanzada.
 author: memildin
 ms.author: memildin
-ms.date: 9/30/2020
+ms.date: 10/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: cfbb8badd4a0d9a8b9776d810d33f77a051b3a39
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 34d450535b25b8d3ba1bcc69b54a27d6aab73115
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112238973"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715399"
 ---
 # <a name="introduction-to-azure-defender"></a>Introducción a Azure Defender
 
@@ -57,7 +57,7 @@ Además de defender su entorno de Azure, puede agregar funcionalidades de Azure 
 
 Obtenga inteligencia personalizada sobre las amenazas y alertas prioritarias según su entorno específico para que pueda centrarse en lo que más le importa.
 
-Para ampliar la protección a las máquinas virtuales y a las base de datos SQL que estén en otras nubes o en el entorno local, implemente [Azure Arc](https://azure.microsoft.com/services/azure-arc/) y habilite Azure Defender. Azure Arc para servidores es un servicio gratuito, pero los servicios que se usan en servidores habilitados para Arc, por ejemplo, Azure Defender, se cobran según los precios de ese servicio. Obtenga más información en [Incorporación de máquinas que no sean de Azure con Azure Arc](quickstart-onboard-machines.md#add-non-azure-machines-with-azure-arc).
+Para ampliar la protección a las máquinas virtuales y a las base de datos SQL que estén en otras nubes o en el entorno local, implemente [Azure Arc](https://azure.microsoft.com/services/azure-arc/) y habilite Azure Defender. Azure Arc para servidores es un servicio gratuito, pero los servicios que se usan en servidores habilitados para Azure Arc, por ejemplo, Azure Defender, se cobran según los precios de ese servicio. Obtenga más información en [Incorporación de máquinas que no sean de Azure con Azure Arc](quickstart-onboard-machines.md#add-non-azure-machines-with-azure-arc).
 
 > [!TIP]
 > El conector nativo para AWS controla de forma transparente la implementación de Azure Arc. Obtenga más información en [Conexión de las cuentas de AWS a Azure Security Center](quickstart-onboard-aws.md).
@@ -84,13 +84,18 @@ Use los iconos de protección avanzada del panel de Azure Defender para supervis
 
 ## <a name="vulnerability-assessment-and-management"></a>Evaluación y administración de vulnerabilidades
 
-Azure Defender incluye el examen de vulnerabilidades de las máquinas virtuales y de los registros de contenedor sin costo adicional. Los exámenes se basan en la tecnología de Qualys, pero no se necesita ninguna licencia ni cuenta de Qualys, ya que todo se administra íntegramente en Security Center. 
+Azure Defender incluye la evaluación de vulnerabilidades de las máquinas virtuales y de los registros de contenedor sin costo adicional. Algunos de los exámenes se basan en la tecnología de Qualys, pero no se necesita ninguna licencia ni cuenta de Qualys, ya que todo se administra íntegramente en Security Center. 
+
+Si ha habilitado la [integración con Microsoft Defender para punto de conexión](security-center-wdatp.md), tendrá acceso a los hallazgos relacionados con vulnerabilidades de la **Administración de amenazas y vulnerabilidades de Microsoft**. Obtenga más información en [Investigación de puntos débiles con la solución de administración de amenazas y vulnerabilidades de Microsoft Defender para punto de conexión](deploy-vulnerability-assessment-tvm.md).
 
 Revise los resultados de estos exámenes de vulnerabilidades y responda a todos ellos desde Security Center. De esta forma, Security Center se aproxima a convertirse en el panel por excelencia para todos los trabajos de seguridad en la nube.
 
+> [!IMPORTANT]
+> La integración de Security Center con Microsoft Defender para punto de conexión está habilitada de forma predeterminada. Por lo tanto, al habilitar Azure Defender, da su consentimiento para Azure Defender para que los servidores accedan a los datos de Microsoft Defender para punto de conexión relacionados con vulnerabilidades, software instalado y alertas de sus puntos de conexión.
+
 Más información en las siguientes páginas:
 
-- [Solución de evaluación de vulnerabilidades integrada en Security Center para Azure Virtual Machines](deploy-vulnerability-assessment-vm.md)
+- [Detector de Qualys integrado en Azure Defender para Azure y máquinas híbridas](deploy-vulnerability-assessment-vm.md)
 - [Identificación de vulnerabilidades en las imágenes de los registros de contenedor de Azure](defender-for-container-registries-usage.md#identify-vulnerabilities-in-images-in-other-container-registries)
 
 

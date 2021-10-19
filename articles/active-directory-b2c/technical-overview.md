@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 10/01/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0aad268f8721d2f4747c4e3dec3860e52dd7112a
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 8f5cbcefa37df245f025895f421df4c4c7907ff4
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129352807"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709982"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Introducción a los aspectos técnicos y las características de Azure Active Directory B2C
 
@@ -299,6 +299,12 @@ Azure AD B2C permite detectar cuándo los usuarios se registran o inician sesi�
 Al integrar Azure Application Insights en las directivas personalizadas de Azure AD B2C, puede sacar conclusiones sobre cómo cada usuario se registra, inicia sesión, restablece su contraseña o edita su perfil. Con este conocimiento, puede tomar decisiones basadas en los datos de cara a los próximos ciclos de desarrollo.
 
 Para más información, consulte [Seguimiento del comportamiento del usuario en Azure Active Directory B2C mediante Application Insights](analytics-with-application-insights.md).
+
+## <a name="automation-using-microsoft-graph-api"></a>Automatización mediante Microsoft Graph API
+
+Use MS Graph API para administrar el directorio de Azure AD B2C. También puede crear el directorio de Azure AD B2C. Puede administrar usuarios, proveedores de identidades, flujos de usuario, directivas personalizadas, etc. 
+
+Obtenga más información sobre cómo [administrar Azure AD B2C con Microsoft Graph](microsoft-graph-operations.md). 
 
 ## <a name="azure-ad-b2c-service-limits-and-restrictions"></a>Restricciones y límites del servicio de Azure AD B2C
 Obtenga más información sobre las [Restricciones y límites del servicio de Azure AD B2C](service-limits.md).

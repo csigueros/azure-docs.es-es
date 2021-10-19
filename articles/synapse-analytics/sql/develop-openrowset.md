@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 578ff0997375b62b3fd5a90ec44967ead1b9cd63
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 392d457ead16d0bcfc057282886669a01e24ff3e
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123253809"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129730382"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Uso de OPENROWSET con un grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -98,6 +98,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 [ , HEADER_ROW = { TRUE | FALSE } ]
 [ , DATAFILETYPE = { 'char' | 'widechar' } ]
 [ , CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' } ]
+[ , ROWSET_OPTIONS = '{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}' ]
 ```
 
 ## <a name="arguments"></a>Argumentos
@@ -242,15 +243,19 @@ Detalles de la versión 2.0 del analizador de CSV:
 
 HEADER_ROW = { TRUE | FALSE }
 
-Especifica si el archivo .csv contiene una fila de encabezado. El valor predeterminado es FALSE. Se admite en PARSER_VERSION='2.0'. Si es TRUE, los nombres de columna se leerán de la primera fila según el argumento FIRSTROW. Si es TRUE y el esquema se especifica mediante WITH, el enlace de los nombres de columna se realizará por nombre de columna, no por posiciones ordinales.
+Especifica si un archivo .csv contiene una fila de encabezado. El valor predeterminado es `FALSE.` Se admite en PARSER_VERSION='2.0'. Si es TRUE, los nombres de columna se leerán de la primera fila según el argumento FIRSTROW. Si es TRUE y el esquema se especifica mediante WITH, el enlace de los nombres de columna se realizará por nombre de columna, no por posiciones ordinales.
 
 DATAFILETYPE = { 'char' | 'widechar' }
 
-Especifica que se usa la codificación char para archivos UTF8 y WideChar para archivos UTF16.
+Especifica que se usa la codificación `char` para archivos UTF8 y `widechar` para archivos UTF16.
 
 CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' }
 
 Especifica la página de códigos de los datos incluidos en el archivo de datos. El valor predeterminado es 65001 (codificación UTF-8). Obtenga más información sobre esta opción [aquí](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15&preserve-view=true#codepage).
+
+ROWSET_OPTIONS = '{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}'
+
+Esta opción deshabilitará la comprobación de modificación de archivos durante la ejecución de la consulta y leerá los archivos que se actualizan mientras se ejecuta la consulta. Esta opción es útil cuando tiene que leer archivos de solo anexión que se anexan mientras se ejecuta la consulta. En los archivos anexables, el contenido existente no se actualiza y solo se agregan nuevas filas. Por lo tanto, se reduce la probabilidad de resultados incorrectos en comparación con los archivos actualizables. Esta opción podría permitirle leer los archivos anexados con frecuencia sin necesidad de administrar los errores. Consulte más información en la sección [Consulta de archivos anexables](query-single-csv-file.md#querying-appendable-files).
 
 ## <a name="fast-delimited-text-parsing"></a>Análisis de texto delimitado rápido
 
@@ -260,9 +265,9 @@ Hay dos versiones de analizador de texto delimitado que se pueden usar. La versi
 
 Puede consultar fácilmente archivos con formato .csv y Parquet sin necesidad de conocer o especificar el esquema; para ello, omita la cláusula WITH. Los nombres de columna y los tipos de datos se inferirán de los archivos.
 
-Los archivos con formato Parquet contienen metadatos de columna que se leerán; las asignaciones de tipo se encuentran en [Asignaciones de tipos para Parquet](#type-mapping-for-parquet). Consulte [Lectura de archivos Parquet sin esquema específico](#read-parquet-files-without-specifying-schema) para ver ejemplos.
+Los archivos con formato Parquet contienen metadatos de columna que se leerán; las asignaciones de tipo se encuentran en [Asignación de tipos para Parquet](#type-mapping-for-parquet). Consulte [Lectura de archivos Parquet sin esquema específico](#read-parquet-files-without-specifying-schema) para ver ejemplos.
 
-Los nombres de columna de los archivos .csv se leen en la fila de encabezado. Se puede especificar si existe la fila de encabezado mediante el argumento HEADER_ROW. Si HEADER_ROW = FALSE, se usarán los nombres de columna genéricos: C1, C2,... Cn, donde n es el número de columnas del archivo. Los tipos de datos se inferirán de las primeras 100 filas de datos. Consulte [Lectura de archivos .csv sin esquema específico](#read-csv-files-without-specifying-schema) para ejemplos.
+En el caso de los archivos .csv, los nombres de columna se leen de la fila de encabezado. Se puede especificar si existe la fila de encabezado mediante el argumento HEADER_ROW. Si HEADER_ROW = FALSE, se usarán los nombres de columna genéricos: C1, C2,... Cn, donde n es el número de columnas del archivo. Los tipos de datos se inferirán de las primeras 100 filas de datos. Consulte [Lectura de archivos .csv sin esquema específico](#read-csv-files-without-specifying-schema) para ejemplos.
 
 > [!IMPORTANT]
 > A veces no se puede inferir el tipo de datos adecuado por la falta de información; en este caso, se usa un tipo de datos mayor en su lugar. Esto aporta un rendimiento extra y es especialmente importante para las columnas de caracteres que se infieren, como varchar (8000). Para obtener un rendimiento óptimo, consulte [Comprobación de los tipos de datos inferidos](./best-practices-serverless-sql-pool.md#check-inferred-data-types) y [Uso del tipo de datos adecuado](./best-practices-serverless-sql-pool.md#use-appropriate-data-types).

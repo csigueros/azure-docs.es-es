@@ -1,0 +1,99 @@
+### YamlMime:FAQ
+metadata:
+  title: Preguntas frecuentes sobre la configuración de ofertas privadas de proveedores de software independientes a revendedores en la nube
+  description: Obtenga información sobre cómo configurar ofertas privadas de proveedores de software independientes a revendedores en la nube en el Centro de partners.
+  ms.service: marketplace
+  ms.subservice: partnercenter-marketplace-publisher
+  ms.topic: troubleshooting
+  ms.date: 10/07/2021
+  author: emerb19
+  ms.author: emerb
+  ms.openlocfilehash: e5409eae75ec9bf5d78cbc46a2efee24ee4fefa9
+  ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 10/09/2021
+  ms.locfileid: "129715732"
+title: Preguntas comunes sobre la configuración de ofertas privadas de proveedores de software independientes a revendedores en la nube
+summary: En este artículo se abordan preguntas sobre la configuración de ofertas privadas de proveedores de software independientes (ISV) a revendedores en la nube.
+sections:
+- name: Configuración de una oferta privada
+  questions:
+  - question: ¿Para qué tipos de ofertas pueden extender los ISV una oferta privada?
+    answer: >
+      La oferta debe ser comercializable y aceptarse para su venta mediante el canal del Proveedor de soluciones en la nube (CSP). Esto es aplicable a los tipos de ofertas basadas en licencias y basadas en consumo.
+  - question: ¿Negocia cada partner de CSP un margen con un ISV o el ISV simplemente aplica un margen global a todos los partners de CSP?
+    answer: "Los ISV y los partners de CSP deben negociar el margen. Los ISV también pueden proporcionar un margen sin consultar con un partner de CSP. Hay un límite de 400 inquilinos de CSP por oferta. \n"
+  - question: ¿Cuál es la duración de la oferta privada? ¿Es igual que el período de la oferta?
+    answer: >
+      Cada oferta privada tiene una fecha de inicio y finalización. Para los tipos de oferta con facturación mensual y período, el margen se aplica hasta la fecha de finalización de la oferta privada. En el siguiente evento de facturación después de la fecha de finalización de la oferta privada, se cobrará al partner de CSP el precio sin margen a menos que el ISV haya creado una nueva oferta privada para esa oferta y partner de CSP.
+
+
+      Para el período anual (facturación anual), se cobrará al CSP el precio con el margen aplicado si el evento de facturación se produce durante el período de la oferta privada.
+
+
+      Actualmente no hay ofertas con período anual de facturación mensual.
+  - question: ¿Puede el ISV aplicar el margen a nivel de cliente o solo a nivel de partner de CSP?
+    answer: >
+      El margen se aplica a nivel de inquilino de partner de CSP. El partner de CSP recibirá un margen para cualquier transacción que realice para cualquier cliente. La aplicación de un margen a nivel de cliente (cliente de un partner de CSP) se está considerando para una fase futura.
+  - question: ¿El ISV tiene que crear una oferta privada en cada región?
+    answer: "No. Cuando un ISV publica una oferta, elige en qué países se puede vender la oferta. Cuando un ISV crea una oferta privada para un partner de CSP, puede elegir inquilinos de CSP de cualquier región de la misma oferta privada. \n"
+  - question: ¿Puede un ISV proporcionar porcentajes de margen diferentes a partners de CSP distintos?
+    answer: >
+      Sí, el ISV puede configurar un margen a nivel de oferta o plan por partner de CSP. Los márgenes porcentuales diferentes requieren ofertas privadas distintas.
+  - question: Una vez creada, ¿cuánto tiempo transcurre hasta que una oferta privada se activa?
+    answer: >
+      Depende. Si se ha aceptado la oferta y el ISV ya ha seleccionado el partner de CSP para vender su oferta, el cambio será casi inmediato (en un máximo de 15 minutos). Puede haber un tiempo de espera más largo (hasta seis horas) si la oferta debe aceptarse para poder venderse mediante CSP o si es necesario autorizar al partner de CSP para vender la oferta del ISV.
+  - question: ¿Qué ocurre si un ISV intenta proporcionar un margen a un partner de CSP que este no ha aceptado o una oferta que este no ha aceptado para venderla mediante CSP?
+    answer: >
+      La creación de una oferta privada para un CSP que no haya seleccionado para vender la oferta permitirá automáticamente que ese CSP pueda vender su oferta. De forma similar, si no se ha aceptado una oferta para venderse mediante CSP y el ISV crea un margen para un CSP, esa oferta se aceptará en el CSP para venderse solo mediante ese CSP (no todos los CSP).
+  - question: Si un ISV busca pero no encuentra un partner al que proporcionar un margen, ¿se puede agregar?
+    answer: >
+      No. Los partners deben formar parte del programa CSP de Microsoft y deben ser CSP directos o proveedores indirectos para que se les pueda proporcionar un margen. Si un partner no aparece en la búsqueda, es probable que no sea parte del programa CSP de Microsoft o que sea un revendedor indirecto. Los partners de CSP pueden consultar información sobre cómo inscribirse en el programa en [Inscribirse en el programa Proveedor de soluciones en la nube](/partner-center/enrolling-in-the-csp-program.md).
+  - question: Si un ISV trabaja con un revendedor indirecto que compra a través de un distribuidor o un proveedor indirecto, ¿cómo puede un ISV vender su oferta a través del revendedor indirecto?
+    answer: >
+      El ISV tendrá que seleccionar el proveedor indirecto al que compra el revendedor indirecto y el proveedor indirecto tendrá que elegir si quiere vender la oferta del ISV a través de sus revendedores indirectos.
+
+
+      Un ISV no puede proporcionar una oferta privada o margen a un revendedor indirecto directamente, pero el proveedor indirecto puede decidir pasar un margen a su revendedor indirecto.
+  - question: Si un ISV ha aceptado vender a todos los partners de CSP, ¿puede proporcionar un margen solo a un grupo determinado de partners de CSP?
+    answer: >
+      Sí. Hay un límite de 400 inquilinos de CSP por oferta.
+  - question: Si un ISV decide agregar un margen a nivel de oferta, ¿incluye todos los planes de la oferta?
+    answer: >
+      Sí, se incluirán todos los planes existentes y futuros de la oferta seleccionada.
+  - question: ¿A qué tipos de partners se aplica el límite de 400 inquilinos de CSP?
+    answer: "Este límite se aplica al número de inquilinos de partners de CSP de proveedor indirecto y factura directa. Si un proveedor indirecto tiene miles de revendedores indirectos, esos inquilinos no cuentan para el límite total. \n"
+- name: Edición de una oferta privada
+  questions:
+  - question: ¿Qué ocurre si un ISV quiere cambiar el período de una oferta privada?
+    answer: >
+      Una vez que un ISV ha ampliado una oferta privada, no puede modificar el período de la oferta privada antes de la fecha de finalización ni cambiar la fecha de finalización. Una vez que el partner de CSP recibe una oferta privada, se bloquea hasta su fecha de finalización.
+
+
+      Si el ISV agrega una nueva oferta privada que proporciona al partner de CSP un mayor porcentaje de margen y el período se solapa con la oferta actual, se aplicará el porcentaje de margen más alto.
+  - question: ¿Se puede cancelar una oferta privada?
+    answer: >
+      Un ISV podrá solicitar la cancelación o retirada de una oferta privada. Si el partner de CSP aún no ha comercializado la oferta, se aprobará esta solicitud.
+
+
+      Si el asociado de CSP la ha comercializado para su cliente, el ISV no podrá cancelar la oferta privada antes de la finalización del período.
+  - question: Si el ISV ha cometido un error y ha creado una oferta privada con un porcentaje de margen incorrecto, ¿puede editarla?
+    answer: >
+      Una vez enviada la oferta privada, no se puede editar hasta la finalización del período. El ISV solo puede solicitar la cancelación (mediante una solicitud de retirada) de la oferta privada original si el partner de CSP aún no ha comercializado la oferta.
+  - question: ¿Puede un ISV quitar a un partner de CSP de una oferta privada existente?
+    answer: "No, un ISV no puede quitar a un partner de CSP si este ha comercializado una oferta.\n\nSi ningún partner ha comercializado una oferta de la oferta privada original, el ISV puede crear una nueva oferta privada excluyendo al CSP que desea quitar. A continuación, deberá cancelar la oferta privada original. \n\nSi otro partner de CSP de la oferta privada ha comercializado la oferta, pero el CSP que se desea quitar no lo ha hecho, el ISV puede crear una nueva oferta privada sin el CSP que desea quitar. A continuación, puede cancelar la oferta privada original mediante la funcionalidad de retirada. \n"
+  - question: ¿Puede el ISV agregar más partners a una oferta privada existente?
+    answer: >
+      No. El ISV deberá crear una nueva oferta privada para agregar un nuevo partner de CSP.
+  - question: ¿Cómo puede un ISV extender la fecha de finalización de una oferta privada existente?
+    answer: "No se puede extender la fecha de finalización de una oferta privada existente. El partner de ISV deberá crear una nueva oferta privada. \n"
+- name: Posterior a la adquisición
+  questions:
+  - question: Si hay cargos de consumo de Azure asociados, ¿el margen también se aplica a esos cargos?
+    answer: >
+      No, el margen solo se aplica al precio del software establecido por el ISV para su producto, no a los cargos de consumo de Azure asociados.
+  - question: ¿Qué ocurre si el partner de CSP aumenta los puestos para un cliente con una suscripción anual una vez expirada una oferta privada?
+    answer: "*Las suscripciones anuales solo se aplican a las ofertas basadas en derechos*.\n\nLos nuevos puestos agregados seguirán teniendo el precio con descuento al comprar la suscripción durante el período de la oferta privada original. Esto se prolonga hasta la finalización del período de suscripción anual. \n\nSi el partner de CSP aumenta los puestos de ofertas con facturación de uso medido, los precios de la parte basada en derechos de los cargos mantendrán el descuento hasta la finalización del período de suscripción anual, pero el margen aplicado al precio de la facturación de uso medido no se mantendrá después del período final de la oferta privada. La solución alternativa es que los ISV creen una nueva oferta privada para ese partner de CSP hasta la finalización del período de suscripción.\n\nEl mismo concepto es aplicable a las suscripciones mensuales (y a la facturación). Si una oferta privada finaliza en un mes, se cobrará al partner de CSP el precio completo el mes siguiente.\n\nLa fecha de finalización de una oferta privada siempre es el final del mes.\n"
+  - question: ¿Cómo se verán afectados los informes de pago por el margen?
+    answer: No habrá ningún cambio en la representación de los informes de pago. El importe del pago y la precio de agencia que cobra Microsoft se basarán en el precio después de aplicar el margen para los artículos de línea que tienen el margen asociado.

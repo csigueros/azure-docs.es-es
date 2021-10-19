@@ -4,15 +4,15 @@ description: Aprenda a crear y administrar una oferta de SaaS en Microsoft AppSo
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 06/10/2020
+ms.date: 10/08/2021
 author: saasguide
 ms.author: souchak
-ms.openlocfilehash: 194d9465d43de33f1f05e9587d2e166e9d2831f1
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: c420a2fd947e32acb0cce9a6ce4a73ddd1d2a3bd
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129455140"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129729147"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>API de cumplimiento de SaaS versión 2 en el marketplace comercial
 
@@ -30,11 +30,11 @@ En el diagrama siguiente se muestran los estados de una suscripción de SaaS y l
 
 #### <a name="purchased-but-not-yet-activated-pendingfulfillmentstart"></a>Comprada pero todavía no activada (*PendingFulfillmentStart*)
 
-Después de que un usuario final (o CSP) compre una oferta de SaaS en el marketplace comercial, el editor debe recibir una notificación de la compra. Después, el editor puede crear y configurar una nueva cuenta de SaaS en el lado del editor para el usuario final.
+Después de que un usuario final o un proveedor de soluciones en la nube (CSP) compre una oferta de SaaS en el marketplace comercial, el editor debe recibir una notificación de la compra. Después, el editor puede crear y configurar una nueva cuenta de SaaS en el lado del editor para el usuario final.
 
 Para que tenga lugar la creación de una cuenta:
 
-1. El cliente selecciona el botón **Configurar** que está disponible para una oferta de SaaS después de realizar la compra correctamente en Microsoft AppSource o Azure Portal. Como alternativa, el cliente puede usar el botón **Configurar** en el correo electrónico que recibirá poco después de la compra.
+1. El cliente selecciona el botón **Configure account now** (Configurar cuenta ahora), que está disponible para una oferta de SaaS después de realizar la compra correctamente en Microsoft AppSource o Azure Portal. Como alternativa, el cliente puede usar el botón **Configurar ahora** en el correo electrónico que recibirá poco después de la compra.
 2. Después, Microsoft notifica al partner la compra, para lo que abre en la nueva pestaña del explorador la dirección URL de la página de aterrizaje con el parámetro token (el token de identificación de la compra del marketplace comercial).
 
 Un ejemplo de este tipo de llamada es `https://contoso.com/signup?token=<blob>`, donde la dirección URL de la página de aterrizaje de esta oferta de SaaS en el Centro de partners está configurada como `https://contoso.com/signup`. Este token proporciona al editor un identificador que distingue de forma única la compra de SaaS y el cliente.
@@ -84,7 +84,7 @@ Solo se puede actualizar una suscripción activa. Mientras se actualiza la suscr
 
 En este flujo, el cliente cambia el plan de suscripción o la cantidad de puestos desde Azure Portal o el Centro de administración de Microsoft 365.
 
-1. Tras introducir una actualización, Microsoft llama a la dirección URL del webhook del editor, configurada en el campo **Webhook de conexión** del Centro de partners, con un valor adecuado para el parámetro *action* y otros pertinentes. 
+1. Tras introducir una actualización, Microsoft llama a la dirección URL del webhook del editor, configurada en el campo **Webhook de conexión** de la página _Technical configuration_ (Configuración técnica) del Centro de partners, con un valor adecuado para el parámetro *action* y otros pertinentes.
 1. El lado del editor debe realizar los cambios necesarios en el servicio de SaaS y notificar a Microsoft cuando finalice mediante una llamada a la [API Update Status of Operation](#update-the-status-of-an-operation).
 1. Si se envía la revisión con un estado de *error*, el proceso de actualización no se completará en el lado de Microsoft. La suscripción de SaaS se quedará con la cantidad de puestos y el plan existentes.
 
@@ -101,7 +101,7 @@ En este flujo, el cliente cambia el plan de suscripción o la cantidad de puesto
 
 1. El código del editor debe llamar a la [API Change Plan](#change-the-plan-on-the-subscription) o a la [API Change Quantity](#change-the-quantity-of-seats-on-the-saas-subscription) antes de efectuar el cambio solicitado en el lado del editor. 
 
-1. Microsoft aplicará el cambio a la suscripción y, luego, enviará una notificación al editor a través del **webhook de conexión** para aplicar el mismo cambio.
+1. Microsoft aplicará el cambio a la suscripción y, luego, enviará una notificación al editor a través del campo **Webhook de conexión** para aplicar el mismo cambio.
 
 1. Solo entonces el editor debe realizar el cambio necesario en la suscripción de SaaS y notificar a Microsoft cuando se efectúe el cambio mediante una llamada a la [API Update Status of Operation](#update-the-status-of-an-operation).
 
@@ -728,8 +728,6 @@ Código: 500 Error interno del servidor. Vuelva a intentar la llamada API.  Si e
 
 Obtiene una lista de las operaciones pendientes para la suscripción de SaaS especificada.  El editor debe confirmar las operaciones devueltas mediante una llamada a la [API Operation Patch](#update-the-status-of-an-operation).
 
-Actualmente, solo se devuelven las **operaciones de restablecimiento** como respuesta para esta llamada API.
-
 ##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsapi-versionapiversion"></a>Get `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`
 
 *Parámetros de consulta*:
@@ -750,7 +748,7 @@ Actualmente, solo se devuelven las **operaciones de restablecimiento** como resp
 
 *Códigos de respuesta*:
 
-Código: 200 Devuelve una operación de restablecimiento pendiente en la suscripción de SaaS especificada.
+Código: 200 Devuelve operaciones pendientes en la suscripción de SaaS especificada.
 
 *Ejemplo de carga de respuesta:*
 
@@ -773,7 +771,7 @@ Código: 200 Devuelve una operación de restablecimiento pendiente en la suscrip
 }
 ```
 
-Devuelve JSON vacío si no hay ninguna operación de restablecimiento pendiente.
+Devuelve JSON vacío si no hay operaciones pendientes.
 
 Código: 400 Solicitud incorrecta: errores de validación.
 
@@ -899,10 +897,10 @@ Código: 500 Error interno del servidor.  Vuelva a intentar la llamada API.  Si 
 
 ## <a name="implementing-a-webhook-on-the-saas-service"></a>Implementación de un webhook en el servicio de SaaS
 
-Al crear una oferta de SaaS comercializable en el Centro de partners, el partner proporciona la dirección URL del **webhook de conexión** que se va a usar como punto de conexión HTTP.  Microsoft llama a este webhook mediante la llamada HTTP POST para notificar al lado del editor los siguientes eventos que se producen en el lado de Microsoft:
+Al crear una oferta de SaaS comercializable en el Centro de partners, el partner proporciona la dirección URL del campo **Webhook de conexión** que se va a usar como punto de conexión HTTP.  Microsoft llama a este webhook mediante la llamada HTTP POST para notificar al lado del editor los siguientes eventos que se producen en el lado de Microsoft:
 
 * Cuando la suscripción de SaaS se encuentra en el estado *Suscrito*:
-    * ChangePlan 
+    * ChangePlan
     * ChangeQuantity
     * Suspender
     * Cancelar suscripción

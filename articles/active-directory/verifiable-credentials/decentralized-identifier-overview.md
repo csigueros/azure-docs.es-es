@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/01/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: 1203562d088efeafd20a0b6c58698fcfe10b79e6
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ffa5aae5e45583385d7849637665a053ef0b9a2f
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124816192"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129729584"
 ---
 # <a name="introduction-to-azure-active-directory-verifiable-credentials-preview"></a>Introducción a Azure Active Directory Verifiable Credentials (versión preliminar)
 
@@ -81,7 +81,7 @@ Para cumplir estas promesas, necesitamos una base técnica compuesta de siete in
 
 **4. Microsoft Resolver**. Una API que se conecta a nuestro nodo de ION para buscar y resolver identidades descentralizadas mediante el método ```did:ion``` y devolver el objeto de documento DID (DDO). El DDO incluye metadatos de DPKI asociados a la identidad descentralizada, como las claves públicas y los puntos de conexión de servicio. 
 
-**5. Servicio Azure Active Directory Verified Credentials**. Una API de emisión y comprobación y un SDK de código abierto para las credenciales [W3C Verifiable Credentials](https://www.w3.org/TR/vc-data-model/) firmadas con el método ```did:ion```. Permiten a los propietarios de identidad generar, presentar y comprobar las notificaciones. Esto constituye la base de la confianza entre los usuarios de los sistemas.
+**5. Servicio Azure Active Directory Verified Credentials**. Un servicio de emisión y comprobación de Azure y una API REST para las credenciales [W3C Verifiable Credentials](https://www.w3.org/TR/vc-data-model/) firmadas con el método ```did:ion```. Permiten a los propietarios de identidad generar, presentar y comprobar las notificaciones. Esto constituye la base de la confianza entre los usuarios de los sistemas.
 
 ## <a name="a-sample-scenario"></a>Un escenario de ejemplo
 

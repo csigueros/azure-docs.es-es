@@ -1,27 +1,29 @@
 ---
-title: Introducción a Azure IoT Hub Device Provisioning Service | Microsoft Docs
+title: Introducción a Microsoft Azure IoT Hub Device Provisioning Service
 description: Describe el aprovisionamiento de dispositivos en Azure con servicio Device Provisioning Service (DPS) e IoT Hub
-author: wesmc7777
-ms.author: wesmc
-ms.date: 04/04/2019
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 10/06/2021
 ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
-manager: eliotgra
+manager: lizross
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: d65ef555ff0f05ca8020b3598bc6ac3022a708dd
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: eab01abee0ee75df0e342aa7cec1ef7e6c8a4b55
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129272725"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659514"
 ---
 # <a name="what-is-azure-iot-hub-device-provisioning-service"></a>¿Qué es Azure IoT Hub Device Provisioning Service?
+
 Microsoft Azure proporciona un amplio conjunto de servicios públicos en la nube integrados para todas las necesidades de su solución de IoT. IoT Hub Device Provisioning Service (DPS) es un servicio auxiliar para IoT Hub que habilita el aprovisionamiento sin interacción Just-In-Time a la instancia correcta del centro de IoT sin necesidad de intervención humana. DPS habilita el aprovisionamiento de millones de dispositivos de forma segura y escalable.
 
 ## <a name="when-to-use-device-provisioning-service"></a>Cuándo se debe usar el servicio Device Provisioning
+
 Hay muchos escenarios de aprovisionamiento en los que DPS es una excelente opción para conectar dispositivos y configurarlos para IoT Hub como, por ejemplo:
 
 * Aprovisionamiento sin intervención del usuario en una única solución de IoT sin codificar la información de conexión de IoT Hub instalada de fábrica (configuración inicial)
@@ -31,6 +33,14 @@ Hay muchos escenarios de aprovisionamiento en los que DPS es una excelente opci�
 * Conexión de un dispositivo a la instancia de IoT Hub con la latencia más baja (particionamiento geográfico)
 * Reaprovisionamiento basado en un cambio del dispositivo
 * Reversión de las claves utilizadas por el dispositivo para conectarse a IoT Hub (si no utiliza certificados X.509 para conectarse)
+
+>[!NOTE]
+>**Consideración sobre la residencia de datos:**
+>
+>DPS usa el mismo [punto de conexión de aprovisionamiento de dispositivos](concepts-service.md#device-provisioning-endpoint) para todas las instancias del servicio de aprovisionamiento y realizará el equilibrio de carga del tráfico en el punto de conexión de servicio disponible más cercano. Como resultado, los secretos de autenticación se pueden transferir temporalmente fuera de la región donde se creó inicialmente la instancia de DPS. Sin embargo, una vez conectado el dispositivo, los datos del dispositivo fluirán directamente a la región original de la instancia de DPS.
+>
+>Para asegurarse de que los datos no salen de la región en la que se creó la instancia de DPS, use un punto de conexión privado.  Para más información sobre cómo configurar puntos de conexión privados, consulte [Compatibilidad de Azure IoT Hub Device Provisioning Service (DPS) con redes virtuales](virtual-network-support.md#private-endpoint-limitations).
+
 
 ## <a name="behind-the-scenes"></a>Entre bambalinas
 Todos los escenarios mencionados en la sección anterior se pueden realizar mediante DPS para el aprovisionamiento sin intervención del usuario con el mismo flujo. Muchos de los pasos manuales normalmente incluidos en el aprovisionamiento se automatizan con DPS para reducir el tiempo de implementación de los dispositivos de IoT y reducir el riesgo de error manual. La siguiente sección describe lo que ocurre en segundo plano a la hora de aprovisionar un dispositivo. El primer paso es manual pero todos los demás pasos se han automatizado.

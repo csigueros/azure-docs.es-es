@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/09/2021
 ms.author: memildin
-ms.openlocfilehash: ef37d84d2fcef851e13837ae40da14db9fb2412f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f2ab2dfeec7522599cfb8b3eccdf9b498fdfff32
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124777457"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713697"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Uso de controles de aplicaciones adaptables para reducir las superficies de ataque de las máquinas
 
@@ -244,7 +244,7 @@ Algunas de las funciones que están disponibles en la API REST:
 Actualmente no hay ninguna opción disponible. El fin de los controles de aplicaciones adaptables es generar **alertas de seguridad** si alguna aplicación ejecuta elementos que no son los que se han definido como seguros. Tienen una serie de ventajas ([¿Cuáles son las ventajas de los controles de aplicación adaptables?](#what-are-the-benefits-of-adaptive-application-controls)) y son extremadamente personalizables, como se muestra en esta página.
 
 ### <a name="why-do-i-see-a-qualys-app-in-my-recommended-applications"></a>¿Por qué veo una aplicación Qualys en mis aplicaciones recomendadas?
-[Azure Defender para servidores](defender-for-servers-introduction.md) incluye el examen de vulnerabilidades de las máquinas sin costo adicional. No se necesita ninguna licencia ni cuenta de Qualys, ya que todo se administra sin problemas en Security Center. Para obtener detalles de este escáner e instrucciones sobre cómo implementarlo, consulte [Solución de evaluación de vulnerabilidades integrada de Defender](deploy-vulnerability-assessment-vm.md).
+[Azure Defender para servidores](defender-for-servers-introduction.md) incluye el examen de vulnerabilidades de las máquinas sin costo adicional. No se necesita ninguna licencia ni cuenta de Qualys, ya que todo se administra sin problemas en Security Center. Para obtener detalles de este escáner e instrucciones sobre cómo implementarlo, consulte [Solución de evaluación de vulnerabilidades integrada en Azure Defender para Azure y máquinas híbridas](deploy-vulnerability-assessment-vm.md).
 
 Para asegurarse de que no se generan alertas al implementar Security Center el escáner, la lista de permitidos recomendados de controles de aplicaciones adaptables incluye el escáner para todas las máquinas. 
 

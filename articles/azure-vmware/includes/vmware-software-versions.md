@@ -3,15 +3,15 @@ title: Versiones de software de VMware
 description: Versiones de software de VMware compatibles con Azure VMware Solution.
 ms.topic: include
 ms.date: 07/20/2021
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.service: azure-vmware
-ms.openlocfilehash: c80aed722a58fd8178e78d1ea98b888abdd8b830
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1c773d723e9d43ee8a4ad0335c569dbf2e1f6388
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122228960"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129855083"
 ---
 <!-- Used in faq.md and concepts-private-clouds-clusters#host-maintenance-and-lifecycle-management -->
 
@@ -20,9 +20,9 @@ Las versiones de software de VMware utilizadas en las nuevas implementaciones de
 
 | Software              |    Versión   |
 | :---                  |     :---:    |
-| VCSA/vSphere/ESXi |    6.7 U3l   | 
-| ESXi                  |    6.7 U3l   | 
-| vSAN                  |    6.7 U3l   |
+| vCenter               |    6.7 U3o   | 
+| ESXi                  |    6.7 P05   | 
+| vSAN                  |    6.7 P05   |
 | HCX                   |    4.1       |
 | NSX-T <br />**NOTA:** : La única versión admitida de NSX es NSX-T.               |      [[!INCLUDE [nsxt-version](nsxt-version.md)]](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/rn/VMware-NSX-T-Data-Center-312-Release-Notes.html)     |
 

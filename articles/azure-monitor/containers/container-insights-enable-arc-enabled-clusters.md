@@ -5,30 +5,33 @@ ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Recopile métricas y registros de clústeres de Kubernetes habilitado para Azure Arc con Azure Monitor
-ms.openlocfilehash: 55beedec85b5e2a426954f179b738fcf81eb4982
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 1ece606aa3967d9fddaa5f964c43e24350610817
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109845751"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709729"
 ---
-# <a name="azure-monitor-container-insights-for-azure-arc-enabled-kubernetes-clusters"></a>Azure Monitor Container Insights para contenedores con clústeres de Kubernetes habilitado para Azure Arc
+# <a name="azure-monitor-container-insights-for-azure-arc-enabled-kubernetes-clusters"></a>Información del contenedor de Azure Monitor para clústeres de Kubernetes habilitado para Azure Arc
 
-[Azure Monitor Container Insights](container-insights-overview.md) proporciona una experiencia de supervisión enriquecida para clústeres de Kubernetes habilitado para Azure Arc.
+[Información del contenedor de Azure Monitor](container-insights-overview.md) proporciona una experiencia de supervisión enriquecida para clústeres de Kubernetes habilitado para Azure Arc.
 
 [!INCLUDE [preview features note](../../azure-arc/kubernetes/includes/preview/preview-callout.md)]
 
 ## <a name="supported-configurations"></a>Configuraciones admitidas
 
-- Azure Monitor Container Insights admite la supervisión de Kubernetes habilitado para Azure Arc (versión preliminar) tal y como se describe en el artículo [Introducción](container-insights-overview.md), excepto para la característica de datos en directo (versión preliminar). Además, no es necesario que los usuarios tengan permisos de [Propietario](../../role-based-access-control/built-in-roles.md#owner) para [habilitar las métricas](container-insights-update-metrics.md).
+- Información del contenedor de Azure Monitor admite la supervisión de Kubernetes habilitado para Azure Arc (versión preliminar) tal y como se describe en el artículo [Introducción](container-insights-overview.md), excepto para la característica de datos en directo (versión preliminar). Además, no es necesario que los usuarios tengan permisos de [Propietario](../../role-based-access-control/built-in-roles.md#owner) para [habilitar las métricas](container-insights-update-metrics.md).
 - `Docker`, `Moby` y entornos en tiempos de ejecución de contenedor compatibles con CRI, como `CRI-O` y `containerd`.
 - Se admiten un proxy de salida sin autenticación y un proxy de salida con autenticación básica. Actualmente no se admite un proxy de salida que espera certificados de confianza.
+
+>[!NOTE]
+> Información del contenedor de Azure Monitor actualmente no admite Kubernetes v1.22 o superior
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Ha cumplido los requisitos previos incluidos en la [documentación acerca de las extensiones de clúster genéricas](../../azure-arc/kubernetes/extensions.md#prerequisites).
 - Un área de trabajo de Log Analytics: Azure Monitor Container Insights admite un área de trabajo de Log Analytics en las regiones que se enumeran en la [página de productos por región](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor) de Azure. Puede usar [Azure Resource Manager](../logs/resource-manager-workspace.md), [PowerShell](../logs/powershell-sample-create-workspace.md) o [Azure Portal](../logs/quick-create-workspace.md) para crear su propia área de trabajo.
-- Debe tener una asignación de roles de [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) en la suscripción a Azure que contiene el recurso de Kubernetes habilitado para Azure Arc. Si el área de trabajo Log Analytics está en otra suscripción, se necesita la asignación de roles [Colaborador de Log Analytics](../logs/manage-access.md#manage-access-using-azure-permissions) en el área de trabajo de Log Analytics.
+- Debe tener una asignación de rol [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) en la suscripción a Azure que contiene el recurso de Kubernetes habilitado para Azure Arc. Si el área de trabajo Log Analytics está en otra suscripción, se necesita la asignación de roles [Colaborador de Log Analytics](../logs/manage-access.md#manage-access-using-azure-permissions) en el área de trabajo de Log Analytics.
 - Para ver los datos de supervisión, debe tener la asignación de roles [Lector de Log Analytics](../logs/manage-access.md#manage-access-using-azure-permissions) en el área de trabajo de Log Analytics.
 - Los siguientes puntos de conexión deben estar habilitados para el acceso de salida, además de los que se mencionan en [Conexión de un clúster de Kubernetes a Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md#meet-network-requirements).
 
@@ -40,7 +43,7 @@ ms.locfileid: "109845751"
     | `*.monitoring.azure.com` | 443 |
     | `login.microsoftonline.com` | 443 |
 
-    Si el recurso de Kubernetes habilitado para Arc está en el entorno de Azure US Government, es necesario habilitar los puntos de conexión siguientes para el acceso de salida:
+    Si el recurso de Kubernetes habilitado para Azure Arc está en el entorno de Azure US Government, es necesario habilitar los puntos de conexión siguientes para el acceso de salida:
 
     | Punto de conexión | Port |
     |----------|------|
@@ -130,7 +133,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 ### <a name="onboarding-from-the-azure-arc-enabled-kubernetes-resource-blade"></a>Incorporación desde la hoja de recursos de Kubernetes habilitado para Azure Arc
 
-1. En Azure Portal, seleccione el clúster de Kubernetes habilitado para Arc que quiere supervisar.
+1. En Azure Portal, seleccione el clúster de Kubernetes habilitado para Azure Arc que quiere supervisar.
 
 2. Seleccione el elemento "Insights (versión preliminar)" en la sección "Supervisión" de la hoja de recursos.
 
@@ -182,7 +185,7 @@ Si el clúster está desconectado de Azure durante > 48 horas, Azure Resource G
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Con la supervisión habilitada para recopilar el estado y el uso de recursos de su clúster de Kubernetes habilitado para Arc y las cargas de trabajo que se ejecutan en ellos, aprenda [cómo usar](container-insights-analyze.md) Container Insights.
+- Con la supervisión habilitada para recopilar el estado y el uso de recursos de su clúster de Kubernetes habilitado para Azure Arc y las cargas de trabajo que se ejecutan en ellos, aprenda [cómo usar](container-insights-analyze.md) Información del contenedor.
 
 - De forma predeterminada, el agente en contenedores recopila los registros de contenedor stdout y stderr de todos los contenedores que se ejecutan en todos los espacios de nombres excepto kube-system. Para configurar la recopilación de registros de contenedor específica de uno o varios espacios de nombres determinados, consulte [Configuración del agente de Container Insights](container-insights-agent-config.md) para configurar las opciones de recopilación de datos que desee en el archivo de configuraciones ConfigMap.
 

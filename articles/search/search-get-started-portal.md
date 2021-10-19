@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 08/24/2021
-ms.openlocfilehash: f9dacea4d80591b6ec5b83ae93564cd8b03aff9c
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 4af576587d5d0e87053fb31cdd2c1d073d1ea97e
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129212463"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714771"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en Azure Portal
 
 Cree su primer índice de búsqueda mediante el asistente para **importar datos** y un origen de datos de ejemplo integrado que consta de datos de hoteles ficticios. El asistente le guía en la creación de un índice de búsqueda (hotels-sample-index) para que pueda escribir consultas interesantes en cuestión de minutos. 
 
-Aunque no usará las opciones de este inicio rápido, el asistente incluye una página de enriquecimiento con IA que permite extraer texto y la estructura de archivos de imagen y texto no estructurado. Para ver un tutorial similar que incluye el enriquecimiento con IA, consulte [Inicio rápido: Creación de un conjunto de aptitudes cognitivas](cognitive-search-quickstart-blob.md).
+Aunque no usará las opciones de este inicio rápido, el asistente incluye una página de enriquecimiento con IA que permite extraer texto y la estructura de archivos de imagen y texto no estructurado. Para ver un tutorial similar que incluya el enriquecimiento con IA, consulte los inicios rápidos sobre [traducción de texto y conjuntos de aptitudes de entidades](cognitive-search-quickstart-blob.md) o [conjuntos de aptitudes de imágenes OCR](cognitive-search-quickstart-ocr.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

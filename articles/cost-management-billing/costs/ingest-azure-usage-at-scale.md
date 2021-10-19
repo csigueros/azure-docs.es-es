@@ -1,23 +1,23 @@
 ---
-title: Recuperación recurrente de conjuntos de datos de costos de gran tamaño con exportaciones
-description: Este artículo le ayuda a exportar periódicamente grandes cantidades de datos con exportaciones desde Azure Cost Management.
+title: Recuperación recurrente de conjuntos de datos de costos de gran tamaño con exportaciones desde Azure Cost Management
+description: Este artículo lo ayuda a exportar periódicamente grandes cantidades de datos con exportaciones desde Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/08/2021
+ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 465225341bdffc984ac6cbc82ba94eb656ad60df
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: a27e64e7b5c94d033529c08ea02e757ba8857549
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102509650"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705843"
 ---
 # <a name="retrieve-large-cost-datasets-recurringly-with-exports"></a>Recuperación recurrente de conjuntos de datos de costos de gran tamaño con exportaciones
 
-Este artículo le ayuda a exportar periódicamente grandes cantidades de datos con exportaciones desde Azure Cost Management. La exportación es el método recomendado para recuperar datos de costo no agregados. Especialmente cuando los archivos de uso son demasiado grandes para realizar llamadas y descargas de forma confiable mediante Usage Details API. Los datos exportados se colocan en la cuenta de Azure Storage que elija. Desde allí, los puede cargar en sus propios sistemas y analizarlos en función de sus necesidades. Para configurar las exportaciones en Azure Portal, consulte [Exportar datos](tutorial-export-acm-data.md).
+Este artículo lo ayuda a exportar periódicamente grandes cantidades de datos con exportaciones desde Cost Management. La exportación es el método recomendado para recuperar datos de costo no agregados. Especialmente cuando los archivos de uso son demasiado grandes para realizar llamadas y descargas de forma confiable mediante Usage Details API. Los datos exportados se colocan en la cuenta de Azure Storage que elija. Desde allí, los puede cargar en sus propios sistemas y analizarlos en función de sus necesidades. Para configurar las exportaciones en Azure Portal, consulte [Exportar datos](tutorial-export-acm-data.md).
 
 Si desea automatizar las exportaciones en varios ámbitos, la solicitud de la API de ejemplo de la próxima sección es un buen punto de partida. Exports API se puede usar para crear exportaciones automáticas como parte de la configuración general del entorno. Las exportaciones automática sirven de ayuda para asegurarse que se tienen los datos necesarios y se pueden usar en los sistemas de cualquier organización cuando se expande el uso de Azure.
 
@@ -79,7 +79,7 @@ Dirección URL de la solicitud: `PUT https://management.azure.com/{scope}/provid
 
 ## <a name="copy-large-azure-storage-blobs"></a>Copia de blobs de Azure Storage de gran tamaño
 
-Puede usar Cost Management para programar exportaciones de los detalles de uso de Azure en sus cuentas de Azure Storage como blobs. Los tamaños de blob resultantes pueden tener un tamaño superior a gigabytes. El equipo de Azure Cost Management ha colaborado con el equipo de Azure Storage para probar la copia de blobs de Azure Storage de gran tamaño. Los resultados se documentan en las secciones siguientes. Puede esperar tener resultados similares a cuando copia los blobs de Storage de una región de Azure a otra.
+Puede usar Cost Management para programar exportaciones de los detalles de uso de Azure en sus cuentas de Azure Storage como blobs. Los tamaños de blob resultantes pueden tener un tamaño superior a gigabytes. El equipo de Cost Management ha colaborado con el equipo de Azure Storage para probar la copia de blobs de Azure Storage de gran tamaño. Los resultados se documentan en las secciones siguientes. Puede esperar tener resultados similares a cuando copia los blobs de Storage de una región de Azure a otra.
 
 Para probar su rendimiento, el equipo transfirió blobs desde cuentas de almacenamiento de la región Oeste de EE. UU. a la misma región y a otras regiones. El equipo midió velocidades que van desde 2 GB por segundo en la misma región hasta 150 MB por segundo en las cuentas de almacenamiento de la región Sudeste de Asia.
 

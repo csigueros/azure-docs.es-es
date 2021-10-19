@@ -10,12 +10,12 @@ ms.subservice: automanage
 ms.workload: infrastructure
 ms.custom:
 - mode-portal
-ms.openlocfilehash: faf51735ae6805f0ff7db98416e9b05731c08642
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 7836e15c307a0dcfcf4bfa4b8c56fbeea869d315
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123426461"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709767"
 ---
 # <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>Inicio rápido: Habilitación de la administración automática para máquinas virtuales en Azure Portal
 
@@ -50,7 +50,7 @@ Inicie sesión en [Azure Portal](https://aka.ms/AutomanagePortal-Ignite21).
     1. Active la casilla de cada máquina virtual que desee incorporar.
     1. Haga clic en el botón **Seleccionar**.
     > [!NOTE]
-    > Puede seleccionar máquinas virtuales de Azure y servidores habilitados para Arc.
+    > Puede seleccionar máquinas virtuales de Azure y servidores habilitados para Azure Arc.
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="Seleccione una máquina virtual existente en la lista de máquinas virtuales disponibles.":::
 

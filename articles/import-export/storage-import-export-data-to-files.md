@@ -1,36 +1,50 @@
 ---
-title: Uso de Azure Import/Export para transferir datos a Azure Files | Microsoft Docs
+title: Tutorial para la transferencia de datos a Azure Files con Microsoft Azure Import/Export | Microsoft Docs
 description: Aprenda a crear trabajos de importación en Azure Portal para transferir datos a Azure Files.
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: how-to
-ms.date: 09/03/2021
+ms.topic: tutorial
+ms.date: 10/06/2021
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
-ms.openlocfilehash: 344d513f823c3eb04e869c66ca79bfb611c3eb6a
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.custom: tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
+ms.openlocfilehash: 4f8d984d97c046891008c1e1e3904ef065198f98
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129079758"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709609"
 ---
-# <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Uso del servicio Azure Import/Export para importar datos a Azure Files
+# <a name="tutorial-transfer-data-to-azure-files-with-azure-importexport"></a>Tutorial: Transferencia de datos a Azure Files con Microsoft Azure Import/Export
 
 Este artículo proporciona instrucciones paso a paso sobre cómo usar el servicio Azure Import/Export para importar de forma segura grandes cantidades de datos en Azure Files. Para importar datos, el servicio necesita que envíe las unidades de disco admitidas que contiene los datos a un centro de datos de Azure.
 
 El servicio Import/Export admite solo la importación de Azure Files en Azure Storage. No se admite la exportación de archivos desde Azure Files.
+
+En este tutorial, aprenderá a:
+
+> [!div class="checklist"]
+> * Requisitos previos para importar datos a Azure Files
+> * Paso 1: Preparación de las unidades de disco
+> * Paso 2: Crear un trabajo de importación
+> * Paso 3: Enviar las unidades de disco al centro de datos de Azure
+> * Paso 4: Actualización del trabajo con información de seguimiento
+> * Paso 5: Verificación de la carga de datos en Azure
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de crear un trabajo de importación para transferir datos en Azure Files, revise con cuidado y complete la siguiente lista de requisitos previos. Debe:
 
 - Tener una suscripción activa de Azure para usar con el servicio Import/Export.
-- Tener al menos una cuenta de Azure Storage. Consulte la lista de [las cuenta de almacenamiento y los tipos de almacenamiento admitidos para el servicio Import/Export](storage-import-export-requirements.md). Para obtener información acerca de la creación de una nueva cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](../storage/common/storage-account-create.md).
+- Tener al menos una cuenta de Azure Storage. Consulte la lista de [las cuenta de almacenamiento y los tipos de almacenamiento admitidos para el servicio Import/Export](storage-import-export-requirements.md).
+  - Considere la posibilidad de configurar grandes recursos compartidos de archivos en la cuenta de almacenamiento. Durante las importaciones a Azure Files, si un recurso compartido de archivos no tiene suficiente espacio libre, ya no se admite la división automática de los datos en varios recursos compartidos de archivos de Azure y se producirá un error en la copia. Para obtener instrucciones, consulte [Configuración de grandes recursos compartidos de archivos en una cuenta de almacenamiento](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-files-shares-on-an-existing-account).
+  - Para más información acerca de la creación de una nueva cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](../storage/common/storage-account-create.md).
 - Tener un número suficiente de discos de los [tipos admitidos](storage-import-export-requirements.md#supported-disks).
 - Tener un sistema de Windows que ejecute una [versión admitida del sistema operativo](storage-import-export-requirements.md#supported-operating-systems).
-- [Descargar la versión 2 de WAImportExport](https://aka.ms/waiev2) en el sistema de Windows. Descomprima en la carpeta predeterminada `waimportexport`. Por ejemplo, `C:\WaImportExport`.
+- Descargue la versión actual de la herramienta Azure Import/Export versión 2, para archivos, en el sistema de Windows:
+  1. [Descargue WAImportExport versión 2](https://aka.ms/waiev2). La versión actual es 2.2.0.300.
+  1. Descomprima en la carpeta predeterminada `WaImportExportV2`. Por ejemplo, `C:\WaImportExportV2`.
 - Tener una cuenta de FedEx o DHL. Si quiere usar alguna empresa de mensajería que no sea FedEx o DHL, póngase en contacto con el equipo de operaciones de Azure Data Box en `adbops@microsoft.com`.
     - La cuenta debe ser válida, debe tener saldo positivo y debe tener capacidades de devolución de envíos.
     - Generar un número de seguimiento del trabajo de exportación.
@@ -53,24 +67,27 @@ Para preparar las unidades, realice los pasos siguientes:
    - **Para importar un archivo**: en el ejemplo siguiente, los datos que se van a copiar residen en la unidad F: El archivo *MyFile1.txt* se copia en la raíz de *MyAzureFileshare1*. Si *MyAzureFileshare1* no existe, se crea en la cuenta de Azure Storage. Se mantiene la estructura de carpetas.
 
        ```
-           BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
-           "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
+           BasePath,DstItemPathOrPrefix,ItemType
+           "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file
+       ```
+
+   - **Para importar una carpeta**: todos los archivos y carpetas bajo *MyFolder2* se copiarán en el recurso compartido de archivos de forma recursiva. Se mantiene la estructura de carpetas. Si importa un archivo con el mismo nombre que un archivo existente en la carpeta de destino, el archivo importado sobrescribirá ese archivo.
 
        ```
-   - **Para importar una carpeta**: todos los archivos y carpetas bajo *MyFolder2* se copiarán en el recurso compartido de archivos de forma recursiva. Se mantiene la estructura de carpetas.
-
+           "F:\MyFolder2\","MyAzureFileshare1/",file
        ```
-           "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
+   
+       > [!NOTE]
+       > El parámetro /Disposition, que le permite elegir que desea hacer al importar un archivo que ya existe en versiones anteriores de la herramienta, no se admite en la versión 2.2.0.300 de Azure Import/Export. En las versiones anteriores de la herramienta, se cambiaba el nombre de un archivo importado con el mismo nombre que un archivo existente de forma predeterminada.
 
-       ```
      Se pueden realizar varias entradas en el mismo archivo correspondiente a las carpetas o archivos que se importan.
 
        ```
-           "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
-           "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
-
+           "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file
+           "F:\MyFolder2\","MyAzureFileshare1/",file
        ```
-     Obtenga más información sobre cómo [preparar el archivo CSV de conjunto de datos](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import).
+
+<!--ARCHIVED ARTICLE -Learn more about [preparing the dataset CSV file](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import).-->
 
 
 4. Modifique el archivo *driveset.csv* en la carpeta raíz donde reside la herramienta. Agregar entradas en el archivo *driveset.csv* similares a las de los siguientes ejemplos. El archivo driveset tiene la lista de discos y las letras de unidad de disco correspondiente para que la herramienta pueda elegir correctamente la lista de discos que se van a preparar.
@@ -361,7 +378,11 @@ Install-Module -Name Az.ImportExport
 
 ## <a name="step-5-verify-data-upload-to-azure"></a>Paso 5: Verificación de la carga de datos en Azure
 
-Siga el trabajo hasta su finalización. Una vez que se haya finalizado el trabajo, compruebe que los datos se han cargado en Azure. Elimine los datos locales solo después de comprobar que la carga fue correcta.
+Siga el trabajo hasta su finalización. Una vez que se haya finalizado el trabajo, compruebe que los datos se han cargado en Azure. Compruebe si hay errores en los registros de copia. Para más información, consulte [Revisión de los registros de copia](storage-import-export-tool-reviewing-job-status-v1.md). Elimine los datos locales solo después de comprobar que la carga fue correcta.
+
+> [!NOTE]
+> En la versión más reciente de la herramienta Azure Import/Export para archivos (2.2.0.300), si un recurso compartido de archivos no tiene suficiente espacio libre, los datos ya no se dividen automáticamente en varios recursos compartidos de archivos de Azure. En su lugar, se produce un error en la copia y el equipo de soporte técnico se pondrá en contacto con usted. Deberá configurar los recursos compartidos de archivos grandes en la cuenta de almacenamiento o trasladar algunos datos para hacer espacio en el recurso compartido. Para más información, consulte [Configuración de grandes recursos compartidos de archivos en una cuenta de almacenamiento](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-files-shares-on-an-existing-account).
+
 
 ## <a name="samples-for-journal-files"></a>Ejemplos para archivos de diario
 
@@ -397,4 +418,4 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Visualización del estado del trabajo y de la unidad de disco](storage-import-export-view-drive-status.md)
-* [Revisión de los requisitos de Import/Export](storage-import-export-requirements.md)
+* [Revisión de los registros de copia de Import/Export](storage-import-export-tool-reviewing-job-status-v1.md)

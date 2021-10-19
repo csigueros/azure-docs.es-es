@@ -4,14 +4,14 @@ ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
 ms.date: 03/31/2021
-ms.openlocfilehash: 0322e1a5c7f7c809b91d5bf9e3dd142c7641598e
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: ba19a222f3485fa15bd754f130a9b72c82334a00
+ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114408390"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129740847"
 ---
-[![Examinar el código](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/pnp)
+[![Examinar el código](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/javascript/pnp)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -25,7 +25,7 @@ Para completar los pasos de este artículo, necesitará los siguientes recursos:
 
 ## <a name="review-the-code"></a>Revisión del código
 
-En la copia del SDK de Microsoft Azure IoT para Node.js que descargó anteriormente, abra el archivo *azure-iot-sdk-node/device/samples/pnp/pnpTemperatureController.js* en un editor de texto.
+En la copia del SDK de Microsoft Azure IoT para Node.js que descargó anteriormente, abra el archivo *azure-iot-sdk-node/device/samples/javascript/pnp/pnpTemperatureController.js* en un editor de texto.
 
 Al ejecutar el ejemplo para conectarse a IoT Central, usa Device Provisioning Service (DPS) para registrar el dispositivo y generar una cadena de conexión. En el ejemplo se recupera la información de conexión de DPS que necesita del entorno de línea de comandos.
 

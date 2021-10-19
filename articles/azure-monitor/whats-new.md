@@ -3,16 +3,94 @@ title: Novedades en la documentación de Azure Monitor
 description: Novedades en la documentación de Azure Monitor
 ms.topic: conceptual
 ms.date: 09/07/2021
-ms.openlocfilehash: ff893ade0664df13c8e849957cb7d7877d91a910
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f6827ac33585a22eabd31cc79126f9fe0e6c56f8
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124788427"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713787"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Novedades en la documentación de Azure Monitor
 
 En este artículo se enumeran cambios importantes en la documentación de Azure Monitor.
+
+## <a name="september-2021"></a>Septiembre de 2021
+### <a name="general"></a>General
+
+**Artículos actualizados**
+
+- [Implementación de Azure Monitor a escala mediante Azure Policy](deploy-scale.md)
+- [Integraciones de asociados de Azure Monitor](partners.md)
+- [Ejemplos de plantillas de Resource Manager para Azure Monitor](resource-manager-samples.md)
+- [Roles, permisos y seguridad en Azure Monitor](roles-permissions-security.md)
+- [Supervisión del uso y costos estimados en Azure Monitor](usage-estimated-costs.md)
+- [Visualización de datos de Azure Monitor](visualizations.md)
+### <a name="agents"></a>Agentes
+
+**Artículos actualizados**
+
+- [Información general del agente de Azure Monitor](agents/azure-monitor-agent-overview.md)
+
+### <a name="application-insights"></a>Application Insights
+
+**Artículos nuevos**
+
+- [Supervisión de aplicaciones para Azure App Service y ASP.NET](app/azure-web-apps-net.md)
+- [Supervisión de aplicaciones para Azure App Service y Java](app/azure-web-apps-java.md)
+- [Supervisión de aplicaciones para Azure App Service mediante ASP.NET Core](app/azure-web-apps-net-core.md)
+- [Supervisión de aplicaciones para Azure App Service y Node.js](app/azure-web-apps-nodejs.md)
+
+**Artículos actualizados**
+
+- [Supervisión de aplicaciones para Azure App Service y ASP.NET](app/azure-web-apps-net.md)
+- [Filtro y preprocesamiento de la telemetría en el SDK de Application Insights](app/api-filtering-sampling.md)
+- [Notas de la versión para Microsoft.ApplicationInsights.SnapshotCollector](app/snapshot-collector-release-notes.md)
+- [¿Qué es la instrumentación automática para Azure Monitor Application Insights?](app/codeless-overview.md)
+- [Información general sobre la supervisión de aplicaciones para Azure App Service](app/azure-web-apps.md)
+
+### <a name="containers"></a>Contenedores
+
+**Artículos actualizados**
+
+- [Habilitación de Container Insights](containers/container-insights-onboard.md)
+
+### <a name="essentials"></a>Essentials
+
+**Artículos actualizados**
+
+- [Métricas compatibles con Azure Monitor](essentials/metrics-supported.md)
+- [Categorías admitidas en los registros de recursos de Azure](essentials/resource-logs-categories.md)
+- [Registro de actividad de Azure](essentials/activity-log.md)
+- [Tutorial sobre la API de REST de supervisión de Azure](essentials/rest-api-walkthrough.md)
+
+
+### <a name="insights"></a>Información detallada
+
+**Artículos nuevos**
+
+- [Administración de componentes de Application Insights mediante la CLI de Azure](insights/azure-cli-application-insights-component.md)
+
+**Artículos actualizados**
+
+- [Azure Data Explorer Insights](insights/data-explorer.md)
+- [Solución Agent Health en Azure Monitor](insights/solution-agenthealth.md)
+- [Soluciones de supervisión en Azure Monitor](insights/solutions.md)
+- [Supervisión de las implementaciones de SQL mediante SQL Insights (versión preliminar)](insights/sql-insights-overview.md)
+- [Solución de problemas de SQL Insights (versión preliminar)](insights/sql-insights-troubleshoot.md)
+
+### <a name="logs"></a>Registros
+
+**Artículos nuevos**
+
+- [Ejemplos de plantillas de Resource Manager para clústeres de Log Analytics en Azure Monitor](logs/resource-manager-cluster.md)
+
+**Artículos actualizados**
+
+- [Configuración de Private Link](logs/private-link-configure.md)
+- [Clave administrada por el cliente de Azure Monitor](logs/customer-managed-keys.md)
+- [Clústeres dedicados de registros de Azure Monitor](logs/logs-dedicated-clusters.md)
+- [Exportación de datos del área de trabajo de Log Analytics en Azure Monitor (versión preliminar)](logs/logs-data-export.md)
+- [Traslado de un área de trabajo de Log Analytics a otra región mediante Azure Portal](logs/move-workspace-region.md)
 
 ## <a name="august-2021"></a>Agosto de 2021
 

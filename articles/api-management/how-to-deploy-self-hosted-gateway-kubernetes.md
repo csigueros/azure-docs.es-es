@@ -8,12 +8,12 @@ ms.workload: mobile
 ms.topic: article
 ms.author: danlep
 ms.date: 05/25/2021
-ms.openlocfilehash: dda6fcbf71914fefcd1afd2056864ad66aa11d4d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5ab029b5080ae06276119d733f081974ba42ff9b
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609828"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708451"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Implementación de una puerta de enlace autohospedada en Kubernetes
 
@@ -22,7 +22,7 @@ En este artículo se describen los pasos para implementar un componente de puert
 > [!NOTE]
 > También puede implementar una puerta de enlace autohospedada en un [clúster de Kubernetes habilitado para Azure Arc](how-to-deploy-self-hosted-gateway-azure-arc.md) como una [extensión de clúster](../azure-arc/kubernetes/extensions.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 - Cree un clúster de Kubernetes.
@@ -134,4 +134,4 @@ Considere la posibilidad de [configurar la supervisión local](how-to-configure-
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener más información sobre la puerta de enlace autohospedada, consulte [Introducción a la puerta de enlace autohospedada](self-hosted-gateway-overview.md).
-* Aprenda [cómo implementar una puerta de enlace de API Management autohospedada en clústeres de Kubernetes habilitados para Azure Arc](how-to-deploy-self-hosted-gateway-azure-arc.md).
+* Aprenda a [implementar una puerta de enlace de API Management autohospedada en clústeres de Kubernetes habilitados para Azure Arc](how-to-deploy-self-hosted-gateway-azure-arc.md).

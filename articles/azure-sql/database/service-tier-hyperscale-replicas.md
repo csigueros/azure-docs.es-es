@@ -9,12 +9,12 @@ author: yorek
 ms.author: damauri
 ms.reviewer: ''
 ms.date: 9/24/2021
-ms.openlocfilehash: e2785f965cdbb94af081e937f0b2290578c04796
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 38dd0f42b8c318d94c266b4837f2b67eda1f9ed9
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129059537"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667865"
 ---
 # <a name="hyperscale-secondary-replicas"></a>Réplicas secundarias de Hiperescala
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -62,6 +62,11 @@ La diferencia con respecto a las réplicas de alta disponibilidad es que las ré
 - tienen su propio objetivo de nivel de servicio, que se puede establecer y cambiar independientemente de la réplica principal.
 - admiten hasta 30 réplicas con nombre (para cada réplica principal).
 - admiten autenticación diferente para cada réplica con nombre mediante la creación de diferentes inicios de sesión en los servidores lógicos que hospedan las réplicas con nombre.
+
+Como resultado, las réplicas con nombre ofrecen varias ventajas con respecto a las réplicas de alta disponibilidad, en lo que se refiere a las cargas de trabajo de solo lectura:
+
+- Los usuarios conectados a una réplica con nombre no sufrirán ninguna desconexión si la réplica principal se escala o reduce verticalmente. Al mismo tiempo, los usuarios conectados a la réplica principal no se verán afectados por el escalado o reducción vertical de las réplicas con nombre.
+-   Las cargas de trabajo que se ejecutan en cualquier réplica, principal o con nombre, no se verán afectadas por consultas de larga duración que se ejecuten en otras réplicas.
 
 El objetivo principal de las réplicas con nombre es permitir un escenario de [escalado horizontal de lectura](read-scale-out.md) de OLTP masivo y mejorar las cargas de trabajo de procesamiento transaccional y analítico híbrido (HTAP). Aquí hay ejemplos de cómo crear estas soluciones:
 

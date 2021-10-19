@@ -1,5 +1,6 @@
 ---
-title: Configuración del flujo de trabajo de consentimiento del administrador en Azure Active Directory | Microsoft Docs
+title: Configuración del flujo de trabajo de consentimiento del administrador
+titleSuffix: Azure AD
 description: Aprenda a configurar una manera para que los usuarios finales soliciten acceso a las aplicaciones que requieren el consentimiento del administrador.
 services: active-directory
 author: davidmu1
@@ -8,18 +9,18 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/08/2021
+ms.date: 10/06/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5611de6dde5ef1380a819ba3f3a2e6050d79374b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 07254d54d535616aa3a6b1c17a2b1b81d8fe16bb
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738849"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659210"
 ---
-# <a name="configure-the-admin-consent-workflow"></a>Configuración del flujo de trabajo de consentimiento del administrador
+# <a name="configure-the-admin-consent-workflow-in-azure-active-directory"></a>Configuración del flujo de trabajo de consentimiento del administrador en Azure Active Directory
 
 En este artículo se describe cómo habilitar la característica del flujo de trabajo de consentimiento del administrador, que proporciona a los usuarios finales una manera de solicitar acceso a las aplicaciones que requieren el consentimiento del administrador.
 
@@ -90,7 +91,7 @@ Para revisar las solicitudes de consentimiento del administrador y tomar medidas
 
 8. Evalúe la solicitud y lleve a cabo la acción adecuada:
 
-   * **Aprobar la solicitud**. Para aprobar una solicitud, conceda el consentimiento del administrador a la aplicación. Una vez que se aprueba una solicitud, se notifica a todos los solicitantes que se les ha concedido acceso.  
+   * **Aprobar la solicitud**. Para aprobar una solicitud, conceda el consentimiento del administrador a la aplicación. Una vez que se aprueba una solicitud, se notifica a todos los solicitantes que se les ha concedido acceso. La aprobación de una solicitud permite que todos los usuarios del inquilino accedan a la aplicación, a menos que se restrinja de otro modo con la asignación de usuarios. 
    * **Denegar la solicitud**. Para denegar una solicitud, debe proporcionar una justificación que se proporcionará a todos los solicitantes. Una vez denegada la solicitud, se notifica a todos los solicitantes que se les ha denegado el acceso a la aplicación. La denegación de una solicitud no impedirá que los usuarios soliciten el consentimiento del administrador a la aplicación en el futuro.  
    * **Bloquear la solicitud**. Para bloquear una solicitud, debe proporcionar una justificación que se proporcionará a todos los solicitantes. Una vez bloqueada una solicitud, se notifica a todos los solicitantes que se les ha denegado el acceso a la aplicación. Al bloquear una solicitud, se crea un objeto de entidad de servicio para la aplicación en el inquilino con un estado deshabilitado. Los usuarios no podrán solicitar el consentimiento del administrador a la aplicación en el futuro.
 

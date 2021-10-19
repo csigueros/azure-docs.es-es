@@ -3,29 +3,30 @@ title: 'Inicio rápido: Biblioteca de Azure Blob Storage v12 para .NET'
 description: En esta guía de inicio rápido, obtendrá información sobre cómo usar la versión 12 de la biblioteca cliente de Azure Blob Storage para .NET para crear un contenedor y un blob en Blob Storage (objeto). A continuación, aprenderá a descargar el blob en un equipo local y a enumerar todos los blobs en un contenedor.
 author: normesta
 ms.author: normesta
-ms.date: 03/03/2021
+ms.date: 10/06/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c71a362c7e8e3073929967abce4bcdc4566b8ce9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f695d344401598256d89dee83a69b886768e2774
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128652919"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659590"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Inicio rápido: Biblioteca cliente de Azure Blob Storage v12 para .NET
 
 Introducción a la biblioteca cliente de Azure Blob Storage v12 para .NET. Azure Blob Storage es la solución de almacenamiento de objetos de Microsoft para la nube. Siga los pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas. Blob Storage está optimizado para el almacenamiento de cantidades masivas de datos no estructurados.
 
-Use la biblioteca cliente de Azure Blob Storage v12 para .NET para:
+En los ejemplos de este inicio rápido se muestra cómo usar la biblioteca cliente de Azure Blob Storage v12 para .NET con estos fines:
 
-- Crear un contenedor
-- Cargar un blob en Azure Storage
-- Enumerar todos los blobs de un contenedor
-- Descargar el blob en el equipo local
-- Eliminación de un contenedor
+- [Obtención de la cadena de conexión](#get-the-connection-string)
+- [Creación de un contenedor](#create-a-container)
+- [Carga de un blob en un contenedor](#upload-a-blob-to-a-container)
+- [Listado de blobs de un contenedor](#list-blobs-in-a-container)
+- [Descarga de un blob](#download-a-blob)
+- [Eliminación de un contenedor](#delete-a-container)
 
 Recursos adicionales:
 
@@ -34,7 +35,7 @@ Recursos adicionales:
 - [Paquete (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
 - [Muestras](../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 - Una cuenta de Azure Storage: [cree una cuenta de almacenamiento](../common/storage-account-create.md)
@@ -109,14 +110,7 @@ Use las siguientes clases de .NET para interactuar con estos recursos:
 
 ## <a name="code-examples"></a>Ejemplos de código
 
-Estos fragmentos de código de ejemplo muestran cómo realizar las siguientes acciones con la biblioteca de cliente de Azure Blob Storage para. NET:
-
-- [Obtención de la cadena de conexión](#get-the-connection-string)
-- [Creación de un contenedor](#create-a-container)
-- [Carga de los blobs en un contenedor](#upload-blobs-to-a-container)
-- [Enumeración de los blobs de un contenedor](#list-the-blobs-in-a-container)
-- [Descarga de los blobs](#download-blobs)
-- [Eliminación de un contenedor](#delete-a-container)
+Los fragmentos de código de ejemplo de las secciones siguientes muestran cómo realizar operaciones de datos básicas con la biblioteca cliente de Azure Blob Storage para .NET.
 
 ### <a name="get-the-connection-string"></a>Obtención de la cadena de conexión
 
@@ -139,7 +133,7 @@ Agregue este código al final del método `Main`:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/quickstarts/dotnet/BlobQuickstartV12/Program.cs" id="Snippet_CreateContainer":::
 
-### <a name="upload-blobs-to-a-container"></a>Carga de los blobs en un contenedor
+### <a name="upload-a-blob-to-a-container"></a>Carga de un blob en un contenedor
 
 El siguiente fragmento de código:
 
@@ -151,7 +145,7 @@ Agregue este código al final del método `Main`:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/quickstarts/dotnet/BlobQuickstartV12/Program.cs" id="Snippet_UploadBlobs":::
 
-### <a name="list-the-blobs-in-a-container"></a>Enumerar los blobs de un contenedor
+### <a name="list-blobs-in-a-container"></a>Listado de blobs de un contenedor
 
 Enumere los blobs en el contenedor llamando al método [GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync). En este caso, solo se ha agregado un blob al contenedor, por lo que la operación de enumeración devuelve simplemente dicho blob.
 
@@ -159,7 +153,7 @@ Agregue este código al final del método `Main`:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/quickstarts/dotnet/BlobQuickstartV12/Program.cs" id="Snippet_ListBlobs":::
 
-### <a name="download-blobs"></a>Descargar blobs
+### <a name="download-a-blob"></a>Descarga de un blob
 
 Llame al método [DownloadToAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync) para descargar el blob creado previamente. El código de ejemplo agrega el sufijo "DOWNLOADED" al nombre de archivo para que pueda ver ambos archivos en el sistema de archivos local.
 

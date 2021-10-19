@@ -11,12 +11,12 @@ author: wenxwei
 ms.author: wenxwei
 ms.date: 06/22/2021
 ms.reviewer: laobri
-ms.openlocfilehash: 94eb2beb95a43e422e8bff6c3ab53f7d2e6c208b
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 2d69263d1c4037640eefd44a1328414f8a47ad06
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129094716"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705391"
 ---
 # <a name="create-a-training-job-with-the-job-creation-ui-preview"></a>Creación de un trabajo de entrenamiento con la interfaz de usuario de creación de trabajos (versión preliminar)
 
@@ -55,7 +55,7 @@ El primer paso de la interfaz de usuario de creación de trabajos consiste en se
 | --- | --- | 
 | Instancia de proceso | [¿Qué es una instancia de proceso de Azure Machine Learning?](concept-compute-instance.md) | 
 | Clúster de proceso | [¿Qué es un clúster de proceso?](how-to-create-attach-compute-cluster.md#what-is-a-compute-cluster) | 
-| Clúster de Kubernetes asociado | [Configuración del aprendizaje automático habilitado para Azure Arc (versión preliminar)](how-to-attach-arc-kubernetes.md) | 
+| Clúster de Kubernetes asociado | [Configuración del aprendizaje automático habilitado para Azure Arc (versión preliminar)](how-to-attach-arc-kubernetes.md). | 
 
 1. Seleccione un tipo de proceso.
 1. Seleccione un recurso de proceso existente. En la lista desplegable se muestra la información de nodo y el tipo de SKU para ayudarle a elegir.
@@ -73,7 +73,7 @@ Para obtener más información sobre cómo crear los distintos tipos, vea:
 | --- | --- | 
 | Instancia de proceso | [Creación y administración de una instancia de proceso de Azure Machine Learning](how-to-create-manage-compute-instance.md) | 
 | Clúster de proceso | [Creación de un clúster de proceso de Azure Machine Learning](how-to-create-attach-compute-cluster.md) | 
-| Clúster de Kubernetes asociado | [Asociación de un clúster de Kubernetes habilitado para Azure Arc](how-to-attach-arc-kubernetes.md) | 
+| Clúster de Kubernetes asociado | [Asociación de un clúster de Kubernetes habilitado para Azure Arc](how-to-attach-arc-kubernetes.md) | 
 
 ## <a name="specify-the-necessary-environment"></a>Especificación del entorno necesario
 

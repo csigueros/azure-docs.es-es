@@ -3,20 +3,20 @@ title: 'Inicio rápido: Creación de una aplicación web en Azure Arc'
 description: Introducción a App Service en Azure Arc para la implementación de la primera aplicación web
 ms.topic: quickstart
 ms.date: 06/02/2021
-ms.openlocfilehash: 4002ef3d66eaae05881da0dd8d95cc82ffeb916d
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.openlocfilehash: 30d310aa1170cf4c28d76e0299b23a90a3f599d9
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112377015"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709801"
 ---
 # <a name="create-an-app-service-app-on-azure-arc-preview"></a>Creación de una aplicación de App Service en Azure Arc (versión preliminar)
 
-En este inicio rápido, creará una [aplicación de App Service en un clúster de Kubernetes habilitado para Azure Arc](overview-arc-integration.md) (versión preliminar). Este escenario solo admite aplicaciones Linux, y se puede usar una pila de lenguaje integrada o un contenedor personalizado.
+En este inicio rápido, se crea una [aplicación de App Service en un clúster de Kubernetes habilitado para Azure Arc](overview-arc-integration.md) (versión preliminar). Este escenario solo admite aplicaciones Linux, y se puede usar una pila de lenguaje integrada o un contenedor personalizado.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- [Configuración de Kubernetes habilitado para Azure Arc para la ejecución en App Service](manage-create-arc-environment.md)
+- [Configuración de Kubernetes habilitado para Azure Arc para la ejecución de App Service](manage-create-arc-environment.md).
 
 [!INCLUDE [app-service-arc-cli-install-extensions](../../includes/app-service-arc-cli-install-extensions.md)]
 

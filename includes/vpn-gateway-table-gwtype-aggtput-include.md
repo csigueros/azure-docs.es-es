@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 7205fa7095608084140f7ac6e1c3965b1296a8fe
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: bebedbcd2c36203ec122ebf597ac8a0c64fb1ae4
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122336302"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129679856"
 ---
 |**Generación<br>de<br>VPN Gateway** |**SKU**   | **Túneles<br>S2S/entre redes virtuales** | Conexiones **P2S<br> SSTP** | Conexiones **P2S<br> IKEv2/OpenVPN** | **Pruebas comparativas de rendimiento<br>agregado** | **BGP** | **Con redundancia de zona** |
 |---            |---         | ---        | ---       | ---            | ---       | ---       | ---|
@@ -36,7 +36,7 @@ ms.locfileid: "122336302"
 
 (*) Use una [red WAN virtual](../articles/virtual-wan/virtual-wan-about.md) si necesita más de 30 túneles VPN S2S.
 
-* Se permite el cambio de tamaño de las SKU de VpnGw en la misma generación, excepto el cambio de tamaño de la SKU básica. La SKU básica es una SKU heredada y tiene limitaciones de características. Para pasar de una SKU básica a otra SKU de VpnGw, debe eliminar la instancia de VPN Gateway de la SKU básica y crear una nueva puerta de enlace con la combinación de generación y tamaño de SKU deseada.
+* Se permite el cambio de tamaño de las SKU de VpnGw en la misma generación, excepto el cambio de tamaño de la SKU básica. La SKU básica es una SKU heredada y tiene limitaciones de características. Para pasar de una SKU básica a otra SKU de VpnGw, debe eliminar la instancia de VPN Gateway de la SKU básica y crear una nueva puerta de enlace con la combinación de generación y tamaño de SKU deseada. Solo puede cambiar el tamaño de una puerta de enlace básica a otra SKU heredada (consulte [Trabajo con SKU heredadas](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md)).
 
 * Estos límites de conexión son independientes. Por ejemplo, en una SKU de VpnGw1 puede tener 128 conexiones SSTP, además de 250 conexiones IKEv2.
 

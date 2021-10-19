@@ -3,13 +3,13 @@ title: Características de alta disponibilidad para Oracle en Azure sin sistema 
 description: Obtenga más información sobre las características disponibles sin sistema operativo para una base de datos de Oracle.
 ms.topic: overview
 ms.subservice: baremetal-oracle
-ms.date: 04/16/2021
-ms.openlocfilehash: 73473cb99521be76be5518ad82dfbb9ec9d1feb0
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.date: 10/11/2021
+ms.openlocfilehash: bdd557f4d4ab26fdf348937882d5923801509786
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862484"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129855429"
 ---
 # <a name="high-availability-features-for-oracle-on-azure-baremetal"></a>Características de alta disponibilidad para Oracle en Azure sin sistema operativo
 
@@ -19,7 +19,7 @@ Oracle ofrece muchas características para crear una plataforma resistente que e
 
 ## <a name="flashback-database"></a>Flashback Database
 
-La característica [Flashback Database](https://docs.oracle.com/en/database/oracle/oracle-database/21/rcmrf/FLASHBACK-DATABASE.html#GUID-584AC79A-40C5-45CA-8C63-DED3BE3A4511) está incluida en Oracle Database Enterprise Edition. Flashback Database hace retroceder la base de datos a un momento temporal específico. Esta característica difiere de la restauración a un momento dado de [Recovery Manager (RMAN)](https://docs.oracle.com/en/cloud/paas/db-backup-cloud/csdbb/performing-general-restore-and-recovery-operations.html) en que retrocede a partir del momento actual, en lugar de avanzar después de una restauración. Como consecuencia, Flashback Database acelera el tiempo de finalización.
+La característica [Flashback Database](https://docs.oracle.com/en/database/oracle/oracle-database/21/rcmrf/FLASHBACK-DATABASE.html#GUID-584AC79A-40C5-45CA-8C63-DED3BE3A4511) está incluida en Oracle Database Enterprise Edition. Flashback Database hace retroceder la base de datos a un momento temporal específico. Esta característica difiere de la restauración a un momento dado de [Recovery Manager (RMAN)](https://docs.oracle.com/en/cloud/paas/db-backup-cloud/csdbb/performing-general-restore-and-recovery-operations.html), ya que retrocede a partir del momento actual, en lugar de avanzar, después de una restauración. Como consecuencia, Flashback Database acelera el tiempo de finalización.
  
 Puede usar esta característica junto con [Oracle Data Guard](https://docs.oracle.com/en/database/oracle/oracle-database/19/sbydb/preface.html#GUID-B6209E95-9DA8-4D37-9BAD-3F000C7E3590). Flashback Database permite al administrador de bases de datos recrear una instancia de una base de datos con errores en una configuración de Data Guard, sin necesidad de llevar a cabo una operación de restauración y recuperación completa de RMAN. Esta característica permite restaurar mucho más rápido la funcionalidad de recuperación ante desastres, así como las ventajas de copia de seguridad y descarga de informes con Active Data Guard.
  
@@ -37,7 +37,7 @@ Como muestra la ilustración siguiente del artículo que describe [la alta dispo
 
 Si una instancia genera error, el servicio seguirá funcionando en las demás instancias. Cada base de datos implementada en la solución tendrá una configuración de RAC de n+1, donde "n" representa la capacidad mínima de procesamiento necesaria para utilizar el servicio.
 
-Los servicios de Oracle Database se usan para facilitar la conmutación por error de las conexiones entre nodos cuando una instancia genera un error claramente. Esos errores podrían estar planeados o no. Al trabajar con la aplicación (eventos de notificación de aplicación rápidos), cuando una instancia no está disponible, el servicio se traslada a un nodo superviviente. El servicio se traslada a un nodo especificado en la configuración como preferente o disponible.
+Los servicios de Oracle Database se usan para facilitar la conmutación por error de las conexiones entre nodos cuando una instancia genera un error claramente. Esos errores podrían estar planeados o no. Al trabajar con Oracle RAC Fast Application Notification, cuando una instancia no está disponible, el servicio se traslada a un nodo superviviente. El servicio se traslada a un nodo especificado en la configuración como preferente o disponible.
 
 Otra característica clave de los servicios de Oracle Database consiste en iniciar únicamente un servicio en función de su rol. Esta característica se usa cuando se produce una conmutación por error de Data Guard. Todos los patrones implementados mediante Data Guard son necesarios para vincular un servicio de base de datos a un rol de Data Guard.
 
@@ -45,7 +45,7 @@ Por ejemplo, se podrían crear dos servicios, MY\_DB\_APP y MY\_DB\_AS. El servi
 
 ## <a name="oracle-data-guard"></a>Protección de datos de Oracle
 
-Mediante Data Guard, puede conservar una copia idéntica de una base de datos en una solución de hardware físico independiente. Lo ideal es que la solución de hardware se elimine geográficamente de la base de datos principal. Data Guard no establece límites con respecto a la distancia, aunque esta influye en los modos de protección. Una mayor distancia agrega latencia entre sitios, lo que puede hacer que algunas opciones, como la replicación sincrónica, dejen de ser viables.
+Con Data Guard, puede conservar una copia de una base de datos en una solución de hardware físico independiente. Lo ideal es que la solución de hardware se elimine geográficamente de la base de datos principal. Data Guard no establece límites con respecto a la distancia, aunque esta influye en los modos de protección. Una mayor distancia agrega latencia entre sitios, lo que puede hacer que algunas opciones (como la replicación sincrónica) sean insostenibles.
 
 Data Guard ofrece ventajas con respecto a la replicación de nivel de almacenamiento:
 
@@ -53,6 +53,7 @@ Data Guard ofrece ventajas con respecto a la replicación de nivel de almacenami
 - Algunas cargas de trabajo pueden generar un número elevado de operaciones de entrada y salida en espacios de tablas temporales, que no son necesarios en el modo de espera y, por tanto, no se replican.
 - La validación de los bloques replicados se produce en la base de datos en espera, por lo que los daños que afectan a la base de datos principal no se replicarán en la base de datos en espera.
 - Se evitan daños lógicos dentro de los bloques y daños asociados a la pérdida de operaciones de escritura. También desparece el riesgo de que los administradores de almacenamiento comentan errores de replicación en la base de datos en espera.
+
 La fase de rehacer se puede aplazar por un tiempo establecido previamente, por lo que los errores del usuario no se replicarán inmediatamente en la base de datos en espera.
 
 ## <a name="baremetal-snapshot-recovery"></a>Recuperación de instantáneas de BareMetal
@@ -72,7 +73,7 @@ Recovery Manager (RMAN) es la utilidad preferente para hacer copias de seguridad
 
 RMAN permite efectuar copias de seguridad de la base de datos en caliente o en frío. Puede usar estas copias de seguridad para crear bases de datos en espera, o bien para duplicar las bases de datos y clonar entornos. RMAN también incluye una función para comprobar la restauración. Esta función lee un conjunto de copia de seguridad y determina si se puede usar para recuperar la base de datos en un momento temporal específico.
 
-Dado que RMAN es una utilidad de Oracle, lee la estructura interna de los archivos de base de datos. De este modo, es posible hacer comprobaciones de los daños físicos y lógicos durante las operaciones de copia de seguridad y restauración. También se pueden recuperar los archivos de datos de la base de datos, así como restaurar archivos de datos y espacios de tabla individuales para un momento temporal específico. Estas ventajas que RMAN ofrece frente a las instantáneas de almacenamiento. Las copias de seguridad de RMAN ofrecen una línea más de defensa contra la pérdida completa de datos cuando no es posible usar las instantáneas.
+Dado que Oracle proporciona RMAN, lee la estructura interna de los archivos de base de datos. Esta funcionalidad le permite hacer comprobaciones de los daños físicos y lógicos durante las operaciones de copia de seguridad y restauración. También se pueden recuperar los archivos de datos de la base de datos, así como restaurar archivos de datos y espacios de tabla individuales para un momento temporal específico. Estas ventajas que RMAN ofrece frente a las instantáneas de almacenamiento. Las copias de seguridad de RMAN ofrecen una línea más de defensa contra la pérdida completa de datos cuando no es posible usar las instantáneas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

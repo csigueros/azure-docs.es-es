@@ -9,12 +9,12 @@ metadata:
   ms.date: 06/08/2021
   ms.author: victorh
   ms.custom: references_regions
-  ms.openlocfilehash: a0d8c83209f5d96d10cacd95d85fc45f2d09b44b
-  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+  ms.openlocfilehash: eda05df5b3ec13d2f2ae4dc8c3634ead6c1e35bf
+  ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/24/2021
-  ms.locfileid: "128669082"
+  ms.lasthandoff: 10/11/2021
+  ms.locfileid: "129728425"
 title: Preguntas más frecuentes sobre Application Gateway
 summary: >
   [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -185,6 +185,8 @@ sections:
     answer: "Sí. En Application Gateway, puede [configurar conjuntos de cifrado](application-gateway-ssl-policy-overview.md). Para definir una directiva personalizada, se debe habilitar al menos uno de los siguientes conjuntos de cifrado. \n\n* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 \n* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256\n* TLS_DHE_RSA_WITH_AES_128_GCM_SHA256\n* TLS_RSA_WITH_AES_128_GCM_SHA256\n* TLS_RSA_WITH_AES_256_CBC_SHA256\n* TLS_RSA_WITH_AES_128_CBC_SHA256\n\nApplication Gateway usa SHA256 para la administración de back-end.\n"
   - question: Cuántos certificados TLS/SSL admite Application Gateway?
     answer: Application Gateway admite hasta 100 certificados TLS/SSL.
+  - question: ¿Tiene Application Gateway compatibilidad con el asociación de OCSP y OCSP?
+    answer: Sí, Application Gateway admite certificados con extensiones OCSP y la asociación de OCSP para certificados de servidor.
   - question: ¿Cuántos certificados de autenticación de recifrado de back-end admite Application Gateway?
     answer: Application Gateway admite hasta 100 certificados de autenticación.
   - question: ¿Se integra Application Gateway con Azure Key Vault de forma nativa?

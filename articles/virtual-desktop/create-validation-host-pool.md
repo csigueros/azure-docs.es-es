@@ -3,23 +3,23 @@ title: 'Actualizaciones de servicio para los grupos de host de Azure Virtual Des
 description: Cómo crear un grupo host de validación para supervisar actualizaciones de servicio antes de implementar las actualizaciones en producción.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 07/23/2021
+ms.date: 10/08/2021
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 13d340d427d2478d226b966e17bf98bcf2561004
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: c81fb82695d534864fa96d8a5bfff9b3cebd4a4e
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123110169"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705299"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: Creación de un grupo host para validar las actualizaciones del servicio
 
 >[!IMPORTANT]
 >Este contenido se aplica a Azure Virtual Desktop con objetos de Azure Resource Manager. Si usa Azure Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/create-validation-host-pool-2019.md).
 
-Los grupos de hosts son una colección de una o varias máquinas virtuales idénticas en un entorno de Azure Virtual Desktop. Le recomendamos encarecidamente que cree un grupo de hosts de validación en el que se apliquen primero las actualizaciones del servicio. Esto permite supervisar las actualizaciones del servicio antes de que este las aplique a su entorno estándar o sin validación. Sin un grupo de hosts de validación, es posible que no se detecten cambios que introduzcan errores, lo que podría dar lugar a tiempos de inactividad para los usuarios en el entorno estándar.
+Los grupos de hosts son una colección de una o varias máquinas virtuales idénticas en un entorno de Azure Virtual Desktop. Le recomendamos encarecidamente que cree un grupo de hosts de validación en el que se apliquen primero las actualizaciones del servicio. La validación de grupos de hosts le permite supervisar las actualizaciones del servicio antes de que este las aplique a su entorno estándar o sin validación. Sin un grupo de hosts de validación, es posible que no se detecten cambios que introduzcan errores, lo que podría dar lugar a tiempos de inactividad para los usuarios en el entorno estándar.
 
 Para garantizar que las aplicaciones funcionan con las actualizaciones más recientes, el grupo de hosts de validación debe ser lo más parecido posible a los grupos de hosts del entorno sin validación. Los usuarios deben conectarse al grupo de hosts de validación con la misma frecuencia que lo hacen al estándar. Si ha automatizado las pruebas en su grupo host, debe incluir las pruebas automatizadas en el grupo host de validación.
 
@@ -33,7 +33,7 @@ Puede depurar incidencias en el grupo host de validación con [la característic
 
 ## <a name="create-your-host-pool"></a>Creación del grupo host
 
-Puede crear un grupo host siguiendo las instrucciones de cualquiera de estos artículos:
+Puede configurar cualquier grupo de hosts personal o agrupado existente para que sea un grupo de hosts de validación. También puede crear un nuevo grupo de hosts para usarlo para la validación siguiendo las instrucciones de cualquiera de estos artículos:
 - [Tutorial: Creación de un grupo de hosts con Azure Marketplace o la CLI de Azure](create-host-pools-azure-marketplace.md)
 - [Creación de un grupo de hosts mediante PowerShell o la CLI de Azure](create-host-pools-powershell.md)
 
@@ -49,7 +49,7 @@ Para usar Azure Portal para configurar un grupo de hosts de validación:
 4. Seleccione el nombre del grupo de hosts que quiera editar.
 5. Seleccione **Propiedades**.
 6. En el campo del entorno de validación, seleccione **Sí** para habilitar el entorno de validación.
-7. Seleccione **Guardar**. De esta forma se aplicará la nueva configuración.
+7. Seleccione **Guardar** para aplicar la nueva configuración.
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
@@ -106,7 +106,7 @@ az desktopvirtualization hostpool show --name "MyHostPool" \
 
 Las actualizaciones del servicio se realizan mensualmente. Si hay incidencias importantes, se proporcionarán actualizaciones críticas con mayor frecuencia.
 
-Si hay alguna actualización del servicio, asegúrese de que tenga al menos un pequeño grupo de usuarios que inician sesión cada día para validar el entorno. Le recomendamos que visite periódicamente nuestro [sitio de TechCommunity](https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=wvdupdate&location=forum-board:WindowsVirtualDesktop&sort_by=-topicPostDate&collapse_discussion=true) y siga cualquier publicación con WVDUPdate para mantenerse informado sobre las actualizaciones del servicio.
+Si hay alguna actualización del servicio, asegúrese de que tenga al menos un par de usuarios que inicien sesión cada día para validar el entorno. Le recomendamos que visite periódicamente nuestro [sitio de TechCommunity](https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=wvdupdate&location=forum-board:WindowsVirtualDesktop&sort_by=-topicPostDate&collapse_discussion=true) y siga cualquier publicación con WVDUPdate para mantenerse informado sobre las actualizaciones del servicio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

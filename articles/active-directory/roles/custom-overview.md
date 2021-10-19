@@ -8,23 +8,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
-ms.date: 09/13/2021
+ms.date: 10/06/2021
 ms.author: rolyon
 ms.reviewer: abhijeetsinha
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21e1b91c10d687b0b82626372510dcaf2a0611ef
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 083b0da0152f82d75df2ca83a451b5672dc09002
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128601812"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667903"
 ---
 # <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Introducción al control de acceso basado en rol en Azure Active Directory
 
 En este artículo se describe el control de acceso basado en rol de Azure Active Directory (Azure AD). Los roles de Azure AD permiten conceder permisos específicos a los administradores respetando el principio de los privilegios mínimos. Los roles personalizados e integrados de Azure AD se basan en conceptos parecidos a los que se encuentran en el [sistema de control de acceso basado en rol para los recursos de Azure](../../role-based-access-control/overview.md) (roles de Azure). La [diferencia entre estos dos sistemas de control de acceso basados en rol](../../role-based-access-control/rbac-and-directory-admin-roles.md) es:
 
-- El control de rol de Azure AD accede a recursos de Azure AD como los usuarios, los grupos y las aplicaciones con Graph API.
+- El control de rol de Azure AD accede a recursos de Azure AD como los usuarios, los grupos y las aplicaciones con Microsoft Graph API.
 - El control de rol de Azure accede a recursos de Azure como las máquinas virtuales o el almacenamiento mediante Azure Resource Manager.
 
 Ambos sistemas contienen definiciones de rol y asignaciones de roles que se usan igual. Sin embargo, los permisos de rol de Azure AD no se pueden usar en los roles personalizados de Azure ni viceversa.
@@ -58,7 +58,7 @@ Una asignación de roles es un recurso de Azure AD que asocia una *definición 
 - Definición de roles: una colección de permisos. 
 - Ámbito: una manera de restringir dónde se aplican esos permisos.
 
-Puede [crear asignaciones de roles](manage-roles-portal.md) mediante Azure Portal, Azure AD PowerShell y Graph API. También puede [enumerar las asignaciones de roles](view-assignments.md).
+Puede [crear asignaciones de roles](manage-roles-portal.md) y [enumerar estas asignaciones](view-assignments.md) mediante Azure Portal, Azure AD PowerShell o Microsoft Graph API. La CLI de Azure no se admite para las asignaciones de roles de Azure AD.
 
 El diagrama siguiente muestra un ejemplo de una asignación de roles. En este ejemplo, se ha asignado a Chris el rol personalizado de administrador del registro de aplicaciones en el ámbito del registro de la aplicación del generador de widgets de Contoso. Esta asignación concede a Chris los permisos del rol de administrador del registro de aplicaciones solo en este registro de aplicación específico.
 

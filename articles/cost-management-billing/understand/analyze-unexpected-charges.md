@@ -6,15 +6,15 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: afdbcd6dd0e00f6829a82c136ba495a7097f5bb2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: de7787ab9b36bee5bce2f29f79260682289419c7
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128662027"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705798"
 ---
 # <a name="analyze-unexpected-charges"></a>Análisis de cargos inesperados
 
@@ -35,7 +35,7 @@ Los cargos de la factura de Azure se suman para el mes por _medidor_. Los medido
 
 Filtre el archivo CSV de uso basándose en el parámetro _MeterName_ que se muestra en la factura que desea analizar para ver todos los elementos de línea que se aplican al medidor. El parámetro _InstanceID_ para el elemento de línea corresponde al recurso de Azure que generó el cargo.
 
-Cuando haya identificado el recurso en cuestión, puede usar el análisis de costos en Azure Cost Management para analizar aún más los costos relacionados con el recurso. Para más información sobre el uso del análisis de costos, consulte [Inicio del análisis de costos](../costs/quick-acm-cost-analysis.md).
+Cuando haya identificado el recurso en cuestión, puede usar el análisis de costos en Cost Management para analizar aún más los costos relacionados con el recurso. Para más información sobre el uso del análisis de costos, consulte [Inicio del análisis de costos](../costs/quick-acm-cost-analysis.md).
 
 ## <a name="review-invoiced-charges-in-cost-analysis"></a>Revisión de los cargos facturados en Análisis de costos
 
@@ -88,4 +88,4 @@ Si ha usado las estrategias anteriores y todavía no entiende por qué ha recibi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre la [Optimización de la inversión en la nube con Azure Cost Management](../costs/cost-mgt-best-practices.md).
+- Obtenga más información sobre la [Optimización de la inversión en la nube con Cost Management](../costs/cost-mgt-best-practices.md).

@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 10/03/2021
 ms.author: memildin
-ms.openlocfilehash: ca1e75af5f1d5697b84742e3aec207a33a57b1c6
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.openlocfilehash: 516fa13a24c9cb5376bc6e8d38eeb1fc077f1d57
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407197"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713947"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Archivo de novedades de Azure Security Center
 
@@ -519,9 +519,9 @@ Principales funcionalidades:
 - Recepción y análisis de vulnerabilidades detectadas por agentes implementados (manualmente y a escala).
 - Experiencia unificada para máquinas virtuales de Azure y máquinas de Azure Arc.
 
-[Obtenga más información sobre la implementación del analizador de vulnerabilidades integrado en las máquinas híbridas](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
+[Obtenga más información sobre la implementación del analizador de vulnerabilidades de Qualys integrado en las máquinas híbridas](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
 
-[Obtenga más información sobre los servidores habilitados para Azure Arc](../azure-arc/servers/index.yml).
+[Más información sobre los servidores habilitados para Azure Arc](../azure-arc/servers/index.yml).
 
 
 ### <a name="secure-score-for-management-groups-is-now-available-in-preview"></a>Puntuación segura para grupos de administración ya está disponible en versión preliminar
@@ -984,9 +984,9 @@ Principales funcionalidades:
 - Recepción y análisis de vulnerabilidades detectadas por agentes implementados (manualmente y a escala).
 - Experiencia unificada para máquinas virtuales de Azure y máquinas de Azure Arc.
 
-[Obtenga más información sobre la implementación del analizador de vulnerabilidades integrado en las máquinas híbridas](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
+[Obtenga más información sobre la implementación del analizador de vulnerabilidades de Qualys integrado en las máquinas híbridas](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
 
-[Obtenga más información sobre los servidores habilitados para Azure Arc](../azure-arc/servers/index.yml).
+[Más información sobre los servidores habilitados para Azure Arc](../azure-arc/servers/index.yml).
 
 
 ### <a name="azure-firewall-recommendation-added-preview"></a>Recomendación sobre Azure Firewall agregada (versión preliminar)
@@ -1257,7 +1257,7 @@ Los resultados de seguridad ahora están disponibles para la exportación median
 
 Páginas relacionadas:
 
-- [Solución de evaluación de vulnerabilidades integrada en Security Center para Azure Virtual Machines](deploy-vulnerability-assessment-vm.md)
+- [Solución de evaluación de vulnerabilidades de Qualys integrada en Security Center para Azure Virtual Machines](deploy-vulnerability-assessment-vm.md)
 - [Solución de evaluación de vulnerabilidades integrada en Security Center para las imágenes de Azure Container Registry](defender-for-container-registries-usage.md)
 - [Exportación continua](continuous-export.md)
 
@@ -2011,7 +2011,7 @@ Ahora Azure Security Center puede examinar imágenes de contenedor en Azure Cont
 
 El análisis de imágenes funciona mediante el análisis del archivo de imagen del contenedor y la comprobación de la existencia de alguna vulnerabilidad conocida (con la tecnología Qualys).
 
-El propio análisis se desencadena automáticamente al insertar nuevas imágenes de contenedor en Azure Container Registry. Las vulnerabilidades detectadas se verán como recomendaciones de Security Center y se incluirán en la puntuación segura de Azure junto con información sobre cómo aplicarles revisiones para reducir la superficie expuesta a los ataques que permitían.
+El propio análisis se desencadena automáticamente al insertar nuevas imágenes de contenedor en Azure Container Registry. Las vulnerabilidades detectadas se verán como recomendaciones de Security Center y se incluirán en la puntuación segura junto con información sobre cómo aplicarles revisiones para reducir la superficie expuesta a los ataques que permitían.
 
 
 ### <a name="additional-regulatory-compliance-standards-preview"></a>Estándares de cumplimiento normativo adicionales (versión preliminar)
@@ -2045,7 +2045,7 @@ Las aplicaciones que se instalan en máquinas virtuales a menudo pueden tener vu
 
 La compatibilidad de Azure Security Center para la protección contra amenazas y la evaluación de vulnerabilidades en las bases de SQL que se ejecutan en máquinas virtuales IaaS está ahora en versión preliminar.
 
-[Evaluación de vulnerabilidades](../azure-sql/database/sql-vulnerability-assessment.md) es un servicio fácil de configurar que puede detectar, realizar un seguimiento y ayudarle a corregir posibles puntos vulnerables de una base de datos. Permite ver la postura de seguridad como parte de la puntuación segura de Azure e incluye los pasos para resolver problemas de seguridad y mejorar las defensas de su base de datos.
+[Evaluación de vulnerabilidades](../azure-sql/database/sql-vulnerability-assessment.md) es un servicio fácil de configurar que puede detectar, realizar un seguimiento y ayudarle a corregir posibles puntos vulnerables de una base de datos. Permite ver la postura de seguridad como parte de la puntuación segura e incluye los pasos para resolver problemas de seguridad y mejorar las defensas de su base de datos.
 
 [Advanced Threat Protection](../azure-sql/database/threat-detection-overview.md) detecta actividades anómalas que indican intentos inusuales y potencialmente perjudiciales de acceder a su servidor SQL Server o de aprovechar sus vulnerabilidades. Supervisa de forma constante la base de datos en busca de actividad sospechosa y proporciona alertas de seguridad sobre patrones de acceso a la base de datos anómalos para que pueda tomar medidas. Las alertas proporcionan detalles de la actividad sospechosa y recomiendan acciones para investigar y mitigar la amenaza.
 

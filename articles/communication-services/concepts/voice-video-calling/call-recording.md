@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.openlocfilehash: a6e5f1ecb5686145718d83febf3faf5c520db6fe
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 103ced05c6b88c5f7f60de398f78f89cc460daf9
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609524"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667314"
 ---
 # <a name="calling-recording-overview"></a>Introducción a la grabación de llamadas
 
@@ -30,11 +30,12 @@ Grabación de llamadas proporciona un conjunto de API para iniciar, detener, pau
 ![Diagrama de concepto de la grabación de llamadas](../media/call-recording-concept.png)
 
 ## <a name="media-output-types"></a>Tipos de salida de los elementos multimedia
-La grabación de llamadas admite actualmente el formato de salida MP4 de audio y vídeo mixto. El elemento multimedia de salida coincide con las grabaciones de reuniones que produce la característica de grabación de Microsoft Teams.
+Actualmente, la grabación de llamadas admite formatos de salida mp4 de audio y vídeo mixto, y MP3/WAV de solo audio mixtos. El elemento multimedia de salida de audio y vídeo combinados coincide con las grabaciones de reuniones que produce la característica de grabación de Microsoft Teams.
 
 | Tipo de canal | Formato de contenido | Vídeo | Audio |
 | :----------- | :------------- | :---- | :--------------------------- |
 | audioVideo | mp4 | Vídeo con formato 1920x1080 a 8 FPS de todos los participantes con una organización de iconos predeterminada | Audio mixto mp4a de 16 kHz de todos los participantes |
+| audioOnly| mp3/wav | N/D | Audio mixto mp3/wav de 16 kHz de todos los participantes |
 
 
 ## <a name="run-time-control-apis"></a>API de control de un entorno de ejecución

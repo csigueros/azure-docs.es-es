@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, ladolan, reylons, archidda, sopai, azla
 ms.topic: overview
 ms.date: 05/25/2021
-ms.openlocfilehash: 880e194fefdf49b05f2b531699a83d1f0e3e70cc
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 2a8d3187eecb684f7c0c2b89c135745dbcc9d8e9
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122429482"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713366"
 ---
 # <a name="what-is-azure-arc-enabled-logic-apps-preview"></a>¿Qué es Logic Apps habilitado para Azure Arc? (versión preliminar)
 
@@ -38,11 +38,11 @@ Para más información, revise la siguiente documentación:
 
 <a name="why-use"></a>
 
-## <a name="why-use-arc-enabled-logic-apps"></a>Por qué usar Logic Apps habilitado para Azure Arc
+## <a name="why-use-azure-arc-enabled-logic-apps"></a>Motivos para usar Logic Apps habilitado para Azure Arc
 
 Con Logic Apps habilitado para Azure Arc, puede crear e implementar flujos de trabajo de aplicaciones lógicas de la misma manera que en la experiencia de un solo inquilino para Azure Logic Apps. También puede obtener más control y flexibilidad cuando tiene aplicaciones lógicas que se ejecutan en la infraestructura de Kubernetes que usted mismo opere y administre.
 
-Existen pequeñas diferencias entre las experiencias de Azure Arc y de Logic Apps de un solo inquilino para crear, diseñar e implementar aplicaciones lógicas. Cuando usa Logic Apps habilitado para Azure Arc, la principal diferencia es que sus aplicaciones lógicas se ejecutan en una *ubicación personalizada*. Esta ubicación se asigna a un clúster de Kubernetes habilitado para Arc donde ha instalado y habilitado el conjunto de extensiones de la plataforma Azure App Service.
+Existen pequeñas diferencias entre las experiencias de Azure Arc y de Logic Apps de un solo inquilino para crear, diseñar e implementar aplicaciones lógicas. Cuando usa Logic Apps habilitado para Azure Arc, la principal diferencia es que sus aplicaciones lógicas se ejecutan en una *ubicación personalizada*. Esta ubicación se asigna a un clúster de Kubernetes habilitado para Azure Arc donde ha instalado y habilitado el conjunto de extensiones de la plataforma Azure App Service.
 
 Por ejemplo, este clúster puede ser una instancia de Azure Kubernetes Service, una instancia de Kubernetes sin sistema operativo u otra configuración. El conjunto de extensiones le permite ejecutar servicios de plataforma como Azure Logic Apps, Azure Functions y Azure App Service en el clúster de Kubernetes.
 
@@ -57,7 +57,7 @@ Para más información, revise la siguiente documentación:
 
 <a name="when-to-use"></a>
 
-## <a name="when-to-use-arc-enabled-logic-apps"></a>Cuándo usar Logic Apps habilitado para Arc
+## <a name="when-to-use-azure-arc-enabled-logic-apps"></a>¿Cuándo usar Logic Apps habilitado para Azure Arc?
 
 Aunque Kubernetes proporciona más control y flexibilidad, también tiene sobrecarga operativa. Si está satisfecho con el servicio Logic Apps porque satisface sus necesidades, es recomendable seguir usando este servicio. Sin embargo, considere la posibilidad de usar Logic Apps habilitado para Azure Arc cuando se encuentre en los siguientes escenarios:
 
@@ -123,7 +123,7 @@ En esta tabla se proporciona una comparación de alto nivel entre las funcionali
       Ejecución en cualquier lugar donde se ejecuten los contenedores
    :::column-end:::
    :::column:::
-      Ejecución en cualquier lugar con un clúster de Kubernetes habilitado para Arc
+      Ejecución en cualquier lugar con un clúster de Kubernetes habilitado para Azure Arc
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -181,4 +181,4 @@ En esta tabla se proporciona una comparación de alto nivel entre las funcionali
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Creación e implementación de flujos de trabajo con una instancia de Logic Apps habilitada para Arc](azure-arc-enabled-logic-apps-create-deploy-workflows.md)
+> [Creación e implementación de flujos de trabajo con Logic Apps habilitado para Azure Arc](azure-arc-enabled-logic-apps-create-deploy-workflows.md)

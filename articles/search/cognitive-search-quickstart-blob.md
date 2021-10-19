@@ -1,27 +1,29 @@
 ---
-title: 'Inicio rápido: Creación de un conjunto de aptitudes en Azure Portal'
+title: 'Inicio rápido: Traducción de texto y reconocimiento de entidades'
 titleSuffix: Azure Cognitive Search
-description: En este inicio rápido del portal, usará el Asistente para importar datos para agregar aptitudes cognitivas a una canalización de indexación en Azure Cognitive Search. Las aptitudes incluyen el reconocimiento óptico de caracteres (OCR) y el procesamiento de lenguaje natural.
+description: Use el Asistente para la importación de datos y las aptitudes cognitivas de IA para detectar el idioma, traducir el texto y reconocer las entidades. Los nuevos campos creados mediante inteligencia artificial se convierten en texto que permite búsquedas en un índice de Azure Cognitive Search.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 08/17/2021
-ms.openlocfilehash: d39ee872024cc3eb301e59d45e276843bb886340
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 10/07/2021
+ms.openlocfilehash: 01024a829c4e4447cfa7dc642469384170bc99f4
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129210561"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708246"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-skillset-in-the-azure-portal"></a>Inicio rápido: Creación de un conjunto de aptitudes de Azure Cognitive Search en Azure Portal
+# <a name="quickstart-translate-text-and-recognize-entities-using-the-import-data-wizard"></a>Inicio rápido: Traducción de texto y reconocimiento de entidades mediante el Asistente para la importación de datos
 
-En esta guía de inicio rápido se muestra la compatibilidad con habilidades en el portal, que muestra cómo se puede usar el reconocimiento óptico de caracteres (OCR) y el reconocimiento de entidades para crear contenido de texto de búsqueda a partir de imágenes y archivos de aplicación.
+Obtenga información sobre cómo el enriquecimiento con IA de Azure Cognitive Search permite agregar la detección de idioma, la traducción de texto y el reconocimiento de entidades para crear contenido que permite búsquedas en un índice de búsqueda. 
 
-Para prepararse, debe crear algunos recursos y cargar imágenes de ejemplo y archivos de contenido de la aplicación. Una vez que todo esté en su lugar, ejecutará el Asistente para la **importación de datos** en Azure Portal para extraerlo todo junto. El resultado final es un índice en el que se pueden realizar búsquedas y que se ha rellenado con los datos creados con el procesamiento de inteligencia artificial que puede consultar en el portal ([Explorador de búsqueda](search-explorer.md)).
+En este inicio rápido, ejecutará el Asistente para la **importación de datos** para analizar las descripciones en francés y español de varios investigadores de museos nacionales ubicados en España. La salida es un índice que permite búsquedas que contiene texto traducido y entidades que se pueden consultar en el portal mediante [Explorador de búsqueda](search-explorer.md). 
 
-¿Prefiere empezar con el código? Consulte [Tutorial: Uso de REST y AI para generar contenido en el que se pueden realizar búsquedas desde blobs de Azure](cognitive-search-tutorial-blob.md) o [Tutorial: Contenido de blobs de Azure con capacidad de búsqueda y generado mediante inteligencia artificial con el SDK de .NET](cognitive-search-tutorial-blob-dotnet.md) en su lugar.
+Para prepararse, creará algunos recursos y cargará archivos de ejemplo antes de ejecutar el asistente.
+
+¿Prefiere empezar con el código? Pruebe en su lugar el [tutorial de .NET](cognitive-search-tutorial-blob-dotnet.md), el [tutorial de Python](cognitive-search-tutorial-blob-python.md) o el [tutorial de REST](cognitive-search-tutorial-blob-dotnet.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -29,9 +31,13 @@ Antes de comenzar, tiene que cumplir los siguientes requisitos previos:
 
 + Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/).
 
-+ Un servicio de Azure Cognitive Search. [Cree un servicio](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido. 
++ Servicio Azure Cognitive Search. [Cree un servicio](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido. 
 
-+ Una cuenta de Azure Storage con [Blob Storage](../storage/blobs/index.yml).
++ Una cuenta de Azure Storage con Blob Storage. [Cree una cuenta de almacenamiento](../storage/common/storage-account-create.md?tabs=azure-portal) o [busque una cuenta existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
+
+  + Elija la misma suscripción si desea que el asistente busque la cuenta de almacenamiento y configure la conexión.
+  + Elija la misma región de Azure Cognitive Search para evitar cargos de ancho de banda.
+  + Elija el tipo de cuenta StorageV2 (de uso general V2).
 
 > [!NOTE]
 > En este inicio rápido también se usa [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) para la inteligencia artificial. Dado que la carga de trabajo es tan pequeña, Cognitive Services se aprovecha en segundo plano del procesamiento gratuito de hasta 20 transacciones. Esto significa que puede completar este ejercicio sin tener que crear un recurso de Cognitive Services adicional.
@@ -40,19 +46,18 @@ Antes de comenzar, tiene que cumplir los siguientes requisitos previos:
 
 En los pasos siguientes, configure un contenedor de blobs en Azure Storage para almacenar archivos de contenido heterogéneo.
 
-1. [Descargue los datos de ejemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) que están formados por un pequeño conjunto de archivos de diferentes tipos. Descomprima los archivos.
+1. [Descargue los datos de ejemplo](https://github.com/Azure-Samples/azure-search-sample-data) de GitHub. Hay varios conjuntos de datos. Use los archivos de la carpeta **spanish-museums** para este inicio rápido.
 
-1. [Cree una cuenta de Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal) o [busque una cuenta existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
+1. Carga de datos de ejemplo en un contenedor de blobs.
 
-   + Elija la misma región de Azure Cognitive Search para evitar cargos de ancho de banda. 
+   1. Inicie sesión en [Azure Portal](https://portal.azure.com/) y busque la cuenta de almacenamiento.
+   1. En el panel de navegación izquierdo, seleccione **Contenedores**.
+   1. [Cree un contenedor](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) denominado "spanish-museums". Use el nivel de acceso público predeterminado.
+   1. En el contenedor "spanish-museums", seleccione **Cargar** para cargar los archivos desde la carpeta local **spanish-museums**.
 
-   + Elija el tipo de cuenta StorageV2 (de uso general V2).
+Debe tener 10 archivos que contengan descripciones en francés y español de los museos nacionales ubicados en España.
 
-1. Abra las páginas de Blob service y cree un contenedor. Puede usar el nivel de acceso público predeterminado. 
-
-1. En el contenedor, haga clic en **Cargar** para cargar los archivos de ejemplo que descargó en el primer paso. Tenga en cuenta que dispone de una amplia gama de tipos de contenido, como imágenes y archivos de aplicación, en los que no se pueden realizar búsquedas de texto completo en sus formatos nativos.
-
-   :::image type="content" source="media/cognitive-search-quickstart-blob/sample-data.png" alt-text="Archivos de origen en Azure Blob Storage" border="false":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/museums-container.png" alt-text="Lista de archivos docx en un contenedor de blobs" border="true":::
 
 Ahora ya está preparado para continuar con el Asistente para la importación de datos.
 
@@ -66,35 +71,31 @@ Ahora ya está preparado para continuar con el Asistente para la importación de
 
 ### <a name="step-1---create-a-data-source"></a>Paso 1: Creación de un origen de datos
 
-1. En **Conectarse a los datos propios**, elija **Azure Blob Storage** y seleccione la cuenta de Storage y el contenedor que creó. Asigne un nombre al origen de datos y use los valores predeterminados para el resto. 
+1. En **Conectarse a los datos propios**, seleccione **Azure Blob Storage**. Elija una conexión existente a la cuenta de almacenamiento y al contenedor que ha creado. Asigne un nombre al origen de datos y use los valores predeterminados para el resto. 
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/blob-datasource.png" alt-text="Configuración de blobs de Azure" border="false":::
-
-    Continúe en la siguiente página.
+   :::image type="content" source="media/cognitive-search-quickstart-blob/connect-to-spanish-museums.png" alt-text="Configuración de blobs de Azure" border="true":::
 
 ### <a name="step-2---add-cognitive-skills"></a>Paso 2: Adición de aptitudes cognitivas
 
-Después, configure el enriquecimiento de inteligencia artificial para invocar a OCR, el análisis de imágenes y el procesamiento de lenguaje natural. 
+A continuación, configure el enriquecimiento con inteligencia artificial para invocar la detección de idioma, la traducción de texto y el reconocimiento de entidades. 
 
-1. En este inicio rápido, se usará el recurso **Free** de Cognitive Services. Los datos de ejemplo se componen de 14 archivos, por lo que la cobertura gratuita de 20 transacciones de Cognitive Services es suficiente para este inicio rápido. 
+1. En este inicio rápido, se usará el recurso **Free** de Cognitive Services. Los datos de ejemplo se componen de 10 archivos, por lo que la cobertura diaria por indexador de 20 transacciones gratis de Cognitive Services es suficiente para este inicio rápido. 
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/cog-search-attach.png" alt-text="Adjuntar un servicio base de Cognitive Services" border="false":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/free-enrichments.png" alt-text="Asociación del procesamiento gratuito de Cognitive Services" border="true":::
 
-1. Expanda **Agregar enriquecimientos** y realice cuatro selecciones. 
+1. En la misma página, expanda **Agregar enriquecimientos** y realice cinco selecciones:
 
-   Habilite el OCR para agregar aptitudes de análisis de imágenes a la página del asistente.
+   Elección del reconocimiento de entidades (personas, organizaciones y ubicaciones)
 
-   Establezca la granularidad en las páginas para dividir el texto en fragmentos más pequeños. Varias aptitudes de texto se limitan a entradas de 5 KB.
+   Elección de la detección de idioma y la traducción de texto
 
-   Elija el reconocimiento de entidades (personas, organizaciones o ubicaciones) y aptitudes de análisis de imágenes.
+   :::image type="content" source="media/cognitive-search-quickstart-blob/select-entity-lang-enrichments.png" alt-text="Adjuntar determinados servicios de Attach Cognitive Services para el conjunto de aptitudes" border="true":::
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/skillset.png" alt-text="Adjuntar determinados servicios de Attach Cognitive Services para el conjunto de aptitudes" border="false":::
-
-   Continúe en la siguiente página.
+   En los blobs, el campo "Contenido" incluye el contenido del archivo. En los datos de ejemplo, el contenido se compone de varios párrafos sobre un determinado museo, en francés o español. La "granularidad" es el propio campo. Algunas aptitudes funcionan mejor en fragmentos más pequeños de texto, pero para las aptitudes de esta guía de inicio rápido, la granularidad de campo es suficiente.
 
 ### <a name="step-3---configure-the-index"></a>Paso 3: Configuración del índice
 
-Un índice incluye el contenido en el que se pueden realizar búsquedas y el Asistente para la **importación de datos** puede crear normalmente el esquema mediante el muestreo del origen de datos. En este paso, repase el esquema generado y revise la configuración. A continuación se ofrece el esquema predeterminado que se creó para el conjunto de datos de blob de demostración.
+Un índice incluye el contenido en el que se pueden realizar búsquedas y el Asistente para la **importación de datos** puede inferir normalmente el esquema mediante el muestreo de los datos. En este paso, repase el esquema generado y revise la configuración. A continuación se ofrece el esquema predeterminado que se creó para el conjunto de datos de demostración.
 
 En esta guía de inicio rápido, el asistente realiza un trabajo remarcable a la hora de configurar valores predeterminados razonables:  
 
@@ -104,15 +105,11 @@ En esta guía de inicio rápido, el asistente realiza un trabajo remarcable a la
 
 + Los atributos predeterminados son **Retrievable** (Recuperable) y **Searchable** (Permite búsquedas). El atributo **Searchable** (Permite búsqueda) permite buscar texto completo en un campo. El atributo **Retrievable** (Recuperable) indica que un valor puede aparecer en los resultados. El asistente da por supuesto que desea que estos campos se puedan recuperar y permitan búsquedas porque los creó a través de un conjunto de aptitudes.
 
-  :::image type="content" source="media/cognitive-search-quickstart-blob/index-fields.png" alt-text="Campos de índice" border="false":::
++ Active la casilla que se puede filtrar para "Idioma". El asistente no establecerá la carpeta, pero la capacidad de filtrar por idioma es útil en esta demostración ya que hay varios idiomas.
 
-Observe el tachado y el signo de interrogación en el atributo **Retrievable** (Recuperable) del campo `content`. En el caso de los documentos blob con mucho texto, el campo `content` contiene la mayor parte del archivo, posiblemente con miles de líneas. Un campo como este no es manejable en los resultados de la búsqueda y se debe excluir para esta demostración. 
-
-Sin embargo, si tiene que pasar el contenido del archivo al código de cliente, asegúrese de que el atributo **Recuperable** sigue seleccionado para permitir que el motor de búsqueda devuelva ese archivo.
+  :::image type="content" source="media/cognitive-search-quickstart-blob/index-fields-lang-entities.png" alt-text="Campos de índice" border="true":::
 
 Marcar un campo como **Retrievable** no significa que el campo *debe* esté presente en los resultados de búsqueda. Puede controlar con precisión la composición de los resultados de búsqueda si usa el parámetro de consulta **$select** para especificar qué campos desea incluir. En el caso de campos con mucho texto como `content`, el parámetro **$select** es la solución para moldear resultados de búsqueda fáciles de administrar para los usuarios de la aplicación, mientras se garantiza que el código de cliente tenga acceso a toda la información que necesita a través del atributo **Recuperable**.
-  
-Continúe en la siguiente página.
 
 ### <a name="step-4---configure-the-indexer"></a>Paso 4: Configuración del indexador
 
@@ -120,27 +117,17 @@ El indexador es un recurso de alto nivel que controla el proceso de indexación.
 
 1. En la página **Indizador**, puede aceptar el nombre predeterminado y hacer clic en la opción de programación **Una vez** para ejecutarlo inmediatamente. 
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-def.png" alt-text="Definición del indexador" border="false":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-spanish-museum.png" alt-text="Definición del indexador" border="true":::
 
 1. Haga clic en **Enviar** para crear y ejecutar simultáneamente el indexador.
 
 ## <a name="monitor-status"></a>Supervisión de estado
 
-La indexación cognitiva de aptitudes tarda más en completarse que la indexación típica basada en texto, especialmente en OCR y análisis de imágenes. Para supervisar el progreso, vaya a la página de información general y haga clic en **Indizadores** en medio de la página.
+La indexación cognitiva de aptitudes tarda más en completarse que la indexación típica basada en texto. Para supervisar el progreso, vaya a la página de información general y seleccione la pestaña **Indexadores** en medio de la página.
 
-  :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-notification.png" alt-text="Notificación de Azure Cognitive Search" border="false":::
+  :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-status-spanish-museums.png" alt-text="Estado del indexador" border="true":::
 
-Las advertencias son normales dada la amplia gama de tipos de contenido. Algunos tipos de contenido no son válidos para determinadas aptitudes y en los niveles inferiores es habitual encontrar [límites del indexador](search-limits-quotas-capacity.md#indexer-limits). Por ejemplo, las notificaciones de truncamiento de 32 000 caracteres son un límite del indexador en el nivel Gratis. Si ha ejecutado esta demostración en un nivel superior, desaparecerán muchas advertencias de truncamiento.
-
-Para comprobar las advertencias o los errores, haga clic en el estado de advertencia en la lista de indexadores para abrir la página Historial de ejecución.
-
-En esa página, vuelva a hacer clic en el estado de advertencia para ver la lista de advertencias similares a la que se muestra a continuación. 
-
-  :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-warnings.png" alt-text="Lista de advertencias del indexador" border="false":::
-
-Los detalles aparecen al hacer clic en una línea de estado específica. Esta advertencia indica que la combinación se detuvo después de alcanzar un umbral máximo (este PDF en particular es grande).
-
-  :::image type="content" source="media/cognitive-search-quickstart-blob/warning-detail.png" alt-text="Detalles de la advertencia" border="false":::
+Para comprobar los detalles sobre el estado de ejecución, seleccione un indexador de la lista.
 
 ## <a name="query-in-search-explorer"></a>Consulta en el Explorador de búsqueda
 
@@ -150,28 +137,18 @@ Después de crear un índice, puede ejecutar consultas para devolver los resulta
 
 1. Seleccione **Cambiar índice** en la parte superior para seleccionar el índice que haya creado.
 
-1. Escriba una cadena de búsqueda para consultar el índice como, por ejemplo, `search=Microsoft&$select=people,organizations,locations,imageTags`.
+1. En Cadena de consulta, escriba una cadena de búsqueda para consultar el índice, como `search="picasso museum" &$select=people,organizations,locations,language,translated_text &$count=true &$filter=language eq 'fr'` y, a continuación, seleccione **Buscar**.
+
+   :::image type="content" source="media/cognitive-search-quickstart-blob/search-explorer-query-string-spanish-museums.png" alt-text="Cadena de consulta en el Explorador de búsqueda" border="true":::
 
 Los resultados se devuelven en formato JSON, que suele ser detallado y difícil de leer, especialmente si se trata de documentos de gran tamaño que se crean en los blobs de Azure. Algunas sugerencias para buscar en esta herramienta incluyen las siguientes técnicas:
 
 + Agregue `$select` para especificar qué campos quiere incluir en los resultados de búsqueda. 
 + Use CTRL-F para buscar en el JSON las propiedades o los términos específicos.
 
+  :::image type="content" source="media/cognitive-search-quickstart-blob/search-explorer-results-spanish-museums.png" alt-text="Ejemplo del Explorador de búsquedas" border="true":::
+
 Las cadenas de consulta distinguen mayúsculas de minúsculas, por lo que si obtiene un mensaje de "campo desconocido", compruebe los **campos** o la **definición de índice (JSON)** para comprobar el nombre y el caso. 
-
-  :::image type="content" source="media/cognitive-search-quickstart-blob/search-explorer.png" alt-text="Ejemplo del Explorador de búsquedas" border="false":::
-
-## <a name="takeaways"></a>Puntos clave
-
-Ahora ha creado su primer conjunto de aptitudes y ha aprendido conceptos importantes útiles para crear prototipos de una solución de búsqueda enriquecida mediante sus propios datos.
-
-Algunos conceptos clave que esperamos que haya tenido en cuenta incluyen la dependencia de los orígenes de datos de Azure. Un conjunto de aptitudes está enlazado a un indexador y los indexadores son de Azure y específicos del origen. Aunque esta guía de inicio rápido usa Azure Blob Storage, también se pueden usar otros orígenes de datos de Azure. Para más información, consulte [Indexadores de Azure Cognitive Search](search-indexer-overview.md). 
-
-Otro concepto importante es que las aptitudes operan sobre los tipos de contenido y, al trabajar con contenido heterogéneo, se omitirán algunas entradas. Además, los archivos o campos grandes pueden superar los límites del indexador de su nivel de servicio. Es normal ver las advertencias cuando se producen estos eventos. 
-
-La salida se dirige a un índice de búsqueda y hay una asignación entre los pares nombre y valor que se crearon durante la indexación y los campos individuales del índice. De forma interna, el portal establece las [anotaciones ](cognitive-search-concept-annotations-syntax.md) y define un [conjunto de aptitudes](cognitive-search-defining-skillset.md) que establece el orden de las operaciones y el flujo general. Estos pasos están ocultos en el portal, pero recuerde que estos conceptos serán importantes cuando comience a escribir el código.
-
-Por último, aprendió que se puede comprobar el contenido consultando el índice. Al final, lo que proporciona Azure Cognitive Search es un índice de búsqueda que puede consultar mediante la [sintaxis de consulta simple](/rest/api/searchservice/simple-query-syntax-in-azure-search) o [totalmente extendida](/rest/api/searchservice/lucene-query-syntax-in-azure-search). Un índice que contenga campos enriquecidos es como cualquier otro. Si desea incorporar [analizadores personalizados](search-analyzers.md) o estándar, [perfiles de puntuación](/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [sinónimos](search-synonyms.md), [navegación por facetas](search-faceted-navigation.md), búsquedas geográficas o cualquier otra característica de Azure Cognitive Search, puede hacerlo.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -183,10 +160,7 @@ Si está usando un servicio gratuito, recuerde que está limitado a tres índice
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para crear estos conjuntos de aptitudes, puede usar el portal, el SDK de .NET o la API REST. Para ampliar sus conocimientos, pruebe la API REST con Postman y más datos de ejemplo.
+Cognitive Search tiene otras aptitudes integradas que se pueden ejercer en el Asistente para la importación de datos. Como paso siguiente, pruebe las aptitudes de OCR y análisis de imágenes para crear contenido que permita búsquedas de texto a partir de archivos de imagen.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Extracción de texto y estructura de blobs JSON mediante API REST ](cognitive-search-tutorial-blob.md)
-
-> [!Tip]
-> Si desea repetir este ejercicio o probar otro tutorial de enriquecimiento con inteligencia artificial, elimine el indexador del portal. La eliminación del indexador restablece el contador de transacciones diarias gratis a cero para el procesamiento de Cognitive Services.
+> [Inicio rápido: Uso de OCR y análisis de imágenes para crear contenido que permita búsquedas](cognitive-search-quickstart-ocr.md)

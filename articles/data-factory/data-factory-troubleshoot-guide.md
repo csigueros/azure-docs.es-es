@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: troubleshooting
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 09/09/2021
+ms.date: 09/30/2021
 ms.author: abnarain
-ms.openlocfilehash: c9e6c4c0475842d9eb8c674464ebcf997d98b548
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ec238a018dea8940143aa6a2483c0e7dfa0d3d63
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124749445"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705575"
 ---
 # <a name="troubleshoot-azure-data-factory-and-synapse-pipelines"></a>Solución de problemas de canalizaciones de Azure Data Factory y Synapse
 
@@ -142,6 +142,20 @@ Para obtener más información sobre problemas de conector como, por ejemplo, er
 
 - **Recomendación:** Si usa un entorno de ejecución de integración autohospedado, asegúrese de que la conexión de red sea estable desde los nodos del entorno de ejecución de integración. Si usa Azure Integration Runtime, el reintento suele funcionar.
  
+### <a name="the-boolean-run-output-starts-coming-as-string-instead-of-expected-int"></a>La ejecución booleana se genera como una cadena y no como el valor entero que se esperaba
+
+- **Síntomas**: La ejecución booleana se genera como una cadena (por ejemplo, `"0"` o `"1"`) en lugar del valor entero esperado (por ejemplo, `0` o `1`).
+
+   :::image type="content" source="media/data-factory-troubleshoot-guide/databricks-pipeline.png" alt-text="Captura de pantalla de la canalización de Databricks.":::
+
+    Observó este cambio el 28 de septiembre de 2021 alrededor de las 9:00 a. m. IST, cuando la canalización que se basa en esta salida empezó a generar errores. No se hizo ningún cambio en la canalización y la salida booleana había sido la esperada antes de que se produjera el error. 
+
+   :::image type="content" source="media/data-factory-troubleshoot-guide/old-and-new-output.png" alt-text="Captura de pantalla de la diferencia en la salida.":::
+
+- **Causa**: Este problema se debe a un cambio intencional reciente. Después del cambio, si el resultado es un número que comienza con cero, Azure Data Factory convertirá el número en el valor octal, lo que es un error. Este número siempre es 0 o 1, lo que nunca generó ningún error antes del cambio. Por lo tanto, y para corregir la conversión octal, la salida de cadena de la ejecución de Notebook se pasa sin ningún cambio. 
+
+- **Recomendación**: Cambie la condición **if** a algo similar a esto `if(value=="0")`.
+
 ## <a name="azure-data-lake-analytics"></a>Análisis con Azure Data Lake
 
 La tabla siguiente se aplica a U-SQL.
@@ -1021,6 +1035,15 @@ Si observa que la actividad tarda mucho más tiempo en ejecutarse que sus ejecuc
 **Causa:** La carga de cada ejecución de actividad incluye la configuración de la actividad, las configuraciones de los conjuntos de datos asociados y los servicios vinculados (si los hay), y una pequeña parte de las propiedades del sistema que se generan por tipo de actividad. El límite de este tamaño de carga es 896 KB, tal y como se menciona en la documentación sobre los límites de Azure para [Data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) y [Azure Synapse Analytics](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-synapse-analytics-limits).
 
 **Recomendación:** Probablemente se alcanza este límite porque se pasan uno o más valores grandes de parámetro desde una salida de actividad ascendente o de forma externa, especialmente si se pasan datos reales entre actividades en el flujo de control. Compruebe si puede reducir el tamaño de los valores de parámetros grandes, o bien ajuste la lógica de canalización para evitar pasar estos valores entre las actividades y administrarlos dentro de la actividad en su lugar.
+
+### <a name="unsupported-compression-causes-files-to-be-corrupted"></a>La compresión no compatible daña los archivos
+
+**Síntomas**: Intenta descomprimir un archivo que está almacenado en un contenedor de blobs. El origen de una actividad de copia en una canalización tiene el tipo de compresión establecido en "deflate64" (o cualquier tipo no compatible). Esta actividad se ejecuta correctamente y genera el archivo de texto contenido en el archivo ZIP; pero hay un problema con el texto del archivo y este archivo parece estar dañado. Cuando este archivo se descomprime de manera local, no tiene problemas.
+
+**Causa**: El archivo ZIP se comprime con el algoritmo de "deflate64", mientras que la biblioteca interna de archivos ZIP de Azure Data Factory solo admite "deflate". Si el sistema Windows comprime el archivo ZIP y el tamaño total del archivo supera un número determinado, Windows usará "deflate64" de manera predeterminada, algo que no es compatible con Azure Data Factory. Por otro lado, si el tamaño del archivo es menor o usa algunas herramientas de compresión de terceros que sí admiten la especificación del algoritmo de compresión, Windows usará "deflate" de manera predeterminada.
+
+> [!TIP]
+> De hecho, en los artículos [Formato binario en Azure Data Factory y Synapse Analytics](format-binary.md) y [Formato de texto delimitado en Azure Data Factory y Azure Synapse Analytics](format-delimited-text.md) establecen claramente que el formato "deflate64" no es compatible con Azure Data Factory.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

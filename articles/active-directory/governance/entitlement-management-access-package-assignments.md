@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 04/12/2021
+ms.date: 10/05/2021
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ed289789576df7c81368b2b98001968c358c0e0
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f944caecae6d35e680f5c5beb1a6e23fc422e698
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114440207"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129618104"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Consulta, incorporación y eliminación de asignaciones para un paquete de acceso en la administración de derechos de Azure AD
 
@@ -72,7 +72,7 @@ $assignments = Get-MgEntitlementManagementAccessPackageAssignment -AccessPackage
 $assignments | ft Id,AssignmentState,TargetId,{$_.Target.DisplayName}
 ```
 
-## <a name="directly-assign-a-user"></a>Asignar directamente un usuario
+## <a name="directly-assign-a-user"></a>Asignar directamente un usuario 
 
 En algunos casos, es posible que quiera asignar directamente usuarios específicos a un paquete de acceso para que los usuarios no tengan que pasar por el proceso de solicitar el paquete de acceso. Para asignar directamente usuarios, el paquete de acceso debe tener una directiva que permita las asignaciones directas de administrador.
 
@@ -108,6 +108,38 @@ En algunos casos, es posible que quiera asignar directamente usuarios específic
 1. Haga clic en **Agregar** para asignar directamente los usuarios seleccionados al paquete acceso.
 
     Transcurridos unos instantes, haga clic en **Actualizar** para ver los usuarios en la lista Asignaciones.
+    
+> [!NOTE]
+> Al asignar usuarios a un paquete de acceso, los administradores tendrán que comprobar que los usuarios cumplen los requisitos de la directiva existente para ese paquete de acceso. De lo contrario, los usuarios no se podrán asignar correctamente al paquete de acceso. Si el paquete de acceso contiene una directiva que requiere que la aprobación de las solicitudes de usuario, no se podrán asignar usuarios directamente al paquete sin las aprobaciones necesarias de los aprobadores designados.
+
+## <a name="directly-assign-any-user-preview"></a>Asignación directa de cualquier usuario (versión preliminar)
+La administración de derechos de Azure AD también permite asignar directamente usuarios externos a un paquete de acceso a fin de facilitar la colaboración con los asociados. Para ello, el paquete de acceso debe tener una directiva que permita a los usuarios que aún no están en el directorio solicitar acceso.
+
+**Rol necesario:** Administrador global, Administrador de usuarios, Propietario del catálogo, Administrador de paquetes de acceso o Administrador de asignaciones de paquetes de acceso
+
+1.  En Azure Portal, seleccione **Azure Active Directory** y, luego, **Gobierno de identidades**.
+
+1.  En el menú de la izquierda, haga clic en **Paquetes de acceso** y abra el paquete de acceso en el que desea agregar un usuario.
+
+1.  En el menú de la izquierda, haga clic en **Asignaciones**.
+
+1.  Seleccione **Nueva asignación** para abrir **Agregar usuario al paquete de acceso**.
+
+1.  En la lista **Seleccionar directiva**, seleccione una directiva que permita que se establezca en **Para los usuarios que no están en el directorio**.
+
+1. Seleccione **Cualquier usuario**. Podrá especificar qué usuarios desea asignar a este paquete de acceso.
+    ![Asignaciones - Agregar cualquier usuario al paquete de acceso](./media/entitlement-management-access-package-assignments/assignments-add-any-user.png)
+
+1. Escriba el **nombre** (opcional) y la **dirección de correo electrónico** (obligatoria) del usuario.
+
+    > [!NOTE]
+    > - El usuario que desea agregar debe estar dentro del ámbito de la directiva. Por ejemplo, si la directiva está establecida en **Organizaciones conectadas específicas**, la dirección de correo electrónico del usuario debe ser de los dominios de las organizaciones seleccionadas. Si la dirección de correo electrónico del usuario que intenta agrega es jen@*foo.com*, pero el dominio de la organización seleccionada es *bar.com*, no podrá agregar ese usuario al paquete de acceso.
+    > - Del mismo modo, si estableció la directiva para incluir **Todas las organizaciones conectadas que están configuradas**, la dirección de correo electrónico del usuario debe provenir de una de las organizaciones conectadas configuradas. De lo contrario, el usuario no se agregará al paquete de acceso.
+    > - Si desea agregar cualquier usuario al paquete de acceso, deberá asegurarse de activar la opción **Todos los usuarios (todas las organizaciones conectadas + cualquier usuario externo)** al configurar la directiva.
+
+1.  Establezca la fecha y hora en la que quiere que comience y finalice la asignación de los usuarios seleccionados. Si no se proporciona una fecha de finalización, se utilizará la configuración del ciclo de vida de la directiva.
+1.  Haga clic en **Agregar** para asignar directamente los usuarios seleccionados al paquete acceso.
+1.  Transcurridos unos instantes, haga clic en **Actualizar** para ver los usuarios en la lista Asignaciones.
 
 ## <a name="directly-assigning-users-programmatically"></a>Asignación de usuarios directamente mediante programación
 ### <a name="assign-a-user-to-an-access-package-with-microsoft-graph"></a>Asignación de un usuario a un paquete de acceso con Microsoft Graph

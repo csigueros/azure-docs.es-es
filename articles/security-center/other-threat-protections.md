@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 09/05/2021
+ms.date: 10/12/2021
 ms.author: memildin
-ms.openlocfilehash: dee498ea30bc31fa0193f6bbff3c01261260d03b
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: c2bed032510e278663a1d1d9f10043eaa6e9b0db
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123537767"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858203"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Protecciones adicionales contra amenazas en Azure Security Center
 Además de las [protecciones de Azure Defender](azure-defender.md) integradas, Azure Security Center también ofrece las siguientes funcionalidades de protección contra amenazas.
@@ -29,13 +29,6 @@ Algunas configuraciones de red pueden impedir a Security Center generar alertas 
 
 Para obtener una lista de las alertas de nivel de red de Azure, consulte la [tabla de referencia de alertas](alerts-reference.md#alerts-azurenetlayer).
 
->[!NOTE]
-> Security Center almacena datos de clientes relacionados con la seguridad en la misma zona geográfica que su recurso. Si Microsoft aún no ha implementado Security Center en la zona geográfica del recurso, almacenará los datos en Estados Unidos. Cuando Cloud App Security esté habilitado, esta información se almacenará con arreglo a las reglas de ubicación geográfica de Cloud App Security. Para obtener más información, consulte [Almacenamiento de datos para servicios no regionales](https://azuredatacentermap.azurewebsites.net/).
-
-1. Establezca el área de trabajo en la que va a instalar el agente. Asegúrese de que el área de trabajo está en la misma suscripción que se usa en Security Center y que tiene permisos de lectura/escritura en el área de trabajo.
-
-1. Habilite **Azure Defender** y seleccione **Guardar**.
-
 
 ## <a name="threat-protection-for-azure-cosmos-db-preview"></a>Protección contra amenazas para Azure Cosmos DB (versión preliminar)<a name="cosmos-db"></a>
 
@@ -46,11 +39,19 @@ Para más información, consulte:
 * [Advanced Threat Protection para Azure Cosmos DB (versión preliminar)](../cosmos-db/cosmos-db-advanced-threat-protection.md)
 * [La lista de alertas de protección contra amenazas para Azure Cosmos DB (versión preliminar)](alerts-reference.md#alerts-azurecosmos)
 
+## <a name="display-azure-security-center-recommendations-in-microsoft-cloud-app-security"></a>Visualización de las recomendaciones de Azure Security Center en Microsoft Cloud App Security <a name="azure-mcas"></a>
+
+Microsoft Cloud App Security es un agente de seguridad de acceso a la nube (CASB) que admite distintos modos de implementación, incluyendo la recopilación de registros, los conectores de API y el proxy inverso. Proporciona visibilidad enriquecida, control sobre el viaje de los datos y análisis sofisticados para identificar y combatir las ciberamenazas en todos los servicios en la nube de terceros y Microsoft.
+
+Si ha habilitado Microsoft Cloud App Security y ha seleccionado la integración desde dentro de la configuración de Security Center, las recomendaciones de protección de Security Center aparecerán en Cloud App Security sin necesidad de ninguna configuración adicional.
+
+> [!NOTE]
+> Security Center almacena datos de clientes relacionados con la seguridad en la misma zona geográfica que su recurso. Si Microsoft aún no ha implementado Security Center en la zona geográfica del recurso, almacenará los datos en Estados Unidos. Cuando Microsoft Cloud App Security esté habilitado, esta información se almacenará con arreglo a las reglas de ubicación geográfica de Microsoft Cloud App Security. Para obtener más información, consulte [Almacenamiento de datos para servicios no regionales](https://azuredatacentermap.azurewebsites.net/).
 
 
-## <a name="threat-protection-for-other-microsoft-services"></a>Protección contra amenazas para otros servicios de Microsoft <a name="alerts-other"></a>
+## <a name="stream-security-alerts-from-other-microsoft-services"></a>Transmisión de alertas de seguridad de otros servicios de Microsoft <a name="alerts-other"></a>
 
-### <a name="threat-protection-for-azure-waf"></a>Protección contra amenazas para el firewall de aplicaciones web de Azure <a name="azure-waf"></a>
+### <a name="display-azure-waf-alerts-in-security-center"></a>Visualización de alertas de Azure WAF en Security Center <a name="azure-waf"></a>
 
 Firewall de aplicaciones web (WAF) es una característica de Azure Application Gateway que proporciona a las aplicaciones web una protección centralizada contra vulnerabilidades de seguridad comunes.
 
@@ -59,15 +60,13 @@ Las aplicaciones web son cada vez más el objetivo de ataques malintencionados q
 Si tiene una licencia para el firewall de aplicaciones web de Azure, las alertas de este se transmitirán a Security Center sin necesidad de configuración adicional. Para más información sobre las alertas generadas por WAF, consulte [Reglas y grupos de reglas de CRS del firewall de aplicaciones web](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md?tabs=owasp31#crs911-31).
 
 
-### <a name="threat-protection-for-azure-ddos-protection"></a>Protección contra amenazas para Azure DDoS Protection <a name="azure-ddos"></a>
+### <a name="display-azure-ddos-protection-alerts-in-security-center"></a>Visualización de alertas de Azure DDoS Protection en Security Center <a name="azure-ddos"></a>
 
-Los ataques de denegación de servicio distribuido (DDoS) son conocidos por lo fáciles que son de ejecutar. Se han convertido en un problema de seguridad muy importante, especialmente si va a trasladar sus aplicaciones a la nube. 
-
-Un ataque DDoS intenta agotar los recursos de una aplicación haciendo que esta no esté disponible para los usuarios legítimos. Los ataques DDoS pueden dirigirse a cualquier punto de conexión accesible a través de Internet.
+Los ataques de denegación de servicio distribuido (DDoS) son conocidos por lo fáciles que son de ejecutar. Se han convertido en un problema de seguridad muy importante, especialmente si va a trasladar sus aplicaciones a la nube. Un ataque DDoS intenta agotar los recursos de una aplicación haciendo que esta no esté disponible para los usuarios legítimos. Los ataques DDoS pueden dirigirse a cualquier punto de conexión accesible a través de Internet.
 
 Para defenderse contra ataques DDoS, adquiera una licencia de Azure DDoS Protection y asegúrese de que está siguiendo los procedimientos recomendados de diseño de aplicaciones. DDoS Protection proporciona distintos niveles de servicio. Para más información, consulte [Introducción a Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md).
 
-Para obtener una lista de las alertas de Azure DDoS Protection, consulte la [Tabla de referencia de alertas](alerts-reference.md#alerts-azureddos).
+Si tiene Azure DDoS Protection habilitado, las alertas de DDoS se transmiten a Security Center sin necesidad de ninguna configuración adicional. Para más información sobre las alertas generadas por DDoS Protection, consulte [Tabla de referencia de alertas](alerts-reference.md#alerts-azureddos).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

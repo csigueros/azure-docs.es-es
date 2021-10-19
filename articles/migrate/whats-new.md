@@ -7,16 +7,19 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 08/04/2021
 ms.custom: mvc
-ms.openlocfilehash: ca3a4a3bbcfd1de92906b75ed56351afb04b4b17
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 87b62853be54055c3b130c8b8b23f60c04717210
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129389444"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857861"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novedades de Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) le ayuda a detectar, evaluar y migrar servidores, aplicaciones y datos locales a la nube de Microsoft Azure. En este artículo se resumen las nuevas versiones y características de Azure Migrate.
+
+## <a name="update-october-2021"></a>Actualización (octubre de 2021)
+- Azure Migrate ahora admite nuevas regiones y zonas geográficas de la nube pública. [Más información](migrate-support-matrix.md#supported-geographies-public-cloud)
 
 ## <a name="update-september-2021"></a>Actualización (septiembre de 2021)
 - Detecte, evalúe y migre servidores a través de una red privada mediante [Azure Private Link](../private-link/private-endpoint-overview.md).  se encuentra en versión preliminar en las [ubicaciones geográficas de nube gubernamental](migrate-support-matrix.md#supported-geographies-azure-government) admitidas. [Más información](how-to-use-azure-migrate-with-private-endpoints.md)

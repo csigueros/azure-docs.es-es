@@ -3,32 +3,38 @@ title: Introducción a las colas de Azure Service Bus (Azure.Messaging.ServiceBu
 description: En este tutorial, creará una aplicación de consola de C# de .NET Core para enviar mensajes a una cola de Service Bus y recibir mensajes desde ella.
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.date: 08/16/2021
-ms.custom: contperf-fy21q4
-ms.openlocfilehash: b84ff908404c2d18f86ddd63fa14a9854fdf72d6
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.date: 10/11/2021
+ms.custom: contperf-fy22q2
+ms.openlocfilehash: 69c44e8fe4ff1eeb77ce2efc1cf9ac11158d82ee
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129079340"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129811336"
 ---
-# <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-net"></a>Envío y recepción de mensajes con destino y origen en colas de Azure Service Bus (.NET)
-En esta guía de inicio rápido se muestra cómo enviar y recibir mensajes a y de una cola de Service Bus mediante la biblioteca de .NET [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/).
+# <a name="get-started-with-azure-service-bus-queues-net"></a>Introducción a las colas de Azure Service Bus (.NET)
+En este inicio rápido, hará lo siguiente:
+
+1. Creación de un espacio de nombres de Service Bus mediante Azure Portal
+2. Creación de una cola de Service Bus mediante Azure Portal.
+3. Escriba una aplicación de consola de .NET Core para enviar un conjunto de mensajes a la cola.
+4. Escriba una aplicación de consola de .NET Core para recibir esos mensajes de la cola.
 
 > [!NOTE]
-> Puede encontrar más ejemplos de .NET para Azure Service Bus en el [repositorio del SDK de Azure para .NET en GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples).
+> En este inicio rápido se proporcionan instrucciones paso a paso para un escenario sencillo de envío de un lote de mensajes a una cola de Service Bus y la recepción de estos. Puede encontrar más ejemplos pregenerados de .NET para Azure Service Bus en el [repositorio del SDK de Azure para .NET en GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples). 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - **Suscripción de Azure**. Para usar los servicios de Azure, entre los que se incluye Azure Service Bus, se necesita una suscripción. Si no tiene una cuenta de Azure existente, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/free/).
 - **Microsoft Visual Studio 2019**. La biblioteca cliente de Azure Service Bus usa las nuevas características que se introdujeron en C# 8.0.  Aunque puede seguir usando la biblioteca con versiones anteriores de C#, la nueva sintaxis no estará disponible. Para usar la sintaxis completa, se recomienda realizar la compilación con el SDK para .NET Core 3.0 o posterior y la versión de lenguaje establecida en `latest`. Si usa Visual Studio, las versiones anteriores a Visual Studio 2019 no son compatibles con las herramientas necesarias para compilar proyectos de C# 8.0.
-- **Creación de un espacio de nombres de Service Bus y una cola**. Siga los pasos descritos en el artículo [Uso de Azure Portal para crear un espacio de nombres de Service Bus y una cola](service-bus-quickstart-portal.md) para crear una cola y un espacio de nombres de Service Bus. 
-
-    > [!IMPORTANT]
-    > Anote la [**cadena de conexión principal**](./service-bus-quickstart-topics-subscriptions-portal.md#get-the-connection-string) del espacio de nombres de Service Bus y el nombre de la **cola** que creó. Los usará más adelante en este tutorial. 
 
 
-## <a name="send-messages"></a>Envío de mensajes
+[!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
+
+[!INCLUDE [service-bus-create-queue-portal](./includes/service-bus-create-queue-portal.md)]
+
+
+## <a name="send-messages-to-the-queue"></a>Envío de mensajes a la cola
 En esta sección se muestra cómo crear una aplicación de consola de .NET Core para mensajes a una cola de Service Bus. 
 
 ### <a name="create-a-console-application"></a>Creación de una aplicación de consola
@@ -58,82 +64,152 @@ En esta sección se muestra cómo crear una aplicación de consola de .NET Core 
 
 ### <a name="add-code-to-send-messages-to-the-queue"></a>Incorporación de código para enviar mensajes a la cola
 
-1. Reemplace el código del archivo **Program.cs** por el código siguiente. Estos son los pasos importantes del código.  
+1. En **Program.cs**, agregue las siguientes instrucciones `using` en la parte superior de la definición del espacio de nombres, antes de la declaración de clase.
+
+    ```csharp
+    using System.Threading.Tasks;
+    using Azure.Messaging.ServiceBus;
+    ```
+2. Dentro de la clase `Program`, declare las siguientes propiedades, justo antes del método `Main`. 
+
+    Reemplace `<NAMESPACE CONNECTION STRING>` por la cadena de conexión principal del espacio de nombres de Service Bus. Además, reemplace `<QUEUE NAME>` por el nombre de la cola.
+
+    ```csharp
+
+    // connection string to your Service Bus namespace
+    static string connectionString = "<NAMESPACE CONNECTION STRING>";
+
+    // name of your Service Bus queue
+    static string queueName = "<QUEUE NAME>";
+
+    // the client that owns the connection and can be used to create senders and receivers
+    static ServiceBusClient client;
+
+    // the sender used to publish messages to the queue
+    static ServiceBusSender sender;
+
+    // number of messages to be sent to the queue
+    private const int numOfMessages = 3;
+
+    ```
+3. Reemplace el código del método `Main` por el código siguiente. Consulte los comentarios del código para obtener más información sobre este. Estos son los pasos importantes del código.  
     1. Crea un objeto [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) mediante la cadena de conexión principal al espacio de nombres. 
     1. Invoca al método [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) en el objeto [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) para crear un objeto [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) para la cola específica de Service Bus.     
     1. Crea un objeto [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) mediante el método [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync).
     1. Agrega mensajes al lote mediante [ServiceBusMessageBatch.TryAddMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch.tryaddmessage). 
     1. Envía el lote de mensajes a la cola de Service Bus mediante el método [ServiceBusSender.SendMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.sendmessagesasync).
-    
-        Para más información, consulte los comentarios del código.
-    
+
         ```csharp
-        using System;
-        using System.Threading.Tasks;
-        using Azure.Messaging.ServiceBus;
-        
-        namespace QueueSender
+        static async Task Main()
         {
-            class Program
-            {
-                // connection string to your Service Bus namespace
-                static string connectionString = "<NAMESPACE CONNECTION STRING>";
+            // The Service Bus client types are safe to cache and use as a singleton for the lifetime
+            // of the application, which is best practice when messages are being published or read
+            // regularly.
+            //
+            // Create the clients that we'll use for sending and processing messages.
+            client = new ServiceBusClient(connectionString);
+            sender = client.CreateSender(queueName);
     
-                // name of your Service Bus queue
-                static string queueName = "<QUEUE NAME>";
-        
-                // the client that owns the connection and can be used to create senders and receivers
-                static ServiceBusClient client;
-        
-                // the sender used to publish messages to the queue
-                static ServiceBusSender sender;
-        
-                // number of messages to be sent to the queue
-                private const int numOfMessages = 3;
-        
-                static async Task Main()
+            // create a batch 
+            using ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
+    
+            for (int i = 1; i <= numOfMessages; i++)
+            {
+                // try adding a message to the batch
+                if (!messageBatch.TryAddMessage(new ServiceBusMessage($"Message {i}")))
                 {
-                    // The Service Bus client types are safe to cache and use as a singleton for the lifetime
-                    // of the application, which is best practice when messages are being published or read
-                    // regularly.
-                    //
-                    // Create the clients that we'll use for sending and processing messages.
-                    client = new ServiceBusClient(connectionString);
-                    sender = client.CreateSender(queueName);
-        
-                    // create a batch 
-                    using ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
-        
-                    for (int i = 1; i <= numOfMessages; i++)
-                    {
-                        // try adding a message to the batch
-                        if (!messageBatch.TryAddMessage(new ServiceBusMessage($"Message {i}")))
-                        {
-                            // if it is too large for the batch
-                            throw new Exception($"The message {i} is too large to fit in the batch.");
-                        }
-                    }
-        
-                    try
-                    {
-                        // Use the producer client to send the batch of messages to the Service Bus queue
-                        await sender.SendMessagesAsync(messageBatch);
-                        Console.WriteLine($"A batch of {numOfMessages} messages has been published to the queue.");
-                    }
-                    finally
-                    {
-                        // Calling DisposeAsync on client types is required to ensure that network
-                        // resources and other unmanaged objects are properly cleaned up.
-                        await sender.DisposeAsync();
-                        await client.DisposeAsync();
-                    }
-        
-                    Console.WriteLine("Press any key to end the application");
-                    Console.ReadKey();
+                    // if it is too large for the batch
+                    throw new Exception($"The message {i} is too large to fit in the batch.");
                 }
             }
-        }   
-        ``` 
+    
+            try
+            {
+                // Use the producer client to send the batch of messages to the Service Bus queue
+                await sender.SendMessagesAsync(messageBatch);
+                Console.WriteLine($"A batch of {numOfMessages} messages has been published to the queue.");
+            }
+            finally
+            {
+                // Calling DisposeAsync on client types is required to ensure that network
+                // resources and other unmanaged objects are properly cleaned up.
+                await sender.DisposeAsync();
+                await client.DisposeAsync();
+            }
+    
+            Console.WriteLine("Press any key to end the application");
+            Console.ReadKey();
+        }    
+        ```    
+1. Este es el aspecto que debería tener el archivo Program.cs: 
+    
+    ```csharp
+    using System;
+    using System.Threading.Tasks;
+    using Azure.Messaging.ServiceBus;
+    
+    namespace QueueSender
+    {
+        class Program
+        {
+            // connection string to your Service Bus namespace
+            static string connectionString = "<NAMESPACE CONNECTION STRING>";
+
+            // name of your Service Bus queue
+            static string queueName = "<QUEUE NAME>";
+    
+            // the client that owns the connection and can be used to create senders and receivers
+            static ServiceBusClient client;
+    
+            // the sender used to publish messages to the queue
+            static ServiceBusSender sender;
+    
+            // number of messages to be sent to the queue
+            private const int numOfMessages = 3;
+    
+            static async Task Main()
+            {
+                // The Service Bus client types are safe to cache and use as a singleton for the lifetime
+                // of the application, which is best practice when messages are being published or read
+                // regularly.
+                //
+                // Create the clients that we'll use for sending and processing messages.
+                client = new ServiceBusClient(connectionString);
+                sender = client.CreateSender(queueName);
+    
+                // create a batch 
+                using ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
+    
+                for (int i = 1; i <= numOfMessages; i++)
+                {
+                    // try adding a message to the batch
+                    if (!messageBatch.TryAddMessage(new ServiceBusMessage($"Message {i}")))
+                    {
+                        // if it is too large for the batch
+                        throw new Exception($"The message {i} is too large to fit in the batch.");
+                    }
+                }
+    
+                try
+                {
+                    // Use the producer client to send the batch of messages to the Service Bus queue
+                    await sender.SendMessagesAsync(messageBatch);
+                    Console.WriteLine($"A batch of {numOfMessages} messages has been published to the queue.");
+                }
+                finally
+                {
+                    // Calling DisposeAsync on client types is required to ensure that network
+                    // resources and other unmanaged objects are properly cleaned up.
+                    await sender.DisposeAsync();
+                    await client.DisposeAsync();
+                }
+    
+                Console.WriteLine("Press any key to end the application");
+                Console.ReadKey();
+            }
+        }
+    }   
+    ``` 
 1. Reemplace `<NAMESPACE CONNECTION STRING>` por la cadena de conexión principal del espacio de nombres de Service Bus. Además, reemplace `<QUEUE NAME>` por el nombre de la cola.
 1. Compile el proyecto y asegúrese de que no hay errores. 
 1. Ejecute el programa y espere el mensaje de confirmación.
@@ -155,7 +231,7 @@ En esta sección se muestra cómo crear una aplicación de consola de .NET Core 
     - El **tamaño actual** de la cola aumenta cada vez que la aplicación agrega mensajes a la misma.
     - En el gráfico **Mensajes** de la sección **Métricas** inferior, puede ver que hay tres mensajes entrantes para la cola. 
 
-## <a name="receive-messages"></a>Recepción de mensajes
+## <a name="receive-messages-from-the-queue"></a>Recepción de mensajes de la cola
 En esta sección, creará una aplicación de consola de .NET Core que recibe mensajes de la cola. 
 
 ### <a name="create-a-project-for-the-receiver"></a>Creación de un proyecto para el destinatario
@@ -180,8 +256,50 @@ En esta sección, creará una aplicación de consola de .NET Core que recibe men
 ### <a name="add-the-code-to-receive-messages-from-the-queue"></a>Adición del código para recibir mensajes de la cola
 En esta sección agregará código para recuperar mensajes de la cola.
 
-1. Reemplace el código del archivo **Program.cs** por el código siguiente. Estos son los pasos importantes del código.
-    Estos son los pasos importantes del código:
+1. En **Program.cs**, agregue las siguientes instrucciones `using` en la parte superior de la definición del espacio de nombres, antes de la declaración de clase.
+
+    ```csharp
+    using System.Threading.Tasks;
+    using Azure.Messaging.ServiceBus;
+    ```
+2. Dentro de la clase `Program`, declare las siguientes propiedades, justo antes del método `Main`. 
+
+    Reemplace `<NAMESPACE CONNECTION STRING>` por la cadena de conexión principal del espacio de nombres de Service Bus. Además, reemplace `<QUEUE NAME>` por el nombre de la cola.
+
+    ```csharp
+    // connection string to your Service Bus namespace
+    static string connectionString = "<NAMESPACE CONNECTION STRING>";
+
+    // name of your Service Bus queue
+    static string queueName = "<QUEUE NAME>";
+
+    // the client that owns the connection and can be used to create senders and receivers
+    static ServiceBusClient client;
+
+    // the processor that reads and processes messages from the queue
+    static ServiceBusProcessor processor;
+    ```
+3. Agregue los métodos siguientes a la clase `Program` para controlar los mensajes y los errores recibidos. 
+
+    ```csharp
+    // handle received messages
+    static async Task MessageHandler(ProcessMessageEventArgs args)
+    {
+        string body = args.Message.Body.ToString();
+        Console.WriteLine($"Received: {body}");
+
+        // complete the message. messages is deleted from the queue. 
+        await args.CompleteMessageAsync(args.Message);
+    }
+
+    // handle any errors when receiving messages
+    static Task ErrorHandler(ProcessErrorEventArgs args)
+    {
+        Console.WriteLine(args.Exception.ToString());
+        return Task.CompletedTask;
+    }
+    ```
+4. Reemplace el código del método `Main` por el código siguiente. Consulte los comentarios del código para obtener más información sobre este. Estos son los pasos importantes del código. 
     1. Crea un objeto [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) mediante la cadena de conexión principal al espacio de nombres. 
     1. Invoca al método [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) en el objeto [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) para crear un objeto [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) para la cola de Service Bus especificada. 
     1. Especifica los controladores para los eventos [ProcessMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) y [ProcessErrorAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processerrorasync) del objeto [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor). 
@@ -191,44 +309,6 @@ En esta sección agregará código para recuperar mensajes de la cola.
         Para más información, consulte los comentarios del código.
 
         ```csharp
-        using System;
-        using System.Threading.Tasks;
-        using Azure.Messaging.ServiceBus;
-        
-        namespace QueueReceiver
-        {
-            class Program
-            {
-                // connection string to your Service Bus namespace
-                static string connectionString = "<NAMESPACE CONNECTION STRING>";
-        
-                // name of your Service Bus queue
-                static string queueName = "<QUEUE NAME>";
-        
-        
-                // the client that owns the connection and can be used to create senders and receivers
-                static ServiceBusClient client;
-        
-                // the processor that reads and processes messages from the queue
-                static ServiceBusProcessor processor;
-        
-                // handle received messages
-                static async Task MessageHandler(ProcessMessageEventArgs args)
-                {
-                    string body = args.Message.Body.ToString();
-                    Console.WriteLine($"Received: {body}");
-        
-                    // complete the message. messages is deleted from the queue. 
-                    await args.CompleteMessageAsync(args.Message);
-                }
-        
-                // handle any errors when receiving messages
-                static Task ErrorHandler(ProcessErrorEventArgs args)
-                {
-                    Console.WriteLine(args.Exception.ToString());
-                    return Task.CompletedTask;
-                }
-        
                 static async Task Main()
                 {
                     // The Service Bus client types are safe to cache and use as a singleton for the lifetime
@@ -269,9 +349,91 @@ En esta sección agregará código para recuperar mensajes de la cola.
                         await client.DisposeAsync();
                     }
                 }
+        ```
+4. Este es el aspecto que debería tener `Program.cs`:  
+
+    ```csharp
+    using System;
+    using System.Threading.Tasks;
+    using Azure.Messaging.ServiceBus;
+    
+    namespace QueueReceiver
+    {
+        class Program
+        {
+            // connection string to your Service Bus namespace
+            static string connectionString = "<NAMESPACE CONNECTION STRING>";
+    
+            // name of your Service Bus queue
+            static string queueName = "<QUEUE NAME>";
+    
+    
+            // the client that owns the connection and can be used to create senders and receivers
+            static ServiceBusClient client;
+    
+            // the processor that reads and processes messages from the queue
+            static ServiceBusProcessor processor;
+    
+            // handle received messages
+            static async Task MessageHandler(ProcessMessageEventArgs args)
+            {
+                string body = args.Message.Body.ToString();
+                Console.WriteLine($"Received: {body}");
+    
+                // complete the message. messages is deleted from the queue. 
+                await args.CompleteMessageAsync(args.Message);
+            }
+    
+            // handle any errors when receiving messages
+            static Task ErrorHandler(ProcessErrorEventArgs args)
+            {
+                Console.WriteLine(args.Exception.ToString());
+                return Task.CompletedTask;
+            }
+    
+            static async Task Main()
+            {
+                // The Service Bus client types are safe to cache and use as a singleton for the lifetime
+                // of the application, which is best practice when messages are being published or read
+                // regularly.
+                //
+    
+                // Create the client object that will be used to create sender and receiver objects
+                client = new ServiceBusClient(connectionString);
+    
+                // create a processor that we can use to process the messages
+                processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
+    
+                try
+                {
+                    // add handler to process messages
+                    processor.ProcessMessageAsync += MessageHandler;
+    
+                    // add handler to process any errors
+                    processor.ProcessErrorAsync += ErrorHandler;
+    
+                    // start processing 
+                    await processor.StartProcessingAsync();
+    
+                    Console.WriteLine("Wait for a minute and then press any key to end the processing");
+                    Console.ReadKey();
+    
+                    // stop processing 
+                    Console.WriteLine("\nStopping the receiver...");
+                    await processor.StopProcessingAsync();
+                    Console.WriteLine("Stopped receiving messages");
+                }
+                finally
+                {
+                    // Calling DisposeAsync on client types is required to ensure that network
+                    // resources and other unmanaged objects are properly cleaned up.
+                    await processor.DisposeAsync();
+                    await client.DisposeAsync();
+                }
             }
         }
-        ```
+    }
+    ```
 1. Reemplace `<NAMESPACE CONNECTION STRING>` por la cadena de conexión principal del espacio de nombres de Service Bus. Además, reemplace `<QUEUE NAME>` por el nombre de la cola. 
 1. Compile el proyecto y asegúrese de que no hay errores.
 1. Ejecute la aplicación del destinatario. Debería ver los mensajes recibidos. Presione cualquier tecla para detener el receptor y la aplicación. 

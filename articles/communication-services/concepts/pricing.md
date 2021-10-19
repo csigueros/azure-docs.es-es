@@ -3,18 +3,16 @@ title: Escenarios de precios para llamadas (voz o vídeo) y chat
 titleSuffix: An Azure Communication Services concept document
 description: Obtenga información sobre el modelo de precios de Communication Services.
 author: nmurav
-manager: nmurav
-services: azure-communication-services
 ms.author: nmurav
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: d2ea2c510aa9e6225de215da128670514f1dba3b
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 5d08f964899faf9fe438a0df68c6fe4401fd01c7
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129360445"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129859387"
 ---
 # <a name="pricing-scenarios"></a>Escenarios de precios
 
@@ -119,6 +117,35 @@ Alice es médico y tiene una cita con uno de sus pacientes, Bob. Alice se conect
 - Conexión del usuario mediante el SDK para JavaScript de Communication Services: 0,004 USD + 0,116 USD = 0,0024 USD
 - Conexión del usuario en la aplicación de escritorio Teams: 0 USD (incluido en la licencia de Teams)
 
+
+## <a name="call-recording"></a>Grabación de llamadas
+
+Azure Communication Services permite registrar llamadas RTC, WebRTC, en conferencias y de la interfaz SIP. Actualmente, la grabación de llamadas admite formatos de salida mp4 de audio y vídeo mixto, y MP3/WAV de solo audio mixtos. Los SDK de grabación de llamadas están disponibles para Java y C#. Consulte [esta página para más información](../quickstarts/voice-video-calling/call-recording-sample.md).
+
+### <a name="price"></a>Price
+
+Se le cobra 0,01 USD/minuto por el formato mixto de audio y vídeo, y 0,002 USD/minuto por solo audio mixto.
+
+### <a name="pricing-example-record-a-call-in-a-mixed-audiovideo-format"></a>Ejemplo de precios: grabación de una llamada en un formato mixto de audio y vídeo
+
+Alice realizó una llamada grupal con sus compañeros de trabajo, Bob y Charlie. 
+
+- La llamada duró un total de 60 minutos. Y la grabación estuvo activa durante 60 minutos.
+- Bob se quedó en una llamada durante 30 minutos y Alice y Charlie durante 60 minutos.
+
+**Cálculos de costos**
+- Se le cobrará la duración de la reunión (la duración de la reunión es la escala de tiempo entre que el usuario inicia una grabación y se detiene explícitamente o cuando no queda nadie en una reunión).
+- 60 minutos x 0,01 USD por grabación por minuto = 0,6 USD
+
+### <a name="pricing-example-record-a-call-in-a-mixed-audioonly-format"></a>Ejemplo de precios: grabación de una llamada en un formato mixto de solo audio
+
+Alice inicia una llamada con Jane. 
+
+- La llamada duró un total de 60 minutos. La grabación ha durado 45 minutos.
+
+**Cálculos de costos**
+- Se le cobrará todo lo que dure la grabación. 
+- 45 minutos x 0,002 USD por grabación por minuto = 0,09 USD
 
 ## <a name="chat"></a>Chat
 

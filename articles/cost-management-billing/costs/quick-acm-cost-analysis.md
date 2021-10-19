@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: 2391fbdf586c652f7567b5c4b08757a68546314a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 52afb1398217fc8a3a885704ea1e689a6f4b1393
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121731972"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711442"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Inicio rápido: Explore y analice los costos con Análisis de costos
 
@@ -28,11 +28,11 @@ En esta guía de inicio rápido, ha aprendido a hacer lo siguiente:
 - Personalización de vistas de costos
 - Descargue datos de análisis de costos
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 El análisis de costos es compatible con varios tipos de cuenta de Azure. Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](understand-cost-mgt-data.md) (Información sobre los datos de Cost Management). Para ver los datos de costos, se necesita al menos acceso de lectura en la cuenta de Azure.
 
-Para más información acerca de cómo asignar acceso a los datos de Azure Cost Management, consulte [Asignación de acceso a los datos](./assign-access-acm-data.md).
+Para más información acerca de la asignación de acceso a los datos de Cost Management, consulte [Asignación del acceso a los datos](./assign-access-acm-data.md).
 
 Si su suscripción es nueva, no podrá usar inmediatamente las características de Cost Management. Para poder hacerlo deberán transcurrir un máximo de 48 horas.
 
@@ -113,7 +113,7 @@ Por lo general, puede esperar ver datos o notificaciones para los recursos consu
 
 La mayoría de recursos de Azure admiten etiquetado. Sin embargo, algunas etiquetas no están disponibles en Cost Management ni en facturación. Además, no se admiten las etiquetas de grupo de recursos. La compatibilidad con etiquetas se aplica al uso indicado *después* de que la etiqueta se aplicara al recurso. Las etiquetas no se aplican de forma retroactiva para los resúmenes de costos.
 
-Consulte el vídeo sobre la [revisión de las directivas de etiquetas con Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) para obtener información sobre el uso de una directiva de etiqueta de Azure para mejorar la visibilidad de los datos sobre costos.
+Consulte el vídeo sobre la [revisión de las directivas de etiquetas con Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) para obtener información sobre el uso de una directiva de etiqueta de Azure para mejorar la visibilidad de los datos sobre costos.
 
 Esta es una vista de los costos de los servicios de Azure del mes en curso.
 
@@ -147,7 +147,7 @@ Puede ver el conjunto de datos completo de cualquier vista. Todas las seleccione
 
 Para guardar y compartir vistas personalizadas con otros usuarios, ancle el análisis de costos al panel de Azure Portal o copie un vínculo al análisis de costos.
 
-Vea el vídeo [Compartir y guardar vistas en Azure Cost Management](https://www.youtube.com/watch?v=kQkXXj-SmvQ) para aprender a usar el portal para compartir la información de los costos en la organización. Para ver otros vídeos, visite el [canal de YouTube de Cost Management](https://www.youtube.com/c/AzureCostManagement).
+Vea el vídeo sobre [uso compartido y almacenamiento de vistas en Cost Management](https://www.youtube.com/watch?v=kQkXXj-SmvQ) para aprender a usar el portal para compartir la información de los costos en la organización. Para ver otros vídeos, visite el [canal de YouTube de Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/kQkXXj-SmvQ]
 

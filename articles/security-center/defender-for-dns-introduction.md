@@ -3,25 +3,22 @@ title: 'Azure Defender para DNS: ventajas y características'
 description: Obtenga información sobre las ventajas y características de Azure Defender para DNS.
 author: memildin
 ms.author: memildin
-ms.date: 08/18/2021
+ms.date: 10/11/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: cffe4947e321cbd1f2cbb8a4d22141039129c1e1
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: ad2b761a747401646c48dcbf32385b8e5ec153c1
+ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122419600"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129740234"
 ---
 # <a name="introduction-to-azure-defender-for-dns"></a>Introducción a Azure Defender para DNS
 
-[Azure DNS](../dns/dns-overview.md) es un servicio de hospedaje para dominios de DNS que ofrece resolución de nombres mediante la infraestructura de Microsoft Azure. Al hospedar dominios en Azure, puede administrar los registros de DNS con las mismas credenciales, API, herramientas y facturación que con los demás servicios de Azure.
+Azure Defender para DNS proporciona una capa adicional de protección a los recursos que usan la funcionalidad de [resolución de nombres proporcionados por Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) de Azure DNS. 
 
-Azure Defender para DNS proporciona una capa adicional de protección a los recursos, ya que están conectados a Azure DNS mediante lo siguiente:
-
-- supervisión continua de todas las consultas de DNS de los recursos de Azure
-- ejecución de análisis de seguridad avanzado y generación de una alerta si detecta alguna actividades sospechosa
+En Azure DNS, Defender para DNS supervisa las consultas de estos recursos y detecta actividades sospechosas sin necesidad de agentes adicionales en los recursos.
 
 ## <a name="availability"></a>Disponibilidad
 
@@ -34,12 +31,12 @@ Azure Defender para DNS proporciona una capa adicional de protección a los recu
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-dns"></a>Ventajas de Azure Defender para DNS
 
-Azure Defender para DNS protege los recursos que están conectados a Azure DNS frente a problemas, entre los que se incluyen:
+Azure Defender para DNS detecta actividades sospechosas y anómalas, como:
 
-- Filtrado de datos de los recursos de Azure mediante la tunelización de DNS.
-- Malware que se comunica con el servidor de comando y control.
-- Comunicación con dominios malintencionados como suplantación de identidad (phishing) y minería de datos de cifrado
-- Ataques de DNS: comunicación con solucionadores de DNS malintencionados 
+- **Filtrado de datos** de los recursos de Azure mediante la tunelización de DNS.
+- **Malware** que se comunica con los servidores de comandos y control
+- **Ataques de DNS**: comunicación con solucionadores de DNS malintencionados 
+- **Comunicación con dominios usados para actividades malintencionadas** como la suplantación de identidad (phishing) y la minería de datos de cifrado
 
 En la [página de referencia de alertas](alerts-reference.md#alerts-dns) se encuentra una lista completa de las alertas que proporciona Azure Defender para DNS.
 

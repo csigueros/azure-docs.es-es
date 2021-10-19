@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 07/26/2021
-ms.openlocfilehash: cb88998009ab05eb91b8945a138ef935660dac35
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.date: 10/05/2021
+ms.openlocfilehash: 89fcd5ce46ea9093779ad24dcca5a80a3a4f6ada
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114710759"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129618335"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>Supervisar y ajustar Azure Database for PostgreSQL: Hiperescala (Citus)
 
@@ -26,7 +26,7 @@ Además de ver los gráficos de las métricas, puede configurar alertas. Para ob
 
 ### <a name="per-node-vs-aggregate"></a>Por nodo frente a agregado
 
-De forma predeterminada, Azure Portal agrega métricas de Hiperescala (Citus) en los nodos de un grupo de servidores. Sin embargo, algunas métricas, como el porcentaje de uso del disco, son más informativas por nodo. Para ver las métricas de los nodos que se muestran individualmente, use la [división de métricas](../azure-monitor/essentials/metrics-charts.md#metric-splitting) de Azure Monitor por nombre de servidor.
+De forma predeterminada, Azure Portal agrega métricas de Hiperescala (Citus) en los nodos de un grupo de servidores. Sin embargo, algunas métricas, como el porcentaje de uso del disco, son más informativas por nodo. Para ver las métricas de los nodos que se muestran individualmente, use la [división de métricas](howto-hyperscale-monitoring.md#view-metrics-per-node) de Azure Monitor por nombre de servidor.
 
 > [!NOTE]
 >
@@ -51,5 +51,6 @@ Azure no proporciona métricas agregadas para el clúster en conjunto, pero las 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- Obtenga información sobre cómo [ver las métricas](howto-hyperscale-monitoring.md) de un grupo de servidores Hiperescala (Citus).
 - Consulte [Configuración de alertas](howto-hyperscale-alert-on-metric.md) para obtener instrucciones sobre cómo crear una alerta en una métrica.
 - Obtenga información sobre cómo realizar la [división de métricas](../azure-monitor/essentials/metrics-charts.md#metric-splitting) para inspeccionar las métricas por nodo de un grupo de servidores.

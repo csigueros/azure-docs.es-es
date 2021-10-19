@@ -1,19 +1,19 @@
 ---
-title: Interoperabilidad en las reuniones de Teams
+title: Interoperabilidad de Teams
 titleSuffix: An Azure Communication Services concept document
-description: Unirse a reuniones de Teams
+description: Interoperabilidad de Teams
 author: chpalm
 ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.openlocfilehash: 85616e754df0eebc76dd3dceea48dfefe4acf971
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 32067409bb6289b283d8dd3b4de18e1a83f8e374
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129362356"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129856056"
 ---
 # <a name="teams-interoperability"></a>Interoperabilidad de Teams
 
@@ -58,15 +58,9 @@ Cuando un punto de conexión se conecta a una reunión de Teams mediante una ide
 
 Traiga su propia identidad (BYOI) es el modelo común de interoperabilidad entre Azure Communication Services y Teams. Admite cualquier proveedor de identidades y esquema de autenticación. El primer escenario que se ha habilitado permite que la aplicación se una a reuniones de Microsoft Teams y Teams tratará a estos usuarios como cuentas externas anónimas, igual que los usuarios que se unen mediante la aplicación web anónima de Teams. Esta funcionalidad es ideal para aplicaciones de negocio a consumidor que reúnen empleados (que conocen Teams) y usuarios externos (con una experiencia de aplicación personalizada) en una reunión. En el futuro, habilitaremos escenarios adicionales, como llamadas directas y chat, que permitirán a la aplicación iniciar llamadas y chats con usuarios de Teams fuera del contexto de una reunión de Teams.
 
-La capacidad de los usuarios de Communication Services de unirse a reuniones de Teams como usuarios anónimos se controla mediante la configuración existente "permitir la unión a reuniones anónimas", que también controla la unión a reuniones anónimas de Teams existentes.  Este valor se puede actualizar en el [centro de administración de Teams](https://admin.teams.microsoft.com/meetings/settings) o con el cmdlet de PowerShell [Set-CsTeamsMeetingConfiguration](/powershell/module/skype/set-csteamsmeetingconfiguration) de Teams. Al igual que con la unión a una reunión anónima de Teams, la aplicación debe tener el vínculo de reunión para unirse, que se puede recuperar a través de Graph API o del calendario de Microsoft Teams.  El nombre de los usuarios de Communication Services que se muestran en Teams se puede configurar mediante Calling SDK de Communication Services.
+Para obtener más información, consulte [Unión a una reunión de Teams](join-teams-meeting.md).
 
-Los usuarios externos podrán usar la funcionalidad principal de audio, vídeo, uso compartido de pantalla y chat mediante los SDK de Azure Communication Services. Características como levantar la mano, el modo de reunión y las salas de descanso solo estarán disponibles para los usuarios de Teams. Los usuarios de Communication Services pueden enviar y recibir mensajes solo mientras están presentes en la reunión de Teams y si la reunión no está programada para un canal. 
-
-La lista de tipos de mensajes admitidos para los usuarios de Communication Services se puede encontrar en nuestros [conceptos de chat](./chat/concepts.md#message-types). Se pueden omitir los tipos de mensaje no admitidos.
-
-La aplicación personalizada debe considerar el uso de la autenticación del usuario y otras medidas de seguridad para proteger las reuniones de Teams. Piense en las implicaciones de seguridad de permitir que usuarios anónimos unan a las reuniones y use la [guía de seguridad de Teams](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) para configurar las funcionalidades disponibles para los usuarios anónimos.
-
-En la [página de arquitectura de cliente y servidor](client-and-server-architecture.md) encontrará información adicional sobre los flujos de datos necesarios para unirse a las reuniones de Teams. El [ejemplo de elementos principales de llamada grupal](../samples/calling-hero-sample.md) proporciona código de ejemplo para unirse a una reunión de Teams desde una aplicación web.
+Actualmente no es posible que un usuario de Teams se una a una llamada que se inició mediante el Calling SDK de Azure Communication Services.
 
 ## <a name="microsoft-365-teams-identity"></a>Identidad de Microsoft 365 Teams
 Calling SDK de Azure Communication Services se puede usar con las identidades de Microsoft 365 Teams para admitir experiencias de Teams similares a las de interoperabilidad con Teams. Las identidades de Microsoft 365 Teams se proporcionan y se autentican mediante Azure Active Directory. La aplicación puede realizar o aceptar llamadas con una identidad de Microsoft 365 normal. Todos los atributos y detalles sobre el usuario están vinculados al usuario de Azure Active Directory.
@@ -88,7 +82,7 @@ Para más información sobre la funcionalidad, únase a nuestro programa TAP par
 |Autenticación y autorización|Personalizado*| De Azure Active Directory y personalizada*|
 |Llamada a disponible con | Calling SDK de Communication Services | Calling SDK de Communication Services |
 |Chat disponible con | Chat SDK de Communication Services | Graph API |
-|Compatibilidad con RTC| Llamada de voz saliente, enrutamiento directo saliente, [detalles](./telephony-sms/telephony-concept.md) | llamada entrante asignada a la identidad de Teams, llamada saliente mediante el plan de llamada|
+|Compatibilidad con RTC| No admite usuarios de Communication Services en reuniones de Teams | llamada entrante asignada a la identidad de Teams, llamada saliente mediante el plan de llamada|
 
 \* La lógica del servidor que emite tokens de acceso puede realizar cualquier autenticación y autorización personalizada de la solicitud.
 
@@ -108,5 +102,4 @@ Por ahora la interoperabilidad de Azure Communication Services no es compatible 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Unión de una aplicación de llamada BYOI a una reunión de Teams](../quickstarts/voice-video-calling/get-started-teams-interop.md)
-> [Autenticación de usuarios de Microsoft 365](../quickstarts/manage-teams-identity.md)
+> [Autenticación de usuarios de Microsoft 365](../quickstarts/manage-teams-identity.md)

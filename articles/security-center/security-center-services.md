@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/18/2021
 ms.custom: references_regions
 ms.author: memildin
-ms.openlocfilehash: 3174aff7529e8248cffb39ee10684e843b4fd0b1
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 21c453da9a2e84e4e936b92f04748854cbd928d3
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122418577"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710753"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de características para las máquinas
 
@@ -30,16 +30,16 @@ En las dos tablas siguientes, se muestran las características de Azure Security
 |[Alertas de seguridad sin archivos](alerts-reference.md#alerts-windows)|✔|✔|✔|Sí|
 |[Alertas de seguridad basadas en la red](other-threat-protections.md#network-layer)|✔|✔|-|Sí|
 |[Acceso de máquina virtual Just-In-Time](security-center-just-in-time.md)|✔|-|-|Sí|
-|[Evaluación de vulnerabilidades nativa](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|✔|Sí|
+|[Detector de vulnerabilidades integrado de Qualys](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|✔|Sí|
 |[Supervisión de la integridad de los archivos](security-center-file-integrity-monitoring.md)|✔|✔|✔|Sí|
 |[Controles de aplicación adaptables](security-center-adaptive-application.md)|✔|-|✔|Sí|
 |[Mapa de red](security-center-network-recommendations.md#network-map)|✔|✔|-|Sí|
 |[Protección de red adaptable](security-center-adaptive-network-hardening.md)|✔|-|-|Sí|
 |[Panel e informes de cumplimiento normativo](security-center-compliance-dashboard.md)|✔|✔|✔|Sí|
 |[Protección de hosts de Docker](./harden-docker-hosts.md)|-|-|-|Sí|
-|Evaluación de revisiones de SO que faltan|✔|✔|✔|Azure: No<br><br>Habilitada para Arc: Sí|
-|Evaluación de configuraciones de seguridad incorrectas|✔|✔|✔|Azure: No<br><br>Habilitada para Arc: Sí|
-|[Evaluación de EndPoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: No<br><br>Habilitada para Arc: Sí|
+|Evaluación de revisiones de SO que faltan|✔|✔|✔|Azure: No<br><br>Habilitado para Azure Arc: Sí|
+|Evaluación de configuraciones de seguridad incorrectas|✔|✔|✔|Azure: No<br><br>Habilitado para Azure Arc: Sí|
+|[Evaluación de EndPoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: No<br><br>Habilitado para Azure Arc: Sí|
 |Evaluación de Disk Encryption|✔</br>(para [escenarios admitidos](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|No|
 |Evaluación de vulnerabilidades de terceros|✔|-|✔|No|
 |[Evaluación de la seguridad de red](security-center-network-recommendations.md)|✔|✔|-|No|
@@ -54,15 +54,15 @@ En las dos tablas siguientes, se muestran las características de Azure Security
 | [Alertas de seguridad sin archivos](alerts-reference.md#alerts-windows)                                                            | -                                                                                                               | -                                    | -                              | Sí                               |
 | [Alertas de seguridad basadas en la red](other-threat-protections.md#network-layer)                                                | ✔                                                                                                              | ✔                                    | -                              | Sí                               |
 | [Acceso de máquina virtual Just-In-Time](security-center-just-in-time.md)                                                                 | ✔                                                                                                              | -                                    | -                              | Sí                               |
-| [Evaluación de vulnerabilidades nativa](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) | ✔                                                                                                              | -                                    | ✔                             | Sí                               |
+| [Detector de vulnerabilidades integrado de Qualys](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) | ✔                                                                                                              | -                                    | ✔                             | Sí                               |
 | [Supervisión de la integridad de los archivos](security-center-file-integrity-monitoring.md)                                                 | ✔                                                                                                              | ✔                                    | ✔                             | Sí                               |
 | [Controles de aplicación adaptables](security-center-adaptive-application.md)                                                  | ✔                                                                                                              | -                                    | ✔                             | Sí                               |
 | [Mapa de red](security-center-network-recommendations.md#network-map)                                                     | ✔                                                                                                              | ✔                                    | -                              | Sí                               |
 | [Protección de red adaptable](security-center-adaptive-network-hardening.md)                                               | ✔                                                                                                              | -                                    | -                              | Sí                               |
 | [Panel e informes de cumplimiento normativo](security-center-compliance-dashboard.md)                                      | ✔                                                                                                              | ✔                                    | ✔                             | Sí                               |
 | [Protección de hosts de Docker](./harden-docker-hosts.md)                                                                         | ✔                                                                                                              | ✔                                    | ✔                             | Sí                               |
-| Evaluación de revisiones de SO que faltan                                                                                             | ✔                                                                                                              | ✔                                    | ✔                             | Azure: No<br><br>Habilitada para Arc: Sí |
-| Evaluación de configuraciones de seguridad incorrectas                                                                                     | ✔                                                                                                              | ✔                                    | ✔                             | Azure: No<br><br>Habilitada para Arc: Sí |
+| Evaluación de revisiones de SO que faltan                                                                                             | ✔                                                                                                              | ✔                                    | ✔                             | Azure: No<br><br>Habilitado para Azure Arc: Sí |
+| Evaluación de configuraciones de seguridad incorrectas                                                                                     | ✔                                                                                                              | ✔                                    | ✔                             | Azure: No<br><br>Habilitado para Azure Arc: Sí |
 | [Evaluación de EndPoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)                    | -                                                                                                               | -                                    | -                              | No                                |
 | Evaluación de Disk Encryption                                                                                                | ✔</br>(para [escenarios admitidos](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)) | ✔                                    | -                              | No                                |
 | Evaluación de vulnerabilidades de terceros                                                                                      | ✔                                                                                                              | -                                    | ✔                             | No                                |
@@ -134,7 +134,7 @@ Para más información sobre cuándo se generan recomendaciones para cada una de
 | - [Controles de aplicaciones adaptables](./security-center-adaptive-application.md)                                                                              | GA             | GA                             | GA            |
 | - [Protección de red adaptable](./security-center-adaptive-network-hardening.md)                                                                           | GA             | No disponible                  | No disponible |
 | - [Protección de hosts de Docker](./harden-docker-hosts.md)                                                                                                       | GA             | GA                             | GA            |
-| - [Evaluación integrada de vulnerabilidades para las máquinas](./deploy-vulnerability-assessment-vm.md)                                                             | GA             | No disponible                  | No disponible |
+| - [Detector de vulnerabilidades integrado de Qualys](./deploy-vulnerability-assessment-vm.md)                                                             | GA             | No disponible                  | No disponible |
 | - [Panel e informes de cumplimiento normativo](./security-center-compliance-dashboard.md) <sup>[8](#footnote8)</sup>                                       | GA             | GA                             | GA            |
 | - [Implementación de Microsoft Defender para punto de conexión y licencia integrada](./security-center-wdatp.md)                                                         | GA             | GA                             | No disponible |
 | - [Conexión de cuentas de AWS](./quickstart-onboard-aws.md)                                                                                                      | GA             | No disponible                  | No disponible |
@@ -147,7 +147,7 @@ Para más información sobre cuándo se generan recomendaciones para cada una de
 
 <sup><a name="footnote3" /></a>3</sup> Requiere Azure Defender para registros de contenedor.
 
-<sup><a name="footnote4" /></a>4</sup> Parcialmente en disponibilidad general: la compatibilidad con clústeres habilitados para Arc está en versión preliminar pública y no está disponible en Azure Government.
+<sup><a name="footnote4" /></a>4</sup> Parcialmente en disponibilidad general: la compatibilidad con clústeres habilitados para Azure Arc está en versión preliminar pública y no está disponible en Azure Government.
 
 <sup><a name="footnote5" /></a>5</sup> Requiere Azure Defender para Kubernetes.
 

@@ -7,68 +7,26 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: how-to
-ms.date: 09/20/2021
+ms.topic: tutorial
+ms.date: 10/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3851f9893799902c9cdcda71db67a9152de028ec
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7e364b3ce5231370643f9c9ea730dec22ab9022a
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128595814"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615949"
 ---
 # <a name="manage-your-azure-active-directory-b2c-tenant"></a>Administración del inquilino de Azure Active Directory B2C
 
 En Azure Active Directory B2C (Azure AD B2C), un inquilino representa el directorio de usuarios consumidores. Cada inquilino de Azure AD B2C es distinto e independiente de cualquier inquilino de Azure AD B2C. Un inquilino de Azure AD B2C es diferente de un inquilino de Azure Active Directory, que es posible que ya tenga. En este artículo, aprenderá a administrar su inquilino de Azure AD B2C.
 
-## <a name="supported-azure-ad-features"></a>Características compatibles de Azure AD
-
-Azure AD B2C se basa en la plataforma de Azure AD. Las siguientes características de Azure AD se pueden usar en el inquilino de Azure AD B2C.
-
-|Característica  |Azure AD  | Azure AD B2C |
-|---------|---------|---------|
-| [Grupos](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) | Los grupos se pueden usar para administrar cuentas administrativas y de usuario.| Los grupos se pueden usar para administrar cuentas administrativas. Las [cuentas de consumidor](user-overview.md#consumer-user) no pueden ser miembro de ningún grupo. |
-| [Invitar a usuarios a External Identities](../active-directory//external-identities/add-users-administrator.md)| Puede invitar a usuarios y configurar las características de External Identities, como la federación y el inicio de sesión con cuentas de Facebook y Google. | Solo puede invitar a una cuenta de Microsoft o a un usuario de Azure AD a su inquilino de Azure AD para acceder a aplicaciones o administrar inquilinos. En el caso de las [cuentas de consumidor](user-overview.md#consumer-user), se usan directivas personalizadas y flujos de usuarios de Azure AD B2C para administrar usuarios y para el registro o el inicio de sesión con proveedores de identidades externos, como Google o Facebook. |
-| [Roles y administradores](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)| Totalmente compatible con cuentas administrativas y de usuario. | Los roles no son compatibles con las [cuentas de consumidor](user-overview.md#consumer-user). Las cuentas de consumidor no tienen acceso a ningún recurso de Azure.|
-| [Nombres de dominio personalizados](../active-directory/fundamentals/add-custom-domain.md) |  Puede usar los dominios personalizados de Azure AD solo para las cuentas administrativas. | Las [cuentas de consumidor](user-overview.md#consumer-user) pueden iniciar sesión con un nombre de usuario, un número de teléfono o cualquier dirección de correo electrónico. Puede usar los [dominios personalizados](custom-domain.md) en las direcciones URL de redireccionamiento.|
-| [Acceso condicional](../active-directory/conditional-access/overview.md) | Totalmente compatible con cuentas administrativas y de usuario. | Se admite un subconjunto de características de acceso condicional de Azure AD con las [cuentas de consumidor](user-overview.md#consumer-user). Obtenga información sobre cómo configurar el [acceso condicional](conditional-access-user-flow.md) de Azure AD B2C.|
-| [Premium P1](https://azure.microsoft.com/pricing/details/active-directory) | Totalmente compatible con las características de Azure AD Premium P1. Por ejemplo, [protección de contraseñas](../active-directory/authentication/concept-password-ban-bad.md), [identidades híbridas](../active-directory/hybrid/whatis-hybrid-identity.md), [acceso condicional](../active-directory/roles/permissions-reference.md#), [grupos dinámicos](../active-directory/enterprise-users/groups-create-rule.md), etc. | Se admite un subconjunto de características de acceso condicional de Azure AD con las [cuentas de consumidor](user-overview.md#consumer-user). Aprenda a configurar el [acceso condicional](conditional-access-user-flow.md) de Azure AD B2C.|
-| [Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) | Totalmente compatible con las características de Azure AD Premium P2. Por ejemplo, [Identity Protection](../active-directory/identity-protection/overview-identity-protection.md) e [Identity Governance](../active-directory/governance/identity-governance-overview.md).  | Un subconjunto de características de Azure AD Identity Protection es compatible con las [cuentas de consumidor](user-overview.md#consumer-user). Aprenda a [investigar el riesgo con Identity Protection](identity-protection-investigate-risk.md) y a configurar el [acceso condicional](conditional-access-user-flow.md) de Azure AD B2C. |
-
-## <a name="other-azure-resources-in-your-tenant"></a>Otros recursos de Azure en el inquilino
-
-En un inquilino de Azure AD B2C, no puede aprovisionar otros recursos de Azure, como máquinas virtuales, aplicaciones web de Azure o funciones de Azure. Debe crear estos recursos en el inquilino de Azure AD.
-
-## <a name="azure-ad-b2c-accounts-overview"></a>Información general sobre las cuentas de Azure AD B2C
-
-Los siguientes tipos de cuentas se pueden crear en un inquilino de Azure AD B2C:
-
-En un inquilino de Azure AD B2C, hay varios tipos de cuentas que se pueden crear como se describe en el artículo [Introducción a las cuentas de usuario en Azure Active Directory B2C](user-overview.md).
-
-- **Cuenta profesional**: una cuenta profesional puede tener acceso a los recursos en un inquilino y, con un rol de administrador, puede administrar inquilinos.
-- **Cuenta de invitado**: una cuenta de invitado solo puede ser una cuenta de Microsoft o un usuario de Azure Active Directory que se pueda utilizar para tener acceso a aplicaciones o administrar inquilinos.
-- **Cuenta de consumidor**: cuenta que utiliza un usuario de las aplicaciones que se han registrado con Azure AD B2C.
-
-Para obtener información detallada sobre estos tipos de cuentas, vea [Introducción a las cuentas de usuario en Azure Active Directory B2C](user-overview.md). Cualquier usuario que se asigne para administrar el inquilino de Azure AD B2C debe tener una cuenta de usuario de Azure AD para poder acceder a los servicios relacionados con Azure. Para agregar este tipo de usuario; para ello, [cree una cuenta](#add-an-administrator-work-account) (cuenta profesional) en el inquilino de Azure AD B2C o [invítelo](#invite-an-administrator-guest-account) a su inquilino de Azure AD B2C como usuario invitado.
-
-## <a name="use-roles-to-control-resource-access"></a>Uso de roles para controlar el acceso a los recursos
-
-Al planear la estrategia de control de acceso, es mejor asignar a los usuarios el rol con menos privilegios necesario para acceder a los recursos. En la tabla siguiente se describen los recursos principales del inquilino de Azure AD B2C y los roles administrativos más adecuados para los usuarios que los administran.
-
-|Recurso  |Descripción  |Role  |
-|---------|---------|---------|
-|[Registros de aplicación](tutorial-register-applications.md) | Crear y administrar todos los aspectos de los registros de aplicaciones web, móviles y nativas dentro de Azure AD B2C.|[Administrador de aplicaciones](../active-directory/roles/permissions-reference.md#application-administrator)|
-|[Proveedores de identidades](add-identity-provider.md)| Configurar el [proveedor de identidades local](identity-provider-local.md) y los proveedores de identidades sociales o empresariales externos. | [Administrador de proveedor de identidades externo](../active-directory/roles/permissions-reference.md#external-identity-provider-administrator)|
-|[Conectores de API](add-api-connector.md)| Integrar los flujos de usuario en las API web para personalizar la experiencia del usuario e integrarla con sistemas externos.|[Administrador de flujos de usuarios con identificador externo](../active-directory/roles/permissions-reference.md#external-id-user-flow-administrator)|
-|[Personalización de marca de empresa](customize-ui.md#configure-company-branding)| Personalizar las páginas de flujos de usuarios.| [Administrador global](../active-directory/roles/permissions-reference.md#global-administrator)|
-|[Atributos de usuario](user-flow-custom-attributes.md)| Agregar o eliminar los atributos personalizados disponibles en todos los flujos de usuarios.| [Administrador de atributos de flujos de usuarios con identificador externo](../active-directory/roles/permissions-reference.md#external-id-user-flow-attribute-administrator)|
-|Administrar usuarios| Administrar las [cuentas de consumidor](manage-users-portal.md) y las cuentas administrativas como se describe en este artículo.| [Administrador de usuarios](../active-directory/roles/permissions-reference.md#user-administrator)|
-|Roles y administradores| Administrar las asignaciones de roles en el directorio de Azure AD B2C. Crear y administrar grupos a los que se pueden asignar roles de Azure AD B2C. |[Administrador global](../active-directory/roles/permissions-reference.md#global-administrator), [Administrador de roles con privilegios](../active-directory/roles/permissions-reference.md#privileged-role-administrator)|
-|[Flujos de usuario](user-flow-overview.md)|Para una configuración rápida y la habilitación de tareas comunes de identidad, como registro, inicio de sesión y edición de perfiles.| [Administrador de flujos de usuarios con identificador externo](../active-directory/roles/permissions-reference.md#external-id-user-flow-administrator)|
-|[Directivas personalizadas](user-flow-overview.md)| Crear, leer, actualizar y eliminar todas las directivas personalizadas en Azure AD B2C.| [Administrador de directivas B2C con IEF](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)|
-|[Claves de directiva](policy-keys-overview.md)|Agregar y administrar claves de cifrado para firmar y validar tokens, secretos de cliente, certificados y contraseñas utilizados en las directivas personalizadas.|[Administrador de conjuntos de claves B2C con IEF](../active-directory/roles/permissions-reference.md#b2c-ief-keyset-administrator)|
+## <a name="prerequisites"></a>Prerrequisitos
+- Si aún no ha creado su propio [inquilino de Azure AD B2C](tutorial-create-tenant.md), cree una ahora. Puede usar un inquilino de Azure AD B2C existente.
+- Conocer las [cuentas de usuario en Azure AD B2C](user-overview.md).
+- Conocer el [uso de roles para controlar el acceso a los recursos](roles-resource-access-control.md).
 
 
 ## <a name="add-an-administrator-work-account"></a>Adición de un administrador (cuenta profesional)
@@ -87,7 +45,7 @@ Para crear una cuenta administrativa, siga estos pasos:
    - **Nombre de usuario**. Necesario. Nombre de usuario del nuevo usuario. Por ejemplo, `mary@contoso.com`.
      La parte del dominio del nombre de usuario debe usar el nombre de dominio predeterminado inicial, *\<yourdomainname>.onmicrosoft.com*.
    - **Grupos**. Si quiere, puede agregar el usuario a uno o varios de los grupos existentes. También puede agregar el usuario a grupos en un momento posterior. 
-   - **Rol del directorio**. Si necesita permisos administrativos de Azure AD para el usuario, puede agregarlos a un rol de Azure AD. Puede asignar el rol de administrador global al usuario, o uno o varios de los otros roles de administrador limitados de Azure AD. Para más información sobre la asignación de roles, vea [Uso de roles para controlar el acceso a los recursos](#use-roles-to-control-resource-access).
+   - **Rol del directorio**. Si necesita permisos administrativos de Azure AD para el usuario, puede agregarlos a un rol de Azure AD. Puede asignar el rol de administrador global al usuario, o uno o varios de los otros roles de administrador limitados de Azure AD. Para más información sobre la asignación de roles, vea [Uso de roles para controlar el acceso a los recursos](roles-resource-access-control.md).
    - **Información del trabajo**. Puede agregar más información sobre el usuario aquí o hacerlo más adelante. 
 
 1. Copie la contraseña generada automáticamente proporcionada en el cuadro de texto **Contraseña**. Deberá proporcionar esta contraseña al usuario para iniciar sesión por primera vez.
@@ -113,7 +71,7 @@ Para invitar a un usuario, siga estos pasos:
    - **Dirección de correo electrónico**. Necesario. Dirección de correo electrónico del usuario al que quiera invitar. Por ejemplo, `mary@contoso.com`.   
    - **Mensaje personal**: agregue un mensaje personal que se incluirá en el correo electrónico de invitación.
    - **Grupos**. Si quiere, puede agregar el usuario a uno o varios de los grupos existentes. También puede agregar el usuario a grupos en un momento posterior.
-   - **Rol del directorio**. Si necesita permisos administrativos de Azure AD para el usuario, puede agregarlos a un rol de Azure AD. Puede asignar el rol de administrador global al usuario, o uno o varios de los otros roles de administrador limitados de Azure AD. Para más información sobre la asignación de roles, vea [Uso de roles para controlar el acceso a los recursos](#use-roles-to-control-resource-access).
+   - **Rol del directorio**. Si necesita permisos administrativos de Azure AD para el usuario, puede agregarlos a un rol de Azure AD. Puede asignar el rol de administrador global al usuario, o uno o varios de los otros roles de administrador limitados de Azure AD. Para más información sobre la asignación de roles, vea [Uso de roles para controlar el acceso a los recursos](roles-resource-access-control.md).
    - **Información del trabajo**. Puede agregar más información sobre el usuario aquí o hacerlo más adelante.
 
 1. Seleccione **Crear**.
@@ -211,4 +169,4 @@ Para obtener el identificador del inquilino de Azure AD B2C, siga estos pasos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Creación de un inquilino de Azure Active Directory B2C en Azure Portal](tutorial-create-tenant.md)
+- [Limpieza de recursos y eliminación del inquilino](tutorial-delete-tenant.md)

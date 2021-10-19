@@ -6,15 +6,15 @@ metadata:
   services: storage
   ms.service: storage
   ms.topic: conceptual
-  ms.date: 09/07/2021
+  ms.date: 10/04/2021
   ms.author: alkohli
   ms.subservice: common
-  ms.openlocfilehash: 7a4344ed0aa7346d3c87d36d96e4772c08080327
-  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+  ms.openlocfilehash: 7217f10d9d54931d0f37ec0400c8df3132076f87
+  ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/13/2021
-  ms.locfileid: "124763564"
+  ms.lasthandoff: 10/09/2021
+  ms.locfileid: "129709449"
 title: 'Servicio Azure Import/Export: preguntas frecuentes'
 summary: >
   Estas son algunas de las preguntas que puede plantearse, junto con sus respuestas, al usar el servicio Azure Import/Export para transferir datos a Azure Storage.
@@ -22,9 +22,9 @@ sections:
 - name: Acerca del servicio Import/Export
   questions:
   - question: >
-      ¿Puedo copiar Azure File Storage mediante el servicio Azure Import/Export?
+      ¿Puedo copiar a Azure Files Storage mediante el servicio Azure Import/Export?
     answer: >
-      Sí. Sí, el servicio Azure Import/Export permite importar en Azure File Storage. Actualmente no admite la exportación de Azure Files.
+      Sí. Sí, el servicio Azure Import/Export permite importar en Azure Files Storage. Actualmente no admite la exportación de Azure Files.
   - question: >
       ¿Está disponible el servicio Azure Import/Export para suscripciones de CSP?
     answer: >
@@ -56,7 +56,7 @@ sections:
   - question: >
       ¿Puedo cancelar un trabajo?
     answer: >
-      Sí. Puede cancelar un trabajo si el estado es **Creando** o **Enviando**. Superadas estas fases, no se puede cancelar el trabajo y este continúa hasta la fase final.
+      Sí. Puede cancelar un trabajo si el estado es **Creando**. Sin embargo, después de especificar la información de seguimiento, el estado de un trabajo cambia a **Envío** y el trabajo ya no se puede cancelar.
   - question: >
       ¿Durante cuánto tiempo puedo visualizar el estado de los trabajos completados en Azure Portal?
     answer: >
@@ -68,9 +68,13 @@ sections:
 
       Para más información e instrucciones cuando la capacidad de los datos abarca varios trabajos de importación de discos, póngase en contacto con Soporte técnico de Microsoft.
   - question: >
+      He encontrado problemas en los registros de copia de datos de un trabajo de importación y exportación. ¿Puedo reparar el trabajo?
+    answer: >
+      No. Las versiones actuales de la herramienta Azure ImportExport (versión 1.5.0.300 para blobs y versión 2.2.0.300 para archivos) no admiten la reparación de trabajos. Deberá crear un nuevo trabajo de Import/Export después de resolver los problemas. Consulte [Creación de un trabajo de importación para blobs](storage-import-export-data-to-blobs.md#step-2-create-an-import-job) o [Creación de un trabajo de importación para archivos](storage-import-export-data-to-files.md#step-2-create-an-import-job).
+  - question: >
       El blob cargado muestra el estado como concesión expirada. ¿Cuál debo hacer?
     answer: >
-      Puede omitir el campo de concesión expirada. El servicio Import/Export toma la concesión del blob durante la carga para asegurarse de que ningún otro proceso puede actualizar el blob en paralelo. La concesión expirada implica que el servicio Import/Export ya no se está cargando en él y que el blob está disponible para su uso.
+      Puede omitir el campo de **Concesión expirada**. El servicio Import/Export toma la concesión del blob durante la carga para asegurarse de que ningún otro proceso puede actualizar el blob en paralelo. **Concesión expirada** implica que la importación o exportación ya no se está cargando en el blob y que el blob está disponible para su uso.
 - name: Envío de discos
   questions:
   - question: >
@@ -92,7 +96,7 @@ sections:
   - question: >
       ¿Existe alguna restricción internacional en el envío y la devolución de las unidades?
     answer: >
-      Tenga en cuenta que es posible que los medios físicos que está enviando deban cruzar alguna frontera internacional. Usted es el responsable de asegurar que los medios y datos físicos se importan o exportan de acuerdo con todas las normativas aplicables. Antes de enviar los medios físicos, pida asesoramiento para comprobar que los medios y datos se pueden enviar legalmente al centro de datos identificado. De este modo, se asegurará de que llegan a Microsoft de manera puntual.
+      Tenga en cuenta que es posible que los medios físicos que está enviando deban cruzar alguna frontera internacional. Usted es el responsable de asegurar que los medios y datos físicos se importan o exportan de acuerdo con todas las normativas aplicables. Antes de enviar los medios físicos, pida asesoramiento para comprobar que los medios y datos se pueden enviar legalmente al centro de datos identificado. Comprobarlo con tiempo le ayudará a asegurarse de que llegan a Microsoft de manera puntual.
 
 
       Una vez completada la carga, el proceso para devolver las unidades a una dirección internacional puede tardar más de los días de 2-3 necesarios habitualmente para el envío local. Durante la fase indicada en Azure Portal como empaquetado, el equipo de Data Box está asegurándose de que se proporciona la documentación correcta para garantizar que el envío cumple con los diversos requisitos internacionales de importación y exportación.
@@ -137,7 +141,13 @@ sections:
   - question: >
       Si una unidad tiene archivos que ya existen en la cuenta de almacenamiento, ¿el servicio sobrescribirá los blobs o archivos existentes?
     answer: >
-      Depende. Al preparar la unidad, puede especificar que los archivos de destino se sobrescriban u omitan mediante el campo del archivo CSV de conjunto de datos llamado Disposition:<rename|no-overwrite|overwrite>. De forma predeterminada, el servicio cambia el nombre de los nuevos archivos en lugar de sobrescribir los blobs o archivos existentes.
+      Sí. Las versiones más recientes de la herramienta Azure ImportExport (versiones 1.5.0.300 (para blobs) y 2.2.0.300 (para archivos)) sobrescriben automáticamente los blobs o archivos que ya existen en el almacenamiento si una importación incluye un archivo o blob con el mismo nombre. Las versiones anteriores de la herramienta cambiaron el nombre de un archivo entrante de forma predeterminada si un blob o archivo existente tenía el mismo nombre. Un campo Disposición del archivo .csv del conjunto de datos permite especificar si se debe cambiar el nombre, no sobrescribir o sobrescribir el archivo o blob de destino. El campo Disposición tenía este formato: `Disposition:<rename|no-overwrite|overwrite>`.
+  - question: >
+      Estoy creando un nuevo trabajo. ¿Puedo seguir utilizando la antigua herramienta de Azure Import/Export?
+    answer: >
+      Puede seguir usando la antigua herramienta Azure Import/Export con los trabajos existentes. Sin embargo, se recomienda encarecidamente pasar a la versión actual de la herramienta para los nuevos trabajos de importación y exportación, ya que la herramienta anterior se está eliminando gradualmente. Cuando la herramienta anterior ya no se admita, recibirá una notificación en Azure Portal.
+
+      Aquí encontrará las versiones actuales de las herramientas. [Descargue WAImportExport versión 1.5.0.300](https://www.microsoft.com/download/details.aspx?id=42659), para blobs. [Descargue WAImportExport versión 2.2.0.300](https://aka.ms/waiev2), para archivos.
   - question: >
       ¿Es compatible la herramienta WAImportExport con sistemas operativos de 32 bits?
     answer: >
@@ -145,7 +155,7 @@ sections:
   - question: >
       ¿Qué tamaño máximo de blobs en bloques y blobs en páginas admite Azure Import/Export?
     answer: >
-      - El tamaño máximo aproximado de blobs en bloques admitido es de 4,768 TB o 5.000.000 MB.
+      - El tamaño máximo aproximado de blobs en bloques admitido es de 4,768 TB o 5 000 000 MB.
 
       - El tamaño máximo de blobs en páginas es de 8 TB.
   - question: >

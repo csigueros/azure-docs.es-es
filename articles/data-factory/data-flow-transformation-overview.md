@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
-ms.openlocfilehash: 393e6dbc0f30e4a541408119db6f606f24023d5d
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.date: 10/07/2021
+ms.openlocfilehash: 56a6a521eb648a1ad49baf2bf206ef84aa084731
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129059746"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714131"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Introducción a las transformaciones en el flujo de datos de asignación
 
@@ -43,6 +43,7 @@ A continuación se muestra una lista de las transformaciones admitidas actualmen
 | [Sink](data-flow-sink.md) | - | Destino final para los datos. |
 | [Sort](data-flow-sort.md) | Modificador de fila | Ordena las filas entrantes del flujo de datos actual. |
 | [Origen](data-flow-source.md) | - | Un origen de datos para el flujo de datos. |
+| [Stringify](data-flow-stringify.md) | - | Convertir tipos complejos en cadenas sin formato |
 | [Clave suplente](data-flow-surrogate-key.md) | Modificador de esquema | Agrega un valor de clave arbitraria no empresarial en incremento. |
 | [Unión](data-flow-union.md) | Varias entradas y salidas | Combina varios flujos de datos verticalmente. |
 | [Anulación de dinamización](data-flow-unpivot.md) | Modificador de esquema | Dinamiza columnas en valores de fila. |

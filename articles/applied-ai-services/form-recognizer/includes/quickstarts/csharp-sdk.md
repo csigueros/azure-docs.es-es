@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 07/30/2021
 ms.author: lajanuar
 ms.custom: " devx-track-csharp"
-ms.openlocfilehash: 5b1b4658199d624f2ebb8e1ed3dc08d64489f11b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9b8f854a2bf5753f9e2ac047cff9f4c7fcef68da
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128652570"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715433"
 ---
 <!-- markdownlint-disable MD024 -->
 
@@ -279,7 +279,7 @@ En el código siguiente se procesa la factura en el identificador URI especifica
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_invoice_print)]
 
-## <a name="analyze-identity-documents"></a>Análisis de documentos de identidad
+## <a name="analyze-id-documents"></a>Análisis de documentos de identificación
 
 En esta sección se muestra cómo analizar y extraer información clave de documentos de identificación emitidos por la administración pública (pasaportes de todo el mundo y permisos de conducir de EE. UU.) mediante el modelo de identificación precompilado de Form Recognizer. Para obtener más información sobre el análisis de documentos de identificación, consulte nuestra [guía conceptual del modelo de identificación precompilado](../../concept-identification-cards.md).
 

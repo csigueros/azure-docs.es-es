@@ -1,18 +1,20 @@
 ---
-author: wesmc7777
+author: anastasia-ms
 ms.service: iot-dps
 ms.topic: include
-ms.date: 06/15/2021
-ms.author: wesmc
-ms.openlocfilehash: b3c218314f56fb53d0690ac0659192bb955e4301
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
+ms.date: 10/10/2021
+ms.author: v-stharr
+ms.openlocfilehash: fa416ff3e3ef5b502b65ac414558692ccd7071b5
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112539020"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129866128"
 ---
 > [!NOTE]
 > Los límites de algunas áreas de este servicio son ajustables. Esto se representa en las tablas siguientes con la columna *¿Ajustable?* . Cuando se puede ajustar el límite, el valor de *¿Ajustable?* es *Sí*.
+>
+>El valor real al que se puede ajustar un límite puede variar en función de la implementación de cada cliente. Es posible que se requieran varias instancias de DPS para implementaciones muy grandes.
 >
 > Si su empresa requiere el aumentar una cuota o límite ajustable por encima del límite predeterminado, puede [abrir una incidencia de soporte técnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) para solicitar más recursos.
 

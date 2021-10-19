@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: cauribeg
-ms.openlocfilehash: d6381556703c704eb0e8b24ea2f1a809bf864735
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 989284bd10fc5d452a738d027c693a15f7871b9b
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129538509"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129730005"
 ---
 # <a name="configure-geo-replication-for-premium-azure-cache-for-redis-instances"></a>Configuración de la replicación geográfica para las instancias de Azure Cache for Redis prémium
 
@@ -41,8 +41,8 @@ Algunas características no son compatibles con la replicación geográfica:
 - La redundancia de zona no es compatible con la replicación geográfica.
 - La persistencia no es compatible con la replicación geográfica.
 - Se admite la agrupación en clústeres si ambas cachés tienen la agrupación en clústeres habilitada y tienen el mismo número de particiones.
-- Se admiten cachés en la misma red virtual.
-- Las cachés de distintas redes virtuales son compatibles con advertencias. Consulte [¿Puedo usar la replicación geográfica con cachés en una VNET?](#can-i-use-geo-replication-with-my-caches-in-a-vnet) para obtener más información.
+- Se admiten las memorias caché red virtual (VNet).
+- Las memorias caché de distintas redes virtuales son compatibles con advertencias. Consulte [¿Puedo usar la replicación geográfica con cachés en una VNet?](#can-i-use-geo-replication-with-my-caches-in-a-vnet) para obtener más información.
 
 Una vez que se configura la replicación geográfica, se aplican las siguientes restricciones al par de cachés vinculadas:
 
@@ -61,31 +61,31 @@ Una vez que se configura la replicación geográfica, se aplican las siguientes 
 
 1. Para vincular dos cachés para la replicación geográfica, primero haga clic en **Replicación geográfica** en el menú Recursos de la caché que vaya a ser la caché vinculada principal. A continuación, haga clic en **Agregar vínculo de replicación de caché** desde **Replicación geográfica** en la izquierda.
 
-    ![Agregar vínculo](./media/cache-how-to-geo-replication/cache-geo-location-menu.png)
+    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-menu.png" alt-text="Menú de replicación geográfica de caché":::
 
 1. Seleccione el nombre de la caché secundaria deseada en la lista **Cachés compatibles**. Si la caché secundaria no aparece en la lista, compruebe que se cumplen los [requisitos previos de replicación geográfica](#geo-replication-prerequisites) para la caché secundaria. Para filtrar las cachés por región, seleccione la región en el mapa para mostrar solo esas cachés en la lista de **cachés disponibles**.
 
-    ![Cachés compatibles de replicación geográfica](./media/cache-how-to-geo-replication/cache-geo-location-select-link.png)
+    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-select-link.png" alt-text="Selección de la memoria caché compatible":::
 
     También puede iniciar el proceso de vinculación o ver detalles sobre la caché secundaria mediante el menú contextual.
 
-    ![Menú contextual de replicación geográfica](./media/cache-how-to-geo-replication/cache-geo-location-select-link-context-menu.png)
+    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-select-link-context-menu.png" alt-text="Menú contextual de replicación geográfica":::
 
 1. Seleccione **Vincular** para vincular las dos cachés y comenzar el proceso de replicación.
 
-    ![Vincular cachés](./media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png)
+    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png" alt-text="Vincular cachés":::
 
 1. Puede ver el progreso del proceso de replicación por medio de **Replicación geográfica** en la parte izquierda.
 
-    ![Estado de la vinculación](./media/cache-how-to-geo-replication/cache-geo-location-linking.png)
+    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-linking.png" alt-text="Estado de la vinculación":::
 
     También puede consultar el estado de la vinculación en la parte izquierda, desde **Información general**, para las dos cachés, la principal y la secundaria.
 
-    ![Captura de pantalla que destaca cómo ver el estado de vinculación de las memorias caché principales y secundarias.](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
+    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-link-status.png" alt-text="Captura de pantalla que destaca cómo ver el estado de vinculación de las memorias caché principales y secundarias.":::
 
     Una vez que se completa el proceso de replicación, el **estado del vínculo** cambia a **Correcto**.
 
-    ![Estado de cachés](./media/cache-how-to-geo-replication/cache-geo-location-link-successful.png)
+    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-link-successful.png" alt-text="Estado de cachés":::
 
     La caché vinculada principal sigue estando disponible para su uso durante el proceso de vinculación. La caché vinculada secundaria no está disponible hasta que se complete el proceso de vinculación.
 
@@ -93,7 +93,7 @@ Una vez que se configura la replicación geográfica, se aplican las siguientes 
 
 1. Para quitar el vínculo entre dos cachés y detener la replicación geográfica, haga clic en **Desvincular cachés** desde **Replicación geográfica** en la parte izquierda.
 
-    ![Desvincular cachés](./media/cache-how-to-geo-replication/cache-geo-location-unlink.png)
+    :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-unlink.png" alt-text="Desvincular cachés":::
 
     Una vez que se completa el proceso de desvinculación, la caché secundaria queda disponible tanto para lecturas como para escrituras.
 
@@ -110,7 +110,7 @@ Una vez que se configura la replicación geográfica, se aplican las siguientes 
 - [¿Puedo vincular dos cachés de distintas suscripciones de Azure?](#can-i-link-two-caches-from-different-azure-subscriptions)
 - [¿Puedo vincular dos cachés de tamaños distintos?](#can-i-link-two-caches-with-different-sizes)
 - [¿Puedo usar la replicación geográfica con la agrupación en clústeres habilitada?](#can-i-use-geo-replication-with-clustering-enabled)
-- [¿Puedo usar la replicación geográfica con mis cachés en una VNET?](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
+- [¿Puedo usar la replicación geográfica con mis memorias caché en una VNet?](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
 - [¿Qué es la programación de replicación para la replicación geográfica de Redis?](#what-is-the-replication-schedule-for-redis-geo-replication)
 - [¿Cuánto tiempo tarda la replicación geográfica?](#how-long-does-geo-replication-replication-take)
 - [¿Se garantiza el punto de recuperación de replicación?](#is-the-replication-recovery-point-guaranteed)
@@ -147,24 +147,24 @@ Sí, siempre que la caché vinculada secundaria sea mayor que la caché vinculad
 
 Sí, siempre que ambas cachés tengan la misma cantidad de particiones.
 
-### <a name="can-i-use-geo-replication-with-my-caches-in-a-vnet"></a>¿Puedo usar la replicación geográfica con mis cachés en una VNET?
+### <a name="can-i-use-geo-replication-with-my-caches-in-a-vnet"></a>¿Puedo usar la replicación geográfica con mis memorias caché en una VNet?
 
-Sí, la replicación geográfica de cachés en redes virtuales es compatible con advertencias:
+Sí, la replicación geográfica de memorias caché en redes virtuales es compatible con advertencias:
 
-- Se admite la replicación geográfica entre cachés de la misma VNET.
-- También se admite la replicación geográfica entre cachés en distintas redes virtuales.
-  - Si las redes virtuales están en la misma región, puede conectarlas mediante un [emparejamiento de la red virtual](../virtual-network/virtual-network-peering-overview.md) o una [conexión de red virtual a red virtual de VPN Gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
-  - Si las redes virtuales están en diferentes regiones, se admite la replicación geográfica mediante el emparejamiento de VNET, pero una VM cliente de la red virtual 1 (región 1) no podrá acceder a la memoria caché de la red virtual 2 (región 2) a través de su nombre DNS debido a una restricción de los equilibradores de carga internos básicos. Para obtener más información sobre las restricciones de emparejamiento de redes virtuales, consulte [Red virtual - Emparejamiento - Requisitos y restricciones](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). La solución recomendada es usar una conexión de red virtual a red virtual de VPN Gateway.
+- Se admite la replicación geográfica entre memorias cachés de la misma VNet.
+- También se admite la replicación geográfica entre memorias cachés en distintas redes virtuales.
+  - Si las VNet están en la misma región, puede conectarlas mediante un [emparejamiento de la red virtual](../virtual-network/virtual-network-peering-overview.md) o una [conexión de red virtual a red virtual de VPN Gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+  - Si las redes virtuales están en diferentes regiones, se admite la replicación geográfica mediante el emparejamiento de VNet, pero una VM cliente de la red virtual 1 (región 1) no puede acceder a la memoria caché de la red virtual 2 (región 2) mediante su nombre DNS debido a una restricción de los equilibradores de carga internos básicos. Para obtener más información sobre las restricciones de emparejamiento de redes virtuales, consulte [Red virtual - Emparejamiento - Requisitos y restricciones](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Se recomienda usar una conexión de red virtual a red virtual de VPN Gateway.
   
-Puede usar [esta plantilla de Azure](https://azure.microsoft.com/resources/templates/redis-vnet-geo-replication/) para implementar rápidamente dos cachés con replicación geográfica en una red virtual conectada con una conexión puerta de enlace a puerta de enlace de VPN Gateway.
+Puede usar [esta plantilla de Azure](https://azure.microsoft.com/resources/templates/redis-vnet-geo-replication/) para implementar rápidamente dos cachés con replicación geográfica en una red virtual conectada con una conexión de red virtual a red virtual de VPN Gateway.
 
 ### <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>¿Qué es la programación de replicación para la replicación geográfica de Redis?
 
-La replicación no se realiza en una programación específica, es continua y asincrónica. Todas las escrituras realizadas en el servidor principal se replican asincrónicamente y al instante en el servidor secundario.
+La replicación es continua y asincrónica. No ocurre según una programación específica. Todas las escrituras realizadas en el servidor principal se replican asincrónicamente y al instante en el servidor secundario.
 
 ### <a name="how-long-does-geo-replication-replication-take"></a>¿Cuánto tiempo tarda la replicación geográfica?
 
-La replicación es incremental, asincrónica y continua, y el tiempo empleado no es muy diferente de la latencia entre regiones. En determinadas circunstancias, la caché secundaria puede requerir la realización de una sincronización completa de los datos del servidor principal. El tiempo de replicación en este caso depende del número de factores, como la carga en la caché principal, el ancho de banda de red disponible y la latencia entre regiones. Hemos detectado que el tiempo de replicación para un par de replicación geográfica de 53 GB completa puede estar entre 5 y 10 minutos.
+La replicación es incremental, asincrónica y continua, y el tiempo empleado no es muy diferente de la latencia entre regiones. En determinadas circunstancias, la caché secundaria puede requerir la realización de una sincronización completa de los datos del servidor principal. El tiempo de replicación en este caso depende de varios factores, como la carga en la caché principal, el ancho de banda de red disponible y la latencia interregional. Hemos detectado que el tiempo de replicación para un par de replicación geográfica de 53 GB completa puede estar entre 5 y 10 minutos.
 
 ### <a name="is-the-replication-recovery-point-guaranteed"></a>¿Se garantiza el punto de recuperación de replicación?
 
@@ -190,7 +190,9 @@ En general, se recomienda que la caché esté en la misma región de Azure que l
 
 ### <a name="how-does-failing-over-to-the-secondary-linked-cache-work"></a>¿Cómo funciona la conmutación por error a la caché vinculada secundaria?
 
-No se admite la conmutación automática por error entre regiones de Azure para cachés de replicación geográfica. En un escenario de recuperación ante desastres, los clientes deben mostrar la pila de toda la aplicación de manera coordinada en su región de copia de seguridad. Permitir a los componentes de aplicación individuales cuándo cambiar a sus copias de seguridad por sí mismos puede afectar negativamente al rendimiento. Uno de los beneficios clave de Redis es que se trata de un almacén de latencia muy baja. Si la aplicación principal del cliente está en una región distinta a su caché, el tiempo de ida y vuelta agregado tendría un impacto apreciable en el rendimiento. Por este motivo, evitamos que se realice automáticamente la conmutación por error debido a problemas transitorios de disponibilidad.
+No se admite la conmutación automática por error entre regiones de Azure para cachés de replicación geográfica. En un escenario de recuperación ante desastres, los clientes deben mostrar la pila de toda la aplicación de manera coordinada en su región de copia de seguridad. Permitir a los componentes de aplicación individuales cuándo cambiar a sus copias de seguridad por sí mismos puede afectar negativamente al rendimiento. 
+
+Uno de los beneficios clave de Redis es que se trata de un almacén de latencia muy baja. Si la aplicación principal del cliente está en una región distinta a su caché, el tiempo de ida y vuelta agregado tendría un impacto apreciable en el rendimiento. Por este motivo, evitamos que se realice automáticamente la conmutación por error debido a problemas transitorios de disponibilidad.
 
 Para ejecutar una conmutación por error iniciada por el cliente, desvincule primero las cachés. A continuación, cambie el cliente de Redis para utilizar el punto de conexión de la caché secundaria (anteriormente vinculada). Cuando se desvinculan las dos cachés, la réplica secundaria se vuelve a convertir en una caché normal de lectura y escritura, y acepta solicitudes directamente de los clientes de Redis.
 

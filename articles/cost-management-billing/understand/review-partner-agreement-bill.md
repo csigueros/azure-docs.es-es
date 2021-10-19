@@ -7,18 +7,18 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: a7c67b364fba771ad485eee8b93a62b9bdabc841
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: acff6020d401390ab514c168241db8daca801691
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128643049"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705804"
 ---
 # <a name="tutorial-review-your-microsoft-partner-agreement-invoice"></a>Tutorial: Revisión de la factura de Microsoft Partner Agreement
 
- En la cuenta de facturación de un contrato Microsoft Partner Agreement, se genera una factura cada mes para cada perfil de facturación. La factura incluye todos los cargos del cliente del mes anterior. Puede comprender los cargos en la factura mediante el análisis de las transacciones individuales en Azure Portal. También puede ver las facturas en Azure Portal y comparar los cargos con el archivo de detalles de uso.
+En la cuenta de facturación de un contrato Microsoft Partner Agreement, se genera una factura cada mes para cada perfil de facturación. La factura incluye todos los cargos del cliente del mes anterior. Puede comprender los cargos en la factura mediante el análisis de las transacciones individuales en Azure Portal. También puede ver las facturas en Azure Portal y comparar los cargos con el archivo de detalles de uso.
 
 Para más información, consulte [Descarga de facturas en Azure Portal](download-azure-invoice.md).
 
@@ -132,7 +132,7 @@ En este tutorial, ha aprendido a:
 > * Revisión de los cargos pendientes para calcular la próxima factura
 > * Análisis de los cargos por uso de Azure
 
-Obtenga información sobre el uso de Azure Cost Management para los asociados
+Obtenga información sobre el uso de Cost Management para los asociados.
 
 > [!div class="nextstepaction"]
-> [Introducción a Azure Cost Management para los asociados](../costs/get-started-partners.md)
+> [Introducción a Cost Management para los asociados](../costs/get-started-partners.md)

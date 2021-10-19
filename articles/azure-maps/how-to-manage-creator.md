@@ -1,18 +1,18 @@
 ---
 title: Administración de Microsoft Azure Maps Creator
 description: En este artículo, aprenderá a administrar Microsoft Azure Maps Creator.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 05/18/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/08/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: af01febed5398ecb6750305e6d03352f9bcea727
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 09a70e55d796e0eb16d0806fb9a0726ff67ea812
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751471"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129729774"
 ---
 # <a name="manage-azure-maps-creator"></a>Administración de Azure Maps Creator
 
@@ -32,7 +32,7 @@ En este artículo le guiaremos por los pasos necesarios para crear y eliminar un
 
     :::image type="content" border="true" source="./media/how-to-manage-creator/creator-blade-settings.png" alt-text="Creación de una página de Azure Maps Creator":::
 
-4. Escriba el nombre, la ubicación y las unidades de almacenamiento de aprovisionamiento del mapa para el recurso de Creator. Actualmente, Creator solo se admite en Estados Unidos. Seleccione **Revisar + crear**.
+4. Escriba el nombre, la ubicación y las unidades de almacenamiento de aprovisionamiento del mapa para el recurso de Creator y luego seleccione **Revisar y crear**.
 
    :::image type="content" source="./media/how-to-manage-creator/creator-creation-dialog.png" alt-text="Escriba la página de información de cuenta de Creator":::
 

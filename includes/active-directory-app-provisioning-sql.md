@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 991306a115fdfe88f9646d1c65059bfe2699cb8d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fe61b971dbe1a3a82a085228ff8723f3cf47df20
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128613662"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129638701"
 ---
 En este documento se describen los pasos que hay que realizar para aprovisionar y desaprovisionar automáticamente usuarios de Azure Active Directory (Azure AD) en una base de datos SQL.  Se explica cómo configurar y usar el conector SQL genérico con el host del conector ECMA de Azure AD. 
  
@@ -32,6 +32,8 @@ En función de las opciones que seleccione, es posible que algunas de las pantal
 * Oracle 10 y 11g
 * Oracle 12c y 18c
 * MySQL 5.x
+
+Nota: El conector SQL genérico requiere que los nombres de columna no distingan entre mayúsculas y minúsculas. MySQL distingue mayúsculas de minúsculas en Linux y Postgres lo hace en todas las plataformas. Como resultado, no se admiten actualmente. 
 
 ### <a name="cloud-requirements"></a>Requisitos de la nube
 
@@ -119,7 +121,7 @@ El conector SQL genérico es un archivo DSN para conectarse al servidor SQL. Pri
  3. En la página **Propiedades**, rellene los cuadros con los valores especificados en la tabla que sigue a la imagen y seleccione **Siguiente**.
      ![Captura de pantalla que muestra la especificación de propiedades.](.\media\active-directory-app-provisioning-sql\conn-1.png)
 
-     |Propiedad|Value|
+     |Propiedad|Valor|
      |-----|-----|
      |Nombre|SQL|
      |Temporizador de sincronización automática (minutos)|120|

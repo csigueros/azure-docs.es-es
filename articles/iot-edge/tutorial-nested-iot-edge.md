@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 983844a824f4aac6bfe21f06b8fab591c99e1bf1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dc878b0f1a843d8212cd6541338510f8eff4b56c
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740535"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714941"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices"></a>Tutorial: Creación de una jerarquía de dispositivos IoT Edge
 
@@ -87,9 +87,8 @@ Para crear una jerarquía de dispositivos IoT Edge, necesitará:
 
    ![Después de la creación, la máquina virtual genera un archivo JSON que contiene su identificador SSH.](./media/tutorial-nested-iot-edge/virtual-machine-outputs.png)
 
-* Asegúrese de que los siguientes puertos estén abiertos para todos los dispositivos de entrada, excepto para el dispositivo de capa inferior: 8000, 443, 5671, 8883:
-  * 8000: se usa para extraer las imágenes de contenedor de Docker mediante el proxy de API.
-  * 443: se usa entre los centros de conectividad perimetrales primario y secundario para las llamadas de API REST.
+* Asegúrese de que los siguientes puertos estén abiertos para todos los dispositivos de entrada, excepto para el dispositivo de capa inferior: 443, 5671, 8883:
+  * 443: se usa entre centros perimetrales primarios y secundarios para las llamadas API REST y para extraer imágenes de contenedor de Docker.
   * 5671, 8883: se usan para AMQP y MQTT.
 
   Para más información, consulte [Apertura de puertos en una máquina virtual con Azure Portal](../virtual-machines/windows/nsg-quickstart-portal.md).
@@ -235,7 +234,7 @@ Ejecute las comprobaciones de configuración y conectividad en los dispositivos.
 En el **dispositivo de capa inferior**, la imagen de diagnóstico debe pasarse manualmente en el comando:
 
    ```bash
-   sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:8000/azureiotedge-diagnostics:1.2
+   sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:443/azureiotedge-diagnostics:1.2
    ```
 
 En el **dispositivo de capa superior**, podrá ver una salida con varias evaluaciones superadas. Es posible que vea algunas advertencias sobre registros, directivas y, en función de la red, directivas de DNS.
@@ -259,9 +258,9 @@ En [Azure Cloud Shell](https://shell.azure.com/), puede echar un vistazo al arch
 
 Además de los módulos **IoT Edge Agent** (Agente de IoT Edge) y **IoT Edge Hub** (Concentrador de IoT Edge), el **dispositivo de capa superior** recibe el módulo **Docker Registry** y el módulo **IoT Edge API Proxy** (Proxy de API de IoT Edge).
 
-El módulo **Docker Registry** apunta a una instancia existente de Azure Container Registry. En este caso, `REGISTRY_PROXY_REMOTEURL` apunta a Microsoft Container Registry. En `createOptions`, puede ver que se comunica en el puerto 5000.
+El módulo **Docker Registry** apunta a una instancia existente de Azure Container Registry. En este caso, `REGISTRY_PROXY_REMOTEURL` apunta a Microsoft Container Registry. De forma predeterminada, el **registro de Docker** escucha en el puerto 5000.
 
-El módulo **IoT Edge API Proxy** (Proxy de API de IoT Edge) enruta las solicitudes HTTP a otros módulos, lo que permite que los dispositivos de capa inferior extraigan imágenes del contenedor o inserten blobs en el almacenamiento. En este tutorial, se comunica en el puerto 8000 y está configurado para enviar la ruta de solicitudes de extracción de imágenes de contenedor de Docker al módulo **Docker Registry** en el puerto 5000. Además, cualquier solicitud de carga de Blob Storage se enruta al módulo AzureBlobStorageonIoTEdge en el puerto 11002. Para más información sobre el módulo **IoT Edge API Proxy** (Proxy de API de IoT Edge) y cómo configurarlo, consulte la [guía paso a paso](how-to-configure-api-proxy-module.md) del módulo.
+El módulo **IoT Edge API Proxy** (Proxy de API de IoT Edge) enruta las solicitudes HTTP a otros módulos, lo que permite que los dispositivos de capa inferior extraigan imágenes del contenedor o inserten blobs en el almacenamiento. En este tutorial, se comunica en el puerto 443 y está configurado para enviar la ruta de solicitudes de extracción de imágenes de contenedor de Docker al módulo **Docker Registry** en el puerto 5000. Además, cualquier solicitud de carga de Blob Storage se enruta al módulo AzureBlobStorageonIoTEdge en el puerto 11002. Para más información sobre el módulo **IoT Edge API Proxy** (Proxy de API de IoT Edge) y cómo configurarlo, consulte la [guía paso a paso](how-to-configure-api-proxy-module.md) del módulo.
 
 Si quiere ver cómo crear una implementación como esta mediante Azure Portal o Azure Cloud Shell, consulte la [sección sobre los dispositivos de nivel superior en la guía paso a paso](how-to-connect-downstream-iot-edge-device.md#deploy-modules-to-top-layer-devices).
 
@@ -271,7 +270,7 @@ En [Azure Cloud Shell](https://shell.azure.com/), puede echar un vistazo al arch
    cat ~/nestedIotEdgeTutorial/iotedge_config_cli_release/templates/tutorial/deploymentLowerLayer.json
    ```
 
-En `systemModules`, puede ver que los módulos del entorno de ejecución del **dispositivo de capa inferior** están establecidos para extraerse de `$upstream:8000`, en lugar de `mcr.microsoft.com`, como hacia el **dispositivo de capa superior**. El **dispositivo de capa inferior** envía solicitudes de imagen de Docker al módulo **IoT Edge API Proxy** (Proxy de API de IoT Edge) en el puerto 8000, ya que no puede extraer directamente las imágenes de la nube. El otro módulo implementado en el **dispositivo de capa inferior**, el módulo **Simulated Temperature Sensor** (Sensor de temperatura simulado), también realiza su solicitud de imágenes a `$upstream:8000`.
+En `systemModules`, puede ver que los módulos del entorno de ejecución del **dispositivo de capa inferior** están establecidos para extraerse de `$upstream:443`, en lugar de `mcr.microsoft.com`, como hacia el **dispositivo de capa superior**. El **dispositivo de capa inferior** envía solicitudes de imagen Docker al módulo **IoT Edge API Proxy** (Proxy de API de IoT Edge) en el puerto 443, ya que no puede extraer directamente las imágenes de la nube. El otro módulo implementado en el **dispositivo de capa inferior**, el módulo **Simulated Temperature Sensor** (Sensor de temperatura simulado), también realiza su solicitud de imágenes a `$upstream:443`.
 
 Si quiere ver cómo crear una implementación como esta mediante Azure Portal o Azure Cloud Shell, consulte la [sección sobre los dispositivos de capa inferior en la guía paso a paso](how-to-connect-downstream-iot-edge-device.md#deploy-modules-to-lower-layer-devices).
 
@@ -305,10 +304,8 @@ Puede ejecutar `iotedge check` en una jerarquía anidada, incluso si las máquin
 
 Cuando se ejecuta `iotedge check` desde la capa inferior, el programa intenta extraer la imagen del dispositivo primario mediante el puerto 443.
 
-En este tutorial, se usa el puerto 8000, por lo que es necesario especificarlo:
-
 ```bash
-sudo iotedge check --diagnostics-image-name $upstream:8000/azureiotedge-diagnostics:1.2
+sudo iotedge check --diagnostics-image-name $upstream:443/azureiotedge-diagnostics:1.2
 ```
 
 El valor de `azureiotedge-diagnostics` se extrae del registro de contenedor vinculado al módulo del registro. En este tutorial se ha establecido de forma predeterminada en https://mcr.microsoft.com:.

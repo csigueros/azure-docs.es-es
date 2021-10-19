@@ -6,18 +6,18 @@ ms.author: danlep
 ms.service: api-management
 ms.topic: article
 ms.date: 05/25/2021
-ms.openlocfilehash: bfcb6e738c480281361d544c4aa7a8dd355d92de
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ee2b0fc20111fddd55a987bef4d454d5b63b8e4e
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128590710"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708488"
 ---
 # <a name="deploy-an-azure-api-management-gateway-on-azure-arc-preview"></a>Implementación de una puerta de enlace de Azure API Management en Azure Arc (versión preliminar)
 
-Con la integración entre Azure API Management y [Azure Arc en Kubernetes](../azure-arc/kubernetes/overview.md), puede implementar el componente de puerta de enlace de API Management como una [extensión en un clúster de Kubernetes que esté habilitado para Azure Arc](../azure-arc/kubernetes/extensions.md). 
+Con la integración entre Azure API Management y [Azure Arc en Kubernetes](../azure-arc/kubernetes/overview.md), puede implementar el componente de puerta de enlace de API Management como una [extensión en un clúster de Kubernetes que esté habilitado para Azure Arc](../azure-arc/kubernetes/extensions.md). 
 
-La implementación de la puerta de enlace de API Management en un clúster de Kubernetes que esté habilitado para Arc amplía la compatibilidad de API Management para entornos híbridos y de varias nubes. Habilite la implementación mediante una extensión de clúster para que la administración y aplicación de directivas en el clúster habilitado para Arc sea una experiencia coherente.
+La implementación de la puerta de enlace de API Management en un clúster de Kubernetes que esté habilitado para Azure Arc expande la compatibilidad de API Management con entornos híbridos y de varias nubes. Habilite la implementación mediante una extensión de clúster para que la administración y aplicación de directivas en el clúster habilitado para Azure Arc sea una experiencia coherente.
 
 [!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-azure-arc.md)]
 
@@ -72,7 +72,7 @@ La implementación de la puerta de enlace de API Management en un clúster de Ku
 
 ## <a name="deploy-the-api-management-gateway-extension-using-azure-portal"></a>Implementación de la extensión de la puerta de enlace de API Management mediante Azure Portal
 
-1. En Azure Portal,vaya al clúster conectado de Azure Arc.
+1. En Azure Portal,vaya al clúster conectado de Azure Arc.
 1. En el menú de la izquierda, seleccione **Extensiones (versión preliminar)**  >  **+ Agregar** > **Puerta de enlace de API Management (versión preliminar)** .
 1. Seleccione **Crear**.
 1. En la ventana **Instalar la puerta de enlace de API Management**, configure la extensión de la puerta de enlace:
@@ -113,5 +113,5 @@ Para habilitar la supervisión de la puerta de enlace autohospedada, configure l
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información sobre la puerta de enlace autohospedada, consulte [Introducción a la puerta de enlace autohospedada de Azure API Management](self-hosted-gateway-overview.md).
-* Descubra todas las [extensiones de Kubernetes habilitadas en Azure Arc](../azure-arc/kubernetes/extensions.md). 
-* Obtenga más información sobre [Kubernetes habilitado para Azure Arc](../azure-arc/kubernetes/overview.md).
+* Descubra todas las [extensiones de Kubernetes habilitadas para Azure Arc](../azure-arc/kubernetes/extensions.md). 
+* Obtenga más información sobre [Kubernetes habilitado para Azure Arc](../azure-arc/kubernetes/overview.md).

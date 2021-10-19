@@ -5,14 +5,14 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 06/14/2021
+ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: f2b98768f10ad2c85a1808907e309a99bf685131
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0c9e247b4006fd22c7e820dd2f6d68362a12eea8
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128646784"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705884"
 ---
 # <a name="view-reservation-purchase-and-refund-transactions"></a>Visualización de las transacciones de compra y reembolso de las reservas
 
@@ -53,7 +53,7 @@ Un administrador de una inscripción Enterprise puede ver las transacciones de r
 
 [![Ejemplo que muestra transacciones de reservas.](./media/view-purchase-refunds/power-bi-reservation-transactions.png)](./media/view-purchase-refunds/power-bi-reservation-transactions.png#lightbox)
 
-Para más información, consulte [Azure Cost Management para Power BI para Contratos Enterprise](../costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md).
+Para más información, consulte [Aplicación Cost Management para Power BI para Contratos Enterprise](../costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md).
 
 ## <a name="use-apis-to-get-reservation-transactions"></a>Uso de las API para obtener transacciones de reserva
 

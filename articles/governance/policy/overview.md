@@ -3,12 +3,12 @@ title: Introducción a Azure Policy
 description: Azure Policy es un servicio de Azure que se usa para crear, asignar y administrar las definiciones de directivas en el entorno de Azure.
 ms.date: 07/27/2021
 ms.topic: overview
-ms.openlocfilehash: 9462281ce37e066a920c17d1dc142a177b97fb2a
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: aff8dc3aa4ff97438a4ebc457a6946f30dccb142
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770557"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660863"
 ---
 # <a name="what-is-azure-policy"></a>¿Qué es Azure Policy?
 
@@ -74,7 +74,7 @@ Azure Policy dispone de varios permisos, conocidos como operaciones, en dos prov
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Muchos roles integrados conceden permiso a recursos de Azure Policy. El rol **Colaborador de directiva de recursos** incluye la mayoría de las operaciones de Azure Policy. El rol **Propietario** tiene derechos completos. Tanto el rol **Colaborador** como el rol **Lector** tienen acceso a todas las operaciones de _lectura_ de Azure Policy. El rol **Colaborador** puede desencadenar la corrección de recursos, pero no puede _crear_ definiciones o asignaciones. **Administrador de acceso de usuario**  es necesario para conceder la identidad administrada en los permisos necesarios de las asignaciones **deployIfNotExists** o **modify**.
+Muchos roles integrados conceden permiso a recursos de Azure Policy. El rol **Colaborador de directiva de recursos** incluye la mayoría de las operaciones de Azure Policy. El rol **Propietario** tiene derechos completos. Tanto el rol **Colaborador** como el rol **Lector** tienen acceso a todas las operaciones de _lectura_ de Azure Policy. El rol **Colaborador** puede desencadenar la corrección de recursos, pero no puede _crear_ definiciones o asignaciones. **Administrador de acceso de usuario**  es necesario para conceder la identidad administrada en los permisos necesarios de las asignaciones **deployIfNotExists** o **modify**. Todos los objetos de directiva serán legibles para todos los roles del ámbito.
 
 Si ninguno de los roles integrados tiene los permisos necesarios, cree un [rol personalizado](../../role-based-access-control/custom-roles.md).
 

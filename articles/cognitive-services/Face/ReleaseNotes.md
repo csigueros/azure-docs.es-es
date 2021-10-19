@@ -8,25 +8,34 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 09/08/2021
+ms.date: 09/27/2021
 ms.author: pafarley
 ms.custom: contperf-fy21q3, contperf-fy22q1
-ms.openlocfilehash: d68ff884063f81eccccbd2dcd4d3bd05485f5ef9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 77e3eb54f344039130f5971f87ccdca1e6461afd
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124750865"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129808317"
 ---
 # <a name="whats-new-in-azure-face-service"></a>Novedades del servicio Azure Face.
 
 El servicio Azure Face se actualiza de forma continua. Use este artículo para mantenerse al día con nuevas características, mejoras, correcciones y actualizaciones de la documentación.
 
+## <a name="july-2021"></a>Julio de 2021
+
+### <a name="new-headpose-and-landmarks-improvements-for-detection_03"></a>Nuevas mejoras de HeadPose y Landmarks para Detection_03
+
+* El modelo Detection_03 se ha actualizado para admitir puntos de referencia faciales.
+* La característica de puntos de referencia de Detection_03 es mucho más precisa, especialmente en los puntos de referencia del globo ocular que son fundamentales para el seguimiento de la mirada.
+
+
 ## <a name="april-2021"></a>Abril de 2021
 
 ### <a name="persondirectory-data-structure"></a>Estructura de datos PersonDirectory
 
-* Para realizar operaciones de reconocimiento facial como Identificar y Buscar similares, los clientes de Face API deben crear una lista de objetos **Person**. El nuevo objeto **PersonDirectory** es una estructura de datos que contiene identificadores únicos, cadenas de nombre opcionales y cadenas de metadatos de usuario opcionales para cada objeto de identidad **Person** agregada al directorio. Actualmente, Face API ofrece la estructura **LargePersonGroup**, que tiene una funcionalidad similar, pero está limitada a un millón de identidades. La estructura **PersonDirectory** se puede escalar verticalmente hasta 75 millones de identidades. Otra diferencia importante entre **PersonDirectory** y las estructuras de datos anteriores es que ya no necesitará realizar una llamada de entrenamiento después de agregar caras a un objeto **Person**; el proceso de actualización se produce automáticamente. Para más información, consulte [Uso de la estructura PersonDirectory](Face-API-How-to-Topics/use-persondirectory.md).
+* Para realizar operaciones de reconocimiento facial como Identificar y Buscar similares, los clientes de Face API deben crear una lista de objetos **Person**. El nuevo objeto **PersonDirectory** es una estructura de datos que contiene identificadores únicos, cadenas de nombre opcionales y cadenas de metadatos de usuario opcionales para cada objeto de identidad **Person** agregada al directorio. Actualmente, Face API ofrece la estructura **LargePersonGroup**, que tiene una funcionalidad similar, pero está limitada a un millón de identidades. La estructura **PersonDirectory** se puede escalar verticalmente hasta 75 millones de identidades. 
+* Otra diferencia importante entre **PersonDirectory** y las estructuras de datos anteriores es que ya no necesitará realizar una llamada de entrenamiento después de agregar caras a un objeto **Person**; el proceso de actualización se produce automáticamente. Para más información, consulte [Uso de la estructura PersonDirectory](Face-API-How-to-Topics/use-persondirectory.md).
 
 
 ## <a name="february-2021"></a>Febrero de 2021

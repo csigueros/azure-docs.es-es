@@ -3,27 +3,27 @@ title: 'Tutorial: ASP.NET Core con Azure SQL Database'
 description: Aprenda a poner en funcionamiento una aplicación .NET Core en Azure App Service, con conexión a una instancia de Azure SQL Database.
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/29/2021
+ms.date: 10/06/2021
 ms.custom: devx-track-csharp, mvc, cli-validate, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 45214579e599ab83dfa97470276c85c225c5473b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5db5a4a1d390164cff0f4acee56ca49687ebddfb
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730663"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658447"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-azure-sql-database-app-in-azure-app-service"></a>Tutorial: Compilación de una aplicación de ASP.NET Core y Azure SQL Database en Azure App Service
 
 ::: zone pivot="platform-windows"  
 
-[Azure App Service](overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático en Azure. En este tutorial se muestra cómo crear una aplicación .NET Core y conectarla a SQL Database. Cuando termine, tendrá una aplicación MVC de .NET Core que se ejecuta en App Service en Linux.
+[Azure App Service](overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático en Azure. En este tutorial se muestra cómo crear una aplicación ASP.NET Core y conectarla a SQL Database. Cuando termine, tendrá una aplicación MVC de .NET que se ejecuta en App Service en Linux.
 
 ::: zone-end
 
 ::: zone pivot="platform-linux"
 
-[Azure App Service](overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación automática de revisiones con el sistema operativo Linux. En este tutorial se muestra cómo crear una aplicación .NET Core y conectarla a una instancia de SQL Database. Cuando termine, tendrá una aplicación .NET Core con MVC en ejecución en App Service en Linux.
+[Azure App Service](overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación automática de revisiones con el sistema operativo Linux. En este tutorial se muestra cómo crear una aplicación ASP.NET Core y conectarla a SQL Database. Cuando termine, tendrá una aplicación ASP.NET Core con MVC en ejecución en App Service en Linux.
 
 ::: zone-end
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Crear una base de datos SQL Database en Azure
-> * Conectar una aplicación .NET Core a SQL Database
+> * Conectar una aplicación ASP.NET Core a SQL Database
 > * Implementar la aplicación en Azure
 > * Actualizar el modelo de datos y volver a implementar la aplicación
 > * Transmitir registros de diagnóstico desde Azure
@@ -41,18 +41,18 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial:
 
 - <a href="https://git-scm.com/" target="_blank">Instalación de Git</a>
-- <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Instalación del SDK más reciente de .NET Core 3.1</a>
+- <a href="https://dotnet.microsoft.com/download/dotnet/5.0" target="_blank">Instale el SDK de .NET 5.0 más reciente</a>.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-## <a name="create-local-net-core-app"></a>Creación de una aplicación .NET Core local
+## <a name="create-local-aspnet-core-app"></a>Creación de una aplicación ASP.NET Core local
 
-En este paso, configurará el proyecto .NET Core local.
+En este paso, configurará el proyecto ASP.NET Core local.
 
 ### <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
 
@@ -74,7 +74,7 @@ En este paso, configurará el proyecto .NET Core local.
     ```
     
     > [!TIP]
-    > App Service no exige el cambio de nombre de rama. Sin embargo, como muchos repositorios están cambiando su rama predeterminada a `main` (consulte [Cambio de una rama de implementación](deploy-local-git.md#change-deployment-branch)), en este tutorial también se muestra cómo implementar repositorios desde `main`.
+    > App Service no exige el cambio de nombre de rama. Sin embargo, dado que muchos repositorios cambian su rama predeterminada a `main` (consulte [Cambio de la rama de implementación](deploy-local-git.md#change-deployment-branch)), en este tutorial también se muestra cómo implementar un repositorio desde `main`.
 
 ### <a name="run-the-application"></a>Ejecución de la aplicación
 
@@ -90,7 +90,7 @@ En este paso, configurará el proyecto .NET Core local.
 
     ![Se conecta correctamente a SQL Database](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
 
-1. Para detener .NET Core en cualquier momento, presione `Ctrl+C` en el terminal.
+1. Para detener ASP.NET Core en cualquier momento, presione `Ctrl+C` en el terminal.
 
 ## <a name="create-production-sql-database"></a>Creación de una instancia de SQL Database de producción
 
@@ -169,7 +169,7 @@ az sql db show-connection-string --client ado.net --server <server-name> --name 
 
 En la salida del comando, reemplace *\<username>* y *\<password>* por las credenciales de administrador de base de datos que usó anteriormente.
 
-Esta es la cadena de conexión de la aplicación .NET Core. Cópiela para usarla más adelante.
+Esta es la cadena de conexión de la aplicación ASP.NET Core. Cópiela para usarla más adelante.
 
 ### <a name="configure-app-to-connect-to-production-database"></a>Configuración de la aplicación para conectarse a la base de datos de producción
 
@@ -200,7 +200,7 @@ En la raíz del repositorio, ejecute los siguientes comandos. Reemplace *\<conne
 ```
 # Delete old migrations
 rm -r Migrations
-# Recreate migrations
+# Recreate migrations with UseSqlServer (see previous snippet)
 dotnet ef migrations add InitialCreate
 
 # Set connection string to production database
@@ -236,7 +236,7 @@ Ahora está preparado para implementar el código.
 
 ## <a name="deploy-app-to-azure"></a>Implementación de la aplicación en Azure
 
-En este paso, va a implementar la aplicación .NET Core conectada a SQL Database en App Service.
+En este paso, va a implementar la aplicación ASP.NET Core conectada a SQL Database en App Service.
 
 ### <a name="configure-local-git-deployment"></a>Configuración de la implementación de Git local
 
@@ -275,7 +275,7 @@ En este paso, va a implementar la aplicación .NET Core conectada a SQL Database
 Para establecer las cadenas de conexión de la aplicación de Azure, use el comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) en Cloud Shell. En el comando siguiente, reemplace *\<app-name>* y el parámetro *\<connection-string>* por la cadena de conexión que creó anteriormente.
 
 ```azurecli-interactive
-az webapp config connection-string set --resource-group myResourceGroup --name <app-name> --settings MyDbConnection="<connection-string>" --connection-string-type SQLAzure
+az webapp config connection-string set --resource-group myResourceGroup --name <app-name> --settings MyDbConnection='<connection-string>' --connection-string-type SQLAzure
 ```
 
 En ASP.NET Core, puede usar esta cadena de conexión con nombre (`MyDbConnection`) con el patrón estándar, como cualquier cadena de conexión especificada en *appsettings.jon*. En este caso, `MyDbConnection` también se define en *appsettings.json*. Cuando se ejecuta en App Service, la cadena de conexión definida en App Service tiene prioridad sobre la definida en *appsettings.json*. El código usa el valor de *appsettings.json* durante el desarrollo local y el mismo código usa el valor de App Service cuando se implementa.
@@ -361,7 +361,7 @@ Para ver cómo se hace referencia a la cadena de conexión en el código, consul
 
     ![aplicación que se ejecuta en App Service](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
-**¡Enhorabuena!** Está ejecutando una aplicación .NET Core controlada por datos en App Service.
+**¡Enhorabuena!** Está ejecutando una aplicación ASP.NET Core controlada por datos en App Service.
 
 ## <a name="update-locally-and-redeploy"></a>Actualización local y nueva implementación
 
@@ -468,12 +468,12 @@ Aún se muestran todas las tareas pendientes existentes. Cuando vuelva a publica
 
 Mientras la aplicación ASP.NET Core se ejecuta en Azure App Service, puede hacer que los registros de la consola se canalicen a Cloud Shell. De este modo, puede obtener los mismos mensajes de diagnóstico para ayudarle a depurar errores de la aplicación.
 
-El proyecto de ejemplo ya sigue las instrucciones indicadas en [Registro de ASP.NET Core en Azure](/aspnet/core/fundamentals/logging#azure-app-service-provider) con dos cambios de configuración:
+El proyecto de ejemplo ya sigue las instrucciones del [proveedor de registro de Azure App Service](/dotnet/core/extensions/logging-providers#azure-app-service) con dos cambios de configuración:
 
 - Incluye una referencia a `Microsoft.Extensions.Logging.AzureAppServices` en *DotNetCoreSqlDb.csproj*.
 - Llama a `loggerFactory.AddAzureWebAppDiagnostics()` en *Program.cs*.
 
-1. Para establecer el [nivel de registro](/aspnet/core/fundamentals/logging#log-level) de ASP.NET Core en App Service en `Information` desde el nivel predeterminado `Error`, utilice el comando [`az webapp log config`](/cli/azure/webapp/log#az_webapp_log_config) en Cloud Shell.
+1. Para establecer el [nivel de registro](/dotnet/core/extensions/logging#log-level) de ASP.NET Core en App Service en `Information` desde el nivel predeterminado `Error`, utilice el comando [`az webapp log config`](/cli/azure/webapp/log#az_webapp_log_config) en Cloud Shell.
 
     ```azurecli-interactive
     az webapp log config --name <app-name> --resource-group myResourceGroup --application-logging filesystem --level information
@@ -492,21 +492,7 @@ El proyecto de ejemplo ya sigue las instrucciones indicadas en [Registro de ASP.
 
 1. Para detener el streaming del registro en cualquier momento, escriba `Ctrl`+`C`.
 
-Para más información acerca de cómo personalizar los registros de ASP.NET Core, consulte [Registro en ASP.NET Core](/aspnet/core/fundamentals/logging).
-
-## <a name="manage-your-azure-app"></a>Administración de la aplicación de Azure
-
-1. Para ver la aplicación que ha creado, en [Azure Portal](https://portal.azure.com), busque y seleccione **App Services**.
-
-    ![Selección de App Services en Azure Portal](./media/tutorial-dotnetcore-sqldb-app/app-services.png)
-
-1. En la página **App Services**, seleccione el nombre de la aplicación de Azure.
-
-    ![Navegación en el portal a la aplicación de Azure](./media/tutorial-dotnetcore-sqldb-app/access-portal.png)
-
-    De manera predeterminada, el portal muestra la página **Información general** de la aplicación. Esta página proporciona una visión del funcionamiento de la aplicación. En este caso, también puede realizar tareas de administración básicas como examinar, detener, iniciar, reiniciar y eliminar. Las pestañas del lado izquierdo de la página muestran las diferentes páginas de configuración que puede abrir.
-
-    ![Página de App Service en Azure Portal](./media/tutorial-dotnetcore-sqldb-app/web-app-blade.png)
+Para más información acerca de cómo personalizar los registros de ASP.NET Core, consulte [Registro en .NET](/dotnet/core/extensions/logging).
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
@@ -517,7 +503,7 @@ Para más información acerca de cómo personalizar los registros de ASP.NET Cor
 
 > [!div class="checklist"]
 > * Crear una base de datos SQL Database en Azure
-> * Conectar una aplicación .NET Core a SQL Database
+> * Conectar una aplicación ASP.NET Core a SQL Database
 > * Implementar la aplicación en Azure
 > * Actualizar el modelo de datos y volver a implementar la aplicación
 > * Transmitir registros desde Azure a un terminal

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: e8462b98aee1d34b6c7a2ed671667223eca45a25
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 48f70bd0cd71ffc517d7955f645c579f1ffa2b48
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551924"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714859"
 ---
 # <a name="tutorial-add-security-headers-with-rules-engine"></a>Tutorial: Agregar encabezados de seguridad con el motor de reglas
 
@@ -43,7 +43,7 @@ En este tutorial, aprenderá a:
 1. Agregue el nombre del encabezado: **Content-Security-Policy** y defina los valores que debe aceptar este encabezado. En este escenario, hemos elegido *"script-src 'self' https://apiphany.portal.azure-api.net".*
 
    > [!NOTE]
-   > Los valores del encabezado están limitados a 128 caracteres.
+   > Los valores del encabezado están limitados a 640 caracteres.
 
 1. Una vez que haya agregado todas las reglas deseadas a su configuración, no olvide ir a su ruta preferida y asociar la configuración del motor de reglas a la regla de ruta. Este paso es necesario para habilitar la regla para que funcione. 
 

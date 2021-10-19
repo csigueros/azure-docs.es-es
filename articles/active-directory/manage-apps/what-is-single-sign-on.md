@@ -13,12 +13,12 @@ ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: c3b2cc9f3fa6656cf4d5e493f725c17b64f4d7d8
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: bb4a38d46a241c902d0718104d9a4030bf84607f
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129233585"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858760"
 ---
 # <a name="what-is-single-sign-on-in-azure-active-directory"></a>¿Qué es el inicio de sesión único en Azure Active Directory?
 
@@ -32,7 +32,7 @@ La elección de un método de inicio de sesión único depende de cómo esté co
 
 - **Federación**: a la acción de configurar el inicio de sesión único para que funcione entre varios proveedores de identidades se le conoce como federación. Una implementación del inicio de sesión único basada en protocolos de federación mejora la seguridad, la confiabilidad y las experiencias de los usuarios finales, y es más fácil de implementar. 
 
-    Con el inicio de sesión único federado, Azure AD autentica al usuario en la aplicación mediante su cuenta de Azure AD. Este método es compatible con las aplicaciones [SAML 2.0](../develop/single-sign-on-saml-protocol.md), WS-Federation u [OpenID Connect](../develop/active-directory-v2-protocols.md). El inicio de sesión único federado es el modo más completo de inicio de sesión único. Use el inicio de sesión único federado con Azure AD cuando una aplicación lo admita, en lugar del inicio de sesión único basado en contraseña y Servicios de federación de Active Directory (AD FS).
+    Con el inicio de sesión único federado, Azure AD autentica al usuario en la aplicación mediante su cuenta de Azure AD. Este método es compatible con las aplicaciones SAML 2.0, WS-Federation u OpenID Connect. El inicio de sesión único federado es el modo más completo de inicio de sesión único. Use el inicio de sesión único federado con Azure AD cuando una aplicación lo admita, en lugar del inicio de sesión único basado en contraseña y Servicios de federación de Active Directory (AD FS).
 
     Hay algunos escenarios en los que la opción de inicio de sesión único no está presente para una aplicación empresarial. Si la aplicación se registró mediante los **registros de aplicaciones** en el portal, la funcionalidad de inicio de sesión único está configurada para usar OpenID Connect y OAuth de forma predeterminada. En este caso, la opción de inicio de sesión único no se mostrará en la navegación en Aplicaciones empresariales.
 
@@ -40,7 +40,7 @@ La elección de un método de inicio de sesión único depende de cómo esté co
 
     > [!VIDEO https://www.youtube.com/embed/CjarTgjKcX8]
 
-- **Contraseña**: las aplicaciones locales pueden usar métodos basados en contraseñas, en la autenticación integrada de Windows, en encabezados o vinculados para el inicio de sesión único. Las opciones locales funcionan si las aplicaciones están configuradas para el [proxy de aplicación](../app-proxy/what-is-application-proxy.md).
+- **Contraseña**: las aplicaciones locales pueden usar métodos de inicio de sesión único basados en contraseñas, Autenticación integrada de Windows, en encabezados o vinculados para el inicio de sesión único. Las opciones locales funcionan si las aplicaciones están configuradas para el proxy de aplicación.
 
     Con el inicio de sesión único con contraseña, los usuarios finales inician sesión con un nombre de usuario y una contraseña en la aplicación la primera vez que acceden a ella. Después del primer inicio de sesión, Azure AD proporciona el nombre de usuario y la contraseña a la aplicación. El inicio de sesión único basado en contraseña permite el almacenamiento seguro de contraseñas de las aplicaciones y la reproducción mediante una extensión de explorador web o aplicación móvil. Esta opción usa el proceso de inicio de sesión existente proporcionado por la aplicación, permite que un administrador administre las contraseñas y no requiere que el usuario conozca la contraseña.
 
@@ -64,12 +64,12 @@ Varias empresas hospedan aplicaciones web y permiten que estén disponibles como
 
 La forma de implementar el inicio de sesión único depende de dónde se hospede la aplicación. El hospedaje es importante debido a la manera en que el tráfico de red se enruta para acceder a la aplicación. Los usuarios no necesitan usar Internet para acceder a aplicaciones locales (hospedadas en una red local). Si la aplicación se hospeda en la nube, los usuarios necesitan Internet para usarla. Las aplicaciones hospedadas en la nube también se denominan aplicaciones de software como servicio (SaaS).
 
-Para las aplicaciones en la nube, se usan protocolos de federación. También puede usar el inicio de sesión único en aplicaciones locales. Puede usar Application Proxy configurar el acceso para la aplicación local. Para más información, consulte [Acceso remoto a aplicaciones locales mediante Azure AD Application Proxy](../app-proxy/application-proxy.md).
+Para las aplicaciones en la nube, se usan protocolos de federación. También puede usar el inicio de sesión único en aplicaciones locales. Puede usar Application Proxy configurar el acceso para la aplicación local. Para más información, consulte Acceso remoto a aplicaciones locales mediante Azure AD Application Proxy.
 
 ## <a name="my-apps"></a>Mis aplicaciones
 
-Si es un usuario de una aplicación, es probable que no le interesen mucho los detalles del inicio de sesión único. Solo deseará usar las aplicaciones que le permitan ser productivo sin tener que escribir su contraseña a menudo. Puede encontrar y administrar las aplicaciones en el [portal Aplicaciones](https://myapps.microsoft.com). 
+Si es un usuario de una aplicación, es probable que no le interesen mucho los detalles del inicio de sesión único. Solo deseará usar las aplicaciones que le permitan ser productivo sin tener que escribir su contraseña a menudo. Puede encontrar y administrar las aplicaciones en el portal Aplicaciones. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Planificación de una implementación de inicio de sesión único de Azure Active Directory](plan-sso-deployment.md)
+- [Habilitar el inicio de sesión único](add-application-portal-setup-sso.md)
