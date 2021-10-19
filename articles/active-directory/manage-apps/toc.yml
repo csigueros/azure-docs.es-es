@@ -1,6 +1,6 @@
 - name: Documentación sobre la administración de aplicaciones
   href: index.yml
-- name: Información general
+- name: Introducción
   expanded: true
   items:
     - name: ¿Qué es la administración de aplicaciones?
@@ -140,12 +140,18 @@
       items:
         - name: "Protección del acceso híbrido con Azure\_AD"
           href: secure-hybrid-access.md
-        - name: "Integración de F5 y Azure\_AD"
-          href: f5-aad-integration.md
-        - name: Implementación de F5 BIG-IP VE en IaaS de Azure
-          href: f5-bigip-deployment-guide.md
-        - name: "F5 Big-IP con Azure AD\_para VPN sin contraseña"
-          href: f5-aad-password-less-vpn.md
+        - name: Datawiza
+          href: datawiza-with-azure-ad.md
+        - name: F5
+          items:
+            - name: "Integración de F5 y Azure\_AD"
+              href: f5-aad-integration.md
+            - name: Implementación de F5 BIG-IP VE en IaaS de Azure
+              href: f5-bigip-deployment-guide.md
+            - name: "F5 Big-IP con Azure AD\_para VPN sin contraseña"
+              href: f5-aad-password-less-vpn.md
+        - name: Silverfort
+          href: silverfort-azure-ad-integration.md
     - name: Inicio de sesión único
       items:
         - name: Vinculado

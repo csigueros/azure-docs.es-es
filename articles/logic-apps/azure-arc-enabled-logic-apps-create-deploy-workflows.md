@@ -1,24 +1,24 @@
 ---
-title: Creación e implementación de flujos de trabajo con una instancia de Logic Apps habilitada para Azure Arc
+title: Creación e implementación de flujos de trabajo con Logic Apps habilitado para Azure Arc
 description: Cree e implemente flujos de trabajo de aplicaciones lógicas basadas en un solo inquilino que se ejecutan en cualquier lugar donde se pueda ejecutar Kubernetes.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, ladolan, reylons, archidda, sopai, azla
 ms.topic: how-to
 ms.date: 06/03/2021
-ms.openlocfilehash: a3ccea075dd4ce4bce06b31fdbe6dc2a55812ebc
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 17c9eb020d62207910008fb032872bd609df553f
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111754086"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129712303"
 ---
-# <a name="create-and-deploy-single-tenant-based-logic-app-workflows-with-azure-arc-enabled-logic-apps-preview"></a>Creación e implementación de flujos de trabajo de aplicaciones lógicas basadas en un solo inquilino con instancias de Logic Apps habilitadas para Azure Arc (versión preliminar)
+# <a name="create-and-deploy-single-tenant-based-logic-app-workflows-with-azure-arc-enabled-logic-apps-preview"></a>Creación e implementación de flujos de trabajo de aplicaciones lógicas basadas en un solo inquilino con Logic Apps habilitado para Azure Arc (versión preliminar)
 
 > [!NOTE]
 > Esta funcionalidad está en versión preliminar y está sujeta a las [Condiciones de uso complementarias para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Con las instancias de Logic Apps habilitadas para Azure Arc y Azure Portal, puede crear e implementar flujos de trabajo de aplicaciones lógicas basadas en un solo inquilino en una infraestructura de Kubernetes que puede operar y administrar. Las aplicaciones lógicas se ejecutan en una *ubicación personalizada* que se asigna a un clúster de Kubernetes habilitado para Azure Arc donde haya instalado y habilitado el conjunto de extensiones de plataforma de Azure App Service.
+Con Logic Apps habilitado para Azure Arc y Azure Portal, puede crear e implementar flujos de trabajo de aplicaciones lógicas basadas en un solo inquilino en una infraestructura de Kubernetes que puede operar y administrar. Las aplicaciones lógicas se ejecutan en una *ubicación personalizada* que se asigna a un clúster de Kubernetes habilitado para Azure Arc donde haya instalado y habilitado el conjunto de extensiones de plataforma de Azure App Service.
 
 Por ejemplo, este clúster puede ser una instancia de Azure Kubernetes Service, una instancia de Kubernetes sin sistema operativo u otra configuración. El conjunto de extensiones permite ejecutar servicios de plataforma como Azure Logic Apps, Azure App Service y Azure Functions en el clúster de Kubernetes. 
 
@@ -51,7 +51,7 @@ En esta sección se describen los requisitos previos comunes en todos los enfoqu
   Para más información, revise la siguiente documentación:
 
   - [App Service, Functions y Logic Apps en Azure Arc (versión preliminar)](../app-service/overview-arc-integration.md)
-  - [Extensiones de clústeres de Kubernetes con Azure Arc habilitado](../azure-arc/kubernetes/conceptual-extensions.md)
+  - [Extensiones de clústeres de Kubernetes habilitados para Azure Arc](../azure-arc/kubernetes/conceptual-extensions.md)
   - [Configuración de un clúster de Kubernetes habilitado para Azure Arc para ejecutar App Service, Functions y Logic Apps (versión preliminar)](../app-service/manage-create-arc-environment.md)
   - [Cambio del comportamiento de escalado predeterminado](#change-scaling)
 
@@ -168,7 +168,7 @@ Si el grupo de recursos se crea correctamente, la salida muestra `provisioningSt
 
 #### <a name="create-logic-app"></a>Creación de la aplicación lógica
 
-Para detener una aplicación lógica habilitada para Azure Arc, ejecute el comando, `az logicapp create`, con los siguientes parámetros necesarios. Las ubicaciones del recurso de la aplicación lógica, la ubicación personalizada y el entorno de Kubernetes deben tener los mismos valores.
+Para crear una aplicación lógica habilitada para Azure Arc, ejecute el comando `az logicapp create` con los siguientes parámetros necesarios. Las ubicaciones del recurso de la aplicación lógica, la ubicación personalizada y el entorno de Kubernetes deben tener los mismos valores.
 
 | Parámetros | Descripción |
 |------------|-------------|
@@ -183,7 +183,7 @@ az logicapp create --name MyLogicAppName
    --storage-account MyStorageAccount --custom-location MyCustomLocation
 ```
 
-Para crear una aplicación lógica habilitada para Azure Arc mediante una imagen de Azure Container Registry privada, ejecute el comando, `az logicapp create`, con los siguientes parámetros necesarios:
+Para crear una aplicación lógica habilitada para Azure Arc mediante una imagen de Azure Container Registry privada, ejecute el comando `az logicapp create` con los siguientes parámetros necesarios:
 
 ```azurecli
 az logicapp create --name MyLogicAppName 
@@ -196,7 +196,7 @@ az logicapp create --name MyLogicAppName
 
 #### <a name="show-logic-app-details"></a>Muestra de los detalles de la aplicación lógica
 
-Para mostrar información sobre una aplicación lógica habilitada para Azure Arc, ejecute el comando, `az logicapp show`, con los siguientes parámetros necesarios:
+Para mostrar información sobre una aplicación lógica habilitada para Azure Arc, ejecute el comando `az logicapp show` con los siguientes parámetros necesarios:
 
 ```azurecli
 az logicapp show --name MyLogicAppName 
@@ -205,10 +205,10 @@ az logicapp show --name MyLogicAppName
 
 #### <a name="deploy-logic-app"></a>Implementación de la aplicación lógica
 
-Para implementar la aplicación lógica habilitada para Azure Arc mediante la [implementación del archivo ZIP de Kudu de Azure App Service](../app-service/resources-kudu.md), ejecute el comando,`az logicapp deployment source config-zip`, con los siguientes parámetros necesarios:
+Para implementar la aplicación lógica habilitada para Azure Arc mediante la [implementación del archivo ZIP de Kudu de Azure App Service](../app-service/resources-kudu.md), ejecute el comando `az logicapp deployment source config-zip` con los siguientes parámetros necesarios:
 
 > [!IMPORTANT]
-> Asegúrese de que el archivo ZIP contiene los artefactos del proyecto en el nivel raíz. Estos artefactos incluyen todas las carpetas del flujo de trabajo, los archivos de configuración, como host.json y connections.json, y cualquier otro archivo relacionado. No agregue carpetas adicionales ni coloque ningún artefacto en carpetas que no existan en la estructura del proyecto. Por ejemplo, en esta lista se muestra un estructura de archivos de ejemplo, en MyBuildArtifacts.zip:
+> Asegúrese de que el archivo zip contenga los artefactos del proyecto en el nivel raíz. Estos artefactos incluyen todas las carpetas del flujo de trabajo, los archivos de configuración, como host.json y connections.json, y cualquier otro archivo relacionado. No agregue carpetas adicionales ni coloque ningún artefacto en carpetas que no existan en la estructura del proyecto. Por ejemplo, en esta lista se muestra un estructura de archivos de ejemplo, en MyBuildArtifacts.zip:
 >
 > ```output
 > MyStatefulWorkflow1-Folder
@@ -225,7 +225,7 @@ az logicapp deployment source config-zip --name MyLogicAppName
 
 #### <a name="start-logic-app"></a>Inicio de la aplicación lógica
 
-Para iniciar la aplicación lógica habilitada para Azure Arc, ejecute el comando, `az logicapp start`, con los siguientes parámetros necesarios:
+Para iniciar la aplicación lógica habilitada para Azure Arc, ejecute el comando `az logicapp start` con los siguientes parámetros necesarios:
 
 ```azurecli
 az logicapp start --name MyLogicAppName 
@@ -234,7 +234,7 @@ az logicapp start --name MyLogicAppName
 
 #### <a name="stop-logic-app"></a>Detención de la aplicación lógica
 
-Para detener la aplicación lógica habilitada para Azure Arc, ejecute el comando, `az logicapp stop`, con los siguientes parámetros necesarios:
+Para detener la aplicación lógica habilitada para Azure Arc, ejecute el comando `az logicapp stop` con los siguientes parámetros necesarios:
 
 ```azurecli
 az logicapp stop --name MyLogicAppName 
@@ -243,7 +243,7 @@ az logicapp stop --name MyLogicAppName
 
 #### <a name="restart-logic-app"></a>Reinicio de la aplicación lógica
 
-Para reiniciar la aplicación lógica habilitada para Azure Arc, ejecute el comando, `az logicapp restart`, con los siguientes parámetros necesarios:
+Para reiniciar la aplicación lógica habilitada para Azure Arc, ejecute el comando `az logicapp restart` con los siguientes parámetros necesarios:
 
 ```azurecli
 az logicapp restart --name MyLogicAppName 
@@ -252,7 +252,7 @@ az logicapp restart --name MyLogicAppName
 
 #### <a name="delete-logic-app"></a>Eliminación de la aplicación lógica
 
-Para eliminar la aplicación lógica habilitada para Azure Arc, ejecute el comando, `az logicapp delete`, con los siguientes parámetros necesarios:
+Para eliminar la aplicación lógica habilitada para Azure Arc, ejecute el comando `az logicapp delete` con los siguientes parámetros necesarios:
 
 ```azurecli
 az logicapp delete --name MyLogicAppName 
@@ -275,7 +275,7 @@ Puede crear, implementar y supervisar los flujos de trabajo de la aplicación l�
 
    1. Proporcione un nombre único global para la aplicación lógica.
 
-   1. Seleccione la ubicación personalizada para el entorno de Kubernetes habilitado para Azure Arc en el lugar donde quiera implementarlo. Si selecciona una región genérica de Azure, debe crear un recurso de aplicación lógica que no esté habilitado en Azure Arc y que se ejecute en una instancia de Azure Logic Apps de un solo inquilino.
+   1. Seleccione la ubicación personalizada para el entorno de Kubernetes habilitado para Azure Arc en el lugar donde quiera implementarlo. Si selecciona una región genérica de Azure, debe crear un recurso de aplicación lógica que no esté habilitado para Azure Arc y que se ejecute en una instancia de Azure Logic Apps de un solo inquilino.
 
    1. Seleccione o cree un nuevo grupo de recursos en el que quiera implementar la aplicación lógica.
 
@@ -294,9 +294,9 @@ Puede crear, implementar y supervisar los flujos de trabajo de la aplicación l�
 
 ### <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
-La funcionalidad de edición del diseñador basado en el portal está actualmente en desarrollo para la instancia de Logic Apps habilitada para Azure Arc. Puede crear, implementar y ver las aplicaciones lógicas mediante el diseñador basado en el portal, pero tenga en cuenta que no puede editarlas en el portal después de la implementación. Por ahora, puede crear y editar un proyecto de aplicaciones lógicas de forma local en Visual Studio Code y, a continuación, implementar mediante Visual Studio Code, la CLI de Azure o mediante implementaciones automatizadas.
+La funcionalidad de edición del diseñador basado en el portal está actualmente en desarrollo para Logic Apps habilitado para Azure Arc. Puede crear, implementar y ver las aplicaciones lógicas mediante el diseñador basado en el portal, pero tenga en cuenta que no puede editarlas en el portal después de la implementación. Por ahora, puede crear y editar un proyecto de aplicaciones lógicas de forma local en Visual Studio Code y, a continuación, implementar mediante Visual Studio Code, la CLI de Azure o mediante implementaciones automatizadas.
 
-1. En Azure Portal, [cree un recurso de **Logic App (Estándar)** ](create-single-tenant-workflows-azure-portal.md). Sin embargo, en **Destino de publicación**, seleccione **Contenedor de Docker.** En **Región**, seleccione la ubicación personalizada creada anteriormente como ubicación de la aplicación.
+1. En Azure Portal, [cree un recurso de **Logic App (Estándar)**](create-single-tenant-workflows-azure-portal.md). Sin embargo, en **Destino de publicación**, seleccione **Contenedor de Docker.** En **Región**, seleccione la ubicación personalizada creada anteriormente como ubicación de la aplicación.
 
    De forma predeterminada, el recurso de **aplicación lógica (estándar)** se ejecuta en una instancia de Azure Logic Apps de un solo inquilino. Sin embargo, en el caso de Logic Apps habilitado para Azure Arc, el recurso de aplicación lógica se ejecuta en la ubicación personalizada que creó para el entorno de Kubernetes. Asimismo, no es necesario crear un plan de App Service, que se crea automáticamente.
 
@@ -432,7 +432,7 @@ En la [plantilla de Azure Resource Manager (plantilla de ARM)](../azure-resource
 
 #### <a name="arm-template"></a>Plantilla ARM
 
-En el ejemplo siguiente se describe un ejemplo de la definición de recursos de Logic Apps habilitado para Azure Arc que puede usar en la plantilla de ARM. Para obtener más información, revise la documentación sobre el [formato de plantilla Microsoft.Web/sites (JSON)](/azure/templates/microsoft.web/sites?tabs=json).
+En el ejemplo siguiente se describe una muestra de la definición de recursos de Logic Apps habilitado para Azure Arc que puede usar en la plantilla de ARM. Para obtener más información, revise la documentación sobre el [formato de plantilla Microsoft.Web/sites (JSON)](/azure/templates/microsoft.web/sites?tabs=json).
 
 ```json
 {
@@ -485,7 +485,7 @@ En el ejemplo siguiente se describe un ejemplo de la definición de recursos de 
 
 ### <a name="container-deployment"></a>Implementación de contenedores
 
-Si prefiere usar herramientas de contenedor y procesos de implementación, puede crear en contenedores las aplicaciones lógicas e implementarlas en Logic Apps habilitado para Azure Arc. En este escenario, realice las siguientes tareas de alto nivel al configurar la infraestructura:
+Si prefiere usar herramientas de contenedor y procesos de implementación, puede incluir en contenedores las aplicaciones lógicas e implementarlas en Logic Apps habilitado para Azure Arc. En este escenario, realice las siguientes tareas de alto nivel al configurar la infraestructura:
 
 - Configure un registro de Docker para hospedar las imágenes de contenedor.
 - Notifique al proveedor de recursos que va a crear una aplicación lógica en Kubernetes.
@@ -515,7 +515,7 @@ Para hacer referencia a la imagen de contenedor y del registro de Docker, incluy
 
 #### <a name="arm-template"></a>Plantilla ARM
 
-En el ejemplo siguiente se describe un ejemplo de la definición de recursos de Logic Apps habilitado para Azure Arc que puede usar en la plantilla de ARM. Para obtener más información, revise la documentación sobre el [formato de plantilla Microsoft.Web/sites (plantilla de ARM)](/azure/templates/microsoft.web/sites?tabs=json).
+En el ejemplo siguiente se describe una muestra de la definición de recursos de Logic Apps habilitado para Azure Arc que puede usar en la plantilla de ARM. Para obtener más información, revise la documentación sobre el [formato de plantilla Microsoft.Web/sites (plantilla de ARM)](/azure/templates/microsoft.web/sites?tabs=json).
 
 ```json
 {
@@ -640,7 +640,7 @@ Para cambiar el comportamiento de escalado predeterminado, especifique diferente
 
 ### <a name="prerequisites-to-change-scaling"></a>Requisitos previos para cambiar el escalado
 
-En el clúster de Kubernetes habilitado para Arc, la extensión de agrupación de App Service que se creó anteriormente debe tener la propiedad `keda.enabled` establecida en `true`. Para obtener más información, revise los [Requisitos previos de nivel superior](#prerequisites).
+En el clúster de Kubernetes habilitado para Azure Arc, la extensión de conjunto de App Service que se creó anteriormente debe tener la propiedad `keda.enabled` establecida en `true`. Para obtener más información, revise los [Requisitos previos de nivel superior](#prerequisites).
 
 ### <a name="change-scaling-threshold"></a>Cambio del umbral de escalado
 

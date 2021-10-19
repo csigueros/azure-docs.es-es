@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d87a09615df4882b132fd407417c046d174e9a0f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fc49dc992125e22205f50faa3f38283024559cba
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128570481"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129657575"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Configuración de un flujo de restablecimiento de contraseña en Azure Active Directory B2C
 
@@ -338,6 +338,9 @@ Para probar el flujo de usuario:
 Las directivas personalizadas son un conjunto de archivos XML que se cargan en el inquilino de Azure AD B2C para definir recorridos de usuario. Proporcionamos paquetes de inicio con varias directivas predefinidas, entre las que se incluyen: registro e inicio de sesión, restablecimiento de contraseña y directiva de edición de perfiles. Para obtener información, consulte [Introducción a las directivas personalizadas en Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
 ::: zone-end
+
+## <a name="troubleshoot-azure-ad-b2c-user-flows-and-custom-policies"></a>Solución de problemas con los flujos de usuario y las directivas personalizadas de Azure AD B2C
+La aplicación debe controlar determinados errores procedentes del servicio Azure B2C. Obtenga información sobre [cómo solucionar problemas con los flujos de usuario y las directivas personalizadas de Azure AD B2C](troubleshoot.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

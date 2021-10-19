@@ -3,21 +3,21 @@ title: Migración del Contrato Enterprise a las API del contrato de cliente de M
 description: En este artículo se explicarán las consecuencias de migrar un Contrato Enterprise (EA) de Microsoft a un contrato de cliente de Microsoft.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/13/2021
+ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.openlocfilehash: 2d3bae2f6282a4e505e2d5aa9ce2cf3f52b80006
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: fbccab537575720aa92c00f74afcdb82c773423e
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113762265"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711367"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migración desde la API de Contrato Enterprise a la API de contrato de cliente de Microsoft
 
-Este artículo lo ayudará a entender la estructura de datos, la API y otras diferencias de integración de sistemas entre las cuentas de Contrato Enterprise (EA) y de contrato de cliente de Microsoft (MCA). Azure Cost Management es compatible con las API de ambos tipos de cuenta. Revise el artículo [Configurar la cuenta de facturación para](../manage/mca-setup-account.md) un contrato de cliente de Microsoft antes de continuar.
+Este artículo lo ayudará a entender la estructura de datos, la API y otras diferencias de integración de sistemas entre las cuentas de Contrato Enterprise (EA) y de contrato de cliente de Microsoft (MCA). Cost Management es compatible con las API de ambos tipos de cuenta. Revise el artículo [Configurar la cuenta de facturación para](../manage/mca-setup-account.md) un contrato de cliente de Microsoft antes de continuar.
 
 Las organizaciones con una cuenta existente de EA deben revisar este artículo junto con la configuración de una cuenta de MCA. Anteriormente, la renovación de una cuenta de EA requería cierto esfuerzo mínimo para migrar desde una inscripción anterior a una nueva. Sin embargo, la migración a una cuenta de MCA requiere un esfuerzo adicional. Este esfuerzo resulta necesario debido a los cambios en el subsistema de facturación subyacente, que afecta a todas las API relacionadas con los costos y a las ofertas de servicio.
 
@@ -28,7 +28,7 @@ La nueva integración y las API de MCA le permiten:
 - Tener una disponibilidad completa de las API a través de las API nativas de Azure.
 - Configurar varias facturas en una sola cuenta de facturación.
 - Acceder a una API combinada con el uso del servicio de Azure, el uso de Marketplace de terceros y las compras de Marketplace.
-- Ver los perfiles de facturación de costos (lo mismo que las inscripciones) con Azure Cost Management.
+- Ver los costos de perfiles de facturación (lo mismo que las inscripciones) con Cost Management.
 - Acceder a API nuevas para mostrar los costos, recibir notificaciones cuando los costos superen los umbrales predefinidos y exportar automáticamente los datos sin procesar.
 
 ## <a name="migration-checklist"></a>Lista de comprobación para la migración
@@ -517,7 +517,7 @@ Para obtener resúmenes de reservas con Reservation Summaries API:
 
 ## <a name="power-bi-integration"></a>Integración con Power BI
 
-También puede usar Power BI para la generación de informes de costos. El [conector de Azure Cost Management](/power-bi/desktop-connect-azure-cost-management) para Power BI Desktop se puede usar para crear informes eficaces y personalizados que ayuden a comprender mejor su gasto con Azure. En la actualidad, el conector de Azure Cost Management admite clientes con un Contrato de cliente de Microsoft o un Contrato Enterprise (EA).
+También puede usar Power BI para la generación de informes de costos. El [conector de Cost Management](/power-bi/desktop-connect-azure-cost-management) para Power BI Desktop se puede usar para crear informes eficaces y personalizados que ayuden a comprender mejor su gasto con Azure. En la actualidad, el conector de Cost Management admite clientes con un Contrato de cliente de Microsoft o un Contrato Enterprise (EA).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

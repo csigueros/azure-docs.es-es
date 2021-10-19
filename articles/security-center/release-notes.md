@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 10/03/2021
+ms.date: 10/06/2021
 ms.author: memildin
-ms.openlocfilehash: c0ae5cc8d3dee5a09916194418345c1602a19e4b
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: bd8ebca221041684a47bb66bb01c176fd1b65ba6
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424791"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129729527"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novedades de Azure Security Center
 
@@ -30,7 +30,50 @@ Para obtener información sobre los cambios *planeados* que están próximos a m
 
 Las actualizaciones de octubre incluyen:
 
+- [Se ha agregado Administración de amenazas y vulnerabilidades de Microsoft como solución de evaluación de vulnerabilidades (en versión preliminar)](#microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution-in-preview).
+- [Las soluciones de evaluación de vulnerabilidades ahora se pueden habilitar automáticamente (en versión preliminar)](#vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview).
+- [Se han agregado filtros de inventario de software agregados al inventario de recursos (en versión preliminar)](#software-inventory-filters-added-to-asset-inventory-in-preview).
 - [Cambio del prefijo de algunos tipos de alerta de "ARM_" a "VM_"](#changed-prefix-of-some-alert-types-from-arm_-to-vm_)
+
+
+### <a name="microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution-in-preview"></a>Se ha agregado Administración de amenazas y vulnerabilidades de Microsoft como solución de evaluación de vulnerabilidades (en versión preliminar)
+
+Hemos ampliado la integración entre [Azure Defender para servidores](defender-for-servers-introduction.md) y Microsoft Defender para punto de conexión para admitir una nueva evaluación de vulnerabilidades para sus máquinas: [Administración de amenazas y vulnerabilidades de Microsoft](/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt). 
+
+Use la **administración de amenazas y vulnerabilidades** para detectar vulnerabilidades y configuraciones incorrectas casi en tiempo real con la [integración con Microsoft Defender para punto de conexión](security-center-wdatp.md) habilitada y sin necesidad de agentes adicionales ni exámenes periódicos. La administración de amenazas y vulnerabilidades prioriza las vulnerabilidades en función del panorama de amenazas y las detecciones de su organización.
+
+Use la recomendación de seguridad "[Se debe habilitar una solución de evaluación de vulnerabilidades en las máquinas virtuales](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/ffff0522-1e88-47fc-8382-2a80ba848f5d)" para revelar las vulnerabilidades detectadas por la administración de amenazas y vulnerabilidades para sus [máquinas admitidas](/microsoft-365/security/defender-endpoint/tvm-supported-os?view=o365-worldwide&preserve-view=true). 
+
+Para detectar automáticamente las vulnerabilidades en máquinas nuevas y existentes, sin necesidad de corregir manualmente la recomendación, consulte [Las soluciones de evaluación de vulnerabilidades ahora se pueden habilitar automáticamente (en versión preliminar)](#vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview).
+
+Obtenga más información en [Investigación de puntos débiles con la solución de administración de amenazas y vulnerabilidades de Microsoft Defender para punto de conexión](deploy-vulnerability-assessment-tvm.md).
+
+### <a name="vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview"></a>Las soluciones de evaluación de vulnerabilidades ahora se pueden habilitar automáticamente (en versión preliminar)
+
+La página de aprovisionamiento automático de Security Center ahora incluye la opción para habilitar automáticamente una solución de evaluación de vulnerabilidades para máquinas virtuales de Azure y máquinas de Azure Arc en suscripciones protegidas por [Azure Defender para servidores](defender-for-servers-introduction.md).
+
+Además, si la [integración con Microsoft Defender para punto de conexión](security-center-wdatp.md) está habilitada, tendrá una selección de soluciones de evaluación de vulnerabilidades:
+
+- (**NUEVO**) El módulo de administración de amenazas y vulnerabilidades de Microsoft de Microsoft Defender para punto de conexión (consulte [la nota de la versión](#microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution-in-preview))
+- El agente de Qualys integrado
+
+:::image type="content" source="media/deploy-vulnerability-assessment-tvm/auto-provision-vulnerability-assessment-agent.png" alt-text="Configure el aprovisionamiento automático del módulo de administración de amenazas y vulnerabilidades de Microsoft desde Azure Security Center.":::
+
+La solución elegida se habilitará automáticamente en las máquinas admitidas.
+
+Obtenga más información en [Configuración automática de la evaluación de vulnerabilidades para las máquinas](auto-deploy-vulnerability-assessment.md).
+
+### <a name="software-inventory-filters-added-to-asset-inventory-in-preview"></a>Se han agregado filtros de inventario de software agregados al inventario de recursos (en versión preliminar)
+
+La página de [inventario de recursos](asset-inventory.md) ahora incluye un filtro para seleccionar las máquinas que ejecutan software específico e incluso especificar las versiones de interés. 
+
+Además, puede consultar los datos del inventario de software en **Azure Resource Graph Explorer**.
+
+Para usar estas nuevas características, deberá habilitar la [integración con Microsoft Defender para punto de conexión](security-center-wdatp.md). 
+
+Para obtener detalles completos, incluidas las consultas de Kusto de ejemplo para Azure Resource Graph, consulte [Acceso a un inventario de software](asset-inventory.md#access-a-software-inventory).
+
+:::image type="content" source="media/deploy-vulnerability-assessment-tvm/software-inventory.png" alt-text="Si ha habilitado la solución de amenazas y vulnerabilidades, el inventario de recursos de Security Center ofrece un filtro para seleccionar los recursos por su software instalado.":::
 
 ### <a name="changed-prefix-of-some-alert-types-from-arm_-to-vm_"></a>Cambio del prefijo de algunos tipos de alerta de "ARM_" a "VM_" 
 
@@ -71,7 +114,7 @@ Obtenga más información sobre los planes de [Azure Defender para Resource Mana
 
 En septiembre, se publicó la siguiente actualización:
 
-### <a name="two-new-recommendations-to-audit-os-configurations-for-azure-security-baseline-compliance"></a>Dos nuevas recomendaciones para auditar las configuraciones del sistema operativo para el cumplimiento de la línea de base de seguridad de Azure.
+### <a name="two-new-recommendations-to-audit-os-configurations-for-azure-security-baseline-compliance-in-preview"></a>Dos nuevas recomendaciones para auditar las configuraciones del sistema operativo para el cumplimiento de la línea de base de seguridad de Azure (en versión preliminar)
 
 Se han publicado las dos recomendaciones siguientes para evaluar el cumplimiento de las máquinas con la [línea de base de seguridad de Windows](../governance/policy/samples/guest-configuration-baseline-windows.md) y la [línea de base de seguridad de Linux](../governance/policy/samples/guest-configuration-baseline-linux.md):
 
@@ -112,7 +155,7 @@ Para más información, consulte [Proteja los puntos de conexión con la soluci�
 
 ### <a name="two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview"></a>Dos nuevas recomendaciones para administrar soluciones de protección de puntos de conexión (en versión preliminar)
 
-Hemos agregado dos recomendaciones **en versión preliminar** para implementar y mantener las soluciones de protección del punto de conexión en las máquinas. Ambas recomendaciones incluyen la compatibilidad con máquinas virtuales de Azure y máquinas conectadas a servidores habilitados para Azure Arc.
+Hemos agregado dos recomendaciones **en versión preliminar** para implementar y mantener las soluciones de protección del punto de conexión en las máquinas. Ambas recomendaciones incluyen compatibilidad con máquinas virtuales de Azure y máquinas conectadas a servidores habilitados para Azure Arc.
 
 |Recomendación |Descripción |severity |
 |---|---|---|
@@ -515,7 +558,7 @@ El botón **Abrir consulta** también ofrece opciones adicionales para algunas o
 
 Obtenga más información sobre los detectores de vulnerabilidades de Security Center:
 
-- [Detector de evaluación de vulnerabilidades integrado en Azure Defender para Azure y máquinas híbridas](deploy-vulnerability-assessment-vm.md)
+- [Detector de vulnerabilidades de Qualys integrado en Azure Defender para Azure y máquinas híbridas](deploy-vulnerability-assessment-vm.md)
 - [Detector de evaluación de vulnerabilidades integrado de Azure Defender para los servidores SQL Server](defender-for-sql-on-machines-vulnerability-assessment.md)
 - [Detector de evaluación de vulnerabilidades integrado de Azure Defender para los registros de contenedor](defender-for-container-registries-usage.md)
 

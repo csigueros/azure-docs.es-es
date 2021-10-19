@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2021
+ms.date: 09/17/2021
 ms.author: monicar
-ms.openlocfilehash: 0f0b624097fdb159fd52adae7ae57830833662f2
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 223e75d0a02997187eec609324014493e2fa34df
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129272953"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660996"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glosario de Microsoft Azure: un diccionario de terminología de la nube sobre la plataforma de Azure
 
@@ -133,6 +133,9 @@ Consulte [Contrato Microsoft Online Subscription](https://azure.microsoft.com/su
 ## <a name="tag"></a>etiqueta
 Un término de indexación que permite clasificar los recursos según sus requisitos de administración o facturación. Cuando se tiene un conjunto complejo de grupos de recursos, puede usar etiquetas para visualizar estos recursos de la manera más conveniente. Por ejemplo, puede etiquetar recursos que cumplen una función similar en la organización o que pertenecen al mismo departamento.  
 Consulte [Uso de etiquetas para organizar los recursos de Azure](./azure-resource-manager/management/tag-resources.md)
+
+## <a name="tenant"></a>Inquilino
+Un inquilino es un grupo de usuarios o una organización que comparten el acceso con privilegios específicos a una instancia de un producto, un servicio o una aplicación. En Azure Active Directory, un inquilino es una instancia de Azure Active Directory que una organización recibe cuando se suscribe a una aplicación en la nube como Microsoft 365. Cada inquilino de Azure AD es distinto e independiente de otros inquilinos de Azure AD. Multiinquilino hace referencia a una instancia de una aplicación compartida por varias organizaciones, cada una con acceso independiente a la instancia.
 
 ## <a name="update-domain"></a>actualizar dominio
 La colección de máquinas virtuales en un conjunto de disponibilidad que se actualizan al mismo tiempo. Las máquinas virtuales que se encuentran en el mismo dominio de actualización se reinician en conjunto durante el mantenimiento planeado. Azure no reinicia nunca más de un dominio de actualización a la vez. Así es como funcionan los dominios de actualización.  

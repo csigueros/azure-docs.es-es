@@ -6,15 +6,15 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 07/17/2017
+ms.date: 10/09/2021
 ms.custom: devx-track-java
 ms.author: cynthn
-ms.openlocfilehash: ec738d2f2765cd97c518b79081675c197ead6466
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: fa4d2f5dc33553cb92a5733e5946c055d6a12941
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697209"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129810888"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Creación y administración de máquinas virtuales Windows en Azure mediante Java
 
@@ -68,74 +68,24 @@ Tardará unos 20 minutos en realizar estos pasos.
 
     ```xml
     <dependency>
-      <groupId>com.microsoft.azure</groupId>
-      <artifactId>azure</artifactId>
-      <version>1.1.0</version>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-identity</artifactId>
+      <version>1.3.6</version>
     </dependency>
     <dependency>
-      <groupId>com.microsoft.azure</groupId>
-      <artifactId>azure-mgmt-compute</artifactId>
-      <version>1.1.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.microsoft.azure</groupId>
-      <artifactId>azure-mgmt-resources</artifactId>
-      <version>1.1.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.microsoft.azure</groupId>
-      <artifactId>azure-mgmt-network</artifactId>
-      <version>1.1.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.squareup.okio</groupId>
-      <artifactId>okio</artifactId>
-      <version>1.13.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.nimbusds</groupId>
-      <artifactId>nimbus-jose-jwt</artifactId>
-      <version>3.6</version>
-    </dependency>
-    <dependency>
-      <groupId>net.minidev</groupId>
-      <artifactId>json-smart</artifactId>
-      <version>1.0.6.3</version>
-    </dependency>
-    <dependency>
-      <groupId>javax.mail</groupId>
-      <artifactId>mail</artifactId>
-      <version>1.4.5</version>
+      <groupId>com.azure.resourcemanager</groupId>
+      <artifactId>azure-resourcemanager</artifactId>
+      <version>2.8.0</version>
     </dependency>
     ```
 
 3. Guarde el archivo.
 
-## <a name="create-credentials"></a>Crear credenciales
+## <a name="set-up-authentication"></a>Configuración de la autenticación
 
-Antes de empezar este paso, asegúrese de que tiene acceso a una [entidad de servicio de Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md). También debe registrar el identificador de aplicación, la clave de autenticación y el identificador del inquilino que necesitará en un paso posterior.
+Obtenga información sobre cómo [configurar la autenticación](/azure/developer/java/sdk/get-started#set-up-authentication).
 
-### <a name="create-the-authorization-file"></a>Creación del archivo de autorización
-
-1. Cree un archivo denominado "`azureauth.properties`" y agregar estas propiedades:
-
-    ```
-    subscription=<subscription-id>
-    client=<application-id>
-    key=<authentication-key>
-    tenant=<tenant-id>
-    managementURI=https://management.core.windows.net/
-    baseURL=https://management.azure.com/
-    authURL=https://login.windows.net/
-    graphURL=https://graph.microsoft.com/
-    ```
-
-    Reemplace **&lt;subscription-id&gt;** por su identificador de suscripción, **&lt;application-id&gt;** por el identificador de aplicación de Active Directory, **&lt;authentication-key&gt;** por la clave de aplicación y **&lt;tenant-id&gt;** por el identificador de inquilino.
-
-2. Guarde el archivo.
-3. Establezca una variable de entorno denominada "AZURE_AUTH_LOCATION" en el shell con la ruta de acceso completa al archivo de autenticación.
-
-### <a name="create-the-management-client"></a>Creación del cliente de administración
+## <a name="create-the-management-client"></a>Creación del cliente de administración
 
 1. Abra el archivo `App.java` en `src\main\java\com\fabrikam` y asegúrese de que esta instrucción del paquete esté en la parte superior:
 
@@ -143,42 +93,20 @@ Antes de empezar este paso, asegúrese de que tiene acceso a una [entidad de ser
     package com.fabrikam.testAzureApp;
     ```
 
-2. En la instrucción del paquete, agregue estas instrucciones de importación:
+2. Cree AzureResourceManager:
    
     ```java
-    import com.microsoft.azure.management.Azure;
-    import com.microsoft.azure.management.compute.AvailabilitySet;
-    import com.microsoft.azure.management.compute.AvailabilitySetSkuTypes;
-    import com.microsoft.azure.management.compute.CachingTypes;
-    import com.microsoft.azure.management.compute.InstanceViewStatus;
-    import com.microsoft.azure.management.compute.DiskInstanceView;
-    import com.microsoft.azure.management.compute.VirtualMachine;
-    import com.microsoft.azure.management.compute.VirtualMachineSizeTypes;
-    import com.microsoft.azure.management.network.PublicIPAddress;
-    import com.microsoft.azure.management.network.Network;
-    import com.microsoft.azure.management.network.NetworkInterface;
-    import com.microsoft.azure.management.resources.ResourceGroup;
-    import com.microsoft.azure.management.resources.fluentcore.arm.Region;
-    import com.microsoft.azure.management.resources.fluentcore.model.Creatable;
-    import com.microsoft.rest.LogLevel;
-    import java.io.File;
-    import java.util.Scanner;
-    ```
+    TokenCredential credential = new EnvironmentCredentialBuilder()
+                .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
+                .build();
 
-2. Para crear las credenciales de Active Directory que necesita para realizar solicitudes, agregue este código al método Main de la clase App:
-   
-    ```java
-    try {
-        final File credFile = new File(System.getenv("AZURE_AUTH_LOCATION"));
-        Azure azure = Azure.configure()
-            .withLogLevel(LogLevel.BASIC)
-            .authenticate(credFile)
+    // Please finish 'Set up authentication' step first to set the four environment variables: AZURE_SUBSCRIPTION_ID, AZURE_CLIENT_ID, AZURE_CLIENT_SECRET, AZURE_TENANT_ID
+    AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE);
+
+    AzureResourceManager azureResourceManager = AzureResourceManager.configure()
+            .withLogLevel(HttpLogDetailLevel.BASIC)
+            .authenticate(credential, profile)
             .withDefaultSubscription();
-    } catch (Exception e) {
-        System.out.println(e.getMessage());
-        e.printStackTrace();
-    }
-
     ```
 
 ## <a name="create-resources"></a>Crear recursos
@@ -209,7 +137,6 @@ AvailabilitySet availabilitySet = azure.availabilitySets()
     .define("myAvailabilitySet")
     .withRegion(Region.US_EAST)
     .withExistingResourceGroup("myResourceGroup")
-    .withSku(AvailabilitySetSkuTypes.MANAGED)
     .create();
 ```
 ### <a name="create-the-public-ip-address"></a>Crear la dirección IP pública
@@ -220,7 +147,7 @@ Para crear la dirección IP pública de la máquina virtual, agregue este códig
 
 ```java
 System.out.println("Creating public IP address...");
-PublicIPAddress publicIPAddress = azure.publicIPAddresses()
+PublicIpAddress publicIPAddress = azure.publicIpAddresses()
     .define("myPublicIP")
     .withRegion(Region.US_EAST)
     .withExistingResourceGroup("myResourceGroup")
@@ -241,7 +168,7 @@ Network network = azure.networks()
     .withRegion(Region.US_EAST)
     .withExistingResourceGroup("myResourceGroup")
     .withAddressSpace("10.0.0.0/16")
-    .withSubnet("mySubnet","10.0.0.0/24")
+    .withSubnet("mySubnet", "10.0.0.0/24")
     .create();
 ```
 
@@ -297,21 +224,22 @@ input.nextLine();
 Si desea usar un disco existente en lugar de una imagen de Marketplace, use este código: 
 
 ```java
-ManagedDisk managedDisk = azure.disks.define("myosdisk")
+Disk managedDisk = azure.disks().define("myosdisk")
     .withRegion(Region.US_EAST)
     .withExistingResourceGroup("myResourceGroup")
     .withWindowsFromVhd("https://mystorage.blob.core.windows.net/vhds/myosdisk.vhd")
+    .withStorageAccountName("mystorage")
     .withSizeInGB(128)
-    .withSku(DiskSkuTypes.PremiumLRS)
+    .withSku(DiskSkuTypes.PREMIUM_LRS)
     .create();
 
-azure.virtualMachines.define("myVM")
+azure.virtualMachines().define("myVM")
     .withRegion(Region.US_EAST)
     .withExistingResourceGroup("myResourceGroup")
     .withExistingPrimaryNetworkInterface(networkInterface)
-    .withSpecializedOSDisk(managedDisk, OperatingSystemTypes.Windows)
+    .withSpecializedOSDisk(managedDisk, OperatingSystemTypes.WINDOWS)
     .withExistingAvailabilitySet(availabilitySet)
-    .withSize(VirtualMachineSizeTypes.StandardDS1)
+    .withSize(VirtualMachineSizeTypes.STANDARD_DS1)
     .create();
 ```
 
@@ -347,23 +275,24 @@ System.out.println("osProfile");
 System.out.println("    computerName: " + vm.osProfile().computerName());
 System.out.println("    adminUserName: " + vm.osProfile().adminUsername());
 System.out.println("    provisionVMAgent: " + vm.osProfile().windowsConfiguration().provisionVMAgent());
-System.out.println("    enableAutomaticUpdates: " + vm.osProfile().windowsConfiguration().enableAutomaticUpdates());
+System.out.println(
+        "    enableAutomaticUpdates: " + vm.osProfile().windowsConfiguration().enableAutomaticUpdates());
 System.out.println("networkProfile");
 System.out.println("    networkInterface: " + vm.primaryNetworkInterfaceId());
 System.out.println("vmAgent");
 System.out.println("  vmAgentVersion: " + vm.instanceView().vmAgent().vmAgentVersion());
 System.out.println("    statuses");
-for(InstanceViewStatus status : vm.instanceView().vmAgent().statuses()) {
+for (InstanceViewStatus status : vm.instanceView().vmAgent().statuses()) {
     System.out.println("    code: " + status.code());
     System.out.println("    displayStatus: " + status.displayStatus());
     System.out.println("    message: " + status.message());
     System.out.println("    time: " + status.time());
 }
 System.out.println("disks");
-for(DiskInstanceView disk : vm.instanceView().disks()) {
+for (DiskInstanceView disk : vm.instanceView().disks()) {
     System.out.println("  name: " + disk.name());
     System.out.println("  statuses");
-    for(InstanceViewStatus status : disk.statuses()) {
+    for (InstanceViewStatus status : disk.statuses()) {
         System.out.println("    code: " + status.code());
         System.out.println("    displayStatus: " + status.displayStatus());
         System.out.println("    time: " + status.time());
@@ -375,7 +304,7 @@ System.out.println("  id: " + vm.id());
 System.out.println("  name: " + vm.name());
 System.out.println("  type: " + vm.type());
 System.out.println("VM instance status");
-for(InstanceViewStatus status : vm.instanceView().statuses()) {
+for (InstanceViewStatus status : vm.instanceView().statuses()) {
     System.out.println("  code: " + status.code());
     System.out.println("  displayStatus: " + status.displayStatus());
 }

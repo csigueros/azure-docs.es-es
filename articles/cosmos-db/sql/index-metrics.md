@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/24/2021
+ms.date: 10/05/2021
 ms.author: tisande
-ms.openlocfilehash: b9eea7016da1e96e51e17d513ccbc3ca240c6e3d
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 13d667327fde6f55072f40dd6d1f9b7eb07d1214
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129236931"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615227"
 ---
 # <a name="indexing-metrics-in-azure-cosmos-db"></a>Métricas de indexación de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -93,6 +93,9 @@ Considere la lista de rutas de acceso indexadas utilizadas como prueba de que un
 Los índices únicos posibles y los índices compuestos utilizados muestran respectivamente las rutas de acceso incluidas y los índices compuestos que, si se agregan, puede que la consulta utilice. Si ve posibles rutas de acceso indexadas, considere la posibilidad de agregarlas a la directiva de indexación y observar si mejoran el rendimiento de las consultas.
 
 Considere la lista de posibles rutas de acceso indexadas como recomendaciones en lugar de evidencia concluyente de que una consulta usará una ruta de acceso indexada específica. Las posibles rutas de acceso indexadas no son una lista exhaustiva de rutas de acceso indexadas que una consulta podría usar. Además, es posible que algunas rutas de acceso indexadas posibles no tengan ningún impacto en el rendimiento de las consultas. [Agregue las rutas de acceso indexadas recomendadas](how-to-manage-indexing-policy.md) y confirme que mejoran el rendimiento de las consultas.
+
+> [!NOTE]
+> ¿Tiene comentarios sobre las métricas de indexación? Queremos conocerlos. No dude en compartir comentarios directamente con el equipo de ingeniería de Azure Cosmos DB: cosmosdbindexing@microsoft.com.
 
 ## <a name="index-impact-score"></a>Puntuación de impacto del índice
 

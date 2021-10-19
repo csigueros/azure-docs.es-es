@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/05/2021
+ms.date: 10/07/2021
 ms.author: b-juche
-ms.openlocfilehash: 22424e6d8498535c2b4b884834439a4f1882ab9d
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 3cbfd4349c96457e7278327d9edc3e31cd521211
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129537252"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659970"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Arquitecturas de las soluciones con Azure NetApp Files
 En este artículo se proporcionan referencias a los procedimientos recomendados que pueden ayudarle a comprender las arquitecturas de soluciones para usar Azure NetApp Files.  
@@ -43,6 +43,7 @@ En esta sección se proporcionan referencias para las soluciones de las bases de
 ### <a name="machine-learning"></a>Machine Learning
 *   [Aprendizaje automático de Cloudera](https://docs.cloudera.com/machine-learning/cloud/requirements-azure/topics/ml-requirements-azure.html)
 *   [Entrenamiento distribuido en Azure: detección de calles Diseño de soluciones](https://www.netapp.com/media/32427-tr-4896-design.pdf)
+*   [Entrenamiento distribuido en Azure: predicción de la tasa de click-through (diseño de soluciones)](https://docs.netapp.com/us-en/netapp-solutions/ai/aks-anf_introduction.html)
 
 ### <a name="education"></a>Education
 * [Moodle sobre el almacenamiento de NFS con Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/azure-netapp-files-for-nfs-storage-with-moodle/ba-p/2300630)

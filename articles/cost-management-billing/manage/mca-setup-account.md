@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/19/2021
+ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: 9b586d453f9ac49dd7bd2894c0003fef521167da
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 982bb3719de66d880f635dbb7c95e9ae2c4590c2
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122514951"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711161"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurar la cuenta de facturación para un contrato de cliente de Microsoft
 
@@ -27,7 +27,7 @@ La renovación incluye los siguientes pasos:
 Para configurar la cuenta de facturación, debe pasar la facturación de las suscripciones de Azure desde su inscripción del Contrato Enterprise a la nueva cuenta. La configuración no afecta a los servicios de Azure que se ejecutan en sus suscripciones. Sin embargo, cambia la manera en que va a administrar la facturación para las suscripciones.
 
 - En lugar del [portal EA](https://ea.azure.com), administrará los servicios y la facturación de Azure en [Azure Portal](https://portal.azure.com).
-- Recibirá una factura mensual y digital de los cargos. Puede ver y analizar la factura en la página Azure Cost Management + Facturación.
+- Recibirá una factura mensual y digital de los cargos. Puede ver y analizar la factura en la página de Cost Management + Billing.
 - En lugar de los departamentos y la cuenta de su inscripción del Contrato Enterprise, usará la estructura y los ámbitos de facturación de la cuenta nueva para administrar y organizar la facturación.
 
 Antes de comenzar la instalación, se recomienda que haga lo siguiente:
@@ -331,7 +331,5 @@ Si necesita ayuda, [póngase en contacto con soporte técnico](https://portal.az
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Introducción a la nueva cuenta de facturación](../understand/mca-overview.md)
-
 - [Finalización de tareas del Contrato Enterprise en la cuenta de facturación para un contrato de cliente de Microsoft](mca-enterprise-operations.md)
-
 - [Administrar el acceso a la cuenta de facturación](understand-mca-roles.md)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2021
-ms.openlocfilehash: 5e1d4675e7e99410471951c21d7e8112cf6839c5
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: b91dac0889da88b81d4306dff6eda4c45bcb6080
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129275019"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713404"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>¿Qué son los destinos de proceso en Azure Machine Learning?
 
@@ -165,7 +165,7 @@ Azure Machine Learning admite los siguientes tipos de proceso no administrado:
 * Azure Databricks
 * Análisis con Azure Data Lake
 * Azure Container Instances
-* Azure Kubernetes Service y Kubernetes habilitado para Azure Arc (versión preliminar)
+* Azure Kubernetes Service y Kubernetes habilitado para Azure Arc (versión preliminar)
 
 Para más información, consulte [Configuración de destinos de proceso para el entrenamiento y la implementación de modelos](how-to-attach-compute-targets.md).
 

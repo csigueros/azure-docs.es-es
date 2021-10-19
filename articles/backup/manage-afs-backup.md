@@ -2,13 +2,13 @@
 title: Administración de copias de seguridad de recursos compartidos de archivos de Azure
 description: En este artículo se describen las tareas comunes para administrar y supervisar los recursos compartidos de archivos de Azure de los que Azure Backup realiza una copia de seguridad.
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: 973c28b2c8caac4d2acda9e2cd976f9ceb8c387c
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.date: 10/08/2021
+ms.openlocfilehash: e955ed1cf01c055ea72218076799d7da31d096b7
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129534043"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714292"
 ---
 # <a name="manage-azure-file-share-backups"></a>Administración de copias de seguridad de recursos compartidos de archivos de Azure
 
@@ -30,31 +30,65 @@ Para abrir la página **Backup Jobs** (Trabajos de copia de seguridad), siga est
 
 ## <a name="monitor-using-azure-backup-reports"></a>Supervisión mediante informes de Azure Backup
 
-Azure Backup proporciona una solución de informes que usa los [registros de Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md) y los [libros de Azure](../azure-monitor/visualize/workbooks-overview.md). Estos recursos le permitirán obtener información valiosa sobre sus copias de seguridad. Puede aprovechar estos informes para obtener visibilidad de los elementos de copia de seguridad de Azure Files, los trabajos en el nivel de elemento y los detalles de las directivas activas. Con la característica "Informe de correo electrónico" disponible en los Informes de Backup, puede crear tareas automatizadas para recibir informes periódicos por correo electrónico. [Aprenda](/azure/backup/configure-reports#get-started) cómo configurar y ver los informes de Azure Backup.
+Azure Backup proporciona una solución de informes que usa [registros de Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md) y [libros de Azure](../azure-monitor/visualize/workbooks-overview.md). Estos recursos le ayudan a obtener mejores conclusiones sobre las copias de seguridad. Puede aprovechar estos informes para obtener visibilidad de los elementos de copia de seguridad de Azure Files, los trabajos en el nivel de elemento y los detalles de las directivas activas. Con la característica "Informe de correo electrónico" disponible en los Informes de Backup, puede crear tareas automatizadas para recibir informes periódicos por correo electrónico. [Aprenda](/azure/backup/configure-reports#get-started) cómo configurar y ver los informes de Azure Backup.
 
 ## <a name="create-a-new-policy"></a>Creación de una nueva directiva
 
 Puede crear una nueva directiva para realizar una copia de seguridad de los recursos compartidos de archivos de Azure desde la sección **Directivas de copia de seguridad** del almacén de Recovery Services. Todas las directivas que se crean al configurar la copia de seguridad de los recursos compartidos de archivos se muestran con **Tipo de directiva** establecido en **Recurso compartido de archivos de Azure**.
 
+Para crear una nueva directiva de copia de seguridad, siga estos pasos:
+
+1. En el panel **Directivas de copia de seguridad** del almacén de Recovery Services, seleccione **+ Agregar**.
+
+   :::image type="content" source="./media/manage-afs-backup/new-backup-policy.png" alt-text="Captura de pantalla que muestra la opción para empezar a crear una nueva directiva de copia de seguridad.":::
+
+1. En el panel **Agregar**, seleccione **Recurso compartido de archivos de Azure** como **Tipo de directiva**.
+
+   :::image type="content" source="./media/manage-afs-backup/define-policy-type.png" alt-text="Captura de pantalla que muestra la selección de Recurso compartido de archivos de Azure como tipo de directiva.":::
+
+1. Cuando se abra el panel **Directiva de copia de seguridad** de **Recurso compartido de archivos de Azure**, especifique el nombre de la directiva.
+
+1. En **Programación de copia de seguridad**, seleccione una frecuencia adecuada para las copias de seguridad: **Diaria** o **Cada hora**.
+
+   :::image type="content" source="./media/manage-afs-backup/backup-frequency-types.png" alt-text="Captura de pantalla que muestra los tipos de frecuencia de las copias de seguridad.":::
+
+   - **Diaria**: desencadena una copia de seguridad al día. Para la frecuencia diaria, seleccione los valores adecuados para:
+
+     - **Hora**: marca de tiempo en la que se debe desencadenar el trabajo de copia de seguridad.
+     - **Zona horaria**: zona horaria correspondiente del trabajo de copia de seguridad.
+
+   - **Cada hora**: desencadena varias copias de seguridad al día. Para la frecuencia de cada hora, seleccione los valores adecuados para:
+   
+     - **Programación**: intervalo de tiempo (en horas) entre las copias de seguridad consecutivas.
+     - **Hora de inicio**: hora a la que se debe desencadenar el primer trabajo de copia de seguridad del día.
+     - **Duración**: representa la ventana de copia de seguridad (en horas), es decir, el intervalo de tiempo en el que se deben desencadenar los trabajos de copia de seguridad según la programación seleccionada.
+     - **Zona horaria**: zona horaria correspondiente del trabajo de copia de seguridad.
+     
+     Por ejemplo, tiene el requisito de RPO (objetivo de punto de recuperación) de 4 horas y el horario de trabajo es de 9 a. m. a 9 p. m. Para cumplir estos requisitos, la configuración de la programación de copia de seguridad sería:
+    
+     - Programación: cada 4 horas
+     - Hora de inicio: 9 a. m. 
+     - Duración: 12 horas 
+     
+     :::image type="content" source="./media/manage-afs-backup/hourly-backup-frequency-values-scenario.png" alt-text="Captura de pantalla que muestra un ejemplo de valores de frecuencia de copia de seguridad de cada hora.":::
+
+     En función de la selección, los detalles del trabajo de copia de seguridad (las marcas de tiempo en las que se desencadenaría el trabajo de copia de seguridad) se muestran en la hoja de la directiva de copia de seguridad.
+
+1. En **Duración de retención**, especifique los valores de retención adecuados para las copias de seguridad, etiquetados como diaria, semanal, mensual o anual.
+
+1. Después de definir todos los atributos de la directiva, haga clic en **Crear**.
+  
+### <a name="view-policy"></a>Visualización de directiva
+
 Para ver las directivas de copia de seguridad existentes:
 
 1. Abra el almacén de Recovery Services que usó para configurar la copia de seguridad de los recursos compartidos de archivos. En el menú del almacén de Recovery Services, seleccione **Directivas de copia de seguridad** en la sección **Administrar**. Se mostrarán todas las directivas de copia de seguridad configuradas en el almacén.
 
-   ![Todas las directivas de copia de seguridad](./media/manage-afs-backup/all-backup-policies.png)
+   :::image type="content" source="./media/manage-afs-backup/all-backup-policies.png" alt-text="Captura de pantalla que muestra todas las directivas de copia de seguridad.":::
 
 1. Para ver las directivas específicas de **Recurso compartido de archivos de Azure**, seleccione **Recurso compartido de archivos de Azure** en la lista desplegable de la parte superior derecha.
 
-   ![Selección de Recurso compartido de archivos de Azure](./media/manage-afs-backup/azure-file-share.png)
-
-Para crear una nueva directiva de copia de seguridad:
-
-1. En el panel **Directivas de copia de seguridad**, seleccione **+ Agregar**.
-
-   ![Nueva directiva de copia de seguridad](./media/manage-afs-backup/new-backup-policy.png)
-
-1. En el panel **Agregar**, seleccione **Recurso compartido de archivos de Azure** como **Tipo de directiva**. Se abrirá el panel **Directiva de copia de seguridad** de **Recurso compartido de archivos de Azure**. Especifique el nombre de la directiva, la frecuencia de copia de seguridad y el intervalo de retención para los puntos de recuperación. Después de definir la directiva, seleccione **Aceptar**.
-
-   ![Definición de la directiva de copia de seguridad](./media/manage-afs-backup/define-backup-policy.png)
+   :::image type="content" source="./media/manage-afs-backup/azure-file-share.png" alt-text="Captura de pantalla que muestra el proceso para seleccionar el recurso compartido de archivos de Azure.":::
 
 ## <a name="modify-policy"></a>Modificación de directivas
 

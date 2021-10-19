@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3285c18394c8c59d17e41b3a3eb3fd43428cd61
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 7cda4fe1af43b0bf7f091f34ae03a021c2ac4d20
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129229589"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667542"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Asignación de etiquetas de confidencialidad a grupos de Microsoft 365 en Azure Active Directory
 
@@ -141,9 +141,9 @@ Las etiquetas se pueden intercambiar en cualquier momento siguiendo los mismos p
 1. En la página del grupo seleccionado, seleccione **Propiedades** y una nueva etiqueta de confidencialidad en la lista.
 1. Seleccione **Guardar**.
 
-### <a name="group-setting-changes-to-published-labels-are-not-updated-on-the-groups"></a>Los cambios de configuración de grupo en las etiquetas publicadas no se actualizan en los grupos
+### <a name="group-setting-changes-to-published-labels-arent-updated-on-the-groups"></a>Los cambios de configuración de grupo en las etiquetas publicadas no se actualizan en los grupos
 
-Se recomienda que no cambie la configuración de un grupo después de aplicar la etiqueta a los grupos. Cuando realiza cambios en la configuración de grupo asociada a las etiquetas publicadas en el [Centro de cumplimiento de Microsoft 365](https://sip.protection.office.com/homepage), esos cambios de directiva no se aplican automáticamente a los grupos afectados.
+Cuando realiza cambios en la configuración de grupo de una etiqueta publicada en el [Centro de cumplimiento de Microsoft 365](https://sip.protection.office.com/homepage), esos cambios de directiva no se aplican automáticamente a los grupos etiquetados. Una vez que la etiqueta de confidencialidad se publica y se aplica a los grupos, Microsoft recomienda no cambiar la configuración de grupo de la etiqueta en el Centro de cumplimiento de Microsoft 365.
 
 Si debe realizar un cambio, use un [script de Azure AD PowerShell](https://github.com/microsoftgraph/powershell-aad-samples/blob/master/ReassignSensitivityLabelToO365Groups.ps1) para aplicar manualmente las actualizaciones a los grupos afectados. Este método garantiza que todos los grupos existentes apliquen la nueva configuración.
 

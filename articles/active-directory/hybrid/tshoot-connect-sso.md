@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 546a7bfbda3f037f3ad40ca9c5d59353cc1de0eb
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 8b1947d9b78ef77644dd5df8aabe4298de90f9e8
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129349599"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754280"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solución de problemas de inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -39,6 +39,7 @@ Este artículo sirve de ayuda para encontrar información sobre cómo solucionar
 - Agregar la dirección URL del servicio de Azure AD (`https://autologon.microsoftazuread-sso.com`) a la zona de sitios de confianza en lugar de a la zona de intranet local *impide que los usuarios inicien sesión*.
 - El inicio de sesión único de conexión directa admite los tipos de cifrado AES256_HMAC_SHA1, AES128_HMAC_SHA1 y RC4_HMAC_MD5 para Kerberos. Se recomienda que el tipo de cifrado de la cuenta AzureADSSOAcc$ se establezca en AES256_HMAC_SHA1 o uno de los tipos AES en lugar de RC4, para mayor seguridad. El tipo de cifrado se almacena en el atributo msDS-SupportedEncryptionTypes de la cuenta en Active Directory.  Si el tipo de cifrado de la cuenta AzureADSSOAcc$ está establecido en RC4_HMAC_MD5 y desea cambiarlo a uno de los tipos de cifrado AES, asegúrese de revertir primero la clave de descifrado de Kerberos de dicha cuenta, tal como se explica en la pregunta correspondiente del [documento de preguntas más frecuentes](how-to-connect-sso-faq.yml); de lo contrario, no se producirá el inicio de sesión único de conexión directa.
 -  Si tiene más de un bosque con confianza de bosque, la habilitación del inicio de sesión único en uno de los bosques habilitará el inicio de sesión único en todos los bosques de confianza. Si habilita SSO en un bosque en el que el SSO ya está habilitado, recibirá un error que indica que SSO ya está habilitado en el bosque.
+-  La directiva que habilita SSO de conexión directa tiene un límite de 25 600 de caracteres. Este límite es para todo lo que se incluye en la directiva, incluidos los nombres de bosque en los que desea habilitar SSO de conexión directa. Puede alcanzar el límite de caracteres si tiene un gran número de bosques en su entorno. Si los bosques tienen confianza entre ellos, basta con habilitar SSO de conexión directa solo en un bosque. Por ejemplo, si tiene contoso.com y fabrikam.com y hay confianza entre ambos, puede habilitar SSO de conexión directa solo en contoso.com y también se aplicará en fabrikam.com. De este modo, puede reducir el número de bosques habilitados en la directiva y evitar alcanzar el límite de caracteres de directiva.
 
 ## <a name="check-status-of-feature"></a>Comprobación del estado de la característica
 

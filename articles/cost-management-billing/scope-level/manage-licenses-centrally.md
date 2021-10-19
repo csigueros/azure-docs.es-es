@@ -4,17 +4,17 @@ description: En este artículo se proporciona una explicación detallada sobre c
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/30/2021
+ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: ahb
 ms.reviewer: chrisrin
-ms.openlocfilehash: bc08d9465830043071fd78a6e9735f0443be42ec
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 69517a84fa28a6c1d9cde0cb51df82a296bd653a
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129547287"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710164"
 ---
 # <a name="how-azure-applies-assigned-sql-licenses-to-hourly-usage"></a>Forma en que Azure aplica las licencias de SQL asignadas al uso por hora
 
@@ -37,7 +37,7 @@ Los precios que se muestran en la siguiente imagen son solo a modo de ejemplo.
 
 :::image type="content" source="./media/manage-licenses-centrally/partially-discounted-consumption.svg" alt-text="Diagrama en el que se muestra parcialmente el consumo con descuento" border="false" lightbox="./media/manage-licenses-centrally/partially-discounted-consumption.svg":::.
 
-Los recursos de Azure SQL cubiertos por las licencias Core asignadas pueden variar de una hora a otra. La varianza depende de qué recursos se ejecutan y en qué orden el sistema automatizado procesa su uso. Sin embargo, el sistema garantiza el uso máximo de las licencias de SQL asignadas en el ámbito seleccionado. Puede supervisar el uso mediante Azure Cost Management. Para más información, vea [Seguimiento del uso de licencias asignadas](create-sql-license-assignments.md#track-assigned-license-use).
+Los recursos de Azure SQL cubiertos por las licencias Core asignadas pueden variar de una hora a otra. La varianza depende de qué recursos se ejecutan y en qué orden el sistema automatizado procesa su uso. Sin embargo, el sistema garantiza el uso máximo de las licencias de SQL asignadas en el ámbito seleccionado. Puede supervisar el uso mediante Cost Management. Para más información, vea [Seguimiento del uso de licencias asignadas](create-sql-license-assignments.md#track-assigned-license-use).
 
 En el diagrama siguiente se muestra cómo se aplican las licencias asignadas de SQL Server a lo largo del tiempo para obtener el máximo descuento de la Ventaja híbrida de Azure.
 
@@ -45,5 +45,5 @@ En el diagrama siguiente se muestra cómo se aplican las licencias asignadas de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Vea [Preguntas frecuentes sobre la administración del nivel de ámbito de la Ventaja híbrida de Azure](faq-azure-hybrid-benefit-scope.yml).
+- Revise [Preguntas más frecuentes sobre la administración del nivel de ámbito de Ventaja híbrida de Azure](faq-azure-hybrid-benefit-scope.yml).
 - Obtenga información sobre cómo realizar la [transición desde la experiencia de la Ventaja híbrida de Azure existente](transition-existing.md).

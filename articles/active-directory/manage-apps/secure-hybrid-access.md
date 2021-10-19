@@ -1,6 +1,8 @@
 ---
-title: Azure AD acceso híbrido seguro | Microsoft Docs
+title: Acceso híbrido seguro
 description: En este artículo se describen las soluciones de asociados para integrar las aplicaciones locales, de nube pública o de nube privada heredadas con Azure AD.
+titleSuffix: Azure AD
+services: active-directory
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
@@ -10,12 +12,12 @@ ms.workload: identity
 ms.date: 8/17/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8294a0d3668077a1ead9ccb8b2f020360a75dc37
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 9403600e65bfc563c66f31e6d2ed8905702a3943
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129273711"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615683"
 ---
 # <a name="secure-hybrid-access-secure-legacy-apps-with-azure-active-directory"></a>Acceso híbrido seguro: Protección de aplicaciones heredadas con Azure Active Directory
 

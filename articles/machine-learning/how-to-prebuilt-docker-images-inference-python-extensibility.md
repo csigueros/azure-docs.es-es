@@ -11,12 +11,12 @@ ms.date: 05/25/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
-ms.openlocfilehash: 16191b274f840438cac8deab6754991b7b9e29df
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 679be09b977ffd39dd513e88968fe4b0d474e74b
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129425019"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705349"
 ---
 # <a name="python-package-extensibility-for-prebuilt-docker-images-preview"></a>Extensibilidad de paquetes de Python para imágenes de Docker precompiladas (versión preliminar)
 
@@ -31,7 +31,7 @@ Las [imágenes de Docker precompiladas para la inferencia de modelos](concept-pr
     Use este enfoque __para las implementaciones de producción__. Puesto que el directorio que contiene los paquetes se monta en la imagen, se puede usar incluso cuando las implementaciones no tienen acceso público a Internet. Por ejemplo, cuando se implementa en una instancia de Azure Virtual Network.
 
 > [!IMPORTANT]
-> El uso de imágenes de Docker precompiladas con Azure Machine Learning está actualmente en versión preliminar. La funcionalidad de versión preliminar se proporciona "tal cual", sin ninguna garantía de soporte técnico ni contrato de nivel de servicio. Para obtener más información, consulte [Condiciones de uso complementarias de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> El uso de la extensibilidad de paquetes de Python para imágenes de Docker precompiladas con Azure Machine Learning está actualmente en versión preliminar. La funcionalidad de versión preliminar se proporciona "tal cual", sin ninguna garantía de soporte técnico ni contrato de nivel de servicio. Para obtener más información, consulte [Condiciones de uso complementarias de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

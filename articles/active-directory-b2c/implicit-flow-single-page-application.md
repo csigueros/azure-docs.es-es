@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 31dd0096140544db9c1265999b8c0c709def9cda
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 16c024926ddb863e3b40eac07f494c8d5dbeae9c
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129350060"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129617993"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Inicio de sesión de página única mediante el flujo implícito de OAuth 2.0 con Azure Active Directory B2C
 
@@ -222,7 +222,7 @@ error=user_authentication_required
 Si recibe este error en la solicitud de iframe, el usuario debe iniciar sesión de nuevo de manera interactiva para recuperar un nuevo token.
 
 ## <a name="refresh-tokens"></a>Tokens de actualización
-Los tokens de identificador y los tokens de acceso expiran tras un breve período de tiempo. La aplicación debe estar preparada para actualizar estos tokens periódicamente.  Para actualizar cualquier tipo de token, realice la misma solicitud de iframe oculto que hemos usado en un ejemplo anterior, mediante el parámetro `prompt=none` para controlar los pasos de Azure AD.  Para recibir un nuevo valor `id_token`, asegúrese de usar `response_type=id_token` y `scope=openid`, y un parámetro `nonce`.
+Los tokens de identificador y los tokens de acceso expiran tras un breve período de tiempo. La aplicación debe estar preparada para actualizar estos tokens periódicamente. Los flujos implícitos no le permiten obtener un token de actualización por motivos de seguridad. Para actualizar cualquier tipo de token, use el flujo implícito en un elemento iframe HTML oculto. En la solicitud de autorización, incluya el parámetro `prompt=none`. Para recibir un nuevo valor de id_token, asegúrese de usar `response_type=id_token` y `scope=openid`, así como un parámetro `nonce`.
 
 ## <a name="send-a-sign-out-request"></a>Envío de una solicitud de cierre de sesión
 Cuando quiera iniciar sesión fuera de la aplicación, redirija al usuario a Azure AD para cerrar la sesión. Si no lo redirige, este podría volver a autenticar la aplicación sin escribir sus credenciales de nuevo, ya que tienen un inicio de sesión único válido con el punto de conexión de Azure AD.

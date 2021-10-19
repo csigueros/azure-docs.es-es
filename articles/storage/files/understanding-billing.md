@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0561e96d40ff5c37587101a2003f5a17addb5a30
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 113dcc4de4ceb1b283f7bdeb1941ced76a9425d0
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609201"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714561"
 ---
 # <a name="understand-azure-files-billing"></a>Descripción de la facturación de Azure Files
 Azure Files proporciona dos modelos de facturación distintos: aprovisionado y pago por uso. El modelo aprovisionado solo está disponible para los recursos compartidos de archivos prémium, que son recursos compartidos de archivos implementados en el tipo de cuenta de almacenamiento **FileStorage**. El modelo de pago por uso solo está disponible para los recursos compartidos de archivos estándar, que son recursos compartidos de archivos implementados en el tipo de cuenta de almacenamiento de **uso general, versión 2 (GPv2)** . En este artículo se explica cómo funcionan ambos modelos con el fin de ayudarle a entender la factura mensual de Azure Files.
@@ -77,7 +77,7 @@ Es posible reducir el tamaño del recurso compartido aprovisionados por debajo d
 ### <a name="provisioning-method"></a>Método de aprovisionamiento
 Al aprovisionar un recurso compartido de archivos prémium, se especifica la cantidad de GiB que requiere la carga de trabajo. Cada GiB aprovisionado permite beneficiarse de IOPS y rendimiento adicionales con una proporción fija. Además de la IOPS de línea de base garantizada, cada recurso compartido de archivos prémium admite ráfagas dentro de lo posible. Las fórmulas de IOPS y rendimiento son las siguientes:
 
-| Elemento | Value |
+| Elemento | Valor |
 |-|-|
 | Tamaño máximo de un recurso compartido de archivos | 100 GiB |
 | Unidad de aprovisionamiento | 1 GiB |
@@ -118,7 +118,7 @@ Los créditos de recursos compartidos tienen tres estados:
 Los nuevos recursos compartidos de archivo empiezan con la cantidad total de créditos del cubo de ráfagas. Los créditos de ráfaga no se acumularán si el valor de IOPS del recurso compartido cae por debajo del valor de IOPS de la línea de base debido a una limitación del servidor.
 
 ## <a name="pay-as-you-go-model"></a>Modelo de pago por uso
-Azure Files usa un modelo de negocio de pago por uso para los recursos compartidos de archivos estándar. En un modelo de negocio de pago por uso, la cantidad que se paga se determina según el volumen que se usa realmente, en lugar de basarse en una cantidad aprovisionada. En un nivel alto, se paga un costo por la cantidad de datos almacenados en el disco y, a continuación, un conjunto adicional de transacciones en función del uso de esos datos. Un modelo de pago por uso puede ser rentable, ya que no es necesario sobreaprovisionar para tener en cuenta los requisitos futuros de crecimiento o rendimiento ni el desaprovisionamiento si la carga de trabajo tiene una superficie de datos que varía con el tiempo. Por otro lado, un modelo de pago por uso también puede ser difícil de planear como parte de un proceso de presupuesto, porque este modelo se basa en el consumo del usuario final.
+Azure Files usa un modelo de negocio de pago por uso para los recursos compartidos de archivos estándar. En un modelo de negocio de pago por uso, la cantidad que se paga se determina según el volumen que se usa realmente, en lugar de basarse en una cantidad aprovisionada. En un nivel alto, se paga un costo por la cantidad de datos lógicos almacenados y, a continuación, un conjunto adicional de transacciones en función del uso de esos datos. Un modelo de pago por uso puede ser rentable, ya que no es necesario sobreaprovisionar para tener en cuenta los requisitos futuros de crecimiento o rendimiento ni el desaprovisionamiento si la carga de trabajo tiene una superficie de datos que varía con el tiempo. Por otro lado, un modelo de pago por uso también puede ser difícil de planear como parte de un proceso de presupuesto, porque este modelo se basa en el consumo del usuario final.
 
 ### <a name="differences-in-standard-tiers"></a>Diferencias en los niveles estándar
 Al crear un recurso compartido de archivos estándar, puede elegir entre los niveles de transacción optimizada, acceso frecuente y acceso esporádico. Los tres niveles se almacenan en el mismo hardware de almacenamiento estándar. La principal diferencia de estos tres niveles son los precios de almacenamiento de datos en reposo, que son menores en los niveles de acceso esporádico, y los precios de las transacciones, que son más altos en estos mismos niveles. Esto significa lo siguiente:
@@ -132,6 +132,9 @@ Si coloca una carga de trabajo a la que se accede con poca frecuencia en el nive
 Del mismo modo, si coloca en el nivel de acceso esporádico una carga de trabajo a la que accede con mucha frecuencia, incurrirá en muchos más costos por las transacciones, pero pagará menos por el almacenamiento de datos. Esto puede derivar en una situación en la que el aumento de los costos por los precios de las transacciones sobrepasan el ahorro obtenido por el precio más reducido del almacenamiento de datos, de tal forma que pagará más dinero en el nivel de acceso esporádico en comparación con el de transacción optimizada. Puede que, para algunos niveles de uso, mientras que el nivel de acceso frecuente será el nivel más rentable, el de acceso esporádico será más caro que el de transacción optimizada.
 
 El nivel de la carga de trabajo y de la actividad determinarán el nivel más rentable del recurso compartido de archivos estándar. En la práctica, la mejor manera de elegir el nivel más rentable es examinar el consumo de recursos real del recurso compartido (datos almacenados, transacciones de escritura, etc.).
+
+### <a name="logical-size-versus-physical-size"></a>Tamaño lógico frente a tamaño físico
+El cargo de capacidad de datos en reposo de Azure Files se factura en función del tamaño lógico, denominado coloquialmente "tamaño" o "longitud del contenido" del archivo. El tamaño lógico del archivo es distinto del tamaño físico del archivo en el disco, a menudo denominado "tamaño en disco" o "tamaño usado". El tamaño físico del archivo puede ser mayor o menor que el tamaño lógico.
 
 ### <a name="what-are-transactions"></a>¿Qué son las transacciones?
 Las transacciones son operaciones o solicitudes realizadas en Azure Files para cargar, descargar o manipular de otro modo el contenido del recurso compartido de archivos. Todas las acciones realizadas en un recurso compartido de archivos se traducen en una o varias transacciones, y en recursos compartidos estándar que usan el modelo de facturación de pago por uso, que genera costos por transacciones.

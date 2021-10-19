@@ -3,18 +3,18 @@ title: Descripción y uso de ámbitos de Azure Cost Management
 description: Este artículo le ayudará a comprender los ámbitos de administración de facturación y recursos disponibles en Azure y cómo usarlos en Cost Management y las API.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/05/2021
+ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 67d8ef5bf6960ca03d8d2d36efbe4461e1124190
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 55c2d19ee2e80915cc1c4393aa5a25326a5e9d0e
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110695242"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711279"
 ---
 # <a name="understand-and-work-with-scopes"></a>Descripción y uso de ámbitos
 
@@ -68,7 +68,7 @@ Cost Management es compatible con los siguientes roles integrados para cada uno 
 
 Colaborador de Cost Management es el rol con menos privilegios que se recomienda. Este rol permite a los usuarios crear y administrar presupuestos y exportaciones para supervisar de manera más eficaz los costos. A quienes se asigne el rol Colaborador de Cost Management también pueden requerir roles adicionales para dar soporte técnico a escenarios complejos de administración de costos. Considere los casos siguientes:
 
-- **Informes sobre el uso de recursos**: Azure Cost Management muestra el costo en Azure Portal. Incluye el uso, ya que pertenece al costo en los patrones de uso completos. Este informe también puede mostrar los cargos por API y descargas pero, si quiere información más detallada, puede consultar las métricas de uso detalladas en Azure Monitor. Considere la posibilidad de conceder el rol [Lector de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-reader) en cualquier ámbito en el que también necesite también informar sobre métricas de uso detalladas.
+- **Informes sobre el uso de recursos**: Cost Management muestra el costo en Azure Portal. Incluye el uso, ya que pertenece al costo en los patrones de uso completos. Este informe también puede mostrar los cargos por API y descargas pero, si quiere información más detallada, puede consultar las métricas de uso detalladas en Azure Monitor. Considere la posibilidad de conceder el rol [Lector de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-reader) en cualquier ámbito en el que también necesite también informar sobre métricas de uso detalladas.
 - **Actuación cuando se superan los presupuestos**: aquellos a quienes se conceda el rol Colaboradores de Cost Management también necesitan acceso para crear y administrar grupos de acciones, con el fin de reaccionar automáticamente a usos por encima del límite. Considere la posibilidad de conceder el rol de [colaborador de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-contributor) a un grupo de recursos que contiene el grupo de acciones que se debe usar cuando se superan los umbrales del presupuesto. La automatización de acciones concretas requiere roles adicionales para los servicios específicos utilizados como, por ejemplo, Automation y Azure Functions.
 - **Programación de exportación de datos de costo**: los colaboradores de Cost Management también necesitan acceso para administrar las cuentas de almacenamiento y programar una exportación para copiar datos en una de ellas. Considere la posibilidad de conceder el rol [Colaborador de la cuenta de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-account-contributor) a un grupo de recursos que contenga la cuenta de almacenamiento donde se exportan los datos de costos.
 - **Visualización de las recomendaciones de ahorro de costos**: los lectores y los colaboradores de Cost Management tienen permiso para *ver* las recomendaciones sobre costos de forma predeterminada. No obstante, el acceso para actuar sobre las recomendaciones de costos requiere acceso a los recursos individuales. Considere la posibilidad de conceder un [rol específico de servicio](../../role-based-access-control/built-in-roles.md#all) si desea actuar en una recomendación basada en costos.
@@ -267,7 +267,7 @@ Los siguientes ámbitos se admiten para los proveedores de soluciones en la nube
 
 Solo los usuarios con los roles de *administrador global* y *agente de administrador* pueden administrar y ver los costos de las cuentas de facturación, los perfiles de facturación y los clientes directamente en el inquilino de Azure del asociado. Para más información sobre los roles del Centro de partners, consulte [Asignar roles y permisos de usuario](/partner-center/permissions-overview).
 
-Azure Cost Management solo admite clientes de asociados de CSP si los clientes tienen un contrato de cliente de Microsoft. En el caso de los clientes compatibles con CSP que todavía no participan de un contrato de cliente de Microsoft, consulte la [documentación del Centro de partners](/azure/cloud-solution-provider/overview/partner-center-overview).
+Cost Management solo admite clientes de asociados de CSP si los clientes tienen un Contrato de cliente de Microsoft. En el caso de los clientes compatibles con CSP que todavía no participan de un contrato de cliente de Microsoft, consulte la [documentación del Centro de partners](/azure/cloud-solution-provider/overview/partner-center-overview).
 
 Los grupos de administración de los ámbitos de CSP no son compatibles con Cost Management. Si tiene una suscripción de CSP y establece el ámbito en un grupo de administración en el análisis de costos, verá un error similar al siguiente:
 

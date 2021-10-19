@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49963f7c2625a0aa454d8a1bac5ff001cb4debe9
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: ac53f16e80904216a4e19b03772dcd2820882f94
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129230919"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129657899"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory"></a>Habilitación del inicio de sesión con una clave de seguridad sin contraseña en recursos locales con Azure Active Directory 
 
@@ -88,15 +88,35 @@ $domain = "contoso.corp.com"
 # Enter an Azure Active Directory global administrator username and password.
 $cloudCred = Get-Credential
 
-If you have MFA enabled for Global administrator, Please remove "-Cloudcredential $cloudCred"
-you will see web-based popup and complete the U/P and MFA there
-
 # Enter a domain administrator username and password.
 $domainCred = Get-Credential
 
 # Create the new Azure AD Kerberos Server object in Active Directory
 # and then publish it to Azure Active Directory.
 Set-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCredential $domainCred
+```
+
+> [!NOTE]
+> Si su organización protege el inicio de sesión basado en contraseña y aplica métodos de autenticación modernos como MFA, FIDO2 o tarjeta inteligente, debe usar el parámetro "-UserPrincipalName" con el nombre principal de usuario de un administrador global.
+>    - Reemplace `contoso.corp.com` del ejemplo siguiente por el nombre de dominio de Active Directory local.
+>    - Reemplace `administrator@contoso.onmicrosoft.com` en el ejemplo siguiente por el nombre principal de usuario de un administrador global.
+
+```powerShell
+Import-Module ".\AzureAdKerberos.psd1"
+
+# Specify the on-premises Active Directory domain. A new Azure AD
+# Kerberos Server object will be created in this Active Directory domain.
+$domain = "contoso.corp.com"
+
+# Enter a User Principal Name of Azure Active Directory global administrator
+$userPrincipalName = "administrator@contoso.onmicrosoft.com"
+
+# Enter a domain administrator username and password.
+$domainCred = Get-Credential
+
+# Create the new Azure AD Kerberos Server object in Active Directory
+# and then publish it to Azure Active Directory.
+Set-AzureADKerberosServer -Domain $domain -UserPrincipalName $userPrincipalName -DomainCredential $domainCred
 ```
 
 ### <a name="viewing-and-verifying-the-azure-ad-kerberos-server"></a>Visualización y comprobación del servidor Kerberos de Azure AD

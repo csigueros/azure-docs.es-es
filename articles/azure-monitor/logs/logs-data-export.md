@@ -6,12 +6,12 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: bwren
 ms.author: bwren
 ms.date: 05/07/2021
-ms.openlocfilehash: 04662b734f86905f0064bad43ecbecd84bc48042
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: beb3d2374e89402795dab0480d840e291c391ec8
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129401396"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129811578"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportación de datos del área de trabajo de Log Analytics en Azure Monitor (versión preliminar)
 La exportación de datos del área de trabajo de Log Analytics en Azure Monitor permite exportar continuamente los datos de las tablas seleccionadas del área de trabajo de Log Analytics en una cuenta de Azure Storage o Azure Event Hubs a medida que se recopilan. En este artículo se ofrecen detalles sobre esta característica y pasos para configurar la exportación de datos en las áreas de trabajo.
@@ -142,12 +142,46 @@ Si ha configurado la cuenta de almacenamiento para permitir el acceso desde las 
 [![Firewalls y redes virtuales de la cuenta de almacenamiento](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
 
 ### <a name="create-or-update-data-export-rule"></a>Creación o actualización de una regla de exportación de datos
-Una regla de exportación de datos define las tablas cuyos datos se exportarán y el destino. Puede tener 10 reglas habilitadas en el área de trabajo, y entonces cualquier regla adicional superior a 10 debe estar en estado de deshabilitación. Un destino debe ser único en todas las reglas de exportación del área de trabajo.
+La regla de exportación de datos define las tablas cuyos datos se exportarán y el destino. Puede tener 10 reglas habilitadas en el área de trabajo. Se pueden agregar más reglas, pero con el estado "deshabilitado". Los destinos deben ser únicos en todas las reglas de exportación del área de trabajo.
 
-> [!NOTE]
-> La exportación de datos envía registros a los destinos que posee, mientras que estos tienen algunos límites: [escalabilidad de cuentas de almacenamiento](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts), [cuota de espacio de nombres del centro de eventos](../../event-hubs/event-hubs-quotas.md). Se recomienda supervisar los destinos para verificar la limitación y aplicar medidas al acercarse a su límite. Por ejemplo: 
-> - Establezca la característica de inflado automático en el centro de eventos para escalarse verticalmente y aumentar automáticamente el número de TU (unidades de procesamiento). Puede solicitar más TU cuando el inflado automático esté al máximo.
-> - Divida las tablas en varias reglas de exportación, cada una de ellas con diferentes destinos.
+Los destinos de exportación de datos tienen límites y se deben supervisar para minimizar la limitación, los errores y la latencia de la exportación. Consulte los temas sobre [escalabilidad de las cuentas de almacenamiento](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) y [cuotas de espacio de nombres del centro de eventos](../../event-hubs/event-hubs-quotas.md).
+
+#### <a name="recommendations-for-storage-account"></a>Recomendaciones para la cuenta de almacenamiento 
+
+1. Use una cuenta de almacenamiento independiente para la exportación.
+1. Configure la alerta en la métrica siguiente con la siguiente configuración: 
+   - `Operator` Mayor que
+   - `Aggregation type` Total
+   - `Aggregation granularity (period)` 5 minutos
+   - `Frequency of evaluation` Cada 5 minutos
+  
+    | Ámbito | Espacio de nombres de métrica | Métrica | Agregación | Umbral |
+    |:---|:---|:---|:---|:---|
+    | storage-name | Cuenta | Entrada | Sum | 80 % de la tasa máxima de entrada de almacenamiento. Por ejemplo: 60 Gbps para la versión 2 de uso general en la región Oeste de EE. UU. |
+  
+1. Acción correctiva
+    - Usar un espacio de nombres de centro de eventos independiente para la exportación.
+    - Las cuentas estándar de Azure Storage admiten límites de entrada más altos por solicitud. Para solicitar un aumento, póngase en contacto con [Soporte técnico de Azure](https://azure.microsoft.com/support/faq/).
+    - Dividir tablas entre cuentas de almacenamiento adicionales.
+
+#### <a name="recommendations-for-event-hub"></a>Recomendaciones para el centro de eventos
+
+1. Configure la alerta en la métrica siguiente con la siguiente configuración: 
+   - `Operator` Mayor que
+   - `Aggregation type` Total
+   - `Aggregation granularity (period)` 5 minutos
+   - `Frequency of evaluation` Cada 5 minutos
+  
+    | Ámbito | Espacio de nombres de métrica | Métrica | Agregación | Umbral |
+    |:---|:---|:---|:---|:---|
+    | namespaces-name | Métricas estándar del centro de eventos | Bytes de entrada | Sum | 80 % de entrada máxima por 5 minutos. Por ejemplo, 1 MB/s por TU |
+    | namespaces-name | Métricas estándar del centro de eventos | Mensajes entrantes | Sum | 80 % de eventos como máximo por 5 minutos. Por ejemplo, 1000/s por TU |
+    | namespaces-name | Métricas estándar del centro de eventos | Solicitudes de limitación | Sum | Entre el 1 % y el 5 % de la solicitud |
+
+1. Acción correctiva
+   - Aumentar el número de unidades de limitación (TU)
+   - Dividir tablas entre espacios de nombres adicionales
+   - Usar el nivel del centro de eventos Premium para mejorar el rendimiento
 
 La regla de exportación debe incluir las tablas que tenga en el área de trabajo. Ejecute esta consulta para obtener una lista de tablas disponibles en el área de trabajo.
 

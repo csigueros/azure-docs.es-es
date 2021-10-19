@@ -10,12 +10,12 @@ ms.date: 02/03/2021
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 80c02416f5e1fb232d84b1311d261122dc7b9a35
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: ebd9ba6beabe1a0bd3e6f158b90ca90510ea1b66
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733671"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857841"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-directory-or-blob-with-net"></a>Creación de una SAS de delegación de usuarios para un contenedor, un directorio o un blob con .NET
 
@@ -29,13 +29,11 @@ En este artículo se muestra cómo usar credenciales de Azure Active Directory (
 
 Cuando una entidad de seguridad de Azure AD intenta acceder a los datos de blobs, dicha entidad debe tener permisos para el recurso. Si la entidad de seguridad es una identidad administrada en Azure o una cuenta de usuario de Azure AD que ejecuta código en el entorno de desarrollo, se le debe asignar un rol de Azure que conceda acceso a los datos de blobs en Azure Storage. Para obtener información sobre la asignación de permisos mediante Azure RBAC, consulte [Asignación de un rol de Azure para acceder a datos de blobs](assign-azure-role-data-access.md).
 
-[!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
-
-Para más información sobre cómo autenticarse con la biblioteca de cliente de Azure Identity desde Azure Storage, consulte la sección titulada **Autenticación con la biblioteca de Azure Identity** en [Autorización del acceso a blobs y colas con Azure Active Directory e identidades administradas para los recursos de Azure](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library).
+Para más información sobre cómo obtener un token con la biblioteca cliente Azure Identity de Azure Storage, consulte [Uso de la biblioteca Azure Identity para obtener un token de acceso para la autorización](../common/identity-library-acquire-token.md).
 
 ## <a name="get-an-authenticated-token-credential"></a>Obtención de una credencial de token autenticada
 
-Para obtener una credencial de token que el código pueda usar para autorizar solicitudes para Azure Storage, cree una instancia de la clase [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential).
+Para obtener una credencial de token que el código pueda usar para autorizar solicitudes para Azure Storage, cree una instancia de la clase [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential). Para obtener más información sobre el uso de la clase DefaultAzureCredential para autorizar a una identidad administrada a acceder a Azure Storage, consulte [Biblioteca cliente Azure Identity para .NET](/dotnet/api/overview/azure/identity-readme).
 
 En el fragmento de código siguiente se muestra cómo obtener la credencial de token autenticada y usarla para crear un cliente de servicio para Blob Storage:
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 10/01/2021
-ms.openlocfilehash: 0473c75678631fee158cfabd33406b863971bf97
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 329213fc37edae93d3871c1a52b6d5b73f8f76ed
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129455776"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659571"
 ---
 # <a name="search-the-azure-purview-data-catalog"></a>Búsqueda en Azure Purview Data Catalog
 
@@ -63,7 +63,9 @@ Aunque la búsqueda es excelente si se sabe lo que se busca, hay ocasiones en la
 
 ## <a name="search-query-syntax"></a>Sintaxis de la consulta de búsqueda
 
-Todas las consultas de búsqueda se componen de palabras clave y operadores. Una palabra clave es un elemento que formaría parte de las propiedades de un recurso. Algunas posibles palabras clave pueden ser una clasificación, un término del glosario, una descripción del recurso o un nombre de recurso. Una palabra clave puede ser solo una parte de la propiedad para la que está buscando una coincidencia. Use las palabras clave y los operadores incluidos a continuación para asegurarse de que Azure Purview devuelve los recursos que está buscando. 
+Todas las consultas de búsqueda se componen de palabras clave y operadores. Una palabra clave es un elemento que formaría parte de las propiedades de un recurso. Algunas posibles palabras clave pueden ser una clasificación, un término del glosario, una descripción del recurso o un nombre de recurso. Una palabra clave puede ser solo una parte de la propiedad para la que está buscando una coincidencia. Use las palabras clave y los operadores incluidos a continuación para asegurarse de que Azure Purview devuelve los recursos que está buscando.
+
+Determinados caracteres, incluidos espacios, guiones y comas, se interpretan como delimitadores. Buscar una cadena como `hive-database` es lo mismo que buscar dos palabras clave `hive database`. 
 
 A continuación se muestran los operadores que puede usar para crear una consulta de búsqueda. Los operadores se pueden combinar tantas veces como sea necesario en una misma consulta.
 

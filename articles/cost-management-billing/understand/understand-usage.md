@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 01/04/2021
+ms.date: 10/11/2021
 ms.author: banders
-ms.openlocfilehash: 07e3cfdce238d5fc4e2737a49dde6fd624de8506
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: ae2d16b6164f201bae8f34c62876f66b45862cfa
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882507"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129855353"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Comprenda los términos en el archivo de uso y cargos de Azure
 
@@ -111,6 +111,8 @@ _<sup>**1**</sup> Campos que se usan para crear un identificador único para un 
 
 Tenga en cuenta que algunos campos pueden diferir en cuanto a mayúsculas, minúsculas y espacios entre un tipo de cuenta y otro.
 Las versiones anteriores de archivos de utilización de pago por uso tienen secciones independientes para el resumen de cuenta y el uso diario.
+
+En el caso de clientes con un contrato MCA, tenga en cuenta que hay cambios en los valores del campo `PublisherType`. Para obtener más información, consulte [Cambios en los valores de tipo de publicador](../costs/group-filter.md#changes-to-publisher-type-values).
 
 ### <a name="list-of-terms-from-older-apis"></a>Lista de términos de API anteriores
 En la tabla siguiente se asignan los términos que se usan en las API anteriores a los nuevos términos. Consulte la tabla anterior para ver las descripciones.

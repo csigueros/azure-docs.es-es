@@ -9,18 +9,18 @@ ms.custom: synapse
 ms.topic: how-to
 ms.subservice: tutorials
 ms.date: 09/29/2021
-ms.openlocfilehash: d1a23e166c322a4a74c3ec175ea672d78ed23de9
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 98fa799cc5fd933d21fb0130093381c628f8e23c
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129367648"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660958"
 ---
 # <a name="send-notifications-to-a-microsoft-teams-channel-from-an-azure-data-factory-or-synapse-analytics-pipeline"></a>Envío de notificaciones a un canal de Microsoft Teams desde una canalización de Azure Data Factory o Synapse Analytics
 
 A menudo es necesario enviar notificaciones durante la ejecución de una canalización o después de esta. La notificación proporciona un envío proactivo de alertas y reduce la necesidad de supervisión reactiva para detectar problemas.  Puede obtener información sobre [cómo enviar notificaciones por correo electrónico mediante aplicaciones lógicas](tutorial-control-flow-portal.md#create-email-workflow-endpoints) que una factoría de datos o una canalización de Synapse pueden invocar.  Muchas empresas también usan cada vez más Microsoft Teams para la colaboración.  En este artículo se muestra cómo configurar notificaciones de alertas de canalización en Microsoft Teams. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para poder enviar notificaciones a Teams desde las canalizaciones, debe crear un [webhook](/microsoftteams/platform/webhooks-and-connectors/how-to/connectors-using) de entrada para el canal de Teams. Si necesita crear un nuevo canal de Teams para este fin, consulte la [documentación de Teams](https://support.microsoft.com/office/create-a-channel-in-teams-fda0b75e-5b90-4fb8-8857-7e102b014525).  
 
@@ -106,3 +106,7 @@ Puede usar [variables del sistema](control-flow-system-variables.md) y [expresio
 Las expresiones anteriores devolverán los mensajes de error pertinentes a partir de una operación incorrecta, que se pueden enviar como notificación en un canal de Teams. Consulte el artículo [Propiedades de salida de la actividad de copia](copy-activity-monitoring.md) para obtener más detalles.
 
 También le animamos a que revise el [ esquema de carga útil de notificaciones](https://adaptivecards.io/explorer/AdaptiveCard.html) de Microsoft Teams y personalice aún más la plantilla anterior según sus necesidades.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+[Envío de un correo electrónico desde una canalización](how-to-send-email.md)

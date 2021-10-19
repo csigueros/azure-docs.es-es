@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/13/2020
+ms.date: 10/11/2021
 ms.author: justinha
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 79c3481f523efba4a88a0c559e7e1dcccbeba545
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.openlocfilehash: ea50fc8bfbaaf7383eb71b433fee97729967c061
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112516852"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129856987"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Unión de una máquina virtual Ubuntu Linux a un dominio administrado de Azure Active Directory Domain Services
 
@@ -35,7 +35,7 @@ Para completar este tutorial, necesitará los siguientes recursos y privilegios:
     * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
 * Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
     * Si es necesario, el primer tutorial [crea y configura un dominio administrado de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
-* Una cuenta de usuario que forme parte del dominio administrado.
+* Una cuenta de usuario que forme parte del dominio administrado. Asegúrese de que el atributo SAMAccountName del usuario no se genera automáticamente. Si varias cuentas de usuario del inquilino de Azure AD tienen el mismo atributo mailNickname, se genera automáticamente el atributo SAMAccountName para cada usuario. Para obtener más información, consulte [Procedimiento para sincronizar objetos y credenciales en un dominio administrado de Azure Active Directory Domain Services](synchronization.md).
 * Nombres de máquina virtual Linux únicos con un máximo de 15 caracteres para evitar nombres truncados que podrían causar conflictos en Active Directory.
 
 ## <a name="create-and-connect-to-an-ubuntu-linux-vm"></a>Creación y conexión a una máquina virtual Ubuntu Linux

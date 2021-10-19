@@ -11,12 +11,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: bf35868d67dab2cb48aee5c85b964f86abd912e3
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 74dea2337bb40469e4d4e94117df080960faca53
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128653785"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858779"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conexión a Azure IoT Central
 
@@ -75,7 +75,7 @@ Solo para pruebas, puede usar las siguientes utilidades para generar certificado
 
 Para conectar un dispositivo con una clave SAS de dispositivo a la aplicación, haga lo siguiente:
 
-1. Cree un *grupo de inscripción* que use el tipo de atestación **Firma de acceso compartido (SAS)** .
+1. Cree un *grupo de inscripción* que use el tipo de atestación **Firma de acceso compartido (SAS)** . 
 1. Copie la clave principal o secundaria del grupo desde el grupo de inscripción.
 1. Use la CLI de Azure para generar una clave de dispositivo a partir de la clave de grupo:
 
@@ -84,6 +84,9 @@ Para conectar un dispositivo con una clave SAS de dispositivo a la aplicación, 
     ```
 
 1. Use la clave de dispositivo generada cuando el dispositivo se conecte a la aplicación de IoT Central.
+
+> [!NOTE]
+> Para usar las claves SAS existentes en los grupos de inscripción, deshabilite el botón de alternancia **Generar claves automáticamente** y escriba las claves SAS.
 
 ## <a name="individual-enrollment"></a>Inscripción individual
 

@@ -4,12 +4,12 @@ description: Configure las herramientas de análisis del rendimiento, la disponi
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: a60419e6c3ff8c4dd030e5e800edbae62a7f7787
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a0a262564306448fd587a699b24982595506df50
+ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733405"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129740709"
 ---
 # <a name="configure-application-insights-for-your-aspnet-website"></a>Configuración de Application Insights para un sitio web de ASP.NET
 
@@ -44,7 +44,7 @@ Para agregar Application Insights al sitio web de ASP.NET, necesita:
 
 Esta sección le guiará a través de la incorporación automática de Application Insights a una aplicación web de ASP.NET basada en plantilla. Desde dentro del proyecto de aplicación web de ASP.NET en Visual Studio:
 
-1. Seleccione **Add Application Insights Telemetry** (Agregar telemetría de Application Insights) > **Application Insights SDK (local)** (SDK de Application Insights [local]) > **Siguiente** > **Finalizar** > **Cerrar**.
+1. Seleccione **Proyecto** > **Agregar telemetría de Application Insights** > **Application Insights SDK (local) (SDK de Application Insights [local])**  > **Siguiente** > **Finalizar** > **Cerrar**.
 2. Abra el archivo *ApplicationInsights.config*. 
 3. Antes de la etiqueta `</ApplicationInsights>` de cierre, agregue una línea que contenga la clave de instrumentación del recurso de Application Insights.  Puede encontrar la clave de instrumentación en el panel de información general del recurso de Application Insights recién creado que creó como parte de los requisitos previos de este artículo.
 

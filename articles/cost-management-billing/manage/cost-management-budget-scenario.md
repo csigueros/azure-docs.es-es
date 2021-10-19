@@ -7,18 +7,18 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: 2f2d88a48b7dca0b2ab3ad512e6b723ab68931c8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c3ed338341ffb73f59a5b20fea55e8d83f4a375f
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128650256"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711291"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Administración de costos con Azure Budgets
 
-El control de costos es un componente esencial para maximizar el valor de su inversión en la nube. Hay varios escenarios donde la orquestación en función del costo, los informes y la visibilidad del costo resultan fundamentales para la continuidad de las operaciones empresariales. [Las API de Azure Cost Management](/rest/api/consumption/) proporcionan un conjunto de API para admitir cada uno de estos escenarios. Las API proporcionan detalles de uso, lo que le permite ver los costos a un nivel de instancia pormenorizado.
+El control de costos es un componente esencial para maximizar el valor de su inversión en la nube. Hay varios escenarios donde la orquestación en función del costo, los informes y la visibilidad del costo resultan fundamentales para la continuidad de las operaciones empresariales. [Las API de Cost Management](/rest/api/consumption/) proporcionan un conjunto de API para admitir cada uno de estos escenarios. Las API proporcionan detalles de uso, lo que le permite ver los costos a un nivel de instancia pormenorizado.
 
 Los presupuestos normalmente se usan como parte del control de costos. Se pueden seguir en Azure. Por ejemplo, podría restringir la vista de presupuesto en función de una colección de recursos, grupos de recursos o una suscripción. Además de utilizar la API de presupuestos para recibir notificaciones por correo electrónico cuando se alcanza un umbral de presupuesto, puede usar [grupos de acciones de Azure Monitor](../../azure-monitor/alerts/action-groups.md) para desencadenar un conjunto organizado de acciones que resultan en un evento de presupuesto.
 

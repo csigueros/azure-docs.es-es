@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 09/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: 46c3aca1c2f983d857be59d2d69b0cadfb433303
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8eb9a6ad285bea2a5ac6e69ebb5ebef48b135899
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128655987"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713137"
 ---
 # <a name="azure-monitor-agent-overview"></a>Información general del agente de Azure Monitor
 El agente de Azure Monitor (AMA) recopila datos de supervisión del sistema operativo invitado de máquinas virtuales de Azure y los entrega a Azure Monitor. En este artículo se proporciona información general sobre el agente de Azure Monitor, incluido cómo instalarlo y cómo configurar la recopilación de datos.
@@ -64,7 +64,7 @@ El agente de Azure Monitor reemplaza los [agentes antiguos de Azure Monitor](age
   Se publicará una fecha de desuso para los agentes de Log Analytics en agosto de 2021. Se prestará asistencia con relación a los agentes actuales durante varios años una vez que se inicie el desuso.
 
 ## <a name="supported-resource-types"></a>Tipos de recurso admitidos
-Actualmente se admiten máquinas virtuales de Azure, conjuntos de escalado de máquinas virtuales y servidores compatibles con Azure Arc. En este momento no se admiten Azure Kubernetes Service ni otros tipos de recursos de proceso.
+Actualmente se admiten máquinas virtuales de Azure, conjuntos de escalado de máquinas virtuales y servidores habilitados para Azure Arc. En este momento no se admiten Azure Kubernetes Service ni otros tipos de recursos de proceso.
 
 ## <a name="supported-regions"></a>Regiones admitidas
 El agente de Azure Monitor está disponible en todas las regiones públicas que admiten Log Analytics, así como en las nubes de Azure Government y China. Todavía no se admiten las nubes aisladas.
@@ -103,7 +103,7 @@ Por ejemplo, VM Insights usa el agente de Log Analytics para enviar datos de re
 
 Por lo tanto, asegúrese de que no recopila los mismos datos de ambos agentes. Si está seguro, compruebe que vayan a destinos independientes.
 
-## <a name="costs"></a>Costes
+## <a name="costs"></a>Costos
 El agente de Azure Monitor no cuesta nada, pero puede incurrir en cargos por los datos ingeridos. Para obtener información sobre la recopilación y retención de datos de Log Analytics y conocer las métricas de clientes, consulte [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## <a name="data-sources-and-destinations"></a>Orígenes y destinos de los datos

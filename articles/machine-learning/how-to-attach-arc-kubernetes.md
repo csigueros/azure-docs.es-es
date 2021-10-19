@@ -8,14 +8,14 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 06/18/2021
 ms.topic: how-to
-ms.openlocfilehash: 9ce41f22fd90acd8ef7e41ec07bce1d7758ab452
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: c3aea87e32aef24bfc17637720e81d30da0d30eb
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129427711"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713262"
 ---
-# <a name="configure-azure-arc-enabled-machine-learning-preview"></a>Configuración de aprendizaje automático habilitado para Azure Arc (versión preliminar)
+# <a name="configure-azure-arc-enabled-machine-learning-preview"></a>Configuración del aprendizaje automático habilitado para Azure Arc (versión preliminar)
 
 Aprenda a configurar el aprendizaje automático habilitado para Azure Arc para el entrenamiento.
 
@@ -48,7 +48,7 @@ El aprendizaje automático habilitado para Azure Arc admite los siguientes escen
 
 ## <a name="deploy-azure-machine-learning-extension"></a>Implementación de la extensión de Azure Machine Learning
 
-Kubernetes habilitado para Azure Arc tiene una funcionalidad de extensión de clúster que le permite instalar varios agentes, como definiciones de directiva, supervisión o aprendizaje automático de Azure, entre muchos otros. Azure Machine Learning requiere el uso de la extensión de clúster *Microsoft.AzureML.Kubernetes* para implementar el agente de Azure Machine Learning en el clúster de Kubernetes. Cuando ya está instalada la extensión de Azure Machine Learning, puede asociarse el clúster a un área de trabajo de Azure Machine Learning y usarlo para el entrenamiento.
+Kubernetes habilitado para Azure Arc tiene una funcionalidad de extensión de clúster que le permite instalar varios agentes, como definiciones de Azure Policy, supervisión o aprendizaje automático, entre muchos otros. Azure Machine Learning requiere el uso de la extensión de clúster *Microsoft.AzureML.Kubernetes* para implementar el agente de Azure Machine Learning en el clúster de Kubernetes. Cuando ya está instalada la extensión de Azure Machine Learning, puede asociarse el clúster a un área de trabajo de Azure Machine Learning y usarlo para el entrenamiento.
 
 Use la extensión `k8s-extension` de la CLI de Azure para implementar la extensión de Azure Machine Learning en el clúster de Kubernetes habilitado para Azure Arc.
 

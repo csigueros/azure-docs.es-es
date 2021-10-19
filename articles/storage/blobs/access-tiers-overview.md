@@ -4,17 +4,17 @@ titleSuffix: Azure Storage
 description: Azure Storage ofrece diferentes niveles de acceso para que pueda almacenar los datos de blobs de la manera más rentable en función de cómo se usen. Obtenga información sobre los niveles de acceso frecuente, esporádico y de archivo para los datos de blobs.
 author: tamram
 ms.author: tamram
-ms.date: 09/29/2021
+ms.date: 10/07/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: fryu
-ms.openlocfilehash: ee0a9714f305a63ae3f25628f1bd9e9b14ce6e01
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 7af8e29890c63429a50c9818baa001bb5990c26b
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129293521"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709011"
 ---
 # <a name="hot-cool-and-archive-access-tiers-for-blob-data"></a>Niveles de acceso frecuente, esporádico y de archivo para los datos de blobs
 
@@ -81,11 +81,13 @@ Se admiten las siguientes operaciones para los blobs del nivel de archivo:
 
 Las cuentas de almacenamiento tienen una configuración predeterminada del nivel de acceso que indica el nivel en línea en el que se crea un nuevo blob. La configuración predeterminada del nivel de acceso se puede establecer en frecuente o esporádico. Los usuarios pueden invalidar la configuración predeterminada de un blob individual al cargar el blob o cambiar su nivel.
 
-De manera predeterminada, el nivel de acceso predeterminado de una nueva cuenta de almacenamiento se establece en el nivel de acceso frecuente. Puede cambiar la configuración predeterminada del nivel de acceso al crear una cuenta de almacenamiento o después de crearla. Si no cambia esta configuración, los blobs se cargan en el nivel de acceso frecuente de manera predeterminada.
+El nivel de acceso predeterminado de una nueva cuenta de almacenamiento v2 de uso general se establece en el nivel de acceso frecuente de manera predeterminada. Puede cambiar la configuración predeterminada del nivel de acceso al crear una cuenta de almacenamiento o después de crearla. Si no cambia esta configuración en la cuenta de almacenamiento o establece explícitamente el nivel al cargar un blob, se carga un nuevo blob en el nivel de acceso frecuente de manera predeterminada.
 
 Un blob que no tiene un nivel asignado explícitamente infiere el nivel de la configuración predeterminada del nivel de acceso de la cuenta. Si el nivel de acceso de un blob se infiere de la configuración predeterminada del nivel de acceso de la cuenta, Azure Portal muestra el nivel de acceso como **Frecuente (inferido)** o **Esporádico (inferido)** .
 
-El cambio de la configuración predeterminada del nivel de acceso de la cuenta se aplica a todos los blobs de la cuenta para los que no se ha establecido explícitamente un nivel de acceso. Si alterna la configuración predeterminada del nivel de acceso de la cuenta de frecuente a esporádico en una cuenta de uso general v2, se le cobrarán las operaciones de escritura (por cada 10 000) para todos los blobs para los que se infiere el nivel de acceso. En las cuentas de Blob Storage no se realiza ningún cargo por este cambio. Si cambia el nivel de acceso de las cuentas de Blob Storage o v2 de uso general de esporádico a frecuente, se le cobran tanto las operaciones de lectura (por cada 10 000) como las de recuperación de datos (por GB).
+El cambio de la configuración predeterminada del nivel de acceso de la cuenta se aplica a todos los blobs de la cuenta para los que no se ha establecido explícitamente un nivel de acceso. Si alterna la configuración predeterminada del nivel de acceso de la cuenta de frecuente a esporádico en una cuenta de uso general v2, se le cobrarán las operaciones de escritura (por cada 10 000) para todos los blobs para los que se infiere el nivel de acceso. Si cambia el nivel de acceso de una cuentas de v2 de uso general de esporádico a frecuente, se le cobran tanto las operaciones de lectura (por cada 10 000) como las de recuperación de datos (por GB).
+
+Al crear una cuenta heredada de Blob Storage, debe especificar la configuración de nivel de acceso predeterminada como frecuente o esporádico en el momento de la creación. No hay ningún cargo por cambiar la configuración de nivel de acceso predeterminada de la cuenta de frecuente a esporádico en una cuenta heredada de Blob Storage. Si cambia el nivel de acceso de su cuenta de Blob Storage de esporádico a frecuente, se le cobran tanto las operaciones de lectura (por 10 000) como las de recuperación de datos (por GB). Microsoft recomienda utilizar cuentas de almacenamiento v2 de uso general, en lugar de cuentas de Blob Storage, siempre que sea posible.
 
 > [!NOTE]
 > El nivel de acceso de archivo no se admite como nivel de acceso predeterminado para una cuenta de almacenamiento.
@@ -183,7 +185,7 @@ Cambiar el nivel de acceso de un blob cuando el control de versiones está habil
 
 En esta tabla se muestra cómo se admite esta característica en la cuenta y el impacto en la compatibilidad al habilitar determinadas funcionalidades.
 
-| Tipo de cuenta de almacenamiento | Blob Storage (compatibilidad predeterminada) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> |
+| Tipo de cuenta de almacenamiento | Blob Storage (compatibilidad predeterminada) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> |
 |--|--|--|--|
 | De uso general estándar, v2 | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) | ![Sí](../media/icons/yes-icon.png) |
 | Blobs en bloques Premium | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |

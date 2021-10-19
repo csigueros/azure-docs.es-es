@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
-ms.openlocfilehash: 6acab9618566766b12b4b236c75aa58386100513
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: f8ff057f818999a9d170fe6f58101c99cd931f7e
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105961071"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129809682"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Solución de problemas de gráficos de métricas
 
@@ -51,11 +51,11 @@ Al [bloquear los límites del eje Y del gráfico](../essentials/metrics-charts.m
 
 **Solución:** Verifique que los límites del eje Y del gráfico no queden bloqueados fuera del intervalo de los valores de las métricas. Si los límites del eje Y se bloquean, puede querer restablecerlos temporalmente para asegurarse de que los valores de las métricas no se encuentren fuera del intervalo del gráfico. No se recomienda bloquear el intervalo del eje Y con granularidad automática para los gráficos con agregación **sum**, **min** y **max**, ya que sus valores cambiarán con la granularidad al cambiar el tamaño de la ventana del explorador o al pasar de una resolución de pantalla a otra. Cambiar la granularidad puede hacer que el área de visualización del gráfico quede vacía.
 
-### <a name="you-are-looking-at-a-guest-os-metric-but-didnt-enable-azure-diagnostic-extension"></a>Ve una métrica del SO invitado, pero no ha habilitado la extensión de Azure Diagnostics
+### <a name="you-are-looking-at-a-guest-classic-metric-but-didnt-enable-azure-diagnostic-extension"></a>Ve una métrica de invitado (clásico), pero no ha habilitado la extensión de Azure Diagnostics
 
-La colección de métricas del **SO invitado** requiere la configuración de la extensión de Azure Diagnostics o habilitarla mediante el panel **Configuración de diagnóstico** para el recurso.
+La colección de métricas de **invitado (clásico)** requiere la configuración de la extensión de Azure Diagnostics o habilitarla mediante el panel **Configuración de diagnóstico** para el recurso.
 
-**Solución:** Si la extensión de Azure Diagnostics está habilitada, pero todavía no puede ver las métricas, siga los pasos descritos en la [guía de solución de problemas de extensión de Azure Diagnostics](../agents/diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). Vea también los pasos de solución de problemas para [No se pueden elegir las métricas y el espacio de nombres del SO invitado](#cannot-pick-guest-os-namespace-and-metrics).
+**Solución:** Si la extensión de Azure Diagnostics está habilitada, pero todavía no puede ver las métricas, siga los pasos descritos en la [guía de solución de problemas de extensión de Azure Diagnostics](../agents/diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). Consulte también los pasos de solución de problemas para [No se pueden elegir las métricas y el espacio de nombres de invitado (clásico)](#cannot-pick-guest-namespace-and-metrics).
 
 ## <a name="error-retrieving-data-message-on-dashboard"></a>Mensaje "Error al recuperar datos" en el panel
 
@@ -79,19 +79,19 @@ En muchos casos, la caída percibida en los valores de métrica es una falta de 
 
 **Solución:** Este comportamiento es así por diseño. Creemos que es beneficioso mostrar los datos tan pronto como se reciben, incluso cuando los datos son *parciales* o *incompletos*. Esto le permite llegar a conclusiones importantes antes y comenzar a investigar de inmediato. Por ejemplo, para una métrica que muestra el número de errores, ver un valor parcial X le indica que se produjeron al menos X errores en un minuto dado. Puede comenzar a investigar el problema de inmediato, en lugar de esperar a ver el recuento exacto de los errores que se produjeron en este minuto, lo que podría no ser tan importante. El gráfico se actualizará una vez que se reciba todo el conjunto de datos, pero en ese momento puede que se muestren los nuevos puntos de datos incompletos de los minutos más recientes.
 
-## <a name="cannot-pick-guest-os-namespace-and-metrics"></a>No se pueden elegir las métricas y el espacio de nombres del SO invitado
+## <a name="cannot-pick-guest-namespace-and-metrics"></a>No se pueden elegir las métricas y el espacio de nombres de invitado
 
-Las máquinas virtuales y los conjunto de escalado de máquinas virtuales tienen dos categorías de métricas: Las métricas del **host de máquina virtual** recopiladas por el entorno de hospedaje de Azure y las métricas del **sistema operativo invitado (clásico)** recopiladas por el [agente de supervisión](../agents/agents-overview.md) que se ejecuta en las máquinas virtuales. El agente de supervisión se instala al habilitar la [extensión de Azure Diagnostics](../agents/diagnostics-extension-overview.md).
+Las máquinas virtuales y los conjuntos de escalado de máquinas virtuales tienen dos categorías de métricas: las métricas del **host de máquina virtual** recopiladas por el entorno de hospedaje de Azure y las métricas de **invitado (clásico)** recopiladas por el [agente de supervisión](../agents/agents-overview.md) que se ejecuta en las máquinas virtuales. El agente de supervisión se instala al habilitar la [extensión de Azure Diagnostics](../agents/diagnostics-extension-overview.md).
 
-De forma predeterminada, las métricas del SO invitado se almacenan en la cuenta de Azure Storage, que elige en la pestaña **Configuración de diagnóstico** del recurso. Si no se recopilan métricas del SO invitado o el explorador de métricas no puede acceder a ellas, solo verá el espacio de nombres de las métricas del **host de máquina virtual**:
+De forma predeterminada, las métricas de invitado (clásico) se almacenan en la cuenta de Azure Storage, que elige en la pestaña **Configuración de diagnóstico** del recurso. Si no se recopilan métricas de invitado o el explorador de métricas no puede acceder a ellas, solo verá el espacio de nombres de las métricas del **host de máquina virtual**:
 
-![imagen de métrica](./media/metrics-troubleshoot/vm.png)
+![imagen de métrica](./media/metrics-troubleshoot/vm-metrics.png)
 
-**Solución:** Si no ve el espacio de nombres y las métricas del **SO invitado (clásico)** en el explorador de métricas:
+**Solución:** Si no ve el espacio de nombres y las métricas de **invitado (clásico)** en el explorador de métricas:
 
 1. Confirme que la [extensión de Azure Diagnostics](../agents/diagnostics-extension-overview.md) esté habilitada y configurada para recopilar métricas.
     > [!WARNING]
-    > No puede usar el [agente de Log Analytics](../agents/agents-overview.md#log-analytics-agent) (también denominado Microsoft Monitoring Agent, o "MMA") para enviar el **SO invitado** a una cuenta de almacenamiento.
+    > No puede usar el [agente de Log Analytics](../agents/agents-overview.md#log-analytics-agent) (también denominado Microsoft Monitoring Agent o "MMA") para enviar el **invitado (clásico)** a una cuenta de almacenamiento.
 
 1. Asegúrese de que el proveedor de recursos **Microsoft.Insights** se ha [registrado para la suscripción](#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
 

@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/14/2021
 ms.author: memildin
-ms.openlocfilehash: 2fc8c04cbe86737d924a1e61e8a2b3808082b7c9
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 76134a5da21056ca493911a7d1242cf8a269d067
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129351727"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129859007"
 ---
 # <a name="defend-azure-arc-enabled-kubernetes-clusters-running-in-on-premises-and-multi-cloud-environments"></a>Protección de clústeres de Kubernetes habilitados para Azure Arc que se ejecutan en entornos locales y de varias nubes
 
@@ -34,7 +34,7 @@ La extensión puede proteger también los clústeres de Kubernetes en otros prov
 | Limitaciones | Kubernetes habilitado para Azure Arc y la extensión de Azure Defender **no admiten** las ofertas de Kubernetes administrado, como Google Kubernetes Engine y Elastic Kubernetes Service. [Azure Defender está disponible de forma nativa para Azure Kubernetes Service (AKS)](defender-for-kubernetes-introduction.md) y no requiere conectar el clúster a Azure Arc. |
 | Entornos y regiones | La disponibilidad de esta extensión es la misma que la de [Kubernetes habilitado para Azure Arc](../azure-arc/kubernetes/overview.md).|
 
-## <a name="architecture-overview"></a>Información general sobre la arquitectura
+## <a name="architecture-overview"></a>Introducción a la arquitectura
 
 Para todos los clústeres de Kubernetes que no sean de AKS, deberá conectar el clúster a Azure Arc. Una vez conectado, Azure Defender para Kubernetes se puede implementar en los recursos de [Kubernetes habilitado para Azure Arc](../azure-arc/kubernetes/overview.md) como una [extensión de clúster](../azure-arc/kubernetes/extensions.md).
 
@@ -42,14 +42,13 @@ Los componentes de la extensión recopilan datos de los registros de auditoría 
 
 En este diagrama se muestra la interacción entre Azure Defender para Kubernetes y el clúster de Kubernetes habilitado para Azure Arc:
 
-:::image type="content" source="media/defender-for-kubernetes-azure-arc/defender-for-kubernetes-architecture-overview.png" alt-text="Un diagrama general de la arquitectura que describe la interacción entre Azure Defender para Kubernetes y un clúster de Kubernetes habilitado para Azure Arc." lightbox="media/defender-for-kubernetes-azure-arc/defender-for-kubernetes-architecture-overview.png":::
+:::image type="content" source="media/defender-for-kubernetes-azure-arc/defender-for-kubernetes-architecture-overview.png" alt-text="Diagrama general de la arquitectura que describe la interacción entre Azure Defender para Kubernetes y un clúster de Kubernetes habilitado para Azure Arc." lightbox="media/defender-for-kubernetes-azure-arc/defender-for-kubernetes-architecture-overview.png":::
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Antes de implementar la extensión, asegúrese de que:
 - [Conecta el clúster de Kubernetes a Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md).
 - Cumple los [requisitos previos incluidos en la documentación acerca de las extensiones de clúster genéricas](../azure-arc/kubernetes/extensions.md#prerequisites).
-- Tiene [Helm 3](https://helm.sh/docs/intro/install) versión 3.7.0 o posterior.
 - Configura el **puerto 443** en los siguientes puntos de conexión para el acceso saliente:
     - En cuanto a los clústeres en la nube de Azure Government:
         - *.ods.opinsights.azure.us
@@ -75,9 +74,9 @@ Una recomendación dedicada en Azure Security Center proporciona lo siguiente:
 
 1. En la página de recomendaciones de Azure Security Center, abra el control de seguridad **Habilitar Azure Defender**.
 
-1. Use el filtro para buscar la recomendación llamada **Los clústeres de Kubernetes habilitados para Azure Arc deben tener la extensión de Azure Defender instalada**.
+1. Use el filtro para buscar la recomendación **Los clústeres de Kubernetes habilitados para Azure Arc deben tener la extensión de Azure Defender instalada**.
 
-    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="La recomendación de Azure Security Center para implementar la extensión de Azure Defender para clústeres de Kubernetes habilitados para Azure Arc." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Recomendación de Azure Security Center para implementar la extensión de Azure Defender para clústeres de Kubernetes habilitados para Azure Arc." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
     > [!TIP]
     > Observe el icono **Corregir** en la columna Acciones.
@@ -196,9 +195,9 @@ Para comprobar que el clúster tiene instalada la extensión de Azure Defender, 
 
 1. En la página de recomendaciones de Azure Security Center, abra el control de seguridad **Habilitar Azure Defender**.
 
-1. Seleccione la recomendación llamada **Los clústeres de Kubernetes habilitados para Azure Arc deben tener la extensión de Azure Defender instalada**.
+1. Seleccione la recomendación **Los clústeres de Kubernetes habilitados para Azure Arc deben tener la extensión de Azure Defender instalada**.
 
-    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="La recomendación de Azure Security Center para implementar la extensión de Azure Defender para clústeres de Kubernetes habilitados para Azure Arc." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Recomendación de Azure Security Center para implementar la extensión de Azure Defender para clústeres de Kubernetes habilitados para Azure Arc." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
 1. Compruebe que el clúster en el que implementó la extensión aparezca como **Correcto**.
 
@@ -336,9 +335,9 @@ DELETE https://management.azure.com/subscriptions/{{Subscription Id}}/resourcegr
 
 | Nombre            | En   | Obligatorio | Tipo   | Descripción                                           |
 |-----------------|------|----------|--------|-------------------------------------------------------|
-| Id. de suscripción | path | True     | string | Identificador de suscripción del clúster de Kubernetes habilitado para Arc |
-| Grupo de recursos  | path | True     | string | Grupo de recursos del clúster de Kubernetes habilitado para Arc  |
-| Cluster Name    | path | True     | string | Nombre del clúster de Kubernetes habilitado para Arc            |
+| Id. de suscripción | path | True     | string | Identificador de suscripción del clúster de Kubernetes habilitado para Azure Arc |
+| Grupo de recursos  | path | True     | string | Grupo de recursos del clúster de Kubernetes habilitado para Azure Arc  |
+| Cluster Name    | path | True     | string | Nombre del clúster de Kubernetes habilitado para Azure Arc            |
 
 Para la **autenticación**, el encabezado debe tener un token de portador (como sucede con otras API de Azure). Para obtener un token de portador, ejecute el siguiente comando:
 

@@ -190,7 +190,7 @@
     - name: Distribuciones de Linux promocionadas
       href: ../virtual-machines/linux/endorsed-distros.md
       maintainContext: true
-    - name: Modo de orquestación (versión preliminar)
+    - name: Modos de orquestación
       items:
         - name: Información general
           href: virtual-machine-scale-sets-orchestration-modes.md

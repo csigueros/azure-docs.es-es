@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3f0c18d7f9130c4ef50b085a4f8c1ec5c22ed6d3
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: e0bf6ebac7826346089b82962963d3596d1d4a8f
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129360389"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857918"
 ---
 # <a name="authorize-access-to-tables-using-azure-active-directory-preview"></a>Autorización del acceso a tablas mediante Azure Active Directory (versión preliminar)
 
@@ -31,7 +31,7 @@ La autorización con Azure AD está disponible para todas las cuentas de uso ge
 
 Cuando una entidad de seguridad (un usuario, un grupo o una aplicación) intenta acceder a un recurso de tabla, la solicitud debe estar autorizada. Con Azure AD, el acceso a un recurso es un proceso de dos pasos. En primer lugar, se autentica la identidad de la entidad de seguridad y se devuelve un token de OAuth 2.0. Después, el token se pasa como parte de una solicitud a Table service y el servicio lo usa para autorizar el acceso al recurso especificado.
 
-El paso de autenticación exige que una aplicación solicite un token de acceso de OAuth 2.0 en tiempo de ejecución. Si una aplicación se ejecuta desde una entidad de Azure como una máquina virtual de Azure, un conjunto de escalado de máquinas virtuales o una aplicación de Azure Functions, puede usar una [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md) para el acceso a las tablas. Para obtener información sobre cómo autorizar solicitudes realizadas por una identidad administrada, vea [Autorización del acceso a tablas con Azure Active Directory e identidades administradas para los recursos de Azure](../common/storage-auth-aad-msi.md).
+El paso de autenticación exige que una aplicación solicite un token de acceso de OAuth 2.0 en tiempo de ejecución. Si una aplicación se ejecuta desde una entidad de Azure como una máquina virtual de Azure, un conjunto de escalado de máquinas virtuales o una aplicación de Azure Functions, puede usar una [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md) para el acceso a las tablas. Para obtener información sobre cómo autorizar solicitudes realizadas por una identidad administrada, consulte [Autorización del acceso a datos de tablas con identidades administradas para recursos de Azure](authorize-managed-identity.md).
 
 El paso de autorización exige que se asignen uno o varios roles de Azure a la entidad de seguridad. Azure Storage proporciona roles de Azure que abarcan conjuntos comunes de permisos para datos de tablas. Los roles que se asignan a una entidad de seguridad determinan los permisos que tiene esa entidad de seguridad. Para más información sobre la asignación de roles de Azure para el acceso a tablas, vea [Asignación de un rol de Azure para acceder a datos de tablas](assign-azure-role-data-access.md).
 

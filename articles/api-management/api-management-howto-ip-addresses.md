@@ -7,13 +7,14 @@ author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 04/13/2021
-ms.author: danlep
-ms.openlocfilehash: d0fe9c305b9592aad7b08437d6e9d14150748ed6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.author: apimpm
+ms.custom: fasttrack-edit
+ms.openlocfilehash: fe5f282150aae2103d20963416f390bf159c48ea
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128680744"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129856892"
 ---
 # <a name="ip-addresses-of-azure-api-management"></a>Direcciones IP de Azure API Management
 
@@ -57,7 +58,7 @@ En las [implementaciones en varias regiones](api-management-howto-deploy-multi-r
 
 Si el servicio API Management se encuentra en una red virtual, tendrá dos tipos de direcciones IP: públicas y privadas.
 
-Las direcciones IP públicas se usan para la comunicación interna en el puerto `3443`, para administrar la configuración (por ejemplo, mediante Azure Resource Manager). En la configuración de la red virtual externa, también se usan para el tráfico de API en tiempo de ejecución. Cuando se envía una solicitud desde API Management a un back-end de acceso público (accesible desde Internet), una dirección IP pública será visible como origen de la solicitud.
+Las direcciones IP públicas se usan para la comunicación interna en el puerto `3443`, para administrar la configuración (por ejemplo, mediante Azure Resource Manager). En la configuración de la red virtual externa, también se usan para el tráfico de API en tiempo de ejecución. 
 
 Las direcciones IP virtuales privadas (VIP), disponibles **únicamente** en el [modo de red virtual interna](api-management-using-with-internal-vnet.md), se usan para conectarse desde dentro de la red a los puntos de conexión y puertas de enlace de API Management, al portal para desarrolladores y al plano de administración para el acceso directo a la API. Puede usarlas para configurar los registros DNS dentro de la red.
 
@@ -85,7 +86,11 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/
 }
 ```
 
-API Management usa una dirección IP pública para conexiones fuera de la red virtual y una dirección IP privada para conexiones sin la red virtual.
+API Management usa una dirección IP pública para conexiones fuera de la red virtual y una dirección IP privada para conexiones sin la red virtual. 
+
+Al implementar API Management en la [configuración de red virtual interna](api-management-using-with-internal-vnet.md) y API Management se conecta a back-end privados (accesibles desde intranet), las direcciones IP internas de la subred se usan para el tráfico de la API en tiempo de ejecución. Cuando se envía una solicitud desde API Management a un back-end privado, será visible una dirección IP privada como origen de la solicitud. Por lo tanto, en esta configuración, si existe un requisito para restringir el tráfico entre API Management y un back-end interno, es mejor usar todo el prefijo de subred de API Management con una regla de IP y no solo la dirección IP privada asociada al recurso de API Management. 
+
+Cuando se envía una solicitud desde API Management a un back-end de acceso público (accesible desde Internet), siempre será visible una dirección IP pública como origen de la solicitud.
 
 ## <a name="ip-addresses-of-consumption-tier-api-management-service"></a>Direcciones IP del nivel de consumo en el servicio API Management
 

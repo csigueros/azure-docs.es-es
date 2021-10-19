@@ -3,12 +3,12 @@ title: Administración de la infraestructura híbrida a gran escala con Azure A
 description: Azure Lighthouse ayuda a administrar de forma eficaz las máquinas de sus clientes y los clústeres de Kubernetes fuera de Azure.
 ms.date: 09/07/2021
 ms.topic: how-to
-ms.openlocfilehash: 7d544f98d6a88678cb8efc337831aa89becb21ee
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 8761c87daeda97b6c67ce8e79e438ed01d8d3a37
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124736556"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714737"
 ---
 # <a name="manage-hybrid-infrastructure-at-scale-with-azure-arc"></a>Administración de la infraestructura híbrida a gran escala con Azure Arc
 
@@ -33,7 +33,7 @@ Puede administrar estas máquinas conectadas mediante construcciones de Azure, c
 
 Por ejemplo, puede [asegurarse de que se aplica el mismo conjunto de directivas a las máquinas híbridas de los clientes](../../azure-arc/servers/learn/tutorial-assign-policy-portal.md). También puede usar Azure Security Center para supervisar el cumplimiento en todos los entornos híbridos de sus clientes, o [usar Azure Monitor para recopilar datos directamente de las máquinas híbridas](../../azure-arc/servers/learn/tutorial-enable-vm-insights.md) en un área de trabajo de Log Analytics. Las [extensiones de máquina virtual](../../azure-arc/servers/manage-vm-extensions.md) pueden implementarse en máquinas virtuales Windows y Linux que no sean de Azure, lo que simplifica la administración de las máquinas híbridas del cliente.
 
-## <a name="manage-hybrid-kubernetes-clusters-at-scale-with-azure-arcenabled-kubernetes"></a>Administración de clústeres híbridos de Kubernetes a gran escala con Kubernetes habilitado para Azure Arc
+## <a name="manage-hybrid-kubernetes-clusters-at-scale-with-azure-arc-enabled-kubernetes"></a>Administración de clústeres híbridos de Kubernetes a gran escala con Kubernetes habilitado para Azure Arc
 
 Puede administrar clústeres de Kubernetes que se han [conectado a la suscripción de un cliente con Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md), como si se estuvieran ejecutando en Azure.
 

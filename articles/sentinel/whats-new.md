@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 08/09/2021
-ms.openlocfilehash: c99d3dde29edbd0e43f883ff9b31e054cea1a720
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.date: 10/11/2021
+ms.openlocfilehash: 07e48fba8bfb554604d875f9f4a041fed466dbe7
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129278887"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754717"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Novedades de Azure Sentinel
 
@@ -32,6 +32,43 @@ Si busca elementos de más de 6 meses, puede encontrarlos en las [Archivo de nov
 >
 > Usted también puede contribuir. Únase a nosotros en la [comunidad de GitHub de cazadores de amenazas de Azure Sentinel](https://github.com/Azure/Azure-Sentinel/wiki).
 >
+
+## <a name="october-2021"></a>Octubre de 2021
+
+- [Las plantillas y la galería del cuaderno de estrategias ya están disponibles (versión preliminar pública)](#playbook-templates-and-gallery-now-available-public-preview)
+- [Administración de versiones de plantilla para las reglas de análisis programadas (versión preliminar pública)](#manage-template-versions-for-your-scheduled-analytics-rules-public-preview)
+- [Esquema de normalización de eventos de DHCP (versión preliminar pública)](#dhcp-normalization-schema-public-preview)
+
+### <a name="playbook-templates-and-gallery-now-available-public-preview"></a>Las plantillas y la galería del cuaderno de estrategias ya están disponibles (versión preliminar pública)
+
+Una plantilla del cuaderno de estrategias es un flujo de trabajo precompilado, probado y listo para usar que se puede personalizar para satisfacer sus necesidades. Las plantillas también pueden servir como referencia para los procedimientos recomendados al desarrollar cuadernos de estrategias desde cero o como inspiración para nuevos escenarios de automatización.
+
+La comunidad de Azure Sentinel, los proveedores de software independientes (ISV) y los propios expertos de Microsoft han desarrollado plantillas del cuaderno de estrategias, que puede encontrar en la pestaña **Plantillas del cuaderno de estrategias** (en **Automation**), como parte de una [**solución de Azure Sentinel**](sentinel-solutions.md) o en el [**repositorio de GitHub de Azure Sentinel**](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). 
+
+Consulte [Creación y personalización de cuadernos de estrategias a partir de plantillas integradas](use-playbook-templates.md) para obtener más información sobre cómo implementar una plantilla del cuaderno de estrategias en la pestaña **Plantillas del cuaderno de estrategias** en **Automation**.
+
+### <a name="manage-template-versions-for-your-scheduled-analytics-rules-public-preview"></a>Administración de versiones de plantilla para las reglas de análisis programadas (versión preliminar pública)
+
+Al crear reglas de análisis a partir de [plantillas de reglas de Azure Sentinel integradas](detect-threats-built-in.md), se crea de forma eficaz una copia de la plantilla. Más allá de ese punto, la regla activa ***no*** se actualiza dinámicamente para coincidir con los cambios realizados en la plantilla de origen.
+
+Sin embargo, las reglas creadas a partir plantillas ***recuerdan*** las plantillas de las que proceden, lo que le ofrece dos ventajas:
+
+- Si ha realizado cambios en una regla al crearla a partir de una plantilla (o en cualquier momento posterior), siempre puede revertir la regla a su versión original (como una copia de la plantilla).
+
+- Puede recibir una notificación cuando se actualice una plantilla y tendrá la opción de actualizar las reglas a la nueva versión de sus plantillas o dejarlas tal y como están.
+
+[Obtenga información sobre cómo administrar estas tareas](manage-analytics-rule-templates.md) y qué debe tener en cuenta. Estos procedimientos se aplican a las reglas de análisis [programadas](detect-threats-built-in.md#scheduled) creadas a partir de plantillas.
+
+### <a name="dhcp-normalization-schema-public-preview"></a>Esquema de normalización de DHCP (versión preliminar pública)
+
+El modelo de información de Azure Sentinel (ASIM) ahora admite un esquema de normalización de DHCP, que se usa para describir los eventos notificados por un servidor DHCP y que Azure Sentinel usa para habilitar el análisis independiente del origen. 
+
+Los eventos descritos en el esquema de normalización de DHCP incluyen atender solicitudes de direcciones IP de DHCP concedidas desde sistemas cliente y actualizar un servidor DNS con las concesiones otorgadas.
+
+Para más información, consulte:
+
+- [Referencia del esquema de normalización de DHCP de Azure Sentinel (versión preliminar pública)](dhcp-normalization-schema.md)
+- [Normalización y el modelo de información de Azure Sentinel (ASIM)](normalization.md)
 
 ## <a name="september-2021"></a>Septiembre de 2021
 

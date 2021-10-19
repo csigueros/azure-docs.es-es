@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2021
 ms.author: memildin
-ms.openlocfilehash: b1dc3b61c73894d7792835000f0e13e0bc8b412b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: bbfd426c67d09ca8632c3ab665b1242d27c6ad58
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728639"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711701"
 ---
 # <a name="enable-azure-defender-for-sql-servers-on-machines"></a>Habilitación de Azure Defender para servidores de SQL en máquinas 
 

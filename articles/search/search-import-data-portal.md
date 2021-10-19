@@ -1,106 +1,111 @@
 ---
 title: Importación de datos en un índice de búsqueda con Azure Portal
 titleSuffix: Azure Cognitive Search
-description: Aprenda a usar el Asistente para la importación de datos en Azure Portal para rastrear datos de Azure desde Cosmos DB, Blob Storage, Table Storage, SQL Database, SQL Managed Instance y SQL Server en máquinas virtuales de Azure.
+description: Obtenga información sobre el asistente para la importación de datos de Azure Portal que se usa para crear y cargar un índice e invocar opcionalmente el enriquecimiento con IA mediante aptitudes integradas para el procesamiento de lenguaje natural, la traducción, el OCR y el análisis de imágenes.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: ed3f02f6bf4c9a7b53a63f31163663c59c0edc88
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.date: 10/06/2021
+ms.openlocfilehash: 9fe443422bac06ccb934a34799bc29be29c45cb5
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123451032"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714672"
 ---
-# <a name="import-data-wizard-for-azure-cognitive-search"></a>Asistente para la importación de datos de Azure Cognitive Search
+# <a name="import-data-wizard-in-azure-cognitive-search"></a>Asistente para la importación de datos de Azure Cognitive Search
 
-Azure Portal incluye un asistente para la **importación de datos** en el panel de Azure Cognitive Search para la creación de prototipos y la carga de datos en un índice. En este artículo se tratan las ventajas y limitaciones del uso del asistente, las entradas y salidas, y la información de uso. Para obtener instrucciones prácticas sobre cómo recorrer paso a paso el asistente con datos de ejemplo integrados, consulte el inicio rápido [Creación de un índice de Azure Cognitive Search en Azure Portal](search-get-started-portal.md).
+El **asistente para la importación de datos** de Azure Portal crea varios objetos que se usan para la indexación y el enriquecimiento con IA en un servicio de búsqueda. Si es la primera vez que utiliza Azure Cognitive Search, es una de las características más eficaces a su disposición. Con un mínimo esfuerzo, puede crear una canalización de indexación o enriquecimiento que ejercite la mayor parte de la funcionalidad de Azure Cognitive Search.
 
-Entre las operaciones que realiza este asistente se incluyen:
+Si usa el asistente para las pruebas de concepto, en este artículo se explica el funcionamiento interno del asistente para que pueda usarlo de forma más eficaz.
 
-1 - Conexión a un origen de datos de Azure compatible.
+No es un artículo paso a paso. Para obtener ayuda sobre el uso del asistente con datos de ejemplo integrados, consulte [Inicio rápido:Creación de un índice de búsqueda](search-get-started-portal.md) o [Inicio rápido: Creación de una traducción de texto y un conjunto de aptitudes de entidades](cognitive-search-quickstart-blob.md).
 
-2 - Creación de un esquema de índice que se deduce mediante el muestreo de los datos de origen.
+## <a name="starting-the-wizard"></a>Inicio del asistente
 
-3 - Opcionalmente, incorporación de características de enriquecimiento de inteligencia artificial para extraer o generar contenido y estructuras.
-
-4 - Ejecución del asistente para crear objetos, importar datos, establecer una programación y otras opciones de configuración.
-
-El asistente genera una serie de objetos, que se guardan en el servicio de búsqueda, a los que se puede acceder mediante programación o con otras herramientas.
-
-## <a name="advantages-and-limitations"></a>Ventajas y limitaciones
-
-Antes de escribir cualquier código, puede usar el asistente para crear prototipos y pruebas de concepto. El asistente se conecta a orígenes de datos externos, muestrea los datos para crear un índice inicial y, a continuación, los importa como documentos JSON en un índice de Azure Cognitive Search. 
-
-El muestreo es el proceso mediante el cual se infiere un esquema de índice y tiene algunas limitaciones. Al crear el origen de datos, el asistente elige una muestra de documentos para decidir qué columnas forman parte del origen de datos. No se leen todos los archivos, ya que esto podría tardar horas en el caso de orígenes de datos muy grandes. Dada una selección de documentos, los metadatos de origen como, por ejemplo, el nombre o el tipo de campo, se usan para crear una colección de campos en un esquema de índice. En función de la complejidad de los datos de origen, es posible que tenga que modificar el esquema inicial para que sea más preciso, o bien ampliarlo para que sea más exhaustivo. Puede insertar los cambios en la página de definición del índice.
-
-En general, las ventajas del uso del asistente son claras: siempre que se cumplan los requisitos, puede crear un prototipo de un índice consultable en cuestión de minutos. Algunas de las dificultades de la indexación como, por ejemplo, proporcionar datos como documentos JSON, se controlan mediante el asistente.
-
-Las limitaciones conocidas se resumen de la siguiente forma:
-
-+ El asistente no admite la iteración ni la reutilización. Cada paso a través del asistente crea una nueva configuración del índice, del conjunto de aptitudes y del indexador. Solo los orígenes de datos se pueden conservar y reutilizar en el asistente. Para editar o restringir otros objetos, tiene que usar las API REST o el SDK de .NET para recuperar y modificar las estructuras.
-
-+ El contenido de origen debe residir en un origen de datos de Azure compatible.
-
-+ El muestreo se realiza sobre un subconjunto de los datos de origen. En el caso de orígenes de datos de gran tamaño, es posible que el asistente omita algunos campos. Es posible que tenga que ampliar el esquema o corregir los tipos de datos inferidos si el muestreo es insuficiente.
-
-+ El enriquecimiento de inteligencia artificial, tal como se expone en el portal, se limita a algunas aptitudes integradas. 
-
-+ El [almacén de conocimiento](knowledge-store-concept-intro.md), que se puede crear mediante el asistente, se limita a algunas proyecciones predeterminadas. Si desea guardar documentos enriquecidos creados por el asistente, el contenedor de blobs y las tablas incluyen nombres y estructuras predeterminados.
-
-<a name="data-source-inputs"></a>
-
-## <a name="data-source-input"></a>Entrada de origen de datos
-
-El asistente para la **importación de datos** se conecta a un origen de datos externo mediante la lógica interna que proporcionan los indizadores de Azure Cognitive Search, que están equipados para muestrear el origen, leer los metadatos, descifrar documentos para leer el contenido y la estructura, y serializar el contenido como JSON para la importación posterior en Azure Cognitive Search.
-
-Solo se puede importar desde una única tabla, vista de base de datos o estructura de datos equivalente; sin embargo, la estructura puede incluir subestructuras jerárquicas o anidadas. Para más información, consulte el artículo sobre la [Cómo modelar tipos complejos](search-howto-complex-data-types.md).
-
-Debe crear esta tabla o vista única antes de ejecutar el asistente y debe incluir contenido. Por motivos obvios, no tiene sentido ejecutar el asistente para la **importación de datos** en un origen de datos vacío.
-
-|  Número de selección | Descripción |
-| ---------- | ----------- |
-| **Origen de datos existente** |Si ya tiene indexadores definidos en el servicio de búsqueda, es posible que tenga una definición de origen de datos ya existente que puede volver a utilizar. En Azure Cognitive Search, solo los indizadores usan objetos de origen de datos. Puede crear un objeto de origen de datos mediante programación o con el asistente para la **importación de datos** y reutilizarlo cuando sea necesario.|
-| **Muestras**| Azure Cognitive Search proporciona dos orígenes de datos de ejemplo integrados que se usan en tutoriales e inicios rápidos: una base de datos SQL con información inmobiliaria y una base de datos de hoteles hospedada en Cosmos DB. Para ver un tutorial basado en el ejemplo de los hoteles, consulte el inicio rápido [Creación de un índice de Azure Search en Azure Portal](search-get-started-portal.md). |
-| [**Azure SQL Database o SQL Managed Instance**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |Se puede especificar el nombre del servicio, las credenciales de un usuario de base de datos con permiso de lectura y un nombre de base de datos en la página o a través de una cadena de conexión de ADO.NET. Elija la opción de cadena de conexión para ver o personalizar las propiedades. <br/><br/>En la página debe especificarse la tabla o vista que proporciona el conjunto de filas. Esta opción aparece una vez realizada correctamente la conexión, lo que proporciona una lista desplegable para que pueda realizar una selección.|
-| **SQL Server en máquinas virtuales de Azure** |Especifique un nombre de servicio completo, el identificador de usuario y la contraseña, y la base de datos como una cadena de conexión. Para utilizar este origen de datos, debe haber instalado un certificado en el almacén local que cifra la conexión. Para obtener instrucciones, consulte [Conexión de máquina virtual de SQL a Azure Cognitive Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>En la página debe especificarse la tabla o vista que proporciona el conjunto de filas. Esta opción aparece una vez realizada correctamente la conexión, lo que proporciona una lista desplegable para que pueda realizar una selección. |
-| [**Azure Cosmos DB**](search-howto-index-cosmosdb.md)|Los requisitos incluyen la cuenta, la base de datos y la colección. Todos los documentos de la colección se incluirán en el índice. Puede definir una consulta para aplanar o filtrar el conjunto de filas o dejar en blanco la consulta. No se requiere una consulta en este asistente.|
-| [**Azure Blob Storage**](search-howto-indexing-azure-blob-storage.md) |Los requisitos incluyen la cuenta de almacenamiento y un contenedor. Opcionalmente, si los nombres de blobs siguen una convención de nomenclatura virtual con fines de agrupación, puede especificar la parte del directorio virtual del nombre como una carpeta en el contenedor. Consulte [Indexación de Blob Storage](search-howto-indexing-azure-blob-storage.md) para más información. |
-| [**Azure Table Storage**](search-howto-indexing-azure-tables.md) |Los requisitos incluyen la cuenta de almacenamiento y un nombre de tabla. Opcionalmente, puede especificar una consulta para recuperar un subconjunto de las tablas. Consulte [Indexación de Table Storage](search-howto-indexing-azure-tables.md) para más información. |
-
-## <a name="wizard-output"></a>Salida del asistente
-
-En segundo plano, el asistente crea, configura e invoca los siguientes objetos. Después de ejecutar el asistente, puede encontrar su salida en las páginas del portal. La página de información general de su servicio tiene listas de índices, indexadores, orígenes de datos y conjuntos de aptitudes. Las definiciones de índice se pueden ver en JSON completo en el portal. Para otras definiciones, puede usar la [API REST](/rest/api/searchservice/) para OBTENER objetos específicos.
-
-| Object | Descripción | 
-|--------|-------------|
-| [Data Source](/rest/api/searchservice/create-data-source) (Origen de datos)  | Conserva la información de conexión en los datos de origen, incluidas las credenciales. Un objeto de origen de datos se utiliza exclusivamente con indexadores. | 
-| [Index](/rest/api/searchservice/create-index) | Estructura de datos física que se usa para la búsqueda de texto completo y otras consultas. | 
-| [Conjunto de aptitudes](/rest/api/searchservice/create-skillset) | Un conjunto completo de instrucciones para manipular, transformar y dar forma al contenido que incluye el análisis y la extracción de información de archivos de imagen. Excepto en el caso de estructuras muy simples y limitadas, incluye una referencia a un recurso de Cognitive Services que proporciona enriquecimiento. Opcionalmente, también puede contener una definición de almacén de conocimiento.  | 
-| [Indexador](/rest/api/searchservice/create-indexer)  | Un objeto de configuración que especifica un origen de datos, un índice de destino, un conjunto de aptitudes opcional, una programación opcional y valores de configuración opcionales para el control de errores y la codificación en base 64. |
-
-## <a name="how-to-start-the-wizard"></a>Inicio del asistente
-
-El asistente para la importación de datos se inicia desde la barra de comandos de la página Información general del servicio.
-
-1. En [Azure Portal](https://portal.azure.com), abra la página del servicio de búsqueda desde el panel o [busque el servicio](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en la lista.
-
-1. En la página de información general del servicio en la parte superior, haga clic en **Importar datos**.
+En [Azure Portal](https://portal.azure.com), abra la página del servicio de búsqueda desde el panel o [busque el servicio](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en la lista. En la parte superior de la página de información general del servicio, haga clic en **Importar datos**.
 
    :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Captura de pantalla del comando para importar datos" border="true":::
 
+El asistente se abre totalmente expandido en la ventana del explorador para que tenga más espacio para trabajar. Varias páginas son bastante densas.
+
 **Importar datos** también se puede ejecutar desde otros servicios de Azure, como Azure Cosmos DB, Azure SQL Database, SQL Managed Instance y Azure Blob Storage. Busque la opción para **agregar Azure Cognitive Search** en el panel de navegación izquierdo en la página de información general del servicio.
+
+## <a name="objects-created-by-the-wizard"></a>Objetos creados por el asistente
+
+El asistente generará los objetos de la tabla siguiente. Una vez creados los objetos, puede revisar sus definiciones JSON en el portal o llamarlos desde el código.
+
+| Object | Descripción | 
+|--------|-------------|
+| [Indexador](/rest/api/searchservice/create-indexer)  | Un objeto de configuración que especifica un origen de datos, un índice de destino, un conjunto de aptitudes opcional, una programación opcional y valores de configuración opcionales para el control de errores y la codificación en base 64. |
+| [Data Source](/rest/api/searchservice/create-data-source) (Origen de datos)  | Conserva la información de conexión en los datos de origen, incluidas las credenciales. Un objeto de origen de datos se utiliza exclusivamente con indexadores. | 
+| [Index](/rest/api/searchservice/create-index) | Estructura de datos física que se usa para la búsqueda de texto completo y otras consultas. | 
+| [Conjunto de aptitudes](/rest/api/searchservice/create-skillset) | Opcional. Un conjunto completo de instrucciones para manipular, transformar y dar forma al contenido que incluye el análisis y la extracción de información de archivos de imagen. Excepto en el caso de estructuras muy simples y limitadas, incluye una referencia a un recurso de Cognitive Services que proporciona enriquecimiento. | 
+| [Almacén de conocimiento](knowledge-store-concept-intro.md) | Opcional. Almacena la salida de una [canalización de enriquecimiento con IA](cognitive-search-concept-intro.md) en tablas y blobs de Azure Storage para realizar análisis independientes o procesamientos de bajada. |
+
+## <a name="benefits-and-limitations"></a>Beneficios y limitaciones
+
+Antes de escribir cualquier código, puede usar el asistente para crear prototipos y pruebas de concepto. El asistente se conecta a orígenes de datos externos, muestrea los datos para crear un índice inicial y, a continuación, los importa como documentos JSON en un índice de Azure Cognitive Search. 
+
+Si va a evaluar conjuntos de aptitudes, el asistente controlará todas las asignaciones de los campos de salida y agregará funciones auxiliares para crear objetos utilizables. La división de texto se agrega si especifica un modo de análisis. La combinación de texto se agrega si elige el análisis de imágenes para que el asistente pueda volver a unir descripciones de texto con el contenido de la imagen. Se agregan las aptitudes de conformador para admitir proyecciones válidas si elige la opción de almacén de conocimiento. Todas las tareas anteriores incluyen una curva de aprendizaje. Si es la primera vez que utiliza el enriquecimiento, la capacidad de controlar estos pasos le permite medir el valor de una aptitud sin tener que invertir mucho tiempo y esfuerzo.
+
+El muestreo es el proceso mediante el cual se infiere un esquema de índice y tiene algunas limitaciones. Al crear el origen de datos, el asistente elige una muestra aleatoria de documentos para decidir las columnas que forman parte del origen de datos. No se leen todos los archivos, ya que esto podría tardar horas en el caso de orígenes de datos muy grandes. Dada una selección de documentos, los metadatos de origen como, por ejemplo, el nombre o el tipo de campo, se usan para crear una colección de campos en un esquema de índice. En función de la complejidad de los datos de origen, es posible que tenga que modificar el esquema inicial para que sea más preciso, o bien ampliarlo para que sea más exhaustivo. Puede insertar los cambios en la página de definición del índice.
+
+En general, las ventajas del uso del asistente son claras: siempre que se cumplan los requisitos, puede crear un prototipo de un índice consultable en cuestión de minutos. Algunas de las dificultades de la indexación como, por ejemplo, serializar datos como documentos JSON, se controlan mediante el asistente.
+
+El asistente no está exento de limitaciones. A continuación se resumen las restricciones:
+
++ El asistente no admite la iteración ni la reutilización. Cada paso a través del asistente crea una nueva configuración del índice, del conjunto de aptitudes y del indexador. Solo los orígenes de datos se pueden conservar y reutilizar en el asistente. Para editar o refinar otros objetos, elimínelos y empiece de nuevo o use las API de REST o el SDK de .NET para modificar las estructuras.
+
++ El contenido de origen debe residir en un [origen de datos compatible](search-indexer-overview.md#supported-data-sources).
+
++ El muestreo se realiza sobre un subconjunto de los datos de origen. En el caso de orígenes de datos de gran tamaño, es posible que el asistente omita algunos campos. Es posible que tenga que ampliar el esquema o corregir los tipos de datos inferidos si el muestreo es insuficiente.
+
++ El enriquecimiento con IA, tal como se expone en el portal, se limita a un subconjunto de aptitudes integradas. 
+
++ El [almacén de conocimiento](knowledge-store-concept-intro.md), que se puede crear mediante el asistente, se limita a algunas proyecciones predeterminadas y usa la convención de nomenclatura predeterminada. Si desea personalizar los nombres o las proyecciones, deberá crear el almacén de conocimiento mediante REST o los SDK.
+
+## <a name="workflow"></a>Flujo de trabajo
+
+El asistente se organiza en cuatro pasos principales:
+
+1. Conexión a un origen de datos de Azure compatible.
+
+1. Creación de un esquema de índice que se deduce mediante el muestreo de los datos de origen.
+
+1. Opcionalmente, incorporación de características de enriquecimiento con IA para extraer o generar contenido y estructuras. En este paso se recopilan entradas para crear un almacén de conocimiento.
+
+1. Ejecución del asistente para crear objetos, cargar datos, establecer una programación y otras opciones de configuración.
+
+<a name="data-source-inputs"></a>
+
+### <a name="data-source-configuration-in-the-wizard"></a>Configuración del origen de datos en el asistente
+
+El asistente para la **importación de datos** se conecta a un [origen de datos externo compatible](search-indexer-overview.md#supported-data-sources) mediante la lógica interna que proporcionan los indizadores de Azure Cognitive Search, que están equipados para muestrear el origen, leer los metadatos, descifrar documentos para leer el contenido y la estructura y serializar el contenido como JSON para la importación posterior en Azure Cognitive Search.
+
+No se garantiza que todos los orígenes de datos de la versión preliminar estén disponibles en el asistente. Como cada origen de datos tiene el potencial de introducir otros cambios de nivel inferior, solo se agregará un origen de datos de la versión preliminar a la lista de orígenes de datos si es totalmente compatible con todas las experiencias del asistente, como la definición del conjunto de aptitudes y la inferencia de esquemas de índice.
+
+Solo se puede importar desde una única tabla, vista de base de datos o estructura de datos equivalente; sin embargo, la estructura puede incluir subestructuras jerárquicas o anidadas. Para más información, consulte el artículo sobre la [Cómo modelar tipos complejos](search-howto-complex-data-types.md).
+
+### <a name="skillset-configuration-in-the-wizard"></a>Configuración del conjunto de aptitudes en el asistente
+
+La configuración del conjunto de aptitudes se produce después de la definición del origen de datos, porque el tipo de origen de datos informará de la disponibilidad de determinadas aptitudes integradas. En concreto, si va a indexar archivos de Blob Storage, la elección del modo de análisis de dichos archivos determinará si el análisis de sentimiento estará disponible.
+
+El asistente agregará las aptitudes que elija, pero también agregará otras aptitudes necesarias para lograr un resultado correcto. Por ejemplo, si especifica un almacén de conocimiento, el asistente agrega una aptitud de conformador para admitir proyecciones (o estructuras de datos físicos).
+
+Los conjuntos de aptitudes son opcionales y hay un botón en la parte inferior de la página para saltar si no desea el enriquecimiento con IA.
 
 <a name="index-definition"></a>
 
-## <a name="how-to-edit-or-finish-an-index-schema-in-the-wizard"></a>Edición o finalización de un esquema de índice en el asistente
+### <a name="index-schema-configuration-in-the-wizard"></a>Configuración del esquema de índice en el asistente
 
-El asistente genera un índice incompleto que se rellena con los documentos que se obtienen del origen de datos de entrada. Para que el índice sea funcional, asegúrese de que tiene definidos los elementos siguientes.
+El asistente muestrea el origen de datos para detectar los campos y sus tipos. En función del origen de datos, también puede ofrecer campos para indexar metadatos.
 
-1. ¿Se ha completado la lista de campos? Agregue los nuevos campos que omitió el muestreo y quite aquellos que no aporten valor a una experiencia de búsqueda o que no se utilizarán en una [expresión de filtro](search-query-odata-filter.md) o [perfil de puntuación](index-add-scoring-profiles.md).
+Como el muestreo es un ejercicio impreciso, revise el índice para atender a las consideraciones siguientes:
+
+1. ¿La lista de campos es precisa? Si el origen de datos contiene campos que no se han seleccionado en el muestreo, puede agregar manualmente los nuevos campos que falten en el muestreo y quitar los que no agreguen valor a una experiencia de búsqueda o que no se vayan a utilizar en una [expresión de filtro](search-query-odata-filter.md) o un [perfil de puntuación](index-add-scoring-profiles.md).
 
 1. ¿Es el tipo de datos adecuado para los datos entrantes? Azure Cognitive Search admite los [tipos de datos de Entity Data Model (EDM)](/rest/api/searchservice/supported-data-types). En el caso de datos SQL de Azure, hay un [gráfico de asignaciones](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) que muestra valores equivalentes. Para más información, consulte [Transformaciones y asignaciones de campos](search-indexer-field-mappings.md).
 
@@ -109,12 +114,12 @@ El asistente genera un índice incompleto que se rellena con los documentos que 
 1. Establezca los atributos para determinar cómo se utiliza ese campo en un índice. 
 
    Realice con cuidado este paso porque los atributos determinarán la expresión física de los campos del índice. Si desea cambiar los atributos más adelante, incluso mediante programación, casi siempre tendrá que quitar y recompilar el índice. Los atributos principales como **Searchable** y **Retrievable** tienen un [impacto insignificante en el almacenamiento](search-what-is-an-index.md#index-size). La habilitación de filtros y el uso de proveedores de sugerencias aumentan los requisitos de almacenamiento. 
-   
+
    + **Searchable** permite la búsqueda de texto completo. Todos los campos utilizados en consultas de formato libre o en expresiones de consulta deben tener este atributo. Para cada campo que marque como **Searchable**, se crearán índices invertidos.
 
    + **Retrievable** devuelve el campo en los resultados de búsqueda. Todos los campos que proporcionan contenido a los resultados de búsqueda deben tener este atributo. Al establecer este campo, el tamaño del índice no se verá afectado de manera apreciable.
 
-   + **Filterable** permite que se haga referencia al campo en las expresiones de filtro. Cada campo utilizado en una expresión **$filter** debe tener este atributo. Las expresiones de filtro son para coincidencias exactas. Dado que las cadenas de texto permanecen intactas, se necesita almacenamiento adicional para dar cabida al contenido textual.
+   + **Filterable** permite que se haga referencia al campo en las expresiones de filtro. Cada campo utilizado en una expresión **$filter** debe tener este atributo. Las expresiones de filtro son para coincidencias exactas. Dado que las cadenas de texto permanecen intactas, se necesita más almacenamiento para dar cabida al contenido textual.
 
    + **Facetable** permite que el campo se use en la navegación con facetas. Solo los campos marcados también como **Filterable** pueden marcarse como **Facetable**.
 
@@ -126,10 +131,18 @@ El asistente genera un índice incompleto que se rellena con los documentos que 
 
 1. ¿Necesita la funcionalidad de escritura anticipada en forma de autocompletar o de resultados sugeridos? Active la casilla **Proveedor de sugerencias** para habilitar las [sugerencias de consultas de escritura anticipada y la función autocompletar](index-add-suggesters.md) en los campos seleccionados. Los proveedores de sugerencias se suman al número de términos con tokens en el índice y, por tanto, consumen más almacenamiento.
 
+### <a name="indexer-configuration-in-the-wizard"></a>Configuración del indizador en el asistente
+
+La última página del asistente recopila entradas de usuario para la configuración del indizador. Puede [especificar una programación](search-howto-schedule-indexers.md) y establecer otras opciones que variarán según el tipo de origen de datos.
+
+Internamente el asistente también configura lo siguiente, que no es visible en el indizador hasta después de su creación:
+
++ [Asignaciones de campos](search-indexer-field-mappings.md) entre el origen de datos y el índice.
++ [Asignaciones de campos de salida](cognitive-search-output-field-mapping.md) entre la salida de la aptitud y un índice.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 La mejor manera de comprender las ventajas y limitaciones del asistente es recorrer sus pasos. El siguiente inicio rápido le guiará a través de cada paso.
 
 > [!div class="nextstepaction"]
-> [Creación de un índice de Azure Cognitive Search en Azure Portal](search-get-started-portal.md)
+> [Inicio rápido: Creación de un índice de búsqueda mediante Azure Portal](search-get-started-portal.md)

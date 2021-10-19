@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/23/2021
 ms.author: bwren
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0e894fc6c6e210249e591ed7f9b9b662ff5ae187
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: febbfc5a1a3381affac50a75a29cb502c7872d69
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129272934"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129657226"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Administrar el uso y los costos con los registros de Azure Monitor    
 
@@ -150,6 +150,8 @@ Los cargos del plan de tarifa por nodo y por VM supervisada (nodo) en una granul
 > Si el área de trabajo tiene acceso al plan de tarifa **Por nodo**, pero se pregunta si sería menos costoso un plan de tarifa de Pago por uso, puede [usar la siguiente consulta](#evaluating-the-legacy-per-node-pricing-tier) para obtener fácilmente una recomendación. 
 
 Las áreas de trabajo creadas antes de abril de 2016 pueden seguir usando los planes de tarifa **Estándar** y **Premium** originales, que tienen una retención de datos fija de 30 y 365 días, respectivamente. No se pueden crear áreas de trabajo en los planes de tarifa **Estándar** o **Premium** y, si un área de trabajo se saca de estos niveles, no puede regresar a ellos. Los medidores de ingesta de datos en la factura de Azure para estos niveles heredados se denominan "Datos analizados".
+
+### <a name="legacy-pricing-tiers-and-azure-defender-security-center"></a>Planes de tarifa heredados y Azure Defender (Security Center)
 
 También hay algunos comportamientos entre el uso de los niveles de Log Analytics heredados y cómo se factura el uso en [Azure Defender (Security Center)](../../security-center/index.yml). 
 

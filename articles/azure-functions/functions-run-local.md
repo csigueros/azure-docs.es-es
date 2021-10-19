@@ -3,14 +3,14 @@ title: Uso de Azure Functions Core Tools
 description: Aprenda a programar y probar funciones de Azure en el símbolo del sistema o el terminal del equipo local antes de ejecutarlas en Azure Functions.
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
-ms.date: 07/27/2021
+ms.date: 10/05/2021
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 5f2ea49df446c26453bb8cf54af52ab54b2c24b2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fa804ee911d8b810de391916f7ae92ff46efe0b1
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128669728"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129613289"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Uso de Azure Functions Core Tools
 
@@ -61,37 +61,27 @@ Solo puede instalar una versión de Core Tools en un equipo determinado.  A meno
 
 ## <a name="install-the-azure-functions-core-tools"></a>Instalación de Azure Functions Core Tools
 
-[Azure Functions Core Tools] incluye una versión del mismo tiempo de ejecución de Azure Functions que puede ejecutar en el equipo de desarrollo local. También proporciona comandos para crear funciones, conectarse a Azure e implementar proyectos de funciones.
+[Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools) incluye una versión del mismo tiempo de ejecución de Azure Functions que puede ejecutar en el equipo de desarrollo local. También proporciona comandos para crear funciones, conectarse a Azure e implementar proyectos de funciones.
 
-A partir de la versión 2.x, Core Tools se basa en .NET Core. Esto significa que la versión 2.X y superiores se ejecutan en todas las plataformas que admite .NET Core, como [Windows](?tabs=windows#v2), [macOS](?tabs=macos#v2) y [Linux](?tabs=linux#v2).
-
-> [!IMPORTANT]
-> En el caso de los lenguajes que no son .NET, puede omitir el requisito de instalar el SDK de .NET Core con los [conjuntos de extensiones].
+A partir de la versión 2.x, Core Tools se ejecuta en [Windows,](?tabs=windows#v2) [macOS](?tabs=macos#v2) y [Linux](?tabs=linux#v2).
 
 # <a name="windows"></a>[Windows](#tab/windows/v4)
 
-Para instalar la versión 4.x de Core Tools, se necesita actualmente npm. Si ha instalado una versión anterior de Core Tools con un administrador de paquetes diferente, desinstálela antes de instalar la versión 4.x.
+En los pasos siguientes se utiliza Windows Installer (MSI) para instalar Core Tools v4.x. Para más información sobre otros instaladores basados en paquetes, consulte el [archivo Léame de Core Tools](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Si aún no lo ha hecho, [instale Node.js con npm](https://nodejs.org/en/download/). 
+Descargue y ejecute el instalador de Core Tools según su versión de Windows:
 
-1. Ejecute el siguiente comando de npm para instalar el paquete de Core Tools:
-
-    ```
-    npm i -g azure-functions-core-tools@4 --unsafe-perm true
-    ```
-
-1. Si no planea usar los [conjuntos de extensión](functions-bindings-register.md#extension-bundles), instale el [SDK de .NET Core 3.x para Windows](https://dotnet.microsoft.com/download).
+- [v4.x: Windows de 64 bits](https://go.microsoft.com/fwlink/?linkid=2174087) (recomendado. [La depuración de Visual Studio Code](functions-develop-vs-code.md#debugging-functions-locally) requiere 64 bits).
+- [v4.x: Windows de 32 bits](https://go.microsoft.com/fwlink/?linkid=2174159)
 
 # <a name="windows"></a>[Windows](#tab/windows/v3)
 
 En los pasos siguientes se utiliza Windows Installer (MSI) para instalar Core Tools v3.x. Para más información sobre otros instaladores basados en paquetes, consulte el [archivo Léame de Core Tools](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Descargue y ejecute el instalador de Core Tools según su versión de Windows:
+Descargue y ejecute el instalador de Core Tools según su versión de Windows:
 
-    - [v3.x: Windows de 64 bits](https://go.microsoft.com/fwlink/?linkid=2135274) (recomendado. [La depuración de Visual Studio Code](functions-develop-vs-code.md#debugging-functions-locally) requiere 64 bits).
-    - [v3.x: Windows de 32 bits](https://go.microsoft.com/fwlink/?linkid=2135275)
-
-1. Si no planea usar los [conjuntos de extensión](functions-bindings-register.md#extension-bundles), instale el [SDK de .NET Core 3.x para Windows](https://dotnet.microsoft.com/download).
+- [v3.x: Windows de 64 bits](https://go.microsoft.com/fwlink/?linkid=2135274) (recomendado. [La depuración de Visual Studio Code](functions-develop-vs-code.md#debugging-functions-locally) requiere 64 bits).
+- [v3.x: Windows de 32 bits](https://go.microsoft.com/fwlink/?linkid=2135275)
 
 # <a name="windows"></a>[Windows](#tab/windows/v2)
 
@@ -104,8 +94,6 @@ Para instalar la versión 2.x de Core Tools, se necesita npm. También puede [u
     ```
     npm install -g azure-functions-core-tools@2 --unsafe-perm true
     ```
-
-1. Si no planea usar los [conjuntos de extensión](functions-bindings-register.md#extension-bundles), instale el [SDK de .NET Core 3.x para Windows](https://dotnet.microsoft.com/download).
 
 # <a name="windows"></a>[Windows](#tab/windows/v1)
 
@@ -125,8 +113,6 @@ Los pasos siguientes utilizan Homebrew para instalar Core Tools en macOS.
     # if upgrading on a machine that has 2.x or 3.x installed:
     brew link --overwrite azure-functions-core-tools@4
     ```
-    
-1. Si no planea usar los [conjuntos de extensión](functions-bindings-register.md#extension-bundles), instale el [SDK de .NET Core 3.x para macOS](https://dotnet.microsoft.com/download).
 
 # <a name="macos"></a>[macOS](#tab/macos/v3)
 
@@ -142,8 +128,6 @@ Los pasos siguientes utilizan Homebrew para instalar Core Tools en macOS.
     # if upgrading on a machine that has 2.x installed:
     brew link --overwrite azure-functions-core-tools@3
     ```
-    
-1. Si no planea usar los [conjuntos de extensión](functions-bindings-register.md#extension-bundles), instale el [SDK de .NET Core 3.x para macOS](https://dotnet.microsoft.com/download).
 
 # <a name="macos"></a>[macOS](#tab/macos/v2)
 
@@ -157,8 +141,6 @@ Los pasos siguientes utilizan Homebrew para instalar Core Tools en macOS.
     brew tap azure/functions
     brew install azure-functions-core-tools@2
     ```
-    
-1. Si no planea usar los [conjuntos de extensión](functions-bindings-register.md#extension-bundles), instale el [SDK de .NET Core 3.x para macOS](https://dotnet.microsoft.com/download).
 
 # <a name="macos"></a>[macOS](#tab/macos/v1)
 
@@ -175,9 +157,6 @@ La versión 1.x de Core Tools no se admite en macOS. Use en su lugar la versió
     sudo apt-get install azure-functions-core-tools-4
     ```
 
-1. Si no planea usar los [conjuntos de extensión](functions-bindings-register.md#extension-bundles), instale el [SDK de .NET Core 3.x para Linux](https://dotnet.microsoft.com/download).
-
-
 # <a name="linux"></a>[Linux](#tab/linux/v3)
 
 [!INCLUDE [functions-core-tools-linux-install](../../includes/functions-core-tools-linux-install.md)]
@@ -189,8 +168,6 @@ La versión 1.x de Core Tools no se admite en macOS. Use en su lugar la versió
     sudo apt-get install azure-functions-core-tools-3
     ```
 
-1. Si no planea usar los [conjuntos de extensión](functions-bindings-register.md#extension-bundles), instale el [SDK de .NET Core 3.x para Linux](https://dotnet.microsoft.com/download).
-
 # <a name="linux"></a>[Linux](#tab/linux/v2)
 
 [!INCLUDE [functions-core-tools-linux-install](../../includes/functions-core-tools-linux-install.md)]
@@ -201,9 +178,6 @@ La versión 1.x de Core Tools no se admite en macOS. Use en su lugar la versió
     sudo apt-get update
     sudo apt-get install azure-functions-core-tools-2
     ```
-
-1. Si no planea usar los [conjuntos de extensión](functions-bindings-register.md#extension-bundles), instale el [SDK de .NET Core 3.x para Linux](https://dotnet.microsoft.com/download).
-
 
 # <a name="linux"></a>[Linux](#tab/linux/v1)
 
@@ -284,9 +258,9 @@ No hay que tener en cuenta aspectos adicionales con PowerShell.
 
 ## <a name="register-extensions"></a>Registro de las extensiones
 
-A partir de la versión 2.x del entorno de ejecución, los enlaces de Functions se implementan como paquetes (NuGet) de extensión de .NET. En el caso de proyectos de C# compilados, basta con que haga referencia a los paquetes de extensión NuGet de los desencadenadores y enlaces específicos que use. Los enlaces HTTP y los desencadenadores de temporizador no requieren extensiones. 
+A partir de la versión 2.x del entorno de ejecución, los desencadenadores y enlaces de Functions se implementan como paquetes (NuGet) con la extensión .NET. En el caso de proyectos de C# compilados, basta con que haga referencia a los paquetes de extensión NuGet de los desencadenadores y enlaces específicos que use. Los enlaces HTTP y los desencadenadores de temporizador no requieren extensiones. 
 
-Con el fin de mejorar la experiencia de desarrollo para proyectos que no son de C#, Functions le permite hacer referencia a un conjunto de extensiones con versión en su archivo de proyecto host.json. Los [conjuntos de extensiones](functions-bindings-register.md#extension-bundles) ponen todas las extensiones a disposición de su aplicación y eliminan la posibilidad de que haya problemas de compatibilidad de paquetes entre extensiones. Los conjuntos de extensiones también eliminan el requisito de instalar el SDK de .NET Core 2.x y tener que gestionar el archivo extensions.csproj.
+Con el fin de mejorar la experiencia de desarrollo para proyectos que no son de C#, Functions le permite hacer referencia a un conjunto de extensiones con versión en su archivo de proyecto host.json. Los [conjuntos de extensiones](functions-bindings-register.md#extension-bundles) ponen todas las extensiones a disposición de su aplicación y eliminan la posibilidad de que haya problemas de compatibilidad de paquetes entre extensiones. Los conjuntos de extensiones también eliminan el requisito de instalar el SDK de .NET Core 3.1 y de tener que gestionar el archivo extensions.csproj.
 
 Los conjuntos de extensiones son el enfoque recomendado para los proyectos de Functions que no se han compilado con C#. Para estos proyectos, el valor de conjunto de extensiones se genera en el archivo _host.json_ durante la inicialización. Si este enfoque satisface sus necesidades, puede omitir toda esta sección.  
 
@@ -629,6 +603,6 @@ Para notificar un error o realizar una solicitud de característica, [abra un pr
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
-[conjuntos de extensiones]: functions-bindings-register.md#extension-bundles
+[extension bundles]: functions-bindings-register.md#extension-bundles
 [func azure functionapp publish]: functions-core-tools-reference.md?tabs=v2#func-azure-functionapp-publish
 [func init]: functions-core-tools-reference.md?tabs=v2#func-init

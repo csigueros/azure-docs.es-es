@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/29/2021
-ms.openlocfilehash: 68f0d94482d65f261b40095ac715ad65f76fe7af
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 464e848814da046600b05a1feea632a1ceaa141a
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124772208"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713844"
 ---
 # <a name="monitoring-azure-kubernetes-service-aks-with-azure-monitor"></a>Supervisión de Azure Kubernetes Service (AKS) con Azure Monitor
 En este escenario se describe cómo usar Azure Monitor para supervisar el mantenimiento y rendimiento de Azure Kubernetes Service (AKS). Incluye la recopilación de datos de telemetría críticos para la supervisión, el análisis y la visualización de los datos recopilados para identificar tendencias, y cómo configurar alertas para recibir notificaciones proactivas de problemas críticos.

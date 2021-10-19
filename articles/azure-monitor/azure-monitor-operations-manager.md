@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2021
-ms.openlocfilehash: 6d92b7c2f01a7e9ef12bc2bb422cfb6ed0076f73
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ccc46073ef81977f5cd467c84dc96946980cc8c8
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102039383"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714463"
 ---
 # <a name="azure-monitor-for-existing-operations-manager-customers"></a>Azure Monitor para clientes actuales de Operations Manager
 Este artículo es una guía para los clientes que usan actualmente [System Center Operations Manager](/system-center/scom/welcome) y que están planeando una transición a [Azure Monitor](overview.md) a medida que migran aplicaciones empresariales y otros recursos a Azure. Se da por supuesto que el objetivo final es una transición completa a la nube, que reemplazará todas las funcionalidades posibles de Operations Manager con Azure Monitor, sin poner en peligro los requisitos empresariales y de TI. 
@@ -115,7 +115,7 @@ Use Azure Monitor para VM para mejorar la supervisión actual, incluso si no ree
 
 [![Asignación de VM Insights](media/azure-monitor-operations-manager/vm-insights-map.png)](media/azure-monitor-operations-manager/vm-insights-map.png#lightbox)
 
-Además de las máquinas virtuales de Azure, VM Insights puede supervisar máquinas en el entorno local y en otras nubes mediante [servidores habilitados para Azure Arc](../azure-arc/servers/overview.md). Los servidores habilitados para Arc permiten administrar las máquinas Windows y Linux hospedadas fuera de Azure, en la red corporativa o en otro proveedor en la nube, de manera coherente con cómo se administran las máquinas virtuales nativas de Azure.
+Además de las máquinas virtuales de Azure, VM Insights puede supervisar máquinas en el entorno local y en otras nubes mediante [servidores habilitados para Azure Arc](../azure-arc/servers/overview.md). Los servidores habilitados para Azure Arc permiten administrar las máquinas Windows y Linux hospedadas fuera de Azure, en la red corporativa o en otro proveedor de nube, de manera coherente con cómo se administran las máquinas virtuales nativas de Azure.
 
 
 

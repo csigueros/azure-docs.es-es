@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 09/30/2021
+ms.date: 10/07/2021
 ms.author: lajanuar
-ms.openlocfilehash: 3adffbac5641c2791c5ef683b5c4d687331a1c3b
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 401c9d08efd6be33d4444d34ba7a2a6c89723a6b
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129350170"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715100"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
@@ -22,21 +22,59 @@ ms.locfileid: "129350170"
 
 El servicio Form Recognizer se actualiza de forma continuada. Marque esta página para mantenerse al día con las notas de la versión, las mejoras de características y las actualizaciones de documentación.
 
+## <a name="october-2021"></a>Octubre de 2021
+
+### <a name="form-recognizer-new-preview-release"></a>Nueva versión preliminar de Form Recognizer
+
+ La nueva versión preliminar de Form Recognizer presenta varias características y funcionalidades nuevas:
+
+* El modelo de [**documento general**](concept-general-document.md) es una nueva API que usa un modelo entrenado previamente para extraer texto, tablas, estructura, pares clave-valor y entidades con nombre de formularios y documentos.
+* El modelo de [**recibo de hotel**](concept-receipt.md) se agregó al procesamiento de recibos precompilados.
+* El modelo de id. de [**campos ampliados de documento de identificación**](concept-id-document.md) admite aprobaciones, restricciones y la extracción de clasificación de vehículos de permisos de conducir de EE. UU.
+* [**Campo de firma**](concept-custom.md) es un nuevo tipo de campo en formularios personalizados para detectar la presencia de una firma en un campo de formulario.
+
+* [**Expansión de idiomas**](language-support.md) Compatibilidad con 122 idiomas (impresión) y 7 idiomas (manuscritos). El diseño y el formulario personalizado de Form Recognizer amplían los [idiomas admitidos](language-support.md) a 122 con su versión preliminar más reciente. Incluye la extracción de texto con texto impreso en 49 nuevos idiomas, entre los que se incluyen el ruso y el búlgaro, así como otros idiomas cirílicos y procedentes del latín. Además, la extracción de texto manuscrito ahora admite 7 idiomas que incluyen inglés y nuevas versiones preliminares de chino simplificado, francés, alemán, italiano, portugués y español.
+
+* **Mejoras en las tablas y la extracción de texto** El diseño ahora admite la extracción de tablas de una sola fila también denominadas tablas de clave-valor. Las mejoras de extracción de texto incluyen un mejor procesamiento de archivos PDF digitales y texto de zona legible por máquina (MRZ) en documentos de identidad, junto con el rendimiento general.
+
+* [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com) Para simplificar el uso del servicio, ahora puede acceder a Form Recognizer Studio para probar los diferentes modelos o etiquetas precompilados y entrenar un modelo personalizado.
+
+Comience con la nueva [API de REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm), [Python](quickstarts/try-v3-python-sdk.md) o el SDK de [.NET](quickstarts/try-v3-csharp-sdk.md) para la API de versión preliminar v3.0.
+
+ #### <a name="form-recognizer-model-data-extraction"></a>Extracción de datos del modelo de Form Recognizer
+
+  | **Modelo**   | **Extracción de texto** |**Pares clave-valor** |**Marcas de selección**   | **Tablas**   |**Entidades** |
+  | --- | :---: |:---:| :---: | :---: |:---: |
+  |🆕Documento general  | ✓  |  ✓ | ✓  | ✓  | ✓  |
+  | Layout  | ✓  |   | ✓  | ✓  |   |
+  | Factura  | ✓ | ✓  | ✓  | ✓ ||
+  |Recibo  | ✓  |   ✓ |   |  ||
+  | Documento de identificación | ✓  |   ✓  |   |   ||
+  | Tarjeta de presentación    | ✓  |   ✓ |   |   ||
+  | Personalizado             |✓  |  ✓ | ✓  | ✓  | ✓  |
+
 ## <a name="september-2021"></a>Septiembre de 2021
 
-[Características avanzadas del explorador de métricas de Azure](/azure/azure-monitor/essentials/metrics-charts) disponibles en la página de descripción general de recursos de Form Recognizer en Azure Portal.
+* [Características avanzadas del explorador de métricas de Azure](/azure/azure-monitor/essentials/metrics-charts) disponibles en la página de descripción general de recursos de Form Recognizer en Azure Portal.
 
-### <a name="monitoring-menu"></a>Menú Supervisión
+    ### <a name="monitoring-menu"></a>Menú Supervisión
 
-:::image type="content" source="media/portal-metrics.png" alt-text="Captura de pantalla que muestra el menú de supervisión en Azure Portal":::
+    :::image type="content" source="media/portal-metrics.png" alt-text="Captura de pantalla que muestra el menú de supervisión en Azure Portal":::
 
-### <a name="charts"></a>Gráficos
+    ### <a name="charts"></a>Gráficos
 
-:::image type="content" source="media/portal-metrics-charts.png" alt-text="Captura de pantalla que muestra un gráfico de métricas de ejemplo en Azure Portal.":::
+    :::image type="content" source="media/portal-metrics-charts.png" alt-text="Captura de pantalla que muestra un gráfico de métricas de ejemplo en Azure Portal.":::
+
+*  Actualización del modelo de **documento de identificador**: los nombres especificados, incluido un sufijo, con o sin un punto (punto final), se procesan correctamente:
+
+    |Texto de entrada | Resultado con actualización |
+    |------------|-------------------------------------------|
+    | William Isaac Kirby Jr. |**FirstName**: William Isaac</br></br>**LastName**: Kirby Jr. |
+    | Henry Caleb Ross Sr | **FirstName**: Henry Caleb </br></br> **LastName**: Ross Sr |
 
 ## <a name="july-2021"></a>Julio de 2021
 
-### <a name="system-assigned-managed-identity-support"></a>Compatibilidad con la identidad administrada asignada por el sistema 
+### <a name="system-assigned-managed-identity-support"></a>Compatibilidad con la identidad administrada asignada por el sistema
 
  Ahora puede habilitar una identidad administrada asignada por el sistema para conceder a Form Recognizer acceso limitado a cuentas de almacenamiento privadas, incluidas las protegidas por una red virtual (VNet) o un firewall, o bien tener habilitada la funcionalidad Bring Your Own Storage (BYOS). *Consulte* [Creación y uso de identidades administradas para el recurso de Form Recognizer](managed-identity-byos.md) para más información.
 
@@ -90,9 +128,9 @@ La revisión aborda las facturas sin campos de elementos de sublínea detectados
 * [Documentos de identidad](concept-identification-cards.md)
 * [Formularios personalizados](concept-custom.md)
 
-#### <a name="get-started"></a>Primeros pasos 
+#### <a name="get-started"></a>Primeros pasos
 
-Vaya a la [herramienta de ejemplo de Form Recognizer](https://fott-2-1.azurewebsites.net/) y siga el [inicio rápido](quickstarts/get-started-with-form-recognizer.md). 
+Vaya a la [herramienta de ejemplo de Form Recognizer](https://fott-2-1.azurewebsites.net/) y siga el [inicio rápido](quickstarts/get-started-with-form-recognizer.md).
 
 ### <a name="layout-adds-table-headers"></a>Adición de encabezados de tabla por diseño
 
@@ -375,9 +413,9 @@ Paquete pip, versión 3.1.0b4
 
    :::image type="content" source="./media/id-canada-passport-example.png" alt-text="ejemplo de pasaporte" lightbox="./media/id-canada-passport-example.png":::
 
-* **Extracción de elemento de línea para modelo de factura precompilado**: el modelo de factura precompilado ahora admite la extracción de elementos de línea; ahora se extraen los elementos completos y sus partes: descripción, importe, cantidad, id. de producto, fecha y mucho más. Con una sencilla llamada de API/SDK, puede extraer datos útiles de las facturas (texto, tabla, pares clave-valor y elementos de línea).
+* **Extracción de elemento de línea para modelo de factura**: el modelo de factura precompilado ahora admite la extracción de elementos de línea; ahora se extraen los elementos completos y sus partes: descripción, importe, cantidad, id. de producto, fecha y mucho más. Con una sencilla llamada de API/SDK, puede extraer datos útiles de las facturas (texto, tabla, pares clave-valor y elementos de línea).
 
-   [Más información sobre el modelo de factura precompilado](concept-invoices.md)
+   [Más información sobre el modelo de factura](concept-invoices.md)
 
 * **Etiquetado y entrenamiento de tablas supervisados, etiquetado de valores vacíos**: además de [las funciones de aprendizaje profundo para la extracción de tablas automáticamente](https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011)de Form Recognizer, ahora permite que los clientes etiqueten y entrenen tablas. Esta nueva versión incluye la posibilidad de etiquetar y entrenar en elementos de línea y tablas (dinámicas y fijas) y entrenar un modelo personalizado para extraer pares clave-valor y elementos de línea. Una vez que se entrena un modelo, este extrae los elementos de línea como parte de la salida JSON en la sección documentResults.
 

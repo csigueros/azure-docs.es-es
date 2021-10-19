@@ -5,18 +5,18 @@ services: automation
 ms.subservice: update-management
 ms.date: 08/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1d8ad9b41f9d193624d9c3501493c525777832eb
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 993fcf45b983fef972a7201b4ffed60e8da99555
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129350629"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715077"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Implementación de actualizaciones y revisión de los resultados
 
-En este artículo se describe cómo programar una implementación de actualizaciones y revisar el proceso una vez completada la implementación. Puede configurar una implementación de actualizaciones desde una máquina virtual de Azure seleccionada, desde el servidor habilitado para Arc seleccionado o desde la cuenta de Automation en todas las máquinas y servidores configurados.
+En este artículo se describe cómo programar una implementación de actualizaciones y revisar el proceso una vez completada la implementación. Puede configurar una implementación de actualizaciones desde una máquina virtual de Azure seleccionada, desde el servidor habilitado para Azure Arc seleccionado o desde la cuenta de Automation en todas las máquinas y servidores configurados.
 
-En cada escenario, la implementación que se crea tiene como destino esa máquina o servidor seleccionado o, en caso de la creación de una implementación desde la cuenta de Automation, puede tener como destino una o varias máquinas. Al programar una implementación de actualizaciones desde una máquina virtual de Azure o un servidor habilitado para Arc, los pasos son los mismos que para la implementación desde la cuenta de Automation, con estas excepciones:
+En cada escenario, la implementación que se crea tiene como destino esa máquina o servidor seleccionado o, en caso de la creación de una implementación desde la cuenta de Automation, puede tener como destino una o varias máquinas. Al programar una implementación de actualizaciones desde una máquina virtual de Azure o un servidor habilitado para Azure Arc, los pasos son los mismos que para la implementación desde la cuenta de Automation, con estas excepciones:
 
 * El sistema operativo se preselecciona de manera automática en función del SO de la máquina.
 * La máquina de destino que se va a actualizar se establece automáticamente.
@@ -36,31 +36,31 @@ Cuando se programa una implementación de actualizaciones, se crea un recurso de
 >[!NOTE]
 >Si elimina el recurso de programación desde Azure Portal o mediante PowerShell después de crear la implementación, esta operación de eliminación interrumpe la implementación de actualizaciones programada y, cuando se intenta volver a configurar el recurso de programación desde el portal, aparece un error. Solo se puede eliminar el recurso de programación si se elimina la programación de implementaciones correspondiente.  
 
-Para programar una implementación de actualizaciones nueva, siga estos pasos. En función del recurso seleccionado (es decir, cuenta de Automation, servidor habilitado para Arc, máquina virtual de Azure), los pasos siguientes se aplican a todos ellos con pequeñas diferencias al configurar la programación de la implementación.
+Para programar una implementación de actualizaciones nueva, siga estos pasos. En función del recurso seleccionado (es decir, cuenta de Automation, servidor habilitado para Azure Arc, VM de Azure), los pasos siguientes se aplican a todos ellos con pequeñas diferencias al configurar la programación de la implementación.
 
 1. En el portal, para programar una implementación de:
 
    * Una o varias máquinas, vaya a **Cuentas de Automation** y seleccione su cuenta de Automation con Update Management habilitado en la lista.
    * En el caso de una máquina virtual de Azure, vaya a **Máquinas virtuales** y seleccione su VM en la lista.
-   * En el caso de un servidor habilitado para Arc, vaya a **Servidores: Azure Arc** y seleccione su servidor en la lista.
+   * En el caso de un servidor habilitado para Azure Arc, vaya a **Servidores: Azure Arc** y seleccione su servidor en la lista.
 
 2. En función del recurso seleccionado, para ir a Update Management:
 
    * Si seleccionó su cuenta de Automation, vaya a **Update Management** en **Update Management** y, luego, seleccione **Programar implementación de actualizaciones**.
    * Si seleccionó una VM de Azure, vaya a **Actualizaciones de invitado y host** y, luego, seleccione **Ir a Update Management**.
-   * Si seleccionó un servidor habilitado para Arc, vaya a **Update Management** y seleccione **Programar implementación de actualizaciones**.
+   * Si seleccionó un servidor habilitado para Azure Arc, vaya a **Update Management** y seleccione **Programar implementación de actualizaciones**.
 
 3. En **Nueva implementación de la actualización**, utilice el campo **Nombre** para escribir un nombre único para la implementación.
 
 4. Seleccione el sistema operativo para la implementación de actualizaciones.
 
     > [!NOTE]
-    > Esta opción no está disponible si seleccionó una máquina virtual de Azure o un servidor habilitado para Arc. El sistema operativo se identifica automáticamente.
+    > Esta opción no está disponible si seleccionó una VM de Azure o un servidor habilitado para Azure Arc. El sistema operativo se identifica automáticamente.
 
 5. En la región **Grupos para actualizar**, defina una consulta que combine una suscripción, grupos de recursos, ubicaciones y etiquetas con el fin de crear un grupo dinámico de VM de Azure e incluirlo en su implementación. Para más información, consulte [Uso de grupos dinámicos con Update Management](configure-groups.md).
 
     > [!NOTE]
-    > Esta opción no está disponible si seleccionó una máquina virtual de Azure o un servidor habilitado para Arc. La máquina se establece automáticamente como el destino de la implementación programada.
+    > Esta opción no está disponible si seleccionó una VM de Azure o un servidor habilitado para Azure Arc. La máquina se establece automáticamente como el destino de la implementación programada.
 
    > [!IMPORTANT]
    > Al crear un grupo dinámico de máquinas virtuales de Azure, Update Management solo admite un máximo de 500 consultas que combinen suscripciones o grupos de recursos en el ámbito del grupo.
@@ -68,7 +68,7 @@ Para programar una implementación de actualizaciones nueva, siga estos pasos. E
 6. En el área **Máquinas para actualizar**, seleccione una búsqueda guardada, un grupo importado, o bien la opción **Máquinas** del menú desplegable, y elija máquinas específicas. Mediante esta opción, puede ver el grado de preparación del agente de Log Analytics para cada máquina. Para más información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [grupos de equipos en los registros de Azure Monitor](../../azure-monitor/logs/computer-groups.md). Es posible incluir hasta un máximo de 1000 máquinas en una implementación de actualizaciones programada.
 
     > [!NOTE]
-    > Esta opción no está disponible si seleccionó una máquina virtual de Azure o un servidor habilitado para Arc. La máquina se establece automáticamente como el destino de la implementación programada.
+    > Esta opción no está disponible si seleccionó una VM de Azure o un servidor habilitado para Azure Arc. La máquina se establece automáticamente como el destino de la implementación programada.
 
 7. Use el área **Clasificaciones de actualizaciones** para especificar [clasificaciones de actualizaciones](view-update-assessments.md#work-with-update-classifications) para productos. En cada producto, anule la selección de todas las clasificaciones de actualizaciones compatibles, salvo las que se incluirán en la implementación de actualizaciones.
 
@@ -105,7 +105,7 @@ Para programar una implementación de actualizaciones nueva, siga estos pasos. E
 9. Seleccione **Configuración de programación**. La hora de inicio predeterminada es 30 minutos después de la hora actual. Puede establecer la hora de inicio en cualquier momento a partir de 10 minutos en el futuro.
 
     > [!NOTE]
-    > Esta opción es distinta si seleccionó un servidor habilitado para Arc. Puede seleccionar **Actualizar ahora** o una hora de inicio 20 minutos en el futuro.
+    > Esta opción es distinta si seleccionó un servidor habilitado para Azure Arc. Puede seleccionar **Actualizar ahora** o una hora de inicio 20 minutos en el futuro.
 
 10. Use **Periodicidad** para especificar si la implementación se producirá una vez o de manera periódica y, luego, seleccione **Aceptar**.
 
@@ -135,7 +135,7 @@ Para programar una implementación de actualizaciones nueva, siga estos pasos. E
     ![Panel de configuración de la programación de actualizaciones](./media/deploy-updates/manageupdates-schedule-win.png)
 
     > [!NOTE]
-    > Cuando haya terminado de configurar la programación de la implementación de un servidor habilitado para Arc seleccionado, seleccione **Revisar y crear**.
+    > Cuando haya terminado de configurar la programación de la implementación de un servidor habilitado para Azure Arc seleccionado, seleccione **Revisar y crear**.
 
 15. Volverá al panel de estado. Seleccione **Programaciones de implementación** para ver la programación de implementación que creó. Se muestra un máximo de 500 programaciones. Si tiene más de 500 programas y desea revisar la lista completa, consulte el método API REST [Configuraciones de actualización de software: lista](/rest/api/automation/softwareupdateconfigurations/list). Especifique la versión de API 2019-06-01 o superior.
 

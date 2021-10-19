@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 10/08/2021
 ms.author: memildin
-ms.openlocfilehash: a57a94b8ee0bb91deb0b15a3da0265af15dbc3a3
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 174540ecdfe54073c30cdc7b71952c0621a66ba8
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129536310"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710729"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja los puntos de conexión con la solución EDR integrada de Security Center: Microsoft Defender para punto de conexión
 
@@ -48,6 +48,10 @@ Microsoft Defender para punto de conexión proporciona lo siguiente:
 
 - **Sensores de detección avanzados posteriores a las brechas**. Los sensores de Defender para punto de conexión recopilan una amplia gama de señales de comportamiento de sus máquinas.
 
+- **Evaluación de vulnerabilidades desde la solución de administración de amenazas y vulnerabilidades de Microsoft**. Con Microsoft Defender para punto de conexión habilitado, Security Center puede mostrar las vulnerabilidades detectadas por el módulo de administración de amenazas y vulnerabilidades, así como ofrecer este módulo como una solución de evaluación de vulnerabilidades compatible. Obtenga más información en [Investigación de puntos débiles con la solución de administración de amenazas y vulnerabilidades de Microsoft Defender para punto de conexión](deploy-vulnerability-assessment-tvm.md).
+
+    Este módulo también incluye las características de inventario de software descritas en [Acceso a un inventario de software](asset-inventory.md#access-a-software-inventory) y se puede habilitar automáticamente para las máquinas compatibles con la [configuración de implementación automática](auto-deploy-vulnerability-assessment.md).
+
 - **Detección posterior a las brechas basada en el análisis y con tecnología de nube**. Defender para punto de conexión se adapta rápidamente a las amenazas cambiantes. Utiliza análisis avanzados y macrodatos. Asimismo, se amplía gracias a la eficacia de Intelligent Security Graph con señales a través de Windows, Azure y Office para detectar amenazas desconocidas. Proporciona alertas que requieren intervención y le permite responder rápidamente.
 
 - **Información sobre amenazas**. Defender para punto de conexión crea alertas cuando identifica las herramientas, las técnicas y los procedimientos de los atacantes. Usa datos generados por los equipos de seguridad y los buscadores de amenazas de Microsoft, con la ayuda de mecanismos de inteligencia que aportan los partners.
@@ -81,6 +85,9 @@ Compruebe que el equipo cumple los requisitos necesarios para Defender para punt
     - **Máquinas locales**: conecte sus máquinas de destino a Azure Arc como se explica en [Conexión de máquinas híbridas con servidores habilitados para Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 
 1. Habilite **Azure Defender para los servidores**. Consulte [Inicio rápido: Habilitación de Azure Defender](enable-azure-defender.md).
+
+    > [!IMPORTANT]
+    > La integración de Security Center con Microsoft Defender para punto de conexión está habilitada de forma predeterminada. Por lo tanto, al habilitar Azure Defender, da su consentimiento para Azure Defender para que los servidores accedan a los datos de Microsoft Defender para punto de conexión relacionados con vulnerabilidades, software instalado y alertas de sus puntos de conexión.
 
 1. Si ha movido la suscripción entre inquilinos de Azure, también se requieren algunos pasos de preparación manuales. Para obtener más información, [póngase en contacto con el soporte técnico de Microsoft](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2021
-ms.openlocfilehash: cca95effdbbda099dd3e082e950b92f26e96f80f
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 06a37bc77d5eda453740881af9ca45ad4b8746e8
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114459476"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715163"
 ---
 # <a name="monitor-virtual-machines-with-azure-monitor-analyze-monitoring-data"></a>Supervisión de máquinas virtuales con Azure Monitor: análisis de datos de supervisión
 Este artículo forma parte del escenario [Supervisión de máquinas virtuales y sus cargas de trabajo en Azure Monitor](monitor-virtual-machine.md). Describe cómo analizar los datos de supervisión de las máquinas virtuales después de completar su configuración.
@@ -41,7 +41,7 @@ Acceda a la experiencia de análisis de una sola máquina desde la sección **Su
 - **Libros**: abra la galería de libros con los libros de VM Insights para máquinas únicas. Para una lista de los libros de VM Insights diseñados para máquinas individuales, consulte [Libros de VM Insights](vminsights-workbooks.md#vm-insights-workbooks).
 
 ## <a name="multiple-machine-experience"></a>Experiencia de varias máquinas
-Acceda a la experiencia de análisis de varias máquinas desde el menú **Monitor** en Azure Portal para cada máquina virtual de Azure y servidor habilitado para Azure Arc. Estas opciones proporcionan acceso a todos los datos para que pueda seleccionar las máquinas virtuales que le interesa comparar.
+Acceda a la experiencia de análisis de varias máquinas desde el menú **Supervisión** en Azure Portal para cada máquina virtual de Azure y servidor habilitado para Azure Arc. Estas opciones proporcionan acceso a todos los datos para que pueda seleccionar las máquinas virtuales que le interesa comparar.
 
 :::image type="content" source="media/monitor-virtual-machines/monitor-menu.png" alt-text="Captura de pantalla que muestra el análisis de varias máquinas virtuales en Azure Portal." lightbox="media/monitor-virtual-machines/monitor-menu.png":::
 

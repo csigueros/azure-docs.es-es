@@ -1,18 +1,18 @@
 ---
 title: Instalación de Defender para IoT
 description: Obtenga información sobre cómo instalar un sensor y la consola de administración local para Azure Defender para IoT.
-ms.date: 10/05/2021
+ms.date: 10/09/2021
 ms.topic: how-to
-ms.openlocfilehash: a5b4beff2d01896082974bf761cb7544d439af9e
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: f23c5fe84959045ba0446ad03c9a990a7bbb2014
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129537316"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754546"
 ---
 # <a name="defender-for-iot-installation"></a>Instalación de Defender para IoT
 
-En este artículo se describe cómo instalar los siguientes elementos de Azure Defender para IoT:
+En este artículo se describe cómo instalar los siguientes componentes de Azure Defender para IoT:
 
 - **Sensor**: los sensores de Defender para IoT recopilan el tráfico de ICS mediante la supervisión pasiva (sin agente). Los sensores, pasivos y no invasivos, tienen un impacto nulo sobre el rendimiento en las redes y los dispositivos de OT e IoT. El sensor se conecta a un puerto SPAN o a un TAP de red e inicia inmediatamente la supervisión de la red. Las detecciones se ven en la consola del sensor. Allí puede verlas, investigarlas y analizarlas en un mapa de red, un inventario de dispositivos y una amplia variedad de informes. Algunos ejemplos son los informes de evaluación de riesgos, las consultas de minería de datos y los vectores de ataque. Obtenga más información sobre las funcionalidades del sensor en la [Guía de usuario del sensor de Defender para IoT (descarga directa)](./getting-started.md).
 
@@ -43,7 +43,7 @@ Están disponibles los siguientes dispositivos de montaje en bastidor:
 | **Modelo** | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 | HPE EL300 |
 | **Puertos de supervisión** | hasta 15 RJ45 u 8 OPT | hasta 8 RJ45 o 6 OPT | hasta 4 RJ45 | Hasta 5 RJ45 |
 | **Ancho de banda máximo\*** | 3 GB/s | 1 GB/s | 200 Mb/s | 100 MB/s |
-| **Número máximo de dispositivos protegidos** | 30,000 | 15,000 | 1,000 | 800 |
+| **Número máximo de dispositivos protegidos** | 10 000 | 10 000 | 1,000 | 800 |
 
 *La capacidad de ancho de banda máxima puede variar en función de la distribución de protocolos.
 
@@ -55,7 +55,7 @@ Están disponibles las siguientes aplicaciones virtuales:
 |--|--|--|--|
 | **Descripción** | Aplicación virtual para implementaciones corporativas | Aplicación virtual para implementaciones Enterprise | Aplicación virtual para implementaciones de SMB |
 | **Ancho de banda máximo\*** | 2,5 Gb/s | 800 MB/s | 160 MB/s |
-| **Número máximo de dispositivos protegidos** | 30,000 | 10 000 | 800 |
+| **Número máximo de dispositivos protegidos** | 10 000 | 10 000 | 800 |
 | **Tipo de implementación** | Corporativos | Enterprise | SMB |
 
 *La capacidad de ancho de banda máxima puede variar en función de la distribución de protocolos.
@@ -1361,7 +1361,7 @@ Para cualquier otra incidencia, póngase en contacto con [Soporte técnico de Mi
 
 ## <a name="configure-a-span-port"></a>Configurar un puerto SPAN
 
-Una instancia de vSwitch no tiene funcionalidades de creación de reflejo, pero se puede usar una solución alternativa para implementar un puerto SPAN. Puede implementar la solución alternativa con ESXi o Hyper-V.
+Un conmutador virtual no tiene funcionalidades de creación de reflejo. Sin embargo, puede usar el modo promiscuo en un entorno de conmutador virtual. El modo promiscuo es un modo de funcionamiento, así como una técnica de seguridad, supervisión y administración, que se define en el conmutador virtual o en el nivel del grupo de puertos. De forma predeterminada, el modo promiscuo está deshabilitado. Cuando el modo promiscuo está habilitado, las interfaces de red de la máquina virtual que se encuentran en el mismo grupo de puertos usarán el modo promiscuo para ver todo el tráfico de red que pasa a través de ese conmutador virtual. Puede implementar una solución alternativa con ESXi o Hyper-V.
 
 :::image type="content" source="media/tutorial-install-components/purdue-model.png" alt-text="Captura de pantalla de dónde se debe colocar el sensor en la arquitectura.":::
 

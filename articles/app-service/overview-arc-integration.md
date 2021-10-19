@@ -3,16 +3,16 @@ title: App Service en Azure Arc
 description: Introducción a la integración de App Service con Azure Arc para operadores de Azure.
 ms.topic: article
 ms.date: 08/17/2021
-ms.openlocfilehash: bd5e257d48ec009ccb79696f4c299fd93568f1c9
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: cec1e7bb9dac43e33e85b6036910220a1fa287c2
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122397335"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711652"
 ---
 # <a name="app-service-functions-and-logic-apps-on-azure-arc-preview"></a>App Service, Functions y Logic Apps en Azure Arc (versión preliminar)
 
-Puede ejecutar App Service, Functions y Logic Apps en un clúster de Kubernetes habilitado para Azure Arc. El clúster de Kubernetes puede ser local o estar hospedado en una nube de terceros. Este enfoque permite a los desarrolladores de aplicaciones aprovechar las características de App Service. Al mismo tiempo, permite a los administradores de TI mantener el cumplimiento corporativo hospedando las aplicaciones de App Service en la infraestructura interna. También permite que otros operadores de TI protejan sus inversiones anteriores en otros proveedores de nube mediante la ejecución de App Service en clústeres de Kubernetes existentes.
+Puede ejecutar App Service, Functions y Logic Apps en un clúster de Kubernetes habilitado para Azure Arc. El clúster de Kubernetes puede ser local o estar hospedado en una nube de terceros. Este enfoque permite a los desarrolladores de aplicaciones aprovechar las características de App Service. Al mismo tiempo, permite a los administradores de TI mantener el cumplimiento corporativo hospedando las aplicaciones de App Service en la infraestructura interna. También permite que otros operadores de TI protejan sus inversiones anteriores en otros proveedores de nube mediante la ejecución de App Service en clústeres de Kubernetes existentes.
 
 > [!NOTE]
 > Para obtener información sobre cómo configurar el clúster de Kubernetes para App Service, Functions y Logic Apps, consulte [Creación de un entorno de Kubernetes de App Service (versión preliminar)](manage-create-arc-environment.md).
@@ -42,7 +42,7 @@ Las siguientes limitaciones de la versión preliminar pública se aplican los en
 
 ## <a name="pods-created-by-the-app-service-extension"></a>Pods creados por la extensión de App Service
 
-Cuando la extensión de App Service se instala en el clúster de Kubernetes habilitado para Arc, verá varios pods creados en el espacio de nombres de versión que se especificó. Estos pods permiten que el clúster de Kubernetes sea una extensión del proveedor de recursos `Microsoft.Web` en Azure y ayudan en la administración y el funcionamiento de las aplicaciones. Opcionalmente, puede optar por que la extensión instale [KEDA](https://keda.sh/) para el escalado controlado por eventos.
+Cuando la extensión de App Service se instala en el clúster de Kubernetes habilitado para Azure Arc, verá varios pods creados en el espacio de nombres de versión que se especificó. Estos pods permiten que el clúster de Kubernetes sea una extensión del proveedor de recursos `Microsoft.Web` en Azure y ayudan en la administración y el funcionamiento de las aplicaciones. Opcionalmente, puede optar por que la extensión instale [KEDA](https://keda.sh/) para el escalado controlado por eventos.
  <!-- You can only have one installation of KEDA on the cluster. If you have one already, you must disable this behavior during installation of the cluster extension `TODO`. -->
 
 En la tabla siguiente se describe el rol de cada pod que se crea de manera predeterminada:

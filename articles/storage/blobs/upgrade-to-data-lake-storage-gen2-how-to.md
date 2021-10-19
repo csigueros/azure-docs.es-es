@@ -6,12 +6,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 10/04/2021
 ms.author: normesta
-ms.openlocfilehash: b1f612ee189d47529033fdd9e6c7e7df0f523df9
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 025aa395fa6d2fd3a8fe98f4781a6b554e2b506d
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129459029"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710529"
 ---
 #  <a name="upgrade-azure-blob-storage-with-azure-data-lake-storage-gen2-capabilities"></a>Actualización de Azure Blob Storage con funcionalidades de Azure Data Lake Storage Gen2
 
@@ -41,7 +41,7 @@ Para más información sobre estas funcionalidades y para evaluar el impacto de 
 
 6. Expanda la sección **Paso 2: Validar la cuenta antes de actualizar** y, a continuación, haga clic en **Start validation** (Iniciar validación).
 
-   Si se produce un error en la validación, seleccione el vínculo **Ver errores**.
+   Si se produce un error en la validación, aparece un error en la página. En algunos casos, aparece un vínculo **Ver errores**. Si aparece ese vínculo, selecciónelo. 
 
    > [!div class="mx-imgBorder"]
    > ![Vínculo Ver errores](./media/upgrade-to-data-lake-storage-gen2-how-to/validation-errors.png)
@@ -97,6 +97,6 @@ Para más información sobre estas funcionalidades y para evaluar el impacto de 
    Como es el caso de las API de blobs, es probable que muchos de los scripts funcionen sin necesidad de modificarlos. No obstante, si es necesario, puede actualizar los scripts para usar los [cmdlets de PowerShell](data-lake-storage-directory-file-acl-powershell.md) y los [comandos de la CLI de Azure](data-lake-storage-directory-file-acl-cli.md) de Data Lake Storage Gen2.
  
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Consulte también
 
 [Introducción a Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)

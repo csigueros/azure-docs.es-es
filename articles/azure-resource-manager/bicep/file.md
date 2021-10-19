@@ -2,13 +2,13 @@
 title: Estructura y sintaxis de un archivo Bicep
 description: Describe la estructura y las propiedades de un archivo Bicep mediante la sintaxis declarativa.
 ms.topic: conceptual
-ms.date: 10/01/2021
-ms.openlocfilehash: e627821f80f76ff536859fd643bd01c55d50ab7e
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.date: 10/07/2021
+ms.openlocfilehash: 8251c490b61f3bbb739fd9519c10b1b124f9064c
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129350408"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129661129"
 ---
 # <a name="understand-the-structure-and-syntax-of-bicep-files"></a>Nociones sobre la estructura y la sintaxis de los archivos Bicep
 
@@ -202,7 +202,7 @@ Para más información, consulte [Variables en Bicep](./variables.md).
 
 ## <a name="resource"></a>Recurso
 
-Use la palabra clave `resource` para definir un recurso que se va a implementar. La declaración de recursos incluye un nombre simbólico para el recurso. Usará este nombre simbólico en otras partes del archivo Bicep si necesita obtener un valor del recurso. El nombre simbólico puede contener a-z, A-Z, 0-9 y "_"; no puede comenzar por un número.
+Use la palabra clave `resource` para definir un recurso que se va a implementar. La declaración de recursos incluye un nombre simbólico para el recurso. Usará este nombre simbólico en otras partes del archivo Bicep si necesita obtener un valor del recurso. Los nombres simbólicos distinguen mayúsculas de minúsculas. Pueden contener letras, números y _; pero no pueden empezar con un número.
 
 La declaración de recursos también incluye el tipo de recurso y la versión de la API.
 

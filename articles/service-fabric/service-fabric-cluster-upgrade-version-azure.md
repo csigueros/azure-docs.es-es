@@ -3,12 +3,12 @@ title: Administración de actualizaciones del clúster de Service Fabric
 description: Administre cuándo y cómo se actualiza el entorno de ejecución del clúster de Service Fabric.
 ms.topic: how-to
 ms.date: 03/26/2021
-ms.openlocfilehash: 98c3300e5cc51c32d894397839879e25190d979b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 129bdae4dc131013bd7c13377b61575141c27ccd
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731174"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714582"
 ---
 # <a name="manage-service-fabric-cluster-upgrades"></a>Administración de actualizaciones del clúster de Service Fabric
 
@@ -40,7 +40,7 @@ Una vez que se hayan solucionado los problemas que provocó la reversión, deber
 
 ### <a name="resource-manager-template"></a>Plantilla de Resource Manager
 
-Para cambiar el modo de actualización del clúster mediante una plantilla de Resource Manager, especifique *Automática* o *Manual* en la propiedad `upgradeMode` de la definición del recurso *Microsoft.ServiceFabric/clusters*. Si elige actualizaciones manuales, establezca también `clusterCodeVersion` en una [versión de tejido compatible](#query-for-supported-cluster-versions) actualmente.
+Para cambiar el modo de actualización del clúster mediante una plantilla de Resource Manager, especifique *Automática* o *Manual* en la propiedad `upgradeMode` de la definición del recurso *Microsoft.ServiceFabric/clusters*. Si elige actualizaciones manuales, establezca también `clusterCodeVersion` en una [versión de tejido compatible](#check-for-supported-cluster-versions) actualmente.
 
 :::image type="content" source="./media/service-fabric-cluster-upgrade/ARMUpgradeMode.PNG" alt-text="Captura de pantalla que muestra una plantilla, en la que se ha aplicado sangría al texto no cifrado para reflejar la estructura, y se han resaltado las propiedades &quot;clusterCodeVersion&quot; y &quot;upgradeMode&quot;.":::
 
@@ -126,11 +126,11 @@ Puede especificar las directivas de mantenimiento personalizadas o revisar la co
 
 :::image type="content" source="./media/service-fabric-cluster-upgrade/custom-upgrade-policy.png" alt-text="Selección de la opción de directiva de actualización &quot;Personalizada&quot; en la sección &quot;Actualizaciones de tejido&quot; del recurso de clúster en Azure Portal para establecer directivas de mantenimiento personalizadas durante la actualización":::
 
-## <a name="query-for-supported-cluster-versions"></a>Consulta de las versiones de clúster compatibles
+## <a name="check-for-supported-cluster-versions"></a>Comprobación de las versiones del clúster compatibles
 
-Puede usar la [API REST de Azure](/rest/api/azure/) para enumerar todas las versiones del entorno de ejecución de Service Fabric ([clusterVersions](/rest/api/servicefabric/sfrp-api-clusterversions_list)) disponibles para la ubicación y la suscripción especificadas.
+Puede consultar las [versiones de Service Fabric](service-fabric-versions.md) para obtener más información sobre las versiones y los sistemas operativos compatibles.
 
-También puede consultar las [versiones de Service Fabric](service-fabric-versions.md) para más información sobre las versiones y los sistemas operativos compatibles.
+También puede usar la [API de REST de Azure](/rest/api/azure/) para enumerar todas las versiones del entorno de ejecución de Service Fabric ([clusterVersions](/rest/api/servicefabric/sfrp-api-clusterversions_list)) disponibles para la ubicación y la suscripción especificadas.
 
 ```REST
 GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2018-02-01
@@ -171,6 +171,40 @@ GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.Serv
 ```
 
 `supportExpiryUtc` en la salida informa de cuando una versión determinada expira o ha expirado. La última versión no tiene una fecha válida, sino un valor de *9999-12-31T23:59:59.9999999*, lo que significa simplemente que la fecha de expiración no se ha establecido aún.
+
+
+## <a name="check-for-supported-upgrade-path"></a>Comprobación de la ruta de acceso de actualización compatible
+
+Puede consultar la documentación [Versiones de Service Fabric](service-fabric-versions.md) para obtener información sobre las versiones relacionadas y las rutas de acceso de actualización compatibles. 
+
+Mediante la información de versiones de destino compatibles, puede usar los siguientes pasos de PowerShell para validar la ruta de acceso de actualización compatible.
+
+1) Inicio de sesión en Azure
+   ```PowerShell
+   Login-AzAccount
+   ```
+
+2) Selección de la suscripción
+   ```PowerShell
+   Set-AzContext -SubscriptionId <your-subscription>
+   ```
+
+3) Invocación de la API
+   ```PowerShell
+   $params = @{ "TargetVersion" = "<target version>"}
+   Invoke-AzResourceAction -ResourceId -ResourceId <cluster resource id> -Parameters $params -Action listUpgradableVersions -Force
+   ```
+
+   Ejemplo: 
+   ```PowerShell
+   $params = @{ "TargetVersion" = "8.1.335.9590"}
+   Invoke-AzResourceAction -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ServiceFabric/clusters/myCluster -Parameters $params -Action listUpgradableVersions -Force
+
+   Output
+   supportedPath
+   -------------
+   {8.1.329.9590, 8.1.335.9590}
+   ```
 
 
 ## <a name="next-steps"></a>Pasos siguientes

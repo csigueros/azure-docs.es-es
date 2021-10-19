@@ -3,28 +3,31 @@ title: Alertas de métricas de Container Insights
 description: En este artículo se revisan las alertas de métricas recomendadas disponibles en Container Insights en la versión preliminar pública.
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: 8280b567adb36511c4eb58d7ec72b775d36feb6a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7036bc7a0f161044312687d6b22171df99821e6a
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734353"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714426"
 ---
 # <a name="recommended-metric-alerts-preview-from-container-insights"></a>Alertas de métricas recomendadas (versión preliminar) de Container Insights
 
-Para alertar sobre problemas de los recursos del sistema cuando estos experimentan un pico de demanda y utilizan prácticamente toda su capacidad, puede usar Container Insights para crear una alerta de registro en función de los datos de rendimiento almacenados en los registros de Azure Monitor. Ahora Container Insights incluye reglas de alerta de métricas preconfiguradas para el clúster de AKS y de Kubernetes habilitado para Azure Arc, que se encuentra en versión preliminar pública.
+Para alertar sobre problemas de los recursos del sistema cuando estos experimentan un pico de demanda y utilizan prácticamente toda su capacidad, puede usar Container Insights para crear una alerta de registro en función de los datos de rendimiento almacenados en los registros de Azure Monitor. Ahora Container Insights incluye reglas de alerta de métricas preconfiguradas para el clúster de AKS y de Kubernetes habilitado para Azure Arc, que se encuentra en versión preliminar pública.
 
 En este artículo se revisa la experiencia y se proporcionan instrucciones sobre la configuración y administración de estas reglas de alertas.
 
 Si no está familiarizado con las alertas en Azure Monitor, consulte [Información general sobre las alertas en Microsoft Azure](../alerts/alerts-overview.md) antes de empezar. Para más información acerca de las alertas de métrica, consulte [Alertas de métricas en Azure Monitor](../alerts/alerts-metric-overview.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+> [!NOTE]
+> A partir del 8 de octubre de 2021, se actualizaron tres alertas para calcular correctamente la condición de alerta: **Porcentaje de la CPU del contenedor**, **Porcentaje de memoria del espacio de trabajo del contenedor** y **Porcentaje de uso del volumen persistente**. Estas nuevas alertas tienen los mismos nombres que las alertas correspondientes disponibles previamente, pero usan métricas nuevas y actualizadas. Se recomienda deshabilitar las alertas que usen las métricas "Antiguas", descritas en este artículo, y habilitar las métricas "Nuevas". Las métricas "Antiguas" ya no estarán disponibles en las alertas recomendadas una vez deshabilitadas, pero puede volver a habilitarlas manualmente.
+
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de empezar, confirme lo siguiente:
 
 * Las métricas personalizadas solo están disponibles en un subconjunto de regiones de Azure. Una lista de regiones admitidas se documenta en [Regiones admitidas](../essentials/metrics-custom-overview.md#supported-regions).
 
-* Para admitir las alertas de métricas y la introducción de métricas adicionales, la versión mínima necesaria del agente es **mcr.microsoft.com/azuremonitor/containerinsights/ciprod:ciprod05262020** para AKS y **mcr.microsoft.com/azuremonitor/containerinsights/ciprod:ciprod09252020** para el clúster de Kubernetes habilitado para Azure Arc.
+* Para admitir las alertas de métricas y la introducción de métricas adicionales, la versión mínima necesaria del agente es **mcr.microsoft.com/azuremonitor/containerinsights/ciprod:ciprod05262020** para el clúster de AKS y **mcr.microsoft.com/azuremonitor/containerinsights/ciprod:ciprod09252020** para el de Kubernetes habilitado para Azure Arc.
 
     Para comprobar que el clúster ejecuta la versión más reciente del agente, puede realizar alguna de las acciones siguientes:
 
@@ -37,15 +40,15 @@ Antes de empezar, confirme lo siguiente:
 
 ## <a name="alert-rules-overview"></a>Introducción a las reglas de alertas
 
-Para enviar alertas sobre lo que importa, Container Insights incluye las siguientes alertas de métricas para los clústeres de AKS y de Kubernetes habilitado para Azure Arc:
+Para enviar alertas sobre lo que importa, Container Insights incluye las siguientes alertas de métricas para los clústeres de AKS y de Kubernetes habilitado para Azure Arc:
 
 |Nombre| Descripción |Umbral predeterminado |
 |----|-------------|------------------|
-|Average container CPU % (% medio de CPU de contenedor) |Calcula el promedio de CPU usado por contenedor.|Cuando el uso medio de la CPU por contenedor es superior al 95 %.| 
-|Average container working set memory % (% medio de memoria del espacio de trabajo del contenedor) |Calcula el promedio de memoria del espacio de trabajo usado por contenedor.|Cuando el uso medio de memoria del espacio de trabajo por contenedor es superior al 95 %. |
+|**(Nueva) Porcentaje medio de la CPU del contenedor** |Calcula el promedio de CPU usado por contenedor.|Cuando el uso medio de la CPU por contenedor es superior al 95 %.| 
+|**(Nueva) Porcentaje medio de memoria del espacio de trabajo del contenedor** |Calcula el promedio de memoria del espacio de trabajo usado por contenedor.|Cuando el uso medio de memoria del espacio de trabajo por contenedor es superior al 95 %. |
 |% uso medio de CPU |Calcula el promedio de CPU usado por nodo. |Cuando el uso medio de CPU de nodo es superior al 80 %. |
 |Average Disk Usage % (% uso medio de disco) |Calcula el uso medio de disco de un nodo.|Cuando el uso de disco de un nodo es superior al 80 %. |
-|Porcentaje medio de uso de volumen persistente |Calcula el uso medio de volumen persistente por pod. |Cuando el uso medio de volumen por pod es superior al 80 %.|
+|**(Nueva) Porcentaje medio de uso de volumen persistente** |Calcula el uso medio de volumen persistente por pod. |Cuando el uso medio de volumen por pod es superior al 80 %.|
 |Average Working set memory % (% medio de memoria del espacio de trabajo) |Calcula el promedio de memoria del espacio de trabajo de un nodo. |Cuando el promedio de memoria del espacio de trabajo de un nodo es superior al 80 %. |
 |Restarting container count (Reiniciando recuento de contenedores) |Calcula el número de contenedores restantes. | Cuando los reinicios de contenedor son más de 0. |
 |Recuentos de pod con errores |Calcula si algún pod tiene un estado de error.|Cuando el número de pods con estado de error es mayor que 0. |
@@ -80,7 +83,7 @@ Las siguientes métricas basadas en alertas tienen características de comportam
 
 ## <a name="metrics-collected"></a>Métricas recopiladas
 
-Las siguientes métricas se habilitan y recopilan, a menos que se especifique lo contrario, como parte de esta característica:
+Las siguientes métricas se habilitan y recopilan, a menos que se especifique lo contrario, como parte de esta característica. Las métricas en **negrita** con la etiqueta "Antigua" son las que reemplazan las métricas con la etiqueta "Nueva" recopiladas para la evaluación de alertas correcta.
 
 |Espacio de nombres de métricas |Métrica |Descripción |
 |---------|----|------------|
@@ -97,10 +100,14 @@ Las siguientes métricas se habilitan y recopilan, a menos que se especifique lo
 |Insights.container/pods |restartingContainerCount |El recuento de contenedores se reinicia por controlador, espacio de nombres Kubernetes.|
 |Insights.container/pods |oomKilledContainerCount |Recuento de contenedores OOMkilled por controlador, espacio de nombres Kubernetes.|
 |Insights.container/pods |podReadyPercentage |Porcentaje de pods en estado listo por controlador, espacio de nombres Kubernetes.|
-|Insights.container/containers |cpuExceededPercentage |Porcentaje de uso de CPU para contenedores que superan el umbral configurable por el usuario (el valor predeterminado es 95,0) por nombre de contenedor, nombre de controlador, espacio de nombres de Kubernetes, nombre del pod.<br> Recopilados  |
-|Insights.container/containers |memoryRssExceededPercentage |Porcentaje de RSS de memoria para contenedores que superan el umbral configurable por el usuario (el valor predeterminado es 95,0) por nombre de contenedor, nombre de controlador, espacio de nombres de Kubernetes, nombre del Pod.|
-|Insights.container/containers |memoryRssExceededPercentage |Porcentaje de espacio de trabajo de memoria para contenedores que superan el umbral configurable por el usuario (el valor predeterminado es 95,0) por nombre de contenedor, nombre de controlador, espacio de nombres Kubernetes, nombre del pod.|
-|Insights.container/persistentvolumes |pvUsageExceededPercentage |Porcentaje de uso de volumen persistente para volúmenes persistentes que superan el umbral configurable por el usuario (el valor predeterminado es 60,0) por nombre de notificación, espacio de nombres de Kubernetes, nombre de volumen, nombre de pod y nombre de nodo.
+|Insights.container/containers |**(Old)cpuExceededPercentage** |Porcentaje de uso de CPU para contenedores que superan el umbral configurable por el usuario (el valor predeterminado es 95,0) por nombre de contenedor, nombre de controlador, espacio de nombres de Kubernetes, nombre del pod.<br> Recopilados  |
+|Insights.container/containers |**(New)cpuThresholdViolated** |Métrica desencadenada cuando el porcentaje de uso de CPU para contenedores supera el umbral configurable por el usuario (el valor predeterminado es 95,0) por nombre de contenedor, nombre de controlador, espacio de nombres de Kubernetes, nombre del pod.<br> Recopilados  |
+|Insights.container/containers |**(Antigua)memoryRssExceededPercentage** |Porcentaje de RSS de memoria para contenedores que superan el umbral configurable por el usuario (el valor predeterminado es 95,0) por nombre de contenedor, nombre de controlador, espacio de nombres de Kubernetes, nombre del Pod.|
+|Insights.container/containers |**(Nueva)memoryRssThresholdViolated** |Métrica desencadenada cuando el porcentaje de RSS de memoria para contenedores supera el umbral configurable por el usuario (el valor predeterminado es 95,0) por nombre de contenedor, nombre de controlador, espacio de nombres de Kubernetes, nombre del pod.|
+|Insights.container/containers |**(Antigua)memoryWorkingSetExceededPercentage** |Porcentaje de espacio de trabajo de memoria para contenedores que superan el umbral configurable por el usuario (el valor predeterminado es 95,0) por nombre de contenedor, nombre de controlador, espacio de nombres Kubernetes, nombre del pod.|
+|Insights.container/containers |**(Nueva)memoryWorkingSetThresholdViolated** |Métrica desencadenada cuando el porcentaje de espacio de trabajo de memoria para contenedores supera el umbral configurable por el usuario (el valor predeterminado es 95,0) por nombre de contenedor, nombre de controlador, espacio de nombres de Kubernetes, nombre del pod.|
+|Insights.container/persistentvolumes |**(Antigua)pvUsageExceededPercentage** |Porcentaje de uso de volumen persistente para volúmenes persistentes que superan el umbral configurable por el usuario (el valor predeterminado es 60,0) por nombre de notificación, espacio de nombres de Kubernetes, nombre de volumen, nombre de pod y nombre de nodo.|
+|Insights.container/persistentvolumes |**(Nueva)pvUsageThresholdViolated** |Métrica desencadenada cuando el porcentaje de uso de volumen persistente para volúmenes persistentes supera el umbral configurable por el usuario (el valor predeterminado es 60,0) por nombre de notificación, espacio de nombres de Kubernetes, nombre de volumen, nombre de pod y nombre de nodo.
 
 ## <a name="enable-alert-rules"></a>Habilitar reglas de alertas
 

@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/29/2021
+ms.date: 10/11/2021
 ms.author: yelevin
-ms.openlocfilehash: bddd27b29a1546f0c985f7a5b3aa15027be75d46
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d6afd8e1d4c70d818257007993aedfe3a48ce4f4
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121726099"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129752120"
 ---
 # <a name="automate-threat-response-with-playbooks-in-azure-sentinel"></a>Automatización de la respuesta a amenazas con cuadernos de estrategias en Azure Sentinel
 
@@ -36,7 +36,29 @@ Un cuaderno de estrategias es una colección de estas acciones correctivas que s
 
 Por ejemplo, si una cuenta y una máquina están en peligro, un cuaderno de estrategias puede aislar la máquina de la red y bloquear la cuenta en el momento en que se notifica el incidente al equipo de SOC.
 
-Los cuadernos de estrategias se crean y se aplican en el nivel de suscripción, pero en la pestaña **Playbooks** (Cuadernos de estrategias) (en la hoja nueva **Automation** [Automatización]) se muestran todos los cuadernos de estrategias disponibles en todas las suscripciones seleccionadas.
+Los cuadernos de estrategias se pueden usar en la suscripción a la que pertenecen, pero en la pestaña **Playbooks** (Cuadernos de estrategias) (en la hoja **Automation** [Automatización]) se muestran todos los cuadernos de estrategias disponibles en todas las suscripciones seleccionadas.
+
+### <a name="playbook-templates"></a>Plantillas de cuadernos de estrategias
+
+> [!IMPORTANT]
+>
+> Las **plantillas de cuadernos de estrategias** se encuentran actualmente en **VERSIÓN PRELIMINAR**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+
+Una plantilla de cuaderno de estrategias es un flujo de trabajo precompilado, probado y listo para usar que se puede personalizar para satisfacer sus necesidades. Las plantillas también pueden servir como referencia para los procedimientos recomendados al desarrollar cuadernos de estrategias desde cero o como inspiración para nuevos escenarios de automatización.
+
+Las plantillas de cuadernos de estrategias no son cuadernos de estrategias activos hasta que se crea uno (una copia editable de la plantilla) a partir de ellos.
+
+Puede obtener plantillas de cuadernos de estrategias de los siguientes orígenes:
+
+- La pestaña **Playbook templates** (Plantillas de cuadernos de estrategias) (en **Automation** [Automatización]) presenta los escenarios principales aportados por la comunidad de Azure Sentinel. Se pueden crear varios cuadernos de estrategias activos a partir de la misma plantilla.
+
+    Cuando se publica una nueva versión de la plantilla, los cuadernos de estrategias activos creados a partir de esa plantilla (en la pestaña **Playbooks** [Cuadernos de estrategias]) se etiquetarán con una notificación que indica que hay una actualización disponible.
+
+- Las plantillas de cuadernos de estrategias también se pueden obtener como parte de una [**solución de Azure Sentinel**](sentinel-solutions.md) en el contexto de un producto específico. La implementación de la solución genera cuadernos de estrategias activos.
+
+- El [**repositorio de GitHub de Azure Sentinel**](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) contiene muchas plantillas de cuadernos de estrategias. Para implementarlas en una suscripción de Azure, seleccione el botón **Implementar en Azure**. 
+
+Técnicamente, una plantilla de cuaderno de estrategias es una [plantilla de ARM](../azure-resource-manager/templates/index.yml) que consta de varios recursos: un flujo de trabajo de Azure Logic Apps y conexiones de API para cada conexión implicada. 
 
 ### <a name="azure-logic-apps-basic-concepts"></a>Conceptos básicos de Azure Logic Apps
 
@@ -62,7 +84,7 @@ Azure Logic Apps se comunica con otros sistemas y servicios mediante conectores.
 
     > [!IMPORTANT]
     >
-    > - La característica de **desencadenador de incidente** para los cuadernos de estrategias se encuentra actualmente en **versión preliminar**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
+    > La característica de **desencadenador de incidente** para los cuadernos de estrategias se encuentra actualmente en **versión preliminar**. Consulte [Términos de uso complementarios para las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para conocer los términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado para que estén disponibles con carácter general.
 
 - **Acciones**: las acciones son todos los pasos que se producen después del desencadenador. Se pueden organizar secuencialmente, en paralelo o en una matriz de condiciones complejas.
 

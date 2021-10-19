@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 03/03/2021
 ms.author: duau
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6c0e01349c56744590f35659edae66d963aeb302
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 17445b90c3923fa6c3772b40024eec5657cae89e
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110697970"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858602"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) sobre Traffic Manager
 
@@ -227,7 +227,7 @@ Mientras se tiene el control de lo que está insertado en la página web, se rec
 
 ### <a name="will-it-be-possible-for-others-to-see-the-key-i-use-with-real-user-measurements"></a>¿Podrán ver otros usuarios la clave que se usa con Real User Measurements?
 
-Cuando se inserta el script de medida en una página web, otros usuarios podrán ver el script y la clave de Real User Measurements (RUM). Sin embargo, es importante saber que esta clave es diferente del identificador de suscripción y que la genera Traffic Manager con este único fin. El hecho de conocer la clave RUM no pone en peligro la seguridad de la cuenta de Azure.
+Cuando se inserta el script de medida en una página web, otros usuarios podrán ver el script y la clave de Real User Measurements (RUM). Sin embargo, es importante saber que esta clave es diferente del id. de suscripción y que la genera Traffic Manager a fin de usarse con este único fin. El hecho de conocer la clave RUM no pone en peligro la seguridad de la cuenta de Azure.
 
 ### <a name="can-others-abuse-my-rum-key"></a>¿Pueden otros usuarios hacer un uso inapropiado de la clave RUM?
 
@@ -448,7 +448,7 @@ Si no se proporciona ningún valor de encabezado de host personalizado, el encab
 
 ### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>¿Cuáles son las direcciones IP desde las que proceden las comprobaciones de estado?
 
-Haga clic [aquí](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) para aprender a recuperar las listas de direcciones IP de las que pueden originarse las comprobaciones de estado de Traffic Manager. Puede usar la API de REST, la CLI de Azure o Azure PowerShell para recuperar la lista más reciente. Revise las direcciones IP que se muestran para asegurarse de que se permiten las conexiones entrantes de estas direcciones IP en los puntos de conexión para comprobar su estado de mantenimiento.
+Consulte [este artículo](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) para aprender a recuperar las listas de direcciones IP de las que pueden originarse las comprobaciones de estado de Traffic Manager. Puede usar la API de REST, la CLI de Azure o Azure PowerShell para recuperar la lista más reciente. Revise las direcciones IP que se muestran para asegurarse de que se permiten las conexiones entrantes de estas direcciones IP en los puntos de conexión para comprobar su estado de mantenimiento.
 
 Ejemplo de uso de Azure PowerShell:
 

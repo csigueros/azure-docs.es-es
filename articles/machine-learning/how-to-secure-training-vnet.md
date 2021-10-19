@@ -11,12 +11,12 @@ ms.author: jhirono
 author: jhirono
 ms.date: 09/24/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions
-ms.openlocfilehash: 4fe1a4f9966e5342ee4f8a12d2b24b3a449efbae
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 38347644557b2e2e3bf76dc4412381ab52396de2
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424338"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658564"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Protección de un entorno de entrenamiento de Azure Machine Learning con redes virtuales
 
@@ -111,7 +111,7 @@ En este artículo aprenderá a proteger los siguientes recursos de proceso de en
     * Si tiene previsto usar el __SDK__, la cuenta de almacenamiento puede estar en una subred diferente.
 
     > [!NOTE]
-    > Seleccionar la casilla "Permitir que los servicios de Microsoft de confianza accedan a esta cuenta" no es suficiente para permitir la comunicación desde el proceso.
+    > Agregar una instancia de recurso para su área de trabajo o seleccionar la casilla "Permitir que los servicios de Microsoft de confianza accedan a esta cuenta" no es suficiente para permitir la comunicación desde el proceso.
 
 * Cuando el área de trabajo usa un punto de conexión privado, solo se puede acceder a la instancia de proceso desde dentro de la red virtual. Si usa un DNS personalizado o un archivo de hosts, agregue una entrada para `<instance-name>.<region>.instances.azureml.ms`. Asigne esta entrada a la dirección IP privada del punto de conexión privado del área de trabajo. Para más información, consulte el artículo [DNS personalizado](./how-to-custom-dns.md).
 * Las directivas de punto de conexión de servicio de red virtual no funcionan para las cuentas de almacenamiento del sistema de la instancia o el clúster de proceso.

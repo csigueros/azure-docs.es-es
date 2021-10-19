@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2021
-ms.openlocfilehash: 1968bb34d124fa37a51b296071ee24b3eae47772
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.date: 10/04/2021
+ms.openlocfilehash: 80471da945dcc5fdee690ec477599565777f1beb
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129273730"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129611460"
 ---
 # <a name="use-role-based-authorization-in-azure-cognitive-search"></a>Uso de la autorización basada en roles en Azure Cognitive Search
 
@@ -129,7 +129,7 @@ Si usa Postman u otra herramienta de pruebas web, consulte la sugerencia de la p
 1. [Asigne roles](#assign-roles) en el servicio y compruebe que funcionen correctamente en el plano de datos.
 
 > [!TIP]
-> Las llamadas a la API REST de administración se autentican mediante Azure Active Directory. Para obtener instrucciones sobre cómo configurar una solicitud y un principio de seguridad, consulte esta entrada de blog sobre [API REST de Azure con Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). El ejemplo anterior se probó con las instrucciones y la colección de Postman proporcionadas en esa entrada de blog.
+> Las llamadas a la API de REST de administración se autentican mediante Azure Active Directory. Para obtener instrucciones sobre cómo configurar una solicitud y un principio de seguridad, consulte la entrada de blog [API de REST de Azure con Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/) (en inglés). El ejemplo anterior se probó con las instrucciones y la colección de Postman que se proporcionan en la entrada de blog.
 
 ---
 
@@ -293,4 +293,20 @@ No se pueden combinar los pasos uno y dos. En el paso uno, "disableLocalAuth" de
 Para volver a habilitar la autenticación de clave, ejecute de nuevo la última solicitud, estableciendo "disableLocalAuth" en "false". El servicio de búsqueda reanudará la aceptación de las claves de API en la solicitud automáticamente (suponiendo que se especifiquen).
 
 > [!TIP]
-> Las llamadas a la API REST de administración se autentican mediante Azure Active Directory. Para obtener instrucciones sobre cómo configurar una solicitud y un principio de seguridad, consulte esta entrada de blog sobre [API REST de Azure con Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). El ejemplo anterior se probó con las instrucciones y la colección de Postman proporcionadas en esa entrada de blog.
+> Las llamadas a la API de REST de administración se autentican mediante Azure Active Directory. Para obtener instrucciones sobre cómo configurar una solicitud y un principio de seguridad, consulte la entrada de blog [API de REST de Azure con Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/) (en inglés). El ejemplo anterior se probó con las instrucciones y la colección de Postman que se proporcionan en la entrada de blog.
+
+## <a name="conditional-access"></a>Acceso condicional
+
+El [acceso condicional](../active-directory/conditional-access/overview.md) es la herramienta que usa Azure Active Directory para aplicar las directivas de la organización. Mediante el uso de directivas de acceso condicional puede aplicar los controles de acceso correctos cuando sea necesario para mantener protegida la organización. Al acceder a un servicio de Azure Cognitive Search mediante el control de acceso basado en rol, el acceso condicional puede aplicar directivas de la organización.
+
+Para habilitar una directiva de acceso condicional para Azure Cognitive Search, siga estos pasos:
+1. [Inicie sesión](https://portal.azure.com) en Azure Portal.
+1. Busque **Acceso condicional de Azure AD**.
+1. Seleccione **Directivas**.
+1. Seleccione **+ Nueva directiva**.
+1. En la sección **Aplicaciones en la nube o acciones** de la directiva, agregue **Azure Cognitive Search** como una aplicación en la nube en función de cómo quiera configurar la directiva.
+1. Actualice los parámetros restantes de la directiva. Por ejemplo, especifique a qué usuarios y grupos se aplica esta directiva. 
+1. Guarde la directiva.
+
+> [!IMPORTANT]
+> Si el servicio de búsqueda tiene asignada una identidad administrada, el servicio de búsqueda específico se mostrará como una aplicación en la nube que se puede incluir o excluir como parte de la directiva de acceso condicional. Las directivas de acceso condicional no se pueden aplicar en un servicio de búsqueda específico. En su lugar, asegúrese de seleccionar la aplicación en la nube **Azure Cognitive Search**.

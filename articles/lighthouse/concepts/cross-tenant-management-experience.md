@@ -3,12 +3,12 @@ title: Experiencias de administración entre inquilinos
 description: Azure Lighthouse habilita y mejora las experiencias entre inquilinos en muchos servicios de Azure.
 ms.date: 09/30/2021
 ms.topic: conceptual
-ms.openlocfilehash: a6ad75df4e22f56c8bcb0f28586c736fc6b04a49
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 90ff0396a467f3137d6501ac34cf707577e43bdf
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129349777"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714784"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
@@ -55,7 +55,7 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
   - Administre las máquinas conectadas mediante construcciones de Azure, como Azure Policy y etiquetado
   - Asegúrese de que se aplica el mismo conjunto de directivas a los entornos híbridos de los clientes
   - Use Azure Security Center para supervisar el cumplimiento en todos los entornos híbridos de los clientes
-- Administración de clústeres híbridos de Kubernetes a gran escala: [Azure Arc habilitado para Kubernetes (versión preliminar)](../../azure-arc/kubernetes/overview.md):
+- Administración de clústeres híbridos de Kubernetes a gran escala: [Kubernetes habilitado para Azure Arc (versión preliminar)](../../azure-arc/kubernetes/overview.md):
   - [Administre clústeres de Kubernetes conectados](../../azure-arc/kubernetes/quickstart-connect-cluster.md) a suscripciones o grupos de recursos delegados en Azure.
   - [Use GitOps](../../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md) para los clústeres conectados
   - Aplique directivas en los clústeres conectados

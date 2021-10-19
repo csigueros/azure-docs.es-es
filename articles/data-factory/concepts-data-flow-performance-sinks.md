@@ -1,20 +1,20 @@
 ---
-title: Optimización del rendimiento del receptor en el flujo de datos de asignación
+title: Rendimiento del receptor y procedimientos recomendados en el flujo de datos de asignación
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Aprenda sobre la optimización del rendimiento del receptor en los flujos de datos de asignación en las canalizaciones de Azure Data Factory y Azure Synapse Analytics.
+description: Obtenga información sobre la optimización del rendimiento del receptor y los procedimientos recomendados en los flujos de datos de asignación en las canalizaciones de Azure Data Factory y Azure Synapse Analytics.
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
-ms.date: 09/29/2021
-ms.openlocfilehash: 54c03cc8b4c34be02d3dee608ce4a759e75f2200
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.date: 10/06/2021
+ms.openlocfilehash: 4ed5d50d4b74e86b91d51e4011e41f2b600edb88
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129293531"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129618693"
 ---
 # <a name="optimizing-sinks"></a>Optimización de receptores
 
@@ -23,6 +23,10 @@ Cuando los flujos de datos escriben en los receptores, la creación de particion
 ## <a name="azure-sql-database-sinks"></a>Receptores de Azure SQL Database
 
 En el caso de Azure SQL Database, la creación de particiones predeterminada debería funcionar en la mayoría de los casos. Existe la posibilidad de que el receptor pueda tener demasiadas particiones para que la base de datos SQL pueda administrarlas. Si ve que este puede ser el caso, reduzca el número de particiones que salen del receptor de SQL Database.
+
+### <a name="best-practice-for-deleting-rows-in-sink-based-on-missing-rows-in-source"></a>Procedimiento recomendado para eliminar filas en el receptor en función de las filas que faltan en el origen
+
+Este es un tutorial en vídeo sobre cómo usar flujos de datos con transformaciones de salida, alteración de fila y receptor para lograr este patrón común: > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWMLr5]
 
 ### <a name="impact-of-error-row-handling-to-performance"></a>Efecto del control de filas de error sobre el rendimiento
 

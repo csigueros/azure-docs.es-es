@@ -10,12 +10,12 @@ ms.date: 02/10/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 862c576ae86cd7d91a1bd73243caa0a68e3689c1
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: bcf8d828bb20296a27b9288a2ba604bce1b7aef9
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111900546"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129855448"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>Ejecución de comandos de PowerShell con credenciales de Azure AD para acceder a los datos de cola
 
@@ -86,4 +86,4 @@ En el ejemplo siguiente se muestra cómo crear una cola en una nueva cuenta de a
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Asignación de un rol de Azure para acceder a datos de cola](assign-azure-role-data-access.md)
-- [Autorización del acceso a datos de blobs y colas con identidades administradas para los recursos de Azure](../common/storage-auth-aad-msi.md)
+- [Autorización del acceso a datos de blobs con identidades administradas para recursos de Azure](../blobs/authorize-managed-identity.md)
