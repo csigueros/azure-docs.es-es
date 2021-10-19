@@ -1,29 +1,32 @@
 ---
-title: Cómo realizar búsquedas personalizadas en Azure API for FHIR
-description: En este artículo se describe cómo puede definir sus propios parámetros de búsqueda personalizados que se usarán en la base de datos.
+title: Cómo realizar búsquedas personalizadas en el servicio FHIR
+description: En este artículo se describe cómo definir sus propios parámetros de búsqueda personalizados para usarlos en la base de datos.
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 05/03/2021
+ms.date: 08/03/2021
 ms.author: cavoeg
-ms.openlocfilehash: 5453b11cb49bb48c48e6c949a00654a797c89202
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: b299a7a60e65ede867bf9501f99b76294011cc93
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110476672"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779028"
 ---
 # <a name="defining-custom-search-parameters"></a>Definición de parámetros de búsqueda personalizados
 
-La especificación FHIR define un conjunto de parámetros de búsqueda para todos los recursos y parámetros de búsqueda que son específicos de los recursos. Sin embargo, hay escenarios en los que es posible que quiera buscar en un elemento de un recurso que no está definido por la especificación FHIR como parámetro de búsqueda estándar. En este artículo se describe cómo puede definir sus propios parámetros [de](https://www.hl7.org/fhir/searchparameter.html) búsqueda que se usarán en el Azure API for FHIR.
+> [!IMPORTANT]
+> Azure Healthcare APIs se encuentra actualmente en VERSIÓN PRELIMINAR. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado con disponibilidad general.
+
+La especificación FHIR define un conjunto de parámetros de búsqueda para todos los recursos y parámetros de búsqueda que son específicos de recursos. Sin embargo, hay escenarios en los que es posible que desee buscar un elemento de un recurso que no esté definido mediante la especificación FHIR como parámetro de búsqueda estándar. En este artículo se describe [](https://www.hl7.org/fhir/searchparameter.html) cómo puede definir sus propios parámetros de búsqueda que se usarán en el servicio FHIR en las API de Azure Healthcare (que aquí se denomina servicio FHIR).
 
 > [!NOTE]
-> Cada vez que cree, actualice o elimine un parámetro de búsqueda, deberá ejecutar un trabajo de [reindexación](how-to-run-a-reindex.md) para permitir que el parámetro de búsqueda se utilice en producción. A continuación se describe cómo puede probar los parámetros de búsqueda antes de volver a indexar todo el servidor de FHIR.
+> Cada vez que cree, actualice o elimine un parámetro de búsqueda, deberá ejecutar un [trabajo de reindexación](how-to-run-a-reindex.md) para permitir que dicho parámetro se utilice en producción. A continuación se describe cómo puede probar los parámetros de búsqueda antes de volver a indexar todo el servicio FHIR.
 
-## <a name="create-new-search-parameter"></a>Creación de un nuevo parámetro de búsqueda
+## <a name="create-new-search-parameter"></a>Creación de un parámetro de búsqueda
 
-Para crear un nuevo parámetro de búsqueda, debe `POST` usar el recurso en la base de `SearchParameter` datos. En el ejemplo de código siguiente se muestra cómo agregar [US Core Race SearchParameter](http://hl7.org/fhir/us/core/STU3.1.1/SearchParameter-us-core-race.html) al `Patient` recurso.
+Para crear un parámetro de búsqueda, aplica `POST` al recurso `SearchParameter` en la base de datos. En el siguiente código de ejemplo se muestra cómo agregar el [parámetro de búsqueda de US Core Race](http://hl7.org/fhir/us/core/STU3.1.1/SearchParameter-us-core-race.html) al recurso `Patient`.
 
 ```rest
 POST {{FHIR_URL}}/SearchParameter
@@ -70,31 +73,31 @@ POST {{FHIR_URL}}/SearchParameter
 ``` 
 
 > [!NOTE]
-> El nuevo parámetro de búsqueda aparecerá en la instrucción de funcionalidad del servidor de FHIR después de publicar el parámetro de búsqueda en la base de datos y **volver** a indexar la base de datos. Ver en la instrucción de funcionalidad es la única manera de saber si se admite un parámetro de `SearchParameter` búsqueda en el servidor de FHIR. Si puede encontrar el parámetro de búsqueda buscando el parámetro de búsqueda, pero no puede verlo en la instrucción de funcionalidad, debe indexar el parámetro de búsqueda. Puede publicar varios parámetros de búsqueda antes de desencadenar una operación de reindexación.
+> El nuevo parámetro de búsqueda aparecerá en la instrucción de funcionalidad del servicio FHIR después de publicar el parámetro de búsqueda en la base de datos y **volver** a indexar la base de datos. Ver en la instrucción de funcionalidad es la única manera de saber si se admite un parámetro de `SearchParameter` búsqueda en el servicio FHIR. Si encuentra el parámetro de búsqueda buscándolo, pero no lo ve en la instrucción de funcionalidad, deberá indexar el parámetro de todos modos. Puede aplicar POST a varios parámetros de búsqueda antes de desencadenar una operación de reindexación.
 
-Elementos importantes de `SearchParameter` :
+Elementos importantes de un objeto `SearchParameter`:
 
-* **url:** clave única para describir el parámetro de búsqueda. Muchas organizaciones, como HL7, usan un formato de dirección URL estándar para los parámetros de búsqueda que definen, como se muestra anteriormente en el parámetro de búsqueda de carreras de US Core.
+* **url:** clave única para describir el parámetro de búsqueda. Muchas organizaciones, como HL7, usan un formato de dirección URL estándar para los parámetros de búsqueda que definen, como se muestra anteriormente en el parámetro de búsqueda de US Core Race.
 
-* **code**: el valor almacenado en **el código** es lo que se usará al buscar. En el ejemplo anterior, buscaría con para obtener todos `GET {FHIR_URL}/Patient?race=<code>` los pacientes de una carrera específica. El código debe ser único para los recursos a los que se aplica el parámetro de búsqueda.
+* **code:** el valor almacenado en **code** es lo que usará al realizar la búsqueda. En el ejemplo anterior, usaría `GET {FHIR_URL}/Patient?race=<code>` en la búsqueda para obtener todos los pacientes de una raza específica. El código debe ser único para los recursos a los que se aplica el parámetro de búsqueda.
 
-* **base:** describe a qué recursos se aplica el parámetro de búsqueda. Si el parámetro de búsqueda se aplica a todos los recursos, puede usar ; de lo `Resource` contrario, puede enumerar todos los recursos pertinentes.
+* **base:** describe los recursos a los que se aplica el parámetro de búsqueda. Si el parámetro de búsqueda se aplica a todos los recursos, puede usar `Resource`; de lo contrario, puede enumerar todos los recursos pertinentes.
  
-* **type**: describe el tipo de datos para el parámetro de búsqueda. El tipo está limitado por la compatibilidad con el Azure API for FHIR. Esto significa que no puede definir un parámetro de búsqueda de tipo Especial ni definir un parámetro de búsqueda [compuesto](overview-of-search.md) a menos que sea una combinación admitida.
+* **type:** describe el tipo de datos del parámetro de búsqueda. El tipo está limitado por la compatibilidad con el servicio FHIR. Esto significa que no se puede definir un parámetro de búsqueda de tipo Especial ni definir un [parámetro de búsqueda compuesto](overview-of-search.md), a menos que sea una combinación admitida.
 
-* **expression**: describe cómo calcular el valor de la búsqueda. Al describir un parámetro de búsqueda, debe incluir la expresión, aunque la especificación no lo requiera. Esto se debe a que necesita la expresión o la sintaxis xpath y el Azure API for FHIR omite la sintaxis xpath.
+* **expression:** describe cómo calcular el valor de la búsqueda. Al describir un parámetro de búsqueda, debe incluir la expresión, aunque la especificación no lo requiera. Esto se debe a que necesita la sintaxis de expresión o xpath y el servicio FHIR omite la sintaxis xpath.
 
-## <a name="test-search-parameters"></a>Parámetros de búsqueda de prueba
+## <a name="test-search-parameters"></a>Prueba de los parámetros de búsqueda
 
-Aunque no puede usar los parámetros de búsqueda en producción hasta que ejecute un trabajo de reindexación, hay varias maneras de probar los parámetros de búsqueda antes de volver a indexar toda la base de datos. 
+Aunque no puede usar los parámetros de búsqueda en producción hasta que ejecute un trabajo de reindexación, hay varias maneras de probarlos antes de volver a indexar toda la base de datos. 
 
-En primer lugar, puede probar el nuevo parámetro de búsqueda para ver qué valores se devolverán. Al ejecutar el comando siguiente en una instancia de recurso específica (mediante la entrada de su identificador), se obtiene una lista de pares de valores con el nombre del parámetro de búsqueda y el valor almacenado para el paciente específico. Esto incluirá todos los parámetros de búsqueda del recurso y puede desplazarse por para buscar el parámetro de búsqueda que ha creado. La ejecución de este comando no cambiará ningún comportamiento en el servidor de FHIR. 
+En primer lugar, puede probar el nuevo parámetro de búsqueda para ver qué valores se devolverán. Al ejecutar el comando siguiente en una instancia de recurso específica (mediante la entrada de su identificador), se obtiene una lista de pares de valores con el nombre del parámetro de búsqueda y el valor almacenado. La lista incluirá todos los parámetros de búsqueda del recurso, y podrá desplazarse por ella para buscar el parámetro que ha creado. La ejecución de este comando no cambiará ningún comportamiento en el servicio FHIR. 
 
 ```rest
 GET https://{{FHIR_URL}}/{{RESOURCE}}/{{RESOUCE_ID}}/$reindex
 
 ```
-Por ejemplo, para buscar todos los parámetros de búsqueda de un paciente:
+Por ejemplo, para buscar todos los parámetros de búsqueda de un paciente, ejecute lo siguiente:
 
 ```rest
 GET https://{{FHIR_URL}}/Patient/{{PATIENT_ID}}/$reindex
@@ -125,35 +128,35 @@ El resultado tendrá este aspecto:
     },
 ...
 ```
-Una vez que vea que el parámetro de búsqueda se muestra según lo previsto, puede volver a indexar un único recurso para probar la búsqueda con el elemento . En primer lugar, volverá a indexar un único recurso:
+Una vez que vea que el parámetro de búsqueda se muestre según lo previsto, puede volver a indexar un único recurso para probar la búsqueda con el elemento. En primer lugar, va a volver a indexar un único recurso:
 
 ```rest
 POST https://{{FHIR_URL}/{{RESOURCE}}/{{RESOURCE_ID}}/$reindex
 ```
 
-Al ejecutar esto, se establecen los índices de los parámetros de búsqueda para el recurso específico que definió para ese tipo de recurso. Esto realiza una actualización en el servidor de FHIR. Ahora puede buscar y establecer el encabezado use partial indices (usar índices parciales) en true, lo que significa que devolverá resultados donde cualquiera de los recursos tenga indexado el parámetro de búsqueda, aunque no todos los recursos de ese tipo lo tengan indexado. 
+Al ejecutar este comando, se establecen los índices de los parámetros de búsqueda para el recurso específico que haya definido para dicho tipo de recurso. Esto hace que se actualice el servicio FHIR. Ya puede buscar el encabezado "use-partial-indices" y establecerlo en "true", lo que significa que devolverá resultados en los que cualquiera de los recursos tenga indexado el parámetro de búsqueda, aunque no todos los recursos de ese tipo lo tengan. 
 
-Siguiendo con el ejemplo anterior, podría indexar un paciente para habilitar la carrera principal de EE. `SearchParameter` UU.:
+Siguiendo con el ejemplo anterior, podría indexar un paciente para habilitar el objeto `SearchParameter` de US Core Race:
 
 ```rest
 POST https://{{FHIR_URL}/Patient/{{PATIENT_ID}}/$reindex
 ```
 
-Y, a continuación, busque pacientes que tengan una carrera específica:
+A continuación, busque pacientes que tengan una raza específica:
 
 ```rest
 GET https://{{FHIR_URL}}/Patient?race=2028-9
 x-ms-use-partial-indices: true
 ```
 
-Una vez que haya probado y esté satisfecho con que el parámetro de búsqueda funciona según lo previsto, ejecute o programe el trabajo de reindexación para que los parámetros de búsqueda se puedan usar en el servidor de FHIR para los casos de uso de producción.
+Una vez que haya probado y esté satisfecho con que el parámetro de búsqueda funciona según lo previsto, ejecute o programe el trabajo de reindexación para que los parámetros de búsqueda se puedan usar en el servicio FHIR para casos de uso de producción.
 
 ## <a name="update-a-search-parameter"></a>Actualización de un parámetro de búsqueda
 
-Para actualizar un parámetro de búsqueda, use `PUT` para crear una nueva versión del parámetro de búsqueda. Debe incluir en `SearchParameter ID` el elemento del cuerpo de la solicitud y en la `id` `PUT` `PUT` llamada.
+Para actualizar un parámetro de búsqueda, use `PUT` para crear una versión del parámetro. Debe incluir el objeto `SearchParameter ID` en el elemento `id` del cuerpo de la solicitud `PUT` y en la llamada `PUT`.
 
 > [!NOTE]
-> Si no conoce el identificador del parámetro de búsqueda, puede buscarlo. El uso de devolverá todos los parámetros de búsqueda personalizados y puede desplazarse por el parámetro de `GET {{FHIR_URL}}/SearchParameter` búsqueda para encontrar el parámetro de búsqueda que necesita. También puede limitar la búsqueda por nombre. Con el ejemplo siguiente, puede buscar el nombre mediante `USCoreRace: GET {{FHIR_URL}}/SearchParameter?name=USCoreRace` .
+> Si no conoce el Id. del parámetro de búsqueda, puede buscarlo. El uso de `GET {{FHIR_URL}}/SearchParameter` devolverá todos los parámetros de búsqueda personalizados. Podrá desplazarse por la lista para encontrar el parámetro que necesita. También puede limitar la búsqueda por nombre. Con el ejemplo siguiente, podría buscar el nombre usando `USCoreRace: GET {{FHIR_URL}}/SearchParameter?name=USCoreRace`.
 
 ```rest
 PUT {{FHIR_ULR}}/SearchParameter/{SearchParameter ID}
@@ -199,10 +202,10 @@ PUT {{FHIR_ULR}}/SearchParameter/{SearchParameter ID}
 
 ```
 
-El resultado será actualizado `SearchParameter` y la versión se incrementará.
+El resultado será un objeto `SearchParameter` actualizado; además, la versión se incrementará.
 
 > [!Warning]
-> Tenga cuidado al actualizar SearchParameters que ya se han indexado en la base de datos. Cambiar el comportamiento de un elemento SearchParameter existente podría afectar al comportamiento esperado. Se recomienda ejecutar un trabajo de reindexación inmediatamente.
+> Tenga cuidado al actualizar parámetros de búsqueda que ya se hayan indexado en su base de datos. El cambio del comportamiento existente de un parámetro podría incidir en el comportamiento esperado. Se recomienda ejecutar un trabajo de reindexación inmediatamente.
 
 ## <a name="delete-a-search-parameter"></a>Eliminación de un parámetro de búsqueda
 
@@ -213,11 +216,11 @@ Delete {{FHIR_URL}}/SearchParameter/{SearchParameter ID}
 ```
 
 > [!Warning]
-> Tenga cuidado al eliminar SearchParameters que ya se han indexado en la base de datos. Cambiar el comportamiento de un elemento SearchParameter existente podría afectar al comportamiento esperado. Se recomienda ejecutar un trabajo de reindexación inmediatamente.
+> Tenga cuidado al eliminar parámetros de búsqueda que ya se hayan indexado en su base de datos. El cambio del comportamiento existente de un parámetro podría incidir en el comportamiento esperado. Se recomienda ejecutar un trabajo de reindexación inmediatamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido a crear un parámetro de búsqueda. A continuación, puede aprender a volver a indexar el servidor de FHIR.
+En este artículo ha obtenido información sobre cómo crear un parámetro de búsqueda. A continuación, puede aprender a volver a indexar el servicio FHIR.
 
 >[!div class="nextstepaction"]
 >[Procedimientos para ejecutar un trabajo de reindexación](how-to-run-a-reindex.md)

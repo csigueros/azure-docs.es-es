@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Documentación de Azure API for FHIR
-summary: Azure API for FHIR es una API administrada, basada en estándares y compatible para datos clínicos que habilita soluciones para el análisis accionable y el aprendizaje automático.
+title: Documentación del servicio FHIR
+summary: Página de documentación del servicio FHIR para las API de Azure Healthcare (versión preliminar). El servicio FHIR es una API administrada, basada en estándares y compatible para los datos sanitarios clínicos que permite soluciones para el análisis y el aprendizaje automático que se pueden realizar.
 metadata:
-  title: 'Documentación de Azure API for FHIR: tutoriales, guías de procedimientos'
-  description: Azure API for FHIR es una API administrada, basada en estándares y compatible para datos clínicos que habilita soluciones para el análisis accionable y el aprendizaje automático.
+  title: Documentación del servicio FHIR
+  description: El servicio FHIR es una API administrada, basada en estándares y compatible para los datos sanitarios clínicos que permite soluciones para el análisis y el aprendizaje automático que se pueden realizar.
   services: healthcare-apis
   ms.service: healthcare-apis
   ms.subservice: fhir
@@ -12,48 +12,68 @@ metadata:
   author: matjazl
   ms.author: matjazl
   ms.date: 08/13/2020
-  ms.openlocfilehash: d633b5376832672ecc7c917e24728666b889e16c
-  ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
-  ms.translationtype: HT
+  ms.openlocfilehash: ec3efbffe7b6e7b93fb336383297784749181c5f
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+  ms.translationtype: MT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/11/2021
-  ms.locfileid: "103019596"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124782410"
 landingContent:
-- title: Primeros pasos con Azure API for FHIR
+- title: Inicio con el servicio FHIR
   linkLists:
   - linkListType: overview
     links:
-    - text: ¿Qué es Azure API for FHIR?
+    - text: ¿Qué es el servicio FHIR?
       url: overview.md
-    - text: ¿Qué es el conector de Azure IoT para FHIR (versión preliminar)?
-      url: overview.md#azure-iot-connector-for-fhir-preview
   - linkListType: quickstart
     links:
-    - text: Implementación de Azure API for FHIR
-      url: fhir-paas-portal-quickstart.md
-    - text: Implementación de Azure IoT Connector para FHIR (versión preliminar)
-      url: iot-fhir-portal-quickstart.md
-- title: Tutoriales de configuración
+    - text: Implementación del servicio FHIR mediante el portal
+      url: fhir-portal-quickstart.md
+    - text: Implementación del servicio FHIR mediante una plantilla de ARM
+      url: fhir-service-resource-manager-template.md
+- title: Acceso al servicio FHIR
   linkLists:
-  - linkListType: tutorial
+  - linkListType: concept
     links:
-    - text: Implementación de una aplicación de JavaScript para leer datos del servicio FHIR
-      url: tutorial-web-app-fhir-server.md
-    - text: Acceso a la API de FHIR con Postman
-      url: access-fhir-postman-tutorial.md
-    - text: Integración inteligente con aplicaciones de terceros e historias clínicas
-      url: use-smart-on-fhir-proxy.md
-    - text: Recepción de datos del dispositivo mediante Azure IoT Hub
-      url: device-data-through-iot-hub.md
-- title: Registro de aplicaciones para la autenticación de AD
+    - text: Azure AD para el servicio FHIR
+      url: azure-active-directory-identity-configuration.md
+    - text: Validación de tokens de acceso
+      url: fhir-service-access-token-validation.md
+  - linkListType: learn
+    links:
+    - text: Acceso mediante Postman
+      url: ./../use-postman.md
+- title: Funcionalidades de búsqueda de FHIR
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Introducción a la búsqueda de FHIR
+      url: overview-of-search.md
+  - linkListType: how-to-guide
+    links:
+    - text: Definición de parámetros de búsqueda personalizados
+      url: how-to-do-custom-search.md
+    - text: Procedimientos para ejecutar un trabajo de reindexación
+      url: how-to-run-a-reindex.md
+    - text: Ejemplos de búsqueda
+      url: search-samples.md
+- title: Interoperabilidad y acceso de pacientes
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Registro de una aplicación de recursos
-      url: register-resource-azure-ad-client-app.md
-    - text: Registro de una aplicación cliente confidencial
-      url: register-confidential-azure-ad-client-app.md
-    - text: Registro de una aplicación cliente pública
-      url: register-public-azure-ad-client-app.md
-    - text: Registro de una aplicación cliente de servicio
-      url: register-service-azure-ad-client-app.md
+    - text: Interoperabilidad del sistema de administración de contenido e introducción a la regla de acceso de pacientes
+      url: centers-for-medicare-tutorial-introduction.md
+    - text: Guía de implementación de CARIN para Blue Button
+      url: carin-implementation-guide-blue-button-tutorial.md
+    - text: Da Vinci Drug Formulary
+      url: davinci-drug-formulary-tutorial.md
+- title: Operaciones de FHIR
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Validación de perfiles
+      url: validation-against-profiles.md
+    - text: Patient-everything
+      url: patient-everything.md
+    - text: Operación de $member-match
+      url: tutorial-member-match.md

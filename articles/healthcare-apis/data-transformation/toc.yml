@@ -1,0 +1,16 @@
+items:
+  - name: Transferencia y transformación de datos
+    href: index.yml
+  - name: Exportar datos
+    expanded: true
+    items:
+      - name: Configuración de las opciones de exportación
+        href: configure-export-data.md
+      - name: Exportación
+        href: export-data.md
+      - name: Exportación sin identificación
+        href: de-identified-export.md
+      - name: Exportación a Synapse
+        href: move-to-synapse.md
+  - name: Conversión de datos
+    href: convert-data.md

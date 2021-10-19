@@ -1,0 +1,45 @@
+### YamlMime:Landing
+title: Conector de IoT
+summary: Página de documentación del conector de IoT para las API de Azure Healthcare (versión preliminar).
+metadata:
+  title: Conector ioT de las API de Azure Healthcare
+  description: Sección de documentación de transformación de datos para las API de Azure Healthcare
+  services: healthcare-apis
+  ms.service: healthcare-apis
+  ms.subservice: data-transformation
+  ms.topic: landing-page
+  ms.collection: collection
+  author: msjasteppe
+  ms.author: jasteppe
+  ms.date: 10/12/2021
+  ms.openlocfilehash: 322abc6caf874aa7155b9385e376d066e2c82e11
+  ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+  ms.translationtype: MT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 10/14/2021
+  ms.locfileid: "130003749"
+landingContent:
+- title: Implementación del conector de IoT
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Implementación del conector de IoT mediante el portal
+      url: deploy-iot-connector-in-azure.md
+- title: Uso del conector de IoT
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Flujo de datos del conector de IoT
+      url: iot-data-flow.md
+    - text: Asignación de dispositivos
+      url: how-to-use-device-mapping-iot.md
+    - text: Asignación de destino de FHIR
+      url: how-to-use-fhir-mapping-iot.md
+    - text: Herramienta Data Mapper del conector de IoMT
+      url: https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper
+- title: Azure IoT Hub
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Recepción de datos del dispositivo mediante Azure IoT Hub
+      url: device-data-through-iot-hub.md

@@ -1,19 +1,18 @@
 ---
 title: 'Registro de una aplicación cliente pública en Azure AD: Azure API for FHIR'
 description: En este artículo se explica cómo registrar una aplicación cliente pública en Azure Active Directory, como preparación para la implementación de la API de FHIR en Azure.
-services: healthcare-apis
 author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 08/16/2021
+ms.date: 09/10/2021
 ms.author: cavoeg
-ms.openlocfilehash: 5b089e1c1c6d5a5b621fb50fda9e975e2320ea7e
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: e89d577385e41fc1e2dcd0b58afafc8ccf5371c8
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122396739"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278317"
 ---
 # <a name="register-a-public-client-application-in-azure-active-directory-for-azure-api-for-fhir"></a>Registro de una aplicación cliente pública en Azure Active Directory para Azure API for FHIR
 
@@ -55,19 +54,10 @@ Para configurar la aplicación de [escritorio](../../active-directory/develop/sc
 
 ## <a name="api-permissions"></a>Permisos de API
 
-De forma similar a la [aplicación cliente confidencial](register-confidential-azure-ad-client-app.md), deberá seleccionar los permisos de API que esta aplicación debería poder solicitar en nombre de los usuarios:
+Los permisos para Azure API for FHIR se administran a través de RBAC. Para más información, visite [Configuración de RbAC de Azure para FHIR.](configure-azure-rbac.md)
 
-1. Abra **Permisos de API**.
-
-    Si usa Azure API for FHIR, agregará un permiso a las API de salud de Azure mediante la búsqueda de dichas API en **API usadas en mi organización**. Solo las encontrará si ya tiene la [implementación de Azure API for FHIR](fhir-paas-powershell-quickstart.md).
-
-    
-    Si hace referencia a una aplicación de recursos diferente, seleccione el [registro de la aplicación de recursos de la API de FHIR](register-resource-azure-ad-client-app.md) que creó anteriormente en **Mis API**:
-
-    ![Azure Portal. Nuevos permisos de API pública: valor predeterminado de Azure API for FHIR](media/public-client-application/api-permissions.png)
-
-
-2. Seleccione los ámbitos que le gustaría que la aplicación pudiera solicitar: ![Azure Portal. Agregar permisos](media/public-client-application/app-permissions.png)
+>[!NOTE]
+>Use grant_type de client_credentials al intentar retener un token de acceso para Azure API for FHIR mediante herramientas como Postman. Para obtener más información, [visite Testing the FHIR API on Azure API for FHIR](tutorial-web-app-test-postman.md).
 
 ## <a name="validate-fhir-server-authority"></a>Validación de la autoridad del servidor de FHIR
 Si la aplicación que registró en este artículo y el servidor de FHIR se encuentran en el mismo inquilino de Azure AD, puede continuar con los pasos siguientes.
@@ -79,4 +69,4 @@ Si configura la aplicación cliente en un inquilino de Azure AD diferente del se
 En este artículo ha aprendido cómo registrar una aplicación cliente pública en Azure Active Directory. A continuación, pruebe el acceso al servidor de FHIR mediante Postman.
  
 >[!div class="nextstepaction"]
->[Acceso al servicio FHIR mediante Postman](../fhir/using-postman.md)
+>[Acceso al servicio FHIR mediante Postman](./../use-postman.md)

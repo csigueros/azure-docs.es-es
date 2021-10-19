@@ -8,19 +8,19 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 08/05/2021
 ms.author: cavoeg
-ms.openlocfilehash: 678151fb59941fafb521a9fc62ef2be0b94cf6de
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 557cbb92f643e553c1dae0768e2891abf7327f03
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121781199"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779424"
 ---
 # <a name="fhir-service-access-token-validation"></a>Validación del token de acceso del servicio FHIR
 
 > [!IMPORTANT]
 > Azure Healthcare APIs se encuentra actualmente en VERSIÓN PRELIMINAR. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado con disponibilidad general.
 
-La forma en que el servicio FHIR valida el token de acceso depende de la implementación y la configuración. En este artículo se le guía a lo largo de los pasos de validación, lo que puede ser útil para solucionar problemas de acceso.
+La forma en que el servicio FHIR de las API de Azure Healthcare (que aquí se denomina servicio FHIR) valida el token de acceso dependerá de la implementación y configuración. En este artículo se le guía a lo largo de los pasos de validación, lo que puede ser útil para solucionar problemas de acceso.
 
 ## <a name="validate-token-has-no-issues-with-identity-provider"></a>El token de validación no tiene problemas con el proveedor de identidades
 
@@ -104,7 +104,7 @@ Las propiedades importantes para el servidor de FHIR son `jwks_uri`, que indica 
 
 Una vez que el servidor ha comprobado la autenticidad del token, el servidor de FHIR pasa a validar que el cliente tenga las notificaciones necesarias para acceder al token.
 
-Al usar el servicio FHIR, el servidor comprobará que:
+Al usar el servicio FHIR, el servidor validará:
 
 1. El token tenga el derecho `Audience` (notificación `aud`).
 1. El usuario o la entidad de seguridad para los que se ha emitido el token tenga acceso al plano de datos del servidor de FHIR. La notificación `oid` del token contiene un identificador de objeto de identidad que identifica de forma única al usuario o a la entidad de seguridad.

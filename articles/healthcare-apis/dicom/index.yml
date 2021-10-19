@@ -1,0 +1,51 @@
+### YamlMime:Landing
+title: Documentación de DICOM
+summary: Página de documentación del servicio DICOM para las API de Azure Healthcare (versión preliminar).
+metadata:
+  title: Servicios DICOM de las API de Azure Healthcare
+  description: Sección de documentación de DICOM para las API de Azure Healthcare
+  services: healthcare-apis
+  ms.service: healthcare-apis
+  ms.subservice: fhir
+  ms.topic: landing-page
+  ms.collection: collection
+  author: ginalee-dotcom
+  ms.author: ginle
+  ms.date: 06/21/2021
+  ms.openlocfilehash: dfd82e198623e435fedc48c6ed54a894951fb659
+  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+  ms.translationtype: MT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 08/13/2021
+  ms.locfileid: "121777757"
+landingContent:
+- title: Inicio con el servicio DICOM
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Acerca del servicio DICOM
+      url: dicom-services-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Implemente servicios DICOM mediante el Azure Portal
+      url: deploy-dicom-services-in-azure.md
+- title: Uso del servicio DICOM
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 'Uso de las API estándar de DICOMweb con C #'
+      url: dicomweb-standard-apis-c-sharp.md
+    - text: Uso de las API estándar de DICOMweb con cURL
+      url: dicomweb-standard-apis-curl.md
+    - text: Uso de las API estándar de DICOMweb con Python
+      url: dicomweb-standard-apis-python.md
+- title: Fuente de cambios DICOM
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: ¿Qué es la fuente de cambios DICOM?
+      url: dicom-change-feed-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Incorpore cambios de DICOM mediante la fuente de cambios
+      url: pull-dicom-changes-from-change-feed.md

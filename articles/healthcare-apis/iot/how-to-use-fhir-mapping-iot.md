@@ -1,30 +1,33 @@
 ---
-title: 'Plantilla de asignación de FHIR en conector de IoT: Azure Healthcare APIs'
-description: En este artículo se describe cómo usar la plantilla de asignación de FHIR en el conector de IoT.
-author: stevewohl
+title: 'Asignación de destino de FHIR en el conector de IoT: API de Azure Healthcare'
+description: En este artículo se describe cómo usar la plantilla de asignación de destino de FHIR en el conector de IoT.
+author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 07/12/2021
-ms.author: rabhaiya
-ms.openlocfilehash: be40d72ea7e0da6d1ef48b2b9ca28d73f85f4d29
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 10/12/2021
+ms.author: jasteppe
+ms.openlocfilehash: b04d746553a36eb05a7e9cc6a346ed27d6c46308
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121781108"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129992968"
 ---
-# <a name="how-to-use-the-fhir-mapping-template"></a>Uso de la plantilla de asignación de FHIR
+# <a name="how-to-use-the-fhir-destination-mapping"></a>Uso de la asignación de destino de FHIR
 
-En este artículo se describe cómo configurar el conector de IoT mediante la plantilla de asignación de FHIR.
+> [!IMPORTANT]
+> Azure Healthcare APIs se encuentra actualmente en VERSIÓN PRELIMINAR. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado con disponibilidad general.
 
-## <a name="fhir-mapping"></a>Asignación de FHIR
+En este artículo se describe cómo configurar el conector de IoT mediante la asignación de destino Recursos Rápidos de Interoperabilidad en Salud (FHIR&#174;).
 
-Una vez extraído el contenido del dispositivo en un modelo normalizado, los datos se recopilan y agrupan según el identificador de dispositivo, el tipo de medida y el período de tiempo. La salida de esta agrupación se envía para su conversión en un recurso FHIR (actualmente [Observation](https://www.hl7.org/fhir/observation.html) [Observación]). La plantilla de asignación de FHIR controla la asignación de los datos a un recurso de observación de FHIR. ¿Debe crearse un recurso de observación para un momento o para un período de una hora? ¿Qué códigos se deben agregar al recurso de observación? ¿Se debe representar el valor como [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) o como una [cantidad](https://www.hl7.org/fhir/datatypes.html#Quantity)? Estos tipos de datos son todas las opciones que la configuración de asignación de FHIR controla.
+## <a name="fhir-destination-mapping"></a>Asignación de destino de FHIR
+
+Una vez extraído el contenido del dispositivo en un modelo normalizado, los datos se recopilan y agrupan según el identificador de dispositivo, el tipo de medida y el período de tiempo. La salida de esta agrupación se envía para su conversión en un recurso FHIR (actualmente [Observation](https://www.hl7.org/fhir/observation.html) [Observación]). La plantilla de asignación de destino de FHIR controla cómo se asignan los datos a una observación de FHIR. ¿Debe crearse un recurso de observación para un momento o para un período de una hora? ¿Qué códigos se deben agregar al recurso de observación? ¿Se debe representar el valor como [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) o como una [cantidad](https://www.hl7.org/fhir/datatypes.html#Quantity)? Estos tipos de datos son todas las opciones que los controles de configuración de asignación de destino de FHIR.
 
 ### <a name="codevaluefhirtemplate"></a>CodeValueFhirTemplate
 
-CodeValueFhirTemplate es la única plantilla admitida en la asignación de FHIR en este momento.  Permite definir los códigos, el período efectivo y el valor del recurso de observación. Se admiten varios tipos de valor: [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData), [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept) y [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity). Junto con estos valores configurables, el identificador del recurso Observation (Observación) y la vinculación a los recursos de dispositivo y paciente adecuados se administran automáticamente.
+CodeValueFhirTemplate es actualmente la única plantilla admitida en la asignación de destino de FHIR en este momento.  Permite definir los códigos, el período efectivo y el valor del recurso de observación. Se admiten varios tipos de valor: [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData), [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept) y [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity). Junto con estos valores configurables, el identificador del recurso Observation (Observación) y la vinculación a los recursos de dispositivo y paciente adecuados se administran automáticamente.
 
 | Propiedad | Descripción 
 | --- | ---
@@ -46,7 +49,7 @@ A continuación se muestran las de tipo de valor admitidas:
 
 #### <a name="sampleddata"></a>SampledData
 
-Representa el tipo de datos [SampledData](http://hl7.org/fhir/datatypes.html#SampledData) de FHIR. Las medidas del recurso de observación se escriben en un flujo de valores a partir de un momento dado que se incrementa con el período definido. Si no hay ningún valor, se escribirá `E` en el flujo de datos. Si en el período dos valores más ocupan la misma posición en el flujo de datos, se usa el más reciente. La misma lógica se aplica cuando se actualiza un recurso de observación mediante SampledData.
+Representa el [tipo de datos SampledData](http://hl7.org/fhir/datatypes.html#SampledData) FHIR. Las medidas de observación se escriben en una secuencia de valores a partir de un momento dado y se incrementan hacia delante mediante el período definido. Si no hay ningún valor, se escribirá `E` en el flujo de datos. Si en el período dos valores más ocupan la misma posición en el flujo de datos, se usa el más reciente. La misma lógica se aplica cuando se actualiza un recurso de observación mediante SampledData.
 
 | Propiedad | Descripción 
 | --- | ---
@@ -78,6 +81,7 @@ Representa el tipo de datos [CodeableConcept](http://hl7.org/fhir/datatypes.html
 ### <a name="examples"></a>Ejemplos
 
 **Frecuencia cardíaca: SampledData**
+
 ```json
 {
     "templateType": "CodeValueFhir",
@@ -257,9 +261,9 @@ Representa el tipo de datos [CodeableConcept](http://hl7.org/fhir/datatypes.html
 }
 ```
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-
 >[!div class="nextstepaction"]
->[Uso de la plantilla de asignación de dispositivos](how-to-use-device-mapping-iot.md)
+>[Uso de la asignación de dispositivos](how-to-use-device-mapping-iot.md)
+
+(FHIR&#174;) es una marca registrada [de HL7](https://hl7.org/fhir/) y se usa con el permiso HL7.

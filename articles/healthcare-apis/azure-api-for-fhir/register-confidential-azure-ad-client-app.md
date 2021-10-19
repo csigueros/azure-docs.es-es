@@ -1,19 +1,18 @@
 ---
 title: 'Registro de una aplicación cliente confidencial en Azure AD: Azure API for FHIR'
 description: Registre una aplicación cliente confidencial en Azure Active Directory que se autentique en nombre de un usuario y solicite acceso a las aplicaciones de recursos.
-services: healthcare-apis
 author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 08/16/2021
+ms.date: 09/10/2021
 ms.author: cavoeg
-ms.openlocfilehash: 5f49b73e034e4a38ba6022270a68f3d6c2018a40
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 2851f230a19bfbafb514e9fb22fd3f37de1f610b
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122396840"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272554"
 ---
 # <a name="register-a-confidential-client-application-in-azure-active-directory-for-azure-api-for-fhir"></a>Registro de una aplicación de cliente confidencial en Azure Active Directory para Azure API for FHIR
 
@@ -45,25 +44,10 @@ Para registrar una nueva aplicación cliente confidencial, consulte los siguient
 
 ## <a name="api-permissions"></a>Permisos de API
 
-Ahora que ha registrado su aplicación, debe seleccionar los permisos de API que la aplicación debe solicitar en nombre de los usuarios.
+Los permisos para Azure API for FHIR se administran a través de RBAC. Para más información, visite [Configuración de RbAC de Azure para FHIR.](configure-azure-rbac.md)
 
-1. Seleccione **Permisos de API**.
-
-    :::image type="content" source="media/add-azure-active-directory/portal-aad-register-new-app-registration-confidential-client-api-permissions.png" alt-text="Cliente confidencial. Permisos de API.":::
-
-1. Seleccione **Agregar un permiso**.
-
-    Si usa Azure API for FHIR, agregará un permiso a las Azure Healthcare APIs mediante la búsqueda de **dichas API** en **API usadas en mi organización**. La búsqueda de Azure Healthcare API solo devolverá resultados si ya ha [implementado Azure API for FHIR](fhir-paas-powershell-quickstart.md).
-
-    Si hace referencia a una aplicación de recursos diferente, seleccione el [registro de la aplicación de recursos de la API de FHIR](register-resource-azure-ad-client-app.md) que creó anteriormente en **Mis API**.
-
-
-    :::image type="content" source="media/confidential-client-application/confidential-client-org-api.png" alt-text="Cliente confidencial. API de mi organización" lightbox="media/confidential-client-application/confidential-app-org-api-expanded.png":::.
-    
-
-1. Seleccione los ámbitos (permisos) que la aplicación cliente confidencial solicitará en nombre del usuario. Seleccione **user_impersonation** y después **Agregar permisos**.
-
-    :::image type="content" source="media/confidential-client-application/confidential-client-add-permission.png" alt-text="Cliente confidencial. Permisos delegados":::.
+>[!NOTE]
+>Use grant_type de client_credentials al intentar retener un token de acceso para Azure API for FHIR mediante herramientas como Postman. Para obtener más información, [visite Testing the FHIR API on Azure API for FHIR](tutorial-web-app-test-postman.md).
 
 
 ## <a name="application-secret"></a>Secreto de aplicación
@@ -88,4 +72,4 @@ Ahora que ha registrado su aplicación, debe seleccionar los permisos de API que
 En este artículo se le ha guiado por los pasos para registrar una aplicación cliente confidencial en Azure AD. También se le mostraron los pasos para agregar permisos de API a Azure Healthcare API. Por último, se le ha mostrado cómo crear un secreto de aplicación. Además, puede aprender a acceder al servidor de FHIR mediante Postman.
  
 >[!div class="nextstepaction"]
->[Acceso al servicio FHIR mediante Postman](../fhir/using-postman.md)
+>[Acceso al servicio FHIR mediante Postman](./../use-postman.md)

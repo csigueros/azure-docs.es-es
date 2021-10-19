@@ -2,13 +2,13 @@
 title: Entrega de eventos de WebHook
 description: En este artículo se describe la entrega de eventos de webhook y la validación de puntos de conexión al usar webhooks.
 ms.topic: conceptual
-ms.date: 09/15/2021
-ms.openlocfilehash: 58da34498fa3e2fc81c8fe1476b1098688b9c6c0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 09/29/2021
+ms.openlocfilehash: 77908b7f36c51ca729915b09cb1e813c978235e3
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128625171"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129614373"
 ---
 # <a name="webhook-event-delivery"></a>Entrega de eventos de webhook
 Los webhooks son una de las muchas maneras de recibir eventos de Azure Event Grid. Cuando un nuevo evento está preparado, el servicio EventGrid publica una solicitud HTTP en el punto de conexión configurado con el evento en el cuerpo de la solicitud.
@@ -82,6 +82,25 @@ Para ver un ejemplo del tratamiento del protocolo de enlace de validación de su
 
 ## <a name="endpoint-validation-with-cloudevents-v10"></a>Validación de puntos de conexión con CloudEvents v1.0
 CloudEvents v1.0 implementa su propia [semántica de protección contra abusos](webhook-event-delivery.md) mediante el método **HTTP OPTIONS**. Puede leer más sobre este tema [aquí](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Al usar el esquema de CloudEvents para la salida, Event Grid lo hace con la protección contra abusos de CloudEvents v1.0 en lugar del mecanismo de eventos de validación de Event Grid.
+
+## <a name="event-subscriptions-considerations"></a>Consideraciones sobre las suscripciones de eventos
+
+Para evitar problemas durante la creación de la suscripción, use esta referencia para validar la compatibilidad entre los esquemas de tema y suscripción. Cuando se crea un tema, se define un esquema de eventos entrantes, así como un esquema de eventos saliente cuando se crea la suscripción.
+
+> [!NOTE]
+> Esta referencia de tabla de compatibilidad se aplica a: temas personalizados y dominios de eventos.
+
+| Esquema de eventos entrantes | Esquema de eventos salientes | Compatible |
+| ---- | ---- | ---- |
+| Esquema de Event Grid | Esquema de Event Grid | Sí |
+| | Esquema de eventos en la nube v1.0 | Sí |
+| | Esquema de entrada personalizado | No |
+| Esquema de eventos en la nube v1.0 | Esquema de Event Grid | No |
+| | Esquema de eventos en la nube v1.0 | Sí |
+| | Esquema de entrada personalizado | No |
+| Esquema de entrada personalizado | Esquema de Event Grid | Sí |
+| | Esquema de eventos en la nube v1.0 | Sí |
+| | Esquema de entrada personalizado | Sí |
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte el siguiente artículo para saber cómo solucionar problemas con las validaciones de suscripciones a eventos: 

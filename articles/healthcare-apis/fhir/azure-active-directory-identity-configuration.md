@@ -8,25 +8,25 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: cavoeg
-ms.openlocfilehash: e38295a306e41dee6b92df7839f8f10878535ea1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4571d8f1183cd2aa56568d2e5c4f83abb0f7f5dc
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780647"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779352"
 ---
 # <a name="azure-active-directory-identity-configuration-for-fhir-service"></a>Configuración de identidades de Azure Active Directory para el servicio de FHIR
 
 > [!IMPORTANT]
 > Azure Healthcare APIs se encuentra actualmente en VERSIÓN PRELIMINAR. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado con disponibilidad general.
 
-Al trabajar con datos del sector sanitario, es importante asegurarse de que estén protegidos y de que los usuarios o las aplicaciones no autorizados no puedan acceder a ellos. Los servidores de FHIR usan [OAuth 2.0](https://oauth.net/2/) para garantizar esta seguridad de datos. El servicio de FHIR se protege mediante [Azure Active Directory](../../active-directory/index.yml), que es un ejemplo de un proveedor de identidades de OAuth 2.0. En este artículo se proporciona información general sobre la autorización de un servidor de FHIR y los pasos necesarios para obtener un token para acceder a dicho servidor. Aunque estos pasos se aplican a cualquier servidor de FHIR y a cualquier proveedor de identidades, en este artículo se utiliza el servicio de FHIR de Azure Healthcare APIs y Azure Active Directory (Azure AD) como proveedor de identidades.
+Al trabajar con datos del sector sanitario, es importante asegurarse de que estén protegidos y de que los usuarios o las aplicaciones no autorizados no puedan acceder a ellos. Los servidores de FHIR usan [OAuth 2.0](https://oauth.net/2/) para garantizar esta seguridad de datos. El servicio FHIR de las API de Azure Healthcare (aquí denominado servicio FHIR) se protege mediante [Azure Active Directory](../../active-directory/index.yml), que es un ejemplo de un proveedor de identidades de OAuth 2.0. En este artículo se proporciona información general sobre la autorización de un servidor de FHIR y los pasos necesarios para obtener un token para acceder a dicho servidor. Aunque estos pasos se aplicarán a cualquier servidor de FHIR y a cualquier proveedor de identidades, en este artículo le recorreremos el servicio FHIR y Azure Active Directory (Azure AD) como proveedor de identidades.
 
 ## <a name="access-control-overview"></a>Introducción al control de acceso
 
-Para que una aplicación cliente acceda al servicio de FHIR, debe presentar un token de acceso. El token de acceso es una colección de propiedades (notificaciones) codificada [Base64](https://en.wikipedia.org/wiki/Base64) y firmada que proporcionan información sobre la identidad del cliente y los roles y privilegios que se conceden a este.
+Para que una aplicación cliente acceda al servicio FHIR, debe presentar un token de acceso. El token de acceso es una colección de propiedades (notificaciones) codificada [Base64](https://en.wikipedia.org/wiki/Base64) y firmada que proporcionan información sobre la identidad del cliente y los roles y privilegios que se conceden a este.
 
-Hay muchas maneras de obtener un token, pero para el servicio de FHIR no importa cómo se obtenga, siempre que sea un token adecuadamente firmado con las notificaciones correctas. 
+Hay muchas maneras de obtener un token, pero al servicio FHIR no le importa cómo se obtiene el token siempre que sea un token firmado correctamente con las notificaciones correctas. 
 
 Con el [flujo de código de autorización](../../active-directory/azuread-dev/v1-protocols-oauth-code.md) como ejemplo, el acceso a un servidor de FHIR pasa por los cuatro pasos siguientes:
 
@@ -46,15 +46,15 @@ El desarrollo de aplicaciones de FHIR a menudo implica la depuración de problem
 Normalmente, los servidores de FHIR esperan un método [JSON Web Token](https://en.wikipedia.org/wiki/JSON_Web_Token) (JWT, a veces pronunciado "jot"). Consta de tres partes:
 
 **Parte 1**: un encabezado, que podría tener este aspecto:
-    ```json
+```json
     {
       "alg": "HS256",
       "typ": "JWT"
     }
-    ```
+```
 
 **Parte 2**: la carga (las notificaciones), por ejemplo:
-    ```json
+```json
     {
      "oid": "123",
      "iss": "https://issuerurl",
@@ -63,7 +63,7 @@ Normalmente, los servidores de FHIR esperan un método [JSON Web Token](https://
         "admin"
       ]
     }
-    ```
+```
 
 **Parte 3**: una firma, que se calcula concatenando el contenido con codificación Base 64 del encabezado y la carga, y calculando un hash criptográfico de ellos en función del algoritmo (`alg`) especificado en el encabezado. Un servidor podrá obtener claves públicas del proveedor de identidades y validar que este token lo emitió un proveedor de identidades específico y no se ha manipulado.
 
@@ -115,4 +115,4 @@ Hay otras variaciones (por ejemplo, en nombre del flujo) para obtener un token. 
 En este documento, ha aprendido algunos de los conceptos básicos implicados en la protección del acceso al servicio de FHIR mediante Azure AD. Para obtener información sobre cómo implementar el servicio de FHIR, consulte
 
 >[!div class="nextstepaction"]
->[Implementación de un servicio de FHIR en Azure Healthcare APIs mediante el portal](fhir-portal-quickstart.md)
+>[Implementación del servicio FHIR](fhir-portal-quickstart.md)

@@ -9,19 +9,19 @@ ms.topic: reference
 ms.date: 08/03/2021
 ms.author: cavoeg
 ms.custom: references_regions
-ms.openlocfilehash: 2b0a4a3aeb0045c0df31c61d6b10b5d9bc12e349
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7e36e91125e721d8ce5ed4dbc2603109838ca531
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780148"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122780018"
 ---
 # <a name="frequently-asked-questions-about-the-fhir-service"></a>Preguntas más frecuentes sobre el servicio FHIR
 
 > [!IMPORTANT]
 > Azure Healthcare APIs se encuentra actualmente en VERSIÓN PRELIMINAR. Los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluyen términos legales adicionales que se aplican a las características de Azure que se encuentran en la versión beta, en versión preliminar o que todavía no se han publicado con disponibilidad general.
 
-En esta sección se tratan algunas de las preguntas más frecuentes sobre el servicio FHIR de Azure Healthcare APIs (en lo sucesivo, "servicio FHIR").
+En esta sección se tratan algunas de las preguntas más frecuentes sobre el servicio FHIR de Azure Healthcare APIs (que aquí se denomina servicio FHIR).
 
 ## <a name="fhir-service-the-basics"></a>Servicio FHIR: aspectos básicos
 

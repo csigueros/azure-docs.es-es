@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 04/05/2021
 ms.author: rabhaiya
-ms.openlocfilehash: 690a406c9cb0dd7644656c78236a2001ae0f0f2e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 4b32bf7a505fb7ca3958d8add69e3deb25cee0a1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780540"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124748743"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Plantillas de asignación del conector de Azure IoT para FHIR (versión preliminar)
 En este artículo se detalla cómo configurar el conector de Azure IoT para Recursos Rápidos de Interoperabilidad en Salud (FHIR&#174;)* mediante plantillas de asignación.
@@ -65,8 +65,8 @@ Los tres tipos de plantilla de contenido de dispositivo admitidos hoy en día de
 #### <a name="jsonpathcontenttemplate"></a>JsonPathContentTemplate
 JsonPathContentTemplate permite hacer coincidir valores de un mensaje del centro de eventos mediante la ruta de acceso JSON y extraerlos.
 
-| Propiedad | Descripción |<div style="width:150px">Ejemplo</div>
-| --- | --- | --- 
+| Propiedad | Descripción |Ejemplo |
+| --- | --- | --- |
 |**TypeName**|Tipo que se va a asociar a las medidas que coincidan con la plantilla.|`heartrate`
 |**TypeMatchExpression**|Expresión de la ruta de acceso JSON que se evalúa con la carga del centro de eventos. Si se encuentra un JToken coincidente, la plantilla se considera una coincidencia. Todas las expresiones subsiguientes se evalúan con los valores JToken coincidentes de aquí.|`$..[?(@heartRate)]`
 |**TimestampExpression**|Expresión de la ruta de acceso JSON para extraer el valor de marca de tiempo para OccurenceTimeUtc de la medida.|`$.endDate`

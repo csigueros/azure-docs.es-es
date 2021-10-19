@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 6/16/2021
 ms.author: cavoeg
-ms.openlocfilehash: cbc4b8b81bf2732c3646e4bd04e0652a4b8abf1d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5db569349134bd63b0341cc7afb024cfad83b884
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780133"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130046152"
 ---
 # <a name="features"></a>Características
 
@@ -27,46 +27,66 @@ Entre las versiones anteriores también admitidas actualmente se incluye: `3.0.2
 
 ## <a name="rest-api"></a>API DE REST
 
-| API                            | Admitida: PaaS | Admitida: OSS (SQL) | Admitida: OSS (Cosmos DB) | Comentario                                             |
-|--------------------------------|-----------|-----------|-----------|-----------------------------------------------------|
-| leer                           | Sí       | Sí       | Sí       |                                                     |
-| vread                          | Sí       | Sí       | Sí       |                                                     |
-| update                         | Sí       | Sí       | Sí       |                                                     |
-| update with optimistic locking | Sí       | Sí       | Sí       |                                                     |
-| update (conditional)           | Sí       | Sí       | Sí       |                                                     |
-| patch                          | No        | No        | No        |                                                     |
-| delete                         | Sí       | Sí       | Sí       |  Consulte la nota a continuación.                                   |
-| delete (conditional)           | Sí       | Sí        | Sí        |                                                     |
-| history                        | Sí       | Sí       | Sí       |                                                     |
-| create                         | Sí       | Sí       | Sí       | Admite POST y PUT                               |
-| create (conditional)           | Sí       | Sí       | Sí       | Problema [n.º 1382](https://github.com/microsoft/fhir-server/issues/1382) |
-| búsqueda                         | Parcial   | Parcial   | Parcial   | Consulte [Introducción a la búsqueda de FHIR](overview-of-search.md).                           |
-| búsqueda encadenada                 | Parcial       | Sí       | Parcial   | Consulte la nota 2 a continuación.                                   |
-| búsqueda encadenada inversa         | Parcial       | Sí       | Parcial   | Consulte la nota 2 a continuación.                                   |
-| capabilities                   | Sí       | Sí       | Sí       |                                                     |
-| proceso por lotes                          | Sí       | Sí       | Sí       |                                                     |
-| transaction                    | No        | Sí       | No        |                                                     |
-| paging                         | Parcial   | Parcial   | Parcial   | `self` y `next` se admiten                     |
-| intermediaries                 | No        | No        | No        |                                                     |
+| API    | API de Azure para FHIR | Servicio FHIR en las API de atención sanitaria | Comentario |
+|--------|--------------------|---------------------------------|---------|
+| leer   | Sí                | Sí                             |         |
+| vread  | Sí                | Sí                             |         |
+| update | Sí                | Sí                             |         | 
+| update with optimistic locking | Sí       | Sí       |
+| update (conditional)           | Sí       | Sí       |
+| patch                          | Sí       | Sí       | Compatibilidad solo [con la revisión](https://www.hl7.org/fhir/http.html#patch) JSON. Hemos incluido una solución alternativa para usar la revisión JSON en un paquete de [esta solicitud de solicitud de acceso.](https://github.com/microsoft/fhir-server/pull/2143)|
+| patch (condicional)            | Sí       | Sí       |
+| delete                         | Sí       | Sí       | Consulte los detalles en la sección de eliminación a continuación. |
+| delete (conditional)           | Sí       | Sí       | Consulte los detalles en la sección de eliminación a continuación. |
+| history                        | Sí       | Sí       |
+| create                         | Sí       | Sí       | Admite POST y PUT |
+| create (conditional)           | Sí       | Sí       | Problema [n.º 1382](https://github.com/microsoft/fhir-server/issues/1382) |
+| búsqueda                         | Parcial   | Parcial   | Consulte [Introducción a la búsqueda de FHIR](overview-of-search.md). |
+| búsqueda encadenada                 | Sí       | Sí       | Consulte la nota siguiente. |
+| búsqueda encadenada inversa         | Sí       | Sí       | Consulte la nota siguiente. |
+| proceso por lotes                          | Sí       | Sí       |
+| transaction                    | No        | Sí       |
+| paging                         | Parcial   | Parcial   | `self` y `next` se admiten                     |
+| intermediaries                 | No        | No        |
 
-> [!Note]
-> La eliminación definida por la especificación FHIR requiere que, después de la eliminación, las lecturas posteriores no específicas de la versión de un recurso devuelvan un código de estado HTTP 410 y que el recurso ya no se encuentre en la búsqueda. La API de Azure para FHIR también le permite eliminar completamente (incluido todo el historial) el recurso. Para eliminar completamente el recurso, puede pasar una configuración de parámetros `hardDelete` a true (`DELETE {server}/{resource}/{id}?hardDelete=true`). Si no pasa este parámetro o establece `hardDelete` en false, las versiones históricas del recurso seguirán estando disponibles.
-> 
-> En Azure API for FHIR y el servidor FHIR de código abierto respaldado por Cosmos, la búsqueda encadenada y la búsqueda encadenada inversa son una implementación de MVP. Para realizar búsquedas encadenadas en Cosmos DB, la implementación le guía por la expresión de búsqueda y emite subconsultas para resolver los recursos coincidentes. Esto se hace para cada nivel de la expresión. Si alguna consulta devuelve más de 100 resultados, se producirá un error. De forma predeterminada, la búsqueda encadenada está detrás de una marca de características. Para usar la búsqueda encadenada en Cosmos DB, use el encabezado `x-ms-enable-chained-search: true`. Encontrará más detalles en [PR 1695](https://github.com/microsoft/fhir-server/pull/1695).
+> [!Note] 
+> En Azure API for FHIR y el servidor FHIR de código abierto respaldado por Cosmos, la búsqueda encadenada y la búsqueda encadenada inversa son una implementación de MVP. Para realizar búsquedas encadenadas en Cosmos DB, la implementación le guía por la expresión de búsqueda y emite subconsultas para resolver los recursos coincidentes. Esto se hace para cada nivel de la expresión. Si alguna consulta devuelve más de 1000 resultados, se producirá un error.
+
+### <a name="delete-and-conditional-delete"></a>Eliminación y eliminación condicional
+
+La eliminación definida por la especificación de FHIR requiere que, después de eliminar, las lecturas posteriores no específicas de la versión de un recurso devuelvan un código de estado HTTP 410 y el recurso ya no se encuentra a través de la búsqueda. El Azure API for FHIR y el servicio FHIR también le permiten eliminar completamente (incluido todo el historial) del recurso. Para eliminar completamente el recurso, puede pasar una configuración de parámetros `hardDelete` a true (`DELETE {server}/{resource}/{id}?hardDelete=true`). Si no pasa este parámetro o establece `hardDelete` en false, las versiones históricas del recurso seguirán estando disponibles.
+
+Además de eliminar, el Azure API for FHIR y el servicio FHIR admiten la eliminación condicional, lo que le permite pasar un criterio de búsqueda para eliminar un recurso. De forma predeterminada, la eliminación condicional le permitirá eliminar un elemento a la vez. También puede especificar el parámetro `_count` para eliminar hasta 100 elementos a la vez. A continuación se muestran algunos ejemplos del uso de la eliminación condicional.
+
+Para eliminar un solo elemento mediante la eliminación condicional, debe especificar criterios de búsqueda que devuelvan un solo elemento.
+``` JSON
+DELETE https://{{hostname}}/Patient?identifier=1032704
+```
+
+Puede realizar la misma búsqueda, pero incluir hardDelete=true para eliminar también todo el historial.
+```JSON 
+DELETE https://{{hostname}}/Patient?identifier=1032704&hardDelete=true
+```
+
+Si desea eliminar varios recursos, puede incluir , que eliminará hasta 100 recursos que coincidan `_count=100` con los criterios de búsqueda. 
+``` JSON
+DELETE https://{{hostname}}/Patient?identifier=1032704&_count=100
+```
 
 ## <a name="extended-operations"></a>Operaciones extendidas
 
-Todas las operaciones que se admiten y que extienden la API RESTful.
+Todas las operaciones admitidas que amplían la API REST.
 
-| Tipo de parámetro de búsqueda | Admitida: PaaS | Admitida: OSS (SQL) | Admitida: OSS (Cosmos DB) | Comentario |
-|------------------------|-----------|-----------|-----------|---------|
-| $export (todo el sistema) | Sí       | Sí       | Sí       |         |
-| Patient/$export        | Sí       | Sí       | Sí       |         |
-| Group/$export          | Sí       | Sí       | Sí       |         |
-| $convert-data          | Sí       | Sí       | Sí       |         |
-| $validate              | Sí       | Sí       | Sí       |         |
-| $member-match          | Sí       | Sí       | Sí       |         |
-| $patient-everything    | Sí       | Sí       | Sí       |         |
+| Tipo de parámetro de búsqueda | API de Azure para FHIR | Servicio FHIR en las API de atención sanitaria| Comentario |
+|------------------------|-----------|-----------|---------|
+| $export (todo el sistema) | Sí       | Sí       |         |
+| Patient/$export        | Sí       | Sí       |         |
+| Group/$export          | Sí       | Sí       |         |
+| $convert-data          | Sí       | Sí       |         |
+| $validate              | Sí       | Sí       |         |
+| $member-match          | Sí       | Sí       |         |
+| $patient-everything    | Sí       | Sí       |         |
+| $purge historial         | Sí       | Sí       |         |
 
 ## <a name="persistence"></a>Persistencia
 
@@ -84,7 +104,7 @@ Actualmente, las acciones permitidas para un rol determinado se aplican *globalm
 
 ## <a name="service-limits"></a>Límites de servicio
 
-* [**Unidades de solicitud (RU)**](../../cosmos-db/concepts-limits.md): puede configurar hasta 10 000 unidades de solicitud en el portal de Azure API for FHIR. Necesitará un mínimo de 400 RU o 40 RU/GB, lo que sea mayor. Si necesita más de 10 000 RU, puede crear una incidencia de soporte técnico para solicitar un aumento. El máximo disponible es 1 000 000.
+* [**Unidades de solicitud (RU)**](../../cosmos-db/concepts-limits.md): puede configurar hasta 10 000 unidades de solicitud en el portal de Azure API for FHIR. Necesitará un mínimo de 400 RU o 40 RU/GB, lo que sea mayor. Si necesita más de 10 000 RU, puede poner una vale de soporte técnico para aumentar las RU. El máximo disponible es 1 000 000.
 
 * **Tamaño de conjunto**: cada conjunto está limitado a 500 elementos.
 

@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 5/17/2021
 ms.author: cavoeg
-ms.openlocfilehash: af0b40ccd33829803978aa5c42f1dcb4c0fcc4c2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f974cb0a5099ce23f9b7ecaf719c09239c21eca8
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780779"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824536"
 ---
 # <a name="overview-of-search-in-azure-api-for-fhir"></a>Información general de la búsqueda en Azure API for FHIR
 
@@ -136,7 +136,7 @@ Para facilitar la administración de los recursos devueltos, puede usar parámet
 | _revinclude                   | Sí                  | Sí                       |Los elementos incluidos se limitan a 100. _revinclude en PaaS y OSS en Cosmos DB no incluyen compatibilidad con :iterate [(nº 2137)](https://github.com/microsoft/fhir-server/issues/2137).  También hay un código de estado incorrecto para una solicitud incorrecta [nº 1319](https://github.com/microsoft/fhir-server/issues/1319)                            |
 | _summary                      | Sí             | Sí                   |
 | _total                        | Parcial              | Parcial                   | _total=none y _total=accurate                               |
-| _sort                         | Parcial              | Parcial                   | Se admite sort=_lastUpdated. Para Azure API for FHIR y las bases de datos de OSS Cosmos DB creadas después del 20 de abril de 2021, también se admite la ordenación por nombre, apellido y fecha clínica. El servicio FHIR y la base de datos OSS SQL DB admiten la ordenación por cadenas y fechas.                              |
+| _sort                         | Parcial              | Parcial                   | Se admite sort=_lastUpdated. De forma predeterminada, ordena el registro en orden ascendente. Puede usar el prefijo "-" para ordenar en orden descendente. Para Azure API for FHIR y las bases de datos de OSS Cosmos DB creadas después del 20 de abril de 2021, también se admite la ordenación por nombre, apellido y fecha clínica.          |
 | _contained                    | No                   | No                        |
 | _containedType                | No                   | No                        |
 | _score                        | No                   | No                        |

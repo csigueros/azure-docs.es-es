@@ -1,0 +1,190 @@
+items:
+  - name: Documentación de las API de Azure Healthcare (versión preliminar)
+    href: ../index.yml
+  - name: Azure API for FHIR documentación
+    href: index.yml
+  - name: Información general
+    items:
+      - name: Acerca de la API de Azure para FHIR
+        href: overview.md
+      - name: Conector de Azure IoT para FHIR (versión preliminar)
+        href: overview.md#azure-iot-connector-for-fhir-preview
+  - name: Guías de inicio rápido
+    expanded: false
+    items:
+      - name: Implementación de Azure API for FHIR
+        expanded: false
+        items:
+          - name: Uso del Portal
+            href: fhir-paas-portal-quickstart.md
+          - name: Usar PowerShell
+            href: fhir-paas-powershell-quickstart.md
+          - name: Uso de CLI
+            href: fhir-paas-cli-quickstart.md
+          - name: Uso de una plantilla de Resource Manager
+            displayName: Resource Manager
+            href: azure-api-fhir-resource-manager-template.md
+      - name: Implementación de Azure IoT Connector para FHIR (versión preliminar)
+        expanded: false
+        items:
+          - name: Uso del Portal
+            href: iot-fhir-portal-quickstart.md
+          - name: Uso de una plantilla de Resource Manager
+            href: iot-azure-resource-manager-template-quickstart.md
+  - name: Tutoriales
+    expanded: false
+    items:
+      - name: Implementación de una aplicación JavaScript
+        expanded: false
+        items:
+          - name: 1. Instalación inicial e implementación de FHIR
+            href: tutorial-web-app-fhir-server.md
+          - name: 2. Registro de una aplicación cliente pública
+            href: tutorial-web-app-public-app-reg.md
+          - name: 3. Prueba de configuración con Postman
+            href: tutorial-web-app-test-postman.md
+          - name: 4. Escritura de aplicación web
+            href: tutorial-web-app-write-web-app.md
+      - name: Uso de SMART en el proxy de FHIR
+        href: use-smart-on-fhir-proxy.md
+      - name: Ingesta de datos de dispositivos IoT
+        expanded: false
+        items:
+          - name: Recepción de datos del dispositivo mediante Azure IoT Hub
+            href: device-data-through-iot-hub.md
+      - name: Interoperabilidad y acceso de pacientes
+        expanded: false
+        items:
+          - name: Interoperabilidad del sistema de administración de contenido e introducción a la regla de acceso de pacientes
+            href: centers-for-medicare-tutorial-introduction.md
+          - name: Guía de implementación de CARIN para Blue Button
+            href: ../fhir/carin-implementation-guide-blue-button-tutorial.md
+          - name: Da Vinci Drug Formulary
+            href: ../fhir/davinci-drug-formulary-tutorial.md
+          - name: Da Vinci PDex
+            href: ../fhir/davinci-pdex-tutorial.md
+          - name: Da Vinci Plan Net
+            href: ../fhir/davinci-plan-net.md
+  - name: Guías paso a paso
+    expanded: false
+    items:
+      - name: Registro de aplicaciones
+        expanded: false
+        items:
+          - name: Introducción al registro de aplicaciones para Azure API for FHIR
+            href: fhir-app-registration.md
+          - name: Aplicación de recursos
+            href: register-resource-azure-ad-client-app.md
+          - name: Aplicaciones cliente confidenciales
+            href: register-confidential-azure-ad-client-app.md
+          - name: Aplicación cliente pública
+            href: register-public-azure-ad-client-app.md
+          - name: Aplicación cliente de servicio
+            href: register-service-azure-ad-client-app.md
+      - name: Definición de configuración
+        expanded: false
+        items:
+          - name: Configuración de otras Azure API for FHIR configuración
+            href: azure-api-for-fhir-additional-settings.md
+          - name: Configuración de Azure RBAC
+            href: configure-azure-rbac.md
+          - name: Configuración de RBAC local
+            href: configure-local-rbac.md
+          - name: Configuración de la base de datos
+            href: configure-database.md
+          - name: Configuración de claves administradas por el cliente
+            href: customer-managed-key.md
+          - name: Configuración de CORS
+            href: configure-cross-origin-resource-sharing.md
+          - name: Configuración de exportación
+            href: ../data-transformation/configure-export-data.md
+          - name: Configuración de Private Link
+            href: configure-private-link.md
+      - name: Buscar
+        expanded: false
+        items:
+          - name: Introducción a la búsqueda de FHIR
+            href: overview-of-search.md
+          - name: Definición de parámetros de búsqueda personalizados
+            href: how-to-do-custom-search.md
+          - name: Procedimientos para ejecutar un trabajo de reindexación
+            href: how-to-run-a-reindex.md
+          - name: Ejemplos de búsqueda de Azure API for FHIR
+            href: search-samples.md
+      - name: Operaciones
+        expanded: false
+        items:
+          - name: Validación de perfiles
+            href: validation-against-profiles.md
+          - name: Exportar datos
+            expanded: false
+            items:
+              - name: Exportar datos
+                href: ../data-transformation/export-data.md
+              - name: Exportación sin identificación
+                href: ../data-transformation/de-identified-export.md
+              - name: Traslado de datos a Synapse
+                href: ../data-transformation/move-to-synapse.md
+          - name: Conversión de datos
+            expanded: false
+            items:
+              - name: Plantillas de $convert-data y de extensión de convertidor de FHIR
+                href: convert-data.md
+          - name: Patient-everything en FHIR
+            href: patient-everything.md
+          - name: Operación de $member-match
+            href: tutorial-member-match.md
+      - name: Búsqueda de identificadores de objetos de identidad
+        href: find-identity-object-ids.md
+      - name: Métricas y registro de diagnóstico
+        expanded: false
+        items:
+          - name: Habilitación del registro de diagnóstico en Azure API for FHIR
+            href: enable-diagnostic-logging.md
+          - name: Visualización y configuración de las métricas de Azure IoT Connector for FHIR (versión preliminar)
+            href: iot-metrics-display.md
+      - name: 'Obtención de un token de la API de Azure para FHIR: CLI'
+        href: get-healthcare-apis-access-token-cli.md
+      - name: Solución de problemas en el conector de Azure IoT para FHIR (versión preliminar)
+        href: iot-troubleshoot-guide.md
+      - name: Escalabilidad automática para Azure API para FHIR
+        href: autoscale-azure-api-fhir.md
+      - name: Recuperación ante desastres para Azure API for FHIR
+        href: disaster-recovery.md
+  - name: Conceptos
+    expanded: false
+    items:
+      - name: "Introducción a Azure\_AD y Azure API for FHIR"
+        href: azure-active-directory-identity-configuration.md
+      - name: Validación de tokens de acceso
+        href: azure-api-fhir-access-token-validation.md
+      - name: Uso de encabezados HTTP personalizados para agregar datos a los registros de auditoría
+        href: use-custom-headers.md
+      - name: Funcionamiento del conector de Azure IoT para FHIR (versión preliminar)
+        expanded: false
+        items:
+          - name: Flujo de datos del conector de Azure IoT para FHIR (versión preliminar)
+            href: iot-data-flow.md
+          - name: Plantillas de asignación del conector de Azure IoT para FHIR (versión preliminar)
+            href: iot-mapping-templates.md
+      - name: Funcionalidades de la API rest de FHIR
+        href: fhir-rest-api-capabilities.md
+      - name: Seguridad
+        items:
+          - name: Controles de seguridad de Azure Policy
+            href: ./security-controls-policy.md
+  - name: Recursos
+    items:
+      - name: Preguntas más frecuentes
+        href: fhir-faq.yml
+      - name: Características admitidas
+        href: fhir-features-supported.md
+      - name: Proyectos de GitHub
+        href: fhir-github-projects.md
+  - name: Referencia
+    items:
+      - name: Azure CLI
+        href: /cli/azure/healthcareapis
+      - name: Elementos integrados de Azure Policy
+        displayName: 'samples, policies, definitions'
+        href: ./policy-reference.md
