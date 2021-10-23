@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 7/22/2020
 ms.author: mimckitt
 ms.custom: sttsinar
-ms.openlocfilehash: 931a80078c4e808ac394bdd226fb972807ed4563
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 17a32881cdfc8e5152d3004a841416e7f0dd3778
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697245"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130071176"
 ---
 # <a name="azure-virtual-machine-sizes-naming-conventions"></a>Convenciones de nomenclatura de los tamaños de las máquinas virtuales de Azure
 
@@ -31,7 +31,7 @@ En esta página se explican las convenciones de nomenclatura que se usan para la
 | *Subfamilia | Se usa solo para diferenciaciones especializadas de máquinas virtuales|
 | N. º de vCPU| Indica el número de vCPU de la máquina virtual |
 | *VCPU restringidas| Solo se usa para ciertos tamaños de máquina virtual. Denota el número de vCPU para el [tamaño compatible con la vCPU restringida](./constrained-vcpu.md) |
-| Características adicionales | Una o más letras minúsculas indican características adicionales, como: <br> a = procesador basado en AMD <br> d = diskfull (el disco temporal local está presente); esto es para las VM de Azure más recientes, consulte [Series Ddv4 y Ddsv4](./ddv4-ddsv4-series.md) <br> i = tamaño aislado <br> l = poca memoria; menor cantidad de memoria que el tamaño de memoria intensiva <br> m = memoria intensiva; la mayor cantidad de memoria en un tamaño determinado <br> t = memoria minúscula; la menor cantidad de memoria en un tamaño determinado <br> s = compatible con Premium Storage, incluido el posible uso de [SSD Ultra](./disks-types.md#ultra-disk) (Nota: Algunos tamaños más recientes sin el atributo s son compatibles con Premium Storage, por ejemplo, M128, M64, etc.)<br> |
+| Características adicionales | Una o más letras minúsculas indican características adicionales, como: <br> a = procesador basado en AMD <br> d = diskfull (el disco temporal local está presente); esto es para las VM de Azure más recientes, consulte [Series Ddv4 y Ddsv4](./ddv4-ddsv4-series.md) <br> i = tamaño aislado <br> l = poca memoria; menor cantidad de memoria que el tamaño de memoria intensiva <br> m = memoria intensiva; la mayor cantidad de memoria en un tamaño determinado <br> t = memoria minúscula; la menor cantidad de memoria en un tamaño determinado <br> s = compatible con Premium Storage, incluido el posible uso de [SSD Ultra](./disks-types.md#ultra-disks) (Nota: Algunos tamaños más recientes sin el atributo s son compatibles con Premium Storage, por ejemplo, M128, M64, etc.)<br> |
 | *Tipo de acelerador | Indica el tipo de acelerador de hardware de los SKU especializados o GPU. Solo los nuevos SKU especializados o GPU lanzados a partir del tercer trimestre de 2020 tienen el acelerador de hardware en el nombre. |
 | Versión | Indica la versión de la serie de la familia de máquinas virtuales |
 

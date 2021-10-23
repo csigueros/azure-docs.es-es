@@ -1,18 +1,18 @@
 ---
 title: Implementación automática para grupos de dispositivos en Azure IoT Edge | Microsoft Docs
 description: Uso de implementaciones automáticas en Azure IoT Edge para administrar grupos de dispositivos basándose en etiquetas compartidas
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 10/18/2021
+author: kgremban
+ms.author: kgremban
+ms.date: 01/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 349ad022876b2504fe31be6f162255ae4d6d6a65
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 601015658b2d2de6c855ac285b4dfbec6cb15ca8
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130179476"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129670240"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Descripción de las implementaciones automáticas de IoT Edge en un único dispositivo o a escala
 
@@ -78,7 +78,7 @@ Tenga en cuenta estas restricciones cuando construya una condición de destino:
 * En dispositivos gemelos, solo puede crear una condición de destino mediante etiquetas, propiedades notificadas o valores de deviceId.
 * No se permiten las comillas dobles en ninguna porción de la condición de destino. Use comillas simples.
 * Las comillas simples representan los valores de la condición de destino. Por lo tanto, deberá agregar una comilla simple a otra comilla simple si esta ya forma parte del nombre del dispositivo. Por ejemplo, para dirigirse a un dispositivo llamado `operator'sDevice`, escriba `deviceId='operator''sDevice'`.
-* Se permiten números, letras y los siguientes caracteres en los valores de la condición de destino: `“()<>@,;:\\"/?={} \t\n\r`.
+* Se permiten números, letras y los siguientes caracteres en los valores de la condición de destino: `-:.+%_#*?!(),=@;$`.
 * No se permiten los caracteres siguientes en las claves de condición de destino: `/;`.
 
 ### <a name="priority"></a>Priority

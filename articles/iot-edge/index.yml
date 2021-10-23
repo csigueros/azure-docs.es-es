@@ -11,12 +11,12 @@ metadata:
   ms.author: kgremban
   ms.date: 08/05/2019
   ms.custom: e2e-hybrid
-  ms.openlocfilehash: e8514f4eff76d62fb48cbaf3641842cdb8cbb4c9
-  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+  ms.openlocfilehash: f879a1d5e018ee41e3dfd1c3f2336cf50d14e71b
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/24/2021
-  ms.locfileid: "128557213"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130234705"
 landingContent:
 - title: Desarrollo para dispositivos Linux
   linkLists:
@@ -50,14 +50,12 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Registro de un único dispositivo
-      url: how-to-register-device.md
     - text: Registro y aprovisionamiento de dispositivos a escala
       url: how-to-provision-devices-at-scale-linux-symmetric.md
     - text: Instalación del entorno de ejecución de Azure IoT Edge en dispositivos Linux
-      url: how-to-install-iot-edge.md
+      url: how-to-provision-single-device-linux-symmetric.md
     - text: Instalación del entorno de ejecución de Azure IoT Edge en dispositivos Windows
-      url: how-to-install-iot-edge-on-windows.md
+      url: how-to-provision-single-device-linux-on-windows-symmetric.md
 - title: Ponerse en contacto con la comunidad de código abierto
   linkLists:
   - linkListType: get-started

@@ -5,18 +5,18 @@ services: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 06/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: cf2461484d290dc05912121a6964b42ca58194cc
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 1bb5a7bf62bd16274a168ecb8b3147c07afc8860
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129455529"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130175871"
 ---
 # <a name="how-to-manage-startstop-vms-v2-preview"></a>Administración de Start/Stop VMs v2 (versión preliminar)
 
 ## <a name="azure-dashboard"></a>Panel de Azure
 
-Start/Stop VMs v2 (versión preliminar) incluye un [panel](../../azure-monitor/visualizations.md#azure-dashboards) que le ayudará a comprender el ámbito de administración y las operaciones recientes en las máquinas virtuales. Es una manera rápida y sencilla de comprobar el estado de cada operación que se realiza en las máquinas virtuales de Azure. La visualización de cada icono se basa en una consulta de registro y, para ver la consulta, seleccione la opción de la **hoja Abrir en Registros** en la esquina derecha del icono. Esto abre la herramienta de [Log Analytics](../../azure-monitor/logs/log-analytics-overview.md#starting-log-analytics) en Azure Portal y, desde aquí, puede evaluar la consulta y modificarla para satisfacer sus necesidades, como las [alertas de registro](../../azure-monitor/alerts/alerts-log.md) personalizadas, un [libro](../../azure-monitor/visualize/workbooks-overview.md) personalizado, etc.
+Start/Stop VMs v2 (versión preliminar) incluye un [panel](../../azure-monitor/best-practices-analysis.md#azure-dashboards) que le ayudará a comprender el ámbito de administración y las operaciones recientes en las máquinas virtuales. Es una manera rápida y sencilla de comprobar el estado de cada operación que se realiza en las máquinas virtuales de Azure. La visualización de cada icono se basa en una consulta de registro y, para ver la consulta, seleccione la opción de la **hoja Abrir en Registros** en la esquina derecha del icono. Esto abre la herramienta de [Log Analytics](../../azure-monitor/logs/log-analytics-overview.md#starting-log-analytics) en Azure Portal y, desde aquí, puede evaluar la consulta y modificarla para satisfacer sus necesidades, como las [alertas de registro](../../azure-monitor/alerts/alerts-log.md) personalizadas, un [libro](../../azure-monitor/visualize/workbooks-overview.md) personalizado, etc.
 
 Los datos de registro que muestra cada icono en el panel se actualiza cada hora, con una opción de actualización manual a petición mediante un clic en el icono **Actualizar** en una visualización determinada o mediante la actualización del panel completo.
 

@@ -3,7 +3,7 @@ title: Configuración de un grupo de disponibilidad (Azure Portal)
 description: Use Azure Portal para crear el clúster de conmutación por error de Windows, la escucha de grupo de disponibilidad y el equilibrador de carga interno en una VM con SQL Server en Azure.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: hadr
@@ -11,15 +11,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/20/2020
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: rsetlem
+ms.reviewer: mathoma
 ms.custom: seo-lt-2019, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: ece52b707418ba9a0c92bffc39f5a8b17b720336
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 36b2d461b73b778541b79142633a6aafca9509e0
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572477"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162917"
 ---
 # <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>Uso de Azure Portal para configurar un grupo de disponibilidad (versión preliminar) para SQL Server en máquinas virtuales de Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -178,7 +178,7 @@ Puede comprobar el estado de la implementación en el **registro de actividad**,
 
 ## <a name="configure-quorum"></a>Configuración de un cuórum
 
-Aunque el testigo de disco es la opción de cuórum más resistente, requiere un disco compartido de Azure que impone algunas limitaciones al grupo de disponibilidad. Por lo tanto, el testigo en la nube es la solución de cuórum recomendada para los clústeres que hospedan grupos de disponibilidad de SQL Server en máquinas virtuales de Azure. 
+Aunque el testigo de disco es la opción de cuórum más resistente, requiere un disco compartido de Azure que impone algunas limitaciones al grupo de disponibilidad. Por lo tanto, el testigo en la nube es la solución de cuórum recomendada para los clústeres que hospedan grupos de disponibilidad de SQL Server en VM de Azure. 
 
 Si tiene un número par de votos en el clúster, configure la [solución de cuórum](hadr-cluster-quorum-configure-how-to.md) que mejor se adapte a sus necesidades empresariales. Para más información, consulte [Cuórum con VM con SQL Server](hadr-windows-server-failover-cluster-overview.md#quorum). 
 

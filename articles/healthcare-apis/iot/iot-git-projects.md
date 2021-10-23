@@ -5,34 +5,44 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 10/18/2021
+ms.date: 10/19/2021
 ms.author: jasteppe
-ms.openlocfilehash: 0092482af2f9f4f6f9a090a00cc387ae901e5b68
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: e66a6f3e2603645be4efeb68211ffd4d785067db
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130187784"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130259418"
 ---
 # <a name="open-source-projects"></a>Proyectos de código abierto
 
 Consulte nuestros proyectos de código abierto en GitHub que proporcionan código fuente e instrucciones para implementar servicios para varios usos con el conector de IoT. 
 
-## <a name="iot-connector-github-projects"></a>Proyectos de conectores GitHub IoT
+## <a name="iot-connector-github-projects"></a>Proyectos de conector GitHub IoT
 
-#### <a name="integration-with-iot-hub-and-iot-central"></a>Integración con IoT Hub e IoT Central
+#### <a name="fhir-integration"></a>Integración de FHIR
 
-* [microsoft/iomt-fhir:](https://github.com/microsoft/iomt-fhir)integración con IoT Hub o IoT Central a Recursos Rápidos de Interoperabilidad en Salud (FHIR&#174;) con normalización de datos y conversión de FHIR de los datos normalizados
-* Normalización: la información de datos del dispositivo se extrae en un formato común para su posterior procesamiento.
-* Conversión de FHIR: los datos normalizados y agrupados se asignan a FHIR. Las observaciones se crean o actualizan según las plantillas configuradas y se vinculan al dispositivo y al paciente.
+* [microsoft/iomt-fhir:](https://github.com/microsoft/iomt-fhir)versión de código abierto del servicio administrado del conector ioT de las API de Azure Healthcare. Se puede usar con cualquier servicio Recursos Rápidos de Interoperabilidad en Salud (FHIR&#174;) que admita [FHIR R7&#174;](https://https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491)
 
-#### <a name="device-and-fhir-destination-mappings-authoring-and-troubleshooting"></a>Creación y solución de problemas de asignaciones de destino de dispositivos y FHIR
+#### <a name="device-and-fhir-destination-mappings"></a>Asignaciones de destino de dispositivos y FHIR
 
-* [Herramientas para ayudar a crear asignaciones](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper)de destino de dispositivos y FHIR: visualice la configuración de asignación para normalizar los datos de entrada del dispositivo y transformarlos en recursos de FHIR. Los desarrolladores pueden usar esta herramienta para editar y probar asignaciones de dispositivos y asignaciones de destino de FHIR. Exporte para cargarlos en el conector de IoT en el Azure Portal.
+* [Asignador de datos del conector ioMT:](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper)herramienta para editar, probar y solucionar problemas de las asignaciones de destino del dispositivo del conector ioT y FHIR. Exporte las asignaciones para cargar en el conector de IoT Azure Portal use con la versión de código abierto.
 
-#### <a name="healthkit-and-fhir-integration"></a>Integración de HealthKit y FHIR
+#### <a name="wearables-integration"></a>Integración de wearables
 
-* [microsoft/healthkit-on-fhir:](https://github.com/microsoft/healthkit-on-fhir)una biblioteca swift que automatiza la exportación de datos de Apple HealthKit a un servicio FHIR.
+Fitbit
+
+* [microsoft/fitbit-on-fhir:](https://github.com/microsoft/FitbitOnFHIR)lleve fitbit&#174; datos a un servicio FHIR.
+
+HealthKit
+
+* [microsoft/healthkit-on-fhir:](https://github.com/microsoft/healthkit-on-fhir)lleve los datos&#174; HealthKit de Apple&#174; a un servicio FHIR.
+
+* [microsoft/healthkit-to-fhir:](https://github.com/microsoft/healthkit-to-fhir)proporciona una manera sencilla de crear recursos de FHIR a partir de HKObjects
+
+Estado Data Sync
+
+* [microsoft/health-data-sync:](https://github.com/microsoft/health-data-sync)una biblioteca de Swift que simplifica y automatiza la exportación de datos de HealthKit a un almacén externo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Aprenda a implementar el conector de IoT en el Azure Portal
@@ -40,4 +50,4 @@ Aprenda a implementar el conector de IoT en el Azure Portal
 >[!div class="nextstepaction"]
 >[Implementación del servicio administrado del conector de IoT](deploy-iot-connector-in-azure.md)
 
-(FHIR&#174;) es una marca comercial registrada de [HL7](https://hl7.org/fhir/) y se usa con el permiso hl7.
+(FHIR&#174;) es una marca registrada [de HL7](https://hl7.org/fhir/) y se usa con el permiso HL7.
