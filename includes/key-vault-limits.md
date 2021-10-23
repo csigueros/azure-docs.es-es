@@ -4,12 +4,12 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 05/28/2021
 ms.author: ambapat
-ms.openlocfilehash: 3539e222407fee63a829e80db986f2b0eed02e24
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 2918ae1a7fcca250de91e61ecc9b2c64a2d9a0aa
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111761415"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130019178"
 ---
 El servicio Azure Key Vault admite dos tipos de recursos: almacenes y HSM administrados. En las dos secciones siguientes se describen los límites de servicio para cada uno de ellos, respectivamente.
 
@@ -86,7 +86,7 @@ En esta sección se describen los límites de servicio para el tipo de recurso `
 
 |Elemento|Límites|
 |----|------:|
-Número de instancias de HSM por suscripción por región|1 
+Número de instancias de HSM por suscripción por región|5 
 Número de claves por grupo de HSM|5000
 Número de versiones por clave|100
 Número de definiciones de roles personalizados por HSM|50

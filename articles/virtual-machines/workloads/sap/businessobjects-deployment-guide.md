@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: a489b8fd416c750071fa5e292bf916f23c83dab5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 946fe1e1700cfa90af6f329dc6786c5801e526a6
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121747943"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073950"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Guía de planificación e implementación de la plataforma de inteligencia empresarial SAP BusinessObjects en Azure
 
@@ -243,7 +243,7 @@ Azure Storage tiene diferentes tipos de almacenamiento disponibles para los clie
 
 - Discos administrados por Azure
 
-  Es un volumen de almacenamiento de nivel de bloque que Azure administra. Puede usar los discos para las bases de datos y servidores de aplicaciones de la plataforma SAP BOBI, cuando se instalan en máquinas virtuales de Azure. Hay diferentes tipos de discos de [Azure Managed Disks](../../managed-disks-overview.md) disponibles, pero se recomienda usar los [SSD Premium](../../disks-types.md#premium-ssd) para la aplicación y base de datos de la plataforma SAP BOBI.
+  Es un volumen de almacenamiento de nivel de bloque que Azure administra. Puede usar los discos para las bases de datos y servidores de aplicaciones de la plataforma SAP BOBI, cuando se instalan en máquinas virtuales de Azure. Hay diferentes tipos de discos de [Azure Managed Disks](../../managed-disks-overview.md) disponibles, pero se recomienda usar los [SSD Premium](../../disks-types.md#premium-ssds) para la aplicación y base de datos de la plataforma SAP BOBI.
 
   En el ejemplo siguiente, se usan los SSD Premium para el directorio de instalación de la plataforma BOBI. Para la base de datos instalada en una máquina virtual, puede usar discos administrados para el volumen de datos y de registro, según lo indican las instrucciones. Las bases de datos CMS y de auditoría suelen ser pequeñas y no tienen los mismos requisitos de rendimiento de almacenamiento que las de otras bases de datos OLAP/OLTP de SAP.
 

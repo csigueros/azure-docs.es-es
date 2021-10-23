@@ -1,14 +1,14 @@
 ---
 title: 'Uso de laboratorios con fines de aprendizaje: Azure Lab Services'
 description: En este artículo se describe cómo usar Azure DevTest Labs para crear laboratorios en Azure para escenarios de aprendizaje.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: f9eb3d44d470a978e676f6268cd693b283dd2703
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e99c3f9d8f27571a88fcdf6d62fa16a86d180a1c
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96433568"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178621"
 ---
 # <a name="use-labs-for-trainings"></a>Uso de laboratorios con fines de aprendizaje
 Azure Labs Services permite que los formadores (profesores, instructores, profesores ayudantes, etc.) creen de forma rápida y sencilla un laboratorio en línea para aprovisionar entornos de aprendizaje preconfigurados para los aprendices. Cada aprendiz podría usar entornos idénticos y aislados para el aprendizaje. Pueden aplicarse directivas para garantizar que los entornos de aprendizaje estén disponibles para cada aprendiz solo cuando sea necesario y cuando contengan los suficientes recursos necesarios como, por ejemplo, máquinas virtuales, para el aprendizaje. 

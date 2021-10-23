@@ -2,15 +2,13 @@
 title: Ejemplos de plantillas de Resource Manager para recursos de una aplicación de funciones de Azure y Application Insights
 description: Plantillas de ejemplo de Azure Resource Manager para implementar una aplicación de funciones de Azure con un recurso de Application Insights.
 ms.topic: sample
-author: lgayhardt
-ms.author: lagayhar
 ms.date: 08/06/2020
-ms.openlocfilehash: 5c08ee5a1418165300987e288dc61edcb783bf98
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 9ddd693d6b3fccc7d1faa478ef6da52866e0a7c9
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111964307"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132101"
 ---
 # <a name="resource-manager-template-sample-for-creating-azure-function-apps-with-application-insights-monitoring"></a>Ejemplo de plantilla de Resource Manager para crear aplicaciones de funciones de Azure con la supervisión de Application Insights
 

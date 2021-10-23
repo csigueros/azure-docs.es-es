@@ -1,14 +1,14 @@
 ---
 title: Acceso del formador a las VM en Azure Lab Services
 description: En este artículo se muestra cómo los formadores pueden acceder a las VM de sus alumnos desde la vista Formador. Por ejemplo, un profesor ayudante puede ser el formador de una clase, aunque sea alumno en otras.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: ad4f9cfd11b372e5c6da5c17eaeba82b0cd8a91f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d20d95f7f86e3116d9daf42417a3a0aae5855bbb
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85445107"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179647"
 ---
 # <a name="access-virtual-machines-as-a-student-from-the-educator-view"></a>Acceso a las máquinas virtuales como alumno desde la vista Formador
 En este artículo se muestra cómo los formadores pueden tener acceso a sus VM para las clases a las que asisten como alumnos. 

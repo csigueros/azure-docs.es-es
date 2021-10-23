@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/16/2021
-ms.openlocfilehash: 9bc027f269355a76d43fe02e4ca90a0e9f65024d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 26338164ca073ff5d9b331d36a5a9d935a3f3468
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128656614"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707602"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Recursos de documentación para el enriquecimiento con inteligencia artificial en Azure Cognitive Search
 
@@ -34,7 +34,8 @@ A continuación se muestra una lista consolidada de la documentación sobre el e
 
 ## <a name="hands-on-walkthroughs"></a>Tutoriales prácticos
 
-+ [Inicio rápido: Creación de un conjunto de aptitudes cognitivo en Azure Portal](cognitive-search-quickstart-blob.md)
++ [Inicio rápido: Creación de una traducción de texto y un conjunto de aptitudes de entidad](cognitive-search-quickstart-blob.md)
++ [Inicio rápido: Creación de un conjunto de aptitudes de imagen OCR](cognitive-search-quickstart-ocr.md)
 + [Tutorial: Enriched indexing with AI](cognitive-search-tutorial-blob.md) (Tutorial: Indexación enriquecida con inteligencia artificial)
 + [Tutorial: Diagnóstico, reparación y confirmación de cambios en el conjunto de aptitudes con sesiones de depuración](cognitive-search-tutorial-debug-sessions.md)
 

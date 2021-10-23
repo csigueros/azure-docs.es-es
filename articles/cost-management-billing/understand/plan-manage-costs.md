@@ -7,15 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 087cc0e9e650e89edb099e2593383a54d173ad89
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d1a76078db3acd79d1f59ce43852d538edac7964
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128588093"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710895"
 ---
 # <a name="plan-to-manage-azure-costs"></a>Planificación para administrar costos de Azure
 
@@ -35,7 +35,7 @@ Si necesita cancelar su suscripción a Azure, consulte [Cancelación de la suscr
 Use una de las siguientes herramientas para calcular el costo de usar un servicio de Azure:
 - Calculadora de precios de Azure
 - Hoja de precios de Azure
-- Portal de Azure
+- Azure Portal
 
 Las imágenes de las secciones siguientes muestran ejemplos de precios en dólares estadounidenses. Los precios mencionados son solo para este ejemplo. No implican costos reales. 
 

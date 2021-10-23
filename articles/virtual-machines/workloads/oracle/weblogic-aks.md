@@ -12,12 +12,14 @@ ms.reviewer: cynthn
 ms.custom:
 - devx-track-java
 - devx-track-javaee
-ms.openlocfilehash: e119f85054d1fdc73949d461675544990efd2773
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+- devx-track-javaee-wls
+- devx-track-javaee-wls-aks
+ms.openlocfilehash: 6d87eed9b8f145f997e12ae21a2f2f1484b3497b
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129360363"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002802"
 ---
 # <a name="what-are-solutions-for-running-oracle-weblogic-server-on-the-azure-kubernetes-service"></a>¿Cuáles son las soluciones para ejecutar Oracle WebLogic Server en Azure Kubernetes Service?
 

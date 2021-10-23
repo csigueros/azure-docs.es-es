@@ -1,23 +1,23 @@
 ---
 title: Escalado automático de v1
 description: Escalado automático y App Service Environment v1. Este documento solo se proporciona para los clientes que usan App Service Environment v1 heredado.
-author: btardif
+author: madsd
 ms.assetid: c23af2d8-d370-4b1f-9b3e-8782321ddccb
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: ccompy
+ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 4f071c0d09fc2fa97eeea45bd82228b7eb8434a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 85a0c0021de9ea1dabf37d756125e8ff58b4fdba
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96021663"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997371"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Escalado automático y App Service Environment v1
 
 > [!NOTE]
-> Este artículo trata sobre App Service Environment v1.  Hay una versión más reciente de App Service Environment que resulta más fácil de usar y se ejecuta en una infraestructura más eficaz. Para aprender más sobre la nueva versión, consulte [Introducción a App Service Environment](intro.md).
+> Este artículo trata sobre App Service Environment v1. Hay una versión más reciente de App Service Environment que resulta más fácil de usar y se ejecuta en una infraestructura más eficaz. Para aprender más sobre la nueva versión, consulte [Introducción a App Service Environment](intro.md).
 > 
 
 Los entornos de Azure App Service admiten el *escalado automático*. Puede usar el escalado automático basado en métricas o programación grupos de trabajo individuales.

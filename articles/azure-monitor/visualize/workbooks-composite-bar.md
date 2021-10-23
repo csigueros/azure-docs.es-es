@@ -2,18 +2,16 @@
 title: Representador de barra compuesta de libro de Azure Monitor
 description: Obtenga información sobre todas las visualizaciones del representador de barra compuesta de libro de Azure Monitor.
 services: azure-monitor
-author: lgayhardt
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 9/04/2020
-ms.author: lagayhar
-ms.openlocfilehash: 9a02299853174192c6963cbb382ceb1aa06ac088
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b2946d4def2004d9d620eb253c733fdf31c39cf
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101728610"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132538"
 ---
 # <a name="composite-bar-renderer"></a>Representador de barra compuesta
 

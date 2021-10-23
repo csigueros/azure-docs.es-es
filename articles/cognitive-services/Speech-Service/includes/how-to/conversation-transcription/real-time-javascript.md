@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/20/2020
 ms.author: pafarley
-ms.openlocfilehash: 138b6f1b0b20ac85c9800daf40d3c82e81e24d0a
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 61ad5ceb418755876c2d3fc8c25b61d95facabfa
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539070"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130019195"
 ---
 ## <a name="install-the-speech-sdk"></a>Instalación de Speech SDK
 
@@ -77,6 +77,7 @@ Este código de ejemplo realiza las tareas siguientes:
 * Crea un `ConversationTranscriber` mediante el constructor.
 * Agrega participantes a la conversación. Las cadenas `voiceSignatureStringUser1` y `voiceSignatureStringUser2` deben aparecer como salidas de los pasos anteriores.
 * Se registra en eventos y comienza la transcripción.
+* Si quiere diferenciar a los hablantes sin proporcionar ejemplos de voz, habilite la característica `DifferentiateGuestSpeakers` como en la [Introducción a la transcripción de conversaciones](../../../conversation-transcription.md). 
 
 ```javascript
 (function() {
@@ -88,16 +89,11 @@ Este código de ejemplo realiza las tareas siguientes:
     var region = "your-region";
     var filepath = "audio-file-to-transcribe.wav"; // 8-channel audio
     
-    // create the push stream and write file to it
-    var pushStream = sdk.AudioInputStream.createPushStream();
-    fs.createReadStream(filepath).on('data', function(arrayBuffer) {
-        pushStream.write(arrayBuffer.slice());
-    }).on('end', function() {
-        pushStream.close();
-    });
-    
     var speechTranslationConfig = sdk.SpeechTranslationConfig.fromSubscription(subscriptionKey, region);
-    var audioConfig = sdk.AudioConfig.fromStreamInput(pushStream);
+    var audioConfig = sdk.AudioConfig.fromWavFileInput(fs.readFileSync(filepath));
+    speechTranslationConfig.setProperty("ConversationTranscriptionInRoomAndOnline", "true");
+
+    // en-us by default. Adding this code to specify other languages, like zh-cn.
     speechTranslationConfig.speechRecognitionLanguage = "en-US";
     
     // create conversation and transcriber

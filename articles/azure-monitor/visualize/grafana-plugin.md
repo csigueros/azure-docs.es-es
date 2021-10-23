@@ -2,13 +2,13 @@
 title: Supervisión de los servicios y aplicaciones de Azure mediante Grafana
 description: Enrute los datos de Azure Monitor y Application Insights para que puedan verse en Grafana.
 ms.topic: conceptual
-ms.date: 11/06/2017
-ms.openlocfilehash: 65bd221bd2f5574db33e6c164f75bb0760dabd3b
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.date: 10/10/2021
+ms.openlocfilehash: 691ba341369778692c92fec8ffc47cd60fac3348
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129811928"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002764"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Supervisar los servicios de Azure en Grafana
 Los servicios y las aplicaciones de Azure se pueden supervisar usando [Grafana](https://grafana.com/) y el [complemento de origen de datos de Azure Monitor](https://grafana.com/docs/grafana/latest/datasources/azuremonitor/) que se incluye. El complemento recupera datos de tres servicios de Azure:

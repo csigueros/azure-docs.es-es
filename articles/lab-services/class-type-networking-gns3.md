@@ -1,14 +1,14 @@
 ---
 title: Configuración de un laboratorio de redes con Azure Lab Services y GNS3 | Microsoft Docs
 description: Aprenda a configurar un laboratorio mediante Azure Lab Services para impartir una clase de redes con GNS3.
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: dec5dea13d5a89536a06da45fc57d33881a9b3ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b4e4562ac472b728f5feff1828897d6bee162b75
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99499396"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176821"
 ---
 # <a name="set-up-a-lab-to-teach-a-networking-class"></a>Configuración de un laboratorio para impartir una clase de redes 
 En este artículo se muestra cómo configurar una clase que se centre en permitir a los alumnos emular, configurar, probar y solucionar problemas de redes reales y virtuales mediante el software [GNS3](https://www.gns3.com/). 

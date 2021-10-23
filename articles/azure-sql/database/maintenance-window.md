@@ -9,13 +9,13 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
 ms.custom: references_regions
-ms.date: 09/14/2021
-ms.openlocfilehash: bf37cfc156d45eb668a7f7da240e8a9437aa51d9
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 10/15/2021
+ms.openlocfilehash: 123ea592e46c270830bccef1dc06f9caa3e8fd6e
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129216980"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130071898"
 ---
 # <a name="maintenance-window-preview"></a>Ventana de mantenimiento (versión preliminar)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -66,7 +66,6 @@ Las notificaciones de mantenimiento se pueden configurar para que le avisen de l
 ### <a name="supported-service-level-objectives"></a>Objetivos de nivel de servicio admitidos
 
 La elección de una ventana de mantenimiento que no sea la predeterminada está disponible para todos los objetivos de nivel de servicio, **excepto por**:
-* Hiperescala 
 * Grupos de instancias
 * Núcleo virtual Gen4 heredado
 * Básico, S0 y S1 
@@ -78,6 +77,8 @@ La elección de una ventana de mantenimiento que no sea la predeterminada está 
 
 | Región de Azure | Instancia administrada de SQL | SQL Database | SQL Database en una [zona de disponibilidad de Azure](high-availability-sla.md) | 
 |:---|:---|:---|:---|
+| Centro de Australia 1 | Yes | | |
+| Centro de Australia 2 | Yes | | |
 | Este de Australia | Sí | Sí | Sí |
 | Sudeste de Australia | Sí | Sí | |
 | Sur de Brasil | Sí | Sí |  |
@@ -93,6 +94,7 @@ La elección de una ventana de mantenimiento que no sea la predeterminada está 
 | Centro de Francia | Sí | Sí | |
 | Sur de Francia | Sí | Sí | |
 | Centro-oeste de Alemania | Sí | Sí |  |
+| Norte de Alemania | Sí |  |  |
 | Japón Oriental | Sí | Sí | Sí |
 | Japón Occidental | Sí | Sí | |
 | Centro de Corea del Sur | Sí | | |
@@ -100,15 +102,19 @@ La elección de una ventana de mantenimiento que no sea la predeterminada está 
 | Centro-Norte de EE. UU | Sí | Sí | |
 | Norte de Europa | Sí | Sí | Sí |
 | Norte de Sudáfrica | Sí | | | 
+| Oeste de Sudáfrica | Sí | | | 
 | Centro-sur de EE. UU. | Sí | Sí | Sí |
 | Sur de la India | Sí | Sí | |
 | Sudeste de Asia | Sí | Sí | Sí |
 | Norte de Suiza | Sí | Sí | |
-| Centro de Emiratos Árabes Unidos | Sí | | |
+| Oeste de Suiza | Yes | | |
+| Centro de Emiratos Árabes Unidos | Yes | | |
+| Norte de Emiratos Árabes Unidos | Sí | | |
 | Sur de Reino Unido 2 | Sí | Sí | Sí |
 | Oeste de Reino Unido | Sí | Sí | |
 | Centro-Oeste de EE. UU. | Sí | Sí | |
 | Oeste de Europa | Sí | Sí | Sí |
+| Oeste de la India | Sí | | |
 | Oeste de EE. UU. | Sí | Sí |  |
 | Oeste de EE. UU. 2 | Sí | Sí | Sí |
 | | | | | 

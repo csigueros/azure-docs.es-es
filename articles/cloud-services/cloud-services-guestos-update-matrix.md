@@ -11,14 +11,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/27/2021
+ms.date: 10/8/2021
 ms.author: gunnarc
-ms.openlocfilehash: a9a94cbec31302a7e6f00987d61c84c3ece41687
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 986e3019be4273d2220abf1760fc48683b663c24
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123187557"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129728483"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidad del SDK y versiones del SO invitado de Azure
 Proporciona información actualizada sobre los lanzamientos del SO invitado de Azure más recientes para Cloud Services. Esta información le ayuda a planear la ruta de actualización antes de que se deshabilite un SO invitado. Si configura los roles para utilizar actualizaciones *automáticas* del SO invitado como se describe en la documentación sobre la [configuración de actualización del SO invitado de Azure][Azure Guest OS Update Settings], no es fundamental que lea esta página.
@@ -42,6 +42,9 @@ Proporciona información actualizada sobre los lanzamientos del SO invitado de A
 ¿No está seguro de cómo actualizar el SO invitado? Vea [esto][cloud updates].
 
 ## <a name="news-updates"></a>Actualizaciones de noticias
+
+###### <a name="october-8-2021"></a>**8 de octubre de 2021**
+Se ha publicado el SO invitado de septiembre. 
 
 ###### <a name="august-27-2021"></a>**27 de agosto de 2021**
 Se ha publicado el SO invitado de agosto. 
@@ -169,8 +172,9 @@ Versión de .NET Framework instalada: 3.5, 4.7.2
 
 | Cadena de configuración | Fecha de la versión | Fecha de deshabilitación |
 | --- | --- | --- |
+|  WA-GUEST-OS-6.35_202109-01 |  8 de octubre de 2021  |  Después de la versión 6.37  |
 |  WA-GUEST-OS-6.34_202108-01 |  27 de agosto de 2021  |  Después de la versión 6.36  |
-|  WA-GUEST-OS-6.33_202107-01 |  13 de agosto de 2021  |  Después de la versión 6.35  |
+|~~WA-GUEST-OS-6.33_202107-01~~|  13 de agosto de 2021  |  8 de octubre de 2021  |
 |~~WA-GUEST-OS-6.32_202106-01~~|  1 de julio de 2021  |  27 de agosto de 2021  |
 |~~WA-GUEST-OS-6.31_202105-0~~|  26 de mayo de 2021  |  13 de agosto de 2021  |  
 |~~WA-GUEST-OS-6.30_202104-01~~|  30 de abril de 2021  |  1 de julio de 2021  |  
@@ -216,8 +220,9 @@ Versión de .NET Framework instalada: 3.5, 4.6.2
 
 | Cadena de configuración | Fecha de la versión | Fecha de deshabilitación |
 | --- | --- | --- |
+|  WA-GUEST-OS-5.59_202109-01  |  8 de octubre de 2021  |  Después de la versión 5.61  | 
 |  WA-GUEST-OS-5.58_202108-01  |  27 de agosto de 2021  |  Después de la versión 5.60  | 
-|  WA-GUEST-OS-5.57_202107-01  |  13 de agosto de 2021  |  Después de la versión 5.59  | 
+|~~WA-GUEST-OS-5.57_202107-01~~|  13 de agosto de 2021  |  8 de octubre de 2021  | 
 |~~WA-GUEST-OS-5.56_202106-01~~|  1 de julio de 2021  |  27 de agosto de 2021  | 
 |~~WA-GUEST-OS-5.55_202105-01~~|  26 de mayo de 2021  |  13 de agosto de 2021  | 
 |~~WA-GUEST-OS-5.54_202104-01~~|  30 de abril de 2021  |  1 de julio de 2021  | 
@@ -260,8 +265,9 @@ Versión de .NET Framework instalada: 3.5, 4.5.1, 4.5.2
 
 | Cadena de configuración | Fecha de la versión | Fecha de deshabilitación |
 | --- | --- | --- |
+|  WA-GUEST-OS-4.94_202109-01 |  8 de octubre de 2021  |  Después de la versión 4.96  |
 |  WA-GUEST-OS-4.93_202108-01 |  27 de agosto de 2021  |  Después de la versión 4.95  |
-|  WA-GUEST-OS-4.92_202107-01  |  13 de agosto de 2021  |  Después de la versión 4.94  |
+|~~WA-GUEST-OS-4.92_202107-01~~|  13 de agosto de 2021  |  8 de octubre de 2021  |
 |~~WA-GUEST-OS-4.91_202106-01~~|  1 de julio de 2021  |  27 de agosto de 2021  | 
 |~~WA-GUEST-OS-4.90_202105-01~~|  26 de mayo de 2021  |  13 de agosto de 2021  | 
 |~~WA-GUEST-OS-4.89_202104-01~~|  30 de abril de 2021  | 1 de julio de 2021  | 
@@ -304,8 +310,9 @@ Versión de .NET Framework instalada: 3.5, 4.5
 
 | Cadena de configuración | Fecha de la versión | Fecha de deshabilitación |
 | --- | --- | --- |
+|  WA-GUEST-OS-3.101_202109-01  |  8 de octubre de 2021  |  Después de la versión 3.103  |
 |  WA-GUEST-OS-3.100_202108-01  |  27 de agosto de 2021  |  Después de la versión 3.102  |
-|  WA-GUEST-OS-3.99_202107-01  |  13 de agosto de 2021  |  Después de la versión 3.101  |
+|~~WA-GUEST-OS-3.99_202107-01~~|  13 de agosto de 2021  |  8 de octubre de 2021  |
 |~~WA-GUEST-OS-3.98_202106-01~~|  1 de julio de 2021  |  27 de agosto de 2021  |
 |~~WA-GUEST-OS-3.97_202105-01~~|  26 de mayo de 2021  |  13 de agosto de 2021  |
 |~~WA-GUEST-OS-3.96_202104-01~~|  30 de abril de 2021  |  1 de julio de 2021  |
@@ -348,8 +355,9 @@ Versión de .NET Framework instalada: 3.5 (incluye 2.0 y 3.0), 4.5
 
 | Cadena de configuración | Fecha de la versión | Fecha de deshabilitación |
 | --- | --- | --- |
+|  WA-GUEST-OS-2.114_202109-01  |  8 de octubre de 2021  |  Después de la versión 2.116  |
 |  WA-GUEST-OS-2.113_202108-01  |  27 de agosto de 2021  |  Después de la versión 2.115  |
-|  WA-GUEST-OS-2.112_202107-01  |  13 de agosto de 2021  |  Después de la versión 2.114  |
+|~~WA-GUEST-OS-2.112_202107-01~~|  13 de agosto de 2021  |  8 de octubre de 2021  |
 |~~WA-GUEST-OS-2.111_202106-01~~|  1 de julio de 2021  |  27 de agosto de 2021  |
 |~~WA-GUEST-OS-2.110_202105-01~~|  26 de mayo de 2021  |  13 de agosto de 2021  |
 |~~WA-GUEST-OS-2.109_202104-01~~|  30 de abril de 2021  |  1 de julio de 2021  |

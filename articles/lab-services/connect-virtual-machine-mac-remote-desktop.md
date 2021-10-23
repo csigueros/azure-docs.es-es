@@ -1,14 +1,14 @@
 ---
 title: Procedimientos para conectar a una máquina virtual Azure Lab Services desde Mac | Microsoft Docs
 description: Aprenda a conectarse desde un equipo Mac a una máquina virtual en Azure Lab Services.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 674bea13093e185ae991148c2cf96599a273d0bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cf5c3e38a1f2f850a4dbeb9c989dffb395992118
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85444631"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178602"
 ---
 # <a name="connect-to-a-vm-using-remote-desktop-protocol-on-a-mac"></a>Conexión a una máquina virtual mediante el Protocolo de escritorio remoto en un equipo Mac
 En esta sección se muestra cómo un alumno puede conectarse a una máquina virtual de un laboratorio educativo desde un equipo Mac mediante RDP.

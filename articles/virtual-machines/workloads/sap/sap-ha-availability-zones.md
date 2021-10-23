@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 12/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 842c56ef1fb6f68c3d8b82e2633d9a604db9fde2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 120936f3d2b76fd1e66fc12bfad9bf2f0959de5a
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101671638"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070173"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configuraciones de cargas de trabajo de SAP con Azure Availability Zones
 Además de la implementación de los diferentes niveles de arquitectura de SAP en conjuntos de disponibilidad de Azure, la última instancia de [Azure Availability Zones](../../../availability-zones/az-overview.md) presentada se puede usar también para las implementaciones de cargas de trabajo de SAP. Una zona de disponibilidad de Azure se define como: "Ubicaciones físicas exclusivas dentro de una región. Cada zona consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes". Azure Availability Zones no está disponible en todas las regiones. En el caso de las regiones de Azure que proporcionan Availability Zones, compruebe el [mapa de regiones de Azure](https://azure.microsoft.com/global-infrastructure/geographies/). Este mapa va a mostrar qué regiones proporcionan o se anuncian para proporcionar Availability Zones. 
@@ -134,7 +134,7 @@ Las siguientes consideraciones se aplican a esta configuración:
 - Para los equilibradores de carga de los clústeres de conmutación por error de los servicios centrales de SAP y la capa de DBMS, necesita instancias de [Azure Load Balancer de SKU estándar](../../../load-balancer/load-balancer-standard-availability-zones.md). La instancia básica de Load Balancer no funcionará entre zonas.
 - La red virtual de Azure implementada para hospedar el sistema SAP, junto con sus subredes, se extienden entre zonas. No necesita separar las redes virtuales para cada zona.
 - Para todas las máquinas virtuales implementadas, debe usar [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). Los discos no administrados no se admiten para implementaciones zonales.
-- Azure Premium Storage, el [almacenamiento SSD Ultra](../../disks-types.md#ultra-disk) o ANF no admiten ningún tipo de replicación de almacenamiento entre zonas. La aplicación (DBMS o Servicios centrales de SAP) debe replicar los datos importantes.
+- Azure Premium Storage, el [almacenamiento SSD Ultra](../../disks-types.md#ultra-disks) o ANF no admiten ningún tipo de replicación de almacenamiento entre zonas. La aplicación (DBMS o Servicios centrales de SAP) debe replicar los datos importantes.
 - Ocurre lo mismo con el directorio compartido sapmnt, que es un disco compartido (Windows), un recurso compartido CIFS (Windows) o un recurso compartido NFS (Linux). Debe utilizar una tecnología que replique dichos discos compartidos o recursos compartidos entre las zonas. Estas tecnologías son compatibles con:
   - Para Windows, una solución de clúster que usa SIOS Datakeeper como se documenta en [Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un disco compartido de clúster en Azure](./sap-high-availability-guide-wsfc-shared-disk.md).
   - Para SUSE Linux, un recurso compartido NFS como se documenta en [Alta disponibilidad para NFS en máquinas virtuales de Azure en SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).
@@ -174,7 +174,7 @@ Las siguientes consideraciones se aplican a esta configuración:
 - Para los equilibradores de carga de los clústeres de conmutación por error de los servicios centrales de SAP y la capa de DBMS, necesita instancias de [Azure Load Balancer de SKU estándar](../../../load-balancer/load-balancer-standard-availability-zones.md). La instancia básica de Load Balancer no funcionará entre zonas.
 - La red virtual de Azure implementada para hospedar el sistema SAP, junto con sus subredes, se extienden entre zonas. No necesita separar las redes virtuales para cada zona.
 - Para todas las máquinas virtuales implementadas, debe usar [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). Los discos no administrados no se admiten para implementaciones zonales.
-- Azure Premium Storage, el [almacenamiento SSD Ultra](../../disks-types.md#ultra-disk) o ANF no admiten ningún tipo de replicación de almacenamiento entre zonas. La aplicación (DBMS o Servicios centrales de SAP) debe replicar los datos importantes.
+- Azure Premium Storage, el [almacenamiento SSD Ultra](../../disks-types.md#ultra-disks) o ANF no admiten ningún tipo de replicación de almacenamiento entre zonas. La aplicación (DBMS o Servicios centrales de SAP) debe replicar los datos importantes.
 - Ocurre lo mismo con el directorio compartido sapmnt, que es un disco compartido (Windows), un recurso compartido CIFS (Windows) o un recurso compartido NFS (Linux). Debe utilizar una tecnología que replique dichos discos compartidos o recursos compartidos entre las zonas. Estas tecnologías son compatibles con:
     - Para Windows, una solución de clúster que usa SIOS Datakeeper como se documenta en [Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un disco compartido de clúster en Azure](./sap-high-availability-guide-wsfc-shared-disk.md).
     - Para SUSE Linux, un recurso compartido NFS como se documenta en [Alta disponibilidad para NFS en máquinas virtuales de Azure en SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).
@@ -204,7 +204,7 @@ Las siguientes consideraciones se aplican a esta configuración:
 - Para los equilibradores de carga de los clústeres de conmutación por error de los servicios centrales de SAP y la capa de DBMS, necesita instancias de [Azure Load Balancer de SKU estándar](../../../load-balancer/load-balancer-standard-availability-zones.md). La instancia básica de Load Balancer no funcionará entre zonas.
 - La red virtual de Azure implementada para hospedar el sistema SAP, junto con sus subredes, se extienden entre zonas. No necesita separar las redes virtuales para cada zona.
 - Para todas las máquinas virtuales implementadas, debe usar [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). Los discos no administrados no se admiten para implementaciones zonales.
-- Azure Premium Storage o el [almacenamiento SSD Ultra](../../disks-types.md#ultra-disk) no admiten ningún tipo de replicación de almacenamiento entre zonas. La aplicación (DBMS o Servicios centrales de SAP) debe replicar los datos importantes.
+- Azure Premium Storage o el [almacenamiento SSD Ultra](../../disks-types.md#ultra-disks) no admiten ningún tipo de replicación de almacenamiento entre zonas. La aplicación (DBMS o Servicios centrales de SAP) debe replicar los datos importantes.
 - Ocurre lo mismo con el directorio compartido sapmnt, que es un disco compartido (Windows), un recurso compartido CIFS (Windows) o un recurso compartido NFS (Linux). Debe utilizar una tecnología que replique dichos discos compartidos o recursos compartidos entre las zonas. Estas tecnologías son compatibles con:
     - Para Windows, una solución de clúster que usa SIOS Datakeeper como se documenta en [Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un disco compartido de clúster en Azure](./sap-high-availability-guide-wsfc-shared-disk.md).
     - Para SUSE Linux, un recurso compartido NFS como se documenta en [Alta disponibilidad para NFS en máquinas virtuales de Azure en SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).

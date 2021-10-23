@@ -3,7 +3,7 @@ title: Ampliación de la compatibilidad con SQL Server 2008 y SQL Server 200
 description: Amplíe la compatibilidad de SQL Server 2008 y SQL Server 2008 R2 mediante la migración de una instancia de SQL Server a Azure o mediante la compra de compatibilidad ampliada para mantener las instancias locales.
 services: virtual-machines-windows
 documentationcenter: ''
-author: MashaMSFT
+author: bluefooted
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.subservice: management
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/08/2019
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: pamela
+ms.reviewer: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 297bb5b3aa464cede71e204133df3e856bb9ba1f
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: ea249347c2fca760e2c835aa28b7b4888e684276
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079668"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130160907"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Ampliar la compatibilidad de SQL Server 2008 y SQL Server 2008 R2 con Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

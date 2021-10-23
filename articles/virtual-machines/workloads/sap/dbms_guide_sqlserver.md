@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 06/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b9d44e718329c836b1e4fc63861f52cc37458a79
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 74c67e9aa143dafcf63c242cd83c20a85236c66e
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129352418"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070458"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implementación de DBMS de Azure Virtual Machines de SQL Server para la carga de trabajo de SAP NetWeaver
 
@@ -380,7 +380,7 @@ SQL Server 2014 y versiones posteriores ofrecen la posibilidad de almacenar arch
 * Para este método de implementaciones también se aplican las consideraciones que se indicaron anteriormente relacionadas con la distribución de los discos virtuales en diferentes cuentas de Azure Storage. Significa que el número de operaciones de E/S cuenta para los límites de la cuenta de Azure Storage.
 * En lugar de contabilizarse en la cuota de E/S de almacenamiento de la máquina virtual, el tráfico de los blobs de almacenamiento que representan los datos y los archivos de registro de SQL Server se contabilizará en el ancho de banda de red de la máquina virtual del tipo de máquina virtual concreto. Para saber cuál es la red y el ancho de banda de red de un determinado tipo de máquina virtual, consulte el artículo [Tamaños de las máquinas virtuales Windows en Azure](../../sizes.md).
 * Como resultado de la inserción de E/S de archivos mediante la cuota de red, se eliminará mayormente la cuota de almacenamiento y, con ese uso, solo parcialmente el ancho de banda de red general de la máquina virtual.
-* Ya no se aplican los objetivos de rendimiento de E/S y de IOPS que tiene Azure Premium Storage para los distintos tamaños de disco. Incluso si los blobs que ha creado están en Azure Premium Storage. Los objetivos están documentados en el artículo [Discos administrados y Premium Storage de alto rendimiento para VM](../../disks-types.md#premium-ssd). Como resultado de colocar los archivos de datos y los archivos de registro de SQL Server directamente en blobs que se almacenan en Azure Premium Storage, las características de rendimiento pueden variar respecto a los discos duros virtuales de Azure Premium Storage.
+* Ya no se aplican los objetivos de rendimiento de E/S y de IOPS que tiene Azure Premium Storage para los distintos tamaños de disco. Incluso si los blobs que ha creado están en Azure Premium Storage. Los objetivos están documentados en el artículo [Discos administrados y Premium Storage de alto rendimiento para VM](../../disks-types.md#premium-ssds). Como resultado de colocar los archivos de datos y los archivos de registro de SQL Server directamente en blobs que se almacenan en Azure Premium Storage, las características de rendimiento pueden variar respecto a los discos duros virtuales de Azure Premium Storage.
 * El almacenamiento en caché basado en host que está disponible para los discos de Azure Premium Storage no está disponible al colocar los archivos de datos de SQL Server directamente en los blobs de Azure.
 * En las máquinas virtuales de la serie M no se puede usar el Acelerador de escritura de Azure para admitir escrituras inferiores a milisegundos en el archivo de registro de transacciones de SQL Server. 
 

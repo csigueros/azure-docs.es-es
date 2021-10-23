@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: a8c7584b91b59aa7d807dd8b57f5a9ea3fb5a13d
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: f8ac0c985018d8d4c3858a9ff47ac2b188539161
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754558"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003465"
 ---
 # <a name="azure-functions-deployment-slots"></a>Ranuras de implementación de Azure Functions
 
@@ -224,10 +224,10 @@ Hay dos niveles de compatibilidad para las ranuras de implementación:
 | Sistema operativo o plan de hospedaje           | Nivel de compatibilidad     |
 | ------------------------- | -------------------- |
 | Consumo de Windows       | Disponibilidad general |
-| Windows Premium           | Disponibilidad general  |
+| Windows Premium           | Disponibilidad general |
 | Dedicado de Windows         | Disponibilidad general |
-| Consumo de Linux         | Vista previa          |
-| Linux Premium             | Disponibilidad general  |
+| Consumo de Linux         | Disponibilidad general |
+| Linux Premium             | Disponibilidad general |
 | Dedicado de Linux           | Disponibilidad general |
 
 ## <a name="next-steps"></a>Pasos siguientes

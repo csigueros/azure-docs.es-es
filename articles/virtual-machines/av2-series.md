@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: dbb10405408250be55bf10f49d3c557a0205df92
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 81ede4b26bcc1eb5234fa8374a0c3faab7949e36
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122692873"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073380"
 ---
 # <a name="av2-series"></a>Serie Av2
 
@@ -53,7 +53,7 @@ Las máquinas virtuales de la serie Av2 se pueden implementar en diversos proces
 
 Calculadora de precios: [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 
-Más información sobre los tipos de disco: [Tipos de disco](./disks-types.md#ultra-disk)
+Más información sobre los tipos de disco: [Tipos de disco](./disks-types.md#ultra-disks)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

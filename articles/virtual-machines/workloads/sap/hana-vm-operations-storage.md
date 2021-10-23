@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/09/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5eb1ecce79e8b98478eb1957086f23d49c7c5b14
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 79ab5722967c984907b61b1fc3e5a17bac6115fb
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122968221"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073893"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA
 
@@ -249,7 +249,7 @@ En el caso del resto de volúmenes, incluido **/hana/log** del disco Ultra, la c
 
 
 ## <a name="azure-ultra-disk-storage-configuration-for-sap-hana"></a>Configuración de almacenamiento en el disco Ultra de Azure para SAP HANA
-Otro tipo de almacenamiento de Azure se denomina [disco Ultra de Azure](../../disks-types.md#ultra-disk). Una diferencia considerable entre el almacenamiento de Azure que se ofrecía hasta ahora y el disco Ultra es que las funcionalidades del disco ya no están asociadas a su tamaño. Como un cliente, para el disco Ultra puede definir estas funcionalidades:
+Otro tipo de almacenamiento de Azure se denomina [disco Ultra de Azure](../../disks-types.md#ultra-disks). Una diferencia considerable entre el almacenamiento de Azure que se ofrecía hasta ahora y el disco Ultra es que las funcionalidades del disco ya no están asociadas a su tamaño. Como un cliente, para el disco Ultra puede definir estas funcionalidades:
 
 - El tamaño de disco, de 4 GiB a 65 536 GiB
 - Intervalo de 100 operaciones de E/S por segundo a 160 000 operaciones de E/S por segundo (el máximo depende también de los tipos de máquina virtual)
@@ -260,7 +260,7 @@ El disco Ultra ofrece la posibilidad de definir un único disco que responda a s
 Otra ventaja del disco Ultra puede ser una mejor latencia de lectura en comparación con Premium Storage. Una latencia de lectura más rápida puede tener ventajas si desea reducir los tiempos de inicio de HANA y la carga posterior de los datos en la memoria. También se pueden apreciar las ventajas del almacenamiento en disco Ultra cuando HANA está escribiendo puntos de retorno. 
 
 > [!NOTE]
-> El disco Ultra todavía no está presente en todas las regiones de Azure y aún no es compatible con todos los tipos de máquinas virtuales que se indican a continuación. Para obtener información detallada sobre dónde está disponible el disco Ultra y qué familias de máquinas virtuales se admiten, consulte el artículo [¿Qué tipos de disco están disponibles en Azure?](../../disks-types.md#ultra-disk).
+> El disco Ultra todavía no está presente en todas las regiones de Azure y aún no es compatible con todos los tipos de máquinas virtuales que se indican a continuación. Para obtener información detallada sobre dónde está disponible el disco Ultra y qué familias de máquinas virtuales se admiten, consulte el artículo [¿Qué tipos de disco están disponibles en Azure?](../../disks-types.md#ultra-disks).
 
 ### <a name="production-recommended-storage-solution-with-pure-ultra-disk-configuration"></a>Solución de almacenamiento recomendada para producción con configuración de disco Ultra pura
 En esta configuración, puede conservar los volúmenes **/hana/data** y **/hana/log** por separado. Los valores sugeridos se derivan de los KPI que SAP tiene para certificar los tipos de máquina virtual de SAP HANA y las configuraciones de almacenamiento como se recomienda en las [notas del producto SAP TDI Storage](https://blogs.saphana.com/wp-content/uploads/2015/02/Storage-Whitepaper-2-54.pdf).

@@ -8,12 +8,12 @@ metadata:
   ms.date: 10/07/2021
   author: emerb19
   ms.author: emerb
-  ms.openlocfilehash: e5409eae75ec9bf5d78cbc46a2efee24ee4fefa9
-  ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+  ms.openlocfilehash: 005ac60253e2eb75a25df632015b4e4fb60dd3fa
+  ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/09/2021
-  ms.locfileid: "129715732"
+  ms.lasthandoff: 10/15/2021
+  ms.locfileid: "130071083"
 title: Preguntas comunes sobre la configuración de ofertas privadas de proveedores de software independientes a revendedores en la nube
 summary: En este artículo se abordan preguntas sobre la configuración de ofertas privadas de proveedores de software independientes (ISV) a revendedores en la nube.
 sections:
@@ -49,7 +49,7 @@ sections:
       La creación de una oferta privada para un CSP que no haya seleccionado para vender la oferta permitirá automáticamente que ese CSP pueda vender su oferta. De forma similar, si no se ha aceptado una oferta para venderse mediante CSP y el ISV crea un margen para un CSP, esa oferta se aceptará en el CSP para venderse solo mediante ese CSP (no todos los CSP).
   - question: Si un ISV busca pero no encuentra un partner al que proporcionar un margen, ¿se puede agregar?
     answer: >
-      No. Los partners deben formar parte del programa CSP de Microsoft y deben ser CSP directos o proveedores indirectos para que se les pueda proporcionar un margen. Si un partner no aparece en la búsqueda, es probable que no sea parte del programa CSP de Microsoft o que sea un revendedor indirecto. Los partners de CSP pueden consultar información sobre cómo inscribirse en el programa en [Inscribirse en el programa Proveedor de soluciones en la nube](/partner-center/enrolling-in-the-csp-program.md).
+      No. Los partners deben formar parte del programa CSP de Microsoft y deben ser CSP directos o proveedores indirectos para que se les pueda proporcionar un margen. Si un partner no aparece en la búsqueda, es probable que no sea parte del programa CSP de Microsoft o que sea un revendedor indirecto. Los partners de CSP pueden consultar información sobre cómo inscribirse en el programa en [Inscribirse en el programa Proveedor de soluciones en la nube](/partner-center/enrolling-in-the-csp-program).
   - question: Si un ISV trabaja con un revendedor indirecto que compra a través de un distribuidor o un proveedor indirecto, ¿cómo puede un ISV vender su oferta a través del revendedor indirecto?
     answer: >
       El ISV tendrá que seleccionar el proveedor indirecto al que compra el revendedor indirecto y el proveedor indirecto tendrá que elegir si quiere vender la oferta del ISV a través de sus revendedores indirectos.

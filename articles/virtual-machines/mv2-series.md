@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: eccc5389330fd43025dbb66835b82e45d0284df9
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: fcc18d235be771044e67a6ffda43effb475f1655
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129216106"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130068900"
 ---
 # <a name="mv2-series"></a>Serie Mv2
 
@@ -63,7 +63,7 @@ Las máquinas virtuales de la serie Mv2 cuentan con la tecnología Hyper-Threadi
 
 Calculadora de precios: [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 
-Más información sobre los tipos de disco: [Tipos de disco](./disks-types.md#ultra-disk)
+Más información sobre los tipos de disco: [Tipos de disco](./disks-types.md#ultra-disks)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -5,12 +5,12 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 08/19/2021
 ms.custom: MVC
-ms.openlocfilehash: 66bd4e5f24423ef022f8930b618b3cee9b5c9631
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: cfed44e293ce95dbe174f1bb92cbfa96669ab551
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124777343"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130071784"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms---preview"></a>Configuración de la recuperación ante desastres de máquinas virtuales de VMware locales en Azure (Versión preliminar)
 
@@ -123,7 +123,7 @@ Para habilitar la replicación, siga estos pasos:
       De manera predeterminada, Azure Site Recovery creará una nueva cuenta de almacenamiento de tipo LRS v1 para la primera operación de habilitación de la replicación de un almacén. Para las siguientes operaciones, se volverá a usar la misma cuenta de almacenamiento en caché.
     -  Discos administrados
 
-       De manera predeterminada, se crean discos administrados HDD estándar en Azure. Puede personalizar el tipo de discos administrados; para ello, seleccione **Personalizar**. Elija el tipo de disco en función de los requisitos empresariales. Asegúrese [de que se elija el tipo de disco adecuado](../virtual-machines/disks-types.md#disk-comparison) en función de las IOPS de los discos de la máquina de origen. Para obtener información sobre precios, consulte el documento de precios de discos administrados [aquí](https://azure.microsoft.com/pricing/details/managed-disks/).
+       De manera predeterminada, se crean discos administrados HDD estándar en Azure. Puede personalizar el tipo de discos administrados; para ello, seleccione **Personalizar**. Elija el tipo de disco en función de los requisitos empresariales. Asegúrese [de que se elija el tipo de disco adecuado](../virtual-machines/disks-types.md#disk-type-comparison) en función de las IOPS de los discos de la máquina de origen. Para obtener información sobre precios, consulte el documento de precios de discos administrados [aquí](https://azure.microsoft.com/pricing/details/managed-disks/).
 
        >[!NOTE]
        > Si el servicio Mobility se instala manualmente antes de habilitar la replicación, puede cambiar el tipo de disco administrado en el nivel de disco. De lo contrario, de manera predeterminada, se puede elegir un tipo de disco administrado en el nivel de máquina.

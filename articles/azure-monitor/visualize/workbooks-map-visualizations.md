@@ -2,18 +2,16 @@
 title: Visualizaciones de mapa del libro de Azure Monitor
 description: Obtenga más información sobre las visualizaciones de mapa del libro de Azure Monitor.
 services: azure-monitor
-author: lgayhardt
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/25/2020
-ms.author: lagayhar
-ms.openlocfilehash: dd9bafab982923785898b7f135e5c0408aa19a14
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a90723754440191bcc92c6e01341cecee7869520
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100603029"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132348"
 ---
 # <a name="map-visualization"></a>Visualización de mapa
 

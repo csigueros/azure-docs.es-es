@@ -3,16 +3,16 @@ title: Conexión de grupos de discos a hosts de Azure VMware Solution (versió
 description: Obtenga información sobre cómo conectar un grupo de discos que se muestra a través de un destino iSCSI como el almacén de datos de VMware de una nube privada de Azure VMware Solution. Una vez configurado el almacén de datos, puede crear volúmenes en él y adjuntarlos a la instancia de VMware.
 ms.topic: how-to
 ms.date: 08/20/2021
-ms.openlocfilehash: 2487e26d887935f0d66f13d51ce7894edb2b2b6e
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 72af6f2e2186b2c4f79d6e49e8f8a272cc6a6326
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769305"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073209"
 ---
 # <a name="attach-disk-pools-to-azure-vmware-solution-hosts-preview"></a>Conexión de grupos de discos a hosts de Azure VMware Solution (versión preliminar)
 
-Los [grupos de discos de Azure](../virtual-machines/disks-pools.md) ofrecen almacenamiento en bloque persistente a aplicaciones y cargas de trabajo con el respaldo de Azure Disks. Puede usar discos como almacenamiento persistente para Azure VMware Solution con un coste y un rendimiento óptimos. Por ejemplo, puede escalar verticalmente mediante grupos de discos en lugar de escalar clústeres si hospeda cargas de trabajo de almacenamiento intensivo. También puede usar discos para replicar los datos de los entornos VMware locales o primarios al almacenamiento en disco para el sitio secundario. Para escalar el almacenamiento independientemente de los hosts de Azure VMware Solution, admitimos la utilización de [discos ultra](../virtual-machines/disks-types.md#ultra-disk) y [SSD premium](../virtual-machines/disks-types.md#premium-ssd) como almacenes de datos.  
+Los [grupos de discos de Azure](../virtual-machines/disks-pools.md) ofrecen almacenamiento en bloque persistente a aplicaciones y cargas de trabajo con el respaldo de Azure Disks. Puede usar discos como almacenamiento persistente para Azure VMware Solution con un coste y un rendimiento óptimos. Por ejemplo, puede escalar verticalmente mediante grupos de discos en lugar de escalar clústeres si hospeda cargas de trabajo de almacenamiento intensivo. También puede usar discos para replicar los datos de los entornos VMware locales o primarios al almacenamiento en disco para el sitio secundario. Para escalar el almacenamiento independientemente de los hosts de Azure VMware Solution, admitimos la utilización de [discos ultra](../virtual-machines/disks-types.md#ultra-disks) y [SSD premium](../virtual-machines/disks-types.md#premium-ssds) como almacenes de datos.  
 
 >[!IMPORTANT]
 >Los grupos de discos de Azure VMware Solution (versión preliminar) se encuentran actualmente en versión preliminar pública.

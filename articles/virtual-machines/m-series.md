@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: 97691d3b9c2d94a42e3ff434a5bbaef1bd281975
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 33ef1ecd96c416cb500ff9be241bc99d0ee699e2
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698840"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130071765"
 ---
 # <a name="m-series"></a>Serie M
 
@@ -69,7 +69,7 @@ Las máquinas virtuales de la serie M cuentan con la tecnología Hyper-Threading
 
 Calculadora de precios: [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 
-Más información sobre los tipos de disco: [Tipos de disco](./disks-types.md#ultra-disk)
+Más información sobre los tipos de disco: [Tipos de disco](./disks-types.md#ultra-disks)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

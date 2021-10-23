@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/28/2021
+ms.date: 10/13/2021
 ms.author: b-juche
 ms.custom: references_regions
-ms.openlocfilehash: 8880b128add7e13a34d3b4e3b6b6ad23a8c5df08
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 81d14b6c03e8ef27697e8f069a5d9ebd5ff38d7f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129218364"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993138"
 ---
 # <a name="understand-azure-netapp-files-backup"></a>Descripción de la copia de seguridad de archivos de Azure NetApp Files
 

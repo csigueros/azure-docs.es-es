@@ -143,7 +143,7 @@
           href: app/data-retention-privacy.md
     - name: Alertas
       items:
-        - name: Información general
+        - name: Introducción
           href: alerts/alerts-overview.md
         - name: Alertas de métricas
           href: alerts/alerts-metric-overview.md
@@ -151,6 +151,8 @@
           href: alerts/alerts-unified-log.md
         - name: Alertas de registros de actividad
           href: alerts/activity-log-alerts.md
+    - name: Visualización de datos
+      href: visualizations.md
     - name: Integraciones de asociados
       href: partners.md
     - name: Seguridad
@@ -164,18 +166,6 @@
   items:
     - name: Escenarios
       items:
-        - name: Procedimientos recomendados de Azure Monitor
-          items:
-            - name: Información general
-              href: best-practices.md
-            - name: Planificación
-              href: best-practices-plan.md
-            - name: Configuración de la recopilación de datos
-              href: best-practices-data-collection.md
-            - name: Análisis y visualizaciones
-              href: best-practices-analysis.md
-            - name: Alertas y acciones automatizadas
-              href: best-practices-alerts.md
         - name: Supervisión de un recurso de Azure
           href: essentials/monitor-azure-resource.md
         - name: Supervisión de máquinas virtuales
@@ -195,6 +185,13 @@
           displayname: VM
         - name: Supervisión de Kubernetes
           href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
+    - name: Implementación
+      items:
+        - name: Implementación de Azure Monitor
+          href: deploy.md
+        - name: Implementación a escala
+          displayName: 'Azure Policy, Policy'
+          href: deploy-scale.md
     - name: Administración y configuración
       items:
         - name: Permisos de roles y seguridad
@@ -405,6 +402,9 @@
             - name: Recopilación de datos
               displayname: 'data collection rule,Azure Monitor agent'
               href: agents/data-collection-rule-azure-monitor-agent.md
+            - name: Implementación a escala
+              displayname: Deploy Azure Monitor agent at scale
+              href: deploy-scale.md#azure-monitor-agent
             - name: Migración desde agentes heredados
               displayname: Migrate to Azure Monitor agent
               href: agents/azure-monitor-agent-migration.md
@@ -431,7 +431,7 @@
               href: insights/solution-agenthealth.md
         - name: Extensión de Diagnósticos de Azure
           items:
-            - name: Información general
+            - name: Introducción
               href: agents/diagnostics-extension-overview.md
             - name: Windows
               displayname: diagnostics extension

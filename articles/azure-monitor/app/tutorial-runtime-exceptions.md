@@ -2,16 +2,14 @@
 title: Diagnóstico de problemas en tiempo de ejecución mediante Azure Application Insights | Microsoft Docs
 description: Tutorial para buscar y diagnosticar excepciones en tiempo de ejecución en un aplicación mediante Azure Application Insights.
 ms.topic: tutorial
-author: lgayhardt
-ms.author: lagayhar
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: 1d8dfb3eaf3ea1ab901df4bef62210d28e02c3a4
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 339f57c6c81f62572184c470f0dddac7169eaf7a
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106383158"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130129574"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Búsqueda y diagnóstico de excepciones en tiempo de ejecución con Azure Application Insights
 

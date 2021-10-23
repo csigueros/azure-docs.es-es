@@ -3,12 +3,12 @@ title: Novedades de Azure Site Recovery
 description: Proporciona un resumen de las nuevas características y las actualizaciones más recientes en el servicio Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/28/2021
-ms.openlocfilehash: 1e5c74d34d85fed9fff86dba92398c8cd57287bd
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 291865469c552d2e952fbda8d7eb82ece5268ea3
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129356257"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130071404"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novedades de Site Recovery
 
@@ -514,7 +514,7 @@ Las características que se agregaron este mes se resumen en la tabla.
 **Característica** | **Detalles**
 --- | ---
 **Asignación de red** | Para la recuperación ante desastres de VM de Azure, puede usar cualquier red de destino disponible cuando se habilite la replicación.
-**SSD estándar** | Ahora puede configurar la recuperación ante desastres para VM de Azure con [discos SSD estándar](../virtual-machines/disks-types.md#standard-ssd).
+**SSD estándar** | Ahora puede configurar la recuperación ante desastres para VM de Azure con [discos SSD estándar](../virtual-machines/disks-types.md#standard-ssds).
 **Espacios de almacenamiento directo** | Puede configurar la recuperación ante desastres para aplicaciones que se ejecutan en aplicaciones de la VM de Azure mediante el uso de [Espacios de almacenamiento directo ](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) para lograr alta disponibilidad.  Usar los Espacios de almacenamiento directo (S2D) junto con Site Recovery proporciona una protección exhaustiva de las cargas de trabajo de una VM de Azure. S2D le permite hospedar un clúster invitado en Azure. Esto es especialmente útil cuando una VM hospeda una aplicación crítica, como capa de ASCS de SAP, SQL Server o un servidor de archivos de escalabilidad horizontal.
 
 

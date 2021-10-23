@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: e7241944f6178b80ad684ff35684b5b5d3f53e94
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 0e3797e7f78b0938a50e2803f46962b4cacdcd33
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124784534"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998169"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedimientos recomendados para la administración de identidades y la seguridad del control de acceso en Azure
 
@@ -145,7 +145,7 @@ La puntuación de seguridad de la identidad es un conjunto de controles de segur
 Si tiene varios inquilinos o quiere permitir que los usuarios [restablezcan su propia contraseña](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e), es importante utilizar directivas de seguridad adecuadas para evitar un uso inadecuado.
 
 **Procedimiento recomendado**: Configuración del autoservicio de restablecimiento de contraseña (SSPR) para los usuarios.  
-**Detalles**: use la característica de [autoservicio de restablecimiento de contraseña](../../active-directory-b2c/user-flow-self-service-password-reset.md) de Azure AD.
+**Detalles**: use la característica de [autoservicio de restablecimiento de contraseña](../../active-directory/authentication/tutorial-enable-sspr.md) de Azure AD.  
 
 **Procedimiento recomendado**: Supervisar cómo se usa realmente SSPR o si se puede usar.  
 **Detalles**: supervise los usuarios que se registran mediante el [informe de actividad de registro de restablecimiento de contraseña](../../active-directory/authentication/howto-sspr-reporting.md) de Azure AD. La característica de creación de informes que proporciona Azure AD le ayuda a responder preguntas mediante informes creados previamente. Si está debidamente protegido por licencia, también puede crear consultas personalizadas.

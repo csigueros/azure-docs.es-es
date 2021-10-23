@@ -2,15 +2,13 @@
 title: 'Solución de problemas de las herramientas de análisis de usuario: Application Insights'
 description: 'Guía de solución de problemas: análisis de uso del sitio y las aplicaciones con Application Insights'
 ms.topic: conceptual
-author: lgayhardt
-ms.author: lagayhar
 ms.date: 07/30/2021
-ms.openlocfilehash: 8bd40f64a8c0e7bf0cbbdc427b44dd83965c52db
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 05d7af4fd56d79e34400fe999375502563eedd45
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741319"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131816"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Solución de problemas de las herramientas de análisis de comportamiento de usuario en Application Insights
 ¿Tiene alguna pregunta sobre las [herramientas de análisis de comportamiento de usuario en Application Insights](usage-overview.md): [usuarios, sesiones, eventos](usage-segmentation.md), [embudos](usage-funnels.md), [flujos de usuario](usage-flows.md), [retención](usage-retention.md) o cohortes? Estas son algunas respuestas.

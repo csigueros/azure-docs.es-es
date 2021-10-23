@@ -3,20 +3,20 @@ title: Configuración del proveedor de identidades de la cuenta local
 titleSuffix: Azure AD B2C
 description: Defina los tipos de identidad que puede usar (correo electrónico, nombre de usuario, número de teléfono) para la autenticación de cuentas locales al configurar los flujos de usuario en el inquilino de Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/20/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 76d9010bed698dfe49650675bdb15abe7eb1dfe7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 414884fe0ef72b7628c99dd4b6ca39d4e851f9fe
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128596493"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130035816"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-for-user-flows"></a>Configuración del registro e inicio de sesión telefónico para flujos de usuario
 
