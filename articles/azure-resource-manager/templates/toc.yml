@@ -121,7 +121,7 @@
     - name: Blockchain
       items:
         - name: Blockchain
-          href: ../../blockchain/service/create-member-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+          href: 'https://azure.microsoft.com/solutions/blockchain/?toc=%2fazure%2fazure-resource-manager%2ftemplates%2ftoc.json'
     - name: Proceso
       items:
         - name: Batch
@@ -381,7 +381,7 @@
           items:
             - name: Resource group
               href: deploy-to-resource-group.md
-            - name: Suscripción
+            - name: Subscription
               href: deploy-to-subscription.md
             - name: Grupo de administración
               href: deploy-to-management-group.md

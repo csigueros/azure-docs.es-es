@@ -2,7 +2,7 @@
   href: index.yml
 - name: Información general
   items:
-    - name: Acerca de DevTest Labs
+    - name: ¿Qué es DevTest Labs?
       href: devtest-lab-overview.md
 - name: Guía de inicio rápido
   items:

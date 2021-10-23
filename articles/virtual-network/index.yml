@@ -11,12 +11,12 @@ metadata:
   author: KumudD
   ms.author: kumud
   ms.date: 01/28/2021
-  ms.openlocfilehash: bb05b2a2b3aa42cc83f4f014aa00082dc00e6aa9
-  ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+  ms.openlocfilehash: 12e03cad862d3ef1f9704639f2e386312369fd10
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/20/2021
-  ms.locfileid: "122514537"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130257772"
 landingContent:
 - title: Acerca de Virtual Network
   linkLists:
@@ -53,7 +53,7 @@ landingContent:
     - text: Preguntas más frecuentes sobre seguridad de red virtual
       url: virtual-networks-faq.md#security
     - text: Acceso de salida predeterminado
-      url: default-outbound-access.md
+      url: ./ip-services/default-outbound-access.md
   - linkListType: tutorial
     links:
     - text: Filtrado del tráfico de red con grupos de seguridad de red
@@ -111,31 +111,31 @@ landingContent:
   - linkListType: concept
     links:
     - text: Tipos de direcciones IP y métodos de asignación
-      url: ./public-ip-addresses.md
+      url: ./ip-services/public-ip-addresses.md
   - linkListType: how-to-guide
     links:
     - text: Creación, modificación o eliminación de una dirección IP pública
-      url: virtual-network-public-ip-address.md
+      url: ./ip-services/virtual-network-public-ip-address.md
     - text: Adición de una dirección IP pública a una máquina virtual
-      url: associate-public-ip-address-vm.md
+      url: ./ip-services/associate-public-ip-address-vm.md
     - text: Creación de una máquina virtual con una dirección IP estática
-      url: virtual-network-deploy-static-pip-arm-portal.md
+      url: ./ip-services/virtual-network-deploy-static-pip-arm-portal.md
     - text: Configuración de una dirección IP privada estática para una máquina virtual
-      url: virtual-networks-static-private-ip-arm-pportal.md
+      url: ./ip-services/virtual-networks-static-private-ip-arm-pportal.md
     - text: Asignación de varias direcciones IP a una máquina virtual
-      url: virtual-network-multiple-ip-addresses-powershell.md
+      url: ./ip-services/virtual-network-multiple-ip-addresses-powershell.md
 - title: Creación de IPv6 para redes virtuales
   linkLists:
   - linkListType: concept
     links:
     - text: ¿Qué es IPv6 para Azure Virtual Network?
-      url: ipv6-overview.md
+      url: ./ip-services/ipv6-overview.md
   - linkListType: deploy
     links:
     - text: Implementación de una aplicación de pila doble IPV6 con Standard Load Balancer
-      url: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+      url: ../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
     - text: Implementación de una aplicación de pila doble IPV6 con Basic Load Balancer
-      url: virtual-network-ipv4-ipv6-dual-stack-powershell.md
+      url: ../load-balancer/virtual-network-ipv4-ipv6-dual-stack-powershell.md
 - title: Supervisión de redes virtuales
   linkLists:
   - linkListType: concept
@@ -153,19 +153,19 @@ landingContent:
   - linkListType: concept
     links:
     - text: Tipos de direcciones IP y métodos de asignación
-      url: ./public-ip-addresses.md
+      url: ./ip-services/public-ip-addresses.md
     - text: ¿Qué es IPv6 para Azure Virtual Network?
-      url: ipv6-overview.md
+      url: ./ip-services/ipv6-overview.md
     - text: Prefijo de dirección IP pública
-      url: public-ip-address-prefix.md
+      url: ./ip-services/public-ip-address-prefix.md
   - linkListType: how-to-guide
     links:
     - text: Creación, modificación o eliminación de una dirección IP pública
-      url: virtual-network-public-ip-address.md
+      url: ./ip-services/virtual-network-public-ip-address.md
     - text: Implementación de una aplicación de pila doble IPV6
-      url: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+      url: ../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
     - text: Creación, modificación o eliminación del prefijo de una dirección IP pública
-      url: manage-public-ip-address-prefix.md
+      url: ./ip-services/manage-public-ip-address-prefix.md
 - title: Referencia
   linkLists:
   - linkListType: reference

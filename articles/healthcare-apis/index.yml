@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentación de las API de Azure Healthcare (versión preliminar)
-summary: Documentación de todos los servicios de Azure Healthcare APIs (versión preliminar), como FHIR, DICOM y Transformación de datos.
+summary: Documentación de todas las funcionalidades de Azure Healthcare API (versión preliminar), incluidas las características de FHIR, DICOM y el conector de IoT.
 metadata:
   title: Documentación de las API de Azure Healthcare
-  description: documentación de todos los productos y servicios de Azure Healthcare APIs, incluidos FHIR, DICOM y transformación de datos
+  description: documentación de todos los productos y servicios de Azure Healthcare APIs, incluidos FHIR, DICOM y el conector de IoT
   services: healthcare-apis
   ms.service: healthcare-apis
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   author: msjasteppe
   ms.author: jasteppe
   ms.date: 10/05/2021
-  ms.openlocfilehash: dc71d1a28dd572c1635c22f8505409c0905d397c
-  ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+  ms.openlocfilehash: 79c3b6f970db22bf94b77df0dd785fd7c83f0c3e
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: MT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/05/2021
-  ms.locfileid: "129545347"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130259400"
 landingContent:
 - title: ¿Qué son las API de atención sanitaria?
   linkLists:
