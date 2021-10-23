@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 23629a5a15603697eb1feb6e964e63754fbed14c
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: e2c53e09553e62b1a6ca8c1c827d3d2341cae687
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123426742"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130046684"
 ---
 # <a name="deploy-a-managed-disk-that-uses-zone-redundant-storage"></a>Implementación de un disco administrado que usa almacenamiento con redundancia de zona
 
@@ -26,22 +26,6 @@ Para obtener información conceptual sobre ZRS, vea [Almacenamiento con redundan
 [!INCLUDE [disk-storage-zrs-limitations](../../includes/disk-storage-zrs-limitations.md)]
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
-
-### <a name="prerequisites"></a>Requisitos previos
-
-Debe habilitar la característica para su suscripción. Siga los pasos que se indican a continuación para habilitar la característica para su suscripción:
-
-1.  Ejecute el siguiente comando para registrar la característica para su suscripción
-
-    ```powershell
-     Register-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute" 
-    ```
-
-1.  Antes de probar la característica, compruebe que el estado de registro sea **Registrado** (puede tardar unos minutos) mediante el comando siguiente.
-
-    ```powershell
-     Get-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute"  
-    ```
 
 ### <a name="create-a-vm-with-a-zrs-os-disk"></a>Creación de una máquina virtual con un disco del sistema operativo con ZRS
 
@@ -78,22 +62,6 @@ Ahora ha implementado una máquina virtual con un disco del sistema operativo co
 Ahora ha creado un disco administrado que usa ZRS.
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
-
-#### <a name="prerequisites"></a>Requisitos previos
-
-Debe habilitar la característica para su suscripción. Siga los pasos que se indican a continuación para habilitar la característica para su suscripción:
-
-1.  Ejecute el siguiente comando para registrar la característica para su suscripción
-
-    ```azurecli
-    az feature register --namespace Microsoft.Compute --name SsdZrsManagedDisks
-    ```
- 
-2.  Antes de probar la característica, compruebe que el estado de registro sea **Registrado** (puede tardar unos minutos) mediante el comando siguiente.
-
-    ```azurecli
-    az feature show --namespace Microsoft.Compute --name SsdZrsManagedDisks
-    ```
 
 #### <a name="create-a-vm-with-zrs-disks"></a>Creación de una máquina virtual con discos ZRS
 
@@ -185,23 +153,6 @@ az vmss create -g $rgName \
 ```
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-
-#### <a name="prerequisites"></a>Requisitos previos
-
-Debe habilitar la característica para su suscripción. Siga los pasos que se indican a continuación para habilitar la característica para su suscripción:
-
-1.  Ejecute el siguiente comando para registrar la característica para su suscripción
-
-    ```powershell
-     Register-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute" 
-    ```
-
-1.  Antes de probar la característica, compruebe que el estado de registro sea **Registrado** (puede tardar unos minutos) mediante el comando siguiente.
-
-    ```powershell
-     Get-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute"  
-    ```
-    
 #### <a name="create-a-vm-with-zrs-disks"></a>Creación de una máquina virtual con discos ZRS
 
 ```powershell

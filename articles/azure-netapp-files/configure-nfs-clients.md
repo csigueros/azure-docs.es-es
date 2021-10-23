@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/22/2021
 ms.author: b-juche
-ms.openlocfilehash: 2d0e323271cbc465f2f46c4904f01d5c1654426d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6c946ed17d08a24e41f304c268c874ed7082691c
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128576769"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130062716"
 ---
 # <a name="configure-an-nfs-client-for-azure-netapp-files"></a>Configuración de un cliente NFS para Azure NetApp Files
 
@@ -69,7 +69,7 @@ En los ejemplos de esta sección se usan el nombre de dominio y la dirección IP
 
 5.  Configure el cliente NTP.  
 
-    RHEL 8 usa chrony de manera predeterminada. Siga las instrucciones de configuración de [Uso del conjunto `Chrony` para configurar NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/using-chrony-to-configure-ntp).
+    RHEL 8 usa chrony de manera predeterminada. Siga las instrucciones de configuración de [Uso del conjunto `Chrony` para configurar NTP](https://access.redhat.com/documentation/en-us/red-hat-enterprise-linux/8/guide/6c230de2-39f1-455a-902d-737eea31ad34).
 
 6.  Una el dominio de Active Directory:  
 

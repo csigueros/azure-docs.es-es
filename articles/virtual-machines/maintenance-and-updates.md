@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 10/06/2021
 ms.author: shants
-ms.openlocfilehash: cb1a4cc1e0c1539ab56b986a35084fa761d85438
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: fdeffdd1b3ad6c37773d39e729cf821df1b8c1f8
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129657537"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130164899"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Mantenimiento de máquinas virtuales en Azure
 
@@ -86,16 +86,6 @@ Si decide esperar a la fase de mantenimiento programado, hay algunas cosas que d
 
 Cada región de Azure se empareja con otra región de la misma proximidad geográfica. Juntas, forman un par de regiones. Durante la fase de mantenimiento programado, Azure solo actualiza las máquinas virtuales en una sola región perteneciente a un par de regiones. Por ejemplo, al actualizar las máquinas virtuales de la zona Centro-norte de EE. UU., Azure no actualizará las máquinas virtuales de Centro-sur de EE. UU. al mismo tiempo. Sin embargo, otras regiones como Norte de Europa pueden estar en mantenimiento al mismo tiempo que el Este de EE. UU. Comprender cómo funcionan los pares de regiones puede ayudar a distribuir mejor las máquinas virtuales entre regiones. Para más información, consulte [Regiones de Azure](../best-practices-availability-paired-regions.md).
 
-#### <a name="availability-sets-and-scale-sets"></a>Conjuntos de disponibilidad y conjuntos de escalado
-
-Al implementar una carga de trabajo en máquinas virtuales de Azure, puede crear las máquinas virtuales dentro de un *conjunto de disponibilidad* para proporcionar alta disponibilidad a la aplicación. Mediante los conjuntos de disponibilidad, puede asegurarse de que durante una interrupción o en los eventos de mantenimiento que requieren un reinicio, al menos una máquina virtual estará disponible.
-
-En un conjunto de disponibilidad, las máquinas virtuales individuales se reparten entre un máximo de 20 dominios de actualización. Durante el mantenimiento planeado, solo un dominio de actualización se ve actualizado en un momento determinado. Los dominios de actualización no necesariamente se actualizan de forma secuencial. 
-
-Los *conjuntos de escalado* de máquinas virtuales son un recurso informático de Azure que se puede usar para implementar y administrar un conjunto de máquinas virtuales idénticas como un recurso único. El conjunto de escalado se implementa automáticamente entre dominios de actualización, como las máquinas virtuales de un conjunto de disponibilidad. Igual que sucede con los conjuntos de disponibilidad, cuando se usan conjuntos de escalado, solo un dominio de actualización se actualiza en un momento determinado durante el mantenimiento programado.
-
-Para más información sobre la configuración de máquinas virtuales para alta disponibilidad, consulte el artículo sobre la [administración de la disponibilidad de las máquinas virtuales para Windows](./availability.md) o el artículo correspondiente para [Linux](./availability.md).
-
 #### <a name="availability-zones"></a>Zonas de disponibilidad
 
 Las zonas de disponibilidad son ubicaciones físicas exclusivas dentro de una región de Azure. Cada zona de disponibilidad consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. Para garantizar la resistencia, hay tres zonas independientes como mínimo en todas las regiones habilitadas. 
@@ -103,6 +93,22 @@ Las zonas de disponibilidad son ubicaciones físicas exclusivas dentro de una re
 Una zona de disponibilidad es una combinación de un dominio de error y un dominio de actualización. Si crea tres o más máquinas virtuales en tres zonas de una región de Azure, las máquinas virtuales se distribuyen eficazmente en tres dominios de error y tres dominios de actualización. La plataforma Azure reconoce esta distribución entre dominios de actualización para asegurarse de que las máquinas virtuales de distintas zonas no se actualizan al mismo tiempo.
 
 Cada actualización de infraestructura implementa la zona por zona, dentro de una única región. Sin embargo, puede hacer que la implementación continúe en la zona 1 y una implementación distinta lo haga en la zona 2, al mismo tiempo. No todas las implementaciones se serializan. Sin embargo, una sola implementación únicamente implementa una zona cada vez para reducir el riesgo.
+
+#### <a name="virtual-machine-scale-sets"></a>Conjuntos de escalado de máquinas virtuales
+
+Los conjuntos de escalado de máquinas virtuales en el modo de orquestación **flexible** constituyen un recurso de proceso de Azure que le permite combinar la escalabilidad de los conjuntos de escalado de máquinas virtuales del modo de orquestación uniforme con las garantías de disponibilidad regionales de los conjuntos de disponibilidad.
+
+Con la orquestación flexible, puede elegir si las instancias se distribuyen entre varias zonas o entre dominios de error dentro de una sola región. 
+
+#### <a name="availability-sets-and-uniform-scale-sets"></a>Conjuntos de disponibilidad y conjuntos de escalado uniformes
+
+Al implementar una carga de trabajo en máquinas virtuales de Azure, puede crear las máquinas virtuales dentro de un *conjunto de disponibilidad* para proporcionar alta disponibilidad a la aplicación. Mediante los conjuntos de disponibilidad, puede asegurarse de que durante una interrupción o en los eventos de mantenimiento que requieren un reinicio, al menos una máquina virtual estará disponible.
+
+En un conjunto de disponibilidad, las máquinas virtuales individuales se reparten entre un máximo de 20 dominios de actualización. Durante el mantenimiento planeado, solo un dominio de actualización se ve actualizado en un momento determinado. Los dominios de actualización no necesariamente se actualizan de forma secuencial. 
+
+Los *conjuntos de escalado* de máquinas virtuales en el modo de orquestación **uniforme** constituyen un recurso de proceso de Azure que se puede usar para implementar y administrar un conjunto de máquinas virtuales idénticas como un recurso único. El conjunto de escalado se implementa automáticamente entre dominios de actualización, como las máquinas virtuales de un conjunto de disponibilidad. Igual que sucede con los conjuntos de disponibilidad, cuando se usan conjuntos de escalado uniformes, solo un dominio de actualización se actualiza en un momento determinado durante el mantenimiento programado.
+
+Para más información sobre la configuración de máquinas virtuales para alta disponibilidad, consulte el artículo sobre la [administración de la disponibilidad de las máquinas virtuales para Windows](./availability.md) o el artículo correspondiente para [Linux](./availability.md).
 
 ## <a name="next-steps"></a>Pasos siguientes 
 

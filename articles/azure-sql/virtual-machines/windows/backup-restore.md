@@ -3,7 +3,7 @@ title: Copia de seguridad y restauración de SQL Server en VM de Azure | Microso
 description: Describe las consideraciones de copia de seguridad y restauración de bases de datos de SQL Server que se ejecutan en Azure Virtual Machines.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: ''
 tags: azure-resource-management
 ms.assetid: 95a89072-0edf-49b5-88ed-584891c0e066
@@ -13,13 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
-ms.author: mikeray
-ms.openlocfilehash: fda6e5cf0688431b523aa46111623c47dc3f10dd
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: 7f10fffd684a01b08c2c8e0d3164d52399a1602c
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122635198"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130164083"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Copia de seguridad y restauración de SQL Server en VM de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

@@ -3,7 +3,7 @@ title: Migración de una Base de datos SQL Server a SQL Server en una máquina v
 description: Obtenga información sobre cómo migrar una base de datos de usuario local a SQL Server en una máquina virtual de Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: MashaMSFT
+author: bluefooted
 editor: ''
 tags: azure-service-management
 ms.assetid: 00fd08c6-98fa-4d62-a3b8-ca20aa5246b1
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.subservice: migration
 ms.topic: how-to
 ms.date: 08/18/2018
-ms.author: mathoma
-ms.reviewer: jroth
-ms.openlocfilehash: 719de6058ca683acc8fb0be9727271f5a7928531
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.author: pamela
+ms.reviewer: mathoma
+ms.openlocfilehash: 1d5454ad84baadf82ecea93793cc4cf22d4fb22f
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080028"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165306"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-on-an-azure-virtual-machine"></a>Migre una base de datos de SQL Server a SQL Server en una máquina virtual de Azure
 

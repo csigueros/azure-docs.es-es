@@ -3,20 +3,20 @@ title: Inicio de sesión único basado en encabezados para aplicaciones locales 
 description: Aprenda a proporcionar inicio de sesión único para aplicaciones locales que estén protegidas con autenticación basada en encabezados.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: 6b81ad97a99115ab9741b2200437774b502b4fa6
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.reviewer: ashishj
+ms.openlocfilehash: 28f5cbcd124363f3e7a004bd80f254248dd80e95
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108227225"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162428"
 ---
 # <a name="header-based-single-sign-on-for-on-premises-apps-with-azure-ad-app-proxy"></a>Inicio de sesión único basado en encabezados para aplicaciones locales con App Proxy de Azure AD
 
@@ -50,7 +50,7 @@ En la tabla siguiente se indican las capacidades comunes necesarias para las apl
 
 ## <a name="how-it-works"></a>Cómo funciona
 
-:::image type="content" source="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works.png" alt-text="Funcionamiento del inicio de sesión único basado en encabezados con Application Proxy." lightbox="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works.png":::
+:::image type="content" source="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works-updated.png" alt-text="Funcionamiento del inicio de sesión único basado en encabezados con Application Proxy." lightbox="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works-updated.png":::
 
 1. El administrador personaliza las asignaciones de atributos que requiere la aplicación en el portal de Azure AD. 
 2. Cuando un usuario accede a la aplicación, Application Proxy garantiza que se haya autenticado mediante Azure AD. 

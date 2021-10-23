@@ -3,20 +3,20 @@ title: 'Mitigación de ataques a credenciales: Azure AD B2C'
 titleSuffix: Azure AD B2C
 description: Obtenga información sobre las técnicas de detección y mitigación de ataques a credenciales (ataques a contraseña) en Azure Active Directory B2C, incluidas las características de bloqueo de cuentas inteligentes.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/20/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 99363e4f9f67e6ceca0d163131a2f2ff64b09857
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3ec563e05f21ca1e9697300710def5ad89b10d02
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128546980"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042928"
 ---
 # <a name="mitigate-credential-attacks-in-azure-ad-b2c"></a>Mitigación de ataques a credenciales en Azure AD B2C
 

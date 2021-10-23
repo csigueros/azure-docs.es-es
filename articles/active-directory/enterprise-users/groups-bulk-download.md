@@ -4,7 +4,7 @@ description: Descargue las propiedades de grupo de forma masiva en el centro de 
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: daveba
+manager: KarenH444
 ms.date: 09/01/2021
 ms.topic: how-to
 ms.service: active-directory
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32000f69719b957c9543180bbd118f93ed0fda04
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 5422cc8af391a6ee861b6969d881055490b41b4c
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123430691"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129986689"
 ---
 # <a name="bulk-download-a-list-of-groups-in-azure-active-directory"></a>Descarga masiva de una lista de grupos en Azure Active Directory
 

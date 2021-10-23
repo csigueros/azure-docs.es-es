@@ -3,7 +3,7 @@ title: Alta disponibilidad, recuperación ante desastres y continuidad empresari
 description: Obtenga información sobre las opciones de alta disponibilidad, recuperación ante desastres (HADR) y continuidad empresarial disponibles para SQL Server en VM de Azure, como los grupos de disponibilidad Always On, una instancia de clúster de conmutación por error, creación de reflejo de la base de datos, trasvase de registros y copia de seguridad y restauración en Azure Storage.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
@@ -13,13 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
-ms.author: mathoma
-ms.openlocfilehash: a5fe3157d419b199f1e83f44485e507812c0b80c
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: f5dd02d8abf70d3812fe0d07baa8ddf08bdc8a7a
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113434838"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166066"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuidad empresarial y HADR para SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

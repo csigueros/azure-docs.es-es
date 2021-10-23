@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/12/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: b2501631c8ccdb6c61d4f31e9179a7e94c2276cb
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 09b5d7c1865020ba33a89e73b2ba39260f473e6a
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129210409"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129859349"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>¿Qué es el almacén analítico de Azure Cosmos DB?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -180,19 +180,21 @@ df = spark.read\
 
 ### <a name="schema-representation"></a>Representación del esquema
 
-En el almacén analítico hay dos maneras de representar el esquema. Estos modos definen el método de representación del esquema para todos los contenedores de la cuenta de base de datos y tienen un equilibrio entre la simplicidad de la experiencia de consulta y la comodidad de una representación en columnas más inclusiva para esquemas polimórficos.
+En el almacén analítico, hay dos tipos de representación del esquema. Estos tipos definen el método de representación del esquema para todos los contenedores de la cuenta de base de datos y tienen un equilibrio entre la simplicidad de la experiencia de consulta y la comodidad de una representación en columnas más inclusiva para esquemas polimórficos.
 
 * Representación de esquema bien definida, opción predeterminada para cuentas de API de SQL (CORE). 
 * Representación del esquema de fidelidad total, opción predeterminada para la API de Azure Cosmos DB para cuentas de MongoDB.
 
-Es posible usar el esquema de fidelidad total para las cuentas de API de SQL (Core). Estas son las consideraciones sobre esta posibilidad:
+#### <a name="full-fidelity-schema-for-sql-api-accounts"></a>Esquema de fidelidad total para cuentas de SQL API
 
- * Esta opción solo es válida para las cuentas que no tienen Synapse Link habilitado.
- * No es posible desactivar Synapse Link y activarlo de nuevo; restablezca la opción predeterminada y cambie del esquema de bien definida al de fidelidad total.
- * No es posible cambiar del esquema de bien definida al esquema de fidelidad total mediante cualquier otro proceso.
- * Las cuentas de MongoDB no son compatibles con esta posibilidad de cambiar el método de representación.
- * Actualmente, esta decisión no se puede tomar a través de Azure Portal.
- * La decisión sobre esta opción debe tomarse al mismo tiempo que Synapse Link está habilitado en la cuenta:
+Es posible usar el esquema de fidelidad total para las cuentas de SQL (Core) API, en lugar de la opción predeterminada, estableciendo el tipo de esquema al habilitar Synapse Link en una cuenta de Cosmos DB por primera vez. Estas son las consideraciones sobre cómo cambiar el tipo de representación del esquema predeterminado:
+
+ * Esta opción solo es válida para las cuentas que **no** tienen Synapse Link ya habilitado.
+ * No es posible restablecer el tipo de representación del esquema, de bien definido a fidelidad total o viceversa.
+ * Actualmente, la API de Azure Cosmos DB para cuentas de MongoDB no es compatible con esta posibilidad de cambiar la representación del esquema. Todas las cuentas de MongoDB siempre tendrán el tipo de representación del esquema de fidelidad total.
+ * Actualmente, este cambio no se puede realizar mediante Azure Portal. Todas las cuentas de base de datos que tienen Synapse Link habilitado por Azure Portal tendrán el tipo de representación del esquema predeterminado, esquema bien definido.
+ 
+La decisión del tipo de representación del esquema se debe tomar al mismo tiempo que se habilita Synapse Link en la cuenta, mediante la CLI de Azure o PowerShell.
  
  Con la CLI de Azure:
  ```cli

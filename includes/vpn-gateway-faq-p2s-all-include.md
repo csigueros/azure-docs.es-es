@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 06/15/2021
+ms.date: 10/14/2021
 ms.author: cherylmc
 ms.custom: include file, devx-track-azurepowershell
-ms.openlocfilehash: 5f0d9c821a26d935544f67bca078a9cfdbe50c58
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.openlocfilehash: 6f24b40f91c3b06e30bbea7ffc09a288a60d36b5
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112397546"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130050654"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>¿Cuántos puntos de conexión de cliente VPN puedo tener en mi configuración punto a sitio?
 
@@ -30,6 +30,7 @@ Se admiten los siguientes sistemas operativos de cliente:
 * Windows Server 2016 (solo 64 bits)
 * Windows Server 2019 (solo 64 bits)
 * Windows 10
+* Windows 11 
 * macOS, versión 10.11 o posterior
 * Linux (StrongSwan)
 * iOS

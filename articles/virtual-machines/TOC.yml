@@ -911,20 +911,6 @@
     - name: Información general
       displayName: 'availability and scale, availability, scale, autoscale'
       href: availability.md
-    - name: Conjuntos de disponibilidad
-      items:
-        - name: Información general
-          displayName: 'availability and scale, availability, scale, autoscale, availability sets, AV sets'
-          href: availability-set-overview.md
-        - name: CLI
-          displayName: 'availability and scale, availability, scale, autoscale, availability sets, AV sets'
-          href: ./linux/tutorial-availability-sets.md
-        - name: PowerShell
-          displayName: 'availability and scale, availability, scale, autoscale, availability sets, AV sets'
-          href: ./windows/tutorial-availability-sets.md
-        - name: Cambio de un conjunto de disponibilidad
-          displayName: 'availability and scale, availability, scale, autoscale, availability sets, AV sets'
-          href: ./windows/change-availability-set.md
     - name: Zonas de disponibilidad
       items:
         - name: Información general
@@ -955,33 +941,47 @@
           href: ./windows/proximity-placement-groups-portal.md
     - name: Conjuntos de escalado de máquinas virtuales
       items:
-        - name: Introducción a los conjuntos de escalado de máquinas virtuales flexibles (versión preliminar)
+        - name: Información general
           displayName: Flexible orchestration mode for virtual machine scale sets
           href: flexible-virtual-machine-scale-sets.md
-        - name: Portal (versión preliminar)
+        - name: Portal
           displayName: Flexible orchestration mode for virtual machine scale sets
           href: flexible-virtual-machine-scale-sets-portal.md
-        - name: CLI (versión preliminar)
+        - name: CLI
           displayName: Flexible orchestration mode for virtual machine scale sets
           href: flexible-virtual-machine-scale-sets-cli.md
-        - name: PowerShell (versión preliminar)
+        - name: PowerShell
           displayName: Flexible orchestration mode for virtual machine scale sets
           href: flexible-virtual-machine-scale-sets-powershell.md
-        - name: Plantilla de ARM (versión preliminar)
+        - name: Plantilla ARM
           displayName: Flexible orchestration mode for virtual machine scale sets
           href: flexible-virtual-machine-scale-sets-rest-api.md
         - name: Escalado automático
           href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
-        - name: Modo de orquestación (versión preliminar)
-          displayName: 'VMSS, flex, scale set, scale, virtual machine sacle set'
+        - name: Modos de orquestación
+          displayName: 'VMSS, flex, scale set, scale, virtual machine scale set'
           href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
-        - name: Introducción a los conjuntos de escalado de máquinas virtuales uniformes
-          displayName: 'virtual machine scale sets, VMSS, VM scale set, scale set'
-          href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
+        - name: Migraciones y consideraciones
+          displayName: 'VMSS, flex, scale set, scale, virtual machine scale set'
+          href: flexible-virtual-machine-scale-sets-migration-resources.md
     - name: Descripción de los reinicios de máquina virtual
       href: understand-vm-reboots.md
     - name: Regiones de Azure
       href: regions.md
+    - name: Conjuntos de disponibilidad
+      items:
+        - name: Información general
+          displayName: 'availability and scale, availability, scale, autoscale, availability sets, AV sets'
+          href: availability-set-overview.md
+        - name: CLI
+          displayName: 'availability and scale, availability, scale, autoscale, availability sets, AV sets'
+          href: ./linux/tutorial-availability-sets.md
+        - name: PowerShell
+          displayName: 'availability and scale, availability, scale, autoscale, availability sets, AV sets'
+          href: ./windows/tutorial-availability-sets.md
+        - name: Cambio de un conjunto de disponibilidad
+          displayName: 'availability and scale, availability, scale, autoscale, availability sets, AV sets'
+          href: ./windows/change-availability-set.md
 - name: Discos
   items:
     - name: Información general
@@ -1687,7 +1687,7 @@
           href: /azure/azure-monitor/faq#agents
         - name: Extensión de Diagnósticos de Azure
           items:
-            - name: Información general
+            - name: Introducción
               displayName: Azure Diagnostics extension
               href: ../azure-monitor/agents/diagnostics-extension-overview.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
             - name: Extensión de Diagnósticos de Linux

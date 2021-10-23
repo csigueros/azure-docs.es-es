@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/28/2021
 ms.topic: how-to
-ms.openlocfilehash: 29caef661b7078844991c3ca3867a1f03eb0114e
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 54da805b7f4c2332d0d475d2c5eb31b24fca597f
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129293533"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165646"
 ---
 # <a name="disable-local-authentication-in-automation"></a>Deshabilitación de la autenticación local en Automation
 
@@ -33,7 +33,7 @@ En la tabla siguiente se describen los comportamientos o características cuyo f
 |Escenario | Alternativa |
 |---|---|
 |Llamada a un runbook con un webhook. | Inicie un trabajo de runbook mediante una plantilla de Azure Resource Manager, que usa autenticación de Azure AD. |
-|Uso de Desired State Configuration de Automation.| Use la [configuración de invitado de Azure Policy](/governance/policy/concepts/guest-configuration).  |
+|Uso de Desired State Configuration de Automation.| Use la [configuración de invitado de Azure Policy](../governance/policy/concepts/guest-configuration.md).  |
 |Uso de instancias de Hybrid Runbook Worker basadas en agente.| Use [instancias de Hybrid Runbook Worker basadas en extensiones (versión preliminar)](./extension-based-hybrid-runbook-worker-install.md).|
 
 ## <a name="limitations"></a>Limitaciones

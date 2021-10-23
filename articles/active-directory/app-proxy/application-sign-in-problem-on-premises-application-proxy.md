@@ -3,7 +3,7 @@ title: Problema al iniciar sesión en una aplicación local mediante Azure Activ
 description: Solución de problemas comunes cuando no se puede iniciar sesión en una aplicación local integrada con Azure Active Directory Application Proxy
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 8c3070e42b8ccf1d73d2466524d272b73f4e8d8b
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: b51bd97f4ee79358230e85f94351abc937bf5225
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108227099"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129988456"
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-active-directory-application-proxy"></a>Problemas de inicio de sesión en una aplicación local mediante Azure Active Directory Application Proxy
 

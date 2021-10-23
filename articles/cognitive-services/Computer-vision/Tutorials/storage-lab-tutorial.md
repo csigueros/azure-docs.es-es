@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/06/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f97f01ecb1b11af6ca4292c8b2bfd3ebdb50e943
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 12734d32322fe6cdc0fcaa48486d76d9d7bddd70
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129360262"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047689"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Tutorial: Uso de Computer Vision para generar metadatos de imágenes en Azure Storage
 
@@ -419,7 +419,7 @@ A continuación, agregará el código que realmente usa el servicio Computer Vis
 1. A continuación, vaya al método **Upload**; este método convierte y carga imágenes en Blob Storage. Agregue el código siguiente inmediatamente después del bloque que comienza por `// Generate a thumbnail` (o al final del proceso de creación de blobs de imágenes). Este código toma el blob que contiene la imagen (`photo`) y utiliza Computer Vision para generar una descripción de ella. Computer Vision API también genera una lista de palabras clave que se aplican a la imagen. Tanto la descripción como las palabras clave generadas se almacenan en los metadatos del blob para que se pueden recuperar más adelante.
 
     ```csharp
-    // Submit the image to Azure's Computer Vision API
+    // Submit the image to the Azure Computer Vision API
     ComputerVisionClient vision = new ComputerVisionClient(
         new ApiKeyServiceClientCredentials(ConfigurationManager.AppSettings["SubscriptionKey"]),
         new System.Net.Http.DelegatingHandler[] { });

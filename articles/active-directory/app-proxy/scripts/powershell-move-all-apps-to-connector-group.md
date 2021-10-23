@@ -3,20 +3,20 @@ title: 'Ejemplo de PowerShell: Traslado de aplicaciones del proxy de la aplicaci
 description: Ejemplo de PowerShell de Azure Active Directory (Azure AD) Application Proxy usado para trasladar todas las aplicaciones asignadas actualmente a un grupo de conectores a otro grupo de conectores.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: sample
 ms.date: 04/29/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: 55036972d2ff60e7c35f5860280d7945e96c687b
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.reviewer: ashishj
+ms.openlocfilehash: 0f40a4bbc6f3fabe3644e5a58ab7065ad40ba9b0
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108293857"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129988513"
 ---
 # <a name="move-all-azure-active-directory-application-proxy-apps-assigned-to-a-connector-group-to-another-connector-group"></a>Traslado de todas las aplicaciones del proxy de la aplicación de Azure Active Directory asignadas a un grupo de conectores a otro grupo de conectores
 

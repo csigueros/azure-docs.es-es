@@ -1,5 +1,6 @@
 ---
-title: Mensaje de error en la página de la aplicación al iniciar sesión | Microsoft Docs
+title: Mensaje de error que aparece en una página de la aplicación al iniciar sesión
+titleSuffix: Azure AD
 description: Cómo resolver problemas con el inicio de sesión de Azure AD cuando la aplicación devuelve un mensaje de error.
 services: active-directory
 author: davidmu1
@@ -12,14 +13,14 @@ ms.date: 07/11/2017
 ms.author: davidmu
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c1910eb106e7a3e405f58ba672c38fa108544d2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 499ce4c7875a1805b5845614221ffef0641816d6
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738899"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129617784"
 ---
-# <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>Mensaje de error en la página de la aplicación cuando el usuario inicia sesión
+# <a name="an-app-page-shows-an-error-message-after-the-user-signs-in-azure-active-directory"></a>Mensaje de error que se muestra en un página de la aplicación cuando el usuario inicia sesión en Azure Active Directory
 
 En este escenario, Azure Active Directory (Azure AD) inicia la sesión del usuario. Pero la aplicación muestra un mensaje de error y no permite al usuario finalizar el flujo de inicio de sesión. El problema es que la aplicación no aceptó la respuesta de Azure AD.
 

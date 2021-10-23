@@ -3,20 +3,20 @@ title: Supervisión de Azure AD B2C con Azure Monitor
 titleSuffix: Azure AD B2C
 description: Obtenga información acerca de cómo registrar eventos de Azure AD B2C con Azure Monitor mediante la administración de recursos delegados.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.date: 09/15/2021
-ms.openlocfilehash: ce9de190c5754102b9ac66602818b25e960ae8dd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: bea95ff80fb3bcd0e32e550196f50c3ffde1719a
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128570262"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130039930"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Supervisión de Azure AD B2C con Azure Monitor
 

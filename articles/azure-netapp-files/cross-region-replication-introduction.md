@@ -12,22 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 10/14/2021
 ms.author: b-juche
 ms.custom: references_regions
-ms.openlocfilehash: f97e4ec774dc9ed703a41cdd75fb88747fb627e5
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: c8cef623e26882443379fff73edcc1999463ec3e
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129090920"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045775"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replicación entre regiones de volúmenes de Azure NetApp Files
 
 La funcionalidad de replicación de Azure NetApp Files proporciona protección de datos a través de la replicación de volúmenes entre regiones. Puede replicar datos de forma asincrónica desde un volumen de Azure NetApp Files (origen) de una región a otro volumen Azure NetApp Files (destino) de otra región.  Esta funcionalidad le permite realizar la conmutación por error de la aplicación crítica en caso de un desastre o una interrupción en toda la región.
-
-> [!IMPORTANT]
-> La característica de replicación entre regiones se encuentra actualmente en versión preliminar. Debe enviar una solicitud de lista de espera para acceder a la característica a través de la [página de envío de lista de espera de replicación entre regiones de Azure NetApp Files](https://aka.ms/anfcrrpreviewsignup). Antes de utilizar la característica de replicación entre regiones, debe esperar un correo electrónico de confirmación oficial del equipo de Azure NetApp Files.
 
 ## <a name="supported-cross-region-replication-pairs"></a><a name="supported-region-pairs"></a>Pares de replicación entre regiones compatibles
 
@@ -47,7 +44,7 @@ La replicación de volúmenes de Azure NetApp Files se admite entre varios no pa
 | Norteamérica | Este de EE. UU. 2 | Centro de EE. UU. |
 | Norteamérica | Centro-Norte de EE. UU | Centro-sur de EE. UU.|
 | Noruega | Este de Noruega | Oeste de Noruega |
-| Reino Unido | Sur de Reino Unido | Oeste de Reino Unido |
+| Reino Unido | Sur de Reino Unido 2 | Oeste de Reino Unido |
 | Emiratos Árabes Unidos | Norte de Emiratos Árabes Unidos | Centro de Emiratos Árabes Unidos |
 | US Gov | US Gov - Virginia | US Gov Texas |
 

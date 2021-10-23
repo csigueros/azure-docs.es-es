@@ -4,16 +4,16 @@ description: Aprenda a diagnosticar y corregir excepciones de solicitudes prohib
 author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 02/05/2021
+ms.date: 10/06/2021
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: e61bf75a2d45e89f75c1fafbb38d22afadfe3776
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: dcef0eccc6ca314c51b436025fb10c25dbbe04fa
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123113710"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658241"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-forbidden-exceptions"></a>Diagnóstico y solución de problemas de excepciones de solicitudes prohibidas de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -34,6 +34,20 @@ Request is blocked. Please check your authorization token and Cosmos DB account 
 ### <a name="solution"></a>Solución
 Compruebe que la [configuración actual del firewall](../how-to-configure-firewall.md) sea correcta e incluya las direcciones IP o redes a las que está intentando conectarse.
 Si las ha actualizado recientemente, tenga en cuenta que los cambios pueden tardar **hasta 15 minutos en aplicarse**.
+
+## <a name="partition-key-exceeding-storage"></a>Clave de partición que supera el almacenamiento
+En este escenario, es habitual ver errores como los siguientes:
+
+```
+Response status code does not indicate success: Forbidden (403); Substatus: 1014
+```
+
+```
+Partition key reached maximum size of {...} GB
+```
+
+### <a name="solution"></a>Solución
+Este error significa que la carga de trabajo y el [diseño de creación de particiones](../partitioning-overview.md#logical-partitions) actuales están intentando almacenar más de la cantidad de datos permitida para un valor de clave de partición determinado. No hay ningún límite en el número de particiones lógicas del contenedor, pero el tamaño de los datos que puede almacenar cada partición lógica es limitado. Puede comunicarse con el soporte técnico para que le den explicaciones.
 
 ## <a name="non-data-operations-are-not-allowed"></a>No se permiten operaciones que no son de datos
 Este escenario se produce cuando [no se pueden realizar en la cuenta operaciones](../how-to-restrict-user-data.md#disallow-the-execution-of-non-data-operations) que no son de datos. En este escenario, es habitual ver errores como los siguientes:

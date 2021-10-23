@@ -3,7 +3,7 @@ title: Configuración del cuórum de clúster
 description: 'Obtenga información sobre cómo configurar un testigo de disco, un testigo en la nube o un testigo de recurso compartido de archivos como cuórum para un clúster de conmutación por error de Windows Server en SQL Server en VM de Azure. '
 services: virtual-machines
 documentationCenter: na
-author: cawrites
+author: rajeshsetlem
 editor: ''
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -12,13 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2021
-ms.author: chadam
-ms.openlocfilehash: b1db3b5d809c8dd80b0d03d5bdd15636115fdef0
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: 575e8a5ab43e38b723bd0b2084709a1216b477fe
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112581950"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130163433"
 ---
 # <a name="configure-cluster-quorum-for-sql-server-on-azure-vms"></a>Configuración del cuórum de clúster para SQL Server en VM de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

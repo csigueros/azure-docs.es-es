@@ -2,21 +2,21 @@
 title: Habilitación de las opciones de aplicaciones móviles de iOS Swift mediante Azure Active Directory B2C
 description: En este artículo se tratan diversas maneras de habilitar las opciones de aplicaciones móviles de iOS Swift mediante Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 07/29/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 128c5000e6614e769100a92303007317eadaed96
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: b96e33bedcd4f92b6d75ecea02483e2d22c62ac8
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220709"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130041089"
 ---
 # <a name="enable-authentication-options-in-an-ios-swift-app-by-using-azure-ad-b2c"></a>Habilitación de las opciones de autenticación en aplicaciones de iOS Swift mediante Azure AD B2C 
 
@@ -108,7 +108,7 @@ applicationContext.acquireToken(with: parameters) { (result, error) in
 
 1. Configure el elemento [ContentDefinitionParameters](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri).
 1. Cree o use un objeto de lista existente para almacenar parámetros de consulta adicionales.
-1. Agregue el parámetro de cadena de consulta personalizado, por ejemplo, `campaignId`. Establezca el valor del parámetro (por ejemplo, `germany-promotion`).
+1. Agregue el parámetro de cadena de consulta personalizado, como `campaignId`. Establezca el valor del parámetro (por ejemplo, `germany-promotion`).
 1. Pase la lista de parámetros de consulta adicionales al atributo `extraQueryParameters` del objeto de configuración de MSAL.
 
 ```swift

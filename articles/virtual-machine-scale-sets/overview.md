@@ -8,16 +8,19 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
-ms.openlocfilehash: 00d094b0e535c3e3a5c465e248a0a4e88f538da8
-ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
+ms.openlocfilehash: c4ad34729b81d6ca13bb2ff52c30dc77cd1614b9
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112323131"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130167375"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>¿Qué son los conjuntos de escalado de máquina virtual?
+
 Los conjuntos de escalado de máquinas virtuales de Azure permiten crear y administrar un grupo de máquinas virtuales con equilibrio de carga. El número de instancias de máquina virtual puede aumentar o disminuir automáticamente según la demanda, o de acuerdo a una programación definida. Los conjuntos de escalado proporcionan una alta disponibilidad a las aplicaciones y le permiten administrar, configurar y actualizar de forma centralizada un gran número de máquinas virtuales. Con los conjuntos de escalado de máquinas virtuales, puede crear servicios a gran escala para áreas como proceso, macrodatos y cargas de trabajo de contenedor.
 
+> [!IMPORTANT]
+> Este artículo trata sobre los conjuntos de escalado de máquinas virtuales en modo de orquestación uniforme. Para más información sobre los conjuntos de escalado flexibles, vaya a [Modo de orquestación flexible para conjuntos de escalado de máquinas virtuales](../virtual-machines/flexible-virtual-machine-scale-sets.md).
 
 ## <a name="why-use-virtual-machine-scale-sets"></a>¿Por qué utilizar conjuntos de escalado de máquinas virtuales?
 Para proporcionar redundancia y mejorar el rendimiento las aplicaciones normalmente se distribuyen entre varias instancias. Los clientes pueden acceder a la aplicación mediante un equilibrador de carga que distribuye las solicitudes a una de las instancias de la aplicación. Si necesita realizar tareas de mantenimiento o actualizar una instancia de la aplicación, los clientes tienen que distribuirse a otra instancia de aplicación que esté disponible. Para hacer frente a la demanda adicional de los clientes, puede que tenga que aumentar el número de instancias de aplicación en las que se ejecuta la aplicación.

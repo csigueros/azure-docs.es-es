@@ -1,14 +1,14 @@
 ---
 title: Administración del agente de servidores habilitados para Azure Arc
 description: En este artículo se describen las diferentes tareas de administración que normalmente realizará durante el ciclo de vida del agente de Connected Machine de los servidores habilitados para Azure Arc.
-ms.date: 08/17/2021
+ms.date: 10/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: d8a8613a6fc97fd2510779715d392b9534598950
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d0b4d32100a8063346d9a6f7bd2b4bd70156d868
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124807448"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130041184"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Administración y mantenimiento del agente de Connected Machine
 
@@ -30,7 +30,7 @@ En el caso de los servidores o máquinas que ya no quiera administrar con servid
 
     * Ejecutar el comando `azcmagent disconnect` en la máquina o el servidor.
 
-    * En el servidor habilitado para Azure Arc registrado seleccionado en Azure Portal, seleccionando **Eliminar** en la barra superior.
+    * En el servidor habilitado para Azure Arc registrado y seleccionado en Azure Portal, seleccione **Eliminar** en la barra superior.
 
     * Mediante la [CLI de Azure](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-cli#delete-resource) o [Azure PowerShell](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell#delete-resource). En el caso del parámetro `ResourceType`, use `Microsoft.HybridCompute/machines`.
 
@@ -125,13 +125,13 @@ Puede descargar el paquete de agente más reciente del [repositorio de paquetes]
 1. Para actualizar el índice de paquetes locales con los últimos cambios realizados en los repositorios, ejecute el siguiente comando:
 
     ```bash
-    apt update
+    sudo apt update
     ```
 
 2. Para actualizar el sistema, ejecute el siguiente comando:
 
     ```bash
-    apt upgrade
+    sudo apt upgrade azcmagent
     ```
 
 Las acciones del comando [apt](https://help.ubuntu.com/lts/serverguide/apt.html), como la instalación y la eliminación de paquetes, se registran en el archivo de registro `/var/log/dpkg.log`.
@@ -141,13 +141,13 @@ Las acciones del comando [apt](https://help.ubuntu.com/lts/serverguide/apt.html)
 1. Para actualizar el índice de paquetes locales con los últimos cambios realizados en los repositorios, ejecute el siguiente comando:
 
     ```bash
-    yum check-update
+    sudo yum check-update
     ```
 
 2. Para actualizar el sistema, ejecute el siguiente comando:
 
     ```bash
-    yum update
+    sudo yum update azcmagent
     ```
 
 Las acciones del comando [yum](https://access.redhat.com/articles/yum-cheat-sheet), como la instalación y la eliminación de paquetes, se registran en el archivo de registro `/var/log/yum.log`. 
@@ -157,13 +157,13 @@ Las acciones del comando [yum](https://access.redhat.com/articles/yum-cheat-shee
 1. Para actualizar el índice de paquetes locales con los últimos cambios realizados en los repositorios, ejecute el siguiente comando:
 
     ```bash
-    zypper refresh
+    sudo zypper refresh
     ```
 
 2. Para actualizar el sistema, ejecute el siguiente comando:
 
     ```bash
-    zypper update
+    sudo zypper update azcmagent
     ```
 
 Las acciones del comando [zypper](https://en.opensuse.org/Portal:Zypper), como la instalación y la eliminación de paquetes, se registran en el archivo de registro `/var/log/zypper.log`.

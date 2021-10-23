@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 09/28/2021
 ms.author: danlep
-ms.openlocfilehash: 900692d5f38e0ed1796a3cac213407a3bec29660
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 553f7ce69d63ceebcdaacc3b29b0abc2a01987f7
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129212919"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129984561"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Procedimiento para autorizar a las cuentas de desarrollador para que usen Azure Active Directory B2C en Azure API Management
 
@@ -116,7 +116,7 @@ El widget **Sign-up form: OAuth** (Formulario de inicio de sesión: OAuth) repre
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 > [!NOTE]
-> Para integrar B2C correctamente por el portal para desarrolladores heredado, utilice flujos de usuarios **estándar v1** y habilite el [restablecimiento de contraseña](/active-directory-b2c/user-flow-self-service-password-reset.md) antes de registrarse o iniciar sesión en una cuenta de desarrollador con Azure Active Directory B2C. 
+> Para integrar B2C correctamente por el portal para desarrolladores heredado, utilice flujos de usuarios **estándar v1** y habilite el [restablecimiento de contraseña](/azure/active-directory-b2c/user-flow-self-service-password-reset) antes de registrarse o iniciar sesión en una cuenta de desarrollador con Azure Active Directory B2C. 
 
 1. Abra una nueva ventana del explorador y vaya al portal para desarrolladores heredado. Haga clic en el botón **Registrarse**.
 

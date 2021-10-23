@@ -3,7 +3,7 @@ title: Migración del disco de registro al disco Ultra
 description: Obtenga información sobre cómo migrar su servidor SQL Server en un disco de registro de Azure Virtual Machine (VM) a un disco Ultra de Azure para aprovechar las ventajas de un alto rendimiento y una baja latencia.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/09/2020
-ms.author: mathoma
-ms.reviewer: jroth
-ms.openlocfilehash: 43bafeee90b1995c363ca03d031abc7d648001cf
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.author: pamela
+ms.reviewer: mathoma
+ms.openlocfilehash: 54955a953b8386b3dc9b5b4ba814b4826079ef54
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126352"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165240"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>Migración del disco de registro al disco Ultra
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

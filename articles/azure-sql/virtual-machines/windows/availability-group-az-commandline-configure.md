@@ -3,7 +3,7 @@ title: Configuración de un grupo de disponibilidad (PowerShell y CLI de Azure)
 description: Use PowerShell o la CLI de Azure para crear el clúster de conmutación por error de Windows, el cliente de escucha de grupo de disponibilidad y el equilibrador de carga interno en una máquina virtual con SQL Server en Azure.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: hadr
@@ -11,15 +11,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/20/2020
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: rsetlem
+ms.reviewer: mathoma
 ms.custom: seo-lt-2019, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: ffb9ac3874ae3eb1ab3ec883a8094c57d03b86a8
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 605a95142b74c06ae1b7a78cd832ab535b7345bf
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129534572"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130167079"
 ---
 # <a name="use-powershell-or-az-cli-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Uso de PowerShell o la CLI de Azure para configurar un grupo de disponibilidad para SQL Server en una máquina virtual de Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
