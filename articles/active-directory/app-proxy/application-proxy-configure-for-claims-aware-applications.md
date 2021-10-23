@@ -3,20 +3,20 @@ title: Aplicaciones para notificaciones - Application Proxy de Azure Active Dire
 description: Se explica cómo publicar aplicaciones de ASP.NET locales que acepten notificaciones de AD FS para proporcionar acceso remoto seguro a sus usuarios.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: 0ff8f785589cf35f1b3ff93fe4973c5587c48c74
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.reviewer: ashishj
+ms.openlocfilehash: 50f0f4ead9b44da13eb2a45a96db1caed81a5471
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108187213"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990014"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Trabajo con aplicaciones para notificaciones en Proxy de aplicación
 Las [aplicaciones para notificaciones](/previous-versions/windows/desktop/legacy/bb736227(v=vs.85)) realizan un redireccionamiento al servicio de token de seguridad (STS). El STS solicita las credenciales del usuario a cambio de un token y, después, redirige al usuario a la aplicación. Hay varias maneras de habilitar el Proxy de aplicación para trabajar con estos redireccionamientos. Use este artículo para configurar la implementación en las aplicaciones para notificaciones. 

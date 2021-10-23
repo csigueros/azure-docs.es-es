@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 3a71623eda2d849c036b1ad013618548f9a4c7f7
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 93b9273069fb564ae7049983d34ee71dba8ef57a
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124823460"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072373"
 ---
 # <a name="hbv3-series"></a>Serie HBv3
 
@@ -25,7 +25,7 @@ Todas las máquinas virtuales de la serie HBv3 incorporan InfiniBand HDR de 200�
 
 [Premium Storage](premium-storage-performance.md): Compatible<br>
 [Almacenamiento en caché de Premium Storage](premium-storage-performance.md): Compatible<br>
-[Ultra Disks:](disks-types.md#ultra-disk) Compatible ([más información](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) sobre la disponibilidad, el uso y el rendimiento) <br>
+[Ultra Disks:](disks-types.md#ultra-disks) Compatible ([más información](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) sobre la disponibilidad, el uso y el rendimiento) <br>
 [Migración en vivo](maintenance-and-updates.md): No compatible<br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>

@@ -2,21 +2,21 @@
 title: Habilitación de una aplicación web que llama a las opciones de una API web mediante Azure Active Directory B2C
 description: En este artículo se describe cómo habilitar el uso de una aplicación web que llama a las opciones de API web de varias maneras.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 07/05/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 7bc5982d6f0ce4631ba1225964efb4ac2bc9fda4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e6d43846307ddf97983a408c244ff3470bea2641
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638124"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130040880"
 ---
 # <a name="configure-authentication-options-in-a-web-app-that-calls-a-web-api-by-using-azure-ad-b2c"></a>Configuración de las opciones de autenticación en una aplicación web que llama a una API web mediante Azure AD B2C 
 

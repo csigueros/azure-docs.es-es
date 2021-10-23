@@ -20,36 +20,8 @@
           href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-may-2021/'
         - name: "Características nuevas y actualizadas de abril de\_2021"
           href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-april-2021/'
-        - name: "Características nuevas y actualizadas de marzo de\_2021"
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-march-2021/'
-        - name: "Características nuevas y actualizadas de febrero de\_2021"
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-february-2021/'
-        - name: "Características nuevas y actualizadas de enero de\_2021"
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-january-2021/'
-        - name: "Características nuevas y actualizadas de noviembre de\_2020"
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-november-2020/'
-        - name: "Características nuevas y actualizadas de octubre de\_2020"
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-upadates-october-2020/'
-        - name: "Características nuevas y actualizadas de septiembre de\_2020"
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-september-2020/'
-        - name: "Característica nuevas y actualizadas de agosto de\_2020"
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-august-2020/'
-        - name: "Características nuevas y actualizadas de julio de\_2020"
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-july-2020/'
-        - name: "Características nuevas y actualizadas de junio de\_2020"
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-june-2020/'
-        - name: "Actualizaciones de la documentación y la interfaz de usuario de junio de\_2020"
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-ui-documenation-updates-june-2020/'
-        - name: "Actualizaciones de trabajos y métricas de mayo de\_2020"
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-jobs-and-metrics-feature-updates-may-2020/'
-        - name: Actualizaciones del panel de mayo de 2020
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-may-2020-dashboard-updates/'
-        - name: Nuevas características de abril de 2020
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-april-2020-new-features/'
-        - name: Actualizaciones de abril de 2020
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-april-2020-updates/'
-        - name: Marzo de 2020
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-march-2020-updates/'
+        - name: Historial de actualizaciones
+          href: 'https://azure.microsoft.com/updates/?status=nowavailable&updateType=features&category=iot&query=azure%20iot%20central'
 - name: Guías de inicio rápido
   expanded: true
   items:

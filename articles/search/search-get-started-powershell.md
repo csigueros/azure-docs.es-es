@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 11/17/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9dd9de9dcb01e9be200e07e5925d8b856432b620
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ba9ac7474631cc398da08132ee975d46f9f8051
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94742385"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064768"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en PowerShell mediante las API REST
 > [!div class="op_single_selector"]
@@ -64,7 +64,7 @@ Todas las solicitudes requieren una clave de API en cada solicitud enviada al se
 2. Cree un objeto **$url** que especifique la colección de índices del servicio. Reemplace el nombre del servicio (YOUR-SEARCH-SERVICE-NAME) por un servicio de búsqueda válido.
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2020-06-30&$select=name"
+    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2020-06-30&`$select=name"
     ```
 
 3. Ejecute **Invoke-RestMethod** para enviar una solicitud GET al servicio y comprobar la conexión. Agregue **ConvertTo-Json** para poder ver las respuestas que se envían desde el servicio.

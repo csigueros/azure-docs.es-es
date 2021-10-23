@@ -3,20 +3,20 @@ title: Enfoques de migración de usuarios
 titleSuffix: Azure AD B2C
 description: Migre las cuentas de usuario de otro proveedor de identidades a Azure AD B2C con los métodos de migración previa o de migración de conexión directa.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/27/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: a77fe42c1a828ef044f04ad4e292f14618f94f1f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 90e1600c54bb7bf7a405ca3748f15edc29ad53a6
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124757370"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130043840"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrar usuarios a Azure AD B2C
 

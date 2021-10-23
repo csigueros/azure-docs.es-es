@@ -4,15 +4,15 @@ description: Obtenga información sobre los objetivos de escalabilidad y rendimi
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/16/2021
+ms.date: 10/06/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 83e33933e8afb8b376750368a64c60cb56406a75
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 66ad68711d57767f6f657d941222e4b225c4b20e
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128651548"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658944"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objetivos de escalabilidad y rendimiento de Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados a los que se puede acceder mediante los protocolos SMB y del sistema de archivos NFS. En este artículo se explican los objetivos de escalabilidad y rendimiento de Azure Files y Azure File Sync.
@@ -71,7 +71,7 @@ Azure admite varios tipos de cuentas de almacenamiento para los distintos escena
 
 <sup>1</sup> Los límites de los recursos compartidos de archivos estándar se aplican a los tres niveles disponibles para dichos recursos: optimizado para transacciones, acceso frecuente y acceso esporádico.
 
-<sup>2</sup> El valor predeterminado de los recursos compartidos de archivos estándar es 5 TiB; consulte [Creación de un recurso compartido de archivos de Azure](./storage-how-to-create-file-share.md) para obtener más información sobre cómo crear recursos compartidos de archivos con un tamaño de 100 TiB y aumentar los recursos compartidos de archivos estándar existentes hasta 100 TiB.
+<sup>2</sup> El valor predeterminado de los recursos compartidos de archivos estándar es 5 TiB; consulte [Creación de un recurso compartido de archivos de Azure](./storage-how-to-create-file-share.md) para obtener más información sobre cómo crear recursos compartidos de archivos con un tamaño de 100 TiB y aumentar los recursos compartidos de archivos estándar existentes hasta 100 TiB. Para aprovechar las ventajas de los destinos de mayor escala, debe cambiar la cuota para que sea mayor que 5 TiB.
 
 ### <a name="file-scale-targets"></a>Objetivos de escalabilidad de archivos
 | Atributo | Archivos en recursos compartidos de archivos estándar  | Archivos en recursos compartidos de archivos prémium  |

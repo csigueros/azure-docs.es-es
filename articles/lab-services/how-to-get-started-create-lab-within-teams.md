@@ -1,14 +1,14 @@
 ---
 title: Introducción y creación de un laboratorio de Azure Lab Services en Teams
 description: Obtenga información de cómo crear y empezar a usar un laboratorio de Azure Lab Services en Teams.
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/08/2020
-ms.openlocfilehash: cc4ad604bdf250cc6e4ba2c50c2f7143c921e906
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e406a73a086a742bcb30d0c45c1ebda629b6bdf2
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96433978"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180236"
 ---
 # <a name="get-started-and-create-a-lab-services-lab-within-teams"></a>Introducción y creación de un laboratorio de Lab Services en Teams
 

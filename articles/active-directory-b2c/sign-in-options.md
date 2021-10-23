@@ -3,20 +3,20 @@ title: Opciones de inicio de sesión admitidas por Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Obtenga información sobre las opciones de registro e inicio de sesión que puede usar con Azure Active Directory B2C, incluidos el nombre de usuario y la contraseña, el correo electrónico, el teléfono o la federación con proveedores de identidades sociales o externos.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/10/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: efb526f9a7418c0d7d2316ec91f355a7c4431404
-ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+ms.openlocfilehash: 4f0a713eacb259348f04fe61fefde72a3142b419
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112204841"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130043251"
 ---
 # <a name="sign-in-options-in-azure-ad-b2c"></a>Opciones de inicio de sesión en Azure AD B2C
 

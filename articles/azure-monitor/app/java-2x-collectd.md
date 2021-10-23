@@ -3,15 +3,15 @@ title: 'Supervisión del rendimiento de la aplicación web de Java en Linux: Azu
 description: Supervisión del rendimiento de aplicaciones extendida de sitios web de Java con el complemento CollectD para Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
-author: MS-jgol
 ms.custom: devx-track-java
-ms.author: jgol
-ms.openlocfilehash: 93ab5cf44286a4fcba638f14e1c7b29698a02e55
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+author: mattmccleary
+ms.author: mmcc
+ms.openlocfilehash: 7931c71b58b052b97fdb00e16197d5001b47589f
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113358028"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130134001"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights-deprecated"></a>collectd: Métricas de rendimiento de Linux en Application Insights [en desuso]
 

@@ -10,12 +10,12 @@ ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: e5594ea57dce2d7cf03989da9288ab2869e28e06
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a272e5c7f4d467dadfe618f6d70b9a36225c48ff
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124743816"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130175833"
 ---
 # <a name="system-variables-supported-by-azure-data-factory-and-azure-synapse-analytics"></a>Variables del sistema compatibles con Azure Data Factory y Azure Synapse Analytics
 
@@ -72,6 +72,9 @@ Se puede hacer referencia a estas variables del sistema en cualquier parte del J
 | @triggerBody().fileName  |Nombre del archivo cuya creación o eliminación hizo que se activara el desencadenador.   |
 | @triggerBody().folderPath  |Ruta de acceso a la carpeta que contiene el archivo especificado en `@triggerBody().fileName`. El primer segmento de la ruta de acceso de la carpeta es el nombre del contenedor de Azure Blob Storage.  |
 | @trigger().startTime |Hora a la que se activó el desencadenador para invocar la ejecución de la canalización. |
+
+   > [!NOTE]
+   > Si va a crear la canalización y el desencadenador en [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md), debe usar `@trigger().outputs.body.fileName` y `@trigger().outputs.body.folderPath` como parámetros. Esas dos propiedades capturan información del blob. Utilice esas propiedades en lugar de usar `@triggerBody().fileName` y `@triggerBody().folderPath`.
 
 ## <a name="custom-event-trigger-scope"></a>Ámbito de desencadenador de eventos de personalización
 

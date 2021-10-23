@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 8502c35a145e4a041f9d44b8396fe16f5db3febc
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 89288c0e5205ba99a51104ffe24eb016aeb27f06
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384211"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179381"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Diseño de la implementación de registros de Azure Monitor
 
@@ -103,7 +103,7 @@ En la tabla siguiente se resumen los modos de acceso:
 | ¿Para quién está pensado cada modelo? | Administración central. Los administradores que tienen que configurar colecciones de datos y los usuarios que necesitan acceder a una amplia variedad de recursos. También lo requieren actualmente los usuarios que necesitan acceder a registros de recursos fuera de Azure. | Equipos de la aplicación. Los administradores de los recursos de Azure que se están supervisando. |
 | ¿Qué requiere un usuario para ver los registros? | Permisos para el área de trabajo. Vea los **permisos del área de trabajo** en [Administración del acceso mediante los permisos del área de trabajo](./manage-access.md#manage-access-using-workspace-permissions). | Acceso de lectura al recurso. Vea los **permisos de los recursos** en [Administración del acceso mediante los permisos de Azure](./manage-access.md#manage-access-using-azure-permissions). Los permisos pueden ser heredados (por ejemplo, del grupo de recursos que los contenga) o son asignados directamente al recurso. Se asignará automáticamente el permiso a los registros para el recurso. |
 | ¿Qué es el ámbito de los permisos? | Área de trabajo. Los usuarios con acceso al área de trabajo pueden consultar todos los registros de esa área de trabajo desde las tablas para las que tengan permisos. Consulte [Control de acceso a la tabla](./manage-access.md#table-level-azure-rbac) | Recurso de Azure. Un usuario puede consultar los registros de recursos, grupos de recursos o suscripciones específicos a los que tenga acceso desde cualquier área de trabajo, pero no puede consultar los registros de otros recursos. |
-| ¿Cómo puede el usuario acceder a los registros de acceso? | <ul><li>Inicie **Registros** en el menú de **Azure Monitor**.</li></ul> <ul><li>Inicie **Registros** desde **Áreas de trabajo de Log Analytics**.</li></ul> <ul><li>Desde [Libros](../visualizations.md#workbooks) de Azure Monitor.</li></ul> | <ul><li>Inicie **Registros** en el menú para el recurso de Azure</li></ul> <ul><li>Inicie **Registros** en el menú de **Azure Monitor**.</li></ul> <ul><li>Inicie **Registros** desde **Áreas de trabajo de Log Analytics**.</li></ul> <ul><li>Desde [Libros](../visualizations.md#workbooks) de Azure Monitor.</li></ul> |
+| ¿Cómo puede el usuario acceder a los registros de acceso? | <ul><li>Inicie **Registros** en el menú de **Azure Monitor**.</li></ul> <ul><li>Inicie **Registros** desde **Áreas de trabajo de Log Analytics**.</li></ul> <ul><li>Desde [Libros](../best-practices-analysis.md#workbooks) de Azure Monitor.</li></ul> | <ul><li>Inicie **Registros** en el menú para el recurso de Azure</li></ul> <ul><li>Inicie **Registros** en el menú de **Azure Monitor**.</li></ul> <ul><li>Inicie **Registros** desde **Áreas de trabajo de Log Analytics**.</li></ul> <ul><li>Desde [Libros](../best-practices-analysis.md#workbooks) de Azure Monitor.</li></ul> |
 
 ## <a name="access-control-mode"></a>Modo de control de acceso
 

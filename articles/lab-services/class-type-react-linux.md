@@ -2,15 +2,15 @@
 title: Configuración de un laboratorio con React mediante Azure Lab Services
 description: Aprenda a configurar laboratorios para una clase de desarrollo con React.
 author: emaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/16/2021
 ms.author: enewman
-ms.openlocfilehash: 96154718ce8e0ecff0ccdce0ded70272cdda828e
-ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
+ms.openlocfilehash: 8cd635b5b46e42e59901e0326188b955ecde9b79
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112991773"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176669"
 ---
 # <a name="set-up-lab-for-react-on-linux"></a>Configuración del laboratorio para React en Linux
 

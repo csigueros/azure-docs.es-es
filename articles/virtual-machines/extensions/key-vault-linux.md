@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a55a49232e18c61f1c5b1915c06cd61e1f13ab0b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4fe44c7880420d7f2bc89f479e152a23f22909e8
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128674440"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129670221"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual de Key Vault para Linux
 
@@ -33,6 +33,9 @@ La extensión de máquina virtual de Key Vault admite estas distribuciones de Li
 > [!NOTE]
 > Para obtener características de seguridad extendidas, prepárese para actualizar los sistemas Ubuntu-1604 y Debian-9, ya que estas versiones están llegando al final del período de soporte designado.
 > 
+
+> [!NOTE]
+> La extensión de máquina virtual Key Vault descarga los certificados en la ubicación predeterminada o en la ubicación proporcionada por la propiedad "certStoreLocation" en la configuración de la extensión de máquina virtual. La extensión de máquina virtual Key Vault actualiza el permiso de carpeta a 700 (drwx------), lo que solo concede el permiso de lectura, escritura y ejecución al propietario de la carpeta.
 
 ### <a name="supported-certificate-content-types"></a>Tipos de contenido de certificado admitidos
 

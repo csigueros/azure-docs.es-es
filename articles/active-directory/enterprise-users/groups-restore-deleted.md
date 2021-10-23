@@ -3,7 +3,7 @@ title: Restauración de un grupo de Microsoft 365 eliminado en Azure AD | Micr
 description: Restauración de un grupo eliminado, visualización de grupos restaurables y eliminación permanente de un grupo en Azure Active Directory
 services: active-directory
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1eacba47e68310dd45976bcd9ddff052fa193436
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5508f3131ad44d1839167c57029619f5e7413e4d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99090144"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129986233"
 ---
 # <a name="restore-a-deleted-microsoft-365-group-in-azure-active-directory"></a>Restauración de un grupo de Microsoft 365 eliminado en Azure Active Directory
 

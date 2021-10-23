@@ -3,7 +3,7 @@ title: 'Tutorial: Desarrollo de un punto de conexión SCIM para el aprovisionami
 description: System for Cross-domain Identity Management (SCIM) normaliza el aprovisionamiento automático de usuarios. En este tutorial, aprenderá a desarrollar un punto de conexión SCIM, integre la API de SCIM con Azure Active Directory y comience a automatizar el aprovisionamiento de usuarios y grupos en las aplicaciones en la nube.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/26/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 539daea27b83203794fb4bf09969a288e2e570dd
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 03e2ce2c2d40c5edfa35515dd746802307d05f4b
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124759878"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990660"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint-in-azure-active-directory"></a>Tutorial: Desarrollo y planeación del aprovisionamiento de un punto de conexión de SCIM en Azure Active Directory
 

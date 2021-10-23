@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/07/2021
 ms.author: danlep
-ms.openlocfilehash: 02442bf73d16486ce51b765e6922bbf434fb69f1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5fc47f2238427c7875d2af29324e06d8b6487f1a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609809"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001796"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>Administración de protocolos y cifrados en Azure API Management
 
@@ -43,7 +43,7 @@ Esta guía muestra cómo administrar la configuración de los protocolos y cifra
 1. Haga clic en **Save**(Guardar). Los cambios se aplicarán en el plazo de una hora.  
 
 > [!NOTE]
-> Algunos protocolos o conjuntos de cifrado (como TLS 1.2 en el back-end) no se pueden habilitar ni deshabilitar desde Azure Portal. En su lugar, deberá utilizar la llamada REST. Utilice la estructura `properties.customProperties` de este artículo sobre la [creación o actualización de la API REST de API Management](/rest/api/apimanagement/2020-06-01-preview/api-management-service/create-or-update#request-body).
+> Algunos protocolos o conjuntos de cifrado (como TLS 1.2 en el back-end) no se pueden habilitar ni deshabilitar desde Azure Portal. En su lugar, deberá utilizar la llamada REST. Utilice la estructura `properties.customProperties` de este artículo sobre la [creación o actualización de la API REST de API Management](/rest/api/apimanagement/2021-01-01-preview/api-management-service/create-or-update).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

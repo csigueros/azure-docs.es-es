@@ -133,25 +133,25 @@
           href: how-to-integrate-time-series-insights.md
     - name: Supervisión y solución de problemas
       items:
-        - name: Visualización de métricas en Azure Monitor
+        - name: Métricas
           href: troubleshoot-metrics.md
-        - name: Uso de registros de diagnóstico
+        - name: Registros de diagnóstico
           href: troubleshoot-diagnostics.md
-        - name: Habilitación de alertas
+        - name: Alertas
           href: troubleshoot-alerts.md
-        - name: Solución de problemas de rendimiento
+        - name: Rendimiento
           href: troubleshoot-performance.md
-        - name: Información del estado de los recursos
+        - name: Estado de los recursos
           href: troubleshoot-resource-health.md
         - name: Problemas conocidos
           href: troubleshoot-known-issues.md
         - name: Resolución de problemas
           items:
-            - name: 403 (Prohibido)
+            - name: "Error\_403 (Prohibido)"
               href: troubleshoot-error-403.md
-            - name: 404 Subdominio no encontrado
+            - name: 'Estado: 404 (Subdominio no encontrado)'
               href: troubleshoot-error-404.md
-            - name: Autenticación de Azure Digital Twins Explorer
+            - name: Error de autenticación de Azure Digital Twins Explorer
               href: troubleshoot-error-azure-digital-twins-explorer-authentication.md
 - name: Referencia
   items:

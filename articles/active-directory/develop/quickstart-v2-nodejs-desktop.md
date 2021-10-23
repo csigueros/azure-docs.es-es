@@ -3,19 +3,19 @@ title: 'Inicio rápido: Llamada a Microsoft Graph desde una aplicación de escri
 titleSuffix: Microsoft identity platform
 description: En este inicio rápido, obtendrá información sobre la forma en que una aplicación de escritorio de Node.js Electron puede iniciar sesión de usuarios y obtener un token de acceso para llamar a una API protegida por un punto de conexión de una plataforma de identidad de Microsoft.
 services: active-directory
-author: derisen
+author: KarenH444
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.date: 02/17/2021
-ms.author: v-doeris
-ms.openlocfilehash: 8e791392386f6a2f74f6d59e7999afeb272249aa
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.author: karenhoran
+ms.openlocfilehash: 362fdcddc9a8d58da30f269be44fc195870949e1
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128605760"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130163753"
 ---
 # <a name="quickstart-acquire-an-access-token-and-call-the-microsoft-graph-api-from-an-electron-desktop-app"></a>Inicio rápido: Adquisición de un token de acceso y llamada a Microsoft Graph API desde una aplicación de escritorio de Electron
 

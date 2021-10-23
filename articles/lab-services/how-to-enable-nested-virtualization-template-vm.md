@@ -1,14 +1,14 @@
 ---
 title: Habilitación de la virtualización anidada en una plantilla de máquina virtual en Azure Lab Services | Microsoft Docs
 description: En este artículo aprenderá cómo configurar la virtualización anidada en una máquina de plantilla en Azure Lab Services.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: f1f981602adcf90762258a2921b996507f56f3a2
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 0e730dc71150a5e201e4dcda84f9c6ed61ec2f90
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125578"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180407"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services"></a>Habilitación de la virtualización anidada en una plantilla de máquina virtual en Azure Lab Services
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2021
-ms.openlocfilehash: 80471da945dcc5fdee690ec477599565777f1beb
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: ceb65226c30d6ee9768388bb18807dd7cf6d6f85
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129611460"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070591"
 ---
 # <a name="use-role-based-authorization-in-azure-cognitive-search"></a>Uso de la autorización basada en roles en Azure Cognitive Search
 
@@ -23,14 +23,12 @@ Azure proporciona un [sistema de autorización de control de acceso basado en ro
 
 + Use nuevos roles de versión preliminar para la administración de contenido (creación y administración de índices y otros objetos de nivel superior), [**disponibles mediante solicitud**](https://aka.ms/azure-cognitive-search/rbac-preview).
 
-> [!NOTe]
+> [!NOTE]
 > Colaborador de servicio de búsqueda es un rol "disponible con carácter general", con funcionalidades en "versión preliminar". Es el único rol que admite un verdadero híbrido de tareas de administración de contenido y servicios, por lo que permite todas las operaciones en un servicio de búsqueda determinado. Para tener acceso a las funcionalidades en versión preliminar de la administración de contenido en este rol, [**regístrese para obtener dicha versión**](https://aka.ms/azure-cognitive-search/rbac-preview).
 
 Algunos escenarios de RBAC **no** se admiten o no se tratan en este artículo:
 
 + Las conexiones de indexador salientes se documentan en [Configuración de una conexión de indexador a un origen de datos mediante una identidad administrada](search-howto-managed-identities-data-sources.md). En el caso de un servicio de búsqueda que tenga asignada una identidad administrada, puede crear asignaciones de roles que proporcionan a servicios de datos externos, como Azure Blob Storage, acceso de lectura en blobs por parte del servicio de búsqueda de su confianza.
-
-+ No se admiten [roles personalizados](../role-based-access-control/custom-roles.md).
 
 + No se admite el acceso de identidad de usuario a través de los resultados de búsqueda (a veces denominado seguridad de nivel de fila o de nivel de documento). Para la seguridad a nivel de documento, una solución alternativa es usar [filtros de seguridad](search-security-trimming-for-azure-search.md) para recortar los resultados por identidad del usuario, y quitar los documentos para los que el solicitante no debe tener acceso.
 

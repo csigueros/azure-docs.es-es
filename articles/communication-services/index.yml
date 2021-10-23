@@ -9,12 +9,12 @@ metadata:
   author: probableprime
   ms.author: rifox
   ms.date: 06/30/2021
-  ms.openlocfilehash: 59c8eca23262710034c259f6b4d9840232069ed1
-  ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+  ms.openlocfilehash: 8e22518e43b588615cdac3c9b49128ae5b02e532
+  ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/26/2021
-  ms.locfileid: "122968014"
+  ms.lasthandoff: 10/19/2021
+  ms.locfileid: "130178925"
 landingContent:
 - title: Acerca de Azure Communication Services
   linkLists:
@@ -76,6 +76,10 @@ landingContent:
       url: concepts/ui-library/ui-library-overview.md
     - text: Casos de uso de la biblioteca de interfaz de usuario
       url: concepts/ui-library/ui-library-use-cases.md
+    - text: Introducción a la biblioteca de interfaz de usuario para dispositivos móviles
+      url: concepts/ui-library/mobile-ui-library.md
+    - text: Casos de uso de la biblioteca de interfaz de usuario para dispositivos móviles
+      url: concepts/ui-library/mobile-ui-use-cases.md
 - title: Telefonía y SMS
   linkLists:
   - linkListType: quickstart

@@ -1,14 +1,14 @@
 ---
 title: Administración de cuentas de laboratorio en Azure Lab Services | Microsoft Docs
 description: Obtenga información sobre cómo crear o eliminar una cuenta de laboratorio y cómo ver todas las cuentas de laboratorio de una suscripción de Azure.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 65ff28401b73698e320735613b32c96bf3de58f2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4de1948ecc240afecb658427975fc59228f4c82e
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96434097"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180293"
 ---
 # <a name="create-and-manage-lab-accounts"></a>Creación y administración de cuentas de laboratorio
 En Azure Lab Services, una cuenta de laboratorio es un contenedor para tipos de laboratorios administrados, como los laboratorios. Los administradores configuran una cuenta de laboratorio con Azure Lab Services y proporcionan acceso a los propietarios del laboratorio que pueden crear laboratorios en la cuenta. En este artículo se describe cómo crear o eliminar una cuenta de laboratorio y cómo ver todas las cuentas de laboratorio.

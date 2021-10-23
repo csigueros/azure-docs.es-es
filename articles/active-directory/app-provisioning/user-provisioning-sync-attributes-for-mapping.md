@@ -3,7 +3,7 @@ title: Sincronización de atributos en Azure Active Directory para asignación
 description: Al configurar el aprovisionamiento de usuarios con Azure Active Directory y aplicaciones SaaS, use la característica de extensión de directorio para agregar atributos de origen que no están sincronizados de manera predeterminada.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 08/24/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 12679b5e8affe7691cc3bf40d2e4f2f9860d074f
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 12e4423b0b48b2c5abb6f289c7fcf783c40a4d59
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822549"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990584"
 ---
 # <a name="syncing-extension-attributes-for-azure-active-directory-application-provisioning"></a>Sincronización de los atributos de extensión para el aprovisionamiento de aplicaciones de Azure Active Directory
 

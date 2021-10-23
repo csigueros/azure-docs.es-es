@@ -3,7 +3,7 @@ title: 'Lista de comprobación: Procedimientos recomendados e instrucciones'
 description: Aquí se proporciona una lista de comprobación rápida para revisar los procedimientos recomendados y las instrucciones para optimizar el rendimiento de SQL Server en la máquina virtual (VM) de Azure.
 services: virtual-machines-windows
 documentationcenter: na
-author: dplessMSFT
+author: bluefooted
 editor: ''
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2021
-ms.author: dpless
+ms.author: pamela
 ms.custom: contperf-fy21q3
-ms.reviewer: jroth
-ms.openlocfilehash: f5c6a0864790003e115d201c1a50b181df63c5ac
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.reviewer: mathoma
+ms.openlocfilehash: 1dd05395d921e2a75a56db353e0b0c740b094e49
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128666711"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130164518"
 ---
 # <a name="checklist-best-practices-for-sql-server-on-azure-vms"></a>Lista de comprobación: Procedimientos recomendados de SQL Server en máquinas virtuales de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -51,16 +51,16 @@ La siguiente es una lista de comprobación rápida de los procedimientos recomen
 
 Para obtener más información, vea los [procedimientos recomendados de tamaño de máquinas virtuales](performance-guidelines-best-practices-vm-size.md) generales. 
 
-## <a name="storage"></a>Almacenamiento
+## <a name="storage"></a>Storage
 
 La siguiente es una lista de comprobación rápida de los procedimientos recomendados de configuración del almacenamiento para ejecutar la instancia de SQL Server en la máquina virtual de Azure: 
 
 - Supervise la aplicación y [determine los requisitos de ancho de banda y latencia de almacenamiento](../../../virtual-machines/premium-storage-performance.md#counters-to-measure-application-performance-requirements) para los archivos de registros, de datos y de tipo tempdb de SQL Server antes de elegir el tipo de disco. 
 - Para optimizar el rendimiento del almacenamiento, planee el uso más alto de IOPS disponible sin almacenamiento en caché, y use el almacenamiento en caché de datos como característica de rendimiento para realizar lecturas de datos al tiempo que evita el [límite de máquinas virtuales y discos](../../../virtual-machines/premium-storage-performance.md#throttling).
 - Coloque los archivos de datos, de registros y de tipo tempdb en unidades independientes.
-    - Para la unidad de datos, use solo [discos prémium de P30 y P40](../../../virtual-machines/disks-types.md#premium-ssd) para garantizar la disponibilidad del soporte técnico de la caché.
-    - En cuanto a la unidad de registro, planee la capacidad y el rendimiento de prueba frente al costo al evaluar los [discos prémium P30-P80](../../../virtual-machines/disks-types.md#premium-ssd).
-      - Si se requiere latencia de almacenamiento de submilisegundos, use los [discos Ultra de Azure](../../../virtual-machines/disks-types.md#ultra-disk) para el registro de transacciones. 
+    - Para la unidad de datos, use solo [discos prémium de P30 y P40](../../../virtual-machines/disks-types.md#premium-ssds) para garantizar la disponibilidad del soporte técnico de la caché.
+    - En cuanto a la unidad de registro, planee la capacidad y el rendimiento de prueba frente al costo al evaluar los [discos prémium P30-P80](../../../virtual-machines/disks-types.md#premium-ssds).
+      - Si se requiere latencia de almacenamiento de submilisegundos, use los [discos Ultra de Azure](../../../virtual-machines/disks-types.md#ultra-disks) para el registro de transacciones. 
       - En el caso de las implementaciones de máquinas virtuales de la serie M, considere la posibilidad de usar el [Acelerador de escritura](../../../virtual-machines/how-to-enable-write-accelerator.md) en lugar de discos Ultra de Azure.
     - Coloque el archivo [tempdb](/sql/relational-databases/databases/tempdb-database) en la unidad SSD local efímera (`D:\`, de forma predeterminada) para la mayoría de las cargas de trabajo de SQL Server después de elegir el tamaño óptimo de máquina virtual. 
       - Si la capacidad de la unidad local no es suficiente para tempdb, considere la posibilidad de cambiar el tamaño de la VM. Consulte las [directivas de almacenamiento en caché de los archivos de datos](performance-guidelines-best-practices-storage.md#data-file-caching-policies) para obtener más información.
@@ -78,7 +78,7 @@ La siguiente es una lista de comprobación rápida de los procedimientos recomen
 
 Para obtener más información, vea los [procedimientos recomendados de almacenamiento](performance-guidelines-best-practices-storage.md) generales. 
 
-## <a name="sql-server-features"></a>Características de SQL Server
+## <a name="sql-server-features"></a>características de SQL Server
 
 A continuación se muestra una lista de comprobación rápida de los procedimientos recomendados para las opciones de configuración de SQL Server al ejecutar las instancias de SQL Server en una máquina virtual de Azure en producción: 
 
@@ -105,7 +105,7 @@ A continuación se muestra una lista de comprobación rápida de los procedimien
 - Aproveche las ventajas de las nuevas [características de SQL Server](/sql/sql-server/what-s-new-in-sql-server-ver15) disponibles para la versión que se va a usar.
 - Tenga en cuenta las diferencias en las [características admitidas](/sql/sql-server/editions-and-components-of-sql-server-version-15) entre las ediciones que está considerando implementar.
 
-## <a name="azure-features"></a>Características de Azure
+## <a name="azure-features"></a>de Windows Azure
 
 La siguiente es una lista de comprobación rápida de los procedimientos recomendados para una guía específica de Azure al ejecutar la instancia de SQL Server en una máquina virtual de Azure:
 

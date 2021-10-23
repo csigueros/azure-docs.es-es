@@ -2,15 +2,15 @@
 title: Configuración de un laboratorio con GPU en Azure Lab Services | Microsoft Docs
 description: Aprenda a configurar un laboratorio con máquinas virtuales de unidad de procesamiento de gráficos (GPU).
 author: nicolela
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 1ddc3d35817211d7396defa7460a2505b86c700c
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: e79038f7e05fe2605f9a861e7599fc942fdf9fff
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713245"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180084"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Configuración de un laboratorio con máquinas virtuales de GPU
 

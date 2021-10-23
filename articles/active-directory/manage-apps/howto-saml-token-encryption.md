@@ -1,6 +1,7 @@
 ---
-title: Cifrado de tokens SAML en Azure Active Directory
+title: Cifrado de tokens SAML
 description: Obtenga información para configurar el cifrado de tokens SAML de Azure Active Directory.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -12,14 +13,14 @@ ms.date: 03/13/2020
 ms.author: davidmu
 ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dc7169055f006ca12c2f291d20683022a27d7a2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d15e4425b7506ada2ac1dcaf9f83bb4112a21639
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749164"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129617651"
 ---
-# <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Procedimientos: Configuración del cifrado de tokens SAML de Azure AD
+# <a name="configure-azure-active-directory-saml-token-encryption"></a>Configuración del cifrado de tokens SAML de Azure Active Directory
 
 > [!NOTE]
 > El cifrado de tokens es una característica Premium de Azure Active Directory (Azure AD). Para más información sobre las ediciones, las características y los precios de Azure AD, consulte [Precios de Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).

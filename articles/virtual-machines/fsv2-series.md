@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-compute
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 6a412bd6afaff1353203b3d032c28cd21087bf73
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: a6b2fb04ea4d0c35a0e1d3de5c9befd3ba06c1f4
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696369"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072696"
 ---
 # <a name="fsv2-series"></a>Serie Fsv2
 
@@ -73,7 +73,7 @@ Las máquinas virtuales de la serie Fsv2 cuentan con la tecnología Hyper-Thread
 
 Calculadora de precios: [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 
-Más información sobre los tipos de disco: [Tipos de disco](./disks-types.md#ultra-disk)
+Más información sobre los tipos de disco: [Tipos de disco](./disks-types.md#ultra-disks)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

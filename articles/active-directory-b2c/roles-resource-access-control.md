@@ -4,19 +4,19 @@ titleSuffix: Azure AD B2C
 description: Aprenda a usar roles para controlar el acceso a los recursos.
 services: active-directory-b2c
 author: kengaderdus
-manager: celestedg
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/08/2021
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: b9a4e9cf2fa8c8cd91fed738ec14e88d18063044
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 672df647bb655210ab759278a69e63a38abc1cf4
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129620910"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130035303"
 ---
 # <a name="roles-and-resource-access-control"></a>Control de acceso a roles y recursos
 
