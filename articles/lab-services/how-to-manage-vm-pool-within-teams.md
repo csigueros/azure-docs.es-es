@@ -1,14 +1,14 @@
 ---
 title: Administración de un grupo de máquinas virtuales en Azure Lab Services desde Teams
 description: Aprenda a administrar un grupo de máquinas virtuales en Azure Lab Services desde Teams.
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/07/2020
-ms.openlocfilehash: b838e0561bb48b20450e49aaef37baf3c9ecb4d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 035344fa947403b77c35d716636472730d65752b
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91946564"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180160"
 ---
 # <a name="manage-a-vm-pool-in-lab-services-from-teams"></a>Administración de un grupo de máquinas virtuales en Lab Services desde Teams
 

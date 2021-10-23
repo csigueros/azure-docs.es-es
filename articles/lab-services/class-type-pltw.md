@@ -1,14 +1,14 @@
 ---
 title: Configuración de laboratorios de Project Lead the Way con Azure Lab Services
 description: Obtenga información sobre cómo configurar laboratorios para impartir clases de Project Lead the Way.
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/28/2020
-ms.openlocfilehash: 85e8b8d55ed5a91c21c2554ce15e3ef893e30f15
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9ee9c0dfdd9174691c27ee007c1dc0070249afbe
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737689"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176783"
 ---
 # <a name="set-up-labs-for-project-lead-the-way-classes"></a>Configuración de laboratorios para las clases de Project Lead the Way
 

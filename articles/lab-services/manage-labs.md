@@ -1,14 +1,14 @@
 ---
 title: Visualización y eliminación de laboratorios en una cuenta de laboratorio en Azure Lab Services
 description: Obtenga información sobre cómo ver todos los laboratorios de una cuenta de laboratorio y eliminar un laboratorio de la misma.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: cc097e97430462e36a33b982a7394a20c308eab5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f7d2c356d9e3a9851093ab387e7fbd943908165a
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95993625"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179685"
 ---
 # <a name="manage-labs-in-a-lab-account"></a>Administración de laboratorios en una cuenta de laboratorio
 En este artículo se muestra cómo un propietario o administrador de una cuenta de laboratorio puede ver todos los laboratorios y eliminar un laboratorio de la misma. 
