@@ -5,7 +5,7 @@ services: active-directory
 keywords: Licencias de Azure AD
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab2621e1470eeffb1929ade3066e7c1b45ce9e52
-ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.openlocfilehash: daf33f5a513e5344dbcaa84fbebbea43faf329dd
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128708878"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129985986"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Escenarios, limitaciones y problemas conocidos del uso de grupos para administrar las licencias en Azure Active Directory
 

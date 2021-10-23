@@ -3,21 +3,21 @@ title: 'Tutorial: Registro de una aplicación de página única'
 titleSuffix: Azure AD B2C
 description: Siga este tutorial para aprender a registrar una aplicación de página única en Azure Active Directory B2C con Azure Portal.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/20/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 82454e41ea9895c8006ac179a7c731a57a0c5c3b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0297550d040d30f34db7768853cd43ffdc86155f
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128581653"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130043973"
 ---
 # <a name="tutorial-register-a-single-page-application-spa-in-azure-active-directory-b2c"></a>Tutorial: Registro de una aplicación de página única en Azure Active Directory B2C
 

@@ -8,21 +8,16 @@ ms.service: virtual-machine-scale-sets
 ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-ms.openlocfilehash: 9fd4d2171aa54da469aacfaa7090025c296dd0c1
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: db141f863389d724cc1437beeed3b00b44020098
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124804064"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130161840"
 ---
-# <a name="preview-orchestration-modes-api-comparison"></a>Comparación de API de modos de orquestación (versión preliminar) 
+# <a name="orchestration-modes-api-comparison"></a>Comparación de API de modos de orquestación 
 
 En este artículo se comparan las diferencias de API entre los modos de orquestación uniforme y [flexible](..\virtual-machines\flexible-virtual-machine-scale-sets.md) en conjuntos de escalado de máquinas virtuales. Para obtener más información sobre los conjuntos de escalado de máquinas virtuales uniformes y flexibles, consulte los [modos de orquestación](virtual-machine-scale-sets-orchestration-modes.md).
-
-> [!IMPORTANT]
-> En el modo de orquestación flexible, los conjuntos de escalado de máquinas virtuales se encuentran actualmente en versión preliminar pública. No es necesario ningún procedimiento de participación para usar la funcionalidad de versión preliminar pública que se describe a continuación.
-> Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## <a name="instance-view"></a>Vista de instancia
@@ -66,7 +61,7 @@ Invocar API de máquina virtual única:
 
 ### <a name="uniform-api"></a>API uniforme
 `VMSS List Instances`: 
-- Devuelve el identificador del conjunto de escalado asociado a cada instancia durante esta versión preliminar. 
+- Devuelve el identificador del conjunto de escalado asociado a cada instancia.
 
 ### <a name="flexible-alternative"></a>Alternativa flexible
 Azure Resource Graph: 
@@ -95,6 +90,8 @@ Operaciones de conjuntos de escalado de máquinas virtuales:
 ### <a name="flexible-alternative"></a>Alternativa flexible
 Invocar operaciones en máquinas virtuales individuales.
 
+Operaciones de máquinas virtuales:
+- [Restablecer imagen inicial](/rest/api/compute/virtual-machines/reimage): invocación de una sola API de máquina virtual: restablecimiento de una imagen inicial solo en máquinas virtuales del sistema operativo efímero
 
 ## <a name="vm-extension"></a>Extensión de máquina virtual
 

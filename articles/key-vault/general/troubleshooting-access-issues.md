@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: c5fab8b856ff9c82a0de887dc9c322dbf541348b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4d82e0193d891f423245ce2743ad34ac7bcf5d1
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98791414"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129856494"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Solución de problemas de las directivas de acceso de Azure Key Vault
 
@@ -39,7 +39,12 @@ Hay dos posibilidades diferentes de ver la directiva de acceso en la sección De
 
 ### <a name="how-can-i-assign-access-control-per-key-vault-object"></a>¿Cómo se puede asignar el control de acceso para cada objeto de almacén de claves? 
 
-La disponibilidad de la característica de control de acceso por clave, certificado o secreto se notificará aquí. [Más información](https://feedback.azure.com/forums/906355-azure-key-vault/suggestions/32213176-per-secret-key-certificate-access-control)
+El modelo de permisos de RBAC de Key Vault permite permisos por cada objeto. Los permisos de claves, secretos y certificados individuales solo deben usarse para escenarios concretos:
+
+-   Aplicaciones multicapa que necesitan un control de acceso independiente entre las distintas capas
+
+-   Compartir un secreto individual entre varias aplicaciones
+
 
 ### <a name="how-can-i-provide-key-vault-authenticate-using-access-control-policy"></a>¿Cómo se puede proporcionar la autenticación del almacén de claves mediante la directiva de control de acceso?
 

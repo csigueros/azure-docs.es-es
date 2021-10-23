@@ -7,12 +7,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 3a6bb0fd360b334299c6cd1be2795121a3b53203
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e73e8226bd90b1600b0f3538e34c9f4f937ce189
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124777533"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129807370"
 ---
 # <a name="index-data-from-sharepoint-online"></a>Indexación de datos de SharePoint Online
 
@@ -265,9 +265,6 @@ Una vez actualizado el origen de datos, siga estos pasos:
 ## <a name="indexing-document-metadata"></a>Indexación de los metadatos de los documentos
 Si ha establecido el indexador para que indexe los metadatos de los documentos, los siguientes metadatos estarán disponibles para indexarse.
 
-> [!NOTE]
-> Los metadatos personalizados no se incluyen en la versión preliminar actual.
-
 | Identificador | Tipo | Descripción | 
 | ------------- | -------------- | ----------- |
 | metadata_spo_site_library_item_id | Edm.String | La clave de combinación de los identificadores de sitio, biblioteca y elemento que identifica de forma única un elemento en una biblioteca de documentos de un sitio. |
@@ -284,6 +281,9 @@ Si ha establecido el indexador para que indexe los metadatos de los documentos, 
 
 El indexador de SharePoint Online también admite metadatos específicos de cada tipo de documento. Puede encontrar más información en [Propiedades de los metadatos de contenido usadas en Azure Cognitive Search](search-blob-metadata-properties.md).
 
+> [!NOTE]
+> Para indexar metadatos personalizados, [se debe especificar `additionalColumns` en la definición de la consulta](#query).
+
 <a name="controlling-which-documents-are-indexed"></a>
 
 ## <a name="controlling-which-documents-are-indexed"></a>Control de los documentos que se van a indexar
@@ -298,6 +298,8 @@ La propiedad *name* es obligatoria y debe tener uno de estos tres valores:
 +   *useQuery*
     + Solo se indexa el contenido definido en la propiedad *query*.
 
+<a name="query"></a>
+
 ### <a name="query"></a>Consultar
 La propiedad *query* se compone de pares de palabra clave y valor. A continuación, se muestran las palabras clave que se pueden usar. Los valores son direcciones URL de sitio o de biblioteca de documentos.
 
@@ -310,6 +312,7 @@ La propiedad *query* se compone de pares de palabra clave y valor. A continuaci�
 | includeLibrariesInSite | Se indexa el contenido de todas las bibliotecas del sitio definido en la cadena de conexión. Estas se limitan a los subsitios del sitio. <br><br> El valor de *query* de esta palabra clave debe ser el URI del sitio o del subsitio. | Se indexa todo el contenido de todas las bibliotecas de documentos de mi sitio. <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrariesInSite=https://mycompany.sharepoint.com/mysite" } ``` |
 | includeLibrary | Se indexa el contenido de esta biblioteca. <br><br> El valor de *query* de esta palabra clave debe estar en uno de los siguientes formatos: <br><br> Ejemplo 1: <br><br> *includeLibrary=[sitio o subsitio]/[biblioteca de documentos]* <br><br> Ejemplo 2: <br><br> URI copiado desde el explorador. | Se indexa todo el contenido de MyDocumentLibrary: <br><br> Ejemplo 1: <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrary=https://mycompany.sharepoint.com/mysite/MyDocumentLibrary" } ``` <br><br> Ejemplo 2: <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrary=https://mycompany.sharepoint.com/teams/mysite/MyDocumentLibrary/Forms/AllItems.aspx" } ``` |
 | excludeLibrary |  No se indexa el contenido de esta biblioteca. <br><br> El valor de *query* de esta palabra clave debe estar en uno de los siguientes formatos: <br><br> Ejemplo 1: <br><br> *excludeLibrary=[URI de sitio o subsitio]/[biblioteca de documentos]* <br><br> Ejemplo 2: <br><br> URI copiado desde el explorador. | Se indexa todo el contenido de todas las bibliotecas, excepto de MyDocumentLibrary: <br><br> Ejemplo 1: <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrariesInSite=https://mysite.sharepoint.com/subsite1; excludeLibrary=https://mysite.sharepoint.com/subsite1/MyDocumentLibrary" } ``` <br><br> Ejemplo 2: <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrariesInSite=https://mycompany.sharepoint.com/teams/mysite; excludeLibrary=https://mycompany.sharepoint.com/teams/mysite/MyDocumentLibrary/Forms/AllItems.aspx" } ``` |
+| additionalColumns | Columnas de índice de esta biblioteca. <br><br> El valor de consulta de esta palabra clave debe incluir una lista separada por comas de los nombres de columna que desea indexar. Use una doble barra diagonal inversa como caracteres de escape para los puntos y comas y las comas en los nombres de columna: <br><br> Ejemplo 1: <br><br> additionalColumns=MyCustomColumn,MyCustomColumn2 <br><br> Ejemplo 2: <br><br> additionalColumns=MyCustomColumnWith\\,,MyCustomColumn2With\\; | Se indexa todo el contenido de MyDocumentLibrary: <br><br> Ejemplo 1: <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrary=https://mycompany.sharepoint.com/mysite/MyDocumentLibrary;additionalColumns=MyCustomColumn,MyCustomColumn2" } ``` <br><br> Observe las dobles barras diagonales inversas al escapar caracteres: el formato JSON requiere que se escape una barra diagonal inversa con otra barra diagonal inversa. <br><br> Ejemplo 2: <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrary=https://mycompany.sharepoint.com/teams/mysite/MyDocumentLibrary/Forms/AllItems.aspx;additionalColumns=MyCustomColumnWith\\,,MyCustomColumnWith\\;" } ``` |
 
 ## <a name="index-by-file-type"></a>Índice por tipo de archivo
 Puede controlar qué documentos se indexan y cuáles se omiten.

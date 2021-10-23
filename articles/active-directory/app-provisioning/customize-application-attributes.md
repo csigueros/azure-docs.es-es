@@ -3,7 +3,7 @@ title: 'Tutorial: Personalización de las asignaciones de atributos de Azure Act
 description: Conozca cuáles son las asignaciones de atributos para aplicaciones de software como servicio (SaaS) en el aprovisionamiento de aplicaciones de Azure Active Directory y cómo puede modificarlas para satisfacer sus necesidades empresariales.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/07/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: a7839ec1b131377cd9a6614c570dacd829c6c46a
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 1e08dc5c0dc0d8e427de9ae1ebc53f16cb8e015a
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123310959"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130043612"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutorial: Personalización de las asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory
 
@@ -120,7 +120,7 @@ Las aplicaciones y sistemas que admiten la personalización de la lista de atrib
 
 
 > [!NOTE]
-> La edición de la lista de atributos admitidos solo se recomienda para administradores que hayan personalizado el esquema de sus aplicaciones y sistemas, y tengan conocimiento de primera mano de cómo se han definido sus atributos personalizados o si un atributo de origen no se muestra automáticamente en la interfaz de usuario de Azure Portal. A veces, es necesario estar familiarizado con las API y las herramientas de los desarrolladores que se proporcionan en una aplicación o un sistema. La capacidad de editar la lista de atributos admitidos está bloqueada de forma predeterminada, pero los clientes pueden habilitar la funcionalidad; para ello, deben ir a la siguiente dirección URL: https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true. A continuación, puede ir a la aplicación para ver la lista de atributos como se describe [anteriormente](#editing-the-list-of-supported-attributes). 
+> La edición de la lista de atributos admitidos solo se recomienda para administradores que hayan personalizado el esquema de sus aplicaciones y sistemas, y tengan conocimiento de primera mano de cómo se han definido sus atributos personalizados o si un atributo de origen no se muestra automáticamente en la interfaz de usuario de Azure Portal. A veces, es necesario estar familiarizado con las API y las herramientas de los desarrolladores que se proporcionan en una aplicación o un sistema. La capacidad de editar la lista de atributos admitidos está bloqueada de forma predeterminada, pero los clientes pueden habilitar la funcionalidad; para ello, deben ir a la siguiente dirección URL: https://portal.azure.com/?Microsoft_AAD_Connect_Provisioning_forceSchemaEditorEnabled=true. A continuación, puede ir a la aplicación para ver la lista de atributos como se describe [anteriormente](#editing-the-list-of-supported-attributes). 
 
 Al editar la lista de atributos admitidos, se proporcionan las siguientes propiedades:
 

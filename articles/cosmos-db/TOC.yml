@@ -146,7 +146,7 @@
       items:
         - name: Recursos de Cosmos DB
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: sql/create-cosmosdb-resources-portal.md
             - name: Plantilla ARM
               displayName: Resource Manager
@@ -1097,6 +1097,8 @@
       items:
         - name: .NET
           href: mongodb/create-mongodb-dotnet.md
+        - name: Python
+          href: mongodb/create-mongodb-python.md
         - name: Java
           href: mongodb/create-mongodb-java.md
         - name: Node.js

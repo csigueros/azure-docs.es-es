@@ -3,7 +3,7 @@ title: Configuración del almacenamiento para VM con SQL Server | Microsoft Doc
 description: En este tema se describe cómo Azure configura el almacenamiento para las máquinas virtuales de SQL Server durante el aprovisionamiento (modelo de implementación de Azure Resource Manager). También se explica cómo configurar el almacenamiento para sus máquinas virtuales de SQL Server existentes.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
@@ -12,13 +12,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
-ms.author: mathoma
-ms.openlocfilehash: 3ddcd99257eb7605322fe81f1002123d4876456b
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.author: pamela
+ms.reviewer: mathoma
+ms.openlocfilehash: 5a30cfbd95f660e470854977a63b4dc469a3f769
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113435423"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162441"
 ---
 # <a name="configure-storage-for-sql-server-vms"></a>Configuración del almacenamiento para VM con SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -40,7 +41,7 @@ Para usar la configuración del almacenamiento automática, la máquina virtual 
 
 En las secciones siguientes se describe cómo configurar el almacenamiento para nuevas máquinas virtuales de SQL Server.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Portal de Azure
 
 Si aprovisiona una máquina virtual de Azure mediante una imagen de la galería de SQL Server, seleccione **Cambiar configuración** en la pestaña **Configuración de SQL Server** para abrir la página Performance Optimized Storage Configuration (Configuración de almacenamiento optimizada para rendimiento). Puede dejar los valores predeterminados o modificar el tipo de configuración de disco, con el fin de disfrutar la que mejor se adapte a sus necesidades en función de la carga de trabajo.
 
@@ -54,7 +55,7 @@ Si se seleccionan **Procesamiento de transacciones** (OLTP) o **Almacenamiento d
 
 La configuración del disco es totalmente personalizable, es decir, se pueden configurar la topología de almacenamiento, el tipo de disco y el IOPS necesarios para la carga de trabajo de SQL Server. También tiene la capacidad de usar UltraSSD (versión preliminar) como opción en **Tipo de disco** si la máquina virtual con SQL Server se encuentra en una de las regiones admitidas (Este de EE. UU. 2, Sudeste de Asia y Norte de Europa) y ha habilitado [discos Ultra para su suscripción](../../../virtual-machines/disks-enable-ultra-ssd.md).
 
-Además, tiene la capacidad de establecer el almacenamiento en caché de los discos. Las máquinas virtuales de Azure tienen una tecnología de almacenamiento en caché multinivel llamada [Blob Cache](../../../virtual-machines/premium-storage-performance.md#disk-caching) (Caché de blob) cuando se usa con [discos Prémium](../../../virtual-machines/disks-types.md#premium-ssd). Blob Cache usa una combinación de la RAM de la máquina virtual y el disco SSD local para almacenar en caché.
+Además, tiene la capacidad de establecer el almacenamiento en caché de los discos. Las máquinas virtuales de Azure tienen una tecnología de almacenamiento en caché multinivel llamada [Blob Cache](../../../virtual-machines/premium-storage-performance.md#disk-caching) (Caché de blob) cuando se usa con [discos Prémium](../../../virtual-machines/disks-types.md#premium-ssds). Blob Cache usa una combinación de la RAM de la máquina virtual y el disco SSD local para almacenar en caché.
 
 El almacenamiento en caché de disco para SSD Premium puede ser *ReadOnly* (Solo lectura), *ReadWrite* (Lectura y escritura) o *None* (Ninguno).
 

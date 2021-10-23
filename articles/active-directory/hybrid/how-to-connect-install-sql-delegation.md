@@ -16,12 +16,12 @@ ms.date: 02/26/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f082ec896bf0542b63c8c1d0257679681334050
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1adb0f9bc887802cfdf51041e2c2b6c3be757c85
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85358674"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130163511"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Instalación de Azure AD Connect mediante permisos de administrador delegados de SQL
 Antes de la última compilación de Azure AD Connect, no se admitía la delegación administrativa al implementar configuraciones que requerían SQL.  Los usuarios que deseaban instalar Azure AD Connect necesitaban tener permisos de administrador del servidor (SA) en el servidor SQL.
@@ -44,7 +44,7 @@ Para aprovisionar la base de datos de forma externa e instalar Azure AD Connect 
 >Aunque no es necesario, es **muy recomendable** seleccionar la intercalación de Latin1_General_CI_AS al crear la base de datos.
 
 
-1. Solicite al administrador de SQL que cree la base de datos ADSync con una secuencia de intercalación sin distinción entre mayúsculas y minúsculas **(Latin1_General_CI_AS)**.  La base de datos debe llamarse **ADSync**.  El modelo de recuperación, el nivel de compatibilidad y el tipo de contención se actualizan con los valores correctos cuando se instala Azure AD Connect.  Sin embargo, el administrador de SQL debe establecer correctamente la secuencia de intercalación o, de lo contrario, Azure AD Connect bloqueará la instalación.  Para recuperar el permiso SA, debe eliminar y volver a crear la base de datos.
+1. Solicite al administrador de SQL que cree la base de datos ADSync con una secuencia de intercalación sin distinción entre mayúsculas y minúsculas **(Latin1_General_CI_AS)**.  El modelo de recuperación, el nivel de compatibilidad y el tipo de contención se actualizan con los valores correctos cuando se instala Azure AD Connect.  Sin embargo, el administrador de SQL debe establecer correctamente la secuencia de intercalación o, de lo contrario, Azure AD Connect bloqueará la instalación.  Para recuperar el permiso SA, debe eliminar y volver a crear la base de datos.
  
    ![Intercalación](./media/how-to-connect-install-sql-delegation/sql4.png)
 2. Conceda los siguientes permisos al administrador de Azure AD Connect y a la cuenta de servicio de dominio:

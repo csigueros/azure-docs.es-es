@@ -6,12 +6,12 @@ ms.author: nathanwisner
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/04/2021
-ms.openlocfilehash: ca4dbea3701007d29327b5f8f26e0566f77b0c13
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: b354394a393907f47b5c29adf668c8d42e059122
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129455917"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130044902"
 ---
 # <a name="perform-intelligent-tuning-in-azure-database-for-postgresql---flexible-server"></a>Ejecución del ajuste inteligente de Azure Database for PostgreSQL: servidor flexible
 
@@ -20,7 +20,7 @@ ms.locfileid: "129455917"
 
 **Se aplica a:** Azure Database for PostgreSQL: servidor flexible, versiones 11 y posteriores.
 
-Las característica de ajuste inteligente de Azure Database for PostgreSQL: servidor flexible proporciona una manera de mejorar automáticamente el rendimiento de la base de datos. El ajuste inteligente ajusta automáticamente los parámetros `checkpoint_completion_target`, `min_wal_size` y `max_wal_size` en función de los patrones de uso y los valores. Consulta las estadísticas de la base de datos cada 30 minutos y realiza ajustes continuos para optimizar el rendimiento sin ninguna interacción.
+Las característica de ajuste inteligente de Azure Database for PostgreSQL: servidor flexible proporciona una manera de mejorar automáticamente el rendimiento de la base de datos. El ajuste inteligente ajusta automáticamente los parámetros `checkpoint_completion_target`, `min_wal_size` y `bgwriter_delay` en función de los patrones de uso y los valores. Consulta las estadísticas de la base de datos cada 30 minutos y realiza ajustes continuos para optimizar el rendimiento sin ninguna interacción.
 
 El ajuste inteligente es una característica opcional, por lo que un servidor no la tiene activa de manera predeterminada. Está disponible para bases de datos únicas y no es global. Si se habilita en una base de datos, no se habilita en todas las bases de datos conectadas.
 
@@ -35,7 +35,7 @@ Espere hasta 35 minutos para que el primer lote de datos se almacene en la bas
 
 ## <a name="information-about-intelligent-tuning"></a>Información sobre el ajuste inteligente
 
-El ajuste inteligente funciona en torno a tres parámetros principales de momento: `checkpoint_completion_target`, `min_wal_size` y `max_wal_size`.
+El ajuste inteligente funciona en torno a tres parámetros principales de momento: `checkpoint_completion_target`, `min_wal_size` y `bgwriter_delay`.
 
 Estos tres parámetros afectan principalmente a: 
 

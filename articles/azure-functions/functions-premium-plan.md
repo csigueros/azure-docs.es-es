@@ -9,12 +9,12 @@ ms.custom:
 - references_regions
 - fasttrack-edit
 - devx-track-azurecli
-ms.openlocfilehash: f2ac7aa7d5078359f747e141971eabeba21eab3e
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 2bbef3190a38d1c0f9b058f2c57050ecd85756e3
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122968737"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129984770"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan prémium de Azure Functions
 
@@ -173,37 +173,45 @@ Consulte la disponibilidad regional completa de Functions en el [sitio web de Az
 |Sudeste de Australia | 100 | 20 |
 |Sur de Brasil| 100 | 20 |
 |Centro de Canadá| 100 | 20 |
+|Centro de la India| 100 | 20 |
 |Centro de EE. UU.| 100 | 20 |
 |Este de China 2| 100 | 20 |
 |Norte de China 2| 100 | 20 |
 |Este de Asia| 100 | 20 |
-|Este de EE. UU. | 100 | 20 |
+|Este de EE. UU. | 100 | 40 |
 |Este de EE. UU. 2| 100 | 20 |
 |Centro de Francia| 100 | 20 |
-|Centro-oeste de Alemania| 100 | No disponible |
+|Centro-oeste de Alemania| 100 | 20 |
 |Japón Oriental| 100 | 20 |
 |Japón Occidental| 100 | 20 |
+|JIO de India occidental| 100 | 20 |
 |Centro de Corea del Sur| 100 | 20 |
 |Corea del Sur| No disponible | 20 |
 |Centro-Norte de EE. UU| 100 | 20 |
 |Norte de Europa| 100 | 20 |
 |Este de Noruega| 100 | 20 |
+|Norte de Sudáfrica| 100 | 20 |
 |Centro-sur de EE. UU.| 100 | 20 |
 |Sur de la India | 100 | No disponible |
 |Sudeste de Asia| 100 | 20 |
-|Norte de Suiza| 100 | No disponible |
-|Oeste de Suiza| 100 | No disponible |
-|Sur de Reino Unido| 100 | 20 |
+|Norte de Suiza| 100 | 20 |
+|Oeste de Suiza| 100 | 20 |
+|Norte de Emiratos Árabes Unidos| 100 | 20 |
+|Sur de Reino Unido 2| 100 | 20 |
 |Oeste de Reino Unido| 100 | 20 |
 |USGov: Arizona| 100 | 20 |
+|USGov: Texas| 100 | No disponible |
 |USGov Virginia| 100 | 20 |
 |USNat East| 100 | No disponible |
 |USNat West| 100 | No disponible |
+|USSec oriental| 100 | 20 |
+|USSec occidental| 100 | 20 |
+|Centro-Oeste de EE. UU.| 100 | 20 |
 |Oeste de Europa| 100 | 20 |
 |Oeste de la India| 100 | 20 |
-|Centro-Oeste de EE. UU.| 100 | 20 |
 |Oeste de EE. UU.| 100 | 20 |
 |Oeste de EE. UU. 2| 100 | 20 |
+|Oeste de EE. UU. 3| 100 | 20 |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,18 +3,18 @@ title: Introducción a Azure Cost Management para los asociados
 description: En este artículo se explica cómo los asociados usan las características de Cost Management y cómo permiten a sus clientes el acceso a este servicio.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2021
+ms.date: 10/13/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: d402acaf43682a7c025147fd38bccb9baa033683
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 747dc5829315091d6a42fbf6c0749af104c5e1ac
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129705979"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129984071"
 ---
 # <a name="get-started-with-cost-management-for-partners"></a>Introducción a Cost Management para los asociados
 
@@ -211,6 +211,7 @@ Los siguientes campos de datos se encuentran en los archivos de detalles de uso 
 | Id. de suscripción | Identificador único generado por Microsoft para la suscripción de Azure. | EntitlementID |
 | subscriptionName | Nombre de la suscripción de Azure. | N/D |
 | Término | Muestra el plazo de validez de la oferta. Por ejemplo, las instancias reservadas muestran 12 meses de un plazo anual de la instancia reservada. Para compras de una sola vez o compras periódicas, el término muestra un mes para SaaS, Azure Marketplace y soporte técnico. Esto no se aplica al consumo de Azure. | N/D |
+| provider | Identificador del producto y la línea de negocio. Desglose los costos por tipo de proveedor: Azure, Microsoft 365, Dynamics 365, AWS, entre otros.  | N/D |
 | publisherType (firstParty, thirdPartyReseller, thirdPartyAgency) | Tipo de anunciante que identifica al anunciante como primera entidad, revendedor de terceros o agencia de terceros. | N/D |
 | partNumber | Número de pieza de la instancia reservada sin usar y los servicios de Azure Marketplace. | N/D |
 | publisherName | Nombre del anunciante del servicio, incluidos Microsoft o los anunciantes ajenos. | Nombre del anunciante del producto.|

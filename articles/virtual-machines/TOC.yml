@@ -1357,7 +1357,7 @@
       href: ../virtual-network/quick-create-cli.md?context=/azure/virtual-machines/context/context
     - name: Filtrado del tráfico de red
       items:
-        - name: Azure portal
+        - name: Azure Portal
           href: ../virtual-network/tutorial-filter-network-traffic.md?context=/azure/virtual-machines/context/context
         - name: Azure PowerShell
           href: ../virtual-network/tutorial-filter-network-traffic-powershell.md?context=/azure/virtual-machines/context/context
@@ -1365,32 +1365,32 @@
           href: ../virtual-network/tutorial-filter-network-traffic-cli.md?context=/azure/virtual-machines/context/context
     - name: 'Creación de una máquina virtual: IP pública estática'
       items:
-        - name: Azure portal
-          href: ../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?context=/azure/virtual-machines/context/context
+        - name: Azure Portal
+          href: ../virtual-network/ip-services/virtual-network-deploy-static-pip-arm-portal.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: Azure PowerShell
-          href: ../virtual-network/virtual-network-deploy-static-pip-arm-ps.md?context=/azure/virtual-machines/context/context
+          href: ../virtual-network/ip-services/virtual-network-deploy-static-pip-arm-ps.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: Azure CLI
-          href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?context=/azure/virtual-machines/context/context
+          href: ../virtual-network/ip-services/virtual-network-deploy-static-pip-arm-cli.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: Incorporación de una dirección IP pública a una máquina virtual existente
-          href: ../virtual-network/associate-public-ip-address-vm.md?context=/azure/virtual-machines/context/context
+          href: ../virtual-network/ip-services/associate-public-ip-address-vm.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: Desasociar dirección IP pública de una máquina virtual
-          href: ../virtual-network/remove-public-ip-address-vm.md?context=/azure/virtual-machines/context/context
+          href: ../virtual-network/ip-services/remove-public-ip-address-vm.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: 'Creación de una máquina virtual: IP privada estática'
       items:
-        - name: Azure portal
-          href: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md?context=/azure/virtual-machines/context/context
+        - name: Azure Portal
+          href: ../virtual-network/ip-services/virtual-networks-static-private-ip-arm-pportal.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: Azure PowerShell
-          href: ../virtual-network/virtual-networks-static-private-ip-arm-ps.md?context=/azure/virtual-machines/context/context
+          href: ../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: Azure CLI
-          href: ../virtual-network/virtual-networks-static-private-ip-arm-cli.md?context=/azure/virtual-machines/context/context
+          href: ../virtual-network/ip-services/virtual-networks-static-private-ip-arm-cli.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: 'Creación de una máquina virtual: varias IP'
       items:
         - name: Azure Portal
-          href: ../virtual-network/virtual-network-multiple-ip-addresses-portal.md?context=/azure/virtual-machines/context/context
+          href: ../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: Azure PowerShell
-          href: ../virtual-network/virtual-network-multiple-ip-addresses-powershell.md?context=/azure/virtual-machines/context/context
+          href: ../virtual-network/ip-services/virtual-network-multiple-ip-addresses-powershell.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: Azure CLI
-          href: ../virtual-network/virtual-network-multiple-ip-addresses-cli.md?context=/azure/virtual-machines/context/context
+          href: ../virtual-network/ip-services/virtual-network-multiple-ip-addresses-cli.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: Adición o eliminación de interfaces de red
           href: ../virtual-network/virtual-network-network-interface-vm.md?context=/azure/virtual-machines/context/context
         - name: 'Creación de una máquina virtual: varias NIC'
@@ -1435,7 +1435,7 @@
           displayName: port nsg network security group
           href: ./windows/nsg-quickstart-portal.md
     - name: Asignación de direcciones IP públicas
-      href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?context=/azure/virtual-machines/context/context
+      href: ../virtual-network/ip-services/virtual-network-deploy-static-pip-arm-cli.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: Usar un dominio personalizado
       href: custom-domain.md
     - name: Uso de varias NIC
@@ -1518,10 +1518,10 @@
               href: ../bastion/create-host-cli.md
             - name: Conexión SSH de Bastion
               displayName: 'Create a Bastion host, SSH, connect'
-              href: ../bastion/bastion-connect-vm-ssh.md
+              href: ../bastion/bastion-connect-vm-ssh-linux.md
             - name: Conexión RDP de Bastion
               displayName: 'Create a Bastion host, connect, remote desktop, rdp'
-              href: ../bastion/bastion-connect-vm-rdp.md
+              href: ../bastion/bastion-connect-vm-rdp-windows.md
         - name: Uso de controles de acceso
           href: ../role-based-access-control/overview.md
         - name: Creación de un almacén de claves
@@ -1684,10 +1684,10 @@
           href: ../azure-monitor/agents/agents-overview.md?context=/azure/virtual-machines/context/context
         - name: Preguntas más frecuentes
           displayName: Agents
-          href: /azure/azure-monitor/faq#agents
+          href: ../azure-monitor/faq.yml
         - name: Extensión de Diagnósticos de Azure
           items:
-            - name: Introducción
+            - name: Información general
               displayName: Azure Diagnostics extension
               href: ../azure-monitor/agents/diagnostics-extension-overview.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
             - name: Extensión de Diagnósticos de Linux

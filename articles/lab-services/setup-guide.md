@@ -1,14 +1,14 @@
 ---
 title: Guía de configuración acelerada de un laboratorio para Azure Lab Services
 description: Si es un creador de laboratorio, esta guía puede ayudarlo a configurar rápidamente una cuenta de laboratorio en su escuela.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 07f0d92ebd926616f1318b430bec2de32f753f7c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d370ee6ffef902633e7b0c4c2895c2ba475814c
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95021749"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177638"
 ---
 # <a name="lab-setup-guide"></a>Guía de instalación de un laboratorio
 
