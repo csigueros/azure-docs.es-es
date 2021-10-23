@@ -3,21 +3,21 @@ title: Administración de recursos con Microsoft Graph
 titleSuffix: Azure AD B2C
 description: Procedimiento para administrar los recursos de un inquilino de Azure AD B2C llamando a Microsoft Graph API y mediante una identidad de aplicación para automatizar el proceso.
 services: B2C
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/08/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: b4706d8bc9224920afb8e17abca88409d4aff7ab
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 306aef9867025ef4c40495871ed9bffbd287d3e3
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129617385"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130036386"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Administración de Azure AD B2C con Microsoft Graph
 

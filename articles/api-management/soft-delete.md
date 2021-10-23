@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: dlepow
 ms.author: danlep
 ms.date: 11/27/2020
-ms.openlocfilehash: 0cf99dfe2fb697b0a28db1fbacecaa2e2021a9d4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ca142ec96bf4ec45cc7c2f612a38ee0d10bf9615
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128622025"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000582"
 ---
 # <a name="api-management-soft-delete-preview"></a>Eliminación temporal de API Management (versión preliminar)
 
@@ -22,19 +22,19 @@ Con la eliminación temporal de API Management (versión preliminar), puede recu
 
 ## <a name="supporting-interfaces"></a>Interfaces admitidas
 
-La característica de eliminación temporal está disponible a través de una [API REST](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/restore).
+La característica de eliminación temporal está disponible a través de una [API REST](/rest/api/apimanagement/2021-01-01-preview/api-management-service/restore).
 
 > [!TIP]
 > Consulte [Referencia de la API REST de Azure](/rest/api/azure/) para recibir sugerencias y obtener herramientas para llamar a las API REST de Azure.
 
 | Operación | Descripción | Espacio de nombres de API Management | Versión mínima de la API |
 |--|--|--|--|
-| [Create or Update](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) (Crear o actualizar) | Crea o actualiza un servicio API Management.  | Servicio API Management | Any |
-| [Create or Update](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) (Crear o actualizar) con la propiedad `restore` establecida en **true** | Recupera el servicio API Management si antes se eliminó temporalmente. Si se especifica `restore` y se establece en `true` se omitirán todas las demás propiedades.  | Servicio API Management |  2020-06-01-preview |
-| [Eliminar](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/delete) | Elimina un servicio API Management existente. | Servicio API Management | 2020-06-01-preview|
-| [Get By Name](/rest/api/apimanagement/2020-06-01-preview/deletedservices/getbyname) (Obtener por nombre) | Obtiene el servicio API Management eliminado temporalmente por el nombre. | Servicios eliminados | 2020-06-01-preview |
-| [List By Subscription](/rest/api/apimanagement/2020-06-01-preview/deletedservices/listbysubscription) (Enumerar por suscripción) | Enumera todos los servicios eliminados temporalmente que están disponibles para recuperarse en la suscripción especificada. | Servicios eliminados | 2020-06-01-preview
-| [Purgar](/rest/api/apimanagement/2020-06-01-preview/deletedservices/purge) | Purga el servicio API Management (lo elimina sin ninguna opción para recuperarlo). | Servicios eliminados | 2020-06-01-preview
+| [Create or Update](/rest/api/apimanagement/2021-01-01-preview/api-management-service/create-or-update) (Crear o actualizar) | Crea o actualiza un servicio API Management.  | Servicio API Management | Any |
+| [Create or Update](/rest/api/apimanagement/2021-01-01-preview/api-management-service/create-or-update) (Crear o actualizar) con la propiedad `restore` establecida en **true** | Recupera el servicio API Management si antes se eliminó temporalmente. Si se especifica `restore` y se establece en `true` se omitirán todas las demás propiedades.  | Servicio API Management |  2020-06-01-preview |
+| [Eliminar](/rest/api/apimanagement/2021-01-01-preview/api-management-service/delete) | Elimina un servicio API Management existente. | Servicio API Management | 2020-06-01-preview|
+| [Get By Name](/rest/api/apimanagement/2021-01-01-preview/deleted-services/get-by-name) (Obtener por nombre) | Obtiene el servicio API Management eliminado temporalmente por el nombre. | Servicios eliminados | 2020-06-01-preview |
+| [List By Subscription](/rest/api/apimanagement/2021-01-01-preview/deleted-services/list-by-subscription) (Enumerar por suscripción) | Enumera todos los servicios eliminados temporalmente que están disponibles para recuperarse en la suscripción especificada. | Servicios eliminados | 2020-06-01-preview
+| [Purgar](/rest/api/apimanagement/2021-01-01-preview/deleted-services/purge) | Purga el servicio API Management (lo elimina sin ninguna opción para recuperarlo). | Servicios eliminados | 2020-06-01-preview
 
 ## <a name="soft-delete-behavior"></a>Comportamiento de eliminación temporal
 
@@ -48,11 +48,11 @@ Si la instancia de APIM no se recupera en 48 horas, se eliminará de forma perm
 
 ## <a name="list-deleted-apim-instances"></a>Enumeración de las instancias de APIM eliminadas
 
-Puede comprobar que una instancia de APIM eliminada temporalmente está disponible para restaurarse (recuperarse) mediante las operaciones [Get By Name](/rest/api/apimanagement/2020-06-01-preview/deletedservices/getbyname) (Obtener por nombre) o [List By Subscription](/rest/api/apimanagement/2020-06-01-preview/deletedservices/listbysubscription) (Enumerar por suscripción) de los servicios eliminados.
+Puede comprobar que una instancia de APIM eliminada temporalmente está disponible para restaurarse (recuperarse) mediante las operaciones [Get By Name](/rest/api/apimanagement/2021-01-01-preview/deleted-services/get-by-name) (Obtener por nombre) o [List By Subscription](/rest/api/apimanagement/2021-01-01-preview/deleted-services/list-by-subscription) (Enumerar por suscripción) de los servicios eliminados.
 
 ### <a name="get-a-soft-deleted-instance-by-name"></a>Obtención de una instancia eliminada temporalmente por nombre
 
-Use la operación [Get By Name](/rest/api/apimanagement/2020-06-01-preview/deletedservices/getbyname) (Obtener por nombre) de API Management, pero sustituya `{subscriptionId}`, `{location}` y `{serviceName}` por la suscripción de Azure, la ubicación del recurso y el nombre de la instancia de API Management:
+Use la operación [Get By Name](/rest/api/apimanagement/2021-01-01-preview/deleted-services/get-by-name) (Obtener por nombre) de API Management, pero sustituya `{subscriptionId}`, `{location}` y `{serviceName}` por la suscripción de Azure, la ubicación del recurso y el nombre de la instancia de API Management:
 
 ```rest
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/locations/{location}/deletedservices/{serviceName}?api-version=2020-06-01-preview
@@ -76,7 +76,7 @@ Si está disponible para la recuperación, Azure devolverá un registro de la in
 
 ### <a name="list-all-soft-deleted-instances-for-a-given-subscription"></a>Enumeración de todas las instancias eliminadas temporalmente de una suscripción determinada
 
-Use la operación [List By Subscription](/rest/api/apimanagement/2020-06-01-preview/deletedservices/listbysubscription) (Enumerar por suscripción) de API Management, pero sustituya `{subscriptionId}` por su identificador de suscripción:
+Use la operación [List By Subscription](/rest/api/apimanagement/2021-01-01-preview/deleted-services/list-by-subscription) (Enumerar por suscripción) de API Management, pero sustituya `{subscriptionId}` por su identificador de suscripción:
 
 ```rest
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/deletedservices?api-version=2020-06-01-preview
@@ -86,10 +86,11 @@ Se devolverá una lista de todos los servicios eliminados temporalmente que est�
 
 ## <a name="recover-a-deleted-apim-instance"></a>Recuperación de una instancia de APIM eliminada
 
-Use la operación [Create Or Update](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) (Crear o actualizar) de API Management, pero sustituya `{subscriptionId}`, `{resourceGroup}` y `{apimServiceName}` por la suscripción de Azure, el nombre del grupo de recursos y el nombre de API Management:
+Use la operación [Create Or Update](/rest/api/apimanagement/2021-01-01-preview/api-management-service/create-or-update) (Crear o actualizar) de API Management, pero sustituya `{subscriptionId}`, `{resourceGroup}` y `{apimServiceName}` por la suscripción de Azure, el nombre del grupo de recursos y el nombre de API Management:
 
 ```rest
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.ApiManagement/service/{apimServiceName}?api-version=2020-06-01-preview
+PUT
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.ApiManagement/service/{apimServiceName}?api-version=2021-01-01-preview
 ```
 
 . . . y establezca la propiedad `restore` en `true` en el cuerpo de la solicitud. (Cuando se especifica esta marca y se establece en *true*, se omiten todas las demás propiedades). Por ejemplo:
@@ -111,7 +112,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="purge-a-soft-deleted-apim-instance"></a>Purga de una instancia de APIM eliminada temporalmente
 
-Use la operación [Purge](/rest/api/apimanagement/2020-06-01-preview/deletedservices/purge) (Purgar) de API Management, pero sustituya `{subscriptionId}`, `{location}` y `{serviceName}` por la suscripción de Azure, la ubicación del recurso y el nombre de API Management:
+Use la operación [Purge](/rest/api/apimanagement/2021-01-01-preview/deleted-services/purge) (Purgar) de API Management, pero sustituya `{subscriptionId}`, `{location}` y `{serviceName}` por la suscripción de Azure, la ubicación del recurso y el nombre de API Management:
 
 ```rest
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/locations/{location}/deletedservices/{serviceName}?api-version=2020-06-01-preview

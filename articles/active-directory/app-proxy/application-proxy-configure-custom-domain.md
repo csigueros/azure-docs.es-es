@@ -3,20 +3,20 @@ title: Dominios personalizados en Azure Active Directory Application Proxy
 description: Configure y administre los dominios personalizados en Azure Active Directory Application Proxy.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/12/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: 04dde4560a9b03208d4c0f234d475ddce7265343
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.reviewer: ashishj
+ms.openlocfilehash: cd923a6240de828ee4a952dd27ac513f0a2ec6c0
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121860872"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990147"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configuración de dominios personalizados con Azure AD Application Proxy
 

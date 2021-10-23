@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: 19944b336a9140a7133b2f96d7821c56a59abe7e
-ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
+ms.openlocfilehash: 36410c2c6f4f5054f04d017f944b840c6251ec8c
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112676859"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003579"
 ---
 # <a name="azure-threat-protection"></a>Protección contra amenazas de Azure
 
@@ -253,7 +253,7 @@ Los detectores de amenazas de SQL Database usan una de las metodologías de dete
 
 ### <a name="application-gateway-web-application-firewall"></a>Firewall de aplicaciones web de Application Gateway
 
-El [firewall de aplicaciones web (WAF)](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md) es una característica de [Azure Application Gateway](../../web-application-firewall/ag/ag-overview.md) que protege las aplicaciones web en las que se usa una puerta de enlace de aplicaciones para las funciones estándar de [control de entrega de aplicaciones](https://kemptechnologies.com/in/application-delivery-controllers). Para hacerlo, el firewall de aplicaciones web ofrece protección contra las [10 vulnerabilidades web más comunes identificadas por Proyecto de seguridad de aplicación web abierta (OWASP)](https://owasp.org/www-project-top-ten/).
+El [firewall de aplicaciones web (WAF)](../../app-service/environment/integrate-with-application-gateway.md) es una característica de [Azure Application Gateway](../../web-application-firewall/ag/ag-overview.md) que protege las aplicaciones web en las que se usa una puerta de enlace de aplicaciones para las funciones estándar de [control de entrega de aplicaciones](https://kemptechnologies.com/in/application-delivery-controllers). Para hacerlo, el firewall de aplicaciones web ofrece protección contra las [10 vulnerabilidades web más comunes identificadas por Proyecto de seguridad de aplicación web abierta (OWASP)](https://owasp.org/www-project-top-ten/).
 
 ![Diagrama del firewall de aplicaciones web de Application Gateway](./media/threat-detection/azure-threat-detection-fig13.png)
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/26/2021
 ms.author: allensu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6d4671823f5eb3f186007aea46983860269d916b
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 03fa5b7e05a842addd88a890ee41829834910650
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129361753"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130036462"
 ---
 # <a name="manage-network-policies-for-private-endpoints"></a>Administración de directivas de red de puntos de conexión privados
 
@@ -75,11 +75,11 @@ $vnet | Set-AzVirtualNetwork
 En esta sección se describe cómo deshabilitar directivas de punto de conexión privado de subred mediante la CLI de Azure. Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) para deshabilitar la directiva.
 
 ```azurecli
-az network vnet subnet update \ 
+az network vnet subnet update \
   --disable-private-endpoint-network-policies true \
-  --name default \ 
-  --resource-group myResourceGroup \ 
-  --vnet-name myVirtualNetwork \ 
+  --name default \
+  --resource-group myResourceGroup \
+  --vnet-name myVirtualNetwork
   
 ```
 
@@ -88,11 +88,11 @@ az network vnet subnet update \
 En esta sección se describe cómo habilitar directivas de punto de conexión privado de subred mediante la CLI de Azure. Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) para habilitar la directiva.
 
 ```azurecli
-az network vnet subnet update \ 
+az network vnet subnet update \
   --disable-private-endpoint-network-policies false \
-  --name default \ 
-  --resource-group myResourceGroup \ 
-  --vnet-name myVirtualNetwork \ 
+  --name default \
+  --resource-group myResourceGroup \
+  --vnet-name myVirtualNetwork
   
 ```
 ## <a name="resource-manager-template"></a>Plantilla de Resource Manager

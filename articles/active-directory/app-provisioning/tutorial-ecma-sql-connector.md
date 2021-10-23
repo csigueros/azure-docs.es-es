@@ -3,7 +3,7 @@ title: Tutorial sobre el conector SQL genérico del host del conector ECMA de Az
 description: En este tutorial se explica cómo usar el conector SQL genérico de aprovisionamiento de aplicaciones local.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
@@ -12,12 +12,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 371b292fad4349b1e4181d248a3496d5f49d4374
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4f12d1c1320cf2d776b18ab403d14ac76955851c
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128613590"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990983"
 ---
 # <a name="azure-ad-ecma-connector-host-generic-sql-connector-tutorial"></a>Tutorial sobre el conector SQL genérico del host del conector ECMA de Azure AD
 

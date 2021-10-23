@@ -3,20 +3,20 @@ title: 'Ejemplo de PowerShell: asignación de grupos a una aplicación de un pro
 description: Ejemplo de PowerShell que asigna un grupo a una aplicación de Azure Active Directory (Azure AD) Application Proxy.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: sample
 ms.date: 04/29/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: b9dcfb10f166765a2fb768d5f8458c344f4fd304
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.reviewer: ashishj
+ms.openlocfilehash: 66d6213f85f58ce736b0be926e90f24e701b666a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108293867"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129988418"
 ---
 # <a name="assign-a-group-to-a-specific-azure-ad-application-proxy-application"></a>Asignación de un grupo a una aplicación de Azure AD Application Proxy específica
 

@@ -3,15 +3,15 @@ title: Filtrado de la telemetría de Azure Application Insights en la aplicació
 description: Reduzca el tráfico de telemetría mediante el filtrado de los eventos que no necesita supervisar.
 ms.topic: conceptual
 ms.date: 3/14/2019
-author: MS-jgol
 ms.custom: devx-track-java
-ms.author: jgol
-ms.openlocfilehash: c8c3e1e73a1504a5da519144ee5c3e9968fb89b9
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+author: mattmccleary
+ms.author: mmcc
+ms.openlocfilehash: 26addfdcd7b7b2d9ec3b049040e5d387d7c5bb86
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110105459"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130133963"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrado de telemetría en la aplicación web de Java
 
@@ -85,7 +85,7 @@ En ApplicationInsights.xml, agregue una sección `TelemetryProcessors` como la d
 
 ```
 
-[Inspeccione el conjunto completo de procesadores integrados](https://github.com/microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal).
+[Inspeccione el conjunto completo de procesadores integrados](https://github.com/microsoft/ApplicationInsights-Java/tree/main/agent/agent-tooling/src/main/java/com/microsoft/applicationinsights/agent/internal).
 
 ## <a name="built-in-filters"></a>Filtros integrados
 

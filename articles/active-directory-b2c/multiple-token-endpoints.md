@@ -3,20 +3,20 @@ title: Migración de API web basadas en OWIN a b2clogin.com o a un dominio perso
 titleSuffix: Azure AD B2C
 description: Obtenga información sobre cómo habilitar una API web de .NET para admitir tokens emitidos por varios emisores de token mientras migra las aplicaciones a b2clogin.com.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 03/15/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 2ab93a8742d210969ef6ad10683bed92221c1a57
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: d11ce0d3f3890cfb2aa2ea7f957370d6739b6fe3
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256708"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130036367"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom-or-a-custom-domain"></a>Migración de una API web basada en OWIN a b2clogin.com o a un dominio personalizado
 

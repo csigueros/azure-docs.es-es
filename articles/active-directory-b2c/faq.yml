@@ -3,20 +3,20 @@ metadata:
   title: Preguntas más frecuentes (P+F) sobre Azure Active Directory B2C
   description: Respuestas a preguntas frecuentes sobre Azure Active Directory B2C.
   services: active-directory-b2c
-  author: msmimart
-  manager: celestedg
+  author: kengaderdus
+  manager: CelesteDG
   ms.service: active-directory
   ms.workload: identity
   ms.topic: conceptual
   ms.date: 09/16/2021
-  ms.author: mimart
+  ms.author: kengaderdus
   ms.subservice: B2C
-  ms.openlocfilehash: 758ab61b8bec91e751fd965584744fedac77a975
-  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+  ms.openlocfilehash: 1a40ae657ae3aa93e12c6c3a828783b84d8c9b2d
+  ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/24/2021
-  ms.locfileid: "128575159"
+  ms.lasthandoff: 10/15/2021
+  ms.locfileid: "130041374"
 title: 'Azure AD B2C: Preguntas más frecuentes'
 summary: En esta página se responde a las preguntas frecuentes sobre Azure Active Directory B2C (Azure AD B2C). Siga comprobando si hay actualizaciones.
 sections:

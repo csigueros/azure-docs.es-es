@@ -3,18 +3,18 @@ title: 'Inicio rápido: Creación de un recurso de servidor de Azure Analysis Se
 description: Inicio rápido que explica cómo crear un recurso de servidor de Azure Analysis Services mediante una plantilla de Azure Resource Manager.
 author: minewiskan
 ms.author: owend
-ms.date: 08/31/2020
+ms.date: 10/12/2021
 ms.topic: quickstart
 ms.service: azure-analysis-services
 tags:
 - azure-resource-manager
 ms.custom: devx-track-azurepowershell - subject-armqs - references_regions - mode-arm
-ms.openlocfilehash: 5d54ac9a7bbf8d63f160f95d67723bc82fa3e1c2
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: b8010df6b4e6284a1050d479e9ab312fb8e7bb97
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111895413"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998834"
 ---
 # <a name="quickstart-create-a-server---arm-template"></a>Inicio rápido: Creación de un servidor: plantilla de ARM
 
@@ -33,7 +33,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/analysis-services-create/).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de Azure](https://azure.microsoft.com/resources/templates/analysis-services-create/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.analysisservices/analysis-services-create/azuredeploy.json":::
 

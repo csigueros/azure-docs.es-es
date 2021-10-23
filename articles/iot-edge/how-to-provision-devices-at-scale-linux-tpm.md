@@ -8,12 +8,12 @@ ms.date: 07/09/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7d36bace70e8e539d03e75808152a79b17b35423
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 81c448b39dcbed56d0208f3e8931eacabd5331f0
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130063400"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129661683"
 ---
 # <a name="create-and-provision-iot-edge-devices-at-scale-with-a-tpm-on-linux"></a>Creación y aprovisionamiento de dispositivos IoT Edge a gran escala con un TPM en Linux
 
@@ -47,7 +47,7 @@ Las tareas son las siguientes:
 
 ---
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 # <a name="physical-device"></a>[Dispositivo físico](#tab/physical-device)
 
@@ -107,7 +107,7 @@ Un conmutador virtual permite que la máquina virtual se conecte a una red físi
 
 Cree una nueva máquina virtual a partir de un archivo de imagen de arranque.
 
-1. Descargue un archivo de imagen de disco para usarlo para la máquina virtual y guárdelo localmente. Por ejemplo, [Servidor de Ubuntu 18.04](http://releases.ubuntu.com/18.04/). Para obtener información acerca de los sistemas operativos compatibles para dispositivos IoT Edge, consulte [sistemas compatibles con Azure IoT Edge](/azure/iot-edge/support).
+1. Descargue un archivo de imagen de disco para usarlo para la máquina virtual y guárdelo localmente. Por ejemplo, [Servidor de Ubuntu 18.04](http://releases.ubuntu.com/18.04/). Para obtener información acerca de los sistemas operativos compatibles para dispositivos IoT Edge, consulte [sistemas compatibles con Azure IoT Edge](/support.md).
 
 1. En el Administrador de Hyper-V, seleccione **Acción** > **Nuevo** > **Máquina virtual** en el menú **Acciones**.
 

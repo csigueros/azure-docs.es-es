@@ -3,19 +3,19 @@ title: 'Inicio rápido: Llamada a Microsoft Graph desde una aplicación de conso
 titleSuffix: Microsoft identity platform
 description: En este inicio rápido, descargará y ejecutará un código de ejemplo que muestra de qué forma una aplicación de consola de Node.js puede obtener un token de acceso y llamar a una API protegida por un punto de conexión de una plataforma de identidad de Microsoft mediante la propia identidad de la aplicación
 services: active-directory
-author: derisen
+author: KarenH444
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.date: 02/17/2021
-ms.author: v-doeris
-ms.openlocfilehash: ffe6f750604546a51a7d3d7852df5745ba07dd3a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.author: karenhoran
+ms.openlocfilehash: 84dcc9861bd7b7288e0feefbc32ce1bf820eef7f
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128619143"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130163810"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-nodejs-console-app-using-apps-identity"></a>Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de consola de Node.js mediante la identidad de la aplicación
 
@@ -38,7 +38,7 @@ En este inicio rápido se usa la [biblioteca de autenticación de Microsoft para
 > Para registrar la aplicación y agregar la información de registro de la aplicación a la solución de forma manual, siga estos pasos:
 >
 > 1. Inicie sesión en <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.
-> 1. Si tiene acceso a varios inquilinos, use el filtro **Directorios y suscripciones**:::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para cambiar al inquilino en el que quiere registrar la aplicación.
+> 1. Si tiene acceso a varios inquilinos, use el filtro **Directorios y suscripciones** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para ir al inquilino en el que quiere registrar la aplicación.
 > 1. Busque y seleccione **Azure Active Directory**.
 > 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
 > 1. Escriba el **Nombre** de la aplicación, por ejemplo `msal-node-cli`. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.

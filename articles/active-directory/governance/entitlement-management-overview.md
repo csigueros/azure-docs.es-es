@@ -17,12 +17,12 @@ ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: dcbc2f726d4c7c935462743578f863efc8762f79
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 076ca7918aee424dc6805f6a6bc997d1b0f060a1
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749205"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130138643"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>¿Qué es la administración de derechos de Azure AD?
 
@@ -121,11 +121,11 @@ Para comprender mejor la administración de derechos y su documentación, puede 
 
 | Término | Descripción |
 | --- | --- |
-| paquete de acceso | Conjunto de recursos que un equipo o proyecto necesita y se rige por directivas. Un paquete de acceso siempre se encuentra en un catálogo. Un paquete de acceso se crearía en un escenario en el que los usuarios necesiten solicitar acceso.  |
-| solicitud de acceso | Solicitud para acceder a los recursos de un paquete de acceso. Una solicitud suele pasa por un flujo de trabajo de aprobación.  Si se aprueba, el usuario solicitante recibe una asignación de paquete de acceso. |
-| asignación | La asignación de un paquete de acceso a un usuario garantiza que el usuario tenga todos los roles de recursos de ese paquete de acceso.  Las asignaciones de paquetes de acceso suelen tener un límite de tiempo antes de que expiren. |
-| catalog | Un contenedor de recursos relacionados y paquetes de acceso.  Los catálogos se emplean en la delegación, de modo que las personas que no son administradores pueden crear sus propios paquetes de acceso. Los propietarios de catálogos pueden agregar recursos de su propiedad a un catálogo. |
-| creador de catálogos | Una colección de usuarios que están autorizados para crear catálogos.  Cuando un usuario que no es administrador y que está autorizado para ser un creador de catálogos crea un catálogo, se convierte automáticamente en el propietario de dicho catálogo. |
+| paquete de acceso | Conjunto de recursos que un equipo o proyecto necesita y se rige por directivas. Un paquete de acceso siempre se encuentra en un catálogo. Un paquete de acceso se crearía en un escenario en el que los usuarios necesiten solicitar acceso. |
+| solicitud de acceso | Solicitud para acceder a los recursos de un paquete de acceso. Una solicitud suele pasa por un flujo de trabajo de aprobación. Si se aprueba, el usuario solicitante recibe una asignación de paquete de acceso. |
+| asignación | La asignación de un paquete de acceso a un usuario garantiza que el usuario tenga todos los roles de recursos de ese paquete de acceso. Las asignaciones de paquetes de acceso suelen tener un límite de tiempo antes de que expiren. |
+| catalog | Un contenedor de recursos relacionados y paquetes de acceso. Los catálogos se emplean en la delegación, de modo que las personas que no son administradores pueden crear sus propios paquetes de acceso. Los propietarios de catálogos pueden agregar recursos de su propiedad a un catálogo. |
+| creador de catálogos | Una colección de usuarios que están autorizados para crear catálogos. Cuando un usuario que no es administrador y que está autorizado para ser un creador de catálogos crea un catálogo, se convierte automáticamente en el propietario de dicho catálogo. |
 | organización conectada | Un directorio o dominio externo de Azure AD con el que tiene una relación. Los usuarios de una organización conectada se pueden especificar en una directiva como que tienen permiso para solicitar acceso. |
 | policy | Un conjunto de reglas que define el ciclo de vida del acceso, como por ejemplo, cómo los usuarios obtienen acceso, quién puede aprobarlo y cuánto tiempo tienen acceso mediante una asignación. Una directiva está vinculada a un paquete de acceso. Por ejemplo, un paquete de acceso podría tener dos directivas: una para que los empleados soliciten acceso y una segunda para que lo hagan los usuarios externos. |
 | resource | Un recurso, como un grupo de Office, un grupo de seguridad, una aplicación o un sitio de SharePoint Online, con un rol para el que se puede conceder permisos a un usuario. |

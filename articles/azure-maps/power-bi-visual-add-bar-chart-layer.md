@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 4cb7fdf7f32070de66e81736d7572e0b48aad896
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 7e7ea41a95c2b59e124f8f605be52f3ba774f763
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123429503"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998644"
 ---
 # <a name="add-a-bar-chart-layer"></a>Adición de una capa de gráfico de barras
 
@@ -56,6 +56,14 @@ A continuación se muestran todas las opciones de configuración del panel **For
 > Si las barras tienen un valor de ancho pequeño y la opción **Escalar grosor al aplicar zoom** está deshabilitada, es posible que desaparezcan cuando se alejen mucho, ya que su ancho representado tendría un tamaño menor a un píxel. Sin embargo, cuando la opción **Escalar grosor al aplicar zoom** está habilitada, se realizan cálculos adicionales cuando cambia el nivel de zoom, lo que puede afectar al rendimiento de grandes conjuntos de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+Cambie el modo en que los datos se muestran en el mapa:
+
+> [!div class="nextstepaction"]
+> [Adición de una capa de burbuja](power-bi-visual-add-bubble-layer.md)
+
+> [!div class="nextstepaction"]
+> [Adición de una capa de mapa térmico](power-bi-visual-add-heat-map-layer.md)
 
 Agregue más contexto al mapa:
 

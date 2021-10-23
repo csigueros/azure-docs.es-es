@@ -6,15 +6,15 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 09/09/2021
+ms.date: 10/13/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
-ms.openlocfilehash: d09621589899693195f9195cdb0e76da5762b03e
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 9d27c292d044b39f841f86906deaf386357df7c7
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129388990"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130062772"
 ---
 # <a name="troubleshoot-azure-data-factory-and-azure-synapse-analytics-connectors"></a>Solución de problemas relacionados con conectores en Azure Data Factory y Azure Synapse Analytics
 
@@ -36,6 +36,7 @@ Puede consultar las páginas de solución de problemas de cada conector para ver
 - [Formato de texto delimitado](connector-troubleshoot-delimited-text.md)
 - [Dynamics 365, Dataverse (Common Data Service) y Dynamics CRM](connector-troubleshoot-dynamics-dataverse.md)
 - [FTP, SFTP y HTTP](connector-troubleshoot-ftp-sftp-http.md)
+- [Hive](connector-troubleshoot-hive.md)
 - [Oracle](connector-troubleshoot-oracle.md)
 - [Formato ORC](connector-troubleshoot-orc.md)
 - [Formato Parquet](connector-troubleshoot-parquet.md)

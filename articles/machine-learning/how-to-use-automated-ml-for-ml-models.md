@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 06/11/2021
 ms.topic: how-to
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: e49a1560e45b801de2c6031d09e4fa3133d71823
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: a48fa9df38b9892c740713b1463010c1f601506d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429060"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000031"
 ---
 # <a name="set-up-no-code-automl-training-with-the-studio-ui"></a>Configuración del entrenamiento de AutoML sin código con la interfaz de usuario de Estudio 
 
@@ -114,7 +114,7 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
 
     Seleccione **Next** (Siguiente).
 
-1. En el formulario **Task type and settings** (Tipo de tarea y configuración), seleccione el tipo de tarea: clasificación, regresión o previsión. Para más información, vea los [tipos de tareas admitidos](concept-automated-ml.md#when-to-use-automl-classification-regression--forecasting).
+1. En el formulario **Task type and settings** (Tipo de tarea y configuración), seleccione el tipo de tarea: clasificación, regresión o previsión. Para más información, vea los [tipos de tareas admitidos](concept-automated-ml.md#when-to-use-automl-classification-regression-forecasting--computer-vision).
 
     1. Para **classification** (clasificación), también puede habilitar el aprendizaje profundo.
     
@@ -229,7 +229,7 @@ ML automatizado le ayuda a implementar el modelo sin escribir código:
 
 1. Rellene el panel **Implementar modelo**.
 
-    Campo| Valor
+    Campo| Value
     ----|----
     Nombre| Escriba un nombre único para la implementación.
     Descripción| Escriba una descripción para saber mejor para qué sirve esta implementación.

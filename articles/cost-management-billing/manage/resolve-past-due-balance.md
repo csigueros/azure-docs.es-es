@@ -9,18 +9,18 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: a61eaa10420a9a4a413074559a158e2a32f5cf95
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8bdb31d13f35f2ffbc4713623e5509675433ddd8
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128635002"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997183"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Saldo de la suscripción de Azure vencido
 
 Este artículo se aplica a los clientes que se hayan suscrito a Azure Online con una tarjeta de crédito y que tengan una cuenta de facturación de Microsoft Online Services Program. Aprenda a [comprobar el tipo de cuenta de facturación](#check-the-type-of-your-account). Si tiene una cuenta de facturación de Contrato de cliente de Microsoft, consulte [Cómo pagar la factura de Microsoft Azure](../understand/pay-bill.md) en su lugar.
 
-Si no se recibe su pago o no puede procesarse, es posible que reciba un correo electrónico o vea una alerta en Azure Portal que indica que la suscripción está vencida. Si el método de pago predeterminado es una tarjeta de crédito, el [administrador de cuenta](../understand/subscription-transfer.md#whoisaa) puede liquidar los cargos pendientes en Azure Portal. Si paga mediante factura (cheque o transferencia bancaria), envíe el pago a la ubicación indicada en la parte inferior de la factura.
+Si no se recibe su pago o no puede procesarse, es posible que reciba un correo electrónico o vea una alerta en Azure Portal que indica que la suscripción está vencida. Si el método de pago predeterminado es una tarjeta de crédito, el [administrador de cuenta](add-change-subscription-administrator.md#whoisaa) puede liquidar los cargos pendientes en Azure Portal. Si paga mediante factura (cheque o transferencia bancaria), envíe el pago a la ubicación indicada en la parte inferior de la factura.
 
 > [!IMPORTANT]
 > * Si tiene varias suscripciones que utilizan la misma tarjeta de crédito y todas están vencidas, deberá pagar todo el saldo pendiente a la vez.

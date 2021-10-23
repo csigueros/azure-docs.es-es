@@ -3,20 +3,20 @@ title: Integración de IDology con Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Obtenga información sobre cómo integrar una aplicación de pago en línea de ejemplo en Azure AD B2C con IDology. IDology es un proveedor de pruebas y comprobación de identidades que ofrece varias soluciones.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: df0fcaf7987e30f9c2599346aaef5fcabb4f04e9
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 5069ef001ad20024ce72387d0bc02a840514aa74
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256657"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130036044"
 ---
 # <a name="tutorial-for-configuring-idology-with-azure-active-directory-b2c"></a>Tutorial para configurar IDology con Azure Active Directory B2C 
 

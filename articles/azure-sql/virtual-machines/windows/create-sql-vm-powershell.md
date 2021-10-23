@@ -3,7 +3,7 @@ title: Guía de uso de Azure PowerShell para aprovisionar SQL Server en una má
 description: Ofrece pasos y comandos de PowerShell para crear una VM de Azure con imágenes de la galería de máquinas virtuales de SQL Server.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 98d50dd8-48ad-444f-9031-5378d8270d7b
@@ -13,15 +13,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/21/2018
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: pamela
+ms.reviewer: mathoma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a3f51a07b274320d1cd9f12b33703d8ec7f21f49
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 02145b3007b2e7655d3d5e5643e873bdc1b4c9a5
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97359666"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130164569"
 ---
 # <a name="how-to-use-azure-powershell-to-provision-sql-server-on-azure-virtual-machines"></a>Uso de Azure PowerShell para aprovisionar SQL Server en Azure Virtual Machines
 
@@ -62,7 +62,7 @@ $ResourceGroupName = "sqlvm2"
 
 Defina la cuenta de almacenamiento y el tipo de almacenamiento que va a usar la máquina virtual.
 
-Modifíquelos como desee y, después, ejecute el siguiente cmdlet para inicializar estas variables. Se recomienda usar [discos SSD Premium](../../../virtual-machines/disks-types.md#premium-ssd) para las cargas de trabajo de producción.
+Modifíquelos como desee y, después, ejecute el siguiente cmdlet para inicializar estas variables. Se recomienda usar [discos SSD Premium](../../../virtual-machines/disks-types.md#premium-ssds) para las cargas de trabajo de producción.
 
 ```powershell
 $StorageName = $ResourceGroupName + "storage"

@@ -2,20 +2,20 @@
 title: Atributos de perfil de usuario en Azure Active Directory B2C
 description: Aprenda sobre los atributos de tipo de recurso de usuario que son compatibles con el perfil de usuario del directorio de Azure AD B2C. Descubra los atributos integrados, las extensiones y cómo se asignan los atributos a Microsoft Graph.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/24/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: c11227d975f572d6d473a22f62f4616ad024af3b
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 2b3970504811b3dd97002b0da57d6af6ddf9413b
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129061454"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130043764"
 ---
 # <a name="user-profile-attributes"></a>Atributos de perfil de usuario
 

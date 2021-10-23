@@ -6,14 +6,14 @@ author: ginalee-dotcom
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 07/16/2021
+ms.date: 10/21/2021
 ms.author: ginle
-ms.openlocfilehash: 3cccd2a1e418dbc66a5a8c1bfa665c6c3276552d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6debd85f084a68cc96133cc7128f97beefa2dfcb
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780719"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130259382"
 ---
 # <a name="frequently-asked-questions-about-azure-healthcare-apis-preview"></a>Preguntas más frecuentes sobre Azure Healthcare APIs (versión preliminar)
 
@@ -58,13 +58,17 @@ Consulte la página [Productos por región](https://azure.microsoft.com/global-i
 * 10 instancias de FHIR por área de trabajo (no ajustable)
 
 #### <a name="iot-connector"></a>Conector de IoT:
-* 25 conectores de IoT por suscripción (no ajustable)
-* 10 conectores de IoT por área de trabajo (no ajustable)
-* 1 destino de FHIR* por conector de IoT (no ajustable)
+* 25 conectores de IoT por suscripción (ajustables con una solicitud de soporte técnico de Azure)
+* 10 conectores de IoT por área de trabajo (ajustables con una solicitud de soporte técnico de Azure)
+* Un destino de FHIR* por conector de IoT (no ajustable)
+
+(* - FHIR Destination es un recurso secundario del conector de IoT)
 
 ## <a name="more-frequently-asked-questions"></a>Preguntas más frecuentes
 [Preguntas más frecuentes sobre el servicio de FHIR Azure Healthcare APIs](./fhir/fhir-faq.md)
 
 [Preguntas más frecuentes sobre el servicio de DICOM Azure Healthcare APIs](./dicom/dicom-services-faqs.yml)
 
+[Preguntas más frecuentes sobre el conector de IoT de las API de Azure Healthcare](./iot/iot-connector-faqs.md)
 
+(FHIR&#174;) es una marca comercial registrada de [HL7](https://hl7.org/fhir/) y se usa con el permiso hl7.

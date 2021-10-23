@@ -2,16 +2,16 @@
 title: 'Supervisión de aplicaciones Java en ejecución en el entorno local: Application Insights de Azure Monitor'
 description: Supervisión del rendimiento de aplicaciones de Java que se ejecutan en el entorno local sin instrumentar la aplicación. Seguimiento distribuido y mapa de aplicación.
 ms.topic: conceptual
-author: MS-jgol
 ms.custom: devx-track-java
-ms.author: jgol
 ms.date: 04/16/2020
-ms.openlocfilehash: 0ae347476a7fc035a2e69180533dd51b57e317f6
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+author: mattmccleary
+ms.author: mmcc
+ms.openlocfilehash: 07d38c7a0583a61e9f5abc9b9dc051e0c0d09d5a
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110069155"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130133849"
 ---
 # <a name="java-codeless-application-monitoring-on-premises---azure-monitor-application-insights"></a>Supervisión sin código de aplicaciones de Java en el entorno local con Application Insights de Azure Monitor
 

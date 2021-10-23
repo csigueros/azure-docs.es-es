@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: e2563f7addb773b256a56dc67b2ec892b7231372
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 9f8f9f14099c20259d26e9cf031695a1e72171a9
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129532665"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066288"
 ---
 # <a name="associate-a-virtual-machine-scale-set-to-a-capacity-reservation-group-preview"></a>Asociación de un conjunto de escalado de máquinas virtuales a un grupo de reserva de capacidad (versión preliminar)
 
@@ -82,6 +82,21 @@ Agregue la propiedad `capacityReservationGroup` en `virtualMachineProfile`, como
     } 
 ```
 
+### <a name="cli"></a>[CLI](#tab/cli1)
+
+Use `az vmss create` para crear un nuevo conjunto de escalado de máquinas virtuales y agregue la propiedad `capacity-reservation-group` para asociar el conjunto de escalado a un grupo de reserva de capacidad existente. En el ejemplo siguiente se crea un conjunto de escalado uniforme para una máquina virtual Standard_Ds1_v2 en la ubicación Este de EE. UU. y se asocia el conjunto de escalado a un grupo de reserva de capacidad.
+
+```azurecli-interactive
+az vmss create 
+--resource-group myResourceGroup 
+--name myVMSS 
+--location eastus 
+--vm-sku Standard_Ds1_v2 
+--image UbuntuLTS 
+--capacity-reservation-group /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName} 
+```
+
+
 ### <a name="powershell"></a>[PowerShell](#tab/powershell1) 
 
 Use `New-AzVmss` para crear un nuevo conjunto de escalado de máquinas virtuales y agregue la propiedad `CapacityReservationGroupId` para asociar el conjunto de escalado a un grupo de reserva de capacidad existente. En el ejemplo siguiente se crea un conjunto de escalado uniforme para una máquina virtual Standard_Ds1_v2 en la ubicación Este de EE. UU. y se asocia el conjunto de escalado a un grupo de reserva de capacidad.
@@ -149,6 +164,26 @@ Para la versión preliminar pública, a fin de asociar un conjunto de escalado d
                 }
         }
     }
+    ```
+
+### <a name="cli"></a>[CLI](#tab/cli2)
+
+1. Desasigne el conjunto de escalado de máquinas virtuales. 
+
+    ```azurecli-interactive
+    az vmss deallocate 
+    --location eastus
+    --resource-group myResourceGroup 
+    --name myVMSS 
+    ```
+
+1. Asocie el conjunto de escalado al grupo de reserva de capacidad. 
+
+    ```azurecli-interactive
+    az vmss update 
+    --resource-group myResourceGroup 
+    --name myVMSS 
+    --capacity-reservation-group /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName}
     ```
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell2) 
@@ -236,6 +271,14 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
     } 
 } 
 ```  
+
+### <a name="cli"></a>[CLI](#tab/cli3)
+
+```azurecli-interactive
+az capacity reservation group show 
+-g myResourceGroup
+-n myCapacityReservationGroup 
+``` 
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell3) 
 

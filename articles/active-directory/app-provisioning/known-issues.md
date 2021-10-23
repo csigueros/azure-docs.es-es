@@ -3,7 +3,7 @@ title: Problemas conocidos del aprovisionamiento de aplicaciones en Azure Active
 description: Obtenga información sobre los problemas conocidos al trabajar con el aprovisionamiento automático de aplicaciones en Azure Active Directory.
 author: kenwith
 ms.author: kenwith
-manager: mtillman
+manager: karenh444
 services: active-directory
 ms.service: active-directory
 ms.subservice: app-provisioning
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/07/2021
 ms.reviewer: arvinh
-ms.openlocfilehash: 1180852bdaa88f1c717ab6a44d85d84412c5b155
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 6c790baf2dfc7c08306bdf96598e33e8bdc6b9c6
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114449613"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129991230"
 ---
 # <a name="known-issues-for-application-provisioning-in-azure-active-directory"></a>Problemas conocidos del aprovisionamiento de aplicaciones en Azure Active Directory
 En este artículo se abordan incidencias conocidas que deben tenerse en cuenta al trabajar con el aprovisionamiento de aplicaciones. Para proporcionar comentarios sobre el servicio de aprovisionamiento de aplicaciones en UserVoice; vea [Aprovisionamiento de aplicaciones de Azure Active Directory(Azure AD) en UserVoice](https://aka.ms/appprovisioningfeaturerequest). Supervisamos UserVoice muy de cerca para poder mejorar el servicio.

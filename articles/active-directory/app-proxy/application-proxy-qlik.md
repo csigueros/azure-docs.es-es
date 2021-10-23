@@ -3,20 +3,20 @@ title: Azure Active Directory Application Proxy y Qlik Sense
 description: Integre Azure Active Directory Application Proxy con Qlik Sense.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: 7d0218c06bfe7644fe376e812d14c67bfdf115bc
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.reviewer: ashishj
+ms.openlocfilehash: 825ec4927a1db3011560a221868816a1e6089a35
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129229931"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129988893"
 ---
 # <a name="azure-active-directory-application-proxy-and-qlik-sense"></a>Azure Active Directory Application Proxy y Qlik Sense 
 Azure Active Directory Application Proxy y Qlik Sense se han asociado para garantizar que pueda usar fácilmente el proxy de aplicación para proporcionar acceso remoto para la implementación de Qlik Sense.  

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 07/30/2021
-ms.openlocfilehash: 154cfa6f8fd413c1cef1a22143d7e4d357053760
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: f1f352c93fca84f26516811b0014f6fca549b1cd
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867017"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129668815"
 ---
 # <a name="introduction-to-listing-options"></a>Introducción a las opciones de lista
 
@@ -24,19 +24,19 @@ En esta tabla se muestra qué opciones de publicación están disponibles para c
 | ------------ | ------------- | ------------- | ------------- | ------------- |
 | Aplicación de Azure (aplicación administrada) |   | &#10004; |   | &#10004; |
 | Aplicación de Azure (plantilla de solución) |  |  |  | &#10004; |
-| Servicios de consultoría |  |  | &#10004; |  |
 | Contenedor de Azure |  |  |  | &#10004; |
+| Máquina virtual de Azure | &#10004; | &#10004; |  | &#10004; |
+| Servicios de consultoría |  |  | &#10004; |  |
 | Dynamics 365 Business Central | &#10004; | &#10004; | &#10004; | &#10004; |
 | Dynamics 365 Customer Engagement & Power Apps | &#10004; | &#10004; | &#10004; | &#10004; |
 | Dynamics 365 for Operations | &#10004; | &#10004; | &#10004; | &#10004; |
 | Módulo IoT Edge |  |  |  | &#10004; |
 | Servicio administrado |  |  |  | &#10004; |
 | Aplicación Power BI |  |  |  | &#10004; |
-| Máquina virtual de Azure | &#10004; | &#10004; |  | &#10004; |
 | Software como servicio | &#10004; | &#10004; | &#10004; | &#10004; |
 ||||||
 
-&#42; La opción de publicación **Obtener ahora** incluye Obtener ahora (gratis), Traiga su propia licencia (BYOL), Suscripción y Precios basados en el uso. Para obtener más información, consulte [Obtener ahora](#get-it-now).
+\* La opción de publicación **Consígalo ahora** incluye Obtener ahora (gratis), Traiga su propia licencia (BYOL), Suscripción y Precios basados en el uso. Para obtener más información, consulte [Obtener ahora](#get-it-now).
 
 ## <a name="change-the-offer-type"></a>Cambio del tipo de oferta
 

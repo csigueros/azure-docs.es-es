@@ -3,15 +3,15 @@ title: 'Actualización de la versión 2.x: Application Insights Java de Azure Mo
 description: Actualización de Application Insights Java de Azure Monitor 2.x
 ms.topic: conceptual
 ms.date: 11/25/2020
-author: MS-jgol
 ms.custom: devx-track-java
-ms.author: jgol
-ms.openlocfilehash: cbfdc8c7e07a68335083c529e545143a513b1808
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+author: mattmccleary
+ms.author: mmcc
+ms.openlocfilehash: 4de1f6788b5df94bc2c35516983cf67748e66ee0
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129858279"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131208"
 ---
 # <a name="upgrading-from-application-insights-java-2x-sdk"></a>Actualización del SDK de Java de Application Insights 2.x
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b37cdba3f5b95f1e6ecc6b4dab02b5c9d69f109
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: 9d30c282bd45dd26184c2c14bcb78a499d895bbd
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129754413"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130068957"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-azure-shared-disk"></a>Alta disponibilidad de varios SID de una instancia de ASCS/SCS de SAP con clústeres de conmutación por error de Windows Server y disco compartido de Azure
 
@@ -33,8 +33,8 @@ En este artículo nos centraremos en cómo pasar de una sola instalación de ASC
 
 De momento, puede usar discos SSD Premium de Azure como un disco compartido de Azure para la instancia de ASCS/SCS de SAP. Actualmente están en vigor las siguientes limitaciones:
 
--  Un [disco Ultra de Azure](../../disks-types.md#ultra-disk) y los [discos SSD estándar](../../disks-types.md#standard-ssd) no se admiten como discos compartidos de Azure para cargas de trabajo de SAP.
--  Un [disco compartido de Azure](../../disks-shared.md) con [discos SSD prémium](../../disks-types.md#premium-ssd) es compatible con la implementación de SAP en el conjunto y las zonas de disponibilidad.
+-  Un [disco Ultra de Azure](../../disks-types.md#ultra-disks) y los [discos SSD estándar](../../disks-types.md#standard-ssds) no se admiten como discos compartidos de Azure para cargas de trabajo de SAP.
+-  Un [disco compartido de Azure](../../disks-shared.md) con [discos SSD prémium](../../disks-types.md#premium-ssds) es compatible con la implementación de SAP en el conjunto y las zonas de disponibilidad.
 -  Un disco compartido de Azure con discos SSD prémium incluye dos SKU de almacenamiento.
    - El almacenamiento con redundancia local (LRS) para el disco compartido prémium (skuName: Premium_LRS) es compatible con la implementación en el conjunto de disponibilidad.
    - El almacenamiento con redundancia de zona (ZRS) para el disco compartido prémium (skuName: Premium_ZRS) es compatible con la implementación en las zonas de disponibilidad.

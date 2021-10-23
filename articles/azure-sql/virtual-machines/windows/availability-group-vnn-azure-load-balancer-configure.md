@@ -3,7 +3,7 @@ title: Configuración del equilibrador de carga para el cliente de escucha de VN
 description: Aprenda a configurar una instancia de Azure Load Balancer para enrutar el tráfico al cliente de escucha del nombre de red virtual (VNN) para un grupo de disponibilidad con SQL Server en VM de Azure para lograr una alta disponibilidad y recuperación ante desastres (HADR).
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/14/2021
-ms.author: mathoma
-ms.reviewer: jroth
-ms.openlocfilehash: 902704052524a396812e4d9d3848c754c3a7c4a3
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: cddf36f1bd51b50d1642f92158adc3a3ba46cdc2
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112580897"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130161486"
 ---
 # <a name="configure-load-balancer-for-ag-vnn-listener"></a>Configuración del equilibrador de carga para el cliente de escucha de VNN para AG
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

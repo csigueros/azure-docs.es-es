@@ -18,10 +18,10 @@ highlightedContent:
     - title: ¿Qué es Azure Defender para IoT para las organizaciones de usuarios finales?
       itemType: overview
       url: organizations/overview.md
-    - title: ¿Novedades para las organizaciones?
+    - title: Novedades para las organizaciones de usuario final.
       itemType: whats-new
       url: organizations/release-notes.md
-    - title: Arquitectura de la solución sin agente para organizaciones
+    - title: Arquitectura de la solución sin agente para las organizaciones de usuario final
       itemType: architecture
       url: organizations/architecture.md
     - title: ¿Qué es Azure Defender para IoT para creadores de dispositivos?

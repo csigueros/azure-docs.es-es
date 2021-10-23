@@ -1,14 +1,14 @@
 ---
 title: Asociación o desasociación de una galería de imágenes compartidas en Azure Lab Services | Microsoft Docs
 description: En este artículo se describe cómo asociar una galería de imágenes compartidas a un aula laboratorio en Azure Lab Services.
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/11/2020
-ms.openlocfilehash: 62020f30b000292bf3e6af4cab61364e99ce4b5c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 496b88617fd6ae28a57b19e930002120e3352a4f
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737686"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180996"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Asociación o desasociación de una galería de imágenes compartidas en Azure Lab Services
 En este artículo se muestra cómo asociar o desasociar una galería de imágenes compartidas en una cuenta de laboratorio. 

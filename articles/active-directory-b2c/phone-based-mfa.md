@@ -3,20 +3,20 @@ title: Protección con MFA basada en teléfono en Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Aprenda sugerencias para proteger la autenticación multifactor (MFA) basada en teléfono en su inquilino de Azure AD B2C con informes y alertas de Azure Monitor Log Analytics. Use nuestro libro para identificar las autenticaciones de teléfono fraudulentas y mitigar los registros fraudulentos. =
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.date: 09/20/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 112fe68a1d8682b03a9f08839d827b71ebadf1d1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 30e9f10b1c39aa1b05a5e8fcc395373a502f8c33
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128571776"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130035757"
 ---
 # <a name="securing-phone-based-multi-factor-authentication-mfa"></a>Protección con la autenticación multifactor (MFA) basada en teléfono
 

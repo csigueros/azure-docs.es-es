@@ -3,12 +3,12 @@ title: Estructura y sintaxis de un archivo Bicep
 description: Describe la estructura y las propiedades de un archivo Bicep mediante la sintaxis declarativa.
 ms.topic: conceptual
 ms.date: 10/07/2021
-ms.openlocfilehash: 8251c490b61f3bbb739fd9519c10b1b124f9064c
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 8cdeb75aa676b9121d69ba8bf612067157328ee0
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129661129"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130067162"
 ---
 # <a name="understand-the-structure-and-syntax-of-bicep-files"></a>Nociones sobre la estructura y la sintaxis de los archivos Bicep
 
@@ -129,7 +129,7 @@ Los valores permitidos son:
 * **managementGroup**: se usa para las [implementaciones de grupos de administración](deploy-to-management-group.md).
 * **tenant**: se usa para las [implementaciones de inquilinos](deploy-to-tenant.md).
 
-En un módulo, puede especificar un ámbito que sea diferente del ámbito para el resto del archivo de Bicep. Para más información, consulte [Configuración del ámbito de módulo](modules.md#configure-module-scopes).
+En un módulo, puede especificar un ámbito que sea diferente del ámbito para el resto del archivo de Bicep. Para más información, consulte [Configuración del ámbito de módulo](modules.md#set-module-scope).
 
 ## <a name="parameters"></a>Parámetros
 

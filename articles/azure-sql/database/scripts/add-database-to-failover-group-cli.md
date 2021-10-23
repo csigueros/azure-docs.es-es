@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: BustosMSFT
-ms.author: robustos
+author: emlisa
+ms.author: emlisa
 ms.reviewer: mathoma
 ms.date: 07/16/2019
-ms.openlocfilehash: fe14d8845b743fae801b8a6d6e0cb2e4a44be7d6
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 6865095f3c50b0fc2e28ac293a7409bcd60304a0
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110694055"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162639"
 ---
 # <a name="use-the-azure-cli-to-add-a-database-to-a-failover-group"></a>Uso de la CLI de Azure para agregar una base de datos a un grupo de conmutación por error
 
