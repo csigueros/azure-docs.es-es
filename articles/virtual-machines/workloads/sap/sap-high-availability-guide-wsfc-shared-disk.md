@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2021
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dc233e3aac51255be4b6b7befde322216ae7f053
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: 9e59347ec1c38c8d315de9ee7332a4955427770b
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129754565"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130068976"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un disco compartido de clúster en Azure
 
@@ -32,7 +32,7 @@ Los clústeres de conmutación por error de Windows Server son la base de una in
 
 Un clúster de conmutación por error es un grupo de 1+n servidores independientes (nodos) que colaboran para aumentar la disponibilidad de aplicaciones y servicios. Si se produce un error de nodo, los clústeres de conmutación por error de Windows Server calculan el número de errores que se pueden producir y mantiene un clúster en buen estado para proporcionar aplicaciones y servicios. Para conseguir clústeres de conmutación por error, puede elegir entre distintos modos de cuórum.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de comenzar las tareas de este artículo, consulte el siguiente artículo:
 
 * [Escenarios y arquitectura de alta disponibilidad de Azure Virtual Machines para SAP NetWeaver][sap-high-availability-architecture-scenarios]
@@ -130,8 +130,8 @@ Al seleccionar la tecnología de disco compartido, tenga en cuenta las siguiente
 **Disco compartido de Azure para cargas de trabajo de SAP**
 
 - Permite asociar un disco administrado de Azure a varias máquinas virtuales simultáneamente sin necesidad de software adicional que mantener y operar.
-- Un [disco compartido de Azure](../../disks-shared.md) con discos [SSD prémium](../../disks-types.md#premium-ssd) es compatible con la implementación de SAP en el conjunto y las zonas de disponibilidad.
-- Un [disco Ultra de Azure](../../disks-types.md#ultra-disk) y los [discos estándar de Azure](../../disks-types.md#standard-ssd) no se admiten como discos compartidos de Azure para cargas de trabajo de SAP.
+- Un [disco compartido de Azure](../../disks-shared.md) con discos [SSD prémium](../../disks-types.md#premium-ssds) es compatible con la implementación de SAP en el conjunto y las zonas de disponibilidad.
+- Un [disco Ultra de Azure](../../disks-types.md#ultra-disks) y los [discos estándar de Azure](../../disks-types.md#standard-ssds) no se admiten como discos compartidos de Azure para cargas de trabajo de SAP.
 - Asegúrese de aprovisionar el disco prémium de Azure con un tamaño de disco mínimo según lo especificado en [Rangos de discos SSD prémium](../../disks-shared.md#disk-sizes) para poder asociarlo al número requerido de máquinas virtuales simultáneamente (normalmente dos por clúster de conmutación por error de Windows de ASCS de SAP).
  
 **SIOS**
@@ -148,15 +148,15 @@ Microsoft ofrece [discos compartidos de Azure](../../disks-shared.md), que se pu
 
 De momento, puede usar discos SSD Premium de Azure como un disco compartido de Azure para la instancia de ASCS/SCS de SAP. Actualmente están en vigor las siguientes limitaciones:
 
--  Un [disco Ultra de Azure](../../disks-types.md#ultra-disk) y los [discos SSD estándar](../../disks-types.md#standard-ssd) no se admiten como discos compartidos de Azure para cargas de trabajo de SAP.
--  Un [disco compartido de Azure](../../disks-shared.md) con [discos SSD prémium](../../disks-types.md#premium-ssd) es compatible con la implementación de SAP en el conjunto y las zonas de disponibilidad.
+-  Un [disco Ultra de Azure](../../disks-types.md#ultra-disks) y los [discos SSD estándar](../../disks-types.md#standard-ssds) no se admiten como discos compartidos de Azure para cargas de trabajo de SAP.
+-  Un [disco compartido de Azure](../../disks-shared.md) con [discos SSD prémium](../../disks-types.md#premium-ssds) es compatible con la implementación de SAP en el conjunto y las zonas de disponibilidad.
 -  Un disco compartido de Azure con discos SSD prémium incluye dos SKU de almacenamiento.
    - El almacenamiento con redundancia local (LRS) para el disco compartido prémium (skuName: Premium_LRS) es compatible con la implementación en el conjunto de disponibilidad de Azure.
    - El almacenamiento con redundancia de zona (ZRS) para el disco compartido prémium (skuName: Premium_ZRS) es compatible con la implementación en las zonas de disponibilidad de Azure.
 -  El valor de disco compartido de Azure [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) determina cuántos nodos de clúster pueden usar el disco compartido. Normalmente, para la instancia de ASCS/SCS de SAP, se configuran dos nodos en el clúster de conmutación por error de Windows, por lo que el valor de `maxShares` debe establecerse en dos.
 -  Al usar [grupos con ubicación por proximidad de Azure](../../windows/proximity-placement-groups.md) para el sistema SAP, todas las máquinas virtuales que comparten un disco deben formar parte del mismo PPG.
 
-Para obtener más detalles sobre las limitaciones del disco compartido de Azure, consulte con detenimiento la sección [Limitaciones](../../disks-shared.md#limitations) de la documentación sobre discos compartidos de Azure.
+Para obtener más detalles sobre las limitaciones del disco compartido de Azure, consulte con detenimiento la sección de [limitaciones](../../disks-shared.md#limitations) de la documentación sobre discos compartidos de Azure.
 
 #### <a name="important-consideration-for-premium-shared-disk"></a>Consideraciones importantes del disco compartido prémium
 

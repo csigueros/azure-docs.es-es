@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 236a7729a8be0fb1ad20be28efd7b45f5796c1dd
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 7efbb49565027ed7b982d37e99a27e1d66c59bf5
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110615169"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129728102"
 ---
 # <a name="add-technical-details-for-a-saas-offer"></a>Adición de detalles técnicos de una oferta de SaaS
 
@@ -31,7 +31,7 @@ En la pestaña **Configuración técnica**, definirá los detalles técnicos que
   > [!IMPORTANT]
   > La página de aterrizaje estará en funcionamiento de forma ininterrumpida. Esta es la única vía por la que se le notificarán nuevas compras de las ofertas de SaaS realizadas en el marketplace comercial o las solicitudes de configuración de una suscripción activa a una oferta.
 
-- **Webhook de conexión** (obligatorio): para todos los eventos asincrónicos que Microsoft tiene que enviarle (por ejemplo, si la suscripción a SaaS se ha cancelado), le exigimos que nos proporcione una URL de webhook de conexión. Se llamará a esta dirección URL para notificarle el evento.
+- **Webhook de conexión** (obligatorio): para todos los eventos asincrónicos que Microsoft necesita enviarle (por ejemplo, si la suscripción a SaaS se ha cancelado), se le exige que [proporcione una dirección URL de webhook de conexión](./partner-center-portal/pc-saas-fulfillment-api-v2.md#implementing-a-webhook-on-the-saas-service). Se llamará a esta dirección URL para notificarle el evento.
 
   > [!IMPORTANT]
   > El webhook debe estar en funcionamiento de forma ininterrumpida, ya que esta es la única vía por la que se le notificarán las actualizaciones de las suscripciones de SaaS de sus clientes adquiridas a través del marketplace comercial.

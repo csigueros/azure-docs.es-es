@@ -2,20 +2,20 @@
 title: Protección de una API de Azure API Management mediante Azure Active Directory B2C
 description: Obtenga información sobre el uso de tokens de acceso emitidos por Azure Active Directory B2C para proteger un punto de conexión de API de Azure API Management.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/20/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 6dd813d2bd046d6b4256bd17b447b8d5660bdea2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d5d32f9a95c555cc69878d10e2c292ffaba4efda
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128564048"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130035360"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Protección de una API de Azure API Management con Azure AD B2C
 

@@ -1,23 +1,22 @@
 ---
 title: Escalado distribuido geográficamente
 description: Aprenda a escalar aplicaciones horizontalmente con distribución geográfica con el Administrador de tráfico y los entornos de App Service.
-author: stefsch
+author: madsd
 ms.assetid: c1b05ca8-3703-4d87-a9ae-819d741787fb
 ms.topic: article
 ms.date: 09/07/2016
-ms.author: stefsch
+ms.author: madsd
 ms.custom: seodec18, references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 215132888749a54996b3341e43ef8d91c101a460
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 85b72fa7c0a9f764583f63d6df60a5b209ff6415
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107834307"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998825"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Escala distribuida geográficamente con entornos de App Service
 ## <a name="overview"></a>Información general
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Aquellos escenarios de aplicaciones que requieren una escala muy elevada pueden superar la capacidad de recursos de proceso disponible para la implementación de una única aplicación.  Algunos ejemplos de los escenarios que requieren una escala extremadamente alta son las aplicaciones de votación, los acontecimientos deportivos y los espectáculos televisados. Se pueden cumplir los requisitos de gran escala mediante el escalado horizontal de las aplicaciones. Para controlar los requisitos de carga extrema, muchas implementaciones de aplicaciones se pueden realizar en una sola región y entre regiones.
 

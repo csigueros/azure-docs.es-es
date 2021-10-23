@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-storage
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 1af52e4344b7a70331e3b5d9cdc13d9ff4227068
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: e7f13a9dfb45bbf7780ac7aca8796bda9855b0a9
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129053343"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073874"
 ---
 # <a name="lsv2-series"></a>Serie Lsv2
 
@@ -88,7 +88,7 @@ Expansión: Compatible<br>
 
 Calculadora de precios: [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 
-Más información sobre los tipos de disco: [Tipos de disco](./disks-types.md#ultra-disk)
+Más información sobre los tipos de disco: [Tipos de disco](./disks-types.md#ultra-disks)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

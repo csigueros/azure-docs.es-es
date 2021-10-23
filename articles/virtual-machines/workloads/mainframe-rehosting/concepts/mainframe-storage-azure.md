@@ -7,12 +7,12 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: mainframe-rehosting
-ms.openlocfilehash: 27f625e7fced5ff710a6fa0e8b2045a8c5434258
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 853fee40417bc09168fa1cfba1428b8e99bf9a86
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104954367"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072753"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Mover el almacenamiento del sistema central a Azure
 
@@ -109,7 +109,7 @@ El almacenamiento de blobs proporciona el mayor volumen de almacenamiento en Azu
 - [Rehospedaje del sistema central en Azure Virtual Machines](../overview.md)
 - [Movimiento del proceso del sistema central a Azure](mainframe-compute-Azure.md)
 - [Decidir cuándo usar Azure Blobs, Azure Files o Azure Disks](../../../../storage/common/storage-introduction.md)
-- [Discos administrados SSD estándar para cargas de trabajo de la máquina virtual de Azure](../../../disks-types.md#standard-ssd)
+- [Discos administrados SSD estándar para cargas de trabajo de la máquina virtual de Azure](../../../disks-types.md#standard-ssds)
 
 ### <a name="ibm-resources"></a>Recursos de IBM
 

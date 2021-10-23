@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 0c5321625f9963a15527d8fb0edef73f0701bd6e
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 89714a766dfd4ddc2c952554ab12068121543044
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129856392"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070781"
 ---
 # <a name="dcsv2-series"></a>Serie DCsv2
 
@@ -22,7 +22,8 @@ Las máquinas virtuales de la serie DCsv2 pueden ayudar a proteger la confidenci
 
 Estas máquinas cuentan con tecnología de Intel® Xeon E-2288G (Coffee Lake) a 3.7 GHz y tecnología SGX. Con Intel® Turbo Boost Max Technology 3.0, estas máquinas pueden llegar a 5.0 GHz. 
 
-[!NOTE] El hyperthreading está deshabilitado para una posición de seguridad agregada. Los precios se basan en el rendimiento superior de los núcleos físicos frente a los virtuales, así como en las funcionalidades de seguridad únicas de la serie DC.
+> [!NOTE]
+> El hyperthreading está deshabilitado para una posición de seguridad agregada. Los precios se basan en el rendimiento superior de los núcleos físicos frente a los virtuales, así como en las funcionalidades de seguridad únicas de la serie DC.
 
 Entre los casos de uso confidencial de ejemplo se incluyen las bases de datos, las cadenas de bloques, el análisis de datos entre varias partes, la detección de fraudes, la prevención del blanqueo de dinero, el análisis de uso, el análisis de la inteligencia y el aprendizaje automático.
 
@@ -63,7 +64,7 @@ Entre los casos de uso confidencial de ejemplo se incluyen las bases de datos, l
 - [Proceso de alto rendimiento](sizes-hpc.md)
 - [Generaciones anteriores](sizes-previous-gen.md)
 - [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
-- [Más información sobre los tipos de disco](./disks-types.md#ultra-disk)
+- [Más información sobre los tipos de disco](./disks-types.md#ultra-disks)
 
 Calculadora de precios: [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 

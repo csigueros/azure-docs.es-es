@@ -8,12 +8,12 @@ ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b72066dbeda75ae651b26c76b99697d978986a50
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: ebc655cc772f0d05ef44a453076d5e17d217a54d
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123435301"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038391"
 ---
 # <a name="change-your-performance-tier-without-downtime-using-the-azure-powershell-module-or-the-azure-cli"></a>Para cambiar el nivel de rendimiento sin tiempo de inactividad, use el módulo Azure PowerShell o la CLI de Azure.
 
@@ -85,20 +85,7 @@ New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGro
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-1. Debe habilitar la característica en su suscripción para poder cambiar el nivel de rendimiento de un disco sin tiempo de inactividad. Los pasos que se indican a continuación habilitarán la característica en su suscripción:
-
-    1.  Ejecute el siguiente comando para registrar la característica para su suscripción
-
-        ```azurecli
-        az feature register --namespace Microsoft.Compute --name LiveTierChange
-        ```
-
-    1.  Compruebe que el estado de registro es **Registrado** (puede tardar unos minutos) mediante el comando siguiente antes de probar la característica.
-
-        ```azurecli
-        az feature show --namespace Microsoft.Compute --name LiveTierChange
-        ```
-2. Actualización del nivel de un disco incluso cuando está conectado a una máquina virtual en ejecución
+1. Actualización del nivel de un disco incluso cuando está conectado a una máquina virtual en ejecución
 
     ```azurecli
     resourceGroupName=<yourResourceGroupNameHere>
@@ -110,20 +97,7 @@ New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGro
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-1. Debe habilitar la característica en su suscripción para poder cambiar el nivel de rendimiento de un disco sin tiempo de inactividad. Los pasos que se indican a continuación habilitarán la característica en su suscripción:
-
-    1.  Ejecute el siguiente comando para registrar la característica para su suscripción
-
-        ```azurepowershell
-         Register-AzProviderFeature -FeatureName "LiveTierChange" -ProviderNamespace "Microsoft.Compute" 
-        ```
-
-    1.  Compruebe que el estado de registro es **Registrado** (puede tardar unos minutos) mediante el comando siguiente antes de probar la característica.
-
-        ```azurepowershell
-        Register-AzProviderFeature -FeatureName "LiveTierChange" -ProviderNamespace "Microsoft.Compute" 
-        ```
-2. Actualización del nivel de un disco incluso cuando está conectado a una máquina virtual en ejecución
+1. Actualización del nivel de un disco incluso cuando está conectado a una máquina virtual en ejecución
 
     ```azurepowershell
     $resourceGroupName='yourResourceGroupName'

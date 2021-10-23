@@ -1,14 +1,14 @@
 ---
 title: Creación de programaciones para laboratorios en Azure Lab Services | Microsoft Docs
 description: Aprenda a crear programaciones para laboratorios en Azure Lab Services de forma que las VM de los laboratorios se inicien y apaguen a una hora determinada.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 2a827c3d9f3022cb7d27ee43c9c95227c44f97e7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01ba9448ae22c80ee3a4833c8569b46af370c45e
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96434032"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180616"
 ---
 # <a name="create-and-manage-schedules-for-labs-in-azure-lab-services"></a>Creación y administración de programaciones para laboratorios en Azure Lab Services 
 Las programaciones le permiten configurar un laboratorio educativo de forma que las máquinas virtuales que contiene se inicien y apaguen automáticamente a una hora determinada. Puede definir una programación puntual o periódica. Los procedimientos siguientes le proporcionan los pasos para crear y administrar programaciones para un laboratorio educativo: 

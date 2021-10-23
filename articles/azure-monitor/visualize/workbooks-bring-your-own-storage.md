@@ -6,14 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/11/2020
-ms.author: lagayhar
-author: lgayhardt
-ms.openlocfilehash: 16dbd7f7cd178a76b34b58f4bc6f9a0bc00fac73
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5dc75b3f28198bd3686df48b1d46cb5a8e192a23
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100603944"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132519"
 ---
 # <a name="bring-your-own-storage-to-save-workbooks"></a>Aportación del almacenamiento propio para guardar los libros
 

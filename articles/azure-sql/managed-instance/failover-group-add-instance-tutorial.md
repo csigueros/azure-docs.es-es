@@ -8,16 +8,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: tutorial
-author: BustosMSFT
-ms.author: robustos
+author: emlisa
+ms.author: emlisa
 ms.reviewer: mathoma
 ms.date: 08/27/2019
-ms.openlocfilehash: d3429062ae6385fe844d202cb846245b76896eda
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 534aa867ed763292ad36b74dd500eca77e5c2559
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110697384"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130161699"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Tutorial: Adición de SQL Managed Instance a un grupo de conmutación por error
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

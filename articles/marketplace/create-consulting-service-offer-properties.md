@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 10/27/2020
-ms.openlocfilehash: b40144079304b6981ff8faf251a345dbb163ecac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a77414e794073771f7bf5fe9346e4196b6b4b836
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96459297"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715779"
 ---
 # <a name="how-to-configure-your-consulting-service-offer-properties"></a>Configuración de las propiedades de su oferta de servicios de consultoría
 
@@ -23,27 +23,28 @@ En la pestaña **Propiedades** de la oferta en el Centro de partners, definirá 
 
 ## <a name="select-the-primary-product"></a>Selección del producto principal
 
-En la lista desplegable **Producto principal**, seleccione el producto de Microsoft en el que se centrará la oferta de servicios de consultoría. El producto que seleccione determinará si la oferta se va a publicar en Microsoft AppSource o Azure Marketplace.
+En la lista desplegable **Producto principal**, seleccione el producto de Microsoft en el que se centrará la oferta de servicios de consultoría. El producto que seleccione determinará si la oferta se va a publicar en Microsoft AppSource o Azure Marketplace. La representación precisa de la oferta facilita a los clientes la búsqueda de la oferta. Tenga en cuenta que debe cumplir los [requisitos de elegibilidad](https://aka.ms/AAacrbv) de los productos que seleccione. 
 
-* Si selecciona Azure, la oferta se mostrará en Azure Marketplace. Seleccione hasta tres **Áreas de solución**. Esto facilita para los clientes encontrar la oferta.
-* Si el producto principal *no* es de Azure, la oferta se publicará en AppSource. Seleccione al menos un **Producto aplicable**, hasta un máximo de tres. Esto facilita para los clientes encontrar la oferta.
+- Si selecciona Azure, la oferta se mostrará en Azure Marketplace. Seleccione hasta tres **áreas de soluciones** que representen mejor la oferta.
+- Si selecciona Microsoft 365, elija también hasta tres **áreas de soluciones** que representen mejor la oferta. La oferta se mostrará en Microsoft AppSource.
+-   Si selecciona cualquier producto de Dynamics 365 o Power Platform, también puede seleccionar dos **productos aplicables** adicionales. La oferta se mostrará en Microsoft AppSource.
 
 ## <a name="select-the-consulting-service-type"></a>Selección del tipo de servicio de consultoría
 
 En la lista desplegable **Tipo de servicio de consultoría**, seleccione el tipo de servicio de consultoría que ofrecerá a los clientes. Los tipos disponibles son:
 
-* **Evaluación:** una evaluación del entorno del cliente para determinar la aplicabilidad de una solución y estimar el costo y cronograma de la implementación.
-* **Sesión informativa**: introducción a una solución o servicio mediante marcos, demostraciones y ejemplos de clientes.
-* **Implementación**: una instalación completa que da como resultado una solución que funciona completamente.
-* **Prueba de concepto**: una implementación de ámbito limitado para determinar si una solución cumple los requisitos del cliente.
-* **Taller**: una interacción interactiva que se lleva a cabo en las instalaciones del cliente. Puede implicar entrenamiento, sesiones informativas, evaluaciones o demostraciones que se crean en los datos o el entorno del cliente.
+- **Evaluación:** una evaluación del entorno del cliente para determinar la aplicabilidad de una solución y estimar el costo y cronograma de la implementación.
+- **Sesión informativa**: introducción a una solución o servicio mediante marcos, demostraciones y ejemplos de clientes.
+- **Implementación**: una instalación completa que da como resultado una solución que funciona completamente.
+- **Prueba de concepto**: una implementación de ámbito limitado para determinar si una solución cumple los requisitos del cliente.
+- **Taller**: una interacción interactiva que se lleva a cabo en las instalaciones del cliente. Puede implicar entrenamiento, sesiones informativas, evaluaciones o demostraciones que se crean en los datos o el entorno del cliente.
 
 ## <a name="select-relevant-industries"></a>Selección de los sectores pertinentes
 
 La información de esta sección nos ayuda a categorizar su oferta para que los clientes puedan encontrarla fácilmente en las tiendas en línea de Microsoft.
 
-* Si ha seleccionado Azure como producto principal, seleccione hasta seis **Sectores**. Vea la lista completa de sectores en [Procedimientos recomendados para la publicación de ofertas](./gtm-offer-listing-best-practices.md).
-* Si ha seleccionado un producto principal distinto de Azure, tiene la opción de seleccionar hasta dos **sectores** y dos **sectores secundarios** para cada sector. Vea la lista completa de sectores y sectores secundarios en [Procedimientos recomendados para la publicación de ofertas](./gtm-offer-listing-best-practices.md).
+- Si ha seleccionado Azure como producto principal, seleccione hasta seis **Sectores**. Vea la lista completa de sectores en [Procedimientos recomendados para la publicación de ofertas](./gtm-offer-listing-best-practices.md).
+- Si ha seleccionado un producto principal distinto de Azure, tiene la opción de seleccionar hasta dos **sectores** y dos **sectores secundarios** para cada sector. Vea la lista completa de sectores y sectores secundarios en [Procedimientos recomendados para la publicación de ofertas](./gtm-offer-listing-best-practices.md).
 
 ## <a name="select-your-competencies"></a>Selección de las competencias
 

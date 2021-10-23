@@ -1,14 +1,14 @@
 ---
 title: Establecimiento de contraseñas de las máquinas virtuales en Azure Lab Services | Microsoft Docs
 description: Aprenda a establecer y restablecer las contraseñas de las máquinas virtuales (VM) en laboratorios de Azure Lab Services.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 6ae577ee4c0c7e31760e0fb12afeaeac1ef8b7e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b39dcae2f9568785313a77c9a3b2a9afd4f0a581
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96434233"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180103"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configuración y administración del grupo de máquinas virtuales 
 En este artículo se muestra cómo realizar las tareas siguientes:
