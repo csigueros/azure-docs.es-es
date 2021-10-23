@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 09/28/2021
 ms.topic: conceptual
-ms.openlocfilehash: bac463aa01a997122d86e32e140b135938d589da
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: fcf7235ae071dece392a11bacbf9f750569380ae
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129093295"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715312"
 ---
 # <a name="plan-your-update-management-deployment"></a>Planeamiento de la implementación de Update Management
 
@@ -85,7 +85,7 @@ Habilite Update Management y seleccione las máquinas que se administrarán con 
 
 - Use una [plantilla de Azure Resource Manager](enable-from-template.md) para implementar Update Management en una cuenta de Automation nueva o existente, y el área de trabajo de Log Analytics de Azure Monitor en la suscripción. No configura el ámbito de las máquinas que deben administrarse; esto se realiza como un paso independiente después de usar la plantilla.
 
-- Desde su [cuenta de Automation](enable-from-automation-account.md) para una o más máquinas de Azure o que no sean de Azure, incluidos servidores habilitados para Arc.
+- Desde su [cuenta de Automation](enable-from-automation-account.md) de una o varias máquinas de Azure o que no sean de Azure, incluidos servidores habilitados para Azure Arc.
 
 - Use el [runbook](enable-from-runbook.md) **Enable-AutomationSolution** para automatizar la incorporación de VM de Azure.
 

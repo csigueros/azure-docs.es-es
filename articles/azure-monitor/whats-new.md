@@ -3,12 +3,12 @@ title: Novedades en la documentación de Azure Monitor
 description: Novedades en la documentación de Azure Monitor
 ms.topic: conceptual
 ms.date: 09/07/2021
-ms.openlocfilehash: f6827ac33585a22eabd31cc79126f9fe0e6c56f8
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 735c94026695e6eb89005c6e1bbc4bbdbe46f64b
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129713787"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178697"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Novedades en la documentación de Azure Monitor
 
@@ -24,7 +24,7 @@ En este artículo se enumeran cambios importantes en la documentación de Azure 
 - [Ejemplos de plantillas de Resource Manager para Azure Monitor](resource-manager-samples.md)
 - [Roles, permisos y seguridad en Azure Monitor](roles-permissions-security.md)
 - [Supervisión del uso y costos estimados en Azure Monitor](usage-estimated-costs.md)
-- [Visualización de datos de Azure Monitor](visualizations.md)
+
 ### <a name="agents"></a>Agentes
 
 **Artículos actualizados**
@@ -257,7 +257,7 @@ En este artículo se enumeran cambios importantes en la documentación de Azure 
 
 **Artículos actualizados**
 
-- [Visualización de datos de Azure Monitor](visualizations.md)
+- [Visualización de datos de Azure Monitor](best-practices-analysis.md)
 ## <a name="june-2021"></a>Junio de 2021
 ### <a name="agents"></a>Agentes
 

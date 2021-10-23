@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: 4b73526ad245d9364b0ada997fc014e0dd16df40
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 98364df02238c36f7e15f00eaff6ec124631987c
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129716313"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178246"
 ---
 <!-- markdownlint-disable MD033 -->
 
@@ -42,35 +42,35 @@ Para ver cómo se extraen los datos de documentos de identificación, pruebe nue
 
 * Una suscripción a Azure: puede [crear una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/)
 
-* Una [instancia de Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) ) en Azure Portal. Puede usar el plan de tarifa gratuito (`F0`) para probar el servicio. Después de implementar el recurso, haga clic en **Ir al recurso** para obtener la clave de API y el punto de conexión.
+* Una [instancia de Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) en Azure Portal. Puede usar el plan de tarifa gratuito (`F0`) para probar el servicio. Después de implementar el recurso, haga clic en **Ir al recurso** para obtener la clave de API y el punto de conexión.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Captura de pantalla: claves y ubicación del punto de conexión en Azure Portal.":::
 
-* Un documento de identificación. Puede usar nuestro [documento de identificación de ejemplo](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/id-license.jpg).
+* Un documento de identificación. Puede usar nuestro [documento de identificación de ejemplo](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/applied-ai-services/form-recognizer/media/id-license.jpg).
 
 > [!div class="nextstepaction"]
   > [Probarlo](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
 
-En la interfaz de usuario de Form Recognizer:
+En la interfaz de usuario de Form Recognizer:
 
-  1. Seleccione **Uso del modelo precompilado para obtener datos**.
+  1. Seleccione **Use prebuilt model to get data** (Usar un modelo precompilado para obtener datos).
   1. Seleccione **Recibo** en el menú desplegable **Tipo de formulario**:
 
   :::image type="content" source="media/try-id-document.png" alt-text="Captura de pantalla: menú de selección de modelos precompilados desplegable de la herramienta de etiquetado de ejemplo.":::
 
 ## <a name="input-requirements"></a>Requisitos de entrada
 
-* Para obtener los mejores resultados, proporcione una foto clara o un escaneo de alta calidad por documento.
+* Para obtener unos resultados óptimos, proporcione una foto clara o una digitalización de alta calidad por documento.
 * Formatos de archivo admitidos: JPEG, PNG, BMP, TIFF y PDF (texto insertado o digitalizado). Los PDF insertados de texto son mejores para eliminar la posibilidad de error en la extracción de caracteres y en la ubicación.
-* En el caso de PDF y TIFF, se pueden procesar hasta 2000 páginas (con una suscripción de nivel gratuito, solo se procesan las dos primeras páginas).
+* En el caso de PDF y TIFF, se pueden procesar hasta 2000 páginas (con una suscripción de nivel gratuito, solo se procesan las dos primeras páginas).
 * El tamaño del archivo debe ser inferior a 50 MB.
 * Las imágenes deben tener unas dimensiones entre 50 x 50 píxeles y 10 000 x 10 000 píxeles.
-* Los archivos PDF tienen unas dimensiones de hasta 17 x 17 pulgadas, lo que se corresponde con los tamaños de papel Legal o A3, o más pequeños.
-* El tamaño total de los datos de aprendizaje es de 500 páginas o menos.
-* Si los archivos PDF están bloqueados con contraseña, debe quitar el bloqueo antes de enviarlos.
+* Los archivos PDF tienen unas dimensiones de hasta 17 x 17 pulgadas, lo que corresponde a los tamaños de papel Legal o A3, o más pequeños.
+* El tamaño total de los datos de entrenamiento es de 500 páginas o menos.
+* Si los archivos PDF están bloqueados con contraseña, debe desbloquearlos antes de enviarlos.
 * Para un aprendizaje sin supervisión (sin datos etiquetados):
-  * los datos deben contener claves y valores.
-  * las claves deben aparecer arriba o a la izquierda de los valores, pero no pueden aparecer abajo o a la derecha.
+  * Los datos deben contener claves y valores.
+  * Las claves deben aparecer por encima o a la izquierda de los valores; no pueden aparecer por debajo ni a la derecha.
 
 > [!NOTE]
 > La [herramienta de etiquetado de ejemplo](https://fott-2-1.azurewebsites.net/) no admite el formato de archivo BMP. Se trata de una limitación de la herramienta, no del servicio Form Recognizer.
@@ -126,16 +126,16 @@ En la interfaz de usuario de Form Recognizer:
 
 * Siga nuestra [**guía de migración de Form Recognizer v3.0**](v3-migration-guide.md) para obtener información sobre cómo usar la versión preliminar en las aplicaciones y flujos de trabajo.
 
-* Explore nuestra [**API REST (versión preliminar)** ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) para obtener más información sobre la versión preliminar y las nuevas funcionalidades.
+* Explore nuestra [**API de REST (versión preliminar)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) para obtener más información sobre la versión preliminar y las nuevas funcionalidades.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Completar un inicio rápido de Form Recognizer:
+* Completar un inicio rápido de Form Recognizer:
 
   > [!div class="nextstepaction"]
   > [Inicio rápido: Uso de la biblioteca cliente de Form Recognizer](quickstarts/try-sdk-rest-api.md)
 
-* Explorar nuestra API REST:
+* Explorar nuestra API de REST:
 
     > [!div class="nextstepaction"]
     > [API v2.1 de Form Recognizer](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707)

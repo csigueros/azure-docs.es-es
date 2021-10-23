@@ -8,18 +8,18 @@ ms.date: 08/17/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 5ea12e47b67f79ab2d5aa559f3afc1db587e1a55
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 2f1c56070a2b86945494bf0a8625f223d017f326
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122695918"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070835"
 ---
 # <a name="using-azure-ultra-disks"></a>Uso de discos Ultra de Azure
 
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
-En este artículo se explica cómo implementar y usar un disco Ultra; para obtener información conceptual sobre Ultra Disks, vea [¿Qué tipos de discos están disponibles en Azure?](disks-types.md#ultra-disk).
+En este artículo se explica cómo implementar y usar un disco Ultra; para obtener información conceptual sobre Ultra Disks, vea [¿Qué tipos de discos están disponibles en Azure?](disks-types.md#ultra-disks).
 
 Los discos Ultra de Azure ofrecen un alto rendimiento, IOPS elevadas y un almacenamiento en disco coherente y de baja latencia para máquinas virtuales IaaS de Azure. En esta nueva oferta se proporciona un rendimiento exclusivo que se encuentra en los mismos niveles de disponibilidad que nuestras ofertas de discos existentes. Una ventaja importante de los discos Ultra es la posibilidad de cambiar dinámicamente el rendimiento del disco SSD junto con sus cargas de trabajo sin tener que reiniciar las máquinas virtuales. Además, los discos Ultra son adecuados para cargas de trabajo con grandes cantidades de datos, como SAP HANA, bases de datos de nivel superior y cargas de trabajo que admitan muchas transacciones.
 

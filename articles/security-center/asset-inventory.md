@@ -5,15 +5,15 @@ author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 02/10/2021
+ms.date: 10/07/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 0daf5cab1627819093514833667606758707f17a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4175476bc655aa0be1a5377f3fada83cb30ac37e
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728677"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715904"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory"></a>Exploración y administración de los recursos con Asset Inventory
 
@@ -40,7 +40,7 @@ Las posibilidades de administración de recursos de esta herramienta son sustanc
 |Aspecto|Detalles|
 |----|:----|
 |Estado de la versión:|Disponibilidad general (GA)|
-|Precios:|Gratuito|
+|Precios:|Gratis *<br>* Algunas características de la página de inventario, como el [inventario de software](#access-a-software-inventory), requieren la instalación de soluciones de pago.|
 |Roles y permisos necesarios:|Todos los usuarios|
 |Nubes:|:::image type="icon" source="./media/icons/yes-icon.png"::: Nubes comerciales<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Nacionales o soberanas (Azure Government y Azure China 21Vianet)|
 |||
@@ -130,6 +130,73 @@ Con el [lenguaje de consulta de Kusto (KQL)](/azure/data-explorer/kusto/query/),
     ![Consulta de inventario en ARG.](./media/asset-inventory/inventory-query-in-resource-graph-explorer.png)
 
 1. Si ha definido algunos filtros y ha dejado la página abierta, Security Center no actualizará los resultados de forma automática. Cualquier cambio en los recursos no afectará a los resultados mostrados a menos que se vuelva a cargar manualmente la página o se seleccione **Actualizar**.
+
+## <a name="access-a-software-inventory"></a>Acceso a un inventario de software
+
+Si ha habilitado la integración con Microsoft Defender para punto de conexión y ha habilitado Azure Defender para servidores, tendrá acceso al inventario de software.
+
+:::image type="content" source="media/asset-inventory/software-inventory-filters.gif" alt-text="Si ha habilitado la solución de amenazas y vulnerabilidades, el inventario de recursos de Security Center ofrece un filtro para seleccionar los recursos por su software instalado.":::
+
+> [!NOTE]
+> La opción "En blanco" muestra las máquinas sin Microsoft Defender para punto de conexión (o sin Azure Defender para servidores).
+
+Además de los filtros de la página de inventario de recursos, puede explorar los datos de inventario de software de Azure Resource Graph Explorer.
+
+Ejemplos de uso de Azure Resource Graph Explorer para acceder a los datos de inventario de software y explorarlos:
+
+1. Abra **Azure Resource Graph Explorer**.
+
+    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Inicio de la página de recomendaciones de Azure Resource Graph Explorer**" :::
+
+1. Seleccione el siguiente ámbito de suscripción: securityresources/softwareinventories
+
+1. Escriba cualquiera de las siguientes consultas (o personalícelas o escriba las suyas propias) y seleccione **Ejecutar consulta**.
+
+    - Para generar una lista básica del software instalado:
+
+        ```kusto
+        securityresources
+        | where type == "microsoft.security/softwareinventories"
+        | project id, Vendor=properties.vendor, Software=properties.softwareName, Version=properties.version
+        ```
+
+    - Para filtrar por los números de versión:
+
+        ```kusto
+        securityresources
+        | where type == "microsoft.security/softwareinventories"
+        | project id, Vendor=properties.vendor, Software=properties.softwareName, Version=tostring(properties.    version)
+        | where Software=="windows_server_2019" and parse_version(Version)<=parse_version("10.0.17763.1999")
+        ```
+
+    - Para buscar máquinas con una combinación de productos de software:
+
+        ```kusto
+        securityresources
+        | where type == "microsoft.security/softwareinventories"
+        | extend vmId = properties.azureVmId
+        | where properties.softwareName == "apache_http_server" or properties.softwareName == "mysql"
+        | summarize count() by tostring(vmId)
+        | where count_ > 1
+        ```
+
+    - Combinación de un producto de software con otra recomendación de ASC:
+
+        (En este ejemplo: máquinas con MySQL instalado y puertos de administración expuestos)
+
+        ```kusto
+        securityresources
+        | where type == "microsoft.security/softwareinventories"
+        | extend vmId = tolower(properties.azureVmId)
+        | where properties.softwareName == "mysql"
+        | join (
+        securityresources
+        | where type == "microsoft.security/assessments"
+        | where properties.displayName == "Management ports should be closed on your virtual machines" and properties.status.code == "Unhealthy"
+        | extend vmId = tolower(properties.resourceDetails.Id)
+        ) on vmId
+        ```
+
 
 
 ## <a name="faq---inventory"></a>Preguntas frecuentes sobre el inventario

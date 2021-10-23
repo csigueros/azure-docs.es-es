@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: 9a5d14c3363f5d4b4d25e0592b184b6e706fef6b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d2872d2293802c435eb4bbd67078e6d1e973a6b9
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734286"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004604"
 ---
 # <a name="enable-sql-insights-preview"></a>Habilitación de SQL Insights (versión preliminar)
 En este artículo se describe cómo habilitar [SQL Insights](sql-insights-overview.md) para supervisar las implementaciones de SQL. La supervisión se realiza desde una máquina virtual de Azure que establece una conexión con las implementaciones de SQL y usa vistas de administración dinámica para recopilar datos de supervisión. Puede controlar qué conjuntos de datos se recopilan y la frecuencia de recopilación mediante un perfil de supervisión.
@@ -225,7 +225,7 @@ Especifique la cadena de conexión de esta forma:
 
 ```
 "sqlManagedInstanceConnections": [ 
-      "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;", 
+      "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;" 
     ] 
 ```
 Obtenga los detalles del elemento de menú **Cadenas de conexión** para la instancia administrada.

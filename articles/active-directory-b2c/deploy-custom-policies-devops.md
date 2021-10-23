@@ -3,20 +3,20 @@ title: Implementar directivas personalizadas con Azure Pipelines
 titleSuffix: Azure AD B2C
 description: Aprenda a implementar directivas personalizadas de Azure AD B2C en una canalización de CI/CD mediante Azure Pipelines.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/26/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: d24e1cf8394b697348492ffcddc4634646ebbbb6
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: f042131bd67c27041ca464fde1be6f4d4915d7a6
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122967093"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130039664"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Implementar directivas personalizadas con Azure Pipelines
 
@@ -176,13 +176,13 @@ Una tarea de canalización es un script empaquetado previamente que realiza una 
 
 
         ```PowerShell
-        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -Folder $(System.DefaultWorkingDirectory)/policyRepo/B2CAssets/ -Files "TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml,ProfileEdit.xml,PasswordReset.xml"
+        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -Folder $(System.DefaultWorkingDirectory)/policyRepo/B2CAssets/ -Files "TrustFrameworkBase.xml,TrustFrameworkLocalization.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml,ProfileEdit.xml,PasswordReset.xml"
         ```
         
         El parámetro `-Files` es una lista de delimitadores de comas de archivos de directiva que se implementarán. Actualice la lista con los archivos de directiva.
         
         > [!IMPORTANT]
-        >  Asegúrese de que las directivas se cargan en el orden correcto. En primer lugar, la directiva base, la directiva de extensiones y, después, las directivas de usuario de confianza. Por ejemplo, `TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml`.
+        >  Asegúrese de que las directivas se cargan en el orden correcto. En primer lugar, la directiva base, la directiva de extensiones y, después, las directivas de usuario de confianza. Por ejemplo, `TrustFrameworkBase.xml,TrustFrameworkLocalization.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml`.
         
 1. Seleccione **Guardar** para guardar el trabajo de agente.
 

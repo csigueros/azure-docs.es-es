@@ -2,13 +2,13 @@
 title: Funciones de Bicep
 description: Describe las funciones que se van a usar en un archivo de Bicep para recuperar valores, trabajar con cadenas y valores numéricos y recuperar información de implementación.
 ms.topic: conceptual
-ms.date: 09/30/2021
-ms.openlocfilehash: 6fabd0bdbe6341382344c0e63ca711519275a3f4
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.date: 10/15/2021
+ms.openlocfilehash: 429dca8bd4544e1dd8b22406811e53d0ed2ea623
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129351679"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070572"
 ---
 # <a name="bicep-functions"></a>Funciones de Bicep
 
@@ -45,6 +45,7 @@ Las siguientes funciones están disponibles para trabajar con matrices. Todas es
 * [empty](./bicep-functions-array.md#empty)
 * [first](./bicep-functions-array.md#first)
 * [intersection](./bicep-functions-array.md#intersection)
+* [items](./bicep-functions-array.md#items)
 * [last](./bicep-functions-array.md#last)
 * [length](./bicep-functions-array.md#length)
 * [min](./bicep-functions-array.md#min)

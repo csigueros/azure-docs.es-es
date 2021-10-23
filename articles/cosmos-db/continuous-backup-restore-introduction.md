@@ -4,16 +4,16 @@ description: La característica de restauración a un momento dado de Azure Cosm
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/29/2021
+ms.date: 10/18/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.custom: references_regions
-ms.openlocfilehash: e7d46d1680e11307eb873383e91e6e682f545549
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: c0e08a9aadc7389fa064ba03fbd026ace197cae1
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129546572"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165540"
 ---
 # <a name="continuous-backup-with-point-in-time-restore-in-azure-cosmos-db"></a>Copia de seguridad continua con la característica de restauración a un momento dado de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -105,13 +105,11 @@ Actualmente, la funcionalidad de restauración a un momento dado tiene las sigui
 
 * Solo se admiten las API de Azure Cosmos DB para SQL y MongoDB para copias de seguridad continuas. Todavía no se admiten Cassandra API, Table API y Gremlin API.
 
-* Todavía no se admiten las regiones de la nube soberana de Azure y de Azure Government.
-
 * No se admiten cuentas con claves administradas por el cliente para usar la copia de seguridad continua.
 
 * No se admiten cuentas de escritura de varias regiones.
 
-* Azure Synapse Link y el modo de copia de seguridad periódica pueden coexistir en la misma cuenta de base de datos. Sin embargo, los datos del almacén analítico no se incluyen en las copias de seguridad y restauraciones. Cuando Synapse Link esté habilitado, Azure Cosmos DB seguirá haciendo copias de seguridad automáticamente de los datos del almacén de transacciones en el intervalo programado de copias de seguridad. 
+* Azure Synapse Link y el modo de copia de seguridad periódica pueden coexistir en la misma cuenta de base de datos. Sin embargo, los datos del almacén analítico no se incluyen en las copias de seguridad y restauraciones. Cuando Synapse Link esté habilitado, Azure Cosmos DB seguirá haciendo copias de seguridad automáticamente de los datos del almacén de transacciones en el intervalo programado de copias de seguridad.
 
 * Azure Synapse Link y el modo de copia de seguridad continua no pueden coexistir en la misma cuenta de base de datos. Actualmente, las cuentas de base de datos con Synapse Link habilitado no pueden usar el modo de copia de seguridad continua y viceversa.
 

@@ -6,13 +6,12 @@ ms.topic: article
 ms.date: 9/30/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: nshankar
-zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 1e5b39424b8e162feda65783eecc3a1a95fdaa7f
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 9a18db63f247ed3508f09426841e84ae65c34923
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129535494"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994772"
 ---
 # <a name="configure-osm-cli-variables-with-an-osm_config-file"></a>Configuración de variables de la CLI de OSM con un archivo OSM_CONFIG
 

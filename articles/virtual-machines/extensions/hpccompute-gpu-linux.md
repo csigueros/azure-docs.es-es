@@ -13,15 +13,15 @@ ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/21/2021
+ms.date: 10/14/2021
 ms.author: amverma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 98ac0d72ee3bcb7e99030c0d6748cb359c148924
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: bbdf89e9dfd7b256082d935864515b9b0228761c
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114446057"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130046533"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensión del controlador de GPU de NVIDIA para Linux
 
@@ -40,7 +40,7 @@ Esta extensión admite las siguientes distribuciones del sistema operativo, depe
 
 | Distribución | Versión |
 |---|---|
-| Linux: Ubuntu | 16.04 LTS, 18.04 LTS |
+| Linux: Ubuntu | 16.04 LTS, 18.04 LTS, 20.04 LTS |
 | Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5, 7.6, 7.7, 7.8 |
 | Linux: CentOS | 7.3, 7.4, 7.5, 7.6, 7.7, 7.8 |
 
@@ -64,7 +64,7 @@ En el siguiente JSON, se muestra el esquema para la extensión.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.3",
+    "typeHandlerVersion": "1.6",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -79,7 +79,7 @@ En el siguiente JSON, se muestra el esquema para la extensión.
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
 | type | NvidiaGpuDriverLinux | string |
-| typeHandlerVersion | 1.3 | int |
+| typeHandlerVersion | 1.6 | int |
 
 ### <a name="settings"></a>Configuración
 
@@ -115,7 +115,7 @@ En el siguiente ejemplo se da por supuesto que la extensión está anidada dentr
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.3",
+    "typeHandlerVersion": "1.6",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -133,7 +133,7 @@ Set-AzVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverLinux" `
     -ExtensionType "NvidiaGpuDriverLinux" `
-    -TypeHandlerVersion 1.3 `
+    -TypeHandlerVersion 1.6 `
     -SettingString '{ `
     }'
 ```
@@ -148,7 +148,7 @@ az vm extension set \
   --vm-name myVM \
   --name NvidiaGpuDriverLinux \
   --publisher Microsoft.HpcCompute \
-  --version 1.3 
+  --version 1.6 
 ```
 
 y también se agregan dos configuraciones personalizadas opcionales de ejemplo para la instalación de los controladores no predeterminados. En concreto, actualiza el kernel del sistema operativo a la versión más reciente e instala un controlador específico para la versión del kit de herramientas CUDA. De nuevo, tenga en cuenta que "--settings" es opcional y un valor predeterminado. Tenga en cuenta que la actualización del kernel puede aumentar las horas de instalación de la extensión. También es posible que elija una versión del kit de herramientas de CUDA específica (una versión anterior) que no siempre es compatible con los kernels más recientes.
@@ -159,7 +159,7 @@ az vm extension set \
   --vm-name myVM \
   --name NvidiaGpuDriverLinux \
   --publisher Microsoft.HpcCompute \
-  --version 1.3 \
+  --version 1.6 \
   --settings '{ \
     "updateOS": true, \
     "driverVersion": "10.0.130" \

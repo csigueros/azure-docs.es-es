@@ -9,12 +9,12 @@ ms.date: 12/11/2020
 ms.author: mohitku
 ms.reviewer: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b345491298c1481ccb9046f7ec27c45dd1bdd7a4
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 17bf4c75d9db989a9556808c4bcf6c080fbbbd38
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110668820"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063096"
 ---
 # <a name="tuning-web-application-firewall-waf-for-azure-front-door"></a>Ajuste de Web Application Firewall (WAF) para Azure Front Door
  
@@ -43,7 +43,7 @@ En el siguiente ejemplo, exploramos un registro `FrontdoorWebApplicationFirewall
 
 ```kusto
 AzureDiagnostics
-| where Category == 'FrontdoorWebApplicationFirewallLog'
+| where Category == 'FrontDoorWebApplicationFirewallLog'
 | where TimeGenerated > ago(1d)
 | where action_s == 'Block'
 

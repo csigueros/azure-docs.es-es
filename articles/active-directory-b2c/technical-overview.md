@@ -2,20 +2,20 @@
 title: Introducción a los aspectos técnicos y las características de Azure Active Directory B2C
 description: Una introducción en profundidad a las características y tecnologías de Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
 ms.date: 10/01/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 8f5cbcefa37df245f025895f421df4c4c7907ff4
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 5a01eb29caee02874cf828d1b2dd6b2df7440b4d
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129709982"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130043061"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Introducción a los aspectos técnicos y las características de Azure Active Directory B2C
 

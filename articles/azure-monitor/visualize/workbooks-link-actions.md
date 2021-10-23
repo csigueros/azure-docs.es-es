@@ -3,14 +3,12 @@ title: Acciones de vínculo de Libros de Azure Monitor
 description: Cómo usar las acciones de vínculo en los libros de Azure Monitor
 ms.topic: conceptual
 ms.date: 01/07/2021
-author: lgayhardt
-ms.author: lagayhar
-ms.openlocfilehash: 2d1abe6d77dd4293dc70a07f3b8fd5d9da78d01e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd8d4b1d7aefe070f72c4087162527dadd69f09e
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100603039"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130129251"
 ---
 # <a name="link-actions"></a>Acciones de vínculo
 

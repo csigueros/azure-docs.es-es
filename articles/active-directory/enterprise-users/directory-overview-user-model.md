@@ -3,7 +3,7 @@ title: Usuarios, grupos, licencias y roles en Azure Active Directory
 description: La relación entre usuarios y licencias asignadas, roles de administrador y pertenencia a grupos en Azure Active Directory
 keywords: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.author: curtand
 ms.reviewer: krbain
 ms.date: 09/01/2021
@@ -14,12 +14,12 @@ ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 891cc34cc3c9cde7d1bc87df289508881d772586
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: fce67f5f6adf39b70fd6a84dbb959cfc1d7c5237
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123437317"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129986993"
 ---
 # <a name="what-is-enterprise-user-management"></a>¿Qué es la administración de usuarios empresariales?
 

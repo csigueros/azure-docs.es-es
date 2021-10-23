@@ -1,18 +1,18 @@
 ---
 title: Seguridad por capas v1
 description: Aprenda a implementar una arquitectura de seguridad por capas en el entorno de App Service. Este documento solo se proporciona para los clientes que usan App Service Environment v1 heredado.
-author: stefsch
+author: madsd
 ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601
 ms.topic: article
 ms.date: 08/30/2016
-ms.author: stefsch
+ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 813160ee19c8447fdfcb705e7a9162a41a0c308c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d2245cc7557b7f5d6c6c392957fe0ef817975c53
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739515"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001682"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implementación de una arquitectura de seguridad por capas con entornos de App Service
 Como los entornos de App Service proporcionan un entorno de tiempo de ejecución aislado que está implementado en una red virtual, los desarrolladores pueden crear una arquitectura de seguridad por capas que proporcione diferentes niveles de acceso a la red para cada capa de aplicación física.

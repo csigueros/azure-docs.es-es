@@ -3,7 +3,7 @@ title: Una aplicación de Azure Active Directory Application Proxy tarda mucho 
 description: Solución de problemas de rendimiento de carga de páginas con Azure Active Directory Application Proxy
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 2de7e8df9148efdc04b49a1e7642eef739dce399
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 29dd0b1fd3cb03a165ab278c3d8867525a84566d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129612795"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129988969"
 ---
 # <a name="an-application-proxy-application-takes-too-long-to-load"></a>Tiempo excesivo de carga de una aplicación con el proxy de aplicación
 

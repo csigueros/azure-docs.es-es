@@ -3,12 +3,12 @@ title: Matriz de compatibilidad para la recuperación ante desastres física o d
 description: Resume la compatibilidad de la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure mediante Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/02/2021
-ms.openlocfilehash: ba92dacf320d35c53d31de877079a3e19b56c317
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 2557292af835f13792673c2cfbb1eb82542b7725
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129670183"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994487"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure.
 
@@ -59,7 +59,7 @@ Tipo de dirección IP | estática
 Puertos | 443 se usa para la orquestación del canal de control<br/>9443 se usa para el transporte de datos
 
 > [!NOTE]
-El sistema operativo debe instalarse con la configuración regional en inglés. La conversión de la configuración regional posterior a la instalación podría crear problemas.
+> El sistema operativo debe instalarse con la configuración regional en inglés. La conversión de la configuración regional posterior a la instalación podría crear problemas.
 
 
 

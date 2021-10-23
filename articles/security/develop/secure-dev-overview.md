@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: baaa311620f5c10948aa3494002ce359cc5dab28
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3b0ebb1989e350962317adce64c0542b4a296924
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94517179"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000771"
 ---
 # <a name="secure-development-best-practices-on-azure"></a>Procedimientos recomendados para un desarrollo seguro en Azure
 En esta serie de artículos se presentan las actividades y controles de seguridad que hay que tener en cuenta al desarrollar aplicaciones para la nube. Se abarcan las fases del Ciclo de vida de desarrollo de seguridad (SDL) de Microsoft así como conceptos y preguntas de seguridad que se han de tener en cuenta durante cada fase del ciclo de vida. El objetivo es ayudarle a definir actividades y servicios de Azure que pueden usarse en cada fase del ciclo de vida para diseñar, desarrollar e implementar una aplicación más segura.
@@ -67,7 +67,7 @@ Utilice los siguientes recursos para obtener más información sobre el desarrol
 
 [Open Web Application Security Project (OWASP)](https://www.owasp.org/index.php/Main_Page): OWASP es una comunidad en línea que produce artículos, metodologías, documentación, herramientas y tecnologías disponibles gratuitamente en el ámbito de seguridad de aplicaciones web.
 
-[Pushing Left, Like a Boss](https://code.likeagirl.io/pushing-left-like-a-boss-part-1-80f1f007da95?WT.mc_id=docs-blog-tajanca): serie de artículos en línea donde se describen los distintos tipos de actividades de seguridad de aplicaciones que los desarrolladores deben seguir para crear código más seguro.
+[Pushing Left, Like a Boss](https://wehackpurple.com/pushing-left-like-a-boss-part-1/): serie de artículos en línea donde se describen los distintos tipos de actividades de seguridad de aplicaciones que los desarrolladores deben seguir para crear código más seguro.
 
 [Plataforma de identidad de Microsoft](../../active-directory/develop/index.yml) esta plataforma es una evolución de la plataforma de desarrolladores y de servicio de identidad de Azure AD. Se trata de una plataforma completa que consiste en un servicio de autenticación, bibliotecas de código abierto, registro y configuración de aplicaciones, documentación completa para desarrolladores, ejemplos de código y otro contenido para desarrolladores. La plataforma de identidad de Microsoft admite protocolos estándar del sector tales como OAuth 2.0 y OpenID Connect.
 

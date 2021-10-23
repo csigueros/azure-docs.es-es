@@ -3,20 +3,20 @@ title: Registro de una aplicación de Microsoft Graph
 titleSuffix: Azure AD B2C
 description: Prepárese para la administración de recursos de Azure AD B2C con Microsoft Graph mediante el registro de una aplicación que tenga concedidos los permisos de Graph API necesarios.
 services: B2C
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/20/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 62b1f81f0e2a1582e78dff044a3109c3b1525939
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 48f60c6769812e28a0981329885c60995d1d0e1b
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128588967"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130036432"
 ---
 # <a name="register-a-microsoft-graph-application"></a>Registro de una aplicación de Microsoft Graph
 

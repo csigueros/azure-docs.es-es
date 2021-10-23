@@ -32,8 +32,8 @@
           href: howto-restrict-egress.md
     - name: Storage
       items:
-        - name: Cifrado de PVC con una clave administrada por el cliente (versión preliminar)
-          href: howto-encrypt-data-disks.md
+        - name: Cifrado de datos de clústeres con una clave administrada por el cliente (versión preliminar)
+          href: howto-byok.md
         - name: Creación de una clase de Azure Files Storage
           href: howto-create-a-storageclass.md
         - name: Uso del registro de contenedor integrado

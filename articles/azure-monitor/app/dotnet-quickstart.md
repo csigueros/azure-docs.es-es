@@ -2,16 +2,14 @@
 title: 'Inicio rápido: Supervisión de una aplicación de ASP.NET Core con Azure Monitor Application Insights'
 description: Instrumente una aplicación web de ASP.NET Core para la supervisión con Azure Monitor Application Insights.
 ms.topic: quickstart
-author: lgayhardt
-ms.author: lagayhar
 ms.date: 06/11/2021
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 03506bd066ee81eb61c2d44f0d31f1336bd44f05
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 344f34116a1c6b40ac452fea4c9f27d8c89ba3ad
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129081118"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130134058"
 ---
 # <a name="quickstart-monitor-an-aspnet-core-app-with-azure-monitor-application-insights"></a>Inicio rápido: Supervisión de una aplicación de ASP.NET Core con Azure Monitor Application Insights
 

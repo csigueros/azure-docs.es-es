@@ -4,7 +4,7 @@ description: Cómo crear o actualizar reglas de pertenencia a grupos en Azure Po
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cff9855b97dc1afc1ba9e4dc1beeb7320e6b1e0b
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 538f1ee86927c5d2c7e3db4fd3b0dc5c44726c2d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124785997"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129986575"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Creación o actualización de un grupo dinámico en Azure Active Directory
 

@@ -3,7 +3,7 @@ title: Creación de una FCI con Espacios de almacenamiento directo
 description: Use Espacios de almacenamiento directo para crear una instancia de clúster de conmutación por error (FCI) con SQL Server en máquinas virtuales de Azure.
 services: virtual-machines
 documentationCenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -13,13 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
-ms.author: mathoma
-ms.openlocfilehash: 7c15dad5d82f538f6c6e81b0b99fed23d9bb0ae9
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: 44b6035ed328ffdc3a0b6a1a6ef14ab1c593e844
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123226768"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166990"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Creación de una FCI con Espacios de almacenamiento directo (SQL Server en Azure VM)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

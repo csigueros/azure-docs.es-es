@@ -1,14 +1,14 @@
 ---
 title: Habilitación de la virtualización anidada en una plantilla de máquina virtual en Azure Lab Services (script) | Microsoft Docs
 description: Obtenga información sobre cómo crear una plantilla de máquina virtual con varias máquinas virtuales dentro mediante un script.  En otras palabras, habilite la virtualización anidada en una plantilla de máquina virtual en Azure Lab Services.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 5ae50bd11ab9a8adb769920f6d473a2ff2ce9342
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cd2d206ceff358421f7c36f31554a0cb5684a482
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91251502"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180426"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-using-a-script"></a>Habilitación de la virtualización anidada en una plantilla de máquina virtual en Azure Lab Services usando un script
 

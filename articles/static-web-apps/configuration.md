@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 08/27/2021
 ms.author: cshoe
-ms.openlocfilehash: 25358033e88fbfb1590289e6fbad8e4109e0dbbf
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: ce46cbaf5a368d3278f4ccdf0c012f212fbfb48a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129399591"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004224"
 ---
 # <a name="configure-azure-static-web-apps"></a>Configuración de Azure Static Web Apps
 
@@ -202,7 +202,7 @@ En la estructura de archivos siguiente, se pueden conseguir los resultados que s
 
 ## <a name="global-headers"></a>Encabezados globales
 
-En la sección `globalHeaders` se proporciona un conjunto con los [encabezados HTTP](https://developer.mozilla.org/docs/Web/HTTP/Headers) que se aplican a cada respuesta, a menos que queden invalidados por una regla de [encabezado de ruta](#route-headers). De lo contrario, se devuelve la unión de los dos encabezados de la ruta y los encabezados globales.
+En la sección `globalHeaders` se proporciona un conjunto con los encabezados HTTP que se aplican a cada respuesta, a menos que queden invalidados por una regla de [encabezado de ruta](#route-headers). De lo contrario, se devuelve la unión de los dos encabezados de la ruta y los encabezados globales.
 
 Consulte el [archivo de configuración de ejemplo](#example-configuration-file) para ver cómo se usan.
 

@@ -3,20 +3,20 @@ title: Inicio de sesión único en aplicaciones con Application Proxy de Azure 
 description: Active el inicio de sesión único para sus aplicaciones locales publicadas, usando Application Proxy de Azure Active Directory en Azure Portal.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: a6cbca54c13b42af059831f69131a23e16463c14
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.reviewer: ashishj
+ms.openlocfilehash: 2589dcd1c077d50c80f7e6ec82fdf75f82cba27f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108187158"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129989862"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Almacén de contraseñas para el inicio de sesión único con el proxy de aplicación
 

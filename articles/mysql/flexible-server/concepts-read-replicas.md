@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/17/2021
-ms.openlocfilehash: 3684c038ab96fe16d28802012293357c0a8f4e5b
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 7040b9b813d57d1ad10b2406e8167ac2ec0cd690
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129232040"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166398"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Réplicas de lectura en Azure Database for MySQL: Servidor flexible
 
@@ -97,7 +97,7 @@ Aprenda a [detener la replicación en una réplica](how-to-read-replicas-portal.
 
 No se produce ninguna conmutación por error automatizada entre el servidor de origen y la réplica.
 
-Las réplicas de lectura están pensadas para escalar cargas de trabajo intensivas de lectura y no están diseñadas para satisfacer las necesidades de alta disponibilidad de un servidor. No se produce ninguna conmutación por error automatizada entre el servidor de origen y la réplica. Detener la replicación en la réplica de lectura para ponerla en línea en el modo de lectura y escritura es el medio por el que se realiza esta conmutación por error manual.
+Las réplicas de lectura están pensadas para escalar cargas de trabajo intensivas de lectura y no están diseñadas para satisfacer las necesidades de alta disponibilidad de un servidor. Detener la replicación en la réplica de lectura para ponerla en línea en el modo de lectura y escritura es el medio por el que se realiza esta conmutación por error manual.
 
 Dado que la replicación es asincrónica, se produce un retraso entre el origen y la réplica. La cantidad de desfase puede verse afectada por muchos factores, como lo pesada que sea la carga de trabajo que se ejecuta en el servidor de origen y la latencia entre los centros de datos. En la mayoría de los casos, el retraso de la réplica oscila entre unos segundos y un par de minutos. Puede realizar un seguimiento del retraso real de la replicación mediante la métrica *Replica Lag* (Retraso de réplica), que está disponible para cada réplica. Esta métrica muestra el tiempo desde la última transacción reproducida. Se recomienda que observe el retraso de la réplica durante un período de tiempo para identificar el retraso medio. Puede establecer una alerta sobre el retraso de la réplica, para que si se sale del intervalo esperado, puede tomar medidas.
 

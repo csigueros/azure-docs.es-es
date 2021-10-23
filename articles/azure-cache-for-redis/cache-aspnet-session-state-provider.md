@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 05/01/2017
-ms.openlocfilehash: b1bf95295fbaaa72df50b1aa7c42a6e954ef6ee2
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 7d9d4efb683b7401c4601c86425490957d085d23
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129538801"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658716"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Proveedor de estado de sesión de ASP.NET para Azure Cache for Redis
 
@@ -35,12 +35,7 @@ Install-Package Microsoft.Web.RedisSessionStateProvider
 >
 >
 
-El paquete NuGet de proveedor de estado de sesión de Redis tiene una dependencia en el paquete StackExchange.Redis.StrongName. Si el paquete StackExchange.Redis.StrongName no existe en el proyecto, se instalará.
-
->[!NOTE]
->Tenga en cuenta que, además del paquete StackExchange.Redis.StrongName con nombre seguro, también está la versión con nombre no seguro de StackExchange.Redis. Si su proyecto está utilizando la versión de StackExchange.Redis con nombre no seguro deberá desinstalarla, ya que de lo contrario se producirán conflictos de nomenclatura en el proyecto. Para obtener más información sobre estos paquetes, consulte [Configuración de los clientes de la caché de .NET](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
->
->
+El paquete NuGet de proveedor de estado de sesión de Redis tiene una dependencia en el paquete StackExchange.Redis. Si el paquete StackExchange.Redis no existe en el proyecto, se instalará.
 
 El paquete NuGet descarga y agrega las referencias de ensamblado necesarias y agrega la siguiente sección al archivo web.config. Esta sección contiene la configuración necesaria para que la aplicación ASP.NET use el proveedor de estado de sesión de Azure Cache for Redis.
 
@@ -134,4 +129,3 @@ Para obtener más información sobre el estado de sesión y otros procedimientos
 ## <a name="next-steps"></a>Pasos siguientes
 
 Consulte [ASP.NET Output Cache Provider for Azure Cache for Redis](cache-aspnet-output-cache-provider.md) (Proveedor de caché de salida de ASP.NET para Azure Cache for Redis).
-

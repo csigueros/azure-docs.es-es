@@ -1,19 +1,20 @@
 ---
 title: Creación de una VM con SQL Server mediante una plantilla de ARM
 description: Aprenda a crear un servidor de SQL Server en una máquina virtual de Azure (VM) mediante una plantilla de Azure Resource Manager (plantilla de ARM).
-author: MashaMSFT
+author: bluefooted
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
-ms.author: mathoma
+ms.author: pamela
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
 ms.subservice: deployment
-ms.openlocfilehash: 89df657e1b1e9164769880ff29217833d6e96c9b
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.reviewer: mathoma
+ms.openlocfilehash: 211dfa97c8eb437c0d7cc933935d8fa4a125a61f
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112006282"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130163453"
 ---
 # <a name="quickstart-create-sql-server-vm-using-an-arm-template"></a>Inicio rápido: Creación de una VM con SQL Server mediante una plantilla de ARM
 

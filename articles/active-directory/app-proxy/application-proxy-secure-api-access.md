@@ -3,21 +3,21 @@ title: Acceso a las API en el entorno local con Azure Active Directory Applicat
 description: Azure Active Directory Application Proxy permite a las aplicaciones nativas acceder de forma segura a las API y la lógica de negocios que hospeda en el entorno local o en las VM en la nube.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
 ms.date: 05/06/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ms.custom: has-adal-ref
-ms.openlocfilehash: 5bcdfdd3a56807db967d6be1a8bde540b88c17ca
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: e8ecf329b80324ac282b79ba443b02bdb0e4ce1d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129230957"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129988798"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-active-directory-application-proxy"></a>Acceso seguro a las API en el entorno local con Azure Active Directory Application Proxy
 

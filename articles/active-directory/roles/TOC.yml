@@ -112,6 +112,8 @@
           href: custom-enterprise-app-permissions.md
         - name: Permisos para el consentimiento de aplicaciones
           href: custom-consent-permissions.md
+        - name: Permisos de administración de grupos
+          href: custom-group-permissions.md
     - name: Límites de servicio de Azure AD
       href: ../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: PowerShell de Azure AD

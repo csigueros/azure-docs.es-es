@@ -3,20 +3,20 @@ title: Implementación de directivas personalizadas con Acciones de GitHub
 titleSuffix: Azure AD B2C
 description: Aprenda a implementar directivas personalizadas de Azure AD B2C en una canalización de CI/CD mediante Acciones de GitHub.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/25/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 956803f14d9df49e99411eae2cb6a76db7636b03
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 7ce060e9e251313b93930200a73dde9b747c2d75
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123187810"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130037375"
 ---
 # <a name="deploy-custom-policies-with-github-actions"></a>Implementación de directivas personalizadas con Acciones de GitHub
 
@@ -98,7 +98,7 @@ Para crear un flujo de trabajo, siga estos pasos:
           uses: azure-ad-b2c/deploy-trustframework-policy@v3
           with:
             folder: "./Policies"
-            files: "TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml"
+            files: "TrustFrameworkBase.xml,TrustFrameworkLocalization.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml"
             tenant: ${{ env.tenant }}
             clientId: ${{ env.clientId }}
             clientSecret: ${{ secrets.clientSecret }}
@@ -111,12 +111,13 @@ Para crear un flujo de trabajo, siga estos pasos:
     | `env` | `clientId` | **Id. de aplicación (cliente)** de la aplicación que ha registrado en el paso [Registrar una aplicación MS Graph](#register-a-microsoft-graph-application). |
     |`env`| `tenant` | Su [nombre de inquilino](tenant-management.md#get-your-tenant-name) de Azure AD B2C (por ejemplo, contoso.onmicrosoft.com). |
     | `with`| `folder`| Carpeta donde se almacenan los archivos de directivas personalizadas, por ejemplo, `./Policies`.|
-    | `with`| `files` | Lista delimitada por comas de los archivos de directiva que se implementarán, por ejemplo, `TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml`.|
+    | `with`| `files` | Lista delimitada por comas de los archivos de directiva que se implementarán, por ejemplo, `TrustFrameworkBase.xml,TrustFrameworkLocalization.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml`.|
     
     > [!IMPORTANT]
     > Al ejecutar los agentes y cargar los archivos de directivas, asegúrese de que se carguen en el orden correcto:
     >
     > 1. *TrustFrameworkBase.xml*
+    > 1. *TrustFrameworkLocalization.xml*
     > 1. *TrustFrameworkExtensions.xml*
     > 1. *SignUpOrSignin.xml*
     > 1. *ProfileEdit.xml*

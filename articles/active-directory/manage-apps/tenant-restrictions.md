@@ -12,12 +12,12 @@ ms.date: 7/30/2021
 ms.author: davidmu
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 029328313ac58a5177f5a5e3c75b86fdc3587b43
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 8b5cdbbe4955063d6a241949be14cd7dcd0af0a5
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129613745"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997523"
 ---
 # <a name="restrict-access-to-a-tenant-in-azure-active-directory"></a>Restringir el acceso a un inquilino en Azure Active Directory
 
@@ -225,5 +225,5 @@ La directiva `restrict-msa` bloquea el uso de las aplicaciones de consumidor, pe
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Lea [Updated Office 365 modern authentication](https://www.microsoft.com/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) (Autenticación moderna actualizada de Office 365)
+- Lea [Updated Office 365 modern authentication](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/) (Autenticación moderna actualizada de Office 365)
 - Revise [URL de Office 365 e intervalos de direcciones IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)

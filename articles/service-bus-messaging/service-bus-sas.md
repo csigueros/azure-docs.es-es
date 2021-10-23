@@ -2,14 +2,14 @@
 title: Control de acceso de Azure Service Bus con Firmas de acceso compartido
 description: Información general sobre el control de acceso de Service Bus con Firmas de acceso compartido, detalles de la autorización con SAS mediante Azure Service Bus.
 ms.topic: article
-ms.date: 04/27/2021
+ms.date: 10/18/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5659e159604c80ffe19cbc4b57dea5d99c1acb98
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.openlocfilehash: 5a31ce93c603f1bc1f0765fb2de438476e1f63de
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112379823"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130164974"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Control de acceso de Service Bus con Firmas de acceso compartido
 
@@ -261,9 +261,9 @@ La siguiente tabla muestra los derechos de acceso necesarios para realizar diver
 | Obtener el estado asociado a una sesión de tema |Escuchar |../myTopic/Subscriptions/mySubscription |
 | Establecer el estado asociado a una sesión de tema |Escuchar |../myTopic/Subscriptions/mySubscription |
 | **Reglas** | | |
-| Crear una regla |Administración |../myTopic/Subscriptions/mySubscription |
-| Eliminar una regla |Administración |../myTopic/Subscriptions/mySubscription |
-| Enumerar reglas |Administrar o escuchar |../myTopic/Subscriptions/mySubscription/Rules
+| Crear una regla | Escuchar |../myTopic/Subscriptions/mySubscription |
+| Eliminar una regla | Escuchar |../myTopic/Subscriptions/mySubscription |
+| Enumerar reglas | Escuchar |../myTopic/Subscriptions/mySubscription/Rules
 
 ## <a name="next-steps"></a>Pasos siguientes
 

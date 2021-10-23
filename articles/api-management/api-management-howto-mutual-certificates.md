@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 01/26/2021
 ms.author: danlep
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 72b1680af5bb20d772d93d7743224170fde437fd
-ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
+ms.openlocfilehash: 9db002f50675c45a0eeb7bb7e213d0dc65b64ab8
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129740291"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130006629"
 ---
 # <a name="secure-backend-services-using-client-certificate-authentication-in-azure-api-management"></a>Protección de servicios back-end con la autenticación de certificados de cliente en Azure API Management
 
 API Management permite acceder de forma segura al servicio back-end de una API con certificados de cliente. En esta guía se muestra cómo administrar certificados de la instancia de servicio de Azure API Management con Azure Portal. También se explica cómo configurar una API para que use un certificado para acceder a un servicio back-end.
 
-También puede administrar certificados de API Management mediante la [API REST de API Management](/rest/api/apimanagement/2020-12-01/certificate).
+También puede administrar certificados de API Management mediante la [API REST de API Management](/rest/api/apimanagement/2021-01-01-preview/certificate).
 
 ## <a name="certificate-options"></a>Opciones de certificado
 
@@ -154,4 +154,3 @@ Para eliminar un certificado, selecciónelo y, a continuación, seleccione **Eli
 [Azure API Management REST API Certificate entity]: ./api-management-caching-policies.md
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
 [to configure certificate authentication in Azure WebSites refer to this article]: ../app-service/app-service-web-configure-tls-mutual-auth.md
-

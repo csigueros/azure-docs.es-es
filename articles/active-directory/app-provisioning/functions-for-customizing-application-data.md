@@ -3,7 +3,7 @@ title: Referencia para la escritura de expresiones para la asignación de atribu
 description: Obtenga información sobre cómo usar asignaciones de expresiones para transformar valores de atributos en un formato aceptable durante el aprovisionamiento automático de objetos de aplicaciones SaaS en Azure Active Directory. Incluye una lista de referencias de funciones.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/21/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 2173afc4d96bd387f264d313696c41f0e6cbd84e
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 5922fab330409391ba9857b76595f5834469d966
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129272189"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129991458"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Referencia para la escritura de expresiones para la asignación de atributos en Azure Active Directory
 
@@ -259,9 +259,9 @@ devuelve una cadena de fecha y hora que representa una fecha a la que se ha agre
 
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
-| **interval** |Requerido | String | Intervalo de tiempo que desea agregar. Consulte los valores aceptados se debajo de esta tabla. |
+| **interval** |Obligatorio | String | Intervalo de tiempo que desea agregar. Consulte los valores aceptados se debajo de esta tabla. |
 | **value** |Obligatorio | Number | el número de unidades que desea agregar. Puede ser positivo (para obtener fechas futuras) o negativo (para obtener fechas del pasado). |
-| **dateTime** |Requerido | DateTime | DateTime que representa la fecha a la que se agrega el intervalo. |
+| **dateTime** |Obligatorio | DateTime | DateTime que representa la fecha a la que se agrega el intervalo. |
 
 La cadena de **intervalo** debe tener uno de los valores siguientes: 
  * yyyy Año 
@@ -311,7 +311,7 @@ Esta función usa el parámetro de *interval* para devolver un número que indiq
 
 | Nombre | Obligatorio/opcional | Tipo | Notas |
 | --- | --- | --- | --- |
-| **interval** |Requerido | String | Intervalo de tiempo que se usará para calcular la diferencia. |
+| **interval** |Obligatorio | String | Intervalo de tiempo que se usará para calcular la diferencia. |
 | **date1** |Requerido | DateTime | Valor de DateTime que representa una fecha válida. |
 | **date2** |Requerido | DateTime | Valor de DateTime que representa una fecha válida. |
 

@@ -3,7 +3,7 @@ title: Aprovisionamiento de aplicaciones locales de Azure AD para aplicaciones 
 description: En este artículo, se describe cómo usar el servicio de aprovisionamiento de Azure AD para aprovisionar usuarios en una aplicación local que está habilitada para SCIM.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/16/2021
 ms.author: billmath
 ms.reviewer: arvinh
-ms.openlocfilehash: 0bc74d9c9bab1337638249900de92bee39a40a68
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b1fb5523f0a487b4076c469e04cc97db01fa36b5
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128571689"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129991116"
 ---
 # <a name="azure-ad-on-premises-application-provisioning-to-scim-enabled-apps"></a>Aprovisionamiento de aplicaciones locales de Azure AD para aplicaciones habilitadas para SCIM
 

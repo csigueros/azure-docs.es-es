@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 05/05/2021
-ms.openlocfilehash: a25cfb69b0de9561de2093a8e9e91bf4e9f8cb98
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: fc13ac868f2abb1ccd466b245c22682af79ba915
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424290"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130161271"
 ---
 # <a name="failover-for-business-continuity-and-disaster-recovery"></a>Conmutación por error para la continuidad empresarial y la recuperación ante desastres
 
@@ -188,4 +188,4 @@ Los artefactos siguientes se pueden exportar e importar entre áreas de trabajo 
 > * Las __salidas de ejecución__ se almacenan en la cuenta de almacenamiento predeterminada asociada a un área de trabajo. Aunque las salidas de ejecución pueden quedar inaccesibles desde la interfaz de usuario de Studio en caso de una interrupción del servicio, se puede acceder directamente a los datos a través de la cuenta de almacenamiento. Para obtener más información sobre cómo trabajar con datos almacenados en blobs, consulte [Creación, descarga y enumeración de blobs mediante la CLI de Azure](../storage/blobs/storage-quickstart-blobs-cli.md).
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para implementar Azure Machine Learning con los recursos asociados con la configuración de alta disponibilidad, use una [plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced).
+Para implementar Azure Machine Learning con los recursos asociados con la configuración de alta disponibilidad, use una [plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/).

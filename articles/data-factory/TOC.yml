@@ -114,6 +114,8 @@ items:
         items:
           - name: Transformación de datos con Mapping Data Flow
             items:
+              - name: Ejemplo de comercio de Adventure Works para canalizaciones de Synapse
+                href: tutorial-data-flow-adventure-works-retail-template.md
               - name: "Procedimientos recomendados para el aterrizaje de datos en el lago con ADLS\_Gen2"
                 href: tutorial-data-flow-write-to-lake.md
               - name: Nombres de columnas establecidos dinámicamente
@@ -318,7 +320,7 @@ items:
             href: connector-azure-databricks-delta-lake.md
           - name: Azure File Storage
             href: connector-azure-file-storage.md
-          - name: "Azure\_SQL\_Database"
+          - name: Azure SQL Database
             href: connector-azure-sql-database.md
             displayName: upsert
           - name: Instancia administrada de Azure SQL

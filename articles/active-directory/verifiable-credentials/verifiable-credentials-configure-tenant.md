@@ -4,15 +4,16 @@ description: En este tutorial, aprenderá a configurar el inquilino para que adm
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 author: barclayn
+manager: karenh444
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 10/08/2021
-ms.openlocfilehash: e28a210a4f80540da9aa8f08ca443c355705b469
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: d480696acf10586f41aa9c5c70a8dcf6e2c7651f
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129730923"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070021"
 ---
 # <a name="configure-your-tenant-for-azure-ad-verifiable-credentials-preview"></a>Configuración del inquilino para las credenciales verificables Azure AD (versión preliminar)
 
@@ -35,7 +36,7 @@ En el diagrama siguiente se muestra la arquitectura de las credenciales verifica
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- Si no tiene una suscripción a Azure, [créela de forma gratuita](https://azure.microsoft.comfree/?WT.mc_id=A261C142F).
+- Si no tiene una suscripción a Azure, [créela de forma gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Suscríbase a las [ediciones de Azure Active Directory Premium](../../active-directory/fundamentals/active-directory-get-started-premium.md) en su inquilino.
 - El permiso de [administrador global](../../active-directory/roles/permissions-reference.md#global-administrator) para el directorio que quiera configurar.
 - Tener instalado [PowerShell](/powershell/scripting/install/installing-powershell) 7.0.6 LTS-x64, PowerShell 7.1.3-x64 o una versión superior.

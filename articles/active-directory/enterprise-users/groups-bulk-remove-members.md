@@ -4,7 +4,7 @@ description: Quite los miembros del grupo en operaciones masivas en el centro de
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: daveba
+manager: KarenH444
 ms.date: 09/22/2021
 ms.topic: how-to
 ms.service: active-directory
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 254b92907c04559f0e63fee9daa4db25e0df0965
-ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.openlocfilehash: b736fd59475de5bd569547fee8ebabba71c68d3a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128707776"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129986632"
 ---
 # <a name="bulk-remove-group-members-in-azure-active-directory"></a>Eliminación masiva de miembros de un grupo en Azure Active Directory
 

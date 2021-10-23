@@ -3,21 +3,21 @@ title: Publicación de aplicaciones locales con Azure Active Directory Applicati
 description: Entienda el uso de Application Proxy para publicar aplicaciones web locales de forma externa para usuarios remotos. Obtenga información sobre la arquitectura, los conectores, los métodos de autenticación y las ventajas de seguridad de Application Proxy.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ms.custom: has-adal-ref
-ms.openlocfilehash: cb6241443f4ec7aa9d60501aab50ca21ed1d147d
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 5968de16c25fd8f559caebaa2af5a9292688076c
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129235865"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129987791"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Uso de Azure AD Application Proxy para publicar aplicaciones locales para usuarios remotos
 
@@ -92,7 +92,7 @@ Existen varias formas de configurar una aplicación para el inicio de sesión ú
 
 Application Proxy funciona con aplicaciones que utilizan el siguiente protocolo de autenticación nativo:
 
-* [**Autenticación integrada de Windows (IWA)** ](./application-proxy-configure-single-sign-on-with-kcd.md). Para la autenticación integrada de Windows, los conectores de Application Proxy utilizan la delegación restringida de Kerberos (KCD) para autenticar a los usuarios en la aplicación Kerberos.
+* [**Autenticación integrada de Windows (IWA)**](./application-proxy-configure-single-sign-on-with-kcd.md). Para la autenticación integrada de Windows, los conectores de Application Proxy utilizan la delegación restringida de Kerberos (KCD) para autenticar a los usuarios en la aplicación Kerberos.
 
 Application Proxy también admite los siguientes protocolos de autenticación con integración de terceros o en escenarios de configuración específicos:
 

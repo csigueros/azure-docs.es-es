@@ -1,5 +1,5 @@
 ---
-title: Creación de una oferta de servicio administrado en Azure Marketplace
+title: Creación de una oferta de servicio administrado en el marketplace comercial
 description: Cree una oferta de servicio administrado para Azure Marketplace
 author: Microsoft-BradleyWright
 ms.author: brwrigh
@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 545e868a902390929254ae6c03d668f8e0d1d10f
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 6aa296d3dfa6f85504974083887de18b42d71577
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129079734"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045377"
 ---
 # <a name="create-a-managed-service-offer-for-the-commercial-marketplace"></a>Creación de una oferta de servicio administrado en el marketplace comercial
 
@@ -25,11 +25,11 @@ Para publicar una oferta de servicio administrado, debe haber obtenido una compe
 
 [!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
-#### <a name="workspaces-view"></a>[Vista Áreas de trabajo](#tab/workspaces-view)
+#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
 
 1. Inicie sesión en el [Centro de partners](https://go.microsoft.com/fwlink/?linkid=2166002).
 
-1. En la página principal, seleccione el elemento **Ofertas de Marketplace**.
+1. En la página principal, seleccione el icono **Ofertas de Marketplace**.
 
     [ ![Muestra el elemento Ofertas de Marketplace en la página principal del Centro de partners.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 

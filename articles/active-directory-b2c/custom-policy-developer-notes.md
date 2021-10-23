@@ -3,21 +3,21 @@ title: Notas para desarrolladores sobre flujos de usuario y directivas personali
 titleSuffix: Azure AD B2C
 description: Notas para desarrolladores sobre la configuración y el mantenimiento de Azure AD B2C con flujos de usuario y directivas personalizadas.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/22/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: b428b069c0f576109179ecc64bddc409abe29e5f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7b3b8386adbfd6fc39bd115837dd0580a27006db
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128568331"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130037431"
 ---
 # <a name="developer-notes-for-azure-active-directory-b2c"></a>Notas para desarrolladores sobre Azure Active Directory B2C
 

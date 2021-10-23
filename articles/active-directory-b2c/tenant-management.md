@@ -3,21 +3,21 @@ title: Administración de Azure Active Directory B2C
 titleSuffix: Azure Active Directory B2C
 description: Obtenga información sobre cómo administrar el inquilino de Azure Active Directory B2C. Descubra qué características de Azure AD son compatibles con Azure AD B2C, cómo usar roles de administrador para administrar recursos y cómo agregar cuentas profesionales y usuarios invitados a su inquilino de Azure AD B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/04/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 7e364b3ce5231370643f9c9ea730dec22ab9022a
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: a39b34f0b783997a90e634157354543aa3eab79a
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129615949"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042985"
 ---
 # <a name="manage-your-azure-active-directory-b2c-tenant"></a>Administración del inquilino de Azure Active Directory B2C
 

@@ -5,12 +5,12 @@ metadata:
   ms.topic: article
   ms.service: backup
   ms.date: 08/19/2021
-  ms.openlocfilehash: 2b7ecc95117201d9ab60a39acf1d0f6ae60896a0
-  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+  ms.openlocfilehash: 7ccfe8d814cc06e7c637b6de3a8df6edb43f52bd
+  ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/13/2021
-  ms.locfileid: "124799308"
+  ms.lasthandoff: 10/15/2021
+  ms.locfileid: "130069451"
 title: Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure
 summary: >
   En este artículo se responde a preguntas comunes sobre la copia de seguridad de máquinas virtuales de Azure con el servicio [Azure Backup](./backup-overview.md).
@@ -80,7 +80,7 @@ sections:
     answer: Azure Backup crea un grupo de recursos independiente con el formato `AzureBackupRG_<geo>_<number>` para almacenar los objetos ResourcePointCollections. Puesto que este grupo de recursos es propiedad del servicio, el bloqueo provocará un error en las copias de seguridad. Los bloqueos solo se pueden aplicar a grupos de recursos creados por el cliente.
   - question: ¿Admite Azure Backup los discos administrados SSD estándar?
     answer: >
-      Sí, Azure Backup admite [discos administrados SSD estándar](../virtual-machines/disks-types.md#standard-ssd).
+      Sí, Azure Backup admite [discos administrados SSD estándar](../virtual-machines/disks-types.md#standard-ssds).
   - question: ¿Podemos realizar copias de seguridad de una máquina virtual con un disco habilitado para el Acelerador de escritura?
     answer: Solo se pueden realizar instantáneas en discos de datos habilitados para el Acelerador de escritura y no en discos del sistema operativo. Por tanto, solo se pueden proteger los discos de datos que están habilitados para el Acelerador de escritura.
   - question: Tengo una máquina virtual con discos habilitados para el Acelerador de escritura (WA) y SAP HANA instalada. ¿Cómo puedo realizar la copia de seguridad?

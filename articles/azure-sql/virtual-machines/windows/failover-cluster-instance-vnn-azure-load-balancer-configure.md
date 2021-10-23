@@ -3,7 +3,7 @@ title: Configuración de Azure Load Balancer para un VNN de instancia de clúste
 description: Aprenda a configurar una instancia de Azure Load Balancer para enrutar el tráfico al nombre de red virtual (VNN) para la instancia de clúster de conmutación por error (FCI) con SQL Server en máquinas virtuales de Azure para lograr una alta disponibilidad y recuperación ante desastres (HADR).
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
-ms.author: mathoma
-ms.reviewer: jroth
-ms.openlocfilehash: 66b762cac767987a1ea2cf74b9e706e7a7939d51
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: 327c030708f37bffab05aa72884422a487b6b729
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862655"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166945"
 ---
 # <a name="configure-azure-load-balancer-for-an-fci-vnn"></a>Configuración de Azure Load Balancer para un VNN de instancia de clúster de conmutación por error
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -139,7 +139,7 @@ Configure las reglas de equilibrio de carga para el equilibrador de carga públi
    - **Sondeo de mantenimiento**: el sondeo de estado que configuró anteriormente.
    - **Persistencia de la sesión**: Ninguno.
    - **Tiempo de espera de inactividad (minutos)** : 4.
-   - **IP flotante (Direct Server Return)** : deshabilitado
+   - **IP flotante (Direct Server Return)** : deshabilitado.
 
 1. Seleccione **Aceptar**.
 

@@ -7,21 +7,21 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: 2532b02247a85d180d7b1cccd504838b83a8f93f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: de526c46a9aace4a6740b8b9afaab5cc23f3f87d
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128591850"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711098"
 ---
 # <a name="troubleshoot-csp-billing-issues-with-usage-file-pivot-tables"></a>Solución de problemas de facturación de CSP con tablas dinámicas de archivos de uso
 
 Este artículo le ayuda a solucionar problemas de facturación del Proveedor de soluciones en la nube de Azure (CSP) con las tablas dinámicas en los archivos de conciliación (uso) del Centro de partners. Los archivos de uso de Azure contienen toda la información de uso y consumo de Azure. La información del archivo puede ayudarle a:
 
 - Comprender cómo se usan y aplican las reservas de Azure
-- Conciliar información en Azure Cost Management con la factura facturada
+- Conciliar la información de Cost Management con la factura facturada
 - Solucionar un aumento de costos
 - Calcular un importe de reembolso para un acuerdo de nivel de servicio
 
@@ -111,4 +111,4 @@ La tabla contiene las columnas siguientes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Introducción a Azure Cost Management para los asociados](../costs/get-started-partners.md)
+- [Introducción a Cost Management para los asociados](../costs/get-started-partners.md)

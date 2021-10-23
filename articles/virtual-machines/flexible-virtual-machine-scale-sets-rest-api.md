@@ -9,14 +9,14 @@ ms.subservice: flexible-scale-sets
 ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-ms.openlocfilehash: 64fc87455b035503891319de1b8fd06090586b4b
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 571894779b05a823b4de2e841a3b198dc334ab1f
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122868538"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166542"
 ---
-# <a name="preview-create-virtual-machines-in-a-flexible-scale-set-using-an-arm-template"></a>Versión preliminar: creación de máquinas virtuales en un conjunto de escalado flexible usando una plantilla de ARM
+# <a name="create-virtual-machines-in-a-flexible-scale-set-using-an-arm-template"></a>Creación de máquinas virtuales en un conjunto de escalado flexible usando una plantilla de ARM
 
 **Se aplica a:** :heavy_check_mark: Conjuntos de escalado flexibles
 
@@ -24,11 +24,11 @@ ms.locfileid: "122868538"
 En este artículo se describe cómo usar una plantilla de ARM para crear un conjunto de escalado de máquinas virtuales en modo de orquestación flexible. Para obtener más información sobre los conjuntos de escalado flexibles, consulte [Modo de orquestación flexible para conjuntos de escalado de máquinas virtuales](flexible-virtual-machine-scale-sets.md). 
 
 
-> [!IMPORTANT]
-> En el modo de orquestación flexible, los conjuntos de escalado de máquinas virtuales se encuentran actualmente en versión preliminar pública. No es necesario ningún procedimiento de participación para usar la funcionalidad de versión preliminar pública que se describe a continuación.
-> Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvmss-flexible-orchestration-quickstart%2Fazuredeploy.json)
 
 > [!CAUTION]
 > El modo de orquestación se define al crear el conjunto de escalado y no se puede cambiar ni actualizar más adelante.
@@ -36,10 +36,6 @@ En este artículo se describe cómo usar una plantilla de ARM para crear un conj
 ## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-
-## <a name="register-for-flexible-orchestration-mode"></a>Registro para el modo de orquestación flexible
-
-Para poder implementar conjuntos de escalado de máquinas virtuales en el modo de orquestación flexible, antes es preciso [registrar la suscripción en la característica en vista previa](flexible-virtual-machine-scale-sets.md#register-for-flexible-orchestration-mode). El registro puede tardar varios minutos en terminar.
 
 ## <a name="arm-template"></a>Plantilla ARM 
 
