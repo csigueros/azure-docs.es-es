@@ -1,14 +1,14 @@
 ---
 title: Introducción a Azure Lab Services
 description: En este artículo se describe cómo empezar a usar Azure Lab Services.
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/18/2020
-ms.openlocfilehash: d260ace7d7819c3ca2db96d6c4984bf834e170da
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9342fa290bf6b12e59e0b56617683ebda6d25c0
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98165049"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130181186"
 ---
 # <a name="get-started-with-lab-services"></a>Introducción a Lab Services 
 

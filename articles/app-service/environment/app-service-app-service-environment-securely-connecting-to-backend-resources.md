@@ -1,18 +1,18 @@
 ---
 title: Conexión al back-end v1
 description: Obtenga información acerca de cómo conectarse de forma segura a los recursos de back-end desde un entorno de App Service. Este documento solo se proporciona para los clientes que usan App Service Environment v1 heredado.
-author: stefsch
+author: madsd
 ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b
 ms.topic: article
 ms.date: 10/04/2016
-ms.author: stefsch
+ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 9f8e288f771b9d584a0fd3430115f5fa60f68e47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eb022d72dbbf433c8a91f092cb2337fc7e3a6e55
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88961812"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004680"
 ---
 # <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>Conexión segura a los recursos de back-end desde App Service Environment
 Dado que una instancia de App Service Environment siempre se crea **o bien** en una red virtual de Azure Resource Manager **o** en una [red virtual][virtualnetwork] del modelo de implementación clásica, las conexiones salientes de dicho entorno a otros recursos de back-end solo pueden fluir a través de la red virtual. A partir de junio de 2016, las instancias de ASE también se pueden implementar en redes virtuales que usen intervalos de direcciones públicas o espacios de direcciones RFC1918 (direcciones privadas).  

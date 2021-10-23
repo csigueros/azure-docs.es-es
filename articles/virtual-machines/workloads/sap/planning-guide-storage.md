@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0af6df954dda4e5af6335776b1f93f929da5834e
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 25cdaf3bd916b587adeeaf200d0c55b0c4001ad2
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323725"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074558"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipos de Azure Storage para una carga de trabajo de SAP
 Azure tiene numerosos tipos de almacenamiento que difieren en gran medida en términos de funcionalidad, rendimiento, latencia y precio. Algunos de los tipos de almacenamiento no son para escenarios de SAP, o bien su uso está limitado en ellos. Sin embargo, hay varios tipos de almacenamiento de Azure que son idóneos para escenarios específicos de carga de trabajo de SAP, o bien están optimizados para ello. Especialmente en el caso de SAP HANA, algunos tipos de almacenamiento de Azure han recibido certificación para su uso con SAP HANA. En este documento, vamos a repasar los diferentes tipos de almacenamiento y describir su capacidad y uso con las cargas de trabajo de SAP y los componentes de SAP.
@@ -97,13 +97,13 @@ Características que puede esperar de la lista de tipos de almacenamiento difere
 
 | Escenario de uso | HDD estándar | SSD estándar | Premium Storage | Disco Ultra | Azure NetApp Files |
 | --- | --- | --- | --- | --- | --- |
-| Acuerdo de Nivel de Servicio rendimiento/IOPS | no | No | sí | Sí | sí |
+| Acuerdo de Nivel de Servicio rendimiento/IOPS | no | No | sí | sí | sí |
 | Lecturas de latencia | high | de medio a alto | low | submilisegundo | submilisegundo |
 | Escrituras de latencia | high | de medio a alto  | bajo (submilisegundo<sup>1</sup>) | submilisegundo | submilisegundo |
 | HANA compatible | no | no | sí<sup>1</sup> | sí | sí |
-| Instantáneas de disco posibles | sí | Sí | Sí | No | sí |
+| Instantáneas de disco posibles | sí | sí | sí | No | sí |
 | Asignación de discos en diferentes clústeres de almacenamiento cuando se usan conjuntos de disponibilidad | a través de discos administrados | a través de discos administrados | a través de discos administrados | tipo de disco no compatible con máquinas virtuales implementadas mediante conjuntos de disponibilidad | no<sup>3</sup> |
-| Alineación con Availability Zones | sí | Sí | Sí | sí | requiere la participación de Microsoft |
+| Alineación con Availability Zones | sí | sí | sí | sí | requiere la participación de Microsoft |
 | Redundancia de zona | no para discos administrados | no para discos administrados | no para discos administrados | no | no |
 | Redundancia geográfica | no para discos administrados | no para discos administrados | no | No | no |
 
@@ -130,7 +130,7 @@ El almacenamiento SSD Premium de Azure se introdujo con el objetivo de proporcio
 * Acuerdo de Nivel de Servicio para IOPS y rendimiento
 * Menor variabilidad de la latencia de E/S
 
-Este tipo de almacenamiento se dirige a las cargas de trabajo de DBMS, el tráfico de almacenamiento que requiere una latencia baja de milisegundos de un solo dígito. Por su parte, los Acuerdos de Nivel de Servicio sobre el costo de IOPS y rendimiento en el caso de Azure Premium Storage no se refieren al volumen de datos real almacenado en dichos discos, sino a la categoría de tamaño de ese disco, independientemente de la cantidad de datos que contengan. También se pueden crear discos en Premium Storage sin correspondencia directa con las categorías de tamaño mostradas en el artículo [SSD Premium](../../disks-types.md#premium-ssd). Las conclusiones de este artículo son las siguientes:
+Este tipo de almacenamiento se dirige a las cargas de trabajo de DBMS, el tráfico de almacenamiento que requiere una latencia baja de milisegundos de un solo dígito. Por su parte, los Acuerdos de Nivel de Servicio sobre el costo de IOPS y rendimiento en el caso de Azure Premium Storage no se refieren al volumen de datos real almacenado en dichos discos, sino a la categoría de tamaño de ese disco, independientemente de la cantidad de datos que contengan. También se pueden crear discos en Premium Storage sin correspondencia directa con las categorías de tamaño mostradas en el artículo [SSD Premium](../../disks-types.md#premium-ssds). Las conclusiones de este artículo son las siguientes:
 
 - El almacenamiento se organiza en intervalos. Por ejemplo, un disco en el intervalo de capacidad de 513 GiB a 1024 GiB comparte las mismas funcionalidades y los mismos costos mensuales.
 - La IOPS por GiB no realiza un seguimiento lineal de las categorías de tamaño. Los discos más pequeños por debajo de 32 GiB tienen tasas de IOPS mayores por GiB. En el caso de los discos de más de 32 GiB a 1024 GiB, la tasa de IOPS por GiB se encuentra entre 4-5 IOPS por GiB. En el caso de discos más grandes, de hasta 32 767 GiB, la tasa de IOPS por GiB está por debajo de 1.
@@ -190,8 +190,8 @@ Los discos Ultra de Azure ofrecen un alto rendimiento, un número elevado de IOP
 Al crear un disco Ultra, puede definir tres dimensiones:
 
 - La capacidad del disco. Los intervalos van de 4 GiB a 65 536 GiB.
-- IOPS aprovisionada para el disco. Se aplican valores máximos diferentes a la capacidad del disco. Lea el artículo [Disco Ultra](../../disks-types.md#ultra-disk) para obtener más detalles
-- Ancho de banda de almacenamiento aprovisionado. Se aplica un ancho de banda máximo diferente en función de la capacidad del disco. Lea el artículo [Disco Ultra](../../disks-types.md#ultra-disk) para obtener más detalles
+- IOPS aprovisionada para el disco. Se aplican valores máximos diferentes a la capacidad del disco. Lea el artículo [Disco Ultra](../../disks-types.md#ultra-disks) para obtener más detalles
+- Ancho de banda de almacenamiento aprovisionado. Se aplica un ancho de banda máximo diferente en función de la capacidad del disco. Lea el artículo [Disco Ultra](../../disks-types.md#ultra-disks) para obtener más detalles
 
 El costo de un solo disco lo determinan las tres dimensiones que se pueden definir para los discos concretos por separado. 
 

@@ -1,14 +1,14 @@
 ---
 title: Configuración de Azure Arc para App Service, Functions y Logic Apps
-description: En el caso Azure Arc clústeres de Kubernetes habilitados, aprenda a habilitar aplicaciones App Service, aplicaciones de funciones y aplicaciones lógicas.
+description: En el caso de clústeres de Kubernetes habilitados para Azure Arc, aprenda a habilitar aplicaciones de App Service, aplicaciones de funciones y aplicaciones lógicas.
 ms.topic: article
 ms.date: 08/17/2021
-ms.openlocfilehash: 7fbdae7b5e8b3bda94c1f1ddbb2a70720596d1fd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f0594458f65fbd14bc50540148d5ea68d15fbdbd
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128639040"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707130"
 ---
 # <a name="set-up-an-azure-arc-enabled-kubernetes-cluster-to-run-app-service-functions-and-logic-apps-preview"></a>Configuración de un clúster de Kubernetes habilitado para Azure Arc para ejecutar App Service, Functions y Logic Apps (versión preliminar)
 
@@ -60,7 +60,7 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
 ## <a name="create-a-connected-cluster"></a>Creación de un clúster conectado
 
 > [!NOTE]
-> En este tutorial se usa [Azure Kubernetes Service (AKS)](../aks/index.yml) para proporcionar instrucciones concretas para configurar un entorno desde cero. Sin embargo, para una carga de trabajo de producción, es probable que no quiera habilitar Azure Arc en un clúster de AKS, ya que ya está administrado en Azure. Los pasos siguientes le ayudarán a empezar a comprender el servicio, pero en el caso de las implementaciones de producción, deben considerarse ilustrativos, no prescriptivos. Vea [Inicio rápido: conexión de un clúster de Kubernetes existente a Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md) para obtener instrucciones generales sobre cómo crear un clúster de Kubernetes habilitado para Azure Arc.
+> En este tutorial se usa [Azure Kubernetes Service (AKS)](../aks/index.yml) para proporcionar instrucciones concretas para configurar un entorno desde cero. Sin embargo, para una carga de trabajo de producción, es probable que no quiera habilitar Azure Arc en un clúster de AKS, ya que ya está administrado en Azure. Los pasos siguientes le ayudarán a empezar a comprender el servicio, pero en el caso de las implementaciones de producción, deben considerarse ilustrativos, no prescriptivos. Consulte [Inicio rápido: Conexión de un clúster de Kubernetes existente a Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md) para instrucciones generales sobre cómo crear un clúster de Kubernetes habilitado para Azure Arc.
 
 1. Cree un clúster en Azure Kubernetes Service con una dirección IP pública. Sustituya `<group-name>` por el nombre del grupo de recursos que desee.
 
@@ -365,7 +365,7 @@ La [ubicación personalizada](../azure-arc/kubernetes/custom-locations.md) en Az
 
 <!-- https://github.com/MicrosoftDocs/azure-docs-pr/pull/156618 -->
 
-1. Establezca las siguientes variables de entorno para el nombre deseado de la ubicación personalizada y para el identificador del clúster conectado de Azure Arc.
+1. Establezca las siguientes variables de entorno para el nombre deseado de la ubicación personalizada y para el identificador del clúster conectado a Azure Arc.
 
     # <a name="bash"></a>[bash](#tab/bash)
 

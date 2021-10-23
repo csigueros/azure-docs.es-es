@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/1/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 50e5a8fb09a3bd54dd4131f6c60de6b315233e86
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8df2c2a1eb7a16df4d35a8b6530aec82a1632722
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128557686"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129996292"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-the-azure-cli"></a>Tutorial: Creación de un grafo de Azure Digital Twins mediante la CLI de Azure
 
@@ -52,7 +52,7 @@ Para obtener los archivos en la máquina, use los vínculos de navegación anter
 
 Para trabajar con Azure Digital Twins en este artículo, antes es preciso **configurar una instancia de Azure Digital Twins** y los permisos necesarios para usarla. Si ya tiene una instancia de Azure Digital Twins configurada del trabajo anterior, puede usarla.
 
-De lo contrario, siga las instrucciones que se indican en [Configuración de una instancia y autenticación](how-to-set-up-instance-cli.md). Las instrucciones también contienen pasos para comprobar que ha completado cada paso correctamente y está listo para pasar a usar la nueva instancia.
+De lo contrario, siga las instrucciones que se indican en [Configuración de una instancia y autenticación](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance). Las instrucciones también contienen pasos para comprobar que ha completado cada paso correctamente y está listo para pasar a usar la nueva instancia.
 
 Después de configurar la instancia de Azure Digital Twins, tome nota de los siguientes valores que necesitará para conectarse a la instancia más adelante:
 * El **_nombre de host_** de la instancia.

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 0cc474ba9566737cb0117cc3a0f2bfb079cdf3d9
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: f6769cfc95ff06ef67d9020ff109993772b36bf0
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129616519"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000846"
 ---
 # <a name="labeling-in-azure-purview"></a>Etiquetado en Azure Purview
 
@@ -35,7 +35,7 @@ Azure Purview permite aplicar etiquetas de confidencialidad a los recursos, de m
 * **Etiquetado automático:** las etiquetas se pueden aplicar automáticamente en función de la confidencialidad de los datos. Cuando se examina un recurso en busca de datos confidenciales, se usan reglas de etiquetado automático para decidir qué etiqueta de confidencialidad se va a aplicar. A fin de crear reglas de etiquetado automático para cada etiqueta de confidencialidad, defina qué tipo de clasificación o información confidencial constituye una etiqueta.
 * **Aplicación de etiquetas a columnas de base de datos y archivos:** las etiquetas se pueden aplicar a archivos en almacenamientos como Azure Data Lake, Azure Files, etc., y a datos esquematizados, como columnas de Azure SQL DB, Cosmos DB, etc.
 
-Las etiquetas de confidencialidad son etiquetas que se pueden aplicar en los recursos para clasificar y proteger los datos. Obtenga más información sobre las [etiquetas de confidencialidad aquí](/microsoft-365/compliance/create-sensitivity-labels.md).
+Las etiquetas de confidencialidad son etiquetas que se pueden aplicar en los recursos para clasificar y proteger los datos. Obtenga más información sobre las [etiquetas de confidencialidad aquí](/microsoft-365/compliance/create-sensitivity-labels).
 
 ## <a name="how-to-apply-labels-to-assets-in-azure-purview"></a>Aplicación de etiquetas a recursos en Azure Purview
 

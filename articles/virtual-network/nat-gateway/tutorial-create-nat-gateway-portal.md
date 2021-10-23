@@ -9,12 +9,12 @@ ms.subservice: nat
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 82b5892b027627871e5492e3c6cd3776a923632b
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: c8375a7e7a404c257b80f48b8824f26bb3af309c
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113438870"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162532"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal"></a>Tutorial: Creación de una puerta de enlace de NAT mediante Azure Portal
 
@@ -47,7 +47,7 @@ Antes de implementar una máquina virtual y usar la puerta de enlace de NAT, es 
     | **Configuración**          | **Valor**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **Detalles del proyecto**  |                                                                 |
-    | Suscripción     | Selección de su suscripción a Azure                                  |
+    | Subscription     | Selección de su suscripción a Azure                                  |
     | Grupo de recursos   | Seleccione **Crear nuevo**. </br> Especifique **myResourceGroupNAT**. </br> Seleccione **Aceptar**. |
     | **Detalles de instancia** |                                                                 |
     | Nombre             | Escriba **myVNet**.                                    |
@@ -99,7 +99,7 @@ Puede usar uno o varios recursos de dirección IP pública, prefijos de direcci�
     | **Configuración**          | **Valor**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **Detalles del proyecto**  |                                                                 |
-    | Suscripción     | Seleccione su suscripción a Azure.                                  |
+    | Subscription     | Seleccione su suscripción a Azure.                                  |
     | Grupo de recursos   | Seleccione **myResourceGroupNAT**. |
     | **Detalles de instancia** |                                                                 |
     | Nombre             | Especifique **myNATgateway**.                                    |
@@ -136,13 +136,13 @@ En esta sección, creará una máquina virtual para probar la puerta de enlace N
     | **Configuración** | **Valor** |
     | ----------- | --------- |
     | **Detalles del proyecto** |   |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroupNAT**. |
     | **Detalles de instancia** |   |
     | Nombre de la máquina virtual | Escriba **myVM**. |
     | Region | Seleccione **(Europa) Oeste de Europa**. |
-    | Opciones de disponibilidad | Deje el valor predeterminado de que no es necesario tener redundancia. |
-    | Imagen | Seleccione **Windows Server 2019 Datacenter - Gen1**. |
+    | Opciones de disponibilidad | Seleccione **No se requiere redundancia de la infraestructura**. |
+    | Imagen | Seleccione **Windows Server 2019 Datacenter - Gen2**. |
     | Size | Seleccione **Standard_DS1_v2**. |
     | **Cuenta de administrador** |   |
     | Nombre de usuario | Especifique un nombre de usuario de la máquina virtual. |

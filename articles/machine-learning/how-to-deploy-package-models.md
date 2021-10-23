@@ -9,12 +9,12 @@ ms.date: 07/31/2020
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 8327a1855de21c274a54f1bfa3750eab9aea8a8c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 05af03c7ac60e2f98471ace4d57a296a54cf8ce6
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128649349"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707344"
 ---
 # <a name="how-to-package-a-registered-model-with-docker"></a>Cómo empaquetar un modelo registrado con Docker
 
@@ -27,7 +27,7 @@ En este artículo se da por supuesto que ya ha entrenado y registrado un modelo 
 
 ## <a name="package-models"></a>Modelos de paquetes
 
-En algunos casos, es posible que desee crear una imagen de Docker sin implementar el modelo (si, por ejemplo, pretende [implementar en Azure App Service](how-to-deploy-app-service.md)). O bien, puede que desee descargar la imagen y ejecutarla en una instalación local de Docker. Incluso, puede que desee descargar los archivos usados para compilar la imagen, inspeccionarlos, modificarlos y compilar la imagen manualmente.
+En algunos casos, es posible que desee crear una imagen de Docker sin implementar el modelo. O bien, puede que desee descargar la imagen y ejecutarla en una instalación local de Docker. Incluso, puede que desee descargar los archivos usados para compilar la imagen, inspeccionarlos, modificarlos y compilar la imagen manualmente.
 
 El empaquetado de modelos permite hacer estas cosas. Empaqueta todos los recursos necesarios para hospedar un modelo como servicio web y le permite descargar una imagen de Docker totalmente compilada o los archivos necesarios para compilar una. Hay dos maneras de usar el empaquetado del modelos:
 

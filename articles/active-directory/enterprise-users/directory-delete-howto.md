@@ -4,22 +4,22 @@ description: En este tema se explica cómo preparar una organización (inquilino
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: KarenH444
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/01/2021
+ms.date: 10/13/2021
 ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 147e4c6afa9f4fd9cc9ba48dd5628f4de841501e
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: ee31a8df6d94093565dbc6bb66c1774f0c34c249
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123438847"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129987031"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Eliminar un inquilino en Azure Active Directory
 

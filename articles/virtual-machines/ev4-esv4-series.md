@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: e4278cb662d4e3ee518a52651462ca04d634c556
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 0bc3035b934f5b450345449b21e5aedd44642cf4
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122688302"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070762"
 ---
 # <a name="ev4-and-esv4-series"></a>Series Ev4 y Esv4
 
@@ -101,7 +101,7 @@ Los tamaños de la serie Esv4 se ejecutan en Intel&reg; Xeon&reg; Platinum 8272C
 
 Calculadora de precios: [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 
-Más información sobre los tipos de disco: [Tipos de disco](./disks-types.md#ultra-disk)
+Más información sobre los tipos de disco: [Tipos de disco](./disks-types.md#ultra-disks)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

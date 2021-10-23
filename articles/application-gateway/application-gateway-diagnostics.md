@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/22/2019
+ms.date: 10/18/2021
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5b7068d707497ee15689671ea9278d72b149cace
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a2ed550d36dca7e9a7043dfca91e468527982164
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124837392"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130138081"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Mantenimiento del back-end y registros de diagnóstico para Application Gateway
 
@@ -178,6 +178,7 @@ El registro de acceso solo se genera si lo habilitó para cada instancia de Appl
 |sslEnabled| Indica si la comunicación con los grupos de back-end utilizaron TLS/SSL. Los valores válidos son on y off.|
 |host| El nombre de host con el que se envió la solicitud al servidor back-end. Si se está reemplazando el nombre de host de back-end, se reflejará en este nombre.|
 |originalHost| Nombre de host con el que Application Gateway recibió la solicitud del cliente.|
+
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
@@ -229,28 +230,40 @@ El registro de acceso solo se genera si lo habilitó para cada instancia de Appl
 |originalHost| Este campo contiene el nombre de host de la solicitud original
 ```json
 {
-    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
+    "timeStamp": "2021-10-14T22:17:11+00:00",
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
+    "listenerName": "HTTP-Listener",
+    "ruleName": "Storage-Static-Rule",
+    "backendPoolName": "StaticStorageAccount",
+    "backendSettingName": "StorageStatic-HTTPS-Setting",
     "operationName": "ApplicationGatewayAccess",
-    "time": "2017-04-26T19:27:38Z",
     "category": "ApplicationGatewayAccessLog",
     "properties": {
-        "instanceId": "appgw_1",
-        "clientIP": "191.96.249.97",
+        "instanceId": "appgw_2",
+        "clientIP": "185.42.129.24",
+        "clientPort": 45057,
         "httpMethod": "GET",
-        "requestUri": "/phpmyadmin/scripts/setup.php",
-        "userAgent": "-",
-        "httpStatus": 404,
-        "httpVersion": "HTTP/1.0",
-        "receivedBytes": 65,
-        "sentBytes": 553,
-        "timeTaken": "0.012",
-        "sslEnabled": "off",
-        "sslCipher": "",
-        "sslProtocol": "",
-        "serverRouted": "104.41.114.59:80",
+        "originalRequestUriWithArgs": "\/",
+        "requestUri": "\/",
+        "requestQuery": "",
+        "userAgent": "Mozilla\/5.0 (Windows NT 6.1; WOW64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/52.0.2743.116 Safari\/537.36",
+        "httpStatus": 200,
+        "httpVersion": "HTTP\/1.1",
+        "receivedBytes": 184,
+        "sentBytes": 466,
+        "timeTaken": 0.034,
+        "transactionId": "592d1649f75a8d480a3c4dc6a975309d",
+        "sslEnabled": "on",
+        "sslCipher": "ECDHE-RSA-AES256-GCM-SHA384",
+        "sslProtocol": "TLSv1.2",
+        "sslClientVerify": "NONE",
+        "sslClientCertificateFingerprint": "",
+        "sslClientCertificateIssuerName": "",
+        "serverRouted": "52.239.221.65:443",
         "serverStatus": "200",
-        "serverResponseLatency": "0.012",
-        "host": "www.contoso.com",
+        "serverResponseLatency": "0.028",
+        "originalHost": "20.110.30.194",
+        "host": "20.110.30.194"
     }
 }
 ```
@@ -319,32 +332,34 @@ El registro de firewall solo se genera si lo habilitó para cada instancia de Ap
 
 ```json
 {
-  "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
-  "operationName": "ApplicationGatewayFirewall",
-  "time": "2017-03-20T15:52:09.1494499Z",
-  "category": "ApplicationGatewayFirewallLog",
-  "properties": {
-    "instanceId": "ApplicationGatewayRole_IN_0",
-    "clientIp": "104.210.252.3",
-    "clientPort": "4835",
-    "requestUri": "/?a=%3Cscript%3Ealert(%22Hello%22);%3C/script%3E",
-    "ruleSetType": "OWASP",
-    "ruleSetVersion": "3.0",
-    "ruleId": "941320",
-    "message": "Possible XSS Attack Detected - HTML Tag Handler",
-    "action": "Blocked",
-    "site": "Global",
-    "details": {
-      "message": "Warning. Pattern match \"<(a|abbr|acronym|address|applet|area|audioscope|b|base|basefront|bdo|bgsound|big|blackface|blink|blockquote|body|bq|br|button|caption|center|cite|code|col|colgroup|comment|dd|del|dfn|dir|div|dl|dt|em|embed|fieldset|fn|font|form|frame|frameset|h1|head|h ...\" at ARGS:a.",
-      "data": "Matched Data: <script> found within ARGS:a: <script>alert(\\x22hello\\x22);</script>",
-      "file": "rules/REQUEST-941-APPLICATION-ATTACK-XSS.conf",
-      "line": "865"
+    "timeStamp": "2021-10-14T22:17:11+00:00",
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
+    "operationName": "ApplicationGatewayFirewall",
+    "category": "ApplicationGatewayFirewallLog",
+    "properties": {
+        "instanceId": "appgw_2",
+        "clientIp": "185.42.129.24",
+        "clientPort": "",
+        "requestUri": "\/",
+        "ruleSetType": "OWASP_CRS",
+        "ruleSetVersion": "3.0.0",
+        "ruleId": "920350",
+        "message": "Host header is a numeric IP address",
+        "action": "Matched",
+        "site": "Global",
+        "details": {
+            "message": "Warning. Pattern match \\\"^[\\\\d.:]+$\\\" at REQUEST_HEADERS:Host .... ",
+            "data": "20.110.30.194:80",
+            "file": "rules\/REQUEST-920-PROTOCOL-ENFORCEMENT.conf",
+            "line": "791"
+        },
+        "hostname": "20.110.30.194:80",
+        "transactionId": "592d1649f75a8d480a3c4dc6a975309d",
+        "policyId": "default",
+        "policyScope": "Global",
+        "policyScopeName": "Global"
     }
-    "hostname": "40.90.218.100",
-    "transactionId": "AYAcUqAcAcAcAcAcASAcAcAc"
-  }
 }
-
 ```
 
 ### <a name="view-and-analyze-the-activity-log"></a>Visualización y análisis del registro de actividades

@@ -1,15 +1,15 @@
 ---
 title: Cómo agregar otros propietarios a un laboratorio en Azure Lab Services
 description: En este artículo se muestra cómo un administrador puede agregar un usuario como propietario de un laboratorio en Azure Lab Services.
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/03/2021
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: e8dd21a140e1c519f09d661c776e5c84c47da925
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 531910013284abbddd73c2247b5f65494a74ddf1
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122635016"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130181015"
 ---
 # <a name="how-to-add-additional-owners-to-an-existing-lab-in-azure-lab-services"></a>Cómo agregar otros propietarios a un laboratorio existente en Azure Lab Services
 En este artículo se muestra cómo, como administrador, puede agregar otros propietarios a un laboratorio existente.

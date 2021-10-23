@@ -4,13 +4,13 @@ description: Obtenga información sobre cómo determinar la dirección IP públi
 author: emaher
 ms.author: enewman
 ms.date: 06/26/2020
-ms.topic: article
-ms.openlocfilehash: 9b37d94249c136d2ec90a955e71e61e8eef0aeb6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.topic: how-to
+ms.openlocfilehash: 2c98bbbfea0e31b156f45600bff310306650816b
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108772304"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180787"
 ---
 # <a name="firewall-settings-for-azure-lab-services"></a>Configuración del firewall para Azure Lab Services
 

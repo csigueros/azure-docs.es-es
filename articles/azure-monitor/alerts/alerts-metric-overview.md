@@ -1,14 +1,14 @@
 ---
 title: Comprender cómo funcionan las alertas de métricas en Azure Monitor.
 description: Obtenga información general acerca de lo que puede hacer con las alertas de métricas y cómo funcionan en Azure Monitor.
-ms.date: 03/11/2021
+ms.date: 10/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: dd0672523329b17b0e101d5abb16700254b8a918
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: fa577d4c2099be6b333994690b56c7581ae32669
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111441337"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994734"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprender cómo funcionan las alertas de métricas en Azure Monitor
 
@@ -146,6 +146,7 @@ Esta característica se admite actualmente en las métricas de plataforma (no m�
 | Almacenes de claves | **Sí** | **Sí** | **Sí** |
 | Azure Cache for Redis | **Sí** | **Sí** | **Sí** |
 | Dispositivos Data Box Edge | **Sí** | **Sí** | **Sí** |
+| Almacenes de Recovery Services | **Sí** | **No** | **No** |
 
 <sup>1</sup> No se admite con las métricas de red de máquinas virtuales (Entrada de red total, Salida de red total, Flujos de entrada, Flujos de salida, Velocidad máxima de creación de flujos entrantes, Velocidad máxima de creación de flujos salientes).
 

@@ -2,15 +2,15 @@
 title: Guía para configurar una máquina de plantillas de Windows | Microsoft Docs
 description: Pasos genéricos para preparar una máquina de plantillas de Windows en Lab Services.  Estos pasos incluyen la configuración de la programación de Windows Update, la instalación de OneDrive y la instalación de Office.
 author: EMaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 216dc843b31eac355e1d818014f3d70b2ef83132
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b84823e356f59cda00b80052add584153a4aad6
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94647909"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180122"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guía para configurar una máquina de plantillas de Windows en Azure Lab Services
 

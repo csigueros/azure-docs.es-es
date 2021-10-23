@@ -10,12 +10,12 @@ ms.date: 03/17/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: c871a1ec4feec89cc3250f1fbfefefa69ed927bb
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b5d33e9bfe123b0c0b2fceacc3d59e8f1f35de7f
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128589328"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066782"
 ---
 # <a name="configure-network-routing-preference-for-azure-storage"></a>Configuración de las preferencias de enrutamiento de red para Azure Storage
 
@@ -131,7 +131,7 @@ Esta preferencia solo afecta al punto de conexión específico de la ruta. Esta 
 
    - Para crear un punto de conexión específico de la ruta que use la preferencia de enrutamiento de red de Microsoft, establezca el parámetro `-PublishMicrosoftEndpoint` en `true`.
 
-   - Para crear un punto de conexión específico de la ruta que use la preferencia de enrutamiento de Internet, establezca el parámetro `-PublishInternetEndpointTo` en `true`.
+   - Para crear un punto de conexión específico de la ruta que use la preferencia de enrutamiento de Internet, establezca el parámetro `-PublishInternetEndpoint` en `true`.
 
    En el ejemplo siguiente se crea un punto de conexión específico de la ruta que utiliza la preferencia de enrutamiento de red de Microsoft.
 

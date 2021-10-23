@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/28/2021
+ms.date: 10/15/2021
 ms.author: b-juche
-ms.openlocfilehash: 705cc540097ea41bc0039336d7cc9fdc025dd247
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 8dace313ed9296dd514fb059e8ed681a6276af0f
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129218391"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074539"
 ---
 # <a name="enable-continuous-availability-on-existing-smb-volumes"></a>Habilitación de la disponibilidad continua en volúmenes de SMB existentes
 
@@ -34,8 +34,11 @@ Puede habilitar la característica de disponibilidad continua (CA) de SMB al [cr
 ## <a name="steps"></a>Pasos
 
 1. Asegúrese de que ha registrado la característica de [recursos compartidos con disponibilidad continua de SMB](https://aka.ms/anfsmbcasharespreviewsignup).  
-2. Haga clic en el volumen SMB en el que desea tener habilitada la CA de SMB. A continuación, haga clic en **Editar**.  
-3. En la ventana Editar que aparece, seleccione la casilla **Habilitar disponibilidad continua**.   
+
+    Debe habilitar la disponibilidad continua solo para los [contenedores de perfil de usuario de FSLogix](../virtual-desktop/create-fslogix-profile-container.md) y SQL Server. *No* se admite el uso de recursos compartidos de disponibilidad continua de SMB para cargas de trabajo que no son contenedores de perfil de usuario de SQL Server y FSLogix. Esta característica se admite actualmente en Windows SQL Server. Linux SQL Server no se admite actualmente. Si usa una cuenta que no sea de administrador (dominio) para instalar SQL Server, asegúrese de que la cuenta tiene asignado el privilegio de seguridad necesario. Si la cuenta de dominio no tiene el privilegio de seguridad necesario (`SeSecurityPrivilege`) y el privilegio no se puede establecer en el nivel de dominio, puede conceder el privilegio a la cuenta mediante el campo **Security privilege users** (Usuarios con privilegios de seguridad) de conexiones de Active Directory. Consulte la sección [Creación de una conexión de Active Directory](create-active-directory-connections.md#create-an-active-directory-connection).
+            
+3. Haga clic en el volumen SMB en el que desea tener habilitada la CA de SMB. A continuación, haga clic en **Editar**.  
+4. En la ventana Editar que aparece, seleccione la casilla **Habilitar disponibilidad continua**.   
     ![Instantánea que muestra la opción para habilitar la disponibilidad continua.](../media/azure-netapp-files/enable-continuous-availability.png)
 
 4. Reinicie los sistemas Windows que se conectan al recurso compartido SMB existente.   

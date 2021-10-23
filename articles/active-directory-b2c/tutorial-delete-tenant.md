@@ -2,20 +2,20 @@
 title: 'Limpieza de recursos y eliminación de un inquilino: Azure Active Directory B2C'
 description: Pasos que describen cómo eliminar un inquilino de Azure AD B2C. Obtenga información sobre cómo eliminar todos los recursos de inquilino y, a continuación, eliminar el inquilino.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/20/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 277303a2272f7622e5082b06a73980619bf93aa8
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 11b1382a19937d4835093979b72d7ee4c28b152b
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129615968"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130044068"
 ---
 # <a name="clean-up-resources-and-delete-the-tenant"></a>Limpieza de recursos y eliminación del inquilino
 

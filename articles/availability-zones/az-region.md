@@ -8,12 +8,12 @@ ms.date: 10/01/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: references_regions
-ms.openlocfilehash: 452948e3fffa9d6bdd5bc8b9523c659a06247a27
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: e7c8ce91f15a6b92e3efa9bae8c5a78bc9fd4baa
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129668036"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130129061"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Servicios de Azure compatibles con zonas de disponibilidad
 
@@ -34,7 +34,7 @@ Azure proporciona la superficie global más amplia de cualquier proveedor de nub
 | Centro de EE. UU. | Norte de Europa | | Japón Oriental |
 | Este de EE. UU. | Este de Noruega | | Centro de Corea del Sur |
 | Este de EE. UU. 2 | Sur de Reino Unido 2 | | Sudeste de Asia |
-| Centro-sur de EE. UU. | Oeste de Europa | | |
+| Centro-sur de EE. UU. | Oeste de Europa | | Este de Asia* |
 | US Gov - Virginia | Suecia* | | |
 | Oeste de EE. UU. 2 | | | |
 | Oeste de EE. UU. 3 | | | |
@@ -73,7 +73,7 @@ En el catálogo de productos, los servicios siempre disponibles se enumeran como
 | **Productos**   | **Resistencia**   |
 | --- | --- |
 | [Azure Application Gateway (V2)](../application-gateway/application-gateway-autoscaling-zone-redundant.md)  | ![Icono que indica que este servicio tiene redundancia de zona.](media/icon-zone-redundant.svg) ![Icono que indica que este servicio es zonal.](media/icon-zonal.svg)  |
-| [Azure Backup](/architecture/backup/backup-create-rs-vault#set-storage-redundancy.md)  | ![Icono que indica que este servicio es zonal.](media/icon-zonal.svg)  |
+| [Azure Backup](/azure/backup/backup-create-rs-vault)  | ![Icono que indica que este servicio es zonal.](media/icon-zonal.svg)  |
 | [Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support)  | ![Icono que indica que este servicio tiene redundancia de zona.](media/icon-zone-redundant.svg)   |
 | [Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md)  | ![Icono que indica que este servicio tiene redundancia de zona.](media/icon-zone-redundant.svg)  |
 | [Azure DNS: Azure DNS Private Zones](../dns/private-dns-getstarted-portal.md)  | ![Icono que indica que este servicio tiene redundancia de zona.](media/icon-zone-redundant.svg)  |
@@ -212,6 +212,6 @@ Puede acceder a Azure Availability Zones mediante su suscripción de Azure. Para
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Compilación de soluciones para alta disponibilidad mediante zonas de disponibilidad](/architecture/high-availability/building-solutions-for-high-availability)
-- [Alta disponibilidad con servicios de Azure](/architecture/framework/resiliency/overview)
-- [Patrones de diseño de alta disponibilidad](/architecture/framework/resiliency/app-design)
+- [Compilación de soluciones para alta disponibilidad mediante zonas de disponibilidad](/azure/architecture/high-availability/building-solutions-for-high-availability)
+- [Alta disponibilidad con servicios de Azure](/azure/architecture/framework/resiliency/overview)
+- [Patrones de diseño de alta disponibilidad](/azure/architecture/framework/resiliency/app-design)

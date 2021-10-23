@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
 ms.date: 08/24/2021
-ms.author: mimart
-author: msmimart
-manager: celestedg
+ms.author: kengaderdus
+author: kengaderdus
+manager: CelesteDG
 ms.custom: it-pro
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 288cffbaa90db2725d2aa2985c003474b2c7eb7b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 661801e8eb184e8368cb5156d7f7b7f71612f8f2
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128570736"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130040158"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow"></a>Adición de un conector de API a un flujo de usuario de registro
 
@@ -315,7 +315,7 @@ Content-type: application/json
 }
 ```
 
-| Parámetro                                          | Tipo              | Requerido | Descripción                                                                                                                                                                                                                                                                            |
+| Parámetro                                          | Tipo              | Obligatorio | Descripción                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version     | String | Sí      | Versión de la API.                                                    |
 | action                                             | String            | Sí      | El valor debe ser `Continue`.                                                                                                                                                                                                                                                              |
@@ -336,7 +336,7 @@ Content-type: application/json
 
 ```
 
-| Parámetro   | Tipo   | Requerido | Descripción                                                                |
+| Parámetro   | Tipo   | Obligatorio | Descripción                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | version     | String | Sí      | Versión de la API.                                                    |
 | action      | String | Sí      | El valor debe ser `ShowBlockPage`.                                              |
@@ -360,7 +360,7 @@ Content-type: application/json
 }
 ```
 
-| Parámetro   | Tipo    | Requerido | Descripción                                                                |
+| Parámetro   | Tipo    | Obligatorio | Descripción                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | version     | String  | Sí      | Versión de la API.                                                    |
 | action      | String  | Sí      | El valor debe ser `ValidationError`.                                           |
@@ -417,7 +417,7 @@ La configuración del punto de conexión de API REST está fuera del ámbito de 
 
 Una notificación proporciona un almacenamiento temporal de datos durante la ejecución de una directiva de Azure AD B2C. Puede declarar notificaciones dentro de la sección del [esquema de notificaciones](claimsschema.md). 
 
-1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`**</em>.
+1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Busque el elemento [BuildingBlocks](buildingblocks.md). Si el elemento no existe, agréguelo.
 1. Busque el elemento [ClaimsSchema](claimsschema.md). Si el elemento no existe, agréguelo.
 1. Agregue las notificaciones siguientes al elemento **ClaimsSchema**.  

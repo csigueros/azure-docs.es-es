@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo desarrollar código para Azure Cac
 author: shpathak-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 08/25/2021
+ms.date: 10/11/2021
 ms.author: shpathak
-ms.openlocfilehash: 20725796abed454aaccdea73f13d898ca48f615c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4d10af1d6f7b56c578d201c51b4c706eae0e8bf6
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128626121"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129808764"
 ---
 # <a name="development"></a>Desarrollo
 
@@ -22,9 +22,35 @@ Al desarrollar aplicaciones cliente, asegúrese de tener en cuenta los procedimi
 
 ## <a name="consider-more-keys-and-smaller-values"></a>Consideración de más claves y valores más pequeños
 
-Redis funciona mejor con valores más pequeños. Considere la posibilidad de dividir los fragmentos de datos más grandes en otros más pequeños para repartirlos entre varias claves. Para obtener más información sobre el tamaño de valor ideal, consulte [este artículo](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/).
+Azure Cache for Redis funciona mejor con valores más pequeños. Considere la posibilidad de dividir los fragmentos de datos más grandes en otros más pequeños para repartirlos entre varias claves. Para obtener más información sobre el tamaño de valor ideal, consulte [este artículo](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/).
 
-En este artículo de Redis se enumeran algunas cuestiones a las que se debe prestar especial atención. En [Tamaño de solicitud o respuesta grande](cache-troubleshoot-client.md#large-request-or-response-size) puede consultar un problema de ejemplo que podría estar provocado por valores grandes.
+## <a name="large-request-or-response-size"></a>Tamaño de solicitud o respuesta grande
+
+Una solicitud/respuesta grande puede provocar tiempos de espera agotados. Por ejemplo, suponga que el valor del tiempo de expiración configurado en el cliente es de 1 segundo. La aplicación solicita dos claves (por ejemplo, "A" y "B") al mismo tiempo (con la utilización de la misma conexión de red física). La mayoría de clientes admiten la "canalización" de las solicitudes, en la que ambas solicitudes, "A" y "B", se envían una tras otra sin tener que esperar las respuestas. El servidor vuelve a enviar las respuestas en el mismo orden. Si la respuesta "A" es grande, puede consumir la mayor parte del tiempo de expiración para las solicitudes posteriores.
+
+En el ejemplo siguiente, las solicitudes "A" y "B" se envían rápidamente al servidor. El servidor empieza a enviar las respuestas "A" y "B" rápidamente. Debido a los tiempos de transferencia de datos, la respuesta "B" debe esperar a que se agote el tiempo de espera de la respuesta "A", aunque el servidor haya respondido con rapidez.
+
+```console
+|-------- 1 Second Timeout (A)----------|
+|-Request A-|
+     |-------- 1 Second Timeout (B) ----------|
+     |-Request B-|
+            |- Read Response A --------|
+                                       |- Read Response B-| (**TIMEOUT**)
+```
+
+Esta solicitud/respuesta es difícil de medir. Puede instrumentar el código del cliente para realizar un seguimiento de las respuestas y solicitudes grandes.
+
+Las resoluciones para los tamaños grandes de respuesta varían, pero incluyen lo siguiente:
+
+- Optimización de la aplicación para un gran número de valores pequeños, en lugar de unos pocos valores grandes.
+    - La mejor solución es dividir los datos en valores menores relacionados.
+    - Consulte la publicación [What is the ideal value size range for redis? Is 100KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) (¿Cuál es el intervalo de tamaño de valor ideal para Redis? ¿100 KB es demasiado grande?) para obtener detalles de por qué se recomiendan valores más pequeños.
+- Aumento del tamaño de la máquina virtual para obtener mayores capacidades de ancho de banda.
+    - Un aumento de ancho de banda en la máquina virtual del cliente o servidor puede reducir los tiempos de transferencia de datos para respuestas más grandes.
+    - Compare la utilización actual de la red en ambas máquinas con los límites del tamaño actual de la máquina virtual. Es posible que obtener más ancho de banda solo en el servidor o en el cliente no sea suficiente.
+- Aumente el número de objetos de conexión que usa la aplicación.
+    - Use un enfoque round robin para realizar solicitudes a través de objetos de conexión distintos.
 
 ## <a name="key-distribution"></a>Distribución de las claves
 
@@ -39,6 +65,7 @@ Intente elegir un cliente de Redis que admita la [canalización de Redis](https:
 Algunas operaciones de Redis, como el comando [KEYS](https://redis.io/commands/keys) son muy costosas y deben evitarse. En [Comandos de larga duración](cache-troubleshoot-server.md#long-running-commands) encontrará algunos aspectos para tener en cuenta con relación a estos comandos.
 
 ## <a name="choose-an-appropriate-tier"></a>Elija un nivel apropiado:
+
 Use el nivel Estándar o Premium para sistemas de producción.  No use el nivel Básico en producción. El nivel básico es un sistema de nodo único sin replicación de datos ni Acuerdo de Nivel de Servicio. Además, utilice al menos una caché de C1. Las cachés de C0 solo están diseñadas para escenarios sencillos de desarrollo o prueba por los siguientes motivos:
 
 - Comparten un núcleo de CPU.
@@ -61,14 +88,14 @@ Si la biblioteca o la herramienta cliente no admiten TLS, es posible habilitar l
 
 ## <a name="client-library-specific-guidance"></a>Guía específica de bibliotecas cliente
 
-* [StackExchange.Redis (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
-* [Java: ¿Qué cliente debo usar?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
-* [Lettuce (Java)](https://github.com/Azure/AzureCacheForRedis/blob/main/Lettuce%20Best%20Practices.md)
-* [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
-* [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
-* [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
-* [HiRedisCluster](https://github.com/Azure/AzureCacheForRedis/blob/main/HiRedisCluster%20Best%20Practices.md)
-* [Proveedor de estado de sesión de ASP.NET](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
+- [StackExchange.Redis (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
+- [Java: ¿Qué cliente debo usar?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
+- [Lettuce (Java)](https://github.com/Azure/AzureCacheForRedis/blob/main/Lettuce%20Best%20Practices.md)
+- [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
+- [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
+- [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
+- [HiRedisCluster](https://github.com/Azure/AzureCacheForRedis/blob/main/HiRedisCluster%20Best%20Practices.md)
+- [Proveedor de estado de sesión de ASP.NET](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

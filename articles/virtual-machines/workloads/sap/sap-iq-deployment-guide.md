@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/11/2021
 ms.author: depadia
-ms.openlocfilehash: 7b4f49efff29717e3345a2cc04286e9c3e86c8f7
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 7ece73f467e2dc148e79512c7dd1a6fcc19cf270
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123306537"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072639"
 ---
 # <a name="sap-bw-nls-implementation-guide-with-sap-iq-on-azure"></a>Guía de implementación de SAP BW NLS con SAP IQ en Azure
 
@@ -99,7 +99,7 @@ Para SAP IQ en Azure, puede usar los siguientes tipos de almacenamiento de Azure
 
 - Azure Managed Disks
 
-  Un [disco administrado](../../managed-disks-overview.md) es un volumen de almacenamiento de nivel de bloque administrado por Azure. Puede usar discos administrados para la implementación simplex de SAP IQ. Hay varios tipos de discos administrados disponibles, pero se recomienda usar [SSD prémium](../../disks-types.md#premium-ssd) para SAP IQ. 
+  Un [disco administrado](../../managed-disks-overview.md) es un volumen de almacenamiento de nivel de bloque administrado por Azure. Puede usar discos administrados para la implementación simplex de SAP IQ. Hay varios tipos de discos administrados disponibles, pero se recomienda usar [SSD prémium](../../disks-types.md#premium-ssds) para SAP IQ. 
 
 - Discos compartidos de Azure
 

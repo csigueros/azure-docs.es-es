@@ -2,16 +2,14 @@
 title: 'Inicio rápido: Supervisión de Node.js con Application Insights de Azure Monitor'
 description: Proporciona instrucciones para configurar rápidamente una aplicación web de Node.js para realizar labores de supervisión con Application Insights de Azure Monitor
 ms.topic: quickstart
-author: lgayhardt
-ms.author: lagayhar
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: c2720fb5fd52eaf5f4f6d854bba622c0fecb5aeb
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: e1d851413d2fb6773170c9ae0f03d7845aa6eb30
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123438253"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131968"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Inicio rápido: Empiece a supervisar su aplicación web creada con Node.js con Azure Application Insights
 

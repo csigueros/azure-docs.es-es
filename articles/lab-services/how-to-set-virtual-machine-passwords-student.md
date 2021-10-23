@@ -1,14 +1,14 @@
 ---
 title: Restablecimiento de contraseñas de las máquinas virtuales en un laboratorio de clase en Azure Lab Services | Microsoft Docs
 description: Aprenda a restablecer las contraseñas de las máquinas virtuales (VM) en laboratorios de Azure Lab Services.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 1b0b13862ca4620da15606138c0a80adeac8056a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca311c08419ff54fdfe72b20a2a2bffbc436d1dd
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96436817"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180141"
 ---
 # <a name="set-or-reset-password-for-virtual-machines-in-labs-students"></a>Establecimiento o restablecimiento de contraseñas de las máquinas virtuales en laboratorios (alumnos)
 En este artículo se muestra cómo los alumnos pueden establecer o restablecer la contraseña de sus máquinas virtuales. 

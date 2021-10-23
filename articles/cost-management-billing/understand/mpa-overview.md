@@ -6,14 +6,14 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: 71a3ce7a33f920c361dfe1e7d0004b52e8211336
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 62156836a37cff8e209fe8f97847b8a8c7889272
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128559619"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710933"
 ---
 # <a name="get-started-with-your-microsoft-partner-agreement-billing-account"></a>Introducción a la cuenta de facturación para un contrato Microsoft Partner Agreement
 
@@ -84,4 +84,4 @@ Consulte los siguientes artículos para obtener información sobre la cuenta de 
 
 - [Creación de una suscripción de Azure adicional para el contrato Microsoft Partner Agreement](../manage/create-subscription.md)
 - Integración de los datos de facturación en su propio sistema de generación de informes mediante las [API de facturación de Azure](/rest/api/billing/)
-- [Guía de inicio rápido de Azure Cost Management para asociados](../costs/get-started-partners.md)
+- [Guía de inicio rápido de Cost Management para asociados](../costs/get-started-partners.md)

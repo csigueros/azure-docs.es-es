@@ -63,6 +63,8 @@ items:
             href: 'https://azure.github.io/communication-ui-library/?path=/story/quickstarts-statefulclient--page'
           - name: Introducción a los componentes de la interfaz de usuario
             href: 'https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents--page'
+          - name: Incorporación de la composición de las llamadas a una aplicación móvil
+            href: quickstarts/ui-library/get-started-call.md
       - name: Acceso a retransmisiones TURN
         href: quickstarts/relay-token.md
   - name: Tutoriales
@@ -135,6 +137,10 @@ items:
             href: concepts/ui-library/ui-library-overview.md
           - name: Casos de uso de la biblioteca de interfaz de usuario
             href: concepts/ui-library/ui-library-use-cases.md
+          - name: Introducción a la biblioteca de interfaz de usuario para dispositivos móviles
+            href: concepts/ui-library/mobile-ui-library.md
+          - name: Casos de uso de la biblioteca de interfaz de usuario para dispositivos móviles
+            href: concepts/ui-library/mobile-ui-use-cases.md
       - name: SDK y API REST
         href: concepts/sdk-options.md
       - name: Arquitectura de cliente y servidor
@@ -156,8 +162,22 @@ items:
           - name: Unión a una reunión de Teams
             href: concepts/join-teams-meeting.md
       - name: Eventos de servicio (EventGrid)
-        href: ../event-grid/event-schema-communication-services.md
-        maintainContext: true
+        items:
+          - name: Información general
+            href: ../event-grid/event-schema-communication-services.md
+            maintainContext: true
+          - name: Eventos de chat
+            href: ../event-grid/communication-services-chat-events.md
+            maintainContext: true
+          - name: Eventos de telefonía y SMS
+            href: ../event-grid/communication-services-telephony-sms-events.md
+            maintainContext: true
+          - name: Eventos de llamadas de voz y videollamadas
+            href: ../event-grid/communication-services-voice-video-events.md
+            maintainContext: true
+          - name: Eventos presenciales
+            href: ../event-grid/communication-services-presence-events.md
+            maintainContext: true
       - name: Registro y diagnósticos
         href: concepts/logging-and-diagnostics.md
       - name: Métricas

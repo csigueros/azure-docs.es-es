@@ -3,20 +3,20 @@ title: 'Inicio rápido: Configuración del inicio de sesión de una aplicación 
 titleSuffix: Azure AD B2C
 description: En este inicio rápido, se ejecuta una aplicación de página única de ejemplo que usa Azure Active Directory B2C para proporcionar el inicio de sesión de la cuenta.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 04/04/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 7dc02eb3c74208cf0d438640434430c7c04aeb9c
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: a4ab049f739ff1ec940234cb6559c88547a47b20
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129353659"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130036690"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Inicio rápido: Configuración del inicio de sesión de una aplicación de página única mediante Azure Active Directory B2C
 

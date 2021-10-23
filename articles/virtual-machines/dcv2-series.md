@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: c5232d9ed3e7ab7caec6134e4c5d3e553e2b543c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 0c5321625f9963a15527d8fb0edef73f0701bd6e
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124818406"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129856392"
 ---
 # <a name="dcsv2-series"></a>Serie DCsv2
 
@@ -22,7 +22,9 @@ Las máquinas virtuales de la serie DCsv2 pueden ayudar a proteger la confidenci
 
 Estas máquinas cuentan con tecnología de Intel® Xeon E-2288G (Coffee Lake) a 3.7 GHz y tecnología SGX. Con Intel® Turbo Boost Max Technology 3.0, estas máquinas pueden llegar a 5.0 GHz. 
 
-Entre los casos de uso de ejemplo se incluyen el uso compartido de datos confidenciales entre varias partes, la detección de fraudes, bases de datos confidenciales, el blanqueo de dinero, la cadena de bloques, el análisis de uso confidencial, el análisis de la inteligencia y el aprendizaje automático confidencial.
+[!NOTE] El hyperthreading está deshabilitado para una posición de seguridad agregada. Los precios se basan en el rendimiento superior de los núcleos físicos frente a los virtuales, así como en las funcionalidades de seguridad únicas de la serie DC.
+
+Entre los casos de uso confidencial de ejemplo se incluyen las bases de datos, las cadenas de bloques, el análisis de datos entre varias partes, la detección de fraudes, la prevención del blanqueo de dinero, el análisis de uso, el análisis de la inteligencia y el aprendizaje automático.
 
 ## <a name="configuration"></a>Configuración
 
@@ -38,7 +40,7 @@ Entre los casos de uso de ejemplo se incluyen el uso compartido de datos confide
 
 ## <a name="technical-specifications"></a>Especificaciones técnicas
 
-| Size             | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Nº máx. de NIC / ancho de banda de red esperado (MBps) | Memoria EPC (MiB) |
+| Size             | Núcleos físicos | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Nº máx. de NIC / ancho de banda de red esperado (MBps) | Memoria EPC (MiB) |
 |------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|----------------------------------------------|---------------------|
 | Standard_DC1s_v2 | 1    | 4           | 50                     | 1              | 2000/16                                                                                               | 2   | 28                                      |
 | Standard_DC2s_v2 | 2    | 8           | 100                    | 2              | 4000/32                                                                                               | 2  | 56                                          |
@@ -51,7 +53,6 @@ Entre los casos de uso de ejemplo se incluyen el uso compartido de datos confide
 - Creación de máquinas virtuales DCsv2 mediante [Azure Portal](./linux/quick-create-portal.md) o [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview)
 - Las VM de la serie DCsv2 son [VM de 2ª generación](./generation-2.md#creating-a-generation-2-vm) y solo admiten imágenes de `Gen2`.
 - Actualmente está disponible en las regiones enumeradas en [Productos de Azure por región](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all).
-- Próxima generación de máquinas virtuales de la serie DC: [Participar en el programa de versión preliminar](https://aka.ms/intelgen3)
 
 ## <a name="more-sizes-and-information"></a>Más tamaños e información
 

@@ -6,19 +6,19 @@ ms.service: virtual-machines
 ms.subservice: maintenance
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 07/29/2021
+ms.date: 10/18/2021
 ms.author: manayar
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a120914051f7da0ccbfffb2a7fda9ab8404e7a76
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 7df73a0e09cf845f0dd7b5fda10bbb370057e998
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129216486"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130181395"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-azure-vms"></a>Versión preliminar: Aplicación de revisiones automática a invitados de las máquinas virtuales para máquinas virtuales de Azure
 
-**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
+**Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles
 
 La habilitación de la aplicación de revisiones automática a invitados de las máquinas virtuales de Azure facilita la administración de las actualizaciones mediante la aplicación segura y automática de revisiones a las máquinas virtuales para mantener el cumplimiento de la seguridad.
 

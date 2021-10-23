@@ -2,16 +2,14 @@
 title: Solución de problemas de conclusiones basadas en libros de Azure Monitor
 description: Proporciona una guía de solución de problemas de conclusiones basadas en libros de Azure Monitor para servicios como Azure Key Vault, Azure CosmosDB, Azure Storage y Azure Cache for Redis.
 services: azure-monitor
-ms.author: lagayhar
-author: lgayhardt
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: a823b5e2ae31e62ff6d876f0b3468953c0ed9c35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 005d59f2f9afb8dfa19c642ef89386be51005fd7
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100587154"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131835"
 ---
 # <a name="troubleshooting-workbook-based-insights"></a>Solución de problemas de conclusiones basadas en libros
 

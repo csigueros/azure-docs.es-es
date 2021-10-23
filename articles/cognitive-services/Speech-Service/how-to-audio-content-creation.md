@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: pafarley
-ms.openlocfilehash: 2e5942ccbb9e7acf090e5b538dfbb70b1c84762f
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: e396c3b206f581935e04321c91bfd0c07c741953
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538640"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129617575"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Mejora de la síntesis con la herramienta Audio Content Creation
 
@@ -138,13 +138,12 @@ El usuario debe preparar una [cuenta Microsoft](https://account.microsoft.com/ac
 Siga estos pasos para agregar un usuario a un recurso de voz para que pueda usar Creación de contenido de audio.
 
 1. Busque **Cognitive Services** en [Azure Portal](https://portal.azure.com/) y seleccione el recurso de voz al que desea agregar usuarios.
-2. Haga clic en **Control de acceso (IAM).** Haga clic en la pestaña **Asignaciones de roles** para ver todas las asignaciones de roles para esta suscripción.
-    :::image type="content" source="media/audio-content-creation/access-control-roles.png" alt-text="Pestaña Asignación de roles":::
-3. Haga clic en **Agregar** > **Agregar asignación de roles** para abrir el panel Agregar asignación de roles. En la lista desplegable Rol, seleccione el rol **Usuario de Cognitive Services**. Si desea conceder al usuario la propiedad de este recurso de voz, puede seleccionar el rol **Propietario**.
-4. Escriba la dirección de correo electrónico del usuario y seleccione el usuario en el directorio. La dirección de correo electrónico debe ser una **cuenta de Microsoft**, en la que confíe el directorio activo de Azure. Los usuarios pueden registrar fácilmente una [cuenta de Microsoft](https://account.microsoft.com/account) utilizando una dirección de correo electrónico personal. 
-5. Haga clic en **Guardar** para asignar el rol. 
-6. El usuario recibirá una invitación por correo electrónico. Para aceptar la invitación, haga clic en **Aceptar invitación** > **Aceptar para unirse a Azure** en el correo electrónico. A continuación, se redirigirá al usuario a Azure Portal. El usuario no tiene que realizar ninguna otra acción en Azure Portal. Transcurridos unos instantes, al usuario se le asigna el rol en el ámbito del recurso de voz y tendrá acceso a este recurso de voz. Si el usuario no recibió el correo electrónico de invitación, puede buscar la cuenta del usuario en "Asignaciones de roles" e ir dentro del perfil del usuario. Busque "Identidad" -> "Invitación aceptada" y haga clic en **(administrar)** para reenviar la invitación por correo electrónico. También puede copiar el vínculo de invitación a los usuarios. 
-7. El usuario ahora visita o actualiza la [Creación de contenido de audio](https://aka.ms/audiocontentcreation) del producto e inicia sesión con la cuenta Microsoft del usuario. Seleccione el bloque **Creación de contenido de audio** entre todos los productos de voz. Elija el recurso de voz en la ventana emergente o en la configuración de la esquina superior derecha de la página. Si el usuario no encuentra el recurso de voz disponible, compruebe si se encuentra en el directorio correcto. Para comprobar el directorio correcto, haga clic en el perfil de cuenta en la esquina superior derecha y haga clic en **Cambiar** junto al "Directorio actual". Si hay más de un directorio disponible, significa que tiene acceso a varios directorios. Cambie a directorios diferentes y vaya a la configuración para ver si el recurso de voz correcto está disponible. 
+2. Haga clic en **Control de acceso (IAM).** Seleccione **Agregar** > **Agregar asignación de roles (versión preliminar)** para abrir el panel Agregar asignación de roles. 
+1. En la lista desplegable **Rol**, seleccione el rol **Cognitive Service User** (Usuario de Cognitive Services). Si desea conceder al usuario la propiedad de este recurso de voz, puede seleccionar el rol **Propietario**.
+1. En la pestaña **Miembros**, escriba la dirección de correo electrónico del usuario y seleccione el usuario en el directorio. La dirección de correo electrónico debe ser una **cuenta de Microsoft**, en la que confíe el directorio activo de Azure. Los usuarios pueden registrar fácilmente una [cuenta de Microsoft](https://account.microsoft.com/account) utilizando una dirección de correo electrónico personal. 
+1. En la pestaña **Revisión y asignación**, seleccione **Revisión y asignación** para asignar el rol.
+1. El usuario recibirá una invitación por correo electrónico. Para aceptar la invitación, haga clic en **Aceptar invitación** > **Aceptar para unirse a Azure** en el correo electrónico. A continuación, se redirigirá al usuario a Azure Portal. El usuario no tiene que realizar ninguna otra acción en Azure Portal. Transcurridos unos instantes, al usuario se le asigna el rol en el ámbito del recurso de voz y tendrá acceso a este recurso de voz. Si el usuario no recibió el correo electrónico de invitación, puede buscar la cuenta del usuario en "Asignaciones de roles" e ir dentro del perfil del usuario. Busque "Identidad" -> "Invitación aceptada" y haga clic en **(administrar)** para reenviar la invitación por correo electrónico. También puede copiar el vínculo de invitación a los usuarios. 
+1. El usuario ahora visita o actualiza la [Creación de contenido de audio](https://aka.ms/audiocontentcreation) del producto e inicia sesión con la cuenta Microsoft del usuario. Seleccione el bloque **Creación de contenido de audio** entre todos los productos de voz. Elija el recurso de voz en la ventana emergente o en la configuración de la esquina superior derecha de la página. Si el usuario no encuentra el recurso de voz disponible, compruebe si se encuentra en el directorio correcto. Para comprobar el directorio correcto, haga clic en el perfil de cuenta en la esquina superior derecha y haga clic en **Cambiar** junto al "Directorio actual". Si hay más de un directorio disponible, significa que tiene acceso a varios directorios. Cambie a directorios diferentes y vaya a la configuración para ver si el recurso de voz correcto está disponible. 
 
     :::image type="content" source="media/audio-content-creation/add-role-first.png" alt-text="Cuadro de diálogo Agregar rol":::
 

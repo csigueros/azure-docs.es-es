@@ -3,7 +3,7 @@ title: No se ha encontrado ningún grupo de conectores en funcionamiento para un
 description: Use Application Proxy de Azure Active Directory para solucionar los problemas que puedan surgir cuando no haya ningún conector en funcionamiento en un grupo de conectores para su aplicación
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 22472b3a4ef215426fa79fa4e06beb333764f707
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 1c099b9af1314a62f5fe26703525dfbad3b79ab2
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108187093"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129989729"
 ---
 # <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>No se encontró ningún grupo de conectores en funcionamiento para una aplicación de proxy de aplicación
 

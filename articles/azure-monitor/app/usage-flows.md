@@ -2,15 +2,15 @@
 title: Los flujos de usuario de Application Insights analizan los flujos de navegación
 description: Analice cómo navegan los usuarios por las páginas y características de la aplicación web.
 ms.topic: conceptual
-author: lgayhardt
-ms.author: lagayhar
+author: mattmccleary
+ms.author: mmcc
 ms.date: 07/30/2021
-ms.openlocfilehash: 875e3ba35003459e9e7558af4f7c668250521251
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 14884f46df08e8171c178db907ee187af89a838c
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734395"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130129536"
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Análisis de patrones de navegación del usuario mediante Flujos de usuarios de Application Insights
 

@@ -1,261 +1,188 @@
 ---
 title: 'Tutorial: Creación de un conjunto de escalado de máquinas virtuales Linux'
-description: Aprenda a usar la CLI de Azure para crear e implementar una aplicación de alta disponibilidad en máquinas virtuales Linux mediante un conjunto de escalado de máquinas virtuales.
+description: Aprenda a crear e implementar una aplicación de alta disponibilidad en máquinas virtuales Linux con un conjunto de escalado de máquinas virtuales.
 author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
-ms.service: virtual-machine-scale-sets
-ms.subservice: availability
+ms.service: virtual-machines
 ms.collection: linux
-ms.date: 06/01/2018
+ms.date: 10/15/2021
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: e20622d48132172387e78d2e4db6ef808e68bf12
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.custom: mimckitt
+ms.openlocfilehash: 10f7202e2525920edd4c65b2e35cea51b9751abb
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697715"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165140"
 ---
-# <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>Tutorial: Creación de un conjunto de escalado de máquinas virtuales e implementación de una aplicación de alta disponibilidad en Linux con la CLI de Azure
+# <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Tutorial: Creación de un conjunto de escalado de máquinas virtuales e implementación de una aplicación de alta disponibilidad en Linux 
 
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Conjuntos de escalado uniformes
 
-El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Puede escalar el número de máquinas virtuales del conjunto de escalado manualmente o definir reglas de escalado automático basado en el uso de recursos tales como la CPU, la demanda de memoria o el tráfico de red. En este tutorial, implementará un conjunto de escalado de máquinas virtuales en Azure. Aprenderá a:
+Los conjuntos de escalado de máquinas virtuales con [orquestación flexible](../flexible-virtual-machine-scale-sets.md) permiten crear y administrar un grupo de máquinas virtuales con equilibrio de carga. El número de instancias de máquina virtual puede aumentar o disminuir automáticamente según la demanda, o de acuerdo a una programación definida.
+
+En este tutorial, implementará un conjunto de escalado de máquinas virtuales en Azure y aprenderá cómo:
 
 > [!div class="checklist"]
-> * Usar cloud-init para crear una aplicación para escalar
-> * Crear un conjunto de escalado de máquinas virtuales
-> * Aumentar o disminuir el número de instancias en un conjunto de escalado
-> * Crear reglas de escalado automático
-> * Ver la información de conexión de las instancias del conjunto de escalado
-> * Usar discos de datos con conjuntos de escalado
+> * Cree un grupo de recursos.
+> * Cree un conjunto de escalado flexible con un equilibrador de carga.
+> * Agregue nginx a las instancias del conjunto de escalado.
+> * Abra el puerto 80 al tráfico HTTP.
+> * Pruebe un conjunto de escalado.
 
-En este tutorial se usa la CLI dentro de [Azure Cloud Shell](../../cloud-shell/overview.md), que se actualiza constantemente a la versión más reciente. Para abrir Cloud Shell, seleccione **Pruébelo** en la esquina superior de cualquier bloque de código.
-
-Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.30, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="scale-set-overview"></a>Introducción al conjunto de escalado
-El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Las máquinas virtuales de un conjunto de escalado se distribuyen en dominios lógicos de error y de actualización en uno o más *grupos de selección de ubicación*. Se trata de grupos de máquinas virtuales configuradas de manera similar, al igual que los [conjuntos de disponibilidad](tutorial-availability-sets.md).
 
-Las máquinas virtuales se crean según sea necesario en un conjunto de escalado. Defina reglas de escalado automático para controlar cómo y cuándo se agregan o se quitan las máquinas virtuales del conjunto de escalado. Estas reglas se pueden desencadenar en función de métricas como la carga de la CPU, el uso de la memoria o el tráfico de red.
+Los conjuntos de escalado ofrecen las siguientes ventajas principales:
+- Facilitan la creación y administración de varias máquinas virtuales
+- Proporciona alta disponibilidad y resistencia de aplicaciones mediante la distribución de máquinas virtuales entre dominios de error.
+- Permiten a la aplicación escalar automáticamente a medida que cambia la demanda de recursos
+- Funciona a gran escala
 
-Los conjuntos de escalado admiten hasta 1000 máquinas virtuales cuando se usa una imagen de la plataforma de Azure. Para las cargas de trabajo con requisitos de personalización de VM o instalación significativos, puede que desee [crear una imagen de VM personalizada](tutorial-custom-images.md). Puede crear hasta 300 máquinas virtuales en un conjunto de escalado al usar una imagen personalizada.
+Con la orquestación flexible, Azure proporciona una experiencia unificada en todo el ecosistema de máquinas virtuales de Azure. La orquestación flexible ofrece garantías de alta disponibilidad (hasta mil máquinas virtuales) mediante la propagación de máquinas virtuales entre dominios de error en una región o en una zona de disponibilidad, lo que permite escalar horizontalmente la aplicación a la vez que se mantiene el aislamiento del dominio de error, algo que es esencial para ejecutar cargas de trabajo basadas en cuórum o con estado, entre las que se incluyen:
+- Cargas de trabajo basadas en cuórum
+- Bases de datos de código abierto
+- Aplicaciones con estado
+- Servicios que requieren alta disponibilidad y gran escala
+- Servicios que desean combinar tipos de máquina virtual o que aprovechan máquinas virtuales de acceso puntual y a petición conjuntamente
+- Aplicaciones del conjunto de disponibilidad existentes
 
+Obtenga más información sobre las diferencias entre conjuntos de escalado uniformes y conjuntos de escalado flexibles en [modos de orquestación](../../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md).
 
-## <a name="create-an-app-to-scale"></a>Creación de una aplicación para escalar
-Para su uso en producción, puede que desee [crear una imagen de máquina virtual personalizada](tutorial-custom-images.md) que incluya la instalación y configuración de la aplicación. En este tutorial, vamos a personalizar las máquinas virtuales del primer arranque para ver rápidamente un conjunto de escalado en funcionamiento.
-
-En un tutorial anterior, aprendió [cómo personalizar una máquina virtual Linux en el primer arranque](tutorial-automate-vm-deployment.md) con cloud-init. Pues bien, el mismo archivo de configuración cloud-init puede usarlo para instalar NGINX y ejecutar una aplicación sencilla Node.js "Hello World".
-
-En el shell actual, cree un archivo denominado "*cloud-init.txt*" y pegue la siguiente configuración. Por ejemplo, cree el archivo en Cloud Shell, no en la máquina local. Escriba `sensible-editor cloud-init.txt` para crear el archivo y ver una lista de editores disponibles. Asegúrese de que todo el archivo cloud-init se copia correctamente, especialmente la primera línea:
-
-```yaml
-#cloud-config
-package_upgrade: true
-packages:
-  - nginx
-  - nodejs
-  - npm
-write_files:
-  - owner: www-data:www-data
-  - path: /etc/nginx/sites-available/default
-    content: |
-      server {
-        listen 80;
-        location / {
-          proxy_pass http://localhost:3000;
-          proxy_http_version 1.1;
-          proxy_set_header Upgrade $http_upgrade;
-          proxy_set_header Connection keep-alive;
-          proxy_set_header Host $host;
-          proxy_cache_bypass $http_upgrade;
-        }
-      }
-  - owner: azureuser:azureuser
-  - path: /home/azureuser/myapp/index.js
-    content: |
-      var express = require('express')
-      var app = express()
-      var os = require('os');
-      app.get('/', function (req, res) {
-        res.send('Hello World from host ' + os.hostname() + '!')
-      })
-      app.listen(3000, function () {
-        console.log('Hello world app listening on port 3000!')
-      })
-runcmd:
-  - service nginx restart
-  - cd "/home/azureuser/myapp"
-  - npm init
-  - npm install express -y
-  - nodejs index.js
-```
 
 
 ## <a name="create-a-scale-set"></a>Creación de un conjunto de escalado
-Antes de poder crear un conjunto de escalado, cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroupScaleSet* en la ubicación *eastus*:
 
-```azurecli-interactive
-az group create --name myResourceGroupScaleSet --location eastus
-```
+Use Azure Portal para crear un conjunto de escalado flexible.
 
-Ahora, cree un conjunto de escalado de máquinas virtuales con [az vmss create](/cli/azure/vmss#az_vmss_create). En el ejemplo siguiente se crea un conjunto de escalado denominado *myScaleSet*, se usa el archivo cloud-init para personalizar la máquina virtual y se generan claves SSH si estas no existen aún:
-
-```azurecli-interactive
-az vmss create \
-  --resource-group myResourceGroupScaleSet \
-  --name myScaleSet \
-  --image UbuntuLTS \
-  --upgrade-policy-mode automatic \
-  --custom-data cloud-init.txt \
-  --admin-username azureuser \
-  --generate-ssh-keys
-```
-
-Se tardan unos minutos en crear y configurar todos los recursos de conjunto de escalado y máquinas virtuales. Hay tareas en segundo plano que continúan ejecutándose después de que la CLI de Azure vuelve a abrir el símbolo del sistema. Es posible que tenga que esperar otros dos minutos antes de poder acceder a la aplicación.
-
-
-## <a name="allow-web-traffic"></a>Permitir tráfico web
-Se creó automáticamente un equilibrador de carga como parte del conjunto de escalado de máquinas virtuales. El equilibrador de carga distribuye el tráfico a través de un conjunto de máquinas virtuales definidas usando reglas de equilibrador de carga. Puede aprender más información sobre los conceptos y la configuración del equilibrador de carga en el siguiente tutorial, [How to load balance virtual machines in Azure](tutorial-load-balancer.md) (Equilibrio de carga en máquinas virtuales de Azure).
-
-Para permitir que el tráfico llegue a la aplicación web, cree una regla con [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create). En el ejemplo siguiente, se crea una regla denominada *myLoadBalancerRuleWeb*:
-
-```azurecli-interactive
-az network lb rule create \
-  --resource-group myResourceGroupScaleSet \
-  --name myLoadBalancerRuleWeb \
-  --lb-name myScaleSetLB \
-  --backend-pool-name myScaleSetLBBEPool \
-  --backend-port 80 \
-  --frontend-ip-name loadBalancerFrontEnd \
-  --frontend-port 80 \
-  --protocol tcp
-```
-
-## <a name="test-your-app"></a>Prueba de la aplicación
-Para ver la aplicación de Node.js en la web, obtenga la dirección IP pública del equilibrador de carga con [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). En el ejemplo siguiente se obtiene la dirección IP de *myLoadBalancerRuleWeb* que se ha creado como parte del conjunto de escalado:
-
-```azurecli-interactive
-az network public-ip show \
-    --resource-group myResourceGroupScaleSet \
-    --name myScaleSetLBPublicIP \
-    --query [ipAddress] \
-    --output tsv
-```
-
-Escriba la dirección IP pública en un explorador web. Se muestra la aplicación, incluido el nombre de host de la máquina virtual a la que el equilibrador de carga distribuye el tráfico:
-
-![Ejecución de la aplicación Node.js](./media/tutorial-create-vmss/running-nodejs-app.png)
-
-Para ver el conjunto de escalado en funcionamiento, realice una actualización forzada del explorador web para ver cómo el equilibrador de carga distribuye el tráfico entre las máquinas virtuales del conjunto de escalado que ejecutan la aplicación.
-
-
-## <a name="management-tasks"></a>Tareas de administración
-Durante el ciclo de vida del conjunto de escalado, debe ejecutar una o varias tareas de administración. Además, puede crear scripts para automatizar varias tareas de ciclo de vida. La CLI de Azure proporciona una forma rápida de realizar esas tareas. A continuación, presentamos algunas tareas comunes.
-
-### <a name="view-vms-in-a-scale-set"></a>Visualización de máquinas virtuales en un conjunto de escalado
-Para ver una lista de las máquinas virtuales en ejecución en el conjunto de escalado, use [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances) como se indica a continuación:
-
-```azurecli-interactive
-az vmss list-instances \
-  --resource-group myResourceGroupScaleSet \
-  --name myScaleSet \
-  --output table
-```
-
-La salida es similar a la del ejemplo siguiente:
-
-```bash
-  InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup            VmId
-------------  --------------------  ----------  ------------  -------------------  -----------------------  ------------------------------------
-           1  True                  eastus      myScaleSet_1  Succeeded            MYRESOURCEGROUPSCALESET  c72ddc34-6c41-4a53-b89e-dd24f27b30ab
-           3  True                  eastus      myScaleSet_3  Succeeded            MYRESOURCEGROUPSCALESET  44266022-65c3-49c5-92dd-88ffa64f95da
-```
-
-
-### <a name="manually-increase-or-decrease-vm-instances"></a>Aumento o disminución manual de instancias de máquina virtual
-Para ver el número de instancias que tiene actualmente en un conjunto de escalado, use [az vmss show](/cli/azure/vmss#az_vmss_show) y realice consultas a *sku.capacity*:
-
-```azurecli-interactive
-az vmss show \
-    --resource-group myResourceGroupScaleSet \
-    --name myScaleSet \
-    --query [sku.capacity] \
-    --output table
-```
-
-A continuación, puede aumentar o reducir manualmente el número de máquinas virtuales del conjunto de escalado con [az vmss scale](/cli/azure/vmss#az_vmss_scale). En el ejemplo siguiente se establece el número de máquinas virtuales en el conjunto de escalado en *3*:
-
-```azurecli-interactive
-az vmss scale \
-    --resource-group myResourceGroupScaleSet \
-    --name myScaleSet \
-    --new-capacity 3
-```
-
-### <a name="get-connection-info"></a>Obtención de información de conexión
-Para obtener información de conexión sobre las máquinas virtuales de los conjuntos de escalado, use [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info). Este comando da como resultado la dirección IP pública y los puertos de cada máquina virtual que le permiten conectarse con SSH:
-
-```azurecli-interactive
-az vmss list-instance-connection-info \
-    --resource-group myResourceGroupScaleSet \
-    --name myScaleSet
-```
+1. Abra [Azure Portal](https://portal.azure.com).
+1. Busque y seleccione **Conjuntos de escalado de máquinas virtuales**.
+1. Seleccione **Crear** en la página **Conjuntos de escalado de máquinas virtuales**. Se abre la página **Crear un conjunto de escalado de máquinas virtuales**.
+1. En **Suscripción**, seleccione la suscripción que quiera usar.
+1. En **Grupo de recursos**, seleccione **Crear nuevo** y escriba *myVMSSRG* como nombre y seleccione **Aceptar**.
+    :::image type="content" source="media/tutorial-create-vmss/flex-project-details.png" alt-text="Detalles del proyecto.":::
+1. En **Nombre del conjunto de escalado de máquinas virtuales**, escriba *myVMSS*.
+1. En **Región**, seleccione una región cercana a su área como, por ejemplo, *Este de EE. UU.*
+    :::image type="content" source="media/tutorial-create-vmss/flex-details.png" alt-text="Nombre y región.":::
+1. Deje **Zona de disponibilidad** en blanco para este ejemplo.
+1. En **Orchestration mode** (Modo de orquestación), seleccione **Flexible**.
+1. Deje el valor predeterminado *1* para el recuento de dominios de error o elija otro valor en la lista desplegable.
+   :::image type="content" source="media/tutorial-create-vmss/flex-orchestration.png" alt-text="Seleccione el modo de orquestación flexible.":::
+1. En **Imagen**, seleccione *Ubuntu 18.04 LTS*.
+1. En **Tamaño**, deje el valor predeterminado o seleccione un tamaño como *Standard_E2s_V3*.
+1. En **Nombre de usuario**, escriba *azureuser*.
+1. En **Origen de clave pública SSH**, deje el valor predeterminado **Generar nuevo par de claves** y, a continuación, escriba *myKey* en **Nombre de par de claves**.
+    :::image type="content" source="media/tutorial-create-vmss/flex-admin.png" alt-text="Captura de pantalla de la sección Cuenta de administrador, en la que se selecciona un tipo de autenticación y se proporcionan las credenciales del administrador.":::
+1. En la pestaña **Redes**, en **Equilibrio de carga**, seleccione **Usar un equilibrador de carga**.
+1. En **Opciones de equilibrio de carga**, deje el valor predeterminado: **Azure Load Balancer**.
+1. En **Seleccionar un equilibrador de carga**, seleccione **Crear nuevo**.
+    :::image type="content" source="media/tutorial-create-vmss/load-balancer-settings.png" alt-text="Configuración de equilibrador de carga.":::
+1. En la página **Crear un equilibrador de carga**, escriba un nombre para el equilibrador de carga y un **Nombre de dirección IP pública**.
+1. En **Etiqueta de nombre de dominio**, escriba el nombre que desea utilizar como prefijo para el nombre de dominio. El nombre debe ser único.
+1. Cuando termine, seleccione **Crear**.
+    :::image type="content" source="media/tutorial-create-vmss/flex-load-balancer.png" alt-text="Cree un equilibrador de carga.":::
+1. De vuelta en la pestaña **Redes**, deje el nombre predeterminado para el grupo de back-end.
+1. En la pestaña **Escalado**, deje el valor del recuento predeterminado de instancias en *2* o agregue su propio valor. Este es el número de máquinas virtuales que se crearán, por lo que debe tener en cuenta los costos y los límites de la suscripción si cambia este valor.
+1. Deje la opción **Directiva de escalado** establecida en *Manual*.
+    :::image type="content" source="media/tutorial-create-vmss/flex-scaling.png" alt-text="Configuración de la directiva de escalado.":::
+1. Seleccione la pestaña **Opciones avanzadas** .
+1. En **Datos personalizados y cloud-init**, copie lo siguiente y péguelo en el cuadro de texto **Datos personalizados**:
+    ```yml
+    #cloud-config
+    package_upgrade: true
+    packages:
+      - nginx
+      - nodejs
+      - npm
+    write_files:
+      - owner: www-data:www-data
+      - path: /etc/nginx/sites-available/default
+        content: |
+          server {
+            listen 80;
+            location / {
+              proxy_pass http://localhost:3000;
+              proxy_http_version 1.1;
+              proxy_set_header Upgrade $http_upgrade;
+              proxy_set_header Connection keep-alive;
+              proxy_set_header Host $host;
+              proxy_cache_bypass $http_upgrade;
+            }
+          }
+      - owner: azureuser:azureuser
+      - path: /home/azureuser/myapp/index.js
+        content: |
+          var express = require('express')
+          var app = express()
+          var os = require('os');
+          app.get('/', function (req, res) {
+            res.send('Hello World from host ' + os.hostname() + '!')
+          })
+          app.listen(3000, function () {
+            console.log('Hello world app listening on port 3000!')
+          })
+    runcmd:
+      - service nginx restart
+      - cd "/home/azureuser/myapp"
+      - npm init
+      - npm install express -y
+      - nodejs index.js
+    ```
+1. Cuando haya terminado, seleccione **Revisar y crear**.
+1. Una vez que compruebe que la validación ha finalizado, puede seleccionar **Crear** en la parte inferior de la página para implementar el conjunto de escalado.
+1. Cuando se abra la ventana **Generar nuevo par de claves**, seleccione **Descargar la clave privada y crear el recurso**. El archivo de clave se descargará como **myKey.pem**. Asegúrese de que sabe dónde se descargó el archivo `.pem`, ya que necesitará la ruta de acceso en el paso siguiente.
+1. Una vez que la implementación finalice, seleccione **Ir al recurso** para abrir el nuevo conjunto de escalado.
 
 
-## <a name="use-data-disks-with-scale-sets"></a>Uso de discos de datos con conjuntos de escalado
-Puede crear y usar discos de datos con conjuntos de escalado. En un tutorial anterior, ha aprendido cómo [administrar discos de Azure](tutorial-manage-disks.md), donde se describían las prácticas recomendadas y mejoras de rendimiento para la creación de aplicaciones en los discos de datos en lugar de en el disco del SO.
+## <a name="view-the-vms-in-your-scale-set"></a>Visualización de las máquinas virtuales en el conjunto de escalado
 
-### <a name="create-scale-set-with-data-disks"></a>Creación de conjunto de escalado con discos de datos
-Para crear un conjunto de escalado y conectar discos de datos, agregue el parámetro `--data-disk-sizes-gb` al comando [az vmss create](/cli/azure/vmss#az_vmss_create). En el ejemplo siguiente se crea un conjunto de escalado con discos de datos de *50* Gb conectados a cada instancia:
+En la página del conjunto de escalado, seleccione **Instancias** en el menú izquierdo. 
 
-```azurecli-interactive
-az vmss create \
-    --resource-group myResourceGroupScaleSet \
-    --name myScaleSetDisks \
-    --image UbuntuLTS \
-    --upgrade-policy-mode automatic \
-    --custom-data cloud-init.txt \
-    --admin-username azureuser \
-    --generate-ssh-keys \
-    --data-disk-sizes-gb 50
-```
+Verá una lista de máquinas virtuales que forman parte del conjunto de escalado. La lista incluye lo siguiente:
 
-Cuando se quitan las instancias de un conjunto de escalado, también se quitan los discos de datos conectados.
+- Nombre de la máquina virtual
+- Nombre de equipo usado por la máquina virtual.
+- Estado actual de la máquina virtual, por ejemplo *En ejecución*.
+- *Estado de aprovisionamiento* de la máquina virtual, por ejemplo *Correcto*.
 
-### <a name="add-data-disks"></a>Adición de discos de datos
-Para agregar un disco de datos a las instancias en el conjunto de escalado, use [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach). En el ejemplo siguiente se agrega un disco de *50* Gb a cada instancia:
+:::image type="content" source="media/tutorial-create-vmss/instances.png" alt-text="Tabla de información sobre las instancias del conjunto de escalado.":::
 
-```azurecli-interactive
-az vmss disk attach \
-    --resource-group myResourceGroupScaleSet \
-    --name myScaleSet \
-    --size-gb 50 \
-    --lun 2
-```
 
-### <a name="detach-data-disks"></a>Desacoplamiento de discos de datos
-Para quitar un disco de datos a las instancias en el conjunto de escalado, use [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach). En el ejemplo siguiente se quita el disco de datos en el LUN *2* de cada instancia:
+## <a name="open-port-80"></a>Apertura del puerto 80 
 
-```azurecli-interactive
-az vmss disk detach \
-    --resource-group myResourceGroupScaleSet \
-    --name myScaleSet \
-    --lun 2
-```
+Para abrir el puerto 80 en el conjunto de escalado, agregue una regla de entrada al grupo de seguridad de red.
 
+1. En la página del conjunto de escalado, seleccione **Redes** en el menú izquierdo. Se abrirá la página **Redes**.
+1. Seleccione **Agregar regla de puerto de entrada**. Se abrirá la página **Agregar regla de seguridad de entrada**.
+1. En **Servicio**, seleccione *HTTP* y, después, **Agregar** en la parte inferior de la página.
+
+## <a name="test-your-scale-set"></a>Prueba del conjunto de escalado
+
+Pruebe el conjunto de escalado conectándose a él desde un explorador.
+
+1. En la página **Información general** del conjunto de escalado, copie la dirección IP pública.
+1. Abra otra pestaña en el explorador web y pegue la dirección IP en la barra de direcciones.
+1. Cuando se cargue la página, tome nota del nombre de proceso que se muestra. 
+1. Actualice la página hasta que vea que cambia el nombre del equipo. 
+
+## <a name="delete-your-scale-set"></a>Eliminación del conjunto de escalado
+
+Cuando haya terminado, debe eliminar el grupo de recursos, con lo que se eliminará todo lo que implementó para el conjunto de escalado.
+
+1. En la página del conjunto de escalado, seleccione **Grupo de recursos**. Se abrirá la página del grupo de recursos.
+1. En la parte superior de la página, seleccione **Eliminar grupo de recursos**.
+1. En la página **¿Seguro que desea eliminar?** , escriba el nombre del grupo de recursos y seleccione **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha creado un conjunto de escalado de máquinas virtuales. Ha aprendido a:
 
 > [!div class="checklist"]
-> * Usar cloud-init para crear una aplicación para escalar
-> * Crear un conjunto de escalado de máquinas virtuales
-> * Aumentar o disminuir el número de instancias en un conjunto de escalado
-> * Crear reglas de escalado automático
-> * Ver la información de conexión de las instancias del conjunto de escalado
-> * Usar discos de datos con conjuntos de escalado
+> * Cree un grupo de recursos.
+> * Cree un conjunto de escalado flexible con un equilibrador de carga.
+> * Agregue nginx a las instancias del conjunto de escalado.
+> * Abra el puerto 80 al tráfico HTTP.
+> * Pruebe un conjunto de escalado.
 
 Pase al siguiente tutorial para obtener más información sobre el concepto de equilibrio de carga de las máquinas virtuales.
 

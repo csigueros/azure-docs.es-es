@@ -2,15 +2,15 @@
 title: Configurar un laboratorio para enseñar ciencia de datos con Python y Jupyter Notebooks | Microsoft Docs
 description: Aprenda a configurar un laboratorio para enseñar ciencia de datos mediante Python y Jupyter Notebooks
 author: emaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/29/2020
 ms.author: enewman
-ms.openlocfilehash: 8f84edf29e6c4e3bd111deb5ea4bd479ea2d6140
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: f52215fbcaf2d3a037863853366aaae9bb55a3fb
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109716283"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176897"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Configurar un laboratorio para enseñar ciencia de datos con Python y Jupyter Notebooks
 En este artículo se describe cómo configurar una máquina virtual (VM) de plantilla en servicios de laboratorio con las herramientas necesarias para enseñar a los alumnos a usar [Cuadernos de Jupyter Notebook](http://jupyter-notebook.readthedocs.io/) y cómo los alumnos pueden conectarse a sus cuadernos en sus máquinas virtuales (VM).

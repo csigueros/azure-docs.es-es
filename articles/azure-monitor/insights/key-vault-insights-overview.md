@@ -3,15 +3,13 @@ title: Supervisión de Key Vault con información de Key Vault | Microsoft Docs
 description: En este artículo se describe la información de Key Vault.
 services: azure-monitor
 ms.topic: conceptual
-author: lgayhardt
-ms.author: lagayhar
 ms.date: 09/10/2020
-ms.openlocfilehash: 953d6300b8ac19ddfcfe3b37a1cfde50480e19a4
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 0ad400ffcb892c09d6f746c482c9cb78c5627075
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110095129"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131873"
 ---
 # <a name="monitoring-your-key-vault-service-with-key-vault-insights"></a>Supervisión de un servicio de Key Vault con información de Key Vault
 La información de Key Vault proporciona una supervisión completa de los almacenes de claves y ofrece una vista unificada del rendimiento, los errores, la latencia y las solicitudes de Key Vault.

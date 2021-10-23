@@ -9,18 +9,20 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: b1c7a8f29c08f00cc69dbd304c8215180f5ace92
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7d3f76777b717051b7524585abf593f57fedc47d
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124796616"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707925"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Enriquecimiento con IA en Azure Cognitive Search
 
 En Azure Cognitive Search, el enriquecimiento con IA hace referencia a aptitudes cognitivas integradas y otras personalizadas que agregan transformación y generación de contenido durante la indexación. Los enriquecimientos crean información nueva donde no existía anteriormente: extracción de información de imágenes, detección de la opinión, frases clave y entidades del texto, por nombrar algunas. Los enriquecimientos también agregan estructura a texto no diferenciado. Todos estos procesos producen documentos que mejoran la eficacia de la búsqueda de texto completo. En muchos casos, los documentos enriquecidos son útiles para escenarios que no son de búsqueda, como, por ejemplo, para la minería de datos de conocimiento.
 
 El enriquecimiento se define mediante un [conjunto de aptitudes](cognitive-search-working-with-skillsets.md) asociado a un [indexador](search-indexer-overview.md). El indexador extraerá y configurará el contenido, mientras que el conjunto de aptitudes identifica, analiza y crea información y estructuras a partir de imágenes, blobs y otros orígenes de datos no estructurados. La salida de una canalización de enriquecimiento es un [índice de búsqueda](search-what-is-an-index.md) o un [almacén de conocimiento](knowledge-store-concept-intro.md).
+
+![Diagrama de una canalización de enriquecimiento](./media/cognitive-search-intro/cogsearch-architecture.png "introducción a la canalización de enriquecimiento")
 
 Un conjunto de aptitudes puede contener aptitudes integradas de Cognitive Search o insertar el procesamiento externo que se proporciona en una [*aptitud personalizada*](cognitive-search-create-custom-skill-example.md). Algunos ejemplos de aptitudes personalizadas pueden ser un módulo de entidad personalizado o un clasificador de documentos que tiene como destino un dominio específico, como finanzas, publicaciones científicas o medicina.
 
@@ -29,8 +31,6 @@ Las aptitudes integradas se encuadran en estas categorías:
 + Las aptitudes de **procesamiento de lenguaje natural** incluyen [reconocimiento de entidades](cognitive-search-skill-entity-recognition-v3.md), [detección de idioma](cognitive-search-skill-language-detection.md), [extracción de frases clave](cognitive-search-skill-keyphrases.md), manipulación de texto, [detección de opiniones (incluida minería de opiniones)](cognitive-search-skill-sentiment-v3.md) y [detección de información de identificación personal](cognitive-search-skill-pii-detection.md). Con estas aptitudes, un texto no estructurado se asigna como campos en los que se pueden realizar búsquedas y aplicar filtros en un índice.
 
 + Las aptitudes de **procesamiento de imágenes** incluyen [reconocimiento óptico de caracteres (OCR)](cognitive-search-skill-ocr.md) e identificación de [características visuales](cognitive-search-skill-image-analysis.md), como detección facial, interpretación de imágenes, reconocimiento de imágenes (personas famosas y puntos de referencia) o atributos como orientación de la imagen. Estas aptitudes crean representaciones de texto del contenido de las imágenes, lo que permite la realización de búsquedas en dicho contenido mediante las funcionalidades de consulta de Azure Cognitive Search.
-
-![Diagrama de una canalización de enriquecimiento](./media/cognitive-search-intro/cogsearch-architecture.png "introducción a la canalización de enriquecimiento")
 
 Las aptitudes integradas de Azure Cognitive Search se basan en los modelos de aprendizaje automático previamente entrenados de Cognitive Services APIs: [Computer Vision](../cognitive-services/computer-vision/index.yml) y [Text Analytics](../cognitive-services/text-analytics/overview.md). Puede adjuntar un recurso de Cognitive Services si desea aprovechar estos recursos durante el procesamiento de contenido.
 
@@ -109,11 +109,11 @@ El contenido enriquecido se genera durante la ejecución del conjunto de aptitud
 
 En Azure Cognitive Search, un indizador guarda el resultado que crea.
 
-Una de las salidas que siempre crea un indexador es un [índice que permite búsquedas](search-what-is-an-index.md). La especificación de un índice es un requisito del indexador. Cuando se adjunta un conjunto de aptitudes, la salida del conjunto, además de los campos que se importan directamente desde el origen, se usan para rellenar el índice. Normalmente, las salidas de aptitudes específicas, como frases clave o puntuaciones de opinión, se ingieren en el índice en campos creados para ese fin.
+Una de las salidas que siempre crea un indexador es un [índice que permite búsquedas](search-what-is-an-index.md). La especificación de un índice es un requisito del indexador. Cuando se asocia un conjunto de aptitudes, la salida del conjunto, además de los campos que se asignan directamente desde el origen, se usan para rellenar el índice. Normalmente, las salidas de aptitudes específicas, como frases clave o puntuaciones de opinión, se ingieren en el índice en campos creados para ese fin.
 
 Un [almacén de conocimiento](knowledge-store-concept-intro.md) es una salida opcional, que se usa para aplicaciones de nivel inferior, como la minería de conocimiento. Los almacenes de conocimiento se definen dentro de conjuntos de aptitudes. Su definición determina si los documentos enriquecidos se proyectan como tablas u objetos (archivos o blobs). Las proyecciones tabulares son adecuadas para análisis interactivos en herramientas como Power BI, mientras que los archivos y los blobs se usan normalmente en ciencia de datos o en procesos similares.
 
-Por último, un indexador puede [almacenar en caché documentos enriquecidos](cognitive-search-incremental-indexing-conceptual.md) en Azure Blob Storage para su posible reutilización en ejecuciones posteriores de conjuntos de aptitudes. Los enriquecimientos almacenados en caché puede consumirlos el mismo conjunto de aptitudes que se vuelve a ejecutar en una fecha posterior. El almacenamiento en caché es útil si el conjunto de aptitudes incluye análisis de imágenes u OCR, y usted desea ahorrarse el tiempo y los gastos derivados de tener que procesar de nuevo los archivos de imagen.
+Por último, un indexador puede [almacenar en caché documentos enriquecidos](cognitive-search-incremental-indexing-conceptual.md) en Azure Blob Storage para su posible reutilización en ejecuciones posteriores de conjuntos de aptitudes. La caché es solo para uso interno. Los enriquecimientos almacenados en caché puede consumirlos el mismo conjunto de aptitudes que se vuelve a ejecutar en una fecha posterior. El almacenamiento en caché es útil si el conjunto de aptitudes incluye análisis de imágenes u OCR, y usted desea ahorrarse el tiempo y los gastos derivados de tener que procesar de nuevo los archivos de imagen.
 
 Los índices y los almacenes de conocimiento son totalmente independientes entre sí. Aunque debe adjuntar un índice para satisfacer los requisitos del indexador, si su único objetivo es un almacén de conocimiento, puede omitir el índice una vez rellenado. No obstante, procure no eliminarlo. Si desea volver a ejecutar el indexador y el conjunto de aptitudes, necesitará el índice para que se ejecute el indexador.
 
@@ -141,7 +141,8 @@ Para iterar con los pasos anteriores, [restablezca el indexador](search-howto-re
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-+ [Inicio rápido: Tutorial de la prueba del enriquecimiento con IA en un portal](cognitive-search-quickstart-blob.md)
++ [Inicio rápido: Traducción de texto y reconocimiento de entidades mediante el Asistente para la importación de datos](cognitive-search-quickstart-blob.md)
++ [Inicio rápido: Aplicación de OCR y análisis de imágenes mediante el Asistente para importación de datos](cognitive-search-quickstart-ocr.md)
 + [Tutorial: Información sobre las API de REST de enriquecimiento con IA](cognitive-search-tutorial-blob.md)
 + [Conceptos de conjunto de aptitudes](cognitive-search-working-with-skillsets.md)
 + [Conceptos del almacén de conocimiento](knowledge-store-concept-intro.md)

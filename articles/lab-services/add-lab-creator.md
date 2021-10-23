@@ -1,15 +1,15 @@
 ---
 title: Incorporación de un usuario como creador de un laboratorio en Azure Lab Services
 description: En este artículo se muestra cómo agregar un usuario al rol Creador de laboratorios para una cuenta de laboratorio en Azure Lab Services. Los creadores de laboratorios pueden crearlos en esta cuenta de laboratorio.
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/26/2021
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: a2135ab6580d39d6c63f7e948a29f0f0ede4efd6
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 08377ce7884b9f9a7f974402a799e83ce6fb57bf
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634198"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177334"
 ---
 # <a name="add-lab-creators-to-a-lab-account-in-azure-lab-services"></a>Incorporación de creadores de laboratorios a una cuenta de laboratorio de Azure Lab Services
 En este artículo se muestra cómo agregar usuarios como creadores de laboratorios a una cuenta de laboratorio en Azure Lab Services. Estos usuarios pueden, posteriormente, crear laboratorios en la cuenta de laboratorio. 

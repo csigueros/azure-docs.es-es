@@ -5,12 +5,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2019
-ms.openlocfilehash: afe6e82c3cc9773fbf0c17992fd6894d199d177f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 02a568d48ca99a58778adfd4068c359b4748ab43
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105937250"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178452"
 ---
 # <a name="azure-monitor-overview"></a>Introducción a Azure Monitor
 
@@ -44,7 +44,7 @@ En muchos recursos de Azure, los datos recopilados por Azure Monitor aparecen di
 
 ![El diagrama muestra los datos de métricas que fluyen hacia el Explorador de métricas para usarlos en las visualizaciones.](media/overview/metrics.png)
 
-Los datos de registro recopilados por Azure Monitor se pueden analizar con [consultas](logs/log-query-overview.md) que recuperan, consolidan y analizan rápidamente los datos recopilados.  Puede crear y probar consultas con [Log Analytics](./logs/log-query-overview.md) en Azure Portal. Puede analizar los datos directamente con distintas herramientas o guardar las consultas para usarlas con [visualizaciones](visualizations.md) o [reglas de alertas](alerts/alerts-overview.md).
+Los datos de registro recopilados por Azure Monitor se pueden analizar con [consultas](logs/log-query-overview.md) que recuperan, consolidan y analizan rápidamente los datos recopilados.  Puede crear y probar consultas con [Log Analytics](./logs/log-query-overview.md) en Azure Portal. Puede analizar los datos directamente con distintas herramientas o guardar las consultas para usarlas con [visualizaciones](best-practices-analysis.md) o [reglas de alertas](alerts/alerts-overview.md).
 
 Azure Monitor utiliza una versión del [lenguaje de consulta de Kusto](/azure/kusto/query/) adecuado para realizar búsquedas de registros simples, pero también dispone de funciones avanzadas, como agregaciones, combinaciones y análisis inteligentes. Puede aprender rápidamente el lenguaje de consulta con [diversas lecciones](logs/get-started-queries.md).  Se proporciona orientación concreta a los usuarios que ya están familiarizados con [SQL](/azure/data-explorer/kusto/query/sqlcheatsheet) y [Splunk](/azure/data-explorer/kusto/query/splunk-cheat-sheet).
 
@@ -107,7 +107,7 @@ Gracias al escalado automático, puede ejecutar la cantidad correcta de recursos
 ![El diagrama muestra el escalado automático, con varios servidores en una línea con la etiqueta Tiempo de procesador > 80 % y dos servidores marcados como Capacidad mínima, tres servidores como Capacidad actual y cinco como Capacidad máxima.](media/overview/autoscale.png)
 
 ## <a name="visualizing-monitoring-data"></a>Visualización de los datos de supervisión
-Las [visualizaciones](visualizations.md), como los gráficos y las tablas, son herramientas eficaces para resumir los datos de supervisión y presentarlos a distintos destinatarios. Azure Monitor cuenta con sus propias características para visualizar los datos de supervisión y utiliza otros servicios de Azure para publicarlos ante diferentes destinatarios.
+Las [visualizaciones](best-practices-analysis.md), como los gráficos y las tablas, son herramientas eficaces para resumir los datos de supervisión y presentarlos a distintos destinatarios. Azure Monitor cuenta con sus propias características para visualizar los datos de supervisión y utiliza otros servicios de Azure para publicarlos ante diferentes destinatarios.
 
 ### <a name="dashboards"></a>Paneles
 Los [paneles de Azure](../azure-portal/azure-portal-dashboards.md) permiten combinar distintos tipos de datos en un único panel en [Azure Portal](https://portal.azure.com). Si lo desea, también compartir el panel con otros usuarios de Azure. La salida de cualquier gráfico de métricas o consulta de registro se puede agregar a un panel de Azure. Por ejemplo, puede crear un panel que contenga diferentes iconos que muestren un gráfico de métricas, una tabla de registros de actividad, un gráfico de uso de Application Insights y la salida de una consulta de registro.

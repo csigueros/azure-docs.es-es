@@ -2,18 +2,16 @@
 title: Visualizaciones de iconos de libros de Azure Monitor
 description: Información sobre todas las visualizaciones de iconos de libros de Azure Monitor.
 services: azure-monitor
-author: lgayhardt
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.author: lagayhar
-ms.openlocfilehash: 07de9fcd01559e59a1bcd5d8928075aebcf79cc7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fa486647f124e374087abab959ced16cbddad539
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100603019"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131645"
 ---
 # <a name="tile-visualizations"></a>Visualizaciones de mosaico
 
