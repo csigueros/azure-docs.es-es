@@ -100,8 +100,20 @@
           href: set-up-customize-master-image.md
         - name: Instalación de Office en la imagen de un disco duro virtual principal
           href: install-office-on-wvd-master-image.md
-    - name: Escalado automático de hosts de sesiones
-      href: set-up-scaling-script.md
+    - name: Escalado de hosts de sesión con Azure Automation
+      items:
+        - name: Configuración de un script de escalado
+          href: set-up-scaling-script.md
+    - name: Escalabilidad automática (versión preliminar)
+      items:
+        - name: Uso de la característica de escalabilidad automático (versión preliminar)
+          href: autoscale-scaling-plan.md
+        - name: Hosts de sesión de escalabilidad automática (versión preliminar)
+          href: autoscale-new-existing-host-pool.md
+        - name: Diagnóstico de escalabilidad automática (versión preliminar)
+          href: autoscale-diagnostics.md
+        - name: Preguntas frecuentes sobre la característica de escalabilidad automática (versión preliminar)
+          href: autoscale-faq.yml
     - name: Personalización de fuente
       href: customize-feed-for-virtual-desktop-users.md
     - name: Uso de diagnósticos de servicios

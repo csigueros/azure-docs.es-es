@@ -4,7 +4,7 @@ description: En esta página se proporcionan ejemplos de PowerShell para ayudarl
 keywords: Azure AD, Azure Active Directory, PowerShell, grupos, administración de grupos
 services: active-directory
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: enterprise-users
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12613362d9fc67dea14b41ece19a34febb489dda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc096372faad6f039041b8b18b13093cb8eb8956
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96860650"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129986024"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets de la versión 2 de Azure Active Directory para la administración de grupos
 

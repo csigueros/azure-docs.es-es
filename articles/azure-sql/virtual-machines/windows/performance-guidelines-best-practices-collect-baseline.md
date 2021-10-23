@@ -3,7 +3,7 @@ title: 'Recopilación de la línea de base : procedimientos recomendados e instr
 description: Aquí se proporcionan los pasos necesarios para recopilar una línea de base de rendimiento como guía para optimizar el rendimiento de SQL Server en la máquina virtual (VM) de Azure.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 editor: ''
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/25/2021
-ms.author: mathoma
-ms.reviewer: jroth
-ms.openlocfilehash: 46dff70c8d1064f05d89af9340b5b07e7adc747e
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.author: pamela
+ms.reviewer: mathoma
+ms.openlocfilehash: 7c223dfd6629f315d3d25b47ffe78f709aa4b864
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079902"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165219"
 ---
 # <a name="collect-baseline-performance-best-practices-for-sql-server-on-azure-vm"></a>Recopilación de la línea de base: procedimientos recomendados de rendimiento de SQL Server en la VM de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

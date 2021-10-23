@@ -3,20 +3,20 @@ title: 'Ejemplo de PowerShell: enumeración de información extendida para aplic
 description: Ejemplo de PowerShell en el que se enumeran todas las aplicaciones de proxy de aplicación de Azure Active Directory (Azure AD) junto con el identificador de aplicación (AppId), el nombre (DisplayName), la dirección URL externa (ExternalUrl), la dirección URL interna (InternalUrl) y el tipo de autenticación (ExternalAuthenticationType).
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: sample
 ms.date: 04/29/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: 1ac97dbe7886578a0696219a94bfb2657b501e0a
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.reviewer: ashishj
+ms.openlocfilehash: 16fd5ac821f09363249f904b14ac836b063e1b25
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108293848"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129988133"
 ---
 # <a name="get-all-application-proxy-apps-and-list-extended-information"></a>Obtención de todas las aplicaciones de Application Proxy y enumeración de la información ampliada
 

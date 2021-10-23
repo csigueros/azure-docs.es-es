@@ -1,23 +1,23 @@
 ---
-title: Adquisición de un token de Azure AD para la autorización de solicitudes desde una aplicación cliente
+title: Autorización del acceso a datos de blobs o colas desde una aplicación nativa o web
 titleSuffix: Azure Storage
 description: Use Azure Active Directory para autenticarse desde una aplicación cliente, adquiera un token de OAuth 2.0 y autorice solicitudes de Azure Blob Storage y Queue Storage.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 10/11/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 746d908065523651f9147a721531514d1a0f84c0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0eb9c51f112af25356023ea0483440cea1831e3e
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128673281"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129856456"
 ---
-# <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Adquisición de un token de Azure AD para la autorización de solicitudes desde una aplicación cliente
+# <a name="authorize-access-to-blob-or-queue-data-from-a-native-or-web-application"></a>Autorización del acceso a datos de blobs o colas desde una aplicación nativa o web
 
 Una ventaja clave del uso de Azure Active Directory (Azure AD) con Azure Blob Storage o Queue Storage es que ya no necesita almacenar las credenciales en el código. En su lugar, puede solicitar un token de acceso de OAuth 2.0 desde la plataforma de identidad de Microsoft. Azure AD autentica la entidad de seguridad (un usuario, grupo o entidad de servicio) ejecutando la aplicación. Si la autenticación se realiza correctamente, Azure AD devuelve el token de acceso a la aplicación y la aplicación puede entonces usar el token de acceso para autorizar las solicitudes de Azure Blob Storage o Queue Storage.
 
@@ -294,4 +294,4 @@ https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 
 - [Plataforma de identidad de Microsoft](../../active-directory/develop/index.yml)
 - Consulte [Asignación de un rol de Azure el acceso a datos de blob](../blobs/assign-azure-role-data-access.md).
-- [Autenticación del acceso a blobs y colas con Azure Active Directory e identidades administradas para los recursos de Azure](storage-auth-aad-msi.md)
+- [Autorización del acceso a datos de blobs con identidades administradas para recursos de Azure](../blobs/authorize-managed-identity.md)

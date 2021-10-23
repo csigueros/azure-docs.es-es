@@ -4,16 +4,16 @@ titleSuffix: Azure Digital Twins
 description: Consulte cómo configurar una instancia del servicio Azure Digital Twins mediante Azure PowerShell.
 author: baanders
 ms.author: baanders
-ms.date: 12/16/2020
+ms.date: 9/3/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1e2751c7df1cd3b43ce6c700bc51b51faf95963f
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: c5af0d96b8e639494b556f875a23f13781cbfbec
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114468711"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129996235"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-powershell"></a>Configuración de una instancia de Azure Digital Twins y autenticación (PowerShell)
 
@@ -22,9 +22,6 @@ ms.locfileid: "114468711"
 En este artículo se describen los pasos para **configurar una nueva instancia de Azure Digital Twins**, incluidas la creación de la instancia y la configuración de la autenticación. Después de completar este artículo, tendrá una instancia de Azure Digital Twins lista para empezar a programar.
 
 En esta versión de este artículo se realizan los pasos manualmente, uno por uno, mediante [Azure PowerShell](/powershell/azure/new-azureps-module-az).
-
-* Para seguir estos pasos manualmente con Azure Portal, consulte la versión del portal de este artículo: [Configuración de una instancia y autenticación (Azure Portal)](how-to-set-up-instance-portal.md).
-* A fin de ejecutar una configuración automatizada con un ejemplo de script de implementación, consulte la versión con scripts de este artículo en [Configuración de una instancia y autenticación (con scripts)](how-to-set-up-instance-scripted.md).
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 

@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/04/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: d4cb278fbfd6feb3fb2be0e2a113092ff24644cc
-ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
+ms.openlocfilehash: 328d99d2e690004f87d7224253e81ed6815a2e75
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129740272"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129984052"
 ---
 # <a name="application-insights-java-in-process-agent-in-azure-spring-cloud"></a>Agente In-Process de Java de Application Insights en Azure Spring Cloud
 
@@ -177,7 +177,7 @@ resource "azurerm_spring_cloud_service" "example" {
 Puede administrar Application Insights mediante comandos de la CLI de Azure. En los siguientes comandos, asegúrese de reemplazar el texto *\<placeholder>* por los valores descritos. El marcador de posición *\<service-name>* hace referencia al nombre de la instancia de Azure Spring Cloud.
 
 Para configurar Application Insights al crear una instancia de Azure Spring Cloud, use el siguiente comando. Para el argumento `app-insights`, puede especificar un nombre de Application Insights o un identificador de recurso.
-   
+
 ```azurecli
 az spring-cloud create \
     --resource-group <resource-group-name> \
@@ -187,7 +187,7 @@ az spring-cloud create \
 ```
 
 También puede usar una cadena de conexión (preferida) o una clave de instrumentación de Application Insights, como se muestra en el ejemplo siguiente.
-   
+
 ```azurecli
 az spring-cloud create \
     --resource-group <resource-group-name> \
@@ -289,9 +289,14 @@ Cuando los datos se almacenan en Application Insights, este contiene el historia
   * Tres instancias de Application Map con intervalos de tiempo en las últimas 24 horas, así como información de errores, rendimiento y métricas.
   * Dos instancias de Application Map con intervalos de tiempo en la última hora, así como información de errores, rendimiento y métricas.
   * Dos instancias de Live Metrics.
-
 ## <a name="see-also"></a>Consulte también
 
 * [Uso del seguimiento distribuido con Azure Spring Cloud](./how-to-distributed-tracing.md)
 * [Análisis de registros y métricas](diagnostic-services.md)
 * [Streaming de registros en tiempo real](./how-to-log-streaming.md)
+* [Mapa de aplicación](/azure/azure-monitor/app/app-map)
+* [Live Metrics](/azure/azure-monitor/app/live-stream)
+* [Rendimiento](/azure/azure-monitor/app/tutorial-performance)
+* [Errores](/azure/azure-monitor/app/tutorial-runtime-exceptions)
+* [Métricas](/azure/azure-monitor/essentials/tutorial-metrics-explorer)
+* [Registros](/azure/azure-monitor/logs/data-platform-logs)

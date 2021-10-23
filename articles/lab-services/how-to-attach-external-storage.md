@@ -2,15 +2,15 @@
 title: Uso de almacenamiento de archivos externo en Azure Lab Services | Microsoft Docs
 description: Obtenga información sobre cómo configurar un laboratorio que use almacenamiento de archivos externo en servicios de laboratorio.
 author: emaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/30/2021
 ms.author: enewman
-ms.openlocfilehash: 86dd9290c640829049f4f6cb7b784aacba3cf7ce
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f7c92e4369491a5b371c2f99fbcbdc4609b376f7
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124768750"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180977"
 ---
 # <a name="use-external-file-storage-in-lab-services"></a>Uso de almacenamiento de archivos externo en Lab Services
 

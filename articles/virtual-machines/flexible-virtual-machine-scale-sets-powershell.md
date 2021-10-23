@@ -9,26 +9,19 @@ ms.subservice: flexible-scale-sets
 ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-ms.openlocfilehash: 9e01c9f4d9cdb3bdd95d77cb2cc26462a95661c6
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 45f998dbba1ffac99fc8d491cb90694a76c11f98
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122868530"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165751"
 ---
-# <a name="preview-create-virtual-machines-in-a-flexible-scale-set-using-powershell"></a>Versión preliminar: creación de máquinas virtuales en un conjunto de escalado flexible con PowerShell
+# <a name="create-virtual-machines-in-a-flexible-scale-set-using-powershell"></a>Creación de máquinas virtuales en un conjunto de escalado flexible con PowerShell
 
 **Se aplica a:** :heavy_check_mark: Conjuntos de escalado flexibles
 
 
 En este artículo se describe el uso de PowerShell para crear un conjunto de escalado de máquinas virtuales en modo de orquestación flexible. Para obtener más información sobre conjuntos de escalado flexibles, consulte [Modo de orquestación flexible para conjuntos de escalado de máquinas virtuales](flexible-virtual-machine-scale-sets.md). 
-
-
-> [!IMPORTANT]
-> En el modo de orquestación flexible, los conjuntos de escalado de máquinas virtuales se encuentran actualmente en versión preliminar pública. No es necesario ningún procedimiento de participación para usar la funcionalidad de versión preliminar pública que se describe a continuación.
-> Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 > [!CAUTION]
 > El modo de orquestación se define al crear el conjunto de escalado y no se puede cambiar ni actualizar más adelante.
@@ -39,26 +32,6 @@ En este artículo se describe el uso de PowerShell para crear un conjunto de esc
 Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. 
 
 Para abrir Cloud Shell, seleccione **Pruébelo** en la esquina superior derecha de un bloque de código. También puede ir a [https://shell.azure.com/powershell](https://shell.azure.com/powershell) para iniciar Cloud Shell en una pestaña independiente del explorador. Seleccione **Copiar** para copiar los bloques de código, péguelos en Cloud Shell y, luego, presione Entrar para ejecutarlos.
-
-
-## <a name="register-for-flexible-orchestration-mode"></a>Registro para el modo de orquestación flexible
-
-Para poder implementar conjuntos de escalado de máquinas virtuales en el modo de orquestación flexible, antes es preciso registrar la suscripción en la característica en vista previa (GB). El registro puede tardar varios minutos en terminar.
-
-Use el cmdlet [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) para habilitar la versión preliminar de su suscripción.
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName VMOrchestratorMultiFD -ProviderNamespace Microsoft.Compute `
-Register-AzProviderFeature -FeatureName VMOrchestratorSingleFD -ProviderNamespace Microsoft.Compute `
-Register-AzProviderFeature -FeatureName VMScaleSetFlexPreview -ProviderNamespace Microsoft.Compute `
-Register-AzProviderFeature -FeatureName SkipPublicIpWriteRBACCheckForVMNetworkInterfaceConfigurationsPublicPreview -ProviderNamespace Microsoft.Compute
-```
-
-El registro de la característica puede tardar hasta 15 minutos. Para comprobar el estado del registro, siga estos pasos:
-
-```azurepowershell-interactive
-Get-AzProviderFeature -FeatureName VMOrchestratorMultiFD -ProviderNamespace Microsoft.Compute
-```
 
 
 ## <a name="get-started-with-flexible-scale-sets"></a>Introducción a los conjuntos de escalado flexibles
@@ -156,4 +129,4 @@ En el ejemplo siguiente se muestra cómo crear un conjunto de escalado flexible 
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
-> [Aprenda a crear un conjunto de escalado flexible en Azure Portal.](flexible-virtual-machine-scale-sets-portal.md)
+> [Obtenga información sobre cómo crear un conjunto de escalado flexible en Azure Portal.](flexible-virtual-machine-scale-sets-portal.md)

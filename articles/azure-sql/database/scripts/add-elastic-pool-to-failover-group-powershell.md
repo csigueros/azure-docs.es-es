@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
-author: BustosMSFT
-ms.author: robustos
+author: emlisa
+ms.author: emlisa
 ms.reviewer: mathoma
 ms.date: 07/16/2019
-ms.openlocfilehash: 720a04262875fc3e7374477021623a8dbb788b6b
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: ae2854e0bd29808c719433128a5823fc5ded7428
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110689044"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162678"
 ---
 # <a name="use-powershell-to-add-an-elastic-pool-to-a-failover-group"></a>Uso de PowerShell para agregar un grupo elástico a un grupo de conmutación por error
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]

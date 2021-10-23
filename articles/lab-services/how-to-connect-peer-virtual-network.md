@@ -1,14 +1,14 @@
 ---
 title: Conectarse a una red del mismo nivel en Azure Lab Services | Microsoft Docs
 description: Aprenda a conectar la red de laboratorio a otra red como una red del mismo nivel. Por ejemplo, conecte la red local de la organización o la universidad a la red virtual de laboratorio en Azure.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 645e99681f5615c3082d784e4e540a6200f618b8
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: dd549061c5b40447afa11b82dfcfdb07d6b635ab
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108755142"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180711"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Conexión de la red del laboratorio con una red virtual del mismo nivel en Azure Lab Services
 

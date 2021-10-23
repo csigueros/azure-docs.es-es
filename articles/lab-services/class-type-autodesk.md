@@ -2,15 +2,15 @@
 title: Configuración de un laboratorio con Autodesk mediante Azure Lab Services
 description: Aprenda a configurar laboratorios para enseñar clases de ingeniería con Autodesk.
 author: nicolela
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/21/2021
 ms.author: nicolela
-ms.openlocfilehash: 6cc983907349ca8eab0731b18c18d526f2b75ba5
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 2c9abda8f42023ebc54de77caadbe2860afe137f
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108281120"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177068"
 ---
 # <a name="set-up-labs-for-autodesk"></a>Configuración de laboratorios para Autodesk
 

@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: be90a868ca4ef738f0275b06fb49abec761c7a0c
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: c0ccdf22928a824194015858592c7dd1c3d98ed6
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129538176"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063191"
 ---
 # <a name="configure-redis-clustering-for-a-premium-azure-cache-for-redis-instance"></a>Configuración de la agrupación en clústeres de Redis para una instancia de Azure Cache for Redis de nivel prémium
 
@@ -90,7 +90,7 @@ Para obtener el código de ejemplo sobre el trabajo con clústeres con el client
 
 Para cambiar el tamaño del clúster de una caché prémium en ejecución con la agrupación en clústeres habilitada, seleccione **Tamaño del clúster** desde el menú **Recursos**.
 
-![Tamaño del Clúster en Redis][redis-cache-redis-cluster-size]
+:::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png" alt-text="Tamaño del Clúster en Redis":::
 
 Para modificar el tamaño del clúster, utilice el control deslizante o especifique un número comprendido entre 1 y 10 en el cuadro de texto **Número de particiones**. Luego, seleccione **Aceptar** para guardar.
 
@@ -201,11 +201,3 @@ Si usa StackExchange.Redis y recibe excepciones `MOVE` al emplear agrupaciones e
 Más información sobre las características de Azure Cache for Redis.
 
 * [Niveles de servicio de Azure Cache for Redis Premium](cache-overview.md#service-tiers)
-
-<!-- IMAGES -->
-
-[redis-cache-clustering]: ./media/cache-how-to-premium-clustering/redis-cache-clustering.png
-
-[redis-cache-clustering-selected]: ./media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png
-
-[redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png

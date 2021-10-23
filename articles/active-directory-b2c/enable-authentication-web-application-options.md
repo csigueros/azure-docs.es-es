@@ -2,21 +2,21 @@
 title: Habilitación de las opciones de autenticación de una aplicación web mediante Azure Active Directory B2C
 description: En este artículo se abordan varias maneras de habilitar las opciones de autenticación de aplicaciones web.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 08/12/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 50cdb5f171614c138427b358f2418b8b81751457
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 097422d3d3156f42b55374593aaced8514ae2d09
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220332"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130040861"
 ---
 # <a name="enable-authentication-options-in-a-web-app-by-using-azure-ad-b2c"></a>Habilitación de las opciones de autenticación en una aplicación web mediante Azure AD B2C 
 
@@ -367,7 +367,7 @@ services.AddAuthorization(options =>
 
 Usted controla la autorización en ASP.NET Core con [AuthorizeAttribute](/aspnet/core/security/authorization/simple) y sus distintos parámetros. En su forma más básica, aplicar el atributo `Authorize` a un controlador, una acción o una Razor Page limita el acceso para los usuarios autenticados de ese componente.
 
-Usted aplica las directivas a los controladores mediante el atributo `Authorize` con el nombre de directiva. El código siguiente limita el acceso a la acción `Claims` a los usuarios autorizados por la directiva `EmployeeOnly`:
+Usted aplica las directivas a los controladores mediante el atributo `Authorize` con el nombre de directiva. El código siguiente limita el acceso a la acción `Claims` para los usuarios autorizados por la directiva `EmployeeOnly`:
 
 ```csharp
 [Authorize(Policy = "EmployeeOnly")]

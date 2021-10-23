@@ -1,18 +1,18 @@
 ---
 title: Solución de problemas de conectividad de red | Microsoft Docs
 description: Se proporcionan sugerencias para solucionar errores comunes al usar Azure Migrate con puntos de conexión privados.
-author: SGSneha
-ms.author: v-ssudhir
+author: MaggiePucciEvans
+ms.author: evansma
 ms.manager: deseelam
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/19/2021
-ms.openlocfilehash: f6f63c24f98cd362619823ca4ebe1d66d35e6ced
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.openlocfilehash: 5f225711fd4bf373fc03dbfa451ae5dea041d2b8
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122598042"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166466"
 ---
 # <a name="troubleshoot-network-connectivity"></a>Solución de problemas de conectividad de red
 Este artículo le ayuda a solucionar problemas de conectividad de red mediante Azure Migrate con puntos de conexión privados.

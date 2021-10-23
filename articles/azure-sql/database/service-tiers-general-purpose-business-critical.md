@@ -12,12 +12,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
 ms.date: 7/7/2021
-ms.openlocfilehash: 56bd4dcc121b5ebd2ac48f772bd0793dffccd50d
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 9fbcf03159e11aa9d2951f3f951290eb6e51b511
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114289925"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129670145"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Niveles de servicio de Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -35,7 +35,7 @@ Azure SQL Database también proporciona el nivel de servicio Hiperescala:
 
 En la tabla siguiente se describen las diferencias principales entre los niveles de servicio.
 
-|-| Tipo de recurso | De uso general | Hiperescala | Crítico para la empresa |
+|-| Tipo de recurso | Uso general | Hiperescala | Crítico para la empresa |
 |:---:|:---:|:---:|:---:|:---:|
 | **Más adecuado para** | |  Ofrece opciones de proceso y almacenamiento equilibradas adecuadas para un presupuesto limitado. | La mayoría de las cargas de trabajo empresariales. Escalado automático del tamaño de almacenamiento hasta 100 TB, escalado de procesos vertical y horizontal fluido, restauración rápida de bases de datos. | Aplicaciones de OLTP con una alta tasa de transacciones y latencia de E/S baja. Ofrece mayor resistencia a los errores y rapidez en las conmutaciones por error mediante varias réplicas actualizadas sincrónicamente.|
 | **Disponible en estos tipos de recurso:** ||SQL Database / Instancia administrada de SQL | Base de datos única de Azure SQL Database | SQL Database / Instancia administrada de SQL |
@@ -44,7 +44,7 @@ En la tabla siguiente se describen las diferencias principales entre los niveles
 | | Grupos de Instancia administrada de SQL | 2, 4, 8, 16, 24, 32, 40, 64 y 80 núcleos virtuales | N/D | N/D |
 | **Tipo de almacenamiento** | All | Almacenamiento remoto | Almacenamiento local de SSD y remoto en niveles | Almacenamiento local de SSD |
 | **Tamaño de la base de datos** | SQL Database | 1 GB a 4 TB | 40 GB a 100 TB | 1 GB a 4 TB |
-| | Instancia administrada de SQL  | 32 GB–8 TB | N/D | 32 GB – 4 TB |
+| | Instancia administrada de SQL  | 32 GB–8 TB </br> 16 TB (versión preliminar), según el número de núcleos; solo Gen5| N/D | 32 GB – 4 TB |
 | **Tamaño de almacenamiento** | SQL Database | 1 GB a 4 TB | 40 GB a 100 TB | 1 GB a 4 TB |
 | | Instancia administrada de SQL  | 32 GB–8 TB | N/D | 32 GB – 4 TB |
 | **Tamaño de TEMPDB** | SQL Database | [32 GB por núcleo virtual](resource-limits-vcore-single-databases.md) | [32 GB por núcleo virtual](resource-limits-vcore-single-databases.md) | [32 GB por núcleo virtual](resource-limits-vcore-single-databases.md) |

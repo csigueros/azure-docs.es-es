@@ -5,13 +5,13 @@ metadata:
   ms.reviewer: srinathv
   ms.topic: article
   ms.service: backup
-  ms.date: 07/05/2019
-  ms.openlocfilehash: edd3ad16f6fc223ec08a99e4bf2a992cbd69c6e5
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.date: 10/13/2021
+  ms.openlocfilehash: a46b7b990e8ea9deb929430d15a8c208434ff0e2
+  ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122252162"
+  ms.lasthandoff: 10/14/2021
+  ms.locfileid: "129998568"
 title: Preguntas frecuentes sobre Azure Backup Server y DPM
 summary: ''
 sections:
@@ -29,6 +29,10 @@ sections:
       ¿Puedo usar DPM para realizar copias de seguridad de aplicaciones en Azure Stack?
     answer: >
       No. Puede usar Azure Backup para proteger Azure Stack; Azure Backup no admite el uso de DPM para realizar copias de seguridad de aplicaciones en Azure Stack.
+  - question: >
+      ¿Qué ocurre si se produce un error en la copia de seguridad semanal, mensual o anual esperada?
+    answer: >
+      Si se produce un error en la copia de seguridad, la siguiente copia de seguridad correcta después de la copia de seguridad semanal, mensual o anual esperada se conserva según el período de retención de los respectivos puntos de recuperación semanales, mensuales y anuales, que también se conocen como puntos de retención a largo plazo (LTR), según la directiva de copia de seguridad. Esta copia de seguridad correcta puede ser una copia de seguridad ad hoc o una copia de seguridad programada en el caso del agente de MARS.
   - question: >
       Si he instalado el agente de Azure Backup para proteger archivos y carpetas, ¿puedo instalar System Center DPM para realizar copias de seguridad de las cargas de trabajo locales en Azure?
     answer: >

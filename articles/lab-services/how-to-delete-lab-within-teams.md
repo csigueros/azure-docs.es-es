@@ -1,14 +1,14 @@
 ---
 title: Eliminación de un laboratorio de Azure Lab Services desde Teams
 description: Aprenda a eliminar un laboratorio de Azure Lab Services desde Teams.
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/12/2020
-ms.openlocfilehash: 8d1e20f8f676eb9863187b550a3c0400871d670c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f93151e970fc38ca55b43c5322bf27862ad32b7a
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96433961"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180521"
 ---
 # <a name="delete-labs-within-teams"></a>Eliminación de laboratorios en Teams
 

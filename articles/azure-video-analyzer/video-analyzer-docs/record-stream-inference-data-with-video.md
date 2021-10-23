@@ -4,12 +4,12 @@ description: En este tutorial, aprenderá a usar Azure Video Analyzer para graba
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: 3122ea07fdab20c93ed4720d0c43f180cce5306d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0e2df2b89efb974e6336cf4df0ce4e06a63d528a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780352"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129996311"
 ---
 # <a name="tutorial-record-and-stream-inference-metadata-with-video"></a>Tutorial: Grabación y transmisión de metadatos de inferencia con vídeo
   
@@ -101,7 +101,7 @@ A continuación, vaya a la carpeta src/cloud-to-device-console-app. Aquí podrá
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/deployment-single-device.png" alt-text= "Screenshot of Create Deployment for Single Device":::
 
-1. Cuando se le pida que seleccione un dispositivo IoT Hub, elija **ava-sample-iot-edge-device**.
+1. Cuando se le pida que seleccione un dispositivo IoT Hub, elija **avasample-iot-edge-device**.
 1. Tras aproximadamente 30 segundos, en la esquina inferior izquierda de la ventana, actualice Azure IoT Hub. El dispositivo perimetral ahora muestra los siguientes módulos implementados:
 
    - El módulo **avaedge**, que es el módulo Video Analyzer.

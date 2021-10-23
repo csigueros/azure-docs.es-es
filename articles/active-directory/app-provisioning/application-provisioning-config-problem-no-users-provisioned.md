@@ -3,7 +3,7 @@ title: Los usuarios no se aprovisionan en mi aplicación
 description: Cómo solucionar problemas habituales que surgen cuando no se ve aparecer a usuarios en una aplicación de la galería de Azure AD que ha configurado para el aprovisionamiento de usuarios con Azure AD
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 42bee803e6dfb025f654714a44a8a4aae3b7448b
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 98904c5e32e6a1c145dd696b5ac20c7db8e2840f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783196"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129991933"
 ---
 # <a name="no-users-are-being-provisioned"></a>No se está aprovisionando ningún usuario 
 >[!NOTE]

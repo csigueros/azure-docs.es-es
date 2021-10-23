@@ -11,12 +11,12 @@ metadata:
   ms.date: 10/30/2018
   ms.author: genli
   ms.custom: devx-track-azurepowershell
-  ms.openlocfilehash: 6f8d30011a19c6d8210d9c63f4378a66237fe024
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.openlocfilehash: 825840dfe237d58f281db5e26b6090c153707195
+  ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122253355"
+  ms.lasthandoff: 10/14/2021
+  ms.locfileid: "129992839"
 title: Preguntas más frecuentes sobre la configuración y administración de Web Apps en Azure
 summary: >
   Este artículo contiene respuestas a las preguntas más frecuentes (P+F) sobre los problemas de configuración y administración de la [característica Web Apps de Azure App Service](https://azure.microsoft.com/services/app-service/web/).
@@ -245,13 +245,6 @@ sections:
   - question: >
       ¿Cómo se conecta una aplicación web de App Service a una red virtual que tiene una puerta de enlace de enrutamiento estático (basado en directivas)?
     answer: "Actualmente, no se admite la conexión de una aplicación web de App Service a una red virtual que tenga una puerta de enlace de enrutamiento estático (basado en directivas). Si su red virtual de destino ya existe, debe tener habilitada la VPN de punto a sitio, con una puerta de enlace de enrutamiento dinámico, para poder conectarse a una aplicación. Si la puerta de enlace está configurada para el enrutamiento estático, no podrá habilitar una VPN de punto a sitio. \n\nPara más información, consulte [Integración de su aplicación con una red virtual de Azure](web-sites-integrate-with-vnet.md).\n"
-  - question: >
-      En App Service Environment, ¿por qué solo se puede crear un plan de App Service si tengo dos trabajos disponibles?
-    answer: >
-      Para proporcionar tolerancia a errores, App Service Environment requiere que para cada grupo de trabajo haya al menos un recurso de proceso adicional. No se puede asignar una carga de trabajo al recurso de proceso adicional.
-
-
-      Para más información, consulte [Creación de App Service Environment](environment/app-service-web-how-to-create-an-app-service-environment.md).
   - question: >
       ¿Por qué veo los tiempos de espera al intentar crear una instancia de App Service Environment?
     answer: >

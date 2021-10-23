@@ -3,7 +3,7 @@ title: 'Tutorial: Creación de una aplicación de Angular que usa la Plataforma 
 titleSuffix: Microsoft identity platform
 description: En este tutorial creará una aplicación de página única (SPA) de Angular que utiliza el flujo de código de autenticación y la Plataforma de identidad de Microsoft para iniciar sesión a los usuarios y obtener un token de acceso para llamar a Microsoft Graph API en su nombre.
 services: active-directory
-author: joarroyo
+author: jo-arroyo
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/14/2021
 ms.author: joarroyo
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 01c35297a35b41b58b83aaf361aaa47a76cfecee
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: b116c7481dcbbdf05bf7aba476feeef853c0c87f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129230862"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993670"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application-spa-using-auth-code-flow"></a>Tutorial: Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única (SPA) de Angular mediante el uso del flujo de código de autenticación
 
@@ -449,7 +449,7 @@ Para representar cierta interfaz de usuario solo para los usuarios autenticados,
 1. Agregue `MsalBroadcastService` a *src/app/app.component.ts* y suscríbase al objeto observable `inProgress$` para comprobar si la interacción se ha completado y una cuenta ha iniciado sesión antes de representar la interfaz de usuario. Ahora el código debería ser similar a este:
 
     ```javascript
-    import { Component, OnInit } from '@angular/core';
+    import { Component, OnInit, OnDestroy } from '@angular/core';
     import { MsalService, MsalBroadcastService } from '@azure/msal-angular';
     import { InteractionStatus } from '@azure/msal-browser';
     import { Subject } from 'rxjs';
@@ -460,7 +460,7 @@ Para representar cierta interfaz de usuario solo para los usuarios autenticados,
       templateUrl: './app.component.html',
       styleUrls: ['./app.component.css']
     })
-    export class AppComponent implements OnInit {
+    export class AppComponent implements OnInit, OnDestroy {
       title = 'msal-angular-tutorial';
       isIframe = false;
       loginDisplay = false;
@@ -653,7 +653,7 @@ MSAL Angular proporciona `MsalGuard`, una clase que puede usar para proteger las
 3. Ajuste las llamadas de inicio de sesión en *src/app/app.component.ts* para tener en cuenta el conjunto de `authRequest` en las configuraciones de protección. El código debe tener un aspecto parecido al siguiente.
 
     ```javascript
-    import { Component, OnInit, Inject } from '@angular/core';
+    import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
     import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
     import { InteractionStatus, RedirectRequest } from '@azure/msal-browser';
     import { Subject } from 'rxjs';
@@ -664,7 +664,7 @@ MSAL Angular proporciona `MsalGuard`, una clase que puede usar para proteger las
       templateUrl: './app.component.html',
       styleUrls: ['./app.component.css']
     })
-    export class AppComponent implements OnInit {
+    export class AppComponent implements OnInit, OnDestroy {
       title = 'msal-angular-tutorial';
       isIframe = false;
       loginDisplay = false;
@@ -873,7 +873,7 @@ Actualice el código de *src/app/app.component.html* para mostrar condicionalmen
 Actualice el código de *src/app/app.component.ts* para cerrar la sesión de un usuario mediante redirecciones:
 
 ```javascript
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
 import { InteractionStatus, RedirectRequest } from '@azure/msal-browser';
 import { Subject } from 'rxjs';
@@ -884,7 +884,7 @@ import { filter, takeUntil } from 'rxjs/operators';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'msal-angular-tutorial';
   isIframe = false;
   loginDisplay = false;
@@ -935,7 +935,7 @@ export class AppComponent implements OnInit {
 Actualice el código de *src/app/app.component.ts* para cerrar la sesión de un usuario mediante elementos emergentes:
 
 ```javascript
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
 import { InteractionStatus, PopupRequest } from '@azure/msal-browser';
 import { Subject } from 'rxjs';
@@ -946,7 +946,7 @@ import { filter, takeUntil } from 'rxjs/operators';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'msal-angular-tutorial';
   isIframe = false;
   loginDisplay = false;

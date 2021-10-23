@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: security
 author: nabhishek
 ms.author: abnarain
-ms.openlocfilehash: 285b4c4fb9fae46ed7549352a93553b15a518e36
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 2138c1947fd6d068bfc4d171595cf818ecf5dd77
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122419307"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708055"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Roles y permisos para Azure Data Factory
 
@@ -27,6 +27,10 @@ Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar
 
 Para crear y administrar recursos secundarios para Data Factory incluidos los conjuntos de datos, servicios vinculados, canalizaciones, desencadenadores y entornos de ejecución de integración, se aplican los siguientes requisitos:
 - Para crear y administrar recursos secundarios en Azure Portal, debe pertenecer al rol **Colaborador de Data Factory** en el nivel de **grupo de recursos** u otro nivel superior.
+  
+  > [!NOTE]
+  > Si ya asignó el rol **Colaborador** en el nivel **Grupo de recursos** o superior, no necesita el rol **Colaborador de Data Factory**. El rol [Colaborador](../role-based-access-control/built-in-roles.md#contributor) es un rol de superconjunto que incluye todos los permisos concedidos al [rol Colaborador de Data Factory](../role-based-access-control/built-in-roles.md#data-factory-contributor).
+
 - Para crear y administrar recursos secundarios con Powershell o el SDK, el rol de **Colaborador** en el nivel de recurso u otro nivel superior es suficiente.
 
 Para obtener instrucciones de ejemplo sobre cómo agregar un usuario a un rol, consulte el artículo sobre la [adición de roles](../cost-management-billing/manage/add-change-subscription-administrator.md).

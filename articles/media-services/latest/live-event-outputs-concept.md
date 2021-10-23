@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: c5684a3e3949ca2bf119a4c81d7096726a441da6
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: f4d035355be5381109c1bc5f620bade22ba6f579
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129390147"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129987221"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos en directo y salidas en directo en Media Services
 
@@ -31,7 +31,7 @@ Azure Media Services permite entregar eventos en directo a los clientes en la nu
 
 ## <a name="live-events"></a>Eventos en directo
 
-Los [eventos en directo](/rest/api/media/liveevents) son responsables de la ingesta y el procesamiento de las fuentes de vídeo en directo. Al crear un evento en directo, se crea un punto de conexión de entrada primario y secundario que puede usar para enviar una señal en directo desde un codificador remoto. El codificador en directo remoto envía la fuente de contribución a ese punto de conexión de entrada mediante el protocolo de entrada [RTMP](https://www.adobe.com/devnet/rtmp.html) o [Smooth Streaming](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251) (MP4 fragmentado). Con el protocolo de ingesta de RTMP, el contenido se puede enviar sin cifrar (`rtmp://`) o cifrado de forma segura en la conexión (`rtmps://`). Para el protocolo de introducción Smooth Streaming, los esquemas de dirección URL admitidos son `http://` o `https://`.  
+Los [eventos en directo](/rest/api/media/liveevents) son responsables de la ingesta y el procesamiento de las fuentes de vídeo en directo. Al crear un evento en directo, se crea un punto de conexión de entrada primario y secundario que puede usar para enviar una señal en directo desde un codificador remoto. El codificador en directo remoto envía la fuente de contribución a ese punto de conexión de entrada mediante el protocolo de entrada [RTMP](https://helpx.adobe.com/adobe-media-server/dev/stream-live-media-rtmp.html) o [Smooth Streaming](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251) (MP4 fragmentado). Con el protocolo de ingesta de RTMP, el contenido se puede enviar sin cifrar (`rtmp://`) o cifrado de forma segura en la conexión (`rtmps://`). Para el protocolo de introducción Smooth Streaming, los esquemas de dirección URL admitidos son `http://` o `https://`.  
 
 ## <a name="live-event-types"></a>Tipos de eventos en directo
 

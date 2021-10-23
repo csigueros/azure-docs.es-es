@@ -1,14 +1,14 @@
 ---
 title: Configuración de los valores de uso de los laboratorios de Azure Lab Services
 description: Obtenga información sobre cómo configurar el número de alumnos del laboratorio, registrarlos en el laboratorio, controlar el número de horas que pueden usar la máquina virtual y mucho más.
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/01/2020
-ms.openlocfilehash: f7c0fb7b0228ee17705af2dfd70279f6fc7bda3c
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: 6abdbe8ebd771c3d8d1c704cc97222dddd0ace0b
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110190719"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180806"
 ---
 # <a name="add-and-manage-lab-users"></a>Incorporación y administración de usuarios de laboratorio
 

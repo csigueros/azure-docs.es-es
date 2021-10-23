@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 09/22/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
-ms.openlocfilehash: 7200c13d5ad4157afeb2c0dd1d7ab7445670609d
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 61e5bda5722d343aae2fc6be80312f13a21c415a
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129425342"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658200"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Protección de un área de trabajo de Azure Machine Learning con redes virtuales
 
@@ -105,18 +105,28 @@ Azure Machine Learning admite cuentas de almacenamiento configuradas para usar u
 
 # <a name="private-endpoint"></a>[Punto de conexión privado](#tab/pe)
 
-> [!TIP]
-> Debe configurar dos puntos de conexión privados para la cuenta de almacenamiento predeterminada:
-> * Un punto de conexión privado con un recurso secundario de destino de **blob**.
-> * Un punto de conexión privado con un recurso secundario de destino de **archivo** (recurso compartido de archivos).
->
-> Si tiene previsto usar [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) en la canalización, también es necesario configurar puntos de conexión privados con subrecursos de destino de **cola** y **tabla**. ParallelRunStep usa la cola y la tabla para la programación y distribución de tareas.
+1. En Azure Portal, seleccione la cuenta de Azure Storage.
+1. Use la información de [Uso de puntos de conexión privados para Azure Storage](../storage/common/storage-private-endpoints.md#creating-a-private-endpoint) para agregar puntos de conexión privados para los siguientes subrecursos de almacenamiento:
 
-:::image type="content" source="./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png" alt-text="Captura de pantalla que muestra la página de configuración de los puntos de conexión privados con opciones de blob y archivo":::
+    * **Blob**
+    * **Archivo**
+    * **Cola**: solo es necesario si tiene previsto usar [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) en una canalización de Azure Machine Learning.
+    * **Tabla**: solo es necesario si tiene previsto usar [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) en una canalización de Azure Machine Learning.
 
-Para configurar un punto de conexión privado para una cuenta de almacenamiento que **no** sea el almacenamiento predeterminado, seleccione el tipo **Subrecurso de destino** correspondiente a la cuenta de almacenamiento que quiere agregar.
+    :::image type="content" source="./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png" alt-text="Captura de pantalla que muestra la página de configuración de los puntos de conexión privados con opciones de blob y archivo":::
 
-Para más información, consulte [Uso de puntos de conexión privados para Azure Storage](../storage/common/storage-private-endpoints.md).
+    > [!TIP]
+    > Al configurar una cuenta de almacenamiento que **no** sea el almacenamiento predeterminado, seleccione el tipo **Subrecurso de destino** correspondiente a la cuenta de almacenamiento que quiere agregar.
+
+1. Después de crear los puntos de conexión privados para los subrecursos, seleccione la pestaña __Firewalls y redes virtuales__ en __Redes__ en la cuenta de almacenamiento.
+1. Seleccione __Redes seleccionadas__ y, a continuación, en __Instancias de recursos__, seleccione `Microsoft.MachineLearningServices/Workspace` como __Tipo de recurso__. Seleccione el área de trabajo mediante __Nombre de instancia__. Para más información, consulte [Acceso de confianza basado en la identidad administrada asignada por el sistema](/azure/storage/common/storage-network-security#trusted-access-based-on-system-assigned-managed-identity).
+
+    > [!TIP]
+    > O bien, seleccione __Allow Azure services on the trusted services list to access this storage account__ (Permitir que los servicios de Azure de la lista de servicios de confianza accedan a esta cuenta de almacenamiento) para permitir un mayor acceso de los servicios de confianza. Para más información, vea [Configuración de Firewalls y redes virtuales de Azure Storage](../storage/common/storage-network-security.md#trusted-microsoft-services).
+
+    :::image type="content" source="./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-no-vnet.png" alt-text="Área de redes de la página de Azure Storage en Azure Portal al usar un punto de conexión privado":::
+
+1. Para guardar la configuración, seleccione __Guardar__.
 
 > [!TIP]
 > Al usar un punto de conexión privado, también puede deshabilitar el acceso público. Para obtener más información, consulte la sección sobre cómo [deshabilitar el acceso de lectura público](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
@@ -134,14 +144,12 @@ Para más información, consulte [Uso de puntos de conexión privados para Azure
 
 1. En la sección __Resource instances__ (Instancias de recursos), seleccione `Microsoft.MachineLearningServices/Workspace` como __Tipo de recurso__ y seleccione el área de trabajo mediante __Nombre de instancia__. Para más información, consulte [Acceso de confianza basado en la identidad administrada asignada por el sistema](/azure/storage/common/storage-network-security#trusted-access-based-on-system-assigned-managed-identity).
 
-1. En __Excepciones__, seleccione __Allow Azure services on the trusted services list to access this storage account__ (Permitir que los servicios de Azure de la lista de servicios de confianza accedan a esta cuenta de almacenamiento).
+    > [!TIP]
+    > O bien, seleccione __Allow Azure services on the trusted services list to access this storage account__ (Permitir que los servicios de Azure de la lista de servicios de confianza accedan a esta cuenta de almacenamiento) para permitir un mayor acceso de los servicios de confianza. Para más información, vea [Configuración de Firewalls y redes virtuales de Azure Storage](../storage/common/storage-network-security.md#trusted-microsoft-services).
 
-    * Los recursos de algunos servicios, cuando **están registrados en la suscripción**, pueden obtener acceso a la cuenta de almacenamiento **de la misma suscripción** para ciertas operaciones. Por ejemplo, operaciones de escritura de registros o creación de copias de seguridad.
-    * Los recursos de algunos servicios pueden conceder acceso explícito a su cuenta de almacenamiento. Para ello, __asignan un rol de Azure__ a su identidad administrada asignada por el sistema.
+    :::image type="content" source="./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png" alt-text="Área de redes de la página de Azure Storage en Azure Portal":::
 
-    Para más información, vea [Configuración de Firewalls y redes virtuales de Azure Storage](../storage/common/storage-network-security.md#trusted-microsoft-services).
-
-:::image type="content" source="./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png" alt-text="Área de redes de la página de Azure Storage en Azure Portal":::
+1. Para guardar la configuración, seleccione __Guardar__.
 
 > [!TIP]
 > Al usar un punto de conexión de servicio, también puede deshabilitar el acceso público. Para obtener más información, consulte la sección sobre cómo [deshabilitar el acceso de lectura público](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).

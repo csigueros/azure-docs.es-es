@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 ms.custom: mvc
-ms.openlocfilehash: d911f5f0ee1670177e6de23b7afd647582253a8a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6fd1592e1f0b7d5da44fac15e20b03b8f237ad0a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121748776"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997352"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>Tutorial: Implementación del análisis espacial de IoT mediante Azure Maps
 
@@ -116,7 +116,7 @@ Una vez que haya creado la cuenta de almacenamiento correctamente, es necesario 
 
 A continuación, use la [aplicación Postman](https://www.getpostman.com) para [cargar la geovalla](./geofence-geojson.md) en Azure Maps. La geovalla define el área geográfica autorizada para nuestro vehículo de alquiler. La geovalla se usará en la función de Azure para determinar si un automóvil se ha salido del área de la geovalla.
 
-Siga estos pasos para cargar la geovalla mediante Upload API de Azure Maps: 
+Siga estos pasos para cargar la geovalla mediante Upload API de Azure Maps:
 
 1. Abra la aplicación Postman, vuelva a seleccionar **Nuevo**. En la ventana **Create new** (Crear nuevo), seleccione **HTTP Request** (Solicitud HTTP) y escriba un nombre para la solicitud.
 
@@ -246,7 +246,6 @@ Cuando la función de Azure esté ejecutándose, podrá enviar los datos de tele
     dotnet run
     ```
 
-
   El terminal local tendrá el aspecto siguiente.
 
 :::image type="content" source="./media/tutorial-iot-hub-maps/terminal.png" alt-text="Captura de pantalla de la salida del terminal.":::
@@ -283,7 +282,6 @@ No hay recursos que requieran limpieza.
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre cómo enviar datos de telemetría del dispositivo a la nube y viceversa, consulte:
-
 
 > [!div class="nextstepaction"]
 > [Envío de datos de telemetría desde un dispositivo](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)

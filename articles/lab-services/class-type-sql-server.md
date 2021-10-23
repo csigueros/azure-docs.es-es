@@ -2,15 +2,15 @@
 title: Configuración de un laboratorio para administración y desarrollo con Azure SQL Database | Azure Lab Services
 description: Aprenda a configurar un laboratorio para administración y desarrollo con Azure SQL Database.
 author: emaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: fb1b9e3458d08b8387c7f3978ff83c097fad2375
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c39229354d7628c2279465cc1029001e29a711fd
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644036"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176517"
 ---
 # <a name="set-up-a-lab-to-manage-and-develop-with-sql-server"></a>Configuración de un laboratorio para administración y desarrollo con SQL Server
 

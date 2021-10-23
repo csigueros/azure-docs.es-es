@@ -10,12 +10,14 @@ keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty
 ms.custom:
 - devx-track-java
 - devx-track-javaee
-ms.openlocfilehash: 016cc443ac88dce22d8320ceadc3075d4802bdc5
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+- devx-track-javaee-liberty
+- devx-track-javaee-liberty-aro
+ms.openlocfilehash: 9f3b9d7909f0d433f79d979337ff555efcfedddd
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129360076"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129984656"
 ---
 # <a name="deploy-a-java-application-with-open-libertywebsphere-liberty-on-an-azure-red-hat-openshift-4-cluster"></a>Implementación de una aplicación Java con Open Liberty/WebSphere Liberty en un clúster de Red Hat OpenShift en Azure 4
 

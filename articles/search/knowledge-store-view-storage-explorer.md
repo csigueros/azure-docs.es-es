@@ -7,19 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/10/2021
-ms.openlocfilehash: d87ec3fa05e1740b5cba7b4230894f1df822ac1f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/15/2021
+ms.openlocfilehash: 8be37bfc85b56af67784fb1abb457da95b9565fc
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124784661"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130067048"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Visualización de un almacén de conocimiento con el Explorador de Storage
 
 Un [almacén de conocimiento](knowledge-store-concept-intro.md) es contenido creado por un conjunto de aptitudes de Azure Cognitive Search aptitudes y guardado en Azure Storage. En este artículo, aprenderá a ver el contenido de un almacén de conocimiento con el Explorador de Storage en Azure Portal.
-
-## <a name="prerequisites"></a>Requisitos previos
 
 Comience con un almacén de conocimiento existente creado en [Azure Portal](knowledge-store-create-portal.md) o mediante las [API REST](knowledge-store-create-rest.md). Tanto el portal como los tutoriales de REST crean un almacén de conocimiento en Azure Table Storage.
 
@@ -29,7 +27,7 @@ Comience con un almacén de conocimiento existente creado en [Azure Portal](know
 
 1. En el panel de navegación izquierdo de la cuenta de almacenamiento, seleccione **Explorador de Storage**.
 
-## <a name="edit-and-query-tables"></a>Edición y consulta de tablas
+## <a name="view-edit-and-query-tables"></a>Visualización, edición y consulta de tablas
 
 1. Expanda la lista **TABLAS** para mostrar una lista de las proyecciones de tablas de Azure que se crearon cuando creó el almacén de conocimiento. Si usó el inicio rápido o el artículo de REST para crear el almacén de conocimiento, las tablas contendrán contenido relacionado con las reseñas de clientes de un hotel europeo.
 

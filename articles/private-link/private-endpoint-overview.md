@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/09/2021
 ms.author: allensu
-ms.openlocfilehash: 692bcd4900ae960928a66eaa63b02c6ddf12f2bf
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 485cd0d3d7ce2c64bfb0f37e07d785dee8808e3a
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129705282"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130062678"
 ---
 # <a name="what-is-azure-private-endpoint"></a>¿Qué es un punto de conexión privado de Azure?
 
@@ -98,6 +98,7 @@ En la tabla siguiente se enumeran los recursos disponibles que admiten un punto 
 | **Servicio Private Link** (su propio servicio) |  Microsoft.Network/privateLinkServices | empty |
 | **Power BI** | Microsoft.PowerBI/privateLinkServicesForPowerBI | Power BI |
 | **Azure Purview** | Microsoft.Purview/accounts | account |
+| **Azure Purview** | Microsoft.Purview/accounts | portal |
 | **Azure Backup** | Microsoft.RecoveryServices/vaults | almacén |
 | **Azure Relay** | Microsoft.Relay/namespaces | espacio de nombres |
 | **Búsqueda de Microsoft** | Microsoft.Search/searchServices | servicio de búsqueda |

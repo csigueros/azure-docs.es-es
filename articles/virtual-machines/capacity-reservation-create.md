@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: 360a634104b7735a90cbae4b41eae9723b723e2e
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 51139277b0c8da4fb3dfdd61bf826305657280b5
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129532631"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065027"
 ---
 # <a name="create-a-capacity-reservation-preview"></a>Creación de una reserva de capacidad (versión preliminar)
 
@@ -119,6 +119,39 @@ La reserva de capacidad debe cumplir las siguientes reglas:
 1. Seleccione **Crear**
 
 
+### <a name="cli"></a>[CLI](#tab/cli1)
+
+1. Para poder crear una reserva de capacidad, cree un grupo de recursos con `az group create`. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación Este de EE. UU.
+
+    ```azurecli-interactive
+    az group create 
+    -l eastus 
+    -g myResourceGroup
+    ```
+
+1. Ahora cree un grupo de reserva de capacidad con `az capacity reservation group create`. En el ejemplo siguiente se crea un grupo *myCapacityReservationGroup* en la ubicación Este de EE. UU. para las 3 zonas de disponibilidad.
+
+    ```azurecli-interactive
+    az capacity reservation group create 
+    -n myCapacityReservationGroup 
+    -l eastus 
+    -g myResourceGroup 
+    --zones 1 2 3 
+    ```
+
+1. Una vez creado el grupo de reserva de capacidad, cree una nueva reserva de capacidad con `az capacity reservation create`. En el ejemplo siguiente se crea *myCapacityReservation* para 5 cantidades de tamaño de VM Standard_D2s_v3 en Zona 1 de la ubicación Este de EE. UU.
+
+    ```azurecli-interactive
+    az capacity reservation create 
+    -c myCapacityReservationGroup 
+    -n myCapacityReservation 
+    -l eastus 
+    -g myResourceGroup 
+    --sku Standard_D2s_v3 
+    --capacity 5 
+    --zone 1
+    ```
+
 ### <a name="powershell"></a>[PowerShell](#tab/powershell1)
 
 1. Para poder crear una reserva de capacidad, cree un grupo de recursos con `New-AzResourceGroup`. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación Este de EE. UU.
@@ -203,6 +236,15 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 } 
 ```
 
+### <a name="cli"></a>[CLI](#tab/cli2)
+
+ ```azurecli-interactive
+ az capacity reservation show 
+ -c myCapacityReservationGroup 
+ -n myCapacityReservation 
+ -g myResourceGroup
+ ```
+
 ### <a name="powershell"></a>[PowerShell](#tab/powershell2)
 
 Compruebe la reserva de capacidad:
@@ -237,7 +279,6 @@ Para más información, vaya al comando de Azure PowerShell [Get-AzCapacityReser
 1. Seleccione **Información general** a la izquierda.
 1. Seleccione **Reservas**.
 1. En esta vista, podrá ver todas las reservas del grupo, junto con el tamaño de VM y la cantidad reservada.
-
 --- 
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
 

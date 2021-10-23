@@ -1,28 +1,28 @@
 ---
-title: Azure Automanage para los servidores habilitados para Arc
-description: Más información sobre Azure Automanage para los servidores habilitados para Arc
+title: Azure Automanage para servidores habilitados para Azure Arc
+description: Obtenga información sobre Azure Automanage para servidores habilitados para Azure Arc.
 ms.service: virtual-machines
 ms.subservice: automanage
 ms.collection: linux
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 06/24/2021
-ms.openlocfilehash: ce12689548884d4c57363851f7de99b5fb067ef6
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: cb04cdd75815ecc0579d9e4efbda9c49f1a7ff1c
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129456240"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713443"
 ---
-# <a name="azure-automanage-for-machines-best-practices---arc-enabled-servers"></a>Procedimientos recomendados de Azure Automanage para máquinas: servidores habilitados para Arc
+# <a name="azure-automanage-for-machines-best-practices---azure-arc-enabled-servers"></a>Procedimientos recomendados de Azure Automanage para máquinas: servidores habilitados para Azure Arc
 
-Estos servicios de Azure se incorporan automáticamente cuando usa los procedimientos recomendados de Automanage para máquinas en una VM de servidor habilitado para Arc. Estos servicios son fundamentales para nuestra nota del producto de procedimientos recomendados, que puede encontrar en nuestro marco [Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/azure-server-management).
+Estos servicios de Azure se incorporan automáticamente cuando usa los procedimientos recomendados de Automanage para máquinas en una VM de servidor habilitado para Azure Arc. Estos servicios son fundamentales para nuestra nota del producto de procedimientos recomendados, que puede encontrar en nuestro marco [Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/azure-server-management).
 
 Todos estos servicios se incorporarán y configurarán automáticamente, se supervisarán en busca de desfases y, en caso de que se detecten, se corregirán. Para obtener más información sobre este proceso, consulte [Azure Automanage para máquinas virtuales](automanage-virtual-machines.md).
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
-Automanage admite los siguientes sistemas operativos para los servidores habilitados para Arc:
+Automanage admite los siguientes sistemas operativos para servidores habilitados para Azure Arc:
 
 - Windows Server 2012/R2
 - Windows Server 2016

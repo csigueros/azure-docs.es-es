@@ -2,15 +2,15 @@
 title: Configuración de un laboratorio para enseñar desarrollo front-end con React en Windows mediante Azure Lab Services
 description: Aprenda a configurar laboratorios para dar clases de ingeniería con React.
 author: emaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/16/2021
 ms.author: enewman
-ms.openlocfilehash: 089ec3d3d4836b4dadb5a0a60023b85ebf9950e0
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: f7cd012e609b253269d1aa04137e8e7e94e0ffde
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112456551"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176689"
 ---
 # <a name="set-up-lab-for-react-on-windows"></a>Configuración del laboratorio para React en Windows
 

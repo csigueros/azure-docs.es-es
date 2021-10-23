@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 043470a8db67454d660a2c1c2fa8e7dcde4278b2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: baecf0d282c333e86f4b9848f84b453ffac6930f
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124734923"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130068919"
 ---
 # <a name="ncv2-series"></a>Serie NCv2
 
@@ -24,7 +24,7 @@ La configuración NC24rs v2 proporciona una interfaz de red de baja latencia y a
 
 [Premium Storage](premium-storage-performance.md): Compatible<br>
 [Almacenamiento en caché de Premium Storage](premium-storage-performance.md): Compatible<br>
-[Ultra Disks:](disks-types.md#ultra-disk) Compatible ([más información](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) sobre la disponibilidad, el uso y el rendimiento) <br>
+[Ultra Disks:](disks-types.md#ultra-disks) Compatible ([más información](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) sobre la disponibilidad, el uso y el rendimiento) <br>
 [Migración en vivo](maintenance-and-updates.md): No compatible<br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
 [Compatibilidad con generación de VM](generation-2.md): Generación 1 y 2<br>
