@@ -1,20 +1,20 @@
 ---
 title: Realización de solicitudes de API con Postman
 titleSuffix: Azure Digital Twins
-description: Aprenda a configurar y usar Postman para llamar a las API de Azure Digital Twins.
+description: Aprenda a autorizar, configurar y usar Postman para llamar a las API de Azure Digital Twins.
 ms.author: baanders
 author: baanders
 ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
-ms.date: 6/16/2021
+ms.date: 10/8/2021
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: 3974b080c2a763db4ffa0f344ef18ce129959a53
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 6aeb16ea38d18082b445f8f1e12301e1ae6144b7
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114459459"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130133013"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Uso de Postman para enviar solicitudes a las API de Azure Digital Twins
 

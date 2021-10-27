@@ -3,15 +3,15 @@ title: 'Introducción a la solución de problemas de Azure Virtual Desktop: Azur
 description: Información general para solucionar problemas al configurar un entorno de Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 12/04/2020
+ms.date: 10/14/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: c847c87a24dedc994da39a37f37def3caeef4db1
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f8abe1cc793b5e7e5528d377ee0a7226d5415909
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124818626"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045301"
 ---
 # <a name="troubleshooting-overview-feedback-and-support-for-azure-virtual-desktop"></a>Información general, comentarios y soporte técnico para la solución de problemas de Azure Virtual Desktop
 
@@ -19,6 +19,10 @@ ms.locfileid: "124818626"
 >Este contenido se aplica a Azure Virtual Desktop con objetos de Azure Resource Manager. Si usa Azure Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
 
 En este artículo se proporciona información general de los problemas que pueden surgir al configurar un entorno de Azure Virtual Desktop y proporciona distintas maneras de resolver los problemas.
+
+## <a name="troubleshoot-deployment-and-connection-issues"></a>Solución de problemas de implementación y conexión
+
+[Azure Monitor para Windows Virtual Desktop](azure-monitor.md)es un panel basado en libros de Azure Monitor que puede solucionar e identificar rápidamente los problemas del entorno de Windows Virtual Desktop. Si prefiere trabajar con consultas de Kusto, se recomienda usar la característica de diagnóstico integrada [Log Analytics](diagnostics-log-analytics.md) en su lugar.
 
 ## <a name="report-issues"></a>Informar de problemas
 

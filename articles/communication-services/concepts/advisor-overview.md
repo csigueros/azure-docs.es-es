@@ -10,12 +10,12 @@ ms.date: 09/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: data
-ms.openlocfilehash: 3c3b995cdf4b27056b0714ae6f9f8bc29fad6302
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 6c229f4afddc77e9b85f0dbd7fb4669facf8788e
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129713096"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129983995"
 ---
 # <a name="azure-advisor-for-azure-communication-services"></a>Azure Advisor para Azure Communication Services
 
@@ -27,7 +27,7 @@ Para garantizar todas las correcciones y actualizaciones recientes, se recomiend
 
 ![Ejemplo de Azure Advisor que muestra la recomendación de actualizar el SDK de chat.](./media/advisor-chat-sdk-update-example.png)
 
-Los siguientes SDK son compatibles con esta característica, junto con todos los idiomas admitidos. Puede obtener más información sobre las [opciones de los SDK](./sdk-options.md) disponibles.
+Los siguientes SDK son compatibles con esta característica, junto con todos los idiomas admitidos. Tenga en cuenta que esta característica solo enviará recomendaciones para las versiones principales más recientes disponibles con carácter general de los SDK. Las versiones beta o preliminar no desencadenarán ninguna recomendación ni alerta. Puede obtener más información sobre las [opciones de los SDK](./sdk-options.md) disponibles.
 
 * Llamada (cliente)
 * Chat

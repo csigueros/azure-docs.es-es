@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: danlep
-ms.openlocfilehash: fc160dd2dbf6e9ef189baddec3ca15cd38ec06f8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 711eb5ed6e92a50ba43565b393c25f270566a36b
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128582978"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047425"
 ---
 # <a name="import-a-soap-api-and-convert-to-rest"></a>Importación de API de SOAP y conversión en REST
 
@@ -32,7 +32,7 @@ En este artículo aprenderá a:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
+Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 

@@ -6,13 +6,13 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 09/27/2021
-ms.openlocfilehash: c077eb0c1639089fcc7196693a617e32c01d9a9a
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.date: 10/15/2021
+ms.openlocfilehash: cb41c6bd06541f414b5cd8f353e59f6094182d13
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129230463"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063371"
 ---
 # <a name="troubleshooting-private-endpoint-configuration-for-purview-accounts"></a>Solución de problemas de configuración de punto de conexión privado de cuentas de Purview
 
@@ -196,6 +196,18 @@ El usuario está intentando conectarse a Azure Purview desde un punto de conexi
 
 ### <a name="resolution"></a>Solución
 En este caso, para abrir Azure Purview Studio, use una máquina que esté implementada en la misma red virtual que el punto de conexión privado del portal de Azure Purview, o bien use una VM que esté conectada a CorpNet en la que se permita la conectividad híbrida.
+
+### <a name="issue"></a>Problema
+Puede recibir el siguiente mensaje de error al examinar una instancia de SQL Server mediante un entorno de ejecución de integración autohospedado:
+
+  `Message=This implementation is not part of the Windows Platform FIPS validated cryptographic algorithms`
+
+### <a name="cause"></a>Causa 
+La máquina del entorno de ejecución de integración autohospedado ha habilitado el modo FIPS.
+El Estándar federal de procesamiento de información (FIPS) define un determinado conjunto de algoritmos criptográficos que se pueden usar. Cuando se habilita el modo FIPS en la máquina, algunas clases criptográficas de las que dependen los procesos invocados se bloquean en algunos escenarios.
+
+### <a name="resolution"></a>Resolución
+Deshabilite el modo FIPS en el servidor de integración autohospedado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

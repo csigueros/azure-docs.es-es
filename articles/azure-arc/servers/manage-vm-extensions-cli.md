@@ -1,15 +1,15 @@
 ---
 title: Habilitación de la extensión de VM mediante la CLI de Azure
 description: En este artículo se describe cómo implementar extensiones de máquina virtual en servidores habilitados para Azure Arc que se ejecutan en entornos de nube híbrida mediante la CLI de Azure.
-ms.date: 08/05/2021
+ms.date: 10/15/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2e9427d714681883fd5422ab0a7d17fd337c9568
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 41924f20679de16205af3c7cb962d6005e757e2d
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124807431"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130069641"
 ---
 # <a name="enable-azure-vm-extensions-using-the-azure-cli"></a>Habilitación de las extensiones de VM de Azure mediante la CLI de Azure
 
@@ -22,7 +22,9 @@ En este artículo se muestra cómo implementar y desinstalar extensiones de VM, 
 
 ## <a name="install-the-azure-cli-extension"></a>Instalación de la extensión de la CLI de Azure
 
-Los comandos de ConnectedMachine no se incluyen como parte de la CLI de Azure. Antes de usar la CLI de Azure para administrar extensiones de máquina virtual en el servidor híbrido administrado por los servidores habilitados para Azure Arc, debe cargar la extensión ConnectedMachine. Ejecute el siguiente comando para obtenerla:
+Los comandos de ConnectedMachine no se incluyen como parte de la CLI de Azure. Antes de usar la CLI de Azure para conectarse a Azure y administrar extensiones de máquina virtual en el servidor híbrido administrado por los servidores habilitados para Azure Arc, debe cargar la extensión ConnectedMachine. Estas operaciones de administración se pueden realizar desde la estación de trabajo y no es necesario ejecutarlas en el servidor habilitado para Azure Arc.
+
+Ejecute el siguiente comando para obtenerla:
 
 ```azurecli
 az extension add --name connectedmachine
@@ -35,19 +37,25 @@ Para habilitar una extensión de máquina virtual en el servidor habilitado para
 En el ejemplo siguiente se habilita la extensión de máquina virtual de Log Analytics en un servidor habilitado para Azure Arc:
 
 ```azurecli
-az connectedmachine extension create --machine-name "myMachineName" --name "OmsAgentForLinux or MicrosoftMonitoringAgent" --location "eastus" --settings '{\"workspaceId\":\"myWorkspaceId\"}' --protected-settings '{\"workspaceKey\":\"myWorkspaceKey\"}' --resource-group "myResourceGroup" --type-handler-version "1.13" --type "OmsAgentForLinux or MicrosoftMonitoringAgent" --publisher "Microsoft.EnterpriseCloud.Monitoring" 
+az connectedmachine extension create --machine-name "myMachineName" --name "OmsAgentForLinux or MicrosoftMonitoringAgent" --location "regionName" --settings '{\"workspaceId\":\"myWorkspaceId\"}' --protected-settings '{\"workspaceKey\":\"myWorkspaceKey\"}' --resource-group "myResourceGroup" --type-handler-version "1.13" --type "OmsAgentForLinux or MicrosoftMonitoringAgent" --publisher "Microsoft.EnterpriseCloud.Monitoring" 
 ```
 
 En el ejemplo siguiente se habilita la extensión de script personalizado en un servidor habilitado para Azure Arc:
 
 ```azurecli
-az connectedmachine extension create --machine-name "myMachineName" --name "CustomScriptExtension" --location "eastus" --type "CustomScriptExtension" --publisher "Microsoft.Compute" --settings "{\"commandToExecute\":\"powershell.exe -c \\\"Get-Process | Where-Object { $_.CPU -gt 10000 }\\\"\"}" --type-handler-version "1.10" --resource-group "myResourceGroup"
+az connectedmachine extension create --machine-name "myMachineName" --name "CustomScriptExtension" --location "regionName" --type "CustomScriptExtension" --publisher "Microsoft.Compute" --settings "{\"commandToExecute\":\"powershell.exe -c \\\"Get-Process | Where-Object { $_.CPU -gt 10000 }\\\"\"}" --type-handler-version "1.10" --resource-group "myResourceGroup"
 ```
 
 En el ejemplo siguiente se habilita la extensión de máquina virtual de Key Vault en un servidor habilitado para Azure Arc:
 
 ```azurecli
 az connectedmachine extension create --resource-group "resourceGroupName" --machine-name "myMachineName" --location "regionName" --publisher "Microsoft.Azure.KeyVault" --type "KeyVaultForLinux or KeyVaultForWindows" --name "KeyVaultForLinux or KeyVaultForWindows" --settings '{"secretsManagementSettings": { "pollingIntervalInS": "60", "observedCertificates": ["observedCert1"] }, "authenticationSettings": { "msiEndpoint": "http://localhost:40342/metadata/identity" }}'
+```
+
+En el ejemplo anterior se habilita la extensión de Microsoft Antimalware en un servidor Windows habilitado para Azure Arc:
+
+```azurecli
+az connectedmachine extension create --resource-group "resourceGroupName" --machine-name "myMachineName" --location "regionName" --publisher "Microsoft.Azure.Security" --type "IaaSAntimalware" --name "IaaSAntimalware" --settings '{"AntimalwareEnabled": true}'
 ```
 
 ## <a name="list-extensions-installed"></a>Enumeración de extensiones instaladas
@@ -70,7 +78,7 @@ En el ejemplo siguiente se muestra la salida JSON parcial desde el comando `az c
     "autoUpgradingMinorVersion": "false",
     "forceUpdateTag": null,
     "id": "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.HybridCompute/machines/SVR01/extensions/DependencyAgentWindows",
-    "location": "eastus",
+    "location": "regionName",
     "name": "DependencyAgentWindows",
     "namePropertiesInstanceViewName": "DependencyAgentWindows",
 ```

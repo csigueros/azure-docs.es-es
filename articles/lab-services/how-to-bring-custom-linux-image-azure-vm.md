@@ -1,20 +1,20 @@
 ---
-title: 'Azure Lab Services: cómo traer una imagen personalizada de Linux desde una máquina virtual de Azure.'
+title: Transporte de una imagen personalizada de Linux desde una máquina virtual de Azure.
 description: Describe cómo traer una imagen personalizada de Linux desde una máquina virtual de Azure.
 ms.date: 07/27/2021
 ms.topic: how-to
-ms.openlocfilehash: edb1620b0051e82df3994982eb069e78e22777bf
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: fec4c6272b43aefc40607df38b2211bde5cbb04a
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450942"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180882"
 ---
 # <a name="bring-a-linux-custom-image-from-an-azure-virtual-machine"></a>Transporte de una imagen personalizada de Linux desde una máquina virtual de Azure
 
 En los pasos de este artículo se muestra cómo importar una imagen personalizada que se inicia desde una [máquina virtual (VM) de Azure](https://azure.microsoft.com/services/virtual-machines/). Con este enfoque se configura una imagen en una máquina virtual de Azure y se importa a una galería de imágenes compartidas para que se pueda usar en Azure Lab Services. Antes de usar este enfoque para crear una imagen personalizada, lea [Enfoques recomendados para crear imágenes personalizadas](approaches-for-custom-image-creation.md) para decidir cuál es el mejor según su escenario.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar los pasos de este artículo, necesitará permiso para crear una máquina virtual de Azure en la suscripción de Azure del centro educativo.
 

@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 04/01/2021
-ms.openlocfilehash: 687d9386d330e5b09366e22ace8f7fd8666ee9d9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 20632b46067f7ec1db6add26d9bed4318f6a7fd5
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121781064"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130069622"
 ---
 # <a name="point-in-time-restore-of-a-azure-database-for-mysql---flexible-server-preview-using-azure-portal"></a>Restauración a un momento dado de Azure Database for MySQL: servidor flexible (versión preliminar) con Azure Portal
 
@@ -80,7 +80,7 @@ Siga estos pasos para restaurar un servidor flexible mediante la copia de seguri
 9. Seleccione una **zona DNS privada** existente o cree una nueva.
     > [!NOTE]
     > Los nombres de las zonas DNS privadas deben terminar con `mysql.database.azure.com`. </br>
-    > Si no ve la opción de crear una nueva zona DNS privada, escriba el nombre del servidor en la pestaña **Aspectos básicos**.</br>
+    > Si no ve la opción de crear una zona DNS privada nueva, escriba el nombre del servidor en la pestaña **Aspectos básicos**.</br>
     > Una vez que se haya implementado el servidor flexible en una red virtual y una subred, no se puede trasladar a Acceso público (direcciones IP permitidas).</br>
 
     :::image type="content" source="./media/how-to-manage-virtual-network-portal/private-dns-zone.png" alt-text="Configuración de DNS":::

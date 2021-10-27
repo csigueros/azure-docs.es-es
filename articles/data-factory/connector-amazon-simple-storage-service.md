@@ -1,22 +1,22 @@
 ---
-title: Copia de datos de Amazon Simple Storage Service (S3)
+title: Copia y transformación de datos en Amazon Simple Storage Service (S3)
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Aprenda a copiar datos de Amazon Simple Storage Service (S3) en almacenes de datos de receptor compatibles mediante canalizaciones de Azure Data Factory o Synapse Analytics.
+description: Aprenda a copiar datos de Amazon Simple Storage Service (S3) y a transformarlos mediante canalizaciones de Azure Data Factory o Azure Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
-ms.openlocfilehash: baaf601ce6ab21a524cbabc7188de24231002ffd
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/15/2021
+ms.openlocfilehash: ffc3a58ef83d667c812ae1c4b9cc3f899a1aa03d
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124762096"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064008"
 ---
-# <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory-or-synapse-analytics"></a>Copia de datos de Amazon Simple Storage Service con Azure Data Factory o Synapse Analytics
+# <a name="copy-and-transform-data-in-amazon-simple-storage-service-using-azure-data-factory-or-azure-synapse-analytics"></a>Copia y transformación de datos en Amazon Simple Storage Service mediante Azure Data Factory o Azure Synapse Analytics
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que esté usando:"]
 >
 > * [Versión 1](v1/data-factory-amazon-simple-storage-service-connector.md)
@@ -24,7 +24,7 @@ ms.locfileid: "124762096"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En este artículo se describe cómo copiar datos desde Amazon Simple Storage Service (Amazon S3). Para obtener más información, lea los artículos de introducción para [Azure Data Factory](introduction.md) y [Synapse Analytics](../synapse-analytics/overview-what-is.md).
+En este artículo se explica cómo usar la actividad de copia para copiar datos de Amazon Simple Storage Service (Amazon S3) y Data Flow para transformar datos en Amazon S3. Para obtener más información, lea los artículos de introducción para [Azure Data Factory](introduction.md) y [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 >[!TIP]
 >Para más información sobre el escenario de migración de datos de Amazon S3 a Azure Storage, consulte el artículo [Migración de datos de Amazon S3 a Azure Storage](data-migration-guidance-s3-azure-storage.md).
@@ -281,6 +281,81 @@ Suponga que tiene la siguiente estructura de carpetas de origen y quiere copiar 
 ## <a name="preserve-metadata-during-copy"></a>Conservación de los metadatos durante la copia
 
 Al copiar archivos de Amazon S3 en Azure Data Lake Storage Gen2 o Azure Blob Storage, puede optar por conservar los metadatos de archivo junto con los datos. Más información en [Conservación de metadatos](copy-activity-preserve-metadata.md#preserve-metadata).
+
+## <a name="mapping-data-flow-properties"></a>Propiedades de Asignación de instancias de Data Flow
+
+Al transformar datos de flujos de datos de asignación, puede leer archivos de Amazon S3 en los siguientes formatos:
+
+- [Avro](format-avro.md#mapping-data-flow-properties)
+- [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties)
+- [Delta](format-delta.md#mapping-data-flow-properties)
+- [Excel](format-excel.md#mapping-data-flow-properties)
+- [JSON](format-json.md#mapping-data-flow-properties)
+- [Parquet](format-parquet.md#mapping-data-flow-properties)
+
+La configuración específica de formato se encuentra en la documentación de ese formato. Para obtener más información, vea [Transformación de origen en flujo de datos de asignación](data-flow-source.md).
+
+> [!NOTE]
+> La transformación de origen de Amazon S3 ahora solo se admite en el área de trabajo de **Azure Synapse Analytics**.
+
+### <a name="source-transformation"></a>Transformación de origen
+
+En la transformación de origen puede leer de un contenedor, una carpeta o un archivo individual de Amazon S3. Use la pestaña **Opciones de origen** para administrar cómo se leen los archivos. 
+
+:::image type="content" source="media/data-flow/sourceOptions1.png" alt-text="Captura de pantalla de Opciones de origen.":::
+
+**Rutas con carácter comodín:** el uso de un patrón de caracteres comodín indicará al servicio que recorra todos los archivos y carpetas que coincidan en una única transformación del origen. Se trata de una manera eficaz de procesar varios archivos en un único flujo. Agregue varios patrones de coincidencia de caracteres comodín con el signo más que aparece al desplazar el puntero sobre el patrón de caracteres comodín existente.
+
+En el contenedor de origen, elija una serie de archivos que coincidan con un patrón. Solo se puede especificar un contenedor en el conjunto de datos. La ruta de acceso con carácter comodín, por tanto, también debe incluir la ruta de acceso de la carpeta de la carpeta raíz.
+
+Ejemplos de caracteres comodín:
+
+- `*` Representa cualquier conjunto de caracteres.
+- `**` Representa el anidamiento recursivo de directorios.
+- `?` Reemplaza un carácter.
+- `[]` Coincide con al menos uno de los caracteres entre corchetes.
+
+- `/data/sales/**/*.csv` Obtiene todos los archivos .csv que se encuentran en /data/sales.
+- `/data/sales/20??/**/` Obtiene todos los archivos del siglo XX.
+- `/data/sales/*/*/*.csv` Obtiene los archivos .csv dos niveles debajo de /data/sales.
+- `/data/sales/2004/*/12/[XY]1?.csv` Obtiene todos los archivos .csv de diciembre de 2004 que comienzan con X o Y precedido por un número de dos dígitos.
+
+**Ruta de acceso raíz de la partición:** Si tiene carpetas con particiones en el origen de archivo con un formato `key=value` (por ejemplo, `year=2019`), puede asignar el nivel superior del árbol de carpetas de la partición a un nombre de columna del flujo de datos.
+
+En primer lugar, establezca un comodín que incluya todas las rutas de acceso que sean carpetas con particiones y, además, los archivos de hoja que quiera leer.
+
+:::image type="content" source="media/data-flow/partfile2.png" alt-text="Captura de pantalla de la configuración del archivo de origen de la partición.":::
+
+Use el valor de **Partition root path** (Ruta de acceso de la raíz de la partición) para definir cuál es el nivel superior de la estructura de carpetas. Cuando vea el contenido de los datos mediante una vista previa, verá que el servicio agregará las particiones resueltas que se encuentran en cada uno de los niveles de carpeta.
+
+:::image type="content" source="media/data-flow/partfile1.png" alt-text="Captura de pantalla de la ruta de acceso de la raíz de la partición.":::
+
+**Lista de archivos**: Se trata de un conjunto de archivos. Cree un archivo de texto que incluya una lista de archivos de ruta de acceso relativa para procesar. Apunte a este archivo de texto.
+
+**Column to store file name:** (Columna para almacenar el nombre de archivo) Almacene el nombre del archivo de origen en una columna de los datos. Escriba aquí el nombre de una nueva columna para almacenar la cadena de nombre de archivo.
+
+**After completion:** (Tras finalizar) Elija no hacer nada con el archivo de origen después de que se ejecute el flujo de datos o bien elimine o mueva el archivo de origen. Las rutas de acceso para mover los archivos de origen son relativas.
+
+Para mover archivos de origen a otra ubicación posterior al procesamiento, primero seleccione "Mover" para la operación de archivo. A continuación, establezca el directorio "from". Si no usa ningún carácter comodín para la ruta de acceso, la configuración de "from" será la misma carpeta que la carpeta de origen.
+
+Si tiene una ruta de acceso de origen con un comodín, su sintaxis será así:
+
+`/data/sales/20??/**/*.csv`
+
+Puede especificar "from" como:
+
+`/data/sales`
+
+Y puede especificar "to" como:
+
+`/backup/priorSales`
+
+En este caso, todos los archivos cuyo origen se encuentra en `/data/sales` se mueven a `/backup/priorSales`.
+
+> [!NOTE]
+> Las operaciones de archivo solo se ejecutan cuando el flujo de datos se inicia desde una ejecución de canalización (depuración o ejecución de canalización) que usa la actividad de ejecución de Data Flow de una canalización. Las operaciones de archivo *no* se ejecutan en modo de depuración de Data Flow.
+
+**Filter by last modified:** (Filtrar últimos modificados) Puede filtrar los archivos que desea procesar especificando un intervalo de fechas de la última vez que se modificaron. Todos los valores datetime están en formato UTC. 
 
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda
 

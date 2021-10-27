@@ -1,6 +1,6 @@
 ---
-title: Creación de una oferta de servicios de consultoría en el marketplace comercial de Microsoft
-description: Obtenga información sobre cómo crear una nueva oferta de servicios de consultoría para Microsoft AppSource o Azure Marketplace con el programa de marketplace comercial en el Centro de partners de Microsoft.
+title: Creación de una oferta de servicios de consultoría para Marketplace comercial
+description: Cree una oferta de servicios de consultoría para Microsoft AppSource o Azure Marketplace mediante el Centro de partners.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
@@ -8,29 +8,29 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: af8e238d57d6168e8c9620177cbf8e97a7d08727
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 5556859fb350354fd2c307412ceaed1215620df8
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129083032"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042170"
 ---
-# <a name="how-to-create-a-consulting-service-offer-in-the-commercial-marketplace"></a>Creación de una oferta de servicios de consultoría en el marketplace comercial
+# <a name="create-a-consulting-service-offer"></a>Creación de una oferta de servicios de consultoría
 
-En este artículo se explica cómo crear una oferta de servicios de consultoría para el marketplace comercial de Microsoft mediante el Centro de partners.
+En este artículo, se explica cómo crear una oferta de servicios de consultoría para Marketplace comercial mediante el Centro de partners.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Para publicar una oferta de servicios de consultoría, debe cumplir ciertos requisitos de elegibilidad para demostrar su experiencia en su campo. Si aún no lo ha hecho, lea la sección [Planeamiento de una oferta de servicios de consultoría para el marketplace comercial](./plan-consulting-service-offer.md). Describe los requisitos previos para un servicio de consultoría y los recursos que necesitará para crear la oferta con el Centro de partners.
+Para publicar una oferta de servicios de consultoría, debe cumplir ciertos requisitos de elegibilidad para demostrar su experiencia en su campo. Si aún no lo ha hecho, consulte [Planeamiento de una oferta de servicios de consultoría en el marketplace comercial](./plan-consulting-service-offer.md). Describe los requisitos previos y los recursos que necesitará tener a mano para crear una oferta de servicios de consultoría en el Centro de partners.
 
-## <a name="create-a-new-consulting-service-offer"></a>Creación de una oferta de servicios de consultoría
+## <a name="create-a-consulting-service-offer"></a>Creación de una oferta de servicios de consultoría
 
 [!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
 #### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
 
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
-1. En la página principal, seleccione el mosaico **Ofertas de Marketplace**.
+1. En la página principal, seleccione el icono **Ofertas de Marketplace**.
 
     [ ![Muestra el icono Ofertas de Marketplace en la página principal del Centro de partners.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 

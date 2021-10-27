@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mingshen
 ms.author: mingshen
 ms.date: 07/05/2021
-ms.openlocfilehash: 4ab56d50bbe6eed3763540e7b993ecc4f403b09c
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.openlocfilehash: 6ea06820a9f66c831847808d9f6de9a6bf4803b1
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113598277"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073969"
 ---
 # <a name="plans-and-pricing-for-commercial-marketplace-offers"></a>Planes y precios de las ofertas del marketplace comercial
 
@@ -42,7 +42,7 @@ Los siguientes tipos de ofertas admiten planes:
 
 - Servicios de consultoría
 - Dynamics 365 Business Central
-- Dynamics 365 Customer Engagement & PowerApps
+- Dynamics 365 Customer Engagement & Power Apps
 - Dynamics 365 for Operations
 - Power BI app
 
@@ -80,7 +80,7 @@ El marketplace comercial funciona según un modelo de agencia, en el que los edi
 
 - **Mercados**: Todos los planes debe estar disponible al menos en un mercado.  Puede seleccionar solo aquellos países con "Impuestos remitidos", en los que Microsoft lleva a cabo las ventas y la retención de impuestos en su nombre.
 - **Precios**: Los modelos de precios solo se aplican a los planes de las ofertas de aplicaciones administradas por Azure, de SaaS y de máquinas virtuales de Azure. Todos los planes de la misma oferta deben usar el mismo modelo de precios.  
-- **Visibilidad del plan**: en función del tipo de oferta, se puede definir una audiencia privada u ocultar la oferta o el plan en Azure Marketplace. Esto se explicará con más detalle en el apartado [Visibilidad del plan](#plan-visibility) de este mismo artículo.
+- **Visibilidad del plan**: en función del tipo de oferta, puede definir una audiencia privada u ocultar la oferta o el plan en Azure Marketplace. Esto se explicará con más detalle en el apartado [Visibilidad del plan](#plan-visibility) de este mismo artículo.
 
 > [!TIP]
 > Se recomienda crear planes que se ajusten perfectamente a los patrones de uso de la base de clientes de destino. Esto reduce la posibilidad de que los usuarios cambien de plan con frecuencia, cuando cambia el uso que hacen de los planes. Para ver un ejemplo de una oferta de SaaS con tres planes de facturación medidos, consulte el apartado [Oferta de ejemplo](./partner-center-portal/saas-metered-billing.md#sample-offer).
@@ -135,7 +135,7 @@ Una vez que su oferta se publique con un plan privado, es posible actualizar el 
 > [!NOTE]
 > Las audiencias privadas difieren de las audiencias en versión preliminar. En la página  **Disponibilidad** de algunos tipos de oferta, se puede definir una audiencia que pueda obtener una vista previa de la oferta antes de que la oferta se publique en directo en el marketplace comercial. Aunque la designación de una audiencia privada solo se aplica a un plan concreto, la audiencia de la versión preliminar puede ver todos los planes (privados o no), pero solo durante el período de versión preliminar, mientras el plan se prueba y valida.
 
-También puede ocultar el plan completamente desde Azure Marketplace si la oferta se implementará como parte de una aplicación administrada o una plantilla de solución.
+También puede elegir ocultar el plan completamente en Azure Marketplace si la oferta se va a implementar como parte de una aplicación administrada o una plantilla de solución.
 
 ## <a name="free-trials"></a>Pruebas gratuitas
 
@@ -146,7 +146,7 @@ En los planes de las ofertas de SaaS y de máquinas virtuales de Azure comercial
 > - Máquina virtual de Azure 
 > - SaaS 
 > - Dynamics 365 Business Central
-> - Dynamics 365 for Customer Engagement y Power Apps
+> - Dynamics 365 for Customer Engagement & Power Apps
 > - Dynamics 365 for Operations
 >
 > Para más información sobre las opciones de la descripción, consulte [Determinación de la opción de publicación](determine-your-listing-type.md).

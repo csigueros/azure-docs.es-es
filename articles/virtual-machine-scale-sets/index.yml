@@ -10,12 +10,12 @@ metadata:
   ms.author: jushiman
   ms.reviewer: mimckitt
   ms.date: 03/16/2020
-  ms.openlocfilehash: 3b50b0bc3c25a157c3af62004d2fb34f3bb2fcef
-  ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+  ms.openlocfilehash: 9aa8dadbc9ea3514e9595d047470c7d433db00bd
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/23/2021
-  ms.locfileid: "122691316"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130245803"
 landingContent:
 - title: Acerca de los conjuntos de escalado de máquinas virtuales
   linkLists:
@@ -91,3 +91,17 @@ landingContent:
       url: ../virtual-machines/flexible-virtual-machine-scale-sets-portal.md
     - text: Modos de orquestación de Virtual Machine Scale Sets
       url: virtual-machine-scale-sets-orchestration-modes.md
+- title: Solución de problemas
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Guías de solución de problemas
+      url: /troubleshoot/azure/virtual-machine-scale-sets/welcome-virtual-machine-scale-sets
+    - text: Solución de errores de escalado
+      url: /troubleshoot/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-quota-exceeded
+    - text: Solución de errores de implementación
+      url: /troubleshoot/azure/virtual-machine-scale-sets/vmss-public-ip-count-limit-exceeded
+    - text: Solución de problemas de extensiones de máquinas virtuales
+      url: /troubleshoot/azure/virtual-machine-scale-sets/vm-extension-provisioning-errors
+    - text: Preguntas y respuestas acerca de Microsoft
+      url: /answers/topics/azure-virtual-machine-scale-sets.html

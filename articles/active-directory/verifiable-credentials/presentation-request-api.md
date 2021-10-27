@@ -1,23 +1,23 @@
 ---
-title: Especificación de la solicitud de comprobación de la API de REST del servicio de solicitudes
+title: Especificación de la solicitud de comprobación de la API REST del servicio de solicitudes (versión preliminar)
 titleSuffix: Azure Active Directory Verifiable Credentials
 description: Obtenga información sobre cómo iniciar una solicitud de presentación de credenciales verificables.
 documentationCenter: ''
 author: barclayn
-manager: daveba
+manager: karenh444
 ms.service: active-directory
 ms.topic: reference
 ms.subservice: verifiable-credentials
 ms.date: 10/08/2021
 ms.author: barclayn
-ms.openlocfilehash: 264fbdf3f0e7640e1a247288cec56b38e57485fc
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 30da74a6d94f2460a980737670d65442c0ddb3ac
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129730560"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129984409"
 ---
-# <a name="request-service-rest-api-presentation-specification-preview"></a>Especificación de presentación de la API de REST del servicio de solicitudes (versión preliminar)
+# <a name="request-service-rest-api-presentation-specification-preview"></a>Especificación de presentación de la API REST del servicio de solicitudes (versión preliminar)
 
 La API de REST del servicio de solicitudes de credenciales verificables de Azure Active Directory permite emitir y comprobar este tipo de credenciales. En este artículo se especifica la API de REST del servicio de solicitudes para una solicitud de presentación. La solicitud de presentación solicita al usuario que presente una credencial verificable y, a continuación, que la compruebe.
 

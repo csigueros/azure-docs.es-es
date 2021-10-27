@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 10/13/2021
 ms.author: b-juche
-ms.openlocfilehash: acdb84621af21cc29feb3f750a5ea60cb21e3d4a
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 06d7e334205de142b60f73d1e98f0c4167c65b7d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129094877"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993157"
 ---
 # <a name="configure-policy-based-backups-for-azure-netapp-files"></a>Configuración de copias de seguridad basadas en directivas para Azure NetApp Files 
 
@@ -28,7 +28,7 @@ La copia de seguridad de Azure NetApp Files admite tanto copias de seguridad *b
 En este artículo se muestra cómo configurar las copias de seguridad basadas en directivas.  Para ver la configuración de copia de seguridad manual, consulte [Configuración de copias de seguridad manuales](backup-configure-manual.md).  
 
 > [!IMPORTANT]
-> La característica de copia de seguridad de Azure NetApp Files se encuentra actualmente en versión preliminar. Para acceder a la característica, debe enviar una solicitud de lista de espera a través de la página de **[versión preliminar pública de copias de seguridad de Azure NetApp Files](https://aka.ms/anfbackuppreviewsignup)** . Espere a recibir el correo electrónico de confirmación oficial del equipo de Azure NetApp Files antes de utilizar la característica de copia de seguridad de dicho servicio.
+> La característica de copia de seguridad de Azure NetApp Files se encuentra actualmente en versión preliminar. Para acceder a la característica, debe enviar una solicitud de lista de espera a través de la página **[Versión preliminar pública de la copia de seguridad de Azure NetApp Files](https://aka.ms/anfbackuppreviewsignup)** . Espere a recibir el correo electrónico de confirmación oficial del equipo de Azure NetApp Files antes de utilizar la característica de copia de seguridad de dicho servicio.
 
 ## <a name="about-policy-based-backups"></a>Acerca de las copias de seguridad basadas en directivas  
 
@@ -48,7 +48,7 @@ Al asignar una directiva, se crea una instantánea de línea base que refleja el
 Debe crear una directiva de instantáneas y asociarla al volumen del que quiere realizar las copias de seguridad. Una sola directiva de instantáneas puede asociarse a varios volúmenes. Los cambios en la directiva de instantáneas pueden afectar a la funcionalidad de copia de seguridad de un volumen. 
 
 1. Inicie sesión en Azure Portal y navegue a **Azure NetApp Files**.    
-2. Seleccione su suscripción a Azure NetApp Files.   
+2. Seleccione la cuenta de Azure NetApp Files.   
 3. Seleccione **Directiva de instantánea**.   
 
     ![Captura de pantalla que muestra cómo navegar a la opción Directiva de instantánea.](../media/azure-netapp-files/backup-navigate-snapshot-policy.png)   
@@ -88,7 +88,7 @@ Debe crear una directiva de copia de seguridad y asociarla al volumen del que qu
 Para habilitar una copia de seguridad basada en directivas (programada): 
 
 1. Inicie sesión en Azure Portal y navegue a **Azure NetApp Files**. 
-2. Seleccione su suscripción a Azure NetApp Files.
+2. Seleccione la cuenta de Azure NetApp Files.
 3. Seleccione **Copias de seguridad**. 
 
     ![Captura de pantalla en la que se muestra cómo navegar a la opción Copias de seguridad.](../media/azure-netapp-files/backup-navigate.png)
@@ -151,8 +151,8 @@ Para habilitar la funcionalidad de copia de seguridad de un volumen:
 
 ## <a name="next-steps"></a>Pasos siguientes  
 
-* [Descripción de la copia de seguridad de archivos de Azure NetApp Files](backup-introduction.md)
-* [Requisitos y consideraciones para la copia de seguridad de archivos de Azure NetApp Files](backup-requirements-considerations.md)
+* [Descripción de la copia de seguridad de archivos de Azure NetApp Files](backup-introduction.md)
+* [Requisitos y consideraciones para la copia de seguridad de Azure NetApp Files](backup-requirements-considerations.md)
 * [Límites de recursos para Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Configuración de copias de seguridad manuales](backup-configure-manual.md)
 * [Administrar directivas de copia de seguridad](backup-manage-policies.md)

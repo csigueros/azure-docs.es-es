@@ -3,20 +3,20 @@ title: Galería de asociados ISV para Azure AD B2C
 titleSuffix: Azure AD B2C
 description: 'Aprenda a integrarse con nuestros asociados ISV para adaptar la experiencia del usuario final a sus necesidades. Nuestra red de asociados amplía las capacidades de la solución: habilitación de MFA, autenticación de cliente segura, control de acceso basado en rol, lucha contra fraudes mediante la revisión de verificación de identidad.'
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 01/11/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 4935b42efa6e6fd17d66ddfba744ae36653ed952
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: a80b5b6340ddf0660961874281cbc6207ffea859
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122419217"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063588"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Asociados ISV de Azure Active Directory B2C
 
@@ -72,6 +72,7 @@ Microsoft se asocia con los siguientes ISV para proporcionar acceso híbrido seg
 | Asociado ISV | Descripción y tutoriales de integración |
 |:-------------------------|:--------------|
 | ![Captura de pantalla de un logotipo de Datawiza](./media/partner-gallery/datawiza-logo.png) | [Datawiza](./partner-datawiza.md) habilita el inicio de sesión único y el control de acceso detallado de las aplicaciones y extiende Azure AD B2C para proteger las aplicaciones heredadas locales.  |
+| ![Captura de pantalla de un logotipo de F5](./media/partner-gallery/f5-logo.png) | [F5](./partner-f5.md) permite que las aplicaciones heredadas se expongan de forma segura a Internet mediante la seguridad BIG-IP combinada con la autenticación previa de Azure AD B2C, el acceso condicional (CA) y el inicio de sesión único (SSO).  |
 | ![Captura de pantalla de un logotipo de Ping](./media/partner-gallery/ping-logo.png) | [Ping Identity](./partner-ping-identity.md) habilita el acceso híbrido seguro a las aplicaciones heredadas locales en varias nubes. |
 | ![Captura de pantalla de un logotipo de Strata](./media/partner-gallery/strata-logo.png) | [Strata](./partner-strata.md) proporciona acceso híbrido seguro a las aplicaciones locales al exigir directivas de acceso coherentes, mantener las identidades sincronizadas y simplificar la transición de aplicaciones de los sistemas de identidades heredados a la autenticación basada en estándares y el control de acceso que proporciona Azure AD B2C. |
 | ![Captura de pantalla de un logotipo de Zscaler](./media/partner-gallery/zscaler-logo.png) | [Zscaler](./partner-zscaler.md) ofrece acceso seguro basado en directivas a aplicaciones y recursos privados sin el costo, los inconvenientes o los riesgos de seguridad de una VPN. |

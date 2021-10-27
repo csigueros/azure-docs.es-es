@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/16/2021
-ms.openlocfilehash: e2369e8f4349a3b4a83c1729c6414d319dd8419e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a2459966b364e2f69b0c0dded6ef5dc1de941dd3
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589674"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130039113"
 ---
 # <a name="social-media-analysis-with-azure-stream-analytics"></a>Análisis de redes sociales mediante Azure Stream Analytics
 
@@ -125,7 +125,7 @@ Si no dispone de una aplicación de Twitter que pueda usar para esta guía paso 
 
 ### <a name="configure-the-client-application"></a>Configuración de la aplicación cliente
 
-Hemos creado una aplicación cliente que se conecta a datos de Twitter a través de las [API de streaming de Twitter](https://dev.twitter.com/streaming/overview) para recopilar eventos Tweet sobre un conjunto de temas específicos.
+Hemos creado una aplicación cliente que se conecta a los datos de Twitter mediante las [API de streaming de Twitter](https://dev.twitter.com/streaming/overview) para recopilar eventos de tweets sobre un conjunto de temas específicos.
 
 Antes de que se ejecute la aplicación, requiere cierta información del usuario, como las claves de Twitter y la cadena de conexión del centro de eventos.
 

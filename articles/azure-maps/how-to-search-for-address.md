@@ -7,16 +7,16 @@ ms.date: 01/19/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: de8acfbf4d4930f5c029aaa71300af770a274194
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a219d04634d04e485f8dcfb7af33e19b87c53cd6
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751457"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038817"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Búsqueda de ubicaciones con los servicios Search de Azure Maps
 
-El [servicio Search de Azure Maps](/rest/api/maps/search) es un conjunto de API RESTful diseñadas para que los desarrolladores busquen direcciones, lugares y listados de empresas por nombre y categoría u otra información geográfica. Además de permitir la geocodificación tradicional, los servicios pueden realizar también la geocodificación inversa de direcciones y calles transversales en función de la longitud y la latitud. Los valores de latitud y longitud devueltos por la búsqueda se pueden usar como parámetros en otros servicios de Azure Maps, como los servicios de [ruta](/rest/api/maps/route) y [tiempo](/rest/api/maps/weather).
+El [servicio Search de Azure Maps](/rest/api/maps/search) es un conjunto de API de RESTful diseñadas para que los desarrolladores busquen direcciones, lugares y listados de empresas por nombre y categoría u otra información geográfica. Además de permitir la geocodificación tradicional, los servicios pueden realizar también la geocodificación inversa de direcciones y calles transversales en función de la longitud y la latitud. Los valores de latitud y longitud devueltos por la búsqueda se pueden usar como parámetros en otros servicios de Azure Maps, como los servicios de [ruta](/rest/api/maps/route) y [tiempo](/rest/api/maps/weather).
 
 
 En este artículo, aprenderá a:

@@ -11,12 +11,12 @@ ms.author: danil
 ms.reviewer: mathoma, bonova, danil
 ms.date: 8/18/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 801bfe634281ffc795bd0f9c56089f915be52ac6
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 1f8d848c87979419b4c2605560c3c371edfa5147
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129083797"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045699"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferencias de T-SQL entre SQL Server y una Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -38,7 +38,7 @@ Existen algunas limitaciones de PaaS que se introdujeron en Instancia administra
 
 La mayoría de estas características son restricciones de arquitectura y representan características de servicio.
 
-En la [página de notas de la versión](../database/doc-changes-updates-release-notes.md) se explican los problemas temporales conocidos que se han detectado en Instancia administrada de SQL y que se resolverán en el futuro.
+En [Novedades](doc-changes-updates-release-notes-whats-new.md) se explican los problemas temporales conocidos que se han detectado en SQL Managed Instance y que se van a resolver en el futuro.
 
 ## <a name="availability"></a>Disponibilidad
 
@@ -70,7 +70,7 @@ Limitaciones:
 - Con una Instancia administrada de SQL, puede hacer una copia de seguridad de una base de datos de instancia en una copia de seguridad con hasta 32 franjas, lo cual es suficiente para bases de datos de hasta 4 TB si se usa la compresión de copia de seguridad.
 - No se puede ejecutar `BACKUP DATABASE ... WITH COPY_ONLY` en una base de datos cifrada con Cifrado de datos transparente (TDE) administrado por el servicio. TDE administrado por un servicio hace que las copias de seguridad se cifren con una clave interna de TDE. No es posible exportar la clave, por lo que no se puede restaurar la copia de seguridad. Use copias de seguridad automáticas y restauración a un momento dado, o use [Cifrado de datos transparente administrado por el cliente (BYOK)](../database/transparent-data-encryption-tde-overview.md#customer-managed-transparent-data-encryption---bring-your-own-key) en su lugar. También puede deshabilitar el cifrado en la base de datos.
 - Las copias de seguridad nativas realizadas en una Instancia administrada no se pueden restaurar en un servidor de SQL Server. Esto se debe a que la Instancia administrada tiene una versión de base de datos interna superior en comparación con cualquier versión de SQL Server.
-- Para crear una copia de seguridad o restaurar una base de datos hacia y desde un almacenamiento de Azure, es necesario crear una firma de acceso compartido (SAS) y un URI que conceda derechos de acceso restringidos a los recursos de Azure Storage. [Más información](https://docs.microsoft.com/azure/azure-sql/managed-instance/restore-sample-database-quickstart#restore-from-a-backup-file-using-t-sql). No se admite el uso de claves de acceso para estos escenarios.
+- Para crear una copia de seguridad o restaurar una base de datos hacia y desde un almacenamiento de Azure, es necesario crear una firma de acceso compartido (SAS) y un URI que conceda derechos de acceso restringidos a los recursos de Azure Storage. [Más información](restore-sample-database-quickstart.md#restore-from-a-backup-file-using-t-sql). No se admite el uso de claves de acceso para estos escenarios.
 - El tamaño máximo de una franja de copia de seguridad con el uso del comando `BACKUP` en una Instancia administrada de SQL es de 195 GB, lo cual es el tamaño máximo del blob. Aumente el número de franjas en el comando de copia de seguridad para reducir el tamaño de las franjas y permanecer dentro de este límite.
 
     > [!TIP]
@@ -561,5 +561,6 @@ Una Instancia administrada de SQL coloca información detallada en los registros
 
 - Para obtener más información sobre Instancia administrada de SQL, vea [¿Qué es Instancia administrada de SQL?](sql-managed-instance-paas-overview.md)
 - Para obtener una lista de características y ver una comparativa, consulte [Comparación de características de Instancia administrada de SQL](../database/features-comparison.md).
-- Para obtener las actualizaciones de versión y el estado de los problemas conocidos, vea [Notas de la versión de Instancia administrada de SQL](../database/doc-changes-updates-release-notes.md).
+- Para obtener actualizaciones de versión, vea [Novedades](doc-changes-updates-release-notes-whats-new.md).
+- Para conocer problemas, soluciones alternativas y resoluciones, vea [Problemas conocidos](doc-changes-updates-known-issues.md).
 - Para consultar un inicio rápido que muestra cómo crear una nueva Instancia administrada de SQL, consulte [Creación de una Instancia administrada de SQL](instance-create-quickstart.md).

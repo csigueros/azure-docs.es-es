@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 9d92a1baddbd12f80084dbbdb9a9205edb3f56b1
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: ec97cba6afd1a335791b51ed905af2f713ce6a19
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129272858"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179813"
 ---
 # <a name="use-private-endpoints-for-your-azure-purview-account"></a>Uso de puntos de conexión privados para la cuenta de Azure Purview
 
@@ -73,44 +73,87 @@ En escenarios en los que se usa el punto de conexión privado de _ingesta_ en la
 
 Si creó un punto de conexión privado del _portal_ para su cuenta de Purview **antes del 27 de septiembre de 2021 a las 15:30 UTC**, deberá realizar las acciones necesarias como se detalla en esta sección.
 
-- Si **usa un DNS personalizado o añadió directamente registros D de DNS necesarios** al archivo host de las máquinas, **no se requiere ninguna acción**. 
+### <a name="review-your-current-dns-settings"></a>Revisión de la configuración de DNS actual
 
-- Si ha **configurado la integración de zonas DNS privadas de Azure** para su cuenta de Purview, siga estos pasos a fin de volver a implementar los puntos de conexión privados para volver a definir la configuración de DNS: 
+1. En Azure Portal, busque la cuenta de Purview. En el menú de la izquierda, haga clic en **Redes** y seleccione **Conexiones de punto de conexión privado**. Haga clic en cada punto de conexión privado de la lista y siga los pasos que se indican a continuación.
 
-    1. Implemente un nuevo punto de conexión privado del portal:
-       
-        1. Vaya a [Azure Portal](https://portal.azure.com) y, a continuación, haga clic en su cuenta de Azure Purview. En **Configuración**, seleccione **Redes** y luego **Conexiones de punto de conexión privado**.
+    :::image type="content" source="media/catalog-private-link/purview-pe-dns-updates-1.png" alt-text="Captura de pantalla que muestra el punto de conexión privado de Purview.":::
 
-            :::image type="content" source="media/catalog-private-link/purview-pe-reconfigure-portal.png" alt-text="Captura de pantalla que muestra cómo crear un punto de conexión privado del portal.":::
+2. Si el recurso secundario de destino es el _portal_, revise la **configuración de DNS**; de lo contrario, vuelva al paso anterior y seleccione el siguiente punto de conexión privado hasta que haya revisado todos los puntos de conexión privados y haya validado todos los puntos de conexión privados asociados al portal.
 
-        2. Seleccione **+ Punto de conexión privado** para crear uno.
+    :::image type="content" source="media/catalog-private-link/purview-pe-dns-updates-2.png" alt-text="Captura de pantalla que muestra el punto de conexión privado de Purview del portal.":::
 
-        3. Rellene la información básica.
-
-        4. En la pestaña **Recurso**, seleccione **Microsoft.Purview/account** como **Tipo de recurso**.
-
-        5. En **Recurso**, seleccione la cuenta de Azure Purview y en **Subrecurso de destino**, seleccione **portal**.
-
-        6. En la pestaña **Configuración**, seleccione la red virtual y, a continuación, seleccione la zona DNS privada de Azure para crear una nueva zona DNS de Azure.
-            
-            :::image type="content" source="media/catalog-private-link/purview-pe-reconfigure-portal-dns.png" alt-text="Captura de pantalla que muestra cómo crear un punto de conexión privado del portal y una configuración de DNS.":::
-
-        7. Vaya a la página de resumen y seleccione **Crear** para crear el punto de conexión privado del portal.
-
-    2. Elimine el punto de conexión privado anterior del portal asociado a la cuenta de Purview. 
-
-    3. Asegúrese de que se crea una nueva zona DNS privada de Azure (privatelink.purviewstudio.azure.com) durante la implementación del punto de conexión privado del portal y de que existe un registro D (web) correspondiente en la zona DNS privada. 
+3. En la ventana **Configuración de DNS**, compruebe los siguientes valores:
+   
+    - Si hay registros en la sección **Registros DNS personalizados**, siga los pasos que se describen en [Escenarios de corrección 1](#scenario-1) y [Escenario de corrección 2](#scenario-2).
     
-    4. Asegúrese de que puede cargar correctamente Azure Purview Studio. El nuevo enrutamiento DNS puede tardar unos minutos (10, aproximadamente) en surtir efecto después de volver a configurar el DNS. Puede esperar unos minutos e intentarlo de nuevo si no se carga inmediatamente.
-    
-    5. Si se produce un error en la navegación, realice la acción nslookup web.purview.azure.com, que debe resolverse en una dirección IP privada asociada al punto de conexión privado del portal.
+        :::image type="content" source="media/catalog-private-link/purview-pe-dns-updates-3.png" alt-text="Captura de pantalla que muestra la configuración de DNS personalizada del punto de conexión privado de Purview del portal.":::
+
+    - Si hay registros en la sección **Nombre de configuración** y la zona DNS es `privatelink.purviewstudio.azure.com`, no se requieren acciones para este punto de conexión privado. Vuelva al **paso 1** y revise los restantes puntos de conexión privados del portal.
   
-    6. Repita los pasos del 1 al 3 señalados anteriormente para todos los puntos de conexión privados existentes del portal que tenga. 
+        :::image type="content" source="media/catalog-private-link/purview-pe-dns-updates-4.png" alt-text="Captura de pantalla que muestra el punto de conexión privado de Purview del portal con la nueva zona DNS.":::
+    
+    - Si hay registros en la sección **Nombre de configuración** y la zona DNS es `privatelink.purview.azure.com`, siga los pasos que se describen en [Escenario de corrección 3](#scenario-3).
 
-- Si ha **configurado la resolución DNS local o personalizada** (por ejemplo, está usando sus propios servidores DNS o ha configurado archivos host), lleve a cabo las siguientes acciones: 
+        :::image type="content" source="media/catalog-private-link/purview-pe-dns-updates-5.png" alt-text="Captura de pantalla que muestra el punto de conexión privado de Purview del portal con la anterior zona DNS.":::
 
-  - Si el registro DNS es `web.purview.azure.com`, **no se requiere ninguna acción**.  
-  - Si el registro DNS es `web.privatelink.purview.azure.com`, actualice el registro a `web.privatelink.purviewstudio.azure.com`. 
+### <a name="remediation-scenarios"></a>Escenarios de corrección
+
+#### <a name="scenario-1"></a>Escenario 1
+
+Si **ha añadido directamente los registros A de DNS necesarios al sistema DNS o al archivo host de las máquinas**, **no se requiere ninguna acción**.
+    
+:::image type="content" source="media/catalog-private-link/purview-pe-dns-updates-host.png" alt-text="Captura de pantalla que muestra el archivo host con registros A.":::
+
+#### <a name="scenario-2"></a>Escenario 2
+
+Si **ha configurado servidores DNS locales**, **reenviadores DNS o resolución DNS personalizada**, revise la configuración de DNS y tome las acciones adecuadas:
+
+1. Revise el servidor DNS. Si el registro DNS es `web.purview.azure.com` o el reenviador condicional es `purview.azure.com`, **no se requiere ninguna acción**. 
+
+2. Si el registro DNS es `web.privatelink.purview.azure.com`, actualice el registro a `web.privatelink.purviewstudio.azure.com`.
+
+3. Si el reenviador condicional es `privatelink.purview.azure.com`, NO QUITE la zona. Debe agregar un nuevo reenviador condicional a `privatelink.purviewstudio.azure.com`.
+
+#### <a name="scenario-3"></a>Escenario 3
+
+Si ha configurado la **integración de zonas DNS privadas de Azure para la cuenta de Purview**, siga estos pasos a fin de volver a implementar los puntos de conexión privados para volver a definir la configuración de DNS:
+
+1. Implemente un nuevo punto de conexión privado del portal:
+       
+    1. Vaya a [Azure Portal](https://portal.azure.com) y, a continuación, haga clic en su cuenta de Azure Purview. En **Configuración**, seleccione **Redes** y luego **Conexiones de punto de conexión privado**.
+
+        :::image type="content" source="media/catalog-private-link/purview-pe-reconfigure-portal.png" alt-text="Captura de pantalla que muestra cómo crear un punto de conexión privado del portal.":::
+
+    2. Seleccione **+ Punto de conexión privado** para crear uno.
+
+    3. Rellene la información básica.
+
+    4. En la pestaña **Recurso**, seleccione **Microsoft.Purview/account** como **Tipo de recurso**.
+
+    5. En **Recurso**, seleccione la cuenta de Azure Purview y en **Subrecurso de destino**, seleccione **portal**.
+
+    6. En la pestaña **Configuración**, seleccione la red virtual y, a continuación, seleccione la zona DNS privada de Azure para crear una nueva zona DNS de Azure.
+            
+        :::image type="content" source="media/catalog-private-link/purview-pe-reconfigure-portal-dns.png" alt-text="Captura de pantalla que muestra cómo crear un punto de conexión privado del portal y una configuración de DNS.":::
+
+    7. Vaya a la página de resumen y seleccione **Crear** para crear el punto de conexión privado del portal.
+
+2. Elimine el punto de conexión privado anterior del portal asociado a la cuenta de Purview. 
+
+3. Asegúrese de que se cree una nueva zona DNS privada de Azure, `privatelink.purviewstudio.azure.com`, durante la implementación del punto de conexión privado del portal y de que exista un registro A (web) correspondiente en la zona DNS privada. 
+    
+4. Asegúrese de que puede cargar correctamente Azure Purview Studio. El nuevo enrutamiento DNS puede tardar unos minutos (10, aproximadamente) en surtir efecto después de volver a configurar el DNS. Puede esperar unos minutos e intentarlo de nuevo si no se carga inmediatamente.
+    
+5. Si se produce un error en la navegación, realice la acción nslookup web.purview.azure.com, que debe resolverse en una dirección IP privada asociada al punto de conexión privado del portal.
+  
+6. Repita los pasos del 1 al 3 señalados anteriormente para todos los puntos de conexión privados existentes del portal que tenga. 
+
+### <a name="validation-steps"></a>Pasos de validación
+
+1. Asegúrese de que puede cargar correctamente Azure Purview Studio. El nuevo enrutamiento DNS puede tardar unos minutos (10, aproximadamente) en surtir efecto después de volver a configurar el DNS. Puede esperar unos minutos e intentarlo de nuevo si no se carga inmediatamente.
+
+2. Si se produce un error en la navegación, ejecute nslookup `web.purview.azure.com`, que debe resolverse en una dirección IP privada asociada al punto de conexión privado del portal.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes  
 

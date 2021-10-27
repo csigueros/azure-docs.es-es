@@ -1,19 +1,20 @@
 ---
-title: 'Error en la solicitud de Azure Digital Twins con el estado: 403 (Prohibido)'
-description: 'Causas y soluciones de "Service request failed. Estado: 403 (Forbidden) (Error en la solicitud del servicio. Estado: 403 [prohibido]) en Azure Digital Twins.'
+title: 'Solución de problemas de solicitud de servicio con error: Error 403 (prohibido)'
+titleSuffix: Azure Digital Twins
+description: Obtenga información sobre cómo diagnosticar y resolver las respuestas de estado del error 403 (prohibido) de Azure Digital Twins.
 ms.service: digital-twins
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
-ms.date: 8/20/2021
-ms.openlocfilehash: b3ad9c84e35483cf81bde83703b01ef0ff3d8a9d
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.date: 9/23/2021
+ms.openlocfilehash: 60c553faad2917ec57fd6e622348e9a694ff6fe2
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772335"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130134248"
 ---
-# <a name="service-request-failed-status-403-forbidden"></a>Error en la solicitud del servicio. Estado: 403 (Prohibido)
+# <a name="troubleshooting-failed-service-request-error-403-forbidden"></a>Solución de problemas de solicitud de servicio con error: Error 403 (prohibido)
 
 En este artículo se describen las causas y los pasos de resolución al recibir un error 403 de las solicitudes de servicio a Azure Digital Twins. 
 

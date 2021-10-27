@@ -7,12 +7,12 @@ ms.reviewer: mbullwin
 ms.custom: devx-track-python
 author: lzchen
 ms.author: lechen
-ms.openlocfilehash: 98af913787ede9a0c9f543315043540b7994729f
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: 14aef56cc84b505afcc58f7f3662ed133bf829c5
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129754242"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162719"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Configuración de Azure Monitor para la aplicación de Python
 
@@ -144,6 +144,9 @@ Estos son los exportadores que proporciona OpenCensus asignados a los tipos de t
     # Use properties in logging statements
     logger.warning('action', extra=properties)
     ```
+
+> [!NOTE]
+> Como parte del uso de la instrumentación de Application Insights, se recopilan y envían datos de diagnóstico a Microsoft. Estos datos ayudan a ejecutar y mejorar Application Insights. Tiene la opción de deshabilitar la recopilación de datos no esenciales. [Más información](./statsbeat.md).
 
 #### <a name="configure-logging-for-django-applications"></a>Configuración del registro para aplicaciones de Django.
 

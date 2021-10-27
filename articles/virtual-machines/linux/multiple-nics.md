@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: b6b8f300fe4e9f89e58afca14d39ac938b08b644
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e2a76e251f1013c6f67c205d1e3f7f170d9b9b30
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128673186"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130138284"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Cómo crear una máquina virtual Linux en Azure con red varias tarjetas de interfaz de red
 
@@ -221,7 +221,7 @@ ssh azureuser@137.117.58.232
 
 Para enviar hacia o desde una interfaz de red secundaria, tiene que agregar manualmente rutas persistentes al sistema operativo para cada interfaz de red secundaria. En este artículo, *eth1* es la interfaz secundaria. Las instrucciones para agregar rutas persistentes al sistema operativo varían según la distribución. Vea la documentación correspondiente a su distribución para obtener instrucciones.
 
-Al agregar una ruta al sistema operativo, la dirección de puerta de enlace es *.1* para la subred en la que se encuentre la interfaz de red. Por ejemplo, si a la interfaz de red se le asigna la dirección *10.0.2.4*, la puerta de enlace que se especifica para la ruta es *10.0.2.1*. Si quiere que todo el tráfico de la interfaz pase por la puerta de enlace especificada, puede definir una red concreta para el destino de la ruta o especificar un destino de *0.0.0.0*. La puerta de enlace para cada subred se administra mediante la red virtual.
+Al agregar la ruta al sistema operativo, la dirección de puerta de enlace es la primera dirección de la subred en la que se encuentra la interfaz de red. Por ejemplo, si a la subred se le ha asignado el rango *10.0.2.0/24*, la puerta de enlace que especifique para la ruta es *10.0.2.1*, o si a la subred se le ha asignado el rango *10.0.2.128/25*, la puerta de enlace que especifique para la ruta es *10.0.2.129*. Si quiere que todo el tráfico de la interfaz pase por la puerta de enlace especificada, puede definir una red concreta para el destino de la ruta o especificar un destino de *0.0.0.0*. La puerta de enlace para cada subred se administra mediante la red virtual.
 
 Cuando haya agregado la ruta para una interfaz secundaria, compruebe que la ruta se encuentra en la tabla de rutas con `route -n`. La siguiente salida de ejemplo corresponde a la tabla de rutas en la que se han agregado las dos interfaces de red para la máquina virtual en este artículo:
 

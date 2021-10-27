@@ -7,13 +7,13 @@ ms.custom: mvc
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: overview
-ms.date: 09/15/2021
-ms.openlocfilehash: 0cedb35e03427c3c8827a4a47e3358cc7e7d5758
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/15/2021
+ms.openlocfilehash: aed4439cf608c5080d5c429a4f3af957bd77ccdb
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128702076"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070135"
 ---
 # <a name="product-updates-for-postgresql---hyperscale-citus"></a>Actualizaciones de productos para PostgreSQL: Hiperescala (Citus)
 
@@ -28,6 +28,12 @@ Hiperescala (Citus) de Azure Database for PostgreSQL ofrece versiones preliminar
 Estas son las características disponibles actualmente para la versión preliminar:
 
 * **[pgAudit](concepts-hyperscale-audit.md)** . Proporciona un registro detallado de auditoría de objetos y sesiones mediante la utilidad de registro estándar de PostgreSQL. Genera los registros de auditoría necesarios para pasar determinadas auditorías de certificación gubernamentales, financieras o ISO.
+* **[Acceso privado](concepts-hyperscale-private-access.md)** .
+  Permita que los hosts de una red virtual (VNet) accedan de forma segura a un grupo de servidores de Hiperescala (Citus) mediante un punto de conexión privado.
+
+> [!NOTE]
+>
+> El acceso privado está disponible para la versión preliminar solo en [determinadas regiones](concepts-hyperscale-limits.md#regions).
 
 ## <a name="contact-us"></a>Ponerse en contacto con nosotros
 

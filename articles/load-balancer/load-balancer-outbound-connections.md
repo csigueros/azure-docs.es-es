@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 07/01/2021
 ms.author: allensu
-ms.openlocfilehash: e17bc129268f8bc93d107492912c868e8efebae1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: adeca1558fd97c1f8534539b7a4ad134d364e4d8
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128671153"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129996140"
 ---
 # <a name="using-source-network-address-translation-snat-for-outbound-connections"></a>Uso de la Traducción de direcciones de red de origen (SNAT) para conexiones salientes
 
@@ -30,7 +30,7 @@ La conectividad de salida a Internet se puede habilitar de las siguientes manera
 | 2 | Asociación de una puerta de enlace NAT a la subred | Estática, explícita | Sí | Óptima | 
 | 3 | Asignación de una dirección IP pública a la máquina virtual | Estática, explícita | Sí | Aceptar | 
 | 4 | Uso de las direcciones IP de front-end de un equilibrador de carga para la salida (y la entrada) | Implícita | No | Segundo peor |
-| 5 | Uso del acceso saliente predeterminado | Implícita | No | El peor |
+| 5 | Uso del [acceso saliente predeterminado](../virtual-network/default-outbound-access.md) | Implícita | No | El peor |
 
 ## <a name="using-the-frontend-ip-address-of-a-load-balancer-for-outbound-via-outbound-rules"></a><a name="outboundrules"></a>Uso de la dirección IP de front-end de un equilibrador de carga para la salida mediante reglas de salida
 

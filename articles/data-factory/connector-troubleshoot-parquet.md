@@ -6,15 +6,15 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 10/13/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
-ms.openlocfilehash: 64a49592609b2cb7fd262264bb9802de58db5f04
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: b12666fdd66b3c85702b7222f2f2edca7136e323
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129390449"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130062770"
 ---
 # <a name="troubleshoot-the-parquet-format-connector-in-azure-data-factory-and-azure-synapse"></a>Solución de problemas del conector de formato Parquet en Azure Data Factory y Azure Synapse
 
@@ -172,6 +172,14 @@ En este artículo se proporcionan sugerencias para solucionar problemas comunes 
 - **Causa**: el nombre de columna contiene caracteres no válidos.
 
 - **Resolución**: agregue o modifique la asignación de columnas para que el nombre de la columna de receptor sea válido.
+
+## <a name="the-file-created-by-the-copy-data-activity-extracts-a-table-that-contains-a-varbinary-max-column"></a>El archivo creado por la actividad de copia de datos extrae una tabla que contiene una columna varbinary (max).
+
+- **Síntomas**: el archivo Parquet creado por la actividad de copia de datos extrae una tabla que contiene una columna varbinary (max).
+
+- **Causa**: este problema se debe al error de la biblioteca Parquet-mr al leer una columna grande. 
+
+- **Solución:** intente generar archivos más pequeños (tamaño < 1G) con una limitación de 1000 filas por archivo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

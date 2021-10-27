@@ -6,13 +6,13 @@ ms.service: marketplace
 ms.topic: article
 author: navits09
 ms.author: navits
-ms.date: 08/13/2021
-ms.openlocfilehash: cc7f4e983ab766577af41497c2e270694361605a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/14/2021
+ms.openlocfilehash: d04a031abced1bdc689feb078015737d20f40cfb
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124784762"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047784"
 ---
 # <a name="private-plans-in-the-microsoft-commercial-marketplace"></a>Ofertas privadas del marketplace comercial de Microsoft
 
@@ -52,7 +52,7 @@ En el caso de las *ofertas nuevas que solo incluyen planes privados*, los editor
 
 ## <a name="target-customers-with-private-plans"></a>Dirigirse a los clientes con planes privados
 
-Tanto en el caso de los planes privados nuevos como existentes, los anunciantes pueden dirigirse a clientes específicos mediante identificadores de suscripción. En el caso de las ofertas de Azure Virtual Machines, Aplicación de Azure y Servicio administrado, los editores pueden restringir la disponibilidad de un plan privado a un identificador de suscripción de Azure o cargar un archivo .csv con hasta 10 000 identificadores de suscripción de Azure. En el caso de las ofertas de SaaS, los editores pueden asociar un identificador de inquilino de Azure Active Directory para restringir la disponibilidad de un plan privado, ya sea con el enfoque manual o mediante la carga del archivo .csv.
+Tanto en el caso de los planes privados nuevos como existentes, los anunciantes pueden dirigirse a clientes específicos mediante identificadores de suscripción. En el caso de las ofertas de Aplicación de Azure y Servicio administrado, los editores pueden restringir la disponibilidad de un plan privado a identificadores de suscripción de Azure individuales. En el caso de las ofertas de SaaS, los editores pueden asociar identificadores de inquilino de Azure Active Directory para restringir la disponibilidad de un plan privado. En el caso de las ofertas de máquina virtual, los publicadores pueden asignar a la audiencia que tendrá acceso a un plan privado mediante identificadores de inquilino de Azure, identificadores de suscripción o ambos. Para cualquiera de estos tipos de oferta, se pueden agregar hasta 10 identificadores manualmente o se puede importar una hoja de cálculo CSV si se requieren más de 10.
 
 Una vez que se certifica o publica una oferta, los clientes se pueden actualizar o quitar del plan mediante la característica de sincronización de suscripciones privadas. Esta funcionalidad permite que los editores actualicen rápida y sencillamente la lista de clientes a los que se presenta el plan privado sin que sea necesario volver a certificar ni a publicar la oferta.
 
@@ -63,14 +63,14 @@ Una vez que inician sesión en Azure Portal, los clientes pueden seguir estos pa
 1. Inicie sesión en [Azure Portal](https://ms.portal.azure.com/).
 1. En **Servicios de Azure**, seleccione **Crear un recurso**.
 1. En la página **Nuevo**, junto a **Azure Marketplace**, seleccione **Ver todo**. Aparece la página Marketplace.
-1. En el panel de navegación izquierdo, seleccione **Planes privados**.
+1. En el panel de navegación izquierdo, seleccione **Productos privados**.
 
 > [!NOTE]
 > Los planes privados solo se pueden descubrir en [Azure Portal](https://azure.microsoft.com/features/azure-portal/) o [Microsoft AppSource](https://appsource.microsoft.com/). No son visibles en [Azure Marketplace](https://azuremarketplace.microsoft.com). Para más información sobre la publicación en las distintas tiendas en línea de marketplace comercial, consulte [Introducción a las opciones de lista](./determine-your-listing-type.md).
 
 Los planes privados también aparecerán en los resultados de la búsqueda y se pueden implementar mediante la línea de comandos y plantillas de Azure Resource Manager como cualquier otra oferta.
 
-[![[Ofertas privadas que aparecen en los resultados de búsqueda.]](media/marketplace-publishers-guide/private-offer.png)](media/marketplace-publishers-guide/private-offer.png#lightbox)
+[![[Ofertas privadas que aparecen en los resultados de búsqueda.]](media/marketplace-publishers-guide/private-product.png)](media/marketplace-publishers-guide/private-product.png#lightbox)
 
 >[!Note]
 >Los planes privados no son compatibles con las suscripciones que se establecen a través de un revendedor del programa Proveedor de soluciones en la nube (CSP).

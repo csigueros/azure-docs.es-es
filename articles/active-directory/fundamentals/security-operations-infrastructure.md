@@ -12,12 +12,12 @@ ms.date: 07/15/2021
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0a3c2b380160ef68655f0727f4d47280cd5cd02
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 12e86dc602e52fb96b7f9cea3a52079fc80c201b
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124754278"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130041697"
 ---
 # <a name="security-operations-for-infrastructure"></a>Operaciones de seguridad para infraestructura
 
@@ -57,7 +57,7 @@ En Azure Portal, puede ver los registros de auditoría de Azure AD y descargarl
 
 * [Azure Event Hubs](../../event-hubs/event-hubs-about.md) (integrado con SIEM): Los [registros de Azure AD se pueden integrar con otras instancias de SIEM](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md), como Splunk, ArcSight, QRadar y Sumo Logic, a través de la integración de Azure Event Hubs.
 
-* [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS): Le permite detectar y administrar aplicaciones, controlar entre aplicaciones y recursos, y comprobar el cumplimiento de las aplicaciones en la nube. 
+* [Microsoft Cloud App Security (MCAS)](/cloud-app-security/what-is-cloud-app-security): le permite detectar y administrar aplicaciones, controlar las aplicaciones y los recursos y comprobar el cumplimiento de las aplicaciones en la nube. 
 
 En el resto de este artículo se describe lo que debe supervisar y alertar, y se organiza por el tipo de amenaza. Si hay soluciones creadas previamente específicas, encontrará vínculos a ellas después de la tabla. De lo contrario, puede crear alertas mediante las herramientas anteriores.
 

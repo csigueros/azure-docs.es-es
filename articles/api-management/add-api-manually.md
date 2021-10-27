@@ -8,12 +8,13 @@ ms.service: api-management
 ms.topic: tutorial
 ms.date: 04/26/2021
 ms.author: danlep
-ms.openlocfilehash: 2e88bef36179a0e923ad6dfa8c7744f20d0a4d33
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 07b200c67b831b7d7fb01ea8da657e9bcc9b3b18
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128623976"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997012"
 ---
 # <a name="add-an-api-manually"></a>Adición manual de una API
 
@@ -110,6 +111,9 @@ Pruebe la operación en Azure Portal.  También puede probarla en el **Portal pa
 1. Presione **Enviar**.
 
     Se muestra la respuesta que genera la operación "http://httpbin.org/headers". Si desea transformar las operaciones, consulte [Transformación y protección de una API](transform-api.md).
+  
+>[!NOTE] 
+> Puede ser importante comprender cómo el host de la API de back-end con el que realiza la integración controla las barras diagonales finales en una dirección URL de operación. Para más información, consulte estas [P+F de API Management](./api-management-faq.yml#how-does-api-management-handle-trailing-slashes-when-calling-backend-services-).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

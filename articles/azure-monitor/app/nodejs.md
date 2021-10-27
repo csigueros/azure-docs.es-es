@@ -4,12 +4,12 @@ description: Supervise el rendimiento y diagnostique problemas en servicios de N
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 703862d80a7c079739c3bb7f733ae417375675e9
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 3148dccc9bf6e99d528e34fe54643c871d4a28b5
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112287144"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162855"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Supervisión de servicios y aplicaciones de Node.js con Application Insights
 
@@ -69,6 +69,9 @@ Incluya el SDK en la aplicación para que pueda recopilar datos.
     Puede probar el SDK sin enviar telemetría estableciendo `appInsights.defaultClient.config.disableAppInsights = true`.
 
 5. Comience a recopilar y enviar datos automáticamente mediante una llamada a `appInsights.start();`.
+
+> [!NOTE]
+> Como parte del uso de la instrumentación de Application Insights, se recopilan y envían datos de diagnóstico a Microsoft. Estos datos ayudan a ejecutar y mejorar Application Insights. Tiene la opción de deshabilitar la recopilación de datos no esenciales. [Más información](./statsbeat.md).
 
 ### <a name="monitor-your-app"></a><a name="monitor"></a> Supervisión de la aplicación
 

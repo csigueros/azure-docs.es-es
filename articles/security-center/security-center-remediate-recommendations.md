@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: c35b9de3b4660c3a5f809fe519040618142490dd
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 18871a1c8b98efd7bd759f3114d089f885e8be22
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124763374"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047026"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Recomendaciones de corrección en Azure Security Center
 
@@ -68,7 +68,7 @@ Para implementar una opción **Corregir**:
 
 ## <a name="fix-actions-logged-to-the-activity-log"></a>Corrección de las acciones registradas en el registro de actividad <a name="activity-log"></a>
 
-La operación de corrección usa una implementación de plantilla o una llamada API REST PATCH para aplicar la configuración en el recurso. Estas operaciones se registran en el [registro de actividad de Azure](../azure-monitor/essentials/activity-log.md).
+La operación de corrección usa una implementación de plantilla o una solicitud `PATCH` de API REST para aplicar la configuración en el recurso. Estas operaciones se registran en el [registro de actividad de Azure](../azure-monitor/essentials/activity-log.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

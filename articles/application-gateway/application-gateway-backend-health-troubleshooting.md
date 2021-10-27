@@ -2,18 +2,18 @@
 title: Solución de problemas de estado del back-end en Azure Application Gateway
 description: Se describe cómo solucionar los problemas de estado del back-end de Azure Application Gateway.
 services: application-gateway
-author: surajmb
+author: vhorne
 ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
-ms.author: surmb
+ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3bb3a89443cdefeedbe5df254d215dfcec770983
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 3cc75c637dd286cb87ca745d713a55a0a2cf8834
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109737854"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130137712"
 ---
 # <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Solución de problemas de estado del back-end en Application Gateway
 
@@ -121,6 +121,37 @@ Para aumentar el valor de tiempo de espera, siga estos pasos:
 1.  Si usa el DNS predeterminado de Azure, compruebe con el registrador de nombres de dominio que se haya realizado correctamente una asignación apropiada de registro de dirección D o CNAME.
 
 1.  Si el dominio es privado o interno, intente resolverlo desde una máquina virtual de la misma red virtual. Si puede resolverlo, reinicie Application Gateway y vuelva a comprobarlo. Para reiniciar Application Gateway, debe [detenerlo](/powershell/module/azurerm.network/stop-azurermapplicationgateway) e [iniciarlo](/powershell/module/azurerm.network/start-azurermapplicationgateway) mediante los comandos de PowerShell descritos en estos servicios vinculados.
+
+### <a name="updates-to-the-dns-entries-of-the-backend-pool"></a>Actualizaciones de las entradas DNS del grupo de back-end
+
+**Mensaje:** no se pudo recuperar el estado de mantenimiento del back-end. Esto sucede cuando un NSG, UDR o Firewall en la subred de puerta de enlace de aplicación bloquea el tráfico en los puertos 65503-65534 en el caso de la SKU v1 y los puertos 65200-65535 en el caso de la SKU v2 o si el nombre de dominio completo (FQDN) configurado en el grupo de back-end no se pudo resolver en una dirección IP. Para obtener más información, visite https://aka.ms/UnknownBackendHealth.
+
+**Causa:** Application Gateway resuelve las entradas DNS del grupo de back-end en el momento del startup y no las actualiza dinámicamente mientras se ejecuta.
+
+**Resolución:**
+
+Application Gateway debe reiniciarse después de cualquier modificación en las entradas DNS del servidor back-end para empezar a usar las nuevas direcciones IP.  Esta operación se puede completar a través de Azure PowerShell o la CLI de Azure.
+
+#### <a name="azure-powershell"></a>Azure PowerShell
+```
+# Get Azure Application Gateway
+$appgw=Get-AzApplicationGateway -Name <appgw_name> -ResourceGroupName <rg_name>
+ 
+# Stop the Azure Application Gateway
+Stop-AzApplicationGateway -ApplicationGateway $appgw
+ 
+# Start the Azure Application Gateway
+Start-AzApplicationGateway -ApplicationGateway $appgw
+```
+
+#### <a name="azure-cli"></a>Azure CLI
+```
+# Stop the Azure Application Gateway
+az network application-gateway stop -n <appgw_name> -g <rg_name>
+
+# Start the Azure Application Gateway
+az network application-gateway start -n <appgw_name> -g <rg_name>
+```
 
 ### <a name="tcp-connect-error"></a>Error de conexión TCP
 

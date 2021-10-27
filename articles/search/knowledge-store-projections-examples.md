@@ -1,348 +1,156 @@
 ---
 title: Definición de proyecciones
 titleSuffix: Azure Cognitive Search
-description: Cree proyecciones de tabla, objeto y archivo en un almacén de conocimiento para guardar contenido enriquecido de un indexador y una canalización de enriquecimiento del conjunto de aptitudes.
+description: Aprenda a definir proyecciones de tabla, objeto y archivo en un almacén de conocimiento mediante la revisión de la sintaxis y los ejemplos.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/10/2021
-ms.openlocfilehash: 6daaf2f3f9521a61307eb8017abce72a47047333
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.date: 10/15/2021
+ms.openlocfilehash: 3414e3d5b339334bf0762427c99020ff3a3170ad
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123537938"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130134191"
 ---
 # <a name="define-projections-in-a-knowledge-store"></a>Definición de proyecciones en un almacén de conocimiento
 
-Las [proyecciones](knowledge-store-projection-overview.md) son la expresión física de documentos enriquecidos en un [almacén de conocimiento](knowledge-store-concept-intro.md) y tienen la forma de tablas, objetos o archivos de Azure Storage. El uso eficaz de los documentos enriquecidos requiere una estructura. En este artículo, explorará la estructura y las relaciones; aprenderá a crear propiedades de proyección y a establecer relaciones entre los datos de los distintos tipos de proyección que cree.
+Las [proyecciones](knowledge-store-projection-overview.md) son el componente de una [definición del almacén de conocimiento](knowledge-store-concept-intro.md) que determina cómo se almacena en contenido enriquecido con IA en Azure Storage. Las proyecciones determinan el tipo, la cantidad y la composición de las estructuras de datos que incluyen el contenido.
 
-Las proyecciones se especifican en una [definición de knowledgeStore](knowledge-store-concept-intro.md), después de haber definido enriquecimientos y dado forma a los datos mediante una [aptitud de conformador o formas insertadas](knowledge-store-projection-shape.md). Para el contexto, este artículo hace referencia a un conjunto de aptitudes de ejemplo que define los enriquecimientos, incluida una aptitud de conformador que genera una forma adecuada para una proyección.
+En este artículo, descubrirá cuál es la sintaxis para cada tipo de proyección:
 
-## <a name="enable-caching"></a>Habilitar el almacenamiento en caché
++ [Proyecciones de tabla](#define-a-table-projection)
++ [Proyecciones de objeto](#define-an-object-projection)
++ [Proyecciones de archivos](#define-a-file-projection)
 
-Al desarrollar proyecciones, [defina la propiedad de caché del indexador](search-howto-incremental-index.md) para garantizar el control de los costos. La edición de proyecciones dará lugar a que todo el documento se vuelva a enriquecer si no se establece la memoria caché del indizador. Cuando se establece la memoria caché y solo se actualizan las proyecciones, las ejecuciones de los conjuntos de aptitudes en documentos enriquecidos previamente no generan nuevos costos de Cognitive Services.
-
-## <a name="example-enrichments"></a>Enriquecimientos de ejemplo
-
-Para comprender la intersección entre las formas de datos y las proyecciones, consulte el siguiente conjunto de aptitudes como base para el contenido enriquecido. Este conjunto de aptitudes procesa imágenes y texto sin formato, generando salidas a las que se hará referencia en formas y proyecciones.
-
-```json
-{
-    "name": "azureblob-skillset",
-    "description": "Skillset that enriches blob data found in "merged_content". The enrichment granularity is a document.",
-    "skills": [
-        {
-            "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
-            "name": "#1",
-            "description": null,
-            "context": "/document/merged_content",
-            "categories": [
-                "Person",
-                "Quantity",
-                "Organization",
-                "URL",
-                "Email",
-                "Location",
-                "DateTime"
-            ],
-            "defaultLanguageCode": "en",
-            "minimumPrecision": null,
-            "includeTypelessEntities": null,
-            "inputs": [
-                {
-                    "name": "text",
-                    "source": "/document/merged_content"
-                },
-                {
-                    "name": "languageCode",
-                    "source": "/document/language"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "persons",
-                    "targetName": "people"
-                },
-                {
-                    "name": "organizations",
-                    "targetName": "organizations"
-                },
-                {
-                    "name": "locations",
-                    "targetName": "locations"
-                },
-                {
-                    "name": "entities",
-                    "targetName": "entities"
-                }
-            ]
-        },
-        {
-            "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
-            "name": "#2",
-            "description": null,
-            "context": "/document/merged_content",
-            "defaultLanguageCode": "en",
-            "maxKeyPhraseCount": null,
-            "inputs": [
-                {
-                    "name": "text",
-                    "source": "/document/merged_content"
-                },
-                {
-                    "name": "languageCode",
-                    "source": "/document/language"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "keyPhrases",
-                    "targetName": "keyphrases"
-                }
-            ]
-        },
-        {
-            "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
-            "name": "#3",
-            "description": null,
-            "context": "/document",
-            "inputs": [
-                {
-                    "name": "text",
-                    "source": "/document/merged_content"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "languageCode",
-                    "targetName": "language"
-                }
-            ]
-        },
-        {
-            "@odata.type": "#Microsoft.Skills.Text.MergeSkill",
-            "name": "#4",
-            "description": null,
-            "context": "/document",
-            "insertPreTag": " ",
-            "insertPostTag": " ",
-            "inputs": [
-                {
-                    "name": "text",
-                    "source": "/document/content"
-                },
-                {
-                    "name": "itemsToInsert",
-                    "source": "/document/normalized_images/*/text"
-                },
-                {
-                    "name": "offsets",
-                    "source": "/document/normalized_images/*/contentOffset"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "mergedText",
-                    "targetName": "merged_content"
-                }
-            ]
-        },
-        {
-            "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
-            "name": "#5",
-            "description": null,
-            "context": "/document/normalized_images/*",
-            "textExtractionAlgorithm": "printed",
-            "lineEnding": "Space",
-            "defaultLanguageCode": "en",
-            "detectOrientation": true,
-            "inputs": [
-                {
-                    "name": "image",
-                    "source": "/document/normalized_images/*"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "text",
-                    "targetName": "text"
-                },
-                {
-                    "name": "layoutText",
-                    "targetName": "layoutText"
-                }
-            ]
-        }
-    ],
-    "cognitiveServices": {
-        "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
-        "description": "A Cognitive Services resource in the same region as Search.",
-        "key": "<COGNITIVE SERVICES All-in-ONE KEY>"
-    },
-    "knowledgeStore": null
-}
-```
-
-## <a name="example-shaper-skill"></a>Aptitud de conformador de ejemplo
-
-La aptitud de conformador es una utilidad para trabajar con contenido enriquecido en lugar de crearlo. Agregar un conformador a un conjunto de aptitudes le permite crear una forma personalizada que puede proyectar en Table Storage. Sin una forma personalizada, las proyecciones se limitan a hacer referencia a un único nodo (una proyección por salida), lo que no es adecuado para las tablas. La creación de una forma personalizada agrega varios elementos a un nuevo conjunto lógico que se puede proyectar como una sola tabla, o que se puede segmentar y distribuir en una colección de tablas. 
-
-En este ejemplo, la forma personalizada combina los metadatos de blobs con las entidades y frases clave identificadas. La forma personalizada se denomina `projectionShape` y tiene como elemento primario `/document`. 
-
-Un propósito de la creación de formas es asegurarse de que todos los nodos de enriquecimiento se expresan en código JSON bien formado, lo cual es necesario para proyectar en el almacén de conocimiento. Esto sucede, sobre todo cuando un árbol de enriquecimiento contiene nodos que no son código JSON bien formado (por ejemplo, cuando un enriquecimiento tiene como elemento primario un tipo primitivo como una cadena).
-
-Observe los dos últimos nodos, `KeyPhrases` y `Entities`. Estos se encapsulan en un objeto JSON válido con `sourceContext`. Este formato es obligatorio, ya que `keyphrases` y `entities` son enriquecimientos de primitivos y deben convertirse en código JSON válido antes de proyectarse.
-
-```json
-{
-    "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
-    "name": "ShaperForTables",
-    "description": null,
-    "context": "/document",
-    "inputs": [
-        {
-            "name": "metadata_storage_content_type",
-            "source": "/document/metadata_storage_content_type",
-            "sourceContext": null,
-            "inputs": []
-        },
-        {
-            "name": "metadata_storage_name",
-            "source": "/document/metadata_storage_name",
-            "sourceContext": null,
-            "inputs": []
-        },
-        {
-            "name": "metadata_storage_path",
-            "source": "/document/metadata_storage_path",
-            "sourceContext": null,
-            "inputs": []
-        },
-        {
-            "name": "metadata_content_type",
-            "source": "/document/metadata_content_type",
-            "sourceContext": null,
-            "inputs": []
-        },
-        {
-            "name": "keyPhrases",
-            "source": null,
-            "sourceContext": "/document/merged_content/keyphrases/*",
-            "inputs": [
-                {
-                    "name": "KeyPhrases",
-                    "source": "/document/merged_content/keyphrases/*"
-                }
-
-            ]
-        },
-        {
-            "name": "Entities",
-            "source": null,
-            "sourceContext": "/document/merged_content/entities/*",
-            "inputs": [
-                {
-                    "name": "Entities",
-                    "source": "/document/merged_content/entities/*/name"
-                }
-
-            ]
-        }
-    ],
-    "outputs": [
-        {
-            "name": "output",
-            "targetName": "projectionShape"
-        }
-    ]
-}
-```
-
-Agregue la aptitud Conformador anterior al conjunto de aptitudes. 
-
-```json
-    "name": "azureblob-skillset",
-    "description": "A friendly description of the skillset goes here.",
-    "skills": [
-        {
-            Shaper skill goes here
-            }
-        ],
-    "cognitiveServices":  "A key goes here",
-    "knowledgeStore": []
-}  
-```
-
-## <a name="projecting-to-tables"></a>Proyección en tablas
-
-La proyección en tablas en Azure Storage es útil para la generación de informes y el análisis mediante herramientas como Power BI que pueden leer de tablas y detectar relaciones basadas en claves generadas durante la proyección. Si intenta compilar un panel, trabajar con tablas relacionadas simplificará esa tarea.
-
-El esquema de la tabla se especifica parcialmente mediante la proyección (nombre y clave de la tabla) y también mediante el origen que proporciona la forma de la tabla (columnas).
-
-> [!NOTE] 
-> Las proyecciones de tabla son tablas de Azure Storage, reguladas por los límites de almacenamiento que impone Azure Storage. Para más información, consulte el artículo acerca de los [límites del almacenamiento en tablas](/rest/api/storageservices/understanding-the-table-service-data-model). Debe saber que el tamaño de la entidad no puede superar 1 MB, y que una sola propiedad no puede ser mayor que 64 KB. Estas restricciones hacen que las tablas sean una buena solución para almacenar un gran número de entidades pequeñas.
-
-Basándose en los ejemplos anteriores, hay una cantidad conocida de enriquecimientos y formas de datos a los que se puede hacer referencia en las proyecciones de tabla. En la proyección de tablas siguiente, se definen tres tablas estableciendo las propiedades `tableName`, `source` y `generatedKeyName`.
-
-| Propiedad | Descripción |
-|----------|-------------|
-| tableName | (Obligatorio) Determina el nombre de una nueva tabla creada en Azure Table Storage. Las tablas se crean con columnas partitionKey y rowKey. |
-| source | Ruta de acceso a un nodo en un árbol de enriquecimiento. Dado que una proyección de tabla es compleja (con varios nodos que rellenaron varias columnas), la ruta de acceso debe resolverse en una forma de datos que incluye los nodos. La salida de una aptitud de conformador es el valor más común de esta propiedad, pero también puede crear una forma mediante el modelado en línea dentro de la proyección. |
-| generatedKeyName | Cada fila se identifica de forma única mediante un valor generado por el sistema. Esta propiedad determina el nombre de la columna que contiene esos valores. Si omite esta propiedad, se creará automáticamente una columna que usa el nombre de la tabla y la "clave" como la convención de nomenclatura. |
-
-Las tres tablas se relacionan mediante claves generadas y según el elemento primario `/document/projectionShape` compartido.
+Las proyecciones se especifican en la propiedad "knowledgeStore" de un conjunto de aptitudes.
 
 ```json
 "knowledgeStore" : {
     "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
     "projections": [
-        {
-            "tables": [
-                {
-                    "tableName": "tblDocument",
-                    "generatedKeyName": "Documentid",
-                    "source": "/document/projectionShape"
-                },
-                {
-                    "tableName": "tblKeyPhrases",
-                    "generatedKeyName": "KeyPhraseid",
-                    "source": "/document/projectionShape/keyPhrases/*"
-                },
-                {
-                    "tableName": "tblEntities",
-                    "generatedKeyName": "Entityid",
-                    "source": "/document/projectionShape/Entities/*"
-                }
-            ],
-            "objects": [],
-            "files": []
-        }
+      {
+        "tables": [ ],
+        "objects": [ ],
+        "files": [ ]
+      }
+    ]
+```
+
+Sin necesita más información antes de empezar, consulte las sugerencias y el flujo de trabajo correspondiente en [esta lista de comprobación](knowledge-store-projection-overview.md#checklist-for-getting-started).
+
+> [!TIP]
+> Al desarrollar proyecciones, [habilite el almacenamiento en caché de enriquecimiento (versión preliminar)](search-howto-incremental-index.md) para que pueda reutilizar los enriquecimientos existentes al editar las definiciones de proyección.  Se trata de una característica en versión preliminar, por lo que debe asegurarse de usar la API REST en versión preliminar (api-version=2020-06-30-preview o posterior) en la solicitud del indizador. Sin el almacenamiento en caché, las modificaciones sencillas en una proyección darán lugar a un reprocesamiento completo del contenido enriquecido. Al almacenar en caché los enriquecimientos, puede iterar las proyecciones sin incurrir en cargos de procesamiento del conjunto de aptitudes.
+
+## <a name="requirements"></a>Requisitos
+
+Todas las proyecciones tienen propiedades de origen y destino. El origen siempre es contenido de un árbol de enriquecimiento creado durante la ejecución del conjunto de aptitudes. El destino es el nombre y el tipo de objeto que se creará y cargará en Azure Storage.
+
+Excepto para las proyecciones de archivo, que solo aceptan imágenes binarias, el origen debe ser:
+
++ JSON válido
++ Ruta de acceso a un nodo del árbol de enriquecimiento (por ejemplo, `"source": "/document/objectprojection"`)
+
+Aunque un nodo puede resolverse en un solo campo, una representación más común es una referencia a una forma compleja. Las formas complejas se crean mediante una metodología de forma: bien una [aptitud de conformador](cognitive-search-skill-shaper.md) o [una definición de forma insertada](knowledge-store-projection-shape.md#inline-shape) (normalmente la primera).
+
+Las aptitudes de conformador se favorecen porque la mayoría de las aptitudes no generan un código JSON válido por sí mismas. En muchos casos, las proyecciones de tabla y objeto pueden usar la misma forma de datos creada por una aptitud de conformador.
+
+Dados los requisitos de entrada de origen, saber cómo [dar forma a los datos](knowledge-store-projection-shape.md) se convierte en un requisito práctico para la definición de proyección, especialmente si trabaja con tablas.
+
+## <a name="define-a-table-projection"></a>Definición de una proyección de tabla
+
+Las proyecciones de tabla se recomiendan para escenarios que llaman a la exploración de datos, como el análisis con Power BI o las cargas de trabajo que consumen marcos de datos. La sección de tablas de una matriz de proyecciones es una lista de tablas que desea proyectar.
+
+Para definir una proyección de tabla, se usa la matriz `tables` de la propiedad de proyecciones. Una proyección de tabla tiene tres propiedades necesarias:
+
+| Propiedad | Descripción |
+|----------|-------------|
+| tableName | Determina el nombre de una nueva tabla creada en Azure Table Storage.  |
+| generatedKeyName | El nombre de columna para la clave que identifica de forma única cada fila. El sistema genera este valor. Si omite esta propiedad, se creará automáticamente una columna que usa el nombre de la tabla y la "clave" como la convención de nomenclatura. |
+| source | Ruta de acceso a un nodo en un árbol de enriquecimiento. El nodo debe ser una referencia a una forma compleja que determine qué columnas se crean en la tabla.|
+
+En proyecciones de tabla, "source" suele ser la salida de una [aptitud de conformador](cognitive-search-skill-shaper.md) que define la forma de la tabla. Las tablas tienen filas y columnas, y el modelado es el mecanismo por el que se especifican filas y columnas. Puede usar una [aptitud Conformador o formas insertadas](knowledge-store-projection-shape.md). La aptitud de conformador genera un objeto JSON válido, pero el origen podría ser la salida de cualquier aptitud, si el código JSON es válido.
+
+> [!NOTE]
+> Las proyecciones de tabla están sujetas a los [límites de almacenamiento](/rest/api/storageservices/understanding-the-table-service-data-model) que impone Azure Storage. El tamaño de la entidad no puede superar 1 MB, y una sola propiedad no puede ser mayor que 64 KB. Estas restricciones hacen que las tablas sean una buena solución para almacenar un gran número de entidades pequeñas.
+
+### <a name="single-table-example"></a>Ejemplo de tabla única
+
+El esquema de una tabla se especifica parcialmente mediante la proyección (nombre y clave de la tabla) y también mediante el origen que proporciona la forma de la tabla (columnas). En este ejemplo se muestra solo una tabla para que pueda centrarse en los detalles de la definición.
+
+```json
+"projections" : [
+  {
+    "tables": [
+      { "tableName": "Hotels", "generatedKeyName": "HotelId", "source": "/document/tableprojection" }
+    ]
+  }
+]
+```
+
+Las columnas derivan de "source". La siguiente forma de datos que contiene HotelId, HotelName, Category y Description dará lugar a la creación de esas columnas en la tabla.
+
+```json
+{
+    "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
+    "name": "#3",
+    "description": null,
+    "context": "/document",
+    "inputs": [
+    {
+        "name": "HotelId",
+        "source": "/document/HotelId"
+    },
+    {
+        "name": "HotelName",
+        "source": "/document/HotelName"
+    },
+    {
+        "name": "Category",
+        "source": "/document/Category"
+    },
+    {
+        "name": "Description",
+        "source": "/document/Description"
+    },
+    ],
+    "outputs": [
+    {
+        "name": "output",
+        "targetName": "tableprojection"
+    }
     ]
 }
 ```
 
-Puede procesar su trabajo mediante estos pasos:
+### <a name="multiple-table-slicing-example"></a>Ejemplo de varias tablas (segmentación)
 
-1. Establezca la propiedad `storageConnectionString` del almacén de conocimiento en una cadena de conexión válida de una cuenta de almacenamiento de uso general V2.  
+Un patrón común para las proyecciones de tabla es tener varias tablas relacionadas, donde se crean columnas partitionKey y rowKey generadas por el sistema para admitir relaciones entre tablas para todas las tablas del mismo grupo de proyecciones. 
 
-1. Actualice el conjunto de aptitudes. Para ello, emita la solicitud PUT.
+La creación de varias tablas puede ser útil para controlar cómo se agregan los datos relacionados. Si el contenido enriquecido tiene componentes no relacionados o independientes, por ejemplo, las palabras clave extraídas de un documento podrían no estar relacionadas con las entidades reconocidas en el mismo documento, puede dividir esos campos en tablas adyacentes.
 
-1. Después de actualizar el conjunto de aptitudes, ejecute el indexador. 
+Al proyectar en varias tablas, la forma completa se proyecta en cada tabla, a menos que un nodo secundario sea el origen de otra tabla dentro del mismo grupo. Agregar una proyección con una ruta de acceso de origen que sea un elemento secundario de una proyección existente hará que el nodo secundario se segmente fuera del nodo primario y se proyecte en la nueva tabla relacionada. Esta técnica permite definir un único nodo en una aptitud Conformador, que puede ser el origen de todas sus proyecciones.
 
-Ya tiene una proyección activa con tres tablas. La [importación de estas tablas en Power BI](knowledge-store-connect-power-bi.md) debería permitir que este detecte automáticamente las relaciones.
+El patrón para varias tablas consta de:
 
-Antes de pasar al siguiente ejemplo, vamos a volver a los distintos aspectos de la proyección de tabla para conocer la mecánica de la segmentación y relación de datos.
++ Una tabla como tabla principal o primaria
++ Tablas adicionales para contener segmentos del contenido enriquecido
 
-### <a name="slicing-a-table-into-multiple-child-tables"></a>Segmentación de una tabla en varias tablas secundarias
+Por ejemplo, suponga que una aptitud de conformador genera un valor de "EnrichedShape" que contiene información del hotel, además de contenido enriquecido, como frases clave, ubicaciones y organizaciones. La tabla principal incluiría campos que describen el hotel (identificador, nombre, descripción, dirección, categoría). Las frases clave obtendrían la columna de frases clave. Las entidades obtendrían las columnas de entidad.
 
-La segmentación es una técnica que subdivide una forma completa consolidada en las partes que la conforman. El resultado consta de tablas independientes, pero relacionadas, con las que se puede trabajar de forma individual.
-
-En el ejemplo, `projectionShape` es la forma consolidada (o el nodo de enriquecimiento). En la definición de la proyección, `projectionShape` se segmenta en tablas adicionales, lo que le permite extraer las partes de la forma, `keyPhrases` y `Entities`. En Power BI, esto es útil, ya que hay varias entidades y keyPhrases asociadas con cada documento, y obtendrá más información si puede ver entidades y keyPhrases como datos con categorías.
-
-La segmentación genera de forma implícita una relación entre las tablas primaria y secundaria, y usa `generatedKeyName` de la tabla primaria para crear una columna con el mismo nombre en la tabla secundaria. 
+```json
+"projections" : [
+  {
+    "tables": [
+    { "tableName": "MainTable", "generatedKeyName": "HotelId", "source": "/document/EnrichedShape" },
+    { "tableName": "KeyPhrases", "generatedKeyName": "KeyPhraseId", "source": "/document/EnrichedShape/*/KeyPhrases/*" },
+    { "tableName": "Entities", "generatedKeyName": "EntityId", "source": "/document/EnrichedShape/*/Entities/*" }
+    ]
+  }
+]
+```
 
 ### <a name="naming-relationships"></a>Nomenclatura de relaciones
 
@@ -350,314 +158,137 @@ Las propiedades `generatedKeyName` y `referenceKeyName` se usan para establecer 
 
 Power BI usa estas claves generadas para detectar relaciones en las tablas. Si necesita que la columna de la tabla secundaria tenga un nombre diferente, establezca la propiedad `referenceKeyName` en la tabla primaria. Como ejemplo, podría establecer `generatedKeyName` como id. en la tabla tblDocument y `referenceKeyName` como DocumentID. Como resultado, la columna de las tablas tblEntities y tblKeyPhrases que contiene el identificador del documento tendría por nombre DocumentID.
 
-## <a name="projecting-to-objects"></a>Proyección en objetos
+## <a name="define-an-object-projection"></a>Definición de una proyección de objeto
 
-Las proyecciones de objetos son más sencillas de definir y se usan al proyectar documentos completos. Las proyecciones de objeto están limitadas a una sola proyección en un contenedor y no se pueden segmentar.
+Las proyecciones de objeto son representaciones JSON del árbol de enriquecimiento que pueden proceder de cualquier nodo. En comparación con las proyecciones de tabla, las proyecciones de objeto son más fáciles de definir y se usan al proyectar documentos completos. Las proyecciones de objeto están limitadas a una sola proyección en un contenedor y no se pueden segmentar.
 
-Para definir una proyección de objeto, se usa la matriz `objects` en `projections`. Puede generar una nueva forma mediante la aptitud Conformador o usar el modelado insertado de la proyección de objeto. Aunque en el ejemplo de tablas se mostró el método para crear una forma y segmentarla, en este ejemplo se muestra el uso del modelado insertado. 
+Para definir una proyección de objeto, se usa la matriz `objects` en la propiedad de proyecciones. Una proyección de objeto tiene tres propiedades necesarias:
 
-El modelado insertado es la capacidad de crear una forma en la definición de las entradas para una proyección. El modelado insertado crea un objeto anónimo que es idéntico a lo que produciría una aptitud de conformador (en este caso, `projectionShape`). El modelado insertado resulta útil si está definiendo una forma que no se va a reutilizar.
+| Propiedad | Descripción |
+|----------|-------------|
+| storageContainer | Determina el nombre de un nuevo contenedor creado en Azure Storage.  |
+| generatedKeyName | El nombre de columna para la clave que identifica de forma única cada fila. El sistema genera este valor. Si omite esta propiedad, se creará automáticamente una columna que usa el nombre de la tabla y la "clave" como la convención de nomenclatura. |
+| origen | La ruta de acceso al nodo del árbol de enriquecimiento que es la raíz de la proyección. El nodo suele ser una referencia a una forma de datos compleja que determina la estructura de blobs.|
 
-La propiedad projections es una matriz. En este ejemplo se agrega una nueva instancia de proyección a la matriz, donde la definición de knowledgeStore contiene proyecciones insertadas. Cuando use proyecciones insertadas, puede omitir la aptitud de conformador.
+En el ejemplo siguiente se proyectan documentos de hotel individuales, un documento de hotel por blob, en un contenedor denominado `hotels`.
 
 ```json
-"knowledgeStore" : {
-    "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
-    "projections": [
+"knowledgeStore": {
+  "storageConnectionString": "an Azure storage connection string",
+  "projections" : [
+    {
+      "tables": [ ]
+    },
+    {
+      "objects": [
+        {
+        "storageContainer": "hotels",
+        "source": "/document/objectprojection",
+        }
+      ]
+    },
+    {
+        "files": [ ]
+    }
+  ]
+}
+```
+
+El origen es la salida de una aptitud de conformador, denominada "objectprojection". Cada blob tendrá una representación JSON de cada entrada de campo.
+
+```json
+    {
+      "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
+      "name": "#3",
+      "description": null,
+      "context": "/document",
+      "inputs": [
+        {
+          "name": "HotelId",
+          "source": "/document/HotelId"
+        },
+        {
+          "name": "HotelName",
+          "source": "/document/HotelName"
+        },
+        {
+          "name": "Category",
+          "source": "/document/Category"
+        },
+        {
+          "name": "keyPhrases",
+          "source": "/document/HotelId/keyphrases/*"
+        },
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "targetName": "objectprojection"
+        }
+      ]
+    }
+```
+
+## <a name="define-a-file-projection"></a>Definición de una proyección de archivo
+
+Las proyecciones de archivo siempre son imágenes binarias y normalizadas, donde la normalización hace referencia a un posible cambio de tamaño y rotación para el uso en la ejecución del conjunto de aptitudes. Las proyecciones de archivo, de forma similar a las proyecciones de objeto, se crean como blobs en Azure Storage y contienen datos binarios (en lugar de código JSON).
+
+Para definir una proyección de archivo, se usa la matriz `files` en la propiedad de proyecciones. Una proyección de archivos tiene tres propiedades necesarias:
+
+| Propiedad | Descripción |
+|----------|-------------|
+| storageContainer | Determina el nombre de un nuevo contenedor creado en Azure Storage.  |
+| generatedKeyName | El nombre de columna para la clave que identifica de forma única cada fila. El sistema genera este valor. Si omite esta propiedad, se creará automáticamente una columna que usa el nombre de la tabla y la "clave" como la convención de nomenclatura. |
+| origen | La ruta de acceso al nodo del árbol de enriquecimiento que es la raíz de la proyección. Para los archivos de imágenes, el origen es siempre `/document/normalized_images/*`.  Las proyecciones de archivo solo actúan en la colección `normalized_images`. Ni los indizadores ni un conjunto de aptitudes pasarán a través de la imagen original no normalizada.|
+
+El destino es siempre un contenedor de blobs, con un prefijo de carpeta del valor codificado en base64 del id. del documento. Si hay varias imágenes, se colocan juntas en la misma carpeta. Las proyecciones de archivos no pueden compartir el mismo contenedor que las proyecciones de objetos y deben proyectarse en un contenedor distinto. 
+
+En el ejemplo siguiente se proyectan todas las imágenes normalizadas extraídas del nodo de documento de un documento enriquecido en un contenedor denominado `myImages`.
+
+```json
+"projections": [
+    {
+        "tables": [ ],
+        "objects": [ ],
+        "files": [
             {
-            "tables": [ ],
-            "objects": [
-                {
-                    "storageContainer": "sampleobject",
-                    "source": null,
-                    "generatedKeyName": "myobject",
-                    "sourceContext": "/document",
-                    "inputs": [
-                        {
-                            "name": "metadata_storage_name",
-                            "source": "/document/metadata_storage_name"
-                        },
-                        {
-                            "name": "metadata_storage_path",
-                            "source": "/document/metadata_storage_path"
-                        },
-                        {
-                            "name": "content",
-                            "source": "/document/content"
-                        },
-                        {
-                            "name": "keyPhrases",
-                            "source": "/document/merged_content/keyphrases/*"
-                        },
-                        {
-                            "name": "entities",
-                            "source": "/document/merged_content/entities/*/name"
-                        },
-                        {
-                            "name": "ocrText",
-                            "source": "/document/normalized_images/*/text"
-                        },
-                        {
-                            "name": "ocrLayoutText",
-                            "source": "/document/normalized_images/*/layoutText"
-                        }
-                    ]
-
-                }
-            ],
-            "files": []
-        }
-    ]
-}
+                "storageContainer": "myImages",
+                "source": "/document/normalized_images/*"
+            }
+        ]
+    }
+]
 ```
 
-## <a name="projecting-to-file"></a>Proyección en archivo
+## <a name="test-projections"></a>Proyecciones de prueba
 
-Las proyecciones de archivo siempre son imágenes que se extraen del documento de origen o salidas de enriquecimiento que se pueden proyectar fuera del proceso de enriquecimiento. Las proyecciones de archivo, de forma similar a las proyecciones de objeto, se implementan como blobs en Azure Storage y contienen la imagen. 
+Para procesar proyecciones, siga estos pasos:
 
-Para generar una proyección de archivo, se usa la matriz `files` en el objeto projection. En este ejemplo, se proyectan todas las imágenes extraídas del documento en un contenedor denominado `myImages`.
+1. Establezca la propiedad `storageConnectionString` del almacén de conocimiento en una cadena de conexión válida de una cuenta de almacenamiento de uso general V2.  
 
-```json
-"knowledgeStore" : {
-    "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
-    "projections": [
-        {
-            "tables": [ ],
-            "objects": [ ],
-            "files": [
-                {
-                    "storageContainer": "myImages",
-                    "source": "/document/normalized_images/*"
-                }
-            ]
-        }
-    ]
-}
-```
+1. [Actualice el conjunto de aptitudes](/rest/api/searchservice/update-skillset). Para hacerlo, envíe una solicitud PUT con la definición de proyección en el cuerpo del conjunto de aptitudes.
 
-## <a name="projecting-to-multiple-types"></a>Proyección en varios tipos
+1. [Ejecute el indizador](/rest/api/searchservice/run-indexer) para ejecutar el conjunto de aptitudes. 
 
-Un escenario más complejo podría requerir que se proyecte contenido en distintos tipos de proyección. Por ejemplo, proyectar frases clave y entidades en tablas, guardar resultados OCR de texto y texto de diseño como objetos y, a continuación, proyectar las imágenes como archivos. 
+1. [Supervise la ejecución del indizador](search-howto-monitor-indexers.md) para comprobar el progreso y detectar los errores.
 
-Pasos para varios tipos de proyección:
+1. Use el [Explorador de Storage](knowledge-store-view-storage-explorer.md) para verificar la creación de objetos en Azure Storage.
 
-1. Crear una tabla con una fila para cada documento.
-1. Crear una tabla relacionada con la tabla de documento, en la que cada frase clave se identificará como una fila en la tabla.
-1. Crear una tabla relacionada con la tabla de documento, en la que cada entidad se identificará como una fila en la tabla.
-1. Crear una proyección de objeto con el texto de diseño de cada imagen.
-1. Crear una proyección de archivo en la que se proyecta cada imagen extraída.
-1. Crear una tabla de referencias cruzadas que contenga referencias a la tabla de documentos, la proyección de objeto con el texto de diseño y la proyección de archivo.
-
-### <a name="shape-data-for-cross-projection"></a>Dar forma a datos para la proyección cruzada
-
-Para obtener las formas que necesitamos para estas proyecciones, empiece por agregar una nueva aptitud Conformador que cree un objeto con forma llamado `crossProjection`. 
-
-```json
-{
-    "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
-    "name": "ShaperForCrossProjection",
-    "description": null,
-    "context": "/document",
-    "inputs": [
-        {
-            "name": "metadata_storage_name",
-            "source": "/document/metadata_storage_name",
-            "sourceContext": null,
-            "inputs": []
-        },
-        {
-            "name": "keyPhrases",
-            "source": null,
-            "sourceContext": "/document/merged_content/keyphrases/*",
-            "inputs": [
-                {
-                    "name": "KeyPhrases",
-                    "source": "/document/merged_content/keyphrases/*"
-                }
-
-            ]
-        },
-        {
-            "name": "entities",
-            "source": null,
-            "sourceContext": "/document/merged_content/entities/*",
-            "inputs": [
-                {
-                    "name": "Entities",
-                    "source": "/document/merged_content/entities/*/name"
-                }
-
-            ]
-        },
-        {
-            "name": "images",
-            "source": null,
-            "sourceContext": "/document/normalized_images/*",
-            "inputs": [
-                {
-                    "name": "image",
-                    "source": "/document/normalized_images/*"
-                },
-                {
-                    "name": "layoutText",
-                    "source": "/document/normalized_images/*/layoutText"
-                },
-                {
-                    "name": "ocrText",
-                    "source": "/document/normalized_images/*/text"
-                }
-                ]
-        }
- 
-    ],
-    "outputs": [
-        {
-            "name": "output",
-            "targetName": "crossProjection"
-        }
-    ]
-}
-```
-
-### <a name="define-table-object-and-file-projections"></a>Definición de proyecciones de tabla, objeto y archivo
-
-Desde el objeto crossProjection consolidado, segmente el objeto en varias tablas, capture la salida de OCR como blobs y, después, guarde la imagen como archivos (también en Blob Storage).
-
-```json
-"knowledgeStore" : {
-    "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
-    "projections": [
-            {
-            "tables": [
-                {
-                    "tableName": "crossDocument",
-                    "generatedKeyName": "Id",
-                    "source": "/document/crossProjection"
-                },
-                {
-                    "tableName": "crossEntities",
-                    "generatedKeyName": "EntityId",
-                    "source": "/document/crossProjection/entities/*"
-                },
-                {
-                    "tableName": "crossKeyPhrases",
-                    "generatedKeyName": "KeyPhraseId",
-                    "source": "/document/crossProjection/keyPhrases/*"
-                },
-                {
-                    "tableName": "crossReference",
-                    "generatedKeyName": "CrossId",
-                    "source": "/document/crossProjection/images/*"
-                }
-                    
-            ],
-            "objects": [
-                {
-                    "storageContainer": "crossobject",
-                    "generatedKeyName": "crosslayout",
-                    "source": null,
-                    "sourceContext": "/document/crossProjection/images/*/layoutText",
-                    "inputs": [
-                        {
-                            "name": "OcrLayoutText",
-                            "source": "/document/crossProjection/images/*/layoutText"
-                        }
-                    ]
-                }
-            ],
-            "files": [
-                {
-                    "storageContainer": "crossimages",
-                    "generatedKeyName": "crossimages",
-                    "source": "/document/crossProjection/images/*/image"
-                }
-            ]
-        }
-    ]
-}
-```
-
-Las proyecciones de objeto requieren un nombre de contenedor para cada proyección. Las proyecciones de objeto o archivo no pueden compartir un contenedor. 
-
-### <a name="relationships-among-table-object-and-file-projections"></a>Relaciones entre las proyecciones de tabla, objeto y archivo
-
-En este ejemplo también se resalta otra característica de las proyecciones. Al definir varios tipos de proyecciones en el mismo objeto de proyección, existe una relación expresada en y entre los distintos tipos (tablas, objetos, archivos). Esto le permite empezar con una fila de tabla para un documento y buscar todo el texto de OCR de las imágenes de ese documento en la proyección de objeto. 
-
-Si no desea los datos relacionados, defina las proyecciones en distintos grupos de proyección. Por ejemplo, el siguiente fragmento provocará que las tablas estén relacionadas, pero sin relaciones entre las tablas y las proyecciones de objeto (texto de OCR). 
-
-Los grupos de proyección son útiles cuando se quieren proyectar los mismos datos en diferentes formas con distintas necesidades. Por ejemplo, un grupo de proyección para el panel de Power BI y otro para capturar los datos que se usan para entrenar un modelo de Machine Learning encapsulado en una aptitud personalizada.
-
-Cuando se crean proyecciones de distintos tipos, primero se generan las proyecciones de archivo y objeto, y se agregan rutas de acceso a las tablas.
-
-```json
-"knowledgeStore" : {
-    "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
-    "projections": [
-        {
-            "tables": [
-                {
-                    "tableName": "unrelatedDocument",
-                    "generatedKeyName": "Documentid",
-                    "source": "/document/projectionShape"
-                },
-                {
-                    "tableName": "unrelatedKeyPhrases",
-                    "generatedKeyName": "KeyPhraseid",
-                    "source": "/document/projectionShape/keyPhrases"
-                }
-            ],
-            "objects": [
-                
-            ],
-            "files": []
-        }, 
-        {
-            "tables": [],
-            "objects": [
-                {
-                    "storageContainer": "unrelatedocrtext",
-                    "source": null,
-                    "sourceContext": "/document/normalized_images/*/text",
-                    "inputs": [
-                        {
-                            "name": "ocrText",
-                            "source": "/document/normalized_images/*/text"
-                        }
-                    ]
-                },
-                {
-                    "storageContainer": "unrelatedocrlayout",
-                    "source": null,
-                    "sourceContext": "/document/normalized_images/*/layoutText",
-                    "inputs": [
-                        {
-                            "name": "ocrLayoutText",
-                            "source": "/document/normalized_images/*/layoutText"
-                        }
-                    ]
-                }
-            ],
-            "files": []
-        }
-    ]
-}
-```
+1. Si proyecta tablas, [impórtelas en Power BI](knowledge-store-connect-power-bi.md) para manipular y visualizar tablas. En la mayoría de los casos, Power BI detectará automáticamente las relaciones entre las tablas.
 
 ## <a name="common-issues"></a>Problemas comunes
 
-Al definir una proyección, hay algunos problemas comunes que pueden generar resultados inesperados. Compruebe estas incidencias si la salida del almacén de conocimiento no es la que se espera.
+Si se omite cualquiera de los pasos siguientes, se pueden producir resultados inesperados. Compruebe las condiciones siguientes si la salida no parece correcta.
 
-+ Características enriquecidas de cadena sin modelar en un código JSON válido. Cuando las cadenas están enriquecidas; por ejemplo, `merged_content` se ha enriquecido con frases clave, la propiedad enriquecida se representa como un elemento secundario de `merged_content` en el árbol de enriquecimiento. La representación predeterminada no es código JSON bien formado. Por tanto, en el momento de la proyección, asegúrese de que transforma el enriquecimiento en un objeto JSON válido con un nombre y un valor.
++ Los enriquecimientos de cadenas no tienen el formato de un código JSON válido. Cuando las cadenas están enriquecidas; por ejemplo, `merged_content` se ha enriquecido con frases clave, la propiedad enriquecida se representa como un elemento secundario de `merged_content` en el árbol de enriquecimiento. La representación predeterminada no es código JSON bien formado. En el momento de la proyección, asegúrese de que transforma el enriquecimiento en un objeto JSON válido con un nombre y un valor. El uso de una aptitud de conformador o la definición de formas insertadas ayuda a resolver el problema.
 
-+ Omisión de ```/*``` al final de una ruta de acceso de origen. Si el origen de una proyección es `/document/projectionShape/keyPhrases`, la matriz de frases clave se proyecta como un solo objeto o fila. En su lugar, establezca la ruta de acceso de origen en `/document/projectionShape/keyPhrases/*` para generar una sola fila u objeto para cada una de las frases clave.
++ Omisión de `/*` al final de una ruta de acceso de origen. Si el origen de una proyección es `/document/projectionShape/keyPhrases`, la matriz de frases clave se proyecta como un solo objeto o fila. En su lugar, establezca la ruta de acceso de origen en `/document/projectionShape/keyPhrases/*` para generar una sola fila u objeto para cada una de las frases clave.
 
-+ Errores de sintaxis de la ruta de acceso. Los selectores de ruta de acceso distinguen mayúsculas de minúsculas y pueden generar advertencias por entradas que faltan si no se usan las mayúsculas y minúsculas exactas en el selector.
++ Errores de sintaxis de la ruta de acceso. Los [selectores de ruta de acceso](cognitive-search-concept-annotations-syntax.md) distinguen mayúsculas de minúsculas y pueden generar advertencias por entradas que faltan si no se usan las mayúsculas y minúsculas exactas en el selector. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Los ejemplos de este artículo muestran patrones comunes sobre cómo crear proyecciones. Ahora que conoce los conceptos, está mejor preparado para compilar proyecciones para su escenario concreto.
-
-Cuando explore nuevas características, considere el enriquecimiento incremental como el siguiente paso. El enriquecimiento incremental se basa en el almacenamiento en caché, lo cual le permite volver a usar todos los enriquecimientos que no se hayan visto afectados por una modificación del conjunto de aptitudes. Esto es especialmente útil para aquellas canalizaciones que incluyen OCR y análisis de imágenes.
+En el paso siguiente, se le guiará a lo largo del modelado y la proyección de la salida de un conjunto de aptitudes enriquecido. Si el conjunto de aptitudes es complejo, en el siguiente artículo se proporcionan ejemplos de formas y proyecciones.
 
 > [!div class="nextstepaction"]
-> [Configuración del almacenamiento en caché para el enriquecimiento incremental](search-howto-incremental-index.md)
+> [Ejemplo detallado de formas y proyecciones](knowledge-store-projection-example-long.md)

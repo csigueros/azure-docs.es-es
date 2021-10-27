@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 10/14/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: fe6397b79ff37074342b40880aa5284e020cd8a1
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 86cf5cfaf5d64c9aa1f1cda17df543b953a5ed17
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129859201"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066991"
 ---
 # <a name="authorize-access-to-blobs-using-azure-active-directory"></a>Autorice el acceso a blobs con Azure Active Directory
 
@@ -32,15 +32,17 @@ Cuando una entidad de seguridad (un usuario, un grupo o una aplicación) intenta
 
 El paso de autenticación exige que una aplicación solicite un token de acceso de OAuth 2.0 en tiempo de ejecución. Si una aplicación se ejecuta desde una entidad de Azure como una máquina virtual de Azure, un conjunto de escalado de máquinas virtuales o una aplicación de Azure Functions, puede usar una [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md) para acceder a los datos de blobs. Para más información sobre cómo autorizar solicitudes realizadas por una identidad administrada al servicio Blob de Azure, consulte [Autorización del acceso a datos de blobs con identidades administradas en recursos de Azure](authorize-managed-identity.md).
 
-El paso de la autorización exige que se asignen uno o varios roles de Azure a la entidad de seguridad. Azure Storage proporciona roles de Azure que abarcan conjuntos comunes de permisos para datos de blobs. Los roles que se asignan a una entidad de seguridad determinan los permisos que tiene esa entidad de seguridad. Para más información sobre la asignación de roles de Azure para acceder a blobs, consulte [Asignación de un rol de Azure para acceder a datos de blobs](../blobs/assign-azure-role-data-access.md).
+El paso de la autorización exige que se asignen uno o varios roles Rol RBAC de Azure a la entidad de seguridad que realiza la solicitud. Para más información, vea [Asignación de roles de Azure para derechos de acceso](#assign-azure-roles-for-access-rights).
 
 Las aplicaciones nativas y las aplicaciones web que realizan solicitudes a Azure Blob service también pueden autorizar el acceso con Azure AD. Para información sobre cómo solicitar un token de acceso y usarlo para autorizar solicitudes de datos de blobs, consulte [Autorizar acceso a Azure Storage mediante Azure AD desde una aplicación de Azure Storage](../common/storage-auth-aad-app.md).
 
 ## <a name="assign-azure-roles-for-access-rights"></a>Asignación de roles de Azure para derechos de acceso
 
-Azure Active Directory (Azure AD) autoriza derechos de acceso a recursos protegidos mediante el [control de acceso basado en rol de Azure (Azure RBAC)](../../role-based-access-control/overview.md). Azure Storage define un conjunto de roles integrados de Azure que abarcan conjuntos comunes de permisos utilizados para acceder a los datos de blob. También puede definir roles personalizados para el acceso a datos de blobs.
+Azure Active Directory (Azure AD) concede derechos de acceso a recursos protegidos mediante Azure RBAC. Azure Storage define un conjunto de roles RBAC integrados que abarcan conjuntos comunes de permisos utilizados para acceder a los datos de blob. También puede definir roles personalizados para el acceso a datos de blobs. Para más información sobre la asignación de roles de Azure para acceder a blobs, consulte [Asignación de un rol de Azure para acceder a datos de blobs](../blobs/assign-azure-role-data-access.md).
 
-Cuando un rol de Azure se asigna a una entidad de seguridad de Azure AD, Azure concede a esa entidad de seguridad acceso a esos recursos. Una entidad de seguridad de Azure AD puede ser un usuario, un grupo, una entidad de servicio de aplicación o una [identidad de servicio administrada para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+Una entidad de seguridad de Azure AD puede ser un usuario, un grupo, una entidad de servicio de aplicación o una [identidad de servicio administrada para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md). Los roles RBAC que se asignan a una entidad de seguridad determinan los permisos que tiene esa entidad de seguridad. Para más información sobre la asignación de roles de Azure para acceder a blobs, consulte [Asignación de un rol de Azure para acceder a datos de blobs](../blobs/assign-azure-role-data-access.md).
+
+En algunos casos, puede que necesite habilitar el acceso específico a los recursos de blob o simplificar los permisos cuando tenga un gran número de asignaciones de roles para un recurso de almacenamiento. Puede usar el control de acceso basado en atributos de Azure (Azure ABAC) para configurar las condiciones de asignación de roles. Puede usar condiciones con un [rol personalizado](../../role-based-access-control/custom-roles.md) o seleccionar roles integrados. Para más información sobre cómo configurar condiciones para los recursos de almacenamiento de Azure con ABAC, consulte [Autorización del acceso a blobs mediante condiciones de asignación de roles de Azure (versión preliminar)](../common/storage-auth-abac.md). Para más información sobre las condiciones admitidas para las operaciones de datos de blob, consulte [Acciones y atributos para las condiciones de asignación de roles de Azure en Azure Storage (versión preliminar)](../common/storage-auth-abac-attributes.md).
 
 ### <a name="resource-scope"></a>Ámbito de recursos
 

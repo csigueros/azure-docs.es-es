@@ -8,12 +8,12 @@ author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
 ms.date: 09/27/2021
-ms.openlocfilehash: a8ee69e0c9c196f42a733c4cb6c3079228238b21
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 30b26ea098c66bc807250c0100db93d7564222b6
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129082937"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130069204"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Panel Información de marketplace de los análisis de marketplace comercial
 
@@ -62,7 +62,7 @@ En el panel Información de Marketplace se muestran los detalles de telemetría 
 
 ### <a name="month-range"></a>Intervalo mensual
 
-#### <a name="workspaces-view"></a>[Vista de áreas de trabajo](#tab/workspaces-view)
+#### <a name="workspaces-view"></a>[Vista "Áreas de trabajo"](#tab/workspaces-view)
 
 Puede encontrar una selección del intervalo mensual en la esquina superior derecha de cada página. Puede personalizar la salida de los gráficos de la página **Información de Marketplace** seleccionando un intervalo mensual basado en los últimos 6 o 12 meses, o seleccionando un intervalo mensual personalizado con una duración máxima de 12 meses. El intervalo mensual predeterminado (período de cálculo) es de seis meses.
 

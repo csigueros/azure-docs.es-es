@@ -4,13 +4,13 @@ description: Notas más recientes de la versión de Azure HDInsight. Obtenga sug
 ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/27/2021
-ms.openlocfilehash: cf726033a90e256a2d41a3249e237f5eb91aee84
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 10/15/2021
+ms.openlocfilehash: 7cb93adaa00e11b88dcbe4b104e10acf84a009b9
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732915"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131417"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de la versión de Azure HDInsight
 
@@ -31,6 +31,24 @@ Las versiones del sistema operativo de esta versión son:
 - HDInsight 4.0: Ubuntu 18.04.5 LTS
 
 ## <a name="new-features"></a>Nuevas características
+### <a name="azure-hdinsight-support-for-restricted-public-connectivity-is-generally-available-on-oct-15-2021"></a>La compatibilidad de Azure HDInsight con la conectividad pública restringida está disponible con carácter general el 15 de octubre de 2021
+Azure HDInsight ahora admite conectividad pública restringida en todas las regiones. A continuación, se muestran algunos de los aspectos más destacados de esta funcionalidad: 
+
+- Posibilidad de revertir la comunicación entre el proveedor de recursos y el clúster de forma que sea saliente desde el clúster al proveedor de recursos. 
+- Posibilidad de traer sus propios recursos habilitados para Private Link (por ejemplo, almacenamiento, SQL, almacén de claves) para que el clúster de HDinsight solo acceda a los recursos a través de la red privada. 
+- No se aprovisionan recursos en ninguna dirección IP pública 
+
+Con esta nueva funcionalidad, también puede omitir las reglas de etiquetas de servicio del grupo de seguridad de red (NSG) de entrada para las direcciones IP de administración de HDInsight. Más información sobre cómo  [restringir la conectividad pública](./hdinsight-restrict-public-connectivity.md).
+
+### <a name="azure-hdinsight-support-for-azure-private-link-is-generally-available-on-oct-15-2021"></a>La compatibilidad de Azure HDInsight con Azure Private Link está disponible con carácter general el 15 de octubre de 2021
+Ahora puede usar puntos de conexión privados para conectarse a los clústeres de HDInsight a través de un vínculo privado.El vínculo privado se puede usar en escenarios entre redes virtuales en los que el emparejamiento de redes virtuales no está disponible o habilitado. 
+
+Azure Private Link le permite acceder a los servicios PaaS de Azure (por ejemplo, Azure Storage y SQL Database) y a los servicios hospedados en Azure que son propiedad de los clientes, o a los servicios de asociados, a través de un  [punto de conexión privado](../private-link/private-endpoint-overview.md)  de la red virtual. 
+
+El tráfico entre la red virtual y el servicio viaja por la red troncal de Microsoft. Ya no es necesario exponer el servicio a la red pública de Internet. 
+
+Puede encontrar más información en  [Habilitación de Private Link](./hdinsight-private-link.md).  
+
 ### <a name="new-azure-monitor-integration-experience-preview"></a>Nueva experiencia de integración de Azure Monitor (versión preliminar)
 La nueva experiencia de integración de Azure Monitor estará disponible en versión preliminar en Este de EE. UU. y Oeste de Europa con esta versión. Obtenga más información sobre la nueva experiencia de Azure Monitor [aquí](./log-analytics-migration.md#migrate-to-the-new-azure-monitor-integration).
 

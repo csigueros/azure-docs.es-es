@@ -1,6 +1,6 @@
 ---
-title: Configuración de las propiedades de la oferta de servicios de consultoría en el Centro de partners de Microsoft
-description: Aprenda a configurar las propiedades de la oferta de servicios de consultoría en el marketplace comercial de Microsoft mediante el Centro de partners.
+title: Configuración de propiedades de ofertas de servicios de consultoría del marketplace comercial
+description: Configure propiedades de las ofertas de servicios de consultoría del marketplace comercial mediante el Centro de partners.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
@@ -8,16 +8,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 10/27/2020
-ms.openlocfilehash: a77414e794073771f7bf5fe9346e4196b6b4b836
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 60f4d1d8e86eed6a3dab390ebf8e46296f4644d2
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129715779"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130040196"
 ---
-# <a name="how-to-configure-your-consulting-service-offer-properties"></a>Configuración de las propiedades de su oferta de servicios de consultoría
+# <a name="configure-consulting-service-offer-properties"></a>Configuración de propiedades de ofertas de servicios de consultoría
 
-En este artículo se describe cómo configurar las propiedades de una oferta de servicios de consultoría en el marketplace comercial de Microsoft.
+En este artículo se explica cómo configurar las propiedades de una oferta de servicios de consultoría en el marketplace comercial de Microsoft.
 
 En la pestaña **Propiedades** de la oferta en el Centro de partners, definirá el producto principal en el núcleo del servicio de consultoría, el tipo de servicio y los sectores aplicables. También indicará las competencias pertinentes de Microsoft que ha obtenido. La información de esta pestaña garantiza que el servicio de consultoría se muestre correctamente en el marketplace comercial y que se ofrezca al conjunto correcto de clientes.
 

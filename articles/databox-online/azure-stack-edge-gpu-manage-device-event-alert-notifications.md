@@ -1,25 +1,25 @@
 ---
-title: Administración de notificaciones de alertas de eventos de dispositivos en recursos de Azure Stack Edge Pro | Microsoft Docs
-description: En este artículo se explica cómo usar Azure Portal para administrar recursos compartidos en Azure Stack Edge Pro.
+title: Uso de reglas de acción para administrar notificaciones de alertas en dispositivos Azure Stack Edge | Microsoft Docs
+description: Se describe cómo definir reglas de acción para administrar notificaciones de alertas para dispositivos Azure Stack Edge en Azure Portal.
 services: databox
 author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 10/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 585343137a4a8fd8a1fb591c640e1183d71c0fd3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 804d956f934774b01b29301e0be8f9c1a6fd2657
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443104"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130043365"
 ---
-# <a name="manage-device-event-alert-notifications-on-azure-stack-edge-pro-resources"></a>Administración de notificaciones de alertas de eventos de dispositivos en recursos de Azure Stack Edge Pro
+# <a name="use-action-rules-to-manage-alert-notifications-on-azure-stack-edge-devices"></a>Uso de reglas de acción para administrar notificaciones de alertas en dispositivos Azure Stack Edge
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-En este artículo se describe cómo crear reglas de acción en Azure Portal para desencadenar o suprimir notificaciones de alertas para los eventos de dispositivo que se producen dentro de un grupo de recursos, una suscripción de Azure o un recurso de Azure Stack Edge individual. Este artículo se aplica a todos los modelos de Azure Stack Edge.  
+En este artículo se describe cómo crear reglas de acción en Azure Portal para desencadenar o suprimir notificaciones de alertas para los eventos de dispositivo que se producen dentro de un grupo de recursos, una suscripción de Azure o un recurso de Azure Stack Edge individual.  
 
 ## <a name="about-action-rules"></a>Acerca de las reglas de acción
 
@@ -125,8 +125,6 @@ La notificación por correo electrónico será similar a esta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-<!-- - See [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups.md) for guidance on creating a new action group.
-- See [Configure an action rule](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal#configuring-an-action-rule) for more info about creating action rules that send or suppress alert notifications. -2 bullets referenced above. Making room for local tasks in "Next Steps." --> 
-- Para obtener información sobre cómo revisar eventos de dispositivo, el estado de hardware y los gráficos de métricas, consulte [Supervisión de Azure Stack Edge Pro](azure-stack-edge-monitor.md). 
-- Para obtener información sobre cómo optimizar Azure Monitor para los dispositivos con GPU de Azure Stack Edge Pro, consulte [Uso de Azure Monitor](azure-stack-edge-gpu-enable-azure-monitor.md).
-- Para obtener información sobre la administración de alertas individuales, consulte [Creación, visualización y administración de alertas de métricas mediante Azure Monitor](../azure-monitor/alerts/alerts-metric.md).
+- [Visualización de alertas de dispositivo](azure-stack-edge-alerts.md).
+- [Uso de métricas de alerta](../azure-monitor/alerts/alerts-metric.md).
+- [Configuración de Azure Monitor](azure-stack-edge-gpu-enable-azure-monitor.md).

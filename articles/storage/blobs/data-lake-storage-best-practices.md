@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/06/2021
+ms.date: 10/14/2021
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: da97095edce8c089acd53a8faf8ba353dd39515d
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 85f6ce139db0fb69428dc775ef75befccb081af3
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129614220"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042738"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Procedimientos recomendados para usar Azure Data Lake Storage Gen2
 
@@ -36,6 +36,12 @@ Use el siguiente patrón a medida que configure la cuenta para usar las caracter
 #### <a name="understand-the-terms-used-in-documentation"></a>Información sobre los términos usados en la documentación
 
 A medida que se mueve entre conjuntos de contenido, observará algunas pequeñas diferencias de terminología. Por ejemplo, el contenido destacado en la [documentación de Blob Storage](storage-blobs-introduction.md) usará el término *blob* en lugar del *archivo*. Técnicamente, los archivos que ingiere en la cuenta de almacenamiento se convierten en blobs en su cuenta. Por lo tanto, el término es correcto. Sin embargo, esto puede causar confusión si está acostumbrado al término *archivo*. También verá el término *contenedor*, que se usa para hacer referencia a un *sistema de archivos*. Puede considerar estos términos como sinónimos.
+
+## <a name="consider-premium"></a>Consideración prémium
+
+Si las cargas de trabajo requieren una latencia coherente baja o un gran número de operaciones de salida de entrada por segundo (IOP), considere la posibilidad de usar una cuenta de almacenamiento de blobs en bloques prémium. Este tipo de cuenta hace que los datos estén disponibles a través de hardware de alto rendimiento. Los datos se almacenan en unidades de estado sólido (SSD) que están optimizadas para baja latencia. Las SSD ofrecen mayor rendimiento en comparación con las unidades de disco duro tradicionales. Los costos de almacenamiento del rendimiento prémium son mayores, pero los costos de transacción son menores, por lo que si las cargas de trabajo ejecutan un gran número de transacciones, una cuenta de blob en bloques de rendimiento prémium puede ser económica.
+
+Si la cuenta de almacenamiento se va a usar para el análisis, se recomienda usar Azure Data Lake Storage Gen2 junto con una cuenta de almacenamiento de blobs en bloques prémium. Esta combinación de uso de cuentas de almacenamiento de blobs en bloques prémium junto con una cuenta habilitada para Data Lake Storage se conoce como el [nivel prémium para Azure Data Lake Storage](premium-tier-for-data-lake-storage.md).
 
 ## <a name="optimize-for-data-ingest"></a>Optimización para la ingesta de datos
 

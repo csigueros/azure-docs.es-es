@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: 8b6e2ba3c65b5fd521bdb6326069ce5d8be05599
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 25b6eaea3c639d39721bd80aaad08cf2c6f80380
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128564892"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066478"
 ---
 # <a name="modify-a-capacity-reservation-preview"></a>Modificación de una reserva de capacidad (versión preliminar)
 
@@ -65,6 +65,17 @@ Tenga en cuenta que la propiedad `capacity` se ha establecido en 5 en este ejemp
 1. Seleccione **Administrar reservas** en la parte superior. 
 1. En la página *Administrar reservas*, escriba en el campo **Instancias** la cantidad que se va a reservar. 
 1. Seleccione **Guardar**. 
+
+### <a name="cli"></a>[CLI](#tab/cli1)
+Para actualizar la cantidad reservada, use `az capacity reservation update` con la propiedad `capacity ` actualizada.
+
+ ```azurecli-interactive
+ az capacity reservation update 
+ -c myCapacityReservationGroup 
+ -n myCapacityReservation 
+ -g myResourceGroup2 
+ --capacity 5
+ ```
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell1)
 
@@ -160,6 +171,32 @@ Compruebe si el tamaño de destino forma parte del grupo de reservas:
 1. Observe el *tamaño de VM* reservado para cada reserva. 
     1. Si el tamaño de VM de destino no forma parte del grupo, [cree una nueva reserva de capacidad](capacity-reservation-create.md) para la VM de destino. 
     1. Si el tamaño de VM de destino ya existe en el grupo, [cambie el tamaño de la máquina virtual](resize-vm.md). 
+
+### <a name="cli"></a>[CLI](#tab/cli2)
+
+1. Obtenga los nombres de todas las reservas de capacidad dentro del grupo de reservas de capacidad con `az capacity reservation group show`.
+
+    ```azurecli-interactive
+    az capacity reservation group show 
+    -g myResourceGroup
+    -n myCapacityReservationGroup 
+    ```
+
+1. En la respuesta, busque los nombres de todas las reservas de capacidad.
+
+1. Ejecute los siguientes comandos para averiguar los tamaños de VM reservados para cada reserva.
+
+    ```azurecli-interactive
+    az capacity reservation show
+    -g myResourceGroup
+    -c myCapacityReservationGroup 
+    -n myCapacityReservation 
+    ```
+
+1. Tenga en cuenta lo siguiente. 
+    1. Si el tamaño de VM de destino no forma parte del grupo, [cree una nueva reserva de capacidad](capacity-reservation-create.md) para la VM de destino. 
+    1. Si el tamaño de VM de destino ya existe en el grupo, [cambie el tamaño de la máquina virtual](resize-vm.md). 
+
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell2)
 
@@ -285,6 +322,38 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
     1. Vaya al grupo de reserva de capacidad.
     1. Seleccione **Eliminar** en la parte superior de la página.
 
+### <a name="cli"></a>[CLI](#tab/cli3)
+
+Busque todas las máquinas virtuales asociadas al grupo de reserva de capacidad y desasócielas.
+
+1. Ejecute lo siguiente: 
+    
+    ```azurecli-interactive
+    az capacity reservation group show
+    -g myResourceGroup
+    -n myCapacityReservationGroup
+    ```
+
+1. En la respuesta anterior, busque los nombres de todas las máquinas virtuales en la propiedad `VirtualMachinesAssociated` y quítelas del grupo de reserva de capacidad mediante los pasos descritos en [Eliminación de una asociación de máquina virtual a una reserva de capacidad](capacity-reservation-remove-vm.md).
+
+1. Una vez que se hayan quitado todas las máquinas virtuales del grupo, continúe con los pasos siguientes. 
+
+1. Elimine la reserva de capacidad:
+
+    ```azurecli-interactive
+    az capacity reservation delete 
+    -g myResourceGroup 
+    -c myCapacityReservationGroup 
+    -n myCapacityReservation 
+    ```
+
+1. Elimine el grupo de reserva de capacidad:
+
+    ```azurecli-interactive
+    az capacity reservation group delete 
+    -g myResourceGroup 
+    -n myCapacityReservationGroup
+    ```
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell3)
 

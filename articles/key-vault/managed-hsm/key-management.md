@@ -8,12 +8,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 418bc82a503822a79f138fc71213f9ec5c9b5266
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 71cc84defc8eb791b8d1f1189162b97ee44db9ec
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114471316"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130129213"
 ---
 # <a name="manage-a-managed-hsm-using-the-azure-cli"></a>Administración de un HSM administrado mediante la CLI de Azure
 
@@ -47,6 +47,8 @@ Para más información sobre las opciones de inicio de sesión mediante la CLI, 
 > [!NOTE]
 > Todos los comandos siguientes muestran dos métodos de uso. Uno que usa los parámetros **--hsm-name** y **--name** (para el nombre de clave) y otro que usa el parámetro **--id**, donde puede especificar la dirección URL completa, incluido el nombre de clave si corresponde. El último método es útil cuando el autor de la llamada (un usuario o una aplicación) no tiene acceso de lectura en el plano de control y solo tiene acceso restringido en el plano de datos.
 
+> [!NOTE]
+> Algunas interacciones con el material clave requieren permisos específicos de RBAC local. Para ver una lista completa de los roles y permisos de RBAC local integrados, consulte [Roles integrados de RBAC local de HSM administrado](./built-in-roles.md). Para asignar estos permisos a un usuario, consulte [Protección del acceso a los HSM administrados](./secure-your-managed-hsm.md).
 ## <a name="create-an-hsm-key"></a>Creación de una clave de HSM
 
 > [!NOTE]
@@ -176,7 +178,7 @@ az keyvault key purge --hsm-name ContosoHSM --name myrsakey
 ## OR
 # Note the key name (myaeskey) in the URI
 
-az keyvault key recover --id https://ContosoMHSM.managedhsm.azure.net/deletedKeys/myrsakey
+az keyvault key purge --id https://ContosoMHSM.managedhsm.azure.net/deletedKeys/myrsakey
 
 ```
 
@@ -202,12 +204,12 @@ Use `az keyvault key restore` para restaurar una sola clave. El HSM de origen en
 > La restauración no se realizará correctamente si existe una clave con el mismo nombre en estado activo o eliminado.
 
 ```azurecli-interactive
-az keyvault key restore --hsm-name ContosoHSM --name myrsakey --file myrsakey.bakup
+az keyvault key restore --hsm-name ContosoHSM --name myrsakey --file myrsakey.backup
 
 ## OR
 # Note the key name (myaeskey) in the URI
 
-az keyvault key recover --id https://ContosoMHSM.managedhsm.azure.net/deletedKeys/myrsakey --file myrsakey.bakup
+az keyvault key restore --id https://ContosoMHSM.managedhsm.azure.net/deletedKeys/myrsakey --file myrsakey.backup
 
 ```
 

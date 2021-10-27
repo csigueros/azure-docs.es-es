@@ -3,12 +3,12 @@ title: Detalles de la estructura de definición de directivas
 description: Describe cómo se usan las definiciones de directiva para establecer convenciones para los recursos de Azure de su organización.
 ms.date: 09/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7665d2b3855765c0d3c60cdb9c7181720835a963
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 08e4df487786de0e43e7bc1ae7c0a5debb6a9752
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129456981"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002517"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -125,6 +125,7 @@ La propiedad `metadata` opcional almacena información acerca de la definición 
 - `category` (cadena): determina en qué categoría de Azure Portal se muestra la definición de directiva.
 - `preview` (booleano): marca true o false si la definición de directiva es _versión preliminar_.
 - `deprecated` (booleano): marca true o false si la definición de directiva está marcada como _en desuso_.
+- `portalReview` (cadena): determina si los parámetros se deben revisar en el portal, independientemente de la entrada necesaria. 
 
 > [!NOTE]
 > El servicio Azure Policy usa las propiedades `version`, `preview` y `deprecated` para transmitir el nivel de cambio a una definición o iniciativa de directiva integradas y el estado. El formato de `version` es: `{Major}.{Minor}.{Patch}`. Determinados estados, como _en desuso_ o _versión preliminar_, están anexados a la propiedad `version` o están en otra propiedad como **booleano**. Para obtener más información sobre la forma en que Azure Policy crea versiones los elementos integrados, vea [Control de versiones integradas](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).

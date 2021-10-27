@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 51baf009543208fbbfe091238d0215a24761641d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 63e68a247dd9d38cffe1555806ab23391c38f1fa
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031963"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177455"
 ---
 # <a name="enable-vm-insights-by-using-azure-policy"></a>Habilitación de VM Insights mediante Azure Policy
 En este artículo se explica cómo habilitar VM Insights para máquinas virtuales de Azure o máquinas virtuales híbridas conectadas con Azure Arc (versión preliminar) mediante Azure Policy. Azure Policy permite asignar definiciones de directiva que instalan los agentes necesarios para VM Insights en el entorno de Azure y habilitan automáticamente la supervisión de las máquinas virtuales cuando se crea cada una. VM Insights ofrece una característica que permite detectar y corregir VM no compatibles en el entorno. Use esta característica en lugar de trabajar directamente con Azure Policy.
@@ -20,20 +20,22 @@ Si no está familiarizado con Azure Policy, obtenga una breve introducción en [
 > [!NOTE]
 > Para usar Azure Policy con conjuntos de escalado de máquinas virtuales de Azure o para trabajar con Azure Policy directamente para habilitar las máquinas virtuales de Azure, vea [Implementación de Azure Monitor a escala mediante Azure Policy](../deploy-scale.md#vm-insights).
 
-## <a name="prerequisites"></a>Requisitos previos
-- [Cree y configure un área de trabajo de Log Analytics](./vminsights-configure-workspace.md).
-- Vea [Sistemas operativos admitidos](./vminsights-enable-overview.md#supported-operating-systems) para asegurarse de que el sistema operativo de la máquina virtual o el conjunto de escalado de máquinas virtuales que va a habilitar son compatibles. 
+## <a name="vm-insights-initiatives"></a>Iniciativas de VM Insights
+VM Insights proporciona definiciones de directiva integradas para instalar el agente de Log Analytics y Dependency Agent en máquinas virtuales de Azure. Las siguientes iniciativas integradas instalan ambos agentes para habilitar la supervisión completa. Asigne estas iniciativas a un grupo de administración, una suscripción o un grupo de recursos para instalar automáticamente los agentes en cualquier máquina virtual Windows o Linux de Azure en ese ámbito.
+
+|Nombre |Descripción |
+|:---|:---|
+|Habilitación de VM Insights | Instala el agente de Log Analytics y Dependency Agent en VM de Azure y VM híbridas conectadas a Azure Arc. |
+|Habilitar Azure Monitor para conjunto de escalado de máquinas virtuales | Instala el agente de Log Analytics y Dependency Agent en los conjuntos de escalado de máquinas virtuales de Azure. |
 
 
-## <a name="vm-insights-initiative"></a>Iniciativa de VM Insights
-VM Insights proporciona definiciones de directiva integradas para instalar el agente de Log Analytics y Dependency Agent en máquinas virtuales de Azure. La iniciativa **Habilitar VM Insights** incluye cada una de estas definiciones de directiva. Asigne esta iniciativa a un grupo de administración, una suscripción o un grupo de recursos para instalar automáticamente los agentes en cualquier máquina virtual Windows o Linux de Azure en ese ámbito.
 
 ## <a name="open-policy-coverage-feature"></a>Acceso a la característica Cobertura de directiva
 Para acceder a **Cobertura de la directiva de VM Insights**, vaya a **Máquinas virtuales** en el menú **Azure Monitor** de Azure Portal. Seleccione **Otras opciones de incorporación** y **Habilitar** en **Habilitar mediante directiva**.
 
 [![Azure Monitor desde la pestaña Primeros pasos de las VM](./media/vminsights-enable-policy/get-started-page.png)](./media/vminsights-enable-policy/get-started-page.png#lightbox)
 
-## <a name="create-new-assignment"></a>Creación de una asignación
+### <a name="create-new-assignment"></a>Creación de una asignación
 Si aún no tiene una asignación, haga clic en **Asignar directiva** para crear una.
 
 [![Crear asignación](media/vminsights-enable-policy/create-assignment.png)](media/vminsights-enable-policy/create-assignment.png#lightbox)
@@ -51,7 +53,7 @@ En la página **Parámetros**, seleccione un **Área de trabajo de Log Analytics
 
 Haga clic en **Revisar y crear** para revisar los detalles de la asignación antes de hacer clic en **Crear** para crearla. No cree una tarea de corrección en este momento, ya que lo más probable es que necesite varias tareas de corrección para habilitar las máquinas virtuales existentes. Vea [Corrección de los resultados de cumplimiento](#remediate-compliance-results) a continuación.
 
-## <a name="review-compliance"></a>Revisión del cumplimiento
+### <a name="review-compliance"></a>Revisión del cumplimiento
 Una vez que se haya creado una asignación, puede revisar y administrar la cobertura de la iniciativa **Habilitar VM Insights** en los grupos de administración y las suscripciones. Esto mostrará cuántas máquinas virtuales existen en cada suscripción o grupo de administración y su estado de cumplimiento.
 
 [![Página Administrar directiva de VM Insights](media/vminsights-enable-policy/manage-policy-page-01.png)](media/vminsights-enable-policy/manage-policy-page-01.png#lightbox)
@@ -74,7 +76,7 @@ En la tabla siguiente se proporciona una descripción de la información de esta
 Al asignar la iniciativa, el ámbito seleccionado en la asignación podría ser el ámbito que se muestra o un subconjunto del mismo. Por ejemplo, es posible que haya creado una asignación para una suscripción (ámbito de la directiva) y no un grupo de administración (ámbito de la cobertura). En este caso, el valor de **cobertura de la asignación** indica el número de VM del ámbito de la iniciativa dividido entre las VM del ámbito de la cobertura. En otro caso, es posible que haya excluido algunas VM, grupos de recursos o una suscripción del ámbito de la directiva. Si el valor está en blanco, indica que la directiva o la iniciativa no existe o no tiene permiso. Se proporciona información en **Estado de asignación**.
 
 
-## <a name="remediate-compliance-results"></a>Corrección de los resultados de cumplimiento
+### <a name="remediate-compliance-results"></a>Corrección de los resultados de cumplimiento
 La iniciativa se aplicará a las máquinas virtuales a medida que se creen o modifiquen, pero no se aplicarán a las máquinas virtuales existentes. Si la asignación no muestra el cumplimiento total, cree tareas de corrección para evaluar y habilitar las máquinas virtuales existentes y seleccione **Ver compatibilidad** seleccionando los puntos suspensivos (...).
 
 [![Ver compatibilidad](media/vminsights-enable-policy/view-compliance.png)](media/vminsights-enable-policy/view-compliance.png#lightbox)
@@ -105,6 +107,22 @@ Haga clic en **Corregir** para crear la tarea de corrección y, a continuación,
 
 
 Una vez que se han completado las tareas de corrección, las máquinas virtuales deben ser compatibles con los agentes instalados y habilitados para VM Insights. 
+
+
+## <a name="azure-policy"></a>Azure Policy
+Para usar Azure Policy para habilitar la supervisión de conjuntos de escalado de máquinas virtuales, asigne la iniciativa **Habilitar Azure Monitor para conjuntos de escalado de máquinas virtuales** a un grupo de administración, suscripción o grupo de recursos de Azure en función del ámbito de los recursos que se supervisarán. Un [grupo de administración](../../governance/management-groups/overview.md) es útil para dar un ámbito a la directiva, especialmente si la organización tiene varias suscripciones.
+
+![Captura de pantalla de la página Asignar iniciativa en Azure Portal. La definición de la iniciativa está establecida en Habilitar Azure Monitor para conjuntos de escalado de máquinas virtuales.](media/vminsights-enable-policy/virtual-machine-scale-set-assign-initiative.png)
+
+Seleccione el área de trabajo a la que se enviarán los datos. Esta área de trabajo debe tener instalada la solución *VMInsights*, tal como se describe en [Configuración del área de trabajo de Log Analytics para VM Insights](vminsights-configure-workspace.md).
+
+![Captura de pantalla que muestra la selección de un área de trabajo.](media/vminsights-enable-policy/virtual-machine-scale-set-workspace.png)
+
+Cree una tarea de corrección si tiene conjuntos de escalado de máquinas virtuales existentes a los que sea necesario asignar esta directiva.
+
+![Captura de pantalla que muestra la creación de una tarea de corrección.](media/vminsights-enable-policy/virtual-machine-scale-set-remediation.png)
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

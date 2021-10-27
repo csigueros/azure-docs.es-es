@@ -3,12 +3,12 @@ title: Uso de la asignación de dispositivos sensores
 description: La asignación de dispositivos ofrece una representación gráfica de los dispositivos de red detectados. Use la asignación para analizar y administrar la información de los dispositivos y los segmentos de red, y generar informes.
 ms.date: 1/7/2021
 ms.topic: how-to
-ms.openlocfilehash: f7579cbca618baef404236556993c9831dd84bdf
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 58ccb69606f41a279424d0faa0241befbe9914bf
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113019065"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130137805"
 ---
 # <a name="investigate-sensor-detections-in-the-device-map"></a>Investigación de las detecciones de sensores en la asignación de dispositivos
 
@@ -320,7 +320,7 @@ La siguiente información se puede actualizar manualmente. La información espec
 | Sistema operativo | Sistema operativo de dispositivo detectado por el sensor. |
 | Capa de Purdue | Capa de Purdue identificada por el sensor para este dispositivo, que incluye: <br /> - Automático <br /> - Control de procesos <br /> - Supervisor <br /> - Enterprise |
 | Descripción | Campo de texto estático. <br /> Agregue más información sobre el dispositivo. |
-| Atributos | Cualquier información adicional que se haya detectado sobre el dispositivo durante el período de aprendizaje y que no pertenezca a otras categorías aparece en la sección de atributos. <br /> Esta información es de solo lectura. |
+| Atributos | Se ha detectado información adicional en el dispositivo. Por ejemplo, se puede ver el estado de ejecución y clave de PLC, el estado seguro del PLC o información sobre cuándo cambió el estado.  <br /> La información es de solo lectura y no se puede actualizar desde la sección Atributos. |
 | Configuración | Puede cambiar manualmente la configuración del dispositivo para evitar falsos positivos: <br /> - **Authorized Device** (Dispositivo autorizado): Durante el período de aprendizaje, todos los dispositivos detectados en la red se identifican como dispositivos autorizados. Cuando un dispositivo se detecta después del período de aprendizaje, aparece de forma predeterminada como dispositivo no autorizado. Puede cambiar esta información manualmente. <br /> - **Known as Scanner** (Conocido como escáner): Habilite esta opción si sabe que este dispositivo se conoce como escáner y no es necesario avisarle de ello. <br /> - **Programming Device** (Dispositivo de programación): Habilite esta opción si sabe que este dispositivo se conoce como dispositivo de programación y se usa para realizar cambios en la programación. La identificación como un dispositivo de programación impedirá que se produzcan alertas de los cambios de programación procedentes de este recurso. |
 | Grupos personalizados | Grupos personalizados en la asignación de dispositivos en la que participa este dispositivo. |
 | State | Estado de autorización y seguridad del dispositivo: <br /> - El estado es `Secured` cuando no hay ninguna alerta <br /> - Cuando hay alertas sobre el dispositivo, se muestra el número de alertas <br /> - El estado `Unauthorized` se muestra para los dispositivos que se agregaron a la red después del período de aprendizaje. Puede definir manualmente el dispositivo como `Authorized Device` en la configuración <br /> - En caso de que la dirección de este dispositivo se defina como dirección dinámica, se agrega `DHCP` al estado. |

@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 05/17/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 15774ad99391dee3cc89bec6fa09bb808715a4ef
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.openlocfilehash: 94c46b0c911d8f9e6ba0bee34d207bd7c1d4b8e5
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122830300"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130044750"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>Tutorial: Uso de Personalizer en un bot de chat de .NET
 

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/27/2021
-ms.openlocfilehash: 7f784773ff2f29b7f5b9c244811f818861f5ae42
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: b8d72d3b2e32f22cd3fc6bbe8a89b11469b343c4
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129080634"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072221"
 ---
 # <a name="azure-consumption-commitment-enrollment"></a>Inscripción en Compromiso de consumo de Azure
 
@@ -73,5 +73,5 @@ Para su inscripción en el programa MACC, una oferta debe cumplir con los requis
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información sobre cómo el programa MACC beneficia a los clientes y cómo pueden encontrar soluciones habilitadas para MACC, consulte [Ventaja del compromiso de consumo de Azure](/marketplace/azure-consumption-commitment-benefit).
-- Para más información sobre la forma en que una organización puede aprovechar Azure Marketplace, complete el módulo de Microsoft Learn: [Simplificación de la adquisición y la gobernanza en la nube con Azure Marketplace](/learn/modules/simplify-cloud-procurement-governance-azure-marketplace/).
+- Para obtener más información sobre la forma en que una organización puede aprovechar Azure Marketplace, complete el módulo de Microsoft Learn: [Simplificación de la adquisición y la gobernanza en la nube con Azure Marketplace](/learn/modules/simplify-cloud-procurement-governance-azure-marketplace/).
 - [Capacidades de transacción de marketplace comercial](marketplace-commercial-transaction-capabilities-and-considerations.md#transact-publishing-option)

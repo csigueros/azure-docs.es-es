@@ -3,12 +3,12 @@ title: Más información acerca de los dispositivos detectados por todos los sen
 description: Use el inventario de dispositivos de la consola de administración local para obtener una vista completa con la información de dispositivo de los sensores conectados. Use las herramientas de importación, exportación y filtrado para administrar esta información.
 ms.date: 12/02/2020
 ms.topic: how-to
-ms.openlocfilehash: 0ae59123b59cfb54cba2a2ee9bdeefb411c8793b
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 8016efe809d03cbc00bdb94b67f99caa7f98ac4c
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113020089"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130137823"
 ---
 # <a name="investigate-all-enterprise-sensor-detections-in-the-device-inventory"></a>Análisis de las detecciones de todos los sensores de la empresa del inventario de dispositivos
 
@@ -42,6 +42,7 @@ En la tabla siguiente se describen las columnas de la tabla del inventario de di
 | **Grupos** | Grupos en los que participa este dispositivo. |
 | **Última actividad** | Última actividad realizada por el dispositivo. |
 | **Discovered** | Cuándo apareció por primera vez en la red este dispositivo. |
+| **Modo PLC (versión preliminar)** | El modo de funcionamiento de PLC incluye el estado de clave (físico) y el estado de ejecución (lógico). Entre los posibles estados de **clave** se incluyen los siguientes: ejecución, programa, remoto, detenido, no válido, programación deshabilitada, posible ejecución. Los estados de **ejecución** posibles son: ejecución, programa, detenido, pausado, excepción, parado, atrapado, inactivo, sin conexión. Si ambos estados coinciden, solo se presenta uno. |
 
 ## <a name="integrate-data-into-the-enterprise-device-inventory"></a>Integración de datos en el inventario de dispositivos de la empresa
 

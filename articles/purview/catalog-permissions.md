@@ -6,12 +6,12 @@ ms.author: viseshag
 ms.service: purview
 ms.topic: conceptual
 ms.date: 09/27/2021
-ms.openlocfilehash: fc2ea92f8e5a3d727db130cc4dce7c13c449a9fa
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 8e6f9840f89d3e4c180da366f45548ef54a678dc
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129209060"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042662"
 ---
 # <a name="access-control-in-azure-purview"></a>Control de acceso en Azure Purview
 
@@ -31,9 +31,9 @@ Una colección es una herramienta que Azure Purview usa para agrupar recursos, o
 Azure Purview usa un conjunto de roles predefinidos para controlar quién puede acceder a lo que hay dentro de la cuenta. Estos roles son actualmente:
 
 - **Administradores de colecciones**: un rol para los usuarios que tienen que asignar roles a otros en Azure Purview o bien administrar colecciones. Los administradores de colecciones pueden agregar usuarios a roles en las colecciones en las que son administradores. También pueden editar las colecciones y sus detalles y agregar subcolecciones.
-- **Administradores de datos**: un rol que proporciona acceso al catálogo de datos para administrar recursos, configurar clasificaciones personalizadas, configurar términos de glosario y revisar la información. Los administradores de datos pueden crear, leer, modificar, mover y eliminar recursos, además de aplicarles anotaciones.
-- **Administradores de orígenes de datos**: un rol que puede administrar exámenes y orígenes de datos. Un usuario que tenga solo el rol de administrador de orígenes de datos no tiene acceso a Azure Purview Studio. La combinación de este rol con los roles de lector de datos o de administrador de datos proporciona un acceso más amplio.
-- **Lectores de datos**: un rol que proporciona acceso de solo lectura a los recursos de datos, clasificaciones, reglas de clasificación, colecciones, glosario e información.
+- **Administradores provisionales de datos**: un rol que proporciona acceso al catálogo de datos para administrar recursos, configurar clasificaciones personalizadas, configurar términos de glosario y revisar la información. Los administradores provisionales de datos pueden crear, leer, modificar, mover y eliminar recursos. También pueden aplicarles anotaciones.
+- **Lectores de datos**: un rol que proporciona acceso de solo lectura a los recursos de datos, clasificaciones, reglas de clasificación, colecciones, términos de glosario e información.
+- **Administradores de orígenes de datos**: un rol que permite a un usuario administrar orígenes y análisis de datos. Un usuario que tenga el rol de administrador de orígenes de datos no tiene acceso a Azure Purview Studio. La combinación de este rol con los roles Lector de datos o Administrador provisional de datos en cualquier ámbito de colección proporciona acceso a Azure Purview Studio.
 
 ## <a name="who-should-be-assigned-to-what-role"></a>¿A quién se le debe asignar cada rol?
 

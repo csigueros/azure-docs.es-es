@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/25/2021
-ms.openlocfilehash: 33a40f118daf90ccc97ea6c14b87c5aa7c79b6c9
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.date: 10/05/2021
+ms.openlocfilehash: 5be8a3cfa8681bced90ba6fc74ebc69baa2f7962
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129708809"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065680"
 ---
 # <a name="create-an-integration-workflow-with-single-tenant-azure-logic-apps-standard-in-the-azure-portal"></a>Creación de un flujo de trabajo de integración con Azure Logic Apps (estándar) de inquilino único en Azure Portal
 
@@ -55,6 +55,8 @@ A medida que avance, completará estas tareas de alto nivel:
 
 * Si crea los recursos de la aplicación lógica con una configuración que admite el uso de [Application Insights](../azure-monitor/app/app-insights-overview.md), tiene la opción de habilitar el registro de diagnóstico y el seguimiento para la aplicación lógica. Puede hacerlo al crear la aplicación lógica o después de la implementación. Debe tener una instancia de Application Insights, pero puede crear este recurso [con antelación](../azure-monitor/app/create-workspace-resource.md), al crear la aplicación lógica o después de la implementación.
 
+* Para implementar el recurso **aplicación lógica (estándar)** en un entorno [App Service Environment v3 (ASEv3)](../app-service/environment/overview.md), primero debe crear este recurso de entorno. A continuación, puede seleccionar este entorno como ubicación de implementación al crear el recurso de aplicación lógica. Para obtener más información, revise [Tipos y entornos de recursos](single-tenant-overview-compare.md#resource-environment-differences) y [Creación de una instancia de App Service Environment](../app-service/environment/creation.md).
+
 <a name="create-logic-app-resource"></a>
 
 ## <a name="create-the-logic-app-resource"></a>Creación del recurso de aplicación lógica
@@ -75,8 +77,8 @@ A medida que avance, completará estas tareas de alto nivel:
    | **Grupo de recursos** | Sí | <*nombre del grupo de recursos de Azure*> | El grupo de recursos de Azure en el que se crea la aplicación lógica y los recursos relacionados. El nombre del recurso debe ser único entre las regiones y solo puede contener letras, números, guiones ( **-** ), caracteres de subrayado ( **_** ), paréntesis ( **()** ) y puntos ( **.** ). <p><p>En este ejemplo se crea un grupo de recursos denominado `Fabrikam-Workflows-RG`. |
    | **Tipo** | Sí | **Estándar** | Este tipo de recurso de aplicación lógica se ejecuta en el entorno de Azure Logic Apps de un solo inquilino y usa el [modelo de uso, facturación y precios Estándar](logic-apps-pricing.md#standard-pricing). |
    | **Nombre de la aplicación lógica** | Sí | <*nombre-de-la-aplicación-lógica*> | Nombre que se va a usar para la aplicación lógica. El nombre del recurso debe ser único entre las regiones y solo puede contener letras, números, guiones ( **-** ), caracteres de subrayado ( **_** ), paréntesis ( **()** ) y puntos ( **.** ). <p><p>En este ejemplo se crea una aplicación lógica denominada `Fabrikam-Workflows`. <p><p>**Nota**: El nombre de la aplicación lógica obtiene automáticamente el sufijo `.azurewebsites.net`, ya que el recurso **Logic Apps (estándar)** se basa en Azure Functions, que usa la misma convención de nomenclatura de la aplicación. |
-   | **Publicar** | Sí | <*entorno-de-implementación*> | El destino de implementación de la aplicación lógica. De forma predeterminada, se selecciona **Flujo de trabajo** para la implementación en Azure Logic Apps de un solo inquilino. Azure crea un recurso de aplicación lógica vacío donde tiene que agregar el primer flujo de trabajo. <p><p>**Nota**: Actualmente, la opción **Contenedor de Docker** requiere una [*ubicación personalizada*](../azure-arc/kubernetes/conceptual-custom-locations.md) en un clúster de Kubernetes habilitado para Azure Arc que puede utilizar con [instancias de Logic Apps habilitadas para Azure Arc (versión preliminar)](azure-arc-enabled-logic-apps-overview.md). Las ubicaciones del recurso de la aplicación lógica, la ubicación personalizada y el clúster deben tener los mismos valores. |
-   | **Región** | Sí | <*Azure-region*> | Ubicación que se usará para crear el grupo de recursos y los recursos. Si seleccionó **Contenedor de Docker**, seleccione la ubicación personalizada. <p><p>En este ejemplo se implementa la aplicación lógica de ejemplo en Azure y se usa **Oeste de EE. UU.** |
+   | **Publicar** | Sí | <*entorno-de-implementación*> | El destino de implementación de la aplicación lógica. De forma predeterminada, se selecciona **Flujo de trabajo** para la implementación en Azure Logic Apps de un solo inquilino. Azure crea un recurso de aplicación lógica vacío donde tiene que agregar el primer flujo de trabajo. <p><p>**Nota**: Actualmente, la opción **Contenedor de Docker** requiere una [*ubicación personalizada*](../azure-arc/kubernetes/conceptual-custom-locations.md) en un clúster de Kubernetes habilitado para Azure Arc, que puede utilizar con [instancias de Logic Apps habilitadas para Azure Arc (versión preliminar)](azure-arc-enabled-logic-apps-overview.md). Las ubicaciones del recurso de la aplicación lógica, la ubicación personalizada y el clúster deben tener los mismos valores. |
+   | **Región** | Sí | <*Azure-region*> | Ubicación que se usará para crear el grupo de recursos y los recursos. En este ejemplo se implementa la aplicación lógica de ejemplo en Azure y se usa **Oeste de EE. UU.** <p>- Si seleccionó **Contenedor de Docker**, seleccione la ubicación personalizada. <p>- Para implementar en un recurso de [ASEv3,](../app-service/environment/overview.md) que debe existir primero, seleccione ese recurso de entorno en la lista **Región**. |
    |||||
 
    En el ejemplo siguiente se muestra la página para **crear una aplicación lógica (estándar)** :

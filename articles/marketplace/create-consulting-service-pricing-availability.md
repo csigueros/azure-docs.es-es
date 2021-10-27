@@ -1,6 +1,6 @@
 ---
-title: Configuración del precio y disponibilidad de los servicios de consultoría en el Centro de partners de Microsoft
-description: Aprenda a configurar la información sobre precios y disponibilidad de mercado en el marketplace comercial de Microsoft mediante el Centro de partners.
+title: Configuración de los precios y la disponibilidad del servicio de consultoría para marketplace comercial
+description: Configure la información sobre precios y disponibilidad de mercado del servicio de consultoría en el marketplace comercial de Microsoft mediante el Centro de partners.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
@@ -8,14 +8,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 10/27/2020
-ms.openlocfilehash: 6b386238bd759714bc0c8ad81d67c29aa1774aba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cf6290632a1c9d78265961ccaa47b25fc1734a1b
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96780236"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065965"
 ---
-# <a name="how-to-configure-your-consulting-service-pricing-and-availability"></a>Configuración del precio y disponibilidad de sus servicios de consultoría
+# <a name="configure-consulting-service-offer-pricing-and-availability"></a>Configuración de precios y disponibilidad de ofertas del servicio de consultoría
 
 En este artículo se explica cómo definir la información de mercado y precios de su oferta de servicios de consultoría en el marketplace comercial de Microsoft.
 

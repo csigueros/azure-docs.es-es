@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 32f98eb9b98168bdab270ecff07446c31f8d706d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c8d3e988edd48d33c1bbf7e1680b9a777725727d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729763"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130019222"
 ---
 Use el desencadenador de funciones para responder a un evento enviado a una secuencia de eventos del centro de eventos. Debe tener acceso de lectura al centro de eventos subyacente para configurar el desencadenador. Cuando esta función se desencadena, el mensaje que se pasa a la función se escribe como una cadena.
 
@@ -360,9 +360,11 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**eventHubName** |**EventHubName** | Functions 2.x y versiones posteriores. El nombre del centro de eventos. Cuando el nombre del centro de eventos también está presente en la cadena de conexión, ese valor reemplaza esta propiedad en tiempo de ejecución. Se puede hacer referencia a él desde la [configuración de la aplicación](../articles/azure-functions/functions-bindings-expressions-patterns.md#binding-expressions---app-settings) `%eventHubName%` |
 |**consumerGroup** |**ConsumerGroup** | Una propiedad opcional que establece el [grupo de consumidores](../articles/event-hubs/event-hubs-features.md#event-consumers) que se usará para suscribirse a los eventos del centro. Si se pasa por alto, se utilizará el grupo de consumidores `$Default`. |
 |**cardinalidad** | N/D | Se utiliza para los lenguajes distintos de C#. Defínalo como `many` para permitir el procesamiento por lotes.  Si se omite o se define como `one`, se pasa un único mensaje a la función.<br><br>En C#, esta propiedad se asigna automáticamente siempre que el desencadenador tenga una matriz para el tipo.|
-|**connection** |**Connection** | El nombre de una configuración de aplicación que contenga la cadena de conexión para el espacio de nombres del centro de eventos. Copie esta cadena de conexión haciendo clic en el botón **Información de conexión** del [espacio de nombres](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), no del propio centro de eventos. Esta cadena de conexión debe tener al menos permisos de lectura para activar el desencadenador.<br><br>Si usa [la versión 5.x o superior de la extensión](../articles/azure-functions/functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher), en lugar de una cadena de conexión puede proporcionar una referencia a una sección de configuración que defina la conexión. Consulte [Conexiones](../articles/azure-functions/functions-reference.md#connections).|
+|**connection** |**Connection** | Nombre de una configuración de aplicación o de una colección de configuraciones de aplicación que especifica cómo conectarse a Event Hubs. Consulte [Conexiones](#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
+
+[!INCLUDE [functions-event-hubs-connections](./functions-event-hubs-connections.md)]
 
 ## <a name="usage"></a>Uso
 
@@ -404,7 +406,7 @@ Consulte el [ejemplo de desencadenador](#example) de Java para más información
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Consulte el [ejemplo de desencadenador](#example) de Javascript para más información.
+Consulte el [ejemplo de desencadenador](#example) de JavaScript para más información.
 
 # <a name="python"></a>[Python](#tab/python)
 
