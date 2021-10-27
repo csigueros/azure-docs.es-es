@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 18dace708f7ded8f77e041b98c705f0f2f1aafca
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: cc6fe6933c90d4cb8eaecdf7e4386de5e7bc4bf5
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108317638"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001701"
 ---
 # <a name="configure-tls-policy-versions-and-cipher-suites-on-application-gateway"></a>Configuración de versiones de directivas TLS y conjuntos de cifrado en Application Gateway
 
@@ -120,7 +120,7 @@ En el ejemplo siguiente se establece una directiva TLS personalizada en una inst
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 
 > [!IMPORTANT]
-> TLS_RSA_WITH_AES_256_CBC_SHA256 debe estar seleccionado al configurar una directiva TLS personalizada. Application Gateway usa este conjunto de cifrado para la administración de back-end. Puede usar este conjunto en combinación con cualquier otro conjunto, pero este también debe estar seleccionado. 
+> TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 debe estar seleccionado al configurar una directiva TLS personalizada. Application Gateway usa este conjunto de cifrado para la administración de back-end. Puede usar este conjunto en combinación con cualquier otro conjunto, pero este también debe estar seleccionado. 
 
 ```powershell
 # get an application gateway resource

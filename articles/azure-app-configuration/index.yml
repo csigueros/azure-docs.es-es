@@ -9,12 +9,12 @@ metadata:
   ms.service: azure-app-configuration
   ms.topic: landing-page
   ms.date: 02/03/2020
-  ms.openlocfilehash: 389cb3b57c183fa45b8de44b3bdfef3916931b16
-  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+  ms.openlocfilehash: 0cec6db0776190d37901a8a572b209bff79475ff
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/22/2021
-  ms.locfileid: "114445700"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130227100"
 landingContent:
 - title: Acerca de Azure App Configuration
   linkLists:
@@ -74,6 +74,8 @@ landingContent:
     links:
     - text: Uso de la configuración dinámica en ASP.NET Core
       url: enable-dynamic-configuration-aspnet-core.md
+    - text: Uso de la configuración dinámica en ASP.NET (.NET Framework)
+      url: enable-dynamic-configuration-aspnet-netfx.md
     - text: Uso de la configuración dinámica en .NET Core
       url: enable-dynamic-configuration-dotnet-core.md
     - text: Uso de la configuración dinámica en .NET Framework

@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac53f16e80904216a4e19b03772dcd2820882f94
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 618283c64268f279b0a63ffb35779ea6e8ef55d0
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129657899"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130043555"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory"></a>Habilitación del inicio de sesión con una clave de seguridad sin contraseña en recursos locales con Azure Active Directory 
 
@@ -223,6 +223,11 @@ Asegúrese de que se han revisado suficientes controladores de dominio para resp
 
 > [!NOTE]
 > El modificador `/keylist` del comando `nltest` está disponible en el cliente Windows 10 v2004 y versiones posteriores.
+
+
+### <a name="is-fido2-security-keys-works-on-windows-login-with-rodc-present-in-the-hybrid-enviornment"></a>¿Funcionan las claves de seguridad FIDO2 en un inicio de sesión de Windows con RODC presente en el entorno híbrido?
+
+El inicio de sesión de Windows FIOD2 busca un DC grabable para intercambiar el TGT del usuario. Siempre que tenga al menos un DC grabable por sitio, funciona bien. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,20 +1,20 @@
 ---
-title: Copia de datos a o desde Azure Data Explorer
+title: Copia y transformación de datos en Azure Data Explorer
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Aprenda a copiar datos en Azure Data Explorer y desde ahí mediante una actividad de copia en una canalización de Azure Data Factory o Synapse Analytics.
+description: Aprenda a copiar o transformar datos en Azure Data Explorer mediante Data Factory o Azure Synapse Analytics.
 ms.author: orspodek
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
-ms.openlocfilehash: 511e1d58e3abf3c44025a02059c5d6aa947809c0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/14/2021
+ms.openlocfilehash: a764b6e0046b399d1984f13404aae6ba1eb4d72f
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124771904"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063894"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory-or-synapse-analytics"></a>Copia de datos en Azure Data Explorer o desde ahí mediante Azure Data Factory o Synapse Analytics
 
@@ -339,6 +339,81 @@ Para copiar datos en Azure Data Explorer, establezca la propiedad type del recep
         ]
     }
 ]
+```
+
+## <a name="mapping-data-flow-properties"></a>Propiedades de Asignación de instancias de Data Flow
+
+Al transformar datos en un flujo de datos de asignación, puede leer y escribir en tablas de Azure Data Explorer. Para más información, vea la [transformación de origen](data-flow-source.md) y la [transformación de receptor](data-flow-sink.md) en los flujos de datos de asignación. Puede optar por usar un conjunto de datos de Azure Data Explorer o un [conjunto de datos en línea](data-flow-source.md#inline-datasets) como tipo de origen y de receptor.
+
+### <a name="source-transformation"></a>Transformación de origen
+
+En la tabla siguiente se enumeran las propiedades compatibles con el origen de Azure Data Explorer. Puede editar estas propiedades en la pestaña **Source options** (Opciones de origen).
+
+| Nombre | Descripción | Obligatorio | Valores permitidos | Propiedad de script de flujo de datos |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Tabla | Si selecciona Tabla como entrada, el flujo de datos captura todos los datos de la tabla especificada en el conjunto de datos de Azure Data Explorer, o en las opciones del origen al usar un conjunto de datos en línea. | No | String | *(solo para conjunto de datos en línea)*<br>tableName |
+| Consultar | Una solicitud de solo lectura dada en un [formato KQL](/azure/data-explorer/kusto/query/). Use la consulta KQL personalizada como referencia.  | No | String | Query |
+| Tiempo de espera | Tiempo para que se agote el tiempo de espera de la solicitud de consulta. El valor predeterminado es 172000 (2 días).  | No | Entero | timeout |
+
+#### <a name="azure-data-explorer-source-script-examples"></a>Ejemplos de scripts de origen de Azure Data Explorer
+
+Cuando se usa un conjunto de datos de Azure Data Explorer como tipo de origen, el script de flujo de datos asociado es:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    query: 'table | take 10',
+    format: 'query') ~> AzureDataExplorerSource
+
+```
+
+Si se usa un conjunto de datos en línea, el script de flujo de datos asociado es:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'query',
+    query: 'table | take 10',
+    store: 'azuredataexplorer') ~> AzureDataExplorerSource
+
+```
+
+### <a name="sink-transformation"></a>Transformación de receptor
+
+En la tabla siguiente se enumeran las propiedades compatibles con el receptor de Azure Data Explorer. Puede editar estas propiedades en la pestaña **Configuración**. Al usar un conjunto de datos en línea, se ven opciones adicionales, que son las mismas que las propiedades descritas en la sección [Propiedades del conjunto de datos](#dataset-properties). 
+
+| Nombre | Descripción | Obligatorio | Valores permitidos | Propiedad de script de flujo de datos |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Acción Table | determina si se deben volver a crear o quitar todas las filas de la tabla de destino antes de escribir.<br>- **Ninguno**: no se realizará ninguna acción en la tabla.<br>- **Volver a crear**: se quitará la tabla y se volverá a crear. Obligatorio si se crea una nueva tabla dinámicamente.<br>- **Truncar**: se quitarán todas las filas de la tabla de destino. | No | `true` o `false` | recreate<br/>truncate |
+| Scripts SQL anteriores y posteriores | Especifique varios scripts de [comandos de control de Kusto](/azure/data-explorer/kusto/query/#control-commands) que se ejecuten antes (procesamiento previo) y después (procesamiento posterior) de que los datos se escriban en la base de datos del receptor. | No | String | preSQLs; postSQLs |
+| Tiempo de espera | Tiempo para que se agote el tiempo de espera de la solicitud de consulta. El valor predeterminado es 172000 (2 días). | No | Entero | timeout |
+
+
+#### <a name="azure-data-explorer-sink-script-examples"></a>Ejemplos de scripts de receptor de Azure Data Explorer
+
+Cuando se usa un conjunto de datos de Azure Data Explorer como tipo de receptor, el script de flujo de datos asociado es:
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'table',
+    preSQLs:['pre SQL scripts'],
+    postSQLs:['post SQL script'],
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> AzureDataExplorerSink
+
+```
+
+Si se usa un conjunto de datos en línea, el script de flujo de datos asociado es:
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'table',
+    store: 'azuredataexplorer',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> AzureDataExplorerSink
+
 ```
 
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda

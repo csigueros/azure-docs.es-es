@@ -3,7 +3,7 @@ title: Automated Backup v2 para máquinas virtuales Azure con SQL Server 2016/20
 description: En este artículo se explica la característica Automated Backup para SQL Server 2016/2017 en máquinas virtuales que se ejecutan en Azure. Este artículo trata exactamente sobre las máquinas virtuales que usan Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
 ms.service: virtual-machines-sql
@@ -12,15 +12,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: pamela
+ms.reviewer: mathoma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a93214a8577dc298551e4e819282a58f10a72f38
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 047280e5db0ce67a80b44dee224196d2ac6668c4
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121746605"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166241"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Automated Backup v2 para Azure Virtual Machines (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -112,8 +112,9 @@ Esto significa que la siguiente ventana de copia de seguridad disponible es el l
 
 Posteriormente, se vuelve a realizar la copia de seguridad completa de todas las bases de datos el martes a las 22:00 horas durante seis horas.
 
+
 > [!IMPORTANT]
-> Al programar copias de seguridad diarias, se recomienda programar un período de tiempo amplio para asegurarse de se puede realizar la copia de seguridad de todas las bases de datos durante ese período. Esto es especialmente importante en el caso de que tenga una gran cantidad de datos de los que realizar una copia de seguridad.
+> Las copias de seguridad se ejecutan secuencialmente durante cada intervalo. En el caso de instancias con un gran número de bases de datos, programe el intervalo de copia de seguridad con tiempo suficiente para todas las copias de seguridad. Si las copias de seguridad no se pueden completar dentro del intervalo especificado, se pueden omitir algunas copias de seguridad y el tiempo entre las copias de seguridad de una base de datos única puede superior al tiempo del intervalo configurado, lo que podría afectar negativamente al objetivo de punto de restauración (RPO). 
 
 ## <a name="configure-new-vms"></a>Configuración de máquinas virtuales nuevas
 

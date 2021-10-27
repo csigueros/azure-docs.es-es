@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: f988fafbdd381c88a3f8da60fb48fa3320a82876
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9025b32aa2ea6fd8fefa91d89b608c0e5d26b45e
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128674459"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129992912"
 ---
 # <a name="what-is-azure-virtual-desktop"></a>¿Qué es Azure Virtual Desktop?
 
@@ -99,7 +99,7 @@ Para obtener un rendimiento óptimo, asegúrese de que la red cumple los requisi
 
 * La latencia de ida y vuelta (RTT) desde la red del cliente hasta la región de Azure donde se han implementado grupos host debe ser inferior a 150 ms. Use el [estimador de experiencia](https://azure.microsoft.com/services/virtual-desktop/assessment) para ver el estado de la conexión y la región de Azure recomendada.
 * El tráfico de red puede fluir fuera de las fronteras del país o la región si las máquinas virtuales que hospedan los escritorios y las aplicaciones se conectan al servicio de administración.
-* Para optimizar el rendimiento de la red, se recomienda que las máquinas virtuales del host de sesión se coloquen en la misma región de Azure que el servicio de administración.
+* Para optimizar el rendimiento de la red, se recomienda que las máquinas virtuales del host de sesión se coloquen en la región de Azure más cercana al usuario.
 
 En nuestra [documentación de la arquitectura](/azure/architecture/example-scenario/wvd/windows-virtual-desktop) puede ver la configuración de una arquitectura típica de Azure Virtual Desktop para la empresa.
 

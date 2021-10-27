@@ -3,18 +3,18 @@ title: Administración del portal del Contrato Enterprise de Azure
 description: En este artículo se explican las tareas comunes que un administrador lleva a cabo en el portal del Contrato Enterprise de Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/28/2021
+ms.date: 10/13/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: sapnakeshari
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: ede22b400b597c8cc474d49f65341bb5b24ea118
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: aeb817f2d76306e2c2f3e571fb4a5bc67e98d098
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129216771"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000316"
 ---
 # <a name="azure-ea-portal-administration"></a>Administración del portal del Contrato Enterprise de Azure
 
@@ -122,7 +122,7 @@ La estructura de las cuentas y suscripciones afecta al modo en que se administra
 
 Para agregar una cuenta:
 
-1. En Azure Enterprise Portal, seleccione **Administrar** en el área de navegación de la izquierda.
+1. En Azure Enterprise Portal, seleccione **Administrar** en el área de navegación de la izquierda y, a continuación, seleccione una inscripción.
 1. Seleccione la pestaña **Cuenta**. En la página **Cuenta**, haga clic en **+Agregar cuenta**.
 1. Seleccione un departamento o déjelo como sin asignar y, después, seleccione el tipo de autenticación que desea.
 1. Escriba el nombre descriptivo para identificar la cuenta en los informes.
@@ -140,6 +140,19 @@ Para confirmar la propiedad de la cuenta:
 
    El estado debe cambiar de **Pending** (Pendiente) a **Start/End date** (Fecha de inicio y de finalización). La fecha de inicio y de finalización es la fecha en que el usuario inició sesión por primera vez y la fecha de finalización del contrato.
 1. Cuando aparezca el mensaje **Advertencia**, el propietario de la cuenta debe seleccionar **Continuar** para activar la cuenta la primera vez que inicie sesión en Azure Enterprise Portal.
+
+## <a name="add-an-account-from-another-azure-ad-tenant"></a>Adición de una cuenta desde otro inquilino de Azure AD
+
+De manera predeterminada, una inscripción está asociada a un inquilino de Azure AD específico. Solo se pueden usar cuentas de ese inquilino para establecer una cuenta de inscripción de Azure. Sin embargo, debe cambiar el comportamiento para permitir que una cuenta se vincule desde cualquier inquilino de Azure AD.
+
+Para agregar una cuenta desde cualquier inquilino:
+
+1.  En Azure Enterprise Portal, seleccione **Administrar** en el área de navegación de la izquierda.
+1. Seleccione la inscripción apropiada. Tenga en cuenta la configuración actual para el **nivel de autenticación** si desea restaurar la configuración más adelante.
+1.  Si aún no está configurado, cambie el nivel de autenticación a **Cuenta profesional y educativa entre inquilinos**.
+1. Agregue la cuenta mediante la información de inicio de sesión de Azure AD, como se describe en la sección anterior.
+1.  Devuelva el **nivel de autenticación** a su configuración anterior o establézcalo como **Cuenta profesional y educativa**.
+1.  Inicie sesión en EA Portal para comprobar que puede ver las ofertas de suscripción adecuadas para que, a continuación, pueda agregar suscripciones en Azure Portal.
 
 ## <a name="change-azure-subscription-or-account-ownership"></a>Cambio de la propiedad de la cuenta o de la suscripción de Azure
 

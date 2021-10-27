@@ -3,23 +3,23 @@ title: 'Vinculación del dominio a su identificador descentralizado (DID) (versi
 description: Información sobre el enlace DNS
 documentationCenter: ''
 author: barclayn
-manager: daveba
+manager: karenh444
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: c1254176966a902f81cd42b68db17557288aa241
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: d1a74d0019c931c8d52dccdc14ddd11a5ed7a1f3
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110466186"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130006876"
 ---
-# <a name="link-your-domain-to-your-decentralized-identifier-did"></a>Vinculación del dominio a su identificador descentralizado (DID)
+# <a name="link-your-domain-to-your-decentralized-identifier-did-preview"></a>Vinculación del dominio al identificador descentralizado (DID) (versión preliminar)
 
 > [!IMPORTANT]
-> Las credenciales verificables de Azure Active Directory se encuentran actualmente en versión preliminar pública.
+> Azure Active Directory Verifiable Credentials se encuentra actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 En este artículo:

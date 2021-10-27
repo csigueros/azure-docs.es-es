@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 05/17/2021
 ms.author: qixwang
-ms.openlocfilehash: 8b25f56b238c7f0c42a1ba589f7da2d68344c915
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: a9f0095ebd82ab82003c03c1ca9d59f70d908c9f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110464397"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130006116"
 ---
 # <a name="configure-an-azure-front-door-standardpremium-route"></a>Configuración de una ruta en Azure Front Door Standard o Premium
 
@@ -56,7 +56,7 @@ Para configurar un grupo de orígenes, consulte este artículo sobre la [creaci�
     | --- | --- |
     | Nombre | Especifique un nombre único para la nueva ruta. |   
     | Domain| Seleccione uno o varios dominios validados que no estén asociados a otra ruta. |
-    | Patrones de coincidencia  | Configure todos los patrones de rutas URL que se van a aceptar en esta ruta. Por ejemplo, puede establecer este valor en `/images/*` para aceptar todas las solicitudes de la dirección URL `www.contoso.com/images/*`. AFD intentará determinar el tráfico primero en función de la coincidencia exacta. Si ninguna ruta coincide exactamente, buscará una ruta de acceso con caracteres comodín que coincida. Si no hay reglas de enrutamiento con una ruta coincidente, rechace la solicitud y devuelva una respuesta de error HTTP 400: solicitud incorrecta. |
+    | Patrones de coincidencia  | Configure todos los patrones de rutas URL que se van a aceptar en esta ruta. Por ejemplo, puede establecer este valor en `/images/*` para aceptar todas las solicitudes de la dirección URL `www.contoso.com/images/*`. AFD intentará determinar el tráfico primero en función de la coincidencia exacta. Si ninguna ruta coincide exactamente, buscará una ruta de acceso con caracteres comodín que coincida. Si no hay reglas de enrutamiento con una ruta coincidente, rechace la solicitud y devuelva una respuesta de error HTTP 400: solicitud incorrecta. Los patrones para la coincidencia de rutas de acceso no tienen en cuenta las mayúsculas y minúsculas, lo que significa que las rutas de acceso con mayúsculas y minúsculas diferentes se tratan como duplicadas. Por ejemplo, tendrá el mismo host y el mismo protocolo con las rutas de acceso `/FOO` y `/foo`. Estas rutas de acceso se consideran duplicadas, lo que no se permite en la configuración de coincidencia de patrones. |
     | Accepted protocols (Protocolos aceptados) | Especifique los protocolos que desea que Azure Front Door acepte cuando el cliente realice la solicitud. |
     | Redirect | Especifique si HTTPS se va a aplicar forzosamente con las solicitudes HTTP entrantes. |
     | Origin group (Grupo de orígenes) | Seleccione el grupo de orígenes al que se debe reenviar la solicitud cuando esta se devuelva al origen. |

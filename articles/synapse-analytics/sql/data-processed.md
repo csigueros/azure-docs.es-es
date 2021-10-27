@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 11/05/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1e87198d66e94204b0465919e7a94e0d04f9c885
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: b1439eb4b2f1f014608c2fe411176d14177c4487
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128854"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130137311"
 ---
 # <a name="cost-management-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Administración de costos del grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -139,6 +139,14 @@ Para ver la cantidad de datos procesados durante el día, la semana o el mes act
 ```sql
 SELECT * FROM sys.dm_external_data_processed
 ```
+
+## <a name="exceeding-the-limits-defined-in-the-cost-control"></a>Superación de los límites definidos en el control de costos
+
+En caso de que se supere cualquier límite durante la ejecución de la consulta, esta no se completará.  
+
+Si se supera el límite, se rechazará la nueva consulta con el mensaje de error que contiene los detalles, el límite definido y los datos procesados del período. Por ejemplo, en caso de que se ejecute una nueva consulta, donde el límite semanal se establezca en 1 TB y se supere, el mensaje de error sería el siguiente: 
+
+```Query is rejected because SQL Serverless budget limit for a period is exceeded. (Period = Weekly: Limit = 1 TB, Data processed = 1 TB))```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

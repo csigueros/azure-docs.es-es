@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: overview
 ms.date: 02/17/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 74d08095b8ea1df0ffb34264c2f0ca3af64b5dd8
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: ef1725161630e4a79b078a3c473f56e3d14a06ca
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772702"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994525"
 ---
 # <a name="about-keys"></a>Acerca de las claves
 
@@ -59,17 +59,17 @@ Key Vault admite claves RSA y EC. HSM administrado admite claves RSA, EC y simé
 
 |Tipo de clave|Almacenes (solo SKU Premium)|HSM administrados|
 |--|--|--|
-|**EC-HSM**: clave de curva elíptica | Compatible | Compatible|
-|**RSA-HSM**: Clave RSA|Compatible|Compatible|
-|**oct-HSM**: clave simétrica|No compatible|Compatible|
+|**EC-HSM**: clave de curva elíptica | Compatible (P-256, P-384, P-521, P-256K)| Compatible (P-256, P-256K, P-384, P-521)|
+|**RSA-HSM**: Clave RSA|Compatible (2048 bits, 3072 bits, 4096 bits)|Compatible (2048 bits, 3072 bits, 4096 bits)|
+|**oct-HSM**: clave simétrica|No compatible|Compatible (128 bits, 192 bits, 256 bits)|
 |||
 
 ### <a name="software-protected-keys"></a>Claves protegidas con software
 
 |Tipo de clave|Almacenes|HSM administrados|
 |--|--|--|
-**RSA**: clave RSA "protegida con software"|Compatible|No compatible
-**EC**: clave de curva elíptica "protegida con software"|Compatible|No compatible
+**RSA**: clave RSA "protegida con software"|Compatible (2048 bits, 3072 bits, 4096 bits)|No compatible
+**EC**: clave de curva elíptica "protegida con software" |Compatible (P-256, P-384, P-521, P-256K)|No compatible
 |||
 
 ### <a name="compliance"></a>Cumplimiento normativo

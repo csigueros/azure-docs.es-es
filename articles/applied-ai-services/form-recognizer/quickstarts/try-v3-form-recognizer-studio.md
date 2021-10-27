@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 09/14/2021
 ms.author: sajagtap
-ms.openlocfilehash: 032669d298ef0aeda3663c303f5575e24cd02354
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 8c0fee509dabc0d7d0462dd28e14c453615af52e
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129809770"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000541"
 ---
 # <a name="get-started-form-recognizer-studio--preview"></a>Introducción: Form Recognizer Studio | Versión preliminar
 
@@ -39,6 +39,22 @@ Una [**cuenta de Azure Blob Storage**](https://ms.portal.azure.com/#create/Micro
   * [**Creación de una cuenta de almacenamiento**](/azure/storage/common/storage-account-create). Al crear la cuenta de almacenamiento, asegúrese de seleccionar rendimiento **Estándar** en el campo **Detalles de instancia → Rendimiento**.
   * [**Creación de un contenedor**](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container). Al crear un contenedor, establezca el campo **Nivel de acceso público** en **Contenedor** (acceso anónimo de lectura para contenedores y blobs) en la ventana **Nuevo contenedor**.
 
+### <a name="configure-cors"></a>Configuración de CORS
+
+[CORS (uso compartido de recursos entre orígenes)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) debe configurarse en la cuenta de almacenamiento de Azure para que sea accesible desde Form Recognizer Studio. Para configurar CORS en Azure Portal, necesitará acceso a la hoja CORS de la cuenta de almacenamiento.
+
+:::image type="content" source="../media/quickstarts/storage-cors-example.png" alt-text="Captura de pantalla que muestra la configuración de CORS para una cuenta de almacenamiento.":::
+
+1. Seleccione la hoja CORS de la cuenta de almacenamiento.
+2. Empiece por crear una nueva entrada de CORS en Blob service.
+3. Establezca **Orígenes permitidos** en **https://formrecognizer.appliedai.azure.com** .
+4. Seleccione las ocho opciones disponibles de **Métodos permitidos**.
+5. Apruebe todos los **encabezados permitidos** y los **encabezados expuestos**; para ello, escriba * en cada campo.
+6. Establezca la **antigüedad máxima** en 120 segundos o cualquier valor aceptable.
+7. Haga clic en el botón Guardar de la parte superior de la página para guardar los cambios.
+
+CORS ahora debe estar configurado para usar la cuenta de almacenamiento de Form Recognizer Studio.
+
 ### <a name="sample-documents-set"></a>Conjunto de documentos de ejemplo
 
 1. Vaya a [Azure Portal](https://ms.portal.azure.com/#home) y desplácese de la manera siguiente: **Su cuenta de almacenamiento** → **Almacenamiento de datos** → **Contenedores**
@@ -58,7 +74,7 @@ Una [**cuenta de Azure Blob Storage**](https://ms.portal.azure.com/#create/Micro
     :::image border="true" type="content" source="../media/sas-tokens/upload-blob-window.png" alt-text="Captura de pantalla: botón Cargar blob en Azure Portal.":::
 
 > [!NOTE]
-> De manera predeterminada, Studio usará los documentos de formulario que se encuentran en la raíz del contenedor. Sin embargo, puede usar datos organizados en carpetas si se especifica en los pasos de creación del proyecto de formulario personalizado. *Consulte* [**Organización de los datos en subcarpetas (opcional)** ](/azure/applied-ai-services/form-recognizer/build-training-data-set#organize-your-data-in-subfolders-optional).
+> De manera predeterminada, Studio usará los documentos de formulario que se encuentran en la raíz del contenedor. Sin embargo, puede usar datos organizados en carpetas si se especifica en los pasos de creación del proyecto de formulario personalizado. *Consulte* [**Organización de los datos en subcarpetas (opcional)**](/azure/applied-ai-services/form-recognizer/build-training-data-set#organize-your-data-in-subfolders-optional).
 
 ## <a name="sign-into-the-form-recognizer-studio-preview"></a>Inicio de sesión en la versión preliminar de Form Recognizer Studio
 
@@ -150,15 +166,15 @@ Además, puede ver todos los modelos mediante la pestaña Modelos de la izquierd
 
 ## <a name="labeling-as-tables"></a>Etiquetado como tablas
 
-Al crear los modelos personalizados, es posible que tenga que extraer colecciones de valores de los documentos. Estas colecciones aparecen en varios formatos. Por ejemplo:
+Al crear los modelos personalizados, es posible que tenga que extraer colecciones de datos de los documentos. Estas pueden aparecer en un par de formatos, usando tablas como patrón visual:
 
-* Colección dinámica de valores (filas) para un conjunto determinado de campos (columnas)
+* Recuento dinámico o variable de valores (filas) para un conjunto determinado de campos (columnas)
 
-* Colección fija de valores agrupados por un segundo conjunto de campos (filas o columnas)
+* Colección específica de valores para un conjunto determinado de campos (columnas o filas)
 
 ### <a name="label-as-dynamic-table"></a>Etiquetado como tabla dinámica
 
-Para etiquetar filas dinámicas de datos para un conjunto determinado de campos:
+Use tablas dinámicas para extraer el recuento variable de valores (filas) para un conjunto determinado de campos (columnas):
 
 1. Agregue una nueva etiqueta de tipo "Tabla", seleccione el tipo "Tabla dinámica" y asigne un nombre a la etiqueta.
 
@@ -170,7 +186,7 @@ Para etiquetar filas dinámicas de datos para un conjunto determinado de campos:
 
 ### <a name="label-as-fixed-table"></a>Etiqueta como tabla fija
 
-Para etiquetar colecciones fijas de datos agrupadas por dos conjuntos de campos:
+Use tablas fijas para extraer una colección específica de valores para un conjunto determinado de campos (columnas o filas):
 
 1. Cree una nueva etiqueta de tipo "Tabla", seleccione el tipo "Tabla fija" y asigne un nombre a la etiqueta.
 
@@ -193,5 +209,9 @@ Para etiquetar para la detección de firmas:
 :::image border="true" type="content" source="../media/quickstarts/custom-signature.gif" alt-text="Ejemplo de etiquetado para la detección de firmas de Form Recognizer":::
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+* Siga nuestra [**guía de migración de Form Recognizer v3.0**](../v3-migration-guide.md) para ver las diferencias con respecto a la versión anterior de la API REST.
+* Explore nuestros [**inicios rápidos del SDK de versión preliminar**](try-v3-python-sdk.md) para ver las características en vista previa de las aplicaciones con los nuevos SDK.
+* Consulte nuestros [**inicios rápidos de la API REST en versión preliminar**](try-v3-rest-api.md) para ver las características en vista previa con la nueva API REST.
 
 [Introducción a Form Recognizer Studio (versión preliminar)](https://formrecognizer.appliedai.azure.com).

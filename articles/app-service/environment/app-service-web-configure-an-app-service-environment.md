@@ -1,18 +1,18 @@
 ---
 title: Configuración de ASE v1
 description: Configuración, administración y supervisión de App Service Environment v1. Este documento solo se proporciona para los clientes que usan App Service Environment v1 heredado.
-author: ccompy
+author: madsd
 ms.assetid: b5a1da49-4cab-460d-b5d2-edd086ec32f4
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: ccompy
+ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 598e43d07c213cfeb25f0ecbc7bd02b6ec54b7ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c1d2023d0b258b0bcc2ab72bff9bb019f91f61f0
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88962594"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998796"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configuración de una instancia de App Service Environment v1
 
@@ -72,7 +72,7 @@ Cada ASE se configura con 500 GB de almacenamiento. Este espacio se usa en todas
 La base de datos contiene la información que define el entorno, así como los detalles acerca de las aplicaciones que se ejecutan en él. Esto también forma parte de la suscripción mantenida en Azure. No es algo que tenga una capacidad directa para manipular. Si va a realizar ajustes en el enrutamiento o la seguridad de la red virtual, debe seguir permitiendo el acceso a SQL Azure o, de lo contrario, ASE no funcionará.
 
 ### <a name="network"></a>Red
-La red virtual que se usa con el ASE puede ser una de las que hizo al crear el ASE o alguna que ya tuviera de antes. Si crea la subred durante la creación del ASE, obligará al ASE a permanecer en el mismo grupo de recursos que la red virtual. Si necesita el grupo de recursos que usa su ASE sea diferente de la red virtual, debe crear su ASE utilizando una plantilla de Resource Manager.
+La red virtual que se usa con el ASE puede ser una de las que hizo al crear el ASE o alguna que ya tuviera de antes. Si crea la subred durante la creación del ASE, obligará al ASE a permanecer en el mismo grupo de recursos que la red virtual. Si necesita que el grupo de recursos que usa su ASE sea diferente de la red virtual, debe crear su ASE utilizando una plantilla de Azure Resource Manager.
 
 Existen algunas restricciones en la red virtual que se aplican a un ASE:
 
@@ -96,7 +96,7 @@ Hay dos métodos principales para controlar el tráfico entrante en el ASE.  Pue
 
 Cuando se crea un ASE, este creará a una dirección VIP de la red virtual.  Hay dos tipos de direcciones VIP, internas y externas.  Cuando se crea un ASE con una dirección VIP externa, se podrá acceder a las aplicaciones del ASE a través de una dirección IP enrutable de Internet. Si selecciona una dirección VIP interna, el ASE se configurara con un ILB y no podrá acceder directamente a ella a través de Internet.  Un ASE del ILB seguirá necesitando una dirección VIP externa pero solo se utilizará para la administración de Azure y el acceso de mantenimiento.  
 
-Durante la creación del ASE del ILB deberá proporcionar el subdominio utilizado por este y tendrá que administrar su propio DNS para el subdominio que especifique.  Puesto que ha establecido el nombre del subdominio deberá administrar también el certificado usado para el acceso HTTPS.  Después de la creación del ASE se le pedirá que proporcione el certificado.  Para más información sobre la creación y el uso de una instancia de ASE de ILB, lea [Uso de un equilibrador de carga interno con una instancia de App Service Environment][ILBASE]. 
+Durante la creación del ASE del ILB deberá proporcionar el subdominio utilizado por este y tendrá que administrar su propio DNS para el subdominio que especifique.  Puesto que ha establecido el nombre del subdominio deberá administrar también el certificado usado para el acceso HTTPS.  Después de la creación del ASE se le pedirá que proporcione el certificado.  Para obtener más información sobre cómo crear y usar un ASE de ILB, lea [Creación de un ASEv1 a partir de la plantilla](app-service-app-service-environment-create-ilb-ase-resourcemanager.md). 
 
 ## <a name="portal"></a>Portal
 Puede administrar y supervisar el entorno de App Service mediante la interfaz de usuario que está disponible en Azure Portal. Si tiene un ASE, es probable que vea el símbolo de App Service en la barra lateral. Este símbolo se usa para representar entornos de App Service en Azure Portal:
@@ -185,7 +185,7 @@ Si desea eliminar un entorno de App Service, simplemente utilice la acción **El
 ![Eliminación de la interfaz de usuario de un entorno de App Service][9]  
 
 ## <a name="getting-started"></a>Introducción
-Para empezar a trabajar con los entornos de App Service, consulte [Creación de un entorno de App Service](app-service-web-how-to-create-an-app-service-environment.md).
+Para empezar a trabajar con instancias de App Service Environment, consulte [Creación de una instancia de ASEv1 a partir de una plantilla](app-service-app-service-environment-create-ilb-ase-resourcemanager.md).
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 
@@ -203,7 +203,6 @@ Para empezar a trabajar con los entornos de App Service, consulte [Creación de 
 <!--Links-->
 [WhatisASE]: app-service-app-service-environment-intro.md
 [Appserviceplans]: ../overview-hosting-plans.md
-[HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [HowtoScale]: app-service-web-scale-a-web-app-in-an-app-service-environment.md
 [ControlInbound]: app-service-app-service-environment-control-inbound-traffic.md
 [virtualnetwork]: ../../virtual-network/virtual-networks-faq.md

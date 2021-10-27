@@ -3,12 +3,12 @@ title: Creación de informes de evaluación de riesgos
 description: Conozca los riesgos de red detectados por sensores individuales o una vista agregada de los riesgos detectados por todos los sensores.
 ms.date: 12/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 567660d1e1e55ee3dde0cbf5e5c09748cbb2cf0c
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 908a78f659dc17d0207d81613b6be7dd2295a1d2
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113020594"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130138624"
 ---
 # <a name="risk-assessment-reporting"></a>Informes de evaluación de riesgos
 
@@ -44,7 +44,10 @@ Los informes de evaluación de riesgos proporcionan:
 
 ### <a name="risk-mitigation"></a>Mitigación de riesgos
 
-Los informes ofrecen recomendaciones para ayudarle a mejorar la puntuación de seguridad. Por ejemplo, instale las actualizaciones de seguridad más recientes, actualice el firmware a la versión más reciente o realice un seguimiento de las alertas.
+Los informes ofrecen recomendaciones para ayudarle a mejorar la puntuación de seguridad. Por ejemplo:
+- Instalación de las últimas actualizaciones de seguridad.
+- Actualice el firmware a la versión más reciente.
+- Investigue los PLC con estados no seguros.
 
 ## <a name="about-security-scores"></a>Acerca de las puntuaciones de seguridad
 
@@ -112,4 +115,3 @@ Para importar un logotipo de empresa:
 ## <a name="see-also"></a>Consulte también
 
 [Informe de vectores de ataque](how-to-create-attack-vector-reports.md)
-

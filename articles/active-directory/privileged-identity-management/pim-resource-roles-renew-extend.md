@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 10/07/2021
+ms.date: 10/11/2021
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66d252c5fa264650999af7a14e4bf1cfaa976f6b
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 49285dcb9df86cdb09b65710ad1b192d74169ed6
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129669309"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997485"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-privileged-identity-management"></a>Ampliación o renovación de asignaciones de roles de recursos de Azure en Privileged Identity Management
 
@@ -48,7 +48,7 @@ Los usuarios o grupos asignados a un rol pueden ampliar las asignaciones de role
 
 ![Recursos de Azure: página Mis roles que muestra los roles elegibles con una columna de acción](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-ui.png)
 
-Cuando la fecha y hora de finalización de la asignación es anterior a 14 días, el botón para **Extender** se convierte en un vínculo activo en la interfaz de usuario. En el ejemplo siguiente, se supone que la fecha actual es el 27 de marzo.
+Cuando la fecha y hora de finalización de la asignación es anterior a 14 días, el botón para **Extender** se convierte en un vínculo activo en la interfaz de usuario. En el ejemplo siguiente, se supone que la fecha actual es el 27 de marzo. Para un grupo asignado a un rol, el vínculo **Extender** nunca está disponible para que un solo usuario con una asignación heredada no pueda extender la asignación de grupo.
 
 ![Columna de acción con vínculos para activar o extender](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-within-14.png)
 

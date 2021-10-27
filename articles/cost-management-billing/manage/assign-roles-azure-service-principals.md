@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 05/01/2021
+ms.date: 10/12/2021
 ms.author: banders
-ms.openlocfilehash: 395f6804e0fdea88e65879817b83b9a8aabdd0f1
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 79e32c7514e561cc3c245464038130f5d4bef763
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111748074"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001017"
 ---
 # <a name="assign-roles-to-azure-enterprise-agreement-service-principal-names"></a>Asignación de roles a nombres de entidad de seguridad de servicio de Contrato Enterprise de Azure
 
@@ -206,6 +206,10 @@ Ahora puede usar el SPN para acceder automáticamente a las API de EA. El SPN ti
    Una respuesta `200 OK` muestra que el SPN se ha agregado correctamente.
 
 Ahora puede usar el SPN para acceder automáticamente a las API de EA. El SPN tiene el rol SubscriptionCreator.
+
+## <a name="troubleshoot"></a>Solución de problemas
+
+Debe identificar y usar el identificador de objeto de aplicación empresarial en el que concedió el rol de EA. Si usa el identificador de objeto de otra aplicación, se producirá un error en las llamadas API. Compruebe que usa el identificador de objeto de aplicación empresarial correcto.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

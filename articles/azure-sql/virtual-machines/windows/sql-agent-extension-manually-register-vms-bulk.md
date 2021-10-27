@@ -3,7 +3,7 @@ title: Registro de varias máquinas virtuales con SQL en Azure con la extensión
 description: Registre de forma masiva VM con SQL Server con la extensión Agente de IaaS de SQL para mejorar la facilidad de administración.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: adbadram
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: management
@@ -12,15 +12,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/07/2020
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: adbadram
+ms.reviewer: mathoma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6b2066ef94cb87a9ab9c000615c018938cbeddb1
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: bc4bfc48c9b8f6891c45730215f2c49e84467a42
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220621"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130161886"
 ---
 # <a name="register-multiple-sql-vms-in-azure-with-the-sql-iaas-agent-extension"></a>Registro de varias máquinas virtuales con SQL en Azure con la extensión Agente de IaaS de SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -43,7 +43,7 @@ El proceso de registro no conlleva ningún riesgo, no tiene ningún tiempo de in
 
 Para registrar una máquina virtual con SQL Server con la extensión, necesita lo siguiente: 
 
-- Una [suscripción de Azure](https://azure.microsoft.com/free/) que se ha [registrado con el proveedor de recursos **proveedor Microsoft.SqlVirtualMachine** ](sql-agent-extension-manually-register-single-vm.md#register-subscription-with-rp)y que contiene máquinas virtuales con SQL Server no registradas. 
+- Una [suscripción de Azure](https://azure.microsoft.com/free/) que se ha [registrado con el proveedor de recursos **proveedor Microsoft.SqlVirtualMachine**](sql-agent-extension-manually-register-single-vm.md#register-subscription-with-rp)y que contiene máquinas virtuales con SQL Server no registradas. 
 - Las credenciales de cliente que se usan para registrar las máquinas virtuales existen en cualquiera de los siguientes roles de Azure: **colaborador de la máquina virtual**, **colaborador** o **propietario**. 
 - La versión más reciente de [Az PowerShell (5.0 como mínimo)](/powershell/azure/new-azureps-module-az). 
 
@@ -249,4 +249,4 @@ Para más información, consulte los siguientes artículos.
 * [Introducción a SQL Server en máquinas virtuales Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Preguntas más frecuentes de SQL Server en máquinas virtuales Windows](frequently-asked-questions-faq.yml)
 * [Orientación de precios de SQL Server para máquinas virtuales de Azure](pricing-guidance.md)
-* [Notas de la versión de SQL Server en Azure Virtual Machines](../../database/doc-changes-updates-release-notes.md)
+* [Novedades de SQL Server en VM de Azure](doc-changes-updates-release-notes-whats-new.md)

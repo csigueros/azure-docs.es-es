@@ -1,14 +1,14 @@
 ---
 title: Habilitación de la extensión de máquina virtual en Azure Portal
 description: En este artículo se describe cómo implementar extensiones de máquina virtual en servidores habilitados para Azure Arc que se ejecutan en entornos de nube híbridos desde Azure Portal.
-ms.date: 08/11/2021
+ms.date: 10/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: 740ee7954340da0a34b581356d51135033a3829d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d6ecbbc57237192f68b9949ab960fb36cda64c81
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121727370"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130069603"
 ---
 # <a name="enable-azure-vm-extensions-from-the-azure-portal"></a>Habilitación de las extensiones de máquina virtual de Azure desde Azure Portal
 
@@ -22,7 +22,7 @@ En este artículo se muestra cómo implementar, actualizar y desinstalar extensi
 
 ## <a name="enable-extensions"></a>Habilitación de extensiones
 
-Las extensiones de máquina virtual se pueden aplicar a la máquina administrada de servidor habilitada para Arc mediante Azure Portal.
+Las extensiones de máquina virtual se pueden aplicar a la máquina administrada de servidor habilitada para Azure Arc mediante Azure Portal.
 
 1. En el explorador, vaya a [Azure Portal](https://portal.azure.com).
 
@@ -45,7 +45,7 @@ Las extensiones de máquina virtual se pueden aplicar a la máquina administrada
 
 ## <a name="list-extensions-installed"></a>Enumeración de extensiones instaladas
 
-Puede obtener una lista de las extensiones de máquina virtual del servidor habilitado para Arc desde Azure Portal. Para ello, siga los pasos a continuación.
+Puede obtener una lista de las extensiones de máquina virtual del servidor habilitado para Azure Arc desde Azure Portal. Para ello, siga los pasos a continuación.
 
 1. En el explorador, vaya a [Azure Portal](https://portal.azure.com).
 
@@ -55,9 +55,12 @@ Puede obtener una lista de las extensiones de máquina virtual del servidor habi
 
     :::image type="content" source="media/manage-vm-extensions/list-vm-extensions.png" alt-text="Lista de extensiones de máquina virtual implementadas en la máquina seleccionada." border="true":::
 
-## <a name="update-extensions"></a>Actualizar extensiones
+## <a name="upgrade-extensions"></a>Actualización de extensiones
 
-Cuando se publica una nueva versión de una extensión compatible, puede actualizar la extensión a esa versión más reciente. Los servidores habilitados para Arc presentarán un mensaje emergente en Azure Portal cuando se desplace hasta ellos, para informarle de que hay actualizaciones disponibles para una o varias de las extensiones instaladas en una máquina. Cuando vea la lista de extensiones instaladas para un servidor habilitado para Arc seleccionado, observará una columna con la etiqueta **Actualización disponible**. Si se publica una versión más reciente de una extensión, el valor de **Actualización disponible** de esa extensión muestra **Sí**. 
+Cuando se publica una nueva versión de una extensión compatible, puede actualizar la extensión a esa versión más reciente. Los servidores habilitados para Azure Arc presentan un mensaje emergente en Azure Portal cuando se desplace hasta ellos, para informarle de que hay actualizaciones disponibles para una o varias de las extensiones instaladas en una máquina. Cuando vea la lista de extensiones instaladas para un servidor habilitado para Azure Arc seleccionado, observará una columna con la etiqueta **Actualización disponible**. Si se publica una versión más reciente de una extensión, el valor de **Actualización disponible** de esa extensión muestra **Sí**.
+
+>[!NOTE]
+>Aunque la palabra **Update** se usa en Azure Portal para esta experiencia actualmente, no representa con precisión el comportamiento de la operación. Las extensiones se actualizan al instalar una versión más reciente de la extensión en el equipo o servidor.
 
 La actualización de una extensión a la versión más reciente no afecta a la configuración de esa extensión. No es necesario volver a especificar la información de configuración de ninguna extensión que actualice.
 
@@ -66,19 +69,19 @@ La actualización de una extensión a la versión más reciente no afecta a la c
 En Azure Portal, puede actualizar una extensión o seleccionar varias extensiones válidas para una actualización siguiendo estos pasos.
 
 > [!NOTE]
-> Actualmente solo puede actualizar extensiones desde Azure Portal. Por el momento, esta operación no se admite desde la CLI de Azure, Azure PowerShell o una plantilla de Azure Resource Manager.
+> Actualmente solo puede actualizar extensiones desde Azure Portal. Por el momento, esta operación no se admite desde la CLI de Azure o mediante una plantilla de Azure Resource Manager.
 
 1. En el explorador, vaya a [Azure Portal](https://portal.azure.com).
 
 2. En el portal, vaya a **Servers - Azure Arc** (Servidores: Azure Arc) y seleccione la máquina híbrida de la lista.
 
-3. Elija **Extensiones** y revise el estado de las extensiones en la columna **Actualización disponible**. 
+3. Elija **Extensiones** y revise el estado de las extensiones en la columna **Actualización disponible**.
 
-Puede actualizar una extensión de una de tres maneras:
+Puede actualizar una extensión de una de las tres maneras siguientes:
 
 * Seleccionar una extensión de la lista de extensiones instaladas y, en las propiedades de la extensión, elegir la opción **Actualizar**.
 
-    :::image type="content" source="media/manage-vm-extensions-portal/vm-extensions-update-from-extension.png" alt-text="Actualización de la extensión seleccionada." border="true":::
+    :::image type="content" source="media/manage-vm-extensions-portal/vm-extensions-update-from-extension.png" alt-text="Actualizar la extensión seleccionada." border="true":::
 
 * Seleccionar la extensión de la lista de extensiones instaladas y, en las propiedades de la extensión, elegir la opción **Actualizar** en la parte superior de la página.
 
@@ -88,7 +91,7 @@ Puede actualizar una extensión de una de tres maneras:
 
 ## <a name="uninstall-extensions"></a>Desinstalar extensiones
 
-Puede quitar una o más extensiones de un servidor habilitado para Arc desde Azure Portal. Siga los pasos siguientes para quitar una extensión.
+Puede quitar una o más extensiones de un servidor habilitado para Azure Arc desde Azure Portal. Siga los pasos siguientes para quitar una extensión.
 
 1. En el explorador, vaya a [Azure Portal](https://portal.azure.com).
 

@@ -9,13 +9,13 @@ ms.topic: how-to
 author: AlainDormehlMSFT
 ms.author: aldorme
 ms.reviewer: mathoma, wiassaf
-ms.date: 09/21/2021
-ms.openlocfilehash: 9452b12a8ad26ec2da5c488dc83f624863a4c647
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/13/2021
+ms.openlocfilehash: 333b6faabd6603f09c4522f09a18b52c5503f357
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128582570"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004642"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Configuración de la exportación de streaming de los datos de telemetría de diagnóstico de Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -47,9 +47,10 @@ Además de hacer streaming de la exportación del registro de Intelligent Insigh
 | [Interbloqueos](#deadlocks-dataset): contiene información sobre los eventos de interbloqueo en una base de datos. | Sí | No |
 | [AutomaticTuning](#automatic-tuning-dataset): contiene información sobre las recomendaciones de ajuste automático para una base de datos. | Sí | No |
 | [SQLInsights](#intelligent-insights-dataset): contiene Intelligent Insights sobre el rendimiento de una base de datos. Para obtener más información, consulte [Intelligent Insights](intelligent-insights-overview.md). | Sí | Sí |
+| Administración de cargas de trabajo: *disponible solo para Azure Synapse*. Para más información, consulte [Azure Synapse Analytics: supervisión del portal de administración de cargas de trabajo](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor).| No | No | 
 
 > [!NOTE]
-> No se puede establecer la configuración de diagnóstico de las **bases de datos del sistema**, como las bases de datos maestra, msdb, modelo, de recursos y tempdb.
+> No se puede establecer la configuración de diagnóstico de las **bases de datos del sistema**, como `master`, `msdb`, `model`, de recursos y `tempdb`.
 
 ## <a name="streaming-export-destinations"></a>Destinos de la exportación de streaming
 
@@ -77,7 +78,7 @@ Esta telemetría de diagnóstico transmitida a uno de estos destinos se puede us
 
 Puede habilitar y administrar las métricas y los registros de datos de telemetría de diagnóstico usando uno de los métodos siguientes:
 
-- Azure portal
+- Portal de Azure
 - PowerShell
 - Azure CLI
 - API de REST de Azure Monitor

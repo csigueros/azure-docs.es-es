@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 07/28/2021
-ms.openlocfilehash: eca62eccca6f53935f29a16bca0afc382896212c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d23daba1618a606ee53b117518324604d47f3fe3
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124810358"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998267"
 ---
 # <a name="troubleshoot-assessment"></a>Solución de problemas de evaluación
 
@@ -142,6 +142,10 @@ La calificación de confianza se calcula para las valoraciones **basadas en el r
 
 - En el caso de las valoraciones de máquinas virtuales de Azure y Azure VMware Solution, se han creado pocos servidores después de iniciar la detección. Por ejemplo, imagine que va a crear una valoración para el historial de rendimiento del último mes, pero en el entorno se han creado varios servidores hace solo una semana. En este caso, los datos de rendimiento de los nuevos servidores no estarán disponibles para todo el período y la clasificación de confianza será baja. [Más información](./concepts-assessment-calculation.md#confidence-ratings-performance-based).
 - En el caso de las evaluaciones de Azure SQL, se crearon algunas instancias de SQL o bases de datos después de que se iniciara la detección. Por ejemplo, imagine que va a crear una valoración para el historial de rendimiento del último mes, pero en el entorno se han creado varias instancias de SQL o bases de datos hace solo una semana. En este caso, los datos de rendimiento de los nuevos servidores no estarán disponibles para todo el período y la clasificación de confianza será baja. [Más información](./concepts-azure-sql-assessment-calculation.md#confidence-ratings).
+
+## <a name="why-is-my-ram-utilization-greater-than-100"></a>¿Por qué mi uso de RAM es superior al 100 %?
+
+Por diseño, en Hyper-V si el número máximo de memoria aprovisionada es menor que lo que requiere la máquina virtual, Assessment mostrará que el uso de memoria es superior al 100 %.
 
 ## <a name="is-the-operating-system-license-included-in-an-azure-vm-assessment"></a>¿Se incluye la licencia del sistema operativo en una valoración de máquinas virtuales de Azure?
 

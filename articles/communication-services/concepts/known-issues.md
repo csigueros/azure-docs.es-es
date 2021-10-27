@@ -8,12 +8,12 @@ ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 73a30e7052faaaa644511fec65796a4575e5ab4a
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 3016fb18827c0c1323cb151024303a15a2454c5a
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259146"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177942"
 ---
 # <a name="known-issues"></a>Problemas conocidos
 En este artículo se proporciona información sobre las limitaciones y los problemas conocidos relativos a los SDK de llamadas de Azure Communication Services y las API de automatización de llamadas e Azure Communication Services.
@@ -127,6 +127,8 @@ Se recomienda a los desarrolladores que hagan lo siguiente:
 ##### <a name="possible-causes"></a>Causas posibles
 En algunos exploradores (Safari, por ejemplo), la adquisición de su propia secuencia desde el mismo dispositivo tendrá un efecto secundario de ejecutarse en condiciones de carrera. La adquisición de flujos de otros dispositivos puede provocar que el usuario tenga un ancho de banda de USB o E/S insuficiente y que la tasa de sourceUnavailableError se dispare.  
 
+#### <a name="support-for-simulcast"></a>Compatibilidad con Simulcast
+Simulcast es una técnica por la que un cliente codifica la misma secuencia de vídeo dos veces en distintas resoluciones y velocidades de bits y permite que la infraestructura de ACS decida qué secuencia debe recibir un cliente. El SDK de la biblioteca de llamadas de ACS para Windows, Android o iOS admite el envío de secuencias de Simulcast. El SDK web de ACS no admite actualmente el envío de secuencias de Simulcast.
 
 ## <a name="azure-communication-services-call-automation-apis"></a>API de automatización de llamadas de Azure Communication Services
 

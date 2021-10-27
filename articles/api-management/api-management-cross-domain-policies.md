@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/01/2021
 ms.author: danlep
-ms.openlocfilehash: f63a8e9f083256cb68a23d69e49d44d9bbfd57de
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 74ef0589a32520a411b0ba8aa0677496b44f9549
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429478"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129999936"
 ---
 # <a name="api-management-cross-domain-policies"></a>Directivas entre dominios de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](./api-management-policies.md).
@@ -91,7 +91,7 @@ Debe aplicar la directiva CORS para habilitar la consola interactiva en el porta
 ```
 
 ### <a name="example"></a>Ejemplo
-En este ejemplo se muestra cómo admitir solicitudes preparatorias, como aquellas con encabezados o métodos personalizados distintos de GET y POST. Para admitir encabezados personalizados y verbos HTTP adicionales, use las secciones `allowed-methods` y `allowed-headers` tal como se muestra en el ejemplo siguiente.
+En este ejemplo se muestra cómo admitir [solicitudes preparatorias](https://developer.mozilla.org/docs/Web/HTTP/CORS#preflighted_requests), como aquellas con encabezados o métodos personalizados distintos de GET y POST. Para admitir encabezados personalizados y verbos HTTP adicionales, use las secciones `allowed-methods` y `allowed-headers` tal como se muestra en el ejemplo siguiente.
 
 ```xml
 <cors allow-credentials="true">

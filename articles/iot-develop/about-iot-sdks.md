@@ -6,164 +6,74 @@ ms.author: philmea
 ms.service: iot-develop
 ms.topic: overview
 ms.date: 02/11/2021
-ms.openlocfilehash: 2374755dc1874b1dcd421daa97fc77535ef99286
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: e4f5d99caadaedf6389215fccb753aedd6620917
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129455444"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129983976"
 ---
 # <a name="overview-of-azure-iot-device-sdks"></a>Información general sobre los SDK de dispositivo IoT de Azure
 
-Los SDK de dispositivo IoT de Azure son un conjunto de bibliotecas cliente de dispositivo, guías para desarrolladores, ejemplos y documentación. Los SDK de dispositivo le ayudan a conectar los dispositivos a los servicios de Azure IoT mediante programación.
+Los SDK de dispositivo IoT de Azure son un conjunto de bibliotecas cliente de dispositivo, ejemplos y documentación. Los SDK de dispositivo simplifican el proceso de conexión mediante programación de dispositivos a Azure IoT. Los SDK están disponibles en varios lenguajes de programación con compatibilidad con varios RTOS para dispositivos insertados.
 
-:::image type="content" border="false" source="media/about-iot-sdks/iot-sdk-diagram.png" alt-text="Diagrama que muestra varios SDK de Azure IoT":::
+## <a name="why-use-an-azure-iot-device-sdk"></a>¿Por qué usar un SDK de dispositivo IoT de Azure?
 
-Como se muestra en el diagrama, hay varios SDK de dispositivo disponibles para ajustarse a las necesidades del dispositivo y del lenguaje de programación. Puede encontrar instrucciones sobre cómo seleccionar el SDK de dispositivo adecuado en [¿Qué SDK debo usar?](#which-sdk-should-i-use) También hay disponibles SDK de servicios IoT de Azure para conectar la aplicación basada en la nube con los servicios de Azure IoT en el back-end. Este artículo se centra en los SDK de dispositivo, pero puede encontrar información sobre los SDK de servicios de Azure [aquí](#service-sdks).
+A continuación se describen las ventajas de usar un SDK de dispositivo IoT de Azure con respecto a la creación de una capa de conexión personalizada:
 
-## <a name="why-should-i-use-the-azure-iot-device-sdks"></a>¿Por qué debo usar los SDK de dispositivo IoT de Azure?
-
-Para conectar dispositivos a Azure IoT, puede crear una capa de conexión personalizada o usar los SDK de dispositivo IoT de Azure. El uso de los SDK de dispositivo IoT de Azure ofrece varias ventajas:
-
-| Costo de desarrollo &nbsp; &nbsp; &nbsp; &nbsp; | Capa de conexión personalizada | SDK de dispositivo IoT de Azure |
-| :-- | :------------------------------------------------ | :---------------------------------------- |
-| Soporte técnico | Necesidad de dar soporte técnico y documentar todo lo que cree | Acceso al servicio de soporte técnico de Microsoft (GitHub, Microsoft Q&A, Microsoft Docs, equipos de soporte al cliente) |
-| Nuevas características | Necesidad de agregar las nuevas características de Azure al middleware personalizado | Puede aprovechar de inmediato las nuevas características que Microsoft agrega constantemente a los SDK de IoT. |
-| Inversión | Inversión de cientos de horas de desarrollo insertado para diseñar, crear, probar y mantener una versión personalizada | Puede aprovechar las herramientas gratuitas de código abierto. El único costo asociado a los SDK es la curva de aprendizaje. |
+| | Capa de conexión personalizada | SDK de dispositivo IoT de Azure |
+| :-- | :-- | :-- |
+| **Soporte técnico** | Necesidad de respaldar y documentar la solución | Acceso al servicio de soporte técnico de Microsoft (GitHub, Microsoft Q&A, Microsoft Docs, equipos de soporte al cliente) |
+| **Nuevas características** | Necesidad de agregar manualmente nuevas características de Azure | Posibilidad de aprovechar inmediatamente las nuevas características agregadas |
+| **Inversión** | Inversión de cientos de horas de desarrollo insertado para diseñar, crear, probar y mantener una versión personalizada | Puede aprovechar las herramientas gratuitas de código abierto. El único costo asociado a los SDK es la curva de aprendizaje. |
 
 ## <a name="which-sdk-should-i-use"></a>¿Qué SDK debo usar?
 
-Los SDK de dispositivo IoT de Azure están disponibles en lenguajes de programación populares, como C, C#, Java, Node.js y Python. Hay dos consideraciones principales a la hora de elegir un SDK: las funcionalidades del dispositivo y la familiaridad del equipo con el lenguaje de programación.
+El aspecto principal a la hora de elegir un SDK es el propio hardware del dispositivo. Los dispositivos informáticos generales, como los PC y teléfonos móviles, contienen unidades de microprocesador (MPU) y tienen recursos de proceso y memoria relativamente mayores. Una clase especializada de dispositivos, que se usan como sensores u otros roles de propósito especial, contienen unidades de microcontrolador (MCU) y tienen recursos de proceso y memoria relativamente limitados. Estos dispositivos con restricciones de recursos requieren herramientas de desarrollo y SDK especializados. En la tabla siguiente se resumen las distintas clases de dispositivos y los SDK que se usan para el desarrollo de dispositivos.
 
-### <a name="device-capabilities"></a>Funcionalidades del dispositivo
+|Clase de dispositivo|Descripción|Ejemplos|SDK|
+|-|-|-|-|
+|Dispositivos insertados|Dispositivos basados en MCU de uso especial con limitaciones de proceso y memoria|Sensores|[SDK de dispositivos insertados](#embedded-device-sdks)|
+|Otros|Se incluyen dispositivos basados en MPU de uso general con recursos de proceso y memoria mayores.|PC, smartphone, Raspberry Pi|[SDK de dispositivo](#device-sdks)|
 
-Al elegir un SDK, debe tener en cuenta los límites de los dispositivos que utiliza. Un dispositivo restringido es aquel que tiene un solo microcontrolador (MCU) y una memoria limitada. Si usa un dispositivo restringido, se recomienda usar el [SDK para C insertado](#embedded-c-sdk). Este SDK está diseñado para proporcionar el conjunto mínimo de funcionalidades para conectarse a Azure IoT. También puede seleccionar los componentes (cliente MQTT, TLS y bibliotecas de sockets) que estén más optimizados para el dispositivo insertado. Si el dispositivo restringido también ejecuta Azure RTOS, puede usar el middleware de Azure RTOS para conectarse a Azure IoT. El middleware de Azure RTOS incluye el SDK para C insertado con funcionalidad adicional para simplificar la conexión del dispositivo Azure RTOS a la nube.
+> [!Note] 
+> Para más información sobre las distintas categorías de dispositivos a fin de elegir el mejor SDK para el suyo, consulte [Tipos de dispositivos de Azure IoT](concepts-iot-device-types.md).
 
-Un dispositivo sin restricciones es aquel que tiene una CPU más potente, que es capaz de ejecutar un sistema operativo que admita un entorno de ejecución de un lenguaje como .NET o Python. Si usa un dispositivo sin restricciones, la consideración principal es la familiaridad con el lenguaje.
+## <a name="device-sdks"></a>SDK de dispositivo
 
-### <a name="your-teams-familiarity-with-the-programming-language"></a>Familiaridad del equipo con el lenguaje de programación
+Estos SDK se pueden ejecutar en un dispositivo informático general basado en MPU, como un PC, una tablet, un smartphone o una Raspberry Pi. Los SDK admiten el desarrollo en C y en lenguajes administrados modernos, incluidos C#, Node.js, Python y Java.
 
-Los SDK de dispositivo IoT de Azure se implementan en varios lenguajes, por lo que puede elegir el lenguaje que prefiera. Los SDK de dispositivo también se integran con otras herramientas conocidas específicas del lenguaje. La capacidad de trabajar con herramientas y lenguajes de desarrollo conocidos permite a su equipo optimizar el ciclo de desarrollo de investigación, creación de prototipos, desarrollo de productos y mantenimiento continuo.
+Los SDK están disponibles en **varios idiomas**, lo que proporciona flexibilidad para elegir cuál se adapta mejor a su equipo y escenario.
 
-Siempre que sea posible, seleccione un SDK que resulte familiar para el equipo de desarrollo. Todos los SDK de Azure IoT son de código abierto y tienen varios ejemplos disponibles para que su equipo los evalúe y pruebe antes de confirmar un SDK específico.
+| Idioma | Paquete | Source | Guías de inicio rápido | Ejemplos | Referencia |
+| :-- | :-- | :-- | :-- | :-- | :-- |
+| **.NET** | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client) | [GitHub](https://github.com/Azure/azure-iot-sdk-csharp) | [IoT Hub](quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) / [IoT Central](quickstart-send-telemetry-central.md?pivots=programming-language-csharp) | [Muestras](https://github.com/Azure-Samples/azure-iot-samples-csharp) | [Referencia](/dotnet/api/microsoft.azure.devices.client) |
+| **Python** | [pip](https://pypi.org/project/azure-iot-device/) | [GitHub](https://github.com/Azure/azure-iot-sdk-python) | [IoT Hub](quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) / [IoT Central](quickstart-send-telemetry-central.md?pivots=programming-language-python) | [Muestras](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | [Referencia](/python/api/azure-iot-device) |
+| **Node.js** | [npm](https://www.npmjs.com/package/azure-iot-device) | [GitHub](https://github.com/Azure/azure-iot-sdk-node) | [IoT Hub](quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) / [IoT Central](quickstart-send-telemetry-central.md?pivots=programming-language-nodejs) | [Muestras](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples) | [Referencia](/javascript/api/azure-iot-device/) |
+| **Java** | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-device-client) | [GitHub](https://github.com/Azure/azure-iot-sdk-java) | [IoT Hub](quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java) / [IoT Central](quickstart-send-telemetry-central.md?pivots=programming-language-java) | [Muestras](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples) | [Referencia](/java/api/com.microsoft.azure.sdk.iot.device) |
+| **C** | [packages](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md#getting-the-sdk) | [GitHub](https://github.com/Azure/azure-iot-sdk-c) | [IoT Hub](quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c) / [IoT Central](quickstart-send-telemetry-central.md?pivots=programming-language-ansi-c) | [Muestras](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples) | [Referencia](/azure/iot-hub/iot-c-sdk-ref/) |
 
-## <a name="how-can-i-get-started"></a>¿Cómo puedo comenzar?
+> [!WARNING]
+> El **SDK de C** mencionado anteriormente **no** es adecuado para las aplicaciones insertadas debido a su modelo de administración de memoria y subprocesos. Para los dispositivos insertados, consulte [SDK de dispositivos insertados](#embedded-device-sdks).
 
-El punto de partida es explorar los repositorios de GitHub de los SDK de dispositivo de Azure. También puede probar una guía de [Inicio rápido](quickstart-send-telemetry-central.md) que muestre cómo usar rápidamente un SDK para enviar datos de telemetría a Azure IoT.
+## <a name="embedded-device-sdks"></a>SDK de dispositivos insertados
 
-Las opciones para empezar a trabajar dependen del tipo de dispositivo que tenga:
-- Para dispositivos restringidos, use el [SDK para C insertado](#embedded-c-sdk). 
-- Para dispositivos que se ejecutan en Azure RTOS, puede realizar el desarrollo con el [middleware de Azure RTOS](#azure-rtos-middleware). 
-- Para dispositivos sin restricciones, puede [elegir un SDK](#unconstrained-device-sdks) en el lenguaje que prefiera. 
+Estos SDK se han diseñado y creado para ejecutarse en dispositivos con recursos limitados de proceso y memoria, y se implementan con el lenguaje C.
 
-### <a name="constrained-device-sdks"></a>SDK de dispositivos restringidos
-Estos SDK están especializados para ejecutarse en dispositivos con recursos de proceso o memoria limitados. Para más información sobre los tipos de dispositivo comunes, consulte [Información general sobre los tipos de dispositivo de Azure IoT](concepts-iot-device-types.md).
+Los SDK de dispositivos insertados están disponibles para **varios sistemas operativos**, lo que proporciona flexibilidad al elegir cuál se adapta mejor a su equipo y escenario.
 
-#### <a name="embedded-c-sdk"></a>SDK para C insertado
-* [Repositorio de GitHub](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot)
-* [Muestras](https://github.com/Azure/azure-sdk-for-c/blob/master/sdk/samples/iot/README.md)
-* [Documentación de referencia](https://azure.github.io/azure-sdk-for-c/)
-* [Compilación del SDK para C insertado](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot#build)
-* [Gráfico de tamaños de dispositivos restringidos](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot#size-chart)
-
-#### <a name="azure-rtos-middleware"></a>Middleware de Azure RTOS
-
-* [Repositorio de GitHub](https://github.com/azure-rtos/netxduo/tree/master/addons/azure_iot)
-* [Guías de introducción](https://github.com/azure-rtos/getting-started) y [más ejemplos](https://github.com/azure-rtos/samples)
-* [Documentación de referencia](/azure/rtos/threadx/)
-
-### <a name="unconstrained-device-sdks"></a>SDK de dispositivos sin restricciones
-Estos SDK se pueden ejecutar en cualquier dispositivo que admita un entorno de ejecución de un lenguaje de orden superior. Esto incluye dispositivos como PC, Raspberry Pi y smartphones. Se diferencian principalmente por el lenguaje, por lo que puede elegir la biblioteca que mejor se adapte a su equipo y escenario.
-
-#### <a name="c-device-sdk"></a>SDK de dispositivo para C
-* [Repositorio de GitHub](https://github.com/Azure/azure-iot-sdk-c)
-* [Muestras](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples)
-* [Paquetes](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md#packages-and-libraries)
-* [Documentación de referencia](/azure/iot-hub/iot-c-sdk-ref/)
-* [Documentación de referencia del módulo Edge](/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h)
-* [Compilación del SDK de dispositivos para C](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#compiling-the-c-device-sdk)
-* [Migración del SDK de C a otras plataformas](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
-* [Documentación para desarrolladores](https://github.com/Azure/azure-iot-sdk-c/tree/master/doc), con información sobre cómo compilar y empezar a trabajar con varias plataformas.
-* [Información de consumo de recursos de SDK de C de Azure IoT Hub](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md)
-
-#### <a name="c-device-sdk"></a>SDK de dispositivo para C#
-
-* [Repositorio de GitHub](https://github.com/Azure/azure-iot-sdk-csharp)
-* [Muestras](https://github.com/Azure/azure-iot-sdk-csharp#samples)
-* [Package](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/)
-* [Documentación de referencia](/dotnet/api/microsoft.azure.devices)
-* [Documentación de referencia del módulo Edge](/dotnet/api/microsoft.azure.devices.client.moduleclient)
-
-#### <a name="java-device-sdk"></a>SDK de dispositivo para Java
-
-* [Repositorio de GitHub](https://github.com/Azure/azure-iot-sdk-java)
-* [Muestras](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples)
-* [Package](https://github.com/Azure/azure-iot-sdk-java/blob/main/doc/java-devbox-setup.md#for-the-device-sdk)
-* [Documentación de referencia](/java/api/com.microsoft.azure.sdk.iot.device)
-* [Documentación de referencia del módulo Edge](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient)
-
-#### <a name="nodejs-device-sdk"></a>SDK de dispositivo para Node.js
-
-* [Repositorio de GitHub](https://github.com/Azure/azure-iot-sdk-node)
-* [Muestras](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples)
-* [Package](https://www.npmjs.com/package/azure-iot-device)
-* [Documentación de referencia](/javascript/api/azure-iot-device/)
-* [Documentación de referencia del módulo Edge](/javascript/api/azure-iot-device/moduleclient)
-
-#### <a name="python-device-sdk"></a>SDK de dispositivo para Python
-
-* [Repositorio de GitHub](https://github.com/Azure/azure-iot-sdk-python)
-* [Muestras](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples)
-* [Package](https://pypi.org/project/azure-iot-device/)
-* [Documentación de referencia](/python/api/azure-iot-device)
-* [Documentación de referencia del módulo Edge](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient)
-
-### <a name="service-sdks"></a>SDK de servicio
-Azure IoT también ofrece SDK de servicios que le permiten crear aplicaciones de la solución para administrar dispositivos, obtener información detallada, visualizar datos y mucho más. Estos SDK son específicos de cada servicio de Azure IoT y están disponibles en C#, Java, JavaScript y Python para simplificar la experiencia de desarrollo. 
-
-#### <a name="iot-hub"></a>IoT Hub
-
-Los SDK de servicios de IoT Hub permiten crear aplicaciones que interactúan fácilmente con los centros de IoT para administrar los dispositivos y la seguridad. Puede usar estos SDK para enviar mensajes de la nube al dispositivo, invocar métodos directos en los dispositivos, actualizar las propiedades del dispositivo, etc.
-
-[**Más información sobre IoT Hub**](https://azure.microsoft.com/services/iot-hub/) | [**Pruebe a controlar un dispositivo**](../iot-hub/quickstart-control-device.md)
-
-**SDK de servicios IoT Hub para C#** : [Repositorio de GitHub](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/service) | [Paquete](https://www.nuget.org/packages/Microsoft.Azure.Devices/) | [Ejemplos](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/service/samples) | [Documentación de referencia](/dotnet/api/microsoft.azure.devices)
-
-**SDK de servicios IoT Hub para Java**: [Repositorio de GitHub](https://github.com/Azure/azure-iot-sdk-java/tree/main/service) | [Paquete](https://github.com/Azure/azure-iot-sdk-java/blob/main/doc/java-devbox-setup.md#for-the-service-sdk) | [Ejemplos](https://github.com/Azure/azure-iot-sdk-java/tree/main/service/iot-service-samples) | [Documentación de referencia](/java/api/com.microsoft.azure.sdk.iot.service)
-
-**SDK de servicios IoT Hub para JavaScript**: [Repositorio de GitHub](https://github.com/Azure/azure-iot-sdk-node/tree/master/service) | [Paquete](https://www.npmjs.com/package/azure-iothub) | [Ejemplos](https://github.com/Azure/azure-iot-sdk-node/tree/master/service/samples) | [Documentación de referencia](/javascript/api/azure-iothub/)
-
-**SDK de servicios IoT Hub para Python**: [Repositorio de GitHub](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-hub) | [Paquete](https://pypi.python.org/pypi/azure-iot-hub/) | [Ejemplos](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-hub/samples) | [Documentación de referencia](/python/api/azure-iot-hub)
-
-#### <a name="azure-digital-twins"></a>Azure Digital Twins
-
-Azure Digital Twins es una oferta de plataforma como servicio (PaaS) que permite la creación de grafos de conocimientos basados en modelos digitales de entornos completos. Estos entornos podrían ser edificios, fábricas, granjas, redes energéticas, ferrocarriles, estadios, etc., e incluso ciudades enteras. Estos modelos digitales se pueden usar para obtener información que impulse mejores productos, operaciones optimizadas, costos reducidos y experiencias de cliente innovadoras. Azure IoT ofrece SDK de servicios para facilitar la creación de aplicaciones que usan la eficacia de Azure Digital Twins.
-
-[**Más información sobre Azure Digital Twins**](https://azure.microsoft.com/services/digital-twins/) | [**Programación con las API de Azure Digital Twins**](../digital-twins/tutorial-code.md)
-
-**SDK de servicios de ADT para C#** : [Repositorio de GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) | [Paquete](https://www.nuget.org/packages/Azure.DigitalTwins.Core) | [Ejemplos](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core/samples) | [Documentación de referencia](/dotnet/api/overview/azure/digitaltwins/client)
-
-**SDK de servicios de ADT para Java**: [Repositorio de GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core) | [Paquete](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar) | [Ejemplos](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core/src/samples) | [Documentación de referencia](/java/api/overview/azure/digitaltwins/client)
-
-**SDK de servicios de ADT para Node.js**: [Repositorio de GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core) | [Paquete](https://www.npmjs.com/package/@azure/digital-twins-core) | [Ejemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core/samples) | [Documentación de referencia](/javascript/api/@azure/digital-twins-core/)
-
-**SDK de servicios de ADT para Python**: [Repositorio de GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core) | [Paquete](https://pypi.org/project/azure-digitaltwins-core/) | [Ejemplos](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core/samples) | [Documentación de referencia](/python/api/azure-digitaltwins-core/azure.digitaltwins.core)
-
-#### <a name="device-provisioning-service"></a>Servicio de aprovisionamiento de dispositivos
-
-IoT Hub Device Provisioning Service (DPS) es un servicio auxiliar para IoT Hub que habilita el aprovisionamiento sin interacción Just-In-Time a la instancia correcta del centro de IoT sin necesidad de intervención humana. DPS habilita el aprovisionamiento de millones de dispositivos de forma segura y escalable. Los SDK de servicios de DPS permiten crear aplicaciones que pueden administrar los dispositivos de forma segura mediante la creación de grupos de inscripción y la realización de operaciones masivas.
-
-[**Más información sobre Device provisioning Service**](../iot-dps/index.yml) | [**Pruebe a crear una inscripción de grupo para dispositivos X.509**](../iot-dps/quick-enroll-device-x509.md)
-
-**SDK de servicios de Device Provisioning Service para C#** : [Repositorio de GitHub](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/provisioning/service) | [Paquete](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) | [Ejemplos](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/provisioning/service/samples) | [Documentación de referencia](/dotnet/api/microsoft.azure.devices.provisioning.service)
-
-**SDK de servicios de Device Provisioning Service para Java**: [Repositorio de GitHub](https://github.com/Azure/azure-iot-sdk-java/tree/main/provisioning/provisioning-service-client/src) | [Paquete](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) | [Ejemplos](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples#provisioning-service-client) | [Documentación de referencia](/java/api/com.microsoft.azure.sdk.iot.provisioning.service)
-
-**SDK de servicios de Device Provisioning Service para Node.js**: [Repositorio de GitHub](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service) | [Paquete](https://www.npmjs.com/package/azure-iot-provisioning-service) | [Ejemplos](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples) | [Documentación de referencia](/javascript/api/azure-iot-provisioning-service)
+| RTOS | SDK | Source | Ejemplos | Referencia |
+| :-- | :-- | :-- | :-- | :-- | 
+| **Azure RTOS** | Middleware de Azure RTOS | [GitHub](https://github.com/azure-rtos/netxduo) | [Guías de inicio rápido](quickstart-devkit-mxchip-az3166.md) | [Referencia](https://github.com/azure-rtos/netxduo/tree/master/addons/azure_iot) | 
+| **FreeRTOS** | FreeRTOS Middleware | [GitHub](https://github.com/Azure/azure-iot-middleware-freertos) | [Muestras](https://github.com/Azure-Samples/iot-middleware-freertos-samples) | [Referencia](https://azure.github.io/azure-iot-middleware-freertos) |
+| **Bare Metal** | SDK de Azure para C insertado | [GitHub](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot) | [Muestras](https://github.com/Azure/azure-sdk-for-c/blob/master/sdk/samples/iot/README.md) | [Referencia](https://azure.github.io/azure-sdk-for-c) |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+Para más información sobre el uso de SDK de dispositivo IoT de Azure para conectar dispositivos generales basados en MPU, consulte los siguientes artículos:
+
 * [Inicio rápido: Envío de datos de telemetría a IoT Central](quickstart-send-telemetry-central.md)
 * [Inicio rápido: Envío de datos de telemetría a IoT Hub](quickstart-send-telemetry-iot-hub.md)
+
+Para más información sobre el uso de los SDK de dispositivo insertado IoT de Azure para conectar dispositivos basados en MCU con limitación de recursos, consulte el siguiente artículo:
 * [Inicio rápido: Conexión de un kit de desarrollo MXCHIP AZ3166 a IoT Central](quickstart-devkit-mxchip-az3166.md)
-* Más información sobre las [ventajas de desarrollar con los SDK de Azure IoT](https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/).

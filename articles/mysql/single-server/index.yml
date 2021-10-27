@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/10/2021
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 3986e2b63db40b2222bcb37fc69a8913ebe2ef63
-  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+  ms.openlocfilehash: fdf4c52b5f5b7fdc212d887d5b22ea1839fcb089
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/13/2021
-  ms.locfileid: "124796882"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130215003"
 landingContent:
 - title: Acerca de un servidor único
   linkLists:
@@ -95,6 +95,10 @@ landingContent:
     links:
     - text: Configuración de parámetros del servidor
       url: ../howto-server-parameters.md
+    - text: Elija las herramientas adecuadas para la migración a Azure Database for MySQL
+      url: ../how-to-decide-on-right-migration-tools.md
+    - text: Migración de un servidor único a un servidor flexible
+      url: ../howto-migrate-single-flexible-minimum-downtime.md
     - text: Migración mediante Data Migration Service
       url: ../howto-migrate-online.md
     - text: Migración mediante volcado y restauración

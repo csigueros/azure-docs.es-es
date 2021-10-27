@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 09/13/2021
-ms.openlocfilehash: a94abb3b2c640dbd0bcd372e83844d660af514cd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b7e418c6e8fd282bc04f7a4a95c90d085e86deae
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128548210"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130067086"
 ---
 # <a name="devops-deployment-for-single-tenant-azure-logic-apps"></a>Implementación de DevOps para Azure Logic Apps de inquilino único
 
@@ -43,7 +43,7 @@ La plataforma Azure Logic Apps de inquilino único hereda muchas funcionalidades
 
 ### <a name="local-development-and-testing"></a>Desarrollo y pruebas locales
 
-Al usar Visual Studio Code con la extensión Azure Logic Apps (Estándar), puede desarrollar, compilar y ejecutar localmente flujos de trabajo de aplicación lógica basados en un solo inquilino en el entorno de desarrollo sin tener que implementar en Azure. También puede ejecutar los flujos de trabajo donde pueda ejecutar Azure Functions. Por ejemplo, si el escenario requiere contenedores, puede incluir en contenedores las aplicaciones lógicas e implementarlas como contenedores.
+Al usar Visual Studio Code con la extensión Azure Logic Apps (Estándar), puede desarrollar, compilar y ejecutar localmente flujos de trabajo de aplicación lógica basados en un solo inquilino en el entorno de desarrollo sin tener que implementar en Azure. Si el escenario requiere contenedores, puede crear e implementar mediante [Logic Apps habilitado para Azure Arc](azure-arc-enabled-logic-apps-overview.md).
 
 Esta funcionalidad es una mejora importante y proporciona una ventaja considerable en comparación con el modelo multiinquilino, que requiere que se desarrolle con un recurso existente y en ejecución en Azure.
 
@@ -174,7 +174,7 @@ Para llamar a funciones creadas y hospedadas en Azure Functions, use la operaci�
 
 ## <a name="authentication"></a>Authentication
 
-En Azure Logic Apps de inquilino único, el modelo de hospedaje para los flujos de trabajo de las aplicaciones lógicas es un único inquilino en el que sus cargas de trabajo se benefician de un mayor aislamiento que en el modelo multiinquilino. Además, el entorno de ejecución de Azure Logic Apps de inquilino único es portátil, lo que significa que puede ejecutar los flujos de trabajo donde pueda ejecutar Azure Functions. Aun así, este diseño requiere una manera de que las aplicaciones lógicas autentiquen su identidad para que puedan acceder al ecosistema de conectores administrados en Azure. Las aplicaciones también necesitan los permisos correctos para ejecutar operaciones cuando se usan conexiones administradas.
+En Azure Logic Apps de inquilino único, el modelo de hospedaje para los flujos de trabajo de las aplicaciones lógicas es un único inquilino en el que sus cargas de trabajo se benefician de un mayor aislamiento que en el modelo multiinquilino. Además, el entorno de ejecución de Azure Logic Apps de inquilino único es portátil, lo que significa que puede ejecutar los flujos de trabajo en otros entornos, por ejemplo, localmente en Visual Studio Code. Aun así, este diseño requiere una manera de que las aplicaciones lógicas autentiquen su identidad para que puedan acceder al ecosistema de conectores administrados en Azure. Las aplicaciones también necesitan los permisos correctos para ejecutar operaciones cuando se usan conexiones administradas.
 
 De forma predeterminada, cada aplicación lógica basada en un inquilino único tiene una identidad administrada asignada por el sistema habilitada automáticamente. Esta identidad se diferencia de las credenciales de autenticación o de la cadena de conexión que se usan al crear una conexión. En el entorno de ejecución, la aplicación lógica usa esta identidad para autenticar sus conexiones a través de directivas de acceso de Azure. Si deshabilita esta identidad, las conexiones no funcionarán en runtime.
 

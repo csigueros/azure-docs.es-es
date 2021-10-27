@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 72fc6a96b588f3ca897fe69054e28029b34f2688
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a167e0a0374a1c24b7da51171b51b2ee28cf4bb0
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733416"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129996387"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutorial: Enrutamiento de vehículos eléctricos mediante Azure Notebooks (Python)
 
-Azure Maps es una cartera de API de servicios geoespaciales que se integran de forma nativa en Azure. Estas API permiten a los desarrolladores, las empresas y los ISV pueden desarrollar aplicaciones con reconocimiento de ubicación y soluciones de seguimiento de recursos, IoT, movilidad y logística. 
+Azure Maps es una cartera de API de servicios geoespaciales que se integran de forma nativa en Azure. Estas API permiten a los desarrolladores, las empresas y los ISV pueden desarrollar aplicaciones con reconocimiento de ubicación y soluciones de seguimiento de recursos, IoT, movilidad y logística.
 
-Se puede llamar a las API REST de Azure Maps desde lenguajes como Python y R para habilitar el análisis de datos geoespaciales y los escenarios de aprendizaje automático. Azure Maps ofrece un sólido conjunto de [API de enrutamiento](/rest/api/maps/route) que permiten a los usuarios calcular rutas entre varios puntos de datos. Los cálculos se basan en diversas condiciones, como el tipo de vehículo o el área de alcance. 
+Se puede llamar a las API REST de Azure Maps desde lenguajes como Python y R para habilitar el análisis de datos geoespaciales y los escenarios de aprendizaje automático. Azure Maps ofrece un sólido conjunto de [API de enrutamiento](/rest/api/maps/route) que permiten a los usuarios calcular rutas entre varios puntos de datos. Los cálculos se basan en diversas condiciones, como el tipo de vehículo o el área de alcance.
 
 En este tutorial, ayudará a un conductor cuyo vehículo eléctrico tiene poca batería. El conductor necesita encontrar la estación de carga más cercana desde la ubicación del vehículo.
 
@@ -40,7 +40,6 @@ En este tutorial, aprenderá lo siguiente:
 
 Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](how-to-manage-authentication.md).
 
-
 ## <a name="create-an-azure-notebooks-project"></a>Creación de un proyecto de Azure Notebooks
 
 Para seguir este tutorial, tendrá que crear un proyecto de Azure Notebooks y descargar y ejecutar el archivo de Jupyter Notebook. El archivo de Jupyter Notebook contiene código Python que implementa el escenario de este tutorial. Siga los pasos que se indican a continuación para crear un proyecto de Azure Notebooks y cargar el documento de Jupyter Notebook en él:
@@ -51,18 +50,18 @@ Para seguir este tutorial, tendrá que crear un proyecto de Azure Notebooks y de
     ![Botón My Projects (Mis proyectos)](./media/tutorial-ev-routing/myproject.png)
 
 1. En la página **My Projects** (Mis proyectos), seleccione **New Project** (Nuevo proyecto).
- 
+
    ![Botón New Project (Nuevo proyecto)](./media/tutorial-ev-routing/create-project.png)
 
 1. En el panel **Create New Project** (Crear nuevo proyecto), escriba un nombre de proyecto y un identificador de proyecto.
- 
+
     ![Panel Create New Project (Crear nuevo proyecto)](./media/tutorial-ev-routing/create-project-window.png)
 
 1. Seleccione **Crear**.
 
 1. Una vez creado el proyecto, descargue este [archivo del documento de Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) del [repositorio de Jupyter Notebook para Azure Maps](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook).
 
-1. En la lista de proyectos de la página **My Projects** (Mis proyectos), seleccione el proyecto y seleccione **Upload** (Cargar) para cargar el archivo del documento de Jupyter Notebook. 
+1. En la lista de proyectos de la página **My Projects** (Mis proyectos), seleccione el proyecto y seleccione **Upload** (Cargar) para cargar el archivo del documento de Jupyter Notebook.
 
     ![Carga de archivos de Jupyter Notebook](./media/tutorial-ev-routing/upload-notebook.png)
 
@@ -79,10 +78,9 @@ Intente comprender la funcionalidad que se implementa en el archivo de Jupyter N
 Para ejecutar el código de Jupyter Notebook, instale los paquetes en el nivel de proyecto; para ello, siga estos pasos:
 
 1. Descargue el archivo [*requirements.txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) del [repositorio de Jupyter Notebook para Azure Maps](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook) y cárguelo en el proyecto.
-1. En el panel del proyecto, seleccione **Project Settings** (Configuración del proyecto). 
+1. En el panel del proyecto, seleccione **Project Settings** (Configuración del proyecto).
 1. En el panel **Project Settings** (Configuración del proyecto), seleccione la pestaña **Environment** (Entorno) y, después, seleccione **Add** (Agregar).
-1. En **Environment Setup Steps** (Pasos para la configuración del entorno), haga lo siguiente:   
-    a. En la primera lista desplegable, seleccione **Requirements.txt**.  
+1. En **Environment Setup Steps** (Pasos para la configuración del entorno), haga lo siguiente: En la primera lista desplegable, seleccione **Requirements.txt**.  
     b. En la segunda lista desplegable, seleccione el archivo *requirements.txt*.  
     c. En la tercera lista desplegable, seleccione la versión **Python Version 3.6**.
 1. Seleccione **Guardar**.
@@ -102,7 +100,7 @@ from IPython.display import Image, display
 
 ## <a name="request-the-reachable-range-boundary"></a>Solicitud del límite del intervalo de alcance
 
-Una empresa de entrega de paquetes tiene algunos vehículos eléctricos en su flota. Durante el día, los vehículos eléctricos deben recargarse sin tener que volver al almacén. Cada vez que la carga restante cae a menos de una hora, se busca un conjunto de estaciones de carga que estén dentro de un alcance accesible. Básicamente, se busca una estación de carga cuando la batería tiene poca carga, y se obtiene la información sobre el límite del alcance de las estaciones de carga. 
+Una empresa de entrega de paquetes tiene algunos vehículos eléctricos en su flota. Durante el día, los vehículos eléctricos deben recargarse sin tener que volver al almacén. Cada vez que la carga restante cae a menos de una hora, se busca un conjunto de estaciones de carga que estén dentro de un alcance accesible. Básicamente, se busca una estación de carga cuando la batería tiene poca carga, y se obtiene la información sobre el límite del alcance de las estaciones de carga.
 
 Dado que la compañía prefiere el uso de rutas equilibradas por economía y velocidad, el valor de routeType solicitado es *eco*. El siguiente script llama a [Get Route Range API](/rest/api/maps/route/getrouterange) del servicio de enrutamiento de Azure Maps. Usa parámetros para el modelo de consumo del vehículo. Después, el script analiza la respuesta para crear un objeto de tipo polígono con el formato GeoJSON, que representa el intervalo máximo de alcance del automóvil.
 
@@ -150,7 +148,7 @@ boundsData = {
 
 ## <a name="search-for-electric-vehicle-charging-stations-within-the-reachable-range"></a>Búsqueda de estaciones de carga de vehículos eléctricos en el intervalo de alcance
 
-Una vez que haya determinado el intervalo de alcance (isócrono) del vehículo eléctrico, puede buscar las estaciones de carga en ese intervalo. 
+Una vez que haya determinado el intervalo de alcance (isócrono) del vehículo eléctrico, puede buscar las estaciones de carga en ese intervalo.
 
 El siguiente script llama a [Post Search Inside Geometry API](/rest/api/maps/search/postsearchinsidegeometry) de Azure Maps. Busca estaciones de carga para el vehículo eléctrico, dentro de los límites del intervalo máximo accesible del vehículo. A continuación, el script analiza la respuesta en una matriz de ubicaciones cubiertas.
 
@@ -169,7 +167,7 @@ for loc in range(len(searchPolyResponse["results"])):
 
 ## <a name="upload-the-reachable-range-and-charging-points-to-azure-maps-data-service"></a>Carga del intervalo de alcance y de los puntos de carga en el servicio Data de Azure Maps
 
-Querrá visualizar en un mapa las estaciones de carga y el límite del alcance máximo al que puede llegar el vehículo eléctrico. Para ello, cargue los datos de límites y los datos de las estaciones de carga como objetos GeoJSON en el servicio Data de Azure Maps. Use [Data Upload API](/rest/api/maps/data-v2/upload-preview). 
+Querrá visualizar en un mapa las estaciones de carga y el límite del alcance máximo al que puede llegar el vehículo eléctrico. Para ello, cargue los datos de límites y los datos de las estaciones de carga como objetos GeoJSON en el servicio Data de Azure Maps. Use [Data Upload API](/rest/api/maps/data-v2/upload-preview).
 
 Para cargar los datos de límite y de puntos de carga en el servicio Data de Azure Maps, ejecute las dos celdas siguientes:
 
@@ -274,10 +272,9 @@ display(Image(poiRangeMap))
 
 ![Mapa que muestra el intervalo de ubicación](./media/tutorial-ev-routing/location-range.png)
 
-
 ## <a name="find-the-optimal-charging-station"></a>Búsqueda de la estación de carga óptima
 
-En primer lugar, quiere determinar todas las posibles estaciones de carga dentro del alcance accesible. A continuación, querrá saber cuál de ellas se puede alcanzar en el menor tiempo posible. 
+En primer lugar, quiere determinar todas las posibles estaciones de carga dentro del alcance accesible. A continuación, querrá saber cuál de ellas se puede alcanzar en el menor tiempo posible.
 
 El siguiente script llama a [Matrix Routing API](/rest/api/maps/route/postroutematrix) de Azure Maps. Devuelve la ubicación del vehículo especificado, el tiempo de desplazamiento y la distancia hasta cada estación de carga. El script de la siguiente celda analiza la respuesta para obtener la ubicación de la estación de carga más cercana dentro del alcance en función del tiempo.
 

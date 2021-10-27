@@ -54,7 +54,7 @@ items:
         items:
           - name: Crear un área de trabajo
             items:
-              - name: Azure portal
+              - name: Azure Portal
                 href: quickstart-create-workspace.md
                 displayName: quickstart
               - name: Azure CLI
@@ -653,7 +653,7 @@ items:
                 href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
               - name: Supervisión de métricas de aplicaciones de Apache Spark con Prometheus y Grafana
                 href: ./spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md
-              - name: Supervisión de aplicaciones de Apache Spark con Azure Log Analytics (versión preliminar)
+              - name: Supervisión de aplicaciones de Apache Spark con Azure Log Analytics
                 href: ./spark/apache-spark-azure-log-analytics.md
               - name: Recopilación de métricas y registros de aplicaciones de Apache Spark con una cuenta de Azure Storage
                 href: ./spark/azure-synapse-diagnostic-emitters-azure-storage.md
@@ -838,7 +838,7 @@ items:
                 href: ../data-factory/connector-azure-databricks-delta-lake.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Azure File Storage
                 href: ../data-factory/connector-azure-file-storage.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
-              - name: "Azure\_SQL\_Database"
+              - name: Azure SQL Database
                 href: ../data-factory/connector-azure-sql-database.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Instancia administrada de Azure SQL
                 href: ../data-factory/connector-azure-sql-managed-instance.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
@@ -1238,7 +1238,7 @@ items:
                 href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
   - name: Machine Learning
     items:
-      - name: Información general
+      - name: Introducción
         items:
           - name: ¿Qué es el aprendizaje automático en Azure Synapse?
             href: machine-learning/what-is-machine-learning.md

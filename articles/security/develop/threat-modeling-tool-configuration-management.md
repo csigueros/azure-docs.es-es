@@ -17,21 +17,21 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8cbe6b39bda0815c4981c497c07750136bcc9dba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f4179a79df5bb952ca4a374602cb4dea8bf4dbbd
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94517491"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178265"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Marco de seguridad: Administración de configuración | Mitigaciones 
 | Producto o servicio | Artículo |
 | --------------- | ------- |
-| **Aplicación web** | <ul><li>[Implementación de la directiva de seguridad de contenido [CSP] y deshabilitación de Javascript en línea](#csp-js)</li><li>[Habilitación del filtro XSS del explorador](#xss-filter)</li><li>[Deshabilitación obligatoria del seguimiento y la depuración de las aplicaciones ASP.NET antes de la implementación](#trace-deploy)</li><li>[Acceso exclusivo a archivos JavaScript de terceros de orígenes de confianza](#js-trusted)</li><li>[Comprobación de que las páginas con autenticación con ASP.NET incorporan defensas contra el secuestro de clic](#ui-defenses)</li><li>[Comprobación de que solo se permiten orígenes de confianza si CORS está activado en las aplicaciones web ASP.NET](#cors-aspnet)</li><li>[Habilitación del atributo ValidateRequest en las páginas de ASP.NET](#validate-aspnet)</li><li>[Uso de las últimas versiones locales de las bibliotecas de JavaScript](#local-js)</li><li>[Deshabilitación del rastreo automático de MIME](#mime-sniff)</li><li>[Eliminación de encabezados de servidor estándar de los sitios web de Windows Azure para evitar la creación de huellas digitales](#standard-finger)</li></ul> |
+| **Aplicación web** | <ul><li>[Implementación de la directiva de seguridad de contenido (CSP) y deshabilitación de JavaScript en línea](#csp-js)</li><li>[Habilitación del filtro XSS del explorador](#xss-filter)</li><li>[Deshabilitación obligatoria del seguimiento y la depuración de las aplicaciones ASP.NET antes de la implementación](#trace-deploy)</li><li>[Acceso exclusivo a archivos JavaScript de terceros de orígenes de confianza](#js-trusted)</li><li>[Comprobación de que las páginas con autenticación con ASP.NET incorporan defensas contra el secuestro de clic](#ui-defenses)</li><li>[Comprobación de que solo se permiten orígenes de confianza si CORS está activado en las aplicaciones web ASP.NET](#cors-aspnet)</li><li>[Habilitación del atributo ValidateRequest en las páginas de ASP.NET](#validate-aspnet)</li><li>[Uso de las últimas versiones locales de las bibliotecas de JavaScript](#local-js)</li><li>[Deshabilitación del rastreo automático de MIME](#mime-sniff)</li><li>[Eliminación de encabezados de servidor estándar de los sitios web de Windows Azure para evitar la creación de huellas digitales](#standard-finger)</li></ul> |
 | **Base de datos** | <ul><li>[Configuración de Firewall de Windows para el acceso al motor de base de datos](#firewall-db)</li></ul> |
 | **API web** | <ul><li>[Comprobación de que solo se permiten orígenes de confianza si CORS está activado en ASP.NET Web API](#cors-api)</li><li>[Cifrado de secciones de los archivos de configuración de la API web que contienen datos confidenciales](#config-sensitive)</li></ul> |
-| **Dispositivo IoT** | <ul><li>[Comprobación de que todas las interfaces de administración están protegidas con credenciales seguras](#admin-strong)</li><li>[Comprobación de que no se puede ejecutar código desconocido en los dispositivos](#unknown-exe)</li><li>[Cifrado del sistema operativo y particiones adicionales en los dispositivos IoT con Bitlocker](#partition-iot)</li><li>[Comprobación de que solo se habilita el mínimo número de servicios o características en los dispositivos](#min-enable)</li></ul> |
-| **Puerta de enlace de campo de IoT** | <ul><li>[Cifrado del sistema operativo y particiones adicionales en la puerta de enlace de campo de IoT con Bitlocker](#field-bit-locker)</li><li>[Comprobación de que las credenciales de inicio de sesión predeterminadas de la puerta de enlace de campo se modifican durante la instalación](#default-change)</li></ul> |
+| **Dispositivo IoT** | <ul><li>[Comprobación de que todas las interfaces de administración están protegidas con credenciales seguras](#admin-strong)</li><li>[Comprobación de que no se puede ejecutar código desconocido en los dispositivos](#unknown-exe)</li><li>[Cifrado del sistema operativo y otras particiones en los dispositivos IoT con Bitlocker](#partition-iot)</li><li>[Comprobación de que solo se habilita el mínimo número de servicios o características en los dispositivos](#min-enable)</li></ul> |
+| **Puerta de enlace de campo de IoT** | <ul><li>[Cifrado del sistema operativo y otras particiones de la puerta de enlace de campo de IoT con Bitlocker](#field-bit-locker)</li><li>[Comprobación de que las credenciales de inicio de sesión predeterminadas de la puerta de enlace de campo se modifican durante la instalación](#default-change)</li></ul> |
 | **Puerta de enlace de nube de IoT** | <ul><li>[Comprobación de que la puerta de enlace de la nube implementa un proceso para mantener actualizado el firmware de los dispositivos conectados](#cloud-firmware)</li></ul> |
 | **Límite de confianza de la máquina** | <ul><li>[Comprobación de que los dispositivos tienen controles de seguridad de punto de conexión configurados según las directivas organizativas](#controls-policies)</li></ul> |
 | **Almacenamiento de Azure** | <ul><li>[Comprobación de la administración segura de las claves de acceso de almacenamiento de Azure](#secure-keys)</li><li>[Comprobación de que solo se permiten orígenes de confianza si CORS está activado en Azure Storage](#cors-storage)</li></ul> |
@@ -57,15 +57,15 @@ Esta directiva permite a los scripts cargar solo desde el servidor de la aplicac
 
 ### <a name="example"></a>Ejemplo
 Los scripts en línea no se ejecutarán. Ejemplos de scripts en línea 
-```javascript
+```JavaScript
 <script> some Javascript code </script>
-Event handling attributes of HTML tags (e.g., <button onclick="function(){}">
+Event handling attributes of HTML tags (for example, <button onclick="function(){}">
 javascript:alert(1);
 ```
 
 ### <a name="example"></a>Ejemplo
 Las cadenas no se evaluarán como código. 
-```javascript
+```JavaScript
 Example: var str="alert(1)"; eval(str);
 ```
 
@@ -78,7 +78,7 @@ Example: var str="alert(1)"; eval(str);
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Filtro de protección de XSS](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) |
-| **Pasos** | <p>La configuración del encabezado de respuesta X-XSS-Protection controla el filtro de script entre sitios del explorador. Este encabezado de respuesta puede tener los siguientes valores:</p><ul><li>`0:` Esto deshabilitará el filtro</li><li>`1: Filter enabled` Si se detecta un ataque de scripting entre sitios (XSS), para detenerlo, el explorador saneará la página</li><li>`1: mode=block : Filter enabled`. En lugar de sanearla, cuando se detecta un ataque XSS, el explorador impedirá la representación de la página</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. El explorador saneará la página y notificará la infracción.</li></ul><p>Se trata de una función de cromo que usa los informes de infracción de la CSP para enviar detalles al URI que elija. Las 2 últimas opciones se consideran valores seguros.</p>|
+| **Pasos** | <p>La configuración del encabezado de respuesta X-XSS-Protection controla el filtro de script entre sitios del explorador. Este encabezado de respuesta puede tener los siguientes valores:</p><ul><li>`0:` Esto deshabilitará el filtro</li><li>`1: Filter enabled` Si se detecta un ataque de scripting entre sitios (XSS), para detenerlo, el explorador saneará la página</li><li>`1: mode=block : Filter enabled`. En lugar de sanearla, cuando se detecta un ataque XSS, el explorador impedirá la representación de la página</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. El explorador saneará la página y notificará la infracción.</li></ul><p>Se trata de una función de cromo que usa los informes de infracción de la CSP para enviar detalles al URI que elija. Las dos últimas opciones se consideran valores seguros.</p>|
 
 ## <a name="aspnet-applications-must-disable-tracing-and-debugging-prior-to-deployment"></a><a id="trace-deploy"></a>Deshabilitación obligatoria del seguimiento y la depuración de las aplicaciones ASP.NET antes de la implementación
 
@@ -100,7 +100,7 @@ Example: var str="alert(1)"; eval(str);
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
-| **Pasos** | debe hacerse referencia a archivos JavaScript de terceros únicamente desde orígenes de confianza. Los puntos de conexión de referencia deben estar siempre en TLS. |
+| **Pasos** | Debe hacerse referencia a archivos JavaScript de terceros únicamente desde orígenes de confianza. Los puntos de conexión de referencia deben estar siempre en TLS. |
 
 ## <a name="ensure-that-authenticated-aspnet-pages-incorporate-ui-redressing-or-click-jacking-defenses"></a><a id="ui-defenses"></a>Comprobación de que las páginas con autenticación con ASP.NET incorporan defensas contra el secuestro de clic
 
@@ -111,7 +111,7 @@ Example: var str="alert(1)"; eval(str);
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [OWASP click-jacking Defense Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html) (Hoja de referencia rápida de OWASP sobre la defensa ante el secuestro de clic), [IE Internals - Combating click-jacking With X-Frame-Options](/archive/blogs/ieinternals/combating-clickjacking-with-x-frame-options) (Elementos internos de Internet Explorer: combatir el secuestro de clic con X-Frame-Options) |
-| **Pasos** | <p>el secuestro de clic, también conocido como "clickjacking" o "ataque UI redress", se produce cuando un atacante utiliza varias capas transparentes u opacas para engañar al usuario para que haga clic en un botón o vínculo de otra página al intentar hacer clic en la página del nivel superior.</p><p>Estas capas se logran al elaborar una página malintencionada con un iframe, que carga la página de la víctima. Por lo tanto, el atacante "secuestra" el clic destinado a su página y los enruta a otra página, muy probablemente propiedad de otra aplicación, dominio o ambos. Para evitar el secuestro de clic, establezca los encabezados de respuesta HTTP X-Frame-Options adecuados que indiquen al explorador que no permita enmarcar a otros dominios</p>|
+| **Pasos** | <p>El secuestro de clic, también conocido como "clickjacking" o "ataque UI redress", se produce cuando un atacante utiliza varias capas transparentes u opacas para engañar al usuario para que haga clic en un botón o vínculo de otra página al intentar hacer clic en la página del nivel superior.</p><p>Estas capas se logran al elaborar una página malintencionada con un iframe, que carga la página de la víctima. Por lo tanto, el atacante "secuestra" el clic destinado a su página y los enruta a otra página, muy probablemente propiedad de otra aplicación, dominio o ambos. Para evitar el secuestro de clic, establezca los encabezados de respuesta HTTP X-Frame-Options adecuados que indiquen al explorador que no permita enmarcar a otros dominios</p>|
 
 ### <a name="example"></a>Ejemplo
 El encabezado X-FRAME-OPTIONS se puede establecer a través de web.config de IIS. Fragmento de código de web.config para los sitios que nunca deben enmarcarse: 
@@ -510,10 +510,10 @@ Para deshabilitar CORS en una acción o un controlador, utilice el atributo [Dis
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Enabling Secure Boot and bit-locker Device Encryption on Windows 10 IoT Core](/windows/iot-core/secure-your-device/securebootandbitlocker) (Habilitación del arranque seguro y del cifrado de dispositivos de BitLocker en Windows 10 IoT Core) |
+| **Referencias**              | [Enabling Secure Boot and BitLocker Device Encryption on Windows 10 IoT Core](/windows/iot-core/secure-your-device/securebootandbitlocker) (Habilitación del arranque seguro y del cifrado de dispositivos de BitLocker en Windows 10 IoT Core) |
 | **Pasos** | El arranque seguro de UEFI restringe el sistema para permitir solo la ejecución de archivos binarios firmados por una entidad determinada. Esta característica evita que se ejecute código desconocido en la plataforma y pueda debilitar su seguridad. Habilite el arranque seguro de UEFI y restrinja la lista de entidades emisoras de certificados de confianza para la firma de código. Firme todo el código que se implementa en el dispositivo a través de una de las entidades de confianza. |
 
-## <a name="encrypt-os-and-additional-partitions-of-iot-device-with-bit-locker"></a><a id="partition-iot"></a>Cifrado del sistema operativo y particiones adicionales en los dispositivos IoT con Bitlocker
+## <a name="encrypt-os-and-other-partitions-of-iot-device-with-bitlocker"></a><a id="partition-iot"></a>Cifrado del sistema operativo y otras particiones en los dispositivos IoT con Bitlocker
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -522,7 +522,7 @@ Para deshabilitar CORS en una acción o un controlador, utilice el atributo [Dis
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
-| **Pasos** | Windows 10 IoT Core implementa una versión ligera de cifrado de dispositivos de BitLocker, que depende en gran medida de la presencia de un TPM en la plataforma, incluido el protocolo preOS necesario en UEFI que toma las medidas necesarias. Estas medidas de preOS garantizan que el sistema operativo posterior tenga un registro definitivo de cómo se inició el sistema operativo. Cifre con Bitlocker las particiones del sistema operativo, así como cualquier partición adicional donde se almacenen datos confidenciales. |
+| **Pasos** | Windows 10 IoT Core implementa una versión ligera de cifrado de dispositivos de BitLocker, que depende en gran medida de la presencia de un TPM en la plataforma, incluido el protocolo preOS necesarios en UEFI que toma las medidas necesarias. Estas medidas de preOS garantizan que el sistema operativo posterior tiene un registro definitivo de cómo se inició el sistema operativo. Cifre con Bitlocker las particiones del sistema operativo, así como cualquier otra partición donde se almacenen datos confidenciales. |
 
 ## <a name="ensure-that-only-the-minimum-servicesfeatures-are-enabled-on-devices"></a><a id="min-enable"></a>Comprobación de que solo se habilita el mínimo número de servicios o características en los dispositivos
 
@@ -535,7 +535,7 @@ Para deshabilitar CORS en una acción o un controlador, utilice el atributo [Dis
 | **Referencias**              | N/D  |
 | **Pasos** | No habilite ni active características o servicios en el sistema operativo que no sean necesarias para el funcionamiento de la solución. Por ejemplo, si el dispositivo no requiere la implementación de una interfaz de usuario, instale Windows IoT Core en modo "desatendido". |
 
-## <a name="encrypt-os-and-additional-partitions-of-iot-field-gateway-with-bit-locker"></a><a id="field-bit-locker"></a>Cifrado del sistema operativo y particiones adicionales en la puerta de enlace de campo de IoT con Bitlocker
+## <a name="encrypt-os-and-other-partitions-of-iot-field-gateway-with-bitlocker"></a><a id="field-bit-locker"></a>Cifrado del sistema operativo y otras particiones de la puerta de enlace de campo de IoT con Bitlocker
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -544,7 +544,7 @@ Para deshabilitar CORS en una acción o un controlador, utilice el atributo [Dis
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
-| **Pasos** | Windows 10 IoT Core implementa una versión ligera de cifrado de dispositivos de BitLocker, que depende en gran medida de la presencia de un TPM en la plataforma, incluido el protocolo preOS necesario en UEFI que toma las medidas necesarias. Estas medidas de preOS garantizan que el sistema operativo posterior tenga un registro definitivo de cómo se inició el sistema operativo. Cifre con Bitlocker las particiones del sistema operativo, así como cualquier partición adicional donde se almacenen datos confidenciales. |
+| **Pasos** | Windows 10 IoT Core implementa una versión ligera de cifrado de dispositivos de BitLocker, que depende en gran medida de la presencia de un TPM en la plataforma, incluido el protocolo preOS necesarios en UEFI que toma las medidas necesarias. Estas medidas de preOS garantizan que el sistema operativo posterior tiene un registro definitivo de cómo se inició el sistema operativo. Cifre con Bitlocker las particiones del sistema operativo, así como cualquier otra partición donde se almacenen datos confidenciales. |
 
 ## <a name="ensure-that-the-default-login-credentials-of-the-field-gateway-are-changed-during-installation"></a><a id="default-change"></a>Comprobación de que las credenciales de inicio de sesión predeterminadas de la puerta de enlace de campo se modifican durante la instalación
 
@@ -565,7 +565,7 @@ Para deshabilitar CORS en una acción o un controlador, utilice el atributo [Dis
 | **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | Elección de puerta de enlace: Azure IoT Hub |
-| **Referencias**              | [Introducción a la administración de dispositivos con IoT Hub](../../iot-hub/iot-hub-device-management-overview.md), [Cómo actualizar firmware de dispositivo](../../iot-hub/tutorial-firmware-update.md) |
+| **Referencias**              | [Información general sobre la administración de dispositivos de IoT Hub](../../iot-hub-device-update/device-update-agent-overview.md), [Tutorial de Device Update para Azure IoT Hub con la imagen de referencia para Raspberry Pi 3 B+](../../iot-hub-device-update/device-update-raspberry-pi.md). |
 | **Pasos** | LWM2M es un protocolo de Open Mobile Alliance para la administración de dispositivos IoT. La administración de dispositivos IoT de Azure permite interactuar con dispositivos físicos mediante trabajos de dispositivo. Asegúrese de que la puerta de enlace de la nube implementa un proceso para mantener al día de forma rutinaria el dispositivo y otros datos de configuración mediante la administración de dispositivos de Azure IoT Hub. |
 
 ## <a name="ensure-that-devices-have-end-point-security-controls-configured-as-per-organizational-policies"></a><a id="controls-policies"></a>Comprobación de que los dispositivos tienen controles de seguridad de punto de conexión configurados según las directivas organizativas
@@ -577,7 +577,7 @@ Para deshabilitar CORS en una acción o un controlador, utilice el atributo [Dis
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
-| **Pasos** | Asegúrese de que los controles de seguridad de punto de conexión de los dispositivos como Bitlocker para el cifrado a nivel de disco, antivirus con las firmas actualizadas, firewall basado en el host, actualizaciones de sistema operativo, directivas de grupo, etc. estén configurados según las directivas de seguridad. |
+| **Pasos** | Asegúrese de que los controles de seguridad de punto de conexión de los dispositivos, como BitLocker para el cifrado a nivel de disco, antivirus con las firmas actualizadas, firewall basado en el host, actualizaciones de sistema operativo, directivas de grupo, etc. estén configurados según las directivas de seguridad de la organización. |
 
 ## <a name="ensure-secure-management-of-azure-storage-access-keys"></a><a id="secure-keys"></a>Comprobación de la administración segura de las claves de acceso de almacenamiento de Azure
 

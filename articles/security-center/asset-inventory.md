@@ -8,27 +8,23 @@ ms.author: memildin
 ms.date: 10/07/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 4175476bc655aa0be1a5377f3fada83cb30ac37e
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 29e5ec35d97210b1dfe7494ce96a5e3ecae75bdf
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129715904"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002119"
 ---
-# <a name="explore-and-manage-your-resources-with-asset-inventory"></a>Exploración y administración de los recursos con Asset Inventory
+# <a name="use-asset-inventory-to-manage-your-resources-security-posture"></a>Uso del inventario de recursos para administrar la posición de seguridad de los recursos
 
-La página de inventario de recursos de Azure Security Center proporciona una sola página para ver la posición de seguridad de los recursos que se han conectado a Security Center. 
+Security Center analiza periódicamente el estado de seguridad de los recursos de Azure para identificar posibles puntos vulnerables de la seguridad. A continuación, se proporcionan recomendaciones sobre cómo corregir dichos puntos vulnerables. **Cuando algún recurso tenga recomendaciones pendientes, aparecerán en el inventario.**
 
-Security Center analiza periódicamente el estado de seguridad de los recursos de Azure para identificar posibles puntos vulnerables de la seguridad. A continuación, se proporcionan recomendaciones sobre cómo corregir dichos puntos vulnerables.
-
-Cuando algún recurso tenga recomendaciones pendientes, aparecerán en el inventario.
-
-Use esta vista y sus filtros para abordar preguntas como:
+Use la vista del inventario de recursos y sus filtros para responder a preguntas como:
 
 - ¿Cuál de mis suscripciones con Azure Defender habilitado tiene recomendaciones pendientes?
 - ¿A cuál de mis máquinas con la etiqueta "producción" le falta el agente de Log Analytics?
 - ¿Cuántas máquinas, etiquetadas con una etiqueta específica, tienen recomendaciones pendientes?
-- ¿Cuántos recursos de un grupo de recursos específico tienen resultados de seguridad de un servicio de evaluación de vulnerabilidades?
+- ¿Qué máquinas de un grupo de recursos concreto tienen una vulnerabilidad conocida (con un número CVE)?
 
 Las posibilidades de administración de recursos de esta herramienta son sustanciales y continúan creciendo. 
 

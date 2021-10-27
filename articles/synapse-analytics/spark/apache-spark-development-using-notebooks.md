@@ -10,12 +10,12 @@ ms.date: 05/08/2021
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 244d7b7d2ff6fe88b883b2e8adbeeaa0e7fb167e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3b1754060a84914fca9b9c7d22ee85e32717d002
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128593237"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178771"
 ---
 # <a name="create-develop-and-maintain-synapse-notebooks-in-azure-synapse-analytics"></a>Creación, desarrollo y mantenimiento de cuadernos de Synapse en Azure Synapse Analytics
 
@@ -42,7 +42,6 @@ El equipo de Synapse proporciona el nuevo componente de cuaderno en Synapse Stud
 |Arrastrar y colocar para desplazar una celda| No compatible |&#9745;|
 |Esquema (tabla de contenido)| No compatible |&#9745;|
 |Explorador de variables| No compatible |&#9745;|
-|Formato de celdas de texto con botones de la barra de herramientas|&#9745;| No compatible|
 |Comentarios de celdas de código| No compatible | &#9745;|
 
 > [!NOTE]
@@ -190,7 +189,9 @@ Puede usar los botones de formato en la barra de herramientas de celdas de texto
 
 # <a name="preview-notebook"></a>[Versión preliminar del cuaderno](#tab/preview)
 
-La barra de herramientas del botón de formato no está disponible aún para la versión preliminar de la experiencia de cuaderno. 
+Puede usar los botones de formato en la barra de herramientas de celdas de texto para completar acciones comunes de marcado. Incluye texto en negrita, cursiva, párrafos o encabezados mediante un desplegable, inserción de código, inserción de listas sin ordenar, inserción de listas ordenadas, inserción de hipervínculos e inserción de imágenes desde direcciones URL.
+
+  ![Captura de pantalla de la barra de herramientas de celdas de texto de Synapse](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar-preview.png)
 
 ---
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 10/11/2021
 ms.author: sajagtap
-ms.openlocfilehash: e476f6da88688cb055c741f0888001d864908bae
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 2a336955ba40c8f3beb5b1e7575bee07cc3ef170
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129812391"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997922"
 ---
 # <a name="form-recognizer-studio--preview"></a>Form Recognizer Studio | Versión preliminar
 
@@ -41,6 +41,10 @@ Las siguientes características del servicio Form Recognizer están disponibles 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* Siga nuestra [**guía de migración de Form Recognizer v3.0**](v3-migration-guide.md) para ver las diferencias con respecto a la versión anterior de la API REST.
+* Explore nuestros [**inicios rápidos del SDK de versión preliminar**](quickstarts/try-v3-python-sdk.md) para ver las características en vista previa de las aplicaciones con los nuevos SDK.
+* Consulte nuestros [**inicios rápidos de la API REST en versión preliminar**](quickstarts/try-v3-rest-api.md) para ver las características en vista previa con la nueva API REST.
+
 > [!div class="nextstepaction"]
-> [Introducción a Form Recognizer Studio (versión preliminar)](https://formrecognizer.appliedai.azure.com)
+> [Inicio rápido de Form Recognizer Studio (versión preliminar)](quickstarts/try-v3-form-recognizer-studio.md)
 

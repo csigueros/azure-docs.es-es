@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 06/14/2021
 ms.author: surmb
-ms.openlocfilehash: f838b1821e38e6046014f5cd8233694db7f2ef87
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 841583de276e4657384854f8430bbb82d75517d3
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129729850"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045926"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>Configuración de la infraestructura de Azure Application Gateway
 
@@ -62,9 +62,10 @@ En este escenario, puede usar grupos de seguridad de red en la subred de Applica
 
 1. Permita el tráfico entrante desde una dirección IP de origen o intervalo de direcciones IP con el destino como el intervalo de direcciones de subred Application Gateway completo y el puerto de destino como puerto de acceso de entrada, por ejemplo, el puerto 80 para el acceso HTTP.
 2. Permita solicitudes entrantes desde el origen como **GatewayManager** etiqueta de servicio y destino como **Cualquiera** y puertos de destino como 65503-65534 para el SKU de Application Gateway v1, y puertos 65200-65535 para SKU v2 para [ comunicación de estado de salud de back-end](./application-gateway-diagnostics.md). Este intervalo de puertos es necesario para la comunicación de la infraestructura de Azure. Estos puertos están protegidos (bloqueados) mediante certificados de Azure. Sin los certificados adecuados en vigor, las entidades externas no podrán iniciar cambios en esos puntos de conexión.
-3. Permitir sondeos entrantes de Azure Load Balancer (con la etiqueta *AzureLoadBalancer*) y el tráfico de red virtual entrante (con la etiqueta *VirtualNetwork*) en el [grupo de seguridad de red](../virtual-network/network-security-groups-overview.md).
-4. Bloquear todo el tráfico entrante restante mediante una regla Denegar todo.
-5. Permitir el tráfico saliente a Internet para todos los destinos.
+3. Permitir sondeos entrantes de Azure Load Balancer (con la etiqueta *AzureLoadBalancer*) en el [grupo de seguridad de red](../virtual-network/network-security-groups-overview.md).
+4. Permitir tráfico de red entrante (etiqueta *VirtualNetwork*) en el [grupo de seguridad de red](../virtual-network/network-security-groups-overview.md).
+5. Bloquear todo el tráfico entrante restante mediante una regla Denegar todo.
+6. Permitir el tráfico saliente a Internet para todos los destinos.
 
 ## <a name="supported-user-defined-routes"></a>Rutas definidas por el usuario admitidas 
 

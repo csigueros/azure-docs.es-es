@@ -1,14 +1,14 @@
 ---
-title: 'Azure Lab Services: Visualización de la información de soporte técnico (creador de laboratorio)'
+title: Visualización de información de soporte técnico (creados de laboratorio)
 description: En este artículo se explica cómo los creadores de laboratorios pueden ver la información de soporte técnico que les permitirá obtener ayuda.
 ms.date: 06/26/2020
 ms.topic: how-to
-ms.openlocfilehash: 3e04245c3f2d9b0a4f4e98ae21287983cf679ec6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: add69ad733a639b6277fd0c9bfcacf30d9ba281d
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85445056"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179609"
 ---
 # <a name="view-support-information-lab-creator-in-azure-lab-services"></a>Visualización de la información de soporte técnico (creador de laboratorio de Azure Lab Services)
 En este artículo se explica cómo puede ver (como creador de un laboratorio) la siguiente información de soporte técnico:

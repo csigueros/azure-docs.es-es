@@ -4,12 +4,12 @@ description: Disponibilidad de recursos de proceso y memoria para el servicio Az
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 69dc12c0a74855535e173868951c15a3acfcfd75
-ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
+ms.openlocfilehash: d48f9a13b24caab86b6d2cdfba039583f1b75c70
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114371521"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998549"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidad de recursos para Azure Container Instances en las regiones de Azure
 
@@ -85,60 +85,60 @@ Las siguientes regiones y recursos máximos están disponibles para los grupos d
 ###  <a name="windows-server-2016"></a>Windows Server 2016
 
 > [!NOTE]
-> Para obtener más información sobre los hosts 1B, 2B y 3B, consulte [Compatibilidad de versiones de host y contenedor](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility).
+> Los hosts 1B y 2B han quedado en desuso para Windows Server 2016. Para obtener más información sobre los hosts 1B, 2B y 3B, consulte [Compatibilidad de versiones de host y contenedor](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility).
 
-| Region | Número máximo de CPU de 1B/2B | Máximo de memoria (GB) de 1B/2B |Número máximo de CPU de 3B | Máximo de memoria (GB) de 3B | Almacenamiento (GB) |
-| -------- | :---: | :---: | :----: | :-----: | :-------: |
-| Este de Australia | 2 | 8 | 2 | 8 | 20 |
-| Sur de Brasil | 4 | 16 | 4 | 16 | 20 |
-| Centro de Canadá | 2 | 8 | 2 | 3,5 | 20 |
-| Centro de la India | 2 | 3,5 | 2 | 3,5 | 20 |
-| Centro de EE. UU. | 2 | 8 | 2 | 3,5 | 20 |
-| Este de Asia | 2 | 3,5 | 2 | 3,5 | 20 |
-| Este de EE. UU. | 2 | 8 | 2 | 8 | 20 |
-| Este de EE. UU. 2 | 2 | 8 | 4 | 16 | 20 |
-| Japón Oriental | 4 | 16 | 4 | 16 | 20 |
-| Centro de Corea del Sur | 4 | 16 | 4 | 16 | 20 |
-| Centro-Norte de EE. UU | 2 | 8 | 4 | 16 | 20 |
-| Norte de Europa | 2 | 8 | 2 | 8 | 20 |
-| Centro-sur de EE. UU. | 2 | 8 | 2 | 8 | 20 |
-| Sudeste de Asia | N/D | N/D | 2 | 3,5 | 20 |
-| Sur de la India | 2 | 3,5 | 2 | 3,5 | 20 |
-| Sur de Reino Unido | 2 | 8 | 2 | 3,5 | 20 |
-| Centro-Oeste de EE. UU. | 2 | 8 | 2 | 8 | 20 |
-| Oeste de Europa | 4 | 16 | 4 | 16 | 20 |
-| Oeste de EE. UU. | 2 | 8 | 2 | 8 | 20 |
-| Oeste de EE. UU. 2 | 2 | 8 | 2 | 3,5 | 20 |
+| Region |Número máximo de CPU de 3B | Máximo de memoria (GB) de 3B | Almacenamiento (GB) |
+| -------- | :----: | :-----: | :-------: |
+| Este de Australia | 2 | 8 | 20 |
+| Sur de Brasil | 4 | 16 | 20 |
+| Centro de Canadá  | 2 | 3,5 | 20 |
+| Centro de la India | 2 | 3,5 | 20 |
+| Centro de EE. UU. | 2 | 3,5 | 20 |
+| Este de Asia | 2 | 3,5 | 20 |
+| Este de EE. UU. | 2 | 8 | 20 |
+| Este de EE. UU. 2 | 4 | 16 | 20 |
+| Japón Oriental | 4 | 16 | 20 |
+| Centro de Corea del Sur | 4 | 16 | 20 |
+| Centro-Norte de EE. UU | 4 | 16 | 20 |
+| Norte de Europa | 2 | 8 | 20 |
+| Centro-sur de EE. UU. | 2 | 8 | 20 |
+| Sudeste de Asia | 2 | 3,5 | 20 |
+| Sur de la India | 2 | 3,5 | 20 |
+| Sur de Reino Unido | 2 | 3,5 | 20 |
+| Centro-Oeste de EE. UU. | 2 | 8 | 20 |
+| Oeste de Europa | 4 | 16 | 20 |
+| Oeste de EE. UU. | 2 | 8 | 20 |
+| Oeste de EE. UU. 2 | 2 | 3,5 | 20 |
 
 
 ### <a name="windows-server-2019-ltsc"></a>Windows Server 2019 LTSC
 
 > [!NOTE]
-> Para obtener más información sobre los hosts 1B, 2B y 3B, consulte [Compatibilidad de versiones de host y contenedor](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility).
+> Los hosts 1B y 2B han quedado en desuso para LTSC de Windows Server 2019. Para obtener más información sobre los hosts 1B, 2B y 3B, consulte [Compatibilidad de versiones de host y contenedor](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility).
 
-| Region | Número máximo de CPU de 1B/2B | Máximo de memoria (GB) de 1B/2B |Número máximo de CPU de 3B | Máximo de memoria (GB) de 3B | Almacenamiento (GB) |
-| -------- | :---: | :---: | :----: | :-----: | :-------: |
-| Este de Australia | 4 | 16 | 4 | 16 | 20 |
-| Sur de Brasil | 4 | 16 | 4 | 16 | 20 |
-| Centro de Canadá | 4 | 16 | 4 | 16 | 20 |
-| Centro de la India | 4 | 16 | 4 | 16 | 20 |
-| Centro de EE. UU. | 4 | 16 | 4 | 16 | 20 |
-| Este de Asia | 4 | 16 | 4 | 16 | 20 |
-| Este de EE. UU. | 4 | 16 | 4 | 16 | 20 |
-| Este de EE. UU. 2 | 2 | 3,5 | 2 | 3,5 | 20 |
-| Centro de Francia | 4 | 16 | 4 | 16 | 20 |
-| Japón Oriental | N/D | N/D | 4 | 16 | 20 |
-| Centro de Corea del Sur | 4 | 16 | 4 | 16 | 20 |
-| Centro-Norte de EE. UU | 4 | 16 | 4 | 16 | 20 |
-| Norte de Europa | 4 | 16 | 4 | 16 | 20 |
-| Centro-sur de EE. UU. | 4 | 16 | 4 | 16 | 20 |
-| Sudeste de Asia | 4 | 16 | 4 | 16 | 20 |
-| Sur de la India | 4 | 16 | 4 | 16 | 20 |
-| Sur de Reino Unido | 4 | 16 | 4 | 16 | 20 |
-| Centro-Oeste de EE. UU. | 4 | 16 | 4 | 16 | 20 |
-| Oeste de Europa | 4 | 16 | 4 | 16 | 20 |
-| Oeste de EE. UU. | 4 | 16 | 4 | 16 | 20 |
-| Oeste de EE. UU. 2 | 2 | 8 | 4 | 16 | 20 |
+| Region | Número máximo de CPU de 3B | Máximo de memoria (GB) de 3B | Almacenamiento (GB) |
+| -------- | :----: | :-----: | :-------: |
+| Este de Australia | 4 | 16 | 20 |
+| Sur de Brasil | 4 | 16 | 20 |
+| Centro de Canadá | 4 | 16 | 20 |
+| Centro de la India | 4 | 16 | 20 |
+| Centro de EE. UU. | 4 | 16 | 20 |
+| Este de Asia | 4 | 16 | 20 |
+| Este de EE. UU. | 4 | 16 | 20 |
+| Este de EE. UU. 2 | 2 | 3,5 | 20 |
+| Centro de Francia | 4 | 16 | 20 |
+| Japón Oriental | 4 | 16 | 20 |
+| Centro de Corea del Sur | 4 | 16 | 20 |
+| Centro-Norte de EE. UU | 4 | 16 | 20 |
+| Norte de Europa | 4 | 16 | 20 |
+| Centro-sur de EE. UU. | 4 | 16 | 20 |
+| Sudeste de Asia | 4 | 16 | 20 |
+| Sur de la India | 4 | 16 | 20 |
+| Sur de Reino Unido | 4 | 16 | 20 |
+| Centro-Oeste de EE. UU. | 4 | 16 | 20 |
+| Oeste de Europa | 4 | 16 | 20 |
+| Oeste de EE. UU. | 4 | 16 | 20 |
+| Oeste de EE. UU. 2 | 4 | 16 | 20 |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

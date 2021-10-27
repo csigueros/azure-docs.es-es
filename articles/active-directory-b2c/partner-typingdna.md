@@ -3,19 +3,19 @@ title: TypingDNA con Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Obtenga información sobre cómo integrar la autenticación de Azure AD B2C con TypingDNA para ayudar a la revisión y verificación de identidad basadas en el patrón de escritura del usuario, ya que proporciona soluciones de verificación de identidad que fuerzan la autenticación multifactor y ayudan a cumplir con los requisitos de SCA de la directiva de servicios de pago 2 (PSD2).
 author: gargi-sinha
-manager: celestedg
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: afaac48d263082a17c7ba58996f4000366de0211
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 7c580974206a5eb4186180c997a33a5be2d02090
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256555"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130035797"
 ---
 # <a name="tutorial-for-configuring-typingdna-with-azure-active-directory-b2c"></a>Tutorial para configurar TypingDNA con Azure Active Directory B2C
 
@@ -61,7 +61,7 @@ Las llamadas a la API de REST se modelan con `validationTechnicalProfiles` dentr
 
 ### <a name="sign-in"></a>Inicio de sesión
 
-En los inicios de sesión posteriores, el patrón de escritura del usuario se procesa de la misma manera que al registrarse con [HTML personalizado](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignIn.cshtml). Una vez que el perfil de escritura se encuentra dentro del contenedor de notificaciones de Azure AD B2C, Azure AD B2C llamará a la API para llamar al punto de conexión de la API de REST de TypingDNA. Se llama al punto de conexión de [comprobar usuario](https://api.typingdna.com/index.html#api-API_Services-GetUser) para confirmar que el usuario existe. Después, se llama al punto de conexión de [comprobar patrón](https://api.typingdna.com/index.html#api-API_Services-verifyTypingPattern) para devolver el elemento `net_score`. Este elemento `net_score` es una indicación de la proximidad del patrón de escritura al registro original.
+En los inicios de sesión posteriores, el patrón de escritura del usuario se procesa de la misma manera que al registrarse con [HTML personalizado](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignIn.cshtml). Una vez que el perfil de escritura se encuentra dentro del contenedor de notificaciones de Azure AD B2C, Azure AD B2C llamará a la API para llamar al punto de conexión de la API REST de TypingDNA. Se llama al punto de conexión de [comprobar usuario](https://api.typingdna.com/index.html#api-API_Services-GetUser) para confirmar que el usuario existe. Después, se llama al punto de conexión de [comprobar patrón](https://api.typingdna.com/index.html#api-API_Services-verifyTypingPattern) para devolver el elemento `net_score`. Este elemento `net_score` es una indicación de la proximidad del patrón de escritura al registro original.
 
 Este patrón de escritura se modela con `validationTechnicalProfiles` dentro de `SelfAsserted-LocalAccountSignin-Email-TDNA`:
 

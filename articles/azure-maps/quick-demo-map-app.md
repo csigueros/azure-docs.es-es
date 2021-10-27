@@ -1,29 +1,29 @@
 ---
 title: 'Inicio rápido: Búsqueda interactiva de mapas con Azure Maps'
 description: 'Inicio rápido: Aprenda a crear mapas interactivos y en los que se puede realizar búsquedas. Vea cómo crear una cuenta de Azure Maps, obtener una clave principal y usar el SDK web para configurar aplicaciones de mapa.'
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 04/26/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 09/30/2021
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 ms.custom: mvc
-ms.openlocfilehash: a61fdab9814ecaff7ef8a54749968d2ba1b6dd38
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e4c4cdeeb032b0d6a6691987cec43c8ac1b2d437
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750192"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130043384"
 ---
 # <a name="quickstart-create-an-interactive-search-map-with-azure-maps"></a>Inicio rápido: Creación de un mapa con búsqueda interactiva con Azure Maps
 
-En este artículo se muestra cómo utilizar Azure Maps para crear un mapa que proporcione a los usuarios una experiencia de búsqueda interactiva. Le guía por estos pasos básicos:
+En este inicio rápido, aprenderá a usar Azure Maps para crear un mapa que proporcione a los usuarios una experiencia de búsqueda interactiva. Le guía por estos pasos básicos:
 
 * Cree su propia cuenta de Azure Maps.
 * Obtenga la clave principal que se usará en la aplicación web de demostración.
 * Descargue y abra la aplicación del mapa de demostración.
 
-En este inicio rápido se usa el SDK web de Azure Maps; sin embargo, los servicios de Azure Maps se pueden usar con cualquier control de mapa. [Estos](open-source-projects.md#third-part-map-control-plugins) son algunos controles conocidos de mapa de código abierto para los que el equipo de Azure Maps ha creado complementos.
+En este inicio rápido se usa el SDK web de Azure Maps, pero el servicio Azure Maps se puede usar con cualquier control de mapa, como estos populares [controles de mapa de código abierto](open-source-projects.md#third-part-map-control-plugins) para los que el equipo de Azure Mapas ha creado complementos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -48,7 +48,7 @@ Cree una nueva cuenta de Azure Maps con los pasos siguientes:
     * Lea la *licencia* y la *declaración de privacidad* y active la casilla para aceptar los términos.
     * Haga clic en el botón **Crear**.
 
-    :::image type="content" source="./media/quick-demo-map-app/create-account.png" alt-text="Creación de una cuenta de Maps en el portal":::
+    :::image type="content" source="./media/quick-demo-map-app/create-account.png" alt-text="Creación de una cuenta de Maps en el portal" lightbox="./media/quick-demo-map-app/create-account.png":::
 
 <a id="getkey"></a>
 
@@ -60,16 +60,19 @@ Una vez que se haya creado correctamente la cuenta de Maps, recupere la clave pr
 2. En la sección de configuración, seleccione **Autenticación**.
 3. Copie la **clave principal** al Portapapeles. Guárdela localmente para usarla más adelante en este tutorial.
 
+:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Obtención de la clave principal de Azure Maps en Azure Portal" lightbox="./media/quick-demo-map-app/get-key.png":::
+
 >[!NOTE]
-> Si usa la clave de suscripción en lugar de la clave principal, la asignación no se representará correctamente. Además, por motivos de seguridad, se recomienda que rote entre las claves principal y secundaria. Para rotar las claves, actualice la aplicación para que use la clave secundaria, impleméntela y, luego, presione el botón de ciclo/actualización situado junto a la clave principal para generar una nueva clave principal. La clave principal anterior se deshabilitará. Para más información sobre la rotación de claves, consulte [Configuración de Azure Key Vault con la auditoría y la rotación de claves](../key-vault/secrets/tutorial-rotation-dual.md).
+> En este inicio rápido se usa el enfoque de autenticación de [clave compartida](azure-maps-authentication.md#shared-key-authentication) con fines de demostración, pero el enfoque preferido para cualquier entorno de producción es usar la autenticación de [Azure Active Directory](azure-maps-authentication.md#azure-ad-authentication).
 
-:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Obtención de la clave principal de Azure Maps en Azure Portal":::
-
-## <a name="download-the-demo-application"></a>Descarga de la aplicación de demostración
+## <a name="download-and-update-the-azure-maps-demo"></a>Descarga y actualización de la demostración de Azure Maps
 
 1. Vaya a [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html). Copie el contenido del archivo.
 2. Guarde el contenido de este archivo localmente como **AzureMapDemo.html**. Ábralo en un editor de texto.
-3. Busque la cadena `<Your Azure Maps Key>`. Reemplácela por el valor de **Clave principal** de la sección anterior.
+3. Agregue el valor de **Clave principal** que obtuvo en la sección anterior.
+    1. Comente todo el código de la función `authOptions`; este código se usa para la autenticación de Azure Active Directory.
+    1. Quite la marca de comentario de las dos últimas líneas de la función `authOptions`; este código se usa para la autenticación de clave compartida, el enfoque que se usa en este inicio rápido.
+    1. Reemplace `<Your Azure Maps Key>` por el valor de **Clave principal** de la sección anterior.
 
 ## <a name="open-the-demo-application"></a>Apertura de la aplicación de demostración
 
@@ -79,8 +82,7 @@ Una vez que se haya creado correctamente la cuenta de Maps, recupere la clave pr
 4. Pruebe la experiencia de búsqueda interactiva. En el cuadro de búsqueda de la esquina superior izquierda de la aplicación web de demostración, busque **restaurants**.
 5. Mueva el mouse sobre la lista de direcciones y ubicaciones que aparecen debajo del cuadro de búsqueda. Observe cómo el correspondiente alfiler en el mapa muestra información sobre esa ubicación. Para proteger la privacidad de empresas privadas, se muestran nombres y direcciones ficticios.
 
-    :::image type="content" source="./media/quick-demo-map-app/interactive-search.png" alt-text="Aplicación web de búsqueda interactiva en mapas":::
-
+    :::image type="content" source="./media/quick-demo-map-app/interactive-search.png" alt-text="Aplicación web de búsqueda interactiva en mapas" lightbox="./media/quick-demo-map-app/interactive-search.png":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -95,9 +97,8 @@ Si no tiene previsto continuar con los tutoriales, siga estos pasos para realiza
 
 Para ver más ejemplos de código y obtener una experiencia de codificación interactiva, consulte estas guías:
 
-[Búsqueda de una dirección mediante el servicio de búsqueda de Azure Maps](how-to-search-for-address.md)
-
-[Uso del Control de mapa de Azure Maps](how-to-use-map-control.md)
+* [Búsqueda de una dirección mediante el servicio de búsqueda de Azure Maps](how-to-search-for-address.md)
+* [Uso del Control de mapa de Azure Maps](how-to-use-map-control.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

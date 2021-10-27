@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 3/31/2021
-ms.openlocfilehash: 39d1d5cbffdc35880ab5065171092c473961e99d
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 25572c32eff7fcdaffe3bad2bbf349bc8ca885f7
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129547008"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045813"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link"></a>Azure Cache for Redis con Azure Private Link
 

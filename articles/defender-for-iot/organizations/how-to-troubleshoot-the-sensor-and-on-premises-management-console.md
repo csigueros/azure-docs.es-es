@@ -1,32 +1,32 @@
 ---
 title: Solución de problemas del sensor y de la consola de administración local
 description: Solucione los problemas de su sensor y la consola de administración local para eliminar los problemas que pueda tener.
-ms.date: 05/10/2021
+ms.date: 10/17/2021
 ms.topic: article
-ms.openlocfilehash: 19faf64e590314d26680e0ecb636ba9a3886d14f
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 791df9cc7b95ac32dfcc794136bc53df51e3a0a8
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113019418"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131318"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>Solución de problemas del sensor y de la consola de administración local
 
 En este artículo se describen las herramientas básicas de solución de problemas para el sensor y la consola de administración local. Además de los elementos que se describen aquí, puede comprobar el estado del sistema de las siguientes maneras:
 
-**Alertas**: Cuando la interfaz de sensor que supervisa el tráfico está inactiva, se crea una alerta. 
+**Alertas**: Cuando la interfaz de sensor que supervisa el tráfico está inactiva, se crea una alerta.
 
-**SNMP**: El estado del sensor se supervisa mediante SNMP. Azure Defender para IoT responde a las consultas SNMP enviadas desde un servidor de supervisión autorizado. 
+**SNMP**: El estado del sensor se supervisa mediante SNMP. Azure Defender para IoT responde a las consultas SNMP enviadas desde un servidor de supervisión autorizado.
 
 **Notificaciones del sistema**: Cuando una consola de administración controla el sensor, puede reenviar alertas sobre las copias de seguridad del sensor con errores y los sensores desconectados.
 
 ## <a name="sensor-troubleshooting-tools"></a>Herramienta para la solución de problemas del sensor
 
-### <a name="investigate-password-failure-at-initial-sign-in"></a>Investigar el error de contraseña en el inicio de sesión inicial
+### <a name="investigate-password-failure-at-initial-sign-in"></a>Investigación del error de contraseña en el inicio de sesión inicial
 
 Al iniciar sesión en un sensor Arrow preconfigurado por primera vez, deberá realizar la recuperación de contraseña.
 
-Para recuperar la contraseña:
+**Para recuperar la contraseña**:
 
 1. En la pantalla de inicio de sesión de Defender para IoT, seleccione la opción **Recuperación de contraseña**. Se abre la pantalla **Recuperación de contraseña**.
 
@@ -36,11 +36,11 @@ Para recuperar la contraseña:
 
 1. Seleccione el menú desplegable **Más acciones** y seleccione **Recover on-premises management console password** (Recuperar contraseña de la consola de administración local).
 
-    :::image type="content" source="media/how-to-create-and-manage-users/recover-password.png" alt-text="Seleccione el sensor y seleccione la opción de recuperación de la contraseña de la consola de administración local.":::
+    :::image type="content" source="media/how-to-create-and-manage-users/recover-password.png" alt-text="Captura de pantalla de la opción de recuperación de la contraseña de la consola de administración local.":::
 
 1. Escriba el identificador único que recibió en la pantalla **Recuperación de contraseña** y seleccione **Recuperar**. Se descarga el archivo `password_recovery.zip`.
 
-    :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Escriba el identificador único y luego seleccione Recuperar.":::    
+    :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Captura de pantalla de la introducción del identificador único y la posterior selección de Recuperar.":::
 
     > [!NOTE]
     > No modifique el archivo de recuperación de contraseña. Es un archivo firmado y no funcionará si se altera.
@@ -59,61 +59,60 @@ Para recuperar la contraseña:
 Cuando el sensor reconoce que no hay tráfico en uno de los puertos configurados, aparece un indicador en la parte superior de la consola. Este indicador es visible para todos los usuarios.
 
 :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/no-traffic-detected.png" alt-text="Captura de pantalla de la alerta de que no se ha detectado tráfico.":::
- 
+
 Cuando aparezca este mensaje, puede investigar dónde no hay tráfico. Asegúrese de que el cable del intervalo está conectado y de que no se ha producido ningún cambio en la arquitectura del intervalo.  
 
 Para obtener información de soporte técnico y solución de problemas, póngase en contacto con el [Soporte técnico de Microsoft](https://support.serviceshub.microsoft.com/supportforbusiness/create?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
 
-### <a name="check-system-performance"></a>Compruebe el rendimiento del sistema. 
+### <a name="check-system-performance"></a>Compruebe el rendimiento del sistema.
 
 Cuando se implementa un nuevo sensor o, por ejemplo, el sensor funciona lentamente o no muestra ninguna alerta, puede comprobar el rendimiento del sistema.
 
-Para comprobar el rendimiento del sistema:
+**Para comprobar el rendimiento del sistema**:
 
 1. En el panel de información, asegúrese de que `PPS > 0`.
 
-   :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/dashboard-view-v2.png" alt-text="Captura de pantalla de un panel de información de ejemplo."::: 
+   :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/dashboard-view-v2.png" alt-text="Captura de pantalla de un panel de información de ejemplo.":::
 
 1. Seleccione **Dispositivos** en el menú lateral.
 
 1. En la ventana **Dispositivos**, asegúrese de que se detectan los dispositivos.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/discovered-devices.png" alt-text="Asegúrese de que se detectan los dispositivos.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/discovered-devices.png" alt-text="Captura de pantalla de los dispositivos detectados.":::
 
 1. Seleccione **Minería de datos** en el menú lateral.
 
 1. En la ventana **Minería de datos**, seleccione **TODOS** y genere un informe.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="Genere un nuevo informe mediante minería de datos.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="Captura de pantalla de la generación de un nuevo informe mediante la pantalla de minería de datos.":::
 
 1. Asegúrese de que el informe contiene datos.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="Asegúrese de que el informe contiene datos.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="Captura de pantalla de la pantalla para asegurarse de que el informe contiene datos.":::
 
 1. En el menú lateral, seleccione **Tendencias y estadísticas**.
 
 1. En la ventana **Tendencias y estadísticas**, seleccione **Agregar widget**.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/add-widget.png" alt-text="Seleccione un widget para agregarlo.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/add-widget.png" alt-text="Captura de pantalla del proceso de agregar un widget seleccionándolo.":::
 
 1. Agregue un widget y asegúrese de que muestre datos.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/widget-data.png" alt-text="Asegúrese de que el widget muestre datos.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/widget-data.png" alt-text="Captura de pantalla del widget mostrando datos.":::
 
 1. Seleccione **Alertas** en el menú lateral. Aparecerá la ventana **Alertas**.
 
 1. Asegúrese de que se han creado las alertas.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alerts-created.png" alt-text="Asegúrese de que se han creado las alertas.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alerts-created.png" alt-text="Captura de pantalla de las alertas creadas.":::
 
-
-### <a name="investigate-a-lack-of-expected-alerts"></a>Investigar una falta de alertas previstas
+### <a name="investigate-a-lack-of-expected-alerts-on-the-sensor"></a>Investigación de una falta de alertas previstas en el sensor
 
 Si la ventana **Alertas** no muestra una alerta esperada, compruebe lo siguiente:
 
 - Compruebe si la misma alerta ya aparece en la ventana **Alertas** como reacción a una instancia de seguridad diferente. En caso afirmativo, y si esta alerta no se ha controlado todavía, la consola del sensor no muestra ninguna alerta nueva.
 
-- Asegúrese de que no ha excluido esta alerta mediante el uso de las reglas de **Exclusión de alertas** en la consola de administración. 
+- Asegúrese de que no ha excluido esta alerta mediante el uso de las reglas de **Exclusión de alertas** en la consola de administración.
 
 ### <a name="investigate-widgets-that-show-no-data"></a>Investigar widgets que no muestran datos
 
@@ -121,13 +120,13 @@ Cuando los widgets de la ventana **Tendencias y estadísticas** no muestran ning
 
 - [Compruebe el rendimiento del sistema](#check-system-performance).
 
-- Asegúrese de que la configuración de hora y región esté correctamente configurada y no esté establecida en el futuro. 
+- Asegúrese de que la configuración de hora y región esté correctamente configurada y no esté establecida en el futuro.
 
 ### <a name="investigate-a-device-map-that-shows-only-broadcasting-devices"></a>Investigar un mapa de dispositivos que muestra solo dispositivos de difusión
 
 Cuando los dispositivos mostrados en el mapa no aparecen conectados entre sí, es posible que se haya producido un error en la configuración del puerto de intervalo. Es decir, es posible que solo vea dispositivos de difusión y ningún tráfico de unidifusión.
 
-:::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/broadcasting-devices.png" alt-text="Vea los dispositivos de difusión.":::
+:::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/broadcasting-devices.png" alt-text="Captura de pantalla de los dispositivos de difusión.":::
 
 En tal caso, debe comprobar que solo puede ver el tráfico de difusión. A continuación, pida al ingeniero de red que corrija la configuración del puerto de intervalo para que también pueda ver el tráfico de unidifusión.
 
@@ -145,7 +144,7 @@ Puede configurar un sensor independiente y una consola de administración, con l
 
 Para conectar un sensor independiente a NTP:
 
-- [Póngase en contacto con el equipo de soporte técnico para obtener asistencia](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
+- [Póngase en contacto con el equipo de soporte técnico para obtener asistencia](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
 
 Para conectar un sensor controlado por la consola de administración a NTP:
 
@@ -157,9 +156,9 @@ A veces, los dispositivos ICS están configurados con direcciones IP externas. E
 
 Otra indicación del mismo problema es cuando aparecen varias alertas relacionadas con Internet.
 
-:::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alert-problems.png" alt-text="Varias alertas relacionadas con Internet.":::
+:::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alert-problems.png" alt-text="Captura de pantalla de varias alertas relacionadas con Internet.":::
 
-Para corregir la configuración:
+**Para corregir la configuración**:
 
 1. Haga clic con el botón derecho en el icono de la nube en el mapa del dispositivo y seleccione **Exportar direcciones IP**. Copie los intervalos públicos que son privados y agréguelos a la lista de subredes. Para obtener más información, consulte [Configurar subredes](how-to-control-what-traffic-is-monitored.md#configure-subnets).
 
@@ -173,13 +172,13 @@ Para guardar los recursos de red, puede limitar el ancho de banda de la interfaz
 
 Para limitar el ancho de banda de la interfaz, use la herramienta CLI `cyberx-xsense-limit-interface` que se debe ejecutar con permisos sudo. La herramienta acepta los argumentos siguientes:
 
-  - `* -i`: interfaces (ejemplo: eth0).
+- `* -i`: interfaces (ejemplo: eth0).
 
-  - `* -l`: límite (ejemplo: 30 kbit/1 Mbit). Puede usar las siguientes unidades de ancho de banda: kbps, Mbps, kbit, Mbit o bps.
+- `* -l`: límite (ejemplo: 30 kbit/1 Mbit). Puede usar las siguientes unidades de ancho de banda: kbps, Mbps, kbit, Mbit o bps.
 
-  - `* -c`: borrar (para borrar el límite de ancho de banda de la interfaz).
+- `* -c`: borrar (para borrar el límite de ancho de banda de la interfaz).
 
-Para ajustar la calidad del servicio:
+**Para ajustar la Calidad de servicio (QoS)** :
 
 1. Inicie sesión en la CLI del sensor como un usuario de Defender para IoT y escriba `sudo cyberx-xsense-limit-interface-I eth0 -l value`.
 
@@ -192,7 +191,7 @@ Para ajustar la calidad del servicio:
 
 ## <a name="on-premises-management-console-troubleshooting-tools"></a>Herramientas de solución de problemas de la consola de administración local
 
-### <a name="investigate-a-lack-of-expected-alerts"></a>Investigar una falta de alertas previstas
+### <a name="investigate-a-lack-of-expected-alerts-on-the-management-console"></a>Investigación de la falta de alertas previstas en la consola de administración
 
 Si no se muestra una alerta esperada en la ventana **Alertas**, compruebe lo siguiente:
 
@@ -208,9 +207,9 @@ El valor predeterminado es 50. Esto significa que en una sesión de comunicació
 
 Para limitar el número de alertas, use la propiedad `notifications.max_number_to_report` disponible en `/var/cyberx/properties/management.properties`. No es necesario reiniciar después de cambiar esta propiedad.
 
-Para ajustar la calidad del servicio:
+**Para ajustar la Calidad de servicio (QoS)** :
 
-1. Inicie sesión como un usuario de Defender para IoT. 
+1. Inicie sesión como un usuario de Defender para IoT.
 
 1. Compruebe los valores predeterminados:
 
@@ -240,19 +239,19 @@ Para ajustar la calidad del servicio:
 
 1. Guarde los cambios. No es necesario reiniciar.
 
-## <a name="export-information-for-troubleshooting"></a>Exportar información para solucionar problemas
+## <a name="export-information-from-the-sensor-for-troubleshooting"></a>Exportación de información del sensor para solucionar problemas
 
-Además de las herramientas para la supervisión y el análisis de la red, puede enviar información al equipo de soporte técnico para realizar una investigación más detallada. Al exportar registros, el sensor generará automáticamente una contraseña de un solo uso (OTP), única para los registros exportados, en un archivo de texto independiente. 
+Además de las herramientas para la supervisión y el análisis de la red, puede enviar información al equipo de soporte técnico para realizar una investigación más detallada. Al exportar registros, el sensor generará automáticamente una contraseña de un solo uso (OTP), única para los registros exportados, en un archivo de texto independiente.
 
-Para exportar registros:
+**Para exportar registros**:
 
 1. En el panel izquierdo, seleccione **Configuración del sistema**.
 
 1. Seleccione **Exportar registros**.
 
-    :::image type="content" source="media/how-to-export-information-for-troubleshooting/export-a-log.png" alt-text="Exporte un registro al soporte del sistema.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/sensor-export-log.png" alt-text="Captura de pantalla de la pantalla de exportación de un registro al soporte del sistema.":::
 
-1. En el cuadro **Nombre de archivo**, escriba el nombre de archivo que desea utilizar para la exportación del registro. La fecha predeterminada es la actual.
+1. En el campo **Nombre de archivo**, escriba el nombre de archivo que desea utilizar para la exportación del registro. La fecha predeterminada es la actual.
 
 1. Para definir los datos que desea exportar, seleccione las categorías de datos:  
 
@@ -281,7 +280,41 @@ Los registros exportados se agregan a la lista **Registros archivados**. Envíe 
 
 La lista de registros archivados puede contener hasta cinco elementos. Si el número de elementos de la lista va más allá de ese número, se eliminará el elemento más antiguo.
 
-## <a name="see-also"></a>Consulte también
+## <a name="export-audit-log-from-the-management-console"></a>Exportación del registro de auditoría desde la consola de administración
+
+Los registros de auditoría registran información clave en el momento de la aparición. Los registros de auditoría son útiles cuando se intentan averiguar los cambios que se han realizado y quién los ha llevado a cabo. Los registros de auditoría se pueden exportar en la consola de administración y contienen la información siguiente:
+
+| Acción | Información registrada |
+|--|--|
+| **Información y corrección de alertas** | Id. de alerta |
+| **Cambios de contraseña** | Usuario, id. de usuario |
+| **Inicio de sesión** | Usuario |
+| **Creación de usuario** | Usuario, rol de usuario |
+| **Restablecimiento de contraseña** | Nombre de usuario |
+| **Reglas de exclusión**: </br></br>- Creación </br></br>- Edición </br></br>- Eliminación | </br></br>Resumen de regla </br></br>Id. de regla, resumen de regla </br></br>Id. de regla |
+| **Actualización de la consola de administración** | Archivo de actualización usado |
+| **Reintento de actualización del sensor** | El identificador de sensor |
+| **Paquete de TI cargado** | No se ha registrado información adicional. |
+
+**Para exportar el registro de auditoría**:
+
+1. En el panel izquierdo de la consola de administración, seleccione **Configuración del sistema**.
+
+1. Selecciona **Export** (Exportar).
+
+1. En el campo Nombre de archivo, escriba el nombre de archivo que desea utilizar para el registro exportado. Si no se introduce ningún nombre, el nombre de archivo predeterminado será la fecha actual.
+
+1. Seleccione **Registros de auditoría**.
+
+1. Selecciona **Export** (Exportar).
+
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/audit-logs-export.png" alt-text="Captura de pantalla de la pantalla de selección de Registros de auditoría y, a continuación, de Exportar para crear el archivo.":::
+
+El registro exportado se agrega a la lista **Registros archivados**. Seleccione el botón :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: para ver la OTP. Envíe la cadena de OTP al equipo de soporte técnico en un mensaje independiente de los registros exportados. El equipo de soporte técnico podrá extraer los registros exportados solo mediante la OTP única que se usa para cifrar los registros.
+
+:::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/archived-files.png" alt-text="Captura de pantalla del archivo que creó en la sección de archivos archivados de la ventana de exportación de información de solución de problemas.":::
+
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Visualización de alertas](how-to-view-alerts.md)
 

@@ -1,28 +1,39 @@
 ---
-title: Administración de dispositivos con Azure Portal | Microsoft Docs
+title: Administración de dispositivos en Azure AD mediante Azure Portal
 description: Aprenda a usar Azure Portal para administrar dispositivos.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 03/23/2021
+ms.date: 10/14/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ef9dca3604be281ccedf4d6f1af3e7861273e6b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ecfbb1ad70fba1444d97d70abd0a5052a91fce15
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128590729"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130040326"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Administración de identidades de dispositivos con Azure Portal
 
-Azure AD proporciona una ubicación central para administrar las identidades de los dispositivos.
+Azure AD proporciona una ubicación central desde donde administrar las identidades y supervisar la información de eventos relacionada.
 
-La página **Todos los dispositivos** le permite:
+[![Introducción a los dispositivos en Azure Portal](./media/device-management-azure-portal/devices-azure-portal.png)](./media/device-management-azure-portal/devices-azure-portal.png#lightbox)
+
+Puede acceder a la información general de los dispositivos mediante los siguientes pasos:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Vaya a **Azure Active Directory** > **Dispositivos**.
+
+En la información general de los dispositivos puede encontrar el número total de dispositivos, los dispositivos obsoletos, los dispositivos no conformes y los dispositivos no administrados. También puede acceder rápidamente a los vínculos a Intune, al acceso condicional, a las claves de BitLocker y a la supervisión básica. 
+
+Los recuentos de dispositivos de la página de información general no se actualizan en tiempo real; los cambios se reflejarán cada pocas horas.
+
+Desde allí, puede ir a **Todos los dispositivos** para:
 
 - Identificar los dispositivos, incluidos:
    - Dispositivos que se han unido o registrado en Azure AD.
@@ -37,42 +48,16 @@ La página **Todos los dispositivos** le permite:
 
 [![Vista Todos los dispositivos en Azure Portal](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
 
-Puede acceder al portal de dispositivos mediante los siguientes pasos:
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Vaya a **Azure Active Directory** > **Dispositivos**.
-
-## <a name="manage-devices"></a>Administración de dispositivos
-
-Hay dos ubicaciones para administrar dispositivos en Azure AD:
-
-- **Azure Portal** > **Azure Active Directory** > **Dispositivos**
-- **Azure Portal** > **Azure Active Directory** > **Usuarios** > Seleccionar un usuario > **Dispositivos**
-
-Ambas opciones permiten a los administradores:
-
-- Buscar dispositivos.
-- Ver los detalles del dispositivo, incluidos:
-    - Nombre de dispositivo
-    - Id. de dispositivo
-    - Sistema operativo y versión
-    - Tipo de combinación
-    - Propietario
-    - Cumplimiento y administración de dispositivos móviles
-    - Clave de recuperación de BitLocker
-- Realizar tareas de administración de identidades de dispositivo como habilitar, deshabilitar, eliminar o administrar.
-   - Las [impresoras](/universal-print/fundamentals/) y los dispositivos implementados con [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot) tienen opciones de administración limitadas en Azure AD. Se deben administrar desde sus respectivas interfaces de administración.
-
 > [!TIP]
 > - Los dispositivos Windows 10 híbridos unidos a Azure AD no tienen un propietario. Si busca un dispositivo por propietario y no lo encuentra, busque por el identificador de dispositivo.
 >
-> - Si ve un dispositivo "unido a Azure AD híbrido" con un estado "Pendiente" en la columna REGISTRADO, indica que el dispositivo se ha sincronizado desde Azure AD Connect y está esperando a completar el registro del cliente. Lea más información sobre cómo [planear la implementación de la unión a Azure AD híbrido](hybrid-azuread-join-plan.md). Puede encontrar más información en el artículo [Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory](faq.yml).
+> - Si ve un dispositivo "unido a Azure AD híbrido" con un estado "Pendiente" en la columna **Registrado**, quiere decir que el dispositivo se ha sincronizado desde Azure AD Connect y está esperando a completar el registro desde el cliente. Lea más información sobre cómo [planear la implementación de la unión a Azure AD híbrido](hybrid-azuread-join-plan.md). Puede encontrar más información en el artículo [Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory](faq.yml).
 >
 > - Para algunos dispositivos iOS, los nombres de dispositivos que contienen apóstrofos podrían usar caracteres diferentes similares a los apóstrofos. Por tanto, buscar esos dispositivos resulta un poco complicado. Si no ve correctamente los resultados de la búsqueda, asegúrese de que la cadena de búsqueda contiene caracteres de apóstrofo que coincidan.
 
 ### <a name="manage-an-intune-device"></a>Administración de un dispositivo de Intune
 
-Si es administrador de Intune, puede administrar los dispositivos en los que MDM está marcado como **Microsoft Intune**. Si el dispositivo no está inscrito con Microsoft Intune, la opción "Administrar" estará atenuada.
+Si tiene derechos para administrar dispositivos en Intune, puede administrar dispositivos en los que la administración de dispositivos móviles esté marcada con **Microsoft Intune**. Si el dispositivo no está inscrito con Microsoft Intune, la opción "Administrar" estará atenuada.
 
 ### <a name="enable-or-disable-an-azure-ad-device"></a>Habilitación o deshabilitación de un dispositivo de Azure AD
 
@@ -102,11 +87,11 @@ Para eliminar un dispositivo, tiene dos opciones:
 >    - Quita todos los detalles asociados al dispositivo como, por ejemplo, las claves de BitLocker de los dispositivos Windows.  
 >    - Representa una actividad no recuperable y no se recomienda a menos que sea necesaria.
 
-Si es otra entidad de administración la que administra un dispositivo (por ejemplo, Microsoft Intune), asegúrese de que el dispositivo se haya borrado o retirado antes de eliminarlo de Azure AD. Revise cómo [administrar dispositivos obsoletos](manage-stale-devices.md) antes de eliminar cualquier dispositivo.
+Si es otra entidad de administración la que administra un dispositivo (por ejemplo, Microsoft Intune), asegúrese de que el dispositivo se haya borrado o retirado antes de eliminarlo de Azure AD. Revise cómo [administrar dispositivos obsoletos](manage-stale-devices.md) antes de eliminar cualquier dispositivo.
 
 ### <a name="view-or-copy-device-id"></a>Ver o copiar el id. del dispositivo
 
-Puede usar un id. de dispositivo para verificar los detalles del id.de dispositivo en ese dispositivo o usar PowerShell durante la solución de problemas. Para acceder a la opción de copia, haga clic en el dispositivo.
+Puede usar un id. de dispositivo para verificar los detalles del id.de dispositivo en ese dispositivo o usar PowerShell durante la solución de problemas. Para acceder a la opción de copia, seleccione el dispositivo.
 
 ![Visualización de identificador de dispositivo](./media/device-management-azure-portal/35.png)
   
@@ -116,7 +101,7 @@ Puede ver y copiar las claves de BitLocker para permitir a los usuarios recupera
 
 ![Visualización de claves de BitLocker](./media/device-management-azure-portal/device-details-show-bitlocker-key.png)
 
-Para ver o copiar las claves de BitLocker, debe ser el propietario del dispositivo, o bien un usuario que tenga al menos uno de los siguientes roles asignados:
+Para ver o copiar las claves de BitLocker, debe ser el propietario del dispositivo, o bien tener al menos uno de los siguientes roles:
 
 - Administrador de dispositivos en la nube
 - Administrador global
@@ -144,11 +129,11 @@ Para habilitar la funcionalidad de filtrado de versión preliminar en la vista *
 1. Vaya a **Azure Active Directory** > **Dispositivos**.
 1. Seleccione el banner que dice **Pruebe las mejoras de la nueva experiencia de filtrado de dispositivos. Haga clic para habilitar la versión preliminar.**
 
-Ahora podrá **agregar filtros** a la vista **Todos los dispositivos**.
+Ahora puede **agregar filtros** a la vista **Todos los dispositivos**.
 
 ### <a name="download-devices-preview"></a>Descargar dispositivos (versión preliminar)
 
-Los administradores de dispositivos en la nube, los administradores de Intune y los administradores globales pueden usar la opción **Descargar dispositivos (versión preliminar)** para exportar un archivo CSV de los dispositivos en función de los filtros aplicados. Si no se aplica ningún filtro a la lista, se exportarán todos los dispositivos. Una exportación puede ejecutarse durante un período máximo de una hora, en función de 
+Los administradores de dispositivos en la nube, los administradores de Intune y los administradores globales pueden usar la opción **Descargar dispositivos (versión preliminar)** para exportar un archivo CSV de los dispositivos en función de los filtros aplicados. Si no se aplica ningún filtro a la lista, se exportarán todos los dispositivos. Una exportación puede ejecutarse durante un período máximo de una hora, en función de las selecciones.
 
 La lista exportada incluye los siguientes atributos de identidad del dispositivo:
 
@@ -183,7 +168,7 @@ Debe tener asignado uno de los roles siguientes para ver o administrar la config
 > - Se recomienda usar la [acción del usuario "Registrar o unir dispositivos"](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) en el acceso condicional para exigir la autenticación multifactor para la unión o registro de un dispositivo. 
 > - Debe establecer esta opción en **No** si usa la directiva de acceso condicional para exigir la autenticación multifactor. 
 
-- **Número máximo de dispositivos**: esta opción permite seleccionar el número máximo de dispositivos unidos a Azure AD o registrados en Azure AD que puede tener un usuario en Azure AD. Si un usuario alcanza esta cuota, no puede agregar dispositivos adicionales hasta que se quitan uno o varios de los dispositivos existentes. El valor predeterminado es **50**. Puede aumentar el valor hasta 100 y, si escribe un valor mayor que 100, Azure AD lo establecerá en 100. También puede usar un valor ilimitado para no aplicar otros límites aparte de los de cuota existentes.
+- **Número máximo de dispositivos**: esta opción permite seleccionar el número máximo de dispositivos unidos a Azure AD o registrados en Azure AD que puede tener un usuario en Azure AD. Si un usuario alcanza esta cuota, no puede agregar más dispositivos hasta que se quiten uno o varios de los dispositivos existentes. El valor predeterminado es **50**. Puede aumentar el valor hasta 100 y, si escribe un valor mayor que 100, Azure AD lo establecerá en 100. También puede usar un valor ilimitado para no aplicar otros límites aparte de los de cuota existentes.
 
 > [!NOTE]
 > La configuración del **número máximo de dispositivos** se aplica a los dispositivos que están unidos a Azure AD o registrados en Azure AD. Este parámetro no se aplica a los dispositivos unidos a Azure AD híbrido.
@@ -222,12 +207,11 @@ Para restringir los datos del informe a un nivel que se adapte a sus necesidades
 - Destino
 - Iniciado por (actor)
 
-Además de los filtros, puede buscar entradas concretas.
+También puede buscar entradas concretas.
 
 :::image type="content" source="./media/device-management-azure-portal/65.png" alt-text="Captura de pantalla de controles de filtro de datos de auditoría, con los campos categoría, tipo de recurso de actividad, actividad, intervalo de fechas, destino y actor y un campo de búsqueda" border="false":::.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Procedimiento para administrar los dispositivos obsoletos en Azure AD](manage-stale-devices.md)
-
-[Enterprise State Roaming](enterprise-state-roaming-overview.md)
+- [Procedimiento para administrar los dispositivos obsoletos en Azure AD](manage-stale-devices.md)
+- [Solución de problemas de estado de dispositivo pendiente](/troubleshoot/azure/active-directory/pending-devices)

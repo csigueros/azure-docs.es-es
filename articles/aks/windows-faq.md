@@ -4,12 +4,12 @@ titleSuffix: Azure Kubernetes Service
 description: Vea las preguntas frecuentes cuando ejecute cargas de trabajo de aplicaciones y grupos de nodos de Windows Server en Azure Kubernetes Service (AKS).
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: dd83803069f83233915c0baae0656346008a3814
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 9839b9075c3747c6c803e95c5622416da85d34d4
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129354627"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130138476"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Preguntas frecuentes sobre los grupos de nodos de Windows Server en AKS
 
@@ -23,15 +23,15 @@ AKS usa Windows Server 2019 como la versión del sistema operativo del host y 
 
 ## <a name="is-kubernetes-different-on-windows-and-linux"></a>¿Es Kubernetes diferente en Windows y Linux?
 
-La compatibilidad del grupo de nodos de Windows Server incluye algunas limitaciones que forman parte de Windows Server ascendente en el proyecto de Kubernetes. Estas limitaciones no son específicas de AKS. Para obtener más información sobre esta compatibilidad ascendente con Windows Server en Kubernetes, consulte la sección de [funcionalidades y limitaciones admitidas][upstream-limitations] del documento [Información sobre la compatibilidad de Windows en Kubernetes][intro-windows], desde el proyecto Kubernetes.
+La compatibilidad del grupo de nodos de Windows Server incluye algunas limitaciones que forman parte de la instancia de Windows Server ascendente en el proyecto de Kubernetes. Estas limitaciones no son específicas de AKS. Para obtener más información sobre la compatibilidad ascendente con Windows Server en Kubernetes, vea la sección de [funcionalidad admitida y limitaciones][upstream-limitations] del documento de [introducción a la compatibilidad de Windows en Kubernetes][intro-windows], desde el proyecto de Kubernetes.
 
-Kubernetes se ha centrado siempre en Linux. Muchos ejemplos usados en el sitio web [Kubernetes.io][kubernetes] ascendente están diseñados para su uso en nodos de Linux. Al crear implementaciones que usan contenedores de Windows Server, se aplican las consideraciones siguientes en el nivel de sistema operativo:
+Históricamente, Kubernetes se ha centrado en Linux. Muchos ejemplos usados en el sitio web [Kubernetes.io][kubernetes] ascendente están diseñados para su uso en nodos de Linux. Al crear implementaciones que usan contenedores de Windows Server, se aplican las consideraciones siguientes en el nivel de sistema operativo:
 
-- **Identidad**: Linux identifica a un usuario mediante un identificador de usuario numérico de enteros (UID). Los usuarios también tienen un nombre de usuario alfanumérico para iniciar sesión, que se convierte en Linux en su UID. De igual forma, Linux identifica a los grupos de usuarios mediante un identificador de grupo numérico de enteros (GID) y traduce el nombre de grupo en su GID correspondiente.
-    - Windows Server usa un identificador de seguridad binario de mayor tamaño (SID) que se almacena en la base de datos de Windows Security Access Manager (SAM). Esta base de datos no se comparte entre el host y los contenedores ni entre contenedores.
-- **Permisos de archivos**: Windows Server utiliza una lista de control de acceso basada en SID, en lugar de una máscara de bits de permisos y UID+GID.
-- **Rutas de archivo**: la convención en Windows Server consiste en usar \ en lugar de /.
-    - En las especificaciones de pod que montan los volúmenes, especifique la ruta correctamente para los contenedores de Windows Server. Por ejemplo, en lugar de un punto de montaje de */mnt/volume* en un contenedor de Linux, especifique la letra de unidad y la ubicación como */K/Volume* para montarlo como la unidad *K:* .
+- **Identidad**: Linux identifica a un usuario mediante un identificador de usuario entero (UID). Los usuarios también tienen un nombre de usuario alfanumérico para iniciar sesión, que se convierte en Linux en su UID. De igual forma, Linux identifica a los grupos de usuarios mediante un identificador de grupo entero (GID) y traduce el nombre de grupo a su GID correspondiente.
+    Windows Server usa un identificador de seguridad (SID) binario de mayor tamaño que se almacena en la base de datos de Windows Security Access Manager (SAM). Esta base de datos no se comparte entre el host y los contenedores ni entre contenedores.
+- **Permisos de archivos**: Windows Server usa una lista de control de acceso basada en SID, en lugar de una máscara de bits de permisos y UID+GID.
+- **Rutas de archivo**: la convención en Windows Server es usar \ en lugar de /. 
+    En las especificaciones de pod que montan los volúmenes, especifique la ruta correctamente para los contenedores de Windows Server. Por ejemplo, en lugar de un punto de montaje de */mnt/volume* en un contenedor de Linux, especifique la letra de unidad y la ubicación como */K/Volume* para montarlo como la unidad *K:* .
 
 ## <a name="what-kind-of-disks-are-supported-for-windows"></a>¿Qué tipo de discos se admiten en Windows?
 
@@ -39,7 +39,7 @@ Azure Disks y Azure Files son los tipos de volúmenes admitidos. Se accede a e
 
 ## <a name="can-i-run-windows-only-clusters-in-aks"></a>¿Puedo ejecutar clústeres que sean solo de Windows en AKS?
 
-AKS hospeda los nodos maestros (esto es, el plano de control) de un clúster de AKS en el servicio, y usted no verá el sistema operativo de los nodos que hospedan los componentes maestros. Todos los clústeres de AKS se crean con un primer grupo de nodos predeterminado basado en Linux. Este grupo de nodos contiene los servicios del sistema necesarios para que el clúster funcione. Se recomienda ejecutar al menos dos nodos en el primer grupo de nodos para garantizar la confiabilidad del clúster y que tenga la capacidad de realizar operaciones de clúster. No se puede eliminar este primer grupo de nodos basado en Linux, a menos que se elimine el propio clúster de AKS.
+El servicio AKS hospeda los nodos maestros (el plano de control) de un clúster de AKS. No se le expone al sistema operativo de los nodos que hospedan los componentes maestros. Todos los clústeres de AKS se crean con un primer grupo de nodos predeterminado basado en Linux. Este grupo de nodos contiene los servicios del sistema necesarios para que el clúster funcione. Se recomienda ejecutar al menos dos nodos del primer grupo de nodos para garantizar la confiabilidad del clúster y la posibilidad de realizar operaciones de clúster. No se puede eliminar este primer grupo de nodos basado en Linux, a menos que se elimine el propio clúster de AKS.
 
 ## <a name="how-do-i-patch-my-windows-nodes"></a>¿Cómo se aplica una revisión a los nodos de Windows?
 
@@ -51,7 +51,7 @@ Para obtener las revisiones más recientes de los nodos de Windows, puede [actua
 
 ## <a name="what-network-plug-ins-are-supported"></a>¿Qué complementos de red se admiten?
 
-Los clústeres de AKS con grupos de nodos de Windows deben usar el modelo de redes (avanzado) de Azure CNI. No se admiten las redes Kubenet (básico). Para obtener más información sobre las diferencias en los modelos de redes, consulte [Conceptos de redes para las aplicaciones en AKS][azure-network-models]. El modelo de redes de Azure CNI requiere una planeación y consideraciones adicionales para la administración de direcciones IP. Para obtener más información sobre cómo planear e implementar Azure CNI, consulte [Configuración de redes de Azure CNI en AKS][configure-azure-cni].
+Los clústeres de AKS con grupos de nodos de Windows deben usar el modelo de redes de Azure Container Networking Interface (Azure CNI) (avanzado). No se admiten las redes Kubenet (básico). Para obtener más información sobre las diferencias en los modelos de redes, consulte [Conceptos de redes para las aplicaciones en AKS][azure-network-models]. El modelo de redes de Azure CNI exige planeamiento y consideraciones adicionales para la administración de direcciones IP. Para obtener más información sobre cómo planear e implementar Azure CNI, consulte [Configuración de redes de Azure CNI en AKS][configure-azure-cni].
 
 Los nodos de Windows en los clústeres de AKS también tienen habilitado [Direct Server Return (DSR)][dsr] de forma predeterminada cuando Calico está habilitado.
 
@@ -59,15 +59,15 @@ Los nodos de Windows en los clústeres de AKS también tienen habilitado [Direct
 
 En este momento, la [conservación de la IP de origen del cliente][client-source-ip] no es compatible con los nodos de Windows.
 
-## <a name="can-i-change-the-max--of-pods-per-node"></a>¿Puedo cambiar el número máximo de pods por nodo?
+## <a name="can-i-change-the-maximum-number-of-pods-per-node"></a>¿Se puede cambiar el número máximo de pods por nodo?
 
-Sí. Para conocer las implicaciones y las opciones disponibles, consulte [Pods máximos por nodo][maximum-number-of-pods].
+Sí. Para conocer las implicaciones de un cambio y las opciones disponibles, vea [Pods máximos por nodo][maximum-number-of-pods].
 
 ## <a name="why-am-i-seeing-an-error-when-i-try-to-create-a-new-windows-agent-pool"></a>¿Por qué se muestra un error al tratar de crear un nuevo grupo de agentes de Windows?
 
 Si ha creado el clúster antes de febrero de 2020 y nunca ha realizado ninguna operación de actualización, este sigue usando una imagen de Windows antigua. Es posible que se haya mostrado un error similar al siguiente:
 
-"No se encontró la siguiente lista de imágenes a las que se hace referencia en la plantilla de implementación: Publicador: MicrosoftWindowsServer, Oferta: WindowsServer, SKU: 2019-datacenter-core-smalldisk-2004, Versión: más reciente. Consulte [Búsqueda y uso de imágenes de máquina virtual de Azure Marketplace con Azure PowerShell](../virtual-machines/windows/cli-ps-findimage.md) para obtener instrucciones para encontrar imágenes disponibles.
+"No se encontró la siguiente lista de imágenes a las que se hace referencia en la plantilla de implementación: Publicador: MicrosoftWindowsServer, Oferta: WindowsServer, SKU: 2019-datacenter-core-smalldisk-2004, Versión: más reciente. Vea [Búsqueda y uso de imágenes de máquina virtual de Azure Marketplace con Azure PowerShell](../virtual-machines/windows/cli-ps-findimage.md) para obtener instrucciones para encontrar imágenes disponibles."
 
 Para corregir este error:
 
@@ -78,13 +78,13 @@ Para corregir este error:
 
 ## <a name="how-do-i-rotate-the-service-principal-for-my-windows-node-pool"></a>¿Cómo se realiza la rotación de la entidad de servicio para el grupo de nodos de Windows?
 
-Los grupos de nodos de Windows no admiten la rotación de la entidad de servicio. Para actualizar la entidad de servicio, cree un nuevo grupo de nodos de Windows y migre los pods del grupo anterior al nuevo. Cuando termine, elimine el grupo de nodos antiguo.
+Los grupos de nodos de Windows no admiten la rotación de la entidad de servicio. Para actualizar la entidad de servicio, cree un nuevo grupo de nodos de Windows y migre los pods del grupo anterior al nuevo. Después de migrar los pods al nuevo grupo, elimine el grupo de nodos anterior.
 
-En su lugar, use identidades administradas que, básicamente, son contenedores en torno a entidades de servicio. Para obtener más información, consulte [Uso de identidades administradas en Azure Kubernetes Service][managed-identity].
+En lugar de entidades de servicio, use identidades administradas que, básicamente, son contenedores en torno a entidades de servicio. Para obtener más información, consulte [Uso de identidades administradas en Azure Kubernetes Service][managed-identity].
 
 ## <a name="how-do-i-change-the-administrator-password-for-windows-server-nodes-on-my-cluster"></a>¿Cómo cambio la contraseña de administrador de los nodos de Windows Server en el clúster?
 
-Al crear el clúster de AKS, se especifican los parámetros `--windows-admin-password` y `--windows-admin-username` para establecer las credenciales de administrador de los nodos de Windows Server del clúster. Si no especificó la credenciales de administrador como, por ejemplo, al crear un clúster mediante Azure Portal o al establecer `--vm-set-type VirtualMachineScaleSets` y `--network-plugin azure` mediante la CLI de Azure, el nombre de usuario tiene como valor predeterminado *azureuser* y una contraseña aleatoria.
+Al crear el clúster de AKS, se especifican los parámetros `--windows-admin-password` y `--windows-admin-username` para establecer las credenciales de administrador de los nodos de Windows Server del clúster. Si no ha especificado la credenciales de administrador al crear un clúster mediante Azure Portal o al establecer `--vm-set-type VirtualMachineScaleSets` y `--network-plugin azure` mediante la CLI de Azure, el nombre de usuario tiene como valor predeterminado *azureuser* y una contraseña aleatoria.
 
 Para cambiar la contraseña de administrador, use el comando `az aks update`:
 
@@ -96,17 +96,17 @@ az aks update \
 ```
 
 > [!IMPORTANT]
-> Al realizar esta operación, se actualizarán todos los grupos de nodos de Windows Server. Los grupos de nodos de Linux no se ven afectados.
+> Al realizar la operación`az aks update` se actualizan solo los grupos de nodos de Windows Server. Los grupos de nodos de Linux no se ven afectados.
 > 
-> Al cambiar `--windows-admin-password`, la nueva contraseña debe tener al menos 14 caracteres y cumplir los [requisitos de contraseña de Windows Server][windows-server-password].
+> Al cambiar `--windows-admin-password`, la nueva contraseña debe tener al menos 14 caracteres y cumplir los [requisitos de contraseña de Windows Server][windows-server-password].
 
 ## <a name="how-many-node-pools-can-i-create"></a>¿Cuántos grupos de nodos puedo crear?
 
-El clúster de AKS puede tener un máximo de 100 grupos de nodos. Puede tener un máximo de 1000 nodos distribuidos entre esos grupos de nodos. [Limitaciones del grupo de nodos][nodepool-limitations].
+El clúster de AKS puede tener un máximo de 100 grupos de nodos. Puede tener un máximo de 1000 nodos distribuidos entre esos grupos de nodos. Para obtener más información, vea las [limitaciones de los grupos de nodos][nodepool-limitations].
 
 ## <a name="what-can-i-name-my-windows-node-pools"></a>¿Qué nombre puedo usar para mis grupos de nodos de Windows?
 
-El nombre debe tener un máximo de 6 (seis) caracteres. Esta es una limitación de AKS.
+Mantenga los nombres en un máximo de seis caracteres. Esta es la limitación actual de AKS.
 
 ## <a name="are-all-features-supported-with-windows-nodes"></a>¿Son todas las características compatibles con los nodos de Windows?
 
@@ -122,7 +122,7 @@ La compatibilidad con las cuentas de servicio administradas de grupo (gMSA) no e
 
 ## <a name="can-i-use-azure-monitor-for-containers-with-windows-nodes-and-containers"></a>¿Puedo usar Azure Monitor para contenedores con nodos y contenedores de Windows?
 
-Sí puede; no obstante, Azure Monitor se encuentra en versión preliminar pública para la recopilación de registros (stdout, stderr) y métricas de los contenedores de Windows. También puede conectarse al streaming en vivo de registros de stdout desde un contenedor de Windows.
+Sí, puede hacerlo. Pero Azure Monitor se encuentra en versión preliminar pública para la recopilación de registros (stdout, stderr) y métricas de contenedores de Windows. También puede conectarse al streaming en vivo de registros de stdout desde un contenedor de Windows.
 
 ## <a name="are-there-any-limitations-on-the-number-of-services-on-a-cluster-with-windows-nodes"></a>¿Existe alguna limitación en el número de servicios que puede haber en un clúster con nodos de Windows?
 
@@ -132,7 +132,7 @@ Un clúster con nodos de Windows puede tener aproximadamente 500 servicios ante
 
 Sí. Ventaja híbrida de Azure para Windows Server reduce los costes operativos, al permitirle llevar su licencia de Windows Server local a los nodos de Windows de AKS.
 
-Ventaja híbrida de Azure puede usarse en todo el clúster de AKS o en nodos individuales. Para los nodos individuales, debe navegar hasta el [grupo de recursos de nodos][resource-groups] y aplicar Ventaja híbrida de Azure directamente a los nodos. Para obtener más información sobre cómo aplicar Ventaja híbrida de Azure a nodos individuales, consulte [Ventaja híbrida de Azure para Windows Server][hybrid-vms]. 
+Ventaja híbrida de Azure puede usarse en todo el clúster de AKS o en nodos individuales. En los nodos individuales, debe ir al [grupo de recursos de nodos][resource-groups] y aplicar Ventaja híbrida de Azure directamente a los nodos. Para obtener más información sobre cómo aplicar Ventaja híbrida de Azure a nodos individuales, consulte [Ventaja híbrida de Azure para Windows Server][hybrid-vms]. 
 
 Para usar Ventaja híbrida de Azure en un nuevo clúster de AKS, use el argumento `--enable-ahub`.
 
@@ -173,7 +173,7 @@ Si el clúster tiene Ventaja híbrida de Azure habilitada, la salida de `az vmss
 
 ## <a name="can-i-use-the-kubernetes-web-dashboard-with-windows-containers"></a>¿Puedo usar el panel web de Kubernetes con los contenedores de Windows?
 
-Sí, puede usar el [panel web de Kubernetes][kubernetes-dashboard] para acceder a la información sobre los contenedores de Windows, pero en este momento no puede ejecutar *kubectl exec* en un contenedor de Windows en ejecución directamente desde el panel web de Kubernetes. Para obtener más detalles sobre la conexión al contenedor de Windows en ejecución, vea [Conexión con RDP a los nodos de Windows Server de clúster de Azure Kubernetes Service (AKS) para el mantenimiento o la solución de problemas][windows-rdp].
+Sí, puede usar el [panel web de Kubernetes][kubernetes-dashboard] para acceder a información sobre contenedores de Windows, aunque, de momento, no puede ejecutar *kubectl exec* en un contenedor de Windows en ejecución directamente desde el panel web de Kubernetes. Para obtener más detalles sobre la conexión a un contenedor de Windows en ejecución, vea [Conexión con RDP a los nodos de Windows Server de clúster de Azure Kubernetes Service (AKS) para el mantenimiento o la solución de problemas][windows-rdp].
 
 ## <a name="how-do-i-change-the-time-zone-of-a-running-container"></a>¿Cómo se cambia la zona horaria de un contenedor en ejecución?
 
@@ -192,19 +192,23 @@ Set-TimeZone -Id "Russian Standard Time"
 Para ver la zona horaria actual del contenedor en ejecución o una lista disponible de zonas horarias, use [Get-TimeZone](/powershell/module/microsoft.powershell.management/get-timezone).
 
 ## <a name="can-i-maintain-session-affinity-from-client-connections-to-pods-with-windows-containers"></a>¿Puedo mantener la afinidad de sesión desde las conexiones cliente a pods con contenedores de Windows?
-Aunque esto se admite en la versión del sistema operativo WS2022, la manera actual de lograr la afinidad de sesión por IP de cliente se realiza limitando el pod deseado para ejecutar una única instancia por nodo y configurando el servicio Kubernetes para dirigir el tráfico al pod en el nodo local. Para ello, se puede usar la siguiente configuración:
-1. Clúster de AKS que ejecuta una versión mínima de 1.20.
-1. Restrinja el pod para permitir solo una instancia por cada nodo de Windows. Esto se puede lograr mediante el uso de la antiafinidad en la configuración de implementación.
-1. En la configuración del servicio Kubernetes, establezca "externalTrafficPolicy=Local". Esto garantizará que el servicio de Kubernetes solo dirija el tráfico a los pods dentro del nodo local.
-1. En la configuración del servicio Kubernetes, establezca "sessionAffinity: ClientIP". Esto garantizará que Azure Load Balancer se configure con afinidad de sesión.
+
+Aunque se admite el mantenimiento de la afinidad de sesión desde las conexiones cliente a pods con contenedores de Windows en la versión del sistema operativo Windows Server 2022, la afinidad de sesión por IP de cliente se logra actualmente limitando el pod deseado a ejecutar una única instancia por nodo y configurando el servicio Kubernetes para dirigir el tráfico al pod en el nodo local. 
+
+Use la configuración siguiente: 
+
+1. Use un clúster de AKS con una versión mínima de 1.20.
+1. Restrinja el pod para permitir solo una instancia por cada nodo de Windows. Puede lograrlo si usa la antiafinidad en la configuración de implementación.
+1. En la configuración del servicio Kubernetes, establezca **externalTrafficPolicy=Local**. Esto garantiza que el servicio de Kubernetes solo dirija el tráfico a los pods del nodo local.
+1. En la configuración del servicio Kubernetes, establezca **sessionAffinity: ClientIP**. Esto garantiza que Azure Load Balancer se configure con afinidad de sesión.
 
 ## <a name="what-if-i-need-a-feature-thats-not-supported"></a>¿Qué ocurre si necesito una característica que no se admite?
 
-Estamos trabajando día y noche para poner a su disposición todas las características que necesite para Windows en AKS, pero si encuentra errores, el proyecto ascendente de código abierto [aks-engine][aks-engine], proporciona una manera fácil y totalmente personalizable de ejecutar Kubernetes en Azure e incluye el soporte técnico de Windows. Asegúrese de consultar el plan de desarrollo de próximas características en el [Plan de desarrollo de AKS][aks-roadmap].
+Si detecta la carencia de alguna característica, el proyecto ascendente de código abierto [aks-engine][aks-engine] proporciona una manera fácil y totalmente personalizable de ejecutar Kubernetes en Azure e incluye soporte técnico de Windows. Para obtener más información, vea la [hoja de ruta de AKS][aks-roadmap].
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para comenzar con los contenedores de Windows Server en AKS, [cree un grupo de nodos que ejecute Windows Server en AKS][windows-node-cli].
+Para empezar a trabajar con contenedores de Windows Server en AKS, vea [Creación de un grupo de nodos que ejecute Windows Server en AKS][windows-node-cli].
 
 <!-- LINKS - external -->
 [kubernetes]: https://kubernetes.io

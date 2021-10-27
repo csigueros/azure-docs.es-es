@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/21/2020
 ms.custom: devx-track-java, devx-track-azurecli, subject-rbac-steps
-ms.openlocfilehash: 6822514e6bcbb5a232f7ee7f22ec8b0ee8a21e10
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 5d19799d688e8273960b92efb3d60a3afc90bb18
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122396745"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074178"
 ---
 # <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Implementación de Azure Spring Cloud en una red virtual
 
@@ -62,15 +62,16 @@ Los procedimientos siguientes describen la configuración de la red virtual para
 
 ## <a name="create-a-virtual-network"></a>Creación de una red virtual
 
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
 Si ya tiene una red virtual para hospedar la instancia de Azure Spring Cloud, omita los pasos 1, 2 y 3. Puede comenzar en el paso 4 para preparar las subredes de la red virtual.
 
 1. En el menú de Azure Portal, seleccione **Crear un recurso**. En Azure Marketplace, seleccione **Redes** > **Red virtual**.
 
 1. En el cuadro de diálogo **Crear red virtual**, escriba o seleccione la siguiente información:
 
-    |Configuración          |Valor                                             |
+    |Configuración          |Value                                             |
     |-----------------|--------------------------------------------------|
-    |Suscripción     |Seleccione su suscripción.                         |
+    |Subscription     |Seleccione su suscripción.                         |
     |Resource group   |Seleccione el grupo de recursos o cree uno nuevo.  |
     |Nombre             |Escriba **azure-spring-cloud-vnet**.                 |
     |Location         |Seleccione **Este de EE. UU**.                               |
@@ -85,8 +86,61 @@ Si ya tiene una red virtual para hospedar la instancia de Azure Spring Cloud, om
 
 1. Seleccione **Revisar + crear**. Deje el resto tal como está y seleccione **Crear**.
 
+#### <a name="cli"></a>[CLI](#tab/azure-CLI)
+Si ya tiene una red virtual para hospedar una instancia de Azure Spring Cloud, omita los pasos 1, 2, 3 y 4. Puede comenzar en el paso 5 para preparar las subredes de la red virtual.
+
+1. Defina variables para la suscripción, el grupo de recursos y la instancia de Azure Spring Cloud. Personalice los valores en función de su entorno real.
+
+   ```azurecli
+   SUBSCRIPTION='subscription-id'
+   RESOURCE_GROUP='my-resource-group'
+   LOCATION='eastus'
+   SPRING_CLOUD_NAME='spring-cloud-name'
+   VIRTUAL_NETWORK_NAME='azure-spring-cloud-vnet'
+   ```
+
+1. Inicie sesión en la CLI de Azure y elija una suscripción activa.
+
+   ```azurecli
+   az login
+   az account set --subscription ${SUBSCRIPTION}
+   ```
+
+1. Cree un grupo de recursos para sus recursos.
+
+   ```azurecli
+   az group create --name $RESOURCE_GROUP --location $LOCATION
+   ```
+
+1. Creación de la red virtual.
+
+   ```azurecli
+   az network vnet create --resource-group $RESOURCE_GROUP \
+       --name $VIRTUAL_NETWORK_NAME \
+       --location $LOCATION \
+       --address-prefix 10.1.0.0/16
+   ```
+
+1. Cree dos subredes en esta red virtual. 
+
+   ```azurecli
+   az network vnet subnet create --resource-group $RESOURCE_GROUP \
+       --vnet-name $VIRTUAL_NETWORK_NAME \
+       --address-prefixes 10.1.0.0/28 \
+       --name service-runtime-subnet 
+   az network vnet subnet create --resource-group $RESOURCE_GROUP \
+       --vnet-name $VIRTUAL_NETWORK_NAME \
+       --address-prefixes 10.1.1.0/28 \
+       --name apps-subnet 
+   ```
+
+---
+
 ## <a name="grant-service-permission-to-the-virtual-network"></a>Concesión de permisos de servicio a la red virtual
+
 Azure Spring Cloud requiere permisos de **propietario** en la red virtual, con el fin de conceder permisos a una entidad de servicio dinámica y dedicada en la red virtual para realizar más tareas de implementación y mantenimiento.
+
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Seleccione la red virtual **azure-spring-cloud-vnet** que creó anteriormente.
 
@@ -94,7 +148,7 @@ Seleccione la red virtual **azure-spring-cloud-vnet** que creó anteriormente.
 
     ![Captura de pantalla que muestra la pantalla Access control (Control de acceso).](./media/spring-cloud-v-net-injection/access-control.png)
 
-1. Asigne el rol *Propietario* al **proveedor de recursos de Azure Spring Cloud**. Para acceder a los pasos detallados, vea [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md#step-2-open-the-add-role-assignment-pane).
+1. Asigne el rol *Propietario* al **proveedor de recursos de Azure Spring Cloud**. Para acceder a los pasos detallados, vea [Asignación de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md#step-2-open-the-add-role-assignment-page).
 
     ![Captura de pantalla que muestra la asignación de propietario al proveedor de recursos.](./media/spring-cloud-v-net-injection/assign-owner-resource-provider.png)
 
@@ -113,8 +167,26 @@ Seleccione la red virtual **azure-spring-cloud-vnet** que creó anteriormente.
         --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
     ```
 
+#### <a name="cli"></a>[CLI](#tab/azure-CLI)
+
+```azurecli
+VIRTUAL_NETWORK_RESOURCE_ID=`az network vnet show \
+    --name $VIRTUAL_NETWORK_NAME \
+    --resource-group $RESOURCE_GROUP \
+    --query "id" \
+    --output tsv`
+
+az role assignment create \
+    --role "Owner" \
+    --scope ${VIRTUAL_NETWORK_RESOURCE_ID} \
+    --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
+```
+
+---
+
 ## <a name="deploy-an-azure-spring-cloud-instance"></a>Implementación de una instancia de Azure Spring Cloud
 
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
 Para implementar una instancia de Azure Spring Cloud en la red virtual:
 
 1. Abra [Azure Portal](https://portal.azure.com).
@@ -146,6 +218,25 @@ Para implementar una instancia de Azure Spring Cloud en la red virtual:
 
     ![Captura de pantalla que muestra cómo se comprueban las especificaciones.](./media/spring-cloud-v-net-injection/verify-specifications.png)
 
+#### <a name="cli"></a>[CLI](#tab/azure-CLI)
+Para implementar una instancia de Azure Spring Cloud en la red virtual:
+
+Cree la instancia de Azure Spring Cloud especificando la red virtual y las subredes que acaba de crear.
+
+   ```azurecli
+   az spring-cloud create  \
+       --resource-group "$RESOURCE_GROUP" \
+       --name "$SPRING_CLOUD_NAME" \
+       --vnet $VIRTUAL_NETWORK_NAME \
+       --service-runtime-subnet service-runtime-subnet \
+       --app-subnet apps-subnet \
+       --enable-java-agent \
+       --sku standard \
+       --location $LOCATION
+   ```
+
+---
+
 Después de la implementación, se crearán dos grupos de recursos adicionales en la suscripción para hospedar los recursos de red de la instancia de Azure Spring Cloud. Vaya a **Inicio** y seleccione **Grupos de recursos** en los elementos del menú superior para buscar los siguientes nuevos grupos de recursos.
 
 El grupo de recursos llamado **ap-svc-rt_{nombre de la instancia del servicio}_{región de la instancia del servicio}** contiene los recursos de red del runtime de servicio de la instancia de servicio.
@@ -162,6 +253,7 @@ Esos recursos de red están conectados a la red virtual creada en la imagen ante
 
    > [!Important]
    > El servicio Azure Spring Cloud administra completamente los grupos de recursos. *No* elimine ni modifique manualmente ningún recurso de ellos.
+
 
 ## <a name="using-smaller-subnet-ranges"></a>Uso de intervalos de subred más pequeños
 

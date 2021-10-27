@@ -3,7 +3,7 @@ title: Configuración de un cliente de escucha de DNN para un grupo de disponibi
 description: Obtenga información sobre cómo configurar un cliente de escucha de nombre de red distribuida (DNN) para reemplazar el cliente de escucha del nombre de red virtual (VNN) y enrutar el tráfico al grupo de disponibilidad Always On en VM con SQL Server en Azure.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/07/2020
-ms.author: mathoma
-ms.reviewer: jroth
-ms.openlocfilehash: 50984f7a22caa6e1340b6ed4d927d9450eccdf9e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: 3ad963def4866e7528527400ff259502441c9dbf
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121752187"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165631"
 ---
 # <a name="configure-a-dnn-listener-for-an-availability-group"></a>Configuración de un cliente de escucha de DNN para un grupo de disponibilidad
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,6 @@ Con VM con SQL Server en Azure, el nombre de red distribuida (DNN) enruta el tr
 
 En este artículo aprenderá a configurar un cliente de escucha de DNN para reemplazar al cliente de escucha de VNN, y a enrutar el tráfico a un grupo de disponibilidad con VM con SQL Server en Azure para lograr una alta disponibilidad y recuperación ante desastres (HADR).
 
-La característica del cliente de escucha de DNN actualmente solo está disponible a partir de SQL Server 2019 CU8 en Windows Server 2016 y versiones posteriores.
 
 En el caso de una opción de conectividad alternativa, considere la posibilidad de usar un [cliente de escucha de VNN y Azure Load Balancer](availability-group-vnn-azure-load-balancer-configure.md) en su lugar.
 
@@ -46,12 +45,11 @@ Use el cliente de escucha de DNN para reemplazar un cliente de escucha de VNN ex
 
 Antes de completar los pasos de este artículo, ya debe tener:
 
-- SQL Server 2019 en CU8 o posterior, en Windows Server 2016 y versiones posteriores
+- SQL Server con [SQL Server 2019 CU8](https://support.microsoft.com/topic/cumulative-update-8-for-sql-server-2019-ed7f79d9-a3f0-a5c2-0bef-d0b7961d2d72) y posterior, [SQL Server 2017 CU25](https://support.microsoft.com/topic/kb5003830-cumulative-update-25-for-sql-server-2017-357b80dc-43b5-447c-b544-7503eee189e9) y posterior, o [SQL Server 2016 SP3](https://support.microsoft.com/topic/kb5003279-sql-server-2016-service-pack-3-release-information-46ab9543-5cf9-464d-bd63-796279591c31) y posterior en Windows Server 2016 y posterior.
 - Decidió que el nombre de red distribuida es la [opción de conectividad adecuada para su solución HADR](hadr-cluster-best-practices.md#connectivity).
 - Configurado el [grupo de disponibilidad Always On](availability-group-overview.md). 
 - Instaló la versión más reciente de [Azure PowerShell](/powershell/azure/install-az-ps). 
 - Identificó el puerto único que usará con el cliente de escucha de DNN. El puerto usado con un cliente de escucha de DNN debe ser único en todas las réplicas del grupo de disponibilidad o de la instancia de clúster de conmutación por error.  Ninguna otra conexión puede compartir el mismo puerto.
-- El cliente que se conecta al agente de escucha de DNN debe admitir el parámetro `MultiSubnetFailover=True` en la cadena de conexión. 
 
 
 
@@ -146,7 +144,11 @@ Un valor de `1` para `is_distributed_network_name` indica que el cliente de escu
 
 ## <a name="update-connection-string"></a>Actualización de la cadena de conexión
 
-Actualice las cadenas de conexión de las aplicaciones para que se conecten al cliente de escucha de DNN. Las cadenas de conexión de los clientes de escucha de DNN deben proporcionar el número de puerto de DNN. Para garantizar una conectividad rápida tras la conmutación por error, agregue `MultiSubnetFailover=True` a la cadena de conexión si el cliente SQL lo admite.
+Actualice la cadena de conexión para cualquier aplicación que necesite conectarse al cliente de escucha de DNN. La cadena de conexión al cliente de escucha de DNN debe proporcionar el número de puerto de DNN y especificar `MultiSubnetFailover=True` en la cadena de conexión. Si el cliente SQL no admite el parámetro `MultiSubnetFailover=True`, no es compatible con un agente de escucha de DNN.  
+
+A continuación se incluye un ejemplo de cadena de conexión para el nombre de cliente de escucha **DNN_Listener** y el puerto 6789: 
+
+`DataSource=DNN_Listener,6789,MultiSubnetFailover=True`
 
 ## <a name="test-failover"></a>Conmutación por error de prueba
 
@@ -173,8 +175,8 @@ Pruebe la conectividad con el cliente de escucha de DNN con estos pasos:
 
 ## <a name="limitations"></a>Limitaciones
 
-- Actualmente, un cliente de escucha de DNN para un grupo de disponibilidad solo se admite para SQL Server 2019 CU8 y versiones posteriores en Windows Server 2016 y versiones posteriores. 
 - Los clientes de escucha de DNN **SE DEBEN** configurar con un puerto único.  No se puede compartir el puerto con ninguna otra conexión en ninguna réplica.
+- El cliente que se conecta al agente de escucha de DNN debe admitir el parámetro `MultiSubnetFailover=True` en la cadena de conexión. 
 - Puede haber consideraciones adicionales al trabajar con otras características de SQL Server y un grupo de disponibilidad con un DNN. Para obtener más información, consulte [Interoperabilidad de AG con DNN](availability-group-dnn-interoperability.md). 
 
 ## <a name="port-considerations"></a>Consideraciones sobre los puertos

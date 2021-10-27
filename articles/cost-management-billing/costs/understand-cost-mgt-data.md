@@ -3,24 +3,24 @@ title: Información sobre los datos de Azure Cost Management
 description: Este artículo le ayudará a comprender mejor qué datos se incluyen en Cost Management y con qué frecuencia se procesan, recopilan, muestran y cierran.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2021
+ms.date: 10/13/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 0e67812e07229ee8dc13bcd79fc6d546a2618009
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 5025e1579f52b23c8f26de97212a695c34639285
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129711320"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001055"
 ---
 # <a name="understand-cost-management-data"></a>Descripción de los datos de Cost Management
 
 Este artículo lo ayudará a comprender mejor los datos de costo y uso de Azure que se incluyen en Cost Management. En él se explica con qué frecuencia se procesan, se recopilan, se muestran y se cierran los datos. Cada mes, se le factura el uso que haga de Azure. Si bien los ciclos de facturación son períodos mensuales, las fechas de inicio y finalización de los ciclos varían según el tipo de suscripción. La frecuencia con que Cost Management recibe datos de uso varía en función de diferentes factores. Por ejemplo, cuánto tarda el procesamiento de los datos y cada cuánto transmiten los servicios de Azure el uso al sistema de facturación.
 
-Cost Management incluye todo el uso y todas las compras, incluidas reservas y ofertas de terceros para cuentas de Contrato Enterprise (EA). Las cuentas de Contrato de cliente de Microsoft y las suscripciones individuales con tarifas de pago por uso solo incluyen el uso de los servicios de Azure y Marketplace. No se incluyen los costos de soporte técnico ni otros costos. Los costos se calculan hasta que se genera una factura y no tienen en cuenta los créditos.
+Cost Management incluye todo el uso y todas las compras, incluidas reservas y ofertas de terceros para cuentas de Contrato Enterprise (EA). Las cuentas de Contrato de cliente de Microsoft y las suscripciones individuales con tarifas de pago por uso solo incluyen el uso de los servicios de Azure y Marketplace. No se incluyen los costos de soporte técnico ni otros costos. Los costos se calculan hasta que se genera una factura y no tienen en cuenta los créditos. Cost Management también incluye los costos asociados con productos de New Commerce, como Microsoft 365 y Dynamics 365, que se facturan junto con Azure. Actualmente, solo los asociados pueden comprar productos de New Commerce que no son de Azure.
 
 Si su suscripción es nueva, no podrá usar inmediatamente las características de Cost Management. Para poder hacerlo deberán transcurrir un máximo de 48 horas.
 
@@ -96,12 +96,15 @@ Las siguientes tablas muestran los datos que se incluyen o no se incluyen en Cos
 | Compras de Marketplace<sup>5</sup>      | Créditos - Para obtener más información, consulte [Explicación de los términos de facturación](../understand/understand-invoice.md). |
 | Compras de reservas<sup>6</sup>      |  |
 | Amortización de las compras de reservas<sup>6</sup>      |  |
+| Productos de New Commerce que no son de Azure (Microsoft 365 y Dynamics 365) <sup>7</sup> | |
 
 _<sup>**4**</sup> El uso de servicios de Azure se basa en los precios de reserva y negociados._
 
 _<sup>**5**</sup> En este momento, las compras de Marketplace no están disponible para las ofertas de MSDN o Visual Studio._
 
 _<sup>**6**</sup> En este momento, las compras de reservas solo están disponibles para las cuentas de Contrato Enterprise (EA) y Contrato de cliente de Microsoft._
+
+_<sup>**7**</sup> Solo disponible para asociados_
 
 ## <a name="how-tags-are-used-in-cost-and-usage-data"></a>Uso de las etiquetas en los datos de costo y uso
 

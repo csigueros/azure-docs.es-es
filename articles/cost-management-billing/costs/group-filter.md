@@ -3,17 +3,17 @@ title: Opciones de agrupación y filtrado en Azure Cost Management
 description: En este artículo, se explica cómo usar las opciones de agrupación y filtrado en Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2021
+ms.date: 10/12/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 8cc4a0bfd7503a48b3df6887c05f268fcfae5733
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 150a79c00003d390f75eb32bc386e826702a173b
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129856341"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997145"
 ---
 # <a name="group-and-filter-options-in-cost-analysis"></a>Opciones de agrupación y filtrado en el análisis de costos
 
@@ -53,26 +53,26 @@ En la tabla siguiente se enumeran algunas de las opciones de agrupación y filtr
 
 Para más información acerca de los términos, consulte [Información acerca de los términos usados en el archivo de uso y de cargos de Azure](../understand/understand-usage.md).
 
-## <a name="changes-to-publisher-type-values"></a>Cambios en los valores del tipo de publicador
+## <a name="publisher-type-value-changes"></a>Cambios de valor de PublisherType
 
-En el caso de los clientes con un contrato MCA, el valor **Azure** de `Publisher type` se reemplazará por el valor **Microsoft** para reflejar que se aplica a todos los cargos de Microsoft de los que se realiza un seguimiento en Cost Management + Billing. Este cambio es efectivo el 14 de octubre de 2021.
+En Cost Management, el campo PublisherType indica si los cargos corresponden a productos de Microsoft, Marketplace o AWS (si tiene configurado un [conector Cross Cloud](aws-integration-set-up-configure.md)).
 
-Tenga en cuenta lo siguiente:
+¿Qué está cambiando?
 
-- Vistas guardadas en Análisis de costos: todas las vistas guardadas que usan el filtro `PublisherType` = **Azure** se actualizarán para reflejar el nuevo valor **Microsoft**. 
-    - Acción necesaria: ninguna.
-- Presupuestos con el filtro `PublisherType`: todos los presupuestos creados con el filtro `PublisherType` = **Azure** se actualizarán para reflejar el nuevo valor **Microsoft**.
-    - Acción necesaria: ninguna.
-- Exportaciones: todos los archivos de exportación generados antes del 14 de octubre de 2021 tendrán el valor **Azure** en el campo `PublisherType field` y, después del 14 de octubre de 2021, el valor sería **Microsoft**.
-    - Acción necesaria: *asegúrese de tener en cuenta los valores cambiados al combinar nuevos archivos con archivos descargados antes del 14 de octubre de 2021*.
-- Datos descargados: en los archivos descargados del análisis de costos, los archivos descargados de detalles de uso anteriores al 14 de octubre de 2021 seguirán teniendo el valor anterior, **Azure**, en el campo `PublisherType`.
-    - Acción necesaria: *asegúrese de tener en cuenta los valores cambiados al combinar nuevos archivos con archivos descargados antes del 14 de octubre de 2021*.
-- Llamadas API REST: si usa llamadas a la API REST de Cost Management + Billing que filtran el campo PublisherType por el valor **Azure**, actualícelas para filtrar por **Microsoft** después del 14 de octubre de 2021.
-    - Acción necesaria: *use `Publisher type` = **Microsoft** en las llamadas a la API REST para obtener todos los cargos propios. Las llamadas con `Publisher type` = **Azure** no devolverán ningún dato*.
+A partir del 14 de octubre de 2021, el campo PublisherType con el valor "Azure" se va a actualizar a "Microsoft" para todos los clientes con un [Contrato de cliente de Microsoft](../understand/review-customer-agreement-bill.md#check-access-to-a-microsoft-customer-agreement). Este cambio se realiza para dar cabida a próximas mejoras consistentes en la admisión de productos de Microsoft distintos de Azure, como Microsoft 365 y Dynamics 365.
 
-> [!NOTE]
-> Este cambio no le afecta si tiene un Contrato Enterprise (EA) o una cuenta de pago por uso (PAYG).
+Los valores "Marketplace" y "AWS" permanecen sin cambios.
 
+Este cambio no afecta a los clientes con Contrato Enterprise ni a ofertas de pago por uso.
+
+**Impacto y acción**
+<a name="impact-action"></a>
+
+En cuanto a los datos de Cost Management que haya descargado antes del 14 de octubre de 2021, debe pensar en los valores del campo PublisherType "Azure" anteriores y "Microsoft" nuevos. Los datos se podrían haber descargado por medio de exportaciones, detalles de uso o desde Cost Management.
+
+Si usa llamadas API de REST de Cost Management + Billing que filtran el campo PublisherType por el valor "Azure", debe abordar el cambio y filtrar por el nuevo valor "Microsoft" después del 14 de octubre de 2021. Después, si realiza llamadas API con un filtro PublisherType = "Azure", no se devuelven datos.
+
+No hay ningún impacto en el análisis de costos ni en los presupuestos porque los cambios se reflejan automáticamente en los filtros. Las vistas guardadas o los presupuestos creados con el filtro Publisher el filtro PublisherType = "Azure" se actualizan automáticamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

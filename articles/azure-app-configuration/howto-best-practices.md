@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: c322ebcbda0d123a9048e92971e20c6b7c7c5fee
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d56760b85bfca74cb18481ebf08ece2e4255d389
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110064511"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178018"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Procedimientos recomendados para Azure App Configuration
 
@@ -31,7 +31,7 @@ App Configuration proporciona dos opciones para organizar las claves:
 
 Puede usar una o ambas opciones para agrupar sus claves.
 
-*Los prefijos de clave* son lo que va al principio de la clave. Puede agrupar lógicamente un conjunto de claves utilizando el mismo prefijo en sus nombres. Los prefijos pueden contener varios componentes conectados por un delimitador, como `/`, de forma similar a una ruta de dirección de URL, para formar un espacio de nombres. Estas jerarquías son útiles cuando se están almacenando las claves para muchas aplicaciones, servicios de componentes y entornos en un almacén de App Configuration.
+*Los prefijos de clave* son lo que va al principio de la clave. Puede agrupar lógicamente un conjunto de claves utilizando el mismo prefijo en sus nombres. Los prefijos pueden contener varios componentes conectados por un delimitador, como `/`, de forma similar a una ruta de dirección de URL, para formar un espacio de nombres. Estas jerarquías son útiles cuando se están almacenando las claves para muchas aplicaciones y microservicios en un almacén de App Configuration.
 
 Una cuestión importante que debe tener en cuenta es que las claves son a lo que el código de aplicación hace referencia para recuperar los valores de la configuración correspondiente. Las claves no deberían cambiar o bien tendrá que modificar el código cada vez que suceda.
 
@@ -57,6 +57,14 @@ configBuilder.AddAzureAppConfiguration(options => {
 
 [Uso de etiquetas para habilitar diferentes configuraciones para distintos entornos](./howto-labels-aspnet-core.md) proporciona un ejemplo completo.
 
+## <a name="references-to-external-data"></a>Referencias a datos externos
+
+App Configuration está diseñado para almacenar los datos de configuración que normalmente se guardarían en archivos de configuración o variables de entorno. Sin embargo, algunos tipos de datos pueden ser más adecuados para residir en otros orígenes. Por ejemplo, almacene secretos en Key Vault, archivos en Azure Storage, información de pertenencia en grupos Azure AD o listas de clientes en una base de datos.
+
+Aún puede aprovechar App Configuration si guarda una referencia a datos externos en un par clave-valor. Cuando la aplicación lee una referencia, los datos se cargan desde el origen al que se hace referencia. En caso de que cambie la ubicación de los datos externos, solo tendrá que actualizar la referencia en App Configuration en lugar de actualizar y volver a implementar toda la aplicación.
+
+La característica de [referencias de Key Vault](use-key-vault-references-dotnet-core.md) de App Configuration es un ejemplo en este caso. Permite que los secretos necesarios para una aplicación se actualicen según sea necesario mientras los propios secretos subyacentes permanecen en Key Vault.
+
 ## <a name="app-configuration-bootstrap"></a>Arranque de App Configuration
 
 Para acceder a un almacén de App Configuration, puede usar su cadena de conexión, que está disponible en Azure Portal. Dado que las cadenas de conexión contienen información de credenciales, se consideran secretos. Estos secretos deben almacenarse en Azure Key Vault y el código debe autenticarse en Key Vault para recuperarlos.
@@ -65,7 +73,7 @@ Una mejor opción es usar la característica de las identidades administradas en
 
 ## <a name="app-or-function-access-to-app-configuration"></a>Acceso a funciones o aplicaciones para App Configuration
 
-Puede proporcionar acceso a App Configuration para las aplicaciones web o las funciones mediante alguno de los métodos siguientes:
+Puede proporcionar acceso a App Configuration para Web Apps o Azure Functions mediante alguno de los métodos siguientes:
 
 * En Azure Portal, escriba la cadena de conexión para el almacén de App Configuration en la configuración de la aplicación de App Service.
 * Almacene la cadena de conexión para su almacén de App Configuration en Key Vault y [haga referencia a ella desde App Service](../app-service/app-service-key-vault-references.md).
@@ -84,7 +92,7 @@ Una cantidad excesiva de solicitudes a App Configuration puede dar lugar a cargo
 
 ## <a name="importing-configuration-data-into-app-configuration"></a>Importación de datos de configuración en App Configuration
 
-App Configuration ofrece la opción de [importación](./howto-import-export-data.md) masiva de las opciones de los archivos de configuración actuales mediante Azure Portal o la CLI de Azure. También puede usar las mismas opciones para exportar valores de App Configuration, por ejemplo, entre almacenes relacionados. Si desea configurar una sincronización continua con el repositorio de GitHub, puede usar nuestra [acción de GitHub](./concept-github-action.md) para poder seguir usando las prácticas de control de código fuente existentes a la vez que obtiene las ventajas de App Configuration.
+App Configuration ofrece la opción de [importación](./howto-import-export-data.md) masiva de las opciones de los archivos de configuración actuales mediante Azure Portal o la CLI de Azure. También puede usar las mismas opciones para exportar pares clave-valor de App Configuration, por ejemplo, entre almacenes relacionados. Si desea configurar una sincronización continua con el repositorio en GitHub o Azure DevOps, puede usar nuestra [acción de GitHub](./concept-github-action.md) o la [tarea de envío de Azure Pipelines](./push-kv-devops-pipeline.md) para poder seguir usando las prácticas de control de código fuente existentes a la vez que obtiene las ventajas de App Configuration.
 
 ## <a name="multi-region-deployment-in-app-configuration"></a>Implementación en varias regiones en App Configuration
 

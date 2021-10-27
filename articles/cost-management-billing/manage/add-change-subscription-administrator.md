@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 06/27/2021
 ms.author: banders
-ms.openlocfilehash: b4bd2615dd99145bd75fd7c1095056961d3b2d80
-ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
+ms.openlocfilehash: 913ab605d17e47d5fa8f1ec751a618fe5dbfe123
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112988362"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000979"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Agregar o cambiar los administradores de la suscripción de Azure
 
@@ -30,17 +30,28 @@ Microsoft recomienda que administre el acceso a los recursos mediante Azure RBAC
 
 Para más información, consulte [Implementación mediante Azure Resource Manager frente al modelo clásico](../../azure-resource-manager/management/deployment-models.md) y [Azure classic subscription administrators](../../role-based-access-control/classic-administrators.md) (Administradores de la suscripción clásica de Azure).
 
-<a name="add-an-admin-for-a-subscription"></a>
+## <a name="determine-account-billing-administrator"></a>Determinación del administrador de facturación de la cuenta
+
+<a name="whoisaa"></a>
+
+El administrador de facturación es la persona que tiene permiso para administrar la facturación de una cuenta. Está autorizado para tener acceso a la facturación en [Azure Portal](https://portal.azure.com) y realizar diversas tareas de facturación, como crear suscripciones, ver y pagar facturas o actualizar los métodos de pago.
+
+Para identificar las cuentas para las que es administrador de facturación, visite la página [Cost Management + Billing en Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview). Seleccione **Todos los ámbitos de facturación** en el panel izquierdo. En la página de suscripciones se muestran todas las suscripciones de las que es administrador de facturación.
+
+Si no está seguro de quién es el administrador de la cuenta de una suscripción, visite la [página Suscripciones en Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Luego, seleccione la suscripción que quiera comprobar y consulte **Configuración**. Seleccione **Propiedades** para que se muestre el administrador de cuentas de la suscripción en el cuadro **Administrador de cuenta**.
+
 
 ## <a name="assign-a-subscription-administrator"></a>Asignación de un administrador de suscripción
 
-Para que un usuario sea administrador de una suscripción a Azure, un administrador existente le asigna el rol [Propietario](../../role-based-access-control/built-in-roles.md#owner) (un rol de Azure) en el ámbito de la suscripción. El rol Propietario da al usuario acceso completo a todos los recursos de la suscripción, incluido el derecho a delegar este acceso a otros. Estos pasos son los mismos que para la asignación de cualquier otro rol.
+<a name="add-an-admin-for-a-subscription"></a>
 
-Si no está seguro de quién es el administrador de cuenta de la suscripción, use los pasos siguientes para averiguarlo.
+Para que un usuario sea administrador de una suscripción a Azure, un administrador de facturación existente le asigna el rol [Propietario](../../role-based-access-control/built-in-roles.md#owner) (un rol de Azure) en el ámbito de la suscripción. El rol Propietario da al usuario acceso completo a todos los recursos de la suscripción, incluido el derecho a delegar este acceso a otros. Estos pasos son los mismos que para la asignación de cualquier otro rol.
+
+Si no está seguro de quién es el administrador de facturación de la cuenta de la suscripción, use los pasos siguientes para averiguarlo.
 
 1. Abra la [página Suscripciones en Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Seleccione la suscripción que desee comprobar y, luego, consulte **Configuración**.
-1. Seleccione **Propiedades**. El administrador de cuentas de la suscripción se muestra en el cuadro **Administrador de cuentas** .
+1. Seleccione **Propiedades**. El administrador de facturación de la cuenta de la suscripción se muestra en el cuadro **Administrador de cuenta**.
 
 ### <a name="to-assign-a-user-as-an-administrator"></a>Para asignar un usuario como administrador
 

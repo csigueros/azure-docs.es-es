@@ -1,6 +1,6 @@
 ---
-title: Planeamiento de una oferta de servicio administrado en el marketplace comercial de Microsoft
-description: Procedimiento para planear una nueva oferta de servicio administrado para Azure Marketplace con el programa del marketplace comercial en el Centro de partners de Microsoft.
+title: Planeamiento de una oferta de servicio administrado en el marketplace comercial
+description: Planeamiento de una oferta de servicio administrado para Azure Marketplace en el Centro de partners.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -8,16 +8,16 @@ author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.date: 12/23/2020
-ms.openlocfilehash: ffa7e35bed1713a5ef9e04b59a8dbdb692b9630f
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 0f167cd82c6a66a175923b3b318623ab9a2bd1cf
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790962"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070857"
 ---
-# <a name="how-to-plan-a-managed-service-offer-for-the-microsoft-commercial-marketplace"></a>Procedimiento para planear una oferta de servicio administrado en el marketplace comercial de Microsoft
+# <a name="plan-a-managed-service-offer"></a>Planeamiento de una oferta de servicio administrado
 
-En este artículo se presentan los requisitos para publicar una oferta de servicio administrado en el marketplace comercial de Microsoft por medio del Centro de partners.
+En este artículo se presentan los requisitos para publicar una oferta de servicio administrado en el marketplace comercial mediante el Centro de partners.
 
 Los servicios administrados son ofertas de Azure Marketplace que permiten la administración multiinquilino y entre inquilinos con Azure Lighthouse. Consulte [¿Qué es Azure Lighthouse?](../lighthouse/overview.md) para obtener más información. Cuando un cliente compra una oferta de servicios administrados, estos pueden delegar uno o varios grupos de recursos o suscripciones. A continuación, puede trabajar en esos recursos mediante las funcionalidades de [Administración de recursos delegados de Azure](../lighthouse/concepts/architecture.md) de Azure Lighthouse.
 
@@ -110,7 +110,7 @@ Siga estas instrucciones para los logotipos:
 * Si usa un fondo transparente, asegúrese de que el logotipo y el texto no son blancos, negros ni azules.
 * La apariencia del logotipo debe ser homogénea. Evite los degradados. No coloque texto en el logotipo, ni siquiera el nombre de su empresa o de la marca.
 
-**Marketplace media – screenshots** (Elementos multimedia de Marketplace: capturas de pantalla) (opcional): agregue hasta cinco imágenes que muestren cómo funciona la oferta. Todas las imágenes deben tener el tamaño 1280 x 720 píxeles y estar en formato PNG.
+**Marketplace media – screenshots** (Elementos multimedia de Marketplace: capturas de pantalla) (opcional): agregue hasta cinco imágenes que muestren cómo funciona la oferta. Todas las imágenes deben tener el tamaño 1280 x 720 píxeles y estar en formato PNG.
 
 **Marketplace media – videos** (Elementos multimedia de Marketplace: vídeos) (opcional): cargue hasta cinco vídeos que muestren la oferta. Los vídeos deben estar hospedados en YouTube o Vimeo y deben tener una miniatura (archivo PNG de 1280 x 720).
 

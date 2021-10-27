@@ -19,7 +19,7 @@
           href: 4me-tutorial.md
         - name: 8X8
           href: 8x8virtualoffice-tutorial.md
-    - name: Un
+    - name: A
       items:
         - name: ABBYY FlexiCapture Cloud
           href: abbyy-flexicapture-cloud-tutorial.md
@@ -2588,6 +2588,8 @@
           href: miro-provisioning-tutorial.md
         - name: monday.com
           href: mondaycom-provisioning-tutorial.md
+        - name: Diagnóstico de MX3
+          href: mx3-diagnostics-connector-provisioning-tutorial.md
         - name: myPolicies
           href: mypolicies-provisioning-tutorial.md
     - name: N - S
@@ -2614,6 +2616,8 @@
           href: papercut-cloud-print-management-provisioning-tutorial.md
         - name: Parsable
           href: parsable-provisioning-tutorial.md
+        - name: Peripass
+          href: peripass-provisioning-tutorial.md
         - name: Pingboard
           href: pingboard-provisioning-tutorial.md
         - name: Playvox

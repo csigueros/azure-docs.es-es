@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 4aaf63d2a4d49f7fff35eb7386b71ac271f1eac9
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 24db395c33f50fc7638ee00e9406db3709db5366
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108227405"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004015"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Enlace de entrada de Azure Blob Storage para Azure Functions
 
@@ -352,11 +352,13 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**direction** | N/D | Se debe establecer en `in`. Las excepciones se indican en la sección [uso](#usage). |
 |**name** | N/D | Nombre de la variable que representa el blob en el código de la función.|
 |**path** |**BlobPath** | Ruta de acceso al blob. |
-|**connection** |**Connection**| El nombre de una configuración de aplicación que contiene la [cadena de conexión de almacenamiento](../storage/common/storage-configure-connection-string.md) que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno en tiempo de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions usa la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.<br><br>La cadena de conexión debe ser para una cuenta de almacenamiento de uso general, no una [cuenta de almacenamiento solo de blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).<br><br>Si usa [la versión 5.x o superior de la extensión](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher), en lugar de una cadena de conexión puede proporcionar una referencia a una sección de configuración que defina la conexión. Consulte [Conexiones](./functions-reference.md#connections).|
+|**connection** |**Connection**| Nombre de una configuración de aplicación o de una colección de configuraciones de aplicación que especifica cómo conectarse a los blobs de Azure. Consulte [Conexiones](#connections).|
 |**dataType**| N/D | En el caso de los lenguajes con tipos dinámicos, especifica el tipo de datos subyacente. Los valores posibles son `string`, `binary` o `stream`. Para obtener más información, consulte los [conceptos de desencadenadores y enlaces](functions-triggers-bindings.md?tabs=python#trigger-and-binding-definitions). |
 |N/D | **Acceder** | Indica si va a leer o escribir. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+[!INCLUDE [functions-storage-blob-connections](../../includes/functions-storage-blob-connections.md)]
 
 ## <a name="usage"></a>Uso
 

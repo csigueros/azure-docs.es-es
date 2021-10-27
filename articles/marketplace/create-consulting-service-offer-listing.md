@@ -1,6 +1,6 @@
 ---
-title: Configuración de los detalles de descripción de la oferta de servicios de consultoría en el Centro de partners de Microsoft
-description: Aprenda a configurar los detalles de descripción de la oferta de servicios de consultoría en el marketplace comercial de Microsoft mediante el Centro de partners.
+title: Configuración de detalles de las descripciones de ofertas de servicios de consultoría del marketplace comercial
+description: Aprenda a configurar los detalles de las descripciones de ofertas de servicios de consultoría del marketplace comercial de Microsoft mediante el Centro de partners.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
@@ -8,14 +8,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 10/27/2020
-ms.openlocfilehash: 2476d60cacc9690c24d7d3d2f7e21f04c6811500
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b810c78cdbee84c23cb810a4a622b2ddceb19471
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92754288"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130039075"
 ---
-# <a name="how-to-configure-your-consulting-service-offer-listing-details"></a>Configuración de los detalles de descripción de la oferta de servicios de consultoría
+# <a name="configure-consulting-service-offer-listing-details"></a>Configuración de detalles de las descripciones de ofertas de servicios de consultoría
 
 La información que especifica en la página **Descripción de la oferta** del Centro de partners se mostrará en los almacenes en línea del marketplace comercial de Microsoft. Esto incluye el nombre de la oferta, la descripción, los elementos multimedia y otros recursos de marketing.
 

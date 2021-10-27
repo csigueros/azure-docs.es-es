@@ -7,12 +7,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 01/13/2021
-ms.openlocfilehash: fc206254180e2b5b35f10538bfb4940970b1609e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fac788db67bd96f60a2655f10d5f0a74d02b2c01
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128560814"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165502"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Solución de problemas de la latencia de replicación en Azure Database for MySQL
 
@@ -104,7 +104,7 @@ La salida contiene mucha información. Normalmente, solo necesita centrarse en l
 |Slave_IO_Running| Indica si el subproceso de E/S se está ejecutando. El valor debería ser `Yes`. Si el valor es `NO`, probablemente la replicación se ha interrumpido.|
 |Slave_SQL_Running| Indica si se está ejecutando el subproceso de SQL. El valor debería ser `Yes`. Si el valor es `NO`, probablemente la replicación se ha interrumpido.|
 |Exec_Master_Log_Pos| Indica la posición del archivo Relay_Master_Log_File que aplica la réplica. Si hay latencia, entonces esta secuencia de posición debe ser menor que Read_Master_Log_Pos.|
-|Relay_Log_Space|Indica el límite máximo de tamaño del registro de retransmisión. Puede comprobar el tamaño al realizar una consulta a `SHOW GLOBAL VARIABLES`, como `relay_log_space_limit`.|
+|Relay_Log_Space|Indica el tamaño total combinado de todos los archivos de registro de retransmisión existentes. Para consultar el tamaño del límite superior, haga una consulta de `SHOW GLOBAL VARIABLES`, como `relay_log_space_limit`.|
 |Seconds_Behind_Master| Muestra la latencia de replicación en segundos.|
 |Last_IO_Errno|Muestra el código de error del subproceso de E/S, si existe. Para obtener más información acerca de estos códigos, consulte la [referencia del mensaje de error de MySQL Server](https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html).|
 |Last_IO_Error| Muestra el mensaje de error del subproceso de E/S, si existe.|

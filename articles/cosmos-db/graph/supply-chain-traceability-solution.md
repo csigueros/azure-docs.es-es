@@ -1,5 +1,5 @@
 ---
-title: Solución de rastreabilidad de la cadena de suministro de Infosys mediante Graph API de Azure Cosmos DB
+title: Solución de rastreabilidad de la cadena de suministro de Infosys mediante Gremlin API de Azure Cosmos DB
 description: La solución de grafos de rastreabilidad de la cadena de suministro implementada por Infosys usa la API de Gremlin de Azure Cosmos DB y otros servicios de Azure. Esta proporciona la funcionalidad de seguimiento de la cadena de suministro global de los productos terminados.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
@@ -7,14 +7,14 @@ ms.topic: how-to
 ms.date: 10/07/2021
 author: manishmsfte
 ms.author: mansha
-ms.openlocfilehash: 4ec236a57e9c8f24625d22f4af3f39299d118804
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 3dacf188e0a3fbf901a97ff2125788f080d6532e
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129716351"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003901"
 ---
-# <a name="supply-chain-traceability-solution-using-azure-cosmos-db-graph-api"></a>Solución de rastreabilidad de la cadena de suministro mediante Graph API de Azure Cosmos DB
+# <a name="supply-chain-traceability-solution-using-azure-cosmos-db-gremlin-api"></a>Solución de rastreabilidad de la cadena de suministro mediante Gremlin API de Azure Cosmos DB
 
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
@@ -30,19 +30,20 @@ Después de leer este artículo, aprenderá lo siguiente:
 
 ## <a name="overview"></a>Información general
 
-En la cadena de suministro de alimentos, la rastreabilidad del producto consiste en realizar un seguimiento de ellos en toda la cadena de suministro a lo largo del ciclo de vida del producto. La cadena de suministro incluye los procesos de suministro, fabricación y distribución. La rastreabilidad es fundamental para la seguridad de los alimentos, la marca y la exposición normativa. En el pasado, algunas organizaciones no pudieron realizar un seguimiento eficaz de los productos en su cadena de suministro, lo que provocó costosas retiradas, multas y problemas de salud para los consumidores.
+En la cadena de suministro de alimentos, la rastreabilidad del producto consiste en realizar un seguimiento de ellos a lo largo de toda la cadena de suministro durante todo el ciclo de vida del producto. La cadena de suministro incluye los procesos de suministro, fabricación y distribución. La rastreabilidad es fundamental para la seguridad de los alimentos, la marca y la exposición normativa. En el pasado, algunas organizaciones no podían realizar un seguimiento eficaz de los productos en su cadena de suministro, lo que daba lugar a costosas retiradas, multas y problemas de salud de los consumidores. Las soluciones de trazabilidad debían responder a las necesidades de armonización de datos, ingesta de datos a diferente velocidad y veracidad y, lo que es más importante, seguir el ciclo de inventario, objetivos que no eran posibles con las plataformas tradicionales.
 
-La solución de rastreabilidad de Infosys, desarrollada con funcionalidades de Azure como servicios de aplicaciones, servicios de integración y servicios de bases de datos, proporciona las siguientes funcionalidades vitales:
+La solución de rastreabilidad de Infosys, desarrollada con funcionalidades de Azure, como servicios de aplicaciones, servicios de integración y servicios de bases de datos, proporciona las siguientes funcionalidades vitales:
 
 * Conexión con fábricas, almacenes o centros de distribución.
 * Ingesta o procesamiento de eventos de movimiento de existencias paralelos.
 * Un grafo de conocimiento, que muestra las conexiones entre la materia prima, el lote, los pallets de productos terminados, la relación de subordinación de pallets de varios niveles y el movimiento de los productos.
-* Portal con funcionalidad de búsqueda para realizar un seguimiento de los pallets.
+* Portal de usuarios con una variedad de funcionalidades de búsqueda que va desde la búsqueda con caracteres comodín hasta la búsqueda de palabras clave específicas.
 * La posibilidad de identificar los impactos de un incidente de calidad, como el lote de materia prima afectado, los pallets con problemas o la ubicación de dichos pallets.
+* Posibilidad de registrar el historial de eventos en varios mercados, incluida la información sobre la retirada de productos.
 
 ## <a name="solution-architecture"></a>Arquitectura de la solución
 
-La rastreabilidad de la cadena de suministro suele compartir patrones en la ingesta de movimientos de pallets, la administración de incidencias de calidad y el seguimiento/análisis de los datos de los almacenes. En primer lugar, estos sistemas deben ingerir ráfagas de datos de sistemas de administración de almacenes o de fábricas que se extienden por diferentes zonas geográficas. Después, estos sistemas procesan y analizan datos del flujo para derivar relaciones complejas entre la materia prima, los lotes de producción, los pallets de productos terminados y las complicadas relaciones de subordinación (co-packing/re-packing). A continuación, el sistema necesita almacenar las relaciones complejas entre la materia prima, los productos terminados y los pallets con fines de rastreabilidad. Un portal de usuarios con funcionalidad de búsqueda permite a los usuarios realizar un seguimiento de los productos de la red de la cadena de suministro.
+La rastreabilidad de la cadena de suministro suele compartir patrones en la ingesta de movimientos de pallets, la administración de incidencias de calidad y el seguimiento/análisis de los datos de los almacenes. En primer lugar, estos sistemas necesitan ingerir ráfagas de datos procedentes de los sistemas de administración de fábricas y almacenes que recorren la geografía. A continuación, estos sistemas procesan y analizan los datos de streaming para obtener relaciones complejas entre la materia prima, los lotes de producción, los palés de productos acabados y las complejas relaciones entre elementos primarios y secundarios (empaquetado conjunto/reempaquetado). Luego, el sistema debe almacenar información sobre las intrincadas relaciones entre la materia prima, los productos acabados y los palés, elementos todos ellos necesarios de cara a la rastreabilidad. Un portal de usuarios con funcionalidad de búsqueda permite a los usuarios realizar un seguimiento de los productos de la red de la cadena de suministro. Estos servicios habilitan la solución de trazabilidad completa que admite funcionalidades nativas de la nube, con prioridad a API y basadas en datos.
 
 Microsoft Azure ofrece servicios enriquecidos que se pueden aplicar para casos de uso de rastreabilidad, como Azure Cosmos DB, Azure Event Hubs, Azure API Management, Azure App Service, Azure SignalR, Azure Synapse Analytics y Power BI.
 
@@ -55,7 +56,7 @@ Los diferentes servicios de Azure usados en esta arquitectura ayudan con las sig
 * Azure Cosmos DB permite escalar o reducir verticalmente y de forma elástica el rendimiento. La API de Gremlin permite crear y consultar relaciones complejas entre la materia prima, los productos terminados y los almacenes.
 * Azure API Management proporciona diferentes API de eventos de movimiento de existencias a proveedores de logística de terceros (3PL) y a sistemas de administración de almacenamiento (WMS).  
 * Azure Event Hubs permite recopilar grandes cantidades de eventos simultáneos de WMS y 3PL para procesarse posteriormente.
-* Las aplicaciones de Azure Function procesan eventos e ingieren datos en Azure Cosmos DB mediante Graph API.
+* Las aplicaciones de Azure Function procesan eventos e ingieren datos en Azure Cosmos DB mediante Gremlin API.
 * El servicio Azure Search permite a los usuarios realizar búsquedas complejas y filtrar información de los pallets.
 * Azure Databricks lee la fuente de cambios y crea modelos en Synapse Analytics con el fin de generar informes de autoservicio para los usuarios en Power BI.
 * El servicio Web Apps y el plan de App Service de Azure permiten implementar el portal de usuarios.
@@ -90,5 +91,6 @@ En el diagrama anterior se muestra una vista simplificada y resumida de un proce
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Solución de grafos de rastreabilidad de Infosys](https://azuremarketplace.microsoft.com/marketplace/apps/infosysltd.infosys-traceability-knowledge-graph?tab=Overview)
+* [Infosys Integrate+ for Azure](https://azuremarketplace.microsoft.com/marketplace/apps/infosysltd.infosys-integrate-for-azure)
 * Para visualizar datos de grafos, consulte las [soluciones de visualización de la API de Gremlin](graph-visualization-partners.md).
 * Para modelar los datos de grafos, consulte las [soluciones de modelado de la API de Gremlin](graph-modeling-tools.md).

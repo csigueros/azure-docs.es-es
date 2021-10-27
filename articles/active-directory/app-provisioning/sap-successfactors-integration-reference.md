@@ -3,20 +3,20 @@ title: Referencia de la integración de Azure Active Directory y SAP SuccessFact
 description: Información técnica detallada sobre el aprovisionamiento controlado por recursos humanos de SAP SuccessFactors para Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 05/11/2021
+ms.date: 10/11/2021
 ms.author: kenwith
 ms.reviewer: chmutali
-ms.openlocfilehash: 7c7ba58383481e2b776b27015f98080b35f3084d
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 8c215c8b032fb3981771d2091b449b1934e78533
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109784942"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990837"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-sap-successfactors"></a>Integración del aprovisionamiento de Azure Active Directory con SAP SuccessFactors 
 
@@ -31,7 +31,7 @@ En este artículo se explica cómo funciona la integración y cómo puede person
 ## <a name="establishing-connectivity"></a>Establecimiento de la conectividad 
 El servicio de aprovisionamiento de Azure AD usa la autenticación básica para conectarse a los puntos de conexión de la API de OData de Employee Central. Al configurar la aplicación de aprovisionamiento de SuccessFactors, use el parámetro *URL de inquilino* de la sección *Credenciales de administrador* para configurar la [URL del centro de datos de la API](https://apps.support.sap.com/sap/support/knowledge/en/2215682). 
 
-Para proteger mejor la conectividad entre el servicio de aprovisionamiento de Azure AD y SuccessFactors, puede agregar los intervalos IP de Azure AD a la lista de IP permitidas de SuccessFactors; para ello, siga los pasos que se describen a continuación:
+Para proteger mejor la conectividad entre el servicio de aprovisionamiento de Azure AD y SuccessFactors, puede agregar los intervalos IP de Azure AD a la lista de direcciones IP permitidas de SuccessFactors; para ello, siga los pasos que se describen a continuación:
 
 1. Descargue los [intervalos IP más recientes](https://www.microsoft.com/download/details.aspx?id=56519) para la nube pública de Azure. 
 1. Abra el archivo y busque la etiqueta **AzureActiveDirectory**. 
@@ -72,6 +72,8 @@ El servicio de aprovisionamiento de Azure AD recupera las siguientes entidades 
 | 22 | Lista desplegable EmployeeClass                 | employmentNav/jobInfoNav/employeeClassNav | Solo si está asignado `employeeClass` |
 | 23 | Lista desplegable EmplStatus                    | employmentNav/jobInfoNav/emplStatusNav | Solo si está asignado `emplStatus` |
 | 24 | Lista desplegable AssignmentType                | employmentNav/empGlobalAssignmentNav/assignmentTypeNav | Solo si está asignado `assignmentType` |
+| 25 | Posición                               | employmentNav/jobInfoNav/positionNav | Solo si está asignado `positioNav` |
+| 26 | Usuario administrador                           | employmentNav/jobInfoNav/managerUserNav | Solo si está asignado `managerUserNav` |
 
 ## <a name="how-full-sync-works"></a>Cómo funciona la sincronización completa
 En función de la asignación de atributos, durante la sincronización completa el servicio de aprovisionamiento de Azure AD envía la siguiente consulta "GET" de API de OData para capturar datos efectivos de todos los usuarios activos. 
@@ -285,6 +287,16 @@ Cuando un usuario de Employee Central tiene varios trabajos simultáneos, hay do
 1. Guarde la asignación. 
 1. Reinicie el aprovisionamiento. 
 
+### <a name="retrieving-position-details"></a>Recuperación de los detalles de la posición
+
+El conector SuccessFactors admite la expansión del objeto de posición. Para expandir y recuperar atributos de objeto de posición, como los nombres de nivel de trabajo o de posición en un lenguaje específico, puede usar expresiones JSONPath como se muestra a continuación. 
+
+| Nombre del atributo | Expresión JSONPath |
+| -------------- | ------------------- |
+| positionJobLevel | $.employmentNav.results[0].jobInfoNav.results[0].positionNav.jobLevel |
+| positionNameFR | $.employmentNav.results[0].jobInfoNav.results[0].positionNav.externalName_fr_FR |
+| positionNameDE | $.employmentNav.results[0].jobInfoNav.results[0].positionNav.externalName_de_DE |
+
 ## <a name="writeback-scenarios"></a>Escenarios de escritura diferida
 
 En esta sección se tratan diferentes escenarios de escritura diferida. Se recomiendan enfoques de configuración en función de cómo se configure el número de teléfono y el correo electrónico en SuccessFactors.
@@ -302,6 +314,36 @@ En esta sección se tratan diferentes escenarios de escritura diferida. Se recom
 * Si no hay ninguna asignación para el número de teléfono en la asignación de atributos de escritura diferida, solo se incluye el correo electrónico en la escritura diferida.
 * Durante la incorporación de nuevos empleados en Employee Central, el correo empresarial y el número de teléfono del trabajo podría no estar disponibles. Si es obligatorio que establezca el correo empresarial y el teléfono del trabajo como principales durante la incorporación, puede establecer un valor ficticio para el teléfono y el correo electrónico del trabajo durante la creación de una nueva contratación, que posteriormente se actualizará con la aplicación de escritura diferida.
  
+### <a name="enabling-writeback-with-userid"></a>Habilitación de la escritura diferida con UserID
+
+La aplicación de escritura diferida de SuccessFactors usa la siguiente lógica para actualizar los atributos del objeto User: 
+* Como primer paso, busca el atributo *userId* en el conjunto de cambios. Si está presente, usa "UserId" para realizar la llamada API SuccessFactors. 
+* Si no se encuentra *userId*, el valor predeterminado es usar el valor del atributo *personIdExternal*. 
+
+Normalmente, el valor del atributo *personIdExternal* de SuccessFactors coincide con el valor del atributo *userId*. Sin embargo, en escenarios como la recontratación y la conversión de trabajadores, un empleado de SuccessFactors puede tener dos registros de empleo, uno activo y otro inactivo. En tales escenarios, para asegurarse de que la escritura diferida actualiza el perfil de usuario activo, actualice la configuración de las aplicaciones de aprovisionamiento de SuccessFactors como se describe a continuación. Esta configuración garantiza que *userId* siempre está presente en el conjunto de cambios visible para el conector y se usa en la llamada API SuccessFactors.
+
+1. Abra SuccessFactors en la aplicación de aprovisionamiento de usuarios de Azure AD o SuccessFactors en la aplicación de aprovisionamiento de usuarios de AD local. 
+1. Asegúrese de que extensionAttribute *(extensionAttribute1-15)* en Azure AD siempre almacena el *userId* del registro de empleo activo de cada trabajador. Esto se puede lograr mediante la asignación del atributo *userId* de SuccessFactors a un atributo extensionAttribute en Azure AD. 
+    > [!div class="mx-imgBorder"]
+    > ![Asignación de atributos userID de entrada](./media/sap-successfactors-integration-reference/inbound-userid-attribute-mapping.png)
+1. Para obtener instrucciones sobre la configuración de JSONPath, consulte la sección [Control del escenario de recontratación](#handling-rehire-scenario) para asegurarse de que el valor *userId* del registro de empleo activo fluye a Azure AD. 
+1. Guarde la asignación. 
+1. Ejecute el trabajo de aprovisionamiento para asegurarse de que los valores de *userId* fluyen a Azure AD. 
+    > [!NOTE]
+    > Si usa SuccessFactors para el aprovisionamiento de usuarios de Active Directory local, configure AAD Connect para sincronizar el valor del atributo *userId* de Active Directory local con Azure AD.   
+1. Abra la aplicación de escritura diferida de SuccessFactors en Azure Portal. 
+1. Asigne el atributo *extensionAttribute* deseado que contiene el valor userId al atributo *userId* de SuccessFactors.
+    > [!div class="mx-imgBorder"]
+    > ![Asignación del atributo userID de escritura diferida](./media/sap-successfactors-integration-reference/userid-attribute-mapping.png)
+1. Guarde la asignación. 
+1. Vaya a *Asignación de atributos -> Avanzado -> Revisar esquema* para abrir el editor de esquemas JSON.
+1. Descargue una copia del esquema como copia de seguridad. 
+1. En el editor de esquemas, presione CTRL+F y busque el nodo JSON que contiene la asignación de userId, donde se asigna a un atributo de Azure AD de origen. 
+1. Actualice el atributo flowBehavior de "FlowWhenChanged" a "FlowAlways", como se muestra a continuación. 
+    > [!div class="mx-imgBorder"]
+    > ![Actualización del comportamiento del flujo de asignación](./media/sap-successfactors-integration-reference/mapping-flow-behavior-update.png)
+1. Guarde la asignación y pruebe el escenario de escritura diferida con aprovisionamiento a petición. 
+
 ### <a name="unsupported-scenarios-for-phone-and-email-write-back"></a>Escenarios no admitidos para la escritura diferida del correo electrónico y el teléfono
 
 * En Employee central, durante la incorporación, el correo electrónico personal y el teléfono personal se establecen como valores principales. La aplicación de escritura diferida no puede cambiar esta configuración y establecer el correo empresarial y el teléfono del trabajo como principal.

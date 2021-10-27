@@ -12,12 +12,12 @@ author: sasapopo
 ms.author: sasapopo
 ms.reviewer: mathoma
 ms.date: 10/08/2020
-ms.openlocfilehash: f66050545c2c30c592b41cb21c30394316c80711
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 4a3e96c33a0bef8e533b4f7f563c701a2c0a8044
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110692724"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042208"
 ---
 # <a name="use-server-trust-groups-to-set-up-and-manage-trust-between-sql-managed-instances"></a>Uso de grupos de confianza de servidor para configurar y administrar la confianza entre instancias de SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -82,5 +82,5 @@ Durante la versión preliminar pública, se aplican las siguientes limitaciones 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener más información acerca de las transacciones distribuidas en Azure SQL Managed Instance, consulte [Transacciones distribuidas](../database/elastic-transactions-overview.md).
-* Para obtener las actualizaciones de versión y el estado de los problemas conocidos, vea [Notas de la versión de Managed Instance](../database/doc-changes-updates-release-notes.md).
+* Para obtener las actualizaciones de versión y el estado de los problemas conocidos, vea [Novedades](doc-changes-updates-release-notes-whats-new.md).
 * Si tiene solicitudes de características, agréguelas al [Foro de Managed Instance](https://feedback.azure.com/forums/915676-sql-managed-instance).

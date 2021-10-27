@@ -10,13 +10,13 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 06/23/2021
-ms.openlocfilehash: 54a3e933cda054b8bd3f9e86f2db775fca7342f7
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
+ms.date: 10/12/2021
+ms.openlocfilehash: 300a550363b01e367931ccb34efd3dd7d7d593cc
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112964435"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997295"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Límites de recursos para grupos elásticos que usan el modelo de compra de núcleo virtual
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -567,7 +567,9 @@ En la tabla siguiente se describen las propiedades de las bases de datos de un g
 > Además, al establecer el mínimo de núcleos virtuales por base de datos en un valor mayor que 0, se limita implícitamente el número de bases de datos que se pueden agregar al grupo. Por ejemplo, si establece en 2 el mínimo de núcleos virtuales en un grupo de 20 núcleos virtuales, significa que no podrá agregar más de 10 bases de datos al grupo, ya que se reservan 2 núcleos virtuales para cada base de datos.
 > 
 
-Aunque las propiedades por base de datos se expresan en núcleos virtuales, también rigen el consumo de otros tipos de recursos, como la E/S de datos, la E/S de registros y los subprocesos de trabajo. A medida que ajuste el mínimo y el máximo de núcleos virtuales por base de datos, las reservas y los límites de todos los tipos de recursos se ajustarán proporcionalmente.
+Aunque las propiedades por base de datos se expresan en núcleos virtuales, también regulan el consumo de otros tipos de recursos, como la E/S de datos, la E/S de registros, la memoria del grupo de búferes y los subprocesos de trabajo. A medida que ajuste el mínimo y el máximo de núcleos virtuales por base de datos, las reservas y los límites de todos los tipos de recursos se ajustarán proporcionalmente.
+
+Los valores mínimo y máximo de núcleo virtual de base de datos se aplican al consumo de recursos por las cargas de trabajo de usuario, pero no al consumo de recursos por los procesos internos. Por ejemplo, en el caso de una base de datos con un número máximo de núcleos virtuales por base de datos establecido en la mitad de los núcleos virtuales del grupo, la carga de trabajo del usuario no puede consumir más de la mitad de la memoria del grupo de búferes. Aun así, esta base de datos puede aprovechar las páginas del grupo de búferes cargadas por los procesos internos. Para más información, consulte [Consumo de recursos por cargas de trabajo de usuario y procesos internos](resource-limits-logical-server.md#resource-consumption-by-user-workloads-and-internal-processes).
 
 > [!NOTE]
 > Los límites de recursos de las bases de datos individuales de los grupos elásticos suelen ser los mismos que los de las bases de datos únicas fuera de los grupos que tienen el mismo tamaño de proceso (objetivo de servicio). Por ejemplo, el número máximo de trabajos simultáneos en una base de datos GP_Gen4_1 es 200 trabajos. Por lo tanto, el número máximo de trabajos simultáneos en una base de datos de un grupo GP_Gen4_1 también es 200 trabajos. Tenga en cuenta que el número total de trabajos simultáneos en el grupo GP_Gen4_1 es 210.

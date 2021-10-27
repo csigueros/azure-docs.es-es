@@ -6,12 +6,12 @@ ms.author: rywinter
 ms.service: iot-develop
 ms.topic: overview
 ms.date: 01/11/2021
-ms.openlocfilehash: 7b23569b07893ebbecf86336a40e52cd8627851a
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 128bea34a2e391a44b4dba68d844c68f7331cb06
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111590079"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994544"
 ---
 # <a name="what-is-azure-iot-device-and-application-development"></a>¿Qué es el desarrollo de aplicaciones y dispositivos Azure IoT?
 
@@ -33,10 +33,10 @@ En este artículo se describen dos roles comunes que puede observar entre los de
 ### <a name="device-application-development"></a>Desarrollo de aplicaciones para dispositivos
 Los desarrolladores de aplicaciones de dispositivos adaptan los dispositivos existentes para que se conecten a la nube y se integren en sus soluciones IoT. Estos dispositivos pueden admitir idiomas de orden superior, como C# o Python, y a menudo admiten un sólido sistema operativo de uso general, como Windows o Linux. Los dispositivos de destino comunes incluyen PC, contenedores, Raspberry PI y dispositivos móviles. 
 
-En lugar de desarrollar dispositivos con limitaciones a escala, estos desarrolladores se centran en habilitar un escenario IoT específico requerido por su solución en la nube. Algunos de estos desarrolladores también funcionarán en dispositivos con limitaciones para su solución en la nube. Para los desarrolladores que trabajan con dispositivos con limitaciones, consulte la ruta de la sección [Desarrollo de dispositivos insertados](#embedded-device-development), que encontrará a continuación.
+En lugar de desarrollar dispositivos con limitaciones a escala, estos desarrolladores se centran en habilitar un escenario IoT específico requerido por su solución en la nube. Algunos de estos desarrolladores también funcionarán en dispositivos con limitaciones para su solución en la nube. Para los desarrolladores que trabajan con dispositivos con limitaciones de recursos, consulte la ruta de la sección [Desarrollo de dispositivos insertados](#embedded-device-development), que encontrará a continuación.
 
-> [!TIP]
-> Para comenzar, consulte los [SDK de dispositivos sin limitaciones](about-iot-sdks.md#unconstrained-device-sdks).
+> [!IMPORTANT]
+> Para comenzar, consulte los [SDK de dispositivos](about-iot-sdks.md#device-sdks).
 
 ### <a name="embedded-device-development"></a>Desarrollo de dispositivos insertados
 El desarrollo insertado tiene como destino dispositivos con limitaciones de memoria y procesamiento. Los dispositivos con limitaciones restringen lo que se puede lograr, en comparación con una plataforma de desarrollo tradicional.
@@ -47,8 +47,8 @@ Los SDK insertados actuales tienen como destino el lenguaje **C**. Los SDK inser
 
 Si el dispositivo puede ejecutar un sistema operativo de uso general, se recomienda seguir la ruta de acceso de [Desarrollo de aplicaciones de dispositivo](#device-application-development). Proporciona un completo conjunto de opciones de desarrollo.
 
-> [!TIP]
-> Para comenzar, consulte los [SDK de dispositivos con limitaciones](about-iot-sdks.md#constrained-device-sdks).
+> [!IMPORTANT]
+> Para comenzar, consulte los [SDK de dispositivos insertados](about-iot-sdks.md#embedded-device-sdks).
 
 ## <a name="choosing-your-hardware"></a>Elección del hardware
 Los dispositivos Azure IoT son los bloques de creación básicos de las soluciones de IoT y son responsables de observar e interactuar con su entorno. Hay muchos tipos diferentes de dispositivos IoT y es útil conocer los tipos de dispositivos que existen y cómo pueden afectar a su proceso de desarrollo.

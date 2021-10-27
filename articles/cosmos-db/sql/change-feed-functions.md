@@ -6,14 +6,14 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 10/14/2021
 ms.reviewer: sngun
-ms.openlocfilehash: 01fb12957a9dce42a53861daebab796047cb6f84
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: f66b5a19c6d7deff947ed3208d78c64b95e7a304
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123113788"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045320"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Arquitecturas basadas en eventos sin servidor con Azure Cosmos DB y Azure Functions
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -32,7 +32,7 @@ Con el [desencadenador de Azure Functions para Cosmos DB](../../azure-functions
 Para implementar un flujo basado en eventos sin servidor, necesita:
 
 * **El contenedor supervisado**: el contenedor supervisado es el contenedor de Azure Cosmos que se está supervisando y almacena los datos a partir de los cuales se genera la fuente de cambios. Todas las inserciones y actualizaciones realizadas en el contenedor supervisado se reflejan en la fuente de cambios del contenedor.
-* **El contenedor de concesión**: el contenedor de concesión mantiene el estado entre instancias de Azure Functions sin servidor múltiples y dinámicas, y permite un escalado dinámico. Este contenedor de concesión se puede crear manual o automáticamente mediante el desencadenador de Azure Functions para Cosmos DB. Para crear automáticamente el contenedor de concesión, establezca la marca *CreateLeaseCollectionIfNotExists* en la [configuración](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration). Los contenedores de concesión con particiones deben tener una definición de clave de partición `/id`.
+* **El contenedor de concesión**: el contenedor de concesión mantiene el estado entre instancias de Azure Functions sin servidor múltiples y dinámicas, y permite un escalado dinámico. Puede crear automáticamente el contenedor de concesión con el desencadenador de Azure Functions para Cosmos DB. También lo puede crear manualmente. Para crear automáticamente el contenedor de concesión, establezca la marca *CreateLeaseCollectionIfNotExists* en la [configuración](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration). Los contenedores de concesión con particiones deben tener una definición de clave de partición `/id`.
 
 ## <a name="create-your-azure-functions-trigger-for-cosmos-db"></a>Creación del desencadenador de Azure Functions para Cosmos DB
 

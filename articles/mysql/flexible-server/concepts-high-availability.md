@@ -6,12 +6,12 @@ ms.author: sunaray
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2021
-ms.openlocfilehash: 95cc91298945c50174f1edec6ca766e3f7df59c8
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: 276bcd288f519a5060f859bf6b5a74c0453e7c79
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129153736"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994069"
 ---
 # <a name="high-availability-in-azure-database-for-mysql---flexible-server-preview"></a>Alta disponibilidad en la opción Servidor flexible de Azure Database for MySQL (versión preliminar)
 
@@ -120,7 +120,7 @@ En ZRS, los registros son accesibles incluso cuando el servidor principal no est
 **¿Es necesario realizar alguna acción después de una conmutación por error?**</br>
 Las conmutaciones por error son totalmente transparentes desde la aplicación cliente. No tiene que realizar ninguna acción. La aplicación solo debe utilizar una lógica de reintento para sus conexiones. </br>
 **¿Qué ocurre si no selecciono una zona específica para mi réplica en espera? ¿Puedo cambiar la zona más adelante?**</br>
-Si no elige una zona, se seleccionará una aleatoriamente. No será la que se usa para el servidor principal. Para cambiar la zona más adelante, puede establecer **Modo de alta disponibilidad** en **Deshabilitado** en el panel **Alta disponibilidad** y luego volver a establecerlo en **Redundancia de zona** y elegir una zona.</br>
+Si no elige una zona, se seleccionará una aleatoriamente. No será la que se usa para el servidor principal. Para cambiar la zona más adelante, puede establecer **Alta disponibilidad** en **Deshabilitado** en el panel **Alta disponibilidad** y luego volver a establecerlo en **Redundancia de zona** y seleccionar una zona.</br>
 **¿La replicación entre la réplica principal y la réplica en espera es sincrónica?**</br>
  La replicación entre las réplicas principal y en espera es similar al [modo semisincrónico](https://dev.mysql.com/doc/refman/5.7/en/replication-semisync.html) de MySQL. Cuando se confirma una transacción, no se confirma necesariamente en la réplica en espera. Pero cuando la principal no está disponible, la réplica en espera replica todos los cambios de datos de la principal para asegurarse de que no haya pérdida de datos.</br> 
  **¿Se conmuta por error en la réplica en espera en caso de errores no planeados?**</br>
@@ -132,7 +132,7 @@ Los eventos planeados, como el escalado de proceso y las actualizaciones de vers
 **¿Puedo realizar una restauración a un momento dado (PITR) de mi servidor de alta disponibilidad?**</br>
 Puede hacer una [PITR](./concepts-backup-restore.md#point-in-time-restore) de un servidor flexible de Azure Database for MySQL con la alta disponibilidad habilitada en un nuevo servidor flexible de Azure Database for MySQL con la alta disponibilidad deshabilitada. Si el servidor de origen se ha creado con alta disponibilidad con redundancia de zona, puede habilitar la alta disponibilidad con redundancia de zona o en la misma zona en el servidor restaurado más adelante. Si el servidor de origen se ha creado con alta disponibilidad en la misma zona, solo puede habilitar la alta disponibilidad en la misma zona en el servidor restaurado.</br>
 **¿Puedo habilitar la alta disponibilidad en un servidor después de crear el servidor?**</br>
-Después de crear el servidor, puede habilitar la alta disponibilidad en la misma zona. La alta disponibilidad con redundancia de zona se debe habilitar cuando se crea el servidor.</br> 
+La alta disponibilidad con redundancia de zona se debe habilitar cuando se crea el servidor. Después de crear el servidor, puede habilitar la alta disponibilidad en la misma zona. Antes de habilitar la alta disponibilidad en la misma zona, asegúrese de que los parámetros del servidor enforce_gtid_consistency" y [“gtid_mode”](./concepts-read-replicas.md#global-transaction-identifier-gtid) están establecidos en ON.</br> 
  **¿Puedo deshabilitar la alta disponibilidad en un servidor después de crearlo?** </br>
 Puede deshabilitar la alta disponibilidad en un servidor después de crearlo. La facturación se detiene inmediatamente.  </br>
 **¿Cómo puedo mitigar el tiempo de inactividad?**</br>
@@ -150,6 +150,8 @@ No se admite la replicación de datos de entrada para servidores de alta disponi
 **¿Puedo realizar la conmutación por error al servidor en espera durante los reinicios del servidor o al escalar o reducir verticalmente para reducir el tiempo de inactividad?** </br>
 Actualmente, cuando se realiza una operación de escalado vertical o de reducción vertical, el servidor en espera y el principal se escalan al mismo tiempo. Por lo tanto, la conmutación por error no ayuda. Permitir primero el escalado vertical del servidor en espera, seguido de la conmutación por error y, a continuación, el escalado vertical del servidor principal está en nuestra hoja de ruta, pero aún no se admite.</br>
 
+**¿Se puede cambiar el modo de disponibilidad (alta disponibilidad con redundancia de zona/en la misma zona) del servidor?** </br>
+Si crea el servidor con el modo de alta disponibilidad con redundancia de zona habilitado, puede cambiar de alta disponibilidad con redundancia de zona a en la misma zona y viceversa. Para cambiar el modo de disponibilidad, puede establecer **Alta disponibilidad** en **Deshabilitado** en el panel **Alta disponibilidad** y luego volver a establecerlo en **Redundancia de zona o en la misma zona** y seleccionar **Modo de alta disponibilidad**.</br>  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -2,13 +2,13 @@
 title: Obtención de conclusiones mediante el Centro de copias de seguridad
 description: Obtenga información sobre cómo analizar las tendencias históricas y sacar conclusiones más profundas sobre las copias de seguridad con el Centro de copias de seguridad.
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.openlocfilehash: c48173749a9b47be7eeb906e9f8eec716e0cb200
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 10/19/2021
+ms.openlocfilehash: 5244ba6edaac3b58550107c2519b90447ff197e0
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102506023"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177847"
 ---
 # <a name="obtain-insights-using-backup-center"></a>Obtención de conclusiones mediante el Centro de copias de seguridad
 
@@ -24,7 +24,7 @@ Para analizar las tendencias históricas y obtener información más detallada s
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
-- Informes de Backup no está disponible actualmente para copias de seguridad del Servidor de Azure Database for PostgreSQL.
+- Informes de Backup no se admite actualmente para cargas de trabajo de las que se hace una copia de seguridad mediante almacenes de copia de seguridad.
 
 - Consulte la [matriz de compatibilidad](backup-center-support-matrix.md) para obtener una lista detallada de escenarios admitidos y no admitidos.
 
@@ -56,7 +56,7 @@ A continuación se muestran las vistas disponibles:
 
 7. **Adhesión a la directiva**: use esta pestaña para visualizar si cada instancia de copia de seguridad tiene al menos una copia de seguridad correcta al día. [Más información](./configure-reports.md#policy-adherence)
 
-También puede configurar los mensajes de correo electrónico para cualquiera de estos informes mediante la característica [Informe de correo electrónico](backup-reports-email.md).
+También puede configurar los mensajes de correo electrónico para estos informes mediante la característica [Informe de correo electrónico](backup-reports-email.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

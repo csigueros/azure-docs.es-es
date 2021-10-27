@@ -6,15 +6,15 @@ author: vvasic-msft
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 07/23/2021
 ms.author: vvasic
-ms.reviewer: jrasnick
-ms.openlocfilehash: 35a56131c55549cc5d33989579514fec3a0184c8
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.reviewer: jrasnick, wiassaf
+ms.openlocfilehash: 50464db5c62ffa0b5f6c48a323a9a23a43b06315
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123428243"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994031"
 ---
 # <a name="create-and-use-native-external-tables-using-sql-pools-in-azure-synapse-analytics"></a>Creación y uso de tablas externas nativas mediante grupos de SQL en Azure Synapse Analytics
 
@@ -25,7 +25,7 @@ Las tablas externas son útiles cuando se quiere controlar el acceso a los datos
 - Almacenamiento protegido, en el que los usuarios acceden a los archivos de almacenamiento mediante una credencial de SAS, una identidad de Azure AD o una identidad administrada del área de trabajo de Synapse.
 
 > [!NOTE]
->  En grupos de SQL dedicados solo puede usar tablas externas nativas de Parquet. Las tablas externas nativas de Parquet están en versión preliminar pública limitada en los grupos de SQL dedicados porque esta característica todavía no está disponible en todas las regiones. Si quiere unirse a la versión preliminar pública para comprobar si puede usar la tabla externa nativa de Parquet en los grupos dedicados, póngase en contacto con el administrador técnico de cuentas o el arquitecto de soluciones en la nube de Microsoft. Si quiere usar la funcionalidad disponible con carácter general en grupos de SQL dedicados, o si necesita acceder a archivos CSV o ORC, use tablas externas. Las tablas externas nativas están disponibles con carácter general en grupos de SQL sin servidor.
+> En grupos de SQL dedicados, solo puede usar tablas externas nativas con un tipo de archivo Parquet y esta característica está en **versión preliminar pública**. Si quiere usar la funcionalidad de lector de Parquet disponible con carácter general en grupos de SQL dedicados, o necesita acceso a archivos CSV u ORC, use tablas externas de Hadoop. Las tablas externas nativas están disponibles con carácter general en grupos de SQL sin servidor.
 > Más información sobre las diferencias entre las tablas externas nativas y Hadoop en [Uso de tablas externas con Synapse SQL](develop-tables-external-tables.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos

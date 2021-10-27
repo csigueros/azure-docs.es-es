@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c29477a7e9f5ed7ea9f26d4169b092ba8307e30a
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 2e133f84888a7a987ca7888f68e5bb195a905f88
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539576"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003977"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Tutorial: Habilitación del bot con voz mediante el SDK de voz
 
@@ -234,19 +234,20 @@ Tendrá que hacer un pequeño cambio de configuración para que el bot pueda com
 
 ## <a name="create-a-channel-registration"></a>Creación de un registro de canal
 
-Ahora que ha creado una instancia de Azure App Service para hospedar el bot, el siguiente paso es crear un **registro de canales de bot**. La creación de un registro de canal es un requisito previo para registrar el bot con canales de Bot Framework, incluido el canal Direct Line Speech. Para más información sobre cómo los bots usan los canales, consulte [Conexión de un bot a canales](/azure/bot-service/bot-service-manage-channels).
+Ahora que ha creado una instancia de Azure App Service para hospedar el bot, el siguiente paso es crear un **bot de Azure**. La creación de un registro de canal es un requisito previo para registrar el bot con canales de Bot Framework, incluido el canal Direct Line Speech. Para más información sobre cómo los bots usan los canales, consulte [Conexión de un bot a canales](/azure/bot-service/bot-service-manage-channels).
 
-1. <a href="https://ms.portal.azure.com/#create/Microsoft.BotServiceConnectivityGalleryPackage" target="_blank">Creación de un registro de canales de bot de Azure </a>
-2. Se le pedirá que proporcione algo de información:
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.AzureBot" target="_blank">Creación de un bot de Azure</a>
+1. Se le pedirá que proporcione algo de información:
    * En **Bot handle** (Identificador de bot), escriba **SpeechEchoBotTutorial-BotRegistration-####** y reemplace **####** por el número que prefiera. Tenga en cuenta que el identificador de bot debe ser único globalmente. Si especifica un identificador de bot pero aparece el mensaje de error _The requested bot ID is not available_ (El identificador de bot solicitado no está disponible), elija otro número. En los ejemplos siguientes usamos el 8726.
    * En **Suscripción**, seleccione **Evaluación gratuita**.
    * En **Grupo de recursos**, seleccione **SpeechEchoBotTutorial-ResourceGroup**.
-   * En **Ubicación**, seleccione **Oeste de EE. UU.**
-     * En **Plan de tarifa**, seleccione **F0**.
-     * En **Messaging endpoint** (Punto de conexión de mensajería), escriba la dirección URL de la aplicación web con la ruta de acceso `/api/messages` anexada al final. Por ejemplo, si el nombre de la aplicación globalmente único era **EchoBot20190805125647**, el punto de conexión de mensajería sería `https://EchoBot20190805125647.azurewebsites.net/api/messages/`.
-     * En **Application Insights**, puede establecerlo en **Desconectar**. Para más información, consulte [Análisis del bot](/azure/bot-service/bot-service-manage-analytics).
-     * Ignore **Auto create App ID and password** (Creación automática del identificador y contraseña de la aplicación).
-5. En la parte inferior de la hoja **Registro de canales de bot**, haga clic en **Crear**.
+     * En **Ubicación**, seleccione **Oeste de EE. UU.**
+   * En **Plan de tarifa**, seleccione **F0**.
+   * Ignore **Auto create App ID and password** (Creación automática del identificador y contraseña de la aplicación).
+1. En la parte inferior de la hoja **Azure Bot**, seleccione **Crear**.
+1. Después de crear el recurso, abra el recurso **SpeechEchoBotTutorial-BotRegistration-####** en Azure Portal.
+1. En el panel de navegación **Configuración**, seleccione **Configuración**.
+1. En **Messaging endpoint** (Punto de conexión de mensajería), escriba la dirección URL de la aplicación web con la ruta de acceso `/api/messages` anexada. Por ejemplo, si el nombre de la aplicación globalmente único fuera **EchoBot20190805125647**, el punto de conexión de mensajería sería `https://EchoBot20190805125647.azurewebsites.net/api/messages/`.
 
 En este punto, compruebe el grupo de recursos **SpeechEchoBotTutorial-ResourceGroup** en Azure Portal. Ahora debería mostrar al menos cuatro recursos:
 
@@ -254,46 +255,48 @@ En este punto, compruebe el grupo de recursos **SpeechEchoBotTutorial-ResourceGr
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | Oeste de EE. UU. |
 | SpeechEchoBotTutorial-AppServicePlan | Plan de App Service | Oeste de EE. UU. |
-| SpeechEchoBotTutorial-BotRegistration-8726 | Registro de canales de bot | Global |
+| SpeechEchoBotTutorial-BotRegistration-8726 | Azure Bot | Global |
 | SpeechEchoBotTutorial-Speech | Cognitive Services | Oeste de EE. UU. |
 
 > [!IMPORTANT]
-> El recurso del registro de canales de bot mostrará la región global aunque haya seleccionado Oeste de EE. UU. Se espera que esto sea así.
+> El recurso Azure Bot mostrará la región global, aunque haya seleccionado Oeste de EE. UU. Se espera que esto sea así.
 
 ## <a name="optional-test-in-web-chat"></a>Opcional: Probar en el Chat en web
 
-La página Azure Bot Channels Registration tiene la opción **Probar en el Chat en web** en **Administración de bots**. No funcionará de forma predeterminada con su bot, ya que el chat en web debe autenticarse con su bot. Si desea probar el bot que implementado con entrada de texto, siga los pasos que se indican a continuación. Tenga en cuenta que estos pasos son opcionales, no son necesarios para continuar con los pasos siguientes del tutorial. 
+La página Azure Bot tiene la opción **Probar en el Chat en web** en **Configuración**. Sin embargo, no funcionará de forma predeterminada con el bot, ya que el chat en web debe autenticarse con él. Si desea probar el bot que implementado con entrada de texto, siga los pasos que se indican a continuación. Tenga en cuenta que estos pasos son opcionales, no son necesarios para continuar con los pasos siguientes del tutorial. 
 
 1. Busque el recurso **EchoBotTutorial-BotRegistration-####** en [Azure Portal](https://portal.azure.com) y ábralo.
-1. En **Administración de bots**, seleccione **Configuración**. Copie el valor de **Microsoft App ID** (Id. de aplicación de Microsoft).
+1. En el panel de navegación **Configuración**, seleccione **Configuración**. Copie el valor de **Microsoft App ID** (Id. de aplicación de Microsoft).
 1. Abra la solución EchoBot de Visual Studio. En el Explorador de soluciones, busque **appsettings.json** y haga doble clic en él.
 1. Reemplace la cadena vacía que está junto a **MicrosoftAppId** en el archivo JSON por el valor del identificador copiado.
-1. De vuelta en Azure Portal, en **Administración de bots**, seleccione **Configuración** y haga clic en **(Administrar)** , al lado de **Microsoft App ID** (Id. de aplicación de Microsoft).
+1. De vuelta en Azure Portal, en el panel de navegación **Configuración**, seleccione **Configuración** y haga clic en **(Administrar)** , al lado de **Microsoft App ID** (Id. de la aplicación de Microsoft).
 1. Haga clic en **Nuevo secreto de cliente** (Nuevo secreto de cliente). Agregue una descripción (p.ej., "chat en web") y haga clic en **Agregar**. Copie el nuevo secreto.
 1. Reemplace la cadena vacía que está junto a **MicrosoftAppPassword** en el archivo JSON por el valor del secreto copiado.
 1. Guarde el archivo JSON. Debe tener el siguiente aspecto:
-```json
-{
-  "MicrosoftAppId": "3be0abc2-ca07-475e-b6c3-90c4476c4370",
-  "MicrosoftAppPassword": "-zRhJZ~1cnc7ZIlj4Qozs_eKN.8Cq~U38G"
-}
-```
-9. Vuelva a publicar la aplicación (haga clic con el botón derecho en el proyecto **EchoBot** en el Explorador de soluciones de Visual Studio, seleccione **Publicar...** y haga clic en el botón **Publicar**)
-10. Ya está listo para probar el bot en un chat en web.
+
+   ```json
+   {
+     "MicrosoftAppId": "3be0abc2-ca07-475e-b6c3-90c4476c4370",
+     "MicrosoftAppPassword": "-zRhJZ~1cnc7ZIlj4Qozs_eKN.8Cq~U38G"
+   }
+   ```
+
+1. Vuelva a publicar la aplicación (haga clic con el botón derecho en el proyecto **EchoBot** en el Explorador de soluciones de Visual Studio, seleccione **Publicar...** y haga clic en el botón **Publicar**)
+1. Ya está listo para probar el bot en un chat en web.
 
 ## <a name="register-the-direct-line-speech-channel"></a>Registro del canal Direct Line Speech
 
 Ahora es el momento de registrar el bot con el canal Direct Line Speech. Este canal crea una conexión entre el bot y una aplicación cliente compilada con el SDK de voz.
 
 1. Busque y abra el recurso **SpeechEchoBotTutorial-BotRegistration-####** en [Azure Portal](https://portal.azure.com).
-1. En **Administración de bots**, seleccione **Canales**.
+1. En el panel de navegación **Configuración**, seleccione **Canales**.
    * En **Más canales**, haga clic en **Direct Line Speech**.
    * Revise el texto de la página titulada **Configurar Direct Line Speech** y, a continuación, expanda el menú desplegable de la **cuenta de servicio de Cognitive**.
    * Seleccione el recurso de voz que creó anteriormente (por ejemplo, **SpeechEchoBotTutorial-Speech**) en el menú para asociar el bot a la clave de suscripción de voz.
    * Ignore los restantes campos opcionales.
    * Haga clic en **Save**(Guardar).
 
-1. En el panel de navegación **Bot management** (Administración de bots), haga clic en **Configuración**.
+1. En el panel de navegación **Configuración**, haga clic en **Configuración**.
    * Active la casilla de verificación **Enable Streaming Endpoint** (Habilitar punto de conexión de streaming). Esto es necesario para crear un protocolo de comunicación basado en sockets web entre el bot y el canal Direct Line Speech.
    * Haga clic en **Save**(Guardar).
 

@@ -12,12 +12,12 @@ ms.date: 02/16/2021
 ms.author: mbullwin
 keywords: anomaly detection, machine learning, algorithms
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 30764913ae92670a9034f709f9bb3f50a309374f
-ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
+ms.openlocfilehash: 24d30a475071667fa9f701776302aa81c652fbe2
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2021
-ms.locfileid: "113296890"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045054"
 ---
 # <a name="what-is-the-anomaly-detector-univariate-api"></a>¿Qué es la API univariante Anomaly Detector?
 
@@ -27,7 +27,7 @@ Anomaly Detector API permite supervisar y detectar anomalías en los datos de se
 
 ![Detectar cambios de patrón en las solicitudes de servicio](./media/anomaly_detection2.png)
 
-Para usar Anomaly Detector, no se necesita ninguna experiencia anterior con el aprendizaje automático, y la API RESTful le permite integrar fácilmente el servicio en sus aplicaciones y procesos.
+Para usar Anomaly Detector, no se necesita ninguna experiencia anterior con el aprendizaje automático, y la API REST le permite integrar fácilmente el servicio en sus aplicaciones y procesos.
 
 Esta documentación contiene los siguientes tipos de artículos:
 * Los [inicios rápidos](./Quickstarts/client-libraries.md) son instrucciones paso a paso que permiten realizar llamadas al servicio y obtener los resultados en un breve período de tiempo. 

@@ -12,12 +12,12 @@ ms.date: 07/15/2021
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5d7adc35829e60f40c74f310023b2ea5a259cec
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: bbe50839beb886d22ad05414e220781f87e5f75b
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124754296"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045471"
 ---
 # <a name="azure-active-directory-security-operations-for-devices"></a>Operaciones de seguridad de Azure Active Directory para dispositivos
 
@@ -68,7 +68,7 @@ En Azure Portal, puede ver los registros de auditoría de Azure AD y descargarl
 
 * **[Azure Event Hubs](../../event-hubs/event-hubs-about.md) (integrado con un Azure AD)** - [: los registros de Azure AD se pueden integrar con otras instancias de SIEM](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md), como Splunk, ArcSight, QRadar y Sumo Logic a través de la integración de Azure Event Hubs.
 
-* **[Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS)** : le permite detectar y administrar aplicaciones, controlar entre aplicaciones y recursos y comprobar el cumplimiento de las aplicaciones en la nube. 
+* **[Microsoft Cloud App Security (MCAS)](/cloud-app-security/what-is-cloud-app-security)**: permite detectar y administrar aplicaciones, controlar aplicaciones y recursos, y comprobar el cumplimiento de las aplicaciones en la nube. 
 
 Gran parte de lo que supervisará y alertará son los efectos de las directivas de acceso condicional. Puede usar el [libro Información detallada e informes del acceso condicional](../conditional-access/howto-conditional-access-insights-reporting.md) para examinar los efectos de una o varias directivas de acceso condicional en los inicios de sesión y los resultados de las directivas, incluido el estado del dispositivo. Este libro le permite ver un resumen de impacto e identificar el impacto durante un período de tiempo específico. También puede usar el libro para investigar los inicios de sesión de un usuario específico. 
 

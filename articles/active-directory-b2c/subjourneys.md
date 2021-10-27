@@ -1,29 +1,27 @@
 ---
-title: Subrecorridos en Azure Active Directory B2C | Microsoft Docs
+title: Subrecorridos en Azure Active Directory B2C
 description: Especifique el elemento de subrecorridos de una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/11/2020
-ms.author: mimart
+ms.date: 10/15/2021
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 8f037d4283b4b05081ef47e7223495f6e19d460e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5cb3ebfbc3125e26f1b922ee43360c7527c7fb35
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97386874"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063970"
 ---
 # <a name="sub-journeys"></a>Subrecorridos
 
 Los subrecorridos se pueden usar para organizar y simplificar el flujo de los pasos de orquestación dentro de un recorrido del usuario. Los [recorridos del usuario](userjourneys.md) especifican rutas de acceso explícitas con las que una directiva permite que una aplicación de usuario de confianza obtenga las notificaciones deseadas para un usuario. Se conduce al usuario por estas rutas de acceso para recuperar las notificaciones que se van a presentar al usuario de confianza. En otras palabras, los recorridos del usuario definen la lógica de negocios por la que pasa un usuario final mientras el marco de experiencia de identidad de Azure AD B2C procesa la solicitud. El recorrido del usuario se representa como una secuencia de orquestación por la que hay que pasar para lograr una transacción correcta. El elemento [ClaimsExchange](userjourneys.md#claimsexchanges) de un paso de orquestación está asociado a un solo [perfil técnico](technicalprofiles.md) que se ejecuta.
 
 Un subrecorrido es una agrupación de pasos de orquestación que se pueden invocar en cualquier punto dentro de un recorrido del usuario. Puede usar subrecorridos para crear secuencias de pasos reutilizables o implementar una bifurcación que represente mejor la lógica de negocios.
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="user-journey-branching"></a>Bifurcación del recorrido del usuario
 

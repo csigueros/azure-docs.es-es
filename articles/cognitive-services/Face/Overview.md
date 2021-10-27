@@ -11,12 +11,12 @@ ms.date: 09/27/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconocimiento facial, software de reconocimiento facial, análisis facial, coincidencia facial, aplicación de reconocimiento facial, búsqueda de caras por imagen, búsqueda de reconocimiento facial
-ms.openlocfilehash: 3cb63bb5fb98eddee84677bb8e2d8d11ed86c876
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 90a2b656d66c15eed10d68be8e5af5c35f35d135
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129362761"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130005698"
 ---
 # <a name="what-is-the-azure-face-service"></a>¿Qué es el servicio Azure Face?
 
@@ -57,7 +57,7 @@ Las empresas y aplicaciones modernas pueden utilizar las operaciones de identifi
 
 ### <a name="identification"></a>Identificación
 
-La identificación facial puede abordar la coincidencia "de uno a varios" de una cara de una imagen con un conjunto de caras en un repositorio seguro. Los candidatos de coincidencia se devuelven en función de la coincidencia de sus datos faciales con la cara de la consulta. Este escenario se utiliza para conceder acceso de creación a un determinado grupo de personas o para comprobar el usuario de un dispositivo.
+La identificación facial puede abordar la coincidencia "de uno a varios" de una cara de una imagen con un conjunto de caras en un repositorio seguro. Los candidatos de coincidencia se devuelven en función de la coincidencia de sus datos faciales con la cara de la consulta. Este escenario se utiliza para conceder acceso a un edificio o aeropuerto a un determinado grupo de personas o para comprobar el usuario de un dispositivo.
 
 La siguiente imagen muestra un ejemplo de una base de datos llamada `"myfriends"`. Cada grupo puede contener hasta un millón de objetos de persona diferentes. Cada objeto de persona puede tener hasta 248 caras registradas.
 
@@ -69,9 +69,7 @@ Una vez creado y entrenado un grupo, puede realizar la identificación en el gru
 
 La operación de comprobación responde a la pregunta "¿Estas dos caras pertenecen a la misma persona?". 
 
-La verificación también es una coincidencia "uno a uno" de una cara de una imagen con otra cara de un repositorio seguro o una foto.
-
-La comprobación se puede usar en escenarios de comprobación de identidad o control de acceso para comprobar que una imagen coincide con una imagen capturada previamente (por ejemplo, una foto de una tarjeta de identificación emitida por el gobierno).
+La verificación también es una coincidencia "uno a uno" de una cara de una imagen con otra cara de un repositorio seguro o una foto para comprobar que son la misma persona. La verificación se puede usar para la verificación de identidad, como en una aplicación bancaria que permite a los usuarios abrir una cuenta de crédito de forma remota haciéndose un selfie y tomando una imagen de un documento de identidad con fotografía para comprobar su identidad. 
 
 Para más información sobre la verificación de identidad, consulte la guía de conceptos de [Reconocimiento facial](concepts/face-recognition.md) o la documentación de referencia de [Identify API ](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) y [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 

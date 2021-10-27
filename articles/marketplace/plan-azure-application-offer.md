@@ -1,6 +1,6 @@
 ---
 title: Planeamiento de una oferta de Aplicación de Azure para el marketplace comercial
-description: Aprenda a planear una nueva oferta de Aplicación de Azure para mostrarla o venderla en Azure Marketplace o mediante el programa de proveedores de soluciones en la nube (CSP) usando el portal del marketplace comercial en el Centro de partners de Microsoft.
+description: Planee una oferta de aplicación de Azure para Azure Marketplace mediante el Centro de partners.
 author: aarathin
 ms.author: aarathin
 ms.reviewer: dannyevers
@@ -8,16 +8,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: c8faefa8f1793275e4c93bf772e89ebf852b33d4
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: d8058181ea56fdfc7465748f7ebf519c51422f64
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112283454"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070895"
 ---
-# <a name="plan-an-azure-application-offer-for-the-commercial-marketplace"></a>Planeamiento de una oferta de Aplicación de Azure para el marketplace comercial
+# <a name="plan-an-azure-application-offer"></a>Planeamiento de una oferta de aplicación de Azure
 
-En este artículo se explican los distintos requisitos y opciones para publicar una oferta de Aplicación de Azure en el marketplace comercial de Microsoft.
+En este artículo se explican los distintos requisitos y opciones para publicar una oferta de Aplicación de Azure en el marketplace comercial.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -95,7 +95,7 @@ Puede agregar o modificar una conexión CRM en cualquier momento durante o despu
 
 ## <a name="categories-and-subcategories"></a>Categorías y subcategorías
 
-Puede elegir una categoría como mínimo y dos como máximo para agrupar la oferta en las áreas de búsqueda apropiadas del marketplace comercial. Puede elegir hasta dos subcategorías por cada categoría principal y secundaria. Para ver la lista completa de categorías y subcategorías, consulte [Procedimientos recomendados para la descripción de ofertas](gtm-offer-listing-best-practices.md#categories).
+Puede elegir una categoría como mínimo y dos como máximo para agrupar la oferta en las áreas de búsqueda apropiadas del marketplace comercial. Puede elegir hasta dos subcategorías por cada categoría principal y secundaria. Para ver la lista completa de categorías y subcategorías, consulte [Procedimientos recomendados para la descripción de ofertas](marketplace-categories-industries.md#categories).
 
 ## <a name="legal-contracts"></a>Contratos legales
 
@@ -155,9 +155,9 @@ Para facilitar la creación de la oferta, prepare algunos de estos elementos con
   - **Contacto de ingeniería**: proporcione el nombre, el teléfono y el correo electrónico que Microsoft usará directamente cuando haya problemas con la oferta. Esta información de contacto no aparece en el marketplace comercial.
   - **Contacto del programa CSP** (opcional): proporcione el nombre, el teléfono y el correo electrónico si participa en el programa de proveedores de soluciones en la nube (CSP), de modo que dichos asociados puedan ponerse en contacto con usted si necesitan hacerle alguna pregunta. También puede incluir una dirección URL a sus materiales de marketing.
 - **Elementos multimedia (logotipos)** : Proporcione un archivo PNG para el logotipo de tamaño **Grande**. El Centro de partners lo usará para crear un logotipo **Pequeño** y un logotipo **Mediano**. Opcionalmente, puede reemplazarlos por imágenes diferentes más adelante.
-  - Grande (de 216 x 216 a 350 x 350 píxeles, obligatorio)
-  - Mediano (90 x 90 píxeles, opcional)
-  - Pequeño (48 x 48 píxeles, opcional)
+  - Grande (de 216 x 216 a 350 x 350 px, obligatorio)
+  - Medio (90 x 90 px, opcional)
+  - Pequeño (48 x 48 px, opcional)
 
   Estos logotipos se usan en distintos lugares de las tiendas en línea:
   - El logotipo pequeño aparece en los resultados de búsqueda de Azure Marketplace.
@@ -173,13 +173,13 @@ Para facilitar la creación de la oferta, prepare algunos de estos elementos con
   - Asegúrese de que el logotipo no quede estirado.
 
 - **Elementos multimedia: capturas de pantalla** (opcional): se recomienda agregar capturas de pantallas que muestren el funcionamiento de la oferta. Puede agregar entre una y cinco capturas de pantallas que muestren el funcionamiento de la oferta, con los siguientes requisitos:
-  - 1280 x 720 píxeles
-  - Archivo .png
+  - 1280 x 720 píxeles
+  - Archivo .PNG
   - Se debe incluir un título
 - **Elementos multimedia: vídeos** (opcional): puede agregar hasta cinco vídeos que muestren su oferta, con los siguientes requisitos:
   - Nombre
   - Dirección URL: solo se debe hospedar en YouTube o en Vimeo.
-  - Miniatura: archivo .png de 1280 x 720
+  - Miniatura: 1280 x 720 archivo .PNG
 
 > [!NOTE]
 > La oferta debe cumplir las [directivas de certificación del marketplace comercial](/legal/marketplace/certification-policies#100-general.md) para ser publicada en esta plataforma.

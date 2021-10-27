@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 4cef99adecadc73f105dfffcdc72163c8b622cc3
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 1921349be07d129e9889da3af6c72a7b25a58ff5
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129208682"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074444"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Registro y examen de un servidor de SQL Server local
 
@@ -93,7 +93,9 @@ Si quiere crear un nuevo inicio de sesión y un usuario para poder examinar el s
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/set-up-sql-data-source.png" alt-text="Configure el origen de datos de SQL.":::
 
-5. Proporcione un nombre descriptivo y un punto de conexión de servidor y, a continuación, seleccione **Finalizar** para registrar el origen de datos. Si, por ejemplo, el FQDN de SQL Server es **foobar.database.windows.net**, escriba *foobar* como punto de conexión del servidor.
+1. Proporcione un nombre descriptivo, que será un nombre corto que puede usar para identificar el servidor y el punto de conexión del servidor. 
+ 
+1. A continuación, seleccione **Finalizar** para registrar el origen de datos.
 
 ## <a name="creating-and-running-a-scan"></a>Creación y ejecución de un examen
 

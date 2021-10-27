@@ -6,17 +6,17 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/20/2021
-ms.openlocfilehash: ae45647369cde2cc0b427fe128f4fea44de79bf4
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 465d399e699f4ae4491c2964646c9c75956d0014
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129058925"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070344"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Niveles de coherencia en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Las bases de datos distribuidas que dependen de la replicación para alta disponibilidad, baja latencia o ambas, deben equilibrar la coherencia de lectura, la disponibilidad, la latencia y el rendimiento, tal como se define en el [teorema de PACLC](https://en.wikipedia.org/wiki/PACELC_theorem). La linearización del modelo de coherencia fuerte es el estándar de oro de la programación de datos, pero agrega un precio excesivo a las latencias de escritura mayores debido a que los datos tienen que replicarse y confirmarse entre grandes distancias. Una coherencia fuerte también puede verse afectada por una disponibilidad reducida (durante errores) porque los datos no se puedan replicar y confirmar en cada región. La coherencia posible ofrece una mayor disponibilidad y un mejor rendimiento, pero es más difícil programar aplicaciones porque es posible que los datos no sean totalmente coherentes en todas las regiones.
+Las bases de datos distribuidas que dependen de la replicación para alta disponibilidad, baja latencia o ambas, deben equilibrar la coherencia de lectura, la disponibilidad, la latencia y el rendimiento, tal como se define en el [teorema de PACELC](https://en.wikipedia.org/wiki/PACELC_theorem). La linearización del modelo de coherencia fuerte es el estándar de oro de la programación de datos, pero agrega un precio excesivo a las latencias de escritura mayores debido a que los datos tienen que replicarse y confirmarse entre grandes distancias. Una coherencia fuerte también puede verse afectada por una disponibilidad reducida (durante errores) porque los datos no se puedan replicar y confirmar en cada región. La coherencia posible ofrece una mayor disponibilidad y un mejor rendimiento, pero es más difícil programar aplicaciones porque es posible que los datos no sean totalmente coherentes en todas las regiones.
 
 La mayoría de las bases de datos NoSQL distribuidas disponibles comercialmente en el mercado hoy en día solo ofrecen coherencia fuerte y posible. Azure Cosmos DB ofrece cinco niveles bien definidos. De más fuerte a más débil, los niveles son:
 
@@ -170,18 +170,18 @@ La latencia de RTT exacta depende de la distancia a la velocidad de la luz y la 
 
 ## <a name="consistency-levels-and-data-durability"></a><a id="rto"></a>Durabilidad de los datos y niveles de coherencia
 
-En un entorno de base de datos distribuida de forma global, existe una relación directa entre el nivel de coherencia y la durabilidad de los datos se produce una interrupción en toda la región. A medida que desarrolle el plan de continuidad empresarial, tendrá que saber el tiempo máximo aceptable para que la aplicación se recupere por completo tras un evento de interrupción. El tiempo necesario para que una aplicación se recupere totalmente se conoce como **objetivo de tiempo de recuperación** (**RTO**). También debe conocer el período máximo de actualizaciones de datos recientes que la aplicación puede tolerar perder al recuperarse después de un evento de interrupción. El período de tiempo de las actualizaciones que se puede permitir perder se conoce como **objetivo de punto de recuperación** (**RPO**).
+En un entorno de base de datos distribuida de forma global, existe una relación directa entre el nivel de coherencia y la durabilidad de los datos se produce una interrupción en toda la región. A medida que desarrolla el plan de continuidad empresarial, debe conocer el período máximo de actualizaciones de datos recientes que la aplicación puede tolerar perder al recuperarse después de un evento de interrupción. El período de tiempo de las actualizaciones que se puede permitir perder se conoce como **objetivo de punto de recuperación** (**RPO**).
 
-En la tabla siguiente se define la relación entre el modelo de coherencia y la durabilidad de los datos si se produce una interrupción en toda la región. Es importante tener en cuenta que, en un sistema distribuido, aunque la coherencia sea alta, no es posible tener una base de datos distribuida con un RPO y un RTO de cero debido al [teorema de CAP](https://en.wikipedia.org/wiki/CAP_theorem).
+En la tabla siguiente se define la relación entre el modelo de coherencia y la durabilidad de los datos si se produce una interrupción en toda la región.
 
-|**Regiones**|**Modo de replicación**|**Nivel de coherencia**|**RPO**|**RTO**|
-|---------|---------|---------|---------|---------|
-|1|Una o varias regiones de escritura|Cualquier nivel de coherencia|< 240 minutos|<1 semana|
-|>1|Región de escritura única|Sesión, prefijo coherente, eventual|< 15 minutos|< 15 minutos|
-|>1|Una región de escritura|De obsolescencia entrelazada|*K* & *T*|< 15 minutos|
-|>1|Una región de escritura|Alta|0|< 15 minutos|
-|>1|Varias regiones de escritura|Sesión, prefijo coherente, eventual|< 15 minutos|0|
-|>1|Varias regiones de escritura|De obsolescencia entrelazada|*K* & *T*|0|
+|**Regiones**|**Modo de replicación**|**Nivel de coherencia**|**RPO**|
+|---------|---------|---------|---------|
+|1|Una o varias regiones de escritura|Cualquier nivel de coherencia|< 240 minutos|
+|>1|Región de escritura única|Sesión, prefijo coherente, eventual|< 15 minutos|
+|>1|Una región de escritura|De obsolescencia entrelazada|*K* & *T*|
+|>1|Una región de escritura|Alta|0|
+|>1|Varias regiones de escritura|Sesión, prefijo coherente, eventual|< 15 minutos|
+|>1|Varias regiones de escritura|De obsolescencia entrelazada|*K* & *T*|
 
 *K* = número de versiones *"K"* (es decir, actualizaciones) de un elemento.
 

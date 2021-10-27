@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/06/2021
-ms.openlocfilehash: 714dc6ac27f466c98e5c74bc16a9cfa3c5cd30cf
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 07442ce360baa152b36bcc1145e0636d73d6fedb
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129620286"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132728"
 ---
 # <a name="features-of-azure-cognitive-search"></a>Características de Azure Cognitive Search
 
@@ -33,9 +33,9 @@ En la tabla siguiente se resumen las características por categoría. Para obten
 
 | Categoría&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Características |
 |-------------------|----------|
-|Procesamiento de IA durante la indexación | El [**enriquecimiento con inteligencia artificial**](cognitive-search-concept-intro.md) para el análisis de texto e imágenes se puede aplicar a una canalización de indexación para extraer información de texto a partir de contenido sin formato. Algunos ejemplos de [habilidades integradas](cognitive-search-predefined-skills.md) incluyen el reconocimiento óptico de caracteres (para realizar búsquedas en archivos JPEG escaneados), el reconocimiento de entidades (identificación de una organización, nombre o ubicación) y el reconocimiento de frases principales. También puede [codificar habilidades personalizadas](cognitive-search-create-custom-skill-example.md) para adjuntar a la canalización. Además, puede [integrar aptitudes creadas de Azure Machine Learning](./cognitive-search-tutorial-aml-custom-skill.md). |
-| Almacenamiento de contenido enriquecido para su análisis y consumo en escenarios que no son de búsqueda | El [**almacén de conocimiento**](knowledge-store-concept-intro.md) es una salida alternativa de una canalización de indexación. En lugar de enviar términos con token a un índice, puede enviar documentos enriquecidos creados por la canalización de indexación a un almacén de conocimiento, residentes en Azure Blob Storage o Table Storage, en función de la configuración. Los almacenes de conocimiento se crean a partir de la indexación basada en IA (conjuntos de aptitudes). El propósito de un almacén de conocimiento es admitir el análisis o el procesamiento posteriores. Puede adjuntar un almacén de conocimiento, con nueva información y estructuras, a un proceso de aprendizaje automático o conectarse desde Power BI para explorar los datos.<br/><br/> |
-| Contenido almacenado en caché | El [**enriquecimiento incremental (versión preliminar)**](cognitive-search-incremental-indexing-conceptual.md) limita el procesamiento a solo los documentos que se modifican mediante ediciones específicas de la canalización, y utiliza el contenido almacenado en caché para las partes de la canalización que no cambian. |
+|Procesamiento de IA durante la indexación | El [**enriquecimiento con IA**](cognitive-search-concept-intro.md) hace referencia al procesamiento de lenguaje natural e imágenes insertadas en una canalización del indizador que extrae texto e información del contenido que, de otro modo, no se puede indexar para la búsqueda de texto completo. El procesamiento de IA se logra mediante la adición y combinación de aptitudes en un conjunto de aptitudes, que posteriormente se asocia a un indizador. La IA pueden ser [aptitudes integradas](cognitive-search-predefined-skills.md) de Microsoft, como la traducción de texto o el reconocimiento óptico de caracteres (OCR), o [aptitudes personalizadas](cognitive-search-create-custom-skill-example.md) proporcionadas por el usuario. |
+| Almacenamiento de contenido enriquecido para su análisis y consumo en escenarios que no son de búsqueda | El [**almacén de conocimiento**](knowledge-store-concept-intro.md) es un almacenamiento persistente de contenido enriquecido, diseñado para escenarios que no son de búsqueda, como la minería de conocimiento y el procesamiento de ciencia de datos. Un almacén de conocimiento se define en un conjunto de aptitudes, pero se crea en Azure Storage como objetos o conjuntos de filas tabulares.|
+| Enriquecimientos en caché | El [**enriquecimiento incremental (versión preliminar)** ](cognitive-search-incremental-indexing-conceptual.md) hace referencia a los enriquecimientos en caché que se pueden reutilizar durante la ejecución del conjunto de aptitudes. El almacenamiento en caché es especialmente valioso en conjuntos de aptitudes que incluyen OCR y análisis de imágenes, cuyo procesamiento es caro. |
 
 ## <a name="query-and-user-experience"></a>Consulta y experiencia del usuario
 

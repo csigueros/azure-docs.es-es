@@ -10,22 +10,22 @@ ms.topic: overview
 ms.custom: sqldbrb=1, fasttrack-edit
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: dd9fe79249fe5e02ad8a4adaf8dda02e72c954c6
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 2c63e6c858ec4d6ed35faec16c0778cb1246ef17
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123039195"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004585"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure Private Link para Azure SQL Database y Azure Synapse Analytics
-[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
+[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa-formerly-sqldw.md)] 
 
 Private Link permite conectarse a varios servicios PaaS en Azure mediante un **punto de conexión privado**. Para obtener una lista de los servicios PaaS que admiten la funcionalidad Private Link, vaya a la página de la [documentación de Private Link](../../private-link/index.yml). Un punto de conexión privado es una dirección IP privada dentro de una [red virtual](../../virtual-network/virtual-networks-overview.md) y una subred específicas.
 
 > [!IMPORTANT]
-> Este artículo se aplica a Azure SQL Database y a Azure Synapse Analytics. Para simplificar, el término "base de datos" hace referencia a las bases de datos de Azure SQL Database y a las de Azure Synapse Analytics. Del mismo modo, todas las referencias a "servidor" indican el [servidor de SQL Server lógico](logical-servers.md) que hospeda Azure SQL Database y Azure Synapse Analytics. Este artículo *no* se aplica a **Instancia administrada de Azure SQL**.
+> Este artículo se aplica tanto a Azure SQL Database como al [grupo de SQL dedicado (antes SQL DW)](../../synapse-analytics\sql-data-warehouse\sql-data-warehouse-overview-what-is.md) en Azure Synapse Analytics. Estos valores se aplican a todas las bases de datos de SQL Database y de grupo de SQL dedicado (anteriormente, SQL DW) asociadas al servidor. Para simplificar, el término "base de datos" hace referencia a las bases de datos de Azure SQL Database y a las de Azure Synapse Analytics. Del mismo modo, todas las referencias a "servidor" indican el [servidor de SQL Server lógico](logical-servers.md) que hospeda Azure SQL Database y el grupo de SQL dedicado (anteriormente SQL DW) en Azure Synapse Analytics. Este artículo *no* se aplica a Azure SQL Managed Instance o a grupos de SQL dedicados de áreas de trabajo de Azure Synapse Analytics.
 
-## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Configuración de Private Link para Azure SQL Database 
+## <a name="how-to-set-up-private-link"></a>Configuración de Private Link 
 
 ### <a name="creation-process"></a>Proceso de creación
 Los puntos de conexión privados se pueden crear mediante Azure Portal, PowerShell o la CLI de Azure:

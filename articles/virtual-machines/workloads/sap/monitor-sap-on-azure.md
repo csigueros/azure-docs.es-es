@@ -6,14 +6,14 @@ ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.topic: article
 ms.custom: subject-monitoring
-ms.date: 08/24/2021
+ms.date: 10/13/2021
 ms.author: v-hborys
-ms.openlocfilehash: 779a70c4a0386420389937864be01295f985f5b8
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 4f90fc00dc895617796cc478835690c931a55f51
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123104463"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004870"
 ---
 # <a name="monitor-sap-on-azure-preview"></a>Supervisión de SAP en Azure (versión preliminar)
 
@@ -23,7 +23,7 @@ En este artículo se describe cómo supervisar SAP en ejecución en Azure median
 
 ## <a name="overview"></a>Información general
 
-Azure Monitor para soluciones de SAP es un producto de supervisión nativo de Azure para cualquier persona que ejecuta entornos de SAP en la plataforma. El producto funciona con [SAP en Azure Virtual Machines](./hana-get-started.md) y con [SAP en Azure (instancias grandes)](./hana-overview-architecture.md).
+Azure Monitor para soluciones de SAP es un producto de supervisión nativo de Azure para cualquier persona que ejecuta entornos de SAP en la plataforma. Funciona con [SAP en Azure Virtual Machines](./hana-get-started.md) y con [SAP en Azure (instancias grandes)](./hana-overview-architecture.md).
 
 Con Azure Monitor para soluciones de SAP, puede recopilar datos de telemetría de la infraestructura y las bases de datos de Azure en una ubicación central y correlacionar visualmente esos datos para una solución de problemas más rápida.
 
@@ -38,9 +38,7 @@ Bases de datos admitidas:
 - Base de datos de SAP HANA
 - Microsoft SQL Server
 
-Azure Monitor para soluciones de SAP usa las funcionalidades de [Azure Monitor](../../../azure-monitor/overview.md) de [Log Analytics](../../../azure-monitor/logs/log-analytics-overview.md) y [libros](../../../azure-monitor/visualize/workbooks-overview.md).
-
-Por ejemplo, puede:
+Azure Monitor para soluciones de SAP usa las funcionalidades de [Azure Monitor](../../../azure-monitor/overview.md) de [Log Analytics](../../../azure-monitor/logs/log-analytics-overview.md) y [libros](../../../azure-monitor/visualize/workbooks-overview.md). Por ejemplo, puede:
 
 - Crear [visualizaciones personalizadas](../../../azure-monitor/visualize/workbooks-overview.md#getting-started) editando los libros predeterminados que proporciona Azure Monitor para soluciones de SAP. 
 - Escribir [consultas personalizadas](../../../azure-monitor/logs/log-analytics-tutorial.md).
@@ -52,7 +50,7 @@ Por ejemplo, puede:
 
 A diferencia de otros muchos recursos de Azure, Azure Monitor para soluciones de SAP no recopila métricas de Azure Monitor ni datos de registro de recursos. En su lugar, envía registros personalizados directamente al sistema de registros de Azure Monitor, donde puede usar las características integradas de Log Analytics.
 
-La recopilación de datos en Azure Monitor para soluciones de SAP depende de los proveedores que configure. Durante la versión preliminar pública, se recopilan los siguientes datos:
+La recopilación de datos en Azure Monitor para soluciones de SAP depende de los proveedores que configure. Durante la versión preliminar pública, se recopilan los siguientes datos.
 
 Telemetría del clúster de Pacemaker de alta disponibilidad:
 - Estado del nodo, recurso y dispositivo de bloques STONITH (SBD)

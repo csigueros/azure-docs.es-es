@@ -5,21 +5,21 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 10/10/2021
+ms.date: 10/13/2021
 ms.author: memildin
-ms.openlocfilehash: 6a98a5dfbdf47ad9e2b74415786c240b32b3b499
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: e019e0acefe8acb8bf56f829fad38c6ac2a3c1c2
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129754698"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130129023"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Próximos cambios importantes en Azure Security Center
 
 > [!IMPORTANT]
 > La información de esta página está relacionada con productos o características en versión preliminar que pueden modificarse sustancialmente antes de lanzarse comercialmente, si es que lo hacen finalmente. Microsoft no ofrece ningún compromiso o garantía, ni expresa ni implícita, con respecto a la información que se proporciona aquí.
 
-En esta página, obtendrá información sobre los cambios planeados para Security Center. Describe las modificaciones planeadas en el producto que pueden afectar a aspectos como los flujos de trabajo o la puntuación segura.
+En esta página, obtendrá información sobre los cambios planeados para Security Center. Se describen las modificaciones planeadas en el producto que pueden afectar a aspectos como los flujos de trabajo o la puntuación segura.
 
 Si busca las notas de la versión más recientes, puede encontrarlas en [Novedades de Azure Security Center](release-notes.md).
 
@@ -33,6 +33,7 @@ Si busca las notas de la versión más recientes, puede encontrarlas en [Novedad
 | [Cambios en las recomendaciones para administrar soluciones de protección de puntos de conexión](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | Noviembre de 2021| 
 | [La visualización de inventario de las máquinas locales usará una plantilla diferente para el nombre del recurso](#inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name)    | Noviembre de 2021    |
 | [Varios cambios en las recomendaciones de identidad](#multiple-changes-to-identity-recommendations)                                                                                          | Noviembre de 2021    |
+| [Cambios en una alerta de seguridad de Azure Defender para Storage](#changes-to-a-security-alert-from-azure-defender-for-storage)  | Noviembre de 2021    |
 | [Mejoras en la recomendación para clasificar datos confidenciales en bases de datos SQL](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                              | T1 2022    |
 |||
 
@@ -123,7 +124,7 @@ Security Center incluye varias recomendaciones para mejorar la administración d
     |---------|---------|---------|
     |Clave de evaluación     | e52064aa-6853-e252-a11e-dffc675689c2        | Sin cambios|
     |Nombre     |[Las cuentas en desuso con permisos de propietario deben quitarse de la suscripción](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e52064aa-6853-e252-a11e-dffc675689c2)         |Las suscripciones se deben purgar de las cuentas que están bloqueadas en Active Directory y tienen permisos de propietario.        |
-    |Descripción     |Las cuentas de usuario cuyo inicio de sesión se ha bloqueado deben quitarse de las suscripciones.<br>Estas cuentas pueden ser objetivo de los atacantes que buscan formas de acceder a los datos sin ser detectados.|Las cuentas de usuario cuyo inicio de sesión en Active Directory se haya bloqueado se deben quitar de las suscripciones. Estas cuentas pueden ser objetivo de los atacantes que buscan formas de acceder a los datos sin ser detectados.<br>Más información sobre cómo proteger el perímetro de identidad en [Procedimientos recomendados para la administración de identidades y la seguridad del control de acceso en Azure](/azure/security/fundamentals/identity-management-best-practices.md).|
+    |Descripción     |Las cuentas de usuario cuyo inicio de sesión se ha bloqueado deben quitarse de las suscripciones.<br>Estas cuentas pueden ser objetivo de los atacantes que buscan formas de acceder a los datos sin ser detectados.|Las cuentas de usuario cuyo inicio de sesión en Active Directory se haya bloqueado se deben quitar de las suscripciones. Estas cuentas pueden ser objetivo de los atacantes que buscan formas de acceder a los datos sin ser detectados.<br>Más información sobre cómo proteger el perímetro de identidad en [Procedimientos recomendados para la administración de identidades y la seguridad del control de acceso en Azure](/azure/security/fundamentals/identity-management-best-practices).|
     |Directiva relacionada     |[Las cuentas en desuso con permisos de propietario deben quitarse de la suscripción](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2febb62a0c-3560-49e1-89ed-27e074e9f8ad)         |Las suscripciones se deben purgar de las cuentas que están bloqueadas en Active Directory y tienen permisos de propietario. |
     |||
 
@@ -131,12 +132,31 @@ Security Center incluye varias recomendaciones para mejorar la administración d
     |---------|---------|---------|
     |Clave de evaluación     | 00c6d40b-e990-6acf-d4f3-471e747a27c4        | Sin cambios|
     |Nombre     |[Las cuentas en desuso deben quitarse de la suscripción](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/00c6d40b-e990-6acf-d4f3-471e747a27c4)|Las suscripciones se deben purgar de las cuentas que están bloqueadas en Active Directory y tienen permisos de lectura y escritura.|
-    |Descripción     |Las cuentas de usuario cuyo inicio de sesión se ha bloqueado deben quitarse de las suscripciones.<br>Estas cuentas pueden ser objetivo de los atacantes que buscan formas de acceder a los datos sin ser detectados.|Las cuentas de usuario cuyo inicio de sesión en Active Directory se haya bloqueado se deben quitar de las suscripciones. Estas cuentas pueden ser objetivo de los atacantes que buscan formas de acceder a los datos sin ser detectados.<br>Más información sobre cómo proteger el perímetro de identidad en [Procedimientos recomendados para la administración de identidades y la seguridad del control de acceso en Azure](/azure/security/fundamentals/identity-management-best-practices.md).|
+    |Descripción     |Las cuentas de usuario cuyo inicio de sesión se ha bloqueado deben quitarse de las suscripciones.<br>Estas cuentas pueden ser objetivo de los atacantes que buscan formas de acceder a los datos sin ser detectados.|Las cuentas de usuario cuyo inicio de sesión en Active Directory se haya bloqueado se deben quitar de las suscripciones. Estas cuentas pueden ser objetivo de los atacantes que buscan formas de acceder a los datos sin ser detectados.<br>Más información sobre cómo proteger el perímetro de identidad en [Procedimientos recomendados para la administración de identidades y la seguridad del control de acceso en Azure](/azure/security/fundamentals/identity-management-best-practices).|
     |Directiva relacionada     |[Las cuentas en desuso deben quitarse de la suscripción](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6b1cbf55-e8b6-442f-ba4c-7246b6381474)|Las suscripciones se deben purgar de las cuentas que están bloqueadas en Active Directory y tienen permisos de lectura y escritura.|
     |||
  
 
 
+
+
+### <a name="changes-to-a-security-alert-from-azure-defender-for-storage"></a>Cambios en una alerta de seguridad de Azure Defender para Storage
+
+**Fecha estimada del cambio:** noviembre de 2021
+
+Una de las alertas en versión preliminar proporcionadas por Azure Defender para Storage se divide en dos nuevas recomendaciones para ofrecer una mayor claridad sobre los eventos sospechosos detectados. Esta alerta solo concierne a Azure Blob Storage.
+
+**El tipo de alerta también está cambiando.**
+
+- Antes del cambio, la alerta era:<br>
+    "Preview - Anonymous scan of public storage containers" (Versión preliminar: examen anónimo de contenedores de almacenamiento público)<br>(Storage.Blob_ContainerAnonymousScan)
+
+- A partir de este cambio, habrá dos recomendaciones:
+
+    - "Open storage containers discovered by external scanning tool or script" (Abrir contenedores de almacenamiento detectados por la herramienta o script de examen externo)<br>(Storage.Blob_OpenContainersScanning.FailedAttempt)
+    - "Successful discovery of open storage containers by external scanning script or tool" (Detección correcta de contenedores de almacenamiento abiertos mediante una herramienta o script de examen externo)<br>(Storage.Blob_OpenContainersScanning.SuccessfulDiscovery)
+
+Cuando se realice el lanzamiento del cambio, se publicarán más detalles de estas alertas.
 
 
 ### <a name="enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases"></a>Mejoras en la recomendación para clasificar datos confidenciales en bases de datos SQL

@@ -4,18 +4,18 @@ description: Proporciona una introducción a las técnicas para optimizar las ca
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/19/2019
-ms.openlocfilehash: d24527efe6adce6f16b7c890f23c755545f5d5a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5c149499fe21940e58c795dbed2407c046ac43d
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98935894"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130044428"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Optimización del rendimiento para los clústeres de Apache Kafka HDInsight
 
 En este artículo se proporcionan algunas sugerencias para optimizar el rendimiento de las cargas de trabajo de Apache Kafka en HDInsight. El enfoque es sobre el ajuste de la configuración del productor y agente. Hay diferentes maneras de medir el rendimiento, y las optimizaciones que aplique dependerá de sus necesidades empresariales.
 
-## <a name="architecture-overview"></a>Información general sobre la arquitectura
+## <a name="architecture-overview"></a>Introducción a la arquitectura
 
 Los temas de Kafka se usan para organizar los registros. Los registros los generan productores y los consumen consumidores. Los productores envían registros a los agentes de Kafka, que luego almacenan los datos. Cada nodo de trabajo del clúster de HDInsight es un agente de Kafka.
 
@@ -53,7 +53,7 @@ El uso de la compresión de datos aumentará el número de registros que se pued
 
 ## <a name="broker-settings"></a>Configuración del agente
 
-En las secciones siguientes se resaltan algunas de las opciones de configuración más importantes para optimizar el rendimiento de los agentes de Kafka. Para obtener una explicación detallada de todos los valores del agente, consulte la [documentación de Apache Kafka sobre las configuraciones de productor](https://kafka.apache.org/documentation/#producerconfigs).
+En las secciones siguientes se resaltan algunas de las opciones de configuración más importantes para optimizar el rendimiento de los agentes de Kafka. Para obtener una explicación detallada de todos los valores del agente, consulte la [documentación de Apache Kafka sobre las configuraciones de agente](https://kafka.apache.org/documentation/#brokerconfigs).
 
 ### <a name="number-of-disks"></a>Número de discos
 

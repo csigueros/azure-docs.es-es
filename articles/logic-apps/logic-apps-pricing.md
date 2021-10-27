@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 08/23/2021
-ms.openlocfilehash: e83ea29b4894827ac68af6b243ce0e19842f2d87
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: d6a43a64cbe24bc547ef1c6e61d4c0e3c340d76f
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769818"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130067276"
 ---
 # <a name="usage-metering-billing-and-pricing-models-for-azure-logic-apps"></a>Modelos medición, facturación y precios de uso de Azure Logic Apps
 
@@ -74,9 +74,9 @@ Para ayudarle a estimar de manera más precisa los costos de consumo, revise est
 En Azure Logic Apps de inquilino único, una aplicación lógica y su flujo de trabajo siguen los precios y la facturación del plan [**estándar**](https://azure.microsoft.com/pricing/details/logic-apps/). Estas aplicaciones lógicas se crean de varias maneras, por ejemplo, cuando se elige el tipo de recurso **Logic App (Standard)** (Aplicación lógica [estándar]) o se usa la extensión **Azure Logic Apps (Standard)** (Azure Logic Apps [estándar]) en Visual Studio Code. Este modelo de precios requiere que las aplicaciones lógicas usen un plan de hospedaje y un plan de tarifa, lo que difiere del plan de consumo, ya que se le factura por la capacidad reservada y los recursos dedicados, tanto si los usa como si no.
 
 > [!IMPORTANT]
-> Al crear o implementar nuevas aplicaciones lógicas basadas en el tipo de recurso **Logic App (Standard)** (Aplicación lógica [estándar]), puede usar el plan de hospedaje Workflow Standard (Flujo de trabajo estándar) en todas las regiones de Azure, o bien puede usar el plan de hospedaje App Service, pero solo cuando seleccione la región **App Service Environment v3** en la pestaña **Aspectos básicos**.
+> Al crear o implementar aplicaciones lógicas con el tipo de recurso **Aplicación lógica (estándar)** , puede usar el plan de hospedaje Flujo de trabajo estándar en todas las regiones de Azure. *Solo* puede usar un plan de hospedaje de App Service si usa un recurso de **App Service Environment v3 (ASEv3)** existente como la región donde se crea e implementa el recurso de aplicación lógica.
 >
-> Aunque el tipo de recurso **Logic App (Standard)** (Aplicación lógica [estándar]) en versión preliminar le permite usar el plan de App Service, el plan Premium de Functions, App Service Environment v1 y App Service Environment v2, estas opciones ya no están disponibles ni se admiten para la versión pública de este tipo de recurso de Azure Logic Apps.
+> Las siguientes opciones ya no están disponibles ni se admiten con la versión pública del tipo de recurso **Aplicación lógica (estándar)** en las regiones de Azure: plan de Functions Premium, App Service Environment v1 y App Service Environment v2. El plan de App Service no está disponible y no se admite, excepto con ASEv3.
 
 En la tabla siguiente se resume cómo el modelo estándar controla la medición y la facturación de los siguientes componentes cuando se usa con una aplicación lógica y un flujo de trabajo en Azure Logic Apps de inquilino único:
 

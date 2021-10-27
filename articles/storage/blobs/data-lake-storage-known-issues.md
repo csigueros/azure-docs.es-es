@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/08/2021
+ms.date: 10/14/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 11572f957fc2d305f5d6f17303bb8386345abc7b
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 6a612621ef316e7d4e7c248968b3cc87c04b85ae
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129714067"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130046273"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conocidos con Azure Data Lake Storage Gen2
 
@@ -68,7 +68,7 @@ La capacidad de aplicar cambios de ACL de forma recursiva desde el directorio pr
 
 ## <a name="access-control-lists-acl-and-anonymous-read-access"></a>Listas de control de acceso (ACL) y acceso de lectura anónimo
 
-Si se ha concedido [acceso de lectura anónimo](./anonymous-read-access-configure.md) a un contenedor, las ACL no tendrán ningún efecto en ese contenedor o los archivos de ese contenedor.
+Si se ha concedido [acceso de lectura anónimo](./anonymous-read-access-configure.md) a un contenedor, las ACL no tendrán ningún efecto en ese contenedor o los archivos de ese contenedor.  Esto solo afecta a las solicitudes de lectura.  Las solicitudes de escritura seguirán respetando las ACL.
 
 <a id="known-issues-tools"></a>
 
@@ -98,15 +98,11 @@ Las aplicaciones de terceros que usan las API REST para funcionar seguirán func
 
 Todavía no se admite la configuración de los días de retención, pero puede eliminar los registros manualmente mediante cualquier herramienta compatible como Explorador de Azure Storage, REST o un SDK.
 
-## <a name="lifecycle-management-policies-with-premium-tier-for-azure-data-lake-storage"></a>Directivas de administración del ciclo de vida con nivel prémium para Azure Data Lake Storage
-
-Los datos que se almacenan en el nivel prémium no se pueden mover entre los niveles de acceso frecuente, esporádico y de archivo. Sin embargo, puede copiar los datos del nivel prémium al nivel de acceso frecuente en otra cuenta.
-
-## <a name="windows-azure-storage-blob-wasb-driver-unsupported-with-data-lake-storage-gen2"></a>Controlador Windows Azure Storage Blob (WASB) (no compatible con Data Lake Storage Gen2)
+## <a name="windows-azure-storage-blob-wasb-driver"></a>Controlador Azure Storage Blob para Windows (WASB)
 
 Actualmente, el controlador WASB, que se diseñó para funcionar solo con la API Blob, experimenta problemas en algunos escenarios comunes. En concreto, cuando es un cliente en una cuenta de almacenamiento habilitada para espacios de nombres jerárquicos. El acceso multiprotocolo en Data Lake Storage no mitigará estos problemas.
 
-Por el momento (y probablemente en un futuro inmediato), no se ofrecerá compatibilidad para el controlador WASB como cliente en una cuenta de almacenamiento habilitada para espacios de nombres jerárquicos. En su lugar, se recomienda que utilice el controlador de [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) en su entorno de Hadoop. Si está intentando migrar de un entorno de Hadoop local con una versión anterior a la rama de Hadoop 3, abra una incidencia de soporte técnico de Azure para que podamos ponernos en contacto con usted para indicarle el camino correcto para usted y su organización.
+No se admite el uso del controlador WASB como cliente para una cuenta de almacenamiento habilitada para espacios de nombres jerárquicos. En su lugar, se recomienda que utilice el controlador de [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) en su entorno de Hadoop. Si está intentando migrar de un entorno de Hadoop local con una versión anterior a la rama de Hadoop 3, abra una incidencia de soporte técnico de Azure para que podamos ponernos en contacto con usted para indicarle el camino correcto para usted y su organización.
 
 ## <a name="soft-delete-for-blobs-capability-currently-in-preview"></a>Funcionalidad de eliminación temporal para blobs (actualmente en versión preliminar)
 

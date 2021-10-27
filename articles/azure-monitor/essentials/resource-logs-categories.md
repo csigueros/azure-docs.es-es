@@ -2,13 +2,13 @@
 title: Categorías admitidas en los registros de recursos de Azure Monitor
 description: Comprenda los servicios admitidos y los esquemas de eventos para los registros de recursos de Azure Monitor.
 ms.topic: reference
-ms.date: 09/10/2021
-ms.openlocfilehash: 9c41c714d2913247a6b0d00e3b242da9c59e038e
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.date: 10/05/2021
+ms.openlocfilehash: bf7d5371a170f28e79828619aef9fc16e15a303a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129457760"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130006382"
 ---
 # <a name="supported-categories-for-azure-monitor-resource-logs"></a>Categorías admitidas en los registros de recursos de Azure Monitor
 
@@ -65,6 +65,9 @@ Si todavía falta algo, puede escribir un comentario de GitHub en la parte infer
 |ApplicationAuditLogs|Registros de auditoría de aplicación|Sí|
 |FarmManagementLogs|Registros de administración de granja|Sí|
 |FarmOperationLogs|Registros de operaciones de granja|Sí|
+|InsightLogs|Registros de información|Sí|
+|JobProcessedLogs|Registros procesados de trabajos|Sí|
+|ModelInferenceLogs|Registros de inferencias de modelos|Sí|
 |ProviderAuthLogs|Registros de autenticación de proveedor|Sí|
 |SatelliteLogs|Registros de satélite|Sí|
 |WeatherLogs|Registros meteorológicos|Sí|
@@ -99,6 +102,7 @@ Si todavía falta algo, puede escribir un comentario de GitHub en la parte infer
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
 |ApplicationConsole|Consola de aplicación|No|
+|BuildLogs|Registros de compilación|Sí|
 |IngressLogs|Registros de entrada|Sí|
 |SystemLogs|Registros del sistema|No|
 
@@ -230,8 +234,8 @@ Si todavía falta algo, puede escribir un comentario de GitHub en la parte infer
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
 |AuthOperational|Registros de autenticación operativos|Sí|
-|CallDiagnosticsPRIVATEPREVIEW|Registros de diagnóstico de llamada: VERSIÓN PRELIMINAR PRIVADA|Sí|
-|CallSummaryPRIVATEPREVIEW|Registros de resumen de llamadas: VERSIÓN PRELIMINAR PRIVADA|Sí|
+|CallDiagnostics|Registros de diagnósticos de llamadas|Sí|
+|CallSummary|Registros de resumen de llamadas|Sí|
 |ChatOperational|Registros de chat operativos|No|
 |SMSOperational|Registros de SMS operativos|No|
 |Uso|Registros de uso|No|
@@ -241,6 +245,7 @@ Si todavía falta algo, puede escribir un comentario de GitHub en la parte infer
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
+|Auditoría|Registros de auditoría de MCVP|Sí|
 |Registros|Registros MCVP|Sí|
 
 
@@ -642,6 +647,7 @@ Si todavía falta algo, puede escribir un comentario de GitHub en la parte infer
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
 |AuditEvent|Registros de auditoría|No|
+|AzurePolicyEvaluationDetails|Detalles de evaluación de Azure Policy|Sí|
 
 
 ## <a name="microsoftkustoclusters"></a>Microsoft.Kusto/Clusters
@@ -716,8 +722,9 @@ Si todavía falta algo, puede escribir un comentario de GitHub en la parte infer
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
 |---|---|---|
-|PipelineDiagnostics|Registros de diagnóstico de canalización|Sí|
-|PipelineOperational|Registros operativos de canalización|Sí|
+|Auditoría|Registros de auditoría|Sí|
+|Diagnóstico|Registros de diagnóstico|Sí|
+|Operativos|Registros operativos|Sí|
 
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationgateways
@@ -947,6 +954,13 @@ Si todavía falta algo, puede escribir un comentario de GitHub en la parte infer
 |MessagingLogs|Registros de mensajería para el servicio Azure Web PubSub|Sí|
 
 
+## <a name="microsoftsingularityaccounts"></a>microsoft.singularity/accounts
+
+|Category|Nombre para mostrar de categoría|Costos de exportación|
+|---|---|---|
+|Ejecución|Registros de ejecución|Sí|
+
+
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
 
 |Category|Nombre para mostrar de categoría|Costos de exportación|
@@ -1110,7 +1124,6 @@ Si todavía falta algo, puede escribir un comentario de GitHub en la parte infer
 |AppServiceAppLogs|Registros de aplicaciones de App Service|No|
 |AppServiceAuditLogs|Acceso a registros de auditoría|No|
 |AppServiceConsoleLogs|Registros de consola de App Service|No|
-|AppServiceDiagnosticToolsLogs|Registros de Herramientas de diagnóstico de informes|Sí|
 |AppServiceFileAuditLogs|Registros de auditoría de cambios de contenido de sitio|No|
 |AppServiceHTTPLogs|Registros de HTTP|No|
 |AppServiceIPSecAuditLogs|Registros de auditoría de IPSecurity|No|

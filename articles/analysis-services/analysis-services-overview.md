@@ -4,16 +4,17 @@ description: Obtenga información sobre Azure Analysis Services, una plataforma 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 03/29/2021
+ms.date: 10/12/2021
 ms.author: owend
 ms.reviewer: minewiskan
+recommendations: false
 ms.custom: references_regions
-ms.openlocfilehash: c3b95b92f2b76e669b4e207163f76f8cec2d3244
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 815fe276f4c44085eebfa91f33167c2428c31c1f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731690"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129992875"
 ---
 # <a name="what-is-azure-analysis-services"></a>¿Qué es Azure Analysis Services?
 
@@ -106,7 +107,7 @@ Azure Analysis Services se admite en regiones de todo el mundo. Los planes admit
 |---------|---------|:---------:|
 |Norte de Europa     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |Norte de Europa     |    S8v2, S9v2      |    3     |
-|Sur de Reino Unido     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
+|Sur de Reino Unido 2     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
 |Oeste de Europa     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
 |Oeste de Europa    |   S8v2, S9v2  |  1  |
 
@@ -129,13 +130,13 @@ Azure Analysis Services se admite en regiones de todo el mundo. Los planes admit
 
 Suba o baje de nivel o realice una pausa en el servidor. Use Azure Portal o tenga un control total al instante mediante PowerShell. Pague solo por lo que usa.  
 
-### <a name="scale-out-resources-for-fast-query-responses"></a>Escalado horizontal de los recursos para agilizar las respuestas a las consultas
+### <a name="scale-out-resources-for-fast-query-response"></a>Escalado horizontal de los recursos para agilizar las respuestas a las consultas
 
 Con el escalado horizontal, las consultas del cliente se distribuyen entre varias *réplicas de consultas* de un grupo de consultas. Las réplicas de consulta tienen copias sincronizadas de los modelos tabulares. Al repartir la carga de trabajo de consulta, se pueden reducir los tiempos de respuesta durante las cargas de trabajo de consulta elevadas. Las operaciones de procesamiento de modelos se pueden separar del grupo de consultas, lo que garantiza que las consultas de cliente no resultan afectadas negativamente por las operaciones de procesamiento. 
 
 Puede crear un grupo de consultas con hasta siete réplicas de consulta adicionales (ocho en total, incluido el servidor). El número de réplicas de consultas que puede tener en el grupo depende del plan y la región que haya elegido. Las réplicas de consultas no se pueden propagar fuera de la región de su servidor. Las réplicas de consultas se facturan a la misma tarifa que el servidor.
 
-Al igual que sucede con los cambios de nivel, las réplicas de consultas se pueden escalar horizontalmente en función de sus necesidades. Configure el escalado horizontal en el portal o mediante las API REST. Para más información, consulte [Escalabilidad horizontal de Azure Analysis Services](analysis-services-scale-out.md).
+Al igual que sucede con los cambios de nivel, las réplicas de consultas se pueden escalar horizontalmente en función de sus necesidades. Configure el escalado horizontal en el portal o mediante las API de REST. Para más información, consulte [Azure Analysis Services scale-out](analysis-services-scale-out.md) (Escalado horizontal de Azure Analysis Services).
 
 ## <a name="pricing"></a>Precios
 
@@ -147,7 +148,7 @@ Azure Analysis Services es compatible con muchas de las estupendas característi
 
 Se admiten los modelos tabulares en los modos en memoria como DirectQuery. Los modelos tabulares del modo en memoria (predeterminado) admiten varios orígenes de datos. Dado que los datos del modelo están muy comprimidos y almacenados en la memoria caché, este modo proporciona la respuesta más rápida a las consultas en grandes cantidades de datos. También proporciona la máxima flexibilidad a las consultas y conjuntos de datos complejos. 
 
-La creación de particiones permite las cargas incrementales, aumenta la paralelización y reduce el consumo de memoria. Se admiten otras características de modelado de datos avanzadas, como las tablas calculadas, y todas las funciones de DAX. Los modelos en memoria se deben actualizar (procesar) para actualizar los datos almacenados en caché de orígenes de datos. Gracias a la compatibilidad con la entidad de servicio de Azure, las operaciones de actualización desatendidas que usan PowerShell, TOM, TMSL y REST ofrecen flexibilidad a la hora de asegurar que los datos del modelo están siempre actualizados. 
+La creación de particiones permite las cargas incrementales, aumenta la paralelización y reduce el consumo de memoria. Se admiten otras características de modelado de datos avanzadas, como las tablas calculadas y todas las funciones de DAX. Los modelos en memoria se deben actualizar (procesar) para actualizar los datos almacenados en caché de orígenes de datos. Gracias a la compatibilidad con la entidad de servicio de Azure, las operaciones de actualización desatendidas que usan PowerShell, TOM, TMSL y REST ofrecen flexibilidad a la hora de asegurar que los datos del modelo están siempre actualizados. 
 
 El modo de DirectQuery * aprovecha la base de datos relacional de back-end para el almacenamiento y la ejecución de consultas. Se admiten conjuntos de datos extremadamente grandes en orígenes de datos individuales de SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure Synapse Analytics, Oracle y Teradata. Los conjuntos de datos de back-end pueden superar la memoria disponible de los recursos del servidor. No se necesitan escenarios de actualización de modelos de datos complejos. También hay algunas restricciones, como la limitación en los tipos de orígenes de datos o en las fórmulas de DAX y que no se admiten algunas características de modelado de datos avanzadas. Antes de determinar el modo más apropiado para usted, consulte [Modo DirectQuery](/analysis-services/tabular-models/directquery-mode-ssas-tabular).
 
@@ -186,7 +187,7 @@ El acceso seguro a los orígenes de datos locales de la organización se logra m
 
 Analysis Services usa la [autorización basada en roles](/analysis-services/tabular-models/roles-ssas-tabular) que concede acceso a las operaciones, los objetos y los datos del servidor y de la base de datos de modelos. Todos los usuarios que acceden a un servidor o una base de datos lo hacen con su cuenta de usuario de Azure AD dentro de un rol asignado. El rol de administrador del servidor está en el nivel de recursos de servidor. De forma predeterminada, la cuenta que se utiliza al crear un servidor se incluye automáticamente en el rol Administrador de servidor. Para agregar cuentas de usuario y de grupo adicionales se utilizan el portal, SSMS o PowerShell.
   
-A los usuarios finales que no sean administradores se les concede acceso a través de los roles de base de datos. Un rol de base de datos se crea como objeto independiente en la base de datos y solo se aplica a la base de datos en que se crea ese rol. Los roles de base datos los definen los permisos de administrador (base de datos), lectura y lectura y procesamiento. Las cuentas de usuario y de grupo se agregan mediante SSMS o PowerShell.
+A los usuarios finales que no sean administradores se les concede acceso mediante los roles de base de datos. Un rol de base de datos se crea como objeto independiente en la base de datos y solo se aplica a la base de datos en que se crea ese rol. Los roles de base datos los definen los permisos de administrador (base de datos), lectura y lectura y procesamiento. Las cuentas de usuario y de grupo se agregan mediante SSMS o PowerShell.
 
 ### <a name="row-level-security"></a>Seguridad de nivel de fila
 
@@ -194,7 +195,7 @@ Los modelos tabulares de todos los niveles de compatibilidad admiten la segurida
 
 ### <a name="object-level-security"></a>Seguridad de nivel de objeto 
 
-Los modelos tabulares del nivel de compatibilidad 1400 admiten la seguridad de nivel de objeto, que incluye seguridad de nivel de tabla y seguridad de nivel de columna. La seguridad de nivel de objeto se establece en los metadatos basados en JSON del archivo Model.bim mediante TMSL o TOM. Para más información, consulte [Seguridad de nivel de objeto](/analysis-services/tabular-models/object-level-security).
+Los modelos tabulares del nivel de compatibilidad 1400 y superior admiten la seguridad de nivel de objeto, que incluye la seguridad de nivel de tabla y la seguridad de nivel de columna. La seguridad de nivel de objeto se establece en los metadatos basados en JSON mediante TMSL o TOM. Para más información, consulte [Seguridad de nivel de objeto](/analysis-services/tabular-models/object-level-security).
 
 ### <a name="automation-through-service-principals"></a>Automatización mediante entidades de servicio
 

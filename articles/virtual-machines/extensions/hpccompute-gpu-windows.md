@@ -10,15 +10,15 @@ ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/15/2021
+ms.date: 10/14/2021
 ms.author: amverma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 220b2da56791fde38301bd1f69f5e134be77982c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 8e164fad73fd04ea2f9093e99b454f43aa441088
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114446012"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038315"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensión del controlador de GPU de NVIDIA para Windows
 
@@ -62,7 +62,7 @@ En el siguiente JSON, se muestra el esquema para la extensión.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.3",
+    "typeHandlerVersion": "1.4",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -77,10 +77,38 @@ En el siguiente JSON, se muestra el esquema para la extensión.
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
 | type | NvidiaGpuDriverWindows | string |
-| typeHandlerVersion | 1.3 | int |
+| typeHandlerVersion | 1.4 | int |
 
 
 ## <a name="deployment"></a>Implementación
+
+### <a name="azure-portal"></a>Portal de Azure
+
+Puede implementar extensiones de máquina virtual Nvidia de Azure en Azure Portal.
+
+1. En el explorador, vaya al [Portal de Azure](https://portal.azure.com).
+
+2. Vaya a la máquina virtual en la que desea instalar el controlador.
+
+3. En el menú izquierdo, seleccione **Extensiones**.
+
+    :::image type="content" source="./media/nvidia-ext-portal/extensions-menu.png" alt-text="Captura de pantalla que muestra la selección de Extensiones en el menú de Azure Portal.":::
+
+4. Seleccione **Agregar**.
+
+    :::image type="content" source="./media/nvidia-ext-portal/add-extension.png" alt-text="Captura de pantalla que muestra cómo agregar una extensión de máquina virtual para la instancia de máquina virtual seleccionada.":::
+
+5. Desplácese para buscar y seleccionar **Extensión del controlador de GPU de NVIDIA** y, a continuación, seleccione **Siguiente**.
+
+    :::image type="content" source="./media/nvidia-ext-portal/select-nvidia-extension.png" alt-text="Captura de pantalla que muestra la selección del controlador de GPU de NVIDIA.":::
+
+6. Seleccione **Revisar y crear** y espere unos minutos a que se implemente el controlador.
+
+    :::image type="content" source="./media/nvidia-ext-portal/create-nvidia-extension.png" alt-text="Captura de pantalla que muestra la selección del botón Revisar y crear.":::
+  
+7. Compruebe que la extensión se ha agregado a la lista de extensiones instaladas.
+
+    :::image type="content" source="./media/nvidia-ext-portal/verify-extension.png" alt-text="Captura de pantalla que muestra la nueva extensión en la lista de extensiones para la máquina virtual.":::
 
 ### <a name="azure-resource-manager-template"></a>Plantilla de Azure Resource Manager 
 
@@ -102,7 +130,7 @@ En el siguiente ejemplo se da por supuesto que la extensión está anidada dentr
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.3",
+    "typeHandlerVersion": "1.4",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -120,7 +148,7 @@ Set-AzVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverWindows" `
     -ExtensionType "NvidiaGpuDriverWindows" `
-    -TypeHandlerVersion 1.3 `
+    -TypeHandlerVersion 1.4 `
     -SettingString '{ `
     }'
 ```
@@ -133,7 +161,7 @@ az vm extension set \
   --vm-name myVM \
   --name NvidiaGpuDriverWindows \
   --publisher Microsoft.HpcCompute \
-  --version 1.3 \
+  --version 1.4 \
   --settings '{ \
   }'
 ```

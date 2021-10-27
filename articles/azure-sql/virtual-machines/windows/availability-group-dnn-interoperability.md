@@ -3,7 +3,7 @@ title: Interoperabilidad de características con grupos de disponibilidad y clie
 description: 'Aprenda sobre las consideraciones adicionales que se requiere al trabajar con ciertas características de SQL Server y un cliente de escucha de nombre de red distribuida (DNN) con un grupos de disponibilidad Always On de SQL Server en máquinas virtuales de Azure. '
 services: virtual-machines
 documentationCenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -12,13 +12,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/08/2020
-ms.author: mathoma
-ms.openlocfilehash: e7ff8eaaca03a2c977311c6469e06714c87ce53f
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: dd8713bcbe96c16e24305e05f693bbf15af327ab
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572363"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130163050"
 ---
 # <a name="feature-interoperability-with-ag-and-dnn-listener"></a>Interoperabilidad de características con grupos de disponibilidad y cliente de escucha de DNN 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -128,6 +129,9 @@ Configure el servidor vinculado con el puerto y el nombre del cliente de escucha
 
    Sí. El clúster enlaza el DNN en DNS con las direcciones IP físicas de todas las réplicas de la disponibilidad, independientemente de la subred. El cliente SQL prueba todas las direcciones IP del nombre DNS independientemente de la subred. 
 
+- ¿Admite la escucha de DNN del grupo de disponibilidad el enrutamiento de solo lectura? 
+
+   Sí. El enrutamiento de solo lectura se admite con la escucha de DNN. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

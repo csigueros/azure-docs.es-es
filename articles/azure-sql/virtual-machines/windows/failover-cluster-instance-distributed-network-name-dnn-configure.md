@@ -3,7 +3,7 @@ title: Configuración de DNN para la instancia de clúster de conmutación por e
 description: Aprenda a configurar un nombre de red distribuida (DNN) para enrutar el tráfico al servidor de SQL Server en la instancia del clúster de conmutación por error de la máquina virtual de Azure.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/07/2020
-ms.author: mathoma
-ms.reviewer: jroth
-ms.openlocfilehash: d27223906727af3b45617c7162f5c5da5133d2e3
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: a0290f85e1f408f9d1ec91cdc353a1acc87faeef
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111569526"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130160928"
 ---
 # <a name="configure-a-dnn-for-failover-cluster-instance"></a>Configuración de un DNN para la instancia de clúster de conmutación por error
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,6 @@ En Azure Virtual Machines, el nombre de red distribuida (DNN) enruta el tráfic
 
 En este artículo aprenderá a configurar un recurso de DNN para enrutar el tráfico a su instancia de clúster de conmutación por error con VM con SQL Server en Azure para lograr una alta disponibilidad y recuperación ante desastres (HADR). 
 
-La característica DNN actualmente solo está disponible en SQL Server 2019 CU2 y versiones posteriores en Windows Server 2016 y versiones posteriores. 
 
 En el caso de una opción de conectividad alternativa, considere la posibilidad de usar un [nombre de red virtual y Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) en su lugar. 
 
@@ -43,11 +42,10 @@ Con una implementación de FCI, el VNN sigue existiendo, pero el cliente se cone
 
 Antes de completar los pasos de este artículo, ya debe tener:
 
-- SQL Server 2019 en CU2 o posterior, en Windows Server 2016 y versiones posteriores
+- SQL Server con [SQL Server 2019 CU8](https://support.microsoft.com/topic/cumulative-update-8-for-sql-server-2019-ed7f79d9-a3f0-a5c2-0bef-d0b7961d2d72) y posterior, [SQL Server 2017 CU25](https://support.microsoft.com/topic/kb5003830-cumulative-update-25-for-sql-server-2017-357b80dc-43b5-447c-b544-7503eee189e9) y posterior, o [SQL Server 2016 SP3](https://support.microsoft.com/topic/kb5003279-sql-server-2016-service-pack-3-release-information-46ab9543-5cf9-464d-bd63-796279591c31) y posterior en Windows Server 2016 y posterior.
 - Decidió que el nombre de red distribuida es la [opción de conectividad adecuada para su solución HADR](hadr-cluster-best-practices.md#connectivity).
 - Configuró las [instancias de clúster de conmutación por error](failover-cluster-instance-overview.md). 
 - Instaló la versión más reciente de [Azure PowerShell](/powershell/azure/install-az-ps). 
-- El cliente que se conecta al agente de escucha de DNN debe admitir el parámetro `MultiSubnetFailover=True` en la cadena de conexión. 
 
 ## <a name="create-dnn-resource"></a>Creación de un recurso DNN 
 
@@ -148,7 +146,11 @@ Use el Administrador de clústeres de conmutación por error para reiniciar la i
 
 ## <a name="update-connection-string"></a>Actualización de la cadena de conexión
 
-Para garantizar una conectividad rápida tras la conmutación por error, agregue `MultiSubnetFailover=True` a la cadena de conexión si la versión del cliente SQL es anterior a 4.6.1. 
+Actualice la cadena de conexión de cualquier aplicación que se conecte a un DNN de la FCI de SQL Server e incluya `MultiSubnetFailover=True` en la cadena de conexión. Si el cliente no admite el parámetro MultiSubnetFailover, no es compatible con un DNN. 
+
+A continuación, se muestra una cadena de conexión de ejemplo para un DNN de la FCI de SQL con el nombre DNS de **FCIDNN**: 
+
+`Data Source=FCIDNN, MultiSubnetFailover=True`
 
 Además, si el nombre de red distribuida no usa el nombre de red virtual original, los clientes SQL que se conecten a la FCI de SQL Server deberán actualizar su cadena de conexión con el nombre DNS del nombre de red distribuida. Para evitar este requisito, puede actualizar el valor del nombre DNS para que sea el nombre de red virtual. Sin embargo, primero tendrá que [reemplazar el nombre de red virtual existente con un marcador de posición](#rename-the-vnn). 
 
@@ -199,7 +201,8 @@ También puede configurar un adaptador de red en Azure para reservar la direcci�
 
 ## <a name="limitations"></a>Limitaciones
 
-- Actualmente, un DNN con FCI se admite únicamente para SQL Server 2019 CU2 y versiones posteriores en Windows Server 2016 y versiones posteriores. 
+
+- El cliente que se conecta al agente de escucha de DNN debe admitir el parámetro `MultiSubnetFailover=True` en la cadena de conexión. 
 - Puede haber más consideraciones al trabajar con otras características de SQL Server y una FCI con un nombre de red distribuida. Para más información, consulte [Interoperabilidad de FCI con DNN](failover-cluster-instance-dnn-interoperability.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes

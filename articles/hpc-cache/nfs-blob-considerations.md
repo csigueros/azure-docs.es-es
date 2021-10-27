@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/12/2021
 ms.author: v-erkel
-ms.openlocfilehash: 090003e25c2d8ca13be27bf94bc12b4941cda798
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e9d31ae4ccaa7bffaf1ce38a9f044993277f5f2f
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124814650"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130041678"
 ---
 # <a name="use-nfs-mounted-blob-storage-with-azure-hpc-cache"></a>Uso de Blob Storage montado en NFS con Azure HPC Cache
 
@@ -42,7 +42,7 @@ En un contenedor de blobs compatible con NFS, *un archivo solo se puede editar m
 
 El hecho de que el contenedor esté vacío o que los archivos se hayan creado mediante NFS no supone ningún problema para la caché.
 
-Si los archivos de su contenedor se han creado con la API de REST de Azure Blob Storage en lugar de NFS, las acciones de Azure HPC Cache en los archivos originales están limitadas a las siguientes:
+Si los archivos de su contenedor se han creado con la API REST de Azure Blob en lugar de NFS, las acciones de Azure HPC Cache en los archivos originales están limitadas a las siguientes:
 
 * Mostrar el archivo en un directorio.
 * Leer el archivo (y mantenerlo en la caché para lecturas posteriores).

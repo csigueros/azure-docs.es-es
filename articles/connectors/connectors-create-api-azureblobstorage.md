@@ -7,12 +7,12 @@ ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 10/11/2021
 tags: connectors
-ms.openlocfilehash: cc56c079173fad1509d9da9cf1d435675b1918f7
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 7ceafa54a202433e84535b19e73e99d38726dd0c
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129808992"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064064"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Creación y administración de blobs en Azure Blob Storage con Azure Logic Apps
 
@@ -337,7 +337,7 @@ Los pasos siguientes son los mismos para las aplicaciones lógicas de Consumo en
 
 1. En el menú de navegación del recurso de aplicación lógica, en **Configuración**, seleccione **Identidad**.
 
-1. En el panel **Asignado por el sistema**, establezca **Estado** en **Activado** (puede que ya esté habilitado). En **Permisos**, seleccione **Asignaciones de roles de Azure**.
+1. En el panel **Asignado por el sistema**, establezca **Estado** en **Activado**, si no está ya habilitado, seleccione **Guardar** y confirme los cambios. En **Permisos**, seleccione **Asignaciones de roles de Azure**.
 
    :::image type="content" source="./media/connectors-create-api-azureblobstorage/role-assignment-add-1.png" alt-text="Captura de pantalla que muestra Azure Portal y el menú del recurso de aplicación lógica con el panel de configuración &quot;Identidad&quot; y el botón &quot;Azure role assignment permissions&quot; (Permisos de asignación de roles de Azure).":::
 
@@ -345,21 +345,19 @@ Los pasos siguientes son los mismos para las aplicaciones lógicas de Consumo en
 
    :::image type="content" source="./media/connectors-create-api-azureblobstorage/role-assignment-add-2.png" alt-text="Captura de pantalla que muestra el panel Asignaciones de roles de la aplicación lógica, con la suscripción seleccionada y el botón para agregar una nueva asignación de roles.":::
 
-1. En el panel **Add role assignments** (Agregar asignaciones de roles), configure la nueva asignación de roles mediante los pasos siguientes:
+1. En el panel **Agregar asignaciones de roles**, configure la nueva asignación de roles mediante los pasos siguientes:
 
-   1. En **Ámbito**, seleccione **Almacenamiento**.
+   | Propiedad | Value | Descripción |
+   |----------|-------|-------------|
+   | **Ámbito** | <*resource-scope*> | Conjunto de recursos donde desea aplicar la asignación de roles. En este ejemplo, seleccione **Almacenamiento**. |
+   | **Suscripción** | <*Azure-subscription*> | La suscripción de Azure para la cuenta de almacenamiento. |
+   | **Recurso** | <*storage-account-name*> | El nombre de la cuenta de almacenamiento a la que quiere acceder desde el flujo de trabajo de aplicación lógica. |
+   | **Rol** | <*role-to-assign*> | El rol que el escenario requiere para que el flujo de trabajo funcione con el recurso. En este ejemplo se requiere **Colaborador de datos de Storage Blob**, que permite el acceso de lectura, escritura y eliminación a los contenedores de blobs y la fecha. Para ver la información de permisos, mueva el puntero sobre el icono de información situado junto a un rol en el menú desplegable. |
+   ||||
 
-   1. En **Suscripción**, seleccione la suscripción de la cuenta de almacenamiento.
+   :::image type="content" source="./media/connectors-create-api-azureblobstorage/role-assignment-configure.png" alt-text="Captura de pantalla del panel de configuración de asignación de roles, en el que se muestra la configuración del ámbito, la suscripción, el recurso y el rol.":::
 
-   1. En **Recurso**, elija la cuenta de almacenamiento a la que quiere acceder desde el flujo de trabajo de aplicación lógica.
-
-   1. En **Rol**, seleccione los permisos adecuados para el escenario.
-
-      En este ejemplo se usa **Colaborador de datos de Storage Blob**, que permite el acceso de lectura, escritura y eliminación a los contenedores de blobs y la fecha. Para ver la información de permisos, mueva el puntero sobre el icono de información situado junto a un rol en el menú desplegable.
-
-      :::image type="content" source="./media/connectors-create-api-azureblobstorage/role-assignment-configure.png" alt-text="Captura de pantalla del panel de configuración de asignación de roles, en el que se muestra la configuración del ámbito, la suscripción, el recurso y el rol.":::
-
-   1. Seleccione **Guardar** para finalizar la creación de la asignación de roles.
+1. Cuando haya terminado, seleccione **Guardar** para finalizar la creación de la asignación de roles.
 
 <a name="enable-managed-identity-support"></a>
 

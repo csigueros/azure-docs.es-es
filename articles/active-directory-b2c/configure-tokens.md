@@ -1,23 +1,23 @@
 ---
-title: 'Configuración de tokens: Azure Active Directory B2C | Microsoft Docs'
+title: Configuración de tokens en Azure Active Directory B2C
 description: Obtenga información sobre cómo configurar las opciones de compatibilidad y duración de los tokens en Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/08/2021
+ms.date: 10/15/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 9ca7d1b5f5e8a9958d072317bfb2d01bd7a9199e
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 70be31920e96c651285c4e77ace161b65ccd3118
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129611842"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066041"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configuración de tokens en Azure Active Directory B2C
 
@@ -158,10 +158,10 @@ Para cambiar la configuración de la compatibilidad de los tokens, establezca lo
     </ClaimType>
     ```
 
-    En **OutputClaims**, agregue este elemento:
+    En la [directiva de usuario de confianza](relyingparty.md), en el elemento **OutputClaims**, agregue la siguiente notificación de salida:
 
     ```xml
-    <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
+    <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" PartnerClaimType="tfp" />
     ```
 
     Para ACR, quite **AuthenticationContextReferenceClaimPattern**.

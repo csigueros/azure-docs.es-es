@@ -13,12 +13,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 820bc7dfe9123db495c151cd5cd0ea5ae337619f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d5f4a92955aab2d920c21e73ec71bdf56bf76e9
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100103981"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130044353"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>Inicio rápido: Configuración de una aplicación para exponer una API web
 
@@ -55,6 +55,8 @@ En primer lugar, siga estos pasos para crear un ámbito de ejemplo denominado `E
 1. Se le pedirá que establezca un valor de **URI de id. de aplicación** si aún no ha configurado uno.
 
    El URI de identificación de aplicación actúa como prefijo de los ámbitos a los que se hará referencia en el código de la API y debe ser único globalmente. Puede usar el valor predeterminado proporcionado, que tiene el formato `api://<application-client-id>`, o especificar uno más legible, como `https://contoso.com/api`.
+   
+   Puede encontrar más información sobre los patrones de URI de identificador de aplicación válidos en la [referencia del manifiesto de aplicación de Azure AD](reference-app-manifest.md).
 
 1. A continuación, especifique los atributos del ámbito en el panel **Agregar un ámbito**. Para este tutorial, puede usar los valores de ejemplo o especificar los suyos propios.
 

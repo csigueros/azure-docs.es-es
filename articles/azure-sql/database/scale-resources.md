@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma, urmilano, wiassaf
 ms.date: 06/25/2019
-ms.openlocfilehash: 818a783a85fd9117738f8199e612d97a0fb95b99
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d6dd794a9eb0a7af1ed2e91a04c27d5321e14ca3
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730359"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179362"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Escalado dinámico de recursos de base de datos con tiempo de inactividad mínimo
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -38,17 +38,17 @@ Azure SQL Database ofrece el [modelo de compra basado en DTU](service-tiers-dtu.
 - El [modelo de compra basado en DTU](service-tiers-dtu.md) ofrece una combinación de recursos de proceso, memoria y E/S en tres niveles de servicio para admitir cargas de trabajo de base de datos de ligeras a pesadas: Básico, Estándar y Premium. Los niveles de rendimiento de cada nivel ofrecen una mezcla diferente de estos recursos, a los que puede agregar recursos de almacenamiento adicionales.
 - El [modelo de compra basado en núcleo virtual](service-tiers-vcore.md) le permite elegir el número de núcleos virtuales, la cantidad de memoria y la cantidad y velocidad del almacenamiento. Este modelo de compra ofrece tres niveles de servicio: Uso general, Crítico para la empresa e Hiperescala.
 
-La primera aplicación se puede compilar en una base de datos pequeña con un costo muy bajo al mes en los niveles de servicio Básico, Estándar o Uso general y, después, cambiar el nivel de servicio manualmente o mediante programación en cualquier momento al nivel de servicio Premium o Crítico para la empresa para adecuarlo a las necesidades de su solución. El rendimiento se puede ajustar sin que la aplicación o los clientes sufran ningún tipo de inactividad. La escalabilidad dinámica permite que una base de datos responda transparentemente a los requisitos de recursos, que cambian con rapidez, y le permite pagar solo por los recursos que necesite cuando los necesite.
+El nivel de servicio, nivel de proceso y límites de recursos de una base de datos, un grupo elástico o una instancia administrada se pueden cambiar en cualquier momento. Por ejemplo, la primera aplicación se puede compilar en una base de datos mediante el nivel de proceso sin servidor y, después, cambiar el nivel de servicio manualmente o mediante programación en cualquier momento, al nivel de proceso proporcionado, para adecuarla a las necesidades de su solución.
 
 > [!NOTE]
-> La escalabilidad dinámica es diferente del escalado automático. El escalado automático se produce al escalarse un servicio automáticamente en función de determinados criterios, mientras la escalabilidad dinámica permite el escalado manual con un tiempo de inactividad mínimo.
+> Las excepciones importantes en las que no se puede cambiar el nivel de servicio de una base de datos son:
+> - Las bases de datos del nivel de servicio Hiperescala no se pueden cambiar actualmente a un nivel de servicio diferente.
+> - Las bases de datos que usan características que solo[ están disponibles](features-comparison.md#features-of-sql-database-and-sql-managed-instance) en los niveles de servicio Crítico para la empresa o Premium, no se pueden cambiar para usar el nivel de servicio De uso general o estándar.
 
-Las bases de datos sencillas de Azure SQL Database admiten la escalabilidad dinámica manual, pero no el escalado automático. Para ganar experiencia con el uso *automático*, considere los grupos elásticos, que permiten que las bases de datos compartan recursos en un grupo en función de las necesidades individuales de las bases de datos.
-Pero hay scripts que pueden ayudar a automatizar la escalabilidad de una base de datos única en Azure SQL Database. En [Uso de PowerShell para supervisar y escalar una sola base de datos SQL](scripts/monitor-and-scale-database-powershell.md) encontrará un ejemplo.
+Puede ajustar los recursos asignados a la base de datos cambiando el objetivo de servicio o escalando para satisfacer las demandas de la carga de trabajo. Esto también le permite pagar solo por los recursos que necesita, cuando los necesite. Consulte la [nota](#impact-of-scale-up-or-scale-down-operations) sobre el posible impacto que podría tener una operación de escalado en una aplicación.
 
-Puede cambiar los [niveles de servicio de DTU](service-tiers-dtu.md) o las [características de núcleo virtual](resource-limits-vcore-single-databases.md) en cualquier momento con un tiempo de inactividad mínimo para la aplicación (normalmente una media de menos de cuatro segundos). Para muchas empresas y aplicaciones, poder crear bases de datos y aumentar o reducir el rendimiento a petición es suficiente, especialmente si los patrones de uso son relativamente predecibles. Pero si dichos patrones son impredecibles, pueden dificultar la administración de los costos y del modelo de negocio. Para este escenario, se usa un grupo elástico con un determinado número de eDTU que se comparten entre varias bases de datos del grupo.
-
-![Introducción a SQL Database: DTU de bases de datos únicas por nivel](./media/scale-resources/single_db_dtus.png)
+> [!NOTE]
+> La escalabilidad dinámica es diferente del escalado automático. El escalado automático se produce al escalarse un servicio automáticamente en función de determinados criterios, mientras la escalabilidad dinámica permite el escalado manual con un tiempo de inactividad mínimo. Las bases de datos únicas de Azure SQL Database se pueden escalar manualmente o, en el caso del [Nivel sin servidor](serverless-tier-overview.md), establecer para escalar automáticamente los recursos de proceso. Los [grupos elásticos](elastic-pool-overview.md), que permiten a las bases de datos compartir recursos en un grupo, actualmente solo se pueden escalar manualmente.
 
 Azure SQL Database ofrece la posibilidad de escalar dinámicamente las bases de datos:
 
@@ -59,7 +59,9 @@ Instancia administrada de Azure SQL permite escalar también:
 
 - [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) usa el modo de [núcleos virtuales](../managed-instance/sql-managed-instance-paas-overview.md#vcore-based-purchasing-model) y le permite definir el máximo de núcleos de CPU y el máximo de almacenamiento asignado a la instancia. Todas las bases de datos dentro de la instancia administrada comparten los recursos asignados a la instancia.
 
-Si se inicia la acción de escalado o reducción vertical en cualquiera de los tipos, se reiniciará el proceso del motor de base de datos y se moverá a otra máquina virtual si es necesario. El cambio del proceso del motor de base de datos a una nueva máquina virtual es un **proceso en línea** en el que puede continuar usando el servicio de Azure SQL Database existente mientras el proceso está en curso. Una vez que el motor de base de datos de destino está completamente inicializado y listo para procesar las consultas, las conexiones [pasarán del motor de base de datos de origen al de destino](single-database-scale.md#impact).
+## <a name="impact-of-scale-up-or-scale-down-operations"></a>Impacto de las operaciones de escalado o reducción verticales
+
+Si se inicia la acción de escalado o reducción vertical en cualquiera de los tipos que se han mencionado, se reiniciará el proceso del motor de base de datos y se moverá a otra máquina virtual si es necesario. El cambio del proceso del motor de base de datos a una nueva máquina virtual es un **proceso en línea** durante el cual puede continuar usando el servicio de Azure SQL Database existente. Una vez que el motor de base de datos de destino esté listo para procesar las consultas, [se finalizarán](single-database-scale.md#impact) las conexiones abiertas al motor de base de datos actual y se revertirán las transacciones no confirmadas. Se realizarán nuevas conexiones al motor de base de datos de destino.
 
 > [!NOTE]
 > No se recomienda escalar la instancia administrada si se está ejecutando una transacción de larga duración, como la importación de datos, los trabajos de procesamiento de datos o la regeneración de índices, o si tiene una conexión activa en la instancia. Para evitar que el escalado tarde en completarse más tiempo que de costumbre, debe escalar la instancia una vez finalizadas todas las operaciones de ejecución prolongada.
@@ -80,3 +82,4 @@ El escalado de recursos es la manera más fácil y eficaz de mejorar el rendimie
 - Para obtener información sobre cómo permitir que la inteligencia de base de datos integrada optimice la base de datos, vea [Ajuste automático](automatic-tuning-overview.md).
 - Para obtener información sobre el escalado horizontal de lectura en Azure SQL Database, vea [Uso de réplicas de solo lectura para equilibrar la carga de las cargas de trabajo de consultas de solo lectura](read-scale-out.md).
 - Para obtener información sobre el particionamiento de una base de datos, vea [Escalado horizontal con Azure SQL Database](elastic-scale-introduction.md).
+- Para obtener un ejemplo del uso de scripts para supervisar y escalar una base de datos única, consulte [Uso de PowerShell para supervisar y escalar un único SQL Database](scripts/monitor-and-scale-database-powershell.md).

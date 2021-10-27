@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: pafarley
 ms.custom: references_regions
-ms.openlocfilehash: 7937ce57cc432143d449f398a0a433686a6671ed
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 0628af8b495fccd834179edfc9cf0e5c32baf350
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129547045"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000468"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Compatibilidad con idiomas y voces en el servicio de voz
 
@@ -98,6 +98,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Irlandés (Irlanda)                    | `ga-IE` | Texto<br>Pronunciación                  |                           |                          |
 | Italiano (Italia)                    | `it-IT` | Audio (20201016)<br>Texto<br>Pronunciación|      Sí                     |                          |
 | Japonés (Japón)                   | `ja-JP` | Texto                                   |      Sí                     |                          |
+| Canarés (India)                   | `kn-IN` | Texto                                   |                           |                          |
 | Coreano (Corea)                     | `ko-KR` | Audio (20201015)<br>Texto                 |      Sí                     |                          |
 | Letón (Letonia)                   | `lv-LV` | Texto<br>Pronunciación                  |                           |                          |
 | Lituano (Lituania)             | `lt-LT` | Texto<br>Pronunciación                  |                           |                          |

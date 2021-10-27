@@ -1,33 +1,31 @@
 ---
 title: Modelos de DTDL
 titleSuffix: Azure Digital Twins
-description: Descubra cómo Azure Digital Twins usa modelos personalizados para describir las entidades del entorno.
+description: Obtenga información sobre cómo Azure Digital Twins utiliza modelos personalizados para describir las entidades de su entorno y cómo definir estos modelos mediante el lenguaje de definición de gemelos digitales (DTDL).
 author: baanders
 ms.author: baanders
-ms.date: 8/25/2021
+ms.date: 10/7/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 792ddf3f3ca57b16112de78a6ecf2c2d887494ef
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 79931aeb1e2f6fc37ea2cf4030a6b35dc55e6a26
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129535852"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130130980"
 ---
-# <a name="understand-twin-models-in-azure-digital-twins"></a>Descripción de los modelos gemelos de Azure Digital Twins
+# <a name="learn-about-twin-models-and-how-to-define-them-in-azure-digital-twins"></a>Información sobre los modelos gemelos y su definición en Azure Digital Twins
 
-Una característica clave de Azure Digital Twins es la capacidad de definir su propio vocabulario y crear el grafo de gemelos en los términos de la empresa definidos de manera automática. Esta funcionalidad la ofrecen los **modelos** proporcionados por el usuario. Puede considerar los modelos como los nombres de una descripción de su mundo. 
+Una característica clave de Azure Digital Twins es la capacidad de definir su propio vocabulario y crear el grafo de gemelos en los términos de la empresa definidos de manera automática. Esta funcionalidad la ofrecen los **modelos** proporcionados por el usuario. Puede considerar los modelos como los nombres de una descripción de su mundo. Los modelos de Azure Digital Twins se representan mediante el **lenguaje de definición de gemelos digitales (DTDL)** , que se basa en JSON-LD. 
 
 Un modelo es similar a una **clase** en un lenguaje de programación orientado a objetos, el que define una forma de datos para un concepto determinado en el entorno de trabajo real. Los modelos tienen nombres (como *Sala* o *SensorDeTemperatura*) y contienen elementos como propiedades, telemetría/eventos y comandos que describen lo que puede hacer este tipo de entidad en el entorno. Más adelante usará estos modelos para crear [gemelos digitales](concepts-twins-graph.md) que representen entidades específicas que cumplan con esta descripción de tipo.
-
-Los modelos de Azure Digital Twins se representan mediante el **lenguaje de definición de gemelos digitales (DTDL)** , que se basa en JSON-LD.  
 
 ## <a name="digital-twin-definition-language-dtdl-for-models"></a>Lenguaje de definición de gemelos digitales (DTDL) para modelos
 
 Los modelos de Azure Digital Twins se definen con el lenguaje de definición de gemelos digitales (DTDL). 
 
-Puede ver las especificaciones del lenguaje completas de DTDL en GitHub: [Lenguaje de definición de gemelos digitales (DTDL), versión 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+Puede ver las especificaciones del lenguaje completas de DTDL en GitHub: [Lenguaje de definición de gemelos digitales (DTDL), versión 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). En esta página se incluyen referencias y ejemplos de DTDL detallados para ayudarle a empezar a escribir sus propios modelos de DTDL.
 
 DTDL se basa en JSON-LD y es independiente del lenguaje de programación. DTDL no es exclusivo de Azure Digital Twins, sino que también se usa para presentar datos de dispositivo en otros servicios de IoT, como [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md). Azure Digital Twins usa la **versión 2** de DTDL (el uso de DTDL versión 1 con Azure Digital Twins ahora está en desuso). 
 

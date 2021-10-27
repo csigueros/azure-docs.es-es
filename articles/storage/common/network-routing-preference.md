@@ -11,12 +11,12 @@ ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
 ms.custom: references_regions
-ms.openlocfilehash: f3a665df26e504eee1c9bea77f8bf6bf5631193f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0a80fe8bc2cf2cfa86b5b8b1a9c78684d718e68f
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128591033"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038372"
 ---
 # <a name="network-routing-preference-for-azure-storage"></a>Preferencia de enrutamiento de red para Azure Storage
 
@@ -25,7 +25,7 @@ Puede configurar la [preferencia de enrutamiento](../../virtual-network/routing-
 La configuración de las preferencias de enrutamiento le ofrece la flexibilidad de optimizar el tráfico en función del rendimiento de la red Premium o del costo. Cuando configure una preferencia de enrutamiento, debe especificar cómo se dirigirá el tráfico al punto de conexión público de la cuenta de almacenamiento de forma predeterminada. También puede publicar puntos de conexión específicos de la ruta para la cuenta de almacenamiento.
 
 > [!NOTE]
-> Esta característica no se admite en las cuentas de almacenamiento que están configuradas para usar el nivel de rendimiento Premium o el almacenamiento con redundancia de zona (ZRS).
+> Esta característica no se admite en las cuentas de almacenamiento de rendimiento Premium ni en cuentas configuradas para usar el almacenamiento con redundancia de zona (ZRS).
 
 ## <a name="microsoft-global-network-versus-internet-routing"></a>Red global de Microsoft frente al enrutamiento de Internet
 

@@ -8,12 +8,12 @@ metadata:
   ms.date: 03/19/2021
   author: saasguide
   ms.author: souchak
-  ms.openlocfilehash: 8cc5dc728279477fc698135a317b773cbdaccabf
-  ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+  ms.openlocfilehash: 4092ad53e67cc7ed526f66b4e5214a9bb9a1aeda
+  ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/05/2021
-  ms.locfileid: "129456449"
+  ms.lasthandoff: 10/15/2021
+  ms.locfileid: "130043308"
 title: Preguntas comunes sobre las API de cumplimiento de SaaS
 summary: En este artículo se describen varios de los requisitos de integración de Marketplace comercial de Microsoft para permitir que los clientes de Azure se suscriban a las ofertas de SaaS.
 sections:

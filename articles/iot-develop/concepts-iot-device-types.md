@@ -6,12 +6,12 @@ ms.author: rywinter
 ms.service: iot-develop
 ms.topic: conceptual
 ms.date: 01/11/2021
-ms.openlocfilehash: 482acaa4fbec2991bf61f949602958b14144c2ce
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 21eea79a6a448cd65bd12cde33efb6acabd3ada5
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108226901"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003655"
 ---
 # <a name="overview-of-azure-iot-device-types"></a>Introducción sobre los tipos de dispositivo de Azure IoT
 Los dispositivos de IoT existen en una amplia variedad de plataformas de hardware. Desde pequeños microcontroladores de 8 bits hasta las CPU de x86 más recientes que se encuentran en un equipo de escritorio. Muchas variables intervienen en la decisión de qué hardware debe elegir para un dispositivo IoT y en este artículo se describen algunas de las diferencias clave.
@@ -43,7 +43,7 @@ A continuación se muestra una tabla que muestra algunas de las diferencias de d
 |**CPU**| Menor | Más |
 |**RAM**| Menor | Más |
 |**Intermitente**| Menor | Más |
-|**SISTEMA OPERATIVO**| Sin sistema operativo o con RTOS | Uso general |
+|**SISTEMA OPERATIVO**| Sin sistema operativo/RTOS | De uso general (Windows/Linux) |
 |**Dificultad de desarrollo**| Más difícil | Más fácil |
 |**Consumo de energía**| Inferior | Superior |
 |**Costee**| Inferior | Superior |

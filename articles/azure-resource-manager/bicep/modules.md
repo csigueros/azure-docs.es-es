@@ -1,195 +1,121 @@
 ---
 title: Módulos de Bicep
-description: Describe cómo definir y utilizar un módulo, y cómo usar ámbitos de módulo.
-author: mumian
-ms.author: jgao
+description: Describe cómo definir un módulo en un archivo de Bicep y cómo utilizar los ámbitos de módulo.
 ms.topic: conceptual
-ms.date: 10/05/2021
-ms.openlocfilehash: bd5069db6a2ad9cb14f5f0b3bc28612afa519727
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.date: 10/15/2021
+ms.openlocfilehash: 21dc273e506f0c0f148e8a220ca4ea160c7423a8
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129619602"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074501"
 ---
-# <a name="use-bicep-modules"></a>Uso de módulos de Bicep
+# <a name="bicep-modules"></a>Módulos de Bicep
 
-Bicep permite dividir una solución compleja en módulos. Un módulo de Bicep es simplemente un archivo de Bicep que se implementa desde otro archivo de Bicep. Puede encapsular detalles complejos de la declaración de recursos en un módulo, lo que mejora la legibilidad de los archivos que usan el módulo. Puede volver a usar estos módulos y compartirlos con otras personas. Los módulos de Bicep se convierten en una sola plantilla de Azure Resource Manager con [plantillas anidadas](../templates/linked-templates.md#nested-template) para la implementación.
+Bicep permite organizar las implementaciones en módulos. Un módulo es simplemente un archivo de Bicep que se implementa desde otro archivo de Bicep. Con los módulos, mejora la legibilidad de los archivos de Bicep mediante la encapsulación de detalles complejos de la implementación. También puede reutilizar fácilmente módulos para distintas implementaciones.
 
-En este artículo se describe cómo definir y consumir módulos.
+A fin de compartir módulos con otros miembros de su organización, [cree un registro privado](private-module-registry.md). Los módulos del registro solo están disponibles para los usuarios con los permisos correctos.
 
-Para ver un tutorial, consulte [Implementación de recursos de Azure mediante plantillas de Bicep](/learn/modules/deploy-azure-resources-by-using-bicep-templates/).
+Los módulos de Bicep se convierten en una sola plantilla de Azure Resource Manager con [plantillas anidadas](../templates/linked-templates.md#nested-template).
 
-## <a name="define-modules"></a>Definición de los módulos
+## <a name="definition-syntax"></a>Sintaxis de definición
 
-Cada archivo de Bicep se puede usar como un módulo. Un módulo solo expone parámetros y salidas como un contrato a otros archivos de Bicep. Los parámetros y las salidas son opcionales.
-
-El siguiente archivo de Bicep se puede implementar directamente para crear una cuenta de almacenamiento o usarse como un módulo.  En la sección siguiente se muestra cómo usar módulos:
+La sintaxis básica para definir un módulo es:
 
 ```bicep
-@minLength(3)
-@maxLength(11)
-param storagePrefix string
-
-@allowed([
-  'Standard_LRS'
-  'Standard_GRS'
-  'Standard_RAGRS'
-  'Standard_ZRS'
-  'Premium_LRS'
-  'Premium_ZRS'
-  'Standard_GZRS'
-  'Standard_RAGZRS'
-])
-param storageSKU string = 'Standard_LRS'
-param location string
-
-var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
-
-resource stg 'Microsoft.Storage/storageAccounts@2019-04-01' = {
-  name: uniqueStorageName
-  location: location
-  sku: {
-    name: storageSKU
-  }
-  kind: 'StorageV2'
-  properties: {
-    supportsHttpsTrafficOnly: true
-  }
-}
-
-output storageEndpoint object = stg.properties.primaryEndpoints
-```
-
-La salida se usa para pasar valores a los archivos de Bicep primarios.
-
-## <a name="consume-modules"></a>Uso de módulos
-
-Utilice la palabra clave _module_ para usar un módulo. El siguiente archivo de Bicep implementa el recurso definido en el archivo de módulo al que se hace referencia:
-
-```bicep
-@minLength(3)
-@maxLength(11)
-param namePrefix string
-param location string = resourceGroup().location
-
-module stgModule 'storageAccount.bicep' = {
-  name: 'storageDeploy'
+module <symbolic-name> '<path-to-file>' = {
+  name: '<linked-deployment-name>'
   params: {
-    storagePrefix: namePrefix
-    location: location
+    <parameter-names-and-values>
   }
 }
-
-output storageEndpoint object = stgModule.outputs.storageEndpoint
 ```
 
-- **modulo**: palabra clave.
-- **nombre simbólico** (stgModule): identificador del módulo.
-- **archivo de módulo**: se debe hacer referencia a los archivos de módulo mediante rutas de acceso relativas. Todas las rutas de acceso de Bicep deben especificarse mediante el separador de directorios de barra diagonal (/), con el fin de garantizar una compilación coherente entre plataformas. El carácter de barra diagonal inversa de Windows (\\) no se admite. Las rutas de acceso pueden contener espacios.
-- La propiedad **_name_** (storageDeploy) es necesaria cuando se utiliza un módulo. Cuando Bicep genera la plantilla IL, este campo se usa como el nombre del recurso de implementación anidado, que se genera para el módulo:
+Por lo tanto, un ejemplo sencillo del mundo real tendría un aspecto similar a este:
 
-    ```json
-    ...
-    ...
-    "resources": [
-      {
-        "type": "Microsoft.Resources/deployments",
-        "apiVersion": "2020-10-01",
-        "name": "storageDeploy",
-        "properties": {
-          ...
-        }
-      }
-    ]
-    ...
-    ```
-- La propiedad **_params_** contiene los parámetros que se pasan al archivo de módulo. Estos parámetros coinciden con los definidos en el archivo Bicep.
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/local-file-definition.bicep" :::
 
-Al igual que los recursos, los módulos se implementan en paralelo a menos que dependan de otros módulos o implementaciones de recursos. Para obtener más información sobre las dependencias, vea [Establecer dependencias de recursos](resource-declaration.md#set-resource-dependencies).
+Use el nombre simbólico para hacer referencia al módulo en otra parte del archivo de Bicep. Por ejemplo, puede usar el nombre simbólico para obtener la salida de un módulo. El nombre simbólico puede tener estos caracteres: a-z, A-Z, 0-9 y '_'. No puede empezar con un número. Un módulo no puede tener el mismo nombre que un parámetro, una variable o un recurso.
 
-Para obtener un valor de salida de un módulo, recupere el valor de la propiedad con la siguiente sintaxis: `stgModule.outputs.storageEndpoint`, donde `stgModule` es el identificador del módulo.
+La ruta de acceso puede ser un archivo local o un archivo en un registro. Para más información, consulte [Ruta de acceso al módulo](#path-to-module).
 
-Puede implementar un módulo de manera condicional. Use la misma sintaxis **if** que utilizaría al [implementar un recurso de manera condicional](conditional-resource-deployment.md).
+La propiedad **name** es obligatoria. Se convierte en el nombre del recurso de implementación anidado en la plantilla generada.
+
+Si necesita **especificar un ámbito** distinto del ámbito del archivo principal, agregue la propiedad correspondiente. Para más información, consulte [Establecimiento del ámbito del módulo](#set-module-scope).
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/scope-definition.bicep" highlight="4" :::
+
+A fin de **implementar un módulo de manera condicional**, agregue una expresión `if`. El uso es similar a la [implementación condicional de un recurso](conditional-resource-deployment.md).
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/conditional-definition.bicep" highlight="2" :::
+
+Para implementar **más de una instancia** de un módulo, agregue la expresión `for`. Para obtener más información, vea [Iteración de módulos en Bicep](loop-modules.md).
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/iterative-definition.bicep" highlight="3" :::
+
+Al igual que los recursos, los módulos se implementan en paralelo a menos que dependan de otros módulos o recursos. Por lo general, no es necesario establecer dependencias, ya que se determinan de manera implícita. Si necesita establecer una dependencia explícita, puede agregar `dependsOn` a la definición del módulo. Para obtener más información sobre las dependencias, vea [Establecer dependencias de recursos](resource-declaration.md#set-resource-dependencies).
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/dependsOn-definition.bicep" highlight="6-8" :::
+
+## <a name="path-to-module"></a>Ruta de acceso al módulo
+
+El archivo del módulo puede ser un archivo local o uno externo en un registro de módulo de Bicep. A continuación, se muestra la sintaxis de ambas opciones.
+
+### <a name="local-file"></a>Archivo local
+
+Si el módulo es un **archivo local**, proporcione una ruta de acceso relativa a ese archivo. Todas las rutas de acceso de Bicep deben especificarse mediante el separador de directorios de barra diagonal (/), con el fin de garantizar una compilación coherente entre plataformas. El carácter de barra diagonal inversa de Windows (\\) no se admite. Las rutas de acceso pueden contener espacios.
+
+Por ejemplo, para implementar un archivo que está un nivel más arriba del archivo principal en el directorio, utilice:
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/local-file-definition.bicep" highlight="1" :::
+
+### <a name="file-in-registry"></a>Archivo en el registro
+
+Si [publicó un módulo en un registro](bicep-cli.md#publish), puede crear un vínculo a ese módulo. Proporcione el nombre del registro de contenedor de Azure y una ruta de acceso al módulo. Especifique la ruta de acceso al módulo con la sintaxis siguiente:
 
 ```bicep
-param deployZone bool
-
-module dnsZone 'dnszones.bicep' = if (deployZone) {
-  name: 'myZoneModule'
-}
+module <symbolic-name> 'br:<registry-name>.azurecr.io/<file-path>:<tag>' = {
 ```
 
-Puede implementar un módulo varias veces mediante bucles. Para obtener más información, vea [Iteración de módulos en Bicep](loop-modules.md).
+- **br** es el nombre del esquema de un registro de Bicep.
+- La **ruta de acceso al archivo** en Azure Container Registry se denomina `repository`. La **ruta de acceso** del archivo puede contener segmentos separados por el carácter `/`.
+- **tag** se usa para especificar una versión del módulo.
 
-## <a name="configure-module-scopes"></a>Configuración de ámbitos de módulo
+Por ejemplo:
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/registry-definition.bicep" highlight="1" :::
+
+Cuando se hace referencia a un módulo en un registro, la extensión de Bicep en Visual Studio Code automáticamente llama a [bicep restore](bicep-cli.md#restore) para copiar el módulo externo en la caché local. El módulo externo tarda unos minutos en restaurarse. Si IntelliSense para el módulo no funciona de inmediato, espere a que se complete la restauración.
+
+La ruta de acceso completa de un módulo en un registro puede ser larga. En lugar de proporcionar la ruta de acceso completa cada vez que desea usar el módulo, puede [configurar alias en el archivo bicepconfig.json](bicep-config.md#aliases-for-modules). Los alias facilitan la referencia al módulo. Por ejemplo, con un alias, puede acortar la ruta de acceso a:
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/alias-definition.bicep" highlight="1" :::
+
+## <a name="parameters"></a>Parámetros
+
+Los parámetros que proporciona en la definición del módulo coinciden con los parámetros del archivo de Bicep.
+
+El ejemplo de Bicep siguiente tiene tres parámetros: storagePrefix, storageSKU y location. El parámetro storageSKU tiene un valor predeterminado, por lo que no es necesario proporcionar un valor para ese parámetro durante la implementación.
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/create-storage-account/main.bicep" highlight="3,15,17" :::
+
+Para usar el ejemplo anterior como módulo, proporcione valores para esos parámetros.
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/modules/parent-output.bicep" highlight="14-17" :::
+
+## <a name="set-module-scope"></a>Establecimiento del ámbito del módulo
 
 Al declarar un módulo, puede establecer un ámbito para el módulo que sea diferente del ámbito del archivo de Bicep que lo contiene. Use la propiedad `scope` para establecer el ámbito del módulo. Cuando no se proporciona la propiedad scope, el módulo se implementa en el ámbito de destino del elemento primario.
 
-En el siguiente archivo de Bicep se muestra cómo crear un grupo de recursos e implementar un módulo en el grupo de recursos:
+En el archivo de Bicep siguiente se crea un grupo de recursos y una cuenta de almacenamiento en ese grupo. El archivo se implementa en una suscripción, pero el ámbito del módulo es el grupo de recursos nuevo.
 
-```bicep
-// set the target scope for this file
-targetScope = 'subscription'
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/modules/rg-and-storage.bicep" highlight="2,12,19" :::
 
-@minLength(3)
-@maxLength(11)
-param namePrefix string
+En el ejemplo siguiente se implementan cuentas de almacenamiento en dos grupos de recursos diferentes. Ambos grupos de recursos ya deben existir.
 
-param location string = deployment().location
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/modules/scope-two-resource-groups.bicep" highlight="1,13,22" :::
 
-var resourceGroupName = '${namePrefix}rg'
-resource myResourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' = {
-  name: resourceGroupName
-  location: location
-  scope: subscription()
-}
-
-module stgModule './storageAccount.bicep' = {
-  name: 'storageDeploy'
-  scope: myResourceGroup
-  params: {
-    storagePrefix: namePrefix
-    location: location
-  }
-}
-
-output storageEndpoint object = stgModule.outputs.storageEndpoint
-```
-
-En el ejemplo siguiente la implementación se realiza en grupos de recursos existentes.
-
-```bicep
-targetScope = 'subscription'
-
-resource firstRG 'Microsoft.Resources/resourceGroups@2021-04-01' existing = {
-  name: 'demogroup1'
-}
-
-resource secondRG 'Microsoft.Resources/resourceGroups@2021-04-01' existing = {
-  name: 'demogroup2'
-}
-
-module storage1 'storageAccount.bicep' = {
-  name: 'westusdeploy'
-  scope: firstRG
-  params: {
-    storagePrefix: 'stg1'
-    location: 'westus'
-  }
-}
-
-module storage2 'storageAccount.bicep' = {
-  name: 'eastusdeploy'
-  scope: secondRG
-  params: {
-    storagePrefix: 'stg2'
-    location: 'eastus'
-  }
-}
-```
-
-La propiedad scope se debe establecer en un objeto de ámbito válido. Si el archivo Bicep implementa un grupo de recursos, una suscripción o un grupo de administración, puede establecer el ámbito de un módulo en el nombre simbólico de ese recurso. O bien, puede usar las funciones de ámbito para obtener un ámbito válido.
+Establezca la propiedad scope en un objeto de ámbito válido. Si el archivo Bicep implementa un grupo de recursos, una suscripción o un grupo de administración, puede establecer el ámbito de un módulo en el nombre simbólico de ese recurso. O bien, puede usar las funciones de ámbito para obtener un ámbito válido.
 
 Estas funciones son las siguientes:
 
@@ -200,16 +126,21 @@ Estas funciones son las siguientes:
 
 En el ejemplo siguiente se usa la función `managementGroup` para establecer el ámbito.
 
-```bicep
-param managementGroupName string
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/function-scope.bicep" highlight="5" :::
 
-module  'module.bicep' = {
-  name: 'deployToMG'
-  scope: managementGroup(managementGroupName)
-}
-```
+## <a name="output"></a>Resultados
+
+Puede obtener valores de un módulo y usarlos en el archivo de Bicep principal. Si desea obtener un valor de salida de un módulo, use la propiedad `outputs` en el objeto de módulo.
+
+En el primer ejemplo se crea una cuenta de almacenamiento y se devuelven los puntos de conexión principales.
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/create-storage-account/main.bicep" highlight="33" :::
+
+Cuando se usa como módulo, puede obtener ese valor de salida.
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/modules/parent-output.bicep" highlight="20" :::
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- Para ver un tutorial, consulte [Implementación de recursos de Azure mediante plantillas de Bicep](/learn/modules/deploy-azure-resources-by-using-bicep-templates/).
 - Para pasar un valor confidencial a un módulo, use la función [getSecret](bicep-functions-resource.md#getsecret).
-- Puede implementar un módulo varias veces mediante bucles. Para obtener más información, vea [Iteración de módulos en Bicep](loop-modules.md).

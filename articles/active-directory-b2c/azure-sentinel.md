@@ -1,65 +1,64 @@
 ---
 title: Protección de Azure Active Directory B2C con Azure Sentinel
 titleSuffix: Azure AD B2C
-description: Tutorial para realizar análisis de seguridad de datos de Azure Active Directory B2C con Azure Sentinel
+description: En este tutorial, usará Azure Sentinel para realizar análisis de seguridad para datos de Azure Active Directory B2C.
 services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 08/17/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: ec68ca976b52c50c09bf86c90c56304f05051b66
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 02e994d743269b5cf8d4b66a713f129a66e4ef36
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124740270"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129995919"
 ---
 # <a name="tutorial-configure-security-analytics-for-azure-active-directory-b2c-data-with-azure-sentinel"></a>Tutorial: configuración del análisis de seguridad de datos de Azure Active Directory B2C con Azure Sentinel
 
-Puede proteger aún más su entorno de Azure Active Directory (AD) B2C redirigiendo registros e información de auditoría a Azure Sentinel. Azure Sentinel es una solución nativa de nube de administración de eventos e información de seguridad (SIEM) y respuesta automatizada de orquestación de seguridad (SOAR). Azure Sentinel proporciona detección de alertas, visibilidad de amenazas, búsqueda proactiva y respuesta a amenazas para Azure AD B2C.
+Puede proteger aún más su entorno de Azure Active Directory B2C (Azure AD B2C) redirigiendo registros e información de auditoría a Azure Sentinel. Azure Sentinel es una solución nativa de nube de servicio de administración de eventos e información de seguridad (SIEM) y de respuesta automatizada de orquestación de seguridad (SOAR). Azure Sentinel proporciona detección de alertas, visibilidad de amenazas, búsqueda proactiva y respuesta a amenazas para Azure AD B2C.
 
 Al usar Azure Sentinel con Azure AD B2C, puede:
 
-- Detectar amenazas que antes no se detectaban y minimizar los falsos positivos mediante el análisis y la inteligencia sobre amenazas sin precedentes de Microsoft.
-- Investigar amenazas con inteligencia artificial. Buscar actividades sospechosas a gran escala y aprovechar años de trabajo relacionado con la ciberseguridad en Microsoft.
+- Detectar amenazas que antes no se detectaban y minimizar los falsos positivos mediante el análisis y la inteligencia sobre amenazas de Microsoft.
+- Investigar las amenazas con inteligencia artificial. Buscar actividades sospechosas a gran escala y aprovechar años de trabajo relacionado con la ciberseguridad en Microsoft.
 - Responda a los incidentes con rapidez con la orquestación y la automatización de tareas comunes integradas.
 - Satisfacer los requisitos de seguridad y cumplimiento de su organización.
 
-En este tutorial, obtendrá información sobre cómo:
+En este tutorial, aprenderá a:
 
-1. [Transferir los registros de Azure AD B2C al área de trabajo de registros de Azure Monitor](#configure-azure-ad-b2c-with-azure-monitor-logs-analytics)
-2. [Habilitar Azure Sentinel en un área de trabajo de Log Analytics](#deploy-an-azure-sentinel-instance)
-3. [Crear una regla de ejemplo en Azure Sentinel que desencadene un incidente](#create-an-azure-sentinel-rule)
-4. [Configurar la respuesta automatizada](#automated-response)
+> [!div class="checklist"]
+> * Transferir registros de Azure AD B2C a un área de trabajo de Log Analytics.
+> * Habilitar Azure Sentinel en un área de trabajo de Log Analytics.
+> * Crear una regla de ejemplo en Azure Sentinel que desencadene un incidente.
+> * Configurar la respuesta automatizada.
 
-## <a name="configure-azure-ad-b2c-with-azure-monitor-logs-analytics"></a>Configuración de Azure AD B2C con Azure Monitor Log Analytics
+## <a name="configure-azure-ad-b2c-with-azure-monitor-log-analytics"></a>Configuración de Azure AD B2C con Log Analytics en Azure Monitor
 
-Habilite la **configuración de diagnóstico** en Azure AD en el inquilino de Azure AD B2C para definir dónde se deben enviar los registros y las métricas de un recurso.
-
-A continuación, [configure Azure AD B2C para enviar registros a Azure Monitor](./azure-monitor.md).
+Habilite la **configuración de diagnóstico** en Azure AD en el inquilino de Azure AD B2C para definir dónde se deben enviar los registros y las métricas de un recurso. A continuación, [configure Azure AD B2C para enviar registros a Azure Monitor](./azure-monitor.md).
 
 ## <a name="deploy-an-azure-sentinel-instance"></a>Implementación de una instancia de Azure Sentinel
 
->[!IMPORTANT]
->Para habilitar Azure Sentinel, necesita **permisos de colaborador** en la suscripción en la que reside el área de trabajo de Azure Sentinel. Para usar Azure Sentinel, necesita permisos de colaborador o lector en el grupo de recursos al que pertenece el área de trabajo.
+Una vez que haya configurado la instancia de Azure AD B2C para enviar registros a Azure Monitor, debe habilitar otra de Azure Sentinel.
 
-Una vez que haya configurado la instancia de Azure Active Directory B2C para enviar registros a Azure Monitor, debe habilitar otra de Azure Sentinel.
+>[!IMPORTANT]
+>Para habilitar Azure Sentinel, necesita permisos de colaborador en la suscripción en la que reside el área de trabajo de Azure Sentinel. Para usar Azure Sentinel, necesita permisos de colaborador o lector en el grupo de recursos al que pertenece el área de trabajo.
 
 1. Vaya a [Azure Portal](https://portal.azure.com). Seleccione la suscripción dónde se ha creado el área de trabajo de Log Analytics.
 
 2. Busque y seleccione **Azure Sentinel**.
 
-3. Seleccione **Agregar**.
+   ![Captura de pantalla que muestra la búsqueda de Azure Sentinel en Azure Portal.](./media/azure-sentinel/azure-sentinel-add.png)
 
-![imagen que muestra la búsqueda de Azure Sentinel en Azure Portal](./media/azure-sentinel/azure-sentinel-add.png)
+3. Seleccione **Agregar**.
 
 4. Seleccione la nueva área de trabajo.
 
-![imagen de la selección del área de trabajo de Sentinel](./media/azure-sentinel/create-new-workspace.png)
+   ![Captura de pantalla que muestra dónde seleccionar un área de trabajo de Azure Sentinel.](./media/azure-sentinel/create-new-workspace.png)
 
 5. Seleccione **Agregar Azure Sentinel**.
 
@@ -68,80 +67,91 @@ Una vez que haya configurado la instancia de Azure Active Directory B2C para env
 
 ## <a name="create-an-azure-sentinel-rule"></a>Creación de una regla de Azure Sentinel
 
->[!NOTE]
->Azure Sentinel proporciona plantillas integradas listas para usar, con el fin de ayudarle a crear reglas de detección de amenazas diseñadas por el equipo de analistas y expertos en seguridad de Microsoft. Las reglas creadas a partir de estas plantillas buscan automáticamente actividad sospechosa en sus datos. No hay conectores de Azure AD B2C nativos disponibles en este momento. En el ejemplo de este tutorial, crearemos nuestra propia regla.
-
 Ahora que ha habilitado Azure Sentinel, recibirá notificaciones cuando se produzca algo sospechoso en su inquilino de Azure AD B2C.
 
-Puede crear [reglas de análisis personalizadas](../sentinel/detect-threats-custom.md) para detectar amenazas y comportamientos anómalos presentes en el entorno. Estas reglas buscan eventos específicos o conjuntos de eventos y le avisan cuando se alcanzan determinados umbrales de eventos o se cumplen determinadas condiciones. A continuación, generan incidentes para su posterior investigación.
+Puede crear [reglas de análisis personalizadas](../sentinel/detect-threats-custom.md) para detectar amenazas y comportamientos anómalos en el entorno. Estas reglas buscan eventos específicos o conjuntos de eventos y le avisan cuando se alcanzan determinados umbrales de eventos o se cumplen determinadas condiciones. A continuación, generan incidentes para su posterior investigación.
 
-En el ejemplo siguiente, se explica el escenario en el que se recibe una notificación si alguien intenta forzar el acceso a su entorno pero no se realiza correctamente. Podría significar un ataque por fuerza bruta. Puede recibir una notificación para dos o más inicios de sesión no correctos en un plazo de 60 segundos.
+>[!NOTE]
+>Azure Sentinel proporciona plantillas integradas listas con el fin de ayudarle a crear reglas de detección de amenazas diseñadas por el equipo de analistas y expertos en seguridad de Microsoft. Las reglas creadas a partir de estas plantillas buscan automáticamente actividad sospechosa en sus datos. No hay conectores de Azure AD B2C nativos disponibles en este momento. En el ejemplo de este tutorial, crearemos nuestra propia regla.
 
-1. En el menú de navegación de Azure Sentinel, seleccione **Análisis**.
+En el ejemplo siguiente, recibirá una notificación si alguien intenta forzar el acceso a su entorno pero no lo consigue. Podría tratarse de un ataque por fuerza bruta. Puede recibir una notificación para dos o más inicios de sesión incorrectos en un plazo de 60 segundos.
 
-2. En la barra de acciones de la parte superior, seleccione **+ Crear** y elija **Regla de consulta programada**. Se abrirá el **Asistente para reglas de análisis**.
+1. En el menú de la izquierda de Azure Sentinel, seleccione **Análisis**.
 
-![imagen que muestra la selección para crear una regla de consulta programada](./media/azure-sentinel/create-scheduled-rule.png)
+2. En la barra de acciones de la parte superior, seleccione **+ Crear** > **Regla de consulta programada**. 
 
-3. En el Asistente para reglas de Analytics, vaya a la pestaña **General**.
+    ![Captura de pantalla que muestra las selecciones para crear una regla de consulta programada.](./media/azure-sentinel/create-scheduled-rule.png)
 
-   | Campo | Value |
-   |:--|:--|
-   |Nombre | Inicios de sesión incorrectos en B2C |
-   |Descripción | Notificar dos o más inicios de sesión incorrectos en un plazo de 60 segundos |
-   | Tácticas | Elija entre las categorías de ataques por las que clasificar la regla. Estas categorías se basan en las tácticas del marco [MITRE ATT&CK](https://attack.mitre.org/).<BR>En nuestro ejemplo, elegiremos `PreAttack`. <BR> MITRE ATT&CK® es una knowledge base accesible en todo el mundo que contiene tácticas y técnicas de adversarios basadas en observaciones del mundo real. La knowledge base ATT&CK® se usa como base para el desarrollo de metodologías y modelos de amenazas específicos.
-   | severity | Según el caso |
-   | Estado | Cuando crea la regla, el valor predeterminado del campo Estado es `Enabled`, lo que significa que se ejecutará inmediatamente después de que termine de crearla. Si no desea ejecutarla de inmediato, seleccione `Disabled` para agregar la regla a la pestaña Reglas activas, desde donde podrá habilitarla cuando sea necesario.|
+3. En el Asistente para reglas de análisis, vaya a la pestaña **General** y escriba la siguiente información:
 
-![imagen de la especificación de propiedades básicas de la regla](./media/azure-sentinel/create-new-rule.png)
+    | Campo | Value |
+    |:--|:--|
+    |**Nombre** | Escriba un nombre adecuado para los inicios de sesión incorrectos de Azure AD B2C. |
+    |**Descripción** | Escriba una descripción que indique que la regla notificará dos o más inicios de sesión incorrectos en un período de 60 segundos. |
+    | **Tácticas** | Elija entre las categorías de ataques por las que clasificar la regla. Estas categorías se basan en las tácticas del marco [MITRE ATT&CK](https://attack.mitre.org/).<BR>Para nuestro ejemplo, elegiremos **PreAttack**. <BR> MITRE ATT&CK es una knowledge base accesible en todo el mundo que contiene tácticas y técnicas de adversarios basadas en observaciones del mundo real. Esta knowledge base se usa como base para el desarrollo de metodologías y modelos de amenazas específicos.
+    | **Gravedad** | Seleccione un nivel de gravedad adecuado. |
+    | **Estado** | Al crear la regla, su estado es **Habilitada** de forma predeterminada. Ese estado significa que la regla se ejecutará inmediatamente después de terminar de crearla. Si no desea que se ejecute inmediatamente, seleccione **Deshabilitada**. A continuación, la regla se agregará a la pestaña **Reglas activas** y podrá habilitarla desde allí cuando sea necesario.|
 
-4.  Para definir la lógica de consulta de regla y configurar las opciones, en la pestaña **Establecer lógica de regla**, escriba una consulta directamente en el campo **Consulta de regla**. Esta consulta le avisará cuando haya dos o más inicios de sesión incorrectos en su inquilino de Azure AD B2C en un plazo de 60 segundos y se organizará mediante la propiedad `UserPrincipalName`.
+    ![Captura de pantalla que muestra las propiedades básicas de una regla.](./media/azure-sentinel/create-new-rule.png)
 
-![imagen que muestra la indicación de la consulta de regla en la pestaña de la lógica](./media/azure-sentinel/rule-query.png)
+4. Para definir la lógica de consulta de regla y configurar las opciones, en la pestaña **Establecer lógica de regla**, escriba una consulta directamente en el cuadro **Consulta de regla**. 
 
-En la sección Query scheduling (Programación de consultas), establezca los siguientes parámetros:
+    ![Captura de pantalla que muestra cómo especificar la consulta de regla en la pestaña para establecer la lógica de regla.](./media/azure-sentinel/rule-query.png)
 
-![imagen que muestra el establecimiento de los parámetros de programación de la consulta](./media/azure-sentinel/query-scheduling.png)
+    Esta consulta le avisará cuando haya dos o más inicios de sesión incorrectos en su inquilino de Azure AD B2C en un plazo de 60 segundos. Organizará los inicios de sesión por `UserPrincipalName`.
 
-5. Seleccione **Siguiente: configuración de incidentes (versión preliminar)** . Configurará y agregará la respuesta automatizada más adelante.
+5. En la sección **Query scheduling** (Programación de consultas), establezca los siguientes parámetros:
 
-6. Haga clic en la pestaña **Revisar y crear** para revisar todos los valores de configuración de la nueva regla de alerta. Cuando aparezca el mensaje **Validación superada**, seleccione **Crear** para inicializar la regla de alerta.
+    ![Captura de pantalla que muestra cómo establecer parámetros de programación de consultas.](./media/azure-sentinel/query-scheduling.png)
 
-![imagen de la revisión y creación de la regla](./media/azure-sentinel/review-create.png)
+6. Seleccione **Siguiente: configuración de incidentes (versión preliminar)** . Configurará y agregará la respuesta automatizada más adelante.
 
-7. Vea la regla y los incidentes que genera. Puede encontrar la regla personalizada recién creada de tipo **Programado** en la tabla en la pestaña **Reglas activas** de la pantalla **Análisis** principal. Desde esta lista puede **editar**, **habilitar**, **deshabilitar** o **eliminar** reglas.
+7. Haga clic en la pestaña **Revisar y crear** para revisar todos los valores de configuración de la nueva regla de alerta. Cuando aparezca el mensaje **Validación superada**, seleccione **Crear** para inicializar la regla de alerta.
 
-![imagen de la pantalla "Análisis" en la que se muestran las opciones para editar, habilitar, deshabilitar o eliminar reglas](./media/azure-sentinel/rule-crud.png)
+    ![Captura de pantalla que muestra la pestaña para revisar y crear una regla.](./media/azure-sentinel/review-create.png)
 
-8. Vea los resultados de la nueva regla de inicios de sesión incorrectos de Azure AD B2C. Vaya a la página **Incidentes**, donde puede realizar la evaluación de prioridades, investigar y corregir las amenazas. Un incidente puede incluir varias alertas, a modo de agregado de todas las pruebas relevantes en una investigación en concreto. Puede establecer propiedades como la gravedad y el estado en el nivel de incidente.
+8. Vea la regla y los incidentes que genera. Puede encontrar la regla personalizada recién creada de tipo **Programado** en la tabla en la pestaña **Reglas activas** de la pantalla **Análisis** principal. Desde esta lista puede editar, habilitar, deshabilitar o eliminar reglas con los botones correspondientes.
 
->[!Note]
->Una característica clave de Azure Sentinel es la [investigación de incidentes](../sentinel/investigate-cases.md).
+    ![Captura de pantalla que muestra las reglas activas con opciones para editar, habilitar, deshabilitar o eliminar.](./media/azure-sentinel/rule-crud.png)
 
-9. Para iniciar la investigación, seleccione un incidente específico. A la derecha, puede ver información detallada del incidente, como su gravedad, las entidades implicadas, los eventos sin procesar que lo han desencadenado y su identificador único.
+9. Vea los resultados de la nueva regla para inicios de sesión incorrectos de Azure AD B2C. Vaya a la página **Incidentes**, donde puede realizar la evaluación de prioridades, investigar y corregir las amenazas. 
 
-![imagen de la pantalla alt-text="incident](./media/azure-sentinel/select-incident.png)
+    Un incidente puede incluir varias alertas, a modo de agregado de todas las pruebas relevantes en una investigación en concreto. Puede establecer propiedades como la gravedad y el estado en el nivel de incidente.
 
-10. Seleccione **Ver detalles completos** en la página del incidente y revise las pestañas correspondientes donde se resume la información del incidente y se proporcionan más detalles.
+    > [!NOTE]
+    > Una característica clave de Azure Sentinel es la [investigación de incidentes](../sentinel/investigate-cases.md).
+    
+10. Para iniciar una investigación, seleccione un incidente específico. 
 
-![imagen de la regla 73](./media/azure-sentinel/full-details.png)
+    A la derecha, puede ver información detallada del incidente. Entre esa información se incluye su gravedad, las entidades implicadas, los eventos sin procesar que lo han desencadenado y su identificador único.
 
-11. Seleccione **Evidencia** > **Eventos** > **Vincular a Log Analytics**. En los resultados se mostrará la propiedad `UserPrincipalName` de la identidad que ha tratado de iniciar sesión con el número de intentos.
+    ![Captura de pantalla que muestra la información del incidente.](./media/azure-sentinel/select-incident.png)
 
-![imagen de los detalles del incidente seleccionado](./media/azure-sentinel/logs.png)
+11. Seleccione **Ver detalles completos** en el panel del incidente. Revise las pestañas que resumen la información del incidente y proporcionan más detalles.
+
+    ![Captura de pantalla que muestra las pestañas de información del incidente.](./media/azure-sentinel/full-details.png)
+
+12. Seleccione **Evidencia** > **Eventos** > **Vincular a Log Analytics**. En los resultados se muestra el valor `UserPrincipalName` de la identidad que ha tratado de iniciar sesión con el número de intentos.
+
+    ![Captura de pantalla que muestra todos los detalles de un incidente seleccionado.](./media/azure-sentinel/logs.png)
 
 ## <a name="automated-response"></a>Respuesta automatizada
 
-Azure Sentinel proporciona una [sólida funcionalidad SOAR](../sentinel/automation-in-azure-sentinel.md). Es posible adjuntar acciones automatizadas, denominadas cuadernos de estrategias en Azure Sentinel, a reglas de análisis para satisfacer sus requisitos.
+Azure Sentinel proporciona una [sólida funcionalidad SOAR](../sentinel/automation-in-azure-sentinel.md). Es posible adjuntar acciones automatizadas, denominadas *cuadernos de estrategias* en Azure Sentinel, a reglas de análisis para satisfacer sus requisitos.
 
-En este ejemplo, se agrega una notificación por correo electrónico tras un incidente creado por la regla. Use un [cuaderno de estrategias existente del repositorio de GitHub de Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Incident-Email-Notification) para realizar esta tarea. Una vez configurado el cuaderno de estrategias, solo tendrá que editar la regla existente y seleccionar el cuaderno de estrategias en la pestaña Automatización.
+En este ejemplo, se agrega una notificación por correo electrónico para un incidente que crea la regla. Para realizar esta tarea, use un [cuaderno de estrategias existente del repositorio de GitHub de Azure Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Incident-Email-Notification). Una vez configurado el cuaderno de estrategias, edite la regla existente y seleccione el cuaderno de estrategias en la pestaña **Respuesta automática**.
 
-![imagen de la pantalla de configuración de la respuesta automatizada asociada a una regla](./media/azure-sentinel/automation-tab.png)
+![Captura de pantalla que muestra la pantalla de configuración de la imagen para la respuesta automatizada asociada a una regla.](./media/azure-sentinel/automation-tab.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="related-information"></a>Información relacionada
 
-- [Control de falsos positivos en Azure Sentinel](../sentinel/false-positives.md)
+Para más información sobre Azure Sentinel y Azure AD B2C, consulte:
 
 - [Libros de ejemplo](https://github.com/azure-ad-b2c/siem#workbooks)
 
 - [Documentación de Azure Sentinel](../sentinel/index.yml)
+
+## <a name="next-steps"></a>Pasos siguientes
+
+> [!div class="nextstepaction"]
+> [Control de falsos positivos en Azure Sentinel](../sentinel/false-positives.md)

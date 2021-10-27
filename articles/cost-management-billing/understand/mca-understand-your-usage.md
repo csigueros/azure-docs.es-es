@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 10/13/2021
 ms.author: banders
-ms.openlocfilehash: 4e494b38bea9b799a6a2ee82b3fbb9847446d699
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: db7dbf6da5405b0b86a6231b31572cfeaffe12f0
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128611716"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000202"
 ---
 # <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Términos en el archivo de uso y cargos de Azure para un contrato de cliente de Microsoft
 
@@ -97,7 +97,7 @@ Id. de suscripción | Identificador único para la suscripción que acumula los 
 subscriptionName | Nombre de la suscripción que acumula los cargos
 reservationId | Identificador único de la instancia de la reserva comprada
 reservationName | Nombre de la instancia de la reserva comprada
-publisherType | Tipo de publicador (valores: firstParty, thirdPartyReseller, thirdPartyAgency)
+publisherType | Costos de Microsoft/Azure, Marketplace y AWS.  Los valores son `Microsoft` para cuentas del Contrato de cliente de Microsoft y `Azure` para cuentas de EA y de pago por uso.
 publisherName | Publicador de los servicios de Marketplace
 ResourceGroupId | Nombre del grupo de recursos de Azure asociado al recurso
 resourceGroupName | Nombre del grupo de recursos asociado al recurso

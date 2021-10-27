@@ -2,19 +2,19 @@
 title: Consulta de archivos con el formato Delta Lake mediante un grupo de SQL sin servidor (versión preliminar)
 description: En este artículo, aprenderá a consultar archivos almacenados en formato Apache Delta Lake mediante un grupo de SQL sin servidor.
 services: synapse analytics
-author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 04/27/2021
+ms.date: 07/15/2021
+author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick
-ms.openlocfilehash: 096cee4aca9830acf9e74d3d60d08e6a79590cb4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.reviewer: jrasnick, wiassaf
+ms.openlocfilehash: c06826fa8d08a06ed49bdd56e86c999aff849899
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745045"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002841"
 ---
 # <a name="query-delta-lake-files-preview-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Consulta de archivos de Delta Lake (versión preliminar) mediante un grupo de SQL sin servidor en Azure Synapse Analytics
 
@@ -174,7 +174,8 @@ El segundo argumento de la función `DeltaTable.convertToDeltaLake` representa l
 
 ## <a name="limitations"></a>Limitaciones
 
-Esta característica está en versión preliminar pública y hay algunos problemas conocidos y limitaciones. Revise los problemas conocidos en la [página de autoayuda del grupo de SQL sin servidor de Synapse](resources-self-help-sql-on-demand.md#delta-lake).
+- Esta característica está en versión preliminar pública y hay algunos problemas conocidos y limitaciones. Revise los problemas conocidos en la [página de autoayuda del grupo de SQL sin servidor de Synapse](resources-self-help-sql-on-demand.md#delta-lake).
+- Actualmente, tanto el grupo de Spark como el grupo de SQL sin servidor en Azure Synapse Analytics admiten el formato Delta Lake. Los grupos de SQL sin servidor no admiten la actualización de archivos de Delta Lake. Solo las tablas en formato Parquet se comparten entre grupos de Spark y un grupo de SQL sin servidor. Para más información, consulte [Tablas compartidas de Spark](../metadata/table.md#shared-spark-tables).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

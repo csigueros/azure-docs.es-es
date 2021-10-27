@@ -4,12 +4,12 @@ ms.author: cherylmc
 ms.date: 08/30/2021
 ms.service: virtual-wan
 ms.topic: include
-ms.openlocfilehash: ebaa86a60ae11c50658bfcfe58bbd0184bf15576
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c52c00dd8fa834775a01162e2506f1821b0dcdae
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128699720"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130173379"
 ---
 1. En [Azure Portal](https://portal.azure.com), vaya a la máquina virtual a la que desea conectarse. En la página **Información general**, seleccione **Conectar** y, luego, seleccione **Bastion** del menú desplegable.
 
@@ -29,4 +29,4 @@ ms.locfileid: "128699720"
 
 1. La conexión RDP con esta máquina virtual a través de Bastion se abrirá directamente en Azure Portal (a través de HTML5) mediante el puerto 443 y el servicio Bastion. 
 
-   Es posible que el uso de teclas de método abreviado de teclado mientras está conectado a una máquina virtual no tenga el mismo comportamiento que las teclas de método abreviado en un equipo local. Por ejemplo, desde un ordenador cliente de Windows conectado a una máquina virtual de Windows, "CTRL+ALT+FIN" es el método abreviado de teclado para "CTRL+ALT+Suprimir". Desde un ordenador cliente Mac conectado a una máquina virtual de Windows, el método abreviado de teclado es "Fn+CTRL+ALT+Retroceso".
+   Tenga en cuenta que el uso de teclas de método abreviado mientras se está conectado a una máquina virtual no se traduce en el mismo comportamiento que las teclas de método abreviado en un equipo local. Por ejemplo, desde un ordenador cliente de Windows conectado a una máquina virtual de Windows, "CTRL+ALT+FIN" es el método abreviado de teclado para "CTRL+ALT+Suprimir". Desde un ordenador cliente Mac conectado a una máquina virtual de Windows, el método abreviado de teclado es "Fn+CTRL+ALT+Retroceso".

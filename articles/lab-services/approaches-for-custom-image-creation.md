@@ -1,14 +1,14 @@
 ---
-title: 'Azure Lab Services: Enfoques recomendados para crear imágenes personalizadas para laboratorios'
+title: Enfoques recomendados para crear imágenes personalizadas para laboratorios
 description: En este artículo se describen los enfoques para crear imágenes personalizadas para laboratorios.
 ms.date: 07/27/2021
-ms.topic: article
-ms.openlocfilehash: 621456c910b5137ed14a77d8d2cfeb9664910fa9
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.topic: how-to
+ms.openlocfilehash: 47a97633b74129e8d44cba9844a65c6e95bd2c61
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450653"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177182"
 ---
 # <a name="recommended-approaches-for-creating-custom-images"></a>Enfoques recomendados para crear imágenes personalizadas
 En este artículo se describen estos enfoques recomendados para crear una imagen personalizada:

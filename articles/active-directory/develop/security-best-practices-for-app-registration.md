@@ -12,12 +12,12 @@ ms.date: 07/8/2021
 ms.custom: template-concept
 ms.author: cchiedo
 ms.reviewer: saumadan, marsma
-ms.openlocfilehash: 55633a1a3a6f4377abbfc413d866af031f57a31c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7c3398b6f7a2f4de99adfbdf137886278e69a007
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121742911"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130071724"
 ---
 # <a name="azure-ad-application-registration-security-best-practices"></a>Procedimientos recomendados sobre la seguridad de registros de aplicación de Azure AD
 
@@ -83,15 +83,9 @@ Aunque resulta práctico usar secretos de contraseña como credencial, le recome
 ## <a name="appid-uri-configuration"></a>Configuración del URI de AppId
 
 Determinadas aplicaciones pueden exponer recursos (a través de WebAPI) y, por tanto, deben definir un URI de AppId que identifique de forma única el recurso en un inquilino. Le recomendamos usar cualquiera de los siguientes esquemas de URI (API o HTTPS) y establecer el URI de AppId en los siguientes formatos, para evitar conflictos de URI en su organización.
+El URI de AppId actúa como prefijo para los ámbitos a los que se hace referencia en el código de la API y debe usar un dominio comprobado propiedad del cliente. Para las aplicaciones multiinquilino, el valor también debe ser único globalmente.
 
-**Esquemas de API válidos:**
-
-- api:// _{appId}_
-- api:// _{tenantId}/{appId}_
-- api:// _{tenantId}/{string}_
-- https:// _{verifiedCustomerDomain}/{string}_
-- https:// _{string}.{verifiedCustomerDomain}_
-- https:// _{string}.{verifiedCustomerDomain}/{string}_
+[!INCLUDE [active-directory-identifierUri](../../../includes/active-directory-identifier-uri-patterns.md)]
 
 ![URI de Id. de aplicación](media/active-directory-application-registration-best-practices/app-id-uri.png)
 
@@ -102,6 +96,7 @@ Determinadas aplicaciones pueden exponer recursos (a través de WebAPI) y, por t
 | Evitar conflictos usando formatos de URI válidos | Usar un URI de AppId con caracteres comodín |
 | Usar un dominio verificado en aplicaciones de línea de negocio (LoB) | Usar URI con un formato incorrecto    |
 | Hacer inventario de sus URI de AppId                    |      -----             |
+| Usar el URI de AppId para exponer WebApi en la organización| Usar el URI de AppId para identificar la aplicación y, en su lugar, usar la propiedad appId|
 
 ## <a name="app-ownership-configuration"></a>Configuración de la propiedad de la aplicación
 

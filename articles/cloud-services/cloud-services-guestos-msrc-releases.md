@@ -11,17 +11,72 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/8/2021
+ms.date: 10/18/2021
 ms.author: gunnarc
-ms.openlocfilehash: 76807a8f653de9a48c91c5d6429869ae0e5c9312
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 194e425ca62cbe36fa163efaf88a75fb7e1f09f9
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129728881"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130175890"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se realizan para la [familia][family-explain] determinada en la que se introdujeron.
+
+>[!NOTE] 
+
+>El sistema operativo invitado de octubre se está implementando actualmente en las máquinas virtuales del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Las revisiones siguientes se incluyen en el sistema operativo invitado de octubre. Esta lista está sujeta a cambios. 
+
+## <a name="october-2021-guest-os"></a>SO invitado de octubre de 2021
+| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+|  Versión 21-10 |  [5006672]  |  Actualización acumulativa más reciente (LCU) | 6.36 | 12 de octubre de 2021 |
+|  Versión 21-10 |  [5006671]  |  Actualizaciones acumulativas de IE | 2.115, 3.102, 4.95 | 12 de octubre de 2021 |
+|  Versión 21-10 |  [5006699]  |  Actualizaciones acumulativas de IE | 7.00 | 12 de octubre de 2021 |
+|  Versión 21-10 |  [5006669]  |  Actualización acumulativa más reciente (LCU) | 5.60 | 12 de octubre de 2021 |
+|  Versión 21-10 |  [4578952]  |  Acumulación de seguridad y calidad de .NET Framework 3.5  | 2.115 | 16 de febrero de 2021 |
+|  Versión 21-10 |  [4578955]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2  | 2.115 | 8 de junio de 2021 |
+|  Versión 21-10 |  [4578953]  |  Acumulación de seguridad y calidad de .NET Framework 3.5  | 4.95 | 16 de febrero de 2021 |
+|  Versión 21-10 |  [4578956]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2  | 4.95 | 16 de febrero de 2021 |
+|  Versión 21-10 |  [4578950]  |  Acumulación de seguridad y calidad de .NET Framework 3.5  | 3.102 | 16 de febrero de 2021 |
+|  Versión 21-10 |  [4578954]  |  . Acumulación de seguridad y calidad de .NET Framework 4.5.2  | 3.102 | 16 de febrero de 2021 |
+|  Versión 21-10 |  [5004335]  |  . Actualización acumulativa de .NET Framework 3.5 y 4.7.2  | 6.36 | 10 de agosto de 2021 |
+|  Versión 21-10 |  [5006743]  |  Acumulación mensual  | 2.115 | 14 de septiembre de 2021 |
+|  Versión 21-10 |  [5006739]  |  Acumulación mensual  | 3.102 | 14 de septiembre de 2021 |
+|  Versión 21-10 |  [5006714]  |  Acumulación mensual  | 4.95 | 14 de septiembre de 2021 |
+|  Versión 21-10 |  [5001401]  |  Actualización de la pila de servicio  | 3.102 | 13 de abril de 2021 |
+|  Versión 21-10 |  [5001403]  |  Actualización de la pila de servicio  | 4.95 | 13 de abril de 2021 |
+|  Versión 21-10 OOB |  [4578013]  |  Actualización de seguridad independiente  | 4.95 | 19 de agosto de 2020 |
+|  Versión 21-10 |  [5005698]  |  Actualización de la pila de servicio  | 5.60 | 14 de septiembre de 2021 |
+|  Versión 21-10 |  [5006749]  |  Actualización de la pila de servicio  | 2.115 | 13 de julio de 2021 |
+|  Versión 21-10 |  [5005701]  |  Actualización de la pila de servicio  | 6.36 | 10 de agosto de 2021 |
+|  Versión 21-10 |  [4494175]  |  Microcódigo  | 5.60 | 1 de septiembre de 2020 |
+|  Versión 21-10 |  [4494174]  |  Microcódigo  | 6.36 | 1 de septiembre de 2020 |
+
+[5006672]: https://support.microsoft.com/kb/5006672
+[5006671]: https://support.microsoft.com/kb/5006671
+[5006699]: https://support.microsoft.com/kb/5006699
+[5006669]: https://support.microsoft.com/kb/5006669
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[5004335]: https://support.microsoft.com/kb/5004335
+[5006743]: https://support.microsoft.com/kb/5006743
+[5006739]: https://support.microsoft.com/kb/5006739
+[5006714]: https://support.microsoft.com/kb/5006714
+[5001401]: https://support.microsoft.com/kb/5001401
+[5001403]: https://support.microsoft.com/kb/5001403
+[4578013]: https://support.microsoft.com/kb/4578013
+[5005698]: https://support.microsoft.com/kb/5005698
+[5006749]: https://support.microsoft.com/kb/5006749
+[5005701]: https://support.microsoft.com/kb/5005701
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+
+
 
 ## <a name="september-2021-guest-os"></a>SO invitado de septiembre de 2021
 

@@ -4,12 +4,12 @@ description: Restaure una máquina virtual de Azure desde un punto de recuperaci
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/27/2021
-ms.openlocfilehash: cbe511388755e31a2d295a4cf8ed58e78c9afdc2
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 2c3dac941e766ae2d3889b3800e0b6864df16ebc
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129079530"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047915"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Restauración de datos de máquinas virtuales de Azure en Azure Portal
 
@@ -192,6 +192,14 @@ Actualmente, la región secundaria [RPO](azure-backup-glossary.md#rpo-recovery-p
 Se pueden restaurar las [máquinas virtuales ancladas de la zona de Azure](../virtual-machines/windows/create-portal-availability-zone.md) en cualquier [zona de disponibilidad](../availability-zones/az-overview.md) de la misma región.
 
 En el proceso de restauración, verá la opción **Zona de disponibilidad.** Verá la zona predeterminada en primer lugar. Para elegir otra zona, elija el número de la zona de su elección. Si la zona anclada no está disponible, no podrá restaurar los datos en otra zona porque los datos de copia de seguridad no se replican de forma zonal. La restauración en zonas de disponibilidad es posible desde puntos de recuperación solo en el nivel de almacén.
+
+En resumen, la **zona de disponibilidad** solo aparecerá cuando
+ - La máquina virtual de origen está anclada a una zona y NO está cifrada
+ - El punto de recuperación solo está presente en el nivel de almacén (no se admiten solo instantáneas ni nivel de instantánea y almacén).
+ - La opción de recuperación es crear una nueva máquina virtual o restaurar discos (la opción reemplazar discos reemplaza los datos de origen y, por tanto, la opción de zona de disponibilidad no es aplicable).
+ - La creación de máquinas virtuales o discos en la misma región cuando la redundancia de almacenamiento del almacén es almacenamiento con redundancia de zona (no funciona cuando la redundancia de almacenamiento del almacén es almacenamiento con redundancia geográfica aunque la máquina virtual de origen esté anclada a la zona).
+ - La creación de máquinas virtuales o discos en la región emparejada cuando la redundancia de almacenamiento del almacén está habilitada para la restauración entre regiones Y si la región emparejada admite zonas.
+
 
 ![Elección de zona de disponibilidad](./media/backup-azure-arm-restore-vms/cross-zonal-restore.png)
 

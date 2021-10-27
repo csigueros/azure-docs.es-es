@@ -10,17 +10,17 @@ ms.subservice: verifiable-credentials
 ms.date: 07/20/2021
 ms.author: baselden
 ms.custom: references_regions
-ms.openlocfilehash: 0bc7f6a01dc2e537e91f162ba76eb6e505518747
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 984b680c207c8c7e6bf404a7ced08f2fdcfd7b71
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121746010"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129984447"
 ---
-# <a name="plan-your-azure-active-directory-verifiable-credentials--verification-solution-preview"></a>Planeación de una solución de comprobación de Azure Active Directory Verifiable Credentials (versión preliminar)
+# <a name="plan-your-azure-active-directory-verifiable-credentials--verification-solution-preview"></a>Planeación de una solución de comprobación de credenciales verificables de Azure Active Directory (versión preliminar)
 
 >[!IMPORTANT]
-> Las credenciales verificables de Azure Active Directory son una característica que se encuentra actualmente en versión preliminar. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Active Directory Verifiable Credentials se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 El servicio Azure Active Directory Verifiable Credentials (Azure AD VC) de Microsoft le permite confiar en las pruebas de identidad de los usuarios sin expandir los límites de confianza, mediante la creación de cuentas o la federación con otro proveedor de identidades. Al usar credenciales verificables basadas en un estándar abierto, un intercambio de comprobación permite a las aplicaciones solicitar credenciales que no están enlazadas a un dominio específico. Esto facilita la solicitud y comprobación de credenciales a gran escala.
 
@@ -264,7 +264,7 @@ Puede usar la información de las credenciales verificables presentadas para cre
 
 ## <a name="plan-for-performance"></a>Planeación del rendimiento
 
-Al igual que sucede con cualquier solución, debe planear el rendimiento. Entre las áreas donde enfocarse se incluyen la latencia, el rendimiento, el almacenamiento y la escalabilidad. Durante las fases iniciales de un ciclo de publicación, el rendimiento no debería ser una inquietud. Aun así, cuando la adopción de la solución de emisión conlleve la emisión de muchas credenciales verificables, la planeación del rendimiento podría convertirse en parte crítica de la solución.
+Al igual que sucede con cualquier solución, debe planear el rendimiento. Entre las áreas donde enfocarse se incluyen la latencia, el rendimiento, el almacenamiento y la escalabilidad. Durante las fases iniciales de un ciclo de publicación, el rendimiento no debería ser una inquietud. Aun así, cuando la adopción de la solución de emisión conlleva que se emitan muchas credenciales verificables, la planeación del rendimiento podría convertirse en una parte crítica de la solución.
 
 A continuación se indican las áreas que debe tener en cuenta al planear el rendimiento:
 

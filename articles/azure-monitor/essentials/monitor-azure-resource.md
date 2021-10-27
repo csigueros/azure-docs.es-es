@@ -4,13 +4,13 @@ description: Describe cómo recopilar y analizar los datos de supervisión de lo
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/08/2019
-ms.openlocfilehash: cb778d826ef094d71fd27f3c10bc1f2c292baa47
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.date: 10/14/2021
+ms.openlocfilehash: fa5a417ef79cf0e11fa50c280dfea768d5e61f40
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107862406"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064274"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Supervisión de recursos de Azure con Azure Monitor
 Si tiene aplicaciones y procesos empresariales críticos que dependen de recursos de Azure, querrá supervisar esos recursos para su disponibilidad, rendimiento y funcionamiento. En este artículo se describen los datos de supervisión generados por los recursos de Azure y cómo puede usar las características de Azure Monitor para analizar y alertar sobre estos datos.
@@ -31,11 +31,11 @@ El análisis de los datos de supervisión que se recopilan de forma predetermina
 - Recopilación del registro de actividad y su análisis en Azure Portal.
 - Creación de una regla de alerta de registro de actividad.
 
-No hay ningún costo de Azure Monitor para recopilar y exportar registros y métricas, pero puede haber costos relacionados asociados con el destino:
+Recopilar y exportar métricas no tiene ningún costo de Azure Monitor. Puede haber cargos por exportar determinadas categorías de registros de recursos, como se muestra en [Categorías admitidas para el registro de recursos](/azure/azure-monitor/essentials/resource-logs-categories). También puede haber costos relacionados asociados con el destino que elija para las métricas y los registros:
 
-- Costos asociados con la ingesta de datos y la retención al recopilar registros y métricas en el área de trabajo de Log Analytics. Consulte [Precios de Azure Monitor para Log Analytics](https://azure.microsoft.com/pricing/details/monitor/).
-- Costos asociados con el almacenamiento de datos al recopilar registros y métricas en una cuenta de almacenamiento de Azure. Consulte [Precios de Azure Storage para Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
-- Costos asociados con el streaming de Event Hubs al reenviar registros y métricas a Azure Event Hubs. Consulte [Precios de Azure Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
+- Costos asociados con la ingesta de datos y la retención al recopilar métricas y registros en el área de trabajo de Log Analytics. Consulte [Precios de Azure Monitor para Log Analytics](https://azure.microsoft.com/pricing/details/monitor/).
+- Costos asociados con el almacenamiento de datos al recopilar métricas y registros en una cuenta de almacenamiento de Azure. Consulte [Precios de Azure Storage para Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
+- Costos asociados con el streaming de Event Hubs al reenviar métricas y registros a Azure Event Hubs. Consulte [Precios de Azure Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 Puede haber costos de Azure Monitor asociados con lo siguiente. Consulte [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/):
 

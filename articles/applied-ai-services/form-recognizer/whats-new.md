@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: lajanuar
-ms.openlocfilehash: 401c9d08efd6be33d4444d34ba7a2a6c89723a6b
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: ddecc748443a6596c611fae857301e1f80f57a66
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129715100"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130039379"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
@@ -33,7 +33,7 @@ El servicio Form Recognizer se actualiza de forma continuada. Marque esta págin
 * El modelo de id. de [**campos ampliados de documento de identificación**](concept-id-document.md) admite aprobaciones, restricciones y la extracción de clasificación de vehículos de permisos de conducir de EE. UU.
 * [**Campo de firma**](concept-custom.md) es un nuevo tipo de campo en formularios personalizados para detectar la presencia de una firma en un campo de formulario.
 
-* [**Expansión de idiomas**](language-support.md) Compatibilidad con 122 idiomas (impresión) y 7 idiomas (manuscritos). El diseño y el formulario personalizado de Form Recognizer amplían los [idiomas admitidos](language-support.md) a 122 con su versión preliminar más reciente. Incluye la extracción de texto con texto impreso en 49 nuevos idiomas, entre los que se incluyen el ruso y el búlgaro, así como otros idiomas cirílicos y procedentes del latín. Además, la extracción de texto manuscrito ahora admite 7 idiomas que incluyen inglés y nuevas versiones preliminares de chino simplificado, francés, alemán, italiano, portugués y español.
+* [**Expansión de idiomas**](language-support.md) Compatibilidad con 122 idiomas (impresión) y 7 idiomas (manuscritos). El diseño y el formulario personalizado de Form Recognizer amplían los [idiomas admitidos](language-support.md) a 122 con su versión preliminar más reciente. Incluye la extracción de texto con texto impreso en 49 nuevos idiomas, entre los que se incluyen el ruso y el búlgaro, así como otros idiomas cirílicos y procedentes del latín. Además, la extracción de texto manuscrito ahora admite 7 idiomas que incluyen inglés y nuevas versiones preliminares de chino simplificado, francés, alemán, italiano, portugués y español.
 
 * **Mejoras en las tablas y la extracción de texto** El diseño ahora admite la extracción de tablas de una sola fila también denominadas tablas de clave-valor. Las mejoras de extracción de texto incluyen un mejor procesamiento de archivos PDF digitales y texto de zona legible por máquina (MRZ) en documentos de identidad, junto con el rendimiento general.
 
@@ -423,7 +423,7 @@ Paquete pip, versión 3.1.0b4
 
     Además de etiquetar tablas, ahora puede etiquetar regiones y valores vacíos. Si algunos documentos del conjunto de entrenamiento no tienen valores para determinados campos, puede etiquetarlos para que el modelo sepa que se van a extraer los valores correctamente de los documentos analizados.
 
-* **Compatibilidad con 66 nuevos idiomas**: la API de diseño de Form Recognizer y los modelos personalizados ahora admiten 73 idiomas.
+* **Compatibilidad con 66 nuevos idiomas**: la API de diseño y los modelos personalizados de Form Recognizer ahora admiten 73 idiomas.
 
   [Más información sobre la compatibilidad con idiomas de Form Recognizer](language-support.md)
 

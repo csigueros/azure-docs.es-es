@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/25/2021
+ms.date: 10/15/2021
 ms.author: rolyon
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: af88edbb788afa3576d3317d4e1cd54dea6f4deb
-ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
+ms.openlocfilehash: b4801d18454ad93c4ffa7284ab5bfaabea254cd1
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112988074"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074216"
 ---
 # <a name="assign-a-user-as-an-administrator-of-an-azure-subscription"></a>Asignación de un usuario como administrador de una suscripción de Azure
 
@@ -49,11 +49,11 @@ Para que un usuario sea administrador de una suscripción de Azure, asígnele el
 
 1. Haga clic en la pestaña **Asignaciones de roles** para ver todas las asignaciones de roles en este ámbito.
 
-1. Haga clic en **Agregar** > **Agregar asignación de roles (versión preliminar)** .
+1. Haga clic en **Agregar** > **Agregar asignación de roles**.
 
    Si no tiene permisos para asignar roles, la opción Agregar asignación de roles se deshabilitará.
 
-    ![Captura de pantalla del menú Agregar > Agregar asignación de roles en la experiencia con la versión preliminar.](./media/shared/add-role-assignment-menu-preview.png)
+    ![Captura de pantalla del menú Agregar > Agregar asignación de roles.](./media/shared/add-role-assignment-menu.png)
 
     Se abre la página Agregar asignación de roles.
 
@@ -65,7 +65,7 @@ El rol [Propietario](built-in-roles.md#owner) permite conceder acceso total para
 
     Puede buscar un rol por nombre o por descripción. También puede filtrar los roles por tipo y categoría.
 
-   ![Captura de pantalla de la página Agregar asignación de roles con la pestaña Roles de la experiencia con la versión preliminar.](./media/shared/roles.png)
+   ![Captura de pantalla de la página Agregar asignación de roles con la pestaña Roles.](./media/shared/roles.png)
 
 1. Haga clic en **Next**.
 
@@ -73,7 +73,7 @@ El rol [Propietario](built-in-roles.md#owner) permite conceder acceso total para
 
 1. En la pestaña **Miembros**, seleccione **Usuario, grupo o entidad de servicio**.
 
-   ![Captura de pantalla de la página Agregar asignación de roles con la pestaña Agregar miembros de la experiencia con la versión preliminar.](./media/shared/members.png)
+   ![Captura de pantalla de la página Agregar asignación de roles con la pestaña Agregar miembros.](./media/shared/members.png)
 
 1. Haga clic en **Seleccionar miembros**.
 
@@ -81,7 +81,7 @@ El rol [Propietario](built-in-roles.md#owner) permite conceder acceso total para
 
     Puede escribir en el cuadro **Seleccionar** para buscar en el directorio por nombre para mostrar o dirección de correo electrónico.
 
-   ![Captura de pantalla del panel Seleccionar miembros de la experiencia con la versión preliminar.](./media/shared/select-members.png)
+   ![Captura de pantalla del panel Seleccionar miembros.](./media/shared/select-members.png)
 
 1. Haga clic en **Guardar** para agregar el usuario a la lista Miembros.
 
@@ -99,7 +99,7 @@ El rol [Propietario](built-in-roles.md#owner) permite conceder acceso total para
 
    Transcurridos unos instantes, al usuario se le asigna el rol Propietario para la suscripción.
 
-    ![Captura de pantalla de la lista de asignaciones de roles después de asignar el rol en la experiencia con la versión preliminar.](./media/role-assignments-portal-subscription-admin/sub-role-assignments-owner.png)
+    ![Captura de pantalla de la lista de asignación de roles después de asignar el rol.](./media/role-assignments-portal-subscription-admin/sub-role-assignments-owner.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

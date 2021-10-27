@@ -2,13 +2,13 @@
 title: Uso de Bicep para implementar recursos en un grupo de administración
 description: Describe cómo crear un archivo de Bicep que implementa recursos en el ámbito del grupo de administración.
 ms.topic: conceptual
-ms.date: 07/19/2021
-ms.openlocfilehash: 7c0e2f6682ff5da0e0cc2bd3b7f16b3ab23af476
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/18/2021
+ms.openlocfilehash: 8e198f923e864b0919f20cb4d0ef6579bb375ec4
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128659899"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178329"
 ---
 # <a name="management-group-deployments-with-bicep-files"></a>Implementaciones de grupos de administración con archivos de Bicep
 
@@ -201,7 +201,7 @@ O bien, puede establecer el ámbito en `/` para algunos tipos de recursos, como 
 
 ## <a name="management-group"></a>Grupo de administración
 
-Para crear un grupo de administración en una implementación de grupos de administración, debe establecer el ámbito en `/` para el grupo.
+Para crear un grupo de administración en una implementación de grupos de administración, debe establecer el ámbito en inquilino.
 
 En el ejemplo siguiente se crea un grupo de administración en el grupo de administración raíz.
 
@@ -219,13 +219,12 @@ resource newMG 'Microsoft.Management/managementGroups@2020-05-01' = {
 output newManagementGroup string = mgName
 ```
 
-En el ejemplo siguiente se crea un grupo de administración en el grupo de administración especificado como primario.
+En el ejemplo siguiente se crea un grupo de administración en el grupo de administración destinado a la implementación. Usa la [función de grupo de administración](bicep-functions-scope.md#managementgroup).
 
 ```bicep
 targetScope = 'managementGroup'
 
 param mgName string = 'mg-${uniqueString(newGuid())}'
-param parentMGName string
 
 resource newMG 'Microsoft.Management/managementGroups@2020-05-01' = {
   scope: tenant()
@@ -233,15 +232,10 @@ resource newMG 'Microsoft.Management/managementGroups@2020-05-01' = {
   properties: {
     details: {
       parent: {
-        id: parentMG.id
+        id: managementGroup().id
       }
     }
   }
-}
-
-resource parentMG 'Microsoft.Management/managementGroups@2020-05-01' existing = {
-  name: parentMGName
-  scope: tenant()
 }
 
 output newManagementGroup string = mgName

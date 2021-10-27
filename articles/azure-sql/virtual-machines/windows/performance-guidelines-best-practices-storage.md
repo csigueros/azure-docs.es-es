@@ -3,7 +3,7 @@ title: 'Almacenamiento: procedimientos recomendados y guías de rendimiento'
 description: En este artículo se proporcionan los procedimientos recomendados y guías de almacenamiento para optimizar el rendimiento de SQL Server en la máquina virtual (VM) de Azure.
 services: virtual-machines-windows
 documentationcenter: na
-author: dplessMSFT
+author: bluefooted
 editor: ''
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/25/2021
-ms.author: dpless
-ms.reviewer: jroth
-ms.openlocfilehash: 86db0ce090c68f1a610aae6c69ed74dcf303416a
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.author: pamela
+ms.reviewer: mathoma
+ms.openlocfilehash: 83d47a3b1d42233df6f90690e88a898feaccb70b
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122635207"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130161505"
 ---
 # <a name="storage-performance-best-practices-for-sql-server-on-azure-vms"></a>Almacenamiento: procedimientos recomendados de rendimiento de SQL Server en VM de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -39,9 +39,9 @@ Revise la siguiente lista de comprobación para obtener una breve descripción d
 - Supervise la aplicación y [determine los requisitos de ancho de banda y latencia de almacenamiento](../../../virtual-machines/premium-storage-performance.md#counters-to-measure-application-performance-requirements) para los archivos de registros, de datos y de tipo tempdb de SQL Server antes de elegir el tipo de disco. 
 - Para optimizar el rendimiento del almacenamiento, planee el uso más alto de IOPS disponible sin almacenamiento en caché, y use el almacenamiento en caché de datos como una característica de rendimiento para realizar lecturas de datos al tiempo que evita el [límite de máquinas virtuales y discos](../../../virtual-machines/premium-storage-performance.md#throttling).
 - Coloque los archivos de datos, de registros y de tipo tempdb en unidades independientes.
-    - Para la unidad de datos, use solo [discos prémium de P30 y P40](../../../virtual-machines/disks-types.md#premium-ssd) para garantizar la disponibilidad del soporte técnico de la caché.
-    - En cuanto a la unidad de registro, planee la capacidad y las pruebas de rendimiento junto al costo mientras se evalúan los [discos prémium P30-P80](../../../virtual-machines/disks-types.md#premium-ssd).
-      - Si se requiere latencia de almacenamiento de submilisegundos, use los [discos Ultra de Azure](../../../virtual-machines/disks-types.md#ultra-disk) para el registro de transacciones. 
+    - Para la unidad de datos, use solo [discos prémium de P30 y P40](../../../virtual-machines/disks-types.md#premium-ssds) para garantizar la disponibilidad del soporte técnico de la caché.
+    - En cuanto a la unidad de registro, planee la capacidad y las pruebas de rendimiento junto al costo mientras se evalúan los [discos prémium P30-P80](../../../virtual-machines/disks-types.md#premium-ssds).
+      - Si se requiere latencia de almacenamiento de submilisegundos, use los [discos Ultra de Azure](../../../virtual-machines/disks-types.md#ultra-disks) para el registro de transacciones.
       - En el caso de las implementaciones de máquinas virtuales de la serie M, considere la posibilidad de usar el [acelerador de escritura](../../../virtual-machines/how-to-enable-write-accelerator.md) en discos Ultra de Azure.
     - Coloque el archivo [tempdb](/sql/relational-databases/databases/tempdb-database) en la unidad SSD local efímera `D:\` para la mayoría de las cargas de trabajo de SQL Server después de elegir el tamaño de VM óptimo. 
       - Si la capacidad de la unidad local no es suficiente para tempdb, considere la posibilidad de cambiar el tamaño de la VM. Consulte las [directivas de almacenamiento en caché de los archivos de datos](#data-file-caching-policies) para obtener más información.
@@ -71,7 +71,7 @@ El tipo de disco depende del tipo de archivo que se hospeda en el disco y de los
 
 Puede elegir el nivel de rendimiento de los discos. Los tipos de discos administrados disponibles como almacenamiento subyacente (que se enumeran al aumentar las capacidades de rendimiento) son las unidades de disco duro (HDD) estándar, las SSD estándar, las unidades de estado sólido (SSD) prémium y los discos Ultra. 
 
-El rendimiento del disco aumenta con la capacidad, agrupada por [etiquetas de disco prémium](../../../virtual-machines/disks-types.md#premium-ssd) como P1 con 4 GiB de espacio y 120 IOPS en P80 con 32 TiB de almacenamiento y 20 000 IOPS. Premium Storage admite una caché de almacenamiento que le permite mejorar el rendimiento de lectura y escritura de algunas cargas de trabajo. Para obtener más información, consulte [Introducción a Managed Disks](../../../virtual-machines/managed-disks-overview.md). 
+El rendimiento del disco aumenta con la capacidad, agrupada por [etiquetas de disco prémium](../../../virtual-machines/disks-types.md#premium-ssds) como P1 con 4 GiB de espacio y 120 IOPS en P80 con 32 TiB de almacenamiento y 20 000 IOPS. Premium Storage admite una caché de almacenamiento que le permite mejorar el rendimiento de lectura y escritura de algunas cargas de trabajo. Para obtener más información, consulte [Introducción a Managed Disks](../../../virtual-machines/managed-disks-overview.md). 
 
 También hay tres [tipos de discos](../../../virtual-machines/managed-disks-overview.md#disk-roles) principales que se deben tener en cuenta para la instancia de SQL Server en la VM de Azure: un disco del sistema operativo, un disco temporal y los discos de datos. Elija cuidadosamente lo que se almacena en la unidad del sistema operativo `(C:\)` y en la unidad temporal efímera `(D:\)`. 
 
@@ -99,6 +99,9 @@ Coloque los archivos de datos y de registro en los discos de datos aprovisionado
 
 Formatee el disco de datos para que use un tamaño de unidad de asignación de 64 KB para todos los archivos de datos ubicados en una unidad que no sea la unidad temporal `D:\` (que tiene un valor predeterminado de 4 KB). Las VM de SQL Server implementadas a través de Azure Marketplace se ofrecen con discos de datos formateados con el tamaño de la unidad de asignación y la intercalación para el bloque de almacenamiento establecido en 64 KB. 
 
+> [!NOTE]
+> También es posible hospedar los archivos de base de datos de SQL Server directamente en [Azure Blob Storage](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure) o en el [almacenamiento SMB](/sql/database-engine/install-windows/install-sql-server-with-smb-fileshare-as-a-storage-option), como el [recurso compartido de archivos prémium de Azure](../../../storage/files/storage-how-to-create-file-share.md), pero se recomienda usar [discos administrados de Azure](../../../virtual-machines/managed-disks-overview.md) para obtener el máximo rendimiento, confiabilidad y disponibilidad de características.
+
 ## <a name="premium-disks"></a>Discos premium
 
 Use discos SSD prémium para los archivos de datos y de registro de las cargas de trabajo de SQL Server de producción. El IOPS, SSD prémium y el ancho de banda de varían según el [tamaño y el tipo de disco](../../../virtual-machines/disks-types.md). 
@@ -109,7 +112,7 @@ En el caso de las cargas de trabajo de OLTP, haga coincidir los IOPS de destino 
 
 Use los espacios de almacenamiento para lograr un rendimiento óptimo y configure dos grupos, uno para los archivos de registro y el otro para los archivos de datos. Si no usa el seccionamiento de discos, utilice dos discos SSD prémium asignados a unidades individuales: uno para el archivo de registro y el otro para guardar los datos.
 
-El [IOPS y el rendimiento aprovisionados](../../../virtual-machines/disks-types.md#premium-ssd) por disco se usan como parte del bloque de almacenamiento. Las capacidades de IOPS y rendimiento combinadas de los discos son la capacidad máxima hasta los límites de rendimiento de la máquina virtual.
+El [IOPS y el rendimiento aprovisionados](../../../virtual-machines/disks-types.md#premium-ssds) por disco se usan como parte del bloque de almacenamiento. Las capacidades de IOPS y rendimiento combinadas de los discos son la capacidad máxima hasta los límites de rendimiento de la máquina virtual.
 
 El procedimiento recomendado es usar el menor número posible de discos y cumplir los requisitos mínimos de IOPS (y rendimiento) y de capacidad. Sin embargo, el equilibrio entre el precio y el rendimiento tiende a ser mejor con un gran número de discos pequeños en lugar de un número pequeño de discos grandes.
 
@@ -127,15 +130,15 @@ Para obtener más información, consulte los [Niveles de rendimiento de los disc
 
 ## <a name="azure-ultra-disk"></a>Disco Ultra de Azure
 
-Si hay una necesidad de tiempos de respuesta de submilisegundos con una latencia reducida, considere la posibilidad de usar el [disco Ultra de Azure](../../../virtual-machines/disks-types.md#ultra-disk) para la unidad de registro de SQL Server, o incluso la unidad de datos para las aplicaciones que son extremadamente sensibles a la latencia de E/S. 
+Si hay una necesidad de tiempos de respuesta de submilisegundos con una latencia reducida, considere la posibilidad de usar el [disco Ultra de Azure](../../../virtual-machines/disks-types.md#ultra-disks) para la unidad de registro de SQL Server, o incluso la unidad de datos para las aplicaciones que son extremadamente sensibles a la latencia de E/S.
 
 Se puede configurar un disco Ultra en el que la capacidad e IOPS se pueden escalar de manera independiente. Con los administradores de discos Ultra puede aprovisionar un disco con los requisitos de capacidad, IOPS y rendimiento en función de las necesidades de la aplicación. 
 
-El disco Ultra no es compatible con todas las series de VM y tiene otras limitaciones, como la disponibilidad de regiones, la redundancia y la compatibilidad con Azure Backup. Para obtener más información, consulte [Uso de discos Ultra de Azure](../../../virtual-machines/disks-enable-ultra-ssd.md) para obtener una lista completa de limitaciones. 
+El disco Ultra no es compatible con todas las series de VM y tiene otras limitaciones, como la disponibilidad de regiones, la redundancia y la compatibilidad con Azure Backup. Para obtener más información, consulte [Uso de discos Ultra de Azure](../../../virtual-machines/disks-enable-ultra-ssd.md) para obtener una lista completa de limitaciones.
 
 ## <a name="standard-hdds-and-ssds"></a>HDD y SSD estándar
 
-Los [HDD estándar](../../../virtual-machines/disks-types.md#standard-hdd) y las unidades de estado sólido (SSD) presentan el ancho de banda y las latencias variables, de modo que solo se recomiendan para realizar cargas de trabajo de desarrollo o de prueba. En las cargas de trabajo de producción conviene usar SSD prémium. Si no usa las unidades SSD estándar (escenarios de desarrollo y pruebas), se recomienda agregar el número máximo de discos de datos que admita el [tamaño de la VM](../../../virtual-machines/sizes.md?toc=/azure/virtual-machines/windows/toc.json) y usar el seccionamiento de discos con los espacios de almacenamiento para obtener el mejor rendimiento.
+Los [HDD estándar](../../../virtual-machines/disks-types.md#standard-hdds) y las unidades de estado sólido (SSD) presentan el ancho de banda y las latencias variables, de modo que solo se recomiendan para realizar cargas de trabajo de desarrollo o de prueba. En las cargas de trabajo de producción conviene usar SSD prémium. Si no usa las unidades SSD estándar (escenarios de desarrollo y pruebas), se recomienda agregar el número máximo de discos de datos que admita el [tamaño de la VM](../../../virtual-machines/sizes.md?toc=/azure/virtual-machines/windows/toc.json) y usar el seccionamiento de discos con los espacios de almacenamiento para obtener el mejor rendimiento.
 
 ## <a name="caching"></a>Almacenamiento en memoria caché
 

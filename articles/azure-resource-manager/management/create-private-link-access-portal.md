@@ -3,12 +3,12 @@ title: 'Creación de un vínculo privado para administrar recursos: Azure Portal
 description: Use Azure Portal para crear un vínculo privado para administrar recursos.
 ms.topic: conceptual
 ms.date: 07/29/2021
-ms.openlocfilehash: efe1fdb47bf550b996f4f44eed9f2d41f2a1083d
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 4d829dbc75aa384e57f706f3e689e8b36365a9c1
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123227320"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130137770"
 ---
 # <a name="use-portal-to-create-private-link-for-managing-azure-resources"></a>Uso del portal para crear un vínculo privado para administrar recursos
 
@@ -38,7 +38,7 @@ Al crear un vínculo privado de administración de recursos, la asociación del 
 
 Ahora cree un punto de conexión privado que haga referencia al vínculo privado de administración de recursos.
 
-1. Vaya a **Private Link Center**. Seleccione **Create private link** (Crear vínculo privado).
+1. Vaya a **Private Link Center**. Seleccione **Creación de un punto de conexión privado**.
 
    :::image type="content" source="./media/create-private-link-access-portal/private-link-center.png" alt-text="Selección de Private Link Center":::
 
@@ -66,4 +66,4 @@ Para asegurarse de que el entorno se ha configurado correctamente, compruebe la 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre los vínculos privados, vea [Azure Private Link](../../private-link/index.yml).
+Para obtener más información sobre los puntos de conexión privados, vea [Azure Private Link](../../private-link/index.yml).

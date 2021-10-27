@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 07/17/2020
+ms.date: 10/12/2021
 ms.author: marsma
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: d9944b2e3ac68cc2b04b4a6052e9dd0647fe91ad
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: ffd447d4fcacad1185d8ad95778e0a9d22cb16ce
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129229627"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066022"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Tutorial: Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única (SPA) de JavaScript mediante un flujo de código de autorización
 
@@ -49,13 +49,13 @@ En este tutorial se usa la siguiente biblioteca:
 
 ## <a name="get-the-completed-code-sample"></a>Obtención del ejemplo de código completado
 
-¿Prefiere descargar en su lugar este proyecto de ejemplo completado del tutorial? Para ejecutar el proyecto mediante un servidor web local, como Node.js, clone el repositorio [ms-identity-javascript-v2](https://github.com/Azure-Samples/ms-identity-javascript-v2):
+¿Prefiere descargar en su lugar este proyecto de ejemplo completado del tutorial? Clone el repositorio [ms-identity-javascript-v2](https://github.com/Azure-Samples/ms-identity-javascript-v2). 
 
 `git clone https://github.com/Azure-Samples/ms-identity-javascript-v2`
 
-Después, para configurar el ejemplo de código antes de ejecutarlo, vaya al [paso de configuración](#register-your-application).
+Para ejecutar el proyecto descargado en el entorno de desarrollo local, empiece por crear un servidor localhost para la aplicación como se describe en el paso 1 de [Creación del proyecto](#create-your-project). Una vez hecho esto, puede configurar el ejemplo de código saltando al [paso de configuración](#register-your-application).
 
-Para continuar con el tutorial y crear la aplicación, vaya a la sección siguiente, [Prerrequisitos](#prerequisites).
+Para continuar con el tutorial y crear la aplicación, vaya a la sección siguiente, [Creación del proyecto](#create-your-project).
 
 ## <a name="create-your-project"></a>Creación del proyecto
 

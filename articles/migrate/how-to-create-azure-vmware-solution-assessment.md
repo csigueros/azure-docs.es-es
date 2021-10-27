@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: cfa3004b0587bbfe74157bf2922dd98cd8741597
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 89c7c903d382d67d9be64829118bdddf8ee4bd31
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740396"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130006002"
 ---
 # <a name="create-an-azure-vmware-solution-assessment"></a>Creación de una evaluación de Azure VMware Solution
 
@@ -54,7 +54,7 @@ Existen dos tipos de criterios de tamaño que puede usar para crear valoraciones
 1.  En la página **Overview** (Información general) > **Windows, Linux and SQL Server** (Windows, Linux y SQL Server), haga clic en **Assess and migrate servers** (Evaluar y migrar servidores).
     :::image type="content" source="./media/tutorial-assess-sql/assess-migrate.png" alt-text="Página de información general de Azure Migrate":::
 
-1. En **Azure Migrate: Detección y evaluación**, haga clic en **Evaluar**.
+1. En **Azure Migrate: Discovery and assessment**, haga clic en **Assess** (Evaluar).
 
    ![Ubicación del botón Evaluar](./media/tutorial-assess-vmware-azure-vmware-solution/assess.png)
 
@@ -123,9 +123,10 @@ Existen dos tipos de criterios de tamaño que puede usar para crear valoraciones
 Una valoración de Azure VMware Solution (AVS) describe:
 
 - **Preparación de Azure VMware Solution (AVS)** : si los servidores locales son adecuados para la migración a Azure VMware Solution (AVS).
-- **Número de nodos de AVS**: número estimado de nodos de AVS necesarios para ejecutar los servidores.
+- **Número de nodos de Azure VMware Solution**: número estimado de nodos de Azure VMware Solution necesarios para ejecutar los servidores.
 - **Uso en los nodos de AVS**: uso previsto de CPU, memoria y almacenamiento en todos los nodos.
     - El uso incluye la factorización inicial de las siguientes sobrecargas de administración del clúster, como vCenter Server, NSX Manager (grande) y NSX Edge; si HCX está implementado, también las de HCX Manager y el dispositivo IX que consume ~ 44 CPU virtuales (11 CPU), 75 GB de RAM y 722 GB de almacenamiento antes de la compresión y la desduplicación.
+    - El factor de limitación determina el número de hosts o nodos necesarios para alojar los recursos.
 - **Estimación del costo mensual**: los costos mensuales estimados de todos los nodos de Azure VMware Solution (AVS) que ejecutan las máquinas virtuales locales.
 
 
@@ -137,7 +138,7 @@ Una valoración de Azure VMware Solution (AVS) describe:
 
     :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-summary.png" alt-text="Resumen de la valoración de AVS":::
 
-1. Revise el resumen de valoraciones. También puede editar las propiedades de la valoración o volver a calcularla.
+1. Revise el resumen de valoraciones. Puede hacer clic en **Suposiciones de dimensionamiento** para comprender las suposiciones que se realizaron en el dimensionamiento de los nodos y el uso de recursos. También puede editar las propiedades de la valoración o volver a calcularla.
 
 ### <a name="review-azure-vmware-solution-avs-readiness"></a>Revisión de la preparación de Azure VMware Solution (AVS)
 
@@ -173,8 +174,6 @@ Esta vista muestra el costo estimado de ejecución de servidores en Azure VMware
 ### <a name="review-confidence-rating"></a>Examen de la clasificación de confianza
 
 Cuando se realizan valoraciones basadas en el rendimiento, se asigna una clasificación de confianza a la evaluación.
-
-![Clasificación de confianza](./media/how-to-create-assessment/confidence-rating.png)
 
 - Se concede una clasificación que oscila entre 1 estrella (la más baja) y 5 estrellas (la más alta).
 - La clasificación de confianza sirve de ayuda para calcular la confiabilidad de las recomendaciones de tamaño que proporciona la evaluación.

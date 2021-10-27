@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: 4b660d464a8615886be9b466fd2e9de808ef3bd9
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 458e6d9b9de91dcf9f9214f2021fb780841ff7b4
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129716367"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130164340"
 ---
 <!-- markdownlint-disable MD033 -->
 
@@ -112,13 +112,31 @@ Para ver cómo se extraen los datos de factura, pruebe nuestra herramienta de et
 | ServiceEndDate | date | Fecha de finalización del período de servicio (por ejemplo, un período de servicio de factura de la utilidad) | aaaa-mm-dd|
 | PreviousUnpaidBalance | number | Saldo explícito no pagado previamente | integer |
 
+### <a name="line-items"></a>Elementos de línea
+
+A continuación se muestran los elementos de línea extraídos de una factura en la respuesta de salida JSON (la siguiente salida usa esta [factura de ejemplo](media/sample-invoice.jpg))
+
+|Nombre| Tipo | Descripción | Texto (elemento de línea n.º 1) | Valor (salida estándar) |
+|:-----|:----|:----|:----| :----|
+| Elementos | string | Línea de texto de cadena completa del elemento de línea | 3/4/2021 A123 Consulting Services 2 hours $30.00 10% $60.00 | |
+| Amount | number | La cantidad del elemento de línea | $60.00 | 100 |
+| Descripción | string | La descripción de texto para el elemento de la línea de factura | Servicios de consultoría | Servicios de consultoría |
+| Cantidad | number | La cantidad para este elemento de línea de factura | 2 | 2 |
+| UnitPrice | number | El precio neto o bruto (según la configuración de factura bruta de la factura) de una unidad de este elemento | $30.00 | 30 |
+| ProductCode | string| Código de producto, número de producto o SKU asociado al elemento de línea específico | A123 | |
+| Unidad | string| Unidad del elemento de línea, por ejemplo, kg, lb, etc. | horas | |
+| Fecha | fecha| Fecha correspondiente a cada elemento de línea. Suele ser la fecha en la que se ha enviado el elemento de línea | 3/4/2021| 2021-03-04 |
+| Impuesto | number | Impuestos asociados a cada elemento de línea. Los valores posibles incluyen importe de impuestos, porcentaje de impuestos e impuesto S/N | 10 % | |
+
+Los pares de clave/valor y los elementos de línea de la factura extraídos se encuentran en la sección `documentResults` de la salida JSON. 
+
 ## <a name="form-recognizer-preview-v30"></a>Versión preliminar de Form Recognizer v3.0
 
  La versión preliminar de Form Recognizer presenta varias características y funcionalidades nuevas.
 
 * Siga nuestra [**guía de migración de Form Recognizer v3.0**](v3-migration-guide.md) para obtener información sobre cómo usar la versión preliminar en las aplicaciones y flujos de trabajo.
 
-* Explore nuestra [**API de REST (versión preliminar)** ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) para obtener más información sobre la versión preliminar y las nuevas funcionalidades.
+* Explore nuestra [**API de REST (versión preliminar)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) para obtener más información sobre la versión preliminar y las nuevas funcionalidades.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

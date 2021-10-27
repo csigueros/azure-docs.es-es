@@ -2,21 +2,21 @@
 title: Modelo de facturación para Azure Active Directory B2C
 description: Obtenga información sobre el modelo de facturación de usuarios activos mensuales (MAU) de Azure AD B2C, cómo vincular un inquilino de Azure AD B2C a una suscripción de Azure y cómo seleccionar el plan de tarifa Premium adecuado.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.date: 09/15/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: be29232e78ff3cbfa2aec9f880e42774ad0b2376
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: aa03c0ec560102ce44aa0cbf2bede5dd59423296
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128570094"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065072"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modelo de facturación para Azure Active Directory B2C
 
@@ -65,6 +65,7 @@ Se puede usar una suscripción vinculada a un inquilino de Azure AD B2C para la 
 * [Inquilino de Azure AD B2C](tutorial-create-tenant.md) que quiere vincular a una suscripción
   * Debe ser un administrador de inquilinos.
   * El inquilino no debe estar vinculado aún a una suscripción.
+  * El inquilino no debe crearse en el entorno de Azure Government.
 
 ### <a name="create-the-link"></a>Crear el vínculo
 

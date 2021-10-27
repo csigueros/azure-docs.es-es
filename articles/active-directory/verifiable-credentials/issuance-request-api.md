@@ -1,23 +1,23 @@
 ---
-title: Cómo especificar la solicitud de emisión de la API REST de servicios
+title: Especificación de la solicitud de emisión de la API REST Request Service (versión preliminar)
 titleSuffix: Azure Active Directory Verifiable Credentials
 description: Procedimiento para emitir una credencial verificable que ha emitido
 documentationCenter: ''
 author: barclayn
-manager: daveba
+manager: karenh444
 ms.service: active-directory
 ms.topic: reference
 ms.subservice: verifiable-credentials
 ms.date: 10/08/2021
 ms.author: barclayn
-ms.openlocfilehash: 6b1a33ee563123d5fb724f0bc29c3e7c753a86ea
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 837b42b5cb46743b7d486def32d01ab2333db54a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129811051"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130006686"
 ---
-# <a name="request-service-rest-api-issuance-specification-preview"></a>Especificación de emisión de la API REST de servicios (versión preliminar)
+# <a name="request-service-rest-api-issuance-specification-preview"></a>Especificación de la emisión de la API REST Request Service (versión preliminar)
 
 La API REST de servicios de credenciales verificables de Azure Active Directory (Azure AD) le permite emitir y verificar una credencial comprobable. En este artículo se especifica la API REST de servicios para la solicitud de emisión.
 
@@ -34,10 +34,10 @@ La solicitud de emisión de la API REST de servicios requiere los siguientes enc
 
 | Método |Valor  |
 |---------|---------|
-|`Authorization`| Adjunte el token de acceso como token de portador al encabezado de autorización en una solicitud HTTP. Por ejemplo, `Authorization: Bearer <token>`.|
+|`Authorization`| Adjunte el token de acceso como token de portador al encabezado "Authorization" en una solicitud HTTP. Por ejemplo, `Authorization: Bearer <token>`.|
 |`Content-Type`| `Application/json`|
 
-Cree una solicitud HTTP POST para la API REST de servicios. Reemplace `{tenantID}` por el [ID del inquilino](verifiable-credentials-configure-issuer.md#gather-credentials-and-environment-details-to-set-up-your-sample-application) o el nombre del inquilino.
+Cree una solicitud HTTP POST para la API de REST del servicio de solicitudes. Reemplace `{tenantID}` por el [ID del inquilino](verifiable-credentials-configure-issuer.md#gather-credentials-and-environment-details-to-set-up-your-sample-application) o el nombre del inquilino.
 
 ```http
 https://beta.did.msidentity.com/v1.0/{tenantID}/verifiablecredentials/request
@@ -63,7 +63,7 @@ Authorization: Bearer  <token>
 }
 ```  
 
-El siguiente permiso es necesario para llamar a la API REST de servicios. Para más información, consulte [Conceder permisos para obtener tokens de acceso](verifiable-credentials-configure-tenant.md#31-grant-permissions-to-get-access-tokens).
+El siguiente permiso es necesario para llamar a la API REST de servicios. Si desea más información, consulte [Concesión permisos para obtener tokens de acceso](verifiable-credentials-configure-tenant.md#31-grant-permissions-to-get-access-tokens).
 
 | Tipo de permiso | Permiso  |
 |---------|---------|
@@ -89,6 +89,7 @@ La carga útil de la solicitud de emisión contiene información sobre la solici
     },
     "issuance": {
         "type": "VerifiedCredentialExpert",
+        "manifest": "https://beta.did.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000/verifiableCredential/contracts/VerifiedCredentialExpert",
         "pin": {
             "value": "3539",
             "length": 4
@@ -160,17 +161,17 @@ El tipo de PIN define un código PIN que se puede mostrar como parte del PIN de 
 
 ### <a name="callback-type"></a>Tipo de devolución de llamada
 
-La API REST de servicios genera varios eventos para el punto de conexión de devolución de llamada. Esos eventos permiten actualizar la interfaz de usuario y continuar el proceso una vez que se devuelven los resultados a la aplicación. El tipo de devolución de llamada contiene las siguientes propiedades:
+La API de REST del servicio de solicitudes genera varios eventos para el punto de conexión de devolución de llamada. Dichos eventos permiten actualizar la interfaz de usuario y continuar con el proceso una vez que se devuelven los resultados a la aplicación. El tipo Callback contiene las siguientes propiedades:
 
 |Propiedad |Tipo |Descripción |
 |---------|---------|---------|
 | `url` | string| URI al punto de conexión de devolución de llamada de la aplicación. |
-| `state` | string| Se asocia al estado pasado en la carga útil original. |
-| `headers` | string| [Opcional] Puede incluir una colección de encabezados HTTP requeridos por el extremo receptor del mensaje POST. Los encabezados solo deben incluir la clave de API o cualquier encabezado necesario para la autorización.|
+| `state` | string| Se asocia al estado pasado en la carga original. |
+| `headers` | string| [Opcional] Puede incluir una colección de encabezados HTTP que requiera el extremo receptor del mensaje POST. Los encabezados solo deben incluir la clave de API o cualquier encabezado necesario para la autorización.|
 
 ## <a name="successful-response"></a>Respuesta correcta
 
-Si se realiza correctamente, este método devuelve un código de respuesta HTTP 201 Created y una colección de objetos de evento en el cuerpo de la respuesta. El siguiente código JSON muestra una respuesta correcta:
+Si se completa correctamente, este método devuelve un código de respuesta HTTP "201 Created" y una colección de objetos de evento en el cuerpo de la respuesta. En el siguiente código JSON se muestra una respuesta correcta:
 
 ```json
 {  
@@ -194,7 +195,7 @@ Cuando la aplicación recibe la respuesta, la aplicación debe presentar el cód
 
 ## <a name="error-response"></a>Respuesta de error
 
-Las respuestas de error también se pueden devolver para que la aplicación pueda controlarlas correctamente. El siguiente código JSON muestra un mensaje de error no autorizado.
+También se pueden devolver respuestas de error para que la aplicación las gestione según corresponda. En el siguiente código JSON se muestra un mensaje de error no autorizado.
 
 
 ```json
@@ -213,8 +214,8 @@ La respuesta contiene las siguientes propiedades:
 |Propiedad |Tipo |Descripción |
 |---------|---------|---------|
 | `requestId`| string | Id. de solicitud generado automáticamente.|
-| `date`| date| La hora del error. |
-| `error.code` | string| El código de error devuelto. |
+| `date`| date| Hora del error. |
+| `error.code` | string| Código de error devuelto. |
 | `error.message`| string| El mensaje de error. |
 
 ## <a name="callback-events"></a>Eventos de devolución de llamada
@@ -224,11 +225,11 @@ Se llama al punto de conexión de devolución de llamada cuando un usuario exami
 
 |Propiedad |Tipo |Descripción |
 |---------|---------|---------|
-| `requestId`| string | Asignado a la solicitud original cuando la carga útil se publicó en el servicio de credenciales verificables.|
-| `code` |string |Código devuelto cuando la aplicación de autenticación recupera la solicitud. Valores posibles: <ul><li>`request_retrieved` el usuario ha examinado el código QR o hace clic en el vínculo que inicia el flujo de emisión.</li><li>`issuance_successful` la emisión de las credenciales verificables se ha realizado correctamente.</li><li>`Issuance_error` error durante la emisión. Para obtener más información, vea la propiedad `error`.</li></ul>    |
+| `requestId`| string | Se asigna a la solicitud original cuando la carga se ha publicado en el servicio de credenciales verificables.|
+| `code` |string |Código devuelto cuando la aplicación autenticadora ha recuperado la solicitud. Valores posibles: <ul><li>`request_retrieved` el usuario ha examinado el código QR o hace clic en el vínculo que inicia el flujo de emisión.</li><li>`issuance_successful` la emisión de las credenciales verificables se ha realizado correctamente.</li><li>`Issuance_error` error durante la emisión. Para obtener más información, vea la propiedad `error`.</li></ul>    |
 | `state` |string| El estado devuelve el valor de estado que pasó en la carga útil original.   |
 | `error`| error | Cuando `code` es `Issuance_error`, esta propiedad contiene información sobre el error.| 
-| `error.code` | string| El código de error devuelto. |
+| `error.code` | string| Código de error devuelto. |
 | `error.message`| string| El mensaje de error. |
 
 En el ejemplo siguiente se muestra una carga útil de devolución de llamada cuando la aplicación de autenticación inicia la solicitud de emisión.
@@ -279,4 +280,4 @@ En el ejemplo siguiente se muestra una carga útil de devolución de llamada cua
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre [cómo llamar a la API REST de servicios](get-started-request-api.md)
+Obtenga información sobre [cómo llamar a la API de REST del servicio de solicitudes](get-started-request-api.md).

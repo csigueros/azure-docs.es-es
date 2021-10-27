@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/22/2021
-ms.openlocfilehash: fa1ac05766a95754631c5a6c78f80b9abdc4e3a7
-ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
+ms.openlocfilehash: a8d5b2ca155917c5b08f11167da6309da9df7e6b
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112573677"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047178"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Tutorial: Uso de Apache HBase in Azure HDInsight
 
@@ -221,11 +221,11 @@ También se pueden consultar los datos de HBase desde Hive mediante HBase habili
 > [!NOTE]
 > Después de escalar los clústeres, se debe anexar de nuevo el archivo `/etc/hosts`.
 
-## <a name="use-hbase-rest-apis-using-curl"></a>Usar las API de REST de HBase con Curl
+## <a name="use-the-hbase-rest-api-via-curl"></a>Uso de la API REST de HBase mediante Curl
 
-La API de REST se protege con la [autenticación básica](https://en.wikipedia.org/wiki/Basic_access_authentication). Siempre debe crear solicitudes usando HTTP segura (HTTPS) para así garantizar que las credenciales se envían de manera segura al servidor.
+La API REST de HBase se protege con la [autenticación básica](https://en.wikipedia.org/wiki/Basic_access_authentication). Siempre debe crear solicitudes usando HTTP segura (HTTPS) para así garantizar que las credenciales se envían de manera segura al servidor.
 
-1. Para habilitar las API REST de HBase en el clúster de HDInsight, agregue el siguiente script de inicio personalizado a la sección **Script Action** (Acción de script). Puede agregar el script de inicio al crear el clúster o después de que se haya creado el clúster. En **Tipo de nodo**, seleccione **Servidores de regiones** para asegurarse de que el script se ejecuta solo en los servidores de regiones de HBase.
+1. Para habilitar las API REST de HBase en el clúster de HDInsight, agregue el siguiente script de inicio personalizado a la sección **Acción de script**. Puede agregar el script de inicio al crear el clúster o después de que se haya creado el clúster. En **Tipo de nodo**, seleccione **Servidores de regiones** para asegurarse de que el script se ejecuta solo en los servidores de regiones de HBase.
 
 
     ```bash
@@ -359,7 +359,7 @@ Si no va a seguir usando esta aplicación, puede eliminar el clúster HBase que 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a crear un clúster de Apache HBase. Y también cómo crear tablas y ver los datos de esas tablas desde el shell de HBase. También ha aprendido a usar una consulta de Hive sobre los datos de las tablas de HBase. Y también a usar las API REST de C# para HBase para crear una tabla de HBase y recuperar los datos de la tabla. Para obtener más información, consulte:
+En este tutorial, ha aprendido a crear un clúster de Apache HBase. Y también cómo crear tablas y ver los datos de esas tablas desde el shell de HBase. También ha aprendido a usar una consulta de Hive sobre los datos de las tablas de HBase. Además, ya sabe cómo usar las API REST de C# para HBase para crear una tabla de HBase y recuperar los datos de la tabla. Para obtener más información, consulte:
 
 > [!div class="nextstepaction"]
 > [Información general de HBase de HDInsight](./apache-hbase-overview.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 936e031e72a98f2329202df4fb3b7a97e7f9d237
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3ac75e3cf3ae08d9b7d49077cf54d05fdbabdbad
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124754479"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130039056"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
 
@@ -49,7 +49,7 @@ Sí. A través de Azure Marketplace es posible implementar una [aplicación virt
 ### <a name="what-tools-do-i-use-to-create-a-vnet"></a>¿Qué herramientas debo usar para crear una red virtual?
 Para crear o configurar una red virtual se pueden usar las siguientes herramientas:
 
-* Azure portal
+* Portal de Azure
 * PowerShell
 * Azure CLI
 * Un archivo de configuración de red (netcfg; solo para redes virtuales clásicas). Consulte el artículo [Configuración de una red virtual con un archivo de configuración de red](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file).
@@ -162,7 +162,7 @@ Sí. Todas las interfaces de red (NIC) conectadas a una máquina virtual impleme
   - **Resource Manager**: una dirección IP privada asignada con el método dinámico o estático permanece asignada a una máquina virtual (Resource Manager) hasta que se elimina el recurso. La diferencia es que cuando se usa el método estático el usuario selecciona la dirección que se asigna y cuando se usa el dinámico es Azure quien la elige. 
   - **Clásica**: las direcciones IP privadas asignadas con el método dinámico pueden cambiar cuando se reinicia una máquina virtual (clásica) después de haber estado en un estado detenido (desasignada). Si necesita asegurarse de que la dirección IP privada de un recurso implementado mediante el modelo de implementación clásica no cambie nunca, asigne una dirección IP privada con el método estático.
 
-* **Pública:** opcionalmente, se puede asignar a NIC conectadas a máquinas virtuales implementadas a través del modelo de implementación de Azure Resource Manager. La dirección se puede asignar con el método de asignación estática o el de asignación dinámica. Todas las máquinas virtuales y las instancias de rol de Cloud Services implementadas a través del modelo de implementación clásica existen en un servicio en la nube, al que se asigna una dirección IP virtual (VIP) pública y *dinámica*. Si se desea, una dirección IP pública *estática*, que se denomina [dirección IP reservada](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip), puede asignarse como si fuera una VIP. Las direcciones IP públicas se pueden asignar a máquinas virtuales o instancias de rol de Cloud Services individuales implementadas mediante el modelo de implementación clásica. Estas direcciones se denominan direcciones [IP públicas a nivel de instancia (ILPIP)](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) y se puede asignar dinámicamente.
+* **Pública:** opcionalmente, se puede asignar a NIC conectadas a máquinas virtuales implementadas a través del modelo de implementación de Azure Resource Manager. La dirección se puede asignar con el método de asignación estática o el de asignación dinámica. Todas las máquinas virtuales y las instancias de rol de Cloud Services implementadas a través del modelo de implementación clásica existen en un servicio en la nube, al que se asigna una dirección IP virtual (VIP) pública y *dinámica*. Si se desea, una dirección IP pública *estática*, que se denomina [dirección IP reservada](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip), puede asignarse como si fuera una VIP. Las direcciones IP públicas se pueden asignar a máquinas virtuales o instancias de rol de Cloud Services individuales implementadas mediante el modelo de implementación clásica. Estas direcciones se denominan direcciones [IP públicas de nivel de instancia (ILPIP)](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) y se puede asignar dinámicamente.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>¿Puedo reservar una dirección IP interna para una máquina virtual que crearé más adelante?
 No. Las direcciones IP privadas no se pueden reservar. Si hay una dirección IP privada disponible, el servidor DHCP la asigna a una máquina virtual o una instancia de rol. La máquina virtual puede ser, o no, aquella a la que quiere que se asigne la dirección IP privada. Sin embargo, la dirección IP privada de una máquina virtual ya creada se puede cambiar por cualquier dirección IP privada disponible.
@@ -194,7 +194,7 @@ Sí. Todas las máquinas virtuales y las instancias de rol de Cloud Services imp
 Sí. Puede implementar Web Apps dentro de una red virtual mediante un ASE (App Service Environment), conectar el back-end de las aplicaciones a una red virtual con Integración con red virtual y bloquear el tráfico entrante a la aplicación con puntos de conexión de servicio. Para más información, consulte los siguientes artículos.
 
 * [Características de redes de App Service](../app-service/networking-features.md)
-* [Creación de Web Apps en un entorno de App Service Environment](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+* [Creación de Web Apps en un entorno de App Service Environment](../app-service/environment/using.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [Integración de una aplicación con Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [Restricciones de acceso de Azure App Service](../app-service/app-service-ip-restrictions.md)
 
@@ -403,7 +403,7 @@ Para alcanzar el servicio de Azure, los NSG deben permitir la conectividad de sa
 Un usuario con acceso de escritura a la red virtual puede configurar los puntos de conexión de servicio de forma independiente en redes virtuales. Para proteger los recursos de servicio de Azure en una red virtual, el usuario debe tener el permiso **Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action** en las subredes que se agreguen. De forma predeterminada, este permiso se incluye en los roles de administrador de servicios integrado y puede modificarse mediante la creación de roles personalizados. Obtenga más información sobre los roles integrados y la asignación de permisos específicos a [roles personalizados](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 
-### <a name="can-i-filter-virtual-network-traffic-to-azure-services-allowing-only-specific-azure-service-resources-over-vnet-service-endpoints"></a>¿Puedo filtrar el tráfico de red virtual a los servicios de Azure, permitiendo únicamente recursos de servicio específicos de Azure, sobre los puntos de conexión de servicio de la red virtual? 
+### <a name="can-i-filter-virtual-network-traffic-to-azure-services-allowing-only-specific-azure-service-resources-over-vnet-service-endpoints"></a>¿Puedo filtrar el tráfico de red virtual a los servicios de Azure y permitir únicamente recursos específicos del servicio de Azure a través de los puntos de conexión de servicio de red virtual? 
 
 Las directivas de punto de conexión de servicio de la red virtual (VNet) le permiten filtrar el tráfico de red virtual a los servicios de Azure, lo que permite únicamente recursos de servicio específicos de Azure, sobre los puntos de conexión de servicio. Las directivas de punto de conexión de servicio ofrecen un control de acceso pormenorizado para el tráfico de red virtual a los servicios de Azure. Puede obtener más información acerca de las directivas de punto de conexión de servicio [aquí](virtual-network-service-endpoint-policies-overview.md).
 

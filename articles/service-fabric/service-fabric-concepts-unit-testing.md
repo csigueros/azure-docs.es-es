@@ -3,19 +3,19 @@ title: Prueba unitaria de servicios con estado en Azure Service Fabric
 description: Obtenga información sobre los conceptos y procedimientos recomendados para las pruebas unitarias en servicios con estado de Service Fabric.
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.openlocfilehash: 12e8a47d9685dee12594f4e2afaa848d9688d185
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8247d9c71f73f00bd9b8235778f7256af72ed27
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "75433908"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042624"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Prueba unitaria de servicios con estado en Service Fabric
 
 En este artículo se cubren los conceptos y procedimientos recomendados para las pruebas unitarias en servicios con estado de Service Fabric. Las pruebas unitarias dentro de Service Fabric necesitan sus propias consideraciones ya que el código de la aplicación se ejecuta activamente en varios contextos diferentes. En este artículo se describen las prácticas utilizadas para garantizar que el código de aplicación está contemplado en cada uno de los diferentes contextos en que se puede ejecutar.
 
 ## <a name="unit-testing-and-mocking"></a>Prueba unitaria y de simulación
-Las pruebas unitarias en el contexto de este artículo son las pruebas automatizadas que pueden ejecutarse en el contexto de un ejecutor de pruebas como NUnit o MSTest. Las pruebas unitarias dentro de este artículo no realizan operaciones en un recurso remoto, como una base de datos o la API de RESTful. Estos recursos remotos deben simularse. La simulación en el contexto de este artículo es imitar, registrar y controlar los valores devueltos para los recursos remotos.
+Las pruebas unitarias en el contexto de este artículo son las pruebas automatizadas que pueden ejecutarse en el contexto de un ejecutor de pruebas como NUnit o MSTest. Las pruebas unitarias dentro de este artículo no realizan operaciones en un recurso remoto, como una base de datos o RESTful. Estos recursos remotos deben simularse. La simulación en el contexto de este artículo es imitar, registrar y controlar los valores devueltos para los recursos remotos.
 
 ### <a name="service-fabric-considerations"></a>Consideraciones de Service Fabric
 Realizar una prueba unitaria a un servicio con estado de Service Fabric requiere varias consideraciones. En primer lugar, el código de servicio se ejecuta en varios nodos, pero con distintos roles. Las pruebas unitarias deben evaluar el código sometido a cada rol para lograr una cobertura completa. Los distintos roles son principal, secundaria activa, secundaria inactiva y desconocido. El rol Ninguno normalmente no requiere de ninguna cobertura especial, ya que Service Fabric lo considera un servicio nulo o null. En segundo lugar, cada nodo cambiará su rol en un momento dado. Para lograr una cobertura completa, la ruta de ejecución del código se debe probar mientras se producen los cambios de rol.

@@ -4,18 +4,18 @@ description: Aprenda a conectar la aplicación de funciones a Application Insigh
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 5007009d9aabf9a1c1c6e1d5c2f286c0ba25b340
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3afe10184ba2b3f0eba02111b98b31e86b26e075
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99493760"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130006548"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Configuración de la supervisión para Azure Functions
 
 Azure Functions se integra con Application Insights para permitirle supervisar mejor las aplicaciones de funciones. Application Insights, una característica de Azure Monitor, es un servicio de Application Performance Management (APM) extensible que recopila los datos generados por la aplicación de funciones, incluida la información que la aplicación escribe en los registros. La integración de Application Insights se suele habilitar al crear la aplicación de funciones. Si la aplicación no tiene establecida la clave de instrumentación, antes debe [habilitar la integración de Application Insights](#enable-application-insights-integration). 
 
-Puede usar Application Insights sin ninguna configuración personalizada. La configuración predeterminada puede dar lugar a grandes volúmenes de datos. Si usa una suscripción de Visual Studio Azure, es posible que alcance su límite de datos para Application Insights. Para obtener más información sobre los costos de Application Insights, consulte [Administración del uso y los costos de Application Insights](../azure-monitor/app/pricing.md).
+Puede usar Application Insights sin ninguna configuración personalizada. La configuración predeterminada puede dar lugar a grandes volúmenes de datos. Si usa una suscripción de Visual Studio Azure, es posible que alcance su límite de datos para Application Insights. Para obtener más información sobre los costos de Application Insights, consulte [Administración del uso y los costos de Application Insights](../azure-monitor/app/pricing.md). Para más información, consulte [Soluciones con un gran volumen de telemetría](#solutions-with-high-volume-of-telemetry).
 
 Más adelante en este artículo verá cómo configurar y personalizar los datos que envían las funciones a Application Insights. Para una aplicación de función, el registro se configura en el archivo [host.json]. 
 
@@ -140,6 +140,16 @@ Si [host.json] incluye varios registros que comienzan con la misma cadena, los m
 ---
 
 Puede usar un valor de nivel de registro de `None` para evitar que se escriban registros en una categoría. 
+
+> [!CAUTION]
+> Azure Functions se integra con Application Insights mediante el almacenamiento de eventos de telemetría en tablas de Application Insights; el establecimiento de un nivel de registro de categoría en cualquier valor diferente de `Information` impedirá que la telemetría fluya a esas tablas; como resultado, no podrá ver los datos relacionados en Application Insights o en la pestaña Supervisión de la función.
+>
+> A partir de los ejemplos anteriores:
+> * Si la categoría `Host.Results` se establece en el nivel de registro `Error`, solo se recopilarán los eventos de telemetría de ejecución de host en la tabla `requests` correspondientes a las ejecuciones de funciones con error, lo que impide mostrar los detalles de ejecución del host de las ejecuciones correctas en Application Insights y en la pestaña Supervisión de la función.
+> * Si la categoría `Function` se establece en el nivel de registro `Error`, se dejarán de recopilar datos de telemetría de funciones relacionados con `dependencies`, `customMetrics` y `customEvents` para todas las funciones, lo que impide ver cualquiera de estos datos en Application Insights. Solo se recopilarán los objetos `traces` registrados con el nivel `Error`. 
+>
+> En ambos casos, seguirá recopilando datos de errores y excepciones en Application Insights y en la pestaña Supervisión de la función. Para más información, consulte [Soluciones con gran volumen de telemetría](#solutions-with-high-volume-of-telemetry).
+
 
 ## <a name="configure-the-aggregator"></a>Configurar el agregador
 
@@ -280,6 +290,130 @@ Cuando habilite Application Insights, deshabilite el registro integrado que usa 
 
 Para deshabilitar el registro integrado, elimine la configuración de la aplicación `AzureWebJobsDashboard`. Para obtener información acerca de cómo eliminar la configuración de la aplicación en Azure Portal, consulte la sección **Application settings** (Configuración de la aplicación) en [How to manage a function app](functions-how-to-use-azure-function-app-settings.md#settings) (Cómo administrar una aplicación de función). Antes de eliminar el valor de configuración de la aplicación, asegúrese de que no haya ninguna función existente en la misma aplicación de función que utilice dicho valor para los desencadenadores o enlaces de Azure Storage.
 
+## <a name="solutions-with-high-volume-of-telemetry"></a>Soluciones con un gran volumen de telemetría 
+
+Las aplicaciones de funciones pueden ser una parte esencial de las soluciones que, por naturaleza, provocan grandes volúmenes de telemetría (soluciones de IoT, soluciones basadas en eventos, sistemas financieros de carga alta, sistemas de integración...). En este caso, debe considerar la realización de configuración adicional para reducir los costos y mantener la observabilidad.
+
+En función de cómo se vaya a consumir la telemetría generada, y según los paneles en tiempo real, las alertas o los diagnósticos detallados, entre otros, deberá definir una estrategia para reducir el volumen de datos generados. Esa estrategia le permitirá supervisar, operar y diagnosticar correctamente las aplicaciones de funciones en producción. Puede considerar las opciones siguientes:
+
+* **Usar muestreo**: como se mencionó [anteriormente](#configure-sampling), ayudará a reducir drásticamente el volumen de eventos de telemetría ingeridos al tiempo que se mantiene un análisis estadísticamente correcto. Podría ocurrir que, incluso con el muestreo, obtuviera un gran volumen de telemetría. Inspeccione las opciones que le proporciona el [muestreo adaptable](../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-applications); por ejemplo, establezca `maxTelemetryItemsPerSecond` en un valor que equilibre el volumen generado con sus necesidades de supervisión. Tenga en cuenta que el muestreo de telemetría se aplica por host que ejecuta la aplicación de funciones. 
+
+* **Nivel de registro predeterminado**: use `Warning` o `Error` como valor predeterminado para todas las categorías de telemetría. Ahora puede decidir en qué [categorías](#configure-categories) quiere establecer `Information` para poder supervisar y diagnosticar las funciones correctamente.
+
+* **Ajuste de la telemetría de las funciones**: con el nivel de registro predeterminado establecido en `Error` o `Warning`, no se recopilará información detallada de cada función (dependencias, métricas personalizadas, eventos personalizados y seguimientos). En el caso de aquellas funciones que son clave para la supervisión en producción, defina una entrada explícita para la categoría `Function.<YOUR_FUNCTION_NAME>` y establézcala en `Information`, para que pueda recopilar información detallada. En este punto, para evitar la recopilación de [registros generados por el usuario](functions-monitoring.md#writing-to-logs) en el nivel `Information`, establezca la categoría `Function.<YOUR_FUNCTION_NAME>.User` en el nivel de registro `Error` o `Warning`.
+
+* **Categoría Host.Aggregator**: como se describe en [Configuración de categorías](#configure-categories), esta categoría proporciona información agregada de las invocaciones de función. La información de esta categoría se recopila en la tabla `customMetrics` de Application Insights y se muestra en la pestaña Información general de la función en Azure Portal. En función de cómo se configure el agregador, tenga en cuenta que habrá un retraso, determinado por el objeto `flushTimeout`, en la telemetría recopilada. Si establece esta categoría en otro valor distinto de `Information`, dejará de recopilar los datos de la tabla `customMetrics` y no se mostrarán las métricas en la pestaña Información general de la función.
+
+  En la captura de pantalla siguiente se muestran los datos de telemetría de Host.Aggregator en la pestaña Información general de la función. :::image type="content" source="media/configure-monitoring/host-aggregator-function-overview.png" alt-text="Captura de pantalla de telemetría de Host.Aggregator mostrada en la pestaña Información general de la función" lightbox="media/configure-monitoring/host-aggregator-function-overview-big.png":::.
+
+  En la captura de pantalla siguiente se muestran los datos de telemetría de Host.Aggregator en la tabla customMetrics de Application Insights.
+  :::image type="content" source="media/configure-monitoring/host-aggregator-custom-metrics.png" alt-text="Captura de pantalla de la telemetría de Host.Aggregator en la tabla customMetrics de Application Insights." lightbox="media/configure-monitoring/host-aggregator-custom-metrics-big.png":::
+
+* **Categoría Host.Results**: como se describe en [Configuración de categorías](#configure-categories), esta categoría proporciona los registros generados en tiempo de ejecución que indican el éxito o error de una invocación de función. La información de esta categoría se recopila en la tabla `requests` de Application Insights y se muestra en la pestaña Supervisión de la función y en distintos paneles de Application Insights (rendimiento, errores...). Si establece esta categoría en otro valor distinto de `Information`, solo recopilará los datos de telemetría generados en el nivel de registro definido (o superior); por ejemplo, si se establece en `error`, se realizará el seguimiento de los datos de solicitudes solo para las ejecuciones con error. 
+
+  En la captura de pantalla siguiente se muestran los datos de telemetría de Host.Results en la pestaña Supervisión de la función. :::image type="content" source="media/configure-monitoring/host-results-function-monitor.png" alt-text="Captura de pantalla de la telemetría de Host.Results en la pestaña Supervisión de la función." lightbox="media/configure-monitoring/host-results-function-monitor-big.png":::
+
+  En la captura de pantalla siguiente se muestran los datos de telemetría de Host.Results en el panel Rendimiento de Application Insights.
+  :::image type="content" source="media/configure-monitoring/host-results-application-insights.png" alt-text="Captura de pantalla de la telemetría de Host.Results en el panel Rendimiento de Application Insights." lightbox="media/configure-monitoring/host-results-application-insights-big.png":::
+
+* **Host.Aggregator frente a Host.Results**: ambas categorías proporcionan buena información sobre las ejecuciones de funciones; si es necesario, puede quitar la información detallada de una de estas categorías, por lo que puede usar la otra para la supervisión y las alertas.
+Aquí tiene un ejemplo:
+# <a name="v2x"></a>[v2.x y posteriores](#tab/v2)
+
+``` json
+{
+  "version": "2.0",  
+  "logging": {
+    "logLevel": {
+      "default": "Warning",
+      "Function": "Error",
+      "Host.Aggregator": "Error",
+      "Host.Results": "Information", 
+      "Function.Function1": "Information",
+      "Function.Function1.User": "Error"
+    },
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "maxTelemetryItemsPerSecond": 1,
+        "excludedTypes": "Exception"
+      }
+    }
+  }
+} 
+```
+# <a name="v1x"></a>[v1.x](#tab/v1) 
+```json
+{
+  "logger": {
+    "categoryFilter": {
+      "defaultLevel": "Warning",
+      "categoryLevels": {
+        "Function": "Error",
+        "Host.Aggregator": "Error",
+        "Host.Results": "Information",
+        "Host.Executor": "Warning"
+      }
+    }
+  },
+  "applicationInsights": {
+    "sampling": {
+      "isEnabled": true,
+      "maxTelemetryItemsPerSecond" : 5
+    }
+  }
+}
+```
+---
+
+Con esta configuración, tendrá lo siguiente:
+
+* El valor predeterminado de todas las funciones y categorías de telemetría se establece en `Warning` (incluidas las categorías Microsoft y Worker), por lo que, de forma predeterminada, se recopilan todos los errores y advertencias generados por el tiempo de ejecución y el registro personalizado. 
+
+* El nivel de registro de categoría `Function` se establece en `Error`, por lo que para todas las funciones, de forma predeterminada, solo se recopilarán excepciones y registros de errores (se omitirán las dependencias y los eventos y las métricas generados por el usuario).
+
+* En el caso de la categoría `Host.Aggregator`, como se establece en el nivel de registro `Error`, no se recopilará información agregada de las invocaciones de función en la tabla `customMetrics` de Application Insights y no se mostrará información sobre los recuentos de ejecuciones (total, correcto, error...) en el panel de información general de la función.
+
+* Para la categoría `Host.Results`, toda la información de ejecución del host se recopila en la tabla `requests` de Application Insights. Todos los resultados de las invocaciones se mostrarán en el panel Supervisión de la función y en los paneles de Application Insights.
+
+* Para la función llamada `Function1`, hemos establecido el nivel de registro en `Information`, por lo que, para esta función concreta, se recopila toda la telemetría (dependencias, eventos y métricas personalizados). Para la misma función, la categoría `Function1.User` (seguimientos generados por el usuario) se establece en `Error`, por lo que solo se recopilará el registro de errores personalizado. Tenga en cuenta que la configuración por función no se admite en v1.x. 
+
+* El muestreo está configurado para enviar un elemento de telemetría por segundo por tipo, exceptuando las excepciones. Este muestreo se realizará para cada host de servidor que ejecute nuestra aplicación de funciones, por lo que si tenemos cuatro instancias, esta configuración emitirá cuatro elementos de telemetría por segundo por tipo y todas las excepciones que puedan producirse. Observe que, los recuentos de métricas, como la tasa de solicitudes y de excepciones, se ajustan para compensar la frecuencia de muestreo, de modo que exhiban valores aproximadamente correctos en el Explorador de métricas.  
+
+> [!TIP]
+> Experimente con diferentes configuraciones para asegurarse de que cubre sus requisitos de registro, supervisión y alertas. Asegúrese de que tiene diagnósticos detallados en caso de errores inesperados o funcionamiento incorrecto.
+
+### <a name="overriding-monitoring-configuration-at-runtime"></a>Invalidación de la configuración de supervisión en tiempo de ejecución
+Por último, puede haber situaciones en las que necesite cambiar rápidamente el comportamiento de registro de una determinada categoría en producción y no quiera realizar una implementación completa solo por un cambio en el archivo `host.json`. En tales casos, puede invalidar los [valores de host.json](functions-host-json.md#override-hostjson-values).
+
+
+Para configurar estos valores a nivel de configuración de la aplicación (y evitar una nueva implementación solo por los cambios en host.json), debe invalidar valores específicos de `host.json` mediante la creación de un valor equivalente como configuración de la aplicación. Cuando el entorno de ejecución encuentra una configuración de aplicación en el formato `AzureFunctionsJobHost__path__to__setting`, invalida la configuración de `host.json` equivalente que se encuentra en `path.to.setting` en el archivo JSON. Cuando se expresa como una configuración de aplicación, el punto (`.`), que se utilizaba para indicar la jerarquía JSON, se reemplaza por un carácter de subrayado doble (`__`). Por ejemplo, puede usar la siguiente configuración de la aplicación para configurar los niveles de registro de funciones individuales como en `host.json` en el ejemplo anterior.
+
+
+| Ruta de acceso de Host.json | Configuración de aplicación |
+|----------------|-------------|
+| logging.logLevel.default  | AzureFunctionsJobHost__logging__logLevel__default  |
+| logging.logLeve.Host.Aggregator | AzureFunctionsJobHost__logging__logLevel__Host__Aggregator |
+| logging.logLevel.Function | AzureFunctionsJobHost__logging__logLevel__Function |
+| logging.logLevel.Function.Function1 | AzureFunctionsJobHost__logging__logLevel__Function1 |
+| logging.logLevel.Function.Function1.User | AzureFunctionsJobHost__logging__logLevel__Function1.User |
+
+
+Puede invalidar la configuración directamente en la hoja Configuración de la aplicación de funciones de Azure Portal o mediante un script de la CLI de Azure o de PowerShell.
+
+# <a name="az-cli"></a>[az cli](#tab/v2)
+```azurecli-interactive
+az functionapp config appsettings set --name MyFunctionApp --resource-group MyResourceGroup --settings "AzureFunctionsJobHost__logging__logLevel__Host__Aggregator=Information"
+```
+# <a name="powershell"></a>[PowerShell](#tab/v1) 
+```powershell
+Update-AzFunctionAppSetting -Name MyAppName -ResourceGroupName MyResourceGroupName -AppSetting @{"AzureFunctionsJobHost__logging__logLevel__Host__Aggregator" = "Information"}
+```
+---
+
+> [!NOTE]
+> Al invalidar `host.json` mediante el cambio de la configuración de la aplicación, se reiniciará la aplicación de funciones.
+ 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información acerca de la supervisión, consulte:

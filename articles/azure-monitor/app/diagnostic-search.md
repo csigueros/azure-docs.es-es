@@ -3,16 +3,16 @@ title: Uso de Búsqueda en Azure Application Insights | Microsoft Docs
 description: Busque y filtre los datos de telemetría sin procesar que envía la aplicación web.
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.openlocfilehash: 020e602ec52c40c66439df09275f7d4936a57229
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 8a025210fc399c1d36fa416c3a4795331eca2293
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112293084"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130134210"
 ---
 # <a name="using-search-in-application-insights"></a>Uso de Búsqueda en Application Insights
 
-Búsqueda es una característica de [Application Insights](./app-insights-overview.md) que se usa para buscar y explorar elementos de telemetría individuales, como vistas de páginas, excepciones o solicitudes web. Y puede ver los seguimientos de registros y eventos que haya codificado.
+La búsqueda de transacción es una característica de [Application Insights](./app-insights-overview.md) que se usa para buscar y explorar elementos de telemetría individuales, como vistas de páginas, excepciones o solicitudes web. Y puede ver los seguimientos de registros y eventos que haya codificado.
 
 (Para consultas más complejas sobre los datos, use [Analytics](../logs/log-analytics-tutorial.md)).
 
@@ -20,7 +20,7 @@ Búsqueda es una característica de [Application Insights](./app-insights-overvi
 
 ### <a name="in-the-azure-portal"></a>En el Portal de Azure
 
-Puede abrir la búsqueda de diagnóstico en la pestaña Información general de Application Insights de la aplicación (que se encuentra en la barra superior) o en Investigar a la izquierda.
+Puede abrir la búsqueda de transacción en la pestaña Información general de Application Insights de la aplicación (que se encuentra en la barra superior) o en Investigar, a la izquierda.
 
 ![Pestaña de búsqueda](./media/diagnostic-search/view-custom-events.png)
 

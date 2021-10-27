@@ -3,12 +3,12 @@ title: Creación de informes de minería de datos
 description: Genere información exhaustiva y detallada sobre los dispositivos de red en varias capas como protocolos, versiones de firmware o comandos de programación.
 ms.date: 01/20/2021
 ms.topic: how-to
-ms.openlocfilehash: 99754959e7a3a08b4d763b85b0b9315476969774
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 460edc5aa21461f37bbcdf35d070ef3674d509d3
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113020618"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130138114"
 ---
 # <a name="sensor-data-mining-queries"></a>Consultas de minería de datos del sensor
 
@@ -59,10 +59,11 @@ Puede usar consultas para controlar una amplia gama de necesidades de seguridad 
 
 - **Visibilidad**: genere un informe que abarque todos los elementos de consulta para ver todos los parámetros de línea de base de la red.
 
+- **Seguridad de PLC** mejore la seguridad mediante la detección de PLC en estados no seguros, por ejemplo, estados Programa y Remoto.
+
 ## <a name="data-mining-storage"></a>Almacenamiento de la minería de datos
 
 La información de minería de datos se guarda y almacena continuamente, excepto cuando se elimina un dispositivo. Los resultados de minería de datos se pueden exportar y almacenar externamente en un servidor seguro. Además, el sensor realiza copias de seguridad diarias automáticas para garantizar la continuidad del sistema y la conservación de los datos.
-
 
 ## <a name="predefined-data-mining-queries"></a>Consultas de minería de datos predefinidas
 

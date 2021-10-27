@@ -2,13 +2,13 @@
 title: Introducción y comandos de la CLI de Bicep
 description: Describe los comandos que puede usar en la CLI de Bicep. Estos comandos incluyen la creación de plantillas de Azure Resource Manager desde Bicep.
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: dd1f292d4ce60353d2f8cecaaa83e38b26bdfaa3
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.date: 10/18/2021
+ms.openlocfilehash: ff5eea15c5e8e3b4f92cdde73d1dfd25865488f0
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111540819"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130137626"
 ---
 # <a name="bicep-cli-commands"></a>Comandos de la CLI de Bicep
 
@@ -29,7 +29,7 @@ az bicep build --file main.bicep
 En el ejemplo siguiente se guarda _main.json_ en otro directorio.
 
 ```azurecli
- az bicep build --file main.bicep --outdir c:\jsontemplates
+az bicep build --file main.bicep --outdir c:\jsontemplates
 ```
 
 En el ejemplo siguiente se especifica el nombre y la ubicación del archivo que se va a crear.
@@ -43,6 +43,24 @@ Para imprimir el archivo en `stdout`, use:
 ```azurecli
 az bicep build --file main.bicep --stdout
 ```
+
+Si el archivo Bicep incluye un módulo que hace referencia a un registro externo, el comando de compilación llama automáticamente a [restore](#restore). El comando restore obtiene el archivo del registro y lo almacena en la memoria caché local.
+
+Para no llamar a la restauración automáticamente, use el modificador `--no-restore`:
+
+```azurecli
+az bicep build --no-restore <bicep-file>
+```
+
+Se produce un error en el proceso de compilación con el modificador `--no-restore` si uno de los módulos externos aún no está almacenado en caché:
+
+```error
+The module with reference "br:exampleregistry.azurecr.io/bicep/modules/storage:v1" has not been restored.
+```
+
+Cuando reciba este error, ejecute el comando `build` sin el modificador `--no-restore` o ejecute `bicep restore` primero.
+
+Para usar el modificador `--no-restore`, debe tener la CLI de Bicep versión **0.4.1008 o posterior**.
 
 ## <a name="decompile"></a>decompile
 
@@ -98,6 +116,60 @@ El comando devuelve una matriz de versiones disponibles.
   "v0.1.37-alpha",
   "v0.1.1-alpha"
 ]
+```
+
+## <a name="publish"></a>Publicar
+
+El comando `publish` agrega un módulo a un registro. El registro de contenedor de Azure debe existir y la cuenta que se publica en el registro debe tener los permisos correctos. Para obtener más información sobre cómo configurar un registro de módulo, consulte [Uso del registro privado para módulos de Bicep](private-module-registry.md).
+
+Después de publicar el archivo en el registro, puede hacer [referencia a él en un módulo](modules.md#file-in-registry).
+
+Para usar el comando publish, debe tener la CLI de versión **0.4.1008 o posterior**.
+
+Para publicar un módulo en un registro, use:
+
+```azurecli
+az bicep publish <bicep-file> --target br:<registry-name>.azurecr.io/<module-path>:<tag>
+```
+
+Por ejemplo:
+
+```azurecli
+az bicep publish storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1
+```
+
+El comando `publish` no reconoce los alias que ha definido en un archivo [bicepconfig.json](bicep-config.md). Proporcione la ruta de acceso completa del módulo.
+
+> [!WARNING]
+> La publicación en el mismo destino sobrescribe el módulo anterior. Se recomienda incrementar la versión al actualizar.
+
+## <a name="restore"></a>Restauración
+
+Cuando el archivo Bicep usa módulos publicados en un registro, el comando `restore` obtiene copias de todos los módulos necesarios del registro. Almacena esas copias en una caché local. Un archivo Bicep solo se puede crear cuando los archivos externos están disponibles en la memoria caché local. Normalmente, no es necesario ejecutar `restore` porque lo llama automáticamente `build`.
+
+Para usar el comando restore, debe tener la CLI de Bicep versión **0.4.1008 o posterior**.
+
+Para restaurar manualmente los módulos externos de un archivo, use:
+
+```azurecli
+az bicep restore <bicep-file>
+```
+
+El archivo Bicep que proporcione es el archivo que desea implementar. Debe contener un módulo que se vincula a un registro. Por ejemplo, puede restaurar el siguiente archivo:
+
+```bicep
+module stgModule 'br:exampleregistry.azurecr.io/bicep/modules/storage:v1' = {
+  name: 'storageDeploy'
+  params: {
+    storagePrefix: 'examplestg1'
+  }
+}
+```
+
+La caché local se encuentra en:
+
+```path
+%USERPROFILE%\.bicep\br\<registry-name>.azurecr.io\<module-path\<tag>
 ```
 
 ## <a name="upgrade"></a>upgrade

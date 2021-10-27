@@ -1,24 +1,24 @@
 ---
 title: 'Inicio rápido: introducción a Azure Digital Twins Explorer'
 titleSuffix: Azure Digital Twins
-description: 'Inicio rápido: Uso del ejemplo de Azure Digital Twins Explorer para visualizar y explorar un escenario precompilado.'
+description: Aprenda a usar Azure Digital Twins Explorer con esta demostración, donde usará modelos para crear instancias de gemelos e interactuar con el grafo de gemelos.
 author: baanders
 ms.author: baanders
-ms.date: 4/27/2021
+ms.date: 10/4/2021
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 92b1eeb5317f5a7535406d1b3781a4b0b66cad45
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 174efb47f8770496fbac8fa781b26b93c1b6b601
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129272460"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130133032"
 ---
 # <a name="quickstart---get-started-with-a-sample-scenario-in-azure-digital-twins-explorer"></a>Inicio rápido: introducción a un escenario de ejemplo de Azure Digital Twins Explorer
 
-Con Azure Digital Twins, puede crear modelos en directo de los entornos del mundo real e interactuar con ellos. En primer lugar, los elementos individuales se modelan como **gemelos digitales**. A continuación, se conectan en un **grafo** de conocimiento que puede dar respuesta a eventos en directo y en el que se puede consultar información.
+En este inicio rápido, explorará un grafo de Azure Digital Twins precompilado con la ayuda de [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md). Esta herramienta permite visualizar e interactuar con datos de Azure Digital Twins en Azure Portal.
 
-En este inicio rápido, explorará un grafo de Azure Digital Twins precompilado con la ayuda de [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md). Se trata de una herramienta que permite visualizar e interactuar con los datos Azure Digital Twins en Azure Portal. 
+Con Azure Digital Twins, puede crear e interactuar con modelos en directo de entornos del mundo real, que pueden formar parte de soluciones de IoT más amplias. En primer lugar, los elementos individuales se modelan como **gemelos digitales**. A continuación, se conectan en un **grafo** de conocimiento que puede dar respuesta a eventos en directo y en el que se puede consultar información.
 
 Deberá completar los pasos siguientes:
 
@@ -28,7 +28,7 @@ Deberá completar los pasos siguientes:
 1. Realización de cambios en el grafo.
 1. Revisión de los aprendizajes de la experiencia.
 
-El grafo de ejemplo con el que va a trabajar representa un edificio de dos plantas y dos salas. Floor0 contiene Room0 y Floor1 contiene Room1. El grafo será como el de esta imagen:
+El grafo de ejemplo de Azure Digital Twins con el que va a trabajar representa un edificio de dos plantas y dos salas. Floor0 contiene Room0 y Floor1 contiene Room1. El grafo será como el de esta imagen:
 
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="Captura de pantalla de un grafo formado por cuatro nodos circulares conectados por flechas en Azure Digital Twins Explorer.":::
 
@@ -39,10 +39,10 @@ El grafo de ejemplo con el que va a trabajar representa un edificio de dos plant
 
 Necesitará una suscripción de Azure para completar esta guía de inicio rápido. Si aún no tiene una, [cree una gratis](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
-También deberá descargar los materiales del grafo de ejemplo usado en el inicio rápido. Use los vínculos y las instrucciones siguientes para descargar los tres archivos necesarios desde el repositorio [digital-twins-explorer de GitHub](https://github.com/Azure-Samples/digital-twins-explorer).
-* [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Room.json): vaya al vínculo, haga clic con el botón derecho en cualquier lugar de la pantalla y seleccione **Guardar como** en el menú contextual del explorador. Use la siguiente ventana Guardar como para guardar el archivo en algún lugar del equipo con el nombre **Room.json**.
-* [Floor.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Floor.json): vaya al vínculo, haga clic con el botón derecho en cualquier lugar de la pantalla y seleccione **Guardar como** en el menú contextual del explorador. Use la siguiente ventana Guardar como para guardar el archivo en la misma ubicación que el archivo **Room.json**, con el nombre **Floor.json**.
-* [buildingScenario.xlsx](https://github.com/Azure-Samples/digital-twins-explorer/blob/main/client/examples/buildingScenario.xlsx): vaya al vínculo y seleccione el botón **Descargar**. El archivo se descargará en la ubicación de descarga predeterminada.
+También deberá descargar los materiales del grafo de ejemplo usado en el inicio rápido. Use los vínculos y las instrucciones siguientes para descargar los tres archivos necesarios desde el repositorio [digital-twins-explorer de GitHub](https://github.com/Azure-Samples/digital-twins-explorer). Más adelante, seguirá más instrucciones para cargarlos en Azure Digital Twins.
+* [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Room.json): se trata de un archivo de modelo que representa una sala de un edificio. Vaya al vínculo, haga clic con el botón derecho en cualquier lugar de la pantalla y seleccione **Guardar como** en el menú contextual del explorador. Use la siguiente ventana Guardar como para guardar el archivo en algún lugar del equipo con el nombre **Room.json**.
+* [Floor.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Floor.json): se trata de un archivo de modelo que representa una planta de un edificio. Vaya al vínculo, haga clic con el botón derecho en cualquier lugar de la pantalla y seleccione **Guardar como** en el menú contextual del explorador. Use la siguiente ventana Guardar como para guardar el archivo en la misma ubicación que el archivo **Room.json**, con el nombre **Floor.json**.
+* [buildingScenario.xlsx](https://github.com/Azure-Samples/digital-twins-explorer/blob/main/client/examples/buildingScenario.xlsx): este archivo contiene un grafo de gemelos de salas y plantas, así relaciones entre ellos. Vaya al vínculo y seleccione el botón **Descargar**. El archivo se descargará en la ubicación de descarga predeterminada.
 
     :::image type="content" source="media/quickstart-azure-digital-twins-explorer/download-building-scenario.png" alt-text="Captura de pantalla del archivo digital-twins-explorer/client/examples/buildingScenario.xlsx en GitHub. El botón Descargar está resaltado." lightbox="media/quickstart-azure-digital-twins-explorer/download-building-scenario.png":::
 
@@ -85,9 +85,9 @@ Se abrirá una ventana Azure Digital Twins Explorer conectada a la instancia.
 
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/explorer-blank.png" alt-text="Captura de pantalla Azure Digital Twins Explorer en un explorador de Internet." lightbox="media/quickstart-azure-digital-twins-explorer/explorer-blank.png":::
 
-## <a name="add-the-sample-data"></a>Adición de los datos de ejemplo
+## <a name="upload-the-sample-materials"></a>Cargar los datos de ejemplo
 
-A continuación, importará el escenario de ejemplo y el grafo en Azure Digital Twins Explorer. El escenario de ejemplo se encuentra en la carpeta **digital-twins-explorer-main** que descargó en la sección [Requisitos previos](#prerequisites).
+A continuación, importará los modelos de ejemplo y el grafo en Azure Digital Twins Explorer. Utilizará los archivos de modelo y el archivo de grafo que ha descargado en su máquina en la sección [Requisitos previos](#prerequisites).
 
 ### <a name="models"></a>Modelos
 
@@ -106,9 +106,9 @@ En este inicio rápido, los archivos del modelo ya se han escrito y validado. Es
 * Floor
 * Sala
 
-#### <a name="upload-models"></a>Carga de modelos
+#### <a name="upload-the-models-json-files"></a>Carga de los modelos (archivos .json)
 
-Siga estos pasos para cargar los modelos.
+Siga estos pasos para cargar los modelos (los archivos *.json* que ha descargado anteriormente).
 
 1. En el panel **Modelos**, seleccione el icono **Upload a Model** (Cargar un modelo) que muestra una flecha que apunta a una nube.
 
@@ -142,9 +142,9 @@ En esta sección, cargará los gemelos creados previamente que están conectados
 * Floor1
     - Contains Room1
 
-#### <a name="import-the-graph"></a>Importación de grafo
+#### <a name="import-the-graph-xlsx-file"></a>Importación del grafo (archivo .xlsx)
 
-Siga estos pasos para importar el grafo.
+Siga estos pasos para importar el grafo (el archivo *.xlsx* que descargó anteriormente).
 
 1. En el panel **Twin Graph** (Grafo gemelo), seleccione el icono **Import Graph** (Importar grafo) que muestra una flecha que apunta a una nube.
 
@@ -156,13 +156,7 @@ Siga estos pasos para importar el grafo.
 
 3. Para confirmar la carga del grafo, seleccione el icono **Guardar** situado en la esquina superior derecha del cuadro panel de vista previa del grafo.
 
-   :::row:::
-    :::column:::
-        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png" alt-text="Captura de pantalla de Azure Digital Twins Explorer con el icono Guardar del panel de vista previa del grafo resaltado." lightbox="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-   :::row-end:::
+    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png" alt-text="Captura de pantalla de Azure Digital Twins Explorer con el icono Guardar del panel de vista previa del grafo resaltado." lightbox="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png":::
 
 4. Azure Digital Twins Explorer usará el archivo cargado para crear los gemelos solicitados y las relaciones entre ellos. Al terminar, aparecerá un cuadro de diálogo. Seleccione **Close** (Cerrar).
 

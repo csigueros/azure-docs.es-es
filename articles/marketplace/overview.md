@@ -1,6 +1,6 @@
 ---
 title: ¿Qué es el marketplace comercial de Microsoft?
-description: Información general de las ventajas y las opciones para los asociados de Microsoft que publican soluciones en el marketplace comercial de Microsoft.
+description: Información general de las ventajas y las opciones para los asociados de Microsoft que publican soluciones en el marketplace comercial.
 author: mingshen-ms
 ms.author: mingshen
 ms.service: marketplace
@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: overview
 ms.custom: contperf-fy21q4
 ms.date: 10/15/2020
-ms.openlocfilehash: 9764afb8bbb0dd6e627336e360ed5b5edc5b8d14
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 6a3d9dbb81bffc628e574d22aa56526a9abeeaa1
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129855980"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070969"
 ---
 # <a name="what-is-the-microsoft-commercial-marketplace"></a>¿Qué es el marketplace comercial de Microsoft?
 
@@ -61,11 +61,11 @@ Este es un ejemplo de página de oferta en AppSource:
 
 Los clientes también pueden acceder a las ofertas de AppSource mediante Microsoft 365, Dynamics 365, Power Platform y Azure. En el ejemplo siguiente se muestra cómo acceder a los complementos de AppSource desde el menú **Archivo** de Power BI.
 
-:::image type="content" source="media/overview/power-bi.png" alt-text="Se muestra cómo acceder a los objetos visuales de Power BI en AppSource desde el menú Archivo de Power BI."::: 
+:::image type="content" source="media/overview/power-bi.png" alt-text="Captura de pantalla que muestra cómo acceder a los objetos visuales de Power BI en AppSource desde el menú Archivo de Power BI.":::
 
 Esta opción abre una ventana en la que el cliente puede buscar complementos de Power BI por nombre o categoría. 
 
-:::image type="content" source="media/overview/power-bi-apps.png" alt-text="Se muestra la lista de complementos de AppSource desde Power BI."::: 
+:::image type="content" source="media/overview/power-bi-apps.png" alt-text="Captura de pantalla que muestra la lista de complementos de AppSource desde Power BI.":::
 
 ### <a name="azure-marketplace"></a>Azure Marketplace
 
@@ -73,17 +73,17 @@ Esta opción abre una ventana en la que el cliente puede buscar complementos de 
 
 Este es un ejemplo de página de oferta en Azure Marketplace:
 
-:::image type="content" source="media/overview/example-marketplace.png" alt-text="Muestra la página de una oferta en Azure Marketplace."::: 
+:::image type="content" source="media/overview/example-marketplace.png" alt-text="Muestra la página de una oferta en Azure Marketplace.":::
 
 #### <a name="azure-marketplace-in-the-azure-portal"></a>Azure Marketplace en Azure Portal
 
 Los clientes de Azure pueden descubrir e implementar soluciones de Azure Marketplace mediante la opción **Crear un recurso** en [Azure Portal](https://portal.azure.com/).
 
-:::image type="content" source="media/overview/create-resource.png" alt-text="Se muestra la opción Crear un recurso de Azure Portal"::: 
+:::image type="content" source="media/overview/create-resource.png" alt-text="Captura de pantalla en la que se muestra la opción Crear un recurso en Azure Portal.":::
 
 Esta opción abre Azure Marketplace en Azure Portal, donde se pueden buscar soluciones por nombre o categoría.
 
-:::image type="content" source="media/overview/search-portal.png" alt-text="Se muestran las opciones de búsqueda de Azure Marketplace en Azure Portal"::: 
+:::image type="content" source="media/overview/search-portal.png" alt-text="Captura de pantalla que muestra las opciones de búsqueda de Azure Marketplace en Azure Portal":::.
 
 ### <a name="which-store-should-i-choose"></a>¿Qué tienda debo elegir?
 Al crear una oferta del marketplace comercial en el Centro de partners, se publicará en cualquiera de las tiendas en función del tipo de oferta, las categorías y otras opciones que seleccione. En el caso excepcional de que la oferta sea pertinente para los usuarios de ambas tiendas en línea, puede aparecer en ambos. Para más información, consulte [Opciones de lista y precios en función de la tienda en línea](determine-your-listing-type.md#listing-and-pricing-options-by-online-store).

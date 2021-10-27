@@ -1,18 +1,19 @@
 ---
-title: 'Tutorial: Emisión de credenciales verificables de Azure AD desde una aplicación'
+title: 'Tutorial: Emisión de credenciales verificables de Azure AD desde una aplicación (versión preliminar)'
 description: En este tutorial, aprenderá a emitir credenciales verificables mediante una aplicación de ejemplo.
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 author: barclayn
+manager: karenh444
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 10/08/2021
-ms.openlocfilehash: ded592a6c33ce592aae70c98c757c8262fd8a42b
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 2e0d1028efab3b157c21c90944a8bcd41be04c55
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129731014"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070743"
 ---
 # <a name="issue-azure-ad-verifiable-credentials-from-an-application-preview"></a>Emisión de credenciales verificables de Azure AD desde una aplicación (versión preliminar)
 
@@ -33,11 +34,11 @@ En este artículo aprenderá a:
 
 En el diagrama siguiente se muestra la arquitectura de las credenciales verificables de Azure AD y el componente que se configura.
 
-![Diagrama que muestra la arquitectura de credenciales verificables de Azure AD.](media/verifiable-credentials-configure-issuer/verifiable-credentials-architecture.png)
+![En el diagrama se muestra la arquitectura de credenciales verificables de Azure AD.](media/verifiable-credentials-configure-issuer/verifiable-credentials-architecture.png)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- Antes de empezar, es importante [configurar un inquilino para las credenciales verificables de Azure AD](https://tbd-link-to-the-tenant-config-article/).
+- Antes de empezar, es importante [configurar un inquilino para las credenciales verificables de Azure AD](/azure/active-directory/verifiable-credentials/verifiable-credentials-configure-tenant).
 - Para clonar el repositorio que hospeda la aplicación de ejemplo, instale [GIT](https://git-scm.com/downloads).
 - [Visual Studio Code](https://code.visualstudio.com/Download) u otro editor de código.
 - [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0)

@@ -9,12 +9,12 @@ ms.subservice: mldata
 ms.topic: how-to
 ms.custom: data4ml
 ms.date: 05/14/2020
-ms.openlocfilehash: 2af916866aa78a081f8769322a80f4d846c89d3e
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 3af540df0629181197455d8495b774483579b2de
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424092"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129984014"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Creación y exploración de un conjunto de datos de Azure Machine Learning con etiquetas
 
@@ -48,6 +48,8 @@ Al completar un proyecto de etiquetado de datos, puede exportar los datos de las
 Puede acceder al conjunto de datos de Azure Machine Learning exportado en la sección **Conjuntos de datos** de Azure Machine Learning Studio. La página **Details** (Detalles) del conjunto de datos también proporciona código de ejemplo para acceder a las etiquetas desde Python.
 
 ![Conjunto de datos exportado](./media/how-to-create-labeling-projects/exported-dataset.png)
+
+Cuando haya exportado los datos etiquetados a un conjunto de datos de Azure Machine Learning, puede usar AutoML para compilar modelos de Computer Vision entrenados sobre los datos etiquetados. Más información en [Configuración de AutoML para entrenar modelos de Computer Vision con Python (versión preliminar)](how-to-auto-train-image-models.md).
 
 ## <a name="explore-labeled-datasets"></a>Exploración de conjuntos de datos etiquetados
 

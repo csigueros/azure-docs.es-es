@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: 425a5cb9ab332076ddd0d745bba7b914e5601917
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 913eb155820832936295a6cc9df6a22175a9bec5
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129707167"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130041982"
 ---
 # <a name="form-recognizer-layout-model"></a>Modelo de diseño de Form Recognizer
 
@@ -128,7 +128,7 @@ En el caso de documentos de varias páginas de gran tamaño, use el parámetro d
 
 * Siga nuestra [**guía de migración de Form Recognizer v3.0**](v3-migration-guide.md) para obtener información sobre cómo usar la versión preliminar en las aplicaciones y flujos de trabajo.
 
-* Explore nuestra [**API de REST (versión preliminar)** ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) para obtener más información sobre la versión preliminar y las nuevas funcionalidades.
+* Explore nuestra [**API de REST (versión preliminar)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) para obtener más información sobre la versión preliminar y las nuevas funcionalidades.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -137,7 +137,7 @@ En el caso de documentos de varias páginas de gran tamaño, use el parámetro d
   > [!div class="nextstepaction"]
   > [Inicio rápido: Uso de la biblioteca cliente de Form Recognizer](quickstarts/try-sdk-rest-api.md)
 
-* Explorar nuestra API REST:
+* Explorar nuestra API de REST:
 
     > [!div class="nextstepaction"]
     > [API v2.1 de Form Recognizer](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync)

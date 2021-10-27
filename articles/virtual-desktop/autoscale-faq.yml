@@ -1,0 +1,35 @@
+### YamlMime:FAQ
+metadata:
+  title: 'Preguntas frecuentes sobre escalabilidad automática (versión preliminar) de Azure Virtual Desktop: Azure'
+  description: Preguntas frecuentes y procedimientos recomendados para Azure Virtual Desktop.
+  author: Heidilohr
+  ms.topic: conceptual
+  ms.date: 10/19/2021
+  ms.author: helohr
+  ms.custom: devx-track-azurepowershell
+  manager: femila
+  ms.openlocfilehash: 7024b24b27e8a33cd79c3ad199dcd9e4040588d5
+  ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 10/19/2021
+  ms.locfileid: "130181857"
+title: Preguntas frecuentes sobre escalabilidad automática (versión preliminar) de Azure Virtual Desktop
+summary: En este artículo se responden las preguntas más frecuentes sobre cómo usar la característica de escalabilidad automática (versión preliminar) para Azure Virtual Desktop.
+sections:
+- name: Omitido
+  questions:
+  - question: >
+      ¿Cómo configurar la escalabilidad automática para ejecutar cero hosts de sesión después del horario laboral?
+    answer: "El modo de descenso siempre utiliza el menor número posible de hosts de sesión. Sin embargo, si existen sesiones activas, el número más bajo de hosts de sesión utilizables no será cero. Configure una directiva de límite de tiempo para cerrar la sesión de todos los usuarios desconectados a fin de evitar tener hosts de sesión utilizables después del horario laboral.\n \n"
+  - question: >
+      ¿La escalabilidad automática crea o elimina máquinas virtuales en función de la carga del servicio?
+    answer: >
+      No.
+  - question: >
+      ¿Puedo configurar el escalado para fechas específicas, como días festivos?
+    answer: >
+      No. La escalabilidad automática no admite actualmente el descenso en fechas específicas.
+  - question: >
+      ¿Se me cobrará más por usar la característica de escalabilidad automática?
+    answer: No. Para más información sobre las tarifas, consulte la [página de precios](https://azure.microsoft.com/pricing/details/virtual-desktop/).

@@ -4,12 +4,12 @@ description: Obtenga información sobre el cifrado en reposo de una instancia de
 ms.topic: how-to
 ms.date: 09/13/2021
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: a5fd3140474b1d6d7c36d686c14f2dc4e6a9ef73
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: cd15a42585f5722432d32d9cffdfa89e2c17f8a2
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128561610"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130046437"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Cifrado del registro con una clave administrada por el cliente
 

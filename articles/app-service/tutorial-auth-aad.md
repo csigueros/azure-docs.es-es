@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 09/23/2021
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: e7ee0deb84b6b7ef7c10c296eab236524a3ee487
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 14bc05787a589356eec6d4cbb9abd5eebba255a8
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129357343"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045586"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutorial: Autenticación y autorización de usuarios de extremo a extremo en Azure App Service
 
@@ -100,7 +100,7 @@ En este paso, implementará el proyecto en dos aplicaciones de App Service. Una 
 
 ::: zone pivot="platform-windows"  
 
-En Cloud Shell, ejecute los siguientes comandos para crear dos aplicaciones web en Windows. Reemplace _\<front-end-app-name>_ y _\<back-end-app-name>_ por dos nombres de aplicación globalmente únicos (los caracteres válidos son `a-z`, `0-9` y `-`). Para más información sobre cada comando, consulte [API RESTful con CORS en Azure App Service](app-service-web-tutorial-rest-api.md).
+En Cloud Shell, ejecute los siguientes comandos para crear dos aplicaciones web en Windows. Reemplace _\<front-end-app-name>_ y _\<back-end-app-name>_ por dos nombres de aplicación globalmente únicos (los caracteres válidos son `a-z`, `0-9` y `-`). Para más información sobre cada comando, consulte [Hospedaje de una API RESTful con CORS en Azure App Service](app-service-web-tutorial-rest-api.md).
 
 ```azurecli-interactive
 az group create --name myAuthResourceGroup --location "West Europe"

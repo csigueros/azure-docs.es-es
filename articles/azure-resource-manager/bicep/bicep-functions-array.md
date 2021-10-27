@@ -4,13 +4,13 @@ description: Describe las funciones que se usarán en un archivo de Bicep para t
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
-ms.date: 09/30/2021
-ms.openlocfilehash: 69e1e3c9574d6a32663186d46c1af3dceb422f4a
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.date: 10/18/2021
+ms.openlocfilehash: f0f9132818a8708ad5ef2a3205eb2f3a497006d6
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129357631"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130160806"
 ---
 # <a name="array-functions-for-bicep"></a>Funciones de matriz para Bicep
 
@@ -328,14 +328,126 @@ output commonDown array = intersection(array2, array3, array1)
 
 El resultado del ejemplo anterior es:
 
-| Nombre | Tipo | Valor |
+| Nombre | Tipo | Value |
 | ---- | ---- | ----- |
 | commonUp | array | [1, 2, 3] |
 | commonDown | array | [3, 2, 1] |
 
+## <a name="items"></a>items
+
+`items(object)`
+
+Convierte un objeto de diccionario en una matriz.
+
+Espacio de nombres: [sys](bicep-functions.md#namespaces-for-functions).
+
+### <a name="parameters"></a>Parámetros
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| object |Sí |object |El objeto de diccionario que se va a convertir en una matriz. |
+
+### <a name="return-value"></a>Valor devuelto
+
+Una matriz de objetos para el diccionario convertido. Cada objeto de la matriz tiene una propiedad `key` que contiene el valor de clave para el diccionario. Además, cada objeto tiene una propiedad `value` que contiene las propiedades para el objeto.
+
+### <a name="example"></a>Ejemplo
+
+En el ejemplo siguiente se convierte un objeto de diccionario en una matriz. Para cada objeto de la matriz, crea un objeto con valores modificados.
+
+```bicep
+var entities = {
+  item001: {
+    enabled: true
+    displayName: 'Example item 1'
+    number: 300
+  }
+  item002: {
+    enabled: false
+    displayName: 'Example item 2'
+    number: 200
+  }
+}
+
+var modifiedListOfEntities = [for entity in items(entities): {
+  key: entity.key
+  fullName: entity.value.displayName
+  itemEnabled: entity.value.enabled
+}]
+
+output modifiedResult array = modifiedListOfEntities
+```
+
+El ejemplo anterior devuelve:
+
+```json
+"modifiedResult": {
+  "type": "Array",
+  "value": [
+    {
+      "fullName": "Example item 1",
+      "itemEnabled": true,
+      "key": "item001"
+    },
+    {
+      "fullName": "Example item 2",
+      "itemEnabled": false,
+      "key": "item002"
+    }
+  ]
+}
+```
+
+En el ejemplo siguiente se muestra la matriz que se devuelve de la función items.
+
+```bicep
+var entities = {
+  item001: {
+    enabled: true
+    displayName: 'Example item 1'
+    number: 300
+  }
+  item002: {
+    enabled: false
+    displayName: 'Example item 2'
+    number: 200
+  }
+}
+
+var entitiesArray = items(entities)
+
+output itemsResult array = entitiesArray
+```
+
+El ejemplo devuelve:
+
+```json
+"itemsResult": {
+  "type": "Array",
+  "value": [
+    {
+      "key": "item001",
+      "value": {
+        "displayName": "Example item 1",
+        "enabled": true,
+        "number": 300
+      }
+    },
+    {
+      "key": "item002",
+      "value": {
+        "displayName": "Example item 2",
+        "enabled": false,
+        "number": 200
+      }
+    }
+  ]
+}
+```
+
 ## <a name="last"></a>last
 
-`last (arg1)`
+`last(arg1)`
 
 Devuelve el último elemento de la matriz o el último carácter de la cadena.
 

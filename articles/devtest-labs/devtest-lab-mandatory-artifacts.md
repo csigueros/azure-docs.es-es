@@ -1,21 +1,22 @@
 ---
-title: Especificación de artefactos obligatorios
-description: Aprenda a especificar artefactos obligatorios que se han de instalar antes que cualquier artefacto seleccionado por el usuario en máquinas virtuales (VM) del laboratorio.
+title: Especificación de artefactos obligatorios en Azure DevTest Labs
+description: Aprenda a especificar artefactos obligatorios que se deben instalar antes que cualquier artefacto seleccionado por el usuario en máquinas virtuales (VM) del laboratorio.
 ms.topic: how-to
-ms.date: 06/26/2020
-ms.openlocfilehash: 8963db2f99cc893937365a4eac0a656e1ba90613
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/19/2021
+ms.openlocfilehash: 1f755266a3176ed0cdc5a7426850c09d20b2af86
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128678504"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179248"
 ---
 # <a name="specify-mandatory-artifacts-for-your-lab-in-azure-devtest-labs"></a>Especificación de artefactos obligatorios para su laboratorio de Azure DevTest Labs
-Como propietario de un laboratorio, puede especificar los artefactos obligatorios que se aplican a cada máquina creada en el laboratorio. Imagine un escenario donde quiere que cada máquina del laboratorio se conecte a la red corporativa. En este caso, cada usuario del laboratorio tendría que agregar un artefacto de unión a un dominio durante la creación de máquinas virtuales para asegurarse de que su equipo está conectado al dominio corporativo. En otras palabras, los usuarios del laboratorio esencialmente tendrían que volver a crear una máquina en caso de que se olviden de aplicar artefactos obligatorios en su equipo. Como propietario del laboratorio, convierte el artefacto de unión a un dominio en un artefacto obligatorio en el laboratorio. Con este paso se asegura de que cada máquina está conectada a la red corporativa y ahorra tiempo y esfuerzo a los usuarios del laboratorio.
+
+Como propietario de un laboratorio, puede especificar los artefactos obligatorios que se aplican a cada máquina creada en el laboratorio. Imagine un escenario en el que quiere que cada máquina del laboratorio tenga Visual Studio Code instalado. En este caso, cada usuario de laboratorio tendría que agregar un artefacto de Visual Studio Code durante la creación de la máquina virtual para asegurarse de que tuviera Visual Studio Code. En otras palabras, los usuarios del laboratorio esencialmente tendrían que volver a crear una máquina en caso de que se olviden de aplicar artefactos obligatorios en su equipo. Como propietario del laboratorio, puede hacer que el artefacto de Visual Studio Code sea obligatorio en el laboratorio. Este paso garantiza que cada máquina tenga Visual Studio Code y ahorra el tiempo y el esfuerzo a los usuarios del laboratorio.
  
-Entre otros artefactos obligatorios podrían incluirse una herramienta común que el equipo utiliza o un módulo de administración de seguridad relacionado con la plataforma que cada máquina debe tener de forma predeterminada, etcétera. En pocas palabras, cualquier software común que todas las máquinas del laboratorio deben tener se convierte en un artefacto obligatorio. Si crea una imagen personalizada de una máquina a la que se le han aplicado artefactos obligatorios y luego crea otra máquina a partir de esa imagen, los artefactos obligatorios se vuelven a aplicar a la máquina durante la creación. Este comportamiento también implica que, aunque la imagen personalizada sea anterior, cada vez que cree una máquina a partir de ella, se le aplicará la versión más actualizada de los artefactos obligatorios durante el flujo de creación. 
+Entre otros artefactos obligatorios, podría incluirse una herramienta común que el equipo utiliza o un módulo de administración de seguridad relacionado con la plataforma que cada máquina debe tener de forma predeterminada, etc. En pocas palabras, cualquier software común que todas las máquinas del laboratorio deben tener se convierte en un artefacto obligatorio. Si crea una imagen personalizada de una máquina a la que se le han aplicado artefactos obligatorios y luego crea otra máquina a partir de esa imagen, los artefactos obligatorios se vuelven a aplicar a la máquina durante la creación. Este comportamiento también implica que, aunque la imagen personalizada sea anterior, cada vez que cree una máquina a partir de ella, se le aplicará la versión más actualizada de los artefactos obligatorios durante el flujo de creación. 
  
-Solo los artefactos que no tienen parámetros se admiten como obligatorios. El usuario de laboratorio no tiene que especificar parámetros adicionales durante la creación del laboratorio, con lo que se simplifica el proceso de creación de máquinas virtuales. 
+Solo los artefactos que no tienen parámetros se admiten como obligatorios. El usuario de laboratorio no tiene que especificar otros parámetros durante la creación del laboratorio, lo que simplifica el proceso de creación de VM. 
 
 ## <a name="specify-mandatory-artifacts"></a>Especificación de artefactos obligatorios
 Puede seleccionar artefactos obligatorios para equipos Windows y Linux por separado. También puede reordenar estos artefactos en función del orden en el que quiera que se apliquen. 
@@ -32,7 +33,7 @@ Puede seleccionar artefactos obligatorios para equipos Windows y Linux por separ
 6. Para agregar otro artefacto, elija el artículo y seleccione **Agregar**. En este ejemplo se agrega **Chrome** como segundo artefacto obligatorio.
 
     ![Página Artefactos obligatorios: agregar Chrome](media/devtest-lab-mandatory-artifacts/add-chrome.png)
-7. En la página **Artefactos obligatorios**, se ve un mensaje que especifica el número de artefactos seleccionados. Si hace clic en el mensaje, verá los artefactos que ha seleccionado. Seleccione **Guardar** para guardar. 
+7. En la página **Artefactos obligatorios**, se ve un mensaje que especifica el número de artefactos seleccionados. Si selecciona el mensaje, verá los artefactos que ha seleccionado. Seleccione **Guardar** para guardar. 
 
     ![Página Artefactos obligatorios: guardar artefactos](media/devtest-lab-mandatory-artifacts/save-artifacts.png)
 8. Repita los pasos para especificar los artefactos obligatorios para las máquinas virtuales Linux. 

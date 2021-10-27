@@ -4,17 +4,17 @@ description: Esta documentación es una guía para proveedores de software indep
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 10/15/2021
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 1571ae7a735f9d7cf05ce0724cfe3aeb9de70f0b
-ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
+ms.openlocfilehash: a067e7bbb649adf8f184cbdee5a2a3edb4a2d962
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113231312"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132006"
 ---
-# <a name="managed-application-metered-billing"></a>Facturación según uso de aplicaciones administradas 
+# <a name="managed-application-metered-billing"></a>Facturación según uso de aplicaciones administradas
 
 Con el servicio de medición de Marketplace, puede crear planes de aplicación administrada para ofertas de aplicaciones de Azure que se cobran según unidades no estándar. Antes de publicar esta oferta, debe definir las dimensiones de facturación, como el ancho de banda, los vales o los correos electrónicos procesados. Después, los clientes pagan según su consumo en estas dimensiones.  El sistema informará a Microsoft por medio de la API de servicio de medición de Marketplace sobre los eventos facturables a medida que se produzcan.
 
@@ -33,9 +33,12 @@ A la hora de definir la oferta junto con sus modelos de precios, es importante c
 
 * Cada oferta de aplicación de Azure puede tener planes de plantilla de solución o planes de aplicación administrada.
 * La facturación según uso solo se implementa con los planes de aplicación administrada.
-* Cada plan de aplicación administrada tiene un modelo de precios asociado. 
+* Cada plan de aplicación administrada tiene un modelo de precios asociado.
 * El modelo de precios tiene una tarifa periódica mensual, que se puede establecer en 0 USD.
 * Además de la tarifa periódica, el plan también puede incluir dimensiones opcionales que se usan para cobrar a los clientes por el uso no incluido en la tarifa plana. Cada dimensión representa una unidad facturable que el servicio comunicará a Microsoft mediante la [API del servicio de medición de Marketplace](marketplace-metering-service-apis.md).
+
+    > [!IMPORTANT]
+    > Debe realizar un seguimiento del uso en el código y enviar solo eventos de uso a Microsoft para el uso que esté por encima del precio base.
 
 ## <a name="sample-offer"></a>Oferta de ejemplo
 

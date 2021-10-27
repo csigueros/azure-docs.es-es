@@ -3,12 +3,12 @@ title: Cambios en el comportamiento de la configuración de invitados en PowerSh
 description: En este artículo se proporciona información general sobre la plataforma que se usa para entregar cambios de configuración a las máquinas a través Azure Policy.
 ms.date: 05/31/2021
 ms.topic: how-to
-ms.openlocfilehash: ee5165ea9e8a80fc31863389df018548859e9b20
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: b501305513e99963ec9d00a49e6e7aa1c74b3683
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123257169"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045339"
 ---
 # <a name="changes-to-behavior-in-powershell-desired-state-configuration-for-guest-configuration"></a>Cambios en el comportamiento de la configuración de invitados en PowerShell Desired State Configuration
 
@@ -72,6 +72,7 @@ El método de función `Get` tiene requisitos especiales para la configuración 
 - La tabla hash que se devuelve debe incluir una propiedad denominada **Reasons**.
 - La propiedad Reasons debe ser una matriz.
 - Cada elemento de la matriz debe ser una tabla hash con claves denominadas **Code** y **Phrase**.
+- No se debe devolver valor alguno más que la tabla hash.
 
 El servicio utiliza la propiedad Reasons para estandarizar el modo en que se presenta la información sobre el cumplimiento. Puede pensar en cada elemento de Reasons como un "motivo" por el que el recurso es o no es compatible. La propiedad es una matriz porque un recurso podría no cumplir los requisitos por más de un motivo.
 
@@ -93,6 +94,8 @@ return @{
     reasons = $reasons
 }
 ```
+
+Al usar herramientas de línea de comandos para obtener información que se devuelva en Get, es posible que la herramienta devuelva una salida no esperada. Aunque capture la salida en PowerShell, también podría escribirse en un error estándar. Para evitar este problema, considere la posibilidad de redirigir la salida a null.
 
 ### <a name="the-reasons-property-embedded-class"></a>Clase incrustada de la propiedad Reasons
 
@@ -172,6 +175,8 @@ El módulo `PsDscResources` de la Galería de PowerShell y el módulo `PSDesired
 
 - No use recursos del módulo `PSDesiredStateConfiguration` que se incluye con Windows. En su lugar, cambie a `PSDscResources`.
 - No use los recursos `WindowsFeature` y `WindowsFeatureSet` en `PsDscResources`. En su lugar, cambie a los recursos `WindowsOptionalFeature` y `WindowsOptionalFeatureSet`.
+  
+Los recursos "nx" de Linux incluidos en el repositorio de [DSC para Linux](https://github.com/microsoft/PowerShell-DSC-for-Linux/tree/master/Providers) se han escrito en una combinación de los lenguajes C y Python. Dado que el método de DSC en Linux es usar PowerShell, los recursos "nx" existentes no son compatibles con DSCv3. Hasta que haya disponible un nuevo módulo que contenga recursos admitidos para Linux es necesario crear recursos personalizados.
 
 ## <a name="coexistance-with-dsc-version-3-and-previous-versions"></a>Coexistencia con la versión 3 y anteriores de DSC
 

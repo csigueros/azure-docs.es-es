@@ -1,0 +1,33 @@
+- name: Documentación de integración de Confluent Cloud en Azure
+  href: index.yml
+- name: Información general
+  items:
+    - name: ¿Qué es Confluent Cloud en Azure?
+      href: overview.md
+- name: Guías de inicio rápido
+  expanded: true
+  items:
+    - name: Portal de Azure
+      href: create.md
+    - name: Azure CLI
+      href: create-cli.md
+      displayName: 'Azure CLI, az confluent organization create, az confluent organization wait, az confluent organization list, az confluent organization show'
+- name: Procedimientos
+  items:
+    - name: Incorporación de conectores
+      href: add-connectors.md
+    - name: Administrar
+      href: manage.md
+      displayName: 'Azure CLI, az confluent organization delete'
+    - name: Solución de problemas
+      items:
+        - name: Obtención de soporte técnico
+          href: get-support.md
+        - name: Solución de errores comunes
+          href: troubleshoot.md
+- name: Referencia
+  items:
+    - name: Azure CLI
+      href: /cli/azure/confluent
+    - name: Azure PowerShell
+      href: /powershell/module/az.confluent/#confluent

@@ -9,12 +9,12 @@ ms.subservice: mldata
 ms.topic: how-to
 ms.date: 09/24/2021
 ms.custom: data4ml
-ms.openlocfilehash: e600c5d6d880a5aba0a714173897660e306aa853
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: b8681974510b6d3fbee74248aab95b33de443109
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424566"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003825"
 ---
 # <a name="create-an-image-labeling-project-and-export-labels"></a>Creación de un proyecto de etiquetado de imágenes y exportación de etiquetas
 
@@ -219,6 +219,8 @@ Use el botón **Exportar** en la página **Detalles del proyecto** del proyecto 
 Acceda al conjunto de datos exportado de Azure Machine Learning en la sección **Conjuntos de datos** de Machine Learning. La página de detalles del conjunto de datos también proporciona código de ejemplo para acceder a las etiquetas desde Python.
 
 ![Conjunto de datos exportado](./media/how-to-create-labeling-projects/exported-dataset.png)
+
+Cuando haya exportado los datos etiquetados a un conjunto de datos de Azure Machine Learning, puede usar AutoML para crear modelos de Computer Vision entrenados sobre los datos etiquetados. Más información en [Configuración de AutoML para entrenar modelos de Computer Vision con Python (versión preliminar)](how-to-auto-train-image-models.md).
 
 ## <a name="troubleshooting"></a>Solución de problemas
 

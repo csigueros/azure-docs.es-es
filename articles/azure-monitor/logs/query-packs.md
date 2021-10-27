@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2021
-ms.openlocfilehash: ef34ec8531242dfdb20e984c4c6d8f86d08b8fcf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 28bd435e8c6f6144b1dafd11df174d69f763d45d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121724599"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129987468"
 ---
 # <a name="query-packs-in-azure-monitor-logs-preview"></a>Paquetes de consultas en registros de Azure Monitor (versión preliminar)
 Un paquete de consultas es un objeto de Resource Manager que actúa como contenedor para las consultas de registro en Azure Monitor y proporciona un método para guardar las consultas de registro y compartirlas entre varias áreas de trabajo y otros contextos en Log Analytics. 
@@ -79,11 +79,8 @@ Cada consulta del paquete de consultas tiene las siguientes propiedades.
 | cliente     | Categorías relacionadas, tipos de recursos y soluciones para la consulta. Se usa para que el usuario agrupe y filtre en Log Analytics a fin de localizar su consulta. Cada consulta puede tener hasta diez de cada tipo. Recupere los valores permitidos de https://api.loganalytics.io/v1/metadata?select=resourceTypes,solutions,categories. |
 | etiquetas        | Etiquetas adicionales usadas por el usuario para ordenar y filtrar en Log Analytics. Cada etiqueta se agregará a Category, Resource Type y Solution al [agrupar y filtrar consultas](queries.md#finding-and-filtering-queries). |
 
-
-
-
 ## <a name="create-a-query-pack"></a>Creación de un paquete de consultas
-La única manera de instalar actualmente un paquete de consultas es con la API REST. 
+Puede crear un paquete de consulta en Azure Portal en la hoja de paquetes de consulta de Log Analytics o mediante la API REST. 
 
 ### <a name="create-token"></a>Creación del token
 Necesita un token para la autenticación de la solicitud de API. Hay varios métodos para obtener un token, incluido el uso de **armclient**.

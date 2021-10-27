@@ -4,7 +4,7 @@ description: Proporciona información general sobre el diagnóstico de inicio de
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/07/2021
+ms.date: 09/30/2021
 ms.author: markvi
 ms.reviewer: tspring
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30ec59a2b74ffb1a9de8bbf03271bf4699c98b6b
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: 99e3999eaa137a26680ff5741f38d434d2a9f618
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113552657"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998910"
 ---
 # <a name="what-is-the-sign-in-diagnostic-in-azure-ad"></a>¿Qué es el diagnóstico de inicio de sesión en Azure AD?
 
@@ -50,29 +50,39 @@ Dada la mayor flexibilidad del sistema para responder a un intento de inicio de 
 
 Para iniciar y completar el proceso de diagnóstico, es preciso:   
 
-1. **Identificar evento**: escriba información sobre el evento de inicio de sesión. 
+1. **Identificación del evento** : inicie el diagnóstico y revise los eventos marcados para los que los usuarios solicitan ayuda o escriba información sobre el evento de inicio de sesión que se va a investigar. 
 
-2. **Seleccionar evento**: seleccione un evento en función de la información compartida. 
+2. **Selección de evento** : seleccione un evento en función de la información compartida. 
 
-3. **Tomar medidas**: revise los resultados del diagnóstico y dé los pasos necesarios.
+3. **Toma de medidas** : revise los resultados del diagnóstico y dé los pasos necesarios. 
+
 
 
 ### <a name="identify-event"></a>Identificar evento 
 
-Para identificar los eventos adecuados, puede filtrarlos en función de las siguientes opciones:
+El diagnóstico permite que dos métodos busquen eventos para investigar:  
 
-- Nombre del usuario
+- Errores de inicio de sesión que los usuarios hayan [marcado para obtener ayuda](overview-flagged-sign-ins.md). 
+- Búsqueda de eventos específicos del usuario y criterios adicionales. 
+
+Los inicios de sesión marcados se presentan automáticamente en una lista con un máximo de 100. Para ejecutar un diagnóstico en un evento inmediatamente, haga clic en él.  
+
+Para buscar un evento específico, seleccione la pestaña de búsqueda incluso si hay inicios de sesión marcados. Al buscar eventos específicos, puede filtrar por las siguientes opciones: 
+
+- Nombre del usuario 
+
 - Application 
-- Identificador de correlación o identificador. de solicitud 
-- Fecha y hora
 
-![Captura de pantalla que muestra el filtro.](./media/overview-sign-in-diagnostics/sign-in-diagnostics.png)
+- Identificador de correlación o identificador. de solicitud 
+
+- Fecha y hora 
 
 
 
 ### <a name="select-event"></a>Seleccionar evento  
 
-En función de los criterios de búsqueda, Azure AD recupera todos los eventos de inicio de sesión coincidentes y los presenta en una vista de lista de resumen de autenticación.  
+En el caso de los inicios de sesión marcados o si se ha realizado una búsqueda, Azure AD recupera todos los eventos de inicio de sesión correspondientes y los presenta en una vista de lista de resumen de autenticación. 
+
 
 ![Captura de pantalla que muestra la lista resumen de la autenticación.](./media/overview-sign-in-diagnostics/review-sign-ins.png)
 

@@ -2,19 +2,19 @@
 title: Uso de tablas externas con Synapse SQL
 description: Lectura o escritura de archivos de datos con tablas externas en Synapse SQL
 services: synapse-analytics
-author: julieMSFT
+author: ma77b
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 04/26/2021
-ms.author: jrasnick
-ms.reviewer: jrasnick
-ms.openlocfilehash: 834feed476c307bc1a16bf95719b630389e58511
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 07/23/2021
+ms.author: maburd
+ms.reviewer: wiassaf
+ms.openlocfilehash: a229bd769afa30b93cae9ca0f2073ad8a0621cdd
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123430799"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001397"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Uso de tablas externas con Synapse SQL
 
@@ -22,15 +22,15 @@ Una tabla externa apunta a datos ubicados en Hadoop, Azure Storage Blob o Azure 
 
 En función del tipo de origen de datos externo, puede usar dos tipos de tablas externas:
 - Tablas externas de Hadoop, que puede usar para leer y exportar datos en varios formatos de datos, como CSV, Parquet y ORC. Las tablas externas de Hadoop están disponibles en los grupos de SQL dedicados, pero no en los grupos de SQL sin servidor.
-- Tablas externas nativas, que puede usar para leer y exportar datos en varios formatos de datos, como CSV y Parquet. Las tablas externas nativas están disponibles en los grupos de SQL sin servidor, y están disponibles en versión preliminar en grupos de Synapse SQL dedicados.
+- Tablas externas nativas, que puede usar para leer y exportar datos en varios formatos de datos, como CSV y Parquet. Las tablas externas nativas están disponibles en los grupos de SQL sin servidor, y están disponibles en **versión preliminar pública** en grupos de SQL dedicados.
 
 Las principales diferencias entre Hadoop y las tablas externas nativas se presentan en la tabla siguiente:
 
 | Tipo de tabla externa | Hadoop | Nativa |
 | --- | --- | --- |
-| Grupo de SQL dedicado | Disponible | Las tablas Parquet están disponibles en **versión preliminar validada**; póngase en contacto con el responsable técnico de cuentas o el arquitecto de soluciones en la nube de Microsoft para comprobar si puede agregar su grupo de SQL dedicado a la versión preliminar validada. |
+| Grupo de SQL dedicado | Disponible | Las tablas de Parquet están disponibles en **versión preliminar pública**. |
 | Grupo de SQL sin servidor | No disponible | Disponible |
-| Formatos compatibles | Delimitado/CSV, Parquet, ORC, Hive RC y RC | Grupo de SQL sin servidor: delimitado/CSV, Parquet y Delta Lake (versión preliminar)<br/>Grupo de SQL dedicado: Parquet |
+| Formatos compatibles | Delimitado/CSV, Parquet, ORC, Hive RC y RC | Grupo de SQL sin servidor: delimitado/CSV, Parquet y [Delta Lake (versión preliminar)](query-delta-lake-format.md)<br/>Grupo de SQL dedicado: Parquet |
 | Eliminación de particiones de carpetas | No | Solo para las tablas con particiones sincronizadas desde grupos de Apache Spark en el área de trabajo de Synapse a grupos de SQL sin servidor |
 | Formato personalizado para la ubicación | Yes | Sí, con caracteres comodín como `/year=*/month=*/day=*` |
 | Examen recursivo de carpetas | No | Solo en grupos de SQL sin servidor cuando se especifica `/**` al final de la ruta de acceso de ubicación |
@@ -38,7 +38,7 @@ Las principales diferencias entre Hadoop y las tablas externas nativas se presen
 | Autenticación del almacenamiento | Clave de acceso de almacenamiento (SAK), acceso directo de AAD, identidad administrada, identidad de aplicación personalizada de Azure AD | Firma de acceso compartido (SAS), acceso directo de AAD, identidad administrada |
 
 > [!NOTE]
-> Las tablas externas nativas en formato Delta Lake están en versión preliminar pública. [CETAS](develop-tables-cetas.md) no admite la exportación de contenido en formato Delta Lake.
+> Las tablas externas nativas en formato Delta Lake están en versión preliminar pública. Para más información, consulte [Consulta de archivos de Delta Lake (versión preliminar)](query-delta-lake-format.md). [CETAS](develop-tables-cetas.md) no admite la exportación de contenido en formato Delta Lake.
 
 ## <a name="external-tables-in-dedicated-sql-pool-and-serverless-sql-pool"></a>Tablas externas en un grupo de SQL dedicado y en un grupo de SQL sin servidor
 

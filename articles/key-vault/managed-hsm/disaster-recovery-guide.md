@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5f2ea76f9c1a27485e31a3e90f27b1d5d4e424cb
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 66c20cc564d52d62f71d28dd35fd616a228d088f
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114443546"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130130961"
 ---
 # <a name="managed-hsm-disaster-recovery"></a>Recuperación ante desastres de Managed HSM
 
@@ -48,11 +48,11 @@ Para crear un recurso de HSM administrado, es preciso que proporcione lo siguien
 - La ubicación de Azure.
 - Una lista de administradores iniciales.
 
-En el ejemplo siguiente se crea un HSM denominado **ContosoMHSM**, en el grupo de recursos **ContosoResourceGroup**, que reside en la ubicación **Este de EE. UU. 2**, con **el usuario actual con sesión iniciada** como único administrador.
+En el ejemplo siguiente se crea un dispositivo HSM llamado **ContosoMHSM**, en el grupo de recursos **ContosoResourceGroup**, que reside en la ubicación **Centro de EE. UU.** , con **el usuario actual que ha iniciado sesión** como único administrador.
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query objectId -o tsv)
-az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGroup" --location "East US 2" --administrators $oid
+az keyvault create --hsm-name "ContosoMHSM2" --resource-group "ContosoResourceGroup" --location "centralus" --administrators $oid
 ```
 
 > [!NOTE]
@@ -61,7 +61,7 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 La salida de este comando muestra las propiedades del HSM administrado que ha creado. Las dos propiedades más importantes son:
 
 * **name**: en el ejemplo, el nombre es ContosoMHSM. Usará este nombre para otros comandos de Key Vault.
-* **hsmUri**: en el ejemplo, el URI es "https://contosohsm.managedhsm.azure.net". Las aplicaciones que utilizan el HSM a través de su API REST deben usar este identificador URI.
+* **hsmUri**: en el ejemplo, el URI es "https://contosomhsm2.managedhsm.azure.net". Las aplicaciones que utilizan el HSM a través de su API REST deben usar este identificador URI.
 
 Su cuenta de Azure ahora está autorizada para realizar operaciones en este HSM administrado. Hasta ahora, nadie más está autorizado.
 

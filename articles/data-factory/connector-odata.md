@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/13/2021
 ms.author: jianleishen
-ms.openlocfilehash: 938693353505a7fb3d37c85234da429ed2367ad4
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: c1ac63dde4dd489449db5db913aeb55f5d3de3ad
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124787895"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064977"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory-or-synapse-analytics"></a>Copia de datos de un origen de OData con Azure Data Factory o Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -356,7 +356,7 @@ Al copiar datos desde OData, se utilizan las siguientes asignaciones entre tipos
 
 ## <a name="copy-data-from-project-online"></a>Copia de datos de Project Online
 
-Para copiar datos de Project Online, puede usar el conector OData y un token de acceso obtenido de herramientas como Postman.
+Project Online requiere OAuth basado en el usuario, que no es compatible con Azure Data Factory. Para copiar datos de Project Online, puede usar el conector OData y un token de acceso obtenido de herramientas como Postman.
 
 > [!CAUTION]
 > El token de acceso expira en 1 hora de manera predeterminada; debe obtener uno nuevo en cuanto expire.
@@ -377,7 +377,7 @@ Para copiar datos de Project Online, puede usar el conector OData y un token de 
    1. Se le va a pedir que inicie sesión con su nombre de usuario y contraseña.
    1. Una vez que obtenga el token de acceso, cópielo y guárdelo para el siguiente paso.
    
-    [:::image type="content" source="./media/connector-odata/odata-project-online-postman-access-token-expanded.png#lightbox" alt-text="Use Postman para obtener el token de acceso](./media/connector-odata/odata-project-online-postman-access-token-inline.png)":::
+    :::image type="content" source="./media/connector-odata/odata-project-online-postman-access-token-inline.png" alt-text="Captura de pantalla del uso de Postman para obtener el token de acceso." lightbox="./media/connector-odata/odata-project-online-postman-access-token-expanded.png":::        
 
 1. Cree el servicio vinculado de OData:
     - **URL de servicio**: escriba `https://<your tenant name>.sharepoint.com/sites/pwa/_api/Projectdata`. Reemplace `<your tenant name>` por su propio nombre de inquilino. 

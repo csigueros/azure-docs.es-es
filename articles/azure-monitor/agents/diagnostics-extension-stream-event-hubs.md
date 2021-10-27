@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/18/2020
-ms.openlocfilehash: 6aa960eb7aed7a579c3fc95748b6e32601201a61
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 6c8353064f96868c99a1e4f1feb270e6cd984bce
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305130"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994259"
 ---
 # <a name="send-data-from-windows-azure-diagnostics-extension-to-azure-event-hubs"></a>Envío de datos de Windows Azure Diagnostics Extension a Azure Event Hubs
 Azure Diagnostics Extension es un agente de Azure Monitor que recopila datos de supervisión del sistema operativo invitado y de las cargas de trabajo de las máquinas virtuales de Azure y de otros recursos de proceso. En este artículo, se explica cómo puede enviar datos desde Windows Azure Diagnostic Extension (WAD) a [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) para reenviarlos después fuera de Azure.
@@ -164,7 +164,7 @@ En el ejemplo siguiente, el atributo **sinks** se aplica directamente a tres con
 ```
 
 ## <a name="validating-configuration"></a>Validación de la configuración
-Puede utilizar diferentes métodos para comprobar que los datos se están enviando al centro de eventos. El método más sencillo es utilizar una captura de Event Hubs, tal y como se describe en [Captura de eventos a través de Azure Event Hubs en Azure Blob Storage o Azure Data Lake Storage](../../event-hubs/event-hubs-capture-overview.md). 
+Puede utilizar diferentes métodos para comprobar que los datos se están enviando al centro de eventos. Un método sencillo es utilizar una captura de Event Hubs, tal y como se describe en [Captura de eventos a través de Azure Event Hubs en Azure Blob Storage o Azure Data Lake Storage](../../event-hubs/event-hubs-capture-overview.md). 
 
 
 ## <a name="troubleshoot-event-hubs-sinks"></a>Solución de problemas con los receptores de Event Hubs

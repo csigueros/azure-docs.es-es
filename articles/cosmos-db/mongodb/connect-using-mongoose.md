@@ -9,12 +9,12 @@ ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 39e2e9c0258be13698d3569dcc6e64d02bff8f42
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2bae7f2466363861afe99d37748e7ea41fc0e1c9
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128554513"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130046646"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Conexión de una aplicación Mongoose de Node.js a Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -95,7 +95,7 @@ Después de crear la base de datos, deberá usar el nombre en la variable de ent
     ```JavaScript
    mongoose.connect("mongodb://"+process.env.COSMOSDB_HOST+":"+process.env.COSMOSDB_PORT+"/"+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb", {
       auth: {
-        user: process.env.COSMOSDB_USER,
+        username: process.env.COSMOSDB_USER,
         password: process.env.COSMOSDB_PASSWORD
       },
     useNewUrlParser: true,
@@ -317,7 +317,7 @@ En este caso, crearemos un modelo de objeto base, definiremos una clave diferenc
     });
     ```
 
-Como puede ver, es muy fácil trabajar con discriminadores de Mongoose. Así pues, si tiene una aplicación que usa el marco Mongoose, este tutorial es una manera de desarrollar la aplicación y ejecutarla mediante la API de Azure Cosmos DB para MongoDB sin tener que hacer demasiados cambios.
+Como puede ver, es muy fácil trabajar con discriminadores de Mongoose. Así pues, si tiene una aplicación que usa el marco Mongoose, este tutorial es una manera de desarrollar la aplicación y ejecutarla mediante la API de Azure Cosmos DB para MongoDB sin tener que hacer demasiados cambios.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

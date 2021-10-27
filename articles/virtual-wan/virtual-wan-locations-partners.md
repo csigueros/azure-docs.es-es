@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: references_regions
-ms.openlocfilehash: c5d548105b5fd749865132ae0629eaac17462da2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a7c94118b1b1a08f4bbd7b58faec6008f9ebc0f8
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124818050"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002745"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Ubicaciones de concentradores virtuales y asociados de Azure Virtual WAN
 
@@ -63,7 +63,7 @@ Estos asociados tienen ofertas de **Aplicaciones administradas** que ahora está
 |[VWAN del enrutador del servicio en la nube de Cisco (CSR)](https://aka.ms/ciscoMarketPlaceOffer)| La integración de la solución Cisco SD-WAN con Azure Virtual WAN mejora las implementaciones de Cloud OnRamp for Multi-Cloud y permite configurar Cisco Catalyst 8000V Edge Software (Cisco Catalyst 8000V) como una aplicación virtual de red (NVA) en centros de Azure Virtual WAN. [Visualización de Cisco SD-WAN Cloud OnRamp, Guía de configuración de Cisco IOS XE Release 17.x](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) 
 |[VMware SD-WAN en el centro de Virtual WAN](https://sdwan.vmware.com/partners/microsoft) | Para obtener instrucciones sobre la implementación del dispositivo VMware SD-WAN en el centro de Virtual WAN, consulte la [Guía de implementación de VMware SD-WAN en el centro de Virtual WAN](https://kb.vmware.com/s/article/82746). Para realizar la implementación, acceda a la aplicación administrada [aquí](https://azuremarketplace.microsoft.com/marketplace/apps/velocloud.vmware_sdwan_in_vwan)|
 
-Los siguientes asociados están preparados para agregar NVA en las ofertas del centro virtual en un futuro próximo: Redes de Aviatrix, Citrix y Versa.
+Los siguientes asociados están preparados para agregar la aplicación virtual de red en las ofertas del centro virtual en un futuro próximo: Aviatrix, Citrix, Versa Networks y Silver Peak.
 
 ## <a name="locations"></a><a name="locations"></a>Ubicaciones
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 10/11/2021
 author: mattmccleary
 ms.author: mmcc
-ms.openlocfilehash: eb20d283e092be8b5932d1427f7e7064afa9c654
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 8f8daa67c22f8a505014ff326ca3961fa86f21f5
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129859600"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130160834"
 ---
 # <a name="enable-azure-monitor-opentelemetry-exporter-for-net-nodejs-and-python-applications-preview"></a>Habilitación de Azure Monitor OpenTelemetry Exporter para aplicaciones de .NET, Node.js y Python (versión preliminar)
 
@@ -318,6 +318,9 @@ Ejecute la aplicación y abra la pestaña Recurso de Application Insights en Azu
 > [!IMPORTANT]
 > Si tiene dos o más servicios que emiten telemetría al mismo recurso de Application Insights, debe [establecer nombres de rol en la nube](#set-cloud-role-name-and-cloud-role-instance) para representarlos correctamente en el mapa de aplicación.
 
+> [!NOTE]
+> Como parte del uso de la instrumentación de Application Insights, se recopilan y envían datos de diagnóstico a Microsoft. Estos datos ayudan a ejecutar y mejorar Application Insights. Tiene la opción de deshabilitar la recopilación de datos no esenciales. [Más información](./statsbeat.md).
+
 ## <a name="set-cloud-role-name-and-cloud-role-instance"></a>Establecimiento de Nombre del rol en la nube e Instancia de rol en la nube
 
 Puede establecer [Nombre del rol en la nube](app-map.md#understanding-cloud-role-name-within-the-context-of-the-application-map) e Instancia de rol en la nube por medio de los atributos de [Recurso](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk). Esto actualiza Nombre del rol en la nube e Instancia de rol en la nube de su valor predeterminado a algo que tenga sentido para el equipo. Aparece en el mapa de aplicación como el nombre debajo de un nodo. Nombre del rol en la nube usa los atributos `service.namespace` y `service.name`, aunque recurre a `service.name` si `service.namespace` no está establecido. Instancia de rol en la nube usa el valor del atributo `service.instance.id`.
@@ -475,7 +478,7 @@ Los [atributos](#add-span-attributes) que se agregan a la actividad o el interva
 1. Muchas bibliotecas de instrumentación proporcionan una opción de enriquecimiento. Vea el Léame de las bibliotecas de instrumentación correspondientes para obtener instrucciones.
     - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.AspNet/README.md#enrich)
     - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#enrich)
-    - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.Http/README.md#enrich)
+    - [HttpClient y HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.Http/README.md#enrich)
 
 2. Uso de procesador personalizado:
 

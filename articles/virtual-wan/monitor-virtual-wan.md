@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/30/2021
 ms.author: cherylmc
-ms.openlocfilehash: d1ac031b79372987561651044e81da2e3d2d2779
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fd0eeb94bb35248aababa3f3a8d9fe820d4abe7f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128636542"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002878"
 ---
 # <a name="monitoring-virtual-wan"></a>Supervisión de Virtual WAN
 
@@ -96,6 +96,12 @@ Las siguientes métricas están disponibles para las puertas de enlace de Azure 
 | --- | --- |
 | **BitsInPerSecond** | Bits que ingresan a Azure por segundo.|
 | **BitsOutPerSecond** | Bits que salen de Azure por segundo. |
+| **Uso de CPU** | Uso de CPU de la puerta de enlace de ExpressRoute.|
+| **Paquetes por segundo** | Recuento de paquetes de la puerta de enlace de ExpressRoute.|
+| **Número de rutas anunciadas al nodo del mismo nivel**| Recuento de rutas anunciadas al par por puerta de enlace de ExpressRoute. | 
+| **Número de rutas aprendidas del nodo del mismo nivel**| Recuento de rutas aprendidas del par por puerta de enlace de ExpressRoute.|
+| **Frecuencia de cambio de rutas** | Frecuencia de cambio de rutas en la puerta de enlace de ExpressRoute.|
+| **Número de máquinas virtuales en la red virtual**| Número de máquinas virtuales que usan esta puerta de enlace de ExpressRoute.|
 
 ### <a name="view-gateway-metrics"></a><a name="metrics-steps"></a>Visualización de métricas de puerta de enlace
 

@@ -8,14 +8,14 @@ metadata:
   ms.service: cost-management-billing
   ms.subservice: common
   ms.topic: conceptual
-  ms.date: 09/16/2021
+  ms.date: 10/13/2021
   ms.author: banders
-  ms.openlocfilehash: 7edae913ea733002aa3ad0736cf744f969003cdb
-  ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+  ms.openlocfilehash: cc2ee1984af35b357f1c67c03fecacbf17444d22
+  ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/09/2021
-  ms.locfileid: "129706218"
+  ms.lasthandoff: 10/14/2021
+  ms.locfileid: "129993062"
 title: Preguntas frecuentes sobre Cost Management + Billing
 summary: ''
 sections:
@@ -121,6 +121,9 @@ sections:
   - question: ¿Qué puede ocurrir si se superponen las reglas de asignación de costos (orígenes y destinos)?
     answer: >
       <a name="rule-overlap"></a>No se recomiendan aquellas reglas que tengan orígenes o destinos superpuestos. Las reglas de asignación de costos se aplican en orden según su fecha de creación, por lo que si se produce cualquier superposición, tendrá prioridad la que tenga la fecha anterior.
+  - question: ¿Puedo ver productos de consumo y licencias del nuevo comercio además de Azure en Cost Management?
+    answer: >
+      Sí. Los partners con un contrato MCA pueden comprar productos de consumo y licencias del nuevo comercio en el Centro de partners. Los productos se facturan junto con los productos de Azure y puede ver los cargos en Cost Management. La dimensión "Proveedor" ayuda a distinguir entre Azure y los productos basados en licencias, como Microsoft 365 y Dynamics 365.
 - name: Preguntas acerca de Cost Management + Billing API
   questions:
   - question: ¿Cuándo dejarán de usarse las API de EA Reporting?

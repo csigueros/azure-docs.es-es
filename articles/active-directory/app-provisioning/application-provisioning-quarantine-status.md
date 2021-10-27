@@ -3,7 +3,7 @@ title: Estado de cuarentena en el aprovisionamiento de aplicaciones de Azure Act
 description: Cuando haya configurado una aplicación para el aprovisionamiento automático de usuarios, obtenga información sobre el estado de aprovisionamiento de los medios de cuarentena y cómo borrarlo.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: c3cdf8ab99506afd644d59fa8e74ed59fa1af853
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: f18fa1af869f0335214cff5725bbc7e6dc1293ea
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783178"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129991667"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Aprovisionamiento de aplicaciones en el estado de cuarentena
 
@@ -71,7 +71,7 @@ Un trabajo puede entrar en cuarentena independientemente del recuento de errores
 - Si se produce un error en más del 40 % de los eventos de aprovisionamiento o hay más de 40 000 errores, el trabajo de aprovisionamiento pasará a cuarentena. Los errores de referencia no se contarán como parte del umbral del 40 % o de 40 000. Por ejemplo, si no se actualiza un administrador o un miembro del grupo, se produce un error de referencia.
 - Un trabajo en el que 45 000 usuarios no se aprovisionaron correctamente entraría en cuarentena, ya que supera el umbral de 40 000.
 - Un trabajo en el que 30 000 no se pudieron aprovisionar pero sí 5000 entraría en cuarentena, ya que supera el umbral del 40 % y el mínimo de 5000.
-- Un trabajo con 20 000 errores pero 100 000 completados correctamente no entraría en cuarentena porque no supera el umbral de errores del 40 % o el máximo de 40 000 errores.  
+- Un trabajo con 20 000 errores pero 100 000 completados correctamente no entraría en cuarentena porque no supera el umbral de errores del 40 % o el máximo de 40 000 errores.  
 - Existe un umbral absoluto de 60 000 errores que tiene en cuenta los errores de referencia y de no referencia. Por ejemplo, no se pudieron aprovisionar 40 000 usuarios y no se completaron 21 000 actualizaciones de administrador. El total es 61 000 errores y supera el límite de 60 000.
 
 

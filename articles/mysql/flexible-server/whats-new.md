@@ -6,13 +6,13 @@ ms.service: mysql
 ms.author: jtoland
 ms.custom: mvc, references_regions
 ms.topic: conceptual
-ms.date: 09/29/2021
-ms.openlocfilehash: 4a74fb34eb750924f9d8c08225edd10a5a220084
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.date: 10/12/2021
+ms.openlocfilehash: 1f4682f616ce09d59e26c578fd6d21e480fae6ef
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129657861"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130069546"
 ---
 # <a name="whats-new-in-azure-database-for-mysql---flexible-server-preview"></a>Novedades de Azure Database for MySQL: servidor flexible (versión preliminar)
 
@@ -38,7 +38,17 @@ En este artículo se resumen las nuevas versiones y características de Azure Da
  
      Azure Database for MySQL: servidor flexible ahora está integrado en Libros de Azure Monitor. Los libros proporcionan un lienzo flexible para el análisis de datos y la creación de informes visuales completos en el Azure Portal. Con esta integración, el servidor tiene un vínculo a los libros y algunas plantillas de ejemplo, lo que ayuda a supervisar el servicio a gran escala. Estas plantillas se pueden editar, personalizar según los requisitos del cliente y anclarse al panel para crear una vista centrada y organizada de los recursos de Azure. Actualmente están disponibles las plantillas [Información de rendimiento de consultas](./tutorial-query-performance-insights.md), [Auditoría](./tutorial-configure-audit.md) e Información general de instancias. [Más información](./concepts-workbooks.md).
 
-- **Pago por adelantado de recursos de proceso de Azure Database for MySQL con instancias reservadas** Azure Database for MySQL: servidor flexible ahora le ayuda a ahorrar dinero mediante el pago por adelantado de recursos de proceso en comparación con los precios de pago por uso. Con las instancias reservadas de Azure Database for MySQL se realiza un compromiso inicial en el servidor MySQL sobre un periodo de entre uno y tres años con el fin de obtener un descuento importante en los costos de proceso. También puede intercambiar una reserva de Azure Database for MySQL: servidor único por servidor flexible. [Más información](../concept-reserved-pricing.md).
+- **Pago por adelantado de recursos de proceso de Azure Database for MySQL con instancias reservadas**
+
+    Ahora Azure Database for MySQL: servidor flexible le ayuda a ahorrar mediante el pago por adelantado de los recursos de proceso en comparación con los precios de pago por uso. Con las instancias reservadas de Azure Database for MySQL se realiza un compromiso inicial en el servidor MySQL sobre un periodo de entre uno y tres años con el fin de obtener un descuento importante en los costos de proceso. También puede intercambiar una reserva de Azure Database for MySQL: servidor único por servidor flexible. [Más información](../concept-reserved-pricing.md).
+
+- **Detención del servidor durante un máximo de 30 días mientras no está en uso**
+    
+    Azure Database for MySQL: servidor flexible ahora le ofrece la posibilidad de detener el servidor durante un máximo de 30 días cuando no esté en uso, así como iniciar el servidor dentro de este tiempo cuando esté listo para reanudar el desarrollo. Esto le permite desarrollar a su propio ritmo y ahorrar costos de desarrollo en los servidores de bases de datos al pagar por los recursos solo cuando están en uso. Esto es importante en las cargas de trabajo de desarrollo y pruebas, y cuando el servidor solo se usa durante una parte del día. Al detener el servidor, se anularán todas las conexiones activas. Si el servidor está en estado detenido, el proceso del mismo no se factura. Sin embargo, el almacenamiento se sigue facturando mientras se mantiene el almacenamiento del servidor, con el fin de asegurarse de que los archivos de datos están disponibles cuando se vuelve a iniciar el servidor. [Más información](concept-servers.md#stopstart-an-azure-database-for-mysql-flexible-server)
+
+- **Compatibilidad de Terraform con MySQL con servidor flexible**
+    
+    La compatibilidad de Terraform con MySQL con servidor flexible ya se ha publicado con la [versión 2.81.0 más reciente de azurerm](https://github.com/hashicorp/terraform-provider-azurerm/blob/v2.81.0/CHANGELOG.md). Puede encontrar el documento de referencia detallado para aprovisionar y administrar un servidor flexible de MySQL mediante Terraform [aquí](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mysql_flexible_server). Los errores o problemas conocidos se pueden encontrar o notificar [aquí](https://github.com/hashicorp/terraform-provider-azurerm/issues).
 
 ## <a name="september-2021"></a>Septiembre de 2021
 

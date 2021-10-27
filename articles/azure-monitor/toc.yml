@@ -151,8 +151,6 @@
           href: alerts/alerts-unified-log.md
         - name: Alertas de registros de actividad
           href: alerts/activity-log-alerts.md
-    - name: Visualización de datos
-      href: visualizations.md
     - name: Integraciones de asociados
       href: partners.md
     - name: Seguridad
@@ -166,6 +164,18 @@
   items:
     - name: Escenarios
       items:
+        - name: Procedimientos recomendados de Azure Monitor
+          items:
+            - name: Información general
+              href: best-practices.md
+            - name: Planificación
+              href: best-practices-plan.md
+            - name: Configuración de la recopilación de datos
+              href: best-practices-data-collection.md
+            - name: Análisis y visualizaciones
+              href: best-practices-analysis.md
+            - name: Alertas y acciones automatizadas
+              href: best-practices-alerts.md
         - name: Supervisión de un recurso de Azure
           href: essentials/monitor-azure-resource.md
         - name: Supervisión de máquinas virtuales
@@ -185,13 +195,6 @@
           displayname: VM
         - name: Supervisión de Kubernetes
           href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
-    - name: Implementación
-      items:
-        - name: Implementación de Azure Monitor
-          href: deploy.md
-        - name: Implementación a escala
-          displayName: 'Azure Policy, Policy'
-          href: deploy-scale.md
     - name: Administración y configuración
       items:
         - name: Permisos de roles y seguridad
@@ -235,7 +238,7 @@
           items:
             - name: Crear un área de trabajo
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: logs/quick-create-workspace.md
                 - name: PowerShell
                   href: logs/powershell-workspace-configuration.md
@@ -390,7 +393,7 @@
         - name: Información general
           href: agents/agents-overview.md
         - name: Preguntas más frecuentes
-          href: /azure/azure-monitor/faq#agents
+          href: ./faq.yml
         - name: Agente de Azure Monitor
           items:
             - name: Información general
@@ -402,15 +405,12 @@
             - name: Recopilación de datos
               displayname: 'data collection rule,Azure Monitor agent'
               href: agents/data-collection-rule-azure-monitor-agent.md
-            - name: Implementación a escala
-              displayname: Deploy Azure Monitor agent at scale
-              href: deploy-scale.md#azure-monitor-agent
             - name: Migración desde agentes heredados
               displayname: Migrate to Azure Monitor agent
               href: agents/azure-monitor-agent-migration.md
             - name: Preguntas más frecuentes
               displayname: Azure Monitor agent FAQ
-              href: /azure/azure-monitor/faq#azure-monitor-agent
+              href: ./faq.yml
         - name: Agente de Log Analytics
           items:
             - name: Información general
@@ -431,7 +431,7 @@
               href: insights/solution-agenthealth.md
         - name: Extensión de Diagnósticos de Azure
           items:
-            - name: Introducción
+            - name: Información general
               href: agents/diagnostics-extension-overview.md
             - name: Windows
               displayname: diagnostics extension
@@ -661,7 +661,7 @@
           href: app/app-insights-overview.md
         - name: Preguntas más frecuentes
           href: /azure/azure-monitor/faq#application-insights
-        - name: Supervisión basada en código
+        - name: SDK de Application Insights
           items:
             - name: .NET
               items:
@@ -736,7 +736,7 @@
               href: app/api-custom-events-metrics.md
             - name: Eliminación de Application Insights
               href: app/remove-application-insights.md
-        - name: Supervisión sin código
+        - name: Instrumentación automática
           items:
             - name: Información general
               href: app/codeless-overview.md
@@ -762,7 +762,7 @@
               href: app/monitor-functions.md
             - name: Azure Kubernetes Service
               href: app/kubernetes-codeless.md
-            - name: Servidores locales
+            - name: Cualquier entorno
               items:
                 - name: ASP.NET
                   items:
@@ -779,7 +779,7 @@
                       href: app/status-monitor-v2-api-reference.md
                 - name: Java
                   href: app/java-on-premises.md
-        - name: OpenTelemetry
+        - name: Instrumentación basada en OpenTelemetry
           items:
             - name: Información general
               href: app/opentelemetry-overview.md
@@ -814,7 +814,7 @@
             - name: Python
               href: app/opentelemetry-enable.md?tabs=python
             - name: Preguntas más frecuentes
-              href: /azure/azure-monitor/faq#opentelemetry
+              href: ./faq.yml
         - name: Creación de un recurso (clásico)
           href: app/create-new-resource.md
         - name: Creación de un recurso (basado en el área de trabajo)
@@ -1054,7 +1054,7 @@
         - name: Preguntas frecuentes acerca de la disponibilidad general
           href: vm/vminsights-ga-release-faq.yml
         - name: Preguntas más frecuentes
-          href: /azure/azure-monitor/faq#vm-insights
+          href: ./faq.yml
         - name: Configuración del área de trabajo
           href: vm/vminsights-configure-workspace.md
         - name: Instalación de agentes
@@ -1106,7 +1106,7 @@
         - name: Información general
           href: containers/container-insights-overview.md
         - name: Preguntas más frecuentes
-          href: /azure/azure-monitor/faq#container-insights
+          href: ./faq.yml
         - name: Habilitar supervisión
           items:
             - name: Habilitar información general de la supervisión
@@ -1200,7 +1200,7 @@
             - name: Información general
               href: insights/sql-insights-overview.md
             - name: Preguntas más frecuentes
-              href: /azure/azure-monitor/faq#sql-insights-(preview)
+              href: ./faq.yml
             - name: Habilitar
               href: insights/sql-insights-enable.md
             - name: Alertas

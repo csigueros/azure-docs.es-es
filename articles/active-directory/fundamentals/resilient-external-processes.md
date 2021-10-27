@@ -13,16 +13,16 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d3c159c615d928a8d56d3913c8e1cab846c7580
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: fede718111b6f1dcc9e49e8c96ec88a967b31b20
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114462099"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042341"
 ---
 # <a name="resilient-interfaces-with-external-processes"></a>Interfaces resistentes con procesos externos
 
-En este artículo se proporcionan instrucciones sobre cómo planear e implementar las API de RESTFul en el recorrido del usuario y hacer que la aplicación sea más resistente a los errores de la API.
+En este artículo, se proporcionan instrucciones sobre cómo planear e implementar las API RESTFul en el recorrido del usuario y hacer que la aplicación sea más resistente a los errores de API.
 
 ![En esta imagen se muestran interfaces con componentes de procesos externos](media/resilient-external-processes/external-processes-architecture.png)
 
@@ -40,7 +40,7 @@ Las directivas del marco de experiencia de identidad (IEF) le permiten llamar a 
 
 - Use los [conectores de API del flujo de usuario de inicio de sesión integrado](../../active-directory-b2c/api-connectors-overview.md) siempre que sea posible para realizar la integración con las API web después de la federación con un proveedor de identidades durante el registro o antes de crear el usuario. Dado que los flujos de usuario ya se han probado exhaustivamente, es probable que no tenga que realizar pruebas funcionales, de rendimiento o de escala a nivel de flujo de usuario. Recuerde que todavía tiene que probar la funcionalidad, el rendimiento y la escala de las aplicaciones.
 
-- Los [perfiles técnicos](../../active-directory-b2c/restful-technical-profile.md) de la API de RESTFul de Azure AD no proporcionan ningún comportamiento de almacenamiento en caché. En su lugar, el perfil de la API de RESTFul implementa una lógica de reintento y un tiempo de espera integrado en la directiva.
+- Los [perfiles técnicos](../../active-directory-b2c/restful-technical-profile.md) de la API RESTFul de Azure AD no proporcionan ningún comportamiento de almacenamiento en caché. En su lugar, el perfil de la API RESTFul implementa una lógica de reintento y un tiempo de espera integrado en la directiva.
 
 - En el caso de las API que necesitan escribir datos, ponga en cola una tarea para que un trabajador en segundo plano las ejecute. Se pueden usar servicios como las instancias de [Azure Queue](../../storage/queues/storage-queues-introduction.md). Esto hará que la API devuelva el rendimiento de ejecución de la directiva de forma eficaz.  
 
@@ -52,7 +52,7 @@ Como las API residen fuera del sistema Azure AD B2C, es necesario tener un con
 
 - Es posible que se produzcan errores en una API por varias razones, por lo que es buena idea que su aplicación sea resistente a estos errores. Puede [devolver un mensaje de error de HTTP 4XX](../../active-directory-b2c/restful-technical-profile.md#returning-validation-error-message) si la API no puede completar la solicitud. En la directiva de Azure AD B2C, intente administrar correctamente la falta de disponibilidad de la API y represente una experiencia reducida.
 
-- Intente [controlar los errores transitorios correctamente](../../active-directory-b2c/restful-technical-profile.md#error-handling). El perfil de la API de RESTFul le permite configurar mensajes de error para varios [interruptores](/azure/architecture/patterns/circuit-breaker).
+- Intente [controlar los errores transitorios correctamente](../../active-directory-b2c/restful-technical-profile.md#error-handling). El perfil de la API RESTFul le permite configurar mensajes de error para varios [disyuntores](/azure/architecture/patterns/circuit-breaker).
 
 - Supervise y use la integración y entrega continuas (CICD) de forma proactiva para rotar las credenciales de acceso de la API, como las contraseñas y los certificados que usa el [motor de perfiles técnicos](../../active-directory-b2c/restful-technical-profile.md).
 

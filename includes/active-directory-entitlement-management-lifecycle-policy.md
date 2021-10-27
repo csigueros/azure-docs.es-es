@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: active-directory
 author: msaburnley
@@ -8,22 +8,24 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: db13884e3deed8e990d21d82e215a1e837371275
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f078710392f895dc672c9562ac3a7b03f4623e1e
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98052947"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130019127"
 ---
 ## <a name="lifecycle"></a>Ciclo de vida
 
 En la sección **Ciclo de vida**, especificará cuándo expira la asignación de un usuario para el paquete de acceso. También puede especificar si los usuarios pueden extender sus asignaciones.
 
-1. En la sección **Expiración**, establezca **Access package assignments expires** (La asignación de paquetes de acceso expira) en **En la fecha**, **Número de días** o **Nunca**.
+1. En la sección **Expiración**, establezca **La asignación de paquetes de acceso expira** en **En la fecha**, **Número de días**, **Número de horas** o **Nunca**.
 
     Para la opción **En la fecha**, seleccione una fecha de expiración en el futuro.
 
     Para la opción **Número de días**, especifique un número entre 0 y 3660 días.
+
+    En **Número de horas**, especifique un número de horas.
 
     En función de lo que seleccione, la asignación de un usuario para el paquete de acceso expirará en una fecha concreta, un número determinado de días después de la aprobación o nunca.
 

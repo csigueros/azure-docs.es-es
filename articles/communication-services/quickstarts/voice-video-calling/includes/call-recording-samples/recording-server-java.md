@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: joseys
-ms.openlocfilehash: e29973b55d3f74942f6d85fa28209b73773ad717
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b71ae256329d9fe8d28f0b5154f0b732de61009f
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121802807"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130050669"
 ---
 ## <a name="sample-code"></a>Código de ejemplo
 Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/ServerRecording).
@@ -101,9 +101,27 @@ Use el identificador de llamada de servidor recibido durante el inicio de la lla
 URI recordingStateCallbackUri = new URI("<CallbackUri>");
 
 Response<StartCallRecordingResult> response = this.callingServerClient.initializeServerCall("<serverCallId>")
-.startRecordingWithResponse(String.valueOf(recordingStateCallbackUri),null);
+.startRecordingWithResponse(String.valueOf(recordingStateCallbackUri), null, null);
 ```
 La respuesta de la API `startRecordingWithResponse` contiene el identificador de grabación de la sesión de grabación.
+
+## <a name="start-recording-session-with-startrecordingoptions-using-startrecordingwithresponse-server-api"></a>Inicio de la sesión de grabación con StartRecordingOptions mediante la API de servidor "startRecordingWithResponse"
+
+Use el identificador de llamada de servidor recibido durante el inicio de la llamada.
+
+- RecordingContent se usa para pasar el tipo de contenido de grabación. Por ejemplo: AUDIO/AUDIO_VIDEO.
+- RecordingChannel se usa para pasar el tipo de canal de grabación. Por ejemplo: MIXED/UNMIXED.
+- RecordingFormat se usa para pasar el formato de la grabación. Por ejemplo: MP4/MP3/WAV.
+
+```java
+URI recordingStateCallbackUri = new URI("<CallbackUri>");
+StartRecordingOptions recordingOptions = new StartRecordingOptions();
+recordingOptions.setRecordingContent(RecordingContent.AUDIO_VIDEO);
+recordingOptions.setRecordingChannel(RecordingChannel.MIXED);
+recordingOptions.setRecordingFormat(RecordingFormat.MP4);
+Response<StartCallRecordingResult> response = this.callingServerClient.initializeServerCall("<serverCallId>")
+.startRecordingWithResponse(String.valueOf(recordingStateCallbackUri), recordingOptions, null);
+```
 
 ## <a name="stop-recording-session-using-stoprecordingwithresponse-server-api"></a>Detención de la sesión de grabación mediante la API de servidor "stopRecordingWithResponse"
 

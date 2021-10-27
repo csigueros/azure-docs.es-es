@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 02/17/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 5d6a9ca83060c074740985b87af841bfa4be17f9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6bf722279462c1f9b6d08830af19577ec218f756
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728679"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130039151"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Eliminación de alertas de Azure Defender
 

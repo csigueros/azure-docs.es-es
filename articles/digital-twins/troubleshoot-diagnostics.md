@@ -1,25 +1,25 @@
 ---
-title: Uso de registros de diagnóstico
+title: 'Solución de problemas: registros de diagnóstico'
 titleSuffix: Azure Digital Twins
-description: Vea cómo habilitar el registro con la configuración de diagnóstico y cómo consultar los registros para verlos de forma inmediata. Además, obtenga información sobre las categorías de registro y sus esquemas.
+description: En este artículo puede obtener información sobre cómo habilitar el registro con la configuración de diagnóstico y cómo consultar los registros para verlos de forma inmediata. Además, obtenga información sobre las categorías de registro y sus esquemas.
 author: baanders
 ms.author: baanders
-ms.date: 9/15/2021
+ms.date: 9/24/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: c868f0c8418f6b265e3de5b4d8ea0c6b7312a33e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 89b7c741ce75a629de99e3337428027429bce5b7
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128593656"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131778"
 ---
-# <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Solución de problemas de Azure Digital Twins: Registro de diagnóstico
-
-Azure Digital Twins puede recopilar los **registros** de una instancia de servicio para supervisar su rendimiento, acceso y otros datos. Estos registros se pueden usar para hacerse una idea de lo que ocurre en una instancia de Azure Digital Twins y analizar las causas principales de los problemas sin necesidad de ponerse en contacto con el soporte técnico de Azure.
+# <a name="troubleshooting-azure-digital-twins-diagnostics-logs"></a>Solución de problemas de Azure Digital Twins: registros de diagnóstico
 
 En este artículo se muestra cómo configurar las opciones de diagnóstico en [Azure Portal](https://portal.azure.com), incluidos los tipos de registros que se recopilan y dónde almacenarlos (como Log Analytics o una cuenta de almacenamiento de su elección). A continuación, puede consultar los registros para recopilar rápidamente información personalizada.
+
+Azure Digital Twins puede recopilar los **registros** de una instancia de servicio para supervisar su rendimiento, acceso y otros datos. Estos registros se pueden usar para hacerse una idea de lo que ocurre en una instancia de Azure Digital Twins y analizar las causas principales de los problemas sin necesidad de ponerse en contacto con el soporte técnico de Azure.
 
 Este artículo también contiene información sobre todas las **categorías de registro** que Azure Digital Twins puede recopilar y sobre sus **esquemas**.
 
@@ -367,5 +367,5 @@ Este es un ejemplo de cuerpo JSON para un `ADTEventRoutesOperation` de tipo `Mic
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información sobre la configuración de diagnósticos, consulte [Recopilación y uso de los datos de registro provenientes de los recursos de Azure](../azure-monitor/essentials/platform-logs-overview.md).
-* Para información sobre las métricas de Azure Digital Twins, consulte el artículo [Solución de problemas: visualización de las métricas con Azure Monitor](troubleshoot-metrics.md).
-* Para ver cómo habilitar las alertas de las métricas, consulte [Solución de problemas: Configuración de alertas](troubleshoot-alerts.md).
+* Para obtener información sobre las métricas de Azure Digital Twins, consulte [Solución de problemas: métricas](troubleshoot-metrics.md).
+* Para obtener información sobre cómo habilitar las alertas de las métricas, consulte [Solución de problemas: alertas](troubleshoot-alerts.md).

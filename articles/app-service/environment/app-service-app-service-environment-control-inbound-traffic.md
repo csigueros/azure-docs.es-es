@@ -1,22 +1,22 @@
 ---
 title: Controlar el tráfico de entrada en v1
 description: Obtenga información sobre cómo controlar el tráfico de entrada a una instancia de App Service Environment. Este documento solo se proporciona para los clientes que usan App Service Environment v1 heredado.
-author: ccompy
+author: madsd
 ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08
 ms.topic: article
 ms.date: 01/11/2017
-ms.author: stefsch
+ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: fe9326ea9ebd5afe981b7ba6c34b1a5d51e084b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9fc4570d922da43635725f028a31b4458bf03113
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88962067"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001720"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Cómo controlar el tráfico de entrada a un entorno de App Service
 ## <a name="overview"></a>Información general
-Se puede crear una instancia de App Service Environment **o bien** en una red virtual de Azure Resource Manager **o** en una [red virtual][virtualnetwork] del modelo de implementación clásica.  Una nueva red virtual y una nueva subred pueden definirse en el momento en que se crea un entorno de App Service. En su lugar, se puede crear una instancia de App Service Environment en una red virtual y subred preexistentes.  A partir de junio de 2016, las instancias de ASE también se pueden implementar en redes virtuales que usen intervalos de direcciones públicas o espacios de direcciones RFC1918 (direcciones privadas).  Para más información, vea [Creación de App Service Environment][HowToCreateAnAppServiceEnvironment].
+Se puede crear una instancia de App Service Environment **o bien** en una red virtual de Azure Resource Manager **o** en una [red virtual][virtualnetwork] del modelo de implementación clásica.  Una nueva red virtual y una nueva subred pueden definirse en el momento en que se crea un entorno de App Service. En su lugar, se puede crear una instancia de App Service Environment en una red virtual y subred preexistentes.  A partir de junio de 2016, las instancias de ASE también se pueden implementar en redes virtuales que usen intervalos de direcciones públicas o espacios de direcciones RFC1918 (direcciones privadas).  Para obtener más información, consulte [Creación de ASEV1 a partir de una plantilla](app-service-app-service-environment-create-ilb-ase-resourcemanager.md).
 
 Cree siempre una instancia de App Service Environment en una subred. Una subred proporciona un límite de red que se puede usar para bloquear el tráfico entrante detrás de los dispositivos y servicios ascendentes. Esta configuración solo permite que las direcciones IP ascendentes específicas acepten tráfico HTTP y HTTPS.
 
@@ -131,7 +131,6 @@ Para más información, vea [Conexión segura a los recursos de back-end desde A
 
 <!-- LINKS -->
 [virtualnetwork]: ../../virtual-network/virtual-networks-faq.md
-[HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md
 [NetworkSecurityGroups]: ../../virtual-network/virtual-network-vnet-plan-design-arm.md
 [IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md
 [SecurelyConnecttoBackend]:  app-service-app-service-environment-securely-connecting-to-backend-resources.md

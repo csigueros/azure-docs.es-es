@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d10c64af28f6b8dacdbc28d7d29c691fe50580e2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ec39fb3ec368d315d6d9fa4a17d2cb763e49bce6
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128569340"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130137596"
 ---
 # <a name="create-an-azure-image-builder-template"></a>Creación de una plantilla de Azure Image Builder 
 
@@ -292,7 +292,7 @@ Al usar `customize`:
 La sección de personalización es una matriz. Azure Image Builder recorrerá los personalizadores en orden secuencial. Cualquier error en un personalizador producirá un error en el proceso de compilación. 
 
 > [!NOTE]
-> Los comandos alineados se pueden ver en la definición de la plantilla de imagen; además, el soporte técnico de Microsoft puede verlos al ayudarle con un caso de soporte técnico. Si tiene información confidencial, se debe pasar a scripts en Azure Storage, ya que el acceso requiere autenticación.
+> Los comandos en línea se pueden ver en la definición de la plantilla de imagen. Si tiene información confidencial (como contraseñas, token de SAS, tokens de autenticación, etc.), se debe pasar a scripts en Azure Storage, ya que el acceso requiere autenticación.
  
 ### <a name="shell-customizer"></a>Personalizador de shell
 
@@ -328,7 +328,7 @@ Propiedades de personalización:
     * Para generar el valor de sha256Checksum, mediante un terminal en Mac o Linux ejecute `sha256sum <fileName>`
 
 > [!NOTE]
-> Los comandos alineados se almacenan como parte de la definición de la plantilla de imagen; puede verlos al volcar la definición de la imagen y también son visibles para el soporte técnico de Microsoft en el caso de una situación de soporte técnico para la solución de problemas. Si tiene comandos o valores confidenciales, se recomienda moverlos a scripts y usar una identidad de usuario para autenticarse en Azure Storage.
+> Los comandos en línea se almacenan como parte de la definición de la plantilla de imagen; puede verlos al volcar la definición de la imagen. Si tiene comandos o valores confidenciales (como contraseñas, token de SAS, tokens de autenticación, etc.), se recomienda moverlos a scripts y utilizar una identidad de usuario para autenticarse en Azure Storage.
 
 #### <a name="super-user-privileges"></a>Privilegios de superusuario
 Para que los comandos se ejecuten con privilegios de superusuario, deben tener el prefijo `sudo`. Puede agregarlos en scripts o usarlos en comandos en línea, por ejemplo:
@@ -399,7 +399,7 @@ El personalizador de shell admite la ejecución de scripts de PowerShell y coman
      ], 
 ```
 
-SO compatible: Windows y Linux
+SO compatible: Windows
 
 Propiedades de personalización:
 

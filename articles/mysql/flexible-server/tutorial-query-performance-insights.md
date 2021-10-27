@@ -1,73 +1,76 @@
 ---
-title: 'Tutorial: Información de rendimiento de consultas en Azure Database for MySQL con servidor flexible'
-description: 'Tutorial: Información de rendimiento de consultas en Azure Database for MySQL con servidor flexible'
+title: 'Tutorial: Información de rendimiento de consultas en el servidor flexible de Azure Database for MySQL'
+description: En este artículo se muestran las herramientas para ayudar a visualizar la información de rendimiento de consultas en el servidor flexible de Azure Database for MySQL.
 author: SudheeshGH
 ms.author: sunaray
 ms.service: mysql
 ms.topic: tutorial
 ms.date: 10/01/2021
-ms.openlocfilehash: ed78f493021c94c8beeecb8d5470d9a846b19d8d
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 63cec8fa00af3e4711c4c6383c68cc09d32ce3d3
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129621498"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065718"
 ---
-# <a name="tutorial-query-performance-insights-for-azure-database-for-mysql--flexible-server"></a>Tutorial: Información de rendimiento de consultas en Azure Database for MySQL con servidor flexible
+# <a name="tutorial-query-performance-insight-for-azure-database-for-mysql-flexible-server"></a>Tutorial: Información de rendimiento de consultas en el servidor flexible de Azure Database for MySQL
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-Información de rendimiento de consultas pretende proporcionar análisis de consultas inteligente para las bases de datos. La información preferida son los patrones de carga de trabajo y las consultas de ejecución más largas. Esto ayuda a averiguar qué consultas se deben optimizar para mejorar el rendimiento general y usar eficazmente los recursos disponibles. Información de rendimiento de consultas ayuda a dedicar menos tiempo a solucionar problemas de rendimiento de bases de datos, ya que proporciona detalles como:
-* Las N consultas de larga duración principales y su tendencia.
-* La capacidad de explorar en profundidad los detalles de una consulta para ver el texto de la consulta, así como el historial de ejecución con el tiempo de consulta mínimo, máximo, promedio y la desviación estándar.
-* El uso de recursos (CPU, memoria y almacenamiento)
- 
-En este tutorial aprenderá a usar los registros de consultas lentos de MySQL, la herramienta Log Analytics o la plantilla de libros para visualizar la información de rendimiento de consultas de Azure Database for MySQL con servidor flexible. 
+Información de rendimiento de consultas pretende proporcionar análisis de consultas inteligente para las bases de datos. La información preferida que se extrae son los patrones de carga de trabajo y las consultas de larga duración. Comprender esta información puede ayudarle a encontrar qué consultas se deben optimizar para mejorar el rendimiento general y para usar los recursos disponibles de forma eficaz. 
 
-## <a name="prerequisites"></a>Requisitos previos
-- Tiene que crear una instancia de Azure Database for MySQL con servidor flexible. Para ver el procedimiento paso a paso, consulte [Creación de una instancia de Azure Database for MySQL: servidor flexible](./quickstart-create-server-portal.md)
-- Tiene que crear un área de trabajo de Log Analytics. Para ver el procedimiento paso a paso, consulte [Creación de un área de trabajo de Log Analytics](../../azure-monitor/logs/quick-create-workspace.md).
+Información de rendimiento de consultas es una herramienta diseñada para ayudarle a dedicar menos tiempo a solucionar problemas de rendimiento de la base de datos, al proporcionar:
+* Las *N* principales consultas de larga duración y sus tendencias.
+* Los detalles de la consulta: se puede ver el texto de la consulta, así como el historial de ejecución con el tiempo de consulta mínimo, máximo, promedio y la desviación estándar.
+* El uso de recursos (CPU, memoria y almacenamiento).
+ 
+En este artículo se describe cómo usar los registros de consultas lentas de MySQL, la herramienta Log Analytics y las plantillas de libros para visualizar la información de rendimiento de consultas en el servidor flexible de Azure Database for MySQL.
 
 En este tutorial, aprenderá a:
 >[!div class="checklist"]
-> * Configurar los registros de consultas lentos desde el portal o mediante la CLI de Azure.
+> * Configurar los registros de consultas lentas desde Azure Portal o mediante la CLI de Azure.
 > * Configuración de diagnósticos
-> * Ver las consultas lentas mediante Log Analytics. 
-> * Ver las consultas lentas mediante libros. 
+> * Ver los registros de consultas lentas mediante Log Analytics. 
+> * Ver los registros de consultas lentas mediante libros. 
 
-## <a name="configure-slow-query-logs-from-portal"></a>Configurar los registros de consultas lentos en el portal. 
+## <a name="prerequisites"></a>Requisitos previos
 
+- [Creación de una instancia del servidor flexible de Azure Database for MySQL](./quickstart-create-server-portal.md)
+- [Crear un área de trabajo de Log Analytics](../../azure-monitor/logs/quick-create-workspace.md).
+
+
+## <a name="configure-slow-query-logs-by-using-the-azure-portal"></a>Configuración de registros de consultas lentas mediante Azure Portal 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-1. Seleccione el servidor flexible.
+1. Seleccione la instancia de servidor flexible.
 
-1. En la sección **Configuración**, seleccione **Parámetros del servidor**.
-   :::image type="content" source="./media//tutorial-query-performance-insights/server-parameters.png" alt-text="Página de parámetros del servidor.":::
+1. En el panel izquierdo, en **Configuración**, seleccione **Parámetros del servidor**.
 
-1. Actualice el parámetro **slow_query_log** a **ON**.
-   :::image type="content" source="./media/tutorial-query-performance-insights/slow-query-log-enable.png" alt-text="Activación de los registros de consultas lentas.":::
+   :::image type="content" source="./media//tutorial-query-performance-insights/server-parameters.png" alt-text="Captura de pantalla que muestra la lista &quot;Parámetros del servidor&quot;.":::
 
-1. Cambie cualquier otro parámetro necesario (por ejemplo, `long_query_time`, `log_slow_admin_statements`). Consulte la documentación de los [registros de consultas lentas](./concepts-slow-query-logs.md#configure-slow-query-logging) para conocer más parámetros.  
-   :::image type="content" source="./media/tutorial-query-performance-insights/long-query-time.png" alt-text="Actualización de los parámetros relacionados con el registro de consultas lentas.":::
+1. Para el parámetro **slow_query_log**, seleccione **ACTIVADO**.
+
+   :::image type="content" source="./media/tutorial-query-performance-insights/slow-query-log-enable.png" alt-text="Captura de pantalla que muestra el parámetro &quot;slow_query_log&quot; cambiado a &quot;ACTIVADO&quot;.":::
+
+1. Para los demás parámetros, como **long_query_time** y **log_slow_admin_statements**, consulte la documentación de los [registros de consultas lentas](./concepts-slow-query-logs.md#configure-slow-query-logging).  
+
+   :::image type="content" source="./media/tutorial-query-performance-insights/long-query-time.png" alt-text="Captura de pantalla que muestra los valores actualizados del resto de parámetros relacionados con el registro de consultas lentas.":::
 
 1. Seleccione **Guardar**. 
-   :::image type="content" source="./media/tutorial-query-performance-insights/save-parameters.png" alt-text="Guardado de los parámetros de registro de consultas lentas.":::
 
-Desde la página **Parámetros de servidor**, puede volver a la lista de los registros cerrando la página.
+   :::image type="content" source="./media/tutorial-query-performance-insights/save-parameters.png" alt-text="Captura de pantalla del botón &quot;Guardar&quot; para guardar los cambios en los valores de parámetro.":::
 
+Para volver a la lista de registros, cierre la página **Parámetros del servidor**.
 
-
-## <a name="configure-slow-query-logs-from-azure-cli"></a>Configuración de registros de consultas lentos con la CLI de Azure
+## <a name="configure-slow-query-logs-by-using-the-azure-cli"></a>Configuración de registros de consultas lentas con la CLI de Azure
  
-En caso de que desee hacer lo anterior mediante la CLI de Azure , puede habilitar y configurar registros de consultas lentos para el servidor mediante la CLI. 
+Como alternativa, puede habilitar y configurar registros de consultas lentas para el servidor flexible desde la CLI de Azure mediante el siguiente comando: 
 
 > [!IMPORTANT]
-> Se recomienda registrar solo los tipos de evento y los usuarios necesarios con fines de auditoría para asegurarse de que el rendimiento del servidor no se ve afectado en gran medida.
-
-Habilite y configure los registros de consultas lentas del servidor.
+> Para tener la seguridad de que el rendimiento del servidor flexible no se vea gravemente afectado, se recomienda registrar solo los tipos de eventos y los usuarios necesarios con fines de auditoría.
 
 ```azurecli
-# Turn on statement level log
+# Turn on statement level log.
 
 az mysql flexible-server parameter set \
 --name log_statement \
@@ -76,9 +79,7 @@ az mysql flexible-server parameter set \
 --value all
 
 
-# Set log_min_duration_statement time to 10 sec
-
-# This setting will log all queries executing for more than 10 sec. Please adjust this threshold based on your definition for slow queries
+# Set log_min_duration_statement time to 10 seconds. This setting will log all queries that execute for more than 10 seconds. Adjust this threshold based on your definition for slow queries.
 
 az mysql server configuration set \
 --name log_min_duration_statement \
@@ -86,9 +87,7 @@ az mysql server configuration set \
 --server mydemoserver \
 --value 10000
 
-# Enable Slow query logs
-
-
+# Enable slow query logs.
 
 az mysql flexible-server parameter set \
 --name slow_query_log \
@@ -99,55 +98,65 @@ az mysql flexible-server parameter set \
 
 ## <a name="set-up-diagnostics"></a>Configuración de diagnósticos
 
-Los registros de consultas lentas se integran en la configuración de diagnóstico de Azure Monitor para que pueda canalizar los registros a los registros de Azure Monitor, Event Hubs o Azure Storage.
+Los registros de consultas lentas se integran con la configuración de diagnóstico de Azure Monitor para permitirle canalizar sus registros a cualquiera de los tres receptores de datos:
+* Un área de trabajo de Log Analytics
+* Un centro de eventos
+* Una cuenta de almacenamiento
 
-1. En la sección **Supervisión** de la barra lateral, seleccione **Configuración de diagnóstico** > **Add diagnostic settings** (Agregar configuración de diagnóstico).
+>[!Note]
+>Debe crear los receptores de datos antes de realizar la configuración de diagnóstico. Puede acceder a los registros de consultas lentas de los receptores de datos que ha configurado. Los registros pueden tardar hasta 10 minutos en aparecer.
 
-   :::image type="content" source="./media/tutorial-query-performance-insights/add-diagnostic-setting.png" alt-text="Captura de pantalla de las opciones de diagnóstico":::
+1. En el panel de la izquierda, seleccione **Configuración de diagnóstico** en **Supervisión**.
 
-1. Proporcione un nombre de configuración de diagnóstico.
+1. En el panel **Configuración de diagnóstico**, seleccione **Agregar configuración de diagnóstico**.
 
-1. Especifique a qué destinos se envían los registros de consultas lentos (cuenta de almacenamiento, centro de eventos o área de trabajo de Log Analytics).
+   :::image type="content" source="./media/tutorial-query-performance-insights/add-diagnostic-setting.png" alt-text="Captura de pantalla del vínculo &quot;Agregar configuración de diagnóstico&quot; en el panel &quot;Configuración de diagnóstico&quot;.":::
+
+1. En el cuadro **Nombre**, escriba un nombre para la configuración de diagnóstico.
+
+1. Especifique los destinos (área de trabajo de Log Analytics, un centro de eventos o una cuenta de almacenamiento) a los que enviar los registros de consultas lentas; para ello, active sus casillas correspondientes.
 
     >[!Note]
-    > En el ámbito de este tutorial, tenemos que enviar los registros de consultas lentos al área de trabajo de Log Analytics.
+    > En este tutorial, enviará los registros de consultas lentas a un área de trabajo de Log Analytics.
 
-1. Seleccione **MySqlSlowLogs** como tipo de registro.
-    :::image type="content" source="./media/tutorial-query-performance-insights/configure-diagnostic-setting.png" alt-text="Captura de pantalla de las opciones de configuración de diagnóstico":::
+1. En **Registro**, como tipo de registro, active la casilla **MySqlSlowLogs**.
+
+    :::image type="content" source="./media/tutorial-query-performance-insights/configure-diagnostic-setting.png" alt-text="Captura de pantalla del panel &quot;Configuración de diagnóstico&quot; para seleccionar opciones de configuración.":::
 
 1. Una vez que haya configurado los receptores de datos a los que canalizar los registros de consultas lentas, seleccione **Guardar**.
+
     :::image type="content" source="./media/tutorial-query-performance-insights/save-diagnostic-setting.png" alt-text="Captura de pantalla de las opciones de configuración de diagnóstico, con la opción Guardar resaltada":::
 
-    >[!Note]
-    >Debe crear receptores de datos (áreas de trabajo de Log Analytics, cuenta de almacenamiento o centro de eventos) antes de configurar las opciones de diagnóstico. Puede acceder a los registros de consultas lentos en los receptores de datos que configuró (área de trabajo de Log Analytics, cuenta de almacenamiento o centro de eventos). Los registros pueden tardar hasta 10 minutos en aparecer.
- 
-## <a name="view-query-insights-using-log-analytics"></a>Visualización de la información de consulta mediante Log Analytics 
+## <a name="view-query-insights-by-using-log-analytics"></a>Visualización de la información de consulta mediante Log Analytics 
 
-Vaya a **Registros** en la sección **Supervisión**. Cierre la ventana **Consultas**.
+1. En el panel izquierdo de Log Analytics, en **Supervisión**, seleccione **Registros**.
 
-:::image type="content" source="./media/tutorial-query-performance-insights/log-query.png" alt-text="Captura de pantalla de Log Analytics":::
+1. Cierre la ventana **Consultas** que se abre.
 
-En la ventana de consulta puede escribir la consulta que se va a ejecutar.  Aquí hemos usado una consulta para buscar consultas de más de 10 segundos en un servidor determinado.
+   :::image type="content" source="./media/tutorial-query-performance-insights/log-query.png" alt-text="Captura de pantalla del panel &quot;Consultas&quot; de Log Analytics.":::
 
-```kusto
- AzureDiagnostics
-    | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
-    | where query_time_d > 10
-```
+1. En la ventana de consulta, puede escribir la consulta que se va a ejecutar. Para buscar consultas de más de 10 segundos en un servidor determinado, se ha usado el código siguiente:
+
+   ```kusto
+   AzureDiagnostics
+      | where Category == 'MySqlSlowLogs'
+      | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+      | where query_time_d > 10
+   ```
     
-Seleccione el **intervalo de tiempo** y **ejecute** la consulta. A continuación, verá los resultados de la consulta.  
+1. Seleccione el **intervalo de tiempo** y ejecute la consulta. Los resultados se muestran en la imagen siguiente:  
 
-:::image type="content" source="./media/tutorial-query-performance-insights/slow-query.png" alt-text="Captura de pantalla del registro de consulta lento":::
+   :::image type="content" source="./media/tutorial-query-performance-insights/slow-query.png" alt-text="Captura de pantalla del registro de consultas lentas.":::
 
-## <a name="view-query-insights-using-workbooks"></a>Visualización de la información de consulta mediante libros 
+## <a name="view-query-insights-by-using-workbooks"></a>Visualización de la información de consulta mediante libros 
 
-1.  En Azure Portal, vaya a la hoja **Supervisión** de Azure Database for MySQL: servidor flexible y seleccione **Libros**.
-2.  Debería poder ver las plantillas. Seleccione **Información de rendimiento de consultas**. 
+1. En el panel izquierdo de Azure Portal, en la hoja **Supervisión** de la instancia del servidor flexible de Azure Database for MySQL, seleccione **Libros**.
 
-    :::image type="content" source="./media/tutorial-query-performance-insights/monitor-workbooks.png" alt-text="Captura de pantalla de la plantilla de libros":::
+1.  Seleccione la plantilla **Información de rendimiento de consultas**. 
 
-Podrá ver la siguiente visualización. 
+    :::image type="content" source="./media/tutorial-query-performance-insights/monitor-workbooks.png" alt-text="Captura de pantalla que muestra todos los libros de la galería de libros.":::
+
+En el libro, puede observar las visualizaciones siguientes: 
 >[!div class="checklist"]
 > * Carga de consultas
 > * Conexiones activas totales
@@ -157,17 +166,19 @@ Podrá ver la siguiente visualización.
 > * Resuma las consultas lentas por tiempo de consulta mínimo, máximo, promedio y de desviación estándar.
 
     
-:::image type="content" source="./media/tutorial-query-performance-insights/long-query.png" alt-text="Captura de pantalla de consultas largas":::
+:::image type="content" source="./media/tutorial-query-performance-insights/long-query.png" alt-text="Captura de pantalla que muestra dos consultas largas.":::
 
 >[!Note]
-> * Para el uso de recursos, puede usar la plantilla Información general.
-> * También puede editar estas plantillas y personalizarlas según sus necesidades. Para obtener más detalles, consulte [Introducción a los libros de Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md#editing-mode).
-> * Para obtener una vista rápida, también puede hacer ping en los libros o en la consulta Log Analytics del panel. Para más información, consulte [Creación de un panel en Azure Portal](../../azure-portal/azure-portal-dashboards.md) 
+> * Para ver el uso de recursos, puede utilizar la plantilla Información general.
+> * También puede editar estas plantillas y personalizarlas según sus necesidades. Para más información, consulte [Introducción a los libros de Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md#editing-mode).
+> * Para obtener una vista rápida, también puede hacer anclar los libros o la consulta de Log Analytics al panel. Para más información, consulte [Creación de un panel en Azure Portal](../../azure-portal/azure-portal-dashboards.md). 
 
-Dos métricas de Información de rendimiento de consultas pueden ayudarle a detectar posibles cuellos de botella: duración y recuento de ejecuciones. Las consultas de larga ejecución tienen el máximo potencial para bloquear recursos durante más tiempo, bloquear otros usuarios y limitar la escalabilidad. En algunos casos, un recuento de ejecuciones alto puede provocar más recorridos de ida y vuelta de red. Los recorridos de ida y vuelta afectan al rendimiento. Están sujetos a la latencia de red y a la latencia del servidor que sigue en la cadena. Por lo tanto, el recuento de ejecuciones puede ayudar a encontrar consultas ejecutadas con frecuencia. Estas consultas son las mejores candidatas para la optimización. 
+En Información de rendimiento de consultas, hay dos métricas que pueden ayudarle a detectar posibles cuellos de botella: *duración* y *recuento de ejecuciones*. Las consultas de larga ejecución tienen el máximo potencial para bloquear recursos durante más tiempo, bloquear otros usuarios y limitar la escalabilidad. 
+
+En algunos casos, un recuento de ejecuciones alto puede provocar más recorridos de ida y vuelta de red. Los recorridos de ida y vuelta afectan al rendimiento. Están sujetos a la latencia de red y a la latencia del servidor que sigue en la cadena. Por lo tanto, el recuento de ejecuciones puede ayudar a encontrar consultas ejecutadas con frecuencia. Estas consultas son las mejores candidatas para la optimización. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Introducción a los libros de Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md#visualizations) y más información sobre las opciones enriquecidas de visualización de libros
-- Más información sobre los [registros de consultas lentas](concepts-slow-query-logs.md)
+- [Más información sobre los libros de Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md#visualizations) y sus opciones de visualización enriquecidas.
+- [Más información sobre los registros de consultas lentas](concepts-slow-query-logs.md).
 
 

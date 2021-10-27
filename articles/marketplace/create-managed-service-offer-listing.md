@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/12/2021
-ms.openlocfilehash: 1b2171c300fd52403da29d23f9f34d3f94961b3d
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: c8b18179af70788d7dea385224b02d7dddeb5ad6
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114204505"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073000"
 ---
 # <a name="configure-managed-service-offer-listing-details"></a>Configuración de los detalles de la lista de ofertas de servicios administrados
 
@@ -54,7 +54,7 @@ Si tiene sitios web de soporte técnico para clientes globales de Azure o client
 
 ### <a name="add-logos"></a>Adición de logotipos
 
-En **Logotipos**, cargue un logotipo **grande** en formato PNG, con unas dimensiones de entre 216 x 216 y 350 x 350 píxeles. El Centro de partners creará automáticamente logotipos de tamaño **mediano** y **pequeño** que podrá reemplazar más adelante.
+En **Logotipos**, cargue un logotipo **grande** en formato PNG, con unas dimensiones de entre 216 x 216 y 350 x 350 píxeles. El Centro de partners creará automáticamente logotipos de tamaño **mediano** y **pequeño** que podrá reemplazar más adelante.
 
 - El logotipo grande (entre 216 x 216 y 350 x 350 píxeles) aparece en la descripción de la oferta en Azure Marketplace.
 - El logotipo mediano (90 x 90 píxeles) se muestra cuando se crea un recurso.
@@ -62,7 +62,7 @@ En **Logotipos**, cargue un logotipo **grande** en formato PNG, con unas dimensi
 
 ### <a name="add-screenshots-optional"></a>Adición de capturas de pantalla (opcional)
 
-Agregue hasta cinco imágenes que muestren la oferta. Todas las imágenes deben tener el tamaño 1280 x 720 píxeles y estar en formato PNG.
+Agregue hasta cinco imágenes que muestren la oferta. Todas las imágenes deben tener el tamaño 1280 x 720 píxeles y estar en formato .PNG.
 
 1. En **Capturas de pantallas**, arrastre y coloque el archivo PNG en el cuadro **Captura de pantalla**.
 2. Seleccione **Agregar leyenda de imagen**.
@@ -71,7 +71,7 @@ Agregue hasta cinco imágenes que muestren la oferta. Todas las imágenes deben 
 
 ### <a name="add-videos-optional"></a>Adición de vídeos (opcional)
 
-Puede agregar vínculos a vídeos de YouTube o Vimeo que muestren la oferta. Estos vídeos se muestran a los clientes junto con la oferta. Debe incluir una imagen en miniatura del vídeo, con un tamaño de 1280 x 720 píxeles y en formato PNG. Agregue un máximo de cinco vídeos por oferta.
+Puede agregar vínculos a vídeos de YouTube o Vimeo que muestren la oferta. Estos vídeos se muestran a los clientes junto con la oferta. Debe incluir una imagen en miniatura del vídeo, con un tamaño de 1280 x 720 píxeles y en formato .PNG. Agregue un máximo de cinco vídeos por oferta.
 
 1. En **Vídeos**, seleccione **Add video link** (Agregar vínculo de vídeo).
 2. En los cuadros que aparecen, escriba el nombre y el vínculo del vídeo.

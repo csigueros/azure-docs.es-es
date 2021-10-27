@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/11/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, subject-rbac-steps
-ms.openlocfilehash: f04dc73c6137e311b309a2009d6493414591eda5
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 9bcc18a16566f63678fb739b2d453ecc6ffdf3d5
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129858931"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993898"
 ---
 # <a name="use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
 
@@ -40,7 +40,7 @@ Debe tener permisos suficientes para registrar una aplicación en su inquilino d
 1. Seleccione **Azure Active Directory**.
 1. Busque su rol en **Información general**->**My feed** (MI fuente). Si tiene el rol **Usuario**, debe asegurarse de que los no administradores pueden registrar aplicaciones.
 
-   :::image type="content" source="media/howto-create-service-principal-portal/view-user-info.png" alt-text="Busque su rol. Si es usuario, asegúrese de que los que no sean administradores pueden registrar aplicaciones":::
+   :::image type="content" source="media/howto-create-service-principal-portal/view-user-info.png" alt-text="Captura de pantalla que muestra cómo encontrar el rol.":::
 
 1. En el panel izquierdo, seleccione **Usuarios** y, luego, **Configuración de usuario**.
 1. Compruebe la configuración de **App registrations** (Registros de aplicaciones). Este valor solo puede configurarlo un administrador. Si se configura en **Sí**, cualquier usuario en el inquilino de Azure Active Directory puede registrar una aplicación.
@@ -69,7 +69,7 @@ Para comprobar los permisos de su suscripción:
 
 1. Seleccione **Asignaciones de roles** para ver los roles asignados y determine si tiene los permisos correspondientes para asignar un rol a una aplicación de AD. En caso contrario, pida al administrador de suscripciones que le agregue al rol Administrador de acceso de usuario. En la imagen siguiente, el usuario está asignado al rol Propietario, lo que significa que el usuario tiene los permisos adecuados.
 
-   :::image type="content" source="media/howto-create-service-principal-portal/view-user-role.png" alt-text="En este ejemplo se muestra el usuario asignado al rol Propietario":::
+   :::image type="content" source="media/howto-create-service-principal-portal/view-user-role.png" alt-text="Captura de pantalla que muestra que al usuario se le asigna el rol Propietario.":::
 
 ## <a name="register-an-application-with-azure-ad-and-create-a-service-principal"></a>Registro de una aplicación con Azure AD y creación de una entidad de servicio
 

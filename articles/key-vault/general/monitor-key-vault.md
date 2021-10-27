@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 09/21/2021
 ms.author: mbaldwin
 ms.custom: subject-monitoring
-ms.openlocfilehash: fbb92ac1d1d6992a78577a8dfc062d6730302f2d
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 59fb467c2494fa6fa15c10fe9556975b87e0780e
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129353347"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000012"
 ---
 # <a name="monitoring-azure-key-vault"></a>Supervisión de Azure Key Vault
 
@@ -84,7 +84,7 @@ En [Supervisión de la referencia de los datos de Key Vault](monitor-key-vault-
 > [!IMPORTANT]
 > Al seleccionar **Registros** en el menú de Key Vault, Log Analytics se abre con el ámbito de la consulta establecido en el almacén de claves actual. Esto significa que las consultas de registro solo incluirán datos de ese recurso. Si quiere ejecutar una consulta que incluya datos de otros almacenes de claves o servicios de Azure, seleccione **Registros** en el menú **Azure Monitor**. Consulte [Ámbito e intervalo de tiempo de una consulta de registro en Log Analytics de Azure Monitor](/azure/azure-monitor/log-query/scope/) para obtener más información.
 
-Estas son algunas consultas que puede escribir en la barra de búsqueda **Búsqueda de registros** para ayudarle a supervisar los recursos de Key Vault. Estas consultas funcionan con el [nuevo lenguaje](/azure/azure-monitor/logs/log-query-overview).
+Estas son algunas consultas que puede escribir en la barra **Búsqueda de registros** para ayudarle a supervisar los recursos de Key Vault. Estas consultas funcionan con el [nuevo lenguaje](/azure/azure-monitor/logs/log-query-overview).
 
 * ¿Hay alguna solicitud lenta?
 
@@ -127,7 +127,6 @@ Estas son algunas consultas que puede escribir en la barra de búsqueda **Búsqu
 * ¿Qué grado de actividad ha tenido este KeyVault?
 
     ```Kusto
-    //  
     // Line chart showing trend of KeyVault requests volume, per operation over time. 
     // KeyVault diagnostic currently stores logs in AzureDiagnostics table which stores logs for multiple services. 
     // Filter on ResourceProvider for logs specific to a service.
@@ -179,11 +178,11 @@ Estas son algunas consultas que puede escribir en la barra de búsqueda **Búsqu
 
 ## <a name="alerts"></a>Alertas
 
-Las alertas de Azure Monitor le informan de forma proactiva cuando se detectan condiciones importantes en los datos que se supervisan. Permiten identificar y solucionar las incidencias en el sistema antes de que los clientes puedan verlos. Puede establecer alertas en [métricas](../../azure-monitor/platform/alerts-metric-overview.md), [registros](../../azure-monitor/platform/alerts-unified-log.md) y el [registro de actividad](../../azure-monitor/platform/activity-log-alerts.md). Cada tipo de alerta tiene sus ventajas y desventajas.
+Las alertas de Azure Monitor le informan de forma proactiva cuando se detectan condiciones importantes en los datos que se supervisan. Permiten identificar y solucionar las incidencias en el sistema de forma preventiva. Puede establecer alertas en [métricas](../../azure-monitor/platform/alerts-metric-overview.md), [registros](../../azure-monitor/platform/alerts-unified-log.md) y el [registro de actividad](../../azure-monitor/platform/activity-log-alerts.md).  
 
-Si crea o ejecuta una aplicación que se ejecuta en Azure Key Vault, [Azure Monitor Application Insights](/azure/azure-monitor/overview#application-insights) puede ofrecer otros tipos de alertas.
+Si crea o ejecuta una aplicación que se ejecuta en Azure Key Vault, [Azure Monitor Application Insights](/azure/azure-monitor/overview#application-insights) puede ofrecer otros tipos de alertas.
 
-Estas son algunas reglas de alertas comunes y recomendadas de Azure Key Vault.
+Estas son algunas reglas de alertas comunes y recomendadas de Azure Key Vault.
 
 - La disponibilidad de Key Vault cae por debajo del 100 % (umbral estático)
 - La latencia de Key Vault es superior a 500 ms (umbral estático)
@@ -195,7 +194,6 @@ Si desea obtener más detalles, consulte [Supervisión y alertas de Azure Key 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Enhorabuena, ahora está supervisando Azure Key Vault. Si también desea configurar alertas, consulte [Supervisión y alertas de Azure Key Vault](alert.md).
-
 - Consulte [Supervisión de la referencia de los datos de Azure Key Vault](monitor-key-vault-reference.md) para obtener una referencia de las métricas, los registros y otros valores importantes creados por Key Vault.
 - Para más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource).
+- Consulte [Alertas de Azure Key Vault](alert.md).

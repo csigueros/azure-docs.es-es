@@ -3,14 +3,14 @@ title: Uso de controladores de interfaz de almacenamiento de contenedores (CSI) 
 description: Aprenda a usar los controladores de interfaz de almacenamiento de contenedores (CSI) para discos de Azure en un clúster de Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 10/15/2021
 author: palma21
-ms.openlocfilehash: 19606a1b529fcd7e6140d81361c5434324836198
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 687bc761d870b92f7cf753b55722fc749daaf37d
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121724739"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063951"
 ---
 # <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks"></a>Uso de los controladores de Container Storage Interface (CSI) para discos de Azure en Azure Kubernetes Service (AKS)
 Un controlador de interfaz de almacenamiento de contenedores (CSI) para discos de Azure es un controlador compatible con la [especificación CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md) que usa Azure Kubernetes Service (AKS) para administrar el ciclo de vida de los discos de Azure.
@@ -21,6 +21,15 @@ Para crear un clúster de AKS con compatibilidad con controladores CSI, vea [Hab
 
 > [!NOTE]
 > Los *controladores en árbol* hacen referencia a los controladores de almacenamiento actuales que forman parte del código principal de Kubernetes frente a los nuevos controladores CSI, que son complementos.
+
+## <a name="azure-disk-csi-driver-new-features"></a>Nuevas características del controlador CSI de Azure Disk
+Además de las características originales del controlador en árbol, el controlador CSI de Azure Disk ya proporciona las siguientes características nuevas:
+- mejora del rendimiento al conectar o separar discos en paralelo
+  - el controlador en árbol conecta o separa los discos en serie mientras que el controlador CSI conectaría o separaría los discos por lotes, lo que supondría una magnífica mejora cuando hay varios discos conectados a un nodo.
+- Compatibilidad con discos de almacenamiento con redundancia de zona
+  - Se admiten los tipos de disco `Premium_ZRS`, `StandardSSD_ZRS`; compruebe más detalles sobre el [almacenamiento con redundancia de zona para discos administrados](../virtual-machines/disks-redundancy.md).
+- [Instantánea](#volume-snapshots)
+- [Clonación de volumen](#clone-volumes)
 
 ## <a name="use-csi-persistent-volumes-with-azure-disks"></a>Uso de volúmenes persistentes de CSI con discos de Azure
 

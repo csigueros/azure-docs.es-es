@@ -1,14 +1,14 @@
 ---
-title: 'Azure Lab Services: ver la información de soporte técnico (usuario de laboratorio)'
+title: Visualización de información de soporte técnico (usuario de laboratorio)
 description: En este artículo se explica cómo un formador o un usuario de laboratorio puede ver información de soporte técnico que le permitirá obtener ayuda.
 ms.date: 06/26/2020
 ms.topic: how-to
-ms.openlocfilehash: 8d0c8a3ad8ba92e606f19480bdb36483f377fa04
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 04789394209a076d0fc47757c12038b20ef54c39
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85443509"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179666"
 ---
 # <a name="view-support-information-lab-user-in-azure-lab-services"></a>Ver la información de soporte técnico (usuario de laboratorio de Azure Lab Services)
 En este artículo se explica cómo puede ver (como usuario de laboratorio) la siguiente información de soporte técnico:

@@ -1,0 +1,49 @@
+### YamlMime:Landing
+title: Integración de Logz.io con Azure
+summary: Centraliza el análisis de registros, métricas y seguimiento.
+metadata:
+  title: Documentación de Logz.io con Azure
+  description: Logz.io se integra con Azure para ofrecer soluciones de supervisión.
+  ms.service: partner-services
+  ms.topic: landing-page
+  ms.collection: na
+  author: tfitzmac
+  ms.author: tomfitz
+  ms.date: 10/22/2021
+  ms.openlocfilehash: 2c032528416c2a9cef1d511cc2155af90b73dd61
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130269183"
+landingContent:
+- title: Acerca de Logz.io con Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es la integración de Logz.io en Azure?
+      url: overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Administración de la integración de Logz.io en Azure
+      url: manage.md
+- title: Creación de un recurso de Logz.io
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creación de un recurso de Logz.io en Azure Portal
+      url: create.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configuración del inicio de sesión único de Logz.io
+      url: setup-sso.md
+    - text: Solución de problemas de la integración de Logz.io en Azure
+      url: troubleshoot.md
+- title: Exploración de contenido de referencia
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Java
+      url: /java/api/overview/azure/resourcemanager-logz-readme
+    - text: Python
+      url: /python/api/overview/azure/mgmt-logz-readme

@@ -3,19 +3,22 @@ title: Microsoft Endpoint Configuration Manager para Azure Virtual Desktop
 description: Formas recomendadas de administrar el entorno de Azure Virtual Desktop.
 author: heidilohr
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 10/14/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 1c44b679daa000602aad83d98a04894c5cc267b3
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: cc859f82fa65ed1505a440c0b974ef8f4fde5fc7
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129359103"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003389"
 ---
 # <a name="microsoft-endpoint-manager-and-intune-for-azure-virtual-desktop"></a>Microsoft Endpoint Manager e Intune para Azure Virtual Desktop
 
 Se recomienda usar [Microsoft Endpoint Manager](https://www.microsoft.com/endpointmanager) para administrar el entorno de Azure Virtual Desktop después de la implementación. Microsoft Endpoint Manager es una plataforma de administración unificada que incluye Microsoft Endpoint Configuration Manager y Microsoft Intune.
+
+> [!NOTE]
+> La administración de hosts de sesión de Azure Virtual Desktop con Microsoft Endpoint Manager solo se admite actualmente en la nube pública de Azure.
 
 ## <a name="microsoft-endpoint-configuration-manager"></a>Microsoft Endpoint Configuration Manager
 

@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 09/27/2021
 ms.custom: references_regions
-ms.openlocfilehash: 1d484bce594d5894052ffeb4f1ff4a1dbf202d50
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 3a06bf01ec9afa62a656eb5590a7ae283063ec88
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129215251"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074235"
 ---
 # <a name="supported-data-sources-and-file-types-in-azure-purview"></a>Tipos de archivo y orígenes de datos admitidos en Azure Purview
 
@@ -28,14 +28,13 @@ Purview admite todos los orígenes de datos enumerados [aquí](purview-connector
 Los siguientes tipos de archivo se admiten para los exámenes y para la extracción y clasificación de esquemas, si procede:
 
 - Formatos de archivo estructurados admitidos por extensión: AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML, GZIP
+ > [!Note]
+ > * En los tipos de archivo AVRO, ORC y PARQUET, el analizador de Purview no admite tipos de datos complejos (por ejemplo, MAP, LIST, STRUCT) para la extracción de esquemas. 
+ > * El analizador de Purview admite el examen de tipos de archivo PARQUET comprimidos con Snappy para la extracción y clasificación de esquemas. 
+ > * En el caso de los tipos de archivo GZIP, el archivo GZIP debe asignarse a un único archivo csv dentro de él. 
+ > Los archivos Gzip están sujetos a reglas de clasificación personalizadas y del sistema. Actualmente no se admite el examen de un archivo Gzip asignado a varios archivos o cualquier otro tipo de archivo que no sea CSV. 
 - Formatos de archivo de documento admitidos por extensión: DOC, DOCM, DOCX, DOT, ODP, ODS, ODT, PDF, POT, PPS, PPSX, PPT, PPTM, PPTX, XLC, XLS, XLSB, XLSM, XLSX, XLT
 - Purview también admite extensiones de archivo personalizadas y analizadores personalizados.
- 
-> [!Note]
-> Cada archivo Gzip debe estar asignado a un solo archivo CSV. Los archivos Gzip están sujetos a reglas de clasificación personalizadas y del sistema. Actualmente no se admite el examen de un archivo Gzip asignado a varios archivos o cualquier otro tipo de archivo que no sea CSV. Además, el analizador de Purview admite el examen de tipos de archivo PARQUET comprimidos con Snappy para la extracción y clasificación de esquemas. 
-
-> [!Note]
-> El analizador de Purview no admite tipos de datos complejos (por ejemplo, MAP, LIST, STRUCT) en los tipos de archivo AVRO, ORC y PARQUET para la extracción de esquemas.   
 
 ## <a name="sampling-within-a-file"></a>Muestreo en un archivo
 

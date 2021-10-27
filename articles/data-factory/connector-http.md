@@ -9,12 +9,12 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: c4702172923bd070ad59c4c36265e525308d82af
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7bb163d0864290962465f18b65a73236e3ff3ecb
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124831749"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130040443"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Copia de datos desde un punto de conexión HTTP mediante Azure Data Factory o Azure Synapse Analytics
 
@@ -29,7 +29,7 @@ En este artículo se explica cómo usar la actividad de copia de Azure Data Fact
 Las diferencias entre este conector HTTP, el [conector REST](connector-rest.md) y el [conector de tabla web](connector-web-table.md) son:
 
 - El **conector REST** admite específicamente la copia de datos desde API RESTful; 
-- El **conector HTTP** es genérico y puede recuperar datos desde cualquier punto de conexión HTTP, por ejemplo, para descargar archivos. Antes de que esté disponible el conector REST, puede usar el conector HTTP para copiar datos de la API RESTful, lo cual se admite, pero es menos funcional en comparación con el conector REST.
+- El **conector HTTP** es genérico y puede recuperar datos desde cualquier punto de conexión HTTP, por ejemplo, para descargar archivos. Antes de que esté disponible el conector REST, puede usar el conector HTTP para copiar datos de las API de RESTful, que, aunque se admite, es menos funcional en comparación con el conector REST.
 - El **conector de tabla web** extrae contenido de la tabla de una página web HTML.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas

@@ -4,16 +4,16 @@ description: Obtenga información sobre cómo crear una cuenta de almacenamiento
 author: normesta
 ms.topic: how-to
 ms.author: normesta
-ms.date: 04/27/2021
+ms.date: 10/14/2021
 ms.service: storage
 ms.reviewer: stewu
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: a2d9c23e5a6819c9e74cea10e78caab242d5cb35
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 35761e10cecf1cb209f004f99f773c09d91dc0e5
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128600330"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130046874"
 ---
 # <a name="create-a-storage-account-to-use-with-azure-data-lake-storage-gen2"></a>Creación de una cuenta de almacenamiento para su uso con Azure Data Lake Storage Gen2 habilitado
 
@@ -43,14 +43,14 @@ Para crear una cuenta de blob en bloques Premium, seleccione **Premium**. A cont
 
 ## <a name="enable-the-hierarchical-namespace"></a>Habilitación del espacio de nombres jerárquico
 
-Desbloquee las funcionalidades de Data Lake Storage al seleccionar la opción **Espacio de nombres jerárquico** en la pestaña **Avanzadas** de la página **Crear cuenta de almacenamiento**. Debe habilitar esta configuración al crear la cuenta. No se puede habilitar después.
+Desbloquee las funcionalidades de Data Lake Storage al seleccionar la opción **Espacio de nombres jerárquico** en la pestaña **Avanzadas** de la página **Crear cuenta de almacenamiento**. 
 
 En la siguiente imagen se muestra esta configuración en la página **Crear cuenta de almacenamiento**.
 
 > [!div class="mx-imgBorder"]
 > ![Opción Servicio de espacio de nombres jerárquico](./media/create-data-lake-storage-account/hierarchical-namespace-feature.png)
 
-Si tiene una cuenta de almacenamiento existente que quiere usar con Data Lake Storage y la opción Espacio de nombres jerárquico está deshabilitada, debe migrar los datos a una nueva cuenta de almacenamiento que tenga habilitada esta opción.
+Para habilitar las capacidades de Data Lake Storage en una cuenta existente, vea [Actualización de Azure Blob Storage con funcionalidades de Azure Data Lake Storage Gen2](upgrade-to-data-lake-storage-gen2-how-to.md).
 
 > [!NOTE]
 > Las opciones de **Protección de datos** y espacio de nombres jerárquico no pueden estar habilitadas simultáneamente.
@@ -58,5 +58,5 @@ Si tiene una cuenta de almacenamiento existente que quiere usar con Data Lake St
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Introducción a las cuentas de almacenamiento](../common/storage-account-overview.md)
-- [Uso de Azure Data Lake Storage Gen2 para requisitos de macrodatos](data-lake-storage-data-scenarios.md)
+- [Actualización de Azure Blob Storage con funcionalidades de Azure Data Lake Storage Gen2](upgrade-to-data-lake-storage-gen2-how-to.md)
 - [Control de acceso en Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)

@@ -3,7 +3,7 @@ title: Aplicación de revisión automatizada para VM con SQL Server (Resource Ma
 description: En este artículo se explica la característica Aplicación de revisión automatizada para máquinas virtuales de SQL Server que se ejecutan en Azure mediante Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 58232e92-318f-456b-8f0a-2201a541e08d
@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/07/2018
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: pamela
+ms.reviewer: mathoma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 44dae9d8c8bc5ee3896bfc65340dfeee7679d54e
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 689b7565acad65ec963cf28d0f1fb164446e8764
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223190"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162379"
 ---
 # <a name="automated-patching-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Aplicación de revisión automatizada para SQL Server en Azure Virtual Machines (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -123,6 +123,10 @@ Según este ejemplo, la siguiente tabla describe el efecto práctico en la máqu
 La instalación y configuración del agente de Iaas de SQL Server puede tardar algunos minutos.
 
 Para deshabilitar Aplicación de revisión automatizada, ejecute el mismo script sin el parámetro **-Enable** en **New-AzVMSqlServerAutoPatchingConfig**. La ausencia del parámetro **-Enable** indica al comando que deshabilite la característica.
+
+> [!NOTE]
+> También hay otras maneras de habilitar la aplicación automática de revisiones de máquinas virtuales de Azure, como [Update Management](/azure/automation/update-management/overview) o [aplicación automática de revisiones de invitado de máquina virtual](/azure/virtual-machines/automatic-vm-guest-patching). Elija solo una opción para actualizar automáticamente la máquina virtual, ya que las herramientas superpuestas pueden dar lugar a actualizaciones con errores. 
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de otras tareas de automatización disponibles, consulte la [extensión Agente de IaaS de SQL Server](sql-server-iaas-agent-extension-automate-management.md).

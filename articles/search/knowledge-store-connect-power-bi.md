@@ -7,21 +7,21 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/07/2021
-ms.openlocfilehash: 97a0025437b7f055f9fcf2e7860e926e9693cde6
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/18/2021
+ms.openlocfilehash: 14a6cd5ec07d9c4c5ee584312e9ba20b2251d0ef
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124766946"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178310"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Conexión a un almacén de conocimiento con Power BI
 
-En este artículo, aprenderá a conectarse a un almacén de conocimiento y a explorarlo mediante Power Query en la aplicación Power BI Desktop. Puede empezar a trabajar más rápido con plantillas o crear un panel personalizado desde cero.
+En este artículo, aprenderá a conectarse a un almacén de conocimiento y a consultarlo mediante Power Query en la aplicación Power BI Desktop. Puede empezar a trabajar más rápido con plantillas o crear un panel personalizado desde cero.
 
 Un almacén de conocimiento que se compone de tablas de Azure Storage funcionan mejor en Power BI. Si las tablas contienen proyecciones del mismo conjunto de aptitudes y grupo de proyección, puede "unirlas" fácilmente para crear visualizaciones de tablas que incluyan campos de tablas relacionadas.
 
-Siga los pasos descritos en este artículo con los datos de ejemplo y el almacén de conocimiento [creado en Azure Portal](knowledge-store-create-portal.md) o a través de [Postman y las API REST](knowledge-store-create-rest.md). 
+Siga los pasos que se describen en este artículo mediante datos de ejemplo y un almacén de conocimiento como el que se [creó en este inicio rápido del portal](knowledge-store-create-portal.md) o mediante [Postman y API REST](knowledge-store-create-rest.md). 
 
 ## <a name="connect-to-azure-storage"></a>Conectar a Azure Storage
 
@@ -45,11 +45,11 @@ Siga los pasos descritos en este artículo con los datos de ejemplo y el almacé
 
    ![Abrir Power Query](media/knowledge-store-connect-power-bi/powerbi-edit-queries.png "Abrir Power Query")
 
-1. Seleccione *hotelReviewsSsDocument* y quite las columnas *PartitionKey*, *RowKey* y *Timestamp*. 
+1. Abra *hotelReviewsDocument* y quite las columnas *PartitionKey*, *RowKey* y *Timestamp*. Esas columnas se usan para las relaciones de tabla en Azure Table Storage. Power BI no las necesita. Debería quedar una columna denominada "Content" con el texto *Record* en cada fila. 
 
    ![Editar tablas](media/knowledge-store-connect-power-bi/powerbi-edit-table.png "Editar tablas")
 
-1. Haga clic en el icono con flechas opuestas en el lado superior derecho de la tabla para expandir el *contenido*. Cuando aparezca la lista de columnas, seleccione todas las columnas y, a continuación, anule la selección de las columnas que comienzan por "metadata". Haga clic en **Aceptar** para mostrar las columnas seleccionadas.
+1. Haga clic en el icono con flechas opuestas en el lado superior derecho de la tabla para expandir el *contenido*. Cuando aparezca la lista de columnas, selecciónelas todas. Borre las columnas que empiezan por "metadata". Haga clic en **Aceptar** para incluir las columnas seleccionadas.
 
    ![Expandir contenido](media/knowledge-store-connect-power-bi/powerbi-expand-content-table.png "Expandir contenido")
 
@@ -60,9 +60,9 @@ Siga los pasos descritos en este artículo con los datos de ejemplo y el almacé
 
    ![Cambiar tipos de datos](media/knowledge-store-connect-power-bi/powerbi-change-type.png "Cambiar tipos de datos")
 
-1. Seleccione *hotelReviewsSsPages* y repita los pasos 9 y 10 para eliminar las columnas y expandir el *contenido*.
+1. Abra *hotelReviewsSsPages* y repita los pasos de eliminación de columnas. Para seleccionar columnas para los registros, expanda la columna *Content*. No hay modificaciones de tipo de datos para esta tabla.
 
-1. Seleccione *hotelReviewsSsKeyPhrases* y repita los pasos 9 y 10 para eliminar las columnas y expandir el *contenido*. No hay modificaciones de tipo de datos para esta tabla.
+1. Abra *hotelReviewsSsKeyPhrases* y repita los pasos de eliminación de columnas. Para seleccionar columnas para los registros, expanda la columna *Content*. No hay modificaciones de tipo de datos para esta tabla.
 
 1. En la barra de comandos, haga clic en **Cerrar y aplicar**.
 

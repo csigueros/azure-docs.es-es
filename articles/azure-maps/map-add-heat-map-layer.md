@@ -1,20 +1,20 @@
 ---
 title: Adición de una capa de mapa térmico a un mapa | Microsoft Azure Maps
 description: Aprenda a crear un mapa térmico. Vea cómo se usa el SDK web de Azure Maps para agregar una capa de mapa térmico a un mapa. Descubra cómo personalizar las capas de mapa térmico.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 07/29/2019
-ms.topic: conceptual
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/06/2021
+ms.topic: how-to
 ms.service: azure-maps
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 181cd714f85195157b767062cac99caadd32e817
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: e3827deeb1b87471f215028ac7479a83c24231fb
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123432763"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129992643"
 ---
-# <a name="add-a-heat-map-layer"></a>Adición de una capa de mapa térmico
+# <a name="add-a-heat-map-layer-to-a-map"></a>Adición de una capa de mapa térmico a un mapa
 
 Los mapas térmicos, también conocidos como mapas de densidad de puntos, son un tipo de visualización de datos. Se usan para representar la densidad de datos con un rango de colores y muestran las "zonas activas" de los datos en un mapa. Los mapas térmicos son una excelente manera de representar conjuntos de datos con una gran cantidad de puntos.
 
@@ -65,14 +65,14 @@ A continuación, se muestra el código de ejemplo de ejecución completo del có
 
 En el ejemplo anterior se personalizó el mapa térmico con la configuración de las opciones de radio y opacidad. La capa de mapa térmico ofrece varias opciones de personalización:
 
-* `radius`: define un radio de píxel en el que representar cada punto de datos. Puede definir el radio como un número fijo o como una expresión. Si utiliza una expresión, es posible escalar el radio en función del nivel de zoom, que parece representar un área espacial coherente del mapa (por ejemplo, un radio de 5 millas).
-* `color`: especifica cómo se colorea el mapa térmico. Un degradado de color es una característica común de los mapas térmicos. Puede lograr el efecto con una expresión `interpolate`. También se pude usar una expresión `step` para colorear el mapa térmico y separar gráficamente la densidad en intervalos para que se asemeje más a un mapa de radar o con contornos. Las paletas de colores definen los colores desde valores de intensidad mínimos hasta máximos.
+- `radius`: define un radio de píxel en el que representar cada punto de datos. Puede definir el radio como un número fijo o como una expresión. Si utiliza una expresión, es posible escalar el radio en función del nivel de zoom, que parece representar un área espacial coherente del mapa (por ejemplo, un radio de 5 millas).
+- `color`: especifica cómo se colorea el mapa térmico. Un degradado de color es una característica común de los mapas térmicos. Puede lograr el efecto con una expresión `interpolate`. También se pude usar una expresión `step` para colorear el mapa térmico y separar gráficamente la densidad en intervalos para que se asemeje más a un mapa de radar o con contornos. Las paletas de colores definen los colores desde valores de intensidad mínimos hasta máximos.
 
   En los mapas térmicos, los valores de los colores se especifican como una expresión del valor `heatmap-density`. El color del área donde no hay ningún dato se define en el índice 0 de la expresión "Interpolación" o el color predeterminado de una expresión "Escalonada". Puede utilizar este valor para definir un color de fondo. Normalmente, este valor se establece como transparente o en un color negro semitransparente.
 
   Estos son algunos ejemplos de expresiones de color:
 
-  | Expresión de color de interpolación | Expresión de color escalonado | 
+  | Expresión de color de interpolación | Expresión de color escalonado |
   |--------------------------------|--------------------------|
   | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'interpolate',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['linear'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, 'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'purple',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.5, '#fb00fb',<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, '#00c3ff'<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'step',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'navy',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.25, 'green',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.50, 'yellow',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.75, 'red'<br/>\] |
 
@@ -118,11 +118,13 @@ La expresión `zoom` solo se puede usar con expresiones `step` y `interpolate`. 
 
 > [!TIP]
 > Si habilita la agrupación en clústeres en el origen de datos, los puntos que estén cerca unos de otros aparecerán como un punto agrupado. Puede usar el recuento de puntos de cada clúster como la expresión de peso para el mapa térmico. Esto puede reducir considerablemente el número de puntos que se van a representar. El número de puntos de un clúster se almacena en la propiedad `point_count` de la característica de puntos:
+>
 > ```JavaScript
 > var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 >    weight: ['get', 'point_count']
 > });
 > ```
+>
 > Si el radio de agrupación en clústeres es solo de unos pocos píxeles, habría una pequeña diferencia visual en la representación. Cuanto mayores sean los grupos de radios, mayor será el número de puntos de cada clúster, lo que mejorará el rendimiento del mapa térmico.
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -130,7 +132,7 @@ La expresión `zoom` solo se puede usar con expresiones `step` y `interpolate`. 
 Más información sobre las clases y los métodos utilizados en este artículo:
 
 > [!div class="nextstepaction"]
-> [HeatMapLayer](/javascript/api/azure-maps-control/atlas.htmlmarker)
+> [HeatMapLayer](/javascript/api/azure-maps-control/atlas.layer.heatmaplayer)
 
 > [!div class="nextstepaction"]
 > [HeatMapLayerOptions](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)

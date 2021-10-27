@@ -3,12 +3,12 @@ title: Servicios y esquemas admitidos de los registros de recursos de Azure
 description: Conozca los esquemas de los eventos y servicios admitidos para los registros de recurso de Azure.
 ms.topic: reference
 ms.date: 05/10/2021
-ms.openlocfilehash: 99746b8f392d8afc5df9aa14ac7e1c7f19069151
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 1ef9c5ecea1ff45c7e6b3501f7c71928a5ea60d6
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129454988"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130069470"
 ---
 # <a name="common-and-service-specific-schemas-for-azure-resource-logs"></a>Esquemas específicos de servicio y común para los registros de recursos de Azure
 
@@ -23,6 +23,9 @@ Una combinación del tipo de recurso (disponible en la propiedad `resourceId`) y
 
 
 ## <a name="top-level-common-schema"></a>Esquema común de nivel superior
+
+> [!NOTE]
+> El esquema descrito aquí es válido cuando los registros de recursos se envían a Azure Storage o a un centro de eventos. Cuando los registros se envían a un área de trabajo de Log Analytics, los nombres de columna pueden ser diferentes. Consulte [Columnas estándar en registros de Azure Monitor](../logs/log-standard-columns.md) para ver las columnas comunes a todas las tablas de un área de trabajo de Log Analytics y [Referencia de datos de Azure Monitor](/azure/azure-monitor/reference) para obtener una referencia de tablas diferentes.
 
 | Nombre | Obligatorio u opcional | Descripción |
 |---|---|---|

@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b27055ce84bbb073045b69b942fd13f4fde4e3b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dfc0ca4250cc6cfefbf7c68d27996ccd81fd2857
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90563869"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993632"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Sincronización de Azure AD Connect: Comprensión de la arquitectura
 En este tema, se describe la arquitectura básica para la sincronización de Azure AD Connect. En muchos aspectos, es similar a la de sus predecesores: MIIS 2003, ILM 2007 y FIM 2010. Azure AD Connect Sync representa la evolución de estas tecnologías anteriores. Si ya conoce cualquiera de ellas, el contenido de este tema también le resultará familiar. Si está comenzando con la sincronización, entonces este tema está a su nivel. De todos modos, no es requisito conocer los detalles de este tema para realizar personalizaciones correctas en la sincronización de Azure AD Connect (llamado motor de sincronización en este tema).
@@ -193,7 +193,7 @@ La sincronización consta de dos procesos relacionados:
 * Sincronización de entrada, cuando se actualiza el contenido del metaverso usando los datos en el espacio conector.
 * Sincronización de salida, cuando se actualiza el contenido del espacio conector con datos en el metaverso.
 
-Usando la información almacenada provisionalmente en el espacio conector, el proceso de sincronización de entrada crea en el metaverso la vista integrada de los datos que se almacenan en los orígenes de datos conectados. Dependiendo de cómo se configuren las reglas, se agregarán todos los objetos de almacenamiento provisional o solo aquellos que tengan información pendiente de importación.
+Usando la información almacenada provisionalmente en el espacio conector, el proceso de sincronización de entrada crea una vista integrada de los datos en el metaverso que se almacena en los orígenes de datos conectados. Dependiendo de cómo se configuren las reglas, se agregarán todos los objetos de almacenamiento provisional o solo aquellos que tengan información pendiente de importación.
 
 El proceso de sincronización de salida actualiza los objetos de exportación cuando cambian los objetos de metaverso.
 

@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 07/28/2021
-ms.openlocfilehash: 0a5591ddad8410c2cea7018fa2f4d4f13a3afa86
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f3fc574e8e381f8e5c911a340ae958ee0939db8f
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124735956"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073855"
 ---
 # <a name="assessment-overview-migrate-to-azure-vms"></a>Introducción a la evaluación (migración a máquinas virtuales de Azure)
 
@@ -208,8 +208,13 @@ Una vez que el servidor se marca como preparada para Azure, la evaluación reali
 Si usa el dimensionamiento basado en el rendimiento en una valoración de máquinas virtuales de Azure, la evaluación realiza recomendaciones de dimensionamiento de la siguiente manera:
 
 - La evaluación tiene en cuenta el historial de rendimiento del servidor para identificar el tamaño y el tipo de disco de la VM en Azure.
-- Si importa servidores mediante un archivo CSV, se usan los valores que especifique. Este método es especialmente útil si ha asignado en exceso el servidor local, el uso es bajo, y quiere elegir el tamaño adecuado de la máquina virtual de Azure para ahorrar costos.
+
+> [!NOTE] 
+> Al importar servidores mediante un archivo CSV, se usan los valores de rendimiento que especifique (uso de CPU, uso de memoria, IOPS de disco y rendimiento) si elige el tamaño basado en el rendimiento. No podrá proporcionar la información del percentil ni el historial de rendimiento.
+
+- Este método es especialmente útil si ha asignado en exceso el servidor local, el uso es bajo, y quiere elegir el tamaño adecuado de la máquina virtual de Azure para ahorrar costos.
 - Si no quiere usar los datos de rendimiento, restablezca el criterio de ajuste de tamaño a local tal cual según se describe en la sección anterior.
+
 
 #### <a name="calculate-storage-sizing"></a>Cálculo del ajuste de tamaño de almacenamiento
 
@@ -232,7 +237,7 @@ En el caso de los discos Ultra, hay un intervalo de IOPS y rendimiento que se pe
     - Se encuentra un disco (disco 2) que puede satisfacer el requisito de IOPS total.
         - IOPS que se aprovisionarán = (rendimiento del disco de origen) *1024/256
     - Se encuentra un disco (disco 3) que puede satisfacer el requisito de rendimiento total.
-1. De los tres discos, se encuentra uno con el tamaño de disco máximo y se redondea a la siguiente [oferta de disco Ultra](../virtual-machines/disks-types.md#disk-size) disponible. Este es el tamaño de disco Ultra aprovisionado.
+1. De los tres discos, se encuentra uno con el tamaño de disco máximo y se redondea a la siguiente [oferta de disco Ultra](../virtual-machines/disks-types.md#ultra-disks) disponible. Este es el tamaño de disco Ultra aprovisionado.
 1. Las IOPS aprovisionadas se calculan con la siguiente lógica:
     - Si el rendimiento de origen detectado está en el intervalo permitido para el tamaño de disco Ultra, las IOPS aprovisionadas son iguales a las IOPS del disco de origen.
     - De lo contrario, las IOPS aprovisionadas se calculan con las IOPS que se aprovisionarán = (rendimiento del disco de origen) *1024/256

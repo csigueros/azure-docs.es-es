@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 10/07/2021
 ms.author: lajanuar
-ms.openlocfilehash: fc23ef0b4311a01e5d7bae1904f9a04ef77a0478
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 3b2ff000a43618442da5670aac9dc1a094f0cbf2
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129716863"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130161166"
 ---
 # <a name="get-started-form-recognizer-rest-api---preview"></a>Introducción: API REST de Form Recognizer | Versión preliminar
 
@@ -58,7 +58,7 @@ En este inicio rápido, usará las siguientes características para analizar y e
 > [!TIP]
 > Cree un recurso de Cognitive Services si tiene previsto acceder a varios servicios de Cognitive Services en un único punto de conexión o clave. Para acceder únicamente a Form Recognizer, cree un recurso de Form Recognizer. Tenga en cuenta que necesitará un recurso de servicio único si tiene previsto usar la [autenticación de Azure Active Directory](/azure/active-directory/authentication/overview-authentication).
 
-* Una vez que se implemente el recurso, haga clic en **Ir al recurso**. Necesitará la clave y el punto de conexión del recurso que ha creado para conectar la aplicación a API de Form Recognizer. En una sección posterior de este mismo inicio rápido, pegará la clave y el punto de conexión en el código siguiente:
+* Una vez que se implemente el recurso, haga clic en **Ir al recurso**. Necesitará la clave y el punto de conexión del recurso que ha creado para conectar la aplicación a la API de Form Recognizer. En una sección posterior de este mismo inicio rápido, pegará la clave y el punto de conexión en el código siguiente:
 
   :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Captura de pantalla: claves y ubicación del punto de conexión en Azure Portal.":::
 
@@ -70,7 +70,7 @@ En este inicio rápido, usará las siguientes características para analizar y e
 
 1. Reemplace `{endpoint}` por el punto de conexión que obtuvo con la suscripción de Form Recognizer.
 1. Reemplace `{subscription key}` con la clave de suscripción que copió en el paso anterior.
-1. Reemplace `\"{your-document-url}` por la dirección URL del documento del formulario de ejemplo.
+1. Reemplace `{your-document-url}` por la dirección URL del documento del formulario de ejemplo.
 
 #### <a name="request"></a>Solicitud
 
@@ -82,11 +82,11 @@ En este inicio rápido, usará las siguientes características para analizar y e
 
 Recibirá una respuesta `202 (Success)` que incluye un encabezado **Operation-Location**. El valor de este encabezado contiene un identificador de resultado que puede usar para consultar el estado de la operación asincrónica y obtener los resultados:
 
-https:\//{host}/formrecognizer/documentModels/{modelId}/analyzeResults/ **{resultId}** ?api-version=2021-07-30-preview
+https://{host}/formrecognizer/documentModels/{modelId}/analyzeResults/ **{resultId}** ?api-version=2021-07-30-preview
 
 ### <a name="get-general-document-results"></a>Obtención de resultados generales del documento
 
-Tras la llamada a **[Analyze document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)** API, llame a **[Get analyze result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResult)** API para obtener el estado de la operación y los datos extraídos. Antes de ejecutar el comando, realice estos cambios:
+Tras la llamada a **[Analyze document](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-document:analyze?api-version=2021-09-30-preview&stringIndexType=textElements)** API, llame a **[Get analyze result](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-document/analyzeResults/{resultId}?api-version=2021-09-30-preview)** API para obtener el estado de la operación y los datos extraídos. Antes de ejecutar el comando, realice estos cambios:
 
 1. Reemplace `{endpoint}` por el punto de conexión que obtuvo con la suscripción de Form Recognizer.
 1. Reemplace `{subscription key}` con la clave de suscripción que copió en el paso anterior.
@@ -327,7 +327,7 @@ El nodo `"analyzeResults"` contiene todo el texto reconocido. El texto se organi
 
 1. Reemplace `{endpoint}` por el punto de conexión que obtuvo con la suscripción de Form Recognizer.
 1. Reemplace `{subscription key}` con la clave de suscripción que copió en el paso anterior.
-1. Reemplace `\"{your-document-url}` por una de las direcciones URL de ejemplo.
+1. Reemplace `"{your-document-url}` por una de las direcciones URL de ejemplo.
 
 #### <a name="request"></a>Solicitud
 
@@ -342,9 +342,9 @@ Recibirá una respuesta `202 (Success)` que incluye un encabezado **Operation-Lo
 
 `https://{host}/formrecognizer/documentModels/{modelId}/analyzeResults/**{resultId}**?api-version=2021-07-30-preview`
 
-### <a name="get-general-document-results"></a>Obtención de resultados generales del documento
+### <a name="get-layout-results"></a>Obtención de los resultados del diseño
 
-Tras la llamada a **[Analyze document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)** API, llame a **[Get analyze result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResult)** API para obtener el estado de la operación y los datos extraídos. Antes de ejecutar el comando, realice estos cambios:
+Tras la llamada a **[Analyze document](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2021-09-30-preview&stringIndexType=textElements)** API, llame a **[Get analyze result](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-layout/analyzeResults/{resultId}?api-version=2021-09-30-preview)** API para obtener el estado de la operación y los datos extraídos. Antes de ejecutar el comando, realice estos cambios:
 
 1. Reemplace `{endpoint}` por el punto de conexión que obtuvo con la suscripción de Form Recognizer.
 1. Reemplace `{subscription key}` con la clave de suscripción que copió en el paso anterior.
@@ -354,7 +354,7 @@ Tras la llamada a **[Analyze document](https://westus.dev.cognitive.microsoft.co
 #### <a name="request"></a>Solicitud
 
 ```bash
-curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/prebuilt-document/analyzeResults/{resultId}?api-version=2021-09-30-preview&api-version=2021-09-30-preview"
+curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/prebuilt-layout/analyzeResults/{resultId}?api-version=2021-09-30-preview&api-version=2021-09-30-preview"
 ```
 
 ### <a name="examine-the-response"></a>Examen de la respuesta
@@ -395,9 +395,9 @@ Recibirá una respuesta `202 (Success)` que incluye un encabezado **Operation-Lo
 
 https:\//{host}/formrecognizer/documentModels/{modelId}/analyzeResults/ **{resultId}** ?api-version=2021-07-30-preview
 
-### <a name="get-general-document-results"></a>Obtención de resultados generales del documento
+### <a name="get-invoice-results"></a>Obtención de los resultados de la factura
 
-Tras la llamada a **[Analyze document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)** API, llame a **[Get analyze result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResult)** API para obtener el estado de la operación y los datos extraídos. Antes de ejecutar el comando, realice estos cambios:
+Tras la llamada a **[Analyze document](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-invoice:analyze?api-version=2021-09-30-preview&stringIndexType=textElements)** API, llame a **[Get analyze result](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-invoice/analyzeResults/{resultId}?api-version=2021-09-30-preview)** API para obtener el estado de la operación y los datos extraídos. Antes de ejecutar el comando, realice estos cambios:
 
 1. Reemplace `{endpoint}` por el punto de conexión que obtuvo con la suscripción de Form Recognizer.
 1. Reemplace `{subscription key}` con la clave de suscripción que copió en el paso anterior.

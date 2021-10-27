@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/09/2021
 ms.custom: template-quickstart
 keywords: Kubernetes, Arc, Azure, cluster
-ms.openlocfilehash: e876ecf11de197e523c9d34825a5a52284af871b
-ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
+ms.openlocfilehash: 6716ae8b85893b9af4b439ea76eca631bff525bf
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129740500"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066459"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>Inicio rápido: conexión de un clúster de Kubernetes existente a Azure Arc
 
@@ -85,8 +85,8 @@ En este inicio rápido, conocerá las ventajas de Kubernetes habilitado para Azu
 ## <a name="meet-network-requirements"></a>Cumplimiento de los requisitos de red
 
 > [!IMPORTANT]
-> Los agentes de Azure Arc requieren que funcionen los siguientes protocolos, puertos y direcciones URL de salida:
-> * TCP en el puerto 443: `https://:443`
+> Los agentes de Azure Arc necesitan las siguientes direcciones URL de salida en `https://:443` para funcionar:
+> Para `*.servicebus.windows.net`, los websockets deben estar habilitados para el acceso saliente en el firewall y el proxy.
 
 | Punto de conexión (DNS) | Descripción |
 | ----------------- | ------------- |

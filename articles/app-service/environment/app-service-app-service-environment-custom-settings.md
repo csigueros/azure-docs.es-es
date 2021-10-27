@@ -1,24 +1,24 @@
 ---
 title: Configuración personalizada
 description: Configure los valores que se aplican a todo el entorno de Azure App Service. Aprenda a hacerlo con plantillas de Azure Resource Manager.
-author: ccompy
+author: madsd
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
 ms.date: 01/29/2021
-ms.author: ccompy
+ms.author: madsd
 ms.custom: mvc, seodec18
-ms.openlocfilehash: e871778576266d772f37c23ee174dda7df6a6a75
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: e95f8a4434f0ca27c57791edfe8663df9e77bbaa
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112027432"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002720"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Opciones de configuración personalizada para Entornos de App Service
 ## <a name="overview"></a>Información general
 Dado que las instancias de App Service Environment (ASE) están aisladas en un solo cliente, hay ciertos valores de configuración que se pueden aplicar exclusivamente a ellas. En este artículo se documentan las distintas personalizaciones específicas disponibles para los entornos de App Service.
 
-Si no cuenta con un entorno de App Service, consulte [Creación de un entorno de App Service](app-service-web-how-to-create-an-app-service-environment.md).
+Si no cuenta con una instancia de App Service Environment, consulte [Creación de un entorno de ASEv1 a partir de una plantilla](app-service-app-service-environment-create-ilb-ase-resourcemanager.md).
 
 Puede almacenar las personalizaciones del entorno de App Service mediante el uso de una matriz en el nuevo atributo **clusterSettings** . Este atributo se encuentra en el diccionario de "Propiedades" de la entidad *hostingEnvironments* de Azure Resource Manager.
 

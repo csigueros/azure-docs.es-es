@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 05/24/2021
 ms.author: pafarley
-ms.openlocfilehash: 395b9d2670a488ab0743a987b1e8b857f6f2fb2f
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: c2cdf1dc396a04adb106ee1b3777eb11e7c36279
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129708315"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045491"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novedades de Computer Vision
 
@@ -80,7 +80,7 @@ Se ha actualizado la versión preliminar pública de Computer Vision API v3.2. 
 ## <a name="february-2021"></a>Febrero de 2021
 
 ### <a name="read-api-v32-public-preview-with-ocr-support-for-73-languages"></a>Versión preliminar pública de Read API v3.2 con compatibilidad con OCR para 73 idiomas
-La versión preliminar pública de Read API v3.2 de Computer Vision, disponible como servicio en la nube y como contenedor de Docker, incluye estas actualizaciones:
+La versión preliminar pública de Read API v3.2 de Computer Vision, disponible como servicio en la nube y contenedor de Docker, incluye estas actualizaciones:
 * [OCR para 73 idiomas](./language-support.md#optical-character-recognition-ocr) entre los que se incluyen chino simplificado y tradicional, japonés, coreano y los idiomas procedentes del latín.
 * Orden de lectura natural para la salida de la línea de texto (solo para idiomas procedentes del latín).
 * Clasificación de estilos de escritura a mano para líneas de texto junto con una puntuación de confianza (solo para idiomas procedentes del latín).
@@ -123,7 +123,7 @@ La versión de Computer Vision API en disponibilidad general se ha actualizado a
 El [contenedor Spatial Analysis](spatial-analysis-container.md) ahora está en versión preliminar. La característica Spatial Analysis de Computer Vision permite analizar vídeo de streaming en tiempo real para conocer las relaciones espaciales entre las personas y su movimiento en entornos físicos. Spatial Analysis es un contenedor de Docker que se puede usar de forma local. 
 
 ### <a name="read-api-v31-public-preview-adds-ocr-for-japanese"></a>La versión preliminar pública de Read API v3.1 agrega OCR para el idioma japonés
-La versión preliminar pública de Read API v3.1 de Computer Vision agrega estas funcionalidades:
+La versión preliminar pública de Read API v3.1 de Computer Vision agrega estas funcionalidades:
 * OCR para el idioma japonés
 * En cada línea de texto, indique si la apariencia es escritura a mano o estilo de impresión, junto con una puntuación de confianza (solo en idiomas procedentes del latín).
 * En un documento de varias páginas, extraiga texto solo de las seleccionadas o de un intervalo.
@@ -138,7 +138,7 @@ Para más información consulte la [guía de procedimientos de Read API](Vision-
 ## <a name="july-2020"></a>Julio de 2020
 
 ### <a name="read-api-v31-public-preview-with-ocr-for-simplified-chinese"></a>Versión preliminar pública de Read API v3.1 con OCR para chino simplificado
-La versión preliminar de Read API v3.1 de Computer Vision agrega compatibilidad con chino simplificado.
+La versión preliminar de Read API v3.1 de Computer Vision agrega compatibilidad con chino simplificado.
 
 * Esta versión preliminar de Read API admite los idiomas inglés, holandés, francés, alemán, italiano, portugués, chino simplificado y español.
 

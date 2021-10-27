@@ -6,19 +6,19 @@ metadata:
   ms.service: active-directory
   ms.subservice: B2B
   ms.topic: reference
-  ms.date: 05/27/2021
+  ms.date: 10/13/2021
   ms.author: mimart
   author: msmimart
   manager: celestedg
   ms.reviewer: mal
   ms.custom: it-pro, seo-update-azuread-jan
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 91048761eaaf81d2bdb582669e926cf106cdca4c
-  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+  ms.openlocfilehash: a714fbb9f5483c8b52480d5fbe41229d655609c8
+  ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/10/2021
-  ms.locfileid: "111953455"
+  ms.lasthandoff: 10/15/2021
+  ms.locfileid: "130072564"
 title: Preguntas más frecuentes acerca de la colaboración B2B de Azure Active Directory
 summary: >
   Las preguntas más frecuentes (P+F) acerca de la colaboración negocio a negocio (B2B) de Azure Active Directory (Azure AD) se actualizan periódicamente para incluir nuevos temas.
@@ -28,7 +28,7 @@ summary: >
 
   > - **A partir del 4 de enero de 2021**, Google deja [en desuso el soporte de inicio de sesión de WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Si usa Google Federation o el registro de autoservicio con Gmail, debería [comprobar la compatibilidad de las aplicaciones nativas de línea de negocio](google-federation.md#deprecation-of-web-view-sign-in-support).
 
-  > - **A partir de octubre de 2021**, Microsoft dejará de admitir el canje de invitaciones mediante la creación de cuentas de Azure AD no administradas e inquilinos para escenarios de colaboración B2B. Como preparación, animamos a los clientes a participar en la [autenticación de código de acceso de un solo uso por correo electrónico](one-time-passcode.md), que ahora está disponible con carácter general.
+  > - **A partir del 1 de noviembre de 2021**, Microsoft dejará de admitir el canje de invitaciones mediante la creación de cuentas e inquilinos de Azure AD no administrados para escenarios de colaboración B2B. En ese momento, comenzaremos a implementar un cambio para activar la característica de código de acceso de un solo uso por correo electrónico para todos los inquilinos existentes y habilitarla de manera predeterminada para los nuevos inquilinos. Si no desea permitir que esta característica se active automáticamente, puede [deshabilitarla](one-time-passcode.md#disable-email-one-time-passcode).
 sections:
 - name: General
   questions:
@@ -49,17 +49,17 @@ sections:
     answer: >
       Mediante las [API de invitación de B2B](customize-invitation-api.md) puede personalizar casi todos los elementos del proceso del invitador.
   - question: >
-      ¿Pueden restablecer los usuarios invitados su método de Multi-Factor Authentication?
+      ¿Pueden restablecer los usuarios invitados su método de autenticación multifactor?
     answer: >
-      Sí. Los usuarios invitados pueden restablecer su método de Multi-Factor Authentication de la misma manera que los usuarios normales.
+      Sí. Los usuarios invitados pueden restablecer su método de autenticación multifactor de la misma manera que los usuarios normales.
   - question: >
       ¿Qué organización es la responsable de las licencias de Multi-Factor Authentication?
     answer: >
-      La organización que invita realiza la autenticación multifactor. La organización que invita debe asegurarse de que la organización tiene suficientes licencias para sus usuarios B2B que utilizan Multi-Factor Authentication.
+      La organización que invita realiza la autenticación multifactor. La organización que invita debe asegurarse de que la organización tenga suficientes licencias para sus usuarios B2B que utilizan Multi-Factor Authentication.
   - question: >
-      ¿Qué ocurre si una organización asociada ya tiene Multi-Factor Authentication configurado? ¿Podemos confiar en su Multi-Factor Authentication y no utilizar nuestro propio Multi-Factor Authentication?
+      ¿Qué ocurre si una organización asociada ya tiene Multi-Factor Authentication configurado? ¿Podemos confiar en su autenticación multifactor y no utilizar la nuestra propia?
     answer: >
-      Actualmente, esta característica no se admite. Si el acceso a los recursos de la organización requiere la autenticación multifactor, la organización del partner tendrá que registrarse para la autenticación multifactor en la organización que invita.
+      Actualmente, esta característica no se admite. Si el acceso a los recursos de la organización requiere la autenticación multifactor, la organización del asociado tendrá que registrarse para la autenticación multifactor en la organización que invita.
   - question: >
       ¿Cómo se usan las invitaciones diferidas?
     answer: >
@@ -67,7 +67,7 @@ sections:
   - question: >
       ¿Puedo hacer visibles a los usuarios invitados en la lista global de direcciones de Exchange?
     answer: >
-      Sí. De manera predeterminada, los objetos de invitado no aparecen en la lista global de direcciones de la organización (GAL), pero puede usar Azure Active Directory PowerShell para que figuren. Consulte [¿Puedo hacer que los objetos de invitado sean visibles en la lista global de direcciones?](/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list).
+      Sí. De forma predeterminada, los objetos de invitado no aparecen en la lista global de direcciones de la organización, pero puede usar Azure Active Directory PowerShell para que figuren. Para obtener más información, consulte "Incorporación de invitados a la lista global de direcciones" en el artículo sobre el [acceso de invitado por grupo en Microsoft 365](/microsoft-365/solutions/per-group-guest-access).
   - question: >
       ¿Puedo hacer que un usuario invitado sea un administrador limitado?
     answer: >
@@ -80,9 +80,9 @@ sections:
       ¿Puedo bloquear el acceso a Azure Portal a los usuarios invitados?
     answer: "Sí. Puede crear una directiva de acceso condicional que impida a todos los usuarios invitados y externos tener acceso a Azure Portal. Cuando configure esta directiva tenga cuidado de evitar que se bloquee accidentalmente el acceso a los administradores y miembros.\n\n1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador de seguridad o administrador de acceso condicional.\n2. En Azure Portal, seleccione **Azure Active Directory**. \n3. En **Administrar**, seleccione **Seguridad**.\n4. En **Proteger**, seleccione **Acceso condicional**. Seleccione **Nueva directiva**.\n5. En la página **Nuevo**, en el cuadro de texto **Nombre**, escriba un nombre para la directiva (por ejemplo, \"Impedir que los invitados accedan al portal\").\n6. En **Asignaciones**, seleccione **Usuarios y grupos**.\n7. En la pestaña **Incluir**, elija **Seleccionar usuarios y grupos** y, a continuación, seleccione **Todos los usuarios externos e invitados (versión preliminar)** .\n9. Seleccione **Listo**.\n10. En la página **Nuevo**, en la sección **Asignaciones**, seleccione **Aplicaciones en la nube o acciones**.\n11. En la página **Aplicaciones en la nube o acciones**, haga clic en **Seleccionar aplicaciones** y después haga clic en **Seleccionar**.\n12. En la página **Seleccionar**, elija **Administración de Microsoft Azure** y después haga clic en **Seleccionar**.\n13. En la página **Aplicaciones en la nube o acciones**, seleccione **Listo**.\n"
   - question: >
-      ¿Admite la colaboración B2B de Azure AD admite la autenticación multifactor y las cuentas de correo electrónico de consumidor?
+      ¿Admite la colaboración B2B de Azure AD la autenticación multifactor y las cuentas de correo electrónico de consumidor?
     answer: >
-      Sí. Tanto la autenticación multifactor como las cuentas de correo electrónico de consumidor admiten para la colaboración B2B de Azure AD.
+      Sí. Tanto la autenticación multifactor como las cuentas de correo electrónico de consumidor se admiten para la colaboración B2B de Azure AD.
   - question: >
       ¿Va a admitir el restablecimiento de contraseñas con los usuarios de la colaboración B2B de Azure AD?
     answer: "Si el inquilino de Azure AD es el directorio principal de un usuario, puede [restablecer la contraseña del usuario](../fundamentals/active-directory-users-reset-password-azure-portal.md) en Azure Portal. Sin embargo, no puede restablecer directamente la contraseña de los usuarios invitados que inician sesión con una cuenta administrada por otro proveedor de identidades externo o por otro directorio de Azure AD. En ese caso, solo podrá restablecer la contraseña el usuario invitado o un administrador del directorio principal del usuario. A continuación, se incluyen algunos ejemplos de cómo funciona el restablecimiento de contraseñas con los usuarios invitados:\n \n* Los usuarios invitados de un inquilino de Azure AD que estén marcados como \"invitado\" (UserType==Invitado) no se pueden registrar para SSPR mediante [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Este tipo de usuario invitado solo puede realizar SSPR mediante [https://aka.ms/sspr](https://aka.ms/sspr). \n* Los usuarios invitados que inicien sesión con una cuenta Microsoft (por ejemplo guestuser@live.com) podrán restablecer sus propias contraseñas con el autoservicio de restablecimiento de contraseñas (SSPR) de la cuenta Microsoft. Consulte [Cómo restablecer la contraseña de tu cuenta Microsoft](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).\n* Los usuarios invitados que inicien sesión con una cuenta de Google u otro proveedor de identidades externo podrán restablecer sus propias contraseñas mediante el método de SSPR de su proveedor de identidades. Por ejemplo, un usuario invitado con la cuenta de Google guestuser@gmail.com puede restablecer su contraseña siguiendo las instrucciones acerca de [cómo cambiar o restablecer la contraseña](https://support.google.com/accounts/answer/41078).\n* Si el inquilino de la identidad es un inquilino Just-In-Time (JIT) o un inquilino \"viral\" (es decir, un inquilino de Azure que es independiente y no está administrado), solamente el usuario invitado podrá restablecer su contraseña. A veces, una organización [asumirá la administración de los inquilinos virales](../enterprise-users/domains-admin-takeover.md) que se crean cuando los empleados usan sus direcciones de correo electrónico del trabajo para registrarse en los servicios. Después de que la organización se haga cargo de un inquilino viral, solo un administrador de dicha organización puede restablecer la contraseña del usuario o habilitar SSPR. Si es necesario, como la organización que invita, puede quitar la cuenta del usuario invitado del directorio y volver a enviar una invitación.\n\n* Si el directorio principal del usuario invitado es su inquilino de Azure AD, usted podrá restablecer la contraseña del usuario. Por ejemplo, es posible que haya creado o sincronizado un usuario desde la instancia local de Active Directory y que haya establecido UserType en Guest (invitado). Como este usuario estará alojado en su directorio, podrá restablecer su contraseña desde Azure Portal.\n"
@@ -124,7 +124,7 @@ sections:
       Sí. Para más información, consulte [Acceso condicional para usuarios de colaboración B2B](conditional-access.md).
   - question: >
       En SharePoint puede definir una lista de "permitidos" o "denegados" para usuarios externos. ¿Se puede hacer esto en Azure?
-    answer: "Sí. La colaboración B2B de Azure AD admite listas de permitidos y de denegados. \n"
+    answer: "Sí. La colaboración B2B de Azure AD admite listas de permitidos y de bloqueados. \n"
   - question: >
       ¿Qué licencias se necesitan para usar B2B de Azure AD?
     answer: >

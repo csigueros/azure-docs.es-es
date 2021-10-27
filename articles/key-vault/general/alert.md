@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: mbaldwin
-ms.openlocfilehash: d74cb93cd28f3dc02b37a6c29832d9e8412ef098
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: c7661f91475b85ad8d606770ff74777bb3b8abab
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129458915"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994278"
 ---
 # <a name="configure-azure-key-vault-alerts"></a>Configuración de alertas de Azure Key Vault
 
@@ -85,7 +85,7 @@ A continuación, cree una regla y configure los umbrales que desencadenarán una
 4. Seleccione los umbrales que definen la lógica de las alertas y, a continuación, seleccione **Agregar**. El equipo de Key Vault recomienda configurar los siguientes umbrales: 
 
     + La disponibilidad de Key Vault baja por debajo del 100 % (umbral estático).
-    + La latencia de Key Vault es superior a 500 ms (umbral estático). 
+    + La latencia de Key Vault es superior a 1000 ms (umbral estático). 
     + La saturación general del almacén es mayor que el 75 % (umbral estático). 
     + La saturación total del almacén supera el promedio (umbral dinámico)
     + Los códigos de error totales son mayores que el promedio (umbral dinámico). 
@@ -105,7 +105,7 @@ A continuación, cree una regla y configure los umbrales que desencadenarán una
    + Establezca **Umbral** en **Estático**. 
    + Establezca el **operador** en **Mayor que**.
    + Establezca el **tipo de agregación** en **Media**.
-   + Establezca **Valor de umbral** en **500**.
+   + Establezca **Valor de umbral** en **1000**.
    + Establezca **Granularidad de agregación (período)** en **5 minutos**.
    + Establezca **Frecuencia de evaluación** en **Cada minuto**.
 

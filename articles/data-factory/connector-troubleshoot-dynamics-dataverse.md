@@ -6,15 +6,15 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 10/13/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
-ms.openlocfilehash: 8552cbcb79522933e0b2cf9ffe369cefdf900b79
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 28aa7fee3ab7cf2bbc8f10d1ba2f5ea54a792cd6
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129390458"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066684"
 ---
 # <a name="troubleshoot-the-dynamics-365-dataverse-common-data-service-and-dynamics-crm-connectors-in-azure-data-factory-and-azure-synapse"></a>Solución de problemas con los conectores Dynamics 365, Dataverse (Common Data Service) y Dynamics CRM en Azure Data Factory y Azure Synapse Analytics
 
@@ -148,6 +148,40 @@ En este artículo se proporcionan sugerencias para solucionar problemas comunes 
 - **Causa**: Falta la propiedad "type" en las columnas receptoras de la asignación de columnas. 
  
 - **Recomendación**: Puede agregar la propiedad "type" a esas columnas de la asignación de columnas mediante el editor JSON en el portal. 
+
+## <a name="the-copy-activity-from-the-dynamics-365-reads-more-rows-than-the-actual-number"></a>La actividad de copia de Dynamics 365 lee más filas que el número real
+
+- **Síntomas**: la actividad de copia de Dynamics 365 lee más filas que el número real.
+
+- **Causa**: el servidor de Dynamics 365 siempre indica más registros disponibles. 
+
+- **Recomendación**: use **XrmToolBox** para probar FetchXML con paginación. **XrmToolBox** con algunas herramientas instaladas puede obtener el recuento de registros. Para obtener más información, vea [XrmToolBox](https://www.xrmtoolbox.com/).
+
+## <a name="cannot-access-virtual-columns-from-dynamics-sources-in-the-copy-activity"></a>No se puede acceder a columnas virtuales desde orígenes de Dynamics en la actividad de copia
+
+- **Síntomas**: no se puede acceder a columnas virtuales desde orígenes de Dynamics en la actividad de copia.
+
+- **Causa**: la columna virtual no se admite ahora. 
+
+- **Recomendación**: para el valor Conjunto de opciones, siga las opciones siguientes para obtenerlo:
+  - Para obtener el código de tipo de objeto, consulte [Cómo buscar el código de tipo de objeto para cualquier entidad](https://powerobjects.com/tips-and-tricks/find-object-type-code-entity/) y el [blog de Dynamics 365](https://dynamicscrmdotblog.wordpress.com/).
+  - Puede vincular la entidad StringMap a la entidad de destino y obtener los valores asociados.
+
+## <a name="the-parallel-copy-in-a-dynamics-crm-data-store"></a>Copia paralela en un almacén de datos de Dynamics CRM
+
+- **Síntomas**: no sabe si es posible configurar la copia en paralelo en un almacén de datos de Dynamics CRM y tampoco conoce el intervalo de valores que se pueden establecer en la sección "Grado de paralelismo de copia".
+
+- **Recomendación**: la copia paralela controla el paralelismo y la sección "Grado de paralelismo de copia" se puede establecer en un valor distinto de cero. Un número grande puede provocar una limitación en el lado servidor de Dynamics, lo que puede reducir el rendimiento, pero ahora la limitación se controla mediante la toma del SDK público.
+
+  :::image type="content" source="./media/connector-troubleshoot-guide/degree-of-copy-parallelism-section.png" alt-text="Diagrama de la sección Grado de paralelismo de copia.":::
+
+## <a name="dynamics-type-conversion"></a>Conversión de tipos de Dynamics
+
+- **Síntomas**: intenta convertir el GUID en una cadena en el origen de Dynamics, pero se produce un error.
+
+- **Cause**: cuando se usa Dynamics como origen, no se admite la conversión de tipos.
+
+- **Recomendación**: habilite el almacenamiento provisional y vuelva a intentarlo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

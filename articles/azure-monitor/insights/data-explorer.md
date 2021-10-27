@@ -4,14 +4,12 @@ description: En este artículo se describe cómo usar Azure Data Explorer Insigh
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/05/2021
-author: lgayhardt
-ms.author: lagayhar
-ms.openlocfilehash: b522e510968b97d80917bc6fa4123d33e4480cbf
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fc40608b7c9faa4acdef999fdef787d787aca720
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128662217"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132823"
 ---
 # <a name="azure-data-explorer-insights"></a>Azure Data Explorer Insights
 
@@ -112,6 +110,8 @@ La pestaña **Uso** permite a los usuarios profundizar en el rendimiento de los 
 - Identificar los grupos de cargas de trabajo, usuarios y aplicaciones principales por consultas con error.
 - Identificar los cambios recientes en el número de consultas, en comparación con la media diaria histórica (en los últimos 16 días), por grupo de cargas de trabajo, usuario y aplicación.
 - Identificar las tendencias y los picos en el número de consultas y el consumo de memoria y CPU por grupo de cargas de trabajo, usuario, aplicación y tipo de comando.
+
+La pestaña **Uso** incluye acciones que los usuarios realizan directamente. Las operaciones internas del clúster no se incluyen en esta pestaña.
 
 [![Captura de pantalla de la vista de operaciones con gráficos de anillos relacionados con comandos y consultas.](./media/data-explorer/usage.png)](./media/data-explorer/usage.png#lightbox)
 

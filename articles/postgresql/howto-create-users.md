@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2019
-ms.openlocfilehash: a91b334b5494d8db44c86352c95fd7b4d1ea2c14
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 887138730d0d023a388b3203367a45e8a677fd1e
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128604082"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130005983"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Creación de usuarios en Azure Database for PostgreSQL con un único servidor
 
@@ -31,7 +31,7 @@ El servidor de Azure Database for PostgreSQL se creó con los tres roles predete
 
 El usuario administrador del servidor es un miembro del rol azure_pg_admin. No obstante, la cuenta de administrador del servidor no forma parte del rol azure_superuser. Como este servicio es un servicio PaaS administrado, solo Microsoft forma parte del rol de superusuario.
 
-El motor de PostgreSQL usa privilegios para controlar el acceso a objetos de base de datos, como se describe en la [documentación de productos de PostgreSQL](https://www.postgresql.org/docs/current/static/sql-createrole.html). En Azure Database for PostgreSQL, se le conceden estos privilegios al usuario administrador del servidor: LOGIN, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE y NOREPLICATION
+El motor de PostgreSQL usa privilegios para controlar el acceso a objetos de base de datos, como se describe en la [documentación de productos de PostgreSQL](https://www.postgresql.org/docs/current/static/sql-createrole.html). En Azure Database for PostgreSQL, al usuario administrador del servidor se le conceden estos privilegios: LOGIN, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE, REPLICATION.
 
 La cuenta de usuario administrador del servidor puede usarse para crear usuarios adicionales y conceder a tales usuarios el rol azure_pg_admin. Además, la cuenta de administrador del servidor puede usarse para crear usuarios con menos privilegios y roles que tengan acceso a esquemas y base de datos individuales.
 

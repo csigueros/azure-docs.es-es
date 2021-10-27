@@ -1,14 +1,14 @@
 ---
-title: 'Azure Lab Services: guía del administrador | Microsoft Docs'
+title: Guía del administrador | Microsoft Docs
 description: Esta guía sirve de ayuda para los administradores que crean y administran cuentas de laboratorio mediante Azure Lab Services.
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/20/2020
-ms.openlocfilehash: 567a6ad5cd7eae6fb6963dbcdb781fc2d7667f79
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 698b6ddb6474031e7d19f2029156197b7d6a7741
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737696"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177277"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services: guía del administrador
 Los administradores de tecnología de la información (TI) que administran los recursos en la nube de una universidad suelen ser también responsables de configurar la cuenta de laboratorio en su institución. Una vez configurada una cuenta de laboratorio, los administradores o educadores crean los laboratorios que están incluidos en la cuenta. En este artículo se proporciona información general de alto nivel sobre los recursos de Azure relacionados e instrucciones para crearlos.

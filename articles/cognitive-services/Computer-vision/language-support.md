@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 5053bda835eba508fb84f20a7a8607bf40e37134
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 684af3b73d9e7b56db5cc5d077510727bed89618
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129535584"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130044523"
 ---
 # <a name="language-support-for-computer-vision"></a>Compatibilidad con idiomas para Computer Vision
 
@@ -25,40 +25,45 @@ Algunas características de Computer Vision admiten varios idiomas; las caracter
 
 Las API de OCR de Computer Vision admiten varios idiomas. La operación Read puede extraer texto de imágenes y documentos con idiomas mixtos, incluida la misma línea de texto sin necesidad de un parámetro de lenguaje. Consulte [Información general sobre el reconocimiento óptico de caracteres (OCR)](overview-ocr.md) para más información.
 
+
 > [!NOTE]
-> **Parámetro de lenguaje opcional**
+> **Código de idioma (opcional)**
 >
-> Read API usa modelos de script universales para extraer todo el texto multilingüe de las imágenes o documentos, incluidas las líneas de texto de lenguaje mixto. No proporcione el parámetro "language" a menos que esté seguro de que solo hay un idioma en la imagen o el documento. De lo contrario, el servicio puede devolver texto incompleto e incorrecto.
+> Los modelos universales basados en aprendizaje profundo de OCR de Read extraen todo el texto multilingüe de los documentos, incluidas las líneas de texto con idiomas mixtos, y no requieren especificar un código de idioma. No proporcione el código de idioma como parámetro a menos que esté seguro sobre el idioma y quiera forzar al servicio a aplicar solo el modelo correspondiente. De lo contrario, el servicio puede devolver texto incompleto e incorrecto.
 
 Consulte los [procedimientos para especificar la versión del modelo](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) para usar las características y los idiomas de la versión preliminar. El modelo en versión preliminar incluye todas las mejoras de la versión de GA actual.
 
-### <a name="handwritten-text"></a>Texto manuscrito
+### <a name="handwritten-languages"></a>Idiomas manuscritos
+En la tabla siguiente se indican los idiomas manuscritos de los idiomas que admite la operación Read.
+
 |Lenguaje| Código de idioma (opcional) | Lectura |
 |:-----|:----:|:-----|
 |Inglés|`en`|✅ |
-|Chino simplificado |`zh-Hans`|✅ (versión preliminar) |
-|Francés|`fr`|✅ (versión preliminar)|
-|Alemán |`de`|✅ (versión preliminar) |
-|Italiano|`it`|✅ (versión preliminar) |
-|Portugués |`pt`|✅ (versión preliminar) |
-|Español |`es`|✅ (versión preliminar) |
+|Chino simplificado |`zh-Hans`|✅ versión preliminar |
+|Francés|`fr`|✅ versión preliminar|
+|Alemán |`de`|✅ versión preliminar |
+|Italiano|`it`|✅ versión preliminar |
+|Portugués |`pt`|✅ versión preliminar |
+|Español |`es`|✅ versión preliminar |
 
-### <a name="print-text"></a>Imprimir texto
+### <a name="print-languages"></a>Idiomas de impresión
+En la tabla siguiente se enumeran los idiomas de impresión admitidos por las API de OCR.
+
 |Lenguaje| Código de idioma (opcional) | Lectura | OCR |
 |:-----|:----:|:-----|:---:|
 |Afrikáans|`af`|✅ | |
 |Albanés |`sq`|✅ | |
 |Árabe | `ar`|  | ✅ |
 |Asturiano |`ast`|✅ | |
-|Azerbaiyano (latino) | `az` | ✅ (versión preliminar) | |
+|Azerbaiyano (latino) | `az` | ✅ versión preliminar | |
 |Vasco  |`eu`| ✅ | |
-|Bielorruso (cirílico) | `be` |✅ (versión preliminar) | |
-|Bielorruso (latino) | `be` |✅ (versión preliminar) | |
+|Bielorruso (cirílico) | `be` |✅ versión preliminar | |
+|Bielorruso (latino) | `be` |✅ versión preliminar | |
 |Bislama   |`bi`|✅ | |
-|Bosnio (latino)   |`bs`|✅ (versión preliminar) | |
+|Bosnio (latino)   |`bs`|✅ versión preliminar | |
 |Bretón    |`br`|✅ | |
-|Búlgaro |`bg`|✅ (versión preliminar) | |
-|Buriato (cirílico)|`bua`|✅ (versión preliminar) | |
+|Búlgaro |`bg`|✅ versión preliminar | |
+|Buriato (cirílico)|`bua`|✅ versión preliminar | |
 |Catalán    |`ca`|✅ | |
 |Cebuano    |`ceb`|✅ | |
 |Chamorro  |`ch`|✅| |
@@ -67,20 +72,20 @@ Consulte los [procedimientos para especificar la versión del modelo](./Vision-A
 |Córnico     |`kw`|✅ | |
 |Corso      |`co`|✅ | |
 |Tártaro de Crimea (Latín)|`crh`| ✅ | |
-|Croata |`hr`|✅ (versión preliminar) | |
+|Croata |`hr`|✅ versión preliminar | |
 |Checo | `cs` |✅ | ✅ |
 |Danés | `da` |✅ | ✅ |
 |Neerlandés | `nl` |✅ |✅ |
 |Inglés | `en` |✅ |✅|
-|Erzya (cirílico) |`myv`|✅ (versión preliminar) | |
+|Erzya (cirílico) |`myv`|✅ versión preliminar | |
 |Estonio  |`et`|✅ | |
-|Feroés |`fo`|✅ (versión preliminar) | |
+|Feroés |`fo`|✅ versión preliminar | |
 |Fiyiano |`fj`|✅ | |
 |Filipino  |`fil`|✅ | |
 |Finés | `fi` |✅ |✅ |
 |Francés | `fr` |✅ |✅ |
 |Friulano  | `fur` |✅ | |
-|Gagauzo (latino) |`gag`|✅ (versión preliminar) | |
+|Gagauzo (latino) |`gag`|✅ versión preliminar | |
 |Gallego   | `gl` |✅ | |
 |Alemán | `de` |✅ |✅ |
 |Gilbertés    | `gil` |✅ | |
@@ -88,11 +93,11 @@ Consulte los [procedimientos para especificar la versión del modelo](./Vision-A
 |Groenlandés   | `kl` |✅ | |
 |Criollo haitiano  | `ht` |✅ | |
 |Hani  | `hni` |✅ | |
-|Hawaiano |`haw`|✅ (versión preliminar) | |
+|Hawaiano |`haw`|✅ versión preliminar | |
 |Hmong Daw (Latín)| `mww` | ✅ | |
 |Húngaro | `hu` | ✅ |✅ |
-|Islandés |`is`|✅ (versión preliminar) | |
-|Sami inari |`smn`|✅ (versión preliminar) | |
+|Islandés |`is`|✅ versión preliminar | |
+|Sami inari |`smn`|✅ versión preliminar | |
 |Indonesio   | `id` |✅ | |
 |Interlingua  | `ia` |✅ | |
 |Inuktitut (latino) | `iu` | ✅ | |
@@ -104,69 +109,69 @@ Consulte los [procedimientos para especificar la versión del modelo](./Vision-A
 |Caboverdiano | `kea` |✅ | |
 |Kachin (Latín) | `kac` |✅ | |
 |Karakalpako (latino) | `kaa` | ✅ | |
-|Karakalpako (cirílico) | `kaa-cyrl` | ✅ (versión preliminar) | |
-|Karachái-bálkaro |`krc`|✅ (versión preliminar) | |
+|Karakalpako (cirílico) | `kaa-cyrl` | ✅ versión preliminar | |
+|Karachái-bálkaro |`krc`|✅ versión preliminar | |
 |Casubio | `csb` |✅ | |
-|Kazajo (cirílico) |`kk-cyrl`|✅ (versión preliminar) | |
-|Kazajo (latino) |`kk-latn`|✅ (versión preliminar) | |
+|Kazajo (cirílico) |`kk-cyrl`|✅ versión preliminar | |
+|Kazajo (latino) |`kk-latn`|✅ versión preliminar | |
 |Khasi  | `kha` | ✅ | |
 |Coreano | `ko` |✅ |✅ |
-|Koriakia |`kpy`|✅ (versión preliminar) | |
-|Kosreano |`kos`|✅ (versión preliminar) | |
-|Cumuco (cirílico) |`kum`|✅ (versión preliminar) | |
+|Koriakia |`kpy`|✅ versión preliminar | |
+|Kosreano |`kos`|✅ versión preliminar | |
+|Cumuco (cirílico) |`kum`|✅ versión preliminar | |
 |Kurdo (latino)| `kur` |✅ | |
-|Kirguís (cirílico) |`ky`|✅ (versión preliminar) | |
-|Lakota |`lkt`|✅ (versión preliminar) | |
-|Latín|`la`|✅ (versión preliminar) | |
-|Lituano|`lt`|✅ (versión preliminar) | |
-|Bajo sorbio|`dsb`|✅ (versión preliminar) | |
-|Sami lule|`smj`|✅ (versión preliminar) | |
+|Kirguís (cirílico) |`ky`|✅ versión preliminar | |
+|Lakota |`lkt`|✅ versión preliminar | |
+|Latín|`la`|✅ versión preliminar | |
+|Lituano|`lt`|✅ versión preliminar | |
+|Bajo sorbio|`dsb`|✅ versión preliminar | |
+|Sami lule|`smj`|✅ versión preliminar | |
 |Luxemburgués  | `lb` | ✅ | |
 |Malayo (latino) | `ms` | ✅ | |
-|Maltés|`mt`|✅ (versión preliminar) | |
+|Maltés|`mt`|✅ versión preliminar | |
 |Manx  | `gv` | ✅ | |
-|Maori|`mi`|✅ (versión preliminar) | |
-|Mongol (cirílico)|`mn`|✅ (versión preliminar) | |
-|Montenegrino (cirílico)|`cnr-cyrl`|✅ (versión preliminar) | |
-|Montenegrino (latino)|`cnr-latn`|✅ (versión preliminar) | |
+|Maori|`mi`|✅ versión preliminar | |
+|Mongol (cirílico)|`mn`|✅ versión preliminar | |
+|Montenegrino (cirílico)|`cnr-cyrl`|✅ versión preliminar | |
+|Montenegrino (latino)|`cnr-latn`|✅ versión preliminar | |
 |Napolitano   | `nap` | ✅ | |
-|Niueano|`niu`|✅ (versión preliminar) | |
-|Nogayo|`nog`|✅ (versión preliminar) | |
-|Sami septentrional (latino)|`sme`|✅ (versión preliminar) | |
+|Niueano|`niu`|✅ versión preliminar | |
+|Nogayo|`nog`|✅ versión preliminar | |
+|Sami septentrional (latino)|`sme`|✅ versión preliminar | |
 |Noruego | `no` | ✅ | |
 |Occitano | `oc` | ✅ | |
-|Osetio|`os`|✅ (versión preliminar) | |
+|Osetio|`os`|✅ versión preliminar | |
 |Polaco | `pl` | ✅ |✅ |
 |Portugués | `pt` |✅ |✅ |
-|Ripuario|`ksh`|✅ (versión preliminar) | |
-|Rumano | `ro` | ✅ (versión preliminar)| ✅|
+|Ripuario|`ksh`|✅ versión preliminar | |
+|Rumano | `ro` | ✅ versión preliminar | ✅|
 |Romanche  | `rm` | ✅ | |
-|Ruso | `ru` |✅ (versión preliminar) |✅ |
-|Samoano (latino)|`sm`|✅ (versión preliminar) | |
+|Ruso | `ru` |✅ versión preliminar |✅ |
+|Samoano (latino)|`sm`|✅ versión preliminar | |
 |Escocés  | `sco` | ✅ | |
 |Gaélico escocés  | `gd` |✅ | |
 |Serbio (cirílico) | `sr-cyrl` | |✅ |
-|Serbio (latino) | `sr-latn` | ✅ (versión preliminar) |✅ |
-|Sami skolt|`sms`|✅ (versión preliminar) | |
-|Eslovaco | `sk` | ✅ (versión preliminar) |✅ |
+|Serbio (latino) | `sr-latn` | ✅ versión preliminar |✅ |
+|Sami skolt|`sms`|✅ versión preliminar | |
+|Eslovaco | `sk` | ✅ versión preliminar |✅ |
 |Esloveno  | `slv` | ✅ ||
-|Sami meridional|`sma`|✅ (versión preliminar) | |
+|Sami meridional|`sma`|✅ versión preliminar | |
 |Español | `es` |✅ |✅ |
 |Swahili (Latín)  | `sw` |✅ | |
 |Sueco | `sv` |✅ |✅ |
-|Tayiko (cirílico)|`tg`|✅ (versión preliminar) | |
+|Tayiko (cirílico)|`tg`|✅ versión preliminar | |
 |Tártaro (Latín)  | `tat` | ✅ |
 |Tetum    | `tet` |✅ |  |
-|Tongano|`to`|✅ (versión preliminar) | |
+|Tongano|`to`|✅ versión preliminar | |
 |Turco | `tr` |✅ | ✅ |
-|Turcomano (latino)|`tk`|✅ (versión preliminar) | |
-|Tuvano|`tyv`|✅ (versión preliminar) | |
+|Turcomano (latino)|`tk`|✅ versión preliminar | |
+|Tuvano|`tyv`|✅ versión preliminar | |
 |Alto sorbio  | `hsb` |✅ |  |
 |Uzbeko (cirílico)  | `uz-cyrl` |✅ |  |
 |Uzbeko (latino)     | `uz` |✅ |  |
 |Volapük   | `vo` | ✅ | |
 |Walser    | `wae` | ✅ | |
-|Galés     | `cy` |✅ (versión preliminar) |  |
+|Galés     | `cy` |✅ versión preliminar |  |
 |Frisón occidental | `fy` | ✅ | |
 |Maya Yucateco | `yua` | ✅ | |
 |Zhuang | `za` |✅ |  |

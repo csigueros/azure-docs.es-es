@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/05/2021
-ms.openlocfilehash: ce68d4161762d47b8754cb69633a3918848085d0
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.date: 10/15/2021
+ms.openlocfilehash: 1988668640a0c9e6d60c0dd9f09e6e8831ce0809
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113593840"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132614"
 ---
 # <a name="create-plans-for-a-saas-offer"></a>Creación de planes para una oferta de SaaS
 
@@ -73,6 +73,9 @@ Esta opción solo está disponible si se han seleccionado precios de tarifa plan
 1. En el cuadro **Cantidad mensual incluida en base**, escriba la cantidad (como entero) de la dimensión que se incluye cada mes para los clientes que pagan la cuota mensual recurrente. Para establecer una cantidad ilimitada, active la casilla en su lugar.
 1. En el cuadro **Cantidad anual incluida en base**, escriba la cantidad de la dimensión (como un entero) que se incluye cada mes para los clientes que pagan la cuota anual periódica. Para establecer una cantidad ilimitada, active la casilla en su lugar.
 1. Para agregar otra dimensión de medidor personalizada, seleccione el vínculo **Agregar otra dimensión** y, a continuación, repita los pasos del 1 al 7.
+
+> [!IMPORTANT]
+> Debe realizar un seguimiento del uso en el código y enviar solo eventos de uso a Microsoft para el uso que esté por encima del precio base.
 
 ### <a name="configure-per-user-pricing"></a>Configuración de precios por usuario
 

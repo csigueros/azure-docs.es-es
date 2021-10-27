@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/30/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: b5406fa20d0ca01f75e23e2bf1c7836943c4833e
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 64ce44dc96571447c8d6baa4afd4b60ed4c68932
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123226328"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130143902"
 ---
 Event Hubs organiza las secuencias de eventos que se envían a un centro de eventos en una o más particiones. A medida que llegan eventos más recientes, se agregan al final de esta secuencia. 
 
@@ -32,7 +32,7 @@ Event Hubs está diseñado para ayudar en el procesamiento de grandes volúmenes
 ### <a name="number-of-partitions"></a>Número de particiones
 El número de particiones se especifica en el momento de crear un centro de eventos. Debe tener entre 1 y el número máximo de particiones admitido para cada plan de tarifa. Para ver el límite del número de particiones para cada plan, consulte [este artículo](../event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers). 
 
-Se recomienda elegir al menos tantas particiones como espere necesitar durante la carga máxima de la aplicación para ese centro de eventos específico. No puede cambiar el número de particiones de un centro de eventos después de su creación, excepto para el centro de eventos en un clúster dedicado. El número de particiones de un centro de eventos de un [clúster de Event Hubs dedicado](../event-hubs-dedicated-overview.md) se puede [aumentar](../dynamically-add-partitions.md) tras su creación, pero la distribución de flujos entre las particiones cambiará cuando se realice como la asignación de claves de partición a cambios de las particiones, por lo que es preciso evitar a toda costa ese tipo de cambios si el orden relativo de los es importante en la aplicación.
+Se recomienda elegir al menos tantas particiones como espere necesitar durante la carga máxima de la aplicación para ese centro de eventos específico. No se puede cambiar el número de particiones de un centro de eventos después de su creación, excepto en el caso del centro de eventos de un clúster dedicado y el nivel prémium. El número de particiones de un centro de eventos de un [clúster de Event Hubs dedicado](../event-hubs-dedicated-overview.md) se puede [aumentar](../dynamically-add-partitions.md) tras su creación, pero la distribución de flujos entre las particiones cambiará cuando se realice como la asignación de claves de partición a cambios de las particiones, por lo que es preciso evitar a toda costa ese tipo de cambios si el orden relativo de los es importante en la aplicación.
 
 Establecer el número de particiones en el valor máximo permitido es tentador, pero siempre debe tener en cuenta que los flujos de eventos deben estar estructurados de manera que se puedan aprovechar las ventajas de tener varias particiones. Si necesita conservar el orden absoluto en todos los eventos o solo en un puñado de subsecuencias, es posible que no pueda aprovechar las ventajas de tener muchas particiones. Además, muchas particiones hacen que el procesamiento sea más complejo. 
 

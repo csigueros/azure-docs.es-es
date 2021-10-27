@@ -4,18 +4,18 @@ description: El inventario de Azure Storage es una herramienta que ayuda a obten
 services: storage
 author: normesta
 ms.service: storage
-ms.date: 08/16/2021
+ms.date: 10/11/2021
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: klaasl
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 6962688a574d7f7c11f8cbfc71ccdb29ac3b6445
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 712cf4c6002983a47e44fb87be983bfca575f534
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129619395"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129996824"
 ---
 # <a name="azure-storage-blob-inventory"></a>Inventario de blobs de Azure Storage
 
@@ -55,7 +55,7 @@ Si ya es usuario de inventarios de blobs de Azure Storage y ha configurado el in
 
 ## <a name="inventory-policy"></a>Directiva de inventario
 
-Una directiva de inventario es una colección de reglas en un documento JSON.
+Un informe de inventario se configura mediante la adición de una directiva de inventario con una o más reglas. Una directiva de inventario es una colección de reglas en un documento JSON.
 
 ```json
 {
@@ -197,7 +197,7 @@ Para ver el documento JSON para reglas de inventario, seleccione la pestaña **V
 
 ## <a name="inventory-run"></a>Ejecución del inventario
 
-Cada día se programa automáticamente una ejecución de inventario de blobs. Puede tardar hasta 24 horas en completarse una ejecución de inventario. Un informe de inventario se configura mediante la adición de una directiva de inventario con una o más reglas.
+Cada día se programa automáticamente una ejecución de inventario de blobs. Puede tardar hasta 24 horas en completarse una ejecución de inventario. En el caso de las cuentas habilitadas para el espacio de nombres jerárquico, una ejecución puede tardar hasta dos días y, en función del número de archivos que se procesen, es posible que la ejecución no se complete al final de esos dos días. Si una ejecución no se completa correctamente, compruebe las ejecuciones posteriores para ver si se completan antes de ponerse en contacto con el soporte técnico. El rendimiento de una ejecución puede variar, por lo que si una ejecución no se completa, es posible que las ejecuciones posteriores lo hagan.
 
 Las directivas de inventario se leen o escriben en su totalidad. No se admiten las actualizaciones parciales.
 
@@ -254,12 +254,17 @@ Cada regla de ejecución genera un conjunto de archivos en el contenedor de dest
 
 Cada ejecución de inventario con relación a una regla genera los siguientes archivos:
 
-- **Archivo de inventario:** la ejecución de un inventario de una regla genera uno o más archivos con formato CSV o Apache Parquet. Si hay un gran número de objetos coincidentes, se generan varios archivos en lugar de uno solo. Cada archivo contiene los objetos coincidentes y sus metadatos. En el caso de los archivos con formato CSV, la primera fila siempre es la fila de esquema. En la siguiente imagen se muestra un archivo CSV de inventario abierto en Microsoft Excel.
-
-  :::image type="content" source="./media/blob-inventory/csv-file-excel.png" alt-text="Captura de pantalla de un archivo CSV de inventario abierto en Microsoft Excel":::
+- **Archivo de inventario:** la ejecución de un inventario de una regla genera uno o más archivos con formato CSV o Apache Parquet. Si hay un gran número de objetos coincidentes, se generan varios archivos en lugar de uno solo. Cada archivo contiene los objetos coincidentes y sus metadatos. 
 
   > [!NOTE]
   > Los informes con formato Apache Parquet presentan fechas con el siguiente formato: `timestamp_millis [number of milliseconds since 1970-01-01 00:00:00 UTC`.
+
+  En el caso de los archivos con formato CSV, la primera fila siempre es la fila de esquema. En la siguiente imagen se muestra un archivo CSV de inventario abierto en Microsoft Excel.
+
+  :::image type="content" source="./media/blob-inventory/csv-file-excel.png" alt-text="Captura de pantalla de un archivo CSV de inventario abierto en Microsoft Excel":::
+
+  > [!IMPORTANT]
+  > Es posible que las rutas de acceso de blob que aparecen en un archivo de inventario no aparezcan en un orden determinado. 
 
 - **Archivo de suma de comprobación:** contiene la suma de comprobación MD5 del contenido del archivo manifest.json. El nombre del archivo de suma de comprobación es `<ruleName>-manifest.checksum`. La generación del archivo de suma de comprobación marca la finalización de la ejecución de una regla de inventario.
 
@@ -341,7 +346,7 @@ En esta sección se describen las limitaciones y los problemas conocidos de la c
 
 ### <a name="inventory-job-fails-to-complete-for-hierarchical-namespace-enabled-accounts"></a>Error del trabajo de inventario en el caso de cuentas con un espacio de nombres jerárquico habilitado
 
-Es posible que el trabajo de inventario no pueda completarse en un plazo de 24 horas en el caso de cuentas con cientos de millones de blobs y un espacio de nombres jerárquico habilitado. Si esto ocurre, no se creará ningún archivo de inventario.
+Es posible que el trabajo de inventario no pueda completarse en 2 días en el caso de cuentas con cientos de millones de blobs y el espacio de nombres jerárquico habilitado. Si esto ocurre, no se creará ningún archivo de inventario. Si un trabajo no se completa correctamente, compruebe los trabajos posteriores para ver si se completan antes de ponerse en contacto con el soporte técnico. El rendimiento de un trabajo puede variar, por lo que si un trabajo no se completa, es posible que los trabajos posteriores sí lo hagan.
 
 ### <a name="inventory-job-cannot-write-inventory-reports"></a>El trabajo de inventario no puede escribir informes de inventario
 

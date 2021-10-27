@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: karenhoran
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8aa2519027f210e88af4e03ec9232fcdefb5d3e4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 38f602d41d8891aadc45a9dd35d2ea62afda897d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128597861"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998245"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planeamiento de la implementación del acceso condicional
 
@@ -217,7 +217,7 @@ Los tokens de acceso se emiten de forma predeterminada si una condición de la d
 
 ### <a name="minimize-the-number-of-conditional-access-policies"></a>Minimización del número de directivas de acceso condicional
 
-Crear una directiva para cada aplicación no es eficaz y conlleva una administración difícil. El acceso condicional solo aplicará las primeras 195 directivas por usuario. Se recomienda analizar las aplicaciones y agruparlas en aplicaciones que tengan los mismos requisitos de recursos para los mismos usuarios. Por ejemplo, si todas las aplicaciones de Microsoft 365 o todas las aplicaciones de recursos humanos tienen los mismos requisitos para los mismos usuarios, cree una sola directiva e incluya todas las aplicaciones a las que se aplique. 
+Crear una directiva para cada aplicación no es eficaz y conlleva una administración compleja. Puede haber un máximo de 195 de acceso condicional en cada inquilino de Azure AD. Se recomienda analizar las aplicaciones y agruparlas en directivas que tengan los mismos requisitos de acceso. Por ejemplo, si todas las aplicaciones de Microsoft 365 o todas las aplicaciones de recursos humanos tienen los mismos requisitos para los mismos usuarios, cree una sola directiva e incluya todas estas aplicaciones en lugar de agregar una directiva para cada aplicación.
 
 ### <a name="set-up-emergency-access-accounts"></a>Configurar cuentas de acceso de emergencia
 

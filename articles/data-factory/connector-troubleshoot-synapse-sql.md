@@ -6,15 +6,15 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 10/13/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
-ms.openlocfilehash: f258ba3b8c62d0d290785bbf6a66cc7651286162
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 84208764621bd03959db7d695bf0616dcccc4491
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129390437"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064787"
 ---
 # <a name="troubleshoot-the-azure-synapse-analytics-azure-sql-database-and-sql-server-connectors-in-azure-data-factory-and-azure-synapse"></a>Solución de problemas de los conectores de Azure Synapse Analytics, Azure SQL Database y SQL Server en Azure Data Factory y Azure Synapse
 
@@ -93,10 +93,12 @@ En este artículo se proporcionan sugerencias para solucionar problemas comunes 
 
 - **Mensaje**: `The specified Stored Procedure is not valid. It could be caused by that the stored procedure doesn't return any data. Invalid Stored Procedure script: '%scriptName;'.`
 
-- **Causa**: El procedimiento almacenado especificado no es válido. La causa podría ser que el procedimiento almacenado no devuelva ningún dato.
+- **Causas y recomendaciones**: diversas causas pueden provocar este error. Busque en la lista siguiente el análisis de las posibles causas y la recomendación relacionada.
 
-- **Recomendación:**  Valide el procedimiento almacenado con las herramientas de SQL. Asegúrese de que el procedimiento almacenado pueda devolver datos.
-
+  | Análisis de las causas                                               | Recomendación                                             |
+  | :----------------------------------------------------------- | :----------------------------------------------------------- |
+  | El procedimiento almacenado especificado no es válido. | Valide el procedimiento almacenado con las herramientas de SQL. Asegúrese de que el procedimiento almacenado pueda devolver datos.  |
+  | La actividad de búsqueda requiere que el procedimiento almacenado devuelva algún valor, pero el código del procedimiento almacenado no devuelve ningún valor. | Use la actividad de procedimiento almacenado si se espera que el procedimiento almacenado no devuelva datos. |
 
 ## <a name="error-code-sqlinvaliddbquerystring"></a>Código de error: SqlInvalidDbQueryString
 

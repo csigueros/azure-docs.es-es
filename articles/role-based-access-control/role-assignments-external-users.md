@@ -10,15 +10,15 @@ ms.devlang: ''
 ms.topic: how-to
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/28/2021
+ms.date: 10/15/2021
 ms.author: rolyon
 ms.custom: it-pro,subject-rbac-steps
-ms.openlocfilehash: 175beacc486c4b59919bf20300bbd06f7b9aa1a7
-ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
+ms.openlocfilehash: 808e8e1dc5bcdcdddad490f30338c8f7a9e7ffa3
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112988608"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074273"
 ---
 # <a name="assign-azure-roles-to-external-guest-users-using-the-azure-portal"></a>Asignación de roles de Azure a usuarios invitados externos mediante Azure Portal
 
@@ -80,25 +80,25 @@ En RBAC, para conceder acceso es preciso asignar un rol. Para asignar un rol a u
 
     A continuación se muestra un ejemplo de la página Control de acceso (IAM) de un grupo de recursos.
 
-    ![Captura de pantalla de la página Control de acceso (IAM) de un grupo de recursos en la experiencia con la versión preliminar.](./media/shared/rg-access-control.png)
+    ![Captura de pantalla de la página Control de acceso (IAM) para un grupo de recursos.](./media/shared/rg-access-control.png)
 
 1. Haga clic en la pestaña **Asignaciones de roles** para ver todas las asignaciones de roles en este ámbito.
 
-1. Haga clic en **Agregar** > **Agregar asignación de roles (versión preliminar)** .
+1. Haga clic en **Agregar** > **Agregar asignación de roles**.
 
     Si no tiene permisos para asignar roles, la opción Agregar asignación de roles se deshabilitará.
 
-    ![Captura de pantalla del menú Agregar > Agregar asignación de roles en la experiencia con la versión preliminar.](./media/shared/add-role-assignment-menu-preview.png)
+    ![Captura de pantalla del menú Agregar > Agregar asignación de roles.](./media/shared/add-role-assignment-menu.png)
 
     Se abre la página Agregar asignación de roles.
 
 1. En la pestaña **Rol**, seleccione un rol como **Colaborador de la máquina virtual**.
 
-   ![Captura de pantalla de la página Agregar asignación de roles con la pestaña Roles de la experiencia de versión preliminar.](./media/shared/roles.png)
+   ![Captura de pantalla de la página Agregar asignación de roles con la pestaña Roles.](./media/shared/roles.png)
 
 1. En la pestaña **Miembros**, seleccione **Usuario, grupo o entidad de servicio**.
 
-   ![Captura de pantalla de la página Agregar asignación de roles con la pestaña Miembros de la experiencia de versión preliminar.](./media/shared/members.png)
+   ![Captura de pantalla de la página Agregar asignación de roles con la pestaña Miembros.](./media/shared/members.png)
 
 1. Haga clic en **Seleccionar miembros**.
 
@@ -106,7 +106,7 @@ En RBAC, para conceder acceso es preciso asignar un rol. Para asignar un rol a u
 
     Puede escribir en el cuadro **Seleccionar** para buscar en el directorio por nombres para mostrar o direcciones de correo electrónico.
 
-    ![Captura de pantalla del panel Seleccionar miembros de la experiencia de versión preliminar.](./media/role-assignments-external-users/select-members.png)
+    ![Captura de pantalla del panel Seleccionar miembros.](./media/role-assignments-external-users/select-members.png)
 
 1. Haga clic en **Seleccionar** para agregar al usuario invitado a la lista Miembros.
 
@@ -130,11 +130,11 @@ Si el usuario invitado todavía no está en el directorio, puede invitarlo direc
 
 1. Haga clic en **Control de acceso (IAM).**
 
-1. Haga clic en **Agregar** > **Agregar asignación de roles (versión preliminar)** .
+1. Haga clic en **Agregar** > **Agregar asignación de roles**.
 
     Si no tiene permisos para asignar roles, la opción Agregar asignación de roles se deshabilitará.
 
-    ![Captura de pantalla del menú Agregar > Agregar asignación de roles en la experiencia con la versión preliminar.](./media/shared/add-role-assignment-menu-preview.png)
+    ![Captura de pantalla del menú Agregar > Agregar asignación de roles.](./media/shared/add-role-assignment-menu.png)
 
     Se abre la página Agregar asignación de roles.
 
@@ -142,7 +142,7 @@ Si el usuario invitado todavía no está en el directorio, puede invitarlo direc
 
 1. En la pestaña **Miembros**, seleccione **Usuario, grupo o entidad de servicio**.
 
-   ![Captura de pantalla de la página Agregar asignación de roles con la pestaña Miembros de la experiencia de versión preliminar.](./media/shared/members.png)
+   ![Captura de pantalla de la página Agregar asignación de roles con la pestaña Miembros.](./media/shared/members.png)
 
 1. Haga clic en **Seleccionar miembros**.
 

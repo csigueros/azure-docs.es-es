@@ -17,12 +17,12 @@ ms.date: 07/08/2021
 ms.author: markvi
 ms.reviewer: tspring
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c327de515699ed0d0d8b74e0c393d206864fef85
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: 4301caa11079604a19b8679311daf1e082b35b1f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113553132"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993499"
 ---
 # <a name="sign-in-diagnostics-for-azure-ad-scenarios"></a>Diagnóstico de inicio de sesión para escenarios de Azure AD
 
@@ -278,7 +278,13 @@ En este escenario, la directiva de protección de identidad bloquea un intento d
 Para obtener más información, consulte [Procedimiento de configuración y habilitación de directivas de riesgo](../identity-protection/howto-identity-protection-configure-risk-policies.md). 
 
 
+### <a name="pass-through-authentication"></a>Autenticación transferida 
 
+Dado que la autenticación transferida es una integración de tecnologías de autenticación locales y en la nube, puede ser difícil determinar dónde se encuentra el problema. Estas instrucciones están pensadas para facilitar el diagnóstico y la resolución de estos escenarios. 
+
+Este escenario de diagnóstico identifica problemas de inicio de sesión específicos del usuario cuando el método de autenticación que se usa es la autenticación transferida (PTA) y hay un error específico de este tipo de autenticación. Los errores debidos a otros problemas, incluso cuando se usa la autenticación PTA, se seguirán diagnosticando correctamente. 
+
+El diagnóstico muestra información contextual sobre el error y el inicio de sesión del usuario, motivos adicionales por los que se ha producido un error en el inicio de sesión y las acciones recomendadas que el administrador puede realizar para resolver el problema. Para más información, consulte [Solución de problemas de autenticación transferida de Azure AD Connect](../hybrid/tshoot-connect-pass-through-authentication.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

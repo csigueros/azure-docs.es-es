@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/18/2021
 ms.author: thwimmer
-ms.openlocfilehash: eb283ab73180bed43c90f57fd7ad09c045f82bc4
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: fca85673ba31b71eda9e9b4242062093ae588aed
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113763830"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130046988"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configuración de G Suite para el aprovisionamiento automático de usuarios
 
@@ -110,11 +110,11 @@ El servicio de aprovisionamiento de Azure AD le permite definir quién se aprov
 Esta sección le guía por los pasos necesarios para configurar el servicio de aprovisionamiento de Azure AD a fin de crear, actualizar y deshabilitar usuarios o grupos en TestApp en función de las asignaciones de grupos o usuarios de Azure AD.
 
 > [!NOTE]
-> Para más información sobre el punto de conexión de la API de directorio de G Suite, consulte [Directory API](https://developers.google.com/admin-sdk/directory).
+> Para más información sobre el punto de conexión de la API de directorio de G Suite, consulte la [documentación de referencia de la API de directorio](https://developers.google.com/admin-sdk/directory).
 
 ### <a name="to-configure-automatic-user-provisioning-for-g-suite-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para G Suite en Azure AD:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones**. Los usuarios deberán iniciar sesión en portal.azure.com y no podrán usar aad.portal.azure.com
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones**. Los usuarios deberán iniciar sesión en `portal.azure.com` y no podrán usar `aad.portal.azure.com`.
 
     ![Hoja Aplicaciones empresariales](./media/g-suite-provisioning-tutorial/enterprise-applications.png)
 

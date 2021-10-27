@@ -7,12 +7,12 @@ ms.date: 06/28/2019
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 26d81a492b12cd2dd7f1d4de260aa22ac4e73a3e
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 2003e4b6f143f9220b9618a57a2894e678014602
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129234459"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130175643"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Procedimientos recomendados para la configuración de dispositivos en una solución de IoT
 
@@ -90,4 +90,4 @@ Los siguientes procedimientos recomendados están destinados a los operadores de
 
 * Siga los pasos para crear, actualizar o eliminar una configuración automática de dispositivos en [Configuración y supervisión de dispositivos IoT a escala](./iot-hub-automatic-device-management.md).
 
-* Implemente un patrón de actualización de firmware mediante dispositivos gemelos y configuraciones automáticas de dispositivos con los pasos del [Tutorial: Implementación de un proceso de actualización de firmware de dispositivos](tutorial-firmware-update.md).
+* Obtenga información sobre cómo completar una actualización completa basada en imágenes en el [Tutorial de Device Update para Azure IoT Hub con la imagen de referencia para Raspberry Pi 3 B+](../iot-hub-device-update/device-update-raspberry-pi.md).

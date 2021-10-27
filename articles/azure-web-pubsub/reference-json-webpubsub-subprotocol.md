@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ms.date: 08/16/2021
-ms.openlocfilehash: 724ffa23cf533133603db717b4d01ebbd81894a1
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 8f1710246158e953492fec23869ba91a77c78e60
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122446723"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177828"
 ---
 #  <a name="azure-web-pubsub-supported-json-websocket-subprotocol"></a>Subprotocolo de WebSocket JSON compatible con Azure Web PubSub
      
@@ -39,7 +39,7 @@ Es posible que haya observado que, cuando se describen los clientes WebSocket de
 | No especificado | El cliente puede enviar solicitudes de eventos.
 | `webpubsub.joinLeaveGroup` | El cliente puede unirse a cualquier grupo o salir de este.
 | `webpubsub.sendToGroup` | El cliente puede publicar mensajes en cualquier grupo.
-| `webpubsub.joinLeaveGroup.<group>` | El cliente puede unirse al grupo `<group>` o salir de este.
+| `webpubsub.joinLeaveGroup.<group>` | El cliente puede unirse al grupo `<group>` o abandonarlo.
 | `webpubsub.sendToGroup.<group>` | El cliente puede publicar mensajes en el grupo `<group>`.
 
 El lado servidor también puede conceder o revocar permisos del cliente dinámicamente a través de API REST o SDK de servidor.
@@ -83,17 +83,18 @@ Formato:
     "type": "sendToGroup",
     "group": "<group_name>",
     "ackId" : 1, // optional
+    "noEcho": true|false,
     "dataType" : "json|text|binary",
     "data": {}, // data can be string or valid json token depending on the dataType 
 }
 ```
 
 * `ackId` es opcional, es un entero incremental para este mensaje de comando. Cuando se especifica `ackId`, el servicio devuelve un [mensaje de respuesta confirmación](#ack-response) al cliente cuando se ejecuta el comando.
-
-`dataType` puede ser de tipo `json`, `text` o `binary`:
-* `json`: `data` puede ser cualquier tipo que JSON admita y se publicará como lo que sea. Si `dataType` no se especifica, el valor predeterminado es `json`.
-* `text`: `data` debe estar en formato de cadena y se publicarán los datos de cadena.
-* `binary`: `data` debe estar en formato base64 y se publicarán los datos binarios.
+* `noEcho` es opcional. Si se establece en true, este mensaje no se repite en la misma conexión. Si no se establece, el valor predeterminado es false.
+* `dataType` puede ser de tipo `json`, `text` o `binary`:
+     * `json`: `data` puede ser cualquier tipo que JSON admita y se publicará como lo que sea. Si `dataType` no se especifica, el valor predeterminado es `json`.
+     * `text`: `data` debe estar en formato de cadena y se publicarán los datos de cadena.
+     * `binary`: `data` debe estar en formato base64 y se publicarán los datos binarios.
 
 #### <a name="case-1-publish-text-data"></a>Caso 1: publicar datos de texto:
 ```json
@@ -327,6 +328,7 @@ Los clientes pueden recibir mensajes publicados de un grupo al que se ha unido e
         "group": "<group_name>",
         "dataType": "json|text|binary",
         "data" : {} // The data format is based on the dataType
+        "fromUserId": "abc"
     }
     ```
 

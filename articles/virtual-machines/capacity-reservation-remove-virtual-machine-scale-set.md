@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: 03b89b1b8c0221795f58ff28addd4fdeaad5053e
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: cc3b433b0ae36076a0442c8dc91e502020bdfd04
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129532575"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063647"
 ---
 # <a name="remove-a-virtual-machine-scale-set-association-from-a-capacity-reservation-group"></a>Eliminación de una asociación de conjunto de escalado de máquinas virtuales de un grupo de reserva de capacidad 
 
@@ -64,6 +64,27 @@ Vaya a [Directivas de actualización](#upgrade-policies) para obtener más infor
     }
     }
     ```
+
+### <a name="cli"></a>[CLI](#tab/cli1)
+
+1. Desasigne el conjunto de escalado de máquinas virtuales. El siguiente código desasigna todas las máquinas virtuales del conjunto de escalado: 
+
+    ```azurecli-interactive
+    az vmss deallocate
+    --location eastus
+    --resource-group myResourceGroup 
+    --name myVMSS 
+    ```
+
+1. Actualice el conjunto de escalado para quitar la asociación con el grupo de reserva de capacidad. Al establecer la propiedad `capacity-reservation-group` en Ninguno, se quita la asociación del conjunto de escalado al grupo de reserva de capacidad: 
+
+    ```azurecli-interactive
+    az vmss update 
+    --resource-group myresourcegroup 
+    --name myVMSS 
+    --capacity-reservation-group None
+    ```
+
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell1)
 
@@ -146,6 +167,27 @@ Vaya a [Directivas de actualización](#upgrade-policies) para obtener más infor
         }
     }
     }
+    ```
+
+### <a name="cli"></a>[CLI](#tab/cli2)
+
+1. Actualice la cantidad reservada a cero:
+
+    ```azurecli-interactive
+    az capacity reservation update 
+    -g myResourceGroup 
+    -c myCapacityReservationGroup 
+    -n myCapacityReservation 
+    --capacity 0
+    ```
+
+2. Actualice el conjunto de escalado para quitar la asociación con el grupo de reserva de capacidad; para ello, establezca la propiedad `capacity-reservation-group` en Ninguno: 
+
+    ```azurecli-interactive
+    az vmss update 
+    --resource-group myResourceGroup 
+    --name myVMSS 
+    --capacity-reservation-group None
     ```
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell2)

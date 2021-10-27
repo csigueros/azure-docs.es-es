@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: a0ce6658168bd86188875d9d89f218ee26ef7941
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: c368e94d8d2b07e3d1487d1b6e505d2a87a89e91
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122652201"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994088"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Conceptos del servidor: Servidor flexible de Azure Database for MySQL (versión preliminar)
 
@@ -51,7 +51,7 @@ La opción de implementación Servidor flexible de Azure Database for MySQL perm
 Si el servidor está en estado **detenido**, el proceso del mismo no se factura. Sin embargo, el almacenamiento se sigue facturando mientras se mantiene el almacenamiento del servidor, con el fin de asegurarse de que los archivos de datos están disponibles cuando se vuelve a iniciar el servidor.
 
 > [!IMPORTANT]
-> Cuando se **detiene** el servidor permanece en ese estado durante los siete días siguientes. Si no lo **inicia** de forma manual durante ese tiempo, se iniciará automáticamente al final de los siete días. Puede optar por volver a **detenerlo** si no va a usar el servidor.
+> Cuando se **detiene** el servidor, permanece en ese estado durante los 30 días siguientes. Si no lo **inicia** de forma manual durante ese tiempo, se inicia automáticamente al final de los 30 días. Puede optar por volver a **detenerlo** si no va a usar el servidor.
 
 Durante el tiempo en que el servidor está detenido, no se pueden realizar operaciones de administración en él. Para cambiar cualquier valor de la configuración del servidor, deberá [iniciar el servidor](how-to-stop-start-server-portal.md). Consulte las [limitaciones de inicio y parada](./concepts-limitations.md#stopstart-operation).
 

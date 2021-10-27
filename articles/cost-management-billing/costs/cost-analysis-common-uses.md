@@ -3,17 +3,17 @@ title: Usos del análisis de costos comunes en Azure Cost Management
 description: En este artículo se explica cómo puede obtener los resultados de las tareas comunes de análisis de costos en Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2021
+ms.date: 10/13/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 0fa5eba77727676f21a7b45848171859395b00f0
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 642c9ba475690b05723601f4e6ff429e382f29bb
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129706006"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129992506"
 ---
 # <a name="common-cost-analysis-uses"></a>Usos del análisis de costos comunes
 
@@ -67,6 +67,18 @@ Para ver los costos de Azure y AWS juntos, se usan ámbitos del grupo de adminis
 1. Asigne el *mismo* grupo de administración a la cuenta vinculada del conector.
 1. Vaya a Análisis de costos y seleccione **Costos acumulados**.
 1. Seleccione **Agrupar por** - **Proveedor**.
+
+## <a name="view-new-commerce-license-and-consumption-costs"></a>Visualización de los costos de consumo y licencias de New Commerce
+
+Puede ver la licencia y los productos de consumo de New Commerce junto con los cargos de Azure en Análisis de costos. Seleccione la lista de filtros, seleccione **Proveedor** y, a continuación, elija en la lista de opciones. Por ejemplo, Microsoft 365 y Dynamics 365.
+
+:::image type="content" source="./media/cost-analysis-common-uses/filter-select-provider.png" alt-text="Captura de pantalla que muestra la selección del filtro Proveedor." lightbox="./media/cost-analysis-common-uses/filter-select-provider.png" :::
+
+Puede limitarse a cargos específicos basados en puestos o de consumo mediante el filtro **Tipo de cargo** y seleccionando los valores de **Compra** o **Uso**.
+
+:::image type="content" source="./media/cost-analysis-common-uses/filter-charge-type.png" alt-text="Captura de pantalla que muestra la selección del filtro Tipo de cargo." lightbox="./media/cost-analysis-common-uses/filter-charge-type.png" :::
+
+Actualmente, la compra de productos de New Commerce solo está disponible para los asociados.
 
 ## <a name="view-cost-breakdown-by-azure-service"></a>Visualización del desglose de costos por servicio de Azure
 

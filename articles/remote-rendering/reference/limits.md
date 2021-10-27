@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: f62a07ef7109c669c6abc90d4e1b4a2ee83ece23
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 06e266460e12218f531c85c2c6ca48c1e9658053
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100530253"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003030"
 ---
 # <a name="limitations"></a>Limitaciones
 
@@ -32,7 +32,7 @@ Las siguientes limitaciones se aplican a la API de front-end (C++ y C#):
 * **Animación:** las animaciones se limitan a animar transformaciones individuales de [objetos de juego](../concepts/entities.md). No se admiten las animaciones esqueléticas con animaciones de piel y vértices. Las pistas de animación del archivo de recursos de origen no se conservan. En su lugar, el código cliente debe controlar las animaciones de transformación de objetos.
 * **Sombreadores personalizados:** no se admite la creación de sombreadores personalizados. Solo se pueden usar [materiales de color](../overview/features/color-materials.md) o [materiales PBR](../overview/features/pbr-materials.md) integrados.
 * **Número máximo de materiales distintos** en un recurso: 65 535. Para más información sobre la reducción automática del número de materiales, consulte el capítulo sobre la [desduplicación de materiales](../how-tos/conversion/configure-model-conversion.md#material-de-duplication).
-* **Dimensión máxima de una sola textura**: 16 384 x 16 384. El proceso de conversión reducirá el tamaño de las texturas de origen más grandes.
+* **Dimensión máxima de una sola textura**: 16 384 x 16 384. El representador no puede usar texturas más grandes. En ocasiones, el proceso de conversión puede reducir las texturas de mayor tamaño, pero en general no podrá procesar texturas mayores que este límite.
 
 ### <a name="overall-number-of-polygons"></a>Número total de polígonos
 

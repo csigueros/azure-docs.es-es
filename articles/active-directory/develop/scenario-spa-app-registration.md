@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/19/2020
+ms.date: 10/12/2021
 ms.author: marsma
 ms.custom: aaddev
-ms.openlocfilehash: 61c8cf7261e3479683381a004baef3448cba099d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6b7c54dcac287574559a135b664e19f1150b80bc
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128587107"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129987088"
 ---
 # <a name="single-page-application-app-registration"></a>Aplicación de página única: Registro de aplicación
 
@@ -75,7 +75,7 @@ De forma predeterminada, un registro de aplicación creado mediante la configura
 
 Como se mencionó anteriormente, las aplicaciones de página única que usan MSAL.js 1.3 están restringidas al flujo de concesión implícita. Los [procedimientos recomendados de OAuth 2.0](v2-oauth2-auth-code-flow.md) actuales indican el uso del flujo de código de autorización en lugar del flujo implícito para las aplicaciones de página única. Contar con tokens de actualización de duración limitada también ayuda a que la aplicación se adapte a las [limitaciones de privacidad de cookies de los exploradores modernos](reference-third-party-cookies-spas.md), como ITP de Safari.
 
-Cuando todas sus aplicaciones de página única en producción representadas por un registro de aplicación usen MSAL.js 2.0 y el flujo de código de autorización, desactive la configuración de concesión implícita del panel **Autenticación** del registro de aplicación en Azure Portal. Sin embargo, las aplicaciones que usen MSAL.js 1.x y el flujo implícito pueden seguir funcionando si deja el flujo implícito habilitado (activado).
+Cuando todas sus aplicaciones de página única en producción representadas por un registro de aplicación usen MSAL.js 2.0 y el flujo de código de autorización, desactive la configuración de concesión implícita en el panel **Autenticación** del registro de aplicación en Azure Portal. Sin embargo, las aplicaciones que usen MSAL.js 1.x y el flujo implícito pueden seguir funcionando si deja el flujo implícito habilitado (activado).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

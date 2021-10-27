@@ -5,7 +5,7 @@
     - name: Acerca de App Service
       href: overview.md
     - name: Acerca de App Service Environment
-      href: environment/intro.md
+      href: environment/overview.md
     - name: Comparación entre opciones de hospedaje
       href: /azure/architecture/guide/technology-choices/compute-decision-tree
 - name: Guías de inicio rápido
@@ -143,8 +143,8 @@
           href: networking/private-endpoint.md
         - name: Conexiones híbridas
           href: app-service-hybrid-connections.md
-        - name: Integración de Virtual Network
-          href: web-sites-integrate-with-vnet.md
+        - name: Integración de la red virtual
+          href: overview-vnet-integration.md
         - name: Integración de Application Gateway
           href: networking/app-gateway-with-service-endpoints.md
         - name: Integración de NAT Gateway
@@ -301,6 +301,10 @@
           href: manage-disaster-recovery.md
         - name: Habilitación en Azure Arc
           href: manage-create-arc-environment.md
+        - name: Habilitación de la integración con red virtual
+          href: configure-vnet-integration-enable.md
+        - name: Configuración del enrutamiento de la integración con red virtual
+          href: configure-vnet-integration-routing.md
     - name: Movimiento de una aplicación
       items:
         - name: Movimiento entre regiones

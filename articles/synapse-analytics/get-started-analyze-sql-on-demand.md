@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 04/15/2021
-ms.openlocfilehash: 8a8e8fae151b0d9be318d4dfad832ead34ef04da
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 492f8d42a072418586a6646a9beed2e750849b31
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738093"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129996993"
 ---
 # <a name="analyze-data-with-a-serverless-sql-pool"></a>Análisis de datos con un grupo de SQL sin servidor
 
@@ -58,7 +58,7 @@ Sin embargo, a medida que continúa la exploración de datos, puede ser convenie
 - Usuarios de base de datos con permisos para acceder a algunos orígenes de datos u objetos de base de datos.
 - Vistas, procedimientos y funciones de la utilidad que puede usar en las consultas.
 
-1. Cree una base de datos independiente para usar estos objetos. No se pueden crear objetos de base de datos personalizados en la base de datos `master`.
+1. Use la base de datos `master` para crear una base de datos independiente para objetos de base de datos personalizados. No se pueden crear objetos de base de datos personalizados en la base de datos `master`.
 
     ```sql
     CREATE DATABASE DataExplorationDB 
@@ -76,15 +76,15 @@ Sin embargo, a medida que continúa la exploración de datos, puede ser convenie
     ```
 
    > [!NOTE]
-   > Se puede crear un origen de datos externo sin credencial. En ese caso, la identidad del autor de la llamada se usará para acceder al origen de datos externo.
+   > Los orígenes de datos externos se pueden crear sin credenciales. Si no existe ninguna credencial, se usará la identidad del autor de la llamada para acceder al origen de datos externo.
 
-3. También puede crear un inicio de sesión para un usuario en `DataExplorationDB` para acceder a datos externos:
+3. Otra posibilidad es usar la base de datos "maestra" para crear un inicio de sesión para un usuario en `DataExplorationDB` que va a acceder a datos externos:
 
     ```sql
     CREATE LOGIN data_explorer WITH PASSWORD = 'My Very Strong Password 1234!';
     ```
 
-    Cree un usuario de base de datos en `DataExplorationDB` para el inicio de sesión y conceda el permiso `ADMINISTER DATABASE BULK OPERATIONS`.
+    Luego, cree un usuario de base de datos en `DataExplorationDB` para el inicio de sesión y conceda el permiso `ADMINISTER DATABASE BULK OPERATIONS`.
     ```sql
     CREATE USER data_explorer FOR LOGIN data_explorer;
     GO

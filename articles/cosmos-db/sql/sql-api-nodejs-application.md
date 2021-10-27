@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 08/26/2021
+ms.date: 10/18/2021
 ms.author: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: e83c245960815630891407a042303f1d8ae58b35
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: e9ee6ef04563466cb47f1bc6fe8f92929dd11950
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123118199"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177562"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Tutorial: Compilación de una aplicación web de Node.js mediante el SDK de JavaScript para administrar la cuenta de SQL API en Azure Cosmos DB 
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -455,25 +455,17 @@ Ahora que compiló la aplicación, puede ejecutarla localmente con los pasos sig
 
 5. Para detener la aplicación, presione CTRL+C en la ventana de terminal y, después, seleccione **Y** para finalizar el trabajo por lotes.
 
-## <a name="deploy-your-application-to-web-apps"></a><a name="deploy-app"></a>Implementación de la aplicación en Web Apps
+## <a name="deploy-your-application-to-app-service"></a><a name="deploy-app"></a>Implementación de la aplicación en App Service
 
-Una vez que la aplicación de ejecuta correctamente de manera local, puede implementarla en Azure siguiendo estos pasos:
+Una vez que la aplicación de ejecuta correctamente de manera local, puede implementarla en Azure App Service. En el terminal, asegúrese de que se encuentra en el directorio *todo* de la aplicación. Implemente el código en la carpeta local (todo) mediante el siguiente comando [az webapp up](/cli/azure/webapp?view=azure-cli-latest#az_webapp_up&preserve-view=true):
 
-1. Habilite un repositorio de Git para la aplicación de Web Apps si todavía no lo ha hecho.
+```azurecli
+az webapp up --sku F1 --name <app-name>
+```
 
-2. Agregue la aplicación de Web Apps como Git remoto.
-   
-   ```bash
-   git remote add azure https://username@your-azure-website.scm.azurewebsites.net:443/your-azure-website.git
-   ```
+Reemplace <app_name> por un nombre que sea único en todo Azure (los caracteres válidos son a-z, 0-9 y "-"). Un buen patrón es usar una combinación del nombre de la empresa y un identificador de la aplicación. Para más información sobre la implementación de aplicaciones, consulte el artículo [Implementación de aplicaciones de Node.js en Azure](../../app-service/quickstart-nodejs.md?tabs=linux&pivots=development-environment-cli#deploy-to-azure).
 
-3. Implemente la aplicación llevándola al servidor remoto.
-   
-   ```bash
-   git push azure main
-   ```
-
-4. En unos segundos, la aplicación web se publica y se inicia en un explorador.
+El comando puede tardar varios minutos en completarse. Mientras se ejecuta, proporciona mensajes sobre la creación del grupo de recursos, el plan de App Service y el recurso de la aplicación, la configuración del registro y la implementación del archivo ZIP. A continuación, proporciona una dirección URL para iniciar la aplicación en `http://<app-name>.azurewebsites.net`, que es la dirección URL de la aplicación en Azure.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -481,13 +473,12 @@ Cuando ya no necesite estos recursos, podrá eliminar el grupo de recursos, la c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* ¿Intenta planear la capacidad para una migración a Azure Cosmos DB? Puede usar información sobre el clúster de bases de datos existente para planear la capacidad.
-    * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
-    * Si conoce las velocidades de solicitud típicas de la carga de trabajo de la base de datos actual, lea sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).
+* ¿Intenta planear la capacidad de una migración a Azure Cosmos DB? Para ello, puede usar información sobre el clúster de bases de datos existente.
+  * Si lo único que sabe es el número de núcleos virtuales y servidores del clúster de bases de datos existente, lea sobre el [cálculo de unidades de solicitud mediante núcleos o CPU virtuales](../convert-vcore-to-request-unit.md). 
+  * Si conoce las velocidades de solicitud típicas de la carga de trabajo de la base de datos actual, lea sobre el [cálculo de unidades de solicitud mediante la herramienta de planeamiento de capacidad de Azure Cosmos DB](estimate-ru-with-capacity-planner.md).
 
 > [!div class="nextstepaction"]
 > [Creación de aplicaciones móviles con Xamarin y Azure Cosmos DB](mobile-apps-with-xamarin.md)
-
 
 [Node.js]: https://nodejs.org/
 [Git]: https://git-scm.com/

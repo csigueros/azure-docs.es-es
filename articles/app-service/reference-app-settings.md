@@ -3,12 +3,12 @@ title: Referencia de variables de entorno y configuración de la aplicación
 description: Describe las variables de entorno que se usan habitualmente y cuáles se pueden modificar con la configuración de la aplicación.
 ms.topic: article
 ms.date: 06/14/2021
-ms.openlocfilehash: d3c34f64aa4e13fe0dce371d9848f6422e7b1f63
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: 3a51f620cefef67e8e2cd2256ad6dba19b915bf4
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129399819"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130005136"
 ---
 # <a name="environment-variables-and-app-settings-in-azure-app-service"></a>Variables de entorno y configuración de la aplicación en Azure App Service
 
@@ -74,8 +74,14 @@ En la tabla siguiente, se muestran los prefijos de variables de entorno que util
 | `POSTGRESQLCONNSTR_` | Indica una cadena de conexión de PostgreSQL en la configuración de la aplicación. Se inserta en una aplicación .NET como una cadena de conexión. |
 | `CUSTOMCONNSTR_` | Indica una cadena de conexión personalizada en la configuración de la aplicación. Se inserta en una aplicación .NET como una cadena de conexión. |
 | `MYSQLCONNSTR_` | Indica una cadena de conexión de Azure SQL Database en la configuración de la aplicación. Se inserta en una aplicación .NET como una cadena de conexión. |
-| `AZUREFILESSTORAGE_` | Cadena de conexión a un recurso compartido de archivos de Azure personalizado para una aplicación de contenedor. |
-| `AZUREBLOBSTORAGE_` | Cadena de conexión a una instancia de Azure Blob Storage personalizada para una aplicación de contenedor. |
+| `AZUREFILESSTORAGE_` | Cadena de conexión a un recurso compartido de archivos personalizado para una aplicación de contenedor en Azure Files. |
+| `AZUREBLOBSTORAGE_` | Cadena de conexión a una cuenta de almacenamiento personalizada para una aplicación de contenedor en Azure Blob Storage. |
+| `NOTIFICATIONHUBCONNSTR_` | Indica una cadena de conexión a un centro de notificaciones en Azure Notification Hubs. |
+| `SERVICEBUSCONNSTR_` | Indica una cadena de conexión a una instancia de Azure Service Bus. |
+| `EVENTHUBCONNSTR_` | Indica una cadena de conexión a un centro de eventos en Azure Event Hubs. |
+| `DOCDBCONNSTR_` | Indica una cadena de conexión a una base de datos de Azure Cosmos DB. |
+| `REDISCACHECONNSTR_` | Indica una cadena de conexión a una memoria caché en Azure Cache for Redis. |
+| `FILESHARESTORAGE_` | Indica una cadena de conexión a un recurso compartido de archivos personalizado. |
 
 ## <a name="deployment"></a>Implementación
 
@@ -162,7 +168,7 @@ En esta sección, se muestra la configuración en tiempo de ejecución que se pu
 | `WEBSITE_JAVA_WAR_FILE_NAME` | Archivo .war que se va a utilizar. Anexe .war si la cadena no termina en .war. El valor predeterminado es app.war. ||
 | `JAVA_ARGS` | Opciones de Java requeridas por distintos servidores web de Java. De manera predeterminada, su valor es `-noverify -Djava.net.preferIPv4Stack=true`. ||
 | `JAVA_WEBSERVER_PORT_ENVIRONMENT_VARIABLES` | Variables de entorno usadas por marcos web de Java populares para el puerto del servidor. Algunos marcos incluidos son: Spring, Micronaut, Grails, MicroProfile Thorntail, Helidon, Ratpack y Quarkus ||
-| `JAVA_TMP_DIR` | Se ha agregado a los argumentos de Java como `-Dsite.tempdir`. Tiene como valor predeterminado `TEMP`. ||
+| `JAVA_TMP_DIR` | Se ha agregado a los argumentos de Java como `-Dsite.tempdir`. Su valor predeterminado es `TEMP`. ||
 | `WEBSITE_SKIP_LOCAL_COPY` | De manera predeterminada, el archivo app.jar implementado se copia desde `/home/site/wwwroot` en una ubicación local. Para deshabilitar este comportamiento y cargar el archivo app.jar directamente desde `/home/site/wwwroot`, establezca esta variable en `1` o `true`. Esta configuración no tiene ningún efecto si la memoria caché local está habilitada. | |
 | `TOMCAT_USE_STARTUP_BAT` | Solo aplicaciones Windows nativas. De manera predeterminada, el servidor Tomcat se inicia con su archivo `startup.bat`. Para iniciar con el archivo `catalina.bat`, establezca el valor en `0` o `False`. | `%LOCAL_EXPANDED%\tomcat` |
 | `CATALINA_OPTS` | En el caso de las aplicaciones de Tomcat, las variables de entorno se pasan en el comando `java`. Puede contener variables del sistema. | |

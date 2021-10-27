@@ -11,12 +11,12 @@ author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: ff38cf413f6e1812c72d410c31088b965af1b3dd
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: a2b716d2b0187e90e71156f2259a380d6fde7db4
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123213917"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073266"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Habilitación de la escritura diferida del autoservicio de restablecimiento de contraseña de Azure Active Directory en un entorno local
 
@@ -92,7 +92,7 @@ Las directivas de contraseñas en el entorno de AD DS local pueden impedir que 
 Si actualiza la directiva de grupo, espere a que la directiva actualizada se replique o use el comando `gpupdate /force`.
 
 > [!Note]
-> Para que las contraseñas se cambien inmediatamente, la escritura diferida de contraseñas debe establecerse en 0. Sin embargo, si los usuarios se adhieren a las directivas locales y el campo *Vigencia mínima de la contraseña* se establece en un valor mayor que cero, la escritura diferida de contraseñas sigue funcionando después de que se evalúen las directivas locales.
+> Para que las contraseñas se cambien inmediatamente, la *vigencia mínima de la contraseña* debe establecerse en 0. Sin embargo, si los usuarios se adhieren a las directivas locales y el campo *Vigencia mínima de la contraseña* se establece en un valor mayor que cero, la escritura diferida de contraseñas sigue funcionando después de que se evalúen las directivas locales.
 
 ## <a name="enable-password-writeback-in-azure-ad-connect"></a>Habilitación de la Escritura diferida de contraseñas en Azure AD Connect
 

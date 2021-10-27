@@ -1,14 +1,14 @@
 ---
-title: 'Azure Lab Services: Cómo incorporar una imagen personalizada de Windows desde el entorno de laboratorio físico'
+title: Cómo incorporar una imagen personalizada de Windows desde el entorno de laboratorio físico
 description: Describe cómo incorporar una imagen personalizada de Windows desde el entorno de laboratorio físico.
 ms.date: 07/27/2021
 ms.topic: how-to
-ms.openlocfilehash: 50d224f82943a4157c9c6a1eda77af0b151fafa8
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 36a6c8f920ebada3d5cd4110e48fe8544e4c7ae3
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124736687"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179020"
 ---
 # <a name="bring-a-windows-custom-image-from-a-physical-lab-environment"></a>Transporte de una imagen personalizada desde un entorno de laboratorio físico
 

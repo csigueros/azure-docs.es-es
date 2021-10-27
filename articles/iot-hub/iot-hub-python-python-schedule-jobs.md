@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: robinsh
 ms.custom: devx-track-python
-ms.openlocfilehash: 305d3103e9f0f0bdfb3ce49f5c801ca0f2f975ff
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.openlocfilehash: 93374b3cf4f2383039f0a3a670388803511881f2
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835246"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178982"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Programación y difusión de trabajos (Python)
 
@@ -342,4 +342,4 @@ Ahora está preparado para ejecutar las aplicaciones.
 
 En este tutorial, ha utilizado un trabajo para programar un método directo para un dispositivo y la actualización de las propiedades del dispositivo gemelo.
 
-Para continuar con la introducción de IoT Hub y los patrones de administración de dispositivos como remotos a través de la actualización de firmware de aire, vea [Realización de una actualización de firmware](tutorial-firmware-update.md).
+Para continuar con la introducción a IoT Hub y los patrones de administración de dispositivos, como la actualización basada en imágenes de un extremo a otro del [Tutorial de Device Update para Azure IoT Hub con la imagen de referencia para Raspberry Pi 3 B+](../iot-hub-device-update/device-update-raspberry-pi.md).

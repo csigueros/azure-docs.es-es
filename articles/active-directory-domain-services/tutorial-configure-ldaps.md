@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: justinha
-ms.openlocfilehash: ce3587d0e70c2dec04e60bed5a23f16bd6c7688b
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 3cbc6d9b0f51b939a03378c45845c50f91c4549f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129233038"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129991990"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configuración de LDAP seguro para un dominio administrado de Azure Active Directory Domain Services
 
@@ -235,7 +235,7 @@ Crearemos una regla para permitir el acceso LDAP seguro de entrada a través del
 1. Se muestra la lista de reglas de seguridad de entrada y salida existentes. En el lado izquierdo de la ventana del grupo de seguridad de red, elija **Configuración > Reglas de seguridad de entrada**.
 1. Seleccione **Agregar** y, a continuación, cree una regla para permitir el puerto *TCP* *636*. Para mejorar la seguridad, elija el origen como *Direcciones IP* y, después, especifique su propia dirección IP o el intervalo de direcciones IP válidas para la organización.
 
-    | Configuración                           | Valor        |
+    | Configuración                           | Value        |
     |-----------------------------------|--------------|
     | Source                            | Direcciones IP |
     | Intervalos de direcciones IP de origen y CIDR | Una dirección o un intervalo de direcciones IP válidas para el entorno |
@@ -290,6 +290,9 @@ Para ver los objetos almacenados en el dominio administrado:
     ![Búsqueda de objetos en el dominio administrado con LDP.exe](./media/tutorial-configure-ldaps/ldp-query.png)
 
 Para consultar directamente un contenedor específico, en el menú **Ver > Árbol**, puede especificar un **DN base** como *OU=AADDC Users,DC=AADDSCONTOSO,DC=COM* o bien *OU=AADDC Computers,DC=AADDSCONTOSO,DC=COM*. Para más información sobre el formato y la creación de consultas, lea sobre los [conceptos básicos de las consultas LDAP][ldap-query-basics].
+
+> [!NOTE]
+> Si se utiliza un certificado autofirmado, asegúrese de haberlo agregado a la entidades de certificación raíz de confianza para que LDAPS funcione con LDP.exe
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

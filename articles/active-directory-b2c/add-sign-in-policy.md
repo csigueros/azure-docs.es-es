@@ -3,22 +3,22 @@ title: Configuración de un flujo de inicio de sesión
 titleSuffix: Azure Active Directory B2C
 description: Aprenda a configurar un flujo de inicio de sesión en Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/24/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 78556d5f6d6a203a3d105f971cb7850109daa01a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 94845919e1b0bc171b7df831593b04daffb2213b
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128570281"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064529"
 ---
 # <a name="set-up-a-sign-in-flow-in-azure-active-directory-b2c"></a>Configuración de un flujo de inicio de sesión en Azure Active Directory B2C
 
@@ -37,7 +37,8 @@ La directiva de inicio de sesión contiene las siguientes directrices:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Si todavía no lo ha hecho, [registre una aplicación web en Azure Active Directory B2C](tutorial-register-applications.md).
+- Si todavía no lo ha hecho, [registre una aplicación web en Azure Active Directory B2C](tutorial-register-applications.md).
+- Complete los pasos detallados en [Creación de flujos de usuario y directivas personalizadas en Azure Active Directory B2C](tutorial-create-user-flows.md).
 
 ::: zone pivot="b2c-user-flow"
 

@@ -10,12 +10,12 @@ metadata:
   ms.subservice: azure-video-analyzer-media
   ms.date: 05/25/2021
   ms.author: juliako
-  ms.openlocfilehash: b6b28c84c8a46df55394a026c0998be8bbc2c7bb
-  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+  ms.openlocfilehash: 8776f899a21639162448e681fdf8b32247b16fc4
+  ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/24/2021
-  ms.locfileid: "128702169"
+  ms.lasthandoff: 10/15/2021
+  ms.locfileid: "130044201"
 title: Preguntas más frecuentes sobre Video Analyzer for Media
 summary: En este artículo se responde a las preguntas más frecuentes sobre Azure Video Analyzer for Media (anteriormente Video Indexer).
 sections:

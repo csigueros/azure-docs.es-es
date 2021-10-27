@@ -8,12 +8,12 @@ metadata:
   author: bwren
   ms.author: bwren
   ms.date: 10/08/2020
-  ms.openlocfilehash: b3f18899eada6773fb8d2d78d7635bb47fa79d64
-  ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+  ms.openlocfilehash: 439248f37075f7cbc91af0e15dcdf6b029e95b92
+  ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/29/2021
-  ms.locfileid: "129278868"
+  ms.lasthandoff: 10/15/2021
+  ms.locfileid: "130066706"
 title: Preguntas más frecuentes sobre Azure Monitor
 summary: >
   En este artículo de preguntas frecuentes de Microsoft, se presenta una lista con las preguntas frecuentes sobre Azure Monitor. Si tiene alguna otra pregunta, vaya al [foro de discusión](/answers/questions/topics/single/24223.html) y publique las preguntas. Si una pregunta es frecuente, se agrega a este artículo para que se pueda encontrar de forma rápida y sencilla.
@@ -219,7 +219,7 @@ sections:
       Consulte [Migración desde el agente de Log Analytics](./agents/azure-monitor-agent-migration.md).
   - question: >
       ¿Cuál es la ruta de actualización del agente de Log Analytics (MMA) al agente de Azure Monitor (AMA) para supervisar System Center Operations Manager? ¿Se puede usar AMA para escenarios de System Center Operations Manager?
-    answer: "Este es el modo en el que AMA afecta a los dos escenarios de supervisión relacionados con System Center Operations Manager:\n- **Escenario 1**: para supervisar el sistema operativo Windows de System Center Operations Manager, la ruta de actualización es la misma que la de cualquier otra máquina, en la que puede migrar de MMA (versiones 2016 y 2019) a AMA en cuanto las características de paridad necesarias estén disponibles en AMA.\n- **Escenario 2**: para la incorporación o conexión de System Center Operations Manager a las áreas de trabajo de Log Analytics, dado que se habilita mediante un conector de System Center Operations Manager para Log Analytics y Azure Monitor, no es preciso instalar MMA ni AMA en el servidor de administración de SCOM. Por tanto, desde la perspectiva del agente de Azure Monitor este caso de uso no resulta afectado.  \n\n> [!NOTE] \n> Puede ejecutar los dos escenarios anteriores con MMA y AMA en paralelo sin impacto alguno.\n"
+    answer: "Este es el modo en el que AMA afecta a los dos escenarios de supervisión relacionados con System Center Operations Manager:\n- **Escenario 1**: para supervisar el sistema operativo Windows de System Center Operations Manager, la ruta de actualización es la misma que la de cualquier otra máquina, en la que puede migrar de MMA (versiones 2016 y 2019) a AMA en cuanto las características de paridad necesarias estén disponibles en AMA.\n- **Escenario 2**: para la incorporación o conexión de System Center Operations Manager a las áreas de trabajo de Log Analytics, dado que se habilita mediante un conector de System Center Operations Manager para Log Analytics y Azure Monitor, no es preciso instalar MMA ni AMA en el servidor de administración de Operations Manager. Por tanto, desde la perspectiva del agente de Azure Monitor este caso de uso no resulta afectado.  \n\n> [!NOTE] \n> Puede ejecutar los dos escenarios anteriores con MMA y AMA en paralelo sin impacto alguno.\n"
   - question: >
       ¿Admitirá el nuevo agente de Azure Monitor la recopilación de datos para las distintas soluciones de Log Analytics y los servicios de Azure como Security Center, Sentinel, etc.?
     answer: "Revise la lista de [extensiones de AMA disponibles actualmente en la versión preliminar](./agents/azure-monitor-agent-overview.md#supported-services-and-features). Se trata de las mismas soluciones y servicios que ahora están disponibles mediante el nuevo agente de Azure Monitor. Es posible que vea que se instalan extensiones adicionales para la solución o el servicio; son para recopilar datos adicionales o para la transformación o el procesamiento necesarios para la solución o el servicio. A continuación, use AMA para enrutar los datos finales a Azure Monitor. \n\nEste es un diagrama que explica la **nueva arquitectura de extensibilidad**:\n\n![Arquitectura de extensiones](agents/media/azure-monitor-agent/extensibility-arch-new.png)\n"
@@ -788,7 +788,7 @@ sections:
       Si ya es un cliente de Application Insights de Azure Monitor, **no** se recomienda migrar todavía a OpenTelemetry (excepto en el caso de las aplicaciones de Java en las que se recomienda nuestra [oferta basada en OpenTelemetry](./app/java-in-process-agent.md) para todos los usuarios que entraron en [disponibilidad general en noviembre de 2020](https://azure.microsoft.com/updates/java-agent-application-insights-ga/)).
 
 
-      Los SDK actuales de Application Insights para C# ([ASP.NET](app/asp-net.md) y [ASP.NET Core](app/asp-net-core.md)) y [Javascript (Node.js)](app/nodejs.md) u [OpenCensus Python](app/opencensus-python.md) ofrecen la experiencia más completa de características en Application Insights.
+      Los SDK actuales de Application Insights para C# ([ASP.NET](app/asp-net.md) y [ASP.NET Core](app/asp-net-core.md)) y [JavaScript (Node.js)](app/nodejs.md) u [OpenCensus Python](app/opencensus-python.md) ofrecen la experiencia más completa de características en Application Insights.
 
 
       Los escenarios que pueden avanzar hacia OpenTelemetry con prontitud incluyen el envío de datos de telemetría a Azure Monitor y a otro proveedor simultáneamente, la recopilación y la convergencia de los [protocolos de instrumentación existentes](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver), o el aprovechamiento de las características disponibles en OpenTelemetry-Collector. Por ejemplo, los clientes han notificado el uso del [procesador por lotes](https://github.com/open-telemetry/opentelemetry-collector/tree/main/processor/batchprocessor), el [sampler basado en cola](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/tailsamplingprocessor) y el [procesador de atributos](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/attributesprocessor). Aunque existen características similares en los SDK de Application Insights existentes, algunos clientes prefieren hospedar este procesamiento del flujo descendente en un agente.
@@ -885,7 +885,7 @@ sections:
 
       //now join ContainerLog table with the 'jointed table' above and project-away redundant fields/columns and rename columns that were re-written
 
-      //Outer left is safer so you dont lose logs even if we cannot find container metadata for loglines (due to latency, time skew between data types etc...)
+      //Outer left is safer so you don't lose logs even if we cannot find container metadata for loglines (due to latency, time skew between data types etc...)
 
       ContainerLog
 
@@ -961,6 +961,9 @@ sections:
       ¿Qué puertos y dominios debo abrir o permitir para el agente?
     answer: >
       Consulte los [requisitos del firewall de red](containers/container-insights-onboard.md#network-firewall-requirements) para obtener la información de configuración del servidor proxy y el firewall necesaria para el agente en contenedor con las nubes de Azure, Azure US Government y Azure China 21Vianet.
+  - question: >
+      ¿Se admite la recopilación de registros de auditoría de Kubernetes para clústeres de ARO?
+    answer: No, Container Insights no admite la recopilación de registros de auditoría de Kubernetes.
 - name: VM Insights
   questions:
   - question: >

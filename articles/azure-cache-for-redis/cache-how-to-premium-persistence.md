@@ -5,13 +5,13 @@ author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
-ms.date: 02/08/2021
-ms.openlocfilehash: 472f06a10e76cb557bd5e9350c94a352ebad17b3
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.date: 10/13/2021
+ms.openlocfilehash: b3e6e4336a86b71fe3bfb096cbfc8e1ddc65a186
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129538130"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063134"
 ---
 # <a name="configure-data-persistence-for-a-premium-azure-cache-for-redis-instance"></a>Configuración de la persistencia de datos en la instancia prémium de Azure Cache for Redis
 
@@ -19,8 +19,8 @@ La [persistencia de Redis](https://redis.io/topics/persistence) permite conserva
 
 Azure Cache for Redis ofrece persistencia de Redis mediante la base de datos de Redis (RDB) y el archivo de solo anexión (AOF):
 
-* **Persistencia de RDB**: cuando se utiliza la persistencia de RDB, Azure Cache for Redis conserva una instantánea de Azure Cache for Redis en un disco Redis en formato binario. La instantánea se guarda en una cuenta de Azure Storage. La frecuencia de copia de seguridad configurable determina la frecuencia con la que se conserva la instantánea. Si se produce un evento catastrófico que deshabilita tanto la caché de réplica como la principal, se reconstruye la memoria caché con la instantánea más reciente. Más información sobre las [ventajas](https://redis.io/topics/persistence#rdb-advantages) y [desventajas](https://redis.io/topics/persistence#rdb-disadvantages) de la persistencia de RDB.
-* **Persistencia de AOF**: cuando se usa la persistencia de AOF, Azure Cache for Redis guarda todas las operaciones de escritura en un registro. El registro se guarda al menos una vez por segundo en una cuenta de Azure Storage. Si se produce un evento catastrófico que deshabilita tanto la caché de réplica como la principal, se reconstruye la memoria caché con las operaciones de escritura almacenadas. Más información sobre las [ventajas](https://redis.io/topics/persistence#aof-advantages) y [desventajas](https://redis.io/topics/persistence#aof-disadvantages) de la persistencia de AOF.
+- **Persistencia de RDB**: cuando se utiliza la persistencia de RDB, Azure Cache for Redis conserva una instantánea de su caché en formato binario. La instantánea se guarda en una cuenta de Azure Storage. La frecuencia de copia de seguridad configurable determina la frecuencia con la que se conserva la instantánea. Si se produce un evento catastrófico que deshabilita tanto la caché de réplica como la principal, se reconstruye la memoria caché con la instantánea más reciente. Más información sobre las [ventajas](https://redis.io/topics/persistence#rdb-advantages) y [desventajas](https://redis.io/topics/persistence#rdb-disadvantages) de la persistencia de RDB.
+- **Persistencia de AOF**: cuando se usa la persistencia de AOF, Azure Cache for Redis guarda todas las operaciones de escritura en un registro. El registro se guarda al menos una vez por segundo en una cuenta de Azure Storage. Si se produce un evento catastrófico que deshabilita tanto la caché de réplica como la principal, se reconstruye la memoria caché con las operaciones de escritura almacenadas. Más información sobre las [ventajas](https://redis.io/topics/persistence#aof-advantages) y [desventajas](https://redis.io/topics/persistence#aof-disadvantages) de la persistencia de AOF.
 
 La persistencia escribe los datos de Redis en una cuenta de Azure Storage que posea y administre. Configure el **nuevo Azure Cache for Redis** a la izquierda durante la creación de la memoria caché. Para las cachés prémium existentes, use el **menú Recurso**.
 
@@ -62,8 +62,8 @@ La persistencia escribe los datos de Redis en una cuenta de Azure Storage que po
   
    | Configuración      | Valor sugerido  | Descripción |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Frecuencia de copia de seguridad** | Desplácese hacia abajo y seleccione un intervalo de copia de seguridad. Las opciones disponibles son: **15 minutos**, **30 minutos**, **60 minutos**, **6 horas**, **12 horas** y **24 horas**. | Este intervalo empieza la cuenta atrás cuando se completa correctamente la operación de copia de seguridad anterior y se inicia cuando se produce una nueva copia de seguridad. |
-   | **Storage Account** | Desplácese hacia abajo y seleccione la cuenta de almacenamiento. | Elija una cuenta de almacenamiento en la misma región y suscripción que la memoria caché; es recomendable que use una cuenta de **Premium Storage**, ya que tiene un mayor rendimiento.  |
+   | **Frecuencia de copia de seguridad** | Desplácese hacia abajo y seleccione un intervalo de copia de seguridad. Las opciones disponibles son: **15 minutos**, **30 minutos**, **60 minutos**, **6 horas**, **12 horas** y **24 horas**. | Este intervalo empieza la cuenta atrás cuando se completa correctamente la operación de copia de seguridad anterior. Cuando finaliza, se inicia una nueva copia de seguridad. |
+   | **Storage Account** | Desplácese hacia abajo y seleccione la cuenta de almacenamiento. | Elija una cuenta de almacenamiento en la misma región y suscripción que la memoria caché. Se recomienda una cuenta de **Premium Storage** porque tiene un mayor rendimiento. Además, el uso de la característica de eliminación flexible en la cuenta de almacenamiento podría provocar un aumento de los costos de almacenamiento. Para obtener más información, consulte la sección [Precios y facturación](/azure/storage/blobs/soft-delete-blob-overview). |
    | **Clave de almacenamiento** | Desplácese hacia abajo y seleccione si se usará la **Clave principal** o la **Clave secundaria**. | Si se vuelve a generar la clave de almacenamiento para su cuenta de persistencia, debe volver a configurar la clave en la lista desplegable **Clave de almacenamiento**. |
 
     La primera copia de seguridad se inicia cuando transcurre el intervalo de frecuencia de copia de seguridad.
@@ -75,7 +75,7 @@ La persistencia escribe los datos de Redis en una cuenta de Azure Storage que po
 
    | Configuración      | Valor sugerido  | Descripción |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Primera cuenta de almacenamiento** | Desplácese hacia abajo y seleccione la cuenta de almacenamiento. | Esta cuenta de almacenamiento debe estar en la misma región y suscripción que la memoria caché; es recomendable que use una cuenta de **Premium Storage**, ya que el almacenamiento Premium tiene un mayor rendimiento. |
+   | **Primera cuenta de almacenamiento** | Desplácese hacia abajo y seleccione la cuenta de almacenamiento. | Elija una cuenta de almacenamiento en la misma región y suscripción que la memoria caché. Se recomienda una cuenta de **Premium Storage** porque tiene un mayor rendimiento. Además, el uso de la característica de eliminación flexible en la cuenta de almacenamiento podría provocar un aumento de los costos de almacenamiento. Para obtener más información, consulte la sección [Precios y facturación](/azure/storage/blobs/soft-delete-blob-overview). |
    | **Primera clave de almacenamiento** | Desplácese hacia abajo y seleccione si se usará la **Clave principal** o la **Clave secundaria**. | Si se vuelve a generar la clave de almacenamiento para su cuenta de persistencia, debe volver a configurar la clave en la lista desplegable **Clave de almacenamiento**. |
    | **Segunda cuenta de almacenamiento** | (Opcional) Desplácese hacia abajo y seleccione la cuenta de almacenamiento secundaria. | Opcionalmente, puede configurar otra cuenta de almacenamiento. Si se configura una segunda cuenta de almacenamiento, las operaciones de escritura en la caché de réplica se realizan en esta segunda cuenta de almacenamiento. |
    | **Segunda clave de almacenamiento** | (Opcional) Desplácese hacia abajo y seleccione si se usará la **Clave principal** o la **Clave secundaria**. | Si se vuelve a generar la clave de almacenamiento para su cuenta de persistencia, debe volver a configurar la clave en la lista desplegable **Clave de almacenamiento**. |
@@ -96,27 +96,28 @@ La caché tarda un tiempo en crearse. Puede supervisar el progreso en la página
 
 La lista siguiente contiene respuestas a las preguntas frecuentes sobre la persistencia de Azure Cache for Redis.
 
-* [¿Puedo habilitar la persistencia en una memoria caché creada anteriormente?](#can-i-enable-persistence-on-a-previously-created-cache)
-* [¿Puedo habilitar la persistencia de AOF y RDB al mismo tiempo?](#can-i-enable-aof-and-rdb-persistence-at-the-same-time)
-* [¿Qué modelo de persistencia debería elegir?](#which-persistence-model-should-i-choose)
-* [¿Qué sucede si he escalado a otro tamaño y se restaura una copia de seguridad realizada antes de la operación de escalado?](#what-happens-if-ive-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
-* [¿Puedo usar la misma cuenta de almacenamiento para la persistencia de dos memorias caché diferentes?](#can-i-use-the-same-storage-account-for-persistence-across-two-different-caches)
-* [¿Se me cobrará por el almacenamiento que se usa en la persistencia de datos?](#will-i-be-charged-for-the-storage-being-used-in-data-persistence)
+- [¿Puedo habilitar la persistencia en una memoria caché creada anteriormente?](#can-i-enable-persistence-on-a-previously-created-cache)
+- [¿Puedo habilitar la persistencia de AOF y RDB al mismo tiempo?](#can-i-enable-aof-and-rdb-persistence-at-the-same-time)
+- [¿Qué modelo de persistencia debería elegir?](#which-persistence-model-should-i-choose)
+- [¿Qué sucede si he escalado a otro tamaño y se restaura una copia de seguridad realizada antes de la operación de escalado?](#what-happens-if-ive-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
+- [¿Puedo usar la misma cuenta de almacenamiento para la persistencia de dos memorias caché diferentes?](#can-i-use-the-same-storage-account-for-persistence-across-two-different-caches)
+- [¿Se me cobrará por el almacenamiento que se usa en la persistencia de datos?](#will-i-be-charged-for-the-storage-being-used-in-data-persistence)
+- [¿Con qué frecuencia escribe la persistencia de RDB y AOF en mis blobs y debo habilitar la eliminación temporal?](#how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete)
 
 ### <a name="rdb-persistence"></a>Persistencia de RDB
 
-* [¿Puedo cambiar la frecuencia de copia de seguridad de RDB después de crear la memoria caché?](#can-i-change-the-rdb-backup-frequency-after-i-create-the-cache)
-* [¿Por qué hay más de 60 minutos entre copias de seguridad cuando tengo una frecuencia de copia de seguridad de RDB de 60 minutos?](#why-is-there-more-than-60-minutes-between-backups-when-i-have-an-rdb-backup-frequency-of-60-minutes)
-* [¿Qué ocurre con las copias de seguridad de RDB antiguas cuando se realiza una nueva copia de seguridad?](#what-happens-to-the-old-rdb-backups-when-a-new-backup-is-made)
+- [¿Puedo cambiar la frecuencia de copia de seguridad de RDB después de crear la memoria caché?](#can-i-change-the-rdb-backup-frequency-after-i-create-the-cache)
+- [¿Por qué hay más de 60 minutos entre copias de seguridad cuando tengo una frecuencia de copia de seguridad de RDB de 60 minutos?](#why-is-there-more-than-60-minutes-between-backups-when-i-have-an-rdb-backup-frequency-of-60-minutes)
+- [¿Qué ocurre con las copias de seguridad de RDB antiguas cuando se realiza una nueva copia de seguridad?](#what-happens-to-the-old-rdb-backups-when-a-new-backup-is-made)
 
 ### <a name="aof-persistence"></a>Persistencia de AOF
 
-* [¿Cuándo debo usar una segunda cuenta de almacenamiento?](#when-should-i-use-a-second-storage-account)
-* [¿Afecta la persistencia de AOF a la productividad, la latencia o el rendimiento de la memoria caché?](#does-aof-persistence-affect-throughout-latency-or-performance-of-my-cache)
-* [¿Cómo puedo quitar la segunda cuenta de almacenamiento?](#how-can-i-remove-the-second-storage-account)
-* [¿Qué es una reescritura y cómo afecta a la memoria caché?](#what-is-a-rewrite-and-how-does-it-affect-my-cache)
-* [¿Qué debo esperar al escalar una memoria caché con AOF habilitado?](#what-should-i-expect-when-scaling-a-cache-with-aof-enabled)
-* [¿Cómo se organizan los datos de AOF en el almacenamiento?](#how-is-my-aof-data-organized-in-storage)
+- [¿Cuándo debo usar una segunda cuenta de almacenamiento?](#when-should-i-use-a-second-storage-account)
+- [¿Afecta la persistencia de AOF a la productividad, la latencia o el rendimiento de la memoria caché?](#does-aof-persistence-affect-throughout-latency-or-performance-of-my-cache)
+- [¿Cómo puedo quitar la segunda cuenta de almacenamiento?](#how-can-i-remove-the-second-storage-account)
+- [¿Qué es una reescritura y cómo afecta a la memoria caché?](#what-is-a-rewrite-and-how-does-it-affect-my-cache)
+- [¿Qué debo esperar al escalar una memoria caché con AOF habilitado?](#what-should-i-expect-when-scaling-a-cache-with-aof-enabled)
+- [¿Cómo se organizan los datos de AOF en el almacenamiento?](#how-is-my-aof-data-organized-in-storage)
 
 ### <a name="can-i-enable-persistence-on-a-previously-created-cache"></a>¿Puedo habilitar la persistencia en una memoria caché creada anteriormente?
 
@@ -130,8 +131,8 @@ No, puede habilitar RDB o AOF, pero no ambos a la vez.
 
 La persistencia de AOF guarda cada escritura en un registro, lo que tiene un efecto significativo en el rendimiento. Se ha comparado AOF con la persistencia de RDB, que guarda las copias de seguridad en función del intervalo de copia de seguridad configurado con un efecto mínimo en el rendimiento. Elija la persistencia de AOF si el objetivo principal es minimizar la pérdida de datos y si puede controlar un menor rendimiento de la memoria caché. Elija la persistencia de RDB si quiere mantener un rendimiento óptimo en la memoria caché pero todavía quiere un mecanismo para la recuperación de datos.
 
-* Más información sobre las [ventajas](https://redis.io/topics/persistence#rdb-advantages) y [desventajas](https://redis.io/topics/persistence#rdb-disadvantages) de la persistencia de RDB.
-* Más información sobre las [ventajas](https://redis.io/topics/persistence#aof-advantages) y [desventajas](https://redis.io/topics/persistence#aof-disadvantages) de la persistencia de AOF.
+- Más información sobre las [ventajas](https://redis.io/topics/persistence#rdb-advantages) y [desventajas](https://redis.io/topics/persistence#rdb-disadvantages) de la persistencia de RDB.
+- Más información sobre las [ventajas](https://redis.io/topics/persistence#aof-advantages) y [desventajas](https://redis.io/topics/persistence#aof-disadvantages) de la persistencia de AOF.
 
 Para más información sobre el rendimiento al usar la persistencia de AOF, vea [¿Afecta la persistencia de AOF a la productividad, la latencia o el rendimiento de la memoria caché?](#does-aof-persistence-affect-throughout-latency-or-performance-of-my-cache)
 
@@ -139,13 +140,21 @@ Para más información sobre el rendimiento al usar la persistencia de AOF, vea 
 
 Para la persistencia de RDB y AOF:
 
-* Si ha escalado a un tamaño mayor, no hay ningún efecto.
-* Si ha escalado a un tamaño menor y tiene una configuración de [bases de datos](cache-configure.md#databases) personalizada que es mayor que el [límite de bases de datos](cache-configure.md#databases) del nuevo tamaño, los datos de esas bases de datos no se restauran. Para más información, consulte [¿Mi configuración de bases de datos personalizada se ve afectada durante el escalado?](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
-* Si ha escalado a un tamaño menor y no hay suficiente espacio en el tamaño más pequeño para contener todos los datos desde la última copia de seguridad, las claves se expulsarán durante el proceso de restauración.  Normalmente, las claves se expulsan mediante la directiva de expulsión [allkeys-lru](https://redis.io/topics/lru-cache).
+- Si ha escalado a un tamaño mayor, no hay ningún efecto.
+- Si ha escalado a un tamaño menor y tiene una configuración de [bases de datos](cache-configure.md#databases) personalizada que es mayor que el [límite de bases de datos](cache-configure.md#databases) del nuevo tamaño, los datos de esas bases de datos no se restauran. Para más información, consulte [¿Mi configuración de bases de datos personalizada se ve afectada durante el escalado?](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
+- Si ha escalado a un tamaño menor y no hay suficiente espacio en el tamaño más pequeño para contener todos los datos desde la última copia de seguridad, las claves se expulsarán durante el proceso de restauración.  Normalmente, las claves se expulsan mediante la directiva de expulsión [allkeys-lru](https://redis.io/topics/lru-cache).
 
 ### <a name="can-i-use-the-same-storage-account-for-persistence-across-two-different-caches"></a>¿Puedo usar la misma cuenta de almacenamiento para la persistencia de dos memorias caché diferentes?
 
 Sí, puede usar la misma cuenta de almacenamiento para la persistencia de dos memorias caché diferentes.
+
+### <a name="will-i-be-charged-for-the-storage-being-used-in-data-persistence"></a>¿Se me cobrará por el almacenamiento que se usa en la persistencia de datos?
+
+Sí, se le cobrará por el almacenamiento usado según el modelo de precios de la cuenta de almacenamiento que se esté utilizando.
+
+### <a name="how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete"></a>¿Con qué frecuencia escribe la persistencia de RDB y AOF en mis blobs y debo habilitar la eliminación temporal?
+
+No se recomienda la eliminación temporal. La persistencia de RDB y AOF puede escribir en los blobs con una frecuencia de cada hora, cada pocos minutos o cada segundo. Además, la habilitación de la eliminación temporal en una cuenta de almacenamiento implica que Azure Cache for Redis no puede minimizar los costos de almacenamiento mediante la eliminación de los datos de copia de seguridad antiguos. La eliminación temporal puede resultar costosa rápidamente con los tamaños de datos típicos de una caché y operaciones de escritura cada segundo. Para obtener más información sobre los costos de la eliminación temporal, consulte la sección [Precios y facturación](/azure/storage/blobs/soft-delete-blob-overview).
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>¿Puedo cambiar la frecuencia de copia de seguridad de RDB después de crear la memoria caché?
 
@@ -157,7 +166,7 @@ El intervalo de frecuencia de copia de seguridad de la persistencia de RDB no se
 
 ### <a name="what-happens-to-the-old-rdb-backups-when-a-new-backup-is-made"></a>¿Qué ocurre con las copias de seguridad de RDB antiguas cuando se realiza una nueva copia de seguridad?
 
-Todas las copias de seguridad de persistencia de RDB excepto la más reciente se eliminan automáticamente. Es posible que esta eliminación no se produzca inmediatamente, pero las copias de seguridad anteriores no se guardan de manera indefinida. Tenga en cuenta que si la eliminación temporal está activada para la cuenta de almacenamiento, se aplica la configuración de la eliminación temporal y las copias de seguridad existentes siguen residiendo en el estado de eliminación temporal.
+Todas las copias de seguridad de persistencia de RDB excepto la más reciente se eliminan automáticamente. Es posible que esta eliminación no se produzca inmediatamente, pero las copias de seguridad anteriores no se guardan de manera indefinida. Si la eliminación temporal está activada para la cuenta de almacenamiento, se aplica la configuración de la eliminación temporal y las copias de seguridad existentes siguen residiendo en el estado de eliminación temporal.
 
 ### <a name="when-should-i-use-a-second-storage-account"></a>¿Cuándo debo usar una segunda cuenta de almacenamiento?
 
@@ -165,7 +174,7 @@ Use una segunda cuenta de almacenamiento para la persistencia de AOF cuando crea
 
 ### <a name="does-aof-persistence-affect-throughout-latency-or-performance-of-my-cache"></a>¿Afecta la persistencia de AOF a la productividad, la latencia o el rendimiento de la memoria caché?
 
-La persistencia de AOF afecta a la productividad aproximadamente entre un 15 y un 20 % cuando la memoria caché está por debajo de la carga máxima (carga de CPU y servidor ambas por debajo del 90 %). No debe haber problemas de latencia cuando la memoria caché está dentro de estos límites. Pero la memoria caché alcanza estos límites antes con AOF habilitado.
+La persistencia de AOF afecta a la productividad aproximadamente entre un 15 y un 20 % cuando la memoria caché está por debajo de la carga máxima (carga de CPU y servidor ambas por debajo del 90 %). No debe haber problemas de latencia cuando la memoria caché está dentro de estos límites. Sin embargo, la memoria caché alcanza estos límites antes con AOF habilitado.
 
 ### <a name="how-can-i-remove-the-second-storage-account"></a>¿Cómo puedo quitar la segunda cuenta de almacenamiento?
 
@@ -177,7 +186,7 @@ Cuando el archivo AOF es lo suficientemente grande, en la memoria caché se pone
 
 ### <a name="what-should-i-expect-when-scaling-a-cache-with-aof-enabled"></a>¿Qué debo esperar al escalar una memoria caché con AOF habilitado?
 
-Si el archivo AOF en el momento del escalado es considerablemente grande, se espera que la operación de escalado tarda más de lo esperado porque volverá a cargar el archivo una vez finalizado el escalado.
+Si el archivo AOF en el momento del escalado es grande, se espera que la operación de escalado tarde más de lo esperado porque volverá a cargar el archivo una vez finalizado el escalado.
 
 Para más información sobre el escalado, vea [¿Qué sucede si he escalado a otro tamaño y se restaura una copia de seguridad realizada antes de la operación de escalado?](#what-happens-if-ive-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
 
@@ -194,26 +203,10 @@ Los datos almacenados en archivos AOF se dividen en varios blobs en páginas por
 
 Cuando la agrupación en clústeres está habilitada, cada partición de la memoria caché tiene su propio conjunto de blobs en páginas, como se ha indicado en la tabla anterior. Por ejemplo, una caché P2 con tres particiones distribuye su archivo AOF entre 24 blobs en páginas (ocho blobs por partición, con tres particiones).
 
-Después de una reescritura, hay dos conjuntos de archivos AOF en el almacenamiento. Las reescrituras se producen en segundo plano y se asocian al primer conjunto de archivos. Las operaciones establecidas, enviadas a la caché durante la reescritura, se anexan al segundo conjunto. Una copia de seguridad se almacena temporalmente durante las reescrituras si se produce un error. La copia de seguridad se elimina rápidamente una vez que finaliza una reescritura. Tenga en cuenta que si la eliminación temporal está activada para la cuenta de almacenamiento, se aplica la configuración de la eliminación temporal y las copias de seguridad existentes siguen residiendo en el estado de eliminación temporal.
-
-### <a name="will-i-be-charged-for-the-storage-being-used-in-data-persistence"></a>¿Se me cobrará por el almacenamiento que se usa en la persistencia de datos?
-
-Sí, se le cobrará por el almacenamiento usado según el modelo de precios de la cuenta de almacenamiento que se esté utilizando.
+Después de una reescritura, hay dos conjuntos de archivos AOF en el almacenamiento. Las reescrituras se producen en segundo plano y se asocian al primer conjunto de archivos. Las operaciones establecidas, enviadas a la caché durante la reescritura, se anexan al segundo conjunto. Una copia de seguridad se almacena temporalmente durante las reescrituras si se produce un error. La copia de seguridad se elimina rápidamente una vez que finaliza una reescritura. Si la eliminación temporal está activada para la cuenta de almacenamiento, se aplica la configuración de la eliminación temporal y las copias de seguridad existentes siguen residiendo en el estado de eliminación temporal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre las características de Azure Cache for Redis.
 
-* [Niveles de servicio de Azure Cache for Redis Premium](cache-overview.md#service-tiers)
-
-<!-- IMAGES -->
-
-[redis-cache-premium-pricing-tier]: ./media/cache-how-to-premium-persistence/redis-cache-premium-pricing-tier.png
-
-[redis-cache-persistence]: ./media/cache-how-to-premium-persistence/redis-cache-persistence.png
-
-[redis-cache-rdb-persistence]: ./media/cache-how-to-premium-persistence/redis-cache-rdb-persistence.png
-
-[redis-cache-aof-persistence]: ./media/cache-how-to-premium-persistence/redis-cache-aof-persistence.png
-
-[redis-cache-settings]: ./media/cache-how-to-premium-persistence/redis-cache-settings.png
+- [Niveles de servicio de Azure Cache for Redis Premium](cache-overview.md#service-tiers)

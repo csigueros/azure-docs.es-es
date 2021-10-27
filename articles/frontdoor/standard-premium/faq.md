@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/18/2021
 ms.author: duau
-ms.openlocfilehash: 378ba28eaa4b68cb1d05fa0af5c11ca95bd52a8b
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 3a56f01c210fb9b6e29294e00a1cb13715108b42
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129210333"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130167550"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-standardpremium-preview"></a>Preguntas frecuentes sobre Azure Front Door Estándar/Prémium (versión preliminar)
 
@@ -96,7 +96,7 @@ Una manera alternativa de bloquear la aplicación para que solo acepte el tráfi
 
 * Configure la creación de listas de control de acceso de IP de los back-end para que acepten tráfico únicamente del espacio de direcciones IP de back-end de Azure Front Door y de los servicios de infraestructura de Azure. Consulte a continuación los detalles sobre IP para incluir en la lista de control de acceso el servidor back-end:
  
-    * Consulte la sección *AzureFrontDoor.Backend* en [Etiquetas de servicio e intervalos de direcciones IP de Azure](https://www.microsoft.com/download/details.aspx?id=56519) para conocer el intervalo de direcciones IP del servidor back-end IPv4 de Front Door. También puede usar la etiqueta de servicio *AzureFrontDoor.Backend* en los [grupos de seguridad de red](../../virtual-network/network-security-groups-overview.md#security-rules).
+    * Consulte la sección *AzureFrontDoor.Backend* en [Etiquetas de servicio e intervalos de direcciones IP de Azure](https://www.microsoft.com/download/details.aspx?id=56519) para conocer el intervalo de direcciones IP del servidor back-end de Front Door. También puede usar la etiqueta de servicio *AzureFrontDoor.Backend* en los [grupos de seguridad de red](../../virtual-network/network-security-groups-overview.md#security-rules).
     * [Servicios de infraestructura básica](../../virtual-network/network-security-groups-overview.md#azure-platform-considerations) de Azure mediante las direcciones IP de host virtualizadas `168.63.129.16` y `169.254.169.254`.
 
     > [!WARNING]

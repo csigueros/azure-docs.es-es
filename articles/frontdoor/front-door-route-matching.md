@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 1aaabce5dc13098d183ee595d27b5b45a3fd0caa
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 815f7500266c175585fa1b27292e593fc73fd8d7
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128586295"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003787"
 ---
 # <a name="how-requests-are-matched-to-a-routing-rule"></a>Cómo se hacen coincidir las solicitudes con una regla de enrutamiento
 
@@ -74,7 +74,9 @@ Después de determinar el host de front-end específico y filtrar las reglas de 
 3. Si no hay reglas de enrutamiento con una ruta coincidente, rechace la solicitud y devuelva una respuesta de error HTTP 400: solicitud incorrecta.
 
 >[!NOTE]
-> Las rutas de acceso sin un carácter comodín se consideran con coincidencia exacta. Incluso si la ruta de acceso termina en una barra diagonal, todavía se considera una coincidencia exacta.
+> * Las rutas de acceso sin un carácter comodín se consideran con coincidencia exacta. Incluso si la ruta de acceso termina en una barra diagonal, todavía se considera una coincidencia exacta.
+> * Los patrones de coincidencia de las rutas de acceso no distinguen mayúsculas de minúsculas, lo que significa que las rutas con un uso diferente de mayúsculas y minúsculas se tratan como duplicados. Por ejemplo, tiene el mismo host que usa el mismo protocolo con las rutas de acceso `/FOO` y `/foo`. Estas rutas de acceso se consideran duplicadas, lo que no se permite en la configuración de los patrones de coincidencia.
+> 
 
 Para explicarlo mejor, echemos un vistazo a otra serie de ejemplos:
 
@@ -124,7 +126,7 @@ Dada esa configuración, daría lugar a la tabla de búsqueda de coincidencias d
 
 ### <a name="routing-decision"></a>Decisión de enrutamiento
 
-Una vez que haya emparejado con una única regla de enrutamiento de Front Door, elija cómo procesar la solicitud. Si Front Door tiene disponible una respuesta almacenada en caché para la regla de enrutamiento emparejada, la respuesta almacenada en caché se envía de vuelta al cliente. Si Front Door no tiene ninguna respuesta almacenada en caché para la regla de enrutamiento emparejada, lo que se evalúa a continuación es si ha configurado [URL wewrite (una ruta de acceso de reenvío personalizada)](front-door-url-rewrite.md) para la regla de enrutamiento emparejada. Si no hay definida ninguna ruta de acceso de reenvío personalizada, la solicitud se reenvía al back-end adecuado del grupo de back-end configurado tal cual. Si se ha definido una ruta de acceso de reenvío personalizada, la ruta de acceso de la solicitud se actualiza según la [ruta de acceso de reenvío personalizada](front-door-url-rewrite.md) definida y luego se reenvía al back-end.
+Una vez que haya emparejado con una única regla de enrutamiento de Front Door, elija cómo procesar la solicitud. Si Front Door tiene disponible una respuesta almacenada en caché para la regla de enrutamiento emparejada, la respuesta almacenada en caché se envía de vuelta al cliente. Si Front Door no tiene ninguna respuesta almacenada en caché para la regla de enrutamiento emparejada, lo que se evalúa a continuación es si ha configurado la [reescritura de URL (una ruta de acceso de reenvío personalizada)](front-door-url-rewrite.md) para la regla de enrutamiento emparejada. Si no hay definida ninguna ruta de acceso de reenvío personalizada, la solicitud se reenvía al back-end adecuado del grupo de back-end configurado tal cual. Si se ha definido una ruta de acceso de reenvío personalizada, la ruta de acceso de la solicitud se actualiza según la [ruta de acceso de reenvío personalizada](front-door-url-rewrite.md) definida y luego se reenvía al back-end.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

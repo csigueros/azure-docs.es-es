@@ -6,13 +6,13 @@ ms.author: kchandra
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 09/27/2021
-ms.openlocfilehash: 45ea054394c5f74a6a3a34b9a69df5c5b07a632f
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 10/18/2021
+ms.openlocfilehash: 67a2102d306f08979063867c60875798083c85a0
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129212629"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130181300"
 ---
 # <a name="register-and-scan-a-sap-s4hana-source"></a>Registro y examen de un origen de SAP S/4HANA
 
@@ -24,8 +24,10 @@ El origen de SAP S/4HANA admite un **examen completo** para extraer metadatos de
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-1.  Configure la versión más reciente del [entorno de ejecución de integración autohospedado](https://www.microsoft.com/download/details.aspx?id=39717).
-    Para obtener más información, consulte [Creación y configuración de un entorno de ejecución de integración autohospedado](../data-factory/create-self-hosted-integration-runtime.md).
+1.  Configure la versión más reciente del [entorno de ejecución de integración autohospedado](https://www.microsoft.com/download/details.aspx?id=39717). Para obtener más información, consulte [Creación y configuración de un entorno de ejecución de integración autohospedado](../data-factory/create-self-hosted-integration-runtime.md). 
+
+    >[!NOTE]
+    >El examen de SAP S/4HANA es una operación que consume mucha memoria, por lo que se recomienda instalar IR autohospedado en una máquina con memoria grande, por ejemplo, 128 GB.
 
 2.  Asegúrese de que [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) está instalado en la máquina virtual donde también lo está el entorno de ejecución de integración autohospedado.
 
@@ -102,17 +104,15 @@ Para crear y ejecutar un nuevo examen, siga estos pasos:
 
     e.  **JCo library path** (Ruta de acceso de la biblioteca de JCo): especifique la ruta de acceso a la carpeta donde se encuentran las bibliotecas de JCo.
 
-    f.  **Maximum memory available** (Memoria máxima disponible): memoria máxima (en GB) disponible en la máquina virtual del cliente que van a usar los procesos de examen. Depende del tamaño del origen de SAP S/4HANA que se va a examinar.
-    > [!Note] 
-    > Como regla general, especifique 1 GB de memoria por cada 1000 tablas.
-
+    f.  **Maximum memory available** (Memoria máxima disponible): memoria máxima (en GB) disponible en la máquina de IR autohospedado que se va a usar en los procesos de examen. Depende del tamaño del origen de SAP S/4HANA que se va a examinar. Se recomienda proporcionar una gran cantidad de memoria disponible, por ejemplo, 100 GB.
+   
     :::image type="content" source="media/register-scan-saps4hana-source/scan-saps-4-hana.png" alt-text="Examen de SAP S/4HANA" border="true":::
 
 6.  Seleccione **Continuar**.
 
 7.  Elija el **desencadenador del examen**. Puede configurar una programación o ejecutar el examen una vez.
 
-8.  Revise el examen y seleccione **Guardar y ejecutar**.
+8.  Revise el examen y seleccione **Save and run** (Guardar y ejecutar).
 
 ## <a name="viewing-your-scans-and-scan-runs"></a>Visualización de los exámenes y las ejecuciones de exámenes
 

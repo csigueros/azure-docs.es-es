@@ -3,13 +3,13 @@ title: Restauración de Oracle Database
 description: Obtenga información sobre cómo restaurar Oracle Database en BareMetal Infrastructure mediante SnapCenter.
 ms.topic: how-to
 ms.subservice: baremetal-oracle
-ms.date: 05/07/2021
-ms.openlocfilehash: 3d7f417b6881fd44d67011d33e4fdde87ff2a6e1
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.date: 10/12/2021
+ms.openlocfilehash: e4acd2b0c438ebee80571360b540e235ccb2c0f8
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110576372"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001549"
 ---
 # <a name="restore-oracle-database"></a>Restauración de Oracle Database
 
@@ -86,9 +86,9 @@ La clonación de la base de datos es similar al proceso de restauración. La ope
 
 ### <a name="create-a-clone"></a>Creación de un clon
 
-La creación de un clon es una característica de SnapCenter que permite usar una instantánea como referencia a un momento dado para capturar un conjunto similar de datos entre el volumen primario y el volumen clonado mediante punteros. A continuación, se permiten las lecturas y escrituras en el volumen clonado, que se expande solo mediante escrituras, mientras que las lecturas siguen teniendo lugar en el volumen primario. Esta característica permite crear un conjunto "duplicado" de datos a disposición de un host sin interferir con los datos que existen en el volumen primario. 
+SnapCenter permite crear un clon, por lo que puede usar una instantánea como referencia a un momento dado. A continuación, puede capturar un conjunto de datos similar entre el volumen primario y el volumen clonado mediante punteros. El volumen clonado es grabable de lectura y expandido solo a través de escrituras. Sin embargo, las lecturas se siguen teniendo en el volumen primario. Esta característica permite crear un conjunto "duplicado" de datos a disposición de un host sin interferir con los datos que existen en el volumen primario. 
 
-Esto resulta especialmente útil para las pruebas de recuperación ante desastres, ya que un sistema de archivos temporal se puede poner en marcha en función de las mismas instantáneas que se usarán en una recuperación real. Puede comprobar los datos y que las aplicaciones funcionen según lo previsto y, a continuación, apagar la prueba de recuperación ante desastres, sin afectar a los volúmenes de recuperación ante desastres ni a la replicación.
+Esta característica es especialmente útil para las pruebas de recuperación ante desastres. Un sistema de archivos temporal se puede poner en marcha en función de las mismas instantáneas que se usarán en una recuperación real. Puede comprobar los datos y que las aplicaciones funcionen según lo previsto y, a continuación, apagar la prueba de recuperación ante desastres, sin afectar a los volúmenes de recuperación ante desastres ni a la replicación.
 
 Estos son los pasos para clonar una base de datos. 
 
@@ -123,7 +123,7 @@ Estos son los pasos para clonar una base de datos.
 
 10. El trabajo de clonación se mostrará en el menú emergente activo en la parte inferior de la pantalla. Seleccione la actividad de clonación para mostrar los detalles del trabajo. Una vez que haya finalizado la actividad, la página Job Details (Detalles del trabajo) mostrará todas las marcas de verificación verdes e indicará la hora de finalización. La clonación normalmente tarda entre 7 y 10 minutos.
 
-11. Una vez que se complete el trabajo, cambie al host que se usa como destino para el clon y compruebe los puntos de montaje mediante cat /etc/fstab. Esta comprobación garantiza que existan los puntos de montaje adecuados para la base de datos que se enumeraron durante el asistente para la clonación, y también resalta el SID de base de datos especificado en el asistente. En el ejemplo siguiente, el SID es dbsc4, como lo indican los puntos de montaje del host.
+11. Una vez que se complete el trabajo, cambie al host que se usa como destino para el clon y compruebe los puntos de montaje mediante cat /etc/fstab. La comprobación garantiza que existen los puntos de montaje adecuados para la base de datos incluidos durante el asistente de clonación. También resalta el SID de base de datos especificado en el asistente. En el ejemplo siguiente, el SID es dbsc4, como lo indican los puntos de montaje del host.
 
     :::image type="content" source="media/netapp-snapcenter-integration-oracle-baremetal/clone-database-switch-to-target-host.png" alt-text="Captura de pantalla del comando para cambiar al host de destino.":::
 
@@ -133,7 +133,7 @@ Estos son los pasos para clonar una base de datos.
 
 13. Escriba **sqlplus / as sysdba**. Puesto que la tabla se creó con otro usuario, se escriben automáticamente el nombre de usuario y la contraseña originales no válidos. Escriba el nombre de usuario y la contraseña correctos. El símbolo de SQL> aparecerá una vez que el inicio de sesión se haya completado correctamente.
 
-Escriba una consulta de la base de datos básica para comprobar que se reciban los datos adecuados. En el ejemplo siguiente, hemos usado los registros de archivo para poner al día la base de datos. A continuación se muestra que los registros de archivo se usaron correctamente, ya que la entrada clonetest se creó después de crear la copia de seguridad de datos. Por lo tanto, si los registros de archivo no se han puesto al día, esa entrada no aparece en la lista.
+Escriba una consulta de la base de datos básica para comprobar que se reciban los datos adecuados. En el ejemplo siguiente, hemos usado los registros de archivo para poner al día la base de datos. A continuación, se muestra que los registros de archivo se usaron correctamente, ya que la entrada de prueba de clonación se creó después de crear la copia de seguridad de datos. Por lo tanto, si los registros de archivo no se han puesto al día, esa entrada no aparece en la lista.
 
 ```sql
 SQL> select * from acolvin.t;
@@ -201,9 +201,9 @@ Cuando se crea un clon, la pestaña de recursos de esa base de datos mostrará u
 
 ### <a name="split-a-clone"></a>División de un clon
 
-La división de un clon crea una copia del volumen primario mediante la replicación de todos los datos del volumen primario hasta el momento en que se creó la instantánea usada para crear el clon. Este proceso separa el volumen primario del volumen clonado y quita la retención en la instantánea usada para crear el volumen clonado. A continuación, la instantánea se puede eliminar como parte de la directiva de retención.
+La división de un clon crea una copia del volumen primario. Replica todos los datos del volumen primario hasta el momento en que se creó la instantánea usada para crear el clon. Este proceso separa el volumen primario del volumen clonado y quita la retención en la instantánea usada para crear el volumen clonado. A continuación, la instantánea se puede eliminar como parte de la directiva de retención.
 
-Dividir un clon resulta útil para rellenar los datos en el entorno de producción o en el entorno de recuperación ante desastres. La división permite que los nuevos volúmenes funcionen independientemente del volumen primario.
+Dividir un clon resulta útil para rellenar los datos en el entorno de producción o en el entorno de recuperación ante desastres. Permite que los nuevos volúmenes funcionen independientemente del volumen primario.
 
 >[!NOTE]
 >El proceso de división de un clon no se puede invertir ni cancelar.
@@ -219,7 +219,7 @@ Para dividir un clon:
     >[!NOTE]
     >El proceso de división puede tardar bastante tiempo en función de la cantidad de datos que se tienen que copiar, del diseño de la base de datos en el almacenamiento y del nivel de actividad de almacenamiento.
 
-Una vez finalizado el proceso, el clon que se dividió se quita de la lista de copias de seguridad, y la instantánea asociada al clon ahora es libre de quitarse como parte del plan normal de retención en SnapCenter.
+Después de finalizar el proceso, el clon dividido se quita de la lista de copias de seguridad. La instantánea asociada al clon ya se puede quitar como parte del plan de retención normal de SnapCenter.
 
 ## <a name="restore-database-remotely-after-disaster-recovery-event"></a>Restauración remota de una base de datos después de un evento de recuperación ante desastres
 

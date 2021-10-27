@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 09/13/2021
-ms.openlocfilehash: fa1ea33e2e7987daa79267fb197981931ce1c2fd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 46b5503e6c2c99c2c99f5cd18dc695ecb16275d1
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128606273"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166846"
 ---
 # <a name="single-tenant-versus-multi-tenant-and-integration-service-environment-for-azure-logic-apps"></a>Comparación de las opciones de un solo inquilino, multiinquilino y entorno del servicio de integración para Azure Logic Apps
 
@@ -38,9 +38,9 @@ En la tabla siguiente se resumen brevemente las diferencias entre el tipo de rec
 
 ## <a name="logic-app-standard-resource"></a>Recurso Logic Apps (estándar)
 
-El tipo de recurso **Logic Apps (estándar)** está equipado con la tecnología de runtime rediseñada de Azure Logic Apps de un solo inquilino. Este runtime usa el [modelo de extensibilidad de Azure Functions](../azure-functions/functions-bindings-register.md) y se hospeda como una extensión en el runtime de Azure Functions. Este diseño proporciona portabilidad, flexibilidad y más rendimiento para los flujos de trabajo de aplicaciones lógicas, además de otras funcionalidades y ventajas heredadas de la plataforma Azure Functions y el ecosistema Azure App Service.
+El tipo de recurso **Logic Apps (estándar)** está equipado con la tecnología de runtime rediseñada de Azure Logic Apps de un solo inquilino. Este runtime usa el [modelo de extensibilidad de Azure Functions](../azure-functions/functions-bindings-register.md) y se hospeda como una extensión en el runtime de Azure Functions. Este diseño proporciona portabilidad, flexibilidad y más rendimiento para los flujos de trabajo de aplicaciones lógicas, además de otras funcionalidades y ventajas heredadas de la plataforma Azure Functions y el ecosistema Azure App Service. Por ejemplo, puede crear, implementar y ejecutar aplicaciones lógicas basadas en un solo inquilino y sus flujos de trabajo en [Azure App Service Environment v3](../app-service/environment/overview.md).
 
-Por ejemplo, puede ejecutar aplicaciones lógicas basadas en un solo inquilino y sus flujos de trabajo en cualquier lugar en el que se puedan ejecutar las aplicaciones de funciones de Azure y sus funciones. El tipo de recurso estándar presenta una estructura de recursos que puede hospedar varios flujos de trabajo, igual que una aplicación de funciones de Azure puede hospedar varias funciones. Con una asignación de uno a varios, los flujos de trabajo de la misma aplicación lógica y el inquilino comparten recursos de proceso y procesamiento, lo que proporciona un mejor rendimiento debido a su proximidad. Esta estructura difiere del recurso **Logic Apps (consumo)** , donde tiene una asignación de uno a uno entre un recurso de aplicación lógica y un flujo de trabajo.
+El tipo de recurso estándar presenta una estructura de recursos que puede hospedar varios flujos de trabajo, igual que una aplicación de funciones de Azure puede hospedar varias funciones. Con una asignación de uno a varios, los flujos de trabajo de la misma aplicación lógica y el inquilino comparten recursos de proceso y procesamiento, lo que proporciona un mejor rendimiento debido a su proximidad. Esta estructura difiere del recurso **Logic Apps (consumo)** , donde tiene una asignación de uno a uno entre un recurso de aplicación lógica y un flujo de trabajo.
 
 Para obtener más información sobre las mejoras de portabilidad, flexibilidad y rendimiento, continúe con las secciones siguientes. O bien, para obtener más información sobre el runtime de Azure Logic Apps de un solo inquilino o la extensibilidad de Azure Functions, revise la siguiente documentación:
 
@@ -53,9 +53,7 @@ Para obtener más información sobre las mejoras de portabilidad, flexibilidad y
 
 ### <a name="portability-and-flexibility"></a>Portabilidad y flexibilidad
 
-Al crear aplicaciones lógicas con el tipo de recurso **Logic Apps (estándar)** , puede ejecutar los flujos de trabajo en cualquier lugar en el que pueda ejecutar aplicaciones de funciones de Azure y sus funciones, no solo en el entorno de servicio de un solo inquilino.
-
-Por ejemplo, si usa Visual Studio Code con la extensión **Azure Logic Apps (estándar)** , puede desarrollar, compilar y ejecutar *localmente* los flujos de trabajo en el entorno de desarrollo sin tener que realizar la implementación en Azure. Si el escenario requiere contenedores, [cree aplicaciones lógicas basadas en un solo inquilino mediante Logic Apps habilitado para Azure Arc](azure-arc-enabled-logic-apps-create-deploy-workflows.md). Para más información, consulte [¿Qué es Azure Logic Apps habilitado para Azure Arc?](azure-arc-enabled-logic-apps-overview.md)
+Al crear aplicaciones lógicas con el tipo de recurso **Aplicación lógica (Estándar)**, puede implementar y ejecutar los flujos de trabajo en otros entornos, como [Azure App Service Environment v3](../app-service/environment/overview.md). Si usa Visual Studio Code con la extensión **Azure Logic Apps (estándar)**, puede desarrollar, compilar y ejecutar *localmente* los flujos de trabajo en el entorno de desarrollo sin tener que realizar la implementación en Azure. Si el escenario requiere contenedores, [cree aplicaciones lógicas basadas en un solo inquilino mediante Logic Apps habilitado para Azure Arc](azure-arc-enabled-logic-apps-create-deploy-workflows.md). Para más información, consulte [¿Qué es Azure Logic Apps habilitado para Azure Arc?](azure-arc-enabled-logic-apps-overview.md)
 
 Esta funcionalidad proporciona mejoras importantes y ventajas considerables en comparación con el modelo multiinquilino, que requiere el desarrollo en un recurso en ejecución existente en Azure. Además, el modelo multiinquilino para automatizar la implementación de recursos de **Logic Apps (consumo)** se basa completamente en plantillas de Azure Resource Manager (plantillas de ARM), que combinan y controlan el aprovisionamiento de recursos para las aplicaciones y la infraestructura.
 
@@ -74,6 +72,12 @@ Con el tipo de recurso **Logic Apps (estándar)** , puede crear y ejecutar vario
 El tipo de recurso **Logic Apps (estándar)** y el runtime de Azure Logic Apps de un solo inquilino proporcionan otra mejora significativa al hacer que los conectores administrados más populares estén disponibles como operaciones integradas. Por ejemplo, puede usar operaciones integradas para Azure Service Bus, Azure Event Hubs, SQL y otros. Mientras tanto, las versiones del conector administrado siguen estando disponibles y siguen funcionando.
 
 Cuando usa las nuevas operaciones integradas, se crean conexiones denominadas *conexiones integradas* o *conexiones de proveedor de servicios*. Sus homólogos de conexión administrada se denominan *conexiones de API*, que se crean y ejecutan por separado como recursos de Azure que también tiene que implementar mediante plantillas de ARM. Las operaciones integradas y sus conexiones se ejecutan localmente en el mismo proceso que ejecuta los flujos de trabajo. Ambos se hospedan en el runtime de Azure Logic Apps de un solo inquilino. Como resultado, las operaciones integradas y sus conexiones proporcionan un mejor rendimiento debido a la proximidad con sus flujos de trabajo. Este diseño también funciona bien con las canalizaciones de implementación porque las conexiones del proveedor de servicios se empaquetan en el mismo artefacto de compilación.
+
+<a name="data-residency"></a>
+
+### <a name="data-residency"></a>Residencia de datos
+
+Los recursos de aplicación lógica creados con el tipo de recurso **Aplicación lógica (Estándar)** se hospedan en instancias de Azure Logic Apps de un único inquilino, que [no almacenan, procesan ni replican datos fuera de la región donde se implementan estos recursos de aplicación lógica](https://azure.microsoft.com/global-infrastructure/data-residency), lo que significa que los datos de los flujos de trabajo de la aplicación lógica permanecen en la misma región donde se crean e implementan sus recursos primarios.
 
 ## <a name="create-build-and-deploy-options"></a>Opciones de creación, compilación e implementación
 

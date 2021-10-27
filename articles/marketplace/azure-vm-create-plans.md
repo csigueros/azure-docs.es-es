@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 07/26/2021
-ms.openlocfilehash: 9994e37d747419bd42820bd4c3c4c5ed1e147708
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.date: 10/13/2021
+ms.openlocfilehash: fd4d93b09328ad0b8de982a065567ffbadd87be3
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129360177"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004395"
 ---
 # <a name="create-plans-for-a-virtual-machine-offer"></a>Creación de planes para una oferta de máquina virtual
 
@@ -130,13 +130,13 @@ Puede ofrecer una **evaluación gratuita** de un mes, de tres meses o de seis me
 
 ### <a name="plan-visibility"></a>Visibilidad del plan
 
-Puede diseñar cada plan para que sea visible para todos los usuarios o solo para una audiencia preseleccionada. Asigne la pertenencia a esta audiencia restringida mediante los identificadores de suscripción de Azure.
+Puede diseñar cada plan para que sea visible para todos los usuarios o solo para una audiencia preseleccionada. Asigne las pertenencias a esta audiencia restringida mediante identificadores de suscripción de Azure, de inquilino o ambos.
 
 **Pública**: todos los usuarios pueden ver el plan.
 
 **Privada**: haga que el plan sea visible solo para una audiencia preseleccionada. Una vez publicado como un plan privado, puede actualizar la audiencia o cambiarlo a público. Después de hacer que un plan sea público, debe seguir siendo público. No se puede volver a cambiar a un plan privado.
 
-Asigne el público que tendrá acceso a este plan privado mediante los **identificadores de suscripción de Azure**. Opcionalmente, incluya una **descripción** de cada identificador de suscripción de Azure que asigne. Agregue hasta 10 identificadores de suscripción manualmente o hasta 20 000 si importa una hoja de cálculo CSV. Los identificadores de suscripción de Azure se representan como GUID y todas las letras deben estar en minúsculas.
+Asigne la audiencia que va a tener acceso a este plan privado mediante *identificadores de suscripción de Azure*, *identificadores de inquilino* o ambos. Opcionalmente, incluya una **Descripción** de cada identificador de suscripción de Azure o de inquilino que asigne. Agregue hasta diez identificadores de suscripción e inquilino manualmente o importe una hoja de cálculo CSV si se requieren más de diez.
 
 > [!NOTE]
 > Una audiencia privada o restringida es diferente de la audiencia preliminar que definió en la pestaña **Versión preliminar**. A una audiencia preliminar se le permite acceder a la oferta *antes* de que se publique en Azure Marketplace. Mientras que la designación de una audiencia privada solo se aplica a un plan específico, la audiencia preliminar puede ver todos los planes privados y públicos con fines de validación.

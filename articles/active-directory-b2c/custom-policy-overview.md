@@ -1,22 +1,22 @@
 ---
-title: Introducción a las directivas personalizadas de Azure Active Directory B2C | Microsoft Docs
+title: Información general sobre las directivas personalizadas de Azure Active Directory B2C
 description: Un tema sobre las directivas personalizadas de Azure Active Directory B2C y el marco de experiencia de identidad.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/08/2021
-ms.author: mimart
+ms.date: 10/14/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 5c27384e58a23501224e279e987115e4981ebf99
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 6da41c32b3b67cbd4e418f844ee73ff4ee85341e
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122633612"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130037402"
 ---
 # <a name="azure-ad-b2c-custom-policy-overview"></a>Información general sobre las directivas personalizadas de Azure AD B2C
 
@@ -35,7 +35,7 @@ El [paquete de inicio](tutorial-create-user-flows.md?pivots=b2c-custom-policy#ge
 - **SocialAndLocalAccounts**: habilita el uso de cuentas locales y sociales. La mayoría de los ejemplos hacen referencia a esta directiva.
 - **SocialAndLocalAccountsWithMFA**: habilita opciones sociales, locales y de autenticación multifactor.
 
-En el [repositorio de GitHub de ejemplos de Azure AD B2C](https://github.com/azure-ad-b2c/samples), encontrará ejemplos de varios recorridos de usuario de CIAM personalizados de Azure AD B2C, como mejoras de directivas de cuentas locales, mejoras de directivas de cuentas sociales, mejoras de MFA, mejoras de la interfaz de usuario, mejoras genéricas, migración de aplicaciones, migración de usuarios, acceso condicional, prueba web y CI/CD.
+En el [repositorio de GitHub de ejemplos de Azure AD B2C](https://github.com/azure-ad-b2c/samples), encontrará ejemplos de varios recorridos del usuario de CIAM personalizados de Azure AD B2C. Por ejemplo, mejoras de directivas de cuentas locales, mejoras de directivas de cuentas sociales, mejoras de MFA, mejoras de la interfaz de usuario, mejoras genéricas, migración de aplicaciones, migración de usuarios, acceso condicional, prueba web y CI/CD.
  
 ## <a name="understanding-the-basics"></a>Descripción de los conceptos básicos 
 
@@ -56,7 +56,7 @@ Las [transformaciones de notificaciones](claimstransformations.md) son funciones
 
 ### <a name="customize-and-localize-your-ui"></a>Personalización y localización de la interfaz de usuario
 
-Si desea recopilar información de los usuarios presentando una página en su explorador web, use el [perfil técnico autoafirmado](self-asserted-technical-profile.md). Puede editar el perfil técnico autoafirmado para [agregar notificaciones y personalizar la entrada de usuario](./configure-user-input.md).
+Para recopilar información de los usuarios presentando una página en su explorador web, use el [perfil técnico autoafirmado](self-asserted-technical-profile.md). Puede editar el perfil técnico autoafirmado para [agregar notificaciones y personalizar la entrada de usuario](./configure-user-input.md).
 
 Para [personalizar la interfaz de usuario](customize-ui-with-html.md) para su perfil técnico autoafirmado, especifique una dirección URL en el elemento [definición de contenido](contentdefinitions.md) con contenido HTML personalizado. En el perfil técnico autoafirmado, apunte a este identificador de definición de contenido.
 
@@ -112,8 +112,9 @@ En el siguiente diagrama se muestra cómo Azure AD B2C usa un perfil técnico de
 Cada paquete de inicio incluye los siguientes archivos:
 
 - Un archivo de **base** que contiene la mayoría de las definiciones. Para facilitar la solución de problemas y el mantenimiento a largo plazo de las directivas, intente minimizar el número de cambios realizados en este archivo.
-- Un archivo de **extensiones** que contiene los cambios de configuración únicos del inquilino. Este archivo de directiva se basa en el archivo de base. Use este archivo para agregar nuevas funciones o reemplazar funciones existentes. Por ejemplo, puede usar este archivo para federar con nuevos proveedores de identidades.
-- Un archivo de **usuario de confianza** que es el único archivo centrado en tareas que invoca directamente la aplicación de usuario de confianza, como aplicaciones de escritorio, móviles o web. Cada tarea única (como un registro, un inicio de sesión, un restablecimiento de contraseña o una edición de perfil) necesita su propio archivo de directiva de usuario de confianza. Este archivo de directiva se basa en el archivo de extensiones.
+- Un archivo de **localización** que contiene las cadenas de localización. Este archivo de directiva se basa en el archivo de base. Use este archivo para adaptarse a distintos idiomas para satisfacer las necesidades de los clientes.
+- Un archivo de **extensiones** que contiene los cambios de configuración únicos del inquilino. Este archivo de directiva se basa en el archivo de localización. Use este archivo para agregar nuevas funciones o reemplazar funciones existentes. Por ejemplo, puede usar este archivo para federar con nuevos proveedores de identidades.
+- Un archivo de **usuario de confianza** que es el único archivo centrado en tareas que invoca directamente la aplicación de usuario de confianza, como aplicaciones de escritorio, móviles o web. Cada tarea única (como un registro, un inicio de sesión o una edición de perfil) necesita su propio archivo de directiva de usuario de confianza. Este archivo de directiva se basa en el archivo de extensiones.
 
 Este es el modelo de herencia:
 
@@ -132,7 +133,7 @@ En el diagrama siguiente, se muestra la relación entre los archivos de directiv
 
 En una directiva personalizada de Azure AD B2C puede integrar su propia lógica de negocios a fin de compilar las experiencias de usuario que requiere y extender la funcionalidad del servicio. Tenemos un conjunto de procedimientos recomendados y recomendaciones para comenzar.
 
-- Cree la lógica en la **directiva de extensión** o la **directiva del usuario de confianza**. Puede agregar nuevos elementos, lo que invalidará la directiva base haciendo referencia al mismo identificador. Esto le permitirá escalar horizontalmente el proyecto mientras se facilita la actualización de la directiva base posteriormente si Microsoft lanza nuevos paquetes de inicio.
+- Cree la lógica en la **directiva de extensión** o la **directiva del usuario de confianza**. Puede agregar nuevos elementos, lo que invalidará la directiva base haciendo referencia al mismo identificador. Este enfoque le permitirá escalar horizontalmente el proyecto mientras se facilita la actualización de la directiva base posteriormente si Microsoft lanza nuevos paquetes de inicio.
 - En la **directiva base**, recomendamos encarecidamente evitar realizar cualquier tipo de cambio. En caso necesario, realice comentarios donde se hayan hecho los cambios.
 - Al invalidar un elemento, como los metadatos del perfil técnico, evite copiar todo el perfil técnico de la directiva base. En su lugar, copie solo la sección necesaria del elemento. Consulte [Deshabilitación de la comprobación de correo electrónico](./disable-email-verification.md) para ver un ejemplo de cómo hacer el cambio.
 - Para reducir la duplicación de perfiles técnicos, donde se comparte la funcionalidad básica, use la [inclusión del perfil técnico](technicalprofiles.md#include-technical-profile).

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: dc0e424e36d67cd25fc93e950e5758c6378c1b7d
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: e9306d9931a34a192d0fb77caf1ab6147f2020a5
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129660597"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130071936"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Enlaces de Azure Service Bus en Azure Functions
 
@@ -24,9 +24,6 @@ Azure Functions se integra con [Azure Service Bus](https://azure.microsoft.com/
 | Enviar mensajes de Azure Service Bus |[Enlace de salida](./functions-bindings-service-bus-output.md) |
 
 ## <a name="add-to-your-functions-app"></a>Adición a la aplicación de Functions
-
-> [!NOTE]
-> El enlace de Service Bus no admite actualmente la autenticación mediante una identidad administrada. En su lugar, use una [firma de acceso compartido de Service Bus](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature).
 
 ### <a name="functions-2x-and-higher"></a>Functions 2.x y superiores
 
@@ -46,11 +43,23 @@ Para trabajar con el desencadenador y los enlaces, es necesario hacer referencia
 
 #### <a name="service-bus-extension-5x-and-higher"></a>Extensión 5.x y superior de Service Bus
 
-Hay disponible una nueva versión de la extensión de enlaces de Service Bus en un [paquete NuGet en versión preliminar](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/5.0.0-beta.2). Esta versión preliminar presenta la posibilidad de [conectarse con una identidad en lugar de un secreto](./functions-reference.md#configure-an-identity-based-connection). En el caso de las aplicaciones .NET, también cambian los tipos con los que se puede enlazar; así, los tipos `Microsoft.ServiceBus.Messaging` y `Microsoft.Azure.ServiceBus` se reemplazan por otros tipos más recientes de [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus).
+Hay disponible una nueva versión de la extensión de enlaces de Service Bus en versión preliminar. Presenta la posibilidad de [conectarse con una identidad en lugar de un secreto](./functions-reference.md#configure-an-identity-based-connection). En el caso de las aplicaciones .NET, también cambian los tipos con los que se puede enlazar; así, los tipos `Microsoft.ServiceBus.Messaging` y `Microsoft.Azure.ServiceBus` se reemplazan por otros tipos más recientes de [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus).
 
-> [!NOTE]
-> El paquete en versión preliminar no se incluye en un conjunto de extensiones y debe instalarse manualmente. En el caso de las aplicaciones .NET, agregue una referencia al paquete. Con el resto de tipos de aplicaciones, consulte [Actualización de las extensiones].
+Esta versión de la extensión está disponible como un [paquete NuGet en versión preliminar] o se puede añadir desde el conjunto de extensiones en versión preliminar v3, mediante la adición del siguiente código al archivo `host.json`:
 
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[3.*, 4.0.0)"
+  }
+}
+```
+
+Para obtener más información, consulte [Actualización de las extensiones].
+
+[paquete NuGet en versión preliminar]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/5.0.0-beta.6
 [core tools]: ./functions-run-local.md
 [conjunto de extensiones]: ./functions-bindings-register.md#extension-bundles
 [Paquete NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage

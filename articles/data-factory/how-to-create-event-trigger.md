@@ -10,12 +10,12 @@ ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: bea14b1630cbe5d1c4035e9abea62130cd546964
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e2621a6eea481866bb5351623065e7d113e8e9bd
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124831421"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130138669"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>Creación de un desencadenador que ejecuta una canalización en respuesta a un evento de almacenamiento
 
@@ -119,7 +119,7 @@ En esta sección encontrará ejemplos de configuración de desencadenadores de e
 
 Las canalizaciones de Azure Data Factory y Synapse usan el control de acceso basado en roles de Azure (RBAC de Azure) para asegurarse de que el acceso no autorizado a la escucha, la suscripción a las actualizaciones de y el desencadenamiento de canalizaciones vinculadas a eventos de blob, están estrictamente prohibidos.
 
-* Para crear correctamente un desencadenador de evento de almacenamiento existente o actualizarlo, la cuenta de Azure con la sesión iniciada en el servicio debe tener el acceso adecuado a la cuenta de almacenamiento pertinente. De lo contrario, se _Deniega el acceso_ a la operación con error.
+* Para crear correctamente un desencadenador de evento de almacenamiento existente o actualizarlo, la cuenta de Azure con la sesión iniciada en el servicio debe tener el acceso adecuado a la cuenta de almacenamiento pertinente. De lo contrario, se produce un error en la operación con _acceso denegado_.
 * Azure Data Factory y Azure Synapse no necesitan ningún permiso especial en el Event Grid y _no_ es necesario asignar un permiso de RBAC especial a la entidad de servicio de Data Factory o Azure Synapse para la operación.
 
 Cualquiera de las siguientes configuraciones de RBAC funciona para el desencadenador de eventos de almacenamiento:

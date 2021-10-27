@@ -1,23 +1,23 @@
 ---
-title: Cómo llamar a la API de REST del servicio de solicitudes
+title: Cómo llamar a la API REST de servicios de solicitudes (versión preliminar)
 titleSuffix: Azure Active Directory Verifiable Credentials
 description: Obtenga información sobre cómo emitir y comprobar credenciales mediante la API de REST del servicio de solicitudes.
 documentationCenter: ''
 author: barclayn
-manager: daveba
+manager: karenh444
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 10/08/2021
 ms.author: barclayn
-ms.openlocfilehash: 6dff1940219aa666453d150ed24d84f8eb0165da
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: f4c3a42108e6098cfde3509bc5f365b78d9a4bba
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129809856"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073551"
 ---
-# <a name="request-service-rest-api-preview"></a>API de REST del servicio de solicitudes (versión preliminar)
+# <a name="request-service-rest-api-preview"></a>API REST de servicios de solicitudes (versión preliminar)
 
 La API de REST del servicio de solicitudes de Azure Active Directory permite emitir y comprobar credenciales verificables mediante el servicio de credenciales verificables de Azure AD. En este artículo se muestra cómo empezar a usar la API de REST del servicio de solicitudes.
 
@@ -180,7 +180,7 @@ const result = await mainApp.msalCca.acquireTokenByClientCredential(mainApp.msal
 
 Para emitir o comprobar una credencial verificable, siga estos pasos:
 
-1. Cree una solicitud HTTP POST para la API de REST del servicio de solicitudes. Reemplace `{tenantID}` por el [Id.](https://TBD) o el nombre de su inquilino.
+1. Cree una solicitud HTTP POST para la API de REST del servicio de solicitudes. Reemplace `{tenantID}` por el **Id.** o el nombre de su inquilino.
 
     ```http
     POST https://beta.did.msidentity.com/v1.0/{tenantID}/verifiablecredentials/request

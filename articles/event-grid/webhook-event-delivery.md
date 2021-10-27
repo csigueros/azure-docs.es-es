@@ -2,13 +2,13 @@
 title: Entrega de eventos de WebHook
 description: En este artículo se describe la entrega de eventos de webhook y la validación de puntos de conexión al usar webhooks.
 ms.topic: conceptual
-ms.date: 09/29/2021
-ms.openlocfilehash: 77908b7f36c51ca729915b09cb1e813c978235e3
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.date: 10/13/2021
+ms.openlocfilehash: 35b088f18b4261760d7908a8e779dbc1bda56501
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129614373"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063001"
 ---
 # <a name="webhook-event-delivery"></a>Entrega de eventos de webhook
 Los webhooks son una de las muchas maneras de recibir eventos de Azure Event Grid. Cuando un nuevo evento está preparado, el servicio EventGrid publica una solicitud HTTP en el punto de conexión configurado con el evento en el cuerpo de la solicitud.
@@ -20,11 +20,12 @@ Al igual que muchos otros servicios que admiten webhooks, EventGrid requiere que
 - Azure Functions con el [desencadenador de Event Grid](../azure-functions/functions-bindings-event-grid.md)
 
 ## <a name="endpoint-validation-with-event-grid-events"></a>Validación de puntos de conexión con eventos de Event Grid
+
 Si utiliza cualquier otro tipo de punto de conexión, como una función de Azure basada en un desencadenador HTTP, el código del punto de conexión debe participar en un protocolo de enlace de validación con EventGrid. Event Grid admite dos formas de validar la suscripción.
 
-1. **Enlace sincrónico**: En el momento de crear la suscripción a eventos, Event Grid envía un evento de validación de suscripción en su punto de conexión. El esquema de este evento es similar a cualquier otro evento de Event Grid. La parte de datos de este evento incluye una propiedad `validationCode`. La aplicación comprueba que la solicitud de validación es para una suscripción a un evento esperado, y devuelve el código de validación en la respuesta de forma sincrónica. Este mecanismo del protocolo de enlace se admite en todas las versiones de EventGrid.
+- **Enlace sincrónico**: En el momento de crear la suscripción a eventos, Event Grid envía un evento de validación de suscripción en su punto de conexión. El esquema de este evento es similar a cualquier otro evento de Event Grid. La parte de datos de este evento incluye una propiedad `validationCode`. La aplicación comprueba que la solicitud de validación es para una suscripción a un evento esperado, y devuelve el código de validación en la respuesta de forma sincrónica. Este mecanismo del protocolo de enlace se admite en todas las versiones de EventGrid.
 
-2. **Enlace asincrónico**: En algunos casos, no se puede devolver ValidationCode en la respuesta de forma sincrónica. Por ejemplo, si usa un servicio de terceros (como [`Zapier`](https://zapier.com) o [IFTTT](https://ifttt.com/)), no puede responder con el código de validación mediante programación.
+- **Enlace asincrónico**: En algunos casos, no se puede devolver ValidationCode en la respuesta de forma sincrónica. Por ejemplo, si usa un servicio de terceros (como [`Zapier`](https://zapier.com) o [IFTTT](https://ifttt.com/)), no puede responder con el código de validación mediante programación.
 
    A partir de la versión 2018-05-01-preview, EventGrid admite un protocolo de enlace de validación manual. Si va a crear una suscripción de eventos mediante el SDK o la herramienta que usa la versión de API 2018-05-01-preview, EventGrid envía una propiedad `validationUrl` en los datos del evento de validación de suscripción. Para completar el protocolo de enlace, busque esa dirección URL en los datos del evento y envíele una solicitud GET. Puede usar un cliente de REST o el explorador web.
 
@@ -83,12 +84,8 @@ Para ver un ejemplo del tratamiento del protocolo de enlace de validación de su
 ## <a name="endpoint-validation-with-cloudevents-v10"></a>Validación de puntos de conexión con CloudEvents v1.0
 CloudEvents v1.0 implementa su propia [semántica de protección contra abusos](webhook-event-delivery.md) mediante el método **HTTP OPTIONS**. Puede leer más sobre este tema [aquí](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Al usar el esquema de CloudEvents para la salida, Event Grid lo hace con la protección contra abusos de CloudEvents v1.0 en lugar del mecanismo de eventos de validación de Event Grid.
 
-## <a name="event-subscriptions-considerations"></a>Consideraciones sobre las suscripciones de eventos
-
-Para evitar problemas durante la creación de la suscripción, use esta referencia para validar la compatibilidad entre los esquemas de tema y suscripción. Cuando se crea un tema, se define un esquema de eventos entrantes, así como un esquema de eventos saliente cuando se crea la suscripción.
-
-> [!NOTE]
-> Esta referencia de tabla de compatibilidad se aplica a: temas personalizados y dominios de eventos.
+## <a name="event-schema-compatibility"></a>Compatibilidad del esquema de eventos
+Cuando se crea un tema, se define un esquema de eventos entrantes. Y, cuando se crea una suscripción, se define un esquema de eventos salientes. En la tabla siguiente se muestra la compatibilidad permitida al crear una suscripción. 
 
 | Esquema de eventos entrantes | Esquema de eventos salientes | Compatible |
 | ---- | ---- | ---- |

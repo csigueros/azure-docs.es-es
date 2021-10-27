@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/15/2021
 ms.author: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c4a9afd9e2470085509c809153fd2abd9a63c27
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 467c5ad44b38e237b1ad9b947f438dcef1006750
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124796445"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038847"
 ---
 # <a name="security-operations-for-privileged-accounts"></a>Operaciones de seguridad para cuentas con privilegios
 
@@ -52,7 +52,7 @@ En Azure Portal, puede ver los registros de auditoría de Azure AD y descargarl
 
 * [Azure Event Hubs](../../event-hubs/event-hubs-about.md) (integrado con SIEM): los [registros de Azure AD se pueden insertar en otras instancias de SIEM](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md), como Splunk, ArcSight, QRadar y Sumo Logic, a través de la integración de Azure Event Hubs.
 
-* [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS): le permite detectar y administrar aplicaciones, controlar las aplicaciones y los recursos y comprobar el cumplimiento de las aplicaciones en la nube. 
+* [Microsoft Cloud App Security (MCAS)](/cloud-app-security/what-is-cloud-app-security): le permite detectar y administrar aplicaciones, controlar las aplicaciones y los recursos y comprobar el cumplimiento de las aplicaciones en la nube. 
 
 * Microsoft Graph: puede exportar los datos y usar MS Graph para realizar más análisis. Para más información, visite [SDK de PowerShell de Microsoft Graph y Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-graph-api.md). 
 

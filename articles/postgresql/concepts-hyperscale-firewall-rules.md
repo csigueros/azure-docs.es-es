@@ -1,26 +1,32 @@
 ---
-title: 'Reglas de firewall en Azure Database for PostgreSQL: Hiperescala (Citus)'
-description: 'En este artículo se describen las reglas de firewall para Azure Database for PostgreSQL: Hiperescala (Citus).'
+title: 'Acceso público: Hiperescala (Citus) de Azure Database for PostgreSQL'
+description: En este artículo se describe el acceso público para Hiperescala (Citus) de Azure Database for PostgreSQL.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 9/12/2019
-ms.openlocfilehash: 559c5eca6fa8a6eceb37ade003d4f1983c0a1a1b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 10/15/2021
+ms.openlocfilehash: cb695514fe4fd1b3d0ed72dd70aeb8b5d6ca4253
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90902085"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072199"
 ---
-# <a name="firewall-rules-in-azure-database-for-postgresql---hyperscale-citus"></a>Reglas de firewall en Azure Database for PostgreSQL: Hiperescala (Citus)
+# <a name="public-access-in-azure-database-for-postgresql---hyperscale-citus"></a>Acceso público en Hiperescala (Citus) de Azure Database for PostgreSQL
+
+[!INCLUDE [azure-postgresql-hyperscale-access](../../includes/azure-postgresql-hyperscale-access.md)]
+
+En esta página se describe la opción de acceso público. Para obtener información sobre el acceso privado, consulte [este documento](concepts-hyperscale-private-access.md).
+
+## <a name="firewall-overview"></a>Información general de firewalls
+
 El firewall del servidor Azure Database for PostgreSQL impide todo acceso al nodo de coordinación de Hiperescala (Citus) hasta que se especifica qué equipos tienen permiso. Asimismo, otorgan acceso al servidor según la dirección IP de origen de cada solicitud.
 Para configurar su firewall, cree reglas de firewall que especifiquen intervalos de direcciones IP aceptables. Puede crear reglas de firewall a nivel de servidor.
 
 **Regas de firewall:** Estas reglas permiten a los clientes acceder al nodo de coordinación de Hiperescala (Citus), es decir, a todas las bases de datos que se encuentren en el mismo servidor lógico. Las reglas de firewall de nivel de servidor pueden configurarse mediante Azure Portal. Para crear reglas de firewall en el nivel del servidor, debe ser propietario o colaborador de la suscripción.
 
-## <a name="firewall-overview"></a>Información general de firewalls
 El firewall bloquea de forma predeterminada el acceso de todas las bases de datos al nodo de coordinación. Para comenzar a usar el servidor desde otro equipo, debe especificar una o varias reglas de firewall a nivel de servidor para habilitar el acceso a su servidor. Use las reglas de firewall para especificar los intervalos de direcciones IP de Internet que se permitirán. La acción de las reglas de firewall no repercute sobre el acceso al propio sitio web de Azure Portal.
 Los intentos de conexión desde Internet y Azure deben atravesar primero el firewall antes de poder alcanzar PostgreSQL Database, tal y como se muestra en el siguiente diagrama:
 

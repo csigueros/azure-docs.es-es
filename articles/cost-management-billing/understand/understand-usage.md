@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 10/11/2021
 ms.author: banders
-ms.openlocfilehash: ae2d16b6164f201bae8f34c62876f66b45862cfa
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: ae265fd760a20c1e79032f2a7d0d97a459dd5c69
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129855353"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129999461"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Comprenda los términos en el archivo de uso y cargos de Azure
 
@@ -86,7 +86,7 @@ ProductId<sup>1</sup> | MCA | Identificador único del producto.
 ProductOrderId | All | Identificador único del pedido de producto.
 ProductOrderName | All | Nombre único para el pedido del producto.
 PublisherName | All | Editor de los servicios de Marketplace.
-PublisherType | All | Tipo de publicador (valores: **Azure**, **AWS**, **Marketplace**).
+PublisherType | All | Tipo de publicador. Divida los costos de Microsoft/Azure, Marketplace y AWS.  Los valores son `Microsoft` para cuentas de MCA y `Azure` para cuentas de EA y de pago por uso.|
 Cantidad | All | Número de unidades compradas o consumidas.
 ReservationId | EA, MCA | Identificador único de la instancia de la reserva comprada.
 ReservationName | EA, MCA | Nombre de la instancia de la reserva comprada.
@@ -112,7 +112,7 @@ _<sup>**1**</sup> Campos que se usan para crear un identificador único para un 
 Tenga en cuenta que algunos campos pueden diferir en cuanto a mayúsculas, minúsculas y espacios entre un tipo de cuenta y otro.
 Las versiones anteriores de archivos de utilización de pago por uso tienen secciones independientes para el resumen de cuenta y el uso diario.
 
-En el caso de clientes con un contrato MCA, tenga en cuenta que hay cambios en los valores del campo `PublisherType`. Para obtener más información, consulte [Cambios en los valores de tipo de publicador](../costs/group-filter.md#changes-to-publisher-type-values).
+En el caso de clientes con un contrato MCA, tenga en cuenta que hay cambios en los valores del campo `PublisherType`. Para obtener más información, consulte [Cambios en los valores de tipo de publicador](../costs/group-filter.md#publisher-type-value-changes).
 
 ### <a name="list-of-terms-from-older-apis"></a>Lista de términos de API anteriores
 En la tabla siguiente se asignan los términos que se usan en las API anteriores a los nuevos términos. Consulte la tabla anterior para ver las descripciones.

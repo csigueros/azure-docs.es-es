@@ -1,5 +1,5 @@
 ---
-title: Conexión al origen de datos a Data Collector API de Azure Sentinel para ingerir datos | Microsoft Docs
+title: Conexión del origen de datos a Data Collector API de Azure Sentinel para ingerir datos | Microsoft Docs
 description: Obtenga información sobre cómo conectar sistemas externos a Data Collector API de Azure Sentinel para ingerir sus datos de registro en registros personalizados del área de trabajo.
 services: sentinel
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2021
 ms.author: yelevin
-ms.openlocfilehash: aa30b85047460bffe0177c9154152d18262b44be
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3b268d95eed0456b858ab5d8d93b895faca1ee7b
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124823851"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038429"
 ---
-# <a name="connect-your-data-source-to-azure-sentinels-data-collector-api-to-ingest-data"></a>Conexión del origen de datos a Data Collector API de Azure Sentinel para ingerir datos
+# <a name="connect-your-data-source-to-the-azure-sentinel-data-collector-api-to-ingest-data"></a>Conexión del origen de datos a Data Collector API de Azure Sentinel para ingerir datos
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 

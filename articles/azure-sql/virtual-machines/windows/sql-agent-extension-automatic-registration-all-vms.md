@@ -1,8 +1,8 @@
 ---
 title: Registro automático con la extensión Agente de IaaS de SQL
 description: Obtenga información sobre cómo habilitar la característica de registro automático para registrar automáticamente todas las VM con SQL Server pasadas y futuras con la extensión Agente de IaaS de SQL mediante Azure Portal.
-author: MashaMSFT
-ms.author: mathoma
+author: adbadram
+ms.author: adbadram
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.subservice: management
@@ -11,17 +11,18 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 9/01/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0e1193dea6826e4188a7d8f933d2c0a2637a72c1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.reviewer: mathoma
+ms.openlocfilehash: c41e2add335e423a31cc9f804bf643b45641a3d7
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128650161"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130164540"
 ---
 # <a name="automatic-registration-with-sql-iaas-agent-extension"></a>Registro automático con la extensión Agente de IaaS de SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Habilite la característica de registro automático en Azure Portal para registrar automáticamente todas las máquinas de Azure Virtual Machines con SQL Server pasadas y futuras con la [extensión Agente de IaaS de SQL](sql-server-iaas-agent-extension-automate-management.md) en modo ligero. 
+Habilite la característica de registro automático en Azure Portal para registrar automáticamente todas las máquinas de Azure Virtual Machines con SQL Server pasadas y futuras con la [extensión Agente de IaaS de SQL](sql-server-iaas-agent-extension-automate-management.md) en modo ligero. De forma predeterminada, las VM de Azure que tienen SQL Server 2016 o posterior instalado se registrarán automáticamente con la extensión Agente de IaaS de SQL cuando el [servicio CEIP](/sql/sql-server/usage-and-diagnostic-data-configuration-for-sql-server)la detecta. Para obtener más información, consulte [Complemento de privacidad de SQL Server](/sql/sql-server/sql-server-privacy#non-personal-data).
 
 En este artículo se enseña a habilitar la característica de registro automático. Como alternativa, puede [registrar una única VM](sql-agent-extension-manually-register-single-vm.md) o [registrar las VM de forma masiva](sql-agent-extension-manually-register-vms-bulk.md) con la extensión Agente de IaaS de SQL. 
 
@@ -33,6 +34,10 @@ En este artículo se enseña a habilitar la característica de registro automát
 Registro de la VM con SQL Server con la [extensión Agente de IaaS de SQL](sql-server-iaas-agent-extension-automate-management.md) para desbloquear todo el conjunto de ventajosas características. 
 
 Cuando el registro automático está habilitado, un trabajo se ejecuta diariamente para detectar si SQL Server está instalado en todas las máquinas virtuales no registradas de la suscripción. Para ello, copie los archivos binarios de extensión del agente de IaaS de SQL en la máquina virtual y, a continuación, ejecute una utilidad puntual que compruebe el subárbol del Registro de SQL Server. Si se detecta el subárbol de SQL Server, la máquina virtual se registra con la extensión en modo ligero. Si no existe ningún subárbol de SQL Server en el Registro, se quitan los archivos binarios. El registro automático puede tardar hasta 4 días en detectar máquinas virtuales con SQL Server recién creadas.
+
+> [!CAUTION]
+> Si el subárbol de SQL Server no está presente en el Registro, la eliminación de los archivos binarios podría verse afectada si hay [bloqueos de recursos](/azure/governance/blueprints/concepts/resource-locking#locking-modes-and-states) en su lugar. 
+
 
 Una vez que el registro automático esté habilitado para una suscripción, todas las máquinas virtuales actuales y futuras que tengan SQL Server instalado se registrarán con la extensión de agente de IaaS de SQL **en modo ligero sin tiempo de inactividad y sin reiniciar el servicio de SQL Server**. Aún debe [actualizar manualmente al modo de administración completo](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full) para aprovechar todo el conjunto de características. El tipo de licencia predeterminado es el de la imagen de máquina virtual. Si usa una imagen de pago por uso para la máquina virtual, el tipo de licencia será `PAYG`; de lo contrario, el tipo de licencia será `AHUB` de forma predeterminada. 
 

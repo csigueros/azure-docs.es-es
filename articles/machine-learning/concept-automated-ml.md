@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.date: 07/01/2021
 ms.custom: automl
-ms.openlocfilehash: 51094590cde45093731e1ac593f4f706e3dad660
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 7f6f3a4b24753cf20284f69b2a1e2a06e6cb3522
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129427027"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998413"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>¿Qué es el aprendizaje automático automatizado (AutoML)?
 
@@ -42,9 +42,10 @@ Azure Machine Learning ofrece las dos experiencias siguientes para trabajar con 
 Los valores siguientes le permiten configurar el experimento de aprendizaje automático automatizado. 
 
 | |SDK de Python|La experiencia web de Studio|
-----|:----:|:----:
+|----|:----:|:----:|
 |**Divide los datos en conjuntos de entrenamiento y validación**| ✓|✓
 |**Admite tareas de Machine Learning: clasificación, regresión y predicción**| ✓| ✓
+|**Admite tareas de Computer Vision (versión preliminar): clasificación de imágenes, detección de objetos y segmentación de instancias**| ✓| 
 |**Optimiza en función de la métrica principal**| ✓| ✓
 |**Admite el proceso de Azure Machine Learning como destino de proceso** | ✓|✓
 |**Configura el horizonte de previsión, los intervalos de destino y el período acumulado**|✓|✓
@@ -82,7 +83,7 @@ Estos valores le permiten revisar y controlar las ejecuciones de los experimento
 |**Obtiene límites de protección**| ✓|✓|
 |**Pausar y reanudar ejecuciones**| ✓| |
 
-## <a name="when-to-use-automl-classification-regression--forecasting"></a>Cuándo usar AutoML: clasificación, regresión y previsión
+## <a name="when-to-use-automl-classification-regression-forecasting--computer-vision"></a>Cuándo usar AutoML: clasificación, regresión, previsión y Computer Vision
 
 Aplique aprendizaje automático automatizado cuando quiera que Azure Machine Learning entrene y ajuste un modelo automáticamente con la métrica de destino que especifique. El aprendizaje automático automatizado democratiza el proceso de desarrollo del modelo de Machine Learning y permite que los usuarios (independientemente de su experiencia en ciencia de datos) identifiquen una canalización de aprendizaje automático completa para cualquier problema.
 
@@ -125,13 +126,43 @@ La configuración de previsión avanzada incluye:
 
 Vea ejemplos de regresión y aprendizaje automático automatizado para predicciones en estos cuadernos de Python: [Previsión de ventas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb), [Previsión de la demanda](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) y [Previsión de producción de bebidas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb).
 
+### <a name="computer-vision-preview"></a>Computer Vision (versión preliminar)
+
+> [!IMPORTANT]
+> Esta característica actualmente está en su versión preliminar pública. Esta versión preliminar se proporciona sin un contrato de nivel de servicio. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+ML automatizado para imágenes (versión preliminar) agrega compatibilidad con tareas de Computer Vision, lo que permite generar fácilmente modelos entrenados en datos de imagen para escenarios como la clasificación de imágenes y la detección de objetos. 
+
+Con esta funcionalidad, puede: 
+ 
+* Integrar sin problemas con la funcionalidad de [etiquetado de datos de Azure Machine Learning](how-to-create-labeling-projects.md).
+* Usar datos etiquetados para generar modelos de imagen.
+* Optimizar el rendimiento del modelo especificando el algoritmo de modelo y ajustando los hiperparámetros. 
+* Descargar o implementar el modelo resultante como un servicio web en Azure Machine Learning. 
+* Operacionalizar a gran escala, aprovechando las funcionalidades de [MLOps](concept-model-management-and-deployment.md) y [canalizaciones de ML](concept-ml-pipelines.md) de Azure Machine Learning. 
+
+La creación de modelos de aprendizaje automático automatizado para tareas de visión se admite a través del SDK de Python de Azure ML. Se puede acceder a las ejecuciones, modelos y salidas de experimentación resultantes desde la UI de Estudio de Azure Machine Learning.
+
+Aprenda a [configurar el entrenamiento de AutoML para modelos de Computer Vision](how-to-auto-train-image-models.md).
+
+![Ejemplos de tareas de Computer Vision. Imagen de: http://cs231n.stanford.edu/slides/2021/lecture_15.pdf](./media/concept-automated-ml/automl-computer-vision-tasks.png) Imagen de: http://cs231n.stanford.edu/slides/2021/lecture_15.pdf
+
+ML automatizado para imágenes admite las siguientes tareas de Computer Vision: 
+
+Tarea | Descripción
+----|----
+Clasificación de imágenes de varias clases | Tareas en las que una imagen se clasifica con una sola etiqueta de un conjunto de clases; por ejemplo, cada imagen se clasifica como una imagen de un "gato", un "perro" o un "pato".
+Clasificación de imágenes con varias etiquetas | Tareas en las que una imagen podría tener una o varias etiquetas de un conjunto de etiquetas; por ejemplo, una imagen podría etiquetarse con "gato" y "perro".
+Detección de objetos| Tareas para identificar objetos en una imagen y localizar cada objeto con un rectángulo delimitador, por ejemplo, localizar todos los perros y gatos de una imagen y dibujar un rectángulo delimitador alrededor de cada uno.
+Segmentación de instancias | Tareas para identificar objetos de una imagen en el nivel de píxel, dibujando un polígono alrededor de cada objeto de la imagen.
+
 ## <a name="how-automated-ml-works"></a>Funcionamiento del aprendizaje automático
 
 Durante el entrenamiento, Azure Machine Learning crea una serie de canalizaciones en paralelo que prueban distintos parámetros y algoritmos. El servicio recorre en iteración los algoritmos de ML que corresponden con las selecciones de características, de forma que cada iteración genera un modelo con una puntuación de entrenamiento. Cuanto mayor sea la puntuación, mejor se "ajustará" el modelo a sus datos.  Se detendrá una vez que logre los criterios de salida definidos en el experimento. 
 
 Si usa **Azure Machine Learning**, puede diseñar y ejecutar sus experimentos de entrenamiento de Machine Learning automatizado mediante los siguientes pasos:
 
-1. **Identifique el problema de Machine Learning** que quiere solucionar: clasificación, previsión o regresión.
+1. **Identifique el problema de Machine Learning** que quiere solucionar: clasificación, previsión, regresión o Computer Vision (versión preliminar).
 
 1. **Elija si desea usar el SDK de Python o la experiencia web de Studio**: Aprenda sobre la paridad entre el [SDK de Python y la experiencia web de Studio](#parity).
 
@@ -154,7 +185,6 @@ En el siguiente diagrama se muestra este proceso.
 También puede inspeccionar la información de ejecución registrada, que [contiene las métricas](how-to-understand-automated-ml.md) que se recopilan durante la ejecución. La ejecución del entrenamiento genera un objeto serializado de Python (archivo `.pkl`) que contiene el modelo y el preprocesamiento de los datos.
 
 Aunque se automatiza la creación del modelo, también puede [conocer las características importantes o pertinentes](how-to-configure-auto-train.md#explain) de los modelos generados.
-
 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
@@ -221,20 +251,20 @@ Tenga en cuenta estos factores al elegir el destino de proceso:
 Cuando elija entre local y remoto tenga en cuenta estas ventajas y desventajas.
 
 |  | Ventajas (a favor)  |Desventajas (en contra)  |
-|---------|---------|---------|---------|
+|---------|---------|---------|
 |**Destino de proceso local** |  <li> No hay tiempo de inicio del entorno   | <li>  Subconjunto de características<li>  No se pueden realizar ejecuciones en paralelo <li> Peor para datos de gran tamaño <li>Sin streaming de datos durante el entrenamiento <li>  No hay características basadas en DNN <li> Solo SDK de Python |
 |**Clústeres de proceso de ML remotos**|  <li> Conjunto completo de características <li> Realización de ejecuciones secundarias en paralelo <li>   Compatibilidad con datos de gran tamaño<li>  Características basadas en DNN <li>  Escalabilidad dinámica del clúster de proceso a petición <li> Sin experiencia de código (interfaz de usuario web) también disponible  |  <li> Tiempo de inicio de los nodos de clúster <li> Tiempo de inicio para cada ejecución secundaria    |
 
 ### <a name="feature-availability"></a>Disponibilidad de características 
 
- Hay más características disponibles cuando se usa el proceso remoto, tal como se muestra en la tabla siguiente. 
+Hay más características disponibles cuando se usa el proceso remoto, tal como se muestra en la tabla siguiente. 
 
 | Característica                                                    | Remote | Local | 
 |------------------------------------------------------------|--------|-------|
 | Streaming de datos (compatibilidad con datos de gran tamaño, hasta 100 GB)          | ✓      |       | 
 | Características de texto y entrenamiento basados en DNN-BERT             | ✓      |       |
 | Compatibilidad de GPU integrada (entrenamiento e inferencia)        | ✓      |       |
-| Compatibilidad con la clasificación y etiquetado de imágenes                  | ✓      |       |
+| Compatibilidad con el etiquetado y la clasificación de imágenes (versión preliminar)        | ✓      |       |
 | Modelos Auto-ARIMA, Prophet y ForecastTCN para la previsión | ✓      |       | 
 | Varias ejecuciones/iteraciones en paralelo                       | ✓      |       |
 | Creación de modelos con la funcionalidad de interpretación en la interfaz de usuario de la experiencia web de AutoML Studio      | ✓      |       |
@@ -243,6 +273,7 @@ Cuando elija entre local y remoto tenga en cuenta estas ventajas y desventajas.
 | Compatibilidad con el flujo de trabajo de canalización de Azure ML                         | ✓      |       |
 | Continuación de una ejecución                                             | ✓      |       |
 | Previsión                                                | ✓      | ✓     |
+| Computer Vision (versión preliminar)                                  | ✓      |       |
 | Creación y ejecución de experimentos en cuadernos                    | ✓      | ✓     |
 | Registro y visualización de la información y las métricas del experimento en la interfaz de usuario | ✓      | ✓     |
 | Límites de protección de datos                                            | ✓      | ✓     |
@@ -266,8 +297,10 @@ Hay varios recursos que le ayudarán a ponerse en marcha con AutoML.
 Los tutoriales son ejemplos de introducción de un extremo a otro de escenarios de AutoML.
 + **Para una experiencia basada en código**, consulte [Tutorial: Entrenamiento de un modelo de regresión con AutoML y Python](tutorial-auto-train-models.md).
 
- + **Para una experiencia sin código o con poco código**, consulte [Tutorial: Entrenamiento de un modelo de clasificación con aprendizaje automático automatizado sin código en el Estudio de Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
++ **Para una experiencia sin código o con poco código**, consulte [Tutorial: Entrenamiento de un modelo de clasificación con aprendizaje automático automatizado sin código en el Estudio de Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
 
++ **Para usar AutoML para entrenar modelos de Computer Vision**, consulte el [Tutorial: Entrenamiento de un modelo de detección de objetos (versión preliminar) con AutoML y Python](tutorial-auto-train-image-models.md).
+   
 Los artículos de procedimientos proporcionan información adicional sobre la funcionalidad que ofrece AutoML. Por ejemplo, 
 
 + Configure de los experimentos de aprendizaje automáticos
@@ -276,6 +309,8 @@ Los artículos de procedimientos proporcionan información adicional sobre la fu
 
 +  Obtenga información sobre cómo [entrenar modelos de previsión con datos de series temporales](how-to-auto-train-forecast.md).
 
++  Obtenga más información sobre cómo [entrenar modelos de Computer Vision con Python](how-to-auto-train-image-models.md).
+   
 ### <a name="jupyter-notebook-samples"></a>Muestras de cuaderno de Jupyter 
 
 Revise los ejemplos de código y los casos de uso detallados en el repositorio del [cuaderno de GitHub para obtener muestras de aprendizaje automático automatizado](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/).

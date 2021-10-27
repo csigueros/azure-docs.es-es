@@ -4,7 +4,7 @@ description: Recomendaciones sobre cuándo usar identidades administradas asigna
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: daveba
+manager: karenh444
 editor: ''
 ms.service: active-directory
 ms.subservice: msi
@@ -12,14 +12,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 05/21/2021
+ms.date: 10/15/2021
 ms.author: barclayn
-ms.openlocfilehash: dec6cb642c5a5899354912f133decde45d631406
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e25ebb85071b6d0af2696083afda45a453c5841a
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953335"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131037"
 ---
 # <a name="managed-identity-best-practice-recommendations"></a>Procedimientos recomendados para identidades administradas
 
@@ -82,6 +82,21 @@ En el ejemplo siguiente, "Virtual Machine 4" tiene una identidad asignada por el
 ## <a name="limits"></a>Límites 
 
 Vea los límites de las [identidades administradas](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits) y de los [roles personalizados y asignaciones de roles](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits).
+
+## <a name="follow-the-principle-of-least-privilege-when-granting-access"></a>Cumplimiento del principio de privilegios mínimos al conceder acceso
+
+Al conceder a cualquier identidad, incluida una identidad administrada, los permisos para acceder a los servicios, conceda siempre los permisos mínimos necesarios para realizar las acciones deseadas. Por ejemplo, si se usa una identidad administrada para leer datos de una cuenta de almacenamiento, no es necesario permitir que esa identidad tenga permisos para escribir también datos en la cuenta de almacenamiento. Conceder permisos adicionales, como por ejemplo convertir la identidad administrada en colaboradora en una suscripción de Azure cuando no es necesario, aumenta el radio de impacto de seguridad asociado a la identidad. Siempre se debe minimizar el radio de impacto de seguridad para que, si se pone en peligro esa identidad, se causen los daños mínimos.
+
+### <a name="consider-the-effect-of-assigning-managed-identities-to-azure-resources"></a>Consideración del efecto de asignar identidades administradas a recursos de Azure
+
+Es importante tener en cuenta que cuando se asigna una identidad administrada a un recurso de Azure, como una aplicación lógica de Azure, una función de Azure, una máquina virtual, etc., todos los permisos concedidos a la identidad administrada ahora están disponibles para el recurso de Azure. Esto es especialmente importante porque si un usuario tiene acceso para instalar o ejecutar código en este recurso, el usuario tiene acceso a todas las identidades asignadas o asociadas al recurso de Azure. El propósito de la identidad administrada es proporcionar al código que se ejecuta en un recurso de Azure acceso a otros recursos, sin necesidad de que los desarrolladores manipulen o introduzcan las credenciales directamente en el código para obtener ese acceso.
+
+Por ejemplo, si a una identidad administrada (ClientId = 1234) se le ha concedido acceso de lectura y escritura a ***StorageAccount7755** _ y se ha asignado a _*_LogicApp3388_*_, Alice, que no tiene ningún permiso directo sobre la identidad administrada o la cuenta de almacenamiento, pero tiene permiso para ejecutar código en _*_LogicApp3388_*_, también puede leer o escribir datos en o desde _ *_StorageAccount7755_** mediante la ejecución del código que usa la identidad administrada.
+
+:::image type="content" source="media/managed-identity-best-practice-recommendations/security-considerations.png" alt-text="escenario de seguridad":::
+
+En general, al conceder a un usuario acceso administrativo a un recurso que puede ejecutar código (como una aplicación lógica) y tiene una identidad administrada, tenga en cuenta si el rol que se asigna al usuario puede instalar o ejecutar código en el recurso y, en caso afirmativo, asigne ese rol solo si el usuario realmente lo necesita.
+
 
 ## <a name="maintenance"></a>Mantenimiento
 

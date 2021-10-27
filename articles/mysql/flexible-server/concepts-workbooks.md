@@ -1,29 +1,31 @@
 ---
-title: Supervisión de la opción de servidor flexible de Azure Database for MySQL con Libros de Azure Monitor
-description: Describe cómo se puede supervisar la opción de servidor flexible de Azure Database for MySQL con Libros de Azure Monitor.
+title: 'Supervisión de Azure Database for MySQL: servidor flexible con libros de Azure Monitor'
+description: 'En este artículo se explica cómo supervisar Azure Database for MySQL: servidor flexible con libros de Azure Monitor.'
 author: SudheeshGH
 ms.author: sunaray
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/01/2021
-ms.openlocfilehash: a773048b2d1ddf8ad7b7993ef7975517506bbd07
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: aa26531dd9f644b4dc5b3343674abd7920fe57dd
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129620917"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064597"
 ---
-# <a name="monitoring-azure-database-for-mysql---flexible-server-with-azure-monitor-workbooks"></a>Supervisión de la opción de servidor flexible de Azure Database for MySQL con Libros de Azure Monitor
+# <a name="monitor-azure-database-for-mysql-flexible-server-by-using-azure-monitor-workbooks"></a>Supervisión de Azure Database for MySQL: servidor flexible con libros de Azure Monitor
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-La opción de servidor flexible de Azure Database for MySQL ahora está integrada con Libros de Azure Monitor. Los libros proporcionan un lienzo flexible para el análisis de datos y la creación de informes visuales completos en el Azure Portal. Permiten acceder a varios orígenes de datos desde Azure y combinarlos en experiencias interactivas unificadas. Las plantillas de los libros sirven como informes seleccionados que están diseñados para que varios usuarios y equipos puedan reutilizarlos de forma flexible. Al abrir una plantilla se crea un libro transitorio que se rellena con el contenido de la plantilla. Con esta integración, el servidor tiene un vínculo a libros y algunas plantillas de ejemplo que ayudan a supervisar el servicio a gran escala. Estas plantillas se pueden editar, personalizar según los requisitos del cliente y anclarse al panel para crear una vista centrada y organizada de los recursos de Azure.
- 
-En este artículo, obtendrá información sobre las distintas plantillas de libros disponibles para el servidor flexible.
+Azure Database for MySQL: servidor flexible ahora está integrado con los libros de Azure Monitor. Con los libros se obtiene un lienzo flexible para analizar datos y crear informes visuales enriquecidos dentro de Azure Portal. Los libros permiten acceder a varios orígenes de datos de Azure y combinarlos en experiencias interactivas unificadas. Las plantillas de libro sirven como informes mantenidos diseñados para que varios usuarios y equipos puedan reutilizarlos de forma flexible. 
 
-Tenemos tres plantillas predeterminadas disponibles para la opción de servidor flexible de Azure Database for MySQL.
+Al abrir una plantilla, se crea un libro transitorio que se rellena con el contenido de la plantilla. Con esta integración, el servidor se vincula a los libros y a algunas plantillas de ejemplo, lo que ayuda a supervisar el servicio a gran escala. Puede editar estas plantillas, personalizarlas según los requisitos y anclarlas al panel para crear una vista centrada y organizada de los recursos de Azure.
  
-- **Información general:** proporciona el resumen de instancia y las métricas generales para ayudar a comprender el uso de los recursos en el servidor. Podrá ver los detalles siguientes para el servidor flexible de Azure Database for MySQL.
+En este artículo va a obtener información sobre las distintas plantillas de libro disponibles para el servidor flexible.
+
+Azure Database for MySQL: servidor flexible tiene tres plantillas disponibles:
+ 
+- **Información general**: muestra un resumen de instancia y métricas generales para ayudar a visualizar y comprender el uso de recursos en el servidor. Esta plantilla muestra las vistas siguientes:
 
     * Resumen de servidor 
     * Resumen de base de datos
@@ -31,7 +33,7 @@ Tenemos tres plantillas predeterminadas disponibles para la opción de servidor 
     * Métricas de rendimiento 
     * Métricas de almacenamiento 
 
-* **Auditoría:** resumen y detalles de los eventos de auditoría recopilados del servidor. Están disponibles las vistas siguientes con esta plantilla para el servidor flexible de Azure Database for MySQL.
+* **Auditoría**: muestra un resumen y detalles de los eventos de auditoría recopilados del servidor. Esta plantilla muestra las vistas siguientes:
 
     * Acciones administrativas en el servicio
     * Resumen de auditoría
@@ -40,28 +42,28 @@ Tenemos tres plantillas predeterminadas disponibles para la opción de servidor 
     * Resumen de acceso a tablas
     * Errores identificados
 
-* **Información de rendimiento de consultas:** resumen y detalles de la carga de trabajo de consultas en la instancia, consultas de larga duración, análisis de consultas lento y métricas de conexión. Está disponible la vista siguiente con esta plantilla para el servidor flexible de Azure Database for MySQL.
+* **Información de rendimiento de consultas**: muestra un resumen y detalles de la carga de trabajo de consultas en la instancia, consultas de larga duración, análisis de consultas lentas y métricas de conexión. Esta plantilla muestra las vistas siguientes:
 
     * Carga de consultas
     * Conexiones activas totales
-    * Tendencia de consultas lentas (Tiempo de consulta > 10 segundos)
-    * Detalles de consultas lentas
-    * Muestre una lista de las cinco consultas más largas.
+    * Tendencia de consultas lentas (> 10 segundos de tiempo de consulta)
+    * Detalles de la consulta lenta
+    * Lista de las 5 consultas de mayor duración
     * Resuma las consultas lentas por tiempo de consulta mínimo, máximo, promedio y de desviación estándar.
 
-También puede editar estas plantillas y personalizarlas según sus necesidades. Para más información, consulte [Libros de Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md#editing-mode).
+También puede editar y personalizar estas plantillas según sus necesidades. Para obtener más información, vea [Libros de Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md#editing-mode).
 
- ## <a name="how-to-access-workbook-templates"></a>Acceso a las plantillas de libro
+ ## <a name="access-the-workbook-templates"></a>Acceso a las plantillas de libro
 
-Para ver las plantillas en Azure Portal, vaya a la hoja **Supervisión** del servidor flexible de Azure Database for MySQL y seleccione **Libros**.
+Para ver las plantillas en Azure Portal, vaya al panel **Supervisión** de Azure Database for MySQL: servidor flexible y seleccione **Libros**.
 
-:::image type="content" source="./media/concept-workbook/monitor-workbooks-all.png" alt-text="Diagrama que muestra los libros.":::
+:::image type="content" source="./media/concept-workbook/monitor-workbooks-all.png" alt-text="Captura de pantalla que muestra las plantillas &quot;Información general&quot;, &quot;Auditoría&quot; e &quot;Información de rendimiento de consultas&quot; en el panel Libros.":::
 
-También puede ver la lista de plantillas; para ello, vaya a **Plantillas públicas**.
+También puede mostrar la lista de plantillas si va al panel **Plantillas públicas**.
 
-:::image type="content" source="./media/concept-workbook/monitor-workbooks-public.png" alt-text="Diagrama que muestra las plantillas de libros":::
+:::image type="content" source="./media/concept-workbook/monitor-workbooks-public.png" alt-text="Diagrama que muestra las plantillas &quot;Información general&quot;, &quot;Auditoría&quot; e &quot;Información de rendimiento de consultas&quot; en el panel &quot;Plantillas públicas&quot;.":::
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Control de acceso](../../azure-monitor/visualize/workbooks-access-control.md) y más información sobre las opciones enriquecidas de visualización de libros.
-- [Visualizaciones](../../azure-monitor/visualize/workbooks-overview.md#visualizations) y más información sobre las opciones enriquecidas de visualización de libros.
+- Más información sobre el [control de acceso](../../azure-monitor/visualize/workbooks-access-control.md) en los libros de Azure Monitor.
+- Más información sobre las [opciones de visualización](../../azure-monitor/visualize/workbooks-overview.md#visualizations) en los libros de Azure Monitor. 

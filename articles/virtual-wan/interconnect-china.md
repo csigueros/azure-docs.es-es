@@ -1,5 +1,5 @@
 ---
-title: Interconexión con China mediante Azure Virtual WAN y un centro de conectividad seguro
+title: 'Arquitectura: interconexión con China mediante Azure Virtual WAN y un centro de conectividad seguro'
 description: Obtenga información sobre cómo interconectarse con China mediante Azure Virtual WAN y un centro protegido.
 services: virtual-wan
 author: skishen525
@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: sukishen
-ms.openlocfilehash: 169477ffdf6fd593f1b6f01469c7303f8bd3a488
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0353cf0c8c98c148ac70121849d510aadc31d131
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96531847"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000809"
 ---
 # <a name="interconnect-with-china-using-azure-virtual-wan-and-secure-hub"></a>Interconexión con China mediante Azure Virtual WAN y un centro de conectividad seguro
 

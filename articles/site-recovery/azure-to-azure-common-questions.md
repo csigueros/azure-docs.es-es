@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 07/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: c2fb5175b077275d0c2ef5b0a37f6d4ead76b9d5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b7b99f1a5b4c52fb07b2e58c8952eb9ace1f1567
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728578"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130138263"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Preguntas frecuentes: Recuperación ante desastres de Azure a Azure
 
@@ -285,7 +285,7 @@ Un [plan de recuperación](site-recovery-create-recovery-plans.md) en Site Recov
 
 ### <a name="how-does-sequencing-work"></a>¿Cómo funciona la secuenciación?
 
-En un plan de recuperación, puede crear varios grupos de máquinas virtuales para lograr la secuenciación. Los grupos conmutan por error de uno en uno, de modo que las máquinas virtuales que forman parte del mismo grupo se conmutan por error juntas. [Más información](recovery-plan-overview.md#model-apps).
+En un plan de recuperación, puede crear hasta siete grupos de máquinas virtuales para lograr la secuenciación. Los grupos conmutan por error de uno en uno, de modo que las máquinas virtuales que forman parte del mismo grupo se conmutan por error juntas. [Más información](recovery-plan-overview.md#model-apps).
 
 ### <a name="how-can-i-find-the-rto-of-a-recovery-plan"></a>¿Cómo se puede encontrar el RTO de un plan de recuperación?
 

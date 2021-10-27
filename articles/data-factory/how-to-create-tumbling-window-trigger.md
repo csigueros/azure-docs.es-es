@@ -10,12 +10,12 @@ ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: 7b0af3fbd090eec36c69f784639ff401f5d80c46
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 44f41d0adebe21eaec28aced556f67e8c1aeda1d
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124831434"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047235"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Creación de un desencadenador que ejecuta una canalización en una ventana de saltos de tamaño constante
 
@@ -25,9 +25,9 @@ En este artículo se explica cómo crear, iniciar y supervisar un desencadenador
 
 Los desencadenadores de ventana de saltos de tamaño constante son un tipo de desencadenador que se activa en un intervalo de tiempo periódico a partir de una hora de inicio especificada, mientras conserva el estado. Las ventanas de saltos de tamaño constante son una serie de intervalos de tiempo de tamaño fijo, contiguos y que no se superponen. Un desencadenador de ventana de saltos de tamaño constante tiene una relación uno a uno con una canalización y solo puede hacer referencia a una única canalización. El desencadenador de ventana de saltos de tamaño constante es una alternativa de mayor peso para el desencadenador de programación, que ofrece un conjunto de características para escenarios complejos ([dependencia en otros desencadenadores de ventana de saltos de tamaño constante](#tumbling-window-trigger-dependency), [nueva ejecución de un trabajo con errores](tumbling-window-trigger-dependency.md#monitor-dependencies) y [definición del reintento de canalizaciones por el usuario](#user-assigned-retries-of-pipelines)). Para comprender mejor la diferencia entre el desencadenador de programación y el desencadenador de ventana de saltos de tamaño constante, visite [aquí](concepts-pipeline-execution-triggers.md#trigger-type-comparison).
 
-## <a name="ui-experience"></a>Experiencia de IU
+## <a name="azure-data-factory-and-synapse-portal-experience"></a>Azure Data Factory y la experiencia del portal de Synapse
 
-1. Para crear un desencadenador de ventana de saltos de tamaño constante en la interfaz de usuario, seleccione la pestaña de los **desencadenadores** y, a continuación, seleccione **Nuevo**. 
+1. Para crear un desencadenador periódico en Azure Portal, seleccione la pestaña de los **desencadenadores** y, a continuación, seleccione **Nuevo**. 
 1. Después de abrir el panel de configuración del desencadenador,seleccione la **ventana de saltos de tamaño constante** y, a continuación, defina las propiedades del desencadenador de la misma. 
 1. Cuando finalice, seleccione **Guardar**.
 
@@ -199,11 +199,23 @@ También puede volver a ejecutar una ventana cancelada. En esta nueva ejecución
 
 ---
 
-## <a name="sample-for-azure-powershell"></a>Ejemplo para Azure PowerShell
+## <a name="sample-for-azure-powershell-and-azure-cli"></a>Ejemplo de Azure PowerShell y la CLI de Azure
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+En esta sección se muestra cómo usar Azure PowerShell para crear, iniciar y supervisar un desencadenador.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-En esta sección se muestra cómo usar Azure PowerShell para crear, iniciar y supervisar un desencadenador.
+### <a name="prerequisites"></a>Requisitos previos
+
+- **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar. 
+
+- **Azure PowerShell**. Siga las instrucciones de [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-az-ps) (Instalar Azure PowerShell en Windows con PowerShellGet). 
+
+- **Azure Data Factory**. Siga las instrucciones de [Creación de una instancia de Azure Data Factory con PowerShell](/azure/data-factory/quickstart-create-data-factory-powershell) para crear una factoría de datos y una canalización.
+
+### <a name="sample-code"></a>Código de ejemplo
 
 1. Cree un archivo JSON llamado **MyTrigger.json** en la carpeta C:\ADFv2QuickStartPSH\ con el siguiente contenido:
 
@@ -219,6 +231,7 @@ En esta sección se muestra cómo usar Azure PowerShell para crear, iniciar y su
           "frequency": "Minute",
           "interval": "15",
           "startTime": "2017-09-08T05:30:00Z",
+          "endTime" : "2017-09-08T06:30:00Z",
           "delay": "00:00:01",
           "retryPolicy": {
             "count": 2,
@@ -241,35 +254,115 @@ En esta sección se muestra cómo usar Azure PowerShell para crear, iniciar y su
     }
     ```
 
-2. Cree un desencadenador mediante el cmdlet **Set-AzDataFactoryV2Trigger**:
+2. Cree un desencadenador mediante el cmdlet [Set-AzDataFactoryV2Trigger](/powershell/module/az.datafactory/set-azdatafactoryv2trigger):
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-3. Confirme que el estado del desencadenador es **Detenido** mediante el cmdlet **Get-AzDataFactoryV2Trigger**:
+3. Confirme que el estado del desencadenador es **Detenido** mediante el cmdlet [Get-AzDataFactoryV2Trigger](/powershell/module/az.datafactory/get-azdatafactoryv2trigger):
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. Inicie el desencadenador mediante el cmdlet **Start-AzDataFactoryV2Trigger**:
+4. Inicie el desencadenador mediante el cmdlet [Start-AzDataFactoryV2Trigger](/powershell/module/az.datafactory/start-azdatafactoryv2trigger):
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Confirme que el estado del desencadenador es **Iniciado** mediante el cmdlet **Get-AzDataFactoryV2Trigger**:
+5. Confirme que el estado del desencadenador es **Iniciado** mediante el cmdlet [Get-AzDataFactoryV2Trigger](/powershell/module/az.datafactory/get-azdatafactoryv2trigger):
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6. Haga que el desencadenador se ejecute en Azure PowerShell mediante el cmdlet **Get-AzDataFactoryV2TriggerRun**. Para obtener información sobre cómo se ejecuta el desencadenador, ejecute el siguiente comando periódicamente. Actualice los valores **TriggerRunStartedAfter** y **TriggerRunStartedBefore** para que coincidan con los valores de la definición del desencadenador:
+6. Haga que el desencadenador se ejecute en Azure PowerShell mediante el cmdlet [Get-AzDataFactoryV2TriggerRun](/powershell/module/az.datafactory/get-azdatafactoryv2triggerrun). Para obtener información sobre cómo se ejecuta el desencadenador, ejecute el siguiente comando periódicamente. Actualice los valores **TriggerRunStartedAfter** y **TriggerRunStartedBefore** para que coincidan con los valores de la definición del desencadenador:
 
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+En esta sección se muestra cómo usar la CLI de Azure para crear, iniciar y supervisar un desencadenador.
+
+### <a name="prerequisites"></a>Requisitos previos
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- Siga las instrucciones de [Creación de una instancia de Azure Data Factory con la CLI de Azure](/azure/data-factory/quickstart-create-data-factory-azure-cli) para crear una factoría de datos y una canalización.
+
+### <a name="sample-code"></a>Código de ejemplo
+
+1. En su directorio de trabajo, cree un archivo JSON llamado **MyTrigger.json** con las propiedades del desencadenador. Para este ejemplo, use el siguiente contenido:
+
+    > [!IMPORTANT]
+    > Antes de guardar el archivo JSON, establezca el valor del elemento **referenceName** con el nombre de su canalización. Establezca el valor del elemento **startTime** en la hora UTC actual. Establezca el valor del elemento **endTime** en una hora anterior a la hora UTC actual.
+
+    ```json
+    {
+        "type": "TumblingWindowTrigger",
+        "typeProperties": {
+          "frequency": "Minute",
+          "interval": "15",
+          "startTime": "2017-12-08T00:00:00Z",
+          "endTime": "2017-12-08T01:00:00Z",
+          "delay": "00:00:01",
+          "retryPolicy": {
+            "count": 2,
+            "intervalInSeconds": 30
+          },
+          "maxConcurrency": 50
+        },
+        "pipeline": {
+          "pipelineReference": {
+            "type": "PipelineReference",
+            "referenceName": "DynamicsToBlobPerfPipeline"
+          },
+          "parameters": {
+            "windowStart": "@trigger().outputs.windowStartTime",
+            "windowEnd": "@trigger().outputs.windowEndTime"
+          }
+        },
+        "runtimeState": "Started"
+    }
+    ```
+
+2. Cree un desencadenador utilizando el comando [az datafactory trigger create](/cli/azure/datafactory/trigger#az_datafactory_trigger_create):
+
+    > [!IMPORTANT]
+    > En este paso y en todos los pasos posteriores, reemplace `ResourceGroupName` por el nombre del grupo de recursos. Reemplace `DataFactoryName` por el nombre de la factoría de datos.
+
+    ```azurecli
+    az datafactory trigger create --resource-group "ResourceGroupName" --factory-name "DataFactoryName"  --name "MyTrigger" --properties @MyTrigger.json  
+    ```
+
+3. Confirme que el estado del desencadenador es **Detenido** utilizando el comando [az datafactory trigger show](/cli/azure/datafactory/trigger#az_datafactory_trigger_show):
+
+    ```azurecli
+    az datafactory trigger show --resource-group "ResourceGroupName" --factory-name "DataFactoryName" --name "MyTrigger" 
+    ```
+
+4. Inicie el desencadenador utilizando el comando [az datafactory trigger start](/cli/azure/datafactory/trigger#az_datafactory_trigger_start):
+
+    ```azurecli
+    az datafactory trigger start --resource-group "ResourceGroupName" --factory-name "DataFactoryName" --name "MyTrigger" 
+    ```
+
+5. Confirme que el estado del desencadenador es **Iniciado** utilizando el comando [az datafactory trigger show](/cli/azure/datafactory/trigger#az_datafactory_trigger_show):
+
+    ```azurecli
+    az datafactory trigger show --resource-group "ResourceGroupName" --factory-name "DataFactoryName" --name "MyTrigger" 
+    ```
+
+6. Obtenga las ejecuciones del desencadenador en la CLI de Azure mediante el comando [az datafactory trigger-run query-by-factory](/cli/azure/datafactory/trigger-run#az_datafactory_trigger_run_query_by_factory). Para obtener información sobre cómo se ejecuta el desencadenador, ejecute el siguiente comando periódicamente. Actualice los valores **last-updated-after** y **last-updated-before** para que coincidan con los valores de la definición del desencadenador:
+
+    ```azurecli
+    az datafactory trigger-run query-by-factory --resource-group "ResourceGroupName" --factory-name "DataFactoryName" --filters operand="TriggerName" operator="Equals" values="MyTrigger" --last-updated-after "2017-12-08T00:00:00Z" --last-updated-before "2017-12-08T01:00:00Z"
+    ```
+---
 
 Para supervisar las ejecuciones del desencadenador o de la canalización en Azure Portal, consulte la sección sobre la [supervisión de ejecuciones de canalización](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 

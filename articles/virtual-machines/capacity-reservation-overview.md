@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: fe50e8db24f0f280365e435d8a205e9b45ac6ccb
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b2fa87d140a9a86c3ced814d15a3898b34c9d4d1
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124774567"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072943"
 ---
 # <a name="on-demand-capacity-reservation-preview"></a>Reserva de capacidad a petición (versión preliminar)
 
@@ -38,54 +38,6 @@ Una vez que Azure acepta una solicitud de reserva, está disponible para que la 
 
 > [!NOTE]
 > La reserva de capacidad también incluye el Acuerdo de Nivel de Servicio de disponibilidad de Azure para su uso con máquinas virtuales. El Acuerdo de Nivel de Servicio no se aplicará durante la versión preliminar pública y se definirá cuando la reserva de capacidad esté disponible con carácter general.
-
-
-## <a name="register-for-capacity-reservation"></a>Registro para la reserva de capacidad 
-
-Antes de poder usar la característica Reserva de capacidad, debe registrar la suscripción para la versión preliminar. El registro puede tardar varios minutos en terminar. Puede usar la CLI de Azure o PowerShell para completar el registro de la característica.
-
-### <a name="cli"></a>[CLI](#tab/cli1)
-
-1. Use [az feature register](/cli/azure/feature#az_feature_register) para habilitar la versión preliminar para la suscripción:
-
-    ```azurecli-interactive
-    az feature register --namespace Microsoft.Compute --name CapacityReservationPreview
-    ```
-
-1. El registro de la característica puede tardar hasta 15 minutos. Compruebe el estado del registro:
-
-    ```azurecli-interactive
-    az feature show --namespace Microsoft.Compute --name CapacityReservationPreview
-    ```
-
-1. Una vez que la característica se ha registrado para la suscripción, complete el proceso de participación mediante la propagación del cambio en el proveedor de recursos de Compute:
-
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.Compute
-    ``` 
-
-### <a name="powershell"></a>[PowerShell](#tab/powershell1)
-
-1. Use el cmdlet [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) para habilitar la versión preliminar para la suscripción:
-
-    ```powershell-interactive
-    Register-AzProviderFeature -FeatureName CapacityReservationPreview -ProviderNamespace Microsoft.Compute
-    ``` 
-
-1. El registro de la característica puede tardar hasta 15 minutos. Compruebe el estado del registro:
-
-    ```powershell-interactive
-    Get-AzProviderFeature -FeatureName CapacityReservationPreview -ProviderNamespace Microsoft.Compute
-    ``` 
-
-1. Una vez que la característica se ha registrado para la suscripción, complete el proceso de participación mediante la propagación del cambio en el proveedor de recursos de Compute:
-
-    ```powershell-interactive
-    Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-    ``` 
-
---- 
-<!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
 
 ## <a name="benefits-of-capacity-reservation"></a>Ventajas de la reserva de capacidad 
 
@@ -120,6 +72,18 @@ Las reservas de capacidad tienen el mismo precio que el tamaño de máquina virt
 Si después implementa una máquina virtual D2s_v3 y especifica la reserva como su propiedad, la reserva de capacidad se usa. Una vez que esté en uso, solo pagará por la máquina virtual y nada más por la reserva de capacidad. Imagine que implementa cinco máquinas virtuales D2s_v3 en la reserva de capacidad mencionada anteriormente. Verá una factura de cinco máquinas virtuales D2s_v3 y cinco reservas de capacidad sin usar, ambas facturadas con la misma tarifa que una máquina virtual D2s_v3.    
 
 Tanto la reserva de capacidad usada como la no usada son aptas para los descuentos de compromiso de permanencia de instancias reservadas. En el ejemplo anterior, si tiene instancias reservadas para dos máquinas virtuales D2s_v3 en la misma región de Azure, la facturación de dos recursos (ya sea la máquina virtual o la reserva de capacidad sin usar) se pondrá a cero y solo pagará por el resto de los ocho recursos (es decir, cinco reservas de capacidad sin usar y tres máquinas virtuales D2s_v3). En este caso, los descuentos de compromiso de permanencia se podrían aplicar en la máquina virtual o en la reserva de capacidad sin usar, a las que se aplica la misma tarifa de pago por uso. 
+
+## <a name="difference-between-on-demand-capacity-reservation-and-reserved-instances"></a>Diferencia entre las instancias reservadas y la reserva de capacidad a petición 
+
+
+| Diferencias | Reserva de capacidad a petición | Instancias reservadas|
+|---|---|---|
+| Término | No se requiere ningún compromiso de permanencia. Se puede crear y eliminar según los requisitos del cliente | Compromiso a plazo fijo de uno o tres años|
+| Descuento de facturación | Se cobra según las tarifas de pago por uso del tamaño de la máquina virtual subyacente* | Ahorro significativo de costos con respecto a las tarifas de pago por uso |
+| Acuerdo de Nivel de Servicio de capacidad | Proporciona garantía de capacidad en la ubicación especificada (región o zona de disponibilidad) | No proporciona garantía de capacidad. Los clientes pueden elegir la "prioridad de capacidad" para obtener un mejor acceso, pero esa opción no incluye un Acuerdo de Nivel de Servicio |
+| Región frente a zonas de disponibilidad | Se puede implementar por región o por zona de disponibilidad | Solo disponible en el nivel regional |
+
+*Apto para el descuento de instancias reservadas si se compra por separado
 
 
 ## <a name="work-with-capacity-reservation"></a>Trabajo con la reserva de capacidad 

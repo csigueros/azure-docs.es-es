@@ -4,12 +4,12 @@ description: Tipos de nodos, durabilidad, confiabilidad y otros aspectos que se 
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
-ms.openlocfilehash: 0b04bc99abc2f9864ed22078f809702390d9f547
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 3bc3edfa2f3adf7dd29d7f6f1dfee3b95107950c
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110695446"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064312"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Consideraciones de planeación de capacidad del clúster de Service Fabric
 
@@ -64,7 +64,7 @@ Una consideración más detallada para las propiedades de tipo de nodo es el niv
 El *nivel de durabilidad* designa los privilegios que tienen las máquinas virtuales de Service Fabric con la infraestructura subyacente de Azure. Este privilegio permite a Service Fabric pausar cualquier solicitud de infraestructura de nivel de máquina virtual (por ejemplo, reinicio, restablecimiento de imagen inicial o migración) que afecte los requisitos de quórum para los servicios del sistema de Service Fabric y sus servicios con estado.
 
 > [!IMPORTANT]
-> El nivel de durabilidad se establece por tipo de nodo. Si no se especifica ninguno, se usará el nivel *Bronce*, pero no proporciona actualizaciones automáticas del sistema operativo. La durabilidad de *Plata* u *Oro* se recomienda para las cargas de trabajo de producción.
+> El nivel de durabilidad se establece por tipo de nodo. Si no se especifica ninguno, se usa el nivel *Bronce*. Las cargas de trabajo de producción requieren un nivel de durabilidad Plata u Oro para ayudar a evitar la pérdida de datos de las solicitudes de infraestructura de nivel de máquina virtual.
 
 En la siguiente tabla se enumeran los niveles de durabilidad de Service Fabric, sus requisitos y las prestaciones.
 

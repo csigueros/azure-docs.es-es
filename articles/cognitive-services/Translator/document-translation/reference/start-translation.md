@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/22/2021
 ms.author: v-jansk
-ms.openlocfilehash: ae867a4383b5644eca2cabf2651c2c40797ed49a
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
+ms.openlocfilehash: 39173fbd5fd6725d8307d2e390bec6b397406cb7
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112540607"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130062697"
 ---
 # <a name="start-translation"></a>Inicio de traducción
 
@@ -25,7 +25,7 @@ El filtro de prefijo y sufijo (si se proporcionan) se usan para filtrar carpetas
 
 Los glosarios/memorias de traducción pueden incluirse en la solicitud y el servicio los aplica cuando se traduce el documento.
 
-Si el glosario no es válido o no se puede acceder a él durante la traducción, se indica un error en el estado del documento. Si ya existe un archivo con el mismo nombre en el destino, se sobrescribirá. El valor de targetUrl para cada idioma de destino debe ser único.
+Si el glosario no es válido o no se puede acceder a él durante la traducción, se indica un error en el estado del documento. Si ya existe un archivo con el mismo nombre en el destino, el trabajo producirá errores. El valor de targetUrl para cada idioma de destino debe ser único.
 
 ## <a name="request-url"></a>URL de la solicitud
 

@@ -1,22 +1,22 @@
 ---
-title: RelyingParty - Azure Active Directory B2C | Microsoft Docs
+title: 'RelyingParty: Azure Active Directory B2C'
 description: Especifique el elemento RelyingParty de una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/27/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 0ce866514aef703f3b79980d94fba156c83b10f5
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
+ms.openlocfilehash: b4344626318799a79fa668784e5674730e1731cd
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112981473"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065507"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -221,6 +221,7 @@ El elemento **TechnicalProfile** contiene los elementos siguientes:
 | Descripción | 0:1 | La cadena que contiene la descripción del perfil técnico. |
 | Protocolo | 1:1 | Protocolo usado para la federación. |
 | Metadatos | 0:1 | La colección de *Item* de los pares clave-valor usados por el protocolo para comunicarse con el punto de conexión en el transcurso de una transacción para configurar la interacción entre el usuario de confianza y otros participantes de la comunidad. |
+| InputClaims | 1:1 | Una lista de tipos de notificación que se toman como entrada en el perfil técnico. Cada uno de estos elementos contiene la referencia a un **ClaimType** ya definido en la sección **ClaimsSchema** o en una directiva de la que este archivo de directiva es heredero. |
 | OutputClaims | 1:1 | Una lista de tipos de notificación que se consideran el resultado del perfil técnico. Cada uno de estos elementos contiene la referencia a un **ClaimType** ya definido en la sección **ClaimsSchema** o en una directiva de la que este archivo de directiva es heredero. |
 | SubjectNamingInfo | 1:1 | El nombre del sujeto usado en los tokens. |
 
@@ -244,6 +245,21 @@ Cuando el protocolo es `SAML`, un elemento de metadatos contiene los siguientes 
 | WantsSignedResponses| No | Indica si Azure AD B2C firma la sección `Response` de la respuesta SAML. Valores posibles: `true` (predeterminado) o `false`.  |
 | RemoveMillisecondsFromDateTime| No | Indica si se quitarán los milisegundos de los valores datetime de la respuesta SAML (es decir, de IssueInstant, NotBefore, NotOnOrAfter y AuthnInstant). Valores posibles: `false` (predeterminado) o `true`.  |
 
+### <a name="inputclaims"></a>InputClaims
+
+El elemento **InputClaims** contiene el elemento siguiente:
+
+| Elemento | Repeticiones | Descripción |
+| ------- | ----------- | ----------- |
+| InputClaim | 0:n | Un tipo de notificación de entrada esperado. |
+
+El elemento **InputClaim** contiene los atributos siguientes:
+
+| Atributo | Obligatorio | Descripción |
+| --------- | -------- | ----------- |
+| ClaimTypeReferenceId | Sí | Una referencia a un **ClaimType** ya definido en la sección **ClaimsSchema** del archivo de directiva. |
+| DefaultValue | No | Un valor predeterminado que se puede usar si el valor de notificación está vacío. |
+| PartnerClaimType | No | Envía la notificación con un nombre distinto al configurado en la definición de ClaimType. |
 
 ### <a name="outputclaims"></a>OutputClaims
 

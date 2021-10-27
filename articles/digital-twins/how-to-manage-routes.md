@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/30/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 99fbf0a6ecd232ae646639e84864addd103c1f5a
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: fb27a56dcf1661a95b6c7926a3c11628f6341446
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129807785"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130133906"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Administración de puntos de conexión y rutas en Azure Digital Twins
 
@@ -476,7 +476,7 @@ En la página principal del portal, busque la instancia de Azure Digital Twins p
 
 Desde aquí, puede ver las métricas de la instancia y crear vistas personalizadas.
 
-Para obtener más información sobre cómo ver las métricas de Azure Digital Twins, consulte [Visualización de métricas con Azure Monitor](troubleshoot-metrics.md).
+Para obtener más información sobre cómo ver las métricas de Azure Digital Twins, consulte [Solución de problemas: métricas](troubleshoot-metrics.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

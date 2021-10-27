@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con AppNeta Performance Manager | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con AppNeta Performance Manager'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y AppNeta Performance Manager.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/28/2020
+ms.date: 10/12/2021
 ms.author: jeedes
-ms.openlocfilehash: ceb7c2fcec92e89c65e03fa11db142af514090af
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 43abd1fef96a6730405fae438e3441f4982ae79c
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128619863"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129995128"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-appneta-performance-manager"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con AppNeta Performance Manager
+# <a name="tutorial-azure-ad-sso-integration-with-appneta-performance-manager"></a>Tutorial: Integración del inicio de sesión único de Azure AD con AppNeta Performance Manager
 
 En este tutorial, aprenderá a integrar AppNeta Performance Manager con Azure Active Directory (Azure AD). Al integrar AppNeta Performance Manager con Azure AD, puede:
 
@@ -103,20 +103,28 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
    | title     | user.jobtitle          |
    |           |                        |
 
-1. Para pasar correctamente las aserciones de SAML de "grupos", debe configurar roles de aplicación y establecer el valor para que coincida con las asignaciones de roles establecidas en AppNeta Performance Manager. En **Azure Active Directory** > **Registros de aplicaciones** >  **Todas las aplicaciones**, seleccione **Appneta Performance Manager**.
-1. Haga clic en **Roles de aplicación** en el panel izquierdo.
+1. Para pasar correctamente las aserciones de SAML de "grupos", debe configurar roles de aplicación y establecer el valor para que coincida con las asignaciones de roles establecidas en AppNeta Performance Manager. En **Azure Active Directory** > **Registros de aplicaciones** >  **Todas las aplicaciones**, seleccione **AppNeta Performance Manager**.
+
+   ![Captura de pantalla que muestra los registros de aplicaciones con AppNeta Performance Manager en la parte inferior. ](./media/appneta-tutorial/app-registrations.png)
+
+1. Haga clic en **Roles de aplicación** en el panel izquierdo. Aparecerá la siguiente pantalla:
+
+   ![Captura de pantalla que muestra los roles de aplicación con AppNeta Performance Manager en la parte inferior. ](./media/appneta-tutorial/app-roles.png)
+
 1. Haga clic en **Crear rol de aplicación**.
-1. En el panel **Crear rol de aplicación**, realice estos pasos:
-   1. En **Nombre para mostrar**, escriba un nombre para el rol.
-   1. En **Tipos de miembro permitidos**, seleccione **Usuarios o grupos**.
-   1. En **Valor**, escriba el valor del grupo de seguridad establecido en las asignaciones de roles de AppNeta Performance Manager.
-   1. En **Descripción**, escriba una descripción del rol.
+1. En la pantalla **Crear rol de aplicación**, siga estos pasos:
+   1. En el campo **Nombre para mostrar**, introduzca un nombre para el rol.
+   1. En el campo **Tipos de miembro permitidos**, seleccione **Usuarios o grupos**.
+   1. En el campo **Valor**, escriba el valor del grupo de seguridad establecido en las asignaciones de roles de AppNeta Performance Manager.
+   1. En el campo **Descripción**, escriba una descripción para el rol.
    1. Haga clic en **Aplicar**.
 
-1. Después de crear los roles, debe asignarlos a los usuarios y grupos. Vaya a **Azure Active Directory** > **Aplicaciones empresariales** > **Appneta Performance Manager** > **Usuarios y grupos**.
-1. Seleccione un usuario o grupo y, a continuación, asigne el rol de aplicación correspondiente al usuario o grupo.
-1. Después de asignar los roles de aplicación, vaya a **Azure Active Directory** > **Aplicaciones empresariales** > **Appneta Performance Manager** > **Inicio de sesión único**.
-1. En el panel **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
+   ![Captura de pantalla del cuadro de diálogo Crear rol de aplicación con los campos rellenados como se describe. ](./media/appneta-tutorial/create-app-role.png)
+
+1. Después de crear los roles, debe asignarlos a los usuarios o grupos. Vaya a **Azure Active Directory** > **Aplicaciones empresariales** > **AppNeta Performance Manager** > **Usuarios y grupos**.
+1. Seleccione un usuario o grupo y, a continuación, asigne el rol de aplicación deseado (creado en el paso anterior).
+1. Después de asignar los roles de aplicación, vaya a **Azure Active Directory** > **Aplicaciones empresariales** > **AppNeta Performance Manager** > **Inicio de sesión único**.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
    ![Vínculo de descarga del certificado](common/metadataxml.png)
 

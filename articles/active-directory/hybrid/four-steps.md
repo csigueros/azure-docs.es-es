@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e24ea1fa02a70e63c8eaab21acff1d1c7b625e9a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6828f1c02bbcccebcd6b96305b051ebfc996c1a7
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121727725"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130046228"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Cuatro pasos para establecer las bases de una identidad segura con Azure Active Directory
 
@@ -81,7 +81,7 @@ Azure AD Application Proxy ofrece las siguientes ventajas:
 
 En las empresas modernas, los departamentos de TI no son a menudo conscientes de todas las aplicaciones en la nube que usan los usuarios para hacer su trabajo. Cuando a los administradores de TI se les pregunta por el número de aplicaciones que creen que usan sus empleados, como media dicen 30 o 40. En realidad, los empleados de la organización usan más de 1000 aplicaciones diferentes. El 80 % de los empleados usan aplicaciones no autorizadas que nadie ha revisado y que puede que no sean compatibles con las directivas de seguridad y cumplimiento.
 
-[Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS) puede ayudarle a identificar aplicaciones útiles que son populares entre los usuarios, y que es posible que TI no autorice, y agregarlas a la galería de aplicaciones empresariales para que los usuarios puedan beneficiarse de funcionalidades como inicio de sesión único y acceso condicional.
+[Microsoft Cloud App Security (MCAS)](/cloud-app-security/what-is-cloud-app-security) puede ayudarle a identificar aplicaciones útiles que son populares entre los usuarios, y que es posible que TI no autorice, y agregarlas a la galería de aplicaciones empresariales para que los usuarios puedan beneficiarse de funcionalidades como inicio de sesión único y acceso condicional.
 
 <em>"**Cloud App Security** nos ayuda a garantizar que nuestro personal usa correctamente las aplicaciones SaaS y en la nube de formas tales que respalden las directivas de seguridad fundamentales que ayudan a proteger Accenture".</em> --- [John Blasi, director general de seguridad de la información en Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 

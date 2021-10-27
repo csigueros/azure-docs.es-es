@@ -138,6 +138,8 @@
           href: how-to-dynatrace-one-agent-monitor.md
         - name: Agente In-Process Java de New Relic
           href: how-to-new-relic-monitor.md
+        - name: Agente In-Process de AppDynamics
+          href: how-to-appdynamics-java-agent-monitor.md
         - name: Supervisión de eventos del ciclo de vida de la aplicación
           href: monitor-app-lifecycle-events.md
     - name: Red
@@ -160,7 +162,7 @@
           href: how-to-enable-system-assigned-managed-identity.md
         - name: Creación de roles y permisos
           href: how-to-permissions.md
-        - name: Uso de un certificado TLS/SSL
+        - name: Uso de certificados TLS/SSL
           href: how-to-use-tls-certificate.md
         - name: Habilitación de la seguridad de la capa de transporte de un extremo a otro
           href: how-to-enable-end-to-end-tls.md

@@ -3,15 +3,15 @@ title: 'Microsoft Teams en Azure Virtual Desktop: Azure'
 description: Procedimiento para utilizar Microsoft Teams en Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/02/2021
+ms.date: 10/15/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 63c75636fcab47a31735b772f85a8dccbb9c65f5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7b2a0c17ef0e55dc4dbe583a2dc60845dde94224
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728451"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072392"
 ---
 # <a name="use-microsoft-teams-on-azure-virtual-desktop"></a>Uso de Microsoft Teams en Azure Virtual Desktop
 
@@ -51,7 +51,7 @@ Para habilitar la optimización multimedia para Teams, establezca la siguiente c
 
 ### <a name="install-the-teams-websocket-service"></a>Instalación del servicio WebSocket de Teams
 
-Instale la [el servicio Redirector de WebRTC del Escritorio remoto](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWFYsj) en la imagen de máquina virtual. Si se produce un error de instalación, instale la [última versión de Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) e inténtelo de nuevo.
+Instale la versión más reciente del [servicio Redirector de WebRTC del Escritorio remoto](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWNg9F) en la imagen de máquina virtual. Si se produce un error de instalación, instale la [última versión de Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) e inténtelo de nuevo.
 
 #### <a name="latest-websocket-service-versions"></a>Versiones más recientes del servicio WebSocket
 
@@ -59,9 +59,17 @@ En la tabla siguiente se enumeran las versiones más recientes del servicio WebS
 
 |Versión        |Fecha de la versión  |
 |---------------|--------------|
+|1.1.2110.16001 |15/10/2021    |
 |1.0.2106.14001 |07/29/2021    |
 |1.0.2006.11001 |28/07/2020    |
 |0.11.0         |29/05/2020    |
+
+#### <a name="updates-for-version-11211016001"></a>Actualizaciones de la versión 1.1.2110.16001
+
+- Se ha corregido un problema que provocaba que la pantalla se volviese negra mientras se compartía. Si ha experimentado este problema, cambie el tamaño de la ventana de Teams para confirmar si esta actualización lo resuelve. Si el uso compartido de pantalla vuelve a funcionar después del cambio de tamaño, la actualización resolverá este problema.
+- Ahora puede controlar el volumen de las reuniones, el tono y las notificaciones desde la máquina virtual de host. Solo puede usar esta característica con la versión 1.2.2459 o posteriores del [cliente de escritorio de Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew).
+- El instalador ahora se asegurará de que Teams se cierra antes de instalar las actualizaciones.
+- Se ha corregido un problema que impedía a los usuarios volver al modo de pantalla completa después de salir de la ventana de llamada.
 
 #### <a name="updates-for-version-10210614001"></a>Actualizaciones de la versión 1.0.2106.14001
 

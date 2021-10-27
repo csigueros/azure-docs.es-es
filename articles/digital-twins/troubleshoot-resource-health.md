@@ -1,19 +1,19 @@
 ---
-title: Información del estado de los recursos
+title: 'Solución de problemas: Resource Health'
 titleSuffix: Azure Digital Twins
-description: Consulte cómo usar Azure Resource Health para comprobar el estado de la instancia de Azure Digital Twins.
+description: Aprenda a usar Azure Resource Health para comprobar el estado de la instancia de Azure Digital Twins.
 author: baanders
 ms.author: baanders
-ms.date: 8/27/2021
+ms.date: 10/7/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: 551193ebcddb023010f1cea1029571c99176afb9
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 9c816e613fe6f495de9abb57e2ac041960bffdbe
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123113097"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131455"
 ---
 # <a name="troubleshooting-azure-digital-twins-resource-health"></a>Solución de problemas de Azure Digital Twins: Estado de los recursos
 
@@ -47,7 +47,7 @@ Para obtener más información sobre el uso de Azure Service Health, consulte [I
 
 ## <a name="use-azure-status"></a>Uso del estado de Azure
 
-La página [Estado de Azure](../service-health/azure-status-overview.md) proporciona una visión global del estado de los servicios y regiones de Azure. No es tan personalizado como Azure Service Health o Azure Resource Health, pero puede ser útil para comprender los incidentes con un impacto en la carrera.
+La página [Estado de Azure](../service-health/azure-status-overview.md) proporciona una visión global del estado de los servicios y regiones de Azure. Aunque Azure Service Health y Azure Resource Health están personalizados para el recurso en cuestión, el estado de Azure tiene un ámbito mayor y puede ser útil para comprender incidentes de amplio impacto.
 
 Para comprobar el estado de Azure, vaya a la página [Estado de Azure](https://status.azure.com/status/). La página muestra una tabla de servicios de Azure junto con indicadores de estado por región. Puede ver Azure Digital Twins si busca su entrada de tabla en la página.
 
@@ -56,6 +56,6 @@ Para obtener más información sobre el uso de la página de estado de Azure, co
 ## <a name="next-steps"></a>Pasos siguientes
 
 Consulte otras formas de supervisar la instancia de Azure Digital Twins en los siguientes artículos:
-* [Solución de problemas: Visualización de métricas con Azure Monitor](troubleshoot-metrics.md)
-* [Solución de problemas: Configuración de diagnósticos](troubleshoot-diagnostics.md).
-* [Solución de problemas: Configuración de alertas](troubleshoot-alerts.md)
+* [Solución de problemas: métricas](troubleshoot-metrics.md)
+* [Solución de problemas: registros de diagnóstico](troubleshoot-diagnostics.md)
+* [Solución de problemas: alertas](troubleshoot-alerts.md)

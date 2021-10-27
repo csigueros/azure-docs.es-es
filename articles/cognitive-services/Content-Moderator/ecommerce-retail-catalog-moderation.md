@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f4bf378db5d9091cb48f2b0c813a92823bc72589
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 54069c9b37b33ab343c11b8eb3ef02712e29ea3e
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112031752"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038771"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Tutorial: Moderación de imágenes de productos de comercio electrónico con Azure Content Moderator
 
@@ -80,7 +80,7 @@ Vea el siguiente código en el método **Main**, que recorre en iteración una l
 
 ## <a name="evaluateadultracy-method"></a>Método EvaluateAdultRacy
 
-Consulte el método **EvaluateAdultRacy** en la clase **Program**. Este método emplea una dirección URL de imagen y una matriz de pares de clave-valor como parámetros. Llama a Image API de Content Moderator (mediante REST) para obtener las puntuaciones de las categorías "para adultos" y "subido de tono" de la imagen. Si la puntuación es superior a 0,4 (el intervalo es entre 0 y 1), establece el valor correspondiente en la matriz **ReviewTags** en **True**.
+Consulte el método **EvaluateAdultRacy** en la clase **Program**. Este método emplea una dirección URL de imagen y una matriz de pares de clave-valor como parámetros. Llama a la API REST de imagen de Content Moderator para obtener las puntuaciones de las categorías "para adultos" y "subido de tono" de la imagen. Si la puntuación es superior a 0,4 (el intervalo es entre 0 y 1), establece el valor correspondiente en la matriz **ReviewTags** en **True**.
 
 [!code-csharp[define EvaluateAdultRacy method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=73-113)]
 

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/22/2021
+ms.date: 10/07/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 750ed8f65db04199ea284e69693bced65a1dc8d9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 171297be3e0e8e5215c5c551e984a45d0516507e
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703140"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003163"
 ---
 ::: zone target="docs"
 
@@ -74,11 +74,16 @@ El equipo cliente que contiene los datos debe tener un puerto USB 3.0 o de una v
 
 Aquí se proporciona una lista de los tipos de almacenamiento compatibles para Data Box Disk.
 
-| **Cuenta de almacenamiento** | **Notas** |
+| **Cuenta de almacenamiento** | **Niveles de acceso admitidos** |
 | --- | --- |
-| Clásico | Estándar |
-| Uso general  |Estándar; se admiten V1 y V2. Se admiten niveles frecuentes y esporádicos. |
+| Estándar clásico | |
+| Estándar de uso general v1  | Acceso frecuente y esporádico |
+| Premium de uso general v1   |  |
+| Estándar de uso general v2<sup>*</sup> | Acceso frecuente y esporádico |
+| Premium de uso general v2   |  |
 | Cuenta de Blob Storage | |
+
+<sup>*</sup> *Se admite Azure Data Lake Storage Gen2 (ADLS Gen2).*
 
 > [!IMPORTANT]
 > Azure Blob Storage no admite el protocolo Network File System (NFS) 3.0 con Data Box Disk.

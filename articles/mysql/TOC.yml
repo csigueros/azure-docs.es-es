@@ -103,7 +103,7 @@
               displayName: firewall
         - name: Configuración de parámetros del servidor
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-server-parameters.md
               displayName: server parameters
             - name: Azure CLI
@@ -430,7 +430,7 @@
           href: flexible-server/how-to-connect-tls-ssl.md
         - name: Configuración de parámetros del servidor
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: flexible-server/how-to-configure-server-parameters-portal.md
               displayName: server parameters
             - name: Azure CLI
@@ -511,7 +511,7 @@
           items:
             - name: Administración de un servicio
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: flexible-server/how-to-manage-server-portal.md
                 - name: CLI de Azure
                   href: flexible-server/how-to-manage-server-cli.md
@@ -523,7 +523,7 @@
                   href: flexible-server/how-to-restart-stop-start-server-cli.md
             - name: Reinicio del servidor
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: flexible-server/how-to-restart-server-portal.md
                 - name: CLI de Azure
                   href: flexible-server/how-to-restart-stop-start-server-cli.md
@@ -576,7 +576,7 @@
           items:
             - name: Restauración de un servidor
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: flexible-server/how-to-restore-server-portal.md
                 - name: CLI de Azure
                   href: flexible-server/how-to-restore-server-cli.md
@@ -592,6 +592,8 @@
           href: flexible-server/sample-scripts-azure-cli.md
 - name: Migración
   items:
+    - name: Elija las herramientas adecuadas para la migración a Azure Database for MySQL
+      href: how-to-decide-on-right-migration-tools.md
     - name: Migración de datos de un entorno local de MySQL a Azure Database for MySQL >
       href: migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md
     - name: Migración de datos con mysqldump o phpmyadmin

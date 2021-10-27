@@ -3,20 +3,20 @@ title: Solución de problemas de Azure Active Directory Application Proxy
 description: Explica cómo solucionar errores en Azure Active Directory Application Proxy.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 04/27/2021
+ms.date: 10/12/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: 798f381ef067af174370fb21893c32386390449a
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.reviewer: ashishj
+ms.openlocfilehash: 12a07bb3dca953d134f3532701521ae4797358ef
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129617290"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129988608"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Solución de problemas y mensajes de error de Proxy de aplicación
 
@@ -36,7 +36,7 @@ Por ejemplo, si publica la ruta de acceso `https://yourapp/app`, pero la aplicac
 
 ## <a name="connector-errors"></a>Errores del conector
 
-Si se produce un error en el registro durante la instalación del Asistente para el conector, hay dos maneras de ver el motivo de dicho error. Se puede examinar el registro de eventos en **Registros de aplicaciones y servicios/\Microsoft\AadApplicationProxy\Connector\Admin**, o bien se puede ejecutar el siguiente comando de Windows PowerShell:
+Si se produce un error en el registro durante la instalación del Asistente para el conector, hay dos maneras de ver el motivo de dicho error. Se puede examinar el registro de eventos en **Aplicaciones o registros de Windows** (filtre por Origen = "Microsoft AAD Application Proxy Connector" o ejecute el siguiente comando de Windows PowerShell:
 
 ```powershell
 Get-EventLog application –source "Microsoft AAD Application Proxy Connector" –EntryType "Error" –Newest 1

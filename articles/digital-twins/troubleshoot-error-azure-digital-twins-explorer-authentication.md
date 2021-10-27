@@ -1,19 +1,20 @@
 ---
-title: Error de autenticación de Azure Digital Twins Explorer
-description: Causas y resoluciones para el "Error de autenticación" en Azure Digital Twins Explorer.
+title: 'Solución de problemas de Azure Digital Twins Explorer: error de autenticación'
+titleSuffix: Azure Digital Twins
+description: Obtenga información sobre cómo diagnosticar y resolver errores de autenticación en Azure Digital Twins Explorer.
 ms.service: digital-twins
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
-ms.date: 4/8/2021
-ms.openlocfilehash: ef78f1dd6089201744de19900738ebcc6e5f70db
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.date: 10/7/2021
+ms.openlocfilehash: f03c85f912271dbd5d1cb7904f159d89f4a09ba6
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114468678"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132633"
 ---
-# <a name="authentication-failed"></a>Error de autenticación
+# <a name="troubleshooting-azure-digital-twins-explorer-authentication-error"></a>Solución de problemas de Azure Digital Twins Explorer: error de autenticación
 
 En este artículo se describen las causas y los pasos de resolución al recibir un "Error de autenticación" cuando se ejecuta el ejemplo de [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) en el equipo local. 
 

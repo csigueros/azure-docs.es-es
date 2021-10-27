@@ -1,18 +1,18 @@
 ---
-title: Visualización de métricas con Azure Monitor
+title: 'Solución de problemas: métricas'
 titleSuffix: Azure Digital Twins
-description: Consulte cómo ver las métricas de Azure Digital Twins en Azure Monitor.
+description: Descubra cómo consultar las métricas de Azure Digital Twins en Azure Monitor para solucionar problemas y supervisar la instancia.
 author: baanders
 ms.author: baanders
-ms.date: 9/16/2021
+ms.date: 10/5/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 107c9e5dd3d548e3e07cd9b037162cca36aa1c8a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 47e90b6e2fd20eedc18ce598d6ea84621af7da02
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128637201"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130134134"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Solución de problemas de Azure Digital Twins: Métricas
 
@@ -36,12 +36,12 @@ Las métricas están habilitadas de forma predeterminada. Puede ver las métrica
 
     :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Captura de pantalla que muestra la página Configuración de diagnóstico y el botón para agregar en Azure Portal.":::
 
-    Para más información sobre este proceso, consulte [Solución de problemas: Configuración de diagnósticos](troubleshoot-diagnostics.md).
+    Para obtener más información sobre este proceso, consulte [Solución de problemas: registros de diagnóstico](troubleshoot-diagnostics.md).
 
 4. Para optar por configurar alertas para los datos de métricas, seleccione **Alertas** en el menú y, a continuación, **+ Nueva regla de alerta**.
     :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Captura de pantalla que muestra la página Alertas y el botón para agregar en Azure Portal.":::
 
-    Para más información sobre este proceso, consulte [Solución de problemas: Configuración de alertas](troubleshoot-alerts.md).
+    Para obtener más información sobre este proceso, consulte [Solución de problemas: alertas](troubleshoot-alerts.md).
 
 ## <a name="azure-digital-twins-metrics-and-how-to-use-them"></a>Métricas de Azure Digital Twins y cómo usarlas
 
@@ -119,4 +119,4 @@ Las dimensiones ayudan a identificar más detalles sobre las métricas. Algunas 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre la administración de las métricas registradas para Digital Twins, consulte [Solución de problemas: Configuración de diagnósticos](troubleshoot-diagnostics.md).
+Para obtener más información sobre la administración de las métricas registradas para Digital Twins, consulte [Solución de problemas: registros de diagnóstico](troubleshoot-diagnostics.md).

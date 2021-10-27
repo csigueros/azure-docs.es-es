@@ -16,12 +16,12 @@ ms.date: 09/04/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7db9a12a65cf127cb4c65e24128181ab6c0cb485
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+ms.openlocfilehash: c3aadcb1ccb4ff3a88c5fae7286f2655e41e3195
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113135039"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130138726"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticación de paso a través de Azure Active Directory: limitaciones actuales
 
@@ -43,6 +43,7 @@ Los siguientes escenarios _no_ son compatibles:
 - Detección de usuarios con [credenciales filtradas](../identity-protection/overview-identity-protection.md).
 - Azure AD Domain Services necesita tener habilitada la sincronización de hash de contraseñas en el inquilino. Por lo tanto, los inquilinos que usan la autenticación de paso a través _únicamente_ no funcionan en escenarios que necesitan Azure AD Domain Services.
 - La autenticación de paso a través no se viene integrada en [Azure AD Connect Health](./whatis-azure-ad-connect.md).
+- El inicio de sesión en dispositivos unidos a Azure AD (AADJ) con una contraseña temporal o expirada no se admite para los usuarios de autenticación transferida. Se mostrará el error "No se permite el método de inicio de sesión que intenta usar".  Estos usuarios deben iniciar sesión en un explorador para actualizar su contraseña temporal.
 
 > [!IMPORTANT]
 > Como solución alternativa _solo_ para escenarios no admitidos (excepto la integración de Azure AD Connect Health), habilite la sincronización de hash de contraseñas en la página [Características opcionales](how-to-connect-install-custom.md#optional-features) del Asistente para Azure AD Connect.

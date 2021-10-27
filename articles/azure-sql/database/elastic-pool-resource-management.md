@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 09/16/2020
-ms.openlocfilehash: 48d037e4fe18f214af0f5ecaf9eb4e9b7e3ed59e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 10/13/2021
+ms.openlocfilehash: 1bc89a91bde0cc720b56f52900c2e0b57542dfa4
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121735580"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129984162"
 ---
 # <a name="resource-management-in-dense-elastic-pools"></a>Administración de recursos en grupos elásticos densos
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,6 +37,8 @@ Este enfoque permite que los clientes usen grupos elásticos densos para consegu
 > En los grupos densos con muchas bases de datos activas, puede no ser factible aumentar el número de bases de datos del grupo hasta los máximos documentados para los grupos elásticos por [DTU](resource-limits-dtu-elastic-pools.md) y [núcleo virtual](resource-limits-vcore-elastic-pools.md).
 >
 > El número de bases de datos que se puede colocar en los grupos densos sin causar problemas de contención de recursos y rendimiento depende del número de bases de datos activas simultáneamente y de los recursos consumidos por las cargas de trabajo de usuario en cada base de datos. Este número puede cambiar con el tiempo a medida que cambian las cargas de trabajo del usuario.
+> 
+> Además, si el número mínimo de núcleos virtuales por base de datos o el número mínimo de DTU por configuración de base de datos se establece en un valor mayor que 0, el número máximo de bases de datos del grupo se limitará implícitamente. Para obtener más información, vea [Propiedades de base de datos para bases de datos de núcleos virtuales agrupadas](resource-limits-vcore-elastic-pools.md#database-properties-for-pooled-databases) y [Propiedades de base de datos para bases de datos de DTU agrupadas.](resource-limits-dtu-elastic-pools.md#database-properties-for-pooled-databases)
 
 Cuando se produce la contención de recursos en un grupo empaquetado de forma densa, los clientes pueden elegir una o varias de las siguientes acciones para mitigarla:
 
@@ -75,6 +77,9 @@ Además de estas métricas, Azure SQL Database proporciona una vista que devuelv
 |[sys.dm_resource_governor_workload_groups_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-history-ex-azure-sql-database)|Devuelve las estadísticas de uso del grupo de cargas de trabajo de los últimos 32 minutos. Cada fila representa un intervalo de 20 segundos. Las columnas `delta_` devuelven el cambio en cada estadística durante el intervalo.|
 |||
 
+> [!TIP]
+> Para consultar estas y otras vistas de administración dinámica mediante una entidad de seguridad que no sea el administrador del servidor, agregue esta entidad de seguridad al [rol de servidor](security-server-roles.md) `##MS_ServerStateReader##`.
+
 Estas vistas se pueden usar para supervisar el uso de recursos y solucionar problemas de contención de recursos casi en tiempo real. La carga de trabajo de usuario de las réplicas primarias y secundarias legibles, incluidas las réplicas geográficas, se clasifica en el grupo de recursos `SloSharedPool1` y en el grupo de cargas de trabajo `UserPrimaryGroup.DBId[N]`, donde `N` representa el valor del identificador de base de datos.
 
 Además de supervisar el uso de recursos actual, los clientes que usan grupos densos pueden mantener datos de uso de recursos históricos en un almacén de datos independiente. Estos datos se pueden usar en análisis predictivos para administrar de forma proactiva el uso de recursos en función de las tendencias históricas y estacionales.
@@ -104,9 +109,7 @@ Si el espacio de grupo utilizado (tamaño total de datos en todas las bases de d
 
 **Evite servidores demasiado densos**. Azure SQL Database [admite](./resource-limits-logical-server.md) hasta 5000 bases de datos por servidor. Los clientes que usan grupos elásticos con miles de bases de datos podrían colocar varios grupos elásticos en un solo servidor, con el número total de bases de datos hasta el límite admitido. Sin embargo, los servidores con muchos miles de bases de datos presentan complicaciones operativas. Las operaciones que requieren la enumeración de todas las bases de datos de un servidor, por ejemplo, la visualización de las bases de datos en el portal, serán más lentas. Los errores operativos, como la modificación incorrecta de los inicios de sesión de nivel de servidor o las reglas de firewall, afectarán a un mayor número de bases de datos. La eliminación accidental del servidor requerirá la asistencia del servicio de soporte técnico de Microsoft para recuperar las bases de datos del servidor eliminado y provocará una interrupción prolongada en todas las bases de datos afectadas.
 
-Se recomienda limitar el número de bases de datos por servidor a un número menor que el máximo admitido. En muchos escenarios, el uso de hasta 1000 o 2000 bases de datos por servidor se considera óptimo. Para reducir la probabilidad de eliminación accidental del servidor, se recomienda colocar un [bloqueo de eliminación](../../azure-resource-manager/management/lock-resources.md) en el servidor o en su grupo de recursos.
-
-En el pasado, algunos escenarios que implicaban migrar las bases de datos entre grupos elásticos del mismo servidor, o meterlas o sacarlas de estos, eran más rápidos que migrar las bases de datos entre servidores. Actualmente, todas las migraciones de bases de datos se ejecutan a la misma velocidad, con independencia del servidor de origen y destino.
+Se recomienda limitar el número de bases de datos por servidor a un número menor que el máximo admitido. En muchos escenarios, el uso de hasta 1000 o 2000 bases de datos por servidor se considera óptimo. Para reducir la probabilidad de eliminación accidental del servidor, coloque un [bloqueo de eliminación](../../azure-resource-manager/management/lock-resources.md) en el servidor o en su grupo de recursos.
 
 ## <a name="examples"></a>Ejemplos
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/21/2021
 ms.author: normesta
 ms.reviewer: yzheng
-ms.openlocfilehash: 8fb4583fbf04637c58795d6532dcce82ccb8168e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1268df1aaf095fd6a965b447d48a9ef4978325d7
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128624982"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130046893"
 ---
 # <a name="network-file-system-nfs-30-performance-considerations-in-azure-blob-storage"></a>Consideraciones de rendimiento de Network File System (NFS) 3.0 en Azure Blob Storage
 
@@ -23,17 +23,17 @@ Blob Storage ya es compatible con el protocolo Network File System (NFS) 3.0. En
 
 Azure Blob Storage escala linealmente hasta alcanzar el límite máximo de entrada y salida de la cuenta de almacenamiento. Por lo tanto, las aplicaciones pueden lograr un mayor rendimiento mediante el uso de más clientes. Para ver los límites de entrada y salida de la cuenta de almacenamiento, consulte [Objetivos de escalabilidad y rendimiento para cuentas de almacenamiento estándar](../common/scalability-targets-standard-account.md).
 
-En el gráfico siguiente se muestra cómo aumenta el ancho de banda a medida que se agregan más clientes. En este gráfico, un cliente es una máquina virtual y la cuenta utiliza el nivel de rendimiento estándar.
+En el gráfico siguiente se muestra cómo aumenta el ancho de banda a medida que se agregan más clientes. En este gráfico, un cliente es una máquina virtual (VM) y con una cuenta de almacenamiento de uso general v2 estándar.
 
 > [!div class="mx-imgBorder"]
 > ![Rendimiento Estándar](./media/network-file-system-protocol-support-performance/standard-performance-tier.png)
 
-En el gráfico siguiente se muestra el mismo efecto cuando se aplica a una cuenta que usa el nivel de rendimiento prémium.
+En el gráfico siguiente se muestra este mismo efecto cuando se aplica a una cuenta de almacenamiento de blobs en bloques Premium.
 
 > [!div class="mx-imgBorder"]
 > ![Rendimiento Premium](./media/network-file-system-protocol-support-performance/premium-performance-tier.png)
 
-## <a name="use-premium-performance-tier-for-small-scale-applications"></a>Uso del nivel de rendimiento prémium para aplicaciones a pequeña escala
+## <a name="use-premium-block-blob-storage-accounts-for-small-scale-applications"></a>Uso de cuentas de almacenamiento de blobs en bloques Premium para aplicaciones a pequeña escala
 
 No todas las aplicaciones se pueden escalar verticalmente agregando más clientes. Para esas aplicaciones, la [cuenta de almacenamiento de blobs en bloques prémium de Azure](../common/storage-account-create.md) ofrece una latencia baja coherente y elevadas tasas de transacciones. La cuenta de almacenamiento de blobs en bloques prémium puede alcanzar el ancho de banda máximo con menos subprocesos y clientes. Por ejemplo, con un solo cliente, una cuenta de almacenamiento de blobs en bloques prémium puede alcanzar **2,3** veces más ancho de banda en comparación con la misma configuración que se usa con una cuenta de almacenamiento v2 de uso general y rendimiento estándar.
 

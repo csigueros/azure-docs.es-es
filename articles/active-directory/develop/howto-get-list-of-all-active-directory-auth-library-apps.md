@@ -13,12 +13,12 @@ ms.date: 07/22/2021
 ms.author: shermanouko
 ms.custom: aaddev, has-adal-ref
 ms.reviewer: aiwang, marsma
-ms.openlocfilehash: 1f4a710beba53987ce555aad5526298f81d0a43c
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: c0b54b7c7e424c8c7f645fe41d7b7b57c105ca65
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129232306"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993784"
 ---
 # <a name="get-a-complete-list-of-apps-using-adal-in-your-tenant"></a>Obtención de una lista completa de aplicaciones que usan ADAL en el inquilino
 
@@ -40,9 +40,9 @@ Ningún evento de inicio de sesión que se haya producido *antes* de configurar 
 
 Una vez que haya integrado los registros de inicio de sesión y auditoría de Azure AD con Azure Monitor como se especifica en la integración de Azure Monitor, acceda al libro de inicios de sesión:
 
-   1. Inicie sesión en Azure Portal. 
-   1. Vaya a  **Azure Active Directory** > **Supervisión** > **Libros**. 
-   1. En la sección **Uso**, abra el libro  **Inicios de sesión**. 
+   1. Inicie sesión en Azure Portal.
+   1. Vaya a **Azure Active Directory** > **Supervisión** > **Libros**.
+   1. En la sección **Uso**, abra el libro **Inicios de sesión**.
 
    :::image type="content" source="media/howto-get-list-of-all-active-directory-auth-library-apps/sign-in-workbook.png" alt-text="Captura de pantalla de la interfaz de libros del portal de Azure Active Directory con el libro de inicios de sesión resaltado.":::
 

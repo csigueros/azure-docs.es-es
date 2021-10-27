@@ -1,6 +1,6 @@
 ---
 title: Planeamiento de una oferta de servicios de consultoría en el marketplace comercial
-description: Planeamiento de una nueva oferta de servicios de consultoría para Microsoft AppSource o Azure Marketplace mediante el Centro de partners.
+description: Planifique una oferta de servicios de consultoría para Microsoft AppSource o Azure Marketplace en el Centro de partners.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
@@ -8,16 +8,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: 7350fe9dfcadce2d454ab5ee9e78ad80b996bafe
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 29c7460d8d9831a671759f6bf5f1ce3711a1a12d
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129667257"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130041488"
 ---
-# <a name="plan-a-consulting-service-offer-in-the-commercial-marketplace"></a>Planeamiento de una oferta de servicios de consultoría en el marketplace comercial
+# <a name="plan-a-consulting-service-offer"></a>Planificación de una oferta de servicios de consultoría
 
-En este artículo se presentan los distintos requisitos y opciones para publicar ofertas de servicios de consultoría en el marketplace comercial de Microsoft. Lea este artículo para preparar su oferta para publicación con el Centro de partners.
+En este artículo se presentan los distintos requisitos y opciones para publicar ofertas de servicios de consultoría en el marketplace comercial. Lea este artículo para preparar su oferta para publicación con el Centro de partners.
 
 ## <a name="whats-a-consulting-service"></a>¿Qué es un servicio de consultoría?
 

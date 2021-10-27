@@ -3,7 +3,7 @@ title: Administración de máquinas virtuales con SQL Server en Azure mediante 
 description: Aprenda a acceder al recurso de máquina virtual de SQL en Azure Portal en una VM con SQL Server hospedada en Azure para modificar la configuración de SQL Server.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: management
@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2021
-ms.author: mathoma
-ms.reviewer: jroth
-ms.openlocfilehash: 37b4f063f2d08c137c44784c55cc3c47569a3c56
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.author: pamela
+ms.reviewer: mathoma
+ms.openlocfilehash: a25f5bf28feb8fcb3903094f45568e96388ec0bd
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113434595"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162158"
 ---
 # <a name="manage-sql-server-vms-by-using-the-azure-portal"></a>Administración de máquinas virtuales con SQL Server mediante Azure Portal
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -132,6 +132,6 @@ Para más información, consulte los siguientes artículos.
 * [Introducción a SQL Server en máquinas virtuales Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Preguntas más frecuentes de SQL Server en máquinas virtuales Windows](frequently-asked-questions-faq.yml)
 * [Orientación de precios de SQL Server para máquinas virtuales de Azure](pricing-guidance.md)
-* [Notas de la versión de SQL Server en Azure Virtual Machines](doc-changes-updates-release-notes.md)
+* [Novedades de SQL Server en VM de Azure](doc-changes-updates-release-notes-whats-new.md)
 
 

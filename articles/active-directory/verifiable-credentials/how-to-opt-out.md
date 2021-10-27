@@ -3,20 +3,20 @@ title: No participar en las credenciales verificables de Azure Active Directory 
 description: Obtenga información sobre cómo no participar en la versión preliminar de las credenciales verificables.
 documentationCenter: ''
 author: barclayn
-manager: daveba
+manager: karenh444
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: 1fe2d9755eac9a4048f7ed61388d0cdc7914552c
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: e46537a2bf0a9db08ec9baad810d5915450ee8ea
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110466101"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130006819"
 ---
-# <a name="opt-out-of-the-verifiable-credentials-preview"></a>No participación en las credenciales verificables (versión preliminar)
+# <a name="opt-out-of-the-verifiable-credentials-preview"></a>No participar en las credenciales verificables (versión preliminar)
 
 En este artículo:
 

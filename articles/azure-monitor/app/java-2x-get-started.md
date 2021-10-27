@@ -3,24 +3,24 @@ title: 'Inicio rápido: Análisis de aplicaciones web Java con Azure Application
 description: 'Supervisión del rendimiento de aplicaciones web de Java con Application Insights. '
 ms.topic: conceptual
 ms.date: 11/22/2020
-author: MS-jgol
 ms.custom: devx-track-java
-ms.author: jgol
-ms.openlocfilehash: 043287d8a66ee6954e171dc0c09b42963f522fac
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+author: mattmccleary
+ms.author: mmcc
+ms.openlocfilehash: 53dc6c6f757c65842512ab9c215161058d451962
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110104517"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130134039"
 ---
-# <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Inicio rápido: Introducción a Application Insights en un proyecto web de Java
+# <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introducción a Application Insights en un proyecto web de Java
 
 > [!CAUTION]
 > Este documento se aplica a Application Insights para Java 2.x, que ya no se recomienda.
 >
 > La documentación de la versión más reciente se puede encontrar en [Application Insights para Java 3.x](./java-in-process-agent.md).
 
-En este inicio rápido, se usa el SDK de Application Insights para instrumentar solicitudes, realizar un seguimiento de dependencias y recopilar contadores de rendimiento, diagnosticar problemas de rendimiento y excepciones y escribir código para realizar un seguimiento de lo que hacen los usuarios con la aplicación.
+En este tutorial, se usa el SDK de Application Insights para instrumentar solicitudes, realizar un seguimiento de dependencias y recopilar contadores de rendimiento, diagnosticar problemas de rendimiento y excepciones y escribir código para realizar un seguimiento de lo que hacen los usuarios con la aplicación.
 
 Application Insights es un servicio de análisis extensible para desarrolladores web que ayuda a comprender el rendimiento y el uso de la aplicación activa. Application Insights es compatible con aplicaciones Java que se ejecutan en Linux, Unix o Windows.
 

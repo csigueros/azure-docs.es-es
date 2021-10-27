@@ -7,19 +7,19 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/16/2021
+ms.date: 10/13/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: b8b59db6b73cdc2ecae3ca60741a892580162602
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 01261b31f1c471d030ddb095fba1fd1d7b5e2e0b
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112287767"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998463"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Pago de las suscripciones de Azure con factura
 
-Este artículo se dirige a los usuarios que tienen un Contrato de cliente de Microsoft (MCA) y que se suscribieron a Azure desde el sitio web de Azure. [Compruebe el acceso a un contrato de cliente de Microsoft](#check-access-to-a-microsoft-customer-agreement). Si se ha suscrito a Azure a través de un representante de Microsoft, el método de pago predeterminado se habrá establecido como *cheque o transferencia bancaria*.
+Este artículo se aplica a los clientes con un Contrato de cliente de Microsoft (MCA) y a los clientes que se han registrado en Azure a través del sitio web de Azure (para una cuenta del Programa de Microsoft Online Services también denominada cuenta de pago por uso). [Compruebe el acceso a un contrato de cliente de Microsoft](#check-access-to-a-microsoft-customer-agreement). Si se ha suscrito a Azure a través de un representante de Microsoft, el método de pago predeterminado se habrá establecido como *cheque o transferencia bancaria*.
 
 Si cambia al pago con factura, significa que pagará el importe en un plazo de 30 días después de la fecha de factura mediante cheque o transferencia bancaria. Para ser apto para pagar su suscripción de Azure mediante factura, envíe una solicitud a Soporte técnico de Azure. Una vez aprobada su solicitud, puede cambiar al pago con factura (cheque o transferencia bancaria) en Azure Portal.
 
@@ -68,7 +68,7 @@ Si es necesario realizar una comprobación de crédito debido a la cantidad de c
 
 Una vez aprobada su solicitud, puede cambiar al pago con factura (cheque o transferencia bancaria) en Azure Portal.
 
-Si tiene una cuenta del programa de Microsoft Online Services, puede cambiar su suscripción de Azure para pagar mediante cheque o transferencia bancaria. Con un contrato de cliente de Microsoft, puede cambiar el perfil de facturación para pagar mediante cheque o transferencia bancaria.
+Si tiene una cuenta del programa de Microsoft Online Services (pago por uso), puede cambiar su suscripción de Azure para pagar mediante cheque o transferencia bancaria. Con un contrato de cliente de Microsoft, puede cambiar el perfil de facturación para pagar mediante cheque o transferencia bancaria.
 
 ### <a name="switch-azure-subscription-to-checkwire-transfer"></a>Cambio de la suscripción de Azure para pagar mediante cheque o transferencia bancaria
 

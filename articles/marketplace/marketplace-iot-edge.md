@@ -1,24 +1,24 @@
 ---
 title: Ofertas del módulo de IoT Edge de Azure Marketplace
-description: Obtenga información sobre la publicación de ofertas de módulo de IoT Edge en Azure Marketplace.
+description: Obtenga información sobre la publicación de una oferta de módulo de IoT Edge en Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/30/2021
-ms.openlocfilehash: 8773957a2b34851babb42c6804fc21d6a9d5112b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3ab11ffb7779255a5b45a55d0098657834203d80
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128657469"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072981"
 ---
-# <a name="plan-an-iot-edge-modules-offer"></a>Planificación de una oferta de módulos de IoT Edge
+# <a name="plan-an-iot-edge-module-offer"></a>Planificación de una oferta de un módulo de IoT Edge
 
-La plataforma [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) está respaldada por Microsoft Azure.  Esta plataforma permite a los usuarios implementar cargas de trabajo en la nube para ejecutarlas directamente en dispositivos IoT.  Un módulo IoT Edge puede ejecutar las cargas de trabajo sin conexión y realizar análisis de datos localmente. Este tipo de oferta ayuda a ahorrar ancho de banda, proteger datos locales y confidenciales y ofrecer un tiempo de respuesta de baja latencia.  Ahora tiene las opciones para aprovechar las ventajas de estas cargas de trabajo creadas previamente. Hasta ahora, solo estaban disponibles un puñado de soluciones propias de Microsoft.  Tenía que invertir tiempo y recursos en compilar sus propias soluciones personalizadas de IoT.
+La plataforma [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) está respaldada por Microsoft Azure. Esta plataforma permite a los usuarios implementar cargas de trabajo en la nube para ejecutarlas directamente en dispositivos IoT.  Un módulo IoT Edge puede ejecutar las cargas de trabajo sin conexión y realizar análisis de datos localmente. Este tipo de oferta ayuda a ahorrar ancho de banda, proteger datos locales y confidenciales y ofrecer un tiempo de respuesta de baja latencia.  Ahora tiene las opciones para aprovechar las ventajas de estas cargas de trabajo creadas previamente. Hasta ahora, solo estaban disponibles un puñado de soluciones propias de Microsoft. Tenía que invertir tiempo y recursos en compilar sus propias soluciones personalizadas de IoT.
 
-Con los [módulos de IoT Edge en Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1), ahora tenemos un único destino para que los publicadores expongan y vendan sus soluciones a la audiencia de IoT. Los desarrolladores de IoT pueden en última instancia buscar y adquirir capacidades para acelerar el desarrollo de sus soluciones.  
+Con los módulos de IoT Edge en [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1), ahora tenemos un único destino para que los publicadores expongan y vendan sus soluciones a la audiencia de IoT. Los desarrolladores de IoT pueden en última instancia buscar y adquirir capacidades para acelerar el desarrollo de sus soluciones.  
 
 ## <a name="key-benefits-of-iot-edge-modules-in-azure-marketplace"></a>Principales ventajas de los módulos de IoT Edge en Azure Marketplace
 
@@ -42,7 +42,7 @@ Los módulos de IoT Edge solo se publican en Azure Marketplace; no se aplica App
 
 ## <a name="technical-requirements"></a>Requisitos técnicos
 
-Los requisitos técnicos para que un módulo IoT Edge pueda obtener la certificación y publicarse en Azure Marketplace se detallan en [Preparación de los recursos técnicos del módulo IoT Edge](iot-edge-technical-asset.md).
+Los requisitos técnicos para que un módulo de IoT Edge pueda obtener la certificación y publicarse en Azure Marketplace se detallan en [Preparación de los recursos técnicos del módulo IoT Edge](iot-edge-technical-asset.md).
 
 ## <a name="eligibility-prerequisites"></a>Requisitos previos de idoneidad
 

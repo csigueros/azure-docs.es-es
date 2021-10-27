@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/10/2021
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 448cf07b05d429106405cccc387ba9f4b84f3583
-  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+  ms.openlocfilehash: 08db77b71a6dfe8a3618b1ad875afeeeedb4575a
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/24/2021
-  ms.locfileid: "128565235"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130241770"
 landingContent:
 - title: Acerca de Azure Database for MySQL
   linkLists:
@@ -107,6 +107,8 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Elija las herramientas adecuadas para la migración a Azure Database for MySQL
+      url: how-to-decide-on-right-migration-tools.md
     - text: Guía para la migración de Azure Database for MySQL
       url: migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md
     - text: dbForge Studio for MySQL 9.0

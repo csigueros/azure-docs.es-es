@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 09/03/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 9b3e559e2fe0ea02978593aa3d2725c4e1d3b71d
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: e79329c4c3a7786e58a0a6f76488f86d21260c11
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123536435"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130050602"
 ---
 ### <a name="count-azure-resources"></a>Count Azure resources
 
@@ -149,7 +149,7 @@ Search-AzGraph -Query "Resources | summarize resourceCount=count() by subscripti
 
 ### <a name="show-resource-types-and-api-versions"></a>Mostrar tipos de recurso y versiones de API
 
-Resource Graph usa principalmente la versión no preliminar más reciente de la API de un proveedor de recursos para `GET` (Obtener) las propiedades de los recursos durante una actualización. En algunos casos, la versión de la API usada se ha invalidado para proporcionar propiedades más actuales o ampliamente utilizadas en los resultados. La siguiente consulta detalla la versión de API que se usa para recopilar propiedades en cada tipo de recurso:
+Resource Graph usa mayormente la versión no preliminar más reciente de una API de proveedor de recursos para obtener las propiedades de los recursos durante una actualización (instrucción `GET`). En algunos casos, la versión de la API usada se ha invalidado para proporcionar propiedades más actuales o ampliamente utilizadas en los resultados. La siguiente consulta detalla la versión de API que se usa para recopilar propiedades en cada tipo de recurso:
 
 ```kusto
 Resources

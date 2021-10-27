@@ -1,22 +1,22 @@
 ---
-title: 'Solicitud de token de acceso: Azure Active Directory B2C | Microsoft Docs'
+title: 'Solicitud de un token de acceso: Azure Active Directory B2C'
 description: Obtenga información sobre cómo solicitar un token de acceso de Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/26/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: df14f8fef3c5f71d5d80756eb629fc3ce5f16a74
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: de89199f3400b3d6e434916835411531f288747f
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110534571"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130041127"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Solicitud de token de acceso en Azure Active Directory B2C
 

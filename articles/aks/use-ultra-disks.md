@@ -3,15 +3,15 @@ title: Habilitación de la compatibilidad con disco Ultra en Azure Kubernetes Se
 description: Aprenda a habilitar y configurar discos Ultra en un clúster de Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/10/2020
-ms.openlocfilehash: d42834252416a2aeed40db5fe307cd97f1bbada9
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.date: 10/12/2021
+ms.openlocfilehash: 07d43fc72d10f1739fb67124feadacc9632206be
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112007308"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129984865"
 ---
-# <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Uso de discos Ultra de Azure en Azure Kubernetes Service (versión preliminar)
+# <a name="use-azure-ultra-disks-on-azure-kubernetes-service"></a>Uso de discos Ultra de Azure en Azure Kubernetes Service
 
 Los [discos Ultra de Azure](../virtual-machines/disks-enable-ultra-ssd.md) ofrecen un alto rendimiento, IOPS elevadas y un almacenamiento en disco coherente y de baja latencia para las aplicaciones con estado. Una ventaja importante de los discos Ultra es la posibilidad de cambiar dinámicamente el rendimiento del disco SSD junto con sus cargas de trabajo sin tener que reiniciar los nodos de agente. Los discos Ultra son adecuados para cargas de trabajo con un uso intensivo de datos.
 
@@ -21,18 +21,6 @@ Esta característica solo se puede establecer durante la creación del clúster 
 
 > [!IMPORTANT]
 > Los discos Ultra de Azure requieren grupos de nodos implementados en zonas de disponibilidad y regiones que admiten estos discos, así como solo series de máquinas virtuales específicas. Consulte el [**ámbito y las limitaciones de la disponibilidad general de los discos Ultra**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
-
-### <a name="install-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
-
-Para crear un clúster de AKS o un grupo de nodos que pueda usar discos Ultra, necesita la extensión de la CLI *aks-preview* más reciente. Instale la extensión de la CLI de Azure *aks-preview* con el comando [az extension add][az-extension-add] o instale las actualizaciones disponibles con el comando [az extension update][az-extension-update]:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-``` 
 
 ### <a name="limitations"></a>Limitaciones
 - Consulte el [**ámbito y las limitaciones de la disponibilidad general de los discos Ultra**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations)

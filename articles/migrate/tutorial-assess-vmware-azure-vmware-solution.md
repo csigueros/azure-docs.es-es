@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: 31bf3909012231996bd340cfa4d388f0fe20a4f5
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: a2637fbfcaf1e30b1df9f0739630ea2883eba3fa
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104782161"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994218"
 ---
 # <a name="tutorial-assess-vmware-servers-for-migration-to-avs"></a>Tutorial: Evaluación de servidores de VMware para la migración a AVS
 
@@ -62,7 +62,7 @@ Las evaluaciones se realizan como se indica a continuación:
 
 1. En **Azure Migrate: Discovery and assessment**, haga clic en **Assess** (Evaluar).
 
-   ![Ubicación del botón Assess (Evaluar)](./media/tutorial-assess-vmware-azure-vmware-solution/assess.png)
+   ![Ubicación del botón Evaluar](./media/tutorial-assess-vmware-azure-vmware-solution/assess.png)
 
 1. En **Evaluar los servidores** > **Tipo de evaluación**, seleccione **Azure VMware Solution (AVS)** .
 
@@ -127,11 +127,12 @@ Las evaluaciones se realizan como se indica a continuación:
 
 Una evaluación de AVS describe:
 
-- La preparación de AVS: para ver si los servidores locales son adecuados para la migración a Azure VMware Solution (AVS).
-- Número de nodos de AVS: número estimado de nodos de AVS necesarios para ejecutar los servidores.
-- Uso en los nodos de AVS: uso previsto de CPU, memoria y almacenamiento en todos los nodos.
-    - El uso incluye la factorización inicial de las siguientes sobrecargas de administración del clúster, como vCenter Server, NSX Manager (grande) y NSX Edge; si HCX está implementado, también las de HCX Manager y el dispositivo IX que consume ~ 44 CPU virtuales (11 CPU), 75 GB de RAM y 722 GB de almacenamiento antes de la compresión y la desduplicación. 
-- Estimación del costo mensual: los costos mensuales estimados de todos los nodos de Azure VMware Solution (AVS) que ejecutan los servidores locales.
+- **Preparación de Azure VMware Solution (AVS)** : si los servidores locales son adecuados para la migración a Azure VMware Solution (AVS).
+- **Número de nodos de Azure VMware Solution**: número estimado de nodos de Azure VMware Solution necesarios para ejecutar los servidores.
+- **Uso en los nodos de AVS**: uso previsto de CPU, memoria y almacenamiento en todos los nodos.
+    - El uso incluye la factorización inicial de las siguientes sobrecargas de administración del clúster, como vCenter Server, NSX Manager (grande) y NSX Edge; si HCX está implementado, también las de HCX Manager y el dispositivo IX que consume ~ 44 CPU virtuales (11 CPU), 75 GB de RAM y 722 GB de almacenamiento antes de la compresión y la desduplicación.
+    - El factor de limitación determina el número de hosts o nodos necesarios para alojar los recursos.
+- **Estimación del costo mensual**: los costos mensuales estimados de todos los nodos de Azure VMware Solution (AVS) que ejecutan las máquinas virtuales locales.
 
 ## <a name="view-an-assessment"></a>Visualización de una evaluación
 
@@ -143,7 +144,7 @@ Para ver una evaluación:
 
     :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-summary.png" alt-text="Resumen de la valoración de AVS":::
 
-1. Revise el resumen de valoraciones. También puede editar las propiedades de la valoración o volver a calcularla.
+1. Revise el resumen de valoraciones. Puede hacer clic en **Suposiciones de dimensionamiento** para comprender las suposiciones que se realizaron en el dimensionamiento de los nodos y el uso de recursos. También puede editar las propiedades de la valoración o volver a calcularla.
  
 
 ### <a name="review-readiness"></a>Revisión de la preparación
@@ -178,8 +179,6 @@ El resumen de evaluación muestra el costo estimado de almacenamiento y proceso 
 ### <a name="review-confidence-rating"></a>Examen de la clasificación de confianza
 
 Server Assessment asigna una clasificación de confianza a las valoraciones basadas en el rendimiento. La clasificación es de una estrella (más baja) a cinco estrellas (más alta).
-
-![Clasificación de confianza](./media/tutorial-assess-vmware-azure-vmware-solution/confidence-rating.png)
 
 La clasificación de confianza sirve de ayuda para calcular la confiabilidad de las recomendaciones de tamaño de la evaluación. Esta clasificación se basa en la disponibilidad de los puntos de datos necesarios para calcular tal valoración.
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/12/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0db83f9f2f5e7f93686506ec0f7f94153ef3501e
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 7a31cad4f2828a505eb89782bf28b01049a46cfc
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080496"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998017"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Cómo usar identidades administradas de recursos de Azure en una máquina virtual de Azure para adquirir un token de acceso 
 
@@ -54,7 +54,7 @@ Una aplicación cliente puede solicitar un [token de acceso de solo aplicación]
 | [Obtención de un token con C#](#get-a-token-using-c) | Ejemplo del uso del punto de conexión REST de identidades administradas de recursos de Azure desde un cliente de C# |
 | [Obtención de un token con Java](#get-a-token-using-java) | Ejemplo del uso del punto de conexión REST de identidades administradas de recursos de Azure desde un cliente de Java |
 | [Obtención de un token con Go](#get-a-token-using-go) | Ejemplo del uso del punto de conexión REST de identidades administradas de recursos de Azure desde un cliente de Go |
-| [Obtención de un token con Azure PowerShell](#get-a-token-using-azure-powershell) | Ejemplo del uso del punto de conexión REST de identidades administradas de recursos de Azure desde un cliente de PowerShell |
+| [Obtención de un token mediante PowerShell](#get-a-token-using-powershell) | Ejemplo del uso del punto de conexión REST de identidades administradas de recursos de Azure desde un cliente de PowerShell |
 | [Obtención de un token con CURL](#get-a-token-using-curl) | Ejemplo del uso del punto de conexión REST de identidades administradas de recursos de Azure desde un cliente de Bash o CURL |
 | Control del almacenamiento en caché de tokens | Instrucciones para controlar los tokens de acceso expirados |
 | [Control de errores](#error-handling) | Instrucciones para controlar los errores HTTP devueltos desde el punto de conexión del token de las identidades administradas de recursos de Azure |
@@ -282,7 +282,7 @@ func main() {
 }
 ```
 
-## <a name="get-a-token-using-azure-powershell"></a>Obtención de un token con Azure PowerShell
+## <a name="get-a-token-using-powershell"></a>Obtención de un token mediante PowerShell
 
 En el ejemplo siguiente se muestra cómo utilizar el punto de conexión REST de identidades administradas de recursos de Azure desde un cliente de PowerShell para las siguientes tareas:
 

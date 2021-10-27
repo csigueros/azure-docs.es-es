@@ -14,12 +14,18 @@
       href: tutorial-connect-cluster.md
     - name: 3 - Eliminación de un clúster de ARO
       href: tutorial-delete-cluster.md
+- name: Guías de inicio rápido
+  items:
+    - name: Implementación de un clúster de ARO con Azure Portal
+      href: quickstart-portal.md
 - name: Guías paso a paso
   items:
     - name: Operaciones del clúster
       items:
         - name: Actualización de un clúster de ARO
           href: howto-upgrade.md
+        - name: Uso de nodos de acceso puntual
+          href: howto-spot-nodes.md
     - name: Redes
       items:
         - name: Creación de un clúster privado de ARO

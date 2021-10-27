@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 7/07/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: a007f567b6f137f1bff225f90c3f52dfaf71c1f2
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: 87cce83adcd24c9933d1d0668e4b9ce5a8fb6c2e
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114228590"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130036082"
 ---
 # <a name="tutorial-configure-azure-ad-b2c-with-datawiza-to-provide-secure-hybrid-access"></a>Tutorial: Configuración de Azure AD B2C con Datawiza para proporcionar un acceso híbrido seguro
 
@@ -43,7 +43,7 @@ La integración de Datawiza incluye los siguientes componentes:
 
 - **Datawiza Access Broker (DAB)** : el usuario del servicio inicia sesión y pasa la identidad de forma transparente a las aplicaciones a través de encabezados HTTP.
 
-- **Datawiza Cloud Management Console (DCMC)** : una consola de administración centralizada que administra DAB. DCMC proporciona API de interfaz de usuario y Restful para que los administradores administren las configuraciones de DAB y sus directivas de control de acceso.
+- **Datawiza Cloud Management Console (DCMC)** : una consola de administración centralizada que administra DAB. DCMC proporciona las API de interfaz de usuario y RESTful para que los administradores administren las configuraciones de DAB y sus directivas de control de acceso.
 
 En el siguiente diagrama de arquitectura se muestra la implementación.
 
@@ -80,7 +80,7 @@ Para integrar una aplicación local heredada con Azure AD B2C, póngase en cont
 
 ## <a name="run-dab-with-a-header-based-application"></a>Ejecución de DAB con una aplicación basada en encabezados
 
-1. Para ejecutar DAB se pueden usar Docker o Kubernetes. La imagen de Docker es necesaria para que los usuarios creen una aplicación basada en encabezados de ejemplo. Para más detalles, consulte las instrucciones necesarias para [configurar la integración de DAB y SSO](https://docs.datawiza.com/step-by-step/step3.html) y para obtener instrucciones específicas de Kubernetes, consulte cómo [implementar DAB con Kubernetes](https://docs.datawiza.com/tutorial/web-app-AKS.html). Se proporciona una imagen de Docker de ejemplo `docker-compose.yml file` para que la descargue y la use. Inicie sesión en el registro de contenedor para descargar las imágenes de DAB y la aplicación basada en encabezados. Siga [estas instrucciones](https://docs.datawiza.com/step-by-step/step3.html#important-step).
+1. Para ejecutar DAB puede usar Docker o Kubernetes. La imagen de Docker es necesaria para que los usuarios creen una aplicación basada en encabezados de ejemplo. Para más detalles, consulte las instrucciones necesarias para [configurar la integración de DAB y SSO](https://docs.datawiza.com/step-by-step/step3.html) y para obtener instrucciones específicas de Kubernetes, consulte cómo [implementar DAB con Kubernetes](https://docs.datawiza.com/tutorial/web-app-AKS.html). Se proporciona una imagen de Docker de ejemplo `docker-compose.yml file` para que la descargue y la use. Inicie sesión en el registro de contenedor para descargar las imágenes de DAB y la aplicación basada en encabezados. Siga [estas instrucciones](https://docs.datawiza.com/step-by-step/step3.html#important-step).
  
    ```YML
    version: '3'
@@ -112,7 +112,7 @@ Para integrar una aplicación local heredada con Azure AD B2C, póngase en cont
 
 ## <a name="pass-user-attributes-to-the-header-based-application"></a>Paso de atributos de usuario a la aplicación basada en encabezados
 
-1. DAB obtiene los atributos de usuario del proveedor de identidades y puede pasar los atributos de usuario a la aplicación mediante el encabezado o una cookie. Consulte las instrucciones sobre cómo [pasar atributos de usuario](https://docs.datawiza.com/step-by-step/step4.html) como la dirección de correo electrónico, el nombre y el apellido a la aplicación basada en encabezados. 
+1. DAB obtiene los atributos de usuario del proveedor de identidades y puede pasar los atributos de usuario a la aplicación mediante el encabezado o una cookie. Vea las instrucciones sobre cómo [pasar atributos de usuario](https://docs.datawiza.com/step-by-step/step4.html) como la dirección de correo electrónico, el nombre y el apellido a la aplicación basada en encabezados. 
 
 2. Después de configurar correctamente los atributos de usuario, debería ver el signo de verificación verde en cada uno de los atributos de usuario.
 

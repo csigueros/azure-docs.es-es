@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 10/14/2020
+ms.date: 10/11/2021
 ms.author: chmutali
-ms.openlocfilehash: 3260787dec4ae26cd6ef7cc3bd562f39db8e3655
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 39bd92afa4de12eafce7bff9f73f6f43d6e18f42
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99526982"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993518"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Tutorial: Configuración de la escritura diferida de atributos de Azure AD en SAP SuccessFactors
 El objetivo de este tutorial es mostrar los pasos para la escritura diferida de atributos de Azure AD en Employee Central de SAP SuccessFactors. 
@@ -290,6 +290,7 @@ En esta sección, configurará cómo fluyen los datos de los usuarios de Success
    | 11 | mobile | cellPhoneNumber | Use esta asignación para realizar el flujo de *telephoneNumber* de Azure AD a número de teléfono del trabajo o de la empresa de SuccessFactors. |
    | 12 | 10606 | cellPhoneType | Este valor constante es el valor de identificador de SuccessFactors asociado con el teléfono móvil. Actualice este valor para que coincida con el entorno de SuccessFactors. Vea la sección [Recuperación del valor constante para phoneType](#retrieve-constant-value-for-phonetype) para conocer los pasos para establecer este valor. |
    | 13 | false | cellPhoneIsPrimary | Use este atributo para establecer la marca principal para el número de teléfono móvil. Los valores válidos son "true" y "false". |
+   | 14 | [extensionAttribute1-15] | userId | Use esta asignación para asegurarse de que el registro activo de SuccessFactors se actualiza cuando hay varios registros de empleos para el mismo usuario. Para más información, consulte [Habilitación de la escritura diferida con UserID](../app-provisioning/sap-successfactors-integration-reference.md#enabling-writeback-with-userid). |
  
 1. Valide y revise las asignaciones de atributos. 
  

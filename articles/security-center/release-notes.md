@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 10/06/2021
+ms.date: 10/17/2021
 ms.author: memildin
-ms.openlocfilehash: bd8ebca221041684a47bb66bb01c176fd1b65ba6
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: bd75b5fff78c213bc9d0541fb1824969b7a798a3
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129729527"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130129156"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novedades de Azure Security Center
 
@@ -34,6 +34,7 @@ Las actualizaciones de octubre incluyen:
 - [Las soluciones de evaluación de vulnerabilidades ahora se pueden habilitar automáticamente (en versión preliminar)](#vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview).
 - [Se han agregado filtros de inventario de software agregados al inventario de recursos (en versión preliminar)](#software-inventory-filters-added-to-asset-inventory-in-preview).
 - [Cambio del prefijo de algunos tipos de alerta de "ARM_" a "VM_"](#changed-prefix-of-some-alert-types-from-arm_-to-vm_)
+- [Las páginas de detalles de recomendaciones ahora muestran recomendaciones relacionadas](#recommendations-details-pages-now-show-related-recommendations)
 
 
 ### <a name="microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution-in-preview"></a>Se ha agregado Administración de amenazas y vulnerabilidades de Microsoft como solución de evaluación de vulnerabilidades (en versión preliminar)
@@ -109,6 +110,42 @@ Con esta actualización, hemos cambiado los prefijos de estas alertas para que c
 |||
 
 Obtenga más información sobre los planes de [Azure Defender para Resource Manager](defender-for-resource-manager-introduction.md) y [Azure Defender para servidores](defender-for-servers-introduction.md).
+
+### <a name="recommendations-details-pages-now-show-related-recommendations"></a>Las páginas de detalles de recomendaciones ahora muestran recomendaciones relacionadas
+
+Para aclarar las relaciones entre las distintas recomendaciones, hemos agregado un área de **recomendaciones relacionadas** a las páginas de detalles de muchas recomendaciones. 
+
+Los tres tipos de relación que se muestran en estas páginas son los siguientes:
+
+- **Requisito previo**: una recomendación que debe completarse antes de la recomendación seleccionada.
+- **Alternativa**: una recomendación distinta que proporciona otra manera de lograr los objetivos de la recomendación seleccionada.
+- **Dependiente**: una recomendación para la cual la recomendación seleccionada es un requisito previo.
+
+Para cada recomendación relacionada, el número de recursos incorrectos se muestra en la columna "Recursos afectados".
+
+> [!TIP]
+> Si una recomendación relacionada está atenuada, su dependencia aún no se ha completado y, por tanto, no está disponible.
+
+Un ejemplo de recomendaciones relacionadas:
+
+1. Security Center comprueba si las máquinas admiten soluciones de evaluación de vulnerabilidades:<br>
+    **Debe habilitarse una solución de evaluación de vulnerabilidades en sus máquinas virtuales**
+
+1. Si se encuentra una, se le notificará sobre las vulnerabilidades detectadas:<br>
+    **Es necesario corregir las vulnerabilidades de las máquinas virtuales**
+
+Obviamente, Security Center no puede notificarle sobre las vulnerabilidades detectadas a menos que encuentre soluciones de evaluación de vulnerabilidades admitidas.
+
+Por lo tanto:
+
+ - La primera recomendación es un requisito previo de la segunda
+ - La segunda recomendación depende de la primera
+
+:::image type="content" source="media/release-notes/related-recommendations-solution-not-found.png" alt-text="Captura de pantalla de la recomendación para implementar la solución de evaluación de vulnerabilidades.":::
+
+:::image type="content" source="media/release-notes/related-recommendations-vulnerabilities-found.png" alt-text="Captura de pantalla de la recomendación para resolver las vulnerabilidades detectadas.":::
+
+
 
 ## <a name="september-2021"></a>Septiembre de 2021
 

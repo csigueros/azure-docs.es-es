@@ -6,13 +6,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/10/2021
-ms.openlocfilehash: 7cc61d144576e8f386997e1d2acfa083c9e5f571
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.date: 10/15/2021
+ms.openlocfilehash: 26f70e4750d29231b3f139ecd617b43071e369bb
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123535804"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066098"
 ---
 # <a name="shaping-data-for-projection-into-a-knowledge-store"></a>Dar forma a los datos para la proyección en un almacén de conocimiento
 
@@ -144,7 +144,7 @@ Con el nodo `tableprojection` definido en la sección `outputs` anterior, puede 
 ]
 ```
 
-## <a name="inline-shaping-projections"></a>Modelado de proyecciones en línea
+## <a name="inline-shape-for-table-projections"></a>Forma insertada para proyecciones de tabla
 
 El modelado insertado es la capacidad de crear formas dentro de la propia definición de proyección. El modelado insertado tiene estas características:
 
@@ -219,6 +219,67 @@ Para proyectar los mismos datos que en el ejemplo anterior, la opción de proyec
 ```
   
 Una observación de ambos enfoques es cómo los valores de "Keyphrases" se proyectan mediante "sourceContext". El nodo "Keyphrases", que contiene una colección de cadenas, es en sí mismo un elemento secundario del texto de la página. Sin embargo, dado que las proyecciones requieren un objeto JSON y la página es primitiva (cadena), "sourceContext" se usa para encapsular la frase clave en un objeto con una propiedad con nombre. Esta técnica permite que incluso se proyecten primitivas de forma independiente.
+
+<a name="inline-shape"></a>
+
+## <a name="inline-shape-for-object-projections"></a>Forma insertada para proyecciones de objetos
+
+Puede generar una nueva forma mediante la aptitud Conformador o usar el modelado insertado de la proyección de objeto. Aunque en el ejemplo de tablas se mostró el método para crear una forma y segmentarla, en este ejemplo se muestra el uso del modelado insertado. 
+
+El modelado insertado es la capacidad de crear una forma en la definición de las entradas para una proyección. El modelado insertado crea un objeto anónimo que es idéntico a lo que produciría una aptitud de conformador (en este caso, `projectionShape`). El modelado insertado resulta útil si está definiendo una forma que no se va a reutilizar.
+
+La propiedad projections es una matriz. En este ejemplo se agrega una nueva instancia de proyección a la matriz, donde la definición de knowledgeStore contiene proyecciones insertadas. Cuando use proyecciones insertadas, puede omitir la aptitud de conformador.
+
+```json
+"knowledgeStore" : {
+    "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
+    "projections": [
+            {
+            "tables": [ ],
+            "objects": [
+                {
+                    "storageContainer": "sampleobject",
+                    "source": null,
+                    "generatedKeyName": "myobject",
+                    "sourceContext": "/document",
+                    "inputs": [
+                        {
+                            "name": "metadata_storage_name",
+                            "source": "/document/metadata_storage_name"
+                        },
+                        {
+                            "name": "metadata_storage_path",
+                            "source": "/document/metadata_storage_path"
+                        },
+                        {
+                            "name": "content",
+                            "source": "/document/content"
+                        },
+                        {
+                            "name": "keyPhrases",
+                            "source": "/document/merged_content/keyphrases/*"
+                        },
+                        {
+                            "name": "entities",
+                            "source": "/document/merged_content/entities/*/name"
+                        },
+                        {
+                            "name": "ocrText",
+                            "source": "/document/normalized_images/*/text"
+                        },
+                        {
+                            "name": "ocrLayoutText",
+                            "source": "/document/normalized_images/*/layoutText"
+                        }
+                    ]
+
+                }
+            ],
+            "files": []
+        }
+    ]
+}
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

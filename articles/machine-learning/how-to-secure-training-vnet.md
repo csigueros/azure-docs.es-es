@@ -11,12 +11,12 @@ ms.author: jhirono
 author: jhirono
 ms.date: 09/24/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions
-ms.openlocfilehash: 38347644557b2e2e3bf76dc4412381ab52396de2
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 7f0d206b9327cad0c58cc92dbec16227c1c22644
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129658564"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000143"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Protección de un entorno de entrenamiento de Azure Machine Learning con redes virtuales
 
@@ -63,7 +63,7 @@ En este artículo aprenderá a proteger los siguientes recursos de proceso de en
     * Un clúster de proceso puede modificar la escala dinámicamente. Si no hay suficientes direcciones IP sin asignar, el clúster se asignará parcialmente.
     * Una instancia de proceso solo requiere una dirección IP.
 
-* Para crear una instancia de proceso [sin una dirección IP pública](#no-public-ip) (una característica en vista previa), el área de trabajo debe usar un punto de conexión privado para conectarse a la red virtual. Para obtener más información, consulte [Configuración de un punto de conexión privado para un área de trabajo de Azure Machine Learning](how-to-configure-private-link.md).
+* Para crear una instancia o un clúster de proceso [sin una dirección IP pública](#no-public-ip) (una característica en vista previa), el área de trabajo debe usar un punto de conexión privado para conectarse a la red virtual. Para obtener más información, consulte [Configuración de un punto de conexión privado para un área de trabajo de Azure Machine Learning](how-to-configure-private-link.md).
 * Asegúrese de que no hay directivas de seguridad ni bloqueos que restrinjan los permisos para administrar la red virtual. Al comprobar si hay directivas o bloqueos, busque en la suscripción y el grupo de recursos de la red virtual.
 * Compruebe si sus directivas de seguridad o bloqueos del grupo de recursos o la suscripción de la red virtual restringen los permisos para administrar las redes virtuales. 
 * Si tiene previsto proteger la red virtual restringiendo el tráfico, vea la sección [Acceso obligatorio a una red de Internet pública](#required-public-internet-access).
@@ -91,10 +91,9 @@ En este artículo aprenderá a proteger los siguientes recursos de proceso de en
 
 
         > [!TIP]
-        > Si la instancia de proceso no usa una dirección IP pública (una característica en vista previa), estas reglas de NSG de entrada no son necesarias. Si también usa un clúster de proceso, el clúster seguirá necesitando estas reglas.
-    * En el caso de los clústeres de proceso, una dirección IP pública. Si tiene asignaciones de Azure Policy que prohíben la creación de la dirección IP pública, se producirá un error en la implementación del proceso.
-
-    * En el caso de la instancia de proceso, ahora es posible quitar la dirección IP pública (una característica en vista previa). Si tiene asignaciones de Azure Policy que prohíben la creación de la dirección IP pública, la implementación de la instancia de proceso se realizará correctamente.
+        > Si la instancia o el clúster de proceso no usa una dirección IP pública (una característica en vista previa), estas reglas de NSG de entrada no son necesarias. 
+        
+    * En el caso de la instancia o el clúster de proceso, ahora es posible quitar la dirección IP pública (una característica en vista previa). Si tiene asignaciones de Azure Policy que prohíben la creación de la dirección IP pública, la implementación de la instancia o el clúster de proceso se realizará correctamente.
 
     * Un equilibrador de carga
 
@@ -220,6 +219,31 @@ except ComputeTargetException:
 Cuando finaliza el proceso de creación, el modelo se entrena mediante el clúster en un experimento. Para más información, consulte [Selección y uso de un destino de proceso para entrenamiento](how-to-set-up-training-targets.md).
 
 [!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
+
+### <a name="no-public-ip-for-compute-clusters-preview"></a><a name="no-public-ip-amlcompute"></a>Ninguna dirección IP pública para clústeres de proceso (versión preliminar)
+
+Al habilitar la opción **Ninguna dirección IP pública**, el clúster de proceso no usa una dirección IP pública para la comunicación con ninguna dependencia. En su lugar, se comunica únicamente dentro de la red virtual mediante un ecosistema de Azure Private Link y puntos de conexión privados o del servicio, de modo que se elimina la necesidad de una dirección IP pública por completo. La opción Ninguna dirección IP pública quita el acceso y la detectabilidad de nodos de clúster de proceso de Internet. De esta forma, se elimina un vector de amenaza significativo. Los clústeres de **Ninguna dirección IP pública** ayudan a cumplir las directivas de IP pública que muchas empresas tienen. 
+
+Un clúster de proceso con la opción **Ninguna dirección IP pública** habilitada **no tiene requisitos de comunicación entrantes** de la red pública de Internet, en comparación con los del clúster de proceso de la IP pública. En concreto, no se requiere ninguna regla de NSG de entrada (`BatchNodeManagement`, `AzureMachineLearning`). Todavía debe permitir la entrada desde el origen de **VirtualNetwork** y cualquier origen de puerto al destino de **VirtualNetwork** y puerto de destino de **29876, 29877**.
+
+Los clústeres de la opción **Ninguna dirección IP pública** dependen de [Azure Private Link](how-to-configure-private-link.md) para el área de trabajo de Azure Machine Learning. Un clúster de proceso con la opción **Ninguna dirección IP pública** también requiere que deshabilite las directivas de red de los puntos de conexión privados y las directivas de red del servicio Private Link. Estos requisitos proceden de los puntos de conexión privados y del servicio Azure Private Link y no son específicos de Azure Machine Learning. Siga las instrucciones indicadas en [Deshabilitación de directivas de red para el servicio Private Link](../private-link/disable-private-link-service-network-policy.md) para establecer los parámetros `disable-private-endpoint-network-policies` y `disable-private-link-service-network-policies` en la subred de la red virtual.
+
+Para que las **conexiones de salida** funcionen, debe configurar un firewall de salida, como Azure Firewall, con rutas definidas por el usuario. Por ejemplo, puede usar un firewall definido con la [configuración de entrada o salida](how-to-access-azureml-behind-firewall.md) y enrutar el tráfico a él. Para ello, defina una tabla de rutas en la subred en la que se implementa el clúster de proceso. La entrada de la tabla de rutas puede configurar el próximo salto de la dirección IP privada del firewall con el prefijo de dirección 0.0.0.0/0.
+
+Puede usar un punto de conexión de servicio o un punto de conexión privado para el registro de contenedor de Azure y el almacenamiento de Azure en la subred en la que se implementa el clúster.
+
+Para crear un clúster de proceso sin dirección IP pública (una característica en vista previa) en Studio, marque la casilla **Ninguna dirección IP pública** en la sección de la red virtual.
+También puede crear un clúster de proceso sin dirección IP pública mediante una plantilla de ARM. En la plantilla de ARM, establezca el parámetro enableNodePublicIP en false.
+
+[!INCLUDE [no-public-ip-info](../../includes/machine-learning-no-public-ip-availibility.md)]
+
+**Solución de problemas**
+
+* Si recibe este mensaje de error durante la creación del clúster "La subred especificada tiene habilitado PrivateLinkServiceNetworkPolicies o PrivateEndpointNetworkEndpoints", siga las instrucciones de [Deshabilitar directivas de red para un servicio de Private Link](../private-link/disable-private-link-service-network-policy.md) y [Deshabilitar directivas de red para el punto de conexión privado](../private-link/disable-private-endpoint-network-policy.md).
+
+* Si se produce un error en la ejecución del trabajo con problemas de conexión a ACR o Azure Storage, compruebe que el cliente ha agregado puntos de conexión privados o de servicio de ACR y Azure Storage a la subred y que ACR/Azure Storage permite el acceso desde la subred.
+
+* Para asegurarse de que ha creado un clúster sin dirección IP pública, en Studio, al consultar los detalles del clúster, verá que la propiedad **No Public IP** (Ninguna dirección IP pública) está establecida en **true** en las propiedades del recurso.
 
 ## <a name="compute-instance"></a>Instancia de proceso
 

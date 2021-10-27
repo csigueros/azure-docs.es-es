@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/16/2021
+ms.date: 10/08/2021
 ms.author: pafarley
-ms.openlocfilehash: 046499f32050bf856e6eb39874f3f7b0f0fa2e51
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fa62d0e7c24c6a63c63f082333823b5e74a24cf0
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128569499"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132288"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparación de los datos para Habla personalizada
 
@@ -69,7 +69,10 @@ Los archivos deben agruparse por tipo en un conjunto de datos y cargarse como ar
 
 ## <a name="upload-data"></a>Carga de datos
 
-Para cargar los datos, navegue al <a href="https://speech.microsoft.com/customspeech" target="_blank">portal de Habla personalizada</a>. Después de crear un proyecto, navegue a la pestaña **Conjuntos de datos de Voz** y haga clic en **Cargar datos** para iniciar el asistente y crear el primer conjunto de datos. Seleccione un tipo de datos de voz para el conjunto de datos y cargue los datos.
+Para cargar los datos, vaya a [Speech Studio](https://aka.ms/speechstudio/customspeech). Después de crear un proyecto, navegue a la pestaña **Conjuntos de datos de Voz** y haga clic en **Cargar datos** para iniciar el asistente y crear el primer conjunto de datos. Seleccione un tipo de datos de voz para el conjunto de datos y cargue los datos.
+
+> [!NOTE]
+> Si el tamaño de archivo del conjunto de datos supera los 128 MB, solo puede cargarlo con la opción *Blob de Azure o ubicación compartida*. También puede usar la [API de REST de conversión de voz en texto v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) para cargar un conjunto de datos de [cualquier tamaño permitido](speech-services-quotas-and-limits.md#model-customization). Vea la [siguiente sección](#upload-data-using-speech-to-text-rest-api-v30) para obtener detalles.
 
 En primer lugar, debe especificar si el conjunto de datos se va a usar para **entrenamiento** o para **pruebas**. Hay muchos tipos de datos que se pueden cargar y usar para **entrenamiento** o **pruebas**. Cada conjunto de datos que cargue debe tener el formato correcto antes de la carga y cumplir los requisitos del tipo de datos elegido. Los requisitos se muestran en las secciones siguientes.
 
@@ -78,6 +81,35 @@ Una vez cargado el conjunto de datos, tiene algunas opciones:
 * Puede navegar a la pestaña **Entrenar modelos personalizados** para entrenar un modelo personalizado.
 * Puede ir a la pestaña **Modelos de prueba** para inspeccionar visualmente la calidad con datos de solo audio o evaluar la precisión con datos de transcripción etiquetada por usuarios y audio.
 
+### <a name="upload-data-using-speech-to-text-rest-api-v30"></a>Carga de datos mediante la API de REST de conversión de voz en texto v3.0
+
+Puede usar la [API de REST de conversión de voz en texto v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) para automatizar las operaciones relacionadas con los modelos personalizados. En concreto, puede usarla para cargar un conjunto de datos. Esto resulta especialmente útil si el archivo del conjunto de datos supera los 128 MB, ya que los archivos de ese tamaño no se pueden cargar mediante la opción *Archivo local* de Speech Studio. (También puede usar la opción *Blob de Azure o ubicación compartida* de Speech Studio para el mismo propósito que se describe en la sección anterior).
+
+Use cualquiera de las siguientes solicitudes para crear y cargar un conjunto de datos:
+* [Crear conjunto de datos](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset)
+* [Crear conjunto de datos a partir de formulario](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UploadDatasetFromForm)
+
+**Conjuntos de datos creados mediante la API de REST y proyectos de Speech Studio**
+
+Un conjunto de datos creado con la API de REST de conversión de voz en texto v3.0 *no* se va a conectar a ninguno de los proyectos de Speech Studio, a menos que se especifique un parámetro especial en el cuerpo de la solicitud (vea a continuación). *No* se necesita conexión con un proyecto de Speech Studio para las operaciones de personalización de modelos, siempre que se realicen mediante la API de REST.
+
+Al iniciar sesión en Speech Studio, su interfaz de usuario le avisa si detecta cualquier objeto no conectado (como conjuntos de datos cargados mediante la API de REST sin ninguna referencia de proyecto) y le ofrece conectar esos objetos a un proyecto existente. 
+
+Para conectar el nuevo conjunto de datos a un proyecto existente de Speech Studio durante su carga, use [Crear conjunto de datos](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) o [Crear conjunto de datos a partir de formulario](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UploadDatasetFromForm) y rellene el cuerpo de la solicitud según el formato siguiente:
+```json
+{
+  "kind": "Acoustic",
+  "contentUrl": "https://contoso.com/mydatasetlocation",
+  "locale": "en-US",
+  "displayName": "My speech dataset name",
+  "description": "My speech dataset description",
+  "project": {
+    "self": "https://westeurope.api.cognitive.microsoft.com/speechtotext/v3.0/projects/c1c643ae-7da5-4e38-9853-e56e840efcb2"
+  }
+}
+```
+
+La dirección URL de proyecto necesaria para el elemento `project` se puede obtener con la solicitud [Get Projects](https://westeurope.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects).
 
 ## <a name="audio--human-labeled-transcript-data-for-trainingtesting"></a>Datos de transcripción de audio y con etiqueta humanos para pruebas y entrenamiento
 

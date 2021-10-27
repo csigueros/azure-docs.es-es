@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: backup
 author: v-amallick
@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 06/04/2021
 ms.author: v-amallick
 ms.custom: include file
-ms.openlocfilehash: 36a45be18e5614371e3e29dc2907f5c25ba772b9
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 234d2510f115edf646ac490126e316a7dd3369c1
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111952968"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130019369"
 ---
-El agente MARS requiere acceso a los puntos de conexión de servicio de Azure Active Directory, Azure Storage y Azure Backup. Para obtener los intervalos IP públicos, consulte el [archivo JSON](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519&preserveview=true). Permita el acceso a las IP correspondientes a Azure Backup (AzureBackup), Azure Storage(Storage) y Azure Active Directory(AzureActiveDirectory). Asimismo, en función de la versión de Windows, las comprobaciones de conectividad de red del sistema operativo necesitarán acceso a `www.msftconnecttest.com` o `www.msftncsi.com`.
+El agente MARS requiere acceso a los puntos de conexión de servicio de Azure Active Directory, Azure Storage y Azure Backup. Para obtener los intervalos IP públicos, consulte el [archivo JSON](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519&preserveview=true). Tiene que permitir el acceso a las direcciones IP correspondientes a Azure Backup (`AzureBackup`), Azure Storage (`Storage`) y Azure Active Directory (`AzureActiveDirectory`). Asimismo, en función de la versión de Windows, las comprobaciones de conectividad de red del sistema operativo necesitarán acceso a `www.msftconnecttest.com` o `www.msftncsi.com`.
 
-Si la máquina tiene acceso limitado a Internet, asegúrese de que la configuración de firewall, proxy y red permita el acceso a los siguientes FQDNS y direcciones IP públicas.
+Si la máquina tiene acceso limitado a Internet, asegúrese de que la configuración de firewall, proxy y red permita el acceso a los siguientes FQDN y direcciones IP públicas.
 
 ### <a name="url-and-ip-access"></a>Acceso a direcciones URL e IP
 
@@ -26,24 +26,24 @@ Si la máquina tiene acceso limitado a Internet, asegúrese de que la configurac
 
 - `www.msftncsi.com`
 - `www.msftconnecttest.com`
-- *.microsoft.com
-- *.windowsazure.com
-- *.microsoftonline.com
-- \* .windows.net
+- `*.microsoft.com`
+- `*.windowsazure.com`
+- `*.microsoftonline.com`
+- `*.windows.net`
 
 **Direcciones IP**
 
-- 20.190.128.0/18
-- 40.126.0.0/18
+- `20.190.128.0/18`
+- `40.126.0.0/18`
 
 Si es un cliente de la Administración Pública de Estados Unidos, asegúrese de que tiene acceso a las siguientes direcciones URL:
 
 - `www.msftncsi.com`
-- *.microsoft.com
-- *.windowsazure.us
-- *.microsoftonline.us
-- \* .windows.net
-- *.usgovcloudapi.net
+- `*.microsoft.com`
+- `*.windowsazure.us`
+- `*.microsoftonline.us`
+- `*.windows.net`
+- `*.usgovcloudapi.net`
 
 El acceso a todas las direcciones URL y direcciones IP enumeradas anteriormente usa el protocolo HTTPS en el puerto 443.
 
@@ -69,14 +69,14 @@ Para usar el emparejamiento público, asegúrese de que los siguientes dominios 
 
 - `www.msftncsi.com`
 - `www.msftconnecttest.com`
-- *.microsoft.com
-- *.windowsazure.com
-- *.microsoftonline.com
-- \* .windows.net
+- `*.microsoft.com`
+- `*.windowsazure.com`
+- `*.microsoftonline.com`
+- `*.windows.net`
 
 **Direcciones IP**
-- 20.190.128.0/18
-- 40.126.0.0/18
+- `20.190.128.0/18`
+- `40.126.0.0/18`
 
 Para usar el emparejamiento de Microsoft, seleccione los siguientes servicios, regiones y los valores de comunidad correspondientes:
 - Azure Active Directory (12076:5060)
@@ -95,12 +95,11 @@ Ahora puede usar puntos de conexión privados para realizar copias de seguridad 
 
 Al usar el agente de MARS para realizar una copia de seguridad de los recursos locales, asegúrese de que la red local (que contiene los recursos de los que se va a realizar la copia de seguridad) esté emparejada con la red virtual de Azure que contiene un punto de conexión privado para el almacén. Después, puede continuar con la instalación del agente de MARS y configurar la copia de seguridad. Sin embargo, debe asegurarse de que toda la comunicación para la copia de seguridad se produzca solo a través de la red emparejada.
 
-Si quita los puntos de conexión privados del almacén después de haber registrado un agente de MARS, deberá volver a registrar el contenedor con el almacén. No es necesario detener la protección de los mismos.
-Obtenga más información sobre los [puntos de conexión privados para Azure Backup](../articles/backup/private-endpoints.md).
+Si quita los puntos de conexión privados del almacén después de haber registrado un agente de MARS, deberá volver a registrar el contenedor con el almacén. No es necesario detener la protección de los mismos. Para más información, consulte [Puntos de conexión privados para Azure Backup](../articles/backup/private-endpoints.md).
 
 ### <a name="throttling-support"></a>Limitaciones de compatibilidad
 
-**Característica** | **Detalles**
---- | ---
-Control del ancho de banda | Compatible. En el agente de MARS, use **Cambiar propiedades** para ajustar el ancho de banda.
-Limitación de la red | No está disponible para las máquinas de copia de seguridad que ejecutan Windows Server 2008 R2, Windows Server 2008 SP2 o Windows 7.
+| Característica | Detalles |
+|---|---|
+| Control del ancho de banda | Compatible. En el agente de MARS, use **Cambiar propiedades** para ajustar el ancho de banda. |
+| Limitación de la red | No está disponible para las máquinas de copia de seguridad que ejecutan Windows Server 2008 R2, Windows Server 2008 SP2 o Windows 7. |

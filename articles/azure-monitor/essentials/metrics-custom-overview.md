@@ -1,17 +1,17 @@
 ---
 title: Métricas personalizadas en Azure Monitor (versión preliminar)
 description: Obtenga información sobre las métricas personalizadas en Azure Monitor y cómo se modelan.
-author: anirudhcavale
-ms.author: ancav
+author: rboucher
+ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: a63c690f8b742638b73b5624971f5351ed8c6a2f
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 770a308fe293140b4d9c56b51c931e426aa1ac81
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129455064"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063020"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métricas personalizadas en Azure Monitor (versión preliminar)
 
@@ -231,15 +231,17 @@ De nuevo, este límite no corresponde a una métrica individual. Corresponde a l
 
 **Dimensiones de métricas de alta cardinalidad**. Es mucho más probable que las métricas con demasiados valores válidos en una dimensión (una *cardinalidad alta*) alcancen el límite de 50 000. En general, nunca debe usar un valor que cambie constantemente en una dimensión. Por ejemplo, la marca de tiempo nunca debe ser una dimensión. Puede usar el servidor, cliente o id. de producto, pero solo si tiene un número menor de cada uno de esos tipos. 
 
-Como prueba, pregúntese si alguna vez crearía un gráfico de estos datos. Si tiene 10 o quizá incluso 100 servidores, puede resultar útil verlos todos en un gráfico para compararlos. Pero si tiene 1000, probablemente el gráfico resultante sea difícil o imposible de leer. 
-
-Por ello, se recomienda mantenerlo en menos de 100 valores válidos. Hasta 300 valores es un área indefinida. Si necesita superar esta cantidad, use los registros personalizados de Azure Monitor en su lugar.   
+Como prueba, pregúntese si alguna vez crearía un gráfico de estos datos. Si tiene 10 o quizá incluso 100 servidores, puede resultar útil verlos todos en un gráfico para compararlos. Pero si tiene 1000, probablemente el gráfico resultante sea difícil o imposible de leer. Por ello, se recomienda mantenerlo en menos de 100 valores válidos. Hasta 300 valores es un área indefinida. Si necesita superar esta cantidad, use los registros personalizados de Azure Monitor en su lugar.   
 
 Si tiene una variable en el nombre o una dimensión de cardinalidad alta, puede ocurrir lo siguiente:
 - Las métricas se vuelven poco confiables debido a la limitación.
 - El Explorador de métricas no funcionará.
 - Las alertas y las notificaciones se vuelven impredecibles.
 - Los costos pueden aumentar inesperadamente. Microsoft no cobra por métricas personalizadas con dimensiones mientras la característica esté en versión preliminar pública. Sin embargo, una vez que los cargos comiencen a cobrarse en el futuro, incurrirá en cargos inesperados. La intención es cobrar por el consumo de métricas en función del número de series temporales supervisadas y el número de llamadas API realizadas.
+
+Si el nombre de la métrica o el valor de la dimensión se rellenan con un identificador o una dimensión de cardinalidad alta por error, puede corregirlo fácilmente quitando la parte variable.
+
+Pero si la cardinalidad alta es esencial para su escenario, es probable que las métricas agregadas no sean la opción correcta. Cambie al uso de registros personalizados (es decir, llamadas a la API trackMetric con el elemento [trackEvent](/azure/azure-monitor/app/api-custom-events-metrics#trackevent)). Sin embargo, tenga en cuenta que los registros no agregan los valores, por lo que se almacenará cada entrada individual. Como resultado, si tiene un gran volumen de registros en un período de tiempo pequeño (1 millón por segundo, por ejemplo), se puede provocar una limitación y retrasos en la ingesta. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Use métricas personalizadas desde varios servicios: 

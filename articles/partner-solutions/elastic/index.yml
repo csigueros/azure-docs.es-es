@@ -1,0 +1,39 @@
+### YamlMime:Landing
+title: Integración de Elastic con Azure
+summary: Centraliza el análisis de registros, métricas y seguimiento.
+metadata:
+  title: Documentación de Elastic con Azure
+  description: Elastic se integra con Azure para ofrecer soluciones de supervisión.
+  ms.service: partner-services
+  ms.topic: landing-page
+  ms.collection: na
+  author: tfitzmac
+  ms.author: tomfitz
+  ms.date: 10/22/2021
+  ms.openlocfilehash: be8330927e12a65d92467dd293b64b02f9266ea3
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130269191"
+landingContent:
+- title: Acerca de Elastic con Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es la integración de Elastic con Azure?
+      url: overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Administración de la integración de Elastic con Azure
+      url: manage.md
+- title: Creación de recursos de Elastic
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Introducción a Elastic
+      url: create.md
+  - linkListType: how-to-guide
+    links:
+    - text: Solución de problemas de integración de Elastico con Azure
+      url: troubleshoot.md

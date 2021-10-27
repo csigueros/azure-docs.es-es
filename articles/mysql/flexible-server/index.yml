@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/10/2021
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 876bdc57f2d97cf4254cc0c4bba381df812bdda5
-  ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+  ms.openlocfilehash: 81c0d46d58b39b0d4b6698da1f1b39d5c36eb587
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/06/2021
-  ms.locfileid: "129616652"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130246199"
 landingContent:
 - title: Acerca de un servidor flexible (versión preliminar)
   linkLists:
@@ -109,6 +109,10 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Elija las herramientas adecuadas para la migración a Azure Database for MySQL
+      url: ../how-to-decide-on-right-migration-tools.md
+    - text: Migración de un servidor único a un servidor flexible
+      url: ../howto-migrate-single-flexible-minimum-downtime.md
     - text: Migración en línea
       url: ../howto-migrate-online.md
     - text: Migración de RDS para MySQL mediante la replicación de datos de entrada

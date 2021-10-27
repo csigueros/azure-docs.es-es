@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/07/2021
-ms.openlocfilehash: 84647ef7aef1955f03d8d5fd58f27c278c1e6247
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 68fc76ab80320a41cd9c9f0884dec8dc7771bccc
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129716823"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065281"
 ---
 # <a name="quickstart-apply-ocr-and-image-analysis-using-the-import-data-wizard"></a>Inicio rápido: Aplicación de OCR y análisis de imágenes mediante el Asistente para importación de datos
 
@@ -55,7 +55,9 @@ En los pasos siguientes, configure un contenedor de blobs en Azure Storage para 
    1. [Cree un contenedor](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) denominado "signs" (señales). Use el nivel de acceso público predeterminado.
    1. En el contenedor "signs", seleccione **Cargar** para cargar los archivos desde la carpeta local **unsplash-images\jpg-signs**.
 
-Debería tener 10 archivos que contengan fotografías de señales. Hay una segunda subcarpeta que incluye edificios de referencia. Si el servicio de búsqueda es Básico o superior, incluya el segundo conjunto de archivos si desea evaluar el análisis de imágenes en archivos que no incluyen imágenes de texto.
+Debería tener 10 archivos que contengan fotografías de señales.
+
+Hay una segunda subcarpeta que incluye edificios de referencia. Si desea [adjuntar una clave de Cognitive Services](cognitive-search-attach-cognitive-services.md), también puede incluir estos archivos para ver cómo funciona el análisis de imágenes en archivos de imagen que no incluyen texto incrustado. La clave es necesaria para los trabajos que superan la asignación gratuita.
 
 Ahora ya está preparado para continuar con el Asistente para la importación de datos.
 
@@ -69,7 +71,7 @@ Ahora ya está preparado para continuar con el Asistente para la importación de
 
 ### <a name="step-1---create-a-data-source"></a>Paso 1: Creación de un origen de datos
 
-1. En **Conectarse a los datos propios**, seleccione **Azure Blob Storage**. Elija una conexión existente con la cuenta de almacenamiento y el contenedor que ha creado. Asigne un nombre al origen de datos y use los valores predeterminados para el resto. 
+1. En **Conectarse a los datos propios**, seleccione **Azure Blob Storage**. Elija una conexión existente a la cuenta de almacenamiento y al contenedor que ha creado. Asigne un nombre al origen de datos y use los valores predeterminados para el resto. 
 
    :::image type="content" source="media/cognitive-search-quickstart-blob/connect-to-signs.png" alt-text="Configuración de blobs de Azure" border="true":::
 
@@ -93,7 +95,7 @@ A continuación, configure el enriquecimiento con inteligencia artificial para i
 
 ### <a name="step-3---configure-the-index"></a>Paso 3: Configuración del índice
 
-Un índice incluye el contenido en el que se pueden realizar búsquedas, y el Asistente para la **importación de datos** puede inferir normalmente el esquema mediante el muestreo de los datos. En este paso, repase el esquema generado y revise la configuración. A continuación se ofrece el esquema predeterminado que se creó para el conjunto de datos de demostración.
+Un índice incluye el contenido en el que se pueden realizar búsquedas y el Asistente para la **importación de datos** puede inferir normalmente el esquema mediante el muestreo de los datos. En este paso, repase el esquema generado y revise la configuración. A continuación se ofrece el esquema predeterminado que se creó para el conjunto de datos de demostración.
 
 En esta guía de inicio rápido, el asistente realiza un trabajo remarcable a la hora de configurar valores predeterminados razonables:  
 
@@ -119,11 +121,11 @@ El indexador es un recurso de alto nivel que controla el proceso de indexación.
 
 ## <a name="monitor-status"></a>Supervisión de estado
 
-La indexación cognitiva de aptitudes tarda más en completarse que la indexación típica basada en texto. Para supervisar el progreso, vaya a la página Información general y seleccione la pestaña **Indexadores** en medio de la página.
+La indexación cognitiva de aptitudes tarda más en completarse que la indexación típica basada en texto. Para supervisar el progreso, vaya a la página de información general y seleccione la pestaña **Indexadores** en medio de la página.
 
   :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-status-signs.png" alt-text="Estado del indexador" border="true":::
 
-Para comprobar los detalles sobre el estado de la ejecución, seleccione un indexador de la lista.
+Para comprobar los detalles sobre el estado de ejecución, seleccione un indexador de la lista.
 
 ## <a name="query-in-search-explorer"></a>Consulta en el Explorador de búsqueda
 

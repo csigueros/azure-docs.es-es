@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 253d763cffc8b70d134182c13678320f4ac50f4c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 59fa14f66e5fdb1424a4bac30a30cf70118149b4
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128586331"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131475"
 ---
 # <a name="secure-azure-digital-twins"></a>Protección de Azure Digital Twins
 
@@ -82,7 +82,7 @@ En la lista siguiente se describen los niveles en los que puede definir el ámbi
 
 ### <a name="troubleshooting-permissions"></a>Solución de problemas de permisos
 
-Si un usuario intenta realizar una acción no permitida por su rol, es posible que reciba el siguiente error de la solicitud de servicio: `403 (Forbidden)`. Para obtener más información y pasos para solucionar problemas, vea [Solución de problemas: Error en la solicitud de Azure Digital Twins con el estado: 403 (Prohibido)](troubleshoot-error-403.md) .
+Si un usuario intenta realizar una acción no permitida por su rol, es posible que reciba el siguiente error de la solicitud de servicio: `403 (Forbidden)`. Para obtener más información y pasos para solucionar problemas, vea [Error en la solicitud del servicio. Estado: 403 (Prohibido)](troubleshoot-error-403.md).
 
 ## <a name="managed-identity-for-accessing-other-resources"></a>Identidad administrada para acceder a otros recursos
 

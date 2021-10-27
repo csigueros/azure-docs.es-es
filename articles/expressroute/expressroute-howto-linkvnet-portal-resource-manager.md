@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/10/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 91e95bd6b269558353d74cbaa51dce94539001c1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 66b22007636ef7ffb6452e5ce19cee7cfa15ba1f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128606406"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000998"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Tutorial: Conexión de una red virtual con un circuito de ExpressRoute mediante el portal
 
@@ -127,6 +127,9 @@ Para eliminar una conexión, seleccione el icono **Eliminar** correspondiente a 
 :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-authorization-key.png" alt-text="Eliminar clave de autorización":::
 
 Si desea eliminar la conexión y conservar la clave de autorización, puede eliminar la conexión desde la página de conexión del circuito.
+> [!NOTE]
+  > Las conexiones canjeadas en distintas suscripciones no se mostrarán en la página de conexión del circuito. Vaya a la suscripción en que se canjeó la autorización y elimine el recurso de conexión de nivel superior.
+  >
 
 :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-connection-owning-circuit.png" alt-text="Eliminar conexión desde el circuito donde se encuentra":::
 

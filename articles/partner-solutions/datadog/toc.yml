@@ -1,0 +1,30 @@
+- name: Documentación de la integración de Datadog en Azure
+  href: index.yml
+- name: Información general
+  items:
+    - name: ¿Qué es Datadog?
+      href: overview.md
+      displayName: 'Datadog, Monitoring'
+- name: Guías de inicio rápido
+  expanded: true
+  items:
+    - name: Creación de una organización de Datadog
+      href: create.md
+    - name: Vínculo a una organización de Datadog existente
+      href: link-to-existing-organization.md
+- name: Procedimientos
+  items:
+    - name: Configuración de la implementación previa
+      href: prerequisites.md
+    - name: Administrar
+      href: manage.md
+    - name: Solución de problemas
+      items:
+        - name: Obtención de soporte técnico
+          href: get-support.md
+        - name: Solución de errores comunes
+          href: troubleshoot.md
+- name: Referencia
+  items:
+    - name: Azure CLI
+      href: /cli/azure/datadog

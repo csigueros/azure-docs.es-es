@@ -1,18 +1,18 @@
 ---
-title: Solución de problemas de rendimiento
+title: 'Solución de problemas: rendimiento'
 titleSuffix: Azure Digital Twins
 description: Sugerencias para solucionar problemas de rendimiento de una instancia de Azure Digital Twins.
 author: baanders
 ms.author: baanders
-ms.date: 5/11/2021
+ms.date: 10/8/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 252eeea15e5c9ebde19c5925423615cd7c50234c
-ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
+ms.openlocfilehash: 67f182ffbaf439d2c6b592854156073d6104efa7
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113493106"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131436"
 ---
 # <a name="troubleshooting-azure-digital-twins-performance"></a>Solución de problemas de Azure Digital Twins: rendimiento
 
@@ -20,7 +20,7 @@ Si experimenta retrasos u otros problemas de rendimiento al trabajar con Azure D
 
 ## <a name="isolate-the-source-of-the-delay"></a>Determinación del origen del retraso
 
-Determine si el retraso viene de Azure Digital Twins u otro servicio de la solución. Para investigar este retraso, puede usar la métrica **Latencia de API** de [Azure Monitor](../azure-monitor/essentials/quick-monitor-azure-resource.md) desde Azure Portal. Para obtener instrucciones sobre cómo ver las métricas de Azure Monitor de una instancia de Azure Digital Twins, consulte [Solución de problemas de Azure Digital Twins: Métricas](troubleshoot-metrics.md).
+Determine si el retraso viene de Azure Digital Twins u otro servicio de la solución. Para investigar este retraso, puede usar la métrica **Latencia de API** de [Azure Monitor](../azure-monitor/essentials/quick-monitor-azure-resource.md) desde Azure Portal. Para obtener instrucciones para ver métricas de Azure Monitor de una instancia de Azure Digital Twins, vea [Solución de problemas: métricas](troubleshoot-metrics.md).
 
 ## <a name="check-regions"></a>Comprobación de las regiones
 
@@ -28,7 +28,7 @@ Si la solución usa Azure Digital Twins en combinación con otros servicios de A
 
 ## <a name="check-logs"></a>Compruebe los registros
 
-Azure Digital Twins puede recopilar los registros de una instancia de servicio para ayudar a supervisar su rendimiento, entre otros datos. Los registros se pueden enviar a [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) o a un mecanismo de almacenamiento personalizado. Para habilitar el registro en la instancia, siga las instrucciones de [Solución de problemas de Azure Digital Twins: Registro de diagnóstico](troubleshoot-diagnostics.md). Puede analizar las marcas de tiempo de los registros para medir las latencias, evaluar si son coherentes y comprender su origen.
+Azure Digital Twins puede recopilar los registros de una instancia de servicio para ayudar a supervisar su rendimiento, entre otros datos. Los registros se pueden enviar a [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) o a un mecanismo de almacenamiento personalizado. Para habilitar el registro en la instancia, siga las instrucciones de [Solución de problemas: registros de diagnóstico](troubleshoot-diagnostics.md). Puede analizar las marcas de tiempo de los registros para medir las latencias, evaluar si son coherentes y comprender su origen.
 
 ## <a name="check-api-frequency"></a>Comprobación de la frecuencia de la API
 
@@ -46,7 +46,7 @@ Siga estos pasos:
 ## <a name="next-steps"></a>Pasos siguientes
 
 Consulte otras formas de solucionar problemas de la instancia de Azure Digital Twins en los siguientes artículos:
-* [Solución de problemas: Visualización de métricas con Azure Monitor](troubleshoot-metrics.md)
-* [Solución de problemas: Configuración de diagnósticos](troubleshoot-diagnostics.md).
-* [Solución de problemas: Configuración de alertas](troubleshoot-alerts.md)
-* [Solución de problemas de Azure Digital Twins: Estado de los recursos](troubleshoot-resource-health.md)
+* [Solución de problemas: métricas](troubleshoot-metrics.md)
+* [Solución de problemas: registros de diagnóstico](troubleshoot-diagnostics.md)
+* [Solución de problemas: alertas](troubleshoot-alerts.md)
+* [Solución de problemas: Resource Health](troubleshoot-resource-health.md)

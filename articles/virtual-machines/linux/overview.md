@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 89766dd612a43a60456199ae1fdc9de35c9dd061
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b419b816de822c72e3c33acddd9d9b6c50745b7f
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124774222"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047858"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Máquinas virtuales Linux en Azure
 
@@ -44,13 +44,13 @@ Siempre hay gran cantidad de [consideraciones de diseño](/azure/architecture/re
 * Los recursos relacionados que necesita la máquina virtual
 
 ### <a name="locations"></a>Ubicaciones
-Todos los recursos creados en Azure se distribuyen entre diversas [regiones geográficas](https://azure.microsoft.com/regions/) de todo el mundo. Por lo general, se llama a la región **ubicación** cuando se crea una máquina virtual. Para una máquina virtual, la ubicación especifica dónde se almacenan los discos duros virtuales.
+Los recursos de Azure se pueden crear en diversas [regiones geográficas](https://azure.microsoft.com/regions/) de todo el mundo. Por lo general, se llama a la región **ubicación** cuando se crea una máquina virtual. Para una máquina virtual, la ubicación especifica dónde se almacenarán los discos duros virtuales.
 
 En esta tabla se muestran algunas de las formas en que puede obtener una lista de ubicaciones disponibles.
 
 | Método | Descripción |
 | --- | --- |
-| Azure portal |Seleccione una ubicación en la lista cuando cree una máquina virtual. |
+| Portal de Azure |Seleccione una ubicación en la lista cuando cree una máquina virtual. |
 | Azure PowerShell |Use el comando [Get-AzLocation](/powershell/module/az.resources/get-azlocation). |
 | API DE REST |Use la operación para [mostrar la lista de ubicaciones](/rest/api/resources/subscriptions). |
 | Azure CLI |Use la operación[az account list-locations](/cli/azure/account). |

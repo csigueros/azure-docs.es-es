@@ -7,12 +7,12 @@ ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/29/2020
-ms.openlocfilehash: dba47073a6676b17c091af048f583ca3e7712999
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9ea679864d722306b9a7375e732a8ce90d1eed9f
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87420233"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130069907"
 ---
 # <a name="create-or-modify-an-offer"></a>Creación o modificación de una oferta
 
@@ -275,7 +275,7 @@ En el ejemplo siguiente se crea una oferta con offerID de `contosovirtualmachine
 
 ## <a name="uploading-artifacts"></a>Carga de los artefactos
 
-Para compartir los artefactos, como imágenes y logotipos, debe cargarlos en una ubicación accesible en la Web y luego debe incluir cada uno de ellos como un URI en la solicitud PUT, como se muestra en el ejemplo anterior. El sistema detectará que estos archivos no se encuentran en el almacenamiento de Azure Marketplace y los descargará en el almacenamiento.  Como resultado, verá que futuras solicitudes GET devolverán una dirección URL de servicio de Azure Marketplace para estos archivos.
+Para compartir los artefactos, como imágenes y logotipos, debe cargarlos en una ubicación accesible en la Web y luego debe incluir cada uno de ellos como un URI en la solicitud PUT, como se muestra en el ejemplo anterior. El sistema detectará que estos archivos no se encuentran en el almacenamiento de Azure Marketplace y los descargará. Como resultado, verá que futuras solicitudes GET devolverán una dirección URL de servicio de Azure Marketplace para estos archivos.
 
 ## <a name="categories-and-industries"></a>Categorías y sectores
 
@@ -392,9 +392,9 @@ Estas categorías y sus claves correspondientes son aplicables a los tipos de of
 
 ### <a name="microsoft-appsource-categories"></a>Categorías de Microsoft AppSource
 
-Estas categorías y sus claves correspondientes se aplican a los tipos de ofertas de aplicaciones de SaaS y PowerBI, Dynamics 365 Business Central, Dynamics 365 for Customer Engagement y Dynamics 365 for Operations. Los elementos en negrita cursiva (como ***analytics***) son las categorías y los elementos de texto estándar (advanced-analytics) son las subcategorías que están debajo de estas. Use los valores de clave exactos, sin cambiar el espaciado o el uso de mayúsculas.
+Estas categorías y sus claves correspondientes se aplican a los tipos de ofertas de aplicaciones de SaaS y Power BI, Dynamics 365 Business Central, Dynamics 365 for Customer Engagement y Dynamics 365 for Operations. Los elementos en negrita cursiva (como ***analytics***) son las categorías y los elementos de texto estándar (advanced-analytics) son las subcategorías que están debajo de estas. Use los valores de clave exactos, sin cambiar el espaciado o el uso de mayúsculas.
 
-| Category | Claves de SaaS | Claves de Dynamics 365 Business Central, Dynamics 365 for Customer Engagement, Dynamics 365 for Operations | Claves de aplicación de PowerBI |
+| Category | Claves de SaaS | Claves de Dynamics 365 Business Central, Dynamics 365 for Customer Engagement, Dynamics 365 for Operations | Claves de aplicación de Power BI |
 | --- | --- | --- | --- |
 | ***Analytics** _ | _*_analytics_*_ | _*_Análisis_*_ | _ *_Analytics_** |
 | Análisis avanzado | advanced-analytics | advanced-analytics | advanced-analytics |
@@ -494,9 +494,9 @@ Estas categorías y sus claves correspondientes se aplican a los tipos de oferta
 
 ### <a name="microsoft-appsource-industries"></a>Sectores de Microsoft AppSource
 
-Estos sectores y sus claves correspondientes se aplican a los tipos de ofertas de aplicaciones de SaaS y PowerBI, Dynamics 365 Business Central, Dynamics 365 for Customer Engagement y Dynamics 365 for Operations. Los elementos en negrita cursiva (como ***Automotive***) son las categorías y los elementos de texto estándar (como AutomotiveL2) son las subcategorías que están debajo de estas. Use los valores de clave exactos, sin cambiar el espaciado o el uso de mayúsculas.
+Estos sectores y sus claves correspondientes se aplican a los tipos de ofertas de aplicaciones de SaaS y Power BI, Dynamics 365 Business Central, Dynamics 365 for Customer Engagement y Dynamics 365 for Operations. Los elementos en negrita cursiva (como ***Automotive***) son las categorías y los elementos de texto estándar (como AutomotiveL2) son las subcategorías que están debajo de estas. Use los valores de clave exactos, sin cambiar el espaciado o el uso de mayúsculas.
 
-| Sector | Claves de SaaS, Dynamics 365 Business Central, Dynamics 365 for Customer Engagement, Dynamics 365 for Operations | Claves de aplicaciones de PowerBI |
+| Sector | Claves de SaaS, Dynamics 365 Business Central, Dynamics 365 for Customer Engagement, Dynamics 365 for Operations | Claves de aplicaciones de Power BI |
 | --- | --- | --- |
 | ***Automoción** _ | _*_Automoción_*_ | _ *_automoción_** |
 | Automoción | AutomotiveL2 | AutomotiveL2 |

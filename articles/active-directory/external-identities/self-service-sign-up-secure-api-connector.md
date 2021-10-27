@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f9f580c903ccc806ab4cfe5229c4931a4810bf8
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 9086e3df2022822e890af4d187f35a55bad5ae03
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114481884"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074121"
 ---
 # <a name="secure-your-api-used-an-api-connector-in-azure-ad-external-identities-self-service-sign-up-user-flows"></a>Protección de la API utilizada como conector de API en los flujos de usuarios de registro de autoservicio de Azure AD External Identities
 
@@ -63,7 +63,7 @@ Para crear un certificado, puede usar [Azure Key Vault](../../key-vault/certific
 
 Después, puede [exportar el certificado](../../key-vault/certificates/how-to-export-certificate.md).
 
-#### <a name="option-2-prepare-a-self-sized-certificate-using-powershell-module"></a>Opción 2: Preparar un certificado autofirmado mediante el módulo de PowerShell
+#### <a name="option-2-prepare-a-self-signed-certificate-using-powershell"></a>Opción 2: Preparar un certificado autofirmado mediante PowerShell
 
 [!INCLUDE [active-directory-b2c-create-self-signed-certificate](../../../includes/active-directory-b2c-create-self-signed-certificate.md)]
 

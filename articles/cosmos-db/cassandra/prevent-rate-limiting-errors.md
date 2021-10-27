@@ -7,15 +7,20 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 10/11/2021
 ms.author: turao
-ms.openlocfilehash: 469dc3f87bb7c783f2c3138e2bcf592c85312006
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: 2e110aeb7cf5395a9aea8d0efae9c0f97b6e74ce
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129754753"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003882"
 ---
 # <a name="prevent-rate-limiting-errors-for-azure-cosmos-db-api-for-cassandra-operations"></a>Prevención de errores de limitación de velocidad de operaciones de Azure Cosmos DB API para Cassandra
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+
+> [!IMPORTANT]
+> La prevención de errores de limitación de velocidad mediante la habilitación de los reintentos del lado servidor para la API de Cosmos DB en Cassandra está actualmente en versión preliminar pública.
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
+> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Cosmos DB normaliza el coste de todas las operaciones de base de datos, que se expresa en unidades de solicitud (RU). Las unidades de solicitud son como una moneda de rendimiento, que abstrae los recursos del sistema, como CPU, IOPS y memoria, necesarios para realizar las operaciones de base de datos compatibles con Azure Cosmos DB.
 
@@ -69,8 +74,16 @@ Reintento del lado servidor (SSR) resulta más beneficioso cuando hay un pico re
 
 Después de habilitar SSR, la aplicación cliente debe aumentar el tiempo de espera de lectura más allá del valor de servidor de 60 segundos. Para mayor seguridad, se recomienda un valor de 90 segundos.
 
-SocketOptions setReadTimeoutMillis DefaultDriverOption.REQUEST_TIMEOUT
-
+Controlador de ejemplo de código 3
+```java
+SocketOptions socketOptions = new SocketOptions()
+    .setReadTimeoutMillis(90000); 
+```
+Controlador de ejemplo de código 4  
+```java
+ProgrammaticDriverConfigLoaderBuilder configBuilder = DriverConfigLoader.programmaticBuilder()
+    .withDuration(DefaultDriverOption.REQUEST_TIMEOUT, Duration.ofSeconds(90)); 
+```
 
 ### <a name="how-can-i-monitor-the-effects-of-a-server-side-retry"></a>¿Cómo se pueden supervisar los efectos de un reintento en el servidor?
 

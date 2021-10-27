@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: overview
-ms.date: 05/08/2020
+ms.date: 10/13/2021
 ms.author: cshoe
-ms.openlocfilehash: 5030b0fb4e714be221e28e590c463186ec81ad04
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 4565012ec824961f971f1f1fb34ab330ae11372c
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122515590"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129999309"
 ---
 # <a name="quotas-in-azure-static-web-apps"></a>Cuotas en Azure Static Web Apps
 
@@ -27,7 +27,8 @@ Existen las siguientes cuotas para Azure Static Web Apps.
 | Tamaño del plan                   | Tamaño máximo de aplicación de 500 MB para una sola implementación y 0,50 GB como máximo para todos los entornos de almacenamiento provisional y producción  | Tamaño máximo de aplicación de 500 MB para una sola implementación y 2,00 GB como máximo combinado en todos los entornos de ensayo y producción |
 | Entornos de preproducción | 3                | 10 |
 | Dominios personalizados              | 2 por aplicación        | 5 por aplicación |
-| Autorización (con roles personalizados y reglas de enrutamiento) | Máximo de 25 usuarios finales que pueden pertenecer a roles personalizados | Máximo de 25 usuarios finales que pueden pertenecer a roles personalizados |
+| Autorización (roles integrados) | Usuarios finales ilimitados que pueden autenticarse con el rol `authenticated` integrado | Usuarios finales ilimitados que pueden autenticarse con el rol `authenticated` integrado |
+| Autorización (roles integrados) | Máximo de 25 usuarios finales que pueden pertenecer a roles personalizados a través de [invitaciones](authentication-authorization.md?tabs=invitations#role-management) | Un máximo de 25 usuarios finales que pueden pertenecer a roles personalizados a través de [invitaciones](authentication-authorization.md?tabs=invitations#role-management) o usuarios finales ilimitados a los que se pueden asignar roles personalizados a través de una [función sin servidor](authentication-authorization.md?tabs=function#role-management) |
 
 ## <a name="github-storage"></a>Almacenamiento de GitHub
 

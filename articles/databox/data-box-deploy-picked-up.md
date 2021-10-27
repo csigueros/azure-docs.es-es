@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 05/07/2021
+ms.date: 10/17/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 86609d42a7c8f0e78df6b3a0019d97c951b5d378
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 8b51cbf8af938a71faea05b2cadbea904b508d26
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109736234"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130138646"
 ---
 ::: zone target="docs"
 
@@ -76,11 +76,15 @@ Los siguientes pasos vienen determinados por el lugar al que se vaya a devolver 
 
 Asegúrese de que la copia de datos en el dispositivo se ha completado y que la ejecución de **Preparación para el envío** se ha realizado correctamente. Según la región a la que envíe el dispositivo, el procedimiento es distinto.
 
+### <a name="microsoft-managed-shipping"></a>Envío administrado por Microsoft
+
+Si usa el envío administrado por Microsoft, siga las instrucciones correspondientes a la región de origen del envío.
+
 ::: zone-end
 
-## <a name="us-canada-europe"></a>[Estados Unidos, Canadá, Europa](#tab/in-us-canada-europe)
+## <a name="us--canada"></a>[Estados Unidos y Canadá](#tab/in-us-canada)
 
-Realice los pasos siguientes si va a devolver el dispositivo en Estados Unidos, Canadá o Europa.
+Realice los pasos siguientes si va a devolver el dispositivo en Estados Unidos o Canadá.
 
 1. Asegúrese de que el dispositivo está apagado y de que se han quitado los cables.
 2. Enrolle y coloque de forma segura el cable de alimentación que se proporcionó junto con el dispositivo en la parte posterior del mismo.
@@ -93,6 +97,53 @@ Realice los pasos siguientes si va a devolver el dispositivo en Estados Unidos, 
 
     En lugar de programar la recogida, también devolver la instancia de Data Box en la ubicación de recogida más cercana.
 4. Una vez que el transportista recoge y examina el dispositivo Data Box, el estado del pedido en el portal se actualiza a **Picked up** (Recogido). También se muestra un identificador de seguimiento.
+
+::: zone target="chromeless"
+
+## <a name="verify-data-upload-to-azure"></a>Comprobación de la carga de datos en Azure
+
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+
+## <a name="erasure-of-data-from-data-box"></a>Eliminación de datos de Data Box
+
+Una vez que se completa la carga en Azure, Data Box elimina los datos de los discos según las [directrices de la revisión 1 de NIST SP 800-88](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
+
+::: zone-end
+
+## <a name="europe"></a>[Europa](#tab/in-europe)
+
+Si va a devolver el dispositivo en Europa, realice los pasos siguientes:
+
+1. Asegúrese de que el dispositivo está apagado y de que se han quitado los cables.
+2. Enrolle y coloque de forma segura el cable de alimentación que se proporcionó junto con el dispositivo en la parte posterior del mismo.
+3. Asegúrese de que la etiqueta de envío aparece en la pantalla de tinta electrónica y programe una recogida con su transportista. Si la etiqueta está dañada, se ha perdido o no aparece en la pantalla de tinta electrónica, póngase en contacto con el servicio de soporte técnico de Microsoft. Si el soporte técnico lo sugiere, puede ir a **Información general > Descargar la etiqueta de envío** en Azure Portal. Descargue la etiqueta de envío y péguela en el dispositivo.
+1. **Si el envío es desde Alemania o Suiza,** es necesario avisar con antelación al centro de datos de Azure de todas los devoluciones de dispositivos:
+    1. Envíe un correo electrónico a Operaciones de Azure Data Box, con la plantilla siguiente, para recibir un identificador de entrada. Envíe un correo electrónico a [adbops@microsoft.com](mailto:adbops@microsoft.com).
+
+       ```
+       To: adbops@microsoft.com
+       Subject: Request for Azure Data Box Inbound ID: <orderName> 
+       Body: 
+        
+       I am ready to return an Azure Data Box and would like to request an Inbound ID for the following order:
+       
+       Order Name: <orderName>
+       Return Tracking Number: <returnTracking#>
+       ```
+
+    1. Anote el número de identificador de entrada proporcionado por Operaciones de Azure Data Box y péguelo en la unidad, en un lugar claramente visible, cerca de la etiqueta de devolución.
+1. Programe una recogida con UPS si está devolviendo el dispositivo. Para programar una recogida:
+
+    * Llame a la oficina local de UPS (número gratuito específico del país o región).
+    * En la llamada, indique el número de seguimiento del envío inverso, que se muestra en la pantalla E-ink (Tinta electrónica) o la etiqueta impresa. Si no indica el número de seguimiento, UPS le exigirá una cantidad adicional en la recogida.
+    * Si surge algún problema durante la programación de una recogida o si se le pide que pague tarifas adicionales, póngase en contacto con Azure Data Box Operations. Envíe un correo electrónico a [adbops@microsoft.com](mailto:adbops@microsoft.com).
+
+    En lugar de programar la recogida, también devolver la instancia de Data Box en la ubicación de recogida más cercana.
+
+    **Si el envío es desde Alemania o Suiza,** también puede [usar el envío autoadministrado](data-box-deploy-picked-up.md#self-managed-shipping).
+
+4. Una vez que el transportista recoge y examina el dispositivo Data Box, el estado del pedido en el portal se actualiza a **Picked up** (Recogido). También se muestra un identificador de seguimiento.
+
 
 ::: zone target="chromeless"
 
@@ -279,7 +330,7 @@ Si surge algún problema, envíe un correo electrónico a Data Box Operations As
 
 ::: zone-end
 
-## <a name="united-arab-emirates"></a>[Emiratos Árabes Unidos](#tab/in-uae)
+## <a name="uae"></a>[Emiratos Árabes Unidos](#tab/in-uae)
 
 1. Conserve la caja original utilizada para devolver el dispositivo.
 2. Asegúrese de que la copia de datos en el dispositivo se ha completado y que el paso **Preparación para el envío** se ha realizado correctamente.
@@ -349,9 +400,13 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 ::: zone-end
 -->
 
-## <a name="self-managed"></a>[Autoadministrado](#tab/in-selfmanaged)
+---
 
-Si usa Data Box en la Administración Pública de EE. UU., Japón, Singapur, Corea, India, Sudáfrica, Reino Unido, Oeste de Europa, Australia o Brasil, y ha seleccionado el envío autoadministrado al crear el pedido, siga estas instrucciones.
+### <a name="self-managed-shipping"></a>Envío autoadministrado
+
+Si usa el envío administrado por Microsoft, siga las instrucciones correspondientes a la región de origen del envío.
+
+Si usa Data Box en la Administración Pública de EE. UU., Japón, Singapur, Corea, India, Sudáfrica, Reino Unido, Alemania, Suiza, Oeste de Europa, Australia o Brasil, y ha seleccionado el envío autoadministrado al crear el pedido, siga estas instrucciones.
 
 1. Anote el código de autorización que se muestra en la página **Preparación para el envío** de la interfaz de usuario web local de Data Box una vez que el paso se complete correctamente.
 2. Apague el dispositivo y quite los cables. Enrolle y coloque de forma segura el cable de alimentación que se suministró junto con el dispositivo en la parte posterior del mismo.

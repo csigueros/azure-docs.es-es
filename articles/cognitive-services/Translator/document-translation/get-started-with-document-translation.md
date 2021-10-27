@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 09/16/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: 0e1192e310c658e93c4cfe5738e9ad4d36984113
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 051e218b8c0bce8249c6fbe3dd785d797130b61f
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128580879"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130062735"
 ---
 # <a name="get-started-with-document-translation"></a>Introducción a la traducción de documentos
 
@@ -117,7 +117,7 @@ En cada solicitud de API de traducción de documentos se incluyen los siguientes
 * El valor de `targetUrl` para cada idioma de destino debe ser único.
 
 >[!NOTE]
-> Si ya existe un archivo con el mismo nombre en el destino, se sobrescribirá.
+> Si ya existe un archivo con el mismo nombre en el destino, el trabajo producirá errores.
 
 <!-- markdownlint-disable MD024 -->
 ### <a name="translate-all-documents-in-a-container"></a>Traducción de todos los documentos de un contenedor

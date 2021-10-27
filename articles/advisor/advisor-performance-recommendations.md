@@ -3,12 +3,12 @@ title: Mejora del rendimiento de las aplicaciones de Azure con Advisor
 description: Use recomendaciones sobre rendimiento de Azure Advisor para mejorar la velocidad y la capacidad de respuesta de las aplicaciones empresariales críticas.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 7229f4a786fc0afc43793ffe730470427ca2b107
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 110501087cc42662412e6446b9859f4078252455
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129234933"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000695"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Mejora del rendimiento de las aplicaciones de Azure con Azure Advisor
 
@@ -180,6 +180,11 @@ Más información sobre el [SDK de Lector inmersivo](../applied-ai-services/imme
 Advisor detecta que tiene un grupo de hosts con la profundidad establecida en primer lugar como algoritmo de equilibrio de carga y que el límite máximo de sesión del grupo de hosts es mayor o igual que 999999. El equilibrio de carga en profundidad usa el límite máximo de sesión para determinar el número máximo de usuarios que pueden tener sesiones simultáneas en un único host de sesión. Si el límite máximo de sesión es demasiado alto, todas las sesiones de usuario se dirigirán al mismo host de sesión y esto provocará problemas de rendimiento y confiabilidad. Por lo tanto, al configurar un grupo de hosts para que tenga un equilibrio de carga en profundidad, debe establecer un límite máximo de sesión adecuado según la configuración de la implementación y la capacidad de las máquinas virtuales. 
 
 Para obtener más información sobre el equilibrio de carga en Windows Virtual Desktop, consulte [Configuración del método de equilibrio de carga de Windows Virtual Desktop](../virtual-desktop/troubleshoot-set-up-overview.md).
+
+## <a name="upgrade-to-the-latest-version-of-the-azure-communication-services-sdks"></a>Actualización a la versión más reciente de los SDK de Azure Communication Services
+
+Advisor ha identificado los recursos de esta suscripción mediante versiones obsoletas de SDK de Azure Communication Services específicos. El uso de la versión más reciente del SDK de Azure Communication Services le proporciona seguridad actualizada, rendimiento y un conjunto expandido de características para personalizar y mejorar las experiencias de comunicación.
+Obtenga más información sobre [Azure Communication Services](../communication-services/overview.md) y la [integración con Azure Advisor](../communication-services/concepts/advisor-overview.md).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Obtención de acceso a las recomendaciones sobre rendimiento en Advisor
 

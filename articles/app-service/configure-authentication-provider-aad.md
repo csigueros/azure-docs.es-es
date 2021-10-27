@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 61253ab7360253e1c6902b6a7b38c9fb53faa3eb
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 039a32d1f1ec1327ee032c17af36dc910f363eed
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129611755"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045982"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configuración de una aplicación de App Service o Azure Functions para usar el inicio de sesión de Azure AD
 
@@ -70,14 +70,15 @@ Para registrar la aplicación, lleve a cabo los siguientes pasos:
 1. Una vez creado el registro de la aplicación, copie el **Id. de aplicación (cliente)** y el **Id. de directorio (inquilino)** para usarlos más adelante.
 1. Seleccione **Autenticación**. En **Concesión implícita**, habilite **Tokens de id.** para permitir que el usuario de OpenID Connect inicie sesión desde App Service.
 1. (Opcional) Seleccione **Personalización de marca**. En **URL de página principal**, escriba la dirección URL de la aplicación de App Service y seleccione **Guardar**.
-1. Seleccione **Expose an API (Exponer una API)**  > **Set (Conjunto)** . En el caso de una aplicación de un solo inquilino, pegue la dirección URL de la aplicación de App Service y seleccione **Guardar** y, para la aplicación multiinquilino, pegue la dirección URL que se basa en uno de los dominios comprobados por el inquilino y, a continuación, seleccione **Guardar**.
+1. Seleccione **Exponer una API** y haga clic en **Establecer** junto a "URI de id. de aplicación". Este valor identifica de forma única la aplicación cuando se usa como recurso, lo que permite solicitar tokens que concedan acceso. Se usa como prefijo para los ámbitos que cree.
 
-   > [!NOTE]
-   > Este valor es el **URI del identificador de la aplicación** del registro de aplicaciones. Si la aplicación web requiere acceso a una API en la nube, al configurar el recurso de App Service en la nube necesitará el valor de **URI de Id. de aplicación** de la aplicación web. Puede utilizarlo, por ejemplo, si desea que el servicio en la nube conceda acceso explícitamente a la aplicación web.
+    Para una aplicación de un solo inquilino, puede usar el valor predeterminado, que tiene el formato `api://<application-client-id>`. También puede especificar un URI más legible, como `https://contoso.com/api`, en función de uno de los dominios comprobados para el inquilino. Para una aplicación multiinquilino, debe proporcionar un URI personalizado. Para más información sobre los formatos aceptados para los URI de id. de aplicación, consulte la [referencia de procedimientos recomendados de registros de aplicaciones](../active-directory/develop/security-best-practices-for-app-registration.md#appid-uri-configuration).
+
+    Una vez introducido el valor, haga clic en **Guardar**.
 
 1. Seleccione **Agregar un ámbito**.
    1. En **Nombre de ámbito**, escriba *user_impersonation*.
-   1. En los cuadros de texto, escriba el nombre y la descripción del ámbito de consentimiento que quiere que vean los usuarios en la página de consentimiento. Por ejemplo, escriba *Access my app* (Acceder a mi aplicación).
+   1. En los cuadros de texto, escriba el nombre y la descripción del ámbito de consentimiento que quiere que vean los usuarios en la página de consentimiento. Por ejemplo, escriba *Acceder a &lt;application-name&gt;* .
    1. Seleccione la opción **Agregar un ámbito**.
 1. (Opcional) Para crear un secreto de cliente, seleccione **Certificates & secrets (Certificados y secretos)**  > **New client secret (Nuevo secreto de cliente)**  > **Add (Agregar)** . Copie el valor del secreto del cliente que se muestra en la página. No se volverá a mostrar.
 1. (Opcional) Para agregar varios valores en **Direcciones URL de respuesta**, seleccione **Autenticación**.

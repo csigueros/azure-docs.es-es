@@ -2,21 +2,21 @@
 title: 'Tutorial: Creación de flujos de usuario y directivas personalizadas (Azure Active Directory B2C)'
 description: Siga este tutorial para aprender a crear flujos de usuario y directivas personalizadas en Azure Portal para habilitar el registro, el inicio de sesión y la edición de perfiles de usuario para las aplicaciones en Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/20/2021
-ms.author: mimart
+ms.date: 10/18/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 07c3b88bd4cb5b7c0b0121bc2b9e12b7f9d5a441
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 63af3b70ebfde53078d71955a95e55e03a6c591b
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128598049"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162485"
 ---
 # <a name="tutorial-create-user-flows-and-custom-policies-in-azure-active-directory-b2c"></a>Tutorial: Creación de flujos de usuario y directivas personalizadas en Azure Active Directory B2C
 
@@ -53,7 +53,7 @@ Las [directivas personalizadas](custom-policy-overview.md) son archivos de confi
 
 - Si todavía no tiene uno, [cree un inquilino de Azure AD B2C](tutorial-create-tenant.md) vinculado a la suscripción de Azure.
 - [Registre una aplicación web](tutorial-register-applications.md) y [habilite la concesión implícita del token de identificador](tutorial-register-applications.md#enable-id-token-implicit-grant).
-- [Cree una aplicación de Facebook](identity-provider-facebook.md#create-a-facebook-application). Omita los requisitos previos y el restablecimiento de los pasos descritos en el artículo [Configuración del registro y el inicio de sesión con una cuenta de Facebook](identity-provider-facebook.md). Aunque no se requiere una aplicación de Facebook para el uso de directivas personalizadas, se usa en este tutorial para demostrar la habilitación del inicio de sesión social en una directiva personalizada.
+
 
 ::: zone-end
 
@@ -171,16 +171,6 @@ Si desea permitir que los usuarios editen sus perfiles en la aplicación, debe u
 1. En **Uso de la clave**, seleccione **Cifrado**.
 1. Seleccione **Crear**.
 
-### <a name="create-the-facebook-key"></a>Crear la clave de Facebook
-
-Agregue el [secreto de la aplicación](identity-provider-facebook.md) de la aplicación de Facebook como una clave de directiva. Puede usar el secreto de aplicación de la aplicación que creó como parte de los requisitos previos de este artículo.
-
-1. Seleccione **Claves de directiva** y luego **Agregar**.
-1. En **Opciones**, elija `Manual`.
-1. En **Nombre**, escriba `FacebookSecret`. Es posible que se agregue automáticamente el prefijo `B2C_1A_`.
-1. En **Secreto**, escriba el *secreto de aplicación* de la aplicación de Facebook de developers.facebook.com. Este valor es el secreto, no el identificador de la aplicación.
-1. En **Uso de claves**, seleccione **Firma**.
-1. Seleccione **Crear**.
 
 ## <a name="register-identity-experience-framework-applications"></a>Registro de las aplicaciones del marco de experiencia de identidad
 
@@ -226,8 +216,11 @@ A continuación, exponga la API agregando un ámbito:
 A continuación, especifique que la aplicación se debe tratar como un cliente público:
 
 1. En el menú izquierdo, en **Administrar**, seleccione **Autenticación**.
-1. En **Configuración avanzada**, en la sección **Permitir flujos de clientes públicos**, establezca **Habilite los siguientes flujos móviles y de escritorio** en **Sí**. Asegúrese de que **"allowPublicClient": true** esté establecido en el manifiesto de aplicación. 
+1. En **Configuración avanzada**, en la sección **Permitir flujos de clientes públicos**, establezca **Habilite los siguientes flujos móviles y de escritorio** en **Sí**. 
 1. Seleccione **Guardar**.
+1. Asegúrese de que **"allowPublicClient": true** esté establecido en el manifiesto de aplicación:
+    1. En el menú izquierdo, en **Administrar**, seleccione **Manifiesto** para abrir el manifiesto de aplicación.
+    1. Busque la clave **allowPublicClient** y asegúrese de que su valor esté establecido en **true**.
 
 Ahora, conceda permisos al ámbito de la API que expuso anteriormente en el registro de *IdentityExperienceFramework*:
 
@@ -236,10 +229,9 @@ Ahora, conceda permisos al ámbito de la API que expuso anteriormente en el regi
 1. Seleccione la pestaña **Mis API** y, después, seleccione la aplicación **IdentityExperienceFramework**.
 1. En **Permiso**, seleccione el ámbito **user_impersonation** que definió anteriormente.
 1. Seleccione **Agregar permisos**. Como se indicó, espere unos minutos antes de continuar con el paso siguiente.
-1. Seleccione **Conceder consentimiento de administrador para (el nombre de inquilino)** .
-1. Seleccione la cuenta de administrador que tiene actualmente la sesión iniciada o inicie sesión con una cuenta en el inquilino de Azure AD B2C que tenga asignado al menos el rol *Administrador de aplicaciones en la nube*.
-1. Seleccione **Aceptar**.
-1. Seleccione **Actualizar** y luego compruebe que "Concedido para..." aparece en **Estado** para los ámbitos offline_access, openid y user_impersonation. Los permisos pueden tardar unos minutos en propagarse.
+1. Seleccione **Conceder consentimiento de administrador para *(el nombre de inquilino)***.
+1. Seleccione **Sí**.
+1. Seleccione **Actualizar** y compruebe que aparece "Granted for..." (Concedido para...) en **Estado** para el ámbito.
 
 * * *
 
@@ -255,6 +247,7 @@ Las directivas personalizadas son un conjunto de archivos XML que se cargan en e
 Cada paquete de inicio contiene lo siguiente:
 
 - **Archivo base**: se requieren algunas modificaciones en el archivo base. Ejemplo: *TrustFrameworkBase.xml*
+- **Archivo de localización**: este archivo es donde se realizan los cambios de localización. Por ejemplo: *TrustFrameworkLocalization.xml*
 - **Archivo de extensión**: este archivo es donde se hace la mayoría de los cambios de configuración. Ejemplo: *TrustFrameworkExtensions.xml*
 - **Archivos de usuario de confianza**: archivos específicos de la tarea a los que llama la aplicación. Ejemplos: *SignUpOrSignin.xml*, *ProfileEdit.xml*, *PasswordReset.xml*.
 
@@ -289,10 +282,11 @@ Agregue los identificadores de aplicación al archivo de extensiones *TrustFrame
 1. Seleccione **Cargar directiva personalizada**.
 1. En este orden, cargue los archivos de directiva:
     1. *TrustFrameworkBase.xml*
-    1. *TrustFrameworkExtensions.xml*
-    1. *SignUpOrSignin.xml*
-    1. *ProfileEdit.xml*
-    1. *PasswordReset.xml*
+    2. *TrustFrameworkLocalization.xml*
+    3. *TrustFrameworkExtensions.xml*
+    4. *SignUpOrSignin.xml*
+    5. *ProfileEdit.xml*
+    6. *PasswordReset.xml*
 
 A medida que cargue los archivos, Azure agregará el prefijo `B2C_1A_` a cada uno.
 
@@ -305,14 +299,35 @@ A medida que cargue los archivos, Azure agregará el prefijo `B2C_1A_` a cada un
 1. Para **Seleccionar aplicación** en la página Información general de la directiva personalizada, seleccione la aplicación web denominada *webapp1* que ha registrado antes.
 1. Asegúrese de que la **URL de respuesta** sea `https://jwt.ms`.
 1. Seleccione **Ejecutar ahora**.
-1. Regístrese con una dirección de correo electrónico.
+1. Regístrese con una dirección de correo electrónico. No use aún la opción **Facebook**. 
 1. Vuelva a seleccionar **Ejecutar ahora**.
 1. Inicie sesión con la misma cuenta para confirmar que tiene una configuración correcta.
 
 ## <a name="add-facebook-as-an-identity-provider"></a>Incorporación de Facebook como proveedor de identidades
 
-Como se mencionó en [Requisitos previos](#prerequisites), *no* se requiere Facebook para el uso de directivas personalizadas, pero aquí se usa para mostrar cómo se puede habilitar el inicio de sesión social federado en una directiva personalizada.
+El paquete de inicio **SocialAndLocalAccounts** incluye el inicio de sesión con la red social Facebook. *No* se requiere Facebook para el uso de directivas personalizadas, pero aquí se usa para mostrar cómo se puede habilitar el inicio de sesión social federado en una directiva personalizada.
 
+### <a name="create-facebook-application"></a>Creación de una aplicación de Facebook
+
+Siga los pasos descritos en [Creación de una aplicación de Facebook](identity-provider-facebook.md#create-a-facebook-application) para obtener el *identificador de aplicación* de Facebook y el *secreto de la aplicación*. Omita los requisitos previos y el restablecimiento de los pasos descritos en el artículo [Configuración del registro y el inicio de sesión con una cuenta de Facebook](identity-provider-facebook.md). 
+
+### <a name="create-the-facebook-key"></a>Crear la clave de Facebook
+
+Agregue el [secreto de la aplicación](identity-provider-facebook.md) de la aplicación de Facebook como una clave de directiva. Puede usar el secreto de aplicación de la aplicación que creó como parte de los requisitos previos de este artículo.
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el icono **Directorios y suscripciones** en la barra de herramientas del portal.
+1. En la página **Configuración del portal | Directorios y suscripciones**, busque el directorio de Azure AD B2C en la lista **Nombre de directorio** y seleccione **Cambiar**.
+1. En Azure Portal, busque y seleccione **Azure AD B2C**.
+1. En la página de información general, en **Directivas**, seleccione **Identity Experience Framework**.
+1. Seleccione **Claves de directiva** y luego **Agregar**.
+1. En **Opciones**, elija `Manual`.
+1. En **Nombre**, escriba `FacebookSecret`. Es posible que se agregue automáticamente el prefijo `B2C_1A_`.
+1. En **Secreto**, escriba el *secreto de aplicación* de la aplicación de Facebook de developers.facebook.com. Este valor es el secreto, no el identificador de la aplicación.
+1. En **Uso de claves**, seleccione **Firma**.
+1. Seleccione **Crear**.
+
+### <a name="update-trustframeworkextensionsxml-in-custom-policy-starter-pack"></a>Actualización del paquete de inicio de directivas personalizadas TrustFrameworkExtensions.xml
 1. En el archivo `SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`** , sustituya el valor de `client_id` por el identificador de aplicación de Facebook:
 
    ```xml

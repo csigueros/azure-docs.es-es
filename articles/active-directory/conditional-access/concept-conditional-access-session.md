@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/21/2021
+ms.date: 10/13/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a30dc564dced8d3306c4645ca48b6331e1f6959b
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 0ad562e46b88772cd38e3e3d39920e7fdcf29d23
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129355759"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130137330"
 ---
 # <a name="conditional-access-session"></a>Acceso condicional: Sesión
 

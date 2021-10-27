@@ -3,7 +3,7 @@ title: Procedimientos recomendados de configuración de HADR
 description: Obtenga información sobre las configuraciones de clúster admitidas al configurar la alta disponibilidad y la recuperación ante desastres (HADR) para SQL Server en Azure Virtual Machines, por ejemplo, los cuórum admitidos o las opciones de enrutamiento de conexión.
 services: virtual-machines
 documentationCenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -12,13 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2021
-ms.author: mathoma
-ms.openlocfilehash: b9aa10e9a11ee1268c8bb49d5cb32d0550c2ca3a
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: 40c68a77a3e432c5ff03da2a99e93255719e8898
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112582085"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130163422"
 ---
 # <a name="hadr-configuration-best-practices-sql-server-on-azure-vms"></a>Procedimientos recomendados para la configuración de HADR (SQL Server en Azure Virtual Machines)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -284,7 +285,9 @@ Los límites de máquina virtual o disco podrían dar lugar a un cuello de botel
 
 ## <a name="networking"></a>Redes
 
-Use una sola NIC por servidor (nodo de clúster) y una sola subred. La red de Azure tiene redundancia física, lo que hace que las NIC y subredes adicionales sean innecesarias en un clúster invitado de máquina virtual de Azure. El informe de validación de clúster le avisará de que solo se puede tener acceso a los nodos en una sola red. Puede omitir esta advertencia en los clústeres de conmutación por error invitados de máquinas virtuales de Azure.
+Use una sola NIC por servidor (nodo de clúster). La red de Azure tiene redundancia física, lo que hace que las NIC adicionales sean innecesarias en un clúster invitado de máquina virtual de Azure. El informe de validación de clúster le avisará de que solo se puede tener acceso a los nodos en una sola red. Puede omitir esta advertencia en los clústeres de conmutación por error invitados de máquinas virtuales de Azure. 
+
+Los límites de ancho de banda de una máquina virtual determinada se comparten entre las NIC y la adición de una NIC adicional no mejora el rendimiento del grupo de disponibilidad para SQL Server en máquinas virtuales de Azure. Por lo tanto, no es necesario agregar una segunda NIC. 
 
 El servicio DHCP no compatible con RFC en Azure puede hacer que se produzcan errores en la creación de determinadas configuraciones de clúster de conmutación por error. Este error se produce porque se asigna una dirección IP duplicada al nombre de red del clúster, como la misma dirección IP que uno de los nodos del clúster. Se trata de un problema al usar los grupos de disponibilidad, lo que depende de la característica de clúster de conmutación por error de Windows.
 

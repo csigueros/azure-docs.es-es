@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 11/07/2020
 ms.author: allensu
-ms.openlocfilehash: 8ab4f698c7149d8d57f790e221ccbe35ec090fe6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 025950ffcc264a3cfad1185ac1629c6a8fd44814
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94369891"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129992579"
 ---
 # <a name="onboard-a-root-or-apex-domain-to-an-existing-azure-cdn-endpoint"></a>Incorporación de un dominio raíz o de vértice a un punto de conexión existente de Azure CDN
 
@@ -20,7 +20,7 @@ Azure CDN usa registros CNAME a fin de validar la propiedad del dominio para la 
 
 El protocolo DNS evita la asignación de registros CNAME en el vértice de zona. Por ejemplo, si el dominio es `contoso.com`, puede crear registros CNAME para `somelabel.contoso.com`, pero no puede crear CNAME para `contoso.com`. Esta restricción presenta un problema para los propietarios de aplicaciones que tienen aplicaciones con equilibrio de carga detrás de Azure CDN. Puesto que el uso de un perfil de CDN requiere la creación de un registro CNAME, no es posible apuntar al perfil de CDN desde el vértice de la zona.
 
-Este problema se puede resolver mediante el uso de registros de alias en Azure DNS. A diferencia de los registros CNAME, los registros de alias se crean en el vértice de zona. Los propietarios de aplicaciones pueden usarlo para apuntar su registro de vértice de zona a un perfil de CDN que tenga puntos de conexión públicos. Los propietarios de aplicaciones pueden apuntar al mismo perfil de CDN que se use para cualquier otro dominio dentro de su zona DNS. Por ejemplo, `contoso.com` y `www.contoso.com` pueden apuntar al mismo perfil de CDN. 
+Este problema se puede resolver mediante registros de alias en Azure DNS. A diferencia de los registros CNAME, los registros de alias se crean en el vértice de zona. Los propietarios de aplicaciones pueden usarlo para apuntar su registro de vértice de zona a un perfil de CDN que tenga puntos de conexión públicos. Los propietarios de aplicaciones pueden apuntar al mismo perfil de CDN que se use para cualquier otro dominio dentro de su zona DNS. Por ejemplo, `contoso.com` y `www.contoso.com` pueden apuntar al mismo perfil de CDN. 
 
 La asignación del dominio de vértice o raíz a su perfil de CDN requiere básicamente el acoplamiento de CNAME o la búsqueda de DNS. Mecanismo en el que el proveedor de DNS resuelve de forma recursiva la entrada CNAME hasta que encuentra una dirección IP. Esta funcionalidad es compatible con Azure DNS para puntos de conexión de CDN. 
 

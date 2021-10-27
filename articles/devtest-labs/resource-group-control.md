@@ -1,23 +1,23 @@
 ---
-title: Especificación del grupo de recursos de las máquinas virtuales
+title: Especificación del grupo de recursos de Azure VMs en DevTest Labs
 description: Obtenga información sobre cómo especificar un grupo de recursos para VM en un laboratorio en Azure DevTest Labs.
 ms.topic: how-to
-ms.date: 06/26/2020
-ms.openlocfilehash: f8800674ca7d324037d026142cff41b4fbd018d0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/18/2021
+ms.openlocfilehash: baeab2c54ae594cf9ecb70ae8c4ec7dd2b66588f
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128635439"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178906"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Especificación de un grupo de recursos para máquinas virtuales de laboratorio en Azure DevTest Labs
 
-Como propietario de un laboratorio, puede configurar las máquinas virtuales del laboratorio para que se creen en un grupo de recursos específico. Esta característica sirve de ayuda en los siguientes escenarios:
+De forma predeterminada, Azure DevTest Labs crea un nuevo grupo de recursos cada vez que se crea una nueva máquina virtual. Como propietario de un laboratorio, puede configurar las máquinas virtuales del laboratorio para que se creen en un grupo de recursos específico. Esta característica sirve de ayuda en los siguientes escenarios:
 
 - Hay menos grupos de recursos creados por los laboratorios en la suscripción.
 - Los laboratorios se ejecutan dentro de un conjunto fijo de grupos de recursos que se configura.
 - Se evitan las restricciones y las aprobaciones necesarias para crear grupos de recursos dentro de la suscripción de Azure.
-- Se consolidan todos los recursos de laboratorio dentro de un grupo de recursos único para simplificar el seguimiento de esos recursos y aplicar [directivas](../governance/policy/overview.md) a fin de administrarlos en el grupo de recursos.
+- Combine todos los recursos de laboratorio en un único grupo de recursos para simplificar el seguimiento de esos recursos y aplicar [directivas](../governance/policy/overview.md) a fin de administrarlos en grupo.
 
 Con esta característica, puede usar un script para especificar un grupo de recursos nuevo o uno existente dentro de su suscripción de Azure para todas las máquinas virtuales del laboratorio. Actualmente, Azure DevTest Labs admite esta característica con una API.
 

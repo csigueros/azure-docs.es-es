@@ -4,19 +4,22 @@ description: La API de eventos de uso permite emitir eventos de uso para las ofe
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 10/15/2021
 author: saasguide
 ms.author: souchak
-ms.openlocfilehash: 056fd364902ccd530b1aa2d540cd7d0457e0276b
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 84e55aa971eae4c67bc6ec2dcaa4618b55c8f737
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129855866"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130134115"
 ---
 # <a name="marketplace-metered-billing-apis"></a>API de facturación según uso de Marketplace
 
 Las API de facturación según uso deben usarse cuando el publicador crea dimensiones de medición personalizadas para que una oferta se publique en el Centro de partners. La integración con las API de facturación según uso es necesaria para cualquier oferta comprada que tenga uno o más planes con dimensiones personalizadas para emitir eventos de uso.
+
+> [!IMPORTANT]
+> Debe realizar un seguimiento del uso en el código y enviar solo eventos de uso a Microsoft para el uso que esté por encima de la cuota base.
 
 Para obtener más información sobre cómo crear dimensiones de medición personalizadas para SaaS, consulte [Facturación según uso de SaaS](partner-center-portal/saas-metered-billing.md).
 

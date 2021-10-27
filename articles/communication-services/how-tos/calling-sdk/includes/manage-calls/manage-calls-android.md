@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 09/08/2021
 ms.author: rifox
-ms.openlocfilehash: 319571066bd69d1bc80414de7bdb49da27102c18
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7d2a6415a2cc03513606183c290443c453a82577
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128699419"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130143758"
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-android.md)]
 
@@ -255,3 +255,30 @@ El estado puede ser uno de los siguientes:
     ```java
     List<RemoteVideoStream> videoStreams = remoteParticipant.getVideoStreams(); // [RemoteVideoStream, RemoteVideoStream, ...]
     ```
+## <a name="using-foreground-services"></a>Uso de los servicios en primer plano
+
+En los casos en los que quiera ejecutar una tarea visible del usuario incluso cuando la aplicación esté en segundo plano, puede usar los [servicios en primer plano](https://developer.android.com/guide/components/foreground-services).
+
+Por ejemplo, con los servicios en primer plano, puede mantener una notificación visible para el usuario cuando la aplicación tiene una llamada activa. De este modo, incluso si el usuario va a la pantalla principal o quita la aplicación de la [pantalla de aplicaciones recientes](https://developer.android.com/guide/components/activities/recents), la llamada seguirá estando activa.
+
+Si no usa un servicio en primer plano mientras está en una llamada, si navega a la pantalla principal puede mantener activa la llamada, pero al quitar la aplicación de la pantalla de aplicaciones recientes puede significar que se interrumpe la llamada si el SO Android elimina el proceso de la aplicación.
+
+Debe iniciar el servicio en primer plano al iniciar una llamada o unirse a una, por ejemplo:
+
+```java
+call = callAgent.startCall(context, participants, options);
+startService(yourForegroundServiceIntent);
+```
+
+Y debe detener este servicio al terminar la llamada o cuando el estado de la llamada sea Desconectado, por ejemplo:
+
+```java
+call.hangUp(new HangUpOptions()).get();
+stopService(yourForegroundServiceIntent);
+```
+
+### <a name="notes-on-using-foreground-services"></a>Notas sobre el uso de los servicios en primer plano
+
+Tenga en cuenta que en escenarios como detener un servicio en primer plano que ya está en ejecución cuando la aplicación se quita de la lista de aplicaciones recientes, se quitará la notificación visible para el usuario y el sistema operativo Android puede mantener activo el proceso de la aplicación durante un período de tiempo adicional, lo que significa que la llamada puede seguir activa durante este período.
+
+Por ejemplo, si la aplicación detiene el servicio en primer plano en el método `onTaskRemoved` del servicio, la aplicación puede iniciar o detener el audio y el vídeo según el [ciclo de vida de la actividad](https://developer.android.com/guide/components/activities/activity-lifecycle), como detener el audio y vídeo cuando se destruye la actividad con la invalidación del método `onDestroy`.

@@ -3,12 +3,12 @@ title: Ejemplos de consultas avanzadas
 description: Use Azure Resource Graph para ejecutar consultas avanzadas, incluido el trabajo con columnas, la enumeración de todas las etiquetas usadas y la coincidencia de los recursos con expresiones regulares.
 ms.date: 10/01/2021
 ms.topic: sample
-ms.openlocfilehash: 7c24a3c660587e1ff70c9d208e6bf87c84c5bf1e
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 53c478a051f279da6a307e65da6daee51fce1f57
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129355229"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045907"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Ejemplos de consultas avanzadas de Resource Graph
 
@@ -39,7 +39,7 @@ La CLI de Azure (mediante una extensión) y Azure PowerShell (mediante un módul
 
 ## <a name="show-resource-types-and-api-versions"></a><a name="apiversion"></a>Mostrar tipos de recurso y versiones de API
 
-Resource Graph usa principalmente la versión no preliminar más reciente de la API de un proveedor de recursos para `GET` (Obtener) las propiedades de los recursos durante una actualización. En algunos casos, la versión de la API usada se ha invalidado para proporcionar propiedades más actuales o ampliamente utilizadas en los resultados. La siguiente consulta detalla la versión de API que se usa para recopilar propiedades en cada tipo de recurso:
+Resource Graph usa mayormente la versión no preliminar más reciente de una API de proveedor de recursos para obtener las propiedades de los recursos durante una actualización (instrucción `GET`). En algunos casos, la versión de la API usada se ha invalidado para proporcionar propiedades más actuales o ampliamente utilizadas en los resultados. La siguiente consulta detalla la versión de API que se usa para recopilar propiedades en cada tipo de recurso:
 
 ```kusto
 Resources

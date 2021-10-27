@@ -1,6 +1,6 @@
 ---
 title: Archivo de inclusión
-description: archivo de inclusión
+description: Archivo de inclusión
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,80 +8,37 @@ ms.topic: include
 ms.date: 08/17/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d0bed89f56d41c6613080e84d743d245243bb507
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 0e0d3c131f5cd53684580d0035c8836a2537d780
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322015"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070836"
 ---
-Por ahora, los discos Ultra tienen limitaciones adicionales, como se indica a continuación:
-
 Las únicas opciones de redundancia de infraestructura disponibles actualmente para Ultra Disks son las zonas de disponibilidad. Las máquinas virtuales que usan cualquier otra opción de redundancia no pueden conectar discos Ultra Disks.
 
-En la tabla siguiente se describen las regiones en las que los discos Ultra Disks están disponibles, así como las opciones de disponibilidad correspondientes:
+En la tabla siguiente se describen las regiones en las que los discos Ultra están disponibles, así como las opciones de disponibilidad correspondientes.
 
 > [!NOTE]
-> Si una región de la lista siguiente no tiene ninguna zona de disponibilidad compatible con Disco Ultra, las VM de esa región deben implementarse sin ninguna opción de redundancia de infraestructura para poder conectar un Disco Ultra.
+> Si una región de la lista siguiente no tiene ninguna zona de disponibilidad compatible con discos Ultra, una máquina virtual de esa región debe implementarse sin redundancia de infraestructura para poder conectar un disco Ultra.
 
-|Regions  |Opciones de redundancia  |
-|---------|---------|
-|Sur de Brasil     |Solo máquinas virtuales individuales (no se admiten conjuntos de disponibilidad ni conjuntos de escalado de máquinas virtuales)|
-|India central     |Solo máquinas virtuales individuales (no se admiten conjuntos de disponibilidad ni conjuntos de escalado de máquinas virtuales)|
-|Este de Asia     |Solo máquinas virtuales individuales (no se admiten conjuntos de disponibilidad ni conjuntos de escalado de máquinas virtuales)|
-|Centro-oeste de Alemania     |Solo máquinas virtuales individuales (no se admiten conjuntos de disponibilidad ni conjuntos de escalado de máquinas virtuales)|
-|Centro de Corea del Sur     |Solo máquinas virtuales individuales (no se admiten conjuntos de disponibilidad ni conjuntos de escalado de máquinas virtuales)|
-|Centro-Norte de EE. UU    |Solo máquinas virtuales individuales (no se admiten conjuntos de disponibilidad ni conjuntos de escalado de máquinas virtuales)|
-|Centro-sur de EE. UU.    |Solo máquinas virtuales individuales (no se admiten conjuntos de disponibilidad ni conjuntos de escalado de máquinas virtuales)|
-|US Gov: Arizona     |Solo máquinas virtuales individuales (no se admiten conjuntos de disponibilidad ni conjuntos de escalado de máquinas virtuales)|
-|US Gov - Virginia     |Solo máquinas virtuales individuales (no se admiten conjuntos de disponibilidad ni conjuntos de escalado de máquinas virtuales)|
-|US Gov Texas     |Solo máquinas virtuales individuales (no se admiten conjuntos de disponibilidad ni conjuntos de escalado de máquinas virtuales)|
-|Oeste de EE. UU.     |Solo máquinas virtuales individuales (no se admiten conjuntos de disponibilidad ni conjuntos de escalado de máquinas virtuales)        |
-|Centro de Australia    |Solo máquinas virtuales individuales (no se admiten conjuntos de disponibilidad ni conjuntos de escalado de máquinas virtuales)|
-|Este de Australia     |Tres zonas de disponibilidad         |
-|Sudeste Asiático    |Tres zonas de disponibilidad        |
-|Centro de Canadá     |Tres zonas de disponibilidad          |
-|Centro de EE. UU.     |Tres zonas de disponibilidad          |
-|Este de EE. UU.     |Tres zonas de disponibilidad          |
-|Este de EE. UU. 2     |Tres zonas de disponibilidad         |
-|Centro de Francia    |Dos zonas de disponibilidad        |
-|Japón Oriental    |Tres zonas de disponibilidad        |
-|Norte de Europa    |Tres zonas de disponibilidad        |
-|Sur de Reino Unido    |Tres zonas de disponibilidad        |
-|Oeste de Europa    | Tres zonas de disponibilidad|
-|Oeste de EE. UU. 2    |Tres zonas de disponibilidad|
+| Opciones de redundancia | Regions |
+|--------------------|---------|
+| **Máquinas virtuales únicas** | Centro de Australia<br/>Sur de Brasil<br/>Centro de la India<br/>Este de Asia<br/>Centro-oeste de Alemania<br/>Centro de Corea del Sur<br/>Centro-norte de EE. UU., Centro-sur de EE. UU. y Oeste de EE. UU.<br/>US Gov Arizona, US Gov Texas, US Gov Virginia<br/> |
+| **Dos zonas de disponibilidad** | Este de Australia<br/>Centro de Canadá<br/>Norte de Europa y Oeste de Europa<br/>Japón Oriental<br/>Sudeste de Asia<br/>Sur de Reino Unido 2<br/>Centro de EE. UU., Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU. 2|
+| **Tres zonas de disponibilidad** | Centro de Francia |
 
-- Solo se admiten en las siguientes series de máquinas virtuales:
-    - [ESv3](../articles/virtual-machines/ev3-esv3-series.md#esv3-series)
-    - [Easv4](../articles/virtual-machines/eav4-easv4-series.md#easv4-series)
-    - [Edsv4](../articles/virtual-machines/edv4-edsv4-series.md#edsv4-series)
-    - [Esv4](../articles/virtual-machines/ev4-esv4-series.md#esv4-series)
-    - [DSv3](../articles/virtual-machines/dv3-dsv3-series.md#dsv3-series)
-    - [Dasv4](../articles/virtual-machines/dav4-dasv4-series.md#dasv4-series)
-    - [Ddsv4](../articles/virtual-machines/ddv4-ddsv4-series.md#ddsv4-series)
-    - [Dsv4](../articles/virtual-machines/dv4-dsv4-series.md#dsv4-series)
-    - [FSv2](../articles/virtual-machines/fsv2-series.md)
-    - [LSv2](../articles/virtual-machines/lsv2-series.md)
-    - [M](../articles/virtual-machines/m-series.md)
-    - [Mv2](../articles/virtual-machines/mv2-series.md)
-    - [HBv2](../articles/virtual-machines/hbv2-series.md)
-    - [HB](../articles/virtual-machines/hb-series.md)
-    - [HC](../articles/virtual-machines/hc-series.md)
-    - [NDv2](../articles/virtual-machines/ndv2-series.md)
-    - [ND](../articles/virtual-machines/nd-series.md)
-    - [NC_T4_v3](../articles/virtual-machines/nct4-v3-series.md)
-    - [NCv2](../articles/virtual-machines/ncv2-series.md)
-    - [NCv3](../articles/virtual-machines/ncv3-series.md)
-    - [NVv3](../articles/virtual-machines/nvv3-series.md)
-    - [NVv4](../articles/virtual-machines/nvv4-series.md)
-    
-- No todos los tamaños de máquina virtual están disponibles en todas las regiones admitidas con discos Ultra.
-- Solo están disponibles como discos de datos. 
-- Compatibilidad de forma predeterminada con el tamaño de sector físico de 4 k. El tamaño de sector de 512E se puede encontrar como una oferta disponible con carácter general (sin necesidad de registrarse). La mayoría de las aplicaciones son compatibles con los tamaños de sector de 4 k, pero algunas requieren tamaños de sector de 512 bytes. Un ejemplo sería Oracle Database, que requiere la versión 12.2 o posterior para admitir los discos nativos de 4 k. En las versiones anteriores de Oracle DB, se requiere un tamaño de sector de 512 bytes.
-- Solo pueden crearse como discos vacíos.
-- Actualmente, no se admiten instantáneas de disco, exportaciones de disco, cambios del tipo de disco, imágenes de máquinas virtuales, conjuntos de disponibilidad, instancias de Azure Dedicated Host ni Azure Disk Encryption.
-- Actualmente, no se admite la integración con Azure Backup o Azure Site Recovery.
-- Solo se admiten lecturas y escrituras sin almacenamiento en caché.
-- El límite máximo actual de IOPS para una sola máquina virtual en tamaños disponibles con carácter general es de 80 000. Los discos Ultra con mayor IOPS se pueden usar como discos compartidos para admitir varias máquinas virtuales.
+No todos los tamaños de máquina virtual están disponibles en todas las regiones admitidas con discos Ultra. En la tabla siguiente se enumeran las series de máquinas virtuales que son compatibles con discos Ultra.
 
-De manera predeterminada, los Discos Ultra de Azure ofrecen hasta 32 TiB por región y suscripción, pero los Discos Ultra admiten una mayor capacidad por solicitud. Para solicitar un aumento de la capacidad, solicite un aumento de la cuota o póngase en contacto con el Soporte técnico de Azure.
+|Tipo de máquina virtual     |Tamaños    |Descripción  |
+|------------|---------|-------------|
+| Uso general|[Serie DSv3](../articles/virtual-machines/dv3-dsv3-series.md#dsv3-series), [serie Ddsv4](../articles/virtual-machines/ddv4-ddsv4-series.md#ddsv4-series), [serie Dsv4](../articles/virtual-machines/dv4-dsv4-series.md#dsv4-series), [serie Dasv4](../articles/virtual-machines/dav4-dasv4-series.md#dasv4-series)| Uso equilibrado de la CPU en proporción de memoria. Ideal para desarrollo y pruebas, bases de datos pequeñas o medianas, y servidores web de tráfico bajo o medio.|
+| Proceso optimizado|[Serie FSv2](../articles/virtual-machines/fsv2-series.md)| Uso elevado de la CPU en proporción de memoria. Bueno para servidores web de tráfico medio, aplicaciones de red, procesos por lotes y servidores de aplicaciones.|
+| Memoria optimizada|[Serie ESv3](../articles/virtual-machines/ev3-esv3-series.md#esv3-series), [serie Easv4](../articles/virtual-machines/eav4-easv4-series.md#easv4-series), [serie Edsv4](../articles/virtual-machines/edv4-edsv4-series.md#edsv4-series), [serie Esv4](../articles/virtual-machines/ev4-esv4-series.md#esv4-series), [serie M](../articles/virtual-machines/m-series.md), [serie Mv2](../articles/virtual-machines/mv2-series.md)|Memoria alta en proporción de CPU. Excelente para servidores de bases de datos relacionales, memorias caché de capacidad media o grande y análisis en memoria.
+| Almacenamiento optimizado|[Serie LSv2](../articles/virtual-machines/lsv2-series.md)|Alto rendimiento de disco y de E/S ideales para macrodatos, bases de datos SQL y NoSQL, almacenamiento de datos y bases de datos transaccionales grandes.|
+| GPU optimizada|[Serie NCv2](../articles/virtual-machines/ncv2-series.md), [serie NCv3](../articles/virtual-machines/ncv3-series.md), [serie NCasT4_v3](../articles/virtual-machines/nct4-v3-series.md), [serie ND](../articles/virtual-machines/nd-series.md), [serie NDv2](../articles/virtual-machines/ndv2-series.md), [serie NVv3](../articles/virtual-machines/nvv3-series.md), [serie NVv4](../articles/virtual-machines/nvv4-series.md)| Máquinas virtuales especializadas específicas para la representación de gráficos pesados y la edición de vídeo, así como para el entrenamiento e inferencia de modelos (ND) con aprendizaje profundo. Están disponibles con uno o varios GPU.|
+| <nobr>Optimizados para rendimiento</nobr> |[Serie HB](../articles/virtual-machines/hb-series.md), [serie HC](../articles/virtual-machines/hc-series.md), [serie HBv2](../articles/virtual-machines/hbv2-series.md)|Las máquinas virtuales de CPU más rápidas y eficaces con interfaces de red de alto rendimiento (RDMA) opcionales.|
+
+Los discos Ultra no se pueden usar con algunas características y funcionalidades, como instantáneas de disco, exportación de discos, cambio de tipo de disco, imágenes de máquina virtual, conjuntos de disponibilidad, instancias de Azure Dedicated Host o cifrado de discos de Azure. Azure Backup y Azure Site Recovery no admiten discos Ultra. Además, solo se admiten lecturas sin almacenar en caché y escrituras sin almacenar en caché.
+
+Los discos Ultra admiten un tamaño de sector físico de 4 k de forma predeterminada. Se puede encontrar un tamaño de sector de 512E como oferta disponible con carácter general sin necesidad de registrarse. Si bien la mayoría de las aplicaciones son compatibles con los tamaños de sector de 4 k, algunas requieren tamaños de sector de 512 bytes. Oracle Database, por ejemplo, requiere la versión 12.2 o posterior para admitir los discos nativos de 4 k. En las versiones anteriores de Oracle DB, se requiere un tamaño de sector de 512 bytes.

@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 10/11/2021
-ms.openlocfilehash: 07e48fba8bfb554604d875f9f4a041fed466dbe7
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: 5523b04235ce386e62abc175ac498f4df34b0641
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129754717"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132310"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Novedades de Azure Sentinel
 
@@ -35,9 +35,14 @@ Si busca elementos de más de 6 meses, puede encontrarlos en las [Archivo de nov
 
 ## <a name="october-2021"></a>Octubre de 2021
 
+- [Los eventos de Defender para Office 365 ya están disponibles en el conector de M365 Defender (versión preliminar pública)](#defender-for-office-365-events-now-available-in-the-m365-defender-connector-public-preview)
 - [Las plantillas y la galería del cuaderno de estrategias ya están disponibles (versión preliminar pública)](#playbook-templates-and-gallery-now-available-public-preview)
 - [Administración de versiones de plantilla para las reglas de análisis programadas (versión preliminar pública)](#manage-template-versions-for-your-scheduled-analytics-rules-public-preview)
 - [Esquema de normalización de eventos de DHCP (versión preliminar pública)](#dhcp-normalization-schema-public-preview)
+
+### <a name="defender-for-office-365-events-now-available-in-the-m365-defender-connector-public-preview"></a>Los eventos de Defender para Office 365 ya están disponibles en el conector de M365 Defender (versión preliminar pública)
+
+Además de los de Microsoft Defender para punto de conexión, ahora puede ingerir [eventos de búsqueda avanzada](/microsoft-365/security/defender/advanced-hunting-overview) sin procesar de [Microsoft Defender para Office 365](/microsoft-365/security/office-365-security/overview) a través del [conector de Microsoft 365 Defender](connect-microsoft-365-defender.md). [Más información](microsoft-365-defender-sentinel-integration.md#advanced-hunting-event-collection).
 
 ### <a name="playbook-templates-and-gallery-now-available-public-preview"></a>Las plantillas y la galería del cuaderno de estrategias ya están disponibles (versión preliminar pública)
 
@@ -199,7 +204,6 @@ Para más información, consulte:
 - [Las listas de control están disponibles de forma general](#watchlists-are-in-general-availability)
 - [Compatibilidad con la residencia de datos en más ubicaciones geográficas](#support-for-data-residency-in-more-geos)
 - [Sincronización bidireccional en el conector de Azure Defender (versión preliminar pública)](#bidirectional-sync-in-azure-defender-connector-public-preview)
-
 
 ### <a name="microsoft-threat-intelligence-matching-analytics-public-preview"></a>Análisis de coincidencias de Inteligencia sobre amenazas de Microsoft (versión preliminar pública)
 

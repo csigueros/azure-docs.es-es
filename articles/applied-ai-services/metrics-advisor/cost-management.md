@@ -9,12 +9,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 07/06/2021
 ms.author: mbullwin
-ms.openlocfilehash: e13aeefca9ab5b9430f1a6b591a8b8b7b415b46f
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.openlocfilehash: bc376e8bc69845af245c66c045ed345f758e410e
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114342513"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063932"
 ---
 # <a name="azure-metrics-advisor-cost-management"></a>Administración de costos de Azure Metrics Advisor
 
@@ -37,7 +37,7 @@ Azure Metrics Advisor supervisa el rendimiento de los motores de crecimiento de 
 | Gratis: primeras 25 series temporales | $- |
 | De 26 series temporales a 1000 series temporales | 0,75 USD |
 | De 1001 series temporales a 5000 series temporales | 0,50 USD |
-| De 5001 series temporales a 10 000 series temporales | 0,25 USD|
+| De 5001 series temporales a 20 000 series temporales | 0,25 USD|
 | De 20001 series temporales a 50 000 series temporales| 0,10 USD|
 | Más de 50 000 series temporales | 0,05 USD |
 

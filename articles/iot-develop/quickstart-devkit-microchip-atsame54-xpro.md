@@ -6,21 +6,26 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 09/22/2021
+ms.date: 10/18/2021
 zone_pivot_groups: iot-develop-toolset
-ms.openlocfilehash: e9ac53521c89764f73bc234a66de7e12ceb1a7ae
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 2b2b0cdb4c81a8ca501c58fce9ddb4771a5bbaba
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129858679"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130167664"
 ---
 # <a name="quickstart-connect-a-microchip-atsame54-xpro-evaluation-kit-to-iot-central"></a>Inicio rápido: Conexión de un kit de evaluación ATSAME54-XPro de Microchip a IoT Central
 
 **Se aplica a**: [desarrollo de dispositivos insertados](about-iot-develop.md#embedded-device-development)<br>
 **Tiempo total para realizarlo**: 45 minutos
 
+:::zone pivot="iot-toolset-cmake"
 [![Examinar el código](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/Microchip/ATSAME54-XPRO)
+:::zone-end
+:::zone pivot="iot-toolset-iar-ewarm, iot-toolset-mplab"
+[![Examinar el código](media/common/browse-code.svg)](https://github.com/azure-rtos/samples/)
+:::zone-end
 
 En este artículo de inicio rápido, usará Azure RTOS conectar ATSAME54-XPro de Microchip (en adelante, Microchip E54) a Azure IoT.
 
@@ -30,30 +35,20 @@ Deberá completar las siguientes tareas:
 * Compilar una imagen y guardarla en Microchip E54
 * Usar Azure IoT Central para crear componentes de nube, ver las propiedades, ver la telemetría de los dispositivos y llamar a comandos directos
 
+:::zone pivot="iot-toolset-cmake"
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Un equipo con Microsoft Windows 10
 * [Git](https://git-scm.com/downloads) para clonar el repositorio
 * Hardware
 
-    * [ATSAME54-XPro de Microchip](https://www.microchip.com/developmenttools/productdetails/atsame54-xpro) (Microchip E54)
-    * Conector USB 2.0 A macho a cable macho micro USB
-    * Acceso a Ethernet por cable
-    * Cable Ethernet
-    * Opcional: Sensor [Weather Click](https://www.mikroe.com/weather-click). Puede agregar este sensor al dispositivo para supervisar las condiciones meteorológicas. Incluso si no tiene este sensor, puede completar este artículo de inicio rápido.
-    * Opcional: Adaptador [mikroBUS Xplained Pro](https://www.microchip.com/Developmenttools/ProductDetails/ATMBUSADAPTER-XPRO). Use este adaptador para conectar el sensor Weather Click a Microchip E54. Incluso si no tiene el sensor y este adaptador, puede completar este artículo inicio rápido.
-
-:::zone pivot="iot-toolset-iar-ewarm"
-
-* IAR's EWARM. Puede descargar una [evaluación gratuita de 30 días de IAR's EWARM](https://www.iar.com/products/architectures/arm/iar-embedded-workbench-for-arm/).
-
-:::zone-end
-:::zone pivot="iot-toolset-mplab"
-
-* [MPLAB X IDE 5.35](https://www.microchip.com/mplab/mplab-x-ide)
-* [MPLAB XC32/32++ compilador 2.4.0 o posterior](https://www.microchip.com/mplab/compilers)
-
-:::zone-end
+  * [ATSAME54-XPro de Microchip](https://www.microchip.com/developmenttools/productdetails/atsame54-xpro) (Microchip E54)
+  * Conector USB 2.0 A macho a cable macho micro USB
+  * Acceso a Ethernet por cable
+  * Cable Ethernet
+  * Opcional: Sensor [Weather Click](https://www.mikroe.com/weather-click). Puede agregar este sensor al dispositivo para supervisar las condiciones meteorológicas. Incluso si no tiene este sensor, puede completar este artículo de inicio rápido.
+  * Opcional: Adaptador [mikroBUS Xplained Pro](https://www.microchip.com/Developmenttools/ProductDetails/ATMBUSADAPTER-XPRO). Use este adaptador para conectar el sensor Weather Click a Microchip E54. Incluso si no tiene el sensor y este adaptador, puede completar este artículo inicio rápido.
 
 ## <a name="prepare-the-development-environment"></a>Preparación del entorno de desarrollo
 
@@ -70,8 +65,6 @@ git clone --recursive https://github.com/azure-rtos/getting-started.git
 ```
 
 ### <a name="install-the-tools"></a>Instalar las herramientas
-
-:::zone pivot="iot-toolset-cmake"
 
 El repositorio clonado contiene un script de instalación que instala y configura las herramientas necesarias. Si ha instalado estas herramientas en otro inicio rápido de dispositivo insertado, no es necesario volver a hacerlo.
 
@@ -97,13 +90,6 @@ Para instalar las herramientas:
 
 1. Instale [Microchip Studio for AVR&reg; and SAM devices](https://www.microchip.com/en-us/development-tools-tools-and-software/microchip-studio-for-avr-and-sam-devices#). Microchip Studio es un entorno de desarrollo de dispositivos que incluye las herramientas para programar y guardar imágenes en Microchip E54. En este tutorial, usará Microchip Studio solo para guardar la imagen en Microchip E54. La instalación tarda varios minutos y le pide varias veces que apruebe la instalación de los componentes.
 
-:::zone-end
-:::zone pivot="iot-toolset-iar-ewarm, iot-toolset-mplab"
-
-Use las instrucciones de instalación proporcionadas por el fabricante del conjunto de herramientas para instalar y preparar el conjunto de herramientas de desarrollo.
-
-:::zone-end
-
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
 
 ## <a name="prepare-the-device"></a>Preparar el dispositivo
@@ -111,8 +97,6 @@ Use las instrucciones de instalación proporcionadas por el fabricante del conju
 Para conectar Microchip E54 a Azure, modificará un archivo de configuración de las opciones de Azure IoT, recompilará la imagen y la guardará en el dispositivo.
 
 ### <a name="add-configuration"></a>Adición de configuración
-
-:::zone pivot="iot-toolset-cmake"
 
 1. Abra el siguiente archivo en un editor de texto:
 
@@ -127,38 +111,6 @@ Para conectar Microchip E54 a Azure, modificará un archivo de configuración de
     | `IOT_DEVICE_SAS_KEY` | {*el valor de la clave principal*} |
 
 1. Guarde y cierre el archivo.
-
-:::zone-end
-:::zone pivot="iot-toolset-iar-ewarm"
-
-1. Abra el área de trabajo de EWARM ***azure_rtos.edw*** en IAR desde el archivo ZIP extraído.
-
-1. Establezca las constantes de información del dispositivo de Azure IoT en los valores que guardó después de crear los recursos de Azure.
-
-    |Nombre invariable|Value|
-    |-------------|-----|
-    | `IOT_DPS_ID_SCOPE` | {*el valor de ámbito de id.* } |
-    | `IOT_DPS_REGISTRATION_ID` | {*el valor de identificador de dispositivo*} |
-    | `IOT_DEVICE_SAS_KEY` | {*el valor de la clave principal*} |
-
-1. Guarde y cierre el archivo.
-
-:::zone-end
-:::zone pivot="iot-toolset-mplab"
-
-1. Abra MPLab y seleccione **File > Open Project** (Archivo > Abrir proyecto) y seleccione todos los proyectos del archivo ZIP extraído.
-
-1. Establezca las constantes de información del dispositivo de Azure IoT en los valores que guardó después de crear los recursos de Azure.
-
-    |Nombre invariable|Value|
-    |-------------|-----|
-    | `IOT_DPS_ID_SCOPE` | {*el valor de ámbito de id.* } |
-    | `IOT_DPS_REGISTRATION_ID` | {*el valor de identificador de dispositivo*} |
-    | `IOT_DEVICE_SAS_KEY` | {*el valor de la clave principal*} |
-
-1. Guarde y cierre el archivo.
-
-:::zone-end
 
 ### <a name="connect-the-device"></a>Conexión del dispositivo
 
@@ -193,8 +145,6 @@ Si tiene el sensor Weather Click y el adaptador mikroBUS Xplained Pro, siga los 
 
 ### <a name="build-the-image"></a>Compilación de la imagen
 
-:::zone pivot="iot-toolset-cmake"
-
 1. En la consola o en el Explorador de archivos, ejecute el script ***rebuild.bat*** en la siguiente ruta de acceso para compilar la imagen:
 
     *getting-started\Microchip\ATSAME54-XPRO\tools\rebuild.bat*
@@ -203,21 +153,7 @@ Si tiene el sensor Weather Click y el adaptador mikroBUS Xplained Pro, siga los 
 
     *getting-started\Microchip\ATSAME54-XPRO\build\app\atsame54_azure_iot.bin*
 
-:::zone-end
-:::zone pivot="iot-toolset-iar-ewarm"
-
-En IAR, seleccione **Project > Batch Build** (Proyecto > Generación por lotes) y elija _ *build_all** y seleccione **Make** (Crear) para crear todos los proyectos. Observará la compilación y vinculación de todos los proyectos de ejemplo.
-
-:::zone-end
-:::zone pivot="iot-toolset-mplab"
-
-Asegúrese de que todas las bibliotecas dependientes del proyecto de ejemplo (***azure_iot, threadx, netxduo, same54_lib** _) se hayan creado. Para ello, seleccione el proyecto en el panel _ *Projects** (Proyectos), haga clic con el botón derecho en él y seleccione **Build** (Crear).
-
-:::zone-end
-
 ### <a name="flash-the-image"></a>Guardar la imagen en la memoria flash
-
-:::zone pivot="iot-toolset-cmake"
 
 1. Abra la consola **Inicio de Windows > Microchip Studio Command Prompt** y vaya a la carpeta del archivo binario de Microchip E54 que ha creado.
 
@@ -239,18 +175,6 @@ Asegúrese de que todas las bibliotecas dependientes del proyecto de ejemplo (**
     Programming and verification completed successfully.
     ```
 
-:::zone-end
-:::zone pivot="iot-toolset-iar-ewarm"
-
-En IAR, presione el botón verde **Download and Debug** (Descargar y depurar) en la barra de herramientas para descargar el programa y ejecutarlo. Después, presione **Go** (Ir).
-
-:::zone-end
-:::zone pivot="iot-toolset-mplab"
-
-En MPLAB, seleccione **Debug > Debug Main Project** (Depurar > Depurar proyecto principal).
-
-:::zone-end
-
 ### <a name="confirm-device-connection-details"></a>Confirmación de los detalles de conexión del dispositivo
 
 Puede usar la aplicación **Termite** para supervisar la comunicación y confirmar que el dispositivo está configurado correctamente.
@@ -269,11 +193,11 @@ Puede usar la aplicación **Termite** para supervisar la comunicación y confirm
 
     :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/termite-settings.png" alt-text="Captura de pantalla de la configuración del puerto serie en la aplicación Termite":::
 
-1. Seleccione Aceptar.
+1. Seleccione **Aceptar**.
 
 1. Presione el botón **Reset** (Restablecer) en el dispositivo. El botón está rotulado en el dispositivo y se encuentra cerca del conector micro USB.
 
-1. En la aplicación **Termite**, compruebe los siguientes valores de punto de control para confirmar que el dispositivo se ha inicializado y está conectado a Azure IoT.
+1. En la aplicación **Termite**, confirme los siguientes valores de punto de control para comprobar que el dispositivo se ha inicializado y está conectado a Azure IoT.
 
     ```output
     Starting Azure thread
@@ -310,15 +234,302 @@ Puede usar la aplicación **Termite** para supervisar la comunicación y confirm
 
 Mantenga abierto Termite para supervisar la salida del dispositivo en los pasos siguientes.
 
+:::zone-end
+:::zone pivot="iot-toolset-iar-ewarm"
+
+## <a name="prerequisites"></a>Requisitos previos
+
+* Un equipo con Microsoft Windows 10
+
+* Hardware
+
+  * [ATSAME54-XPro de Microchip](https://www.microchip.com/developmenttools/productdetails/atsame54-xpro) (Microchip E54)
+  * Conector USB 2.0 A macho a cable macho micro USB
+  * Acceso a Ethernet por cable
+  * Cable Ethernet
+
+* [Termite](https://www.compuphase.com/software_termite.htm). En la página web, en **Downloads and license** (Descargas y licencia), seleccione la instalación completa. Termite es un terminal RS232 que usará para supervisar la salida del dispositivo.
+
+* IAR Embedded Workbench for ARM (EW for ARM). Puede descargar e instalar una [evaluación gratuita de 14 días de IAR EW for ARM](https://www.iar.com/products/architectures/arm/iar-embedded-workbench-for-arm/).
+
+* Descargue el archivo [Azure_RTOS_6.1_ATSAME54-XPRO_IAR_Samples_2020_10_10.zip](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_ATSAME54-XPRO_IAR_Samples_2020_10_10.zip) y extráigalo en un directorio de trabajo. Elija un directorio con una ruta de acceso corta para evitar errores del compilador al compilar.
+
+[!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
+
+## <a name="prepare-the-device"></a>Preparar el dispositivo
+
+Para conectar Microchip E54 a Azure, lo conectará a su equipo, modificará un archivo de configuración de las opciones de Azure IoT, recompilará la imagen y la guardará en la memoria flash del dispositivo.
+
+### <a name="connect-the-device"></a>Conexión del dispositivo
+
+1. En Microchip E54, busque el botón **Reset**, el puerto **Ethernet** y el puerto microUSB, que tiene la etiqueta **Debug USB**. Todos los componentes se resaltan en la siguiente imagen:
+
+    ![Búsqueda de componentes clave en la placa del kit de evaluación de Microchip E54](media/quickstart-devkit-microchip-atsame54-xpro/microchip-xpro-board.png)
+
+1. Conecte el cable microUSB al puerto **Debug USB** de Microchip E54 y, luego, conéctelo al equipo.
+
+    > [!NOTE]
+    > De manera opcional, para más información sobre cómo configurar y empezar a trabajar con Microchip E54, consulte la [guía del usuario de SAM E54 Xplained Pro](http://ww1.microchip.com/downloads/en/DeviceDoc/70005321A.pdf).
+
+1. Use el cable Ethernet para conectar Microchip E54 a un puerto Ethernet.
+
+### <a name="configure-termite"></a>Configuración de Termite
+
+Usará la aplicación **Termite** para supervisar la comunicación y confirmar que el dispositivo está configurado correctamente. En esta sección, va a configurar **Termite** para supervisar el puerto serie del dispositivo.
+
+1. Inicie **Termite**.
+
+1. Haga clic en **Configuración**.
+
+1. En el cuadro de diálogo **Serial port settings** (Configuración de puerto serie), compruebe los siguientes valores y actualícelos si es necesario:
+    * **Baud rate** (Velocidad en baudios): 115.200
+    * **Puerto**: Puerto al que está conectado Microchip E54. Si hay varias opciones de puerto en la lista desplegable, busque ahí el puerto correcto que debe usar. Abra el **Administrador de dispositivos** de Windows y, en **Puertos**, identifique qué puerto debe usar.
+    * **Control de flujo**: DTR/DSR
+
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/termite-settings.png" alt-text="Captura de pantalla de la configuración del puerto serie en la aplicación Termite":::
+
+1. Seleccione **Aceptar**.
+
+Termite ya está listo para recibir la salida de Microchip E54.
+
+### <a name="configure-build-flash-and-run-the-image"></a>Configurar, compilar, guardar en la memoria flash y ejecutar la imagen
+
+1. Abra la aplicación **IAR EW for ARM** en el equipo.
+
+1. Seleccione **File > Open workspace** (Archivo > Abrir área de trabajo), vaya a la carpeta **same54Xpro\iar** que se encuentra fuera de la carpeta de trabajo en la que extrajo el archivo ZIP y abra el área de trabajo **_azure_rtos.eww_** de EWARM.
+
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/open-project-iar.png" alt-text="Apertura del área de trabajo de IAR":::
+
+1. Haga clic con el botón derecho en el proyecto **sample_azure_iot_embedded_sdk_pnp** en el panel izquierdo **Workspace** (Área de trabajo) y seleccione **Set as active** (Establecer como activa).
+
+1. Expanda el ejemplo, después, expanda la carpeta **Sample** (Ejemplo) y abra el archivo sample_config.h.
+
+1. Cerca de la parte superior del archivo, quite la marca de comentario de la directiva `#define ENABLE_DPS_SAMPLE`.
+
+    ```c
+    #define ENABLE_DPS_SAMPLE
+    ```
+
+1. Establezca las constantes de información del dispositivo de Azure IoT en los valores que guardó después de crear los recursos de Azure. La constante `ENDPOINT` se establece en el punto de conexión global de Azure Device Provisioning Service (DPS).
+
+    |Nombre invariable|Value|
+    |-------------|-----|
+    | `ENDPOINT` | "global.azure-devices-provisioning.net" |
+    | `ID_SCOPE` | {*el valor de ámbito de id.* } |
+    | `REGISTRATION_ID` | {*el valor de identificador de dispositivo*} |
+    | `DEVICE_SYMMETRIC_KEY` | {*el valor de la clave principal*} |
+
+    > [!NOTE]
+    > Los valores `ENDPOINT`, `ID_SCOPE` y `REGISTRATION_ID` se establecen en una instrucción `#ifndef ENABLE_DPS_SAMPLE`. Asegúrese de que establece los valores en la instrucción `#else` que se usará cuando el valor `ENABLE_DPS_SAMPLE` se defina.
+
+1. Guarde el archivo.
+
+1. Seleccione **Project > Batch Build** (Proyecto > Generación por lotes). A continuación, seleccione **build_all** y **Make** (Crear) para crear todos los proyectos. Verá la salida de compilación en el panel **Build** (Compilar). Confirme la compilación correcta y la vinculación de todos los proyectos de ejemplo.
+
+1. Seleccione el botón verde **Download and Debug** (Descargar y depurar) en la barra de herramientas para descargar el programa.
+
+1. Una vez que la imagen haya terminado de descargarse, seleccione **Go** (Ir) para ejecutar el ejemplo.
+
+### <a name="confirm-device-connection-details"></a>Confirmación de los detalles de conexión del dispositivo
+
+En la aplicación **Termite**, confirme los siguientes valores de punto de control para comprobar que el dispositivo se ha inicializado y está conectado a Azure IoT.
+
+```output
+DHCP In Progress...
+IP address: 192.168.0.22
+Mask: 255.255.255.0
+Gateway: 192.168.0.1
+DNS Server address: 75.75.75.75
+SNTP Time Sync...
+SNTP Time Sync successfully.
+[INFO] Azure IoT Security Module has been enabled, status=0
+Start Provisioning Client...
+[INFO] IoTProvisioning client connect pending
+Registered Device Successfully.
+IoTHub Host Name: iotc-597ffb0b-3dbe-4784-ba3c-fdefd120a44a.azure-devices.net; Device ID: mydevice.
+Connected to IoTHub.
+Telemetry message send: {"temperature":22}.
+Receive twin properties: {"desired":{"$version":1},"reported":{"maxTempSinceLastReboot":22,"$version":8}}
+Failed to parse value
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+```
+
+Mantenga abierto Termite para supervisar la salida del dispositivo en los pasos siguientes.
+
+:::zone-end
+:::zone pivot="iot-toolset-mplab"
+
+## <a name="prerequisites"></a>Requisitos previos
+
+* Un equipo con Microsoft Windows 10
+
+* Hardware
+
+  * [ATSAME54-XPro de Microchip](https://www.microchip.com/developmenttools/productdetails/atsame54-xpro) (Microchip E54)
+  * Conector USB 2.0 A macho a cable macho micro USB
+  * Acceso a Ethernet por cable
+  * Cable Ethernet
+
+* [Termite](https://www.compuphase.com/software_termite.htm). En la página web, en **Downloads and license** (Descargas y licencia), seleccione la instalación completa. Termite es un terminal RS232 que usará para supervisar la salida del dispositivo.
+
+* [MPLAB X IDE 5.35](https://www.microchip.com/mplab/mplab-x-ide).
+
+* [MPLAB XC32/32++ compilador 2.4.0 o posterior](https://www.microchip.com/mplab/compilers).
+
+* Descargue el archivo [Azure_RTOS_6.1_ATSAME54-XPRO_MPLab_Samples_2020_10_10.zip](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_ATSAME54-XPRO_MPLab_Samples_2020_10_10.zip) y extráigalo en un directorio de trabajo. Elija un directorio con una ruta de acceso corta para evitar errores del compilador al compilar.
+
+[!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
+
+## <a name="prepare-the-device"></a>Preparar el dispositivo
+
+Para conectar Microchip E54 a Azure, lo conectará a su equipo, modificará un archivo de configuración de las opciones de Azure IoT, recompilará la imagen y la guardará en la memoria flash del dispositivo.
+
+### <a name="connect-the-device"></a>Conexión del dispositivo
+
+1. En Microchip E54, busque el botón **Reset**, el puerto **Ethernet** y el puerto microUSB, que tiene la etiqueta **Debug USB**. Todos los componentes se resaltan en la siguiente imagen:
+
+    ![Búsqueda de componentes clave en la placa del kit de evaluación de Microchip E54](media/quickstart-devkit-microchip-atsame54-xpro/microchip-xpro-board.png)
+
+1. Conecte el cable microUSB al puerto **Debug USB** de Microchip E54 y, luego, conéctelo al equipo.
+
+    > [!NOTE]
+    > De manera opcional, para más información sobre cómo configurar y empezar a trabajar con Microchip E54, consulte la [guía del usuario de SAM E54 Xplained Pro](http://ww1.microchip.com/downloads/en/DeviceDoc/70005321A.pdf).
+
+1. Use el cable Ethernet para conectar Microchip E54 a un puerto Ethernet.
+
+### <a name="configure-termite"></a>Configuración de Termite
+
+Usará la aplicación **Termite** para supervisar la comunicación y confirmar que el dispositivo está configurado correctamente. En esta sección, va a configurar **Termite** para supervisar el puerto serie del dispositivo.
+
+1. Inicie **Termite**.
+
+1. Haga clic en **Configuración**.
+
+1. En el cuadro de diálogo **Serial port settings** (Configuración de puerto serie), compruebe los siguientes valores y actualícelos si es necesario:
+    * **Baud rate** (Velocidad en baudios): 115.200
+    * **Puerto**: Puerto al que está conectado Microchip E54. Si hay varias opciones de puerto en la lista desplegable, busque ahí el puerto correcto que debe usar. Abra el **Administrador de dispositivos** de Windows y, en **Puertos**, identifique qué puerto debe usar.
+    * **Control de flujo**: DTR/DSR
+
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/termite-settings.png" alt-text="Captura de pantalla de la configuración del puerto serie en la aplicación Termite":::
+
+1. Seleccione **Aceptar**.
+
+Termite ya está listo para recibir la salida de Microchip E54.
+
+### <a name="configure-build-flash-and-run-the-image"></a>Configurar, compilar, guardar en la memoria flash y ejecutar la imagen
+
+1. Abra **MPLAB X IDE** en el equipo.
+
+1. Seleccione **File > Open project** (Archivo > Abrir proyecto). En el cuadro de diálogo Abrir proyecto, vaya a la carpeta **same54Xpro\mplab** fuera de la carpeta de trabajo donde extrajo el archivo ZIP. Seleccione todos los proyectos (no seleccione las carpetas **common_hardware_code** ni **docs**) y, a continuación, seleccione **Open Project** (Abrir proyecto).
+
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/open-project-mplab.png" alt-text="Abrir proyectos en el IDE de MPLab":::
+
+1. Haga clic con el botón derecho en el proyecto **sample_azure_iot_embedded_sdk_pnp** en el panel izquierdo **Projects** (Proyectos) y seleccione **Set as Main Project** (Establecer como proyecto principal).
+
+1. Expanda el proyecto **sample_azure_iot_embedded_sdk_pnp**, después expanda la carpeta **Header Files** y abra el archivo sample_config.h.
+
+1. Cerca de la parte superior del archivo, quite la marca de comentario de la directiva `#define ENABLE_DPS_SAMPLE`.
+
+    ```c
+    #define ENABLE_DPS_SAMPLE
+    ```
+
+1. Establezca las constantes de información del dispositivo de Azure IoT en los valores que guardó después de crear los recursos de Azure. La constante `ENDPOINT` se establece en el punto de conexión global de Azure Device Provisioning Service (DPS).
+
+    |Nombre invariable|Value|
+    |-------------|-----|
+    | `ENDPOINT` | "global.azure-devices-provisioning.net" |
+    | `ID_SCOPE` | {*el valor de ámbito de id.* } |
+    | `REGISTRATION_ID` | {*el valor de identificador de dispositivo*} |
+    | `DEVICE_SYMMETRIC_KEY` | {*el valor de la clave principal*} |
+
+    > [!NOTE]
+    > Los valores `ENDPOINT`, `ID_SCOPE` y `REGISTRATION_ID` se establecen en una instrucción `#ifndef ENABLE_DPS_SAMPLE`. Asegúrese de que establece los valores en la instrucción `#else` que se usará cuando el valor `ENABLE_DPS_SAMPLE` se defina.
+
+1. Guarde el archivo.
+
+1. Antes de compilar el ejemplo, debe compilar las bibliotecas dependientes del proyecto **sample_azure_iot_embedded_pnp**: **threadx**, **netxduo** y **same54_lib**. Para compilar cada biblioteca, haga clic con el botón derecho en su proyecto en el panel **Projects** (Proyectos) y seleccione **Build** (Compilar). Espere a que se complete cada compilación antes de pasar a la biblioteca siguiente.
+
+1. Después de que todas las bibliotecas de los requisitos previos se hayan compilado correctamente, haga clic con el botón derecho en el proyecto **sample_azure_iot_embedded_pnp** y seleccione **Build** (Compilar).
+
+1. Seleccione **Debug > Debug Main Project** (Depurar > Depurar proyecto principal) en el menú superior para descargar e iniciar el programa.
+
+1. Si aparece el cuadro de diálogo **Tool not Found** (No se encontró la herramienta), seleccione **connect SAM E54 board** (conectar panel de SAM E54) y, después, seleccione **OK** (Aceptar).
+
+1. El programa puede tardar unos minutos en descargarse y empezar a ejecutarse. Una vez que el programa se haya descargado correctamente y se esté ejecutando, verá el siguiente estado en el panel **Output** (Salida) del IDE de MPLAB X.
+
+    ```output
+    Programming complete
+    
+    Running
+    ```
+
+### <a name="confirm-device-connection-details"></a>Confirmación de los detalles de conexión del dispositivo
+
+En la aplicación **Termite**, confirme los siguientes valores de punto de control para comprobar que el dispositivo se ha inicializado y está conectado a Azure IoT.
+
+```output
+DHCP In Progress...
+IP address: 192.168.0.22
+Mask: 255.255.255.0
+Gateway: 192.168.0.1
+DNS Server address: 75.75.75.75
+SNTP Time Sync...
+SNTP Time Sync successfully.
+[INFO] Azure IoT Security Module has been enabled, status=0
+Start Provisioning Client...
+[INFO] IoTProvisioning client connect pending
+Registered Device Successfully.
+IoTHub Host Name: iotc-597ffb0b-3dbe-4784-ba3c-fdefd120a44a.azure-devices.net; Device ID: mydevice.
+Connected to IoTHub.
+Telemetry message send: {"temperature":22}.
+Receive twin properties: {"desired":{"$version":1},"reported":{"maxTempSinceLastReboot":22,"$version":8}}
+Failed to parse value
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+```
+
+Mantenga abierto Termite para supervisar la salida del dispositivo en los pasos siguientes.
+
+:::zone-end
+
 ## <a name="verify-the-device-status"></a>Comprobación del estado del dispositivo
 
 Para ver el estado del dispositivo en el portal de IoT Central:
 
+:::zone pivot="iot-toolset-cmake"
 1. En el panel de la aplicación, seleccione **Dispositivos** en el menú de navegación lateral.
 1. Confirme que **Estado del dispositivo** se ha actualizado a *Aprovisionado*.
 1. Confirme que **Plantilla de dispositivo** se ha actualizado a *Guía de introducción*.
 
     :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-device-view-status.png" alt-text="Captura de pantalla del estado del dispositivo en IoT Central":::
+:::zone-end
+:::zone pivot="iot-toolset-iar-ewarm, iot-toolset-mplab"
+1. En el panel de la aplicación, seleccione **Dispositivos** en el menú de navegación lateral.
+1. Confirme que **Estado del dispositivo** se ha actualizado a *Aprovisionado*.
+1. Confirme que **Plantilla de dispositivo** se ha actualizado a *Termostato*.
+
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-device-view-status-iar.png" alt-text="Captura de pantalla del estado del dispositivo en IoT Central":::
+:::zone-end
 
 ## <a name="view-telemetry"></a>Ver datos de telemetría
 
@@ -330,7 +541,12 @@ Para ver la telemetría en el portal de IoT Central:
 1. Seleccione el dispositivo de la lista.
 1. En la pestaña **Información general**, puede ver la telemetría a medida que el dispositivo envía mensajes a la nube.
 
+    :::zone pivot="iot-toolset-cmake"
     :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-device-telemetry.png" alt-text="Captura de pantalla de la telemetría del dispositivo en IoT Central":::
+    :::zone-end
+    :::zone pivot="iot-toolset-iar-ewarm, iot-toolset-mplab"
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-device-telemetry-iar.png" alt-text="Captura de pantalla de la telemetría del dispositivo en IoT Central":::
+    :::zone-end
 
     > [!NOTE]
     > También puede supervisar la telemetría desde el dispositivo mediante la aplicación Termite.
@@ -340,13 +556,33 @@ Para ver la telemetría en el portal de IoT Central:
 También puede usar IoT Central para llamar a un método directo que haya implementado en el dispositivo. Los métodos directos tienen un nombre y, opcionalmente, pueden tener una carga de JSON, una conexión configurable y un tiempo de espera del método. En esta sección, se llama a un método que le permite apagar o encender un LED.
 
 Para llamar a un método en el portal de IoT Central:
+:::zone pivot="iot-toolset-cmake"
 
 1. Seleccione la pestaña **Comando** en la página del dispositivo.
+
 1. En la lista desplegable **Estado**, seleccione **Verdadero** y, a continuación, **Ejecutar**.  La luz LED debe encenderse.
 
     :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-invoke-method.png" alt-text="Captura de pantalla de la llamada a un método directo en un dispositivo en IoT Central":::
 
 1. En la lista desplegable **Estado**, seleccione **Falso** y, luego, elija **Ejecutar**. La luz LED debe apagarse.
+:::zone-end
+:::zone pivot="iot-toolset-iar-ewarm, iot-toolset-mplab"
+
+1. Seleccione la pestaña **Comando** en la página del dispositivo.
+
+1. En el campo **Since** (Desde), use los selectores de fecha y hora para establecer una hora y, a continuación, seleccione **Run** (Ejecutar).
+
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-invoke-method-iar.png" alt-text="Captura de pantalla de la llamada a un método directo en un dispositivo en IoT Central":::
+
+1. Puede ver la invocación del comando en Termite:
+
+    ```output
+    Receive method call: getMaxMinReport, with payload:"2021-10-14T17:45:00.000Z"
+    ```
+
+    > [!NOTE]
+    > También puede ver la invocación del comando y la respuesta en la pestaña **Datos sin procesar** en la página del dispositivo en IoT Central.
+:::zone-end
 
 ## <a name="view-device-information"></a>Ver la información del dispositivo
 
@@ -354,13 +590,26 @@ Puede ver la información del dispositivo en IoT Central.
 
 En la página del dispositivo, seleccione la pestaña **Acerca de**.
 
+:::zone pivot="iot-toolset-cmake"
 :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-device-about.png" alt-text="Captura de pantalla de la información del dispositivo en IoT Central":::
+:::zone-end
+:::zone pivot="iot-toolset-iar-ewarm, iot-toolset-mplab"
+:::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-device-about-iar.png" alt-text="Captura de pantalla de la información del dispositivo en IoT Central":::
+:::zone-end
 
 ## <a name="troubleshoot-and-debug"></a>Solución de problemas y depuración
 
 Si tiene problemas para compilar el código del dispositivo, guardar la imagen en la memoria flash del dispositivo o conectarse, consulte [Solución de problemas](troubleshoot-embedded-device-quickstarts.md).
 
+:::zone pivot="iot-toolset-cmake"
 Para depurar la aplicación, consulte [Depuración con Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
+:::zone-end
+:::zone pivot="iot-toolset-iar-ewarm"
+Para obtener ayuda para depurar la aplicación, consulte las opciones de **Help** (Ayuda) en **IAR EW for ARM**.  
+:::zone-end
+:::zone pivot="iot-toolset-mplab"
+Para obtener ayuda para depurar la aplicación, consulte las opciones de **Help** (Ayuda) en el **IDE de MPLAB X**.  
+:::zone-end
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

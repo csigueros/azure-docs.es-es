@@ -3,20 +3,18 @@ title: Evaluación de los resultados de los experimentos de aprendizaje automát
 titleSuffix: Azure Machine Learning
 description: Obtenga información sobre cómo ver y evaluar los gráficos y las métricas de cada una de las ejecuciones de experimentos de aprendizaje automático automatizado.
 services: machine-learning
-author: gregorybchris
-ms.author: chgrego
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: automl
 ms.date: 12/09/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2, automl
-ms.openlocfilehash: 91c620a68d375084f8a4be6c5a8bf30b92d016c1
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 2b9384b53b1fa5ac8681f6acab4df6d923d95703
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129812205"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162897"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Evaluación de los resultados del experimento de aprendizaje automático automatizado
 
@@ -72,18 +70,21 @@ Aunque cada método de promedio tiene sus ventajas, una consideración común al
 
 En la tabla siguiente se resumen las métricas de rendimiento de modelo que el aprendizaje automático automatizado calcula para cada modelo de clasificación generado para el experimento. Para obtener más información, consulte la documentación de scikit-learn vinculada en el campo **Cálculo** de cada métrica. 
 
+> [!NOTE]
+> Vea la sección de [métricas de imagen](#metrics-for-image-models-preview) para obtener más detalles sobre las métricas de los modelos de clasificación de imágenes.
+
 |Métrica|Descripción|Cálculo|
 |--|--|---|
 |AUC | AUC es el área bajo la [curva de característica operativa del receptor](#roc-curve).<br><br> **Objetivo:** cuanto más cercano a 1, mejor <br> **Intervalo:** [0, 1]<br> <br>Entre los nombres de métricas admitidos se incluyen: <li>`AUC_macro`: es la media aritmética del parámetro AUC para cada clase.<li> `AUC_micro`: se calcula de forma multietiqueta. Para cada muestra, cada clase diferente se trata como una predicción `0/1` independiente. La clase correcta se convertirá en clase `true` y el resto será `false`. A continuación, se calcula el valor de AUC para la nueva tarea de clasificación binaria con la combinación de todas las muestras. <li> `AUC_weighted`: es la media aritmética de la puntuación para cada clase, ponderada por el número de instancias verdaderas en cada clase. <li> `AUC_binary`: es el valor de AUC al tratar una clase específica como `true` y combinar todas las demás clases como `false`.<br><br>|[Cálculo](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.roc_auc_score.html) | 
 |accuracy| La precisión es la relación de predicciones que coinciden exactamente con las etiquetas de clase. <br> <br>**Objetivo:** cuanto más cercano a 1, mejor <br> **Intervalo:** [0, 1]|[Cálculo](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.accuracy_score.html)|
 |average_precision|La precisión promedio resume una curva de precisión-recuperación como la media ponderada de las precisiones conseguidas en cada umbral, donde el aumento de la recuperación del umbral anterior se usa como peso. <br><br> **Objetivo:** cuanto más cercano a 1, mejor <br> **Intervalo:** [0, 1]<br> <br>Entre los nombres de métricas admitidos se incluyen:<li>`average_precision_score_macro`: es la media aritmética de la puntuación de precisión media de cada clase.<li> `average_precision_score_micro`: se calcula de forma multietiqueta. Para cada muestra, cada clase diferente se trata como una predicción `0/1` independiente. La clase correcta se convertirá en clase `true` y el resto será `false`. A continuación, se calcula la precisión media para la nueva tarea de clasificación binaria con la combinación de todas las muestras.<li>`average_precision_score_weighted`: es la media aritmética de la puntuación de precisión promedio para cada clase, ponderada por el número de instancias verdaderas en cada clase. <li> `average_precision_score_binary`: es el valor de la precisión media al tratar una clase específica como `true` y combinar todas las demás clases como `false`.|[Cálculo](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.average_precision_score.html)|
 balanced_accuracy|La precisión equilibrada es la media aritmética de recuperación para cada clase.<br> <br>**Objetivo:** cuanto más cercano a 1, mejor <br> **Intervalo:** [0, 1]|[Cálculo](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.recall_score.html)|
-f1_score|La puntuación F1 es la media armónica de precisión y recuperación. Es una buena medida equilibrada de falsos positivos y falsos negativos. Sin embargo, no tiene en cuenta los verdaderos negativos. <br> <br>**Objetivo:** cuanto más cercano a 1, mejor <br> **Intervalo:** [0, 1]<br> <br>Entre los nombres de métricas admitidos se incluyen:<li>  `f1_score_macro`: media aritmética de la puntuación F1 para cada clase. <li> `f1_score_micro`: se calcula mediante el recuento del total de verdaderos positivos, falsos negativos y falsos positivos. <li> `f1_score_weighted`: media ponderada por frecuencia de clase de la puntuación F1 para cada clase. <li> `f1_score_binary`: es el valor de F1 al tratar una clase específica como `true` y combinar todas las demás clases como `false`.|[Cálculo](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.f1_score.html)|
+f1_score|La puntuación F1 es la media armónica de precisión y recuperación. Es una buena medida equilibrada de falsos positivos y falsos negativos. Sin embargo, no tiene en cuenta los verdaderos negativos. <br> <br>**Objetivo:** cuanto más cercano a 1, mejor <br> **Intervalo:** [0, 1]<br> <br>Entre los nombres de métricas admitidos se incluyen:<li>  `f1_score_macro`: media aritmética de la puntuación F1 para cada clase. <li> `f1_score_micro`: se calcula mediante el recuento del total de verdaderos positivos, falsos negativos y falsos positivos. <li> `f1_score_weighted`: media ponderada por frecuencia de clase de la puntuación F1 para cada clase. <li> `f1_score_binary`: es el valor de F1 al tratar una clase específica como `true` y combinar todas las demás clases como `false`. <br><br>Nota: El valor de `f1_score_micro` siempre es igual al valor de `accuracy`.|[Cálculo](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.f1_score.html)|
 log_loss|Se trata de la función de pérdida que se usa en la regresión logística (multinomial) y sus extensiones, como las redes neuronales, definida como la verosimilitud logarítmica negativa de las etiquetas verdaderas, dadas las predicciones de un clasificador probabilístico. <br><br> **Objetivo:** cuanto más cercano a 0, mejor <br> **Intervalo:** [0, inf)|[Cálculo](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.log_loss.html)|
 norm_macro_recall| La coincidencia de macro normalizada es la coincidencia de macro promediada y normalizada para que el rendimiento aleatorio tenga una puntuación de 0 y el rendimiento perfecto una puntuación de 1. <br> <br>**Objetivo:** cuanto más cercano a 1, mejor <br> **Intervalo:** [0, 1] |`(recall_score_macro - R)`&nbsp;/&nbsp;`(1 - R)` <br><br>donde, `R` es el valor esperado de `recall_score_macro` para las predicciones aleatorias.<br><br>`R = 0.5`&nbsp;para&nbsp; clasificación&nbsp;binaria. <br>`R = (1 / C)` para problemas de clasificación de clase C.|
 matthews_correlation | El coeficiente de correlación de Matthews es una medida equilibrada de precisión, que se puede usar incluso si una clase tiene muchos más ejemplos que otra. Un coeficiente de 1 indica una predicción perfecta, 0 predicción aleatoria y -1 predicción inversa.<br><br> **Objetivo:** cuanto más cercano a 1, mejor <br> **Intervalo:** [-1, 1]|[Cálculo](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.matthews_corrcoef.html)|
-Precisión|La precisión es la capacidad de un modelo para evitar que las etiquetas negativas se etiqueten como positivas. <br><br> **Objetivo:** cuanto más cercano a 1, mejor <br> **Intervalo:** [0, 1]<br> <br>Entre los nombres de métricas admitidos se incluyen: <li> `precision_score_macro`: es la media aritmética de la precisión para cada clase. <li> `precision_score_micro`: se calcula de forma global mediante el recuento del total de verdaderos positivos y falsos positivos. <li> `precision_score_weighted`: es la media aritmética de la precisión para cada clase, ponderada por el número de instancias verdaderas en cada clase. <li> `precision_score_binary`: es el valor de la precisión al tratar una clase específica como `true` y combinar todas las demás clases como `false`.|[Cálculo](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.precision_score.html)|
-Coincidencia| La coincidencia es la capacidad de un modelo para detectar todas las muestras positivas. <br><br> **Objetivo:** cuanto más cercano a 1, mejor <br> **Intervalo:** [0, 1]<br> <br>Entre los nombres de métricas admitidos se incluyen: <li>`recall_score_macro`: es la media aritmética de la coincidencia para cada clase. <li> `recall_score_micro`: se calcula de forma global mediante el recuento del total de verdaderos positivos, falsos negativos y falsos positivos.<li> `recall_score_weighted`: es la media aritmética de la coincidencia para cada clase, ponderada por el número de instancias verdaderas en cada clase. <li> `recall_score_binary`: es el valor de la coincidencia al tratar una clase específica como `true` y combinar todas las demás clases como `false`.|[Cálculo](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.recall_score.html)|
+Precisión|La precisión es la capacidad de un modelo para evitar que las etiquetas negativas se etiqueten como positivas. <br><br> **Objetivo:** cuanto más cercano a 1, mejor <br> **Intervalo:** [0, 1]<br> <br>Entre los nombres de métricas admitidos se incluyen: <li> `precision_score_macro`: es la media aritmética de la precisión para cada clase. <li> `precision_score_micro`: se calcula de forma global mediante el recuento del total de verdaderos positivos y falsos positivos. <li> `precision_score_weighted`: es la media aritmética de la precisión para cada clase, ponderada por el número de instancias verdaderas en cada clase. <li> `precision_score_binary`: es el valor de la precisión al tratar una clase específica como `true` y combinar todas las demás clases como `false`.<br><br>Nota: El valor de `precision_score_micro` siempre es igual al valor de `accuracy`.|[Cálculo](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.precision_score.html)|
+Coincidencia| La coincidencia es la capacidad de un modelo para detectar todas las muestras positivas. <br><br> **Objetivo:** cuanto más cercano a 1, mejor <br> **Intervalo:** [0, 1]<br> <br>Entre los nombres de métricas admitidos se incluyen: <li>`recall_score_macro`: es la media aritmética de la coincidencia para cada clase. <li> `recall_score_micro`: se calcula de forma global mediante el recuento del total de verdaderos positivos, falsos negativos y falsos positivos.<li> `recall_score_weighted`: es la media aritmética de la coincidencia para cada clase, ponderada por el número de instancias verdaderas en cada clase. <li> `recall_score_binary`: es el valor de la coincidencia al tratar una clase específica como `true` y combinar todas las demás clases como `false`.<br><br>Nota: El valor de `recall_score_micro` siempre es igual al valor de `accuracy`.|[Cálculo](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.recall_score.html)|
 weighted_accuracy|La precisión ponderada es la precisión en la que cada muestra está ponderada por el número total de muestras que pertenecen a la misma clase. <br><br>**Objetivo:** cuanto más cercano a 1, mejor <br>**Intervalo:** [0, 1]|[Cálculo](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.accuracy_score.html)|
 
 ### <a name="binary-vs-multiclass-classification-metrics"></a>Métricas de clasificación binaria y de varias clases
@@ -204,9 +205,12 @@ spearman_correlation| La correlación de Spearman es una medida no paramétrica 
 
 ### <a name="metric-normalization"></a>Normalización de métricas
 
-ML automatizado normaliza las métricas de regresión y previsión, lo que permite realizar una comparación entre los modelos entrenados en los datos con diferentes intervalos. Un modelo entrenado en datos con un intervalo mayor tiene un error mayor que el mismo modelo entrenado en datos con un intervalo más pequeño, a menos que ese error esté normalizado.
+ML automatizado normaliza las métricas de regresión y previsión, lo que permite realizar una comparación entre modelos entrenados con diferentes datos. Un modelo entrenado con datos de un rango mayor en general tiene un error mayor que el mismo modelo entrenado con datos de un rango más pequeño, a menos que ese error esté normalizado.
 
-Aunque no hay ningún método estándar para normalizar las métricas de error, ML automatizado realiza el enfoque común de dividir el error por el intervalo de los datos: `normalized_error = error / (y_max - y_min)`
+Aunque no hay ningún método estándar para normalizar las métricas de error, ML automatizado adopta el enfoque común de dividir el error por el rango de los datos: `normalized_error = error / (y_max - y_min)`. 
+
+> [!Note]
+> El rango de datos no se guarda con el modelo. Si hace la inferencia con el mismo modelo en un conjunto de prueba de datos de exclusión, `y_min` y `y_max` pueden cambiar según los datos de prueba y es posible que las métricas normalizadas no se usen directamente para comparar el rendimiento del modelo en los conjuntos de entrenamiento y prueba. Puede pasar el valor de `y_min` y `y_max` del conjunto de entrenamiento para que la comparación sea equitativa.
 
 Al evaluar un modelo de previsión en datos de series temporales, ML automatizado realiza pasos adicionales para asegurar que la normalización ocurra por identificador de serie temporal (intervalo de agregación), porque cada serie temporal probablemente tenga una distribución diferente de valores de destino.
 ## <a name="residuals"></a>Valores residuales
@@ -234,6 +238,60 @@ En este ejemplo, observe que el mejor modelo tiene una línea de valores predich
 
 ### <a name="predicted-vs-true-chart-for-a-bad-model"></a>Gráfico de valores predichos frente a valores verdaderos para un mal modelo
 ![Gráfico de valores predichos frente a valores verdaderos para un mal modelo](./media/how-to-understand-automated-ml/chart-predicted-true-bad.png)
+
+## <a name="metrics-for-image-models-preview"></a>Métricas de modelos de imagen (versión preliminar)
+
+ML automatizado usa las imágenes del conjunto de datos de validación para evaluar el rendimiento del modelo. El rendimiento del modelo se mide en un **nivel de época** para comprender cómo progresa el entrenamiento. Una época concluye cuando un conjunto de datos completo ha pasado hacia delante y hacia atrás a través de la red neuronal exactamente una vez. 
+
+### <a name="image-classification-metrics"></a>Métricas de clasificación de imágenes
+
+La métrica principal para la evaluación es **accuracy** en los modelos de clasificación binarios y multiclase, e **IoU** ([Intersection over Union](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.jaccard_score.html#sklearn.metrics.jaccard_score)) en los modelos de clasificación multietiqueta.
+Las métricas de clasificación de los modelos de clasificación de imágenes son las mismas que las definidas en la sección de [métricas de clasificación](#classification-metrics). Los valores de pérdida asociados a una época también se registran, lo que puede ayudar a supervisar cómo progresa el entrenamiento y a determinar si el modelo está sobreajustado o subajustado.
+
+Cada predicción de un modelo de clasificación está asociada a una puntuación de confianza que indica el nivel de confianza con el que se ha realizado la predicción. Los modelos de clasificación de imágenes multietiqueta se evalúan de manera predeterminada con un umbral de puntuación de 0,5, lo que significa que solo las predicciones con al menos este nivel de confianza se consideran como una predicción positiva en la clase asociada. La clasificación multiclase no usa un umbral de puntuación, sino que la clase con la puntuación de confianza máxima se considera la predicción. 
+
+#### <a name="epoch-level-metrics-for-image-classification"></a>Métricas de nivel de época para la clasificación de imágenes
+A diferencia de las métricas de clasificación para conjuntos de datos tabulares, los modelos de clasificación de imágenes registran todas las métricas de clasificación en un nivel de época, como se muestra a continuación.
+
+![Gráficos de nivel de época para la clasificación de imágenes](./media/how-to-understand-automated-ml/image-classification-accuracy.png)
+
+#### <a name="summary-metrics-for-image-classification"></a>Métricas de resumen para la clasificación de imágenes
+
+Además de las métricas escalares que se registran en el nivel de época, el modelo de clasificación de imágenes también registra métricas de resumen como [matriz de confusión](#confusion-matrix), [gráficos de clasificación](#roc-curve) que incluyen curva ROC, curva de precisión-recuperación e informe de clasificación para el modelo de la mejor época en la que se obtiene la puntuación de métrica principal (accuracy) más alta.
+
+El informe de clasificación proporciona los valores de nivel de clase de métricas como precision, recall, f1-score, support, auc y average_precision, con varios niveles de promedio: micro, macro y ponderado, como se muestra a continuación.
+Vea las definiciones de las métricas de la sección de [métricas de clasificación](#classification-metrics).
+
+![Informe de clasificación para la clasificación de imágenes](./media/how-to-understand-automated-ml/image-classification-report.png)
+
+### <a name="object-detection-and-instance-segmentation-metrics"></a>Métricas de detección de objetos y segmentación de instancias
+
+Cada predicción de un modelo de detección de objetos de imagen o segmentación de instancias está asociada a una puntuación de confianza.
+Las predicciones con una puntuación de confianza mayor que el umbral de puntuación se devuelven como predicciones y se usan en el cálculo de métricas, cuyo valor predeterminado es específico del modelo y se puede consultar desde la página de [optimización de hiperparámetros](how-to-auto-train-image-models.md#model-specific-hyperparameters) (hiperparámetro `box_score_threshold`).
+
+El cálculo de métricas de un modelo de segmentación de instancias y detección de objetos de imagen se basa en una medida de superposición definida por una métrica denominada **IoU** ([Intersection over Union](https://en.wikipedia.org/wiki/Jaccard_index)), que se calcula dividiendo el área de superposición entre la verdad terreno y las predicciones por el área de unión de la verdad terreno y las predicciones. La IoU calculada a partir de cada predicción se compara con un **umbral de superposición** denominado umbral de IoU que determina cuánto debe superponerse una predicción con la verdad terreno anotada de un usuario para que se considere como una predicción positiva. Si la IoU calculada a partir de la predicción es menor que el umbral de superposición, la predicción no se consideraría como una predicción positiva en la clase asociada.
+
+La métrica principal para la evaluación de modelos de detección de objetos de imagen y segmentación de instancias es la **precisión media (mAP)**. mAP es el valor medio de la precisión media (AP) en todas las clases. Los modelos de detección de objetos de ML automatizado admiten el cálculo de mAP con los dos métodos populares siguientes.
+
+**Métricas de Pascal VOC**: 
+
+mAP de [Pascal VOC](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/htmldoc/devkit_doc.html#SECTION00044000000000000000) es la forma predeterminada de cálculo de mAP para modelos de segmentación de instancias o detección de objetos. El método mAP de estilo Pascal VOC calcula el área bajo una versión de la curva de precisión-recuperación. La primera p(ri), que es la precisión en la recuperación i, se calcula para todos los valores de recuperación únicos. p(ri) luego se reemplaza por la precisión máxima obtenida de cualquier recuperación r' >= rᵢ. El valor de precisión disminuye de forma continuada en esta versión de la curva. La métrica mAP de Pascal VOC se evalúa de manera predeterminada con un umbral de IoU de 0,5. En este [blog](https://jonathan-hui.medium.com/map-mean-average-precision-for-object-detection-45c121a31173) hay una explicación detallada de este concepto.
+
+
+**Métricas de COCO**: 
+
+El [método de evaluación COCO](https://cocodataset.org/#detection-eval) usa un método interpolado de 101 puntos para el cálculo de AP junto con un promedio de más de diez umbrales de IoU. AP@[.5:.95] corresponde al promedio de AP para IoU de 0,5 a 0,95 con un tamaño de paso de 0,05. ML automatizado registra las doce métricas definidas por el método COCO, lo que incluye AP y AR (recuperación media) en varias escalas en los registros de aplicación, mientras que la interfaz de usuario de métricas muestra solo la mAP en un umbral de IoU de 0,5. 
+
+> [!TIP]
+> La evaluación del modelo de detección de objetos de imagen puede usar métricas de COCO si el hiperparámetro `validation_metric_type` está establecido en "coco", como se explica en la sección de [optimización de hiperparámetros](how-to-auto-train-image-models.md#task-specific-hyperparameters).
+
+#### <a name="epoch-level-metrics-for-object-detection-and-instance-segmentation"></a>Métricas de nivel de época para la detección de objetos y la segmentación de instancias
+Los valores de mAP, precisión y recuperación se registran en un nivel de época para los modelos de segmentación de instancias o detección de objetos de imagen. Las métricas mAP, precision y recall también se registran en un nivel de clase con el nombre "per_label_metrics". "per_label_metrics" debe verse como una tabla. 
+
+> [!NOTE]
+> Las métricas de nivel de época precision, recall y per_label_metrics no están disponibles cuando se usa el método "coco".
+
+![Gráficos de nivel de época para la detección de objetos](./media/how-to-understand-automated-ml/image-object-detection-map.png)
 
 ## <a name="model-explanations-and-feature-importances"></a>Explicaciones del modelo e importancias de las características
 

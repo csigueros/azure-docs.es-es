@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 8/27/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 844c450e5a549458964b7747160d7efe553d406a
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: c9eabf879522d517f35da2a859c488ebdfbee64a
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129620704"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038467"
 ---
 # <a name="tutorial-configure-datawiza-with-azure-active-directory-for-secure-hybrid-access"></a>Tutorial: Configuración de Datawiza con Azure Active Directory para el acceso híbrido seguro
 
@@ -47,7 +47,7 @@ La integración de Datawiza incluye los componentes siguientes:
 
 - Datawiza Access Broker (DAB): el usuario del servicio inicia sesión y pasa la identidad de forma transparente a las aplicaciones por medio de encabezados HTTP.
 
-- Datawiza Cloud Management Console (DCMC): una consola de administración centralizada que administra DAB. DCMC proporciona API de interfaz de usuario y Restful para que los administradores administren las configuraciones de DAB y sus directivas de control de acceso.
+- Datawiza Cloud Management Console (DCMC): una consola de administración centralizada que administra DAB. DCMC proporciona las API de interfaz de usuario y RESTful para que los administradores administren las configuraciones de DAB y sus directivas de control de acceso.
 
 En el siguiente diagrama de arquitectura se muestra la implementación.
 

@@ -10,12 +10,12 @@ metadata:
   author: cynthn
   ms.author: cynthn
   ms.date: 11/05/2020
-  ms.openlocfilehash: b432bbee09865ae89aabc281f514ec6330fbd42d
-  ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+  ms.openlocfilehash: fab3cb5e7cc0476128e55e2bc9a4c9abe5acde11
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/23/2021
-  ms.locfileid: "122697047"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130257981"
 landingContent:
 - title: Características más recientes
   linkLists:
@@ -55,22 +55,22 @@ landingContent:
   linkLists:
   - linkListType: learn
     links:
-    - text: " Creación de una máquina virtual Linux en Azure"
+    - text: Creación de una máquina virtual Linux en Azure
       url: /learn/modules/create-linux-virtual-machine-in-azure/
-    - text: " Creación de una máquina virtual Windows en Azure"
+    - text: Creación de una máquina virtual Windows en Azure
       url: /learn/modules/create-windows-virtual-machine-in-azure/
 - title: Solución de problemas
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Solución de problemas de SSH
-      url: /troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection
-    - text: Solución de problemas de RDP
-      url: /troubleshoot/azure/virtual-machines/rdp
-    - text: La máquina virtual Linux no arranca
-      url: /troubleshoot/azure/virtual-machines/boot-error-troubleshoot-linux
-    - text: La máquina virtual Windows no arranca
-      url: /troubleshoot/azure/virtual-machines/boot-error-troubleshoot
+    - text: Guías de solución de problemas
+      url: /troubleshoot/azure/virtual-machines/welcome-virtual-machines
+    - text: Solución de problemas de implementación
+      url: /troubleshoot/azure/virtual-machines/welcome-deployment-troubleshooting
+    - text: Solución de problemas de asignación
+      url: /troubleshoot/azure/virtual-machines/allocation-failure
+    - text: Solución de problemas de reinicios inesperados
+      url: /troubleshoot/azure/virtual-machines/understand-vm-reboot
     - text: Preguntas y respuestas acerca de Microsoft
       url: /answers/topics/azure-virtual-machines.html
 - title: Recursos

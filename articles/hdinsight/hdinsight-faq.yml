@@ -9,12 +9,12 @@ metadata:
   ms.custom: hdinsightactive,seoapr2020
   ms.topic: conceptual
   ms.date: 11/20/2019
-  ms.openlocfilehash: 22754fcddcb7a5eb75e10e2ae09dfa768f2ec2bb
-  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+  ms.openlocfilehash: 6de6c58484c49f10e86453dd4149ce66b47d4c39
+  ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/13/2021
-  ms.locfileid: "124819733"
+  ms.lasthandoff: 10/15/2021
+  ms.locfileid: "130038410"
 title: 'Azure HDInsight: Preguntas más frecuentes'
 summary: >
   En este artículo se proporcionan respuestas a algunas de las preguntas más comunes sobre la ejecución de [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/).
@@ -275,7 +275,7 @@ sections:
       ¿Cómo recupero los detalles de configuración del clúster de HDI con un usuario de Azure Active Directory?
     answer: "Para negociar los tokens de autenticación adecuados con el usuario de AAD, vaya a través de la puerta de enlace con el siguiente formato:\n\n* https://`<cluster dnsname>`.azurehdinsight.net/api/v1/clusters/testclusterdem/stack_versions/1/repository_versions/1 \n"
   - question: >
-      ¿Cómo uso la API RESTful de Ambari para supervisar el rendimiento de YARN?
+      Cómo usar la API RESTful de Ambari para supervisar el rendimiento de YARN
     answer: "Si llama al comando Curl en la misma red virtual o en una red virtual emparejada, el comando es:\n\n```curl\ncurl -u <cluster login username> -sS -G\nhttp://<headnodehost>:8080/api/v1/clusters/<ClusterName>/services/YARN/components/NODEMANAGER?fields=metrics/cpu\n```\n \nSi llama al comando desde fuera de la red virtual o desde una red virtual no emparejada, el formato de comando es:\n\n- Para un clúster que no sea ESP:\n  \n  ```curl\n  curl -u <cluster login username> -sS -G \n  https://<ClusterName>.azurehdinsight.net/api/v1/clusters/<ClusterName>/services/YARN/components/NODEMANAGER?fields=metrics/cpu\n  ```\n\n- Para un clúster de ESP:\n  \n  ```curl\n  curl -u <cluster login username>-sS -G \n  https://<ClusterName>.azurehdinsight.net/api/v1/clusters/<ClusterName>/services/YARN/components/NODEMANAGER?fields=metrics/cpu\n  ```\n\n> [!NOTE]\n> Curl le solicitará una contraseña. Debe escribir una contraseña válida para el nombre de usuario de inicio de sesión del clúster.\n"
 - name: Facturación
   questions:

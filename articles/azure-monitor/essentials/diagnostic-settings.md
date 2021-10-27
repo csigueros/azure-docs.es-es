@@ -6,12 +6,12 @@ ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2021
-ms.openlocfilehash: 0a161c2341137abc047d81b408058ca56e192526
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 50eb92441c248884930e556551a92acb9e43661b
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122444836"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176413"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Creación de una configuración de diagnóstico para enviar los registros y las métricas de la plataforma a diferentes destinos
 Los [registros de plataforma](./platform-logs-overview.md) de Azure, como los registros de recursos y los registros de actividad de Azure, proporcionan información de diagnóstico y auditoría detallada sobre los recursos de Azure y la plataforma de Azure de la que dependen. Las [métricas de plataforma](./data-platform-metrics.md) se recopilan de forma predeterminada y suelen almacenarse en la base de datos de métricas de Azure Monitor. En este artículo, se explica cómo crear y establecer la configuración de diagnóstico para enviar métricas y registros de plataforma a diferentes destinos.
@@ -196,19 +196,89 @@ Consulte [Ejemplos de plantillas de Resource Manager para la configuración de d
 ## <a name="create-using-rest-api"></a>Creación mediante la API REST
 Consulte [Configuración de diagnóstico](/rest/api/monitor/diagnosticsettings) para crear o actualizar configuraciones de diagnóstico mediante la [API REST de Azure Monitor](/rest/api/monitor/).
 
-## <a name="create-using-azure-policy"></a>Creación mediante Azure Policy
-Dado que es necesario crear una configuración de diagnóstico para cada recurso de Azure, se puede usar Azure Policy para crear automáticamente una configuración de diagnóstico a medida que se crea cada recurso. Para más información, consulte [Implementación de Azure Monitor a escala mediante Azure Policy](../deploy-scale.md).
+## <a name="create-at-scale-using-azure-policy"></a>Creación a gran escala mediante Azure Policy
+Dado que es necesario crear una configuración de diagnóstico para cada recurso de Azure, se puede usar Azure Policy para crear automáticamente una configuración de diagnóstico a medida que se crea cada recurso. Cada tipo de recurso de Azure tiene un conjunto único de categorías que se deben enumerar en la configuración de diagnóstico. Debido a esto, cada tipo de recurso requiere una definición de directiva independiente. Algunos tipos de recursos tienen definiciones de directivas integradas que se pueden asignar sin modificaciones. Para otros tipos de recursos, debe crear una definición personalizada.
 
-## <a name="error-metric-category-is-not-supported"></a>Error: La categoría de métrica no es compatible
-Al implementar una configuración de diagnóstico, recibirá el mensaje de error siguiente:
+### <a name="built-in-policy-definitions-for-azure-monitor"></a>Definiciones de directivas integradas para Azure Monitor
+Hay dos definiciones de directivas integradas para cada tipo de recurso: una para enviar datos a un área de trabajo de Log Analytics y otra a un centro de eventos. Si solo necesita una ubicación, asigne esa directiva al tipo de recurso. Si necesita ambas, asigne ambas definiciones de directiva al recurso.
 
-   "La categoría de métrica '*xxxx*' no se admite"
+Por ejemplo, la siguiente imagen muestra las definiciones de directiva de configuración de diagnóstico integradas para Azure Data Lake Analytics.
 
-Por ejemplo: 
+![Captura de pantalla parcial de la página Definiciones de Azure Policy, que muestra dos definiciones de directivas de configuración de diagnóstico integradas para Data Lake Analytics.](media/diagnostic-settings/builtin-diagnostic-settings.png)
 
-   "La categoría de métrica 'ActionsFailed' no se admite"
+### <a name="custom-policy-definitions"></a>Definiciones de directivas personalizadas
+En el caso de los tipos de recursos que no tienen una directiva integrada, debe crear una definición de directiva personalizada. Puede hacerlo manualmente en Azure Portal mediante la copia de una directiva integrada existente y, a continuación, su modificación para el tipo de recurso. No obstante, es más eficaz crear la directiva mediante programación con un script de la Galería de PowerShell.
 
-donde anteriormente se realizó correctamente la implementación. 
+El script [Create-AzDiagPolicy](https://www.powershellgallery.com/packages/Create-AzDiagPolicy) crea archivos de directivas para un tipo de recurso determinado que se pueden instalar mediante PowerShell o la CLI de Azure. Use el procedimiento siguiente para crear una definición de directiva personalizada para la configuración de diagnóstico:
+
+1. Asegúrese de que tiene instalado [Azure PowerShell](/powershell/azure/install-az-ps).
+2. Para instalar el script, use el siguiente comando:
+  
+    ```azurepowershell
+    Install-Script -Name Create-AzDiagPolicy
+    ```
+
+3. Ejecute el script con los parámetros para especificar dónde enviar los registros. Se le pedirá que especifique una suscripción y un tipo de recurso. 
+
+   Por ejemplo, para crear una definición de directiva que envíe registros a un área de trabajo de Log Analytics y un centro de eventos, use el comando siguiente.
+
+   ```azurepowershell
+   Create-AzDiagPolicy.ps1 -ExportLA -ExportEH -ExportDir ".\PolicyFiles"  
+   ```
+
+   Como alternativa, puede especificar una suscripción y un tipo de recurso en el comando. Por ejemplo, para crear una definición de directiva que envíe registros a un área de trabajo de Log Analytics y a un centro de eventos para bases de datos de Azure SQL Server, use el comando siguiente:
+
+   ```azurepowershell
+   Create-AzDiagPolicy.ps1 -SubscriptionID xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -ResourceType Microsoft.Sql/servers/databases  -ExportLA -ExportEH -ExportDir ".\PolicyFiles"  
+   ```
+
+5. El script crea carpetas independientes para cada definición de directiva. Cada carpeta contiene tres archivos denominados *azurepolicy.json*, *azurepolicy.rules.json* y *azurepolicy.parameters.json*. Si quiere crear la directiva manualmente en Azure Portal, puede copiar y pegar el contenido del archivo *azurepolicy.json*, ya que incluye la definición de directiva completa. Use los otros dos archivos con PowerShell o la CLI de Azure para crear la definición de directiva desde la línea de comandos.
+
+   En los siguientes ejemplos se muestra cómo instalar la definición de directiva desde PowerShell y la CLI de Azure. Cada ejemplo incluye metadatos para especificar la categoría **Supervisión** para agrupar la nueva definición de directiva con las definiciones de directivas integradas.
+
+   ```azurepowershell
+   New-AzPolicyDefinition -name "Deploy Diagnostic Settings for SQL Server database to Log Analytics workspace" -policy .\Apply-Diag-Settings-LA-Microsoft.Sql-servers-databases\azurepolicy.rules.json -parameter .\Apply-Diag-Settings-LA-Microsoft.Sql-servers-databases\azurepolicy.parameters.json -mode All -Metadata '{"category":"Monitoring"}'
+   ```
+
+   ```azurecli
+   az policy definition create --name 'deploy-diag-setting-sql-database--workspace' --display-name 'Deploy Diagnostic Settings for SQL Server database to Log Analytics workspace'  --rules 'Apply-Diag-Settings-LA-Microsoft.Sql-servers-databases\azurepolicy.rules.json' --params 'Apply-Diag-Settings-LA-Microsoft.Sql-servers-databases\azurepolicy.parameters.json' --subscription 'AzureMonitor_Docs' --mode All
+   ```
+
+### <a name="initiative"></a>Iniciativa
+En lugar de crear una asignación para cada definición de directiva, una estrategia habitual consiste en crear una iniciativa que incluya las definiciones de directivas para crear la configuración de diagnóstico para cada servicio de Azure. Cree una asignación entre la iniciativa y un grupo de administración, una suscripción o un grupo de recursos, en función de cómo administre el entorno. Esta estrategia ofrece las siguientes ventajas:
+
+- Cree una única asignación para la iniciativa en lugar de varias asignaciones para cada tipo de recurso. Use la misma iniciativa para varios grupos de supervisión, suscripciones o grupos de recursos.
+- Modifique la iniciativa cuando necesite agregar un nuevo tipo de recurso o destino. Por ejemplo, los requisitos iniciales pueden enviar datos solo a un área de trabajo de Log Analytics, pero más adelante puede que quiera agregar un centro de eventos. Modifique la iniciativa en lugar de crear nuevas asignaciones.
+
+Para obtener más información sobre la creación de una iniciativa, consulte [Creación y asignación de una definición de iniciativa](../../governance/policy/tutorials/create-and-manage.md#create-and-assign-an-initiative-definition). Tenga en cuenta las recomendaciones siguientes:
+
+- Establezca **Categoría** en **Supervisión** para agruparla con las definiciones de directivas integradas y personalizadas relacionadas.
+- En lugar de especificar los detalles del área de trabajo de Log Analytics y el centro de eventos para las definiciones de directiva que se incluyen en la iniciativa, use un parámetro de iniciativa común. Este parámetro le permite especificar fácilmente un valor común para todas las definiciones de directivas y cambiar ese valor si es necesario.
+
+![Captura de pantalla que muestra la configuración de la definición de iniciativa.](media/diagnostic-settings/initiative-definition.png)
+
+### <a name="assignment"></a>Asignación 
+Asigne la iniciativa a un grupo de administración, una suscripción o un grupo de recursos de Azure en función del ámbito de los recursos que se van a supervisar. Un [grupo de administración](../../governance/management-groups/overview.md) es útil para dar un ámbito a la directiva, especialmente si la organización tiene varias suscripciones.
+
+![Captura de pantalla de la configuración de la pestaña Aspectos básicos de la sección Asignar iniciativa de la Configuración de diagnóstico en el área de trabajo de Log Analytics en Azure Portal.](media/diagnostic-settings/initiative-assignment.png)
+
+Mediante el uso de parámetros de iniciativa, puede especificar el área de trabajo o cualquier otro detalle para todas las definiciones de directivas de la iniciativa. 
+
+![Captura de pantalla que muestra los parámetros de la iniciativa en la pestaña Parámetros.](media/diagnostic-settings/initiative-parameters.png)
+
+### <a name="remediation"></a>Corrección
+La iniciativa se aplicará a cada máquina virtual a medida que esta se cree. Una [tarea de corrección](../../governance/policy/how-to/remediate-resources.md) implementa las definiciones de directivas de la iniciativa en los recursos existentes, de modo que puede crear una configuración de diagnóstico para los recursos que ya se han creado. 
+
+Al crear la asignación mediante Azure Portal, tiene la opción de crear una tarea de corrección al mismo tiempo. Consulte [Corrección de los recursos no compatibles con Azure Policy](../../governance/policy/how-to/remediate-resources.md) para más información sobre la corrección.
+
+![Captura de pantalla que muestra la corrección de iniciativas para un área de trabajo de Log Analytics.](media/diagnostic-settings/initiative-remediation.png)
+
+
+## <a name="troubleshooting"></a>Solución de problemas
+
+### <a name="metric-category-is-not-supported"></a>La categoría de métrica no es compatible
+
+Al implementar una configuración de diagnóstico, recibe un mensaje de error similar a *La categoría de métrica "xxxx" no se admite*. Puede recibir este error aunque una implementación anterior se haya completado correctamente. 
 
 El problema se produce al usar una plantilla de Resource Manager, la API de REST de configuración de diagnóstico, la CLI de Azure o Azure PowerShell. La configuración de diagnóstico creada a través de Azure Portal no se ve afectada, ya que solo se presentan los nombres de categoría admitidos.
 
@@ -216,7 +286,7 @@ El problema se debe a un cambio reciente en la API subyacente. Las categorías d
 
 Si recibe este error, actualice las implementaciones para reemplazar los nombres de categoría de métrica por "AllMetrics" para corregir el problema. Si la implementación agregaba anteriormente varias categorías, solo debe conservarse una con la referencia "AllMetrics". Si sigue teniendo el problema, póngase en contacto con el equipo de soporte técnico de Azure a través de Azure Portal. 
 
-## <a name="error-setting-disappears-due-to-non-ascii-characters-in-resourceid"></a>Error: La configuración desaparece debido a caracteres no ASCII en resourceID
+## <a name="setting-disappears-due-to-non-ascii-characters-in-resourceid"></a>La configuración desaparece debido a caracteres no ASCII en resourceID
 
 La configuración de diagnóstico no admite identificadores de recursos con caracteres no ASCII (por ejemplo, Preproducción). Puesto que no puede cambiar el nombre de los recursos en Azure, la única opción es crear un recurso sin caracteres no ASCII. Si los caracteres están en un grupo de recursos, puede mover los recursos que contiene a uno nuevo. De lo contrario, deberá volver a crear el recurso. 
 

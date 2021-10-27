@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: ef1f069dbcf932475a062b309324a77932a88809
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5d917de831227dcfa7a9b5803f79a1cadbaf3112
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750734"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130006040"
 ---
 # <a name="assessment-overview-migrate-to-azure-vmware-solution"></a>Introducción a la evaluación (migración a Azure VMware Solution)
 
@@ -119,7 +119,7 @@ Esto es lo que se incluye en una evaluación de AVS:
 | - | - |
 | **Ubicación de destino** | Especifica la ubicación de la nube privada de AVS a la que se desea realizar la migración. |
 | **Tipo de almacenamiento** | Especifica el motor de almacenamiento que se va a utilizar en AVS. AVS actualmente solo admite vSAN como tipo de almacenamiento predeterminado, pero habrá más opciones de almacenamiento en función del mapa de ruta. |
-| **Instancias reservadas (RI)** | Esta propiedad le ayuda a especificar instancias reservadas en AVS si se compra y el término de la instancia reservada. Se usa para calcular los costos. |
+| **Instancias reservadas (RI)** | Esta propiedad le ayuda a especificar instancias reservadas en AVS si se compra y el término de la instancia reservada. Se usa para calcular los costos. Actualmente está deshabilitado y el valor predeterminado es *No hay instancias reservadas*. [Azure VMware Solution admite instancias reservadas](../azure-vmware/reserved-instance.md) y las evaluaciones habilitarán esta propiedad pronto.|
 | **Tipo de nodo** | Especifica el [tipo de nodo de AVS](../azure-vmware/concepts-private-clouds-clusters.md) que se usa en Azure. El tipo de nodo predeterminado es AV36. Es posible que haya más tipos de nodos disponibles en el futuro.  Azure Migrate le recomendará un número necesario de nodos para las máquinas virtuales que se vayan a migrar a AVS. |
 | **Configuración de errores tolerables, nivel de RAID** | Especifica la combinación válida de errores tolerables y combinaciones RAID. La opción de errores tolerables seleccionada junto con el requisito de disco de la máquina virtual local determinará el almacenamiento de vSAN total que se requiere en AVS. El almacenamiento total disponible después de los cálculos también incluye: a) un espacio reservado para los objetos de administración como vCenter y b) el 25 % de la demora de almacenamiento necesaria para las operaciones de vSAN. |
 | **Criterio de ajuste de tamaño** | Establece los criterios que se van a utilizar para determinar los requisitos de memoria, CPU y almacenamiento para los nodos de AVS. Puede optar por un dimensionamiento *basado en el rendimiento* o *como local*, sin tener en cuenta el historial de rendimiento. Para simplemente migrar mediante "lift-and-shift", elija "como local". Para obtener el dimensionamiento basado en el uso, elija "Basado en el rendimiento". |
@@ -164,6 +164,10 @@ Junto con las propiedades de la máquina virtual, la evaluación examina el sist
 Cuando el servidor está marcado como listo para AVS, la evaluación de AVS realiza recomendaciones de dimensionamiento del nodo, lo cual implica la identificación de los requisitos adecuados de la máquina virtual local y la búsqueda del número total de nodos de AVS necesarios. Estas recomendaciones varían en función de las propiedades de evaluación especificadas.
 
 - Si la evaluación utiliza el *dimensionamiento basado en el rendimiento*, Azure Migrate tiene en cuenta el historial de rendimiento del servidor para realizar la recomendación de dimensionamiento adecuada para AVS. Este método es especialmente útil si ha asignado en exceso la máquina virtual local pero el uso es bajo, y desea ajustar adecuadamente el tamaño de la máquina virtual en AVS para ahorrar costos. Este método le ayudará a optimizar los tamaños durante la migración.
+
+> [!NOTE] 
+>Al importar servidores mediante un archivo CSV, se usan los valores de rendimiento que especifique (uso de CPU, uso de memoria, IOPS de disco y rendimiento) si elige el tamaño basado en el rendimiento. No podrá proporcionar la información del percentil ni el historial de rendimiento.
+
 - Si no desea tener en cuenta los datos de rendimiento para el ajuste de tamaño de la máquina virtual y desea integrar los servidores locales tal cual en AVS, puede establecer el criterio de dimensionamiento en *Como local*. Esto hará que la evaluación ajuste el tamaño de las máquinas virtuales en función de la configuración local, sin tener en cuenta los datos de uso.
 
 ### <a name="ftt-sizing-parameters"></a>Parámetros de ajuste de tamaño de los errores tolerables

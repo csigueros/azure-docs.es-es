@@ -4,16 +4,23 @@ description: Describe cómo enviar eventos a puntos de conexión HTTPS protegido
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 09/29/2021
-ms.openlocfilehash: 4b0f445572099dbf8b555f26be5474f84062d42a
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 91cdc4f4959d417e8f68dc9712737d234248e4bd
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129621450"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063704"
 ---
 # <a name="secure-webhook-delivery-with-azure-ad-user-in-azure-event-grid"></a>Protección de la entrega de webhooks con un usuario de Azure AD en Azure Event Grid
 
 Este script proporciona la configuración para entregar eventos a puntos de conexión HTTPS protegidos por un usuario de Azure AD mediante Azure Event Grid.
+
+Estos son los pasos generales del script:
+
+1. Cree una entidad de servicio para **Microsoft.EventGrid** si todavía no existe.
+1. Cree un rol llamado **AzureEventGridSecureWebhookSubscriber** en la **aplicación de Azure AD para su webhook**.
+1. Agregue la entidad de servicio del usuario que va a crear la suscripción al rol AzureEventGridSecureWebhookSubscriber.
+1. Agregue la entidad de servicio de Microsoft.EventGrid a AzureEventGridSecureWebhookSubscriber.
 
 ## <a name="sample-script---stable"></a>Script de ejemplo: estable
 

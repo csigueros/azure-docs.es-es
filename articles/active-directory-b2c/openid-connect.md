@@ -2,21 +2,21 @@
 title: 'Inicio de sesión web con OpenID Connect: Azure Active Directory B2C'
 description: Creación de aplicaciones web mediante el protocolo de autenticación OpenID Connect de Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/20/2021
-ms.author: mimart
+ms.date: 10/05/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ab62cae223b60103043df0c9dd79acf64e552358
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7b9cb3fb0a3c856741217ffd29c963735eef028d
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128588948"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130036120"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Inicio de sesión web con OpenID Connect en Azure Active Directory B2C
 
@@ -271,9 +271,9 @@ Las respuestas de error tienen un aspecto similar al siguiente:
 
 ## <a name="send-a-sign-out-request"></a>Envío de una solicitud de cierre de sesión
 
-Si desea cerrar la sesión del usuario de la aplicación, no basta con borrar las cookies de la aplicación o finalizar la sesión con el usuario. Redireccione al usuario a Azure AD B2C para cerrar la sesión. Si no lo hace, el usuario podría autenticarse de nuevo en su aplicación sin volver a escribir sus credenciales. Para obtener más información, consulte [Sesión de Azure AD B2C](session-behavior.md).
+Si desea cerrar la sesión del usuario de la aplicación, no basta con borrar las cookies de la aplicación o finalizar la sesión con el usuario. Redireccione al usuario a Azure AD B2C para cerrar la sesión. Si no lo hace, el usuario podría autenticarse de nuevo en su aplicación sin volver a escribir sus credenciales. Para más información, consulte [Comportamiento de la sesión en Azure AD B2C](session-behavior.md).
 
-Para cerrar la sesión del usuario, redirija al usuario al punto de conexión `end_session` que aparece en el documento de metadatos de OpenID Connect que se ha descrito anteriormente:
+Para cerrar la sesión del usuario, redirija a `end_session_endpoint` que aparece en el documento de metadatos de OpenID Connect que se ha descrito anteriormente:
 
 ```http
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Fjwt.ms%2F
@@ -286,7 +286,9 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | id_token_hint| No | Token de id. emitido previamente para pasarse al punto de conexión de cierre de sesión como una sugerencia sobre la sesión autenticada actual del usuario final con el cliente. La pista `id_token_hint` garantiza que el `post_logout_redirect_uri` es una dirección URL de respuesta registrada en la configuración de la aplicación de Azure AD B2C. Para más información, consulte [Protección de la redirección de cierre de sesión](#secure-your-logout-redirect). |
 | client_id | No* | Identificador de aplicación que [Azure Portal](https://portal.azure.com/) asignó a la aplicación.<br><br>\**Esto es necesario cuando se usa la configuración de SSO de aislamiento `Application` y _Requerir token de identificador en solicitudes de cierre de sesión_ se establece en `No`.* |
 | post_logout_redirect_uri | No | La dirección URL a la que se debe redirigir al usuario después de un cierre de sesión correcto. Si no se incluye, Azure AD B2C mostrará un mensaje genérico al usuario. A menos que proporcione un valor `id_token_hint`, no debe registrar esta dirección URL como una dirección URL de respuesta en la configuración de la aplicación de Azure AD B2C. |
-| state | No | Si un parámetro `state` está incluido en la solicitud, debería aparecer el mismo valor en la respuesta. La aplicación debe comprobar que los valores `state` de la solicitud y de la respuesta sean idénticos. |
+| state | No | Si se incluye un parámetro `state` en la solicitud de autorización, se devolverá el mismo valor en la respuesta a `post_logout_redirect_uri`. La aplicación debe comprobar que los valores `state` de la solicitud y de la respuesta sean idénticos. |
+
+Tras una solicitud de cierre de sesión, Azure AD B2C invalida la sesión basada en cookies de Azure AD B2C e intenta cerrar la sesión con los proveedores de identidades federados. Para más información, consulte [Cierre de sesión único](session-behavior.md?pivots=b2c-custom-policy#single-sign-out).
 
 ### <a name="secure-your-logout-redirect"></a>Protección de la redirección de cierre de sesión
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 113dcc4de4ceb1b283f7bdeb1941ced76a9425d0
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 4656c98718d024a43096081df2ac662b38b2efb8
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129714561"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162998"
 ---
 # <a name="understand-azure-files-billing"></a>Descripción de la facturación de Azure Files
 Azure Files proporciona dos modelos de facturación distintos: aprovisionado y pago por uso. El modelo aprovisionado solo está disponible para los recursos compartidos de archivos prémium, que son recursos compartidos de archivos implementados en el tipo de cuenta de almacenamiento **FileStorage**. El modelo de pago por uso solo está disponible para los recursos compartidos de archivos estándar, que son recursos compartidos de archivos implementados en el tipo de cuenta de almacenamiento de **uso general, versión 2 (GPv2)** . En este artículo se explica cómo funcionan ambos modelos con el fin de ayudarle a entender la factura mensual de Azure Files.
@@ -77,13 +77,13 @@ Es posible reducir el tamaño del recurso compartido aprovisionados por debajo d
 ### <a name="provisioning-method"></a>Método de aprovisionamiento
 Al aprovisionar un recurso compartido de archivos prémium, se especifica la cantidad de GiB que requiere la carga de trabajo. Cada GiB aprovisionado permite beneficiarse de IOPS y rendimiento adicionales con una proporción fija. Además de la IOPS de línea de base garantizada, cada recurso compartido de archivos prémium admite ráfagas dentro de lo posible. Las fórmulas de IOPS y rendimiento son las siguientes:
 
-| Elemento | Valor |
+| Elemento | Value |
 |-|-|
 | Tamaño máximo de un recurso compartido de archivos | 100 GiB |
 | Unidad de aprovisionamiento | 1 GiB |
 | Fórmula de IOPS de línea de base | `MIN(400 + 1 * ProvisionedGiB, 100000)` |
-| Límite de aumento | `MIN(MAX(4000, 3 * BaselineIOPS), 100000)` |
-| Créditos de ráfaga | `BurstLimit * 3600` |
+| Límite de aumento | `MIN(MAX(4000, 3 * ProvisionedGiB), 100000)` |
+| Créditos de ráfaga | `(BurstLimit - BaselineIOPS) * 3600` |
 | Velocidad de entrada | `40 MiB/sec + 0.04 * ProvisionedGiB` |
 | Velocidad de salida | `60 MiB/sec + 0.06 * ProvisionedGiB` |
 
@@ -91,14 +91,14 @@ En la tabla siguiente se ilustran algunos ejemplos de estas fórmulas para los t
 
 | Capacidad (GiB) | IOPS base | IOPS de ráfaga | Créditos de ráfaga | Entrada (MiB/s) | Salida (MiB/s) |
 |-|-|-|-|-|-|
-| 100 | 500 | Hasta 4000 | 14 400 000 | 44 | 66 |
-| 500 | 900 | Hasta 4000 | 14 400 000 | 60 | 90 |
-| 1024 | 1424 | Hasta 4 272 | 15 379 200 | 81 | 122 |
-| 5120 | 5520 | Hasta 16 560 | 59 616 000 | 245 | 368 |
-| 10 240 | 10 640 | Hasta 31 920 | 114 912 000 | 450 | 675 |
-| 33 792 | 34 192 | Hasta 100 000 | 360 000 000 | 1392 | 2088 |
-| 51 200 | 51 600 | Hasta 100 000 | 360 000 000 | 2088 | 3132 |
-| 102 400 | 100 000 | Hasta 100 000 | 360 000 000 | 4136 | 6204 |
+| 100 | 500 | Hasta 4000 | 12,600,000 | 44 | 66 |
+| 500 | 900 | Hasta 4000 | 11,160,000 | 60 | 90 |
+| 1024 | 1424 | Hasta 4000 | 10,713,600 | 81 | 122 |
+| 5120 | 5520 | Hasta 15 360 | 35,424,000 | 245 | 368 |
+| 10 240 | 10 640 | Hasta 30 720 | 72,288,000 | 450 | 675 |
+| 33 792 | 34 192 | Hasta 100 000 | 236,908,800 | 1392 | 2088 |
+| 51 200 | 51 600 | Hasta 100 000 | 174,240,000 | 2088 | 3132 |
+| 102 400 | 100 000 | Hasta 100 000 | 0 | 4136 | 6204 |
 
 El rendimiento efectivo de los recursos compartidos de archivos está sujeto a los límites de red de la máquina, el ancho de banda de red disponible, los tamaños de E/S y el paralelismo, entre muchos otros factores. Por ejemplo, en función de las pruebas internas con tamaños de e/s de lectura/escritura de 8 KiB, una sola máquina virtual Windows sin SMB multicanal habilitado (*F16s_v2 estándar*) conectada al recurso compartido de archivos Premium a través de SMB podría alcanzar un valor de hasta 20 000 IOPS de lectura y 15 000 IOPS de escritura. Con tamaños de e/s de lectura/escritura de 512 MiB, la misma máquina virtual puede alcanzar un rendimiento de salida de 1,1 GiB/s y 370 MiB/s de entrada. El mismo cliente puede lograr un rendimiento hasta \~ tres veces superior si SMB multicanal está habilitado en los recursos compartidos Premium. Para lograr una escala de rendimiento máxima, [habilite SMB multicanal](files-smb-protocol.md#smb-multichannel) y distribuya la carga entre varias máquinas virtuales. Consulte en el artículo sobre [rendimiento de SMB multicanal](storage-files-smb-multichannel-performance.md) y en la [ guía de solución de problemas](storage-troubleshooting-files-performance.md) algunos problemas de rendimiento comunes y sus soluciones alternativas.
 
@@ -141,10 +141,13 @@ Las transacciones son operaciones o solicitudes realizadas en Azure Files para c
 
 Hay cinco categorías de transacción básicas: escritura, lista, lectura, otras y eliminar. Todas las operaciones realizadas con la API de REST o SMB se agrupan en una de las cuatro categorías siguientes:
 
-| Tipo de operación | Transacciones de escritura | Transacciones de lista | Transacciones de lectura | Otras transacciones | Transacciones de eliminación |
-|-|-|-|-|-|-|
-| Operaciones de administración | <ul><li>`CreateShare`</li><li>`SetFileServiceProperties`</li><li>`SetShareMetadata`</li><li>`SetShareProperties`</li><li>`SetShareACL`</li></ul> | <ul><li>`ListShares`</li></ul> | <ul><li>`GetFileServiceProperties`</li><li>`GetShareAcl`</li><li>`GetShareMetadata`</li><li>`GetShareProperties`</li><li>`GetShareStats`</li></ul> | | <ul><li>`DeleteShare`</li></ul> |
-| Operaciones de datos | <ul><li>`CopyFile`</li><li>`Create`</li><li>`CreateDirectory`</li><li>`CreateFile`</li><li>`PutRange`</li><li>`PutRangeFromURL`</li><li>`SetDirectoryMetadata`</li><li>`SetFileMetadata`</li><li>`SetFileProperties`</li><li>`SetInfo`</li><li>`Write`</li><li>`PutFilePermission`</li></ul> | <ul><li>`ListFileRanges`</li><li>`ListFiles`</li><li>`ListHandles`</li></ul>  | <ul><li>`FilePreflightRequest`</li><li>`GetDirectoryMetadata`</li><li>`GetDirectoryProperties`</li><li>`GetFile`</li><li>`GetFileCopyInformation`</li><li>`GetFileMetadata`</li><li>`GetFileProperties`</li><li>`QueryDirectory`</li><li>`QueryInfo`</li><li>`Read`</li><li>`GetFilePermission`</li></ul> | <ul><li>`AbortCopyFile`</li><li>`Cancel`</li><li>`ChangeNotify`</li><li>`Close`</li><li>`Echo`</li><li>`Ioctl`</li><li>`Lock`</li><li>`Logoff`</li><li>`Negotiate`</li><li>`OplockBreak`</li><li>`SessionSetup`</li><li>`TreeConnect`</li><li>`TreeDisconnect`</li><li>`CloseHandles`</li><li>`AcquireFileLease`</li><li>`BreakFileLease`</li><li>`ChangeFileLease`</li><li>`ReleaseFileLease`</li></ul> | <ul><li>`ClearRange`</li><li>`DeleteDirectory`</li></li>`DeleteFile`</li></ul> |
+| Cubo de transacciones | Operaciones de administración | Operaciones de datos |
+|-|-|-|
+| Transacciones de escritura | <ul><li>`CreateShare`</li><li>`SetFileServiceProperties`</li><li>`SetShareMetadata`</li><li>`SetShareProperties`</li><li>`SetShareACL`</li></ul> | <ul><li>`CopyFile`</li><li>`Create`</li><li>`CreateDirectory`</li><li>`CreateFile`</li><li>`PutRange`</li><li>`PutRangeFromURL`</li><li>`SetDirectoryMetadata`</li><li>`SetFileMetadata`</li><li>`SetFileProperties`</li><li>`SetInfo`</li><li>`Write`</li><li>`PutFilePermission`</li></ul> |
+| Transacciones de lista | <ul><li>`ListShares`</li></ul> | <ul><li>`ListFileRanges`</li><li>`ListFiles`</li><li>`ListHandles`</li></ul> |
+| Transacciones de lectura | <ul><li>`GetFileServiceProperties`</li><li>`GetShareAcl`</li><li>`GetShareMetadata`</li><li>`GetShareProperties`</li><li>`GetShareStats`</li></ul> | <ul><li>`FilePreflightRequest`</li><li>`GetDirectoryMetadata`</li><li>`GetDirectoryProperties`</li><li>`GetFile`</li><li>`GetFileCopyInformation`</li><li>`GetFileMetadata`</li><li>`GetFileProperties`</li><li>`QueryDirectory`</li><li>`QueryInfo`</li><li>`Read`</li><li>`GetFilePermission`</li></ul> |
+| Otras transacciones | | <ul><li>`AbortCopyFile`</li><li>`Cancel`</li><li>`ChangeNotify`</li><li>`Close`</li><li>`Echo`</li><li>`Ioctl`</li><li>`Lock`</li><li>`Logoff`</li><li>`Negotiate`</li><li>`OplockBreak`</li><li>`SessionSetup`</li><li>`TreeConnect`</li><li>`TreeDisconnect`</li><li>`CloseHandles`</li><li>`AcquireFileLease`</li><li>`BreakFileLease`</li><li>`ChangeFileLease`</li><li>`ReleaseFileLease`</li></ul> |
+| Transacciones de eliminación | <ul><li>`DeleteShare`</li></ul> | <ul><li>`ClearRange`</li><li>`DeleteDirectory`</li></li>`DeleteFile`</li></ul> |  
 
 > [!Note]  
 > NFS 4.1 solo está disponible para los recursos compartidos de archivos prémium, que usan el modelo de facturación aprovisionado. Las transacciones no afectan a la facturación de los recursos compartidos de archivos prémium.

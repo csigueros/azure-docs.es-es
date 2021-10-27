@@ -2,21 +2,21 @@
 title: Habilitación de la autenticación en una API web mediante Azure Active Directory B2C
 description: En este artículo se describe cómo usar Azure Active Directory B2C para proteger una API web.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/25/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: a67cdd9ba92e3c78c5cb29a827cf537ba2e372ae
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 8bb890fb92352be9a0771cb0b80d2f1565dc664c
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124740200"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065699"
 ---
 # <a name="enable-authentication-in-your-own-web-api-by-using-azure-ad-b2c"></a>Habilitación de la autenticación en su propia API web mediante Azure Active Directory B2C
 
@@ -377,7 +377,7 @@ La función de autenticación también comprueba que se llama a la API web con l
 
 ## <a name="step-5-configure-the-web-server"></a>Paso 5: Configuración del servidor web
 
-En un entorno de desarrollo, establezca la API web para que escuche en el número de puerto de solicitudes HTTP entrantes. En este ejemplo, use el puerto HTTP 6000. El URI base de la API web será: <'http://localhost:6000 '>
+En un entorno de desarrollo, establezca la API web para que escuche en el número de puerto de solicitudes HTTP o HTTPS entrantes. En este ejemplo, use el puerto HTTP 6000 y el puerto HTTPS 6001. El URI base de la API web será `http://localhost:6000` para HTTP y `https://localhost:6001` para HTTPS. También es posible [configurar puntos de conexión HTTP y HTTPS para la aplicación Node](https://github.com/expressjs/express/wiki/Migrating-from-2.x-to-3.x#application-function).
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/csharpclient)
 
@@ -388,7 +388,10 @@ Agregue el fragmento de código JSON siguiente al archivo *appsettings.json*.
     "EndPoints": {
       "Http": {
         "Url": "http://localhost:6000"
-      }
+      },
+      "Https": {
+         "Url": "https://localhost:6001"   
+        }
     }
   }
 ```

@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: joseys
-ms.openlocfilehash: f025f33a041dd40970b3ea34ff723e1270d16ea6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3f3b673da2809e45af88ae887eb289edb4e5c65f
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121801687"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130050633"
 ---
 ## <a name="sample-code"></a>Código de ejemplo
 Busque el código finalizado de este inicio rápido en [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ServerRecording).
@@ -93,6 +93,19 @@ Use el identificador de llamada del servidor recibido durante el inicio de una l
 
 ```csharp
 var startRecordingResponse = await callingServerClient.InitializeServerCall("<servercallid>").StartRecordingAsync("<callbackuri>").ConfigureAwait(false);
+```
+La respuesta de la API `StartRecordingAsync` contiene el identificador de grabación de la sesión de grabación.
+
+## <a name="start-recording-session-with-options-using-startrecordingasync-server-api"></a>Inicio de la sesión de grabación con opciones mediante la API de servidor "StartRecordingAsync"
+
+Use el identificador de llamada del servidor recibido durante el inicio de una llamada.
+
+- RecordingContent se usa para pasar el tipo de contenido de grabación. Por ejemplo: audio/audiovideo.
+- RecordingChannel se usa para pasar el tipo de canal de grabación. Por ejemplo: mixed/unmixed.
+- RecordingFormat se usa para pasar el formato de la grabación. Por ejemplo: mp4/mp3/wav.
+
+```csharp
+var startRecordingResponse = await callingServerClient.InitializeServerCall("<servercallid>").StartRecordingAsync("<callbackuri>","<RecordingContent>","<RecordingChannel>","<RecordingFormat>").ConfigureAwait(false);
 ```
 La respuesta de la API `StartRecordingAsync` contiene el identificador de grabación de la sesión de grabación.
 

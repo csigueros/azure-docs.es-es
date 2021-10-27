@@ -6,12 +6,12 @@ author: enkrumah
 ms.author: ebnkruma
 ms.topic: how-to
 ms.date: 05/30/2021
-ms.openlocfilehash: 2d65b537ef0bad56127fcfcc1e87f1b1cfc15f2d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ad8142bf5ab65bb6ae4ff49aeb7b4e661d2761a8
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128583772"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045869"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Uso de la identidad administrada para autenticar el trabajo de Azure Stream Analytics en Power BI
 
@@ -148,7 +148,7 @@ Azure Resource Manager permite automatizar completamente la implementación del 
     }
     ```
 
-    Si tiene previsto usar la API REST de Power BI para agregar el trabajo de Stream Analytics al área de trabajo de Power BI, anote el valor "principalId" devuelto.
+    Si tiene previsto usar la API REST de Power BI para agregar el trabajo de Stream Analytics al área de trabajo de Power BI, anote el valor "principalId" devuelto.
 
 3. Ahora que se ha creado el trabajo, continúe a la sección [Concesión de acceso al trabajo de Stream Analytics al área de trabajo de Power BI](#give-the-stream-analytics-job-access-to-your-power-bi-workspace) de este artículo.
 

@@ -3,14 +3,14 @@ title: Protección de la entrega de webhooks con Azure AD en Azure Event Grid
 description: Describe cómo enviar eventos a puntos de conexión HTTPS protegidos por Azure Active Directory mediante Azure Event Grid
 ms.topic: how-to
 ms.date: 09/29/2021
-ms.openlocfilehash: ef5bbb33f738a102277870c6227813f6ce8ad257
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 18db7a5244cb498ff54999646082d3d5628468e1
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129616874"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066914"
 ---
-# <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publicación de eventos en puntos de conexión protegidos por Azure Active Directory
+# <a name="deliver-events-to-azure-active-directory-protected-endpoints"></a>Entrega de eventos en puntos de conexión protegidos por Azure Active Directory
 En este artículo se describe cómo usar Azure Active Directory (Azure AD) para proteger la conexión entre su **suscripción de eventos** y el **punto de conexión de webhook**. Para una introducción a las entidades de servicio y aplicaciones de Azure AD, consulte [Introducción a la plataforma de identidad de Microsoft (versión 2.0)](../active-directory/develop/v2-overview.md).
 
 En este artículo se usa Azure Portal para la demostración; sin embargo, la característica también se puede habilitar mediante la CLI, PowerShell o los SDK.
@@ -18,7 +18,7 @@ En este artículo se usa Azure Portal para la demostración; sin embargo, la car
 > [!IMPORTANT]
 > La comprobación de acceso adicional se introdujo como parte de la creación o actualización de la suscripción de eventos el 30 de marzo de 2021 para solucionar una vulnerabilidad de seguridad. La entidad de servicio del cliente de suscriptor debe ser un propietario o tener un rol asignado en la entidad de servicio de la aplicación de destino. Vuelva a configurar la aplicación de AAD siguiendo las nuevas instrucciones que se indican a continuación.
 
-## <a name="single-tenant-events-with-azure-ad-and-webhooks"></a>Eventos de inquilino único con Azure AD y webhooks
+## <a name="deliver-events-to-a-webhook-in-the-same-azure-ad-tenant"></a>Entrega de eventos a un webhook en el mismo inquilino de Azure AD
 
 ![Protección de la entrega de webhooks con Azure AD en Azure Event Grid](./media/secure-webhook-delivery/single-tenant-diagram.png)
 
@@ -43,7 +43,7 @@ En función del diagrama anterior, siga los pasos siguientes para configurar el 
 4. Abra el [siguiente script](scripts/event-grid-powershell-webhook-secure-delivery-azure-ad-user.md) y actualice los valores de **$webhookAppObjectId** y **$eventSubscriptionWriterUserPrincipalName** con los identificadores y, a continuación, ejecute el script.
 
     - Variables:
-        - **$webhookAppObjectId**: id. de aplicación de Azure AD creado para el webhook
+        - **$webhookAppObjectId**: identificador de aplicación de Azure AD creado para el webhook
         - **$eventSubscriptionWriterUserPrincipalName**: nombre principal de usuario de Azure referente al usuario que creará la suscripción de eventos
 
     > [!NOTE]
@@ -59,7 +59,7 @@ En función del diagrama anterior, siga los pasos siguientes para configurar el 
     4. En la pestaña **Características adicionales**, siga estos pasos:
         1. Seleccione **Usar autenticación de AAD** y configure el identificador de inquilino y el identificador de aplicación:
         2. Copie el identificador de inquilino de Azure AD de la salida del script e introdúzcalo en el campo **Identificador de inquilino de AAD**.
-        3. Copie el identificador de aplicación de Azure AD de la salida del script e introdúzcalo en el campo **Identificador de aplicación de AAD**. Como alternativa, puede usar el URI del identificador de aplicación de AAD. Para obtener más información sobre la URI del identificador, consulte [este artículo](../app-service/configure-authentication-provider-aad.md).
+        3. Copie el identificador de aplicación de Azure AD de la salida del script e introdúzcalo en el campo **Identificador de aplicación de AAD**. Puede usar el URI del identificador de aplicación de AAD en lugar de usar el identificador de aplicación. Para obtener más información sobre la URI del identificador, consulte [este artículo](../app-service/configure-authentication-provider-aad.md).
     
             ![Acción de webhook seguro](./media/secure-webhook-delivery/aad-configuration.png)
 
@@ -88,8 +88,8 @@ En función del diagrama anterior, siga los pasos siguientes para configurar el 
 7. Abra el [siguiente script](scripts/event-grid-powershell-webhook-secure-delivery-azure-ad-app.md) y actualice los valores de **$webhookAppObjectId** y **$eventSubscriptionWriterAppId** con los identificadores y, a continuación, ejecute el script.
 
     - Variables:
-        - **$webhookAppObjectId**: id. de aplicación de Azure AD creado para el webhook
-        - **$eventSubscriptionWriterAppId**: id. de aplicación de Azure AD para el escritor de suscripciones de Event Grid
+        - **$webhookAppObjectId**: identificador de aplicación de Azure AD creado para el webhook
+        - **$eventSubscriptionWriterAppId**: identificador de aplicación de Azure AD para el escritor de suscripciones de Event Grid
 
     > [!NOTE]
     > No es necesario modificar el valor de **```$eventGridAppId```** , ya que para este script se establece **AzureEventGridSecureWebhookSubscriber** como el valor de **```$eventGridRoleName```** . Recuerde que debe ser miembro del [rol Administrador de aplicaciones de Azure AD](../active-directory/roles/permissions-reference.md#all-roles) para ejecutar este script.
@@ -109,14 +109,14 @@ En función del diagrama anterior, siga los pasos siguientes para configurar el 
     > [!NOTE]
     > En este escenario, se usa un tema del sistema de Event Grid. Acceda [aquí](/cli/azure/eventgrid), si quiere crear una suscripción para temas personalizados o para dominios de Event Grid mediante la CLI de Azure.
 
-10. Si todo se configuró correctamente, podrá crear correctamente la suscripción de webhook en el tema de Event Grid.
+10. Si todo se configuró correctamente, puede crear correctamente la suscripción de webhook en el tema de Event Grid.
 
     > [!NOTE]
     > En este momento, Event Grid pasa el token de portador de Azure AD al cliente de webhook en cada mensaje, y deberá validar el token de autorización en el webhook.
 
-## <a name="multitenant-events-with-azure-ad-and-webhooks"></a>Eventos de varios inquilinos con Azure AD y webhooks
+## <a name="deliver-events-to-a-webhook-in-a-different-azure-ad-tenant"></a>Entrega de eventos a un webhook en otro inquilino de Azure AD 
 
-Para habilitar una suscripción de webhook segura en varios inquilinos, deberá realizar esta tarea mediante una aplicación Azure AD; recuerde que este proceso no está disponible actualmente mediante el usuario de Azure AD desde el portal.
+Para habilitar una suscripción de webhook segura en varios inquilinos, deberá realizar esta tarea mediante una aplicación de Azure AD. Recuerde que este proceso no está disponible actualmente mediante el usuario de Azure AD desde el portal.
 
 ![Eventos de varios inquilinos con Azure AD y webhooks](./media/secure-webhook-delivery/multitenant-diagram.png)
 
@@ -145,8 +145,8 @@ En función del diagrama anterior, siga los pasos siguientes para configurar amb
 7. Abra el [siguiente script](scripts/event-grid-powershell-webhook-secure-delivery-azure-ad-app.md) y actualice los valores de **$webhookAppObjectId** y **$eventSubscriptionWriterAppId** con los identificadores y, a continuación, ejecute el script.
 
     - Variables:
-        - **$webhookAppObjectId**: id. de aplicación de Azure AD creado para el webhook
-        - **$eventSubscriptionWriterAppId**: id. de aplicación de Azure AD para el escritor de suscripciones de Event Grid
+        - **$webhookAppObjectId**: identificador de aplicación de Azure AD creado para el webhook
+        - **$eventSubscriptionWriterAppId**: identificador de aplicación de Azure AD para el escritor de suscripciones de Event Grid
 
     > [!NOTE]
     > No es necesario modificar el valor de **```$eventGridAppId```** , ya que para este script se establece **AzureEventGridSecureWebhookSubscriber** como el valor de **```$eventGridRoleName```** . Recuerde que debe ser miembro del [rol Administrador de aplicaciones de Azure AD](../active-directory/roles/permissions-reference.md#all-roles) para ejecutar este script.
@@ -166,7 +166,7 @@ En función del diagrama anterior, siga los pasos siguientes para configurar amb
     > [!NOTE]
     > En este escenario, se usa un tema del sistema de Event Grid. Acceda [aquí](/cli/azure/eventgrid), si quiere crear una suscripción para temas personalizados o para dominios de Event Grid mediante la CLI de Azure.
 
-10. Si todo se configuró correctamente, podrá crear correctamente la suscripción de webhook en el tema de Event Grid.
+10. Si todo se configuró correctamente, puede crear correctamente la suscripción de webhook en el tema de Event Grid.
 
     > [!NOTE]
     > En este momento, Event Grid pasa el token de portador de Azure AD al cliente de webhook en cada mensaje, y deberá validar el token de autorización en el webhook.

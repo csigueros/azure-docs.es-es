@@ -1,6 +1,6 @@
 ---
 title: Requisitos previos para acceder mediante programación a los datos de análisis
-description: Conozca los requisitos que debe cumplir para poder acceder mediante programación a los datos de análisis del marketplace comercial.
+description: Conozca los requisitos que debe cumplir para poder acceder mediante programación a los datos de análisis del marketplace comercial en el Centro de partners.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
@@ -8,12 +8,12 @@ author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: a3c27a8e91ef1f202fbc757eb1a21eeddfc1d3d8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 842314bb514f74de73ab4eb077b09057ea914d50
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121748279"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064179"
 ---
 # <a name="prerequisites-to-programmatically-access-analytics-data"></a>Requisitos previos para acceder mediante programación a los datos de análisis
 

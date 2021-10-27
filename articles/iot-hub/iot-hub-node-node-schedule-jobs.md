@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: mqtt, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 591e7c43b26bbd8668bbe50bc78965f04f194c36
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6061b0ccba7448bbb51dcc93bacecce27c63b910
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121729849"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179324"
 ---
 # <a name="schedule-and-broadcast-jobs-nodejs"></a>Programación y difusión de trabajos (Node.js)
 
@@ -297,6 +297,6 @@ Ahora está preparado para ejecutar las aplicaciones.
 
 En este tutorial, ha utilizado un trabajo para programar un método directo para un dispositivo y la actualización de las propiedades del dispositivo gemelo.
 
-Para continuar con la introducción de IoT Hub y los patrones de administración de dispositivos como remoto a través de la actualización de firmware de aire, consulte [Tutorial: Realización de una actualización de firmware](tutorial-firmware-update.md).
+Para continuar con la introducción a IoT Hub y los patrones de administración de dispositivos, como la actualización basada en imágenes de un extremo a otro del [Tutorial de Device Update para Azure IoT Hub con la imagen de referencia para Raspberry Pi 3 B+](../iot-hub-device-update/device-update-raspberry-pi.md).
 
 Para continuar con la introducción a IoT Hub, consulte [Introducción a Azure IoT Edge](../iot-edge/quickstart-linux.md).

@@ -4,12 +4,12 @@ description: Escriba procesadores e inicializadores de telemetría para que el S
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5fe23d6cae1b363cdb0c70cba561953368412361
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 293de0f963829516e3fdb119e3bcbf592f9ad113
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128645139"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063419"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Filtro y preprocesamiento de la telemetría en el SDK de Application Insights
 
@@ -512,6 +512,9 @@ public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
 * Los procesadores de telemetría permiten reemplazar o descartar por completo un elemento de telemetría.
 * Se garantiza que se llamará a todos los inicializadores de telemetría registrados para cada elemento de telemetría. En el caso de los procesadores de telemetría, el SDK garantiza la llamada al primer procesador de telemetría. Los procesadores de telemetría anteriores deciden si se llama o no al resto de los procesadores.
 * Use los inicializadores de la telemetría para enriquecerla con propiedades adicionales o invalidar una existente. Use un procesador de telemetría para filtrar la telemetría.
+
+> [!NOTE]
+> JavaScript solo tiene inicializadores de telemetría que pueden [filtrar eventos mediante ITelemetryInitializer](#javascript-web-applications).
 
 ## <a name="troubleshoot-applicationinsightsconfig"></a>Solución de problemas de ApplicationInsights.config
 

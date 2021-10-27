@@ -2,18 +2,18 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 04/15/2019
+ms.date: 10/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 4077de4f2f103630f09d765f316f100b178ec809
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 19fb4a08f8a173663607f9ec8fe7e0afdd501a28
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "82561152"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047894"
 ---
 Para ver un evento de dispositivo, siga estos pasos en Azure Portal. 
 
 1. En Azure Portal, vaya al recurso Azure Stack Edge o Data Box Gateway y, después, a **Supervisión > Eventos de dispositivo**.
 2. Seleccione un evento para ver los detalles de la alerta. Siga los pasos necesarios para resolver la condición de la alerta.
 
-    ![Selección de un evento para ver sus detalles](media/data-box-edge-gateway-view-device-events/view-device-events.png)
+    ![Captura de pantalla que muestra los detalles de la alerta en la hoja "Eventos del dispositivo" en Azure Portal. Se resaltan el elemento de menú "Eventos del dispositivo", la alerta y los detalles de la alerta.](media/data-box-edge-gateway-view-device-events/view-device-events.png)

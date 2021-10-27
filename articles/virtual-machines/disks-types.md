@@ -3,52 +3,52 @@ title: 'Selección de un tipo de disco para máquinas virtuales IaaS de Azure: d
 description: Obtenga información sobre los tipos de disco de Azure disponibles para las máquinas virtuales, incluidos los discos ultra, SSD Premium, SSD estándar y HDD estándar.
 author: roygara
 ms.author: rogarana
-ms.date: 06/29/2021
+ms.date: 10/14/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ea55522714beea9274f27bec36232d9e50c90332
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 90612eecede80ae83247cb3727411db8c43e1eb2
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122688053"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074368"
 ---
-# <a name="what-disk-types-are-available-in-azure"></a>¿Qué tipos de disco están disponibles en Azure?
+# <a name="azure-managed-disk-types"></a>Tipos de discos administrados de Azure
 
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows :heavy_check_mark: Conjuntos de escalado flexibles :heavy_check_mark: Conjuntos de escalado uniformes
 
-Actualmente, Azure Managed Disks ofrece cuatro tipos de discos. Cada uno estos tipos está pensado para escenarios de clientes específicos.
+Actualmente, Azure Managed Disks ofrece cuatro tipos de disco, cada uno diseñado para abordar un escenario de cliente específico:
 
-## <a name="disk-comparison"></a>Comparación de discos
+- Discos Ultra
+- Discos SSD prémium (unidades de estado sólido)
+- Discos SSD estándar
+- Discos HDD estándar (unidades de disco duro)
 
-En la tabla siguiente se proporciona una comparación entre los discos Ultra, las unidades de estado sólido (SSD) prémium, los discos SSD estándar y las unidades de disco duro (HDD) estándar para Managed Disks, a fin de ayudarle a decidir qué opción debe usar.
+## <a name="disk-type-comparison"></a>Comparación de tipos de disco
 
-| Detail | Disco Ultra | SSD Premium | SSD estándar | HDD estándar |
-| ------ | ---------- | ----------- | ------------ | ------------ |
-|Tipo de disco   |SSD   |SSD   |SSD   |HDD   |
-|Escenario   |Cargas de trabajo de uso intensivo de E/S, como [SAP HANA](workloads/sap/hana-vm-operations-storage.md), bases de datos de nivel superior (por ejemplo, SQL y Oracle) y otras cargas de trabajo con muchas transacciones.   |Cargas de trabajo confidenciales de producción y rendimiento   |Servidores web, aplicaciones empresariales poco utilizadas y desarrollo y pruebas   |Copia de seguridad, no crítico, acceso poco frecuente   |
-|Tamaño máximo del disco   |65 536 gibibyte (GiB)    |32 767 GiB    |32 767 GiB   |32 767 GiB   |
-|Rendimiento máx.   |2000 MB/s    |900 MB/s   |750 MB/s   |500 MB/s   |
-|IOPS máx.   |160 000    |20.000   |6,000   |2\.000   |
+En la tabla siguiente se proporciona una comparación de los cuatro tipos de disco para ayudarle a decidir cuál usar.
 
-## <a name="ultra-disk"></a>Disco Ultra
+|         | Disco Ultra | SSD Premium | SSD estándar | <nobr>HDD estándar</nobr> |
+| ------- | ---------- | ----------- | ------------ | ------------ |
+| **Tipo de disco** | SSD | SSD | SSD | HDD |
+| **Escenario**  | Cargas de trabajo de uso intensivo de E/S, como [SAP HANA](workloads/sap/hana-vm-operations-storage.md), bases de datos de nivel superior (por ejemplo, SQL y Oracle) y otras cargas de trabajo con muchas transacciones. | Cargas de trabajo confidenciales de producción y rendimiento | Servidores web, aplicaciones empresariales poco utilizadas y desarrollo y pruebas | Copia de seguridad, no crítico, acceso poco frecuente |
+| **Tamaño máximo del disco** | 65 536 gibibyte (GiB) | 32 767 GiB | 32 767 GiB | 32 767 GiB |
+| **Rendimiento máx.** | 2000 MB/s | 900 MB/s | 750 MB/s | 500 MB/s |
+| **IOPS máx.** | 160 000 | 20.000 | 6,000 | 2\.000 |
 
-Los discos Ultra de Azure ofrecen un alto rendimiento, un número elevado de IOPS y un almacenamiento en disco coherente y de baja latencia para máquinas virtuales IaaS de Azure. Algunas ventajas adicionales de los discos Ultra incluyen la capacidad de cambiar dinámicamente el rendimiento del disco junto con sus cargas de trabajo sin tener que reiniciar las máquinas virtuales. Además, los discos Ultra son adecuados para cargas de trabajo con grandes cantidades de datos, como SAP HANA, bases de datos de nivel superior y cargas de trabajo que admitan muchas transacciones. Los discos Ultra solo se pueden utilizar como discos de datos. Por ello, recomendamos usar los discos SSD Premium como discos de sistema operativo.
+## <a name="ultra-disks"></a>Discos Ultra
 
-### <a name="performance"></a>Rendimiento
+Los discos Ultra de Azure son la opción de almacenamiento con mayor rendimiento para máquinas virtuales (VM) de Azure. Puede cambiar los parámetros de rendimiento de un disco Ultra sin tener que reiniciar las máquinas virtuales. Además, los discos Ultra son adecuados para cargas de trabajo con grandes cantidades de datos, como SAP HANA, bases de datos de nivel superior y cargas de trabajo que admitan muchas transacciones.
 
-Cuando aprovisione un disco ultra, puede configurar de forma independiente la capacidad y el rendimiento del disco. Los discos Ultra vienen en varios tamaños fijos que van desde los 4 GiB hasta los 64 TiB y cuentan con un modelo de configuración de rendimiento flexible que le permite configurar las unidades IOPS y el rendimiento de forma independiente.
+Los discos Ultra deben usarse como discos de datos y solo se pueden crear como discos vacíos. Microsoft recomienda usar unidades de estado sólido (SSD) prémium como discos de sistema operativo.
 
-Estas son algunas funcionalidades clave de los discos Ultra:
+### <a name="ultra-disk-size"></a>Tamaño de discos Ultra
 
-- Capacidad de disco: intervalos de capacidad de discos Ultra desde 4 GiB hasta 64 TiB.
-- IOPS de disco: los dispositivos Ultra admiten límites de IOPS de 300 IOPS/GiB y hasta un máximo de 160 K IOPS por disco. Para recuperar la tasa de unidades IOPS que aprovisionó, asegúrese de que la cantidad de IOPS de disco seleccionadas sea menor que el límite de IOPS de la máquina virtual. El valor mínimo garantizado de IOPS por disco es 1 IOPS/GiB, con una línea base general mínima de 100 IOPS. Por ejemplo, si tuviera un disco Ultra de 4 GiB, tendrá un mínimo de 100 IOPS, en lugar de 8 IOPS.
-- Rendimiento del disco: con los discos Ultra, el límite de rendimiento de un solo disco es de 256 KiB/s por cada IOPS aprovisionada, y hasta 2000 MBps como máximo por disco (donde MBps = 10^6 bytes por segundo). El rendimiento mínimo garantizado por disco es 4 KiB/s por cada IOPS aprovisionada, con una base de referencia total como mínima de 1 MBps.
-- Los discos Ultra admiten el ajuste de los atributos de rendimiento del disco (IOPS y rendimiento) en tiempo de ejecución sin necesidad de desasociar el disco de la máquina virtual. Cuando se ha enviado una operación de cambio de tamaño del rendimiento del disco en un disco, este cambio puede tardar hasta una hora en surtir efecto. Hay un límite de cuatro operaciones de cambio de tamaño de rendimiento en un período de 24 horas. Se puede producir un error en la operación de ajuste de tamaño del rendimiento debido a la falta de capacidad de ancho de banda de rendimiento.
+De manera predeterminada, los Discos Ultra de Azure ofrecen hasta 32 TiB por región y suscripción, pero los Discos Ultra admiten una mayor capacidad por solicitud. Para solicitar un aumento de la capacidad, solicite un aumento de la cuota o póngase en contacto con el Soporte técnico de Azure.
 
-### <a name="disk-size"></a>Tamaño del disco
+En la tabla siguiente se proporciona una comparación del tamaño y la capacidad de rendimiento de los discos para ayudarle a decidir cuál usar.
 
 |Tamaño de disco (GiB)  |Capacidad de IOPS  |Capacidad de rendimiento (MBps)  |
 |---------|---------|---------|
@@ -62,59 +62,81 @@ Estas son algunas funcionalidades clave de los discos Ultra:
 |512     |153.600         |2\.000         |
 |1024 - 65 536 (los tamaños de este intervalo aumentan en incrementos de 1 TiB)     |160 000         |2\.000         |
 
-Los discos Ultra están diseñados para proporcionar latencias de submilisegundos y un IOPS y rendimiento que se describen en la tabla anterior como del 99,99 % del tiempo.
+Los discos Ultra están diseñados para proporcionar latencias de submilisegundos y las IOPS y el rendimiento que se describen en la tabla anterior el 99,99 % del tiempo.
 
-### <a name="ga-scope-and-limitations"></a>Ámbito y limitaciones de la disponibilidad general
+### <a name="ultra-disk-performance"></a>Rendimiento de los discos Ultra
+
+Los discos Ultra cuentan con un modelo de configuración de rendimiento flexible que le permite configurar de forma independiente las IOPS y el rendimiento antes y después de aprovisionar el disco. Los discos Ultra vienen en varios tamaños fijos, que van desde los 4 GiB hasta los 64 TiB.
+
+### <a name="ultra-disk-iops"></a>IOPS de los discos Ultra
+
+Los discos Ultra admiten límites de IOPS de 300 IOPS/GiB, hasta un máximo de 160 000 IOPS por disco. Para conseguir las IOPS objetivo en el disco, asegúrese de que la cantidad de IOPS de disco seleccionada sea menor que el límite de IOPS de la máquina virtual.
+
+El límite máximo actual de IOPS para una sola máquina virtual en tamaños disponibles con carácter general es de 80 000. Los discos Ultra con mayor IOPS se pueden usar como discos compartidos para admitir varias máquinas virtuales.
+
+El valor mínimo garantizado de IOPS por disco es 1 IOPS/GiB, con una línea de base general mínima de 100 IOPS. Por ejemplo, si aprovisionó un disco Ultra de 4 GiB, el valor mínimo de IOPS para ese disco es 100, en lugar de ocho.
+
+Para más información sobre IOPS, consulte [Rendimiento de la máquina virtual y del disco](disks-performance.md).
+
+### <a name="ultra-disk-throughput"></a>Rendimiento de discos Ultra
+
+El límite de rendimiento de un solo disco Ultra es de 256 KiB/s por cada IOPS aprovisionada, y hasta 2000 MBps como máximo por disco (donde MBps = 10^6 bytes por segundo). El rendimiento mínimo garantizado por disco es 4 KiB/s por cada IOPS aprovisionada, con una base de referencia total como mínima de 1 MBps.
+
+Puede ajustar el rendimiento y las IOPS de los discos Ultra en tiempo de ejecución sin desasociar el disco de la máquina virtual. Después de enviar una operación de cambio de tamaño del rendimiento de un disco, este cambio puede tardar hasta una hora en surtir efecto. Se permiten hasta cuatro operaciones de cambio de tamaño de rendimiento durante un período de 24 horas.
+
+Se puede producir un error en la operación de cambio de tamaño del rendimiento debido a la falta de capacidad de ancho de banda de rendimiento.
+
+### <a name="ultra-disk-limitations"></a>Limitaciones de discos Ultra
 
 [!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](../../includes/managed-disks-ultra-disks-GA-scope-and-limitations.md)]
 
+Si quiere empezar a usar discos Ultra, consulte el artículo sobre el [uso de discos Ultra de Azure](disks-enable-ultra-ssd.md).
 
-Si quiere empezar con un disco ultra, vea nuestro artículo sobre el tema: [Uso de discos Ultra de Azure](disks-enable-ultra-ssd.md).
+## <a name="premium-ssds"></a>SSD Premium
 
-## <a name="premium-ssd"></a>SSD Premium
+Los discos SSD Premium de Azure ofrecen soporte de disco de alto rendimiento y latencia baja para máquinas virtuales (VM) con cargas de trabajo con uso intensivo de entrada/salida (E/S). Para aprovechar la ventaja de la velocidad y el rendimiento de los discos SSD prémium, puede migrar los discos de VM existentes a este tipo. Los discos SSD prémium son adecuados para aplicaciones de producción críticas, pero solo se pueden usar con series de máquinas virtuales compatibles.
 
-Los discos SSD Premium de Azure ofrecen soporte de disco de alto rendimiento y latencia baja para máquinas virtuales (VM) con cargas de trabajo con uso intensivo de entrada/salida (E/S). Para aprovechar la ventaja de la velocidad y el rendimiento de discos de Premium Storage, puede migrar los discos de VM existentes a SSD Premium. Los discos SSD Premium son adecuados para aplicaciones de producción críticas. Los discos SSD Premium solo se pueden usar con series de máquinas virtuales que sean compatibles con el almacenamiento premium.
+Para más información sobre los tipos y tamaños de máquinas virtuales individuales de Azure para Windows o Linux, incluida la compatibilidad de tamaños para el almacenamiento prémium, consulte [Tamaños de las máquinas virtuales Linux en Azure](sizes.md). Debe comprobar cada artículo de tamaño de VM individual para determinar si es compatible con el almacenamiento prémium.
 
-Para más información sobre los tipos y tamaños de máquinas virtuales individuales de Azure para Windows o Linux, incluidos los tamaños que son compatibles con almacenamiento premium, consulte [Tamaños de las máquinas virtuales en Azure](sizes.md). En este artículo, debe comprobar cada artículo de tamaño de VM individual para determinar si es compatible con el almacenamiento prémium.
-
-### <a name="disk-size"></a>Tamaño del disco
+### <a name="premium-ssd-size"></a>Tamaño de discos SSD prémium
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
 
-Cuando se aprovisiona un disco de Premium Storage, a diferencia de Standard Storage, se garantizan la capacidad, las E/S por segundo y el rendimiento del mismo. Por ejemplo, si crea un disco P50, Azure aprovisiona una capacidad de almacenamiento de 4095 GB, 7500 E/S por segundo y un rendimiento de 250 MB/s para él. La aplicación puede usar toda la capacidad y el rendimiento o parte de ellos. Los SSD Premium están diseñados para proporcionar bajas latencias inferiores a 10 milisegundos y un IOPS y rendimiento que se describen en la tabla anterior como del 99,9 % del tiempo.
+La capacidad, las IOPS y el rendimiento se garantizan cuando se aprovisiona un disco de almacenamiento prémium. Por ejemplo, si crea un disco P50, Azure aprovisiona una capacidad de almacenamiento de 4095 GB, 7500 E/S por segundo y un rendimiento de 250 MB/s para él. La aplicación puede usar toda la capacidad y el rendimiento o parte de ellos. Los discos SSD prémium están diseñados para proporcionar latencias inferiores a 10 milisegundos y los valores de IOPS y rendimiento que se describen en la tabla anterior el 99,9 % del tiempo.
 
-## <a name="bursting"></a>Creación de ráfagas
+### <a name="premium-ssd-bursting"></a>Seguridad de SSD Premium
 
-Los SSD prémium ofrecen expansión de disco. La ráfaga de disco proporciona una tolerancia mejorada a cambios imprevisibles en los patrones de E/S. Puede aprovecharla mejor en el arranque del disco del sistema operativo y las aplicaciones con tráfico de picos. Para más información sobre el funcionamiento de la expansión de disco de discos de Azure, consulte [Expansión a nivel de disco](disk-bursting.md#disk-level-bursting).
+Los discos SSD prémium ofrecen expansión de disco, lo que proporciona una mejor tolerancia a los cambios imprevisibles de los patrones de E/S. La expansión de disco es especialmente útil durante el arranque del disco del sistema operativo y para las aplicaciones con tráfico de picos. Para más información sobre el funcionamiento de la expansión de disco de discos de Azure, consulte [Expansión a nivel de disco](disk-bursting.md#disk-level-bursting).
 
-### <a name="transactions"></a>Transacciones
+### <a name="premium-ssd-transactions"></a>Transacciones de discos SSD prémium
 
 Para los discos SSD Premium, cada operación de E/S menor o igual a 256 KiB de rendimiento se considera una sola operación de E/S. Las operaciones de E/S mayores de 256 KiB de rendimiento se consideran varias operaciones de E/S con un tamaño de 256 KiB.
 
-## <a name="standard-ssd"></a>SSD estándar
+## <a name="standard-ssds"></a>Discos SSD estándar
 
-Los discos SSD estándar de Azure son una opción de almacenamiento rentable, optimizada para cargas de trabajo que necesitan un rendimiento constante en niveles inferiores de IOPS. Los discos SSD estándar ofrecen una buena experiencia de nivel de entrada para aquellos que desean pasarse a la nube, en especial si tiene problemas con la variación de las cargas de trabajo que se ejecutan en las soluciones de disco duro locales. En comparación con los discos HDD estándar, los discos SSD estándar ofrecen mayor disponibilidad, coherencia, confiabilidad y latencia. Los discos SSD estándar son convenientes para servidores web, servidores de aplicaciones con IOPS bajas, aplicaciones empresariales de poco uso y cargas de trabajo de desarrollo/pruebas. Al igual que los discos HDD estándar, los SSD están disponibles en todas las máquinas virtuales de Azure.
+Los discos SSD estándar están optimizados para cargas de trabajo que necesitan un rendimiento coherente a niveles inferiores de IOPS. Son una opción especialmente buena para los clientes con cargas de trabajo variadas compatibles con las soluciones de unidad de disco duro (HDD) locales. En comparación con los discos HDD estándar, los discos SSD estándar ofrecen mayor disponibilidad, coherencia, confiabilidad y latencia. Los discos SSD estándar son adecuados para servidores web, servidores de aplicaciones con IOPS bajas, aplicaciones empresariales ligeramente usadas y cargas de trabajo que no son de producción. Al igual que los discos HDD estándar, los SSD están disponibles en todas las máquinas virtuales de Azure.
 
-### <a name="disk-size"></a>Tamaño del disco
+### <a name="standard-ssd-size"></a>Tamaño de discos SSD estándar
+
 [!INCLUDE [disk-storage-standard-ssd-sizes](../../includes/disk-storage-standard-ssd-sizes.md)]
 
 Los discos SSD estándar están diseñados para proporcionar latencias de menos de 10 milisegundos y un nivel de IOPS y de rendimiento hasta los límites descritos en la tabla anterior durante el 99 % del tiempo. Las IOPS y el rendimiento reales pueden variar a veces, según los patrones de tráfico. Los discos SSD estándar proporcionarán un rendimiento más coherente que los discos HDD, con una latencia menor.
 
-### <a name="transactions"></a>Transacciones
+### <a name="standard-ssd-transactions"></a>Transacciones de discos SSD estándar
 
-Para los discos SSD estándar, cada operación de E/S menor o igual a 256 KiB de rendimiento se considera una sola operación de E/S. Las operaciones de E/S mayores de 256 KiB de rendimiento se consideran varias operaciones de E/S con un tamaño de 256 KiB. Estas transacciones tienen un impacto en la facturación.
+Para los discos SSD estándar, cada operación de E/S menor o igual a 256 KiB de rendimiento se considera una sola operación de E/S. Las operaciones de E/S mayores de 256 KiB de rendimiento se consideran varias operaciones de E/S con un tamaño de 256 KiB. Estas transacciones generan costos facturables.
 
-### <a name="bursting"></a>Creación de ráfagas
+### <a name="standard-ssd-bursting"></a>Expansión de discos SSD estándar
 
-Los SSD estándar ofrecen expansión de disco. La ráfaga de disco proporciona una tolerancia mejorada a cambios imprevisibles en los patrones de E/S. Puede aprovecharla mejor en el arranque del disco del sistema operativo y las aplicaciones con tráfico de picos. Para más información sobre el funcionamiento de la expansión de disco de discos de Azure, consulte [Expansión a nivel de disco](disk-bursting.md#disk-level-bursting).
+Los discos SSD estándar ofrecen expansión de disco, lo que proporciona una mejor tolerancia a los cambios imprevisibles de los patrones de E/S. Tanto los discos de arranque del sistema operativo como las aplicaciones propensas a picos de tráfico se beneficiarán de la expansión de disco. Para más información sobre el funcionamiento de la expansión de disco de discos de Azure, consulte [Expansión a nivel de disco](disk-bursting.md#disk-level-bursting).
 
-## <a name="standard-hdd"></a>HDD estándar
+## <a name="standard-hdds"></a>Discos HDD estándar
 
-Los discos HDD estándar de Azure ofrecen compatibilidad de discos confiable y de bajo coste para las máquinas virtuales que ejecutan cargas de trabajo que no tienen en cuenta la latencia. Con Standard Storage, los datos se almacenan en unidades de disco duro (HDD). La latencia, las IOPS y el rendimiento de los discos HDD estándar pueden variar más en comparación con los discos basados en SSD. Los discos HDD estándar están diseñados para ofrecer latencias de escritura inferiores a 10 ms y latencias de lectura inferiores a 20 ms para la mayoría de las operaciones de E/S, aunque el rendimiento real puede variar según el tamaño de E/S y el patrón de carga de trabajo. Cuando se trabaja con máquinas virtuales, se pueden usar discos HDD estándar para escenarios de desarrollo/pruebas y para cargas de trabajo menos críticas. Los discos HDD estándar están disponibles en todas las regiones de Azure y se pueden utilizar con todas las máquinas virtuales de Azure.
+Los discos HDD estándar de Azure ofrecen compatibilidad de discos confiable y de bajo costo para las máquinas virtuales que ejecutan cargas de trabajo tolerantes a la latencia. Con el almacenamiento estándar, los datos se almacenan en unidades HDD y el rendimiento puede variar más que el de los discos basados en SSD. Los discos HDD estándar están diseñados para proporcionar latencias de escritura de menos de 10 ms y latencias de lectura de menos de 20 ms en la mayoría de las operaciones de E/S. Sin embargo, el rendimiento real puede variar según el tamaño de E/S y el patrón de carga de trabajo. Cuando se trabaja con máquinas virtuales, se pueden usar discos HDD estándar para escenarios de desarrollo/pruebas y para cargas de trabajo menos críticas. Los discos HDD estándar están disponibles en todas las regiones de Azure y se pueden utilizar con todas las máquinas virtuales de Azure.
 
-### <a name="disk-size"></a>Tamaño del disco
+### <a name="standard-hdd-size"></a>Tamaño de discos HDD estándar
 [!INCLUDE [disk-storage-standard-hdd-sizes](../../includes/disk-storage-standard-hdd-sizes.md)]
 
-### <a name="transactions"></a>Transacciones
+### <a name="standard-hdd-transactions"></a>Transacciones de discos HDD estándar
 
 En el caso de los discos HDD estándar, cada operación de E/S se considera como una única transacción, independientemente del tamaño de esta. Estas transacciones tienen un impacto en la facturación.
 
@@ -128,30 +150,30 @@ Al usar Managed Disks, se aplican las siguientes consideraciones de facturación
 - Transferencias de datos de salida
 - Número de transacciones
 
-**Tamaño del disco administrado**: los discos administrados se facturan por el tamaño aprovisionado. Azure asigna el tamaño aprovisionado (redondeado al alza) a la oferta de tamaño de disco más cercana. Para obtener detalles sobre los tamaños de disco ofrecidos, consulte las tablas anteriores. Cada disco se asigna a una oferta de tamaño de disco aprovisionado compatible y se factura según corresponda. Por ejemplo, si ha aprovisionado un disco SSD estándar de 200 GiB, se asigna a la oferta de tamaño de disco E15 (256 GiB). La facturación de cualquier disco aprovisionado se prorratea cada hora con el precio mensual de la oferta de almacenamiento. Por ejemplo, si ha aprovisionado un disco E10 y lo ha eliminado después de 20 horas, se factura la oferta E10 prorrateada a 20 horas. Esto es así independientemente de la cantidad de datos que se escriba en el disco.
+**Tamaño del disco administrado**: los discos administrados se facturan según el tamaño aprovisionado. Azure asigna el tamaño aprovisionado (redondeado al alza) a la oferta de tamaño de disco más cercana. Para obtener detalles sobre los tamaños de disco ofrecidos, consulte las tablas anteriores. Cada disco se asigna a una oferta de tamaño de disco aprovisionado compatible y se factura en consecuencia. Por ejemplo, si ha aprovisionado un disco SSD estándar de 200 GiB, se asigna a la oferta de tamaño de disco E15 (256 GiB). La facturación de cualquier disco aprovisionado se prorratea cada hora con el precio mensual de la oferta de almacenamiento. Por ejemplo, supongamos que aprovisiona un disco E10 y lo elimina después de 20 horas de uso. En este caso, se le facturará por la oferta E10 prorrateada a 20 horas, independientemente de la cantidad de datos escritos en el disco.
 
-**Instantáneas**: Las instantáneas se facturan según el tamaño utilizado. Por ejemplo, si crea una instantánea de un disco administrado con capacidad aprovisionada de 64 GiB y el tamaño de datos usado real es de 10 GiB, solo se le cobra por el tamaño de datos usado de 10 GiB.
+**Instantáneas**: Las instantáneas se facturan según el tamaño utilizado. Por ejemplo, supongamos que crea una instantánea de un disco administrado con capacidad aprovisionada de 64 GiB y el tamaño de datos usado real es de 10 GiB. En este caso, solo se le facturará por el tamaño de datos usado de 10 GiB.
 
-Para más información acerca de las instantáneas, consulte la sección sobre las instantáneas en la [introducción a los discos administrados](managed-disks-overview.md).
+Para más información acerca de las instantáneas, consulte la sección sobre las instantáneas en la [introducción a los discos administrados](managed-disks-overview.md#managed-disk-snapshots).
 
 **Transferencias de datos de salida**: las [transferencias de datos de salida](https://azure.microsoft.com/pricing/details/bandwidth/) (datos que salen de los centros de datos de Azure) se facturan en función del uso de ancho de banda.
 
 **Transacciones**: se le factura por el número de transacciones que realiza en un disco administrado estándar. Para los discos SSD estándar, cada operación de E/S menor o igual a 256 KiB de rendimiento se considera una sola operación de E/S. Las operaciones de E/S mayores de 256 KiB de rendimiento se consideran varias operaciones de E/S con un tamaño de 256 KiB. En el caso de los discos HDD estándar, cada operación de E/S se considera como una única transacción, independientemente del tamaño de esta.
 
-Para obtener información detallada sobre los precios de Managed Disks, incluidos los costes de las transacciones, consulte [Precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks).
+Para obtener información detallada sobre los precios de los discos administrados, incluidos los costos de las transacciones, consulte [Precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks).
 
-### <a name="ultra-disk-vm-reservation-fee"></a>Precio de reserva de máquina virtual para discos Ultra
+### <a name="ultra-disks-vm-reservation-fee"></a>Precio de reserva de máquina virtual para discos Ultra
 
-Las máquinas virtuales de Azure tienen la funcionalidad para indicar si son compatibles con discos Ultra. Una máquina virtual compatible con SSD Ultra asigna capacidad dedicada de ancho de banda entre la instancia de la máquina virtual de proceso y la unidad de escalado de almacenamiento en bloque, para así poder optimizar el rendimiento y reducir la latencia. Al agregar esta funcionalidad en la máquina virtual, se crea un cargo por reserva que solo se cobra si habilita la funcionalidad de discos Ultra en la máquina virtual sin asociarle uno de estos discos. Cuando un disco Ultra está asociado a la máquina virtual compatible con estos discos, este cargo no se aplicará. Este cargo se calcula según la vCPU aprovisionada en la máquina virtual. 
+Las máquinas virtuales de Azure tienen la funcionalidad para indicar si son compatibles con discos Ultra. Una máquina virtual compatible con un disco Ultra asigna capacidad dedicada de ancho de banda entre la instancia de la máquina virtual de proceso y la unidad de escalado de almacenamiento en bloque, para así poder optimizar el rendimiento y reducir la latencia. Cuando agrega esta funcionalidad en la máquina virtual, se produce un cargo por reserva. Este cargo por reserva solo se aplica si habilita la funcionalidad de disco Ultra en la máquina virtual sin un disco Ultra asociado. Cuando se asocia un disco Ultra a la máquina virtual compatible con estos discos, este cargo por reserva no se aplica. Este cargo se calcula según la vCPU aprovisionada en la máquina virtual.
 
 > [!Note]
-> En el caso de los [tamaños principales de máquina virtual restringidos](constrained-vcpu.md), la tarifa de la reserva se basa en el número real de vCPU y no en los núcleos restringidos. En el caso de Standard_E32-8s_v3, la tarifa de la reserva se basará en 32 núcleos. 
+> En el caso de los [tamaños principales de máquina virtual restringidos](constrained-vcpu.md), la tarifa de la reserva se basa en el número real de vCPU y no en los núcleos restringidos. En el caso de Standard_E32-8s_v3, la tarifa de la reserva se basará en 32 núcleos.
 
 Para información sobre los precios de los discos Ultra, consulte la [página de precios de discos de Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ### <a name="azure-disk-reservation"></a>Reserva de discos de Azure
 
-La reserva de discos es la opción de adquirir de antemano un año de almacenamiento en discos con descuento, lo que reduce los costos totales. Al comprar una reserva de discos, selecciona una SKU de disco específica en una región de destino, por ejemplo, 10 SSD Premium de P30 (1 TiB) en la región Este de EE. UU. 2 por un plazo de un año. La experiencia de reserva es similar a las instancias reservadas de máquina virtual (VM). Puede agrupar las reservas de discos y máquinas virtuales para maximizar el ahorro. Por ahora, la reserva de discos de Azure ofrece un plan de compromiso de un año para las SKU de SSD Premium de P30 (1 TiB) a P80 (32 TiB) en todas las regiones de producción. Para más información sobre los precios de los discos reservados, consulte la [página de precios de los discos de Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
+La reserva de discos proporciona un descuento en la compra anticipada de un año de almacenamiento en disco, lo que reduce el costo total. Al comprar una reserva de discos, se selecciona una SKU de disco específica en una región de destino. Por ejemplo, puede elegir cinco discos SSD prémium P30 (1 TiB) en la región Centro de EE. UU. durante un período de un año. La experiencia de reserva de discos es similar a las instancias reservadas de máquina virtual de Azure. Puede agrupar las reservas de discos y máquinas virtuales para maximizar el ahorro. Por ahora, la reserva de discos de Azure ofrece un plan de compromiso de un año para las SKU de discos SSD prémium de P30 (1 TiB) a P80 (32 TiB) en todas las regiones de producción. Para más información sobre los precios de los discos reservados, consulte la [página de precios de los discos de Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

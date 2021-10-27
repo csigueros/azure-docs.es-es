@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 05/06/2021
-ms.openlocfilehash: 0d5fb976bfeb496e6c69e7df401ed0a756985475
-ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
+ms.openlocfilehash: c56a90ab18467e67360653c83d32c7cfc6f84078
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2021
-ms.locfileid: "113295891"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130133260"
 ---
-# <a name="log-analytics-workspace-insights-preview"></a>Conclusiones del área de trabajo de Log Analytics (versión preliminar)
+# <a name="log-analytics-workspace-insights"></a>Conclusiones del área de trabajo de Log Analytics
 
-Conclusiones del área de trabajo de Log Analytics (versión preliminar) proporciona una supervisión completa de las áreas de trabajo a través de una vista unificada del uso, el rendimiento, el estado, el agente, las consultas y el registro de cambios del área de trabajo. Este artículo le ayudará a saber cómo incorporar y usar Conclusiones del área de trabajo de Log Analytics (versión preliminar).
+Conclusiones del área de trabajo de Log Analytics proporciona una supervisión completa de las áreas de trabajo mediante una vista unificada del uso, el rendimiento, el estado, el agente, las consultas y el registro de cambios del área de trabajo. En este artículo obtendrá información que le ayudará a saber cómo incorporar y usar Conclusiones del área de trabajo de Log Analytics.
 
 ## <a name="overview-your-log-analytics-workspaces"></a>Información de las áreas de trabajo de Log Analytics
 
@@ -29,7 +29,7 @@ Para iniciar Conclusiones del área de trabajo de Log Analytics a gran escala, r
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-2. Seleccione **Supervisión** en el panel izquierdo de Azure Portal y, en la sección Centro de información, seleccione **Conclusiones del área de trabajo de Log Analytics (versión preliminar)** .
+2. Seleccione **Supervisión** en el panel izquierdo de Azure Portal y, en la sección Centro de información, seleccione **Conclusiones del área de trabajo de Log Analytics**.
 
 ## <a name="view-insights-for-a-log-analytics-workspace"></a>Visualización de las conclusiones de un área de trabajo de Log Analytics
 

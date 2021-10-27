@@ -1,5 +1,5 @@
 ---
-title: Requisitos y consideraciones para el uso de la replicación entre regiones de volúmenes de Azure NetApp Files | Microsoft Docs
+title: Requisitos y consideraciones para la replicación entre regiones de Azure NetApp Files | Microsoft Docs
 description: Describe los requisitos y las consideraciones para usar la funcionalidad de replicación entre regiones de volúmenes de Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,22 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/07/2021
+ms.date: 10/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 6e711f3101426f59aead80b84b88350af86bbd6b
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: b098243c3f4cf160aadfb2fa001c23c4cad691bd
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129669195"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042396"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>Requisitos y consideraciones del uso de la replicación entre regiones 
 
-Tenga en cuenta los siguientes requisitos y consideraciones [sobre el uso de la funcionalidad de la replicación entre regiones de volúmenes](cross-region-replication-create-peering.md) de Azure NetApp Files:  
+En este artículo se describen los requisitos y las consideraciones sobre el [uso de la funcionalidad de la replicación entre regiones de volúmenes](cross-region-replication-create-peering.md) de Azure NetApp Files.
 
 ## <a name="requirements-and-considerations"></a>Requisitos y consideraciones 
 
-* La característica de replicación entre regiones se encuentra actualmente en versión preliminar. Debe enviar una solicitud de lista de espera para acceder a la característica a través de la [página de envío de lista de espera de replicación entre regiones de Azure NetApp Files](https://aka.ms/anfcrrpreviewsignup). Antes de utilizar la característica de replicación entre regiones, debe esperar un correo electrónico de confirmación oficial del equipo de Azure NetApp Files.
 * La replicación de Azure NetApp Files solo está disponible en determinados pares de regiones fijas. Vea [Pares de regiones admitidas](cross-region-replication-introduction.md#supported-region-pairs). 
 * Los volúmenes SMB se admiten junto con los volúmenes NFS. La replicación de volúmenes SMB requiere una conexión de Active Directory en las cuentas de NetApp de origen y de destino. La conexión de AD de destino debe tener acceso a los servidores DNS o controladores de dominio de ADDS que sean accesibles desde la subred delegada en la región de destino. Para obtener más información, consulte [Requisitos para las conexiones de Active Directory](create-active-directory-connections.md#requirements-for-active-directory-connections). 
 * La cuenta de destino debe estar en una región distinta de la región del volumen de origen. También puede seleccionar una cuenta de NetApp existente en otra región.  

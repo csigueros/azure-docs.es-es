@@ -3,13 +3,13 @@ title: Opciones para servidores de Oracle BareMetal Infrastructure
 description: Obtenga información sobre las opciones y consideraciones para los servidores de Oracle BareMetal Infrastructure.
 ms.topic: reference
 ms.subservice: baremetal-oracle
-ms.date: 04/15/2021
-ms.openlocfilehash: eb77731ad018817cf6d868cefd6a4d84b8f6d330
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.date: 10/12/2021
+ms.openlocfilehash: 0c4442910ed40ece8147bca919039a7c4564a4f7
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110578660"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129999594"
 ---
 # <a name="options-for-oracle-baremetal-infrastructure-servers"></a>Opciones para servidores de Oracle BareMetal Infrastructure
 
@@ -34,13 +34,15 @@ Oracle permite configurar varios destinos para la generación de la fase de pues
 
 :::image type="content" source="media/oracle-high-availability/default-data-guard-deployment.png" alt-text="Diagrama que muestra la implementación predeterminada de Data Guard de Oracle.":::
 
-Data Guard se configura en modo de máximo rendimiento para una implementación predeterminada. Esta configuración ofrece replicación de datos casi en tiempo real a través del transporte asincrónico de la fase de puesta al día. No es necesario que la base de datos en espera se ejecute dentro de una implementación de RAC, pero se recomienda que cumpla las exigencias de rendimiento del sitio primario.
+Data Guard se configura en modo de máximo rendimiento para una implementación predeterminada. Esta configuración ofrece replicación de datos casi en tiempo real a través del transporte asincrónico de la fase de puesta al día. No es necesario que la base de datos en espera se ejecute dentro de una implementación de RAC. Sin embargo, se recomienda que cumpla las exigencias de rendimiento del sitio principal.
 
-Se recomienda una implementación como la que se muestra en la ilustración siguiente para entornos que requieren un tiempo de actividad estricto o un RPO de cero. La configuración de máxima disponibilidad consta de una base de datos en espera local que aplica la fase de puesta al día en modo sincrónico y una segunda base de datos en espera que se ejecuta en una región remota.
+Lo recomendable es una implementación como la que se muestra en la ilustración siguiente para entornos que requieren un tiempo de actividad estricto o un RPO de cero. La configuración de disponibilidad máxima consta de:
+- Una base de datos en espera local que aplica la fase de puesta al día en modo sincrónico.
+- Una segunda base de datos en espera que se ejecuta en una región remota.
 
 :::image type="content" source="media/oracle-high-availability/max-availability-data-guard-deployment.png" alt-text="Diagrama que muestra la implementación de Data Guard de máxima disponibilidad.":::
 
-Puede crear una base de datos en espera local cuando el rendimiento de la aplicación se vaya a ver afectado por ejecutar la base de datos y los servidores de aplicaciones en regiones independientes. En esta configuración, se usa una base de datos en espera local cuando se necesita un mantenimiento planeado o no planeado en el clúster principal. Puede ejecutar estas bases de datos con replicación sincrónica, ya que están en la misma región, lo que garantiza que no se pierdan datos entre ellas.
+Puede crear una base de datos en espera local cuando el rendimiento de la aplicación se vaya a ver afectado por ejecutar los servidores de bases de datos y aplicaciones en regiones independientes. Se usa una base de datos en espera local cuando se necesita mantenimiento planeado o no planeado en el clúster principal. Puede ejecutar estas bases de datos con replicación sincrónica, ya que están en la misma región, lo que garantiza que no se pierdan datos entre ellas.
 
 ### <a name="data-guard-configuration-considerations"></a>Consideraciones sobre la configuración de Data Guard
 
@@ -73,7 +75,7 @@ Las notas del producto disponibles en [https://www.oracle.com/technetwork/databa
 
 Asegúrese de hacer una copia de seguridad de las bases de datos. Use las características de restauración y recuperación para restaurar una base de datos en el mismo sistema o en otro, o para recuperar archivos de base de datos.
 
-Es importante establecer una estrategia de recuperación de copia de seguridad para proteger las bases de Oracle Database Appliance frente a la pérdida de datos. Esta pérdida podría deberse a un problema físico en un disco, que provoque un error de lectura o escritura en un archivo del disco, necesario para ejecutar la base de datos. Un error de un usuario también puede provocar la pérdida de datos. La característica de copia de seguridad ofrece la capacidad de **restauración a un momento dado (PITR) de la base de datos, la recuperación del número de cambio del sistema (SCN) y la recuperación más reciente**. Puede crear una directiva de copia de seguridad en la interfaz de usuario del explorador o desde la interfaz de la línea de comandos.
+Es importante crear una estrategia de recuperación de copia de seguridad para proteger las bases de datos de Oracle Database Appliance frente a la pérdida de datos. Esta pérdida podría deberse a un problema físico en un disco, que provoque un error de lectura o escritura en un archivo del disco, necesario para ejecutar la base de datos. Un error de un usuario también puede provocar la pérdida de datos. La característica de copia de seguridad ofrece la capacidad de **restauración a un momento dado (PITR) de la base de datos, la recuperación del número de cambio del sistema (SCN) y la recuperación más reciente**. Puede crear una directiva de copia de seguridad en la interfaz de usuario del explorador o desde la interfaz de la línea de comandos.
 
 Están disponibles las siguientes opciones de copia de seguridad:
 

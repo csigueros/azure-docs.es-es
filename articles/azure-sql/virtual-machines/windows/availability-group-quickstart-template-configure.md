@@ -3,7 +3,7 @@ title: Configuración de un grupo de disponibilidad (plantilla de inicio rápido
 description: Use las plantillas de inicio rápido de Azure para crear el clúster de conmutación por error de Windows, unir las máquinas virtuales con SQL Server al clúster, crear la escucha y configurar el equilibrador de carga interno en Azure.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
@@ -12,15 +12,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/04/2019
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: rsetlem
+ms.reviewer: mathoma
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: 0f9d98eb2a4fe09728a890af59b4c54afbed3737
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 612280242c528065c8ba74ccd745cca28e7af1bd
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112291662"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130167052"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Uso de las plantillas de inicio rápido de Azure para configurar un grupo de disponibilidad para SQL Server en una máquina virtual de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,7 +46,8 @@ Para automatizar la configuración de un grupo de disponibilidad Always On medi
 - Una [suscripción de Azure](https://azure.microsoft.com/free/).
 - Un grupo de recursos con un controlador de dominio. 
 - Una o varias [máquinas virtuales en Azure, unidas a un dominio, con SQL Server 2016 (o superior) Enterprise Edition](./create-sql-vm-portal.md) en el mismo conjunto o zona de disponibilidad que se hayan [registrado con la extensión Agente de IaaS de SQL](sql-agent-extension-manually-register-single-vm.md).  
-- Dos direcciones IP disponibles (que no use ninguna entidad), una para el equilibrador de carga interno y otra para la escucha de grupo de disponibilidad, dentro de la misma subred que el grupo de disponibilidad. Si se utiliza un equilibrador de carga existente, solo será necesaria una dirección IP disponible.  
+- Una dirección IP de Azure Load Balancer interna y una dirección IP disponible (no usada por ninguna entidad) para la escucha de grupo de disponibilidad dentro de la misma subred que la VM de SQL Server. 
+
 
 ## <a name="permissions"></a>Permisos
 Los siguientes permisos son necesarios para configurar el grupo de disponibilidad Always On mediante las plantillas de inicio rápido de Azure: 
@@ -128,7 +129,7 @@ Solo tiene que crear el equilibrador de carga interno. En el paso 4, la plantil
 4. En la hoja **Load Balancer**, haga clic en **Crear**.
 5. En el cuadro de diálogo **Crear equilibrador de carga**, configure el equilibrador de carga tal y como se explica a continuación:
 
-   | Configuración | Valor |
+   | Configuración | Value |
    | --- | --- |
    | **Nombre** |Escriba un nombre de texto que represente el equilibrador de carga. Por ejemplo, **sqlLB**. |
    | **Tipo** |**Internas**: en la mayoría de las implementaciones se usa un equilibrador de carga interno que permite que las aplicaciones dentro de la misma red virtual se conecten al grupo de disponibilidad.  </br> **Externas**: permite que las aplicaciones se conecten al grupo de disponibilidad mediante una conexión a Internet pública. |
@@ -232,5 +233,5 @@ Para obtener más información, consulte:
 * [Introducción a las máquinas virtuales con SQL Server](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Preguntas más frecuentes sobre las máquinas virtuales con SQL Server](frequently-asked-questions-faq.yml)
 * [Guía de precios para máquinas virtuales con SQL Server](pricing-guidance.md)
-* [Notas de la versión de las máquinas virtuales con SQL Server](../../database/doc-changes-updates-release-notes.md)
+* [Novedades de SQL Server en VM de Azure](doc-changes-updates-release-notes-whats-new.md)
 * [Cambio de los modelos de licencia para una VM con SQL Server](licensing-model-azure-hybrid-benefit-ahb-change.md)

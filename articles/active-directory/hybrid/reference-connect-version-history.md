@@ -11,12 +11,12 @@ ms.subservice: hybrid
 ms.author: rodejo
 ms.custom: has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9cc55100001f1210255a465b5622e1b862674bf
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: daaf76866b42196808d88d56725d4edbd54543d5
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129352180"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064673"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historial de lanzamiento de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -58,6 +58,18 @@ Sin embargo, si quiere obtener las características y actualizaciones más recie
  - Si usa Windows Server 2016 o posterior, debe usar Azure AD Connect V2.0. Para descargar la versión más reciente de Azure AD Connect 2.0, utilice [este vínculo](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
  - Si sigue usando una versión anterior de Windows Server, debe usar Azure AD Connect V1.6. Puede descargar la versión más reciente de Azure AD Connect V1 mediante [este vínculo](https://www.microsoft.com/download/details.aspx?id=103336). 
  - A partir de ahora solo se aplican cambios críticos a las versiones V1, y es posible que no encuentre algunas de las características y correcciones de V2 en los lanzamientos V1, por lo que debe actualizar a la versión V2 lo antes posible.
+
+## <a name="16160"></a>1.6.16.0
+>[!NOTE] 
+>Este es un lanzamiento de actualización de Azure AD Connect. Esta versión está pensada para los clientes que ejecutan una versión anterior de Windows Server y no pueden actualizar su servidor a Windows Server 2016 o a una versión posterior en estos momentos. No puede usar esta versión para actualizar un servidor de Azure AD Connect V2.0. Esta versión no se admite en Windows Server 2016 ni posteriores. Esta versión incluye componentes de SQL Server 2012 y se va a retirar el 31 de agosto de 2022. Debe actualizar el sistema operativo del servidor y la versión de AADConnect antes de esa fecha.
+>Comenzaremos por actualizar automáticamente los inquilinos aptos cuando esta versión esté disponible para su descarga; la actualización automática tardará unas semanas en completarse.
+
+### <a name="release-status"></a>Estado de la versión
+13/10/2021: publicada para descarga y actualización automática.
+
+### <a name="bug-fixes"></a>Corrección de errores
+- Se ha corregido un error que consistía en que el proceso de actualización automática intentaba actualizar los servidores de AADConnect con una versión del sistema operativo Windows anterior a la 2008 o 2008 R2 y generaba un error. Estas versiones de Windows Server ya no se admiten. En esta versión solo se intenta realizar la actualización automática en máquinas con Windows Server 2012 o posterior.
+- Se ha corregido un problema que consistía en que, en determinadas condiciones, miisserver se bloqueaba debido a una excepción de infracción de acceso.
 
 ## <a name="20280"></a>2.0.28.0
 

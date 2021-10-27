@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 08/06/2021
 ms.author: cherylmc
-ms.openlocfilehash: e570e5f06af814a6d0cbb581275d1c70ebf0df8a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5cc5b3dd26d0cb88460fabbd2ceb3cd28b107121
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124780801"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130129080"
 ---
 # <a name="scenario-bgp-peering-with-a-virtual-hub-preview"></a>Escenario: emparejamiento BGP con un centro virtual (versión preliminar)
 
@@ -61,6 +61,8 @@ El enrutador del centro virtual ahora también expone la capacidad de emparejars
    | Resource | Límite |
    |---|---|
    |  Número de rutas que puede anunciar cada emparejamiento BGP al centro virtual.| El centro solo puede aceptar un número máximo de 10 000 rutas (total) de sus recursos conectados. Por ejemplo, si un centro virtual tiene un total de 6000 rutas desde las redes virtuales, ramas y centros virtuales conectados, cuando se configura un nuevo emparejamiento BGP con una NVA, la NVA solo puede anunciar hasta 4000 rutas. |
+* Las rutas de NVA de una red virtual que son más específicas que el espacio de direcciones de la red virtual, cuando se anuncian al centro virtual por medio de BGP, no se propagan al entorno local.
+* El tráfico destinado a direcciones de la red virtual conectada directamente al centro virtual no se puede configurar para enrutarse a través de la NVA mediante emparejamiento BGP entre el centro y la NVA. Esto se debe a que el centro virtual aprende automáticamente las rutas del sistema asociadas a las direcciones de la red virtual de radio cuando se crea la conexión de red virtual de radio. Estas rutas del sistema aprendidas automáticamente se prefieren a las rutas aprendidas por el centro mediante BGP.
 
 ## <a name="bgp-peering-scenarios"></a>Escenarios de emparejamiento BGP
 

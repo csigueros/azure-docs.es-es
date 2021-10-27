@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 07/02/2021
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 011d13d68ad3cd9a3e6b1b5bab97a5561e8a355c
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 12f2b1edc4bc7d9f5106af9483da217fcd9eb402
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539413"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130143650"
 ---
 En este inicio rápido aprenderá patrones de diseño comunes para realizar la síntesis de texto a voz mediante el SDK de voz. Para empezar, puede realizar una configuración y síntesis básicas y, después, pasar a ejemplos más avanzados para el desarrollo de aplicaciones personalizadas, entre las que se incluyen:
 
@@ -72,6 +72,23 @@ public class Program
     public static void main(String[] args) {
         SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     }
+}
+```
+
+## <a name="select-synthesis-language-and-voice"></a>Selección del idioma y la voz de síntesis
+
+El servicio Text to Speech de Azure admite más de 250 voces y más de 70 idiomas y variantes.
+Puede obtener la [lista completa](../../../language-support.md#neural-voices) o probarlos en la [demostración de texto a voz](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+Especifique el idioma o la voz de [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) para que coincida con el texto de entrada y use la voz que prefiera.
+
+```java
+public static void main(String[] args) {
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    // Note: if only language is set, the default voice of that language is chosen.
+    config.setSpeechSynthesisLanguage("<your-synthesis-language>"); // e.g. "de-DE"
+    // The voice setting will overwrite language setting.
+    // The voice setting will not overwrite the voice element in input SSML.
+    config.setSpeechSynthesisVoiceName("<your-wanted-voice>");
 }
 ```
 

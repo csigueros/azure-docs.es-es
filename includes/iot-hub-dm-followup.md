@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: iot-hub
 ms.service: iot-hub
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/17/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 7f1f7d6f9ab6036fbcfcd1d19e175302bbd1a2a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 483d51ab654a67ca9c9ac59a5ae1efdd6861419b
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87298783"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130188566"
 ---
 ## <a name="customize-and-extend-the-device-management-actions"></a>Personalizar y ampliar el dispositivo las acciones de administración del dispositivo
 
@@ -27,6 +27,6 @@ Normalmente, puede dispositivos para llevar a cabo acciones a la vez que minimiz
 
 En este tutorial se usó un método directo para desencadenar un reinicio remoto en un dispositivo. Se usaron las propiedades notificadas para notificar la última hora de reinicio del dispositivo y se consultó el dispositivo gemelo para detectar la última hora de reinicio del dispositivo desde la nube.
 
-Para continuar con la introducción de IoT Hub y los patrones de administración de dispositivos como remotos a través de la actualización de firmware de aire, vea [Realización de una actualización de firmware](../articles/iot-hub/tutorial-firmware-update.md).
+Para continuar con la introducción a IoT Hub y los patrones de administración de dispositivos, como la actualización basada en imágenes de un extremo a otro, consulte el [Tutorial de Device Update para Azure IoT Hub con la imagen de referencia para Raspberry Pi 3 B+](../articles/iot-hub-device-update/device-update-raspberry-pi.md).
 
 Para obtener información sobre cómo ampliar la solución IoT y programar llamadas a métodos en varios dispositivos, vea [Programación de trabajos en varios dispositivos](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).

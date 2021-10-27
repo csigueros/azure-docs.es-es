@@ -6,12 +6,12 @@ ms.author: v-stharr
 ms.date: 3/22/2021
 ms.topic: conceptual
 ms.service: azure-maps
-ms.openlocfilehash: 3bcf3125e09ee2023e36b3eefc5d34d4a1215c4e
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 0d21b23c9b1192f2f660615079da0831c1ec92fc
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123439369"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130006363"
 ---
 # <a name="azure-maps-web-sdk-best-practices"></a>Procedimientos recomendados del SDK de Azure Maps Web
 
@@ -27,8 +27,11 @@ La parte más importante de la aplicación es su seguridad. Si la aplicación no
 
 > [!IMPORTANT]
 > Azure Maps proporciona dos métodos de autenticación.
+>
 > * Autenticación basada en claves de suscripción
-> * La autenticación de Azure Active Directory usa Azure Active Directory en todas las aplicaciones de producción.
+> * Autenticación con Azure Active Directory
+>
+> Use Azure Active Directory en todas las aplicaciones de producción.
 > La autenticación basada en claves de suscripción es sencilla y lo que la mayoría de las plataformas de asignación usan como método claro para medir el uso de la plataforma con fines de facturación. Sin embargo, esta no es una forma segura de autenticación y solo debe usarse localmente al desarrollar aplicaciones. Algunas plataformas proporcionan la capacidad de restringir las direcciones IP o el remitente HTTP que se encuentra en las solicitudes; sin embargo, esta información se puede suplantar fácilmente. Si usa claves de suscripción, asegúrese de [girarlas con regularidad](how-to-manage-authentication.md#manage-and-rotate-shared-keys).
 > Azure Active Directory es un servicio de identidad empresarial que tiene una gran variedad de opciones de seguridad y configuración para todo tipo de escenarios de aplicaciones. Microsoft recomienda que todas las aplicaciones de producción que utilicen Azure Maps utilicen Azure Active Directory para la autenticación.
 > Obtenga más información sobre la [Administración de la autenticación en Azure Maps](how-to-manage-authentication.md) en este documento.
@@ -63,7 +66,7 @@ Del mismo modo, cuando el mapa se carga por primera vez, se suele querer cargar 
 
 ### <a name="lazy-load-the-azure-maps-web-sdk"></a>Carga lenta del SDK web de Azure Maps
 
-Si el mapa no se necesita de inmediato, cargue de forma lenta el SDK web de Azure Maps hasta que sea necesario. Esto retrasará la carga de los archivos JavaScript y CSS utilizados por el SDK Web de Azure Maps hasta que sea necesario. Un escenario común en el que ocurre esto es cuando el mapa se carga en una pestaña o un panel flotante que no se muestra al cargar la página.
+Si el mapa no se necesita de inmediato, cargue de forma lenta el SDK web de Azure Maps hasta que sea necesario. Así se retrasará la carga de los archivos JavaScript y CSS utilizados por el SDK web de Azure Maps hasta que sea necesario. Un escenario común en el que ocurre esto es cuando el mapa se carga en una pestaña o un panel flotante que no se muestra al cargar la página.
 En el ejemplo de código siguiente se muestra cómo retrasar la carga del SDK web Azure Maps hasta que se presiona un botón.
 
 <br/>
@@ -74,11 +77,11 @@ Vea el lápiz de <a href='https://codepen.io/azuremaps/pen/vYEeyOv'>carga de KML
 
 ### <a name="add-a-placeholder-for-the-map"></a>Agregar un marcador de posición para el mapa
 
-Si el mapa tarda un tiempo en cargarse debido a limitaciones de red u otras prioridades dentro de la aplicación, considere la posibilidad de agregar una pequeña imagen de fondo a la asignación `div` como un marcador de posición para la asignación. Esto rellenará el vacío de la asignación `div` mientras se está cargando.
+Si el mapa tarda un tiempo en cargarse debido a limitaciones de red u otras prioridades dentro de la aplicación, considere la posibilidad de agregar una pequeña imagen de fondo a la asignación `div` como un marcador de posición para la asignación. De esta forma, se rellenará el vacío de `div` del mapa mientras se carga.
 
 ### <a name="set-initial-map-style-and-camera-options-on-initialization"></a>Establecer opciones de cámara y estilo de mapa iniciales en la inicialización
 
-A menudo, las aplicaciones quieren cargar el mapa en una ubicación o un estilo específicos. A veces, los desarrolladores esperan hasta que se carga la asignación (o esperan el `ready` evento) y, a continuación, usan las funciones `setCemer` o `setStyle` del mapa. A menudo, esto tardará más tiempo en llegar a la vista de mapa inicial deseada, ya que muchos recursos acaban de cargarse de forma predeterminada antes de que se carguen los recursos necesarios para la vista de mapa deseada. Un mejor enfoque consiste en pasar las opciones de estilo y la cámara de mapa deseada en el mapa al inicializarla.
+A menudo, las aplicaciones quieren cargar el mapa en una ubicación o un estilo específicos. A veces, los desarrolladores esperan hasta que se carga la asignación (o esperan el `ready` evento) y, a continuación, usan las funciones `setCemer` o `setStyle` del mapa. A menudo, se tardará más tiempo en llegar a la vista de mapa inicial deseada, ya que muchos recursos acaban de cargarse de forma predeterminada antes de que se carguen los recursos necesarios para la vista de mapa deseada. Un mejor enfoque consiste en pasar las opciones de estilo y la cámara de mapa deseada en el mapa al inicializarla.
 
 ## <a name="optimize-data-sources"></a>Optimización del origen de datos
 
@@ -130,7 +133,7 @@ Si el conjunto de datos contiene características que no se van a usar en la apl
 * Reduce el número de características que es necesario recorrer en bucle al representar los datos.
 * A veces puede ayudar a simplificar o quitar expresiones y filtros controlados por datos, lo que significa menos procesamiento necesario en el momento de la representación.
 
-Cuando las características tienen muchas propiedades o contenido, es mucho más eficaz limitar lo que se agrega al origen de datos a solo los necesarios para la representación y tener un método o servicio independiente para recuperar la propiedad o el contenido adicional cuando sea necesario. Por ejemplo, si tiene un mapa sencillo que muestra las ubicaciones de un mapa cuando se hace clic en una serie de contenido detallado, se muestra. Si desea usar el estilo controlado por datos para personalizar cómo se representan las ubicaciones en el mapa, solo debe cargar las propiedades necesarias en el origen de datos. Si desea mostrar el contenido detallado, utilice el identificador de la característica para recuperar el contenido adicional por separado. Si el contenido se almacena en el lado servidor, se puede usar un servicio para recuperarlo de forma asincrónica, lo que reduciría drásticamente la cantidad de datos que es necesario descargar cuando se carga inicialmente la asignación.
+Cuando las características tienen muchas propiedades o contenido, es mucho más eficaz limitar lo que se agrega al origen de datos a solo lo necesario para la representación y tener un método o servicio independiente para recuperar la propiedad o el contenido adicional cuando sea necesario. Por ejemplo, si tiene un mapa sencillo que muestra las ubicaciones de un mapa cuando se hace clic en una serie de contenido detallado, se muestra. Si desea usar el estilo controlado por datos para personalizar cómo se representan las ubicaciones en el mapa, solo debe cargar las propiedades necesarias en el origen de datos. Si desea mostrar el contenido detallado, utilice el identificador de la característica para recuperar el contenido adicional por separado. Si el contenido se almacena en el lado servidor, se puede usar un servicio para recuperarlo de forma asincrónica, lo que reduciría drásticamente la cantidad de datos que es necesario descargar cuando se carga inicialmente la asignación.
 
 Además, reducir el número de dígitos significativos en las coordenadas de las características también puede reducir significativamente el tamaño de los datos. No es raro que las coordenadas contengan 12 o más posiciones decimales. sin embargo, seis posiciones decimales tienen una precisión de aproximadamente 0,1 medidor, que suele ser más precisa que la ubicación que representa la coordenada (se recomiendan seis posiciones decimales al trabajar con datos de ubicación pequeños, como los diseños de creación interiores). Si tiene más de seis posiciones decimales, es probable que no se produzca ninguna diferencia en cómo se representan los datos y solo se requerirá que el usuario descargue más datos para obtener una ventaja adicional.
 
@@ -294,7 +297,7 @@ Obtenga más información en la [agrupación en clústeres y las asignaciones t�
 
 ### <a name="keep-image-resources-small"></a>Mantener los recursos de imagen pequeños
 
-Se pueden agregar imágenes al sprite de imagen de los mapas para representar iconos en una capa de símbolos o patrones en una capa de polígonos. Mantenga estas imágenes pequeñas para minimizar la cantidad de datos que se deben descargar y la cantidad de espacio que ocupan en el sprite de imagen de mapas. Cuando use una capa de símbolos que escale el icono mediante la opción `size`, use una imagen que tenga el tamaño máximo que debe mostrar el plan en el mapa y que no sea más grande. Esto garantizará que el icono se represente con alta resolución, al tiempo que se minimizan los recursos que utiliza. Además, también se puede usar SVG como un formato de archivo más pequeño para imágenes de icono simples.
+Se pueden agregar imágenes al sprite de imagen de los mapas para representar iconos en una capa de símbolos o patrones en una capa de polígonos. Mantenga estas imágenes pequeñas para minimizar la cantidad de datos que se deben descargar y la cantidad de espacio que ocupan en el sprite de imagen de mapas. Cuando use una capa de símbolos que escale el icono mediante la opción `size`, use una imagen que tenga el tamaño máximo que debe mostrar el plan en el mapa y que no sea más grande. De esta forma, el icono se representará con alta resolución y se minimizan los recursos que utiliza. Además, también se puede usar SVG como un formato de archivo más pequeño para imágenes de icono simples.
 
 ## <a name="optimize-expressions"></a>Optimizar expresiones
 
@@ -361,6 +364,7 @@ Haga lo siguiente:
 * Asegúrese de que usa un [explorador compatible](supported-browsers.md).
 
 **Todos los datos se muestran en el otro lado del mundo, ¿qué sucede?**
+
 Las coordenadas, también denominadas posiciones, en los SDK de Azure Maps se alinean con el formato estándar del sector geoespacial de `[longitude, latitude]`. El mismo formato también es cómo se definen las coordenadas en el esquema GeoJSON; los datos principales con formato usados dentro de los SDK de Azure Maps. Si los datos aparecen en el lado opuesto del mundo, lo más probable es que se deba a que los valores de longitud y latitud se invierten en la información de coordenadas o posiciones.
 
 **¿Por qué aparecen marcadores HTML en el lugar equivocado del control Web?**
@@ -372,6 +376,7 @@ Cosas que puede comprobar:
 * Inspeccione el elemento DOM del marcador HTML para ver si cualquier CSS de la aplicación se ha anexado al marcador y está afectando a su posición.
 
 **¿Por qué los iconos o el texto de la capa de símbolos aparecen en el lugar equivocado?**
+
 Compruebe que las opciones `anchor` y `offset` están configuradas correctamente para alinearse con la parte de la imagen o el texto que desea que se alinee con la coordenada del mapa.
 Si el símbolo solo está fuera del sitio cuando se gira el mapa, active la opción `rotationAlignment`. De forma predeterminada, los símbolos girarán con la ventanilla de mapas para que aparezcan verticalmente para el usuario. Pero, en función del escenario, puede ser conveniente bloquear el símbolo con respecto a la orientación del mapa. Establezca la opción `rotationAlignment` en `'map'` para hacerlo.
 Si el símbolo solo está fuera de lugar cuando el mapa está inclinado, marque la opción `pitchAlignment`. De forma predeterminada, los símbolos se mantendrán en posición vertical con la ventana de visualización de los mapas, ya que el mapa se inclina. Pero, en función del escenario, puede ser conveniente bloquear el símbolo con respecto a la inclinación del mapa. Establezca la opción `pitchAlignment` en `'map'` para hacerlo.
@@ -387,7 +392,10 @@ Cosas que puede comprobar:
 
 **¿Puedo usar el SDK Web de Azure Maps en un iframe de espacio aislado?**
 
-Sí. Tenga en cuenta que [Safari tiene un error](https://bugs.webkit.org/show_bug.cgi?id=170075) que impide que los iframes en espacio aislado ejecuten los trabajos Web, que es el requisito del SDK web de Azure Maps. La solución consiste en agregar la etiqueta `"allow-same-origin"` a la propiedad Sandbox del iframe.
+Sí.
+
+> [!TIP]
+> Safari tiene un [error](https://bugs.webkit.org/show_bug.cgi?id=170075) que impide que los iframes en espacio aislado ejecuten trabajos web, un requisito del SDK web de Azure Maps. La solución consiste en agregar la etiqueta `"allow-same-origin"` a la propiedad Sandbox del iframe.
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 
@@ -395,19 +403,22 @@ A continuación se muestran las distintas formas de obtener soporte técnico par
 
 **Cómo notificar un problema de datos o un problema con una dirección?**
 
-Azure Maps tiene una herramienta de comentarios de datos donde se pueden informar y realizar un seguimiento de los problemas de datos. [https://feedback.azuremaps.com/](https://feedback.azuremaps.com/) Cada problema enviado genera una dirección URL única que puede usar para realizar el seguimiento del progreso del problema de los datos. El tiempo que se tarda en resolver un problema de datos varía en función del tipo de problema y de lo fácil que es comprobar que el cambio es correcto. Una vez corregido, el servicio de representación verá la actualización en la actualización semanal, mientras que otros servicios como la geocodificación y el enrutamiento verán la actualización en la actualización mensual. En este [documento](how-to-use-feedback-tool.md)se proporcionan instrucciones detalladas sobre cómo notificar un problema de datos.
+Notifique los problemas con los datos mediante la [herramienta de comentarios de datos de Azure Maps](https://feedback.azuremaps.com). En el artículo [Aportar comentarios sobre datos en Azure Maps](how-to-use-feedback-tool.md), se proporcionan instrucciones detalladas sobre cómo notificar problemas con los datos.
+
+> [!NOTE]
+> Cada problema enviado genera una dirección URL única para su seguimiento. Los tiempos de resolución varían según el tipo de problema y el tiempo necesario para comprobar que el cambio es correcto. Los cambios aparecerán en la actualización semanal de los servicios de representación, mientras que otros servicios, como la geocodificación y el enrutamiento, se actualizan mensualmente.
 
 **Cómo notificar un error en un servicio o API?**
 
-https://azure.com/support
+Para notificar problemas en la página [Ayuda y soporte técnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) de Azure, seleccione el botón **Crear solicitud de soporte técnico**.
 
 **¿Dónde obtengo ayuda técnica para Azure Maps?**
 
-Si está relacionado con el objeto visual Azure Maps en Power BI: https://powerbi.microsoft.com/support/ Para todos los demás servicios de Azure Maps: https://azure.com/support o los foros para desarrolladores: [https://docs.microsoft.com/answers/topics/azure-maps.html](/answers/topics/azure-maps.html).
+* Si tiene preguntas relacionadas con el objeto visual de Azure Maps en Power BI, póngase en contacto con el [soporte técnico de Power BI](https://powerbi.microsoft.com/support/).
 
-**¿Cómo se puede realizar una solicitud de características?**
+* Para todos los demás servicios de Azure Maps, póngase en contacto con el [soporte técnico de Azure](https://azure.com/support).
 
-Realice una solicitud de características en nuestro sitio de voz de usuario: https://feedback.azure.com/forums/909172-azure-maps
+* Para preguntas o comentarios sobre características específicas de Azure Maps, use los [foros para desarrolladores de Azure Maps](/answers/topics/azure-maps.html).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

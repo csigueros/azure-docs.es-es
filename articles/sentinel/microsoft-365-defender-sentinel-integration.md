@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/21/2021
 ms.author: yelevin
-ms.openlocfilehash: 86a998e304755085a9ae1e15e011df3b242c4df8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 97e7c6a21eaf33e2f32d3277e14b4da74decc6cc
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725151"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132557"
 ---
 # <a name="microsoft-365-defender-integration-with-azure-sentinel"></a>Integración de Microsoft 365 Defender en Azure Sentinel
 
@@ -31,6 +31,8 @@ ms.locfileid: "121725151"
 > **Microsoft 365 Defender** se conocía antes como **Microsoft Threat Protection** o **MTP**.
 >
 > **Microsoft Defender para punto de conexión** se conocía antes como **Protección contra amenazas avanzada de Microsoft Defender** o **MDATP**.
+>
+> **Microsoft Defender para Office 365** se conocía anteriormente como **Protección contra amenazas avanzada de Office 365**.
 >
 > Es posible que vea que los nombres antiguos todavía están en uso durante un tiempo.
 
@@ -94,13 +96,13 @@ En Microsoft 365 Defender, todas las alertas de un incidente se pueden transfer
 
 ## <a name="advanced-hunting-event-collection"></a>Colección de eventos de búsqueda avanzada
 
-El nuevo conector Microsoft 365 Defender le permite transmitir eventos de **búsqueda avanzada**, un tipo de datos de eventos sin procesar, desde Microsoft 365 Defender y sus servicios de componentes hacia Azure Sentinel. Actualmente, puede recopilar eventos de [búsqueda avanzada](/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-overview) de [Microsoft Defender para punto de conexión (MDATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) y transmitirlos directamente a tablas creadas específicamente en el área de trabajo de Azure Sentinel. Estas tablas se basan en el mismo esquema que se usa en el portal de Microsoft 365 Defender, lo que le ofrece acceso pleno al conjunto completo de eventos de búsqueda avanzada y le permite hacer lo siguiente:
+El nuevo conector Microsoft 365 Defender le permite transmitir eventos de **búsqueda avanzada**, un tipo de datos de eventos sin procesar, desde Microsoft 365 Defender y sus servicios de componentes hacia Azure Sentinel. Actualmente, puede recopilar eventos de [búsqueda avanzada](/microsoft-365/security/defender/advanced-hunting-overview) de Microsoft Defender para punto de conexión y, *desde octubre de 2021*, de Microsoft Defender para Office 365 y transmitirlos directamente a tablas creadas específicamente en el área de trabajo de Azure Sentinel. Estas tablas se basan en el mismo esquema que se usa en el portal de Microsoft 365 Defender, lo que le ofrece acceso pleno al conjunto completo de eventos de búsqueda avanzada y le permite hacer lo siguiente:
 
-- Copiar fácilmente las consultas existentes de búsqueda avanzada de Microsoft Defender para punto de conexión en Azure Sentinel.
+- Copiar fácilmente las consultas existentes de búsqueda avanzada de Microsoft Defender para punto de conexión u Office 365 en Azure Sentinel.
 
 - Usar los registros de eventos sin procesar con el fin de proporcionar más información para las alertas, la búsqueda y la investigación, y poner en correlación estos eventos con los eventos de otros orígenes de datos en Azure Sentinel.
 
-- Almacenar los registros con mayor periodo de retención, por encima de la retención predeterminada de 30 días de Microsoft Defender para punto de conexión o de Microsoft 365 Defender. Para ello, configure la retención del área de trabajo o configure la retención por tabla en Log Analytics.
+- Almacenar los registros con mayor retención, por encima de la retención predeterminada de 30 días de Microsoft Defender para punto de conexión u Office 365 o Microsoft 365 Defender. Para ello, configure la retención del área de trabajo o configure la retención por tabla en Log Analytics.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

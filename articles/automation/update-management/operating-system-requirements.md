@@ -3,14 +3,14 @@ title: Clientes compatibles con Update Management en Azure Automation
 description: En este artículo se describen los sistemas operativos Windows y Linux compatibles con Update Management en Azure Automation.
 services: automation
 ms.subservice: update-management
-ms.date: 07/14/2021
+ms.date: 10/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: a470a3c8d4ab9ac4f390f7b18133f65f44fed096
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 790544818a207d0a7bb0453f03b890b0dbf5510f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129711636"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129992812"
 ---
 # <a name="operating-systems-supported-by-update-management"></a>Sistemas operativos compatibles con Update Management
 
@@ -32,7 +32,7 @@ Se supone que todos los sistemas operativos son x64. No se admite x86 para ning�
 |CentOS 6, 7 y 8       | Los agentes de Linux requieren acceso a un repositorio de actualización. La aplicación de revisiones basada en la clasificación requiere `yum` para devolver los datos de seguridad que CentOS no tiene en sus versiones RTM. Para más información sobre la aplicación de revisiones basadas en clasificaciones en CentOS, consulte [Actualización de clasificaciones en Linux](view-update-assessments.md#linux).          |
 |Oracle Linux 6.x, 7.x, 8x | Los agentes de Linux requieren acceso a un repositorio de actualización.        |
 |Red Hat Enterprise 6, 7 y 8      | Los agentes de Linux requieren acceso a un repositorio de actualización.        |
-|SUSE Linux Enterprise Server 12, 15, 15.1 y 15.2      | Los agentes de Linux requieren acceso a un repositorio de actualización.     |
+|SUSE Linux Enterprise Server 12, 15 y 15.1      | Los agentes de Linux requieren acceso a un repositorio de actualización.     |
 |Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS y 20.04 LTS       |Los agentes de Linux requieren acceso a un repositorio de actualización.         |
 
 > [!NOTE]

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/14/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: cb19372e5b97a9f508367366faa9ae49d0d11261
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a05935f547815ffba419e2e4302c5197d1907bbf
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128596968"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045282"
 ---
 # <a name="storage-account-overview"></a>Introducción a las cuentas de almacenamiento
 
@@ -31,7 +31,7 @@ En la tabla siguiente se describen los tipos de cuentas de almacenamiento que re
 | Tipo de cuenta de almacenamiento | Servicios de almacenamiento admitidos | Opciones de redundancia | Uso |
 |--|--|--|--|
 | De uso general, estándar, v2 | Blob (incluido Data Lake Storage<sup>1</sup>), Queue y Table Storage, Azure Files  | LRS, GRS, RA-GRS<br /><br />ZRS, GZRS, RA-GZRS<sup>2</sup> | Tipo de cuenta de almacenamiento estándar para blobs, archivos, colas y tablas. Se recomienda para la mayoría de los escenarios con Azure Storage. Tenga en cuenta que si desea compatibilidad con recursos compartidos de archivos NFS en Azure Files, debe usar el tipo de cuenta de recursos compartidos de archivos Prémium. |
-| Blobs en bloques Prémium<sup>3</sup> | Blob Storage (incluido Data Lake Storage<sup>1</sup>) | LRS<br /><br />ZRS<sup>2</sup> | Tipo de cuenta de almacenamiento Prémium para blobs en bloques y blobs en anexos. Recomendado para escenarios con altas tasas de transacciones, que utilizan objetos más pequeños o que requieren una latencia de almacenamiento constantemente baja. [Más información sobre las cargas de trabajo de ejemplo.](../blobs/storage-blob-performance-tiers.md#premium-performance) |
+| Blobs en bloques Prémium<sup>3</sup> | Blob Storage (incluido Data Lake Storage<sup>1</sup>) | LRS<br /><br />ZRS<sup>2</sup> | Tipo de cuenta de almacenamiento Prémium para blobs en bloques y blobs en anexos. Recomendado para escenarios con altas tasas de transacciones, que utilizan objetos más pequeños o que requieren una latencia de almacenamiento constantemente baja. [Más información sobre las cargas de trabajo de ejemplo.](../blobs/storage-blob-block-blob-premium.md) |
 | Recursos compartidos de archivos Prémium<sup>3</sup> | Azure Files | LRS<br /><br />ZRS<sup>2</sup> | Tipo de cuenta de almacenamiento Prémium solo para recursos compartidos de archivos. Se recomienda para empresas y aplicaciones de escalado de alto rendimiento. Use este tipo de cuenta si desea una cuenta de almacenamiento que admita recursos compartidos de archivos SMB y NFS. |
 | Blobs en páginas Premium<sup>3</sup> | Solo blobs en páginas | LRS | Tipo de cuenta de almacenamiento prémium solo para blobs en páginas. [Más información sobre los blobs en páginas y los casos de uso de ejemplo.](../blobs/storage-blob-pageblob-overview.md) |
 
@@ -39,7 +39,7 @@ En la tabla siguiente se describen los tipos de cuentas de almacenamiento que re
 
 <sup>2</sup> El almacenamiento con redundancia de zona (ZRS) y el almacenamiento con redundancia de zona geográfica (GZRS/RA-GZRS) solo están disponibles en cuentas de uso general estándar v2, de blobs en bloques prémium y de recursos compartidos de archivos prémium en determinadas regiones. Para más información, vea [Redundancia de Azure Storage](storage-redundancy.md).
 
-<sup>3</sup> Las cuentas de almacenamiento de un nivel de rendimiento prémium usan discos SSD para una latencia baja y un alto rendimiento.
+<sup>3</sup> Las cuentas de almacenamiento de un nivel de rendimiento Premium usan discos SSD para una latencia baja y un alto rendimiento.
 
 También se admiten cuentas de almacenamiento heredadas. Para obtener más información, consulte [Tipos de cuentas de almacenamiento heredadas](#legacy-storage-account-types).
 

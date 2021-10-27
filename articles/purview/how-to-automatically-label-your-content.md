@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 98c1dba49283cd1f7a9e1c4c748af37b9a4fac02
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 80bb6aac5d6eb80f82372fd90d77fa0c2a082957
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129219389"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166708"
 ---
 # <a name="how-to-automatically-apply-sensitivity-labels-to-your-data-in-azure-purview"></a>Aplicación automática de etiquetas de confidencialidad a los datos en Azure Purview
 
@@ -41,6 +41,12 @@ Los pasos siguientes permiten extender las etiquetas de confidencialidad y habil
 Por ejemplo:
 
 :::image type="content" source="media/how-to-automatically-label-your-content/extend-sensitivity-labels-to-purview-small.png" alt-text="Selección de &quot;Activar&quot; para extender las etiquetas de confidencialidad a Purview" lightbox="media/how-to-automatically-label-your-content/extend-sensitivity-labels-to-purview.png":::
+
+:::image type="content" source="media/how-to-automatically-label-your-content/extend-sensitivity-labels-to-purview-confirmation-small.png" alt-text="Confirmación de la elección para extender las etiquetas de confidencialidad a Purview" lightbox="media/how-to-automatically-label-your-content/extend-sensitivity-labels-to-purview-confirmation.png":::
+
+> [!TIP]
+>Si no ve el botón y no está seguro de si se ha concedido el consentimiento para extender el etiquetado a los recursos de Purview, vea este elemento de [preguntas más frecuentes](sensitivity-labels-frequently-asked-questions.yml#how-can-i-determine-if-consent-has-been-granted-to-extend-labeling-to-purview) sobre cómo determinar el estado.
+>
 
 Después de extender las etiquetas a los recursos de Azure Purview, todas las etiquetas de confidencialidad publicadas están disponibles para su uso en Purview.
 

@@ -1,14 +1,14 @@
 ---
 title: Habilitación del escritorio remoto gráfico para Linux en Azure Lab Services | Microsoft Docs
 description: Obtenga información sobre cómo habilitar Escritorio remoto para máquinas virtuales Linux en un laboratorio en Azure Lab Services.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 604cde661fb566851d3eacdb42dd41f4effded7a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c870faf1f85c192f12739c17809cc9c9088ac1fd
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737683"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180331"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Habilitación del escritorio remoto gráfico para máquinas virtuales Linux en Azure Lab Services
 En este artículo se muestra cómo realizar las tareas siguientes:
@@ -19,21 +19,21 @@ En este artículo se muestra cómo realizar las tareas siguientes:
 ## <a name="set-up-graphical-remote-desktop-solution"></a>Configuración de la solución de escritorio remoto gráfico
 Cuando se crea un laboratorio a partir de una imagen de **Linux**, el acceso **SSH** (Secure Shell) se configura automáticamente para que el instructor pueda conectarse a la máquina virtual de plantilla desde la línea de comandos mediante SSH.  Del mismo modo, cuando se publica la máquina virtual de plantilla, los alumnos también pueden conectarse a las máquinas virtuales mediante SSH.
 
-Para conectarse a una máquina virtual Linux mediante una **GUI** (interfaz gráfica de usuario), se recomienda usar **RDP** o **X2Go**.  Ambas opciones requieren que el instructor realice pasos adicionales de configuración en la máquina virtual de plantilla:
+Para conectarse a una máquina virtual Linux mediante una **GUI** (interfaz gráfica de usuario), se recomienda usar **RDP** o **X2Go**.  En el resto de este artículo se muestran los pasos para configurar RDP o X2Go en una máquina virtual de plantilla de laboratorio.
+
+> [!NOTE]
+> Linux usa una versión de código abierto de RDP denominada [Xrdp](https://en.wikipedia.org/wiki/Xrdp).  Para simplificar, usamos el término RDP en este artículo.
 
 ### <a name="rdp-setup"></a>Configuración de RDP
 Para usar RDP, el instructor debe:
   - Habilitar la conexión a escritorio remoto. Esto es específicamente necesario para abrir el puerto de la máquina virtual para RDP.
   - Instalar el servidor de escritorio remoto con RDP.
-  - Instalar un entorno de escritorio gráfico de Linux, como XFCE o MATE, entre otros.
-
-> [!WARNING]
->  Se recomienda usar un entorno de escritorio gráfico diferente al de [GNOME](https://www.gnome.org/).  Debe evitar la instalación de GNOME en máquinas virtuales de laboratorio porque GNOME tiene un conflicto con el Agente Linux de Azure, que es necesario para que las máquinas virtuales funcionen correctamente en Azure Lab Services.  Como se mencionó anteriormente, se recomienda usar un entorno de escritorio gráfico, como XFCE o MATE.
+  - Instalar un entorno de escritorio gráfico de Linux.
 
 ### <a name="x2go-setup"></a>Configuración de X2Go
 Para usar X2Go, el instructor debe:
 - Instalar el servidor de escritorio remoto X2Go.
-- Instalar un entorno de escritorio gráfico de Linux, como XFCE o MATE, entre otros.
+- Instalar un entorno de escritorio gráfico de Linux.
 
 X2Go usa el mismo puerto que ya está habilitado para SSH.  Como consecuencia, no se requiere ninguna configuración adicional para abrir un puerto en la máquina virtual para X2Go.
 
@@ -57,9 +57,9 @@ Este paso solo es necesario para conectarse mediante RDP.  Si va a usar X2Go, pu
 
 ## <a name="install-rdp-or-x2go"></a>Instalación de RDP o X2Go
 
-Una vez creado el laboratorio, el instructor debe asegurarse de que la máquina virtual de plantilla tenga instalados un entorno de escritorio remoto y un servidor de escritorio remoto.  En primer lugar, los instructores deben conectarse a la máquina virtual de plantilla mediante SSH para instalar los paquetes de:
+Una vez creado el laboratorio, el instructor debe asegurarse de que la máquina virtual de plantilla tenga instalados un entorno de escritorio remoto y un servidor de escritorio remoto.  En primer lugar, el instructor debe conectarse a la máquina virtual de plantilla mediante SSH para instalar los paquetes de:
 - El servidor de escritorio remoto RDP o X2Go.
-- Un entorno de escritorio gráfico, como MATE o XFCE, entre otros.
+- Un entorno de escritorio gráfico, como [GNOME](https://www.gnome.org/), [MATE](https://mate-desktop.org/), [XFCE](https://www.xfce.org/), [Xubuntu](https://xubuntu.org/), etc.
 
 Una vez que se ha configurado esto, el instructor puede conectarse a la máquina virtual de plantilla mediante el cliente de **Escritorio remoto de Microsoft (RDP)** o el cliente de **X2Go**.
 
@@ -75,9 +75,18 @@ Siga los pasos que se indican a continuación para configurar la máquina virtua
  
     ![Cadena de conexión de SSH](./media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
 
-4. Instale RDP o X2Go junto con el entorno de escritorio gráfico de su elección.  Consulte las siguientes instrucciones:
-    - [Instalación y configuración de RDP](../virtual-machines/linux/use-remote-desktop.md)
-    - [Instalación y configuración de X2Go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/X2GoRemoteDesktop)
+4. Finalmente, instale RDP o X2Go junto con el entorno de escritorio gráfico de su elección.
+
+Para obtener un rendimiento óptimo, normalmente se recomienda usar el escritorio gráfico XFCE para que los usuarios se conecten al escritorio mediante X2Go.  Para configurar XFCE con X2Go en Ubuntu, siga estas instrucciones:
+  - [Instalación y configuración de X2Go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/LinuxGraphicalDesktopSetup/XFCE_Xubuntu/ReadMe.md)
+
+En los casos en los que, por el contrario, necesite que los usuarios se conecten al escritorio gráfico con RDP, utilice las siguientes instrucciones para Ubuntu:
+  - [Instalación y configuración de RDP](../virtual-machines/linux/use-remote-desktop.md)
+
+En el caso de los entornos de escritorio gráfico GNOME o MATE, es posible que se produzca un conflicto de red con el agente de Linux de Azure, necesario para que las máquinas virtuales funcionen correctamente en Azure Lab Services.  Por ejemplo, de forma predeterminada, si crea un laboratorio a partir de una imagen de Ubuntu 18.04 LTS que tiene instalado GNOME o MATE, se producirá un error en la creación del laboratorio con el siguiente mensaje de error: **No se pudo establecer la comunicación con el agente de máquina virtual. Compruebe que el agente de máquina virtual está habilitado y funcionando.**  Del mismo modo, este conflicto de red hará que la publicación se bloquee al intentar aprovisionar las máquinas virtuales de los alumnos.
+
+Se recomienda usar las instrucciones siguientes para configurar los escritorios gráficos GNOME o MATE en Ubuntu.  Estas instrucciones incluyen una corrección para el conflicto de red que existe con Ubuntu 18.04 LTS.  También admiten Ubuntu 20.04 LTS y 21.04 LTS:
+ - [Instalación y configuración de GNOME/RDP y MATE/X2go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/LinuxGraphicalDesktopSetup/GNOME_MATE/ReadMe.md)
 
 ## <a name="connect-to-the-template-vm-via-the-gui"></a>Conexión a máquina virtual de plantilla mediante la GUI
 

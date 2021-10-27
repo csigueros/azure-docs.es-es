@@ -4,31 +4,28 @@ titleSuffix: Azure Digital Twins
 description: Descubra cómo configurar una instancia del servicio Azure Digital Twins mediante la CLI.
 author: baanders
 ms.author: baanders
-ms.date: 7/23/2020
+ms.date: 10/13/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6f64791df0c564183900fd75c718ac4e5f9d0976
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.custom: contperf-fy22q2
+ms.openlocfilehash: 615680552bc1854c650477f314c4ab14815dbc01
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114468850"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000240"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configuración de una instancia de Azure Digital Twins y autenticación (CLI)
 
 [!INCLUDE [digital-twins-setup-selector.md](../../includes/digital-twins-setup-selector.md)]
 
-En este artículo se describen los pasos para **configurar una nueva instancia de Azure Digital Twins**, incluidas la creación de la instancia y la configuración de la autenticación. Después de completar este artículo, tendrá una instancia de Azure Digital Twins lista para empezar a programar.
-
-En esta versión de este artículo se realizan los pasos manualmente, uno por uno, mediante la CLI.
-* Para seguir estos pasos manualmente con Azure Portal, consulte la versión del portal de este artículo: [Configuración de una instancia y autenticación (Azure Portal)](how-to-set-up-instance-portal.md).
-* A fin de ejecutar una configuración automatizada con un ejemplo de script de implementación, consulte la versión con scripts de este artículo en [Configuración de una instancia y autenticación (con scripts)](how-to-set-up-instance-scripted.md).
+En este artículo se describen los pasos para **configurar una nueva instancia de Azure Digital Twins**, incluidas la creación de la instancia y la configuración de la autenticación. Después de realizar los pasos de este artículo, tendrá una instancia de Azure Digital Twins lista para empezar a programar.
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="set-up-cloud-shell-session"></a>Configuración de una sesión de Cloud Shell
+### <a name="set-up-cloud-shell-session"></a>Configuración de una sesión de Cloud Shell
 [!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
 
 ## <a name="create-the-azure-digital-twins-instance"></a>Creación de una instancia de Azure Digital Twins
@@ -72,7 +69,7 @@ Ahora tiene lista una instancia de Azure Digital Twins. A continuación, debe pr
 
 Para conceder a un usuario permisos para administrar una instancia de Azure Digital Twins, debe asignarle al rol **Propietario de datos de Azure Digital Twins** dentro de la instancia.
 
-Use el comando siguiente para asignar el rol (debe ser ejecutado por un usuario con [suficientes permisos](#prerequisites-permission-requirements) en la suscripción de Azure). El comando requiere que pase el *nombre principal de usuario* en la cuenta de Azure AD del usuario al que se debe asignar el rol. En la mayoría de los casos, coincidirá con el correo electrónico del usuario en la cuenta de Azure AD.
+Use el comando siguiente para asignar el rol (debe ser ejecutado por un usuario con [suficientes permisos](#prerequisites-permission-requirements) en la suscripción de Azure). El comando requiere que pase el *nombre principal de usuario* en la cuenta de Azure AD del usuario al que se debe asignar el rol. En la mayoría de los casos, este valor coincidirá con el correo electrónico del usuario en la cuenta de Azure AD.
 
 ```azurecli-interactive
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-user-principal-name-of-user-to-assign>" --role "Azure Digital Twins Data Owner"

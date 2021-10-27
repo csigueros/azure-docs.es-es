@@ -1,6 +1,6 @@
 ---
 title: Adición de una audiencia preliminar para una oferta de aplicación de Azure
-description: Agregue una audiencia preliminar para una oferta de aplicación de Azure en el Centro de partners (Azure Marketplace).
+description: Agregue una audiencia preliminar para una oferta de aplicación de Azure en el Centro de partners.
 author: aarathin
 ms.author: aarathin
 ms.reviewer: dannyevers
@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: 74f270922694dd0416638b8d429eca31cebf2609
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: cc0452ca7405803c47d40659e8e629892086e24a
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542874"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065395"
 ---
 # <a name="add-a-preview-audience-for-an-azure-application-offer"></a>Adición de una audiencia preliminar para una oferta de aplicación de Azure
 

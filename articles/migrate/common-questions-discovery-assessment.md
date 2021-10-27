@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: a882e0e1f0a5cf0dd9ea3690453887478319268e
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 0463ea748c4d82cc4c098ddd137a12c70f55afb2
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129538983"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130006078"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Detección, valoración y análisis de dependencias: preguntas comunes
 
@@ -81,6 +81,16 @@ La clasificación de confianza se calcula para las evaluaciones "en función del
 
 - En el caso de las evaluaciones de máquinas virtuales de Azure y AVS, se crearon pocos servidores después de iniciar la detección. Por ejemplo, si va a crear una evaluación para el historial de rendimiento del último mes, pero se crearon algunos servidores en el entorno hace solo una semana. En este caso, los datos de rendimiento de los nuevos servidores no estarán disponibles para todo el período y la clasificación de confianza será baja. [Más información](./concepts-assessment-calculation.md#confidence-ratings-performance-based)
 - En el caso de las evaluaciones de Azure SQL, se crearon algunas instancias de SQL o bases de datos después de que se iniciara la detección. Por ejemplo, si va a crear una evaluación para el historial de rendimiento del último mes, pero se crearon algunas instancias o bases de datos de SQL en el entorno hace solo una semana. En este caso, los datos de rendimiento de los nuevos servidores no estarán disponibles para todo el período y la clasificación de confianza será baja. [Más información](./concepts-azure-sql-assessment-calculation.md#confidence-ratings)
+
+## <a name="why-is-my-ram-utilization-greater-than-100"></a>¿Por qué mi uso de RAM es superior al 100 %?
+
+Por diseño, en Hyper-V si el número máximo de memoria aprovisionada es menor que lo que requiere la máquina virtual, Assessment mostrará que el uso de memoria es superior al 100 %.
+
+## <a name="why-cant-i-see-all-azure-vm-families-in-the-azure-vm-assessment-properties"></a>¿Por qué no puedo ver todas las familias de máquinas virtuales de Azure en las propiedades de evaluación de máquinas virtuales de Azure?
+
+Pueden existir dos razones:
+- Ha elegido una región de Azure donde no se admite una serie determinada. Las familias de máquinas virtuales de Azure que se muestran en las propiedades de evaluación de máquinas virtuales de Azure dependen de la disponibilidad de la serie de máquinas virtuales en la ubicación de Azure elegida, el tipo de almacenamiento y la instancia reservada. 
+- La serie de máquinas virtuales no es compatible con la evaluación y no está en la lógica de consideración de la evaluación. Actualmente no se admiten series de SKU de alto rendimiento, aceleradas y ampliables de la serie B. Estamos intentando mantener actualizada la serie de máquinas virtuales y las mencionadas están en nuestra hoja de ruta. 
 
 ## <a name="the-number-of-azure-vm-or-avs-assessments-on-the-discovery-and-assessment-tool-are-incorrect"></a>El número de evaluaciones de máquinas virtuales de Azure o AVS en la herramienta de detección y evaluación es incorrecto
 

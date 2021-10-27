@@ -5,15 +5,15 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 09/08/2020
+ms.date: 10/12/2021
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a44558f6d0a1351c5f9c61fba6d6686757fd3292
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 2966f77bb070269e11a01303204362d3b6950207
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122014757"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130005869"
 ---
 # <a name="introduction-to-the-sample-app"></a>Introducción a la aplicación de ejemplo
 
@@ -81,14 +81,14 @@ PetClinic se descompone en 4 microservicios principales. y todos ellos son aplic
 
 ## <a name="infrastructure-services-hosted-by-azure-spring-cloud"></a>Servicios de infraestructura que hospeda Azure Spring Cloud
 
-En los sistemas distribuidos hay varios patrones comunes que facilitan el funcionamiento de los principales servicios. Azure Spring Cloud proporciona herramientas que permiten mejorar las aplicaciones de Spring Boot para implementar los siguientes patrones:
+En los sistemas distribuidos hay varios patrones comunes que facilitan el funcionamiento de los principales servicios. Azure Spring Cloud proporciona herramientas que mejoran las aplicaciones de Spring Boot para implementar los siguientes patrones:
 
 * **Servicio de configuración**: Azure Spring Cloud Config es un servicio de configuración centralizado escalable horizontalmente para sistemas distribuidos. Usa un repositorio conectable que actualmente admite el almacenamiento local, Git y Subversion.
 * **Detección de servicios**: permite la detección automática de ubicaciones de red para las instancias de servicio que podrían tener direcciones asignadas dinámicamente debido al escalado automático, los errores y las actualizaciones.
 
 ## <a name="database-configuration"></a>Configuración de la base de datos
 
-En su configuración predeterminada, **PetClinic** usa una base de datos en memoria (HSQLDB) que se rellena en el inicio con datos. Se proporciona una configuración similar para MySql si se necesita una configuración de base de datos persistente. La dependencia de Connector/J, el controlador JDBC de MySQL, ya está incluida en los archivos pom.xml.
+En su configuración predeterminada, **PetClinic** usa una base de datos en memoria (HSQLDB) que se rellena en el inicio con datos. Se proporciona una configuración similar para MySql si se necesita una configuración de base de datos persistente. Una dependencia de Connector/J, el controlador JDBC de MySQL, ya está incluida en los archivos pom.xml.
 
 ## <a name="sample-usage-of-petclinic"></a>Ejemplo de uso de PetClinic
 

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 06/10/2021
+ms.date: 10/18/2021
 ms.author: alkohli
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: 82f8fe0574ec98c71ace2aaddda2d0bc2bc6e99f
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: e2c2bc7b34316b3d18b8f10a4f1be35e7ab52e0a
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112006354"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130175852"
 ---
 # <a name="run-diagnostics-collect-logs-to-troubleshoot-azure-stack-edge-device-issues"></a>Ejecución de diagnósticos, recopilación de registros para solucionar problemas de dispositivos de Azure Stack Edge
 
@@ -27,9 +27,28 @@ En este artículo se describe cómo ejecutar diagnósticos, recopilar un paquete
 
 Para diagnosticar y solucionar los errores de cualquier dispositivo, puede ejecutar las pruebas de diagnóstico. Realice los pasos siguientes en la interfaz de usuario web local del dispositivo para ejecutar las pruebas de diagnóstico.
 
-1. En la interfaz de usuario de web local, vaya a **Solución de problemas > Pruebas de diagnóstico en**. Seleccione la prueba que quiere ejecutar y elija **Ejecutar prueba**. La prueba diagnostica posibles problemas en la red, el dispositivo, el proxy web, la hora o la configuración de la nube. Aparece una notificación que indica que hay algunas pruebas en ejecución en el dispositivo.
+1. En la interfaz de usuario de web local, vaya a **Solución de problemas > Pruebas de diagnóstico en**. Seleccione la prueba que quiere ejecutar y elija **Ejecutar prueba**. Aparece una notificación que indica que hay algunas pruebas en ejecución en el dispositivo. 
 
     ![Seleccionar pruebas ](media/azure-stack-edge-gpu-troubleshoot/run-diag-1.png)
+
+    Esta tabla describe cada una de las pruebas de diagnóstico que se ejecutan en el dispositivo de Azure Stack Edge.
+
+    | Nombre de la prueba                        | Descripción        |
+    |----------------------------------|---------------------------------------------------------------------------------------------------------|
+    | Conectividad de Azure Portal        |  La prueba valida la conectividad del dispositivo de Azure Stack Edge a Azure Portal.      |
+    | Servicios de mantenimiento compatibles con Azure | Varios servicios, como Azure Resource Manager, un proveedor de recursos de proceso, un proveedor de recursos de red y un de almacenamiento de blobs, se ejecutan en el dispositivo. La unión de estos servicios proporciona una pila compatible con Azure. La comprobación de estado garantiza que estos servicios compatibles con Azure están funcionando. |
+    | Certificados                     | La prueba valida la fecha de expiración y el impacto del cambio de dispositivo y dominio DNS en los certificados. La comprobación de estado ha verificado que todos los certificados se importan y se aplican en todos los nodos del dispositivo.                                                                                      |
+    | Entorno de ejecución del proceso perimetral de Azure       | La prueba valida que el servicio de kubernetes de Azure Stack Edge funciona según lo previsto. También se comprueba el estado de la máquina virtual de Kubernetes, así como el estado de los servicios de Kubernetes implementados por el dispositivo.  |
+    | Discos                            |  La prueba valida que todos los discos del dispositivo están conectados y son funcionales. También comprueba que los discos tienen instalado el firmware correcto y que Bitlocker está configurado correctamente. |
+    | Unidades de fuente de alimentación (PSU)                             |  La prueba valida que todas las fuentes de alimentación estén conectadas y funcionen.  |
+    | Interfaces de red               | La prueba valida que todas las interfaces de red están conectadas al dispositivo y que la topología de red para ese sistema es la que se esperaba.    |
+    | Unidades centrales de procesamiento (CPU)                             |  La prueba valida que las CPU del sistema están configuradas correctamente y que están activas y funcionan.    |
+    | Aceleración de proceso             | La prueba valida que la aceleración de proceso funciona según lo previsto en términos de hardware y software. En función del modelo de dispositivo, la aceleración de proceso podría ser una unidad gráfica de procesamiento (GPU), una unidad de procesamiento de visión (VPU) o una matriz de puertas programables de campo (FPGA).   |
+    | Configuración de red                 |  Esta prueba valida la configuración de red del dispositivo.    |
+    | Conectividad de Internet            |  Esta prueba valida la conectividad a Internet del dispositivo.   |
+    | Software del sistema                  |  Esta prueba valida que el almacenamiento del sistema y la pila de software funcionan según lo previsto.   |
+    | Sincronización de hora                        |  Esta prueba valida la configuración de hora del dispositivo y comprueba que el servidor de hora configurado en el dispositivo es válido y accesible.     |
+    | Preparación de actualizaciones de software        |  Esta prueba valida que el servidor de actualizaciones configurado es válido y accesible.   |
  
 2. Al terminar las pruebas, se muestran los resultados. 
 

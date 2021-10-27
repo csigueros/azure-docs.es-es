@@ -3,14 +3,14 @@ title: Habilitar los controladores de interfaz de almacenamiento de contenedores
 description: Aprenda a habilitar los controladores de interfaz de almacenamiento de contenedores (CSI) para discos de Azure y Azure Files en un clúster de Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 08/31/2021
+ms.date: 10/15/2021
 author: palma21
-ms.openlocfilehash: 0f941b612c76811ba750a06036faf48c7359bedd
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 26de8065b5f96b9fc914a824018c7c7a2028b7b9
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429858"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065452"
 ---
 # <a name="enable-container-storage-interface-csi-drivers-for-azure-disks-and-azure-files-on-azure-kubernetes-service-aks"></a>Habilitación de los controladores de Container Storage Interface (CSI) para discos de Azure y Azure Files en Azure Kubernetes Service (AKS)
 
@@ -33,7 +33,7 @@ La compatibilidad con el controlador de almacenamiento CSI en AKS permite el uso
 - La versión mínima secundaria de Kubernetes compatible con los controladores CSI es la 1.17.
 - La clase de almacenamiento predeterminada será `managed-csi`.
 
-## <a name="create-a-new-cluster-that-can-use-csi-storage-drivers"></a>Creación de un clúster que pueda usar controladores de almacenamiento CSI
+## <a name="install-csi-storage-drivers-on-a-new-cluster-with-version--121"></a>Instalación de controladores de almacenamiento CSI en un nuevo clúster con la versión < 1.21
 
 Cree un clúster que pueda usar controladores de almacenamiento CSI para discos de Azure y Azure Files mediante los siguientes comandos de la CLI. Use la marca `--aks-custom-headers` para establecer la característica `EnableAzureDiskFileCSIDriver`.
 
@@ -51,7 +51,7 @@ Cree el clúster de AKS con compatibilidad con controladores de almacenamiento C
 az aks create -g MyResourceGroup -n MyManagedCluster --network-plugin azure  --aks-custom-headers EnableAzureDiskFileCSIDriver=true
 ```
 
-Si desea crear clústeres en los controladores de almacenamiento en árbol en lugar de los controladores de almacenamiento CSI, puede hacerlo omitiendo el parámetro personalizado `--aks-custom-headers`.
+Si desea crear clústeres en los controladores de almacenamiento en árbol en lugar de los controladores de almacenamiento CSI, puede hacerlo omitiendo el parámetro personalizado `--aks-custom-headers`. A partir de la versión 1.21 de Kubernetes, Kubernetes solo usará controladores CSI de forma predeterminada.
 
 
 Compruebe cuántos volúmenes basados en disco de Azure puede conectar a este nodo mediante la ejecución de:
@@ -65,6 +65,10 @@ aks-nodepool1-25371499-vmss000002
 $ echo $(kubectl get CSINode <NODE NAME> -o jsonpath="{.spec.drivers[1].allocatable.count}")
 8
 ```
+
+## <a name="install-csi-storage-drivers-on-an-existing-cluster-with-version--121"></a>Instalación de controladores de almacenamiento CSI en un clúster existente con la versión < 1.21
+ - [Configuración del controlador CSI de Azure Disk en el clúster de AKS](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/docs/install-driver-on-aks.md)
+ - [Configuración del controlador CSI de Azure Files en el clúster de AKS](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/docs/install-driver-on-aks.md)
 
 ## <a name="migrating-custom-in-tree-storage-classes-to-csi"></a>Migración de clases de almacenamiento en árbol personalizadas a CSI
 Si ha creado clases de almacenamiento personalizadas basadas en los controladores de almacenamiento en árbol, deberán migrarse cuando haya actualizado el clúster a la versión 1.21.x.

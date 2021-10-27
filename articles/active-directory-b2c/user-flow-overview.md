@@ -1,23 +1,23 @@
 ---
-title: Flujos de usuario y directivas personalizadas en Azure Active Directory B2C | Microsoft Docs
+title: Flujos de usuario y directivas personalizadas en Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Obtenga más información sobre los flujos de usuario integrados y el marco extensible de directivas personalizadas de Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/08/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: b663904df2d116bdfa92a0dcef4b05c0806fec14
-ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+ms.openlocfilehash: 7e2b1e02f63257a74d66a70531cfbf7ef56a1c65
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112199149"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130043916"
 ---
 # <a name="user-flows-and-custom-policies-overview"></a>Información general sobre los flujos de usuario y las directivas personalizadas
 

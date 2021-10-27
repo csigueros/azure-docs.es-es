@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.topic: reference
 ms.date: 08/12/2021
 ms.author: bagol
-ms.openlocfilehash: 3886d26c571246f42c54bb9aab45bae32e05b750
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: a78ec3828e0bbcf6c864f346d632ee70ad4a7777
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129362447"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130134172"
 ---
 # <a name="find-your-azure-sentinel-data-connector"></a>Búsqueda del conector de datos de Azure Sentinel
 
@@ -301,7 +301,7 @@ El método de **configuración de diagnóstico** envía los mismos datos que el 
 Estas son algunas de las mejoras clave resultantes del pasaje a la canalización de configuración de diagnóstico:
 - Se mejoró la latencia de ingesta (ingesta de eventos de entre 2 y 3 minutos desde la aparición en lugar de 15 o 20 minutos).
 - Se mejoró la confiabilidad.
-- Mejor rendimiento.
+- Rendimiento mejorado.
 - Compatibilidad con todas las categorías de eventos registrados por el servicio Registro de actividad (el mecanismo heredado solo admite un subconjunto; por ejemplo, no admite eventos de Service Health).
 - Administración a gran escala con Azure Policy.
 
@@ -978,7 +978,7 @@ Agregue http://localhost:8081/ en **Authorized redirect URIs** (URI de redirecci
 | --- | --- |
 | **Método de ingesta de datos** | **Integración entre servicios de Azure: <br>[Conexión de datos de Microsoft 365 Defender a Azure Sentinel](connect-microsoft-365-defender.md)** (Artículo de conector principal) |
 | **Requisitos previos de licencia/<br>Información de costos** | [Licencia válida para Microsoft 365 Defender](/microsoft-365/security/mtp/prerequisites)
-| **Tabla de Log Analytics** | SecurityAlert<br>SecurityIncident<br>DeviceEvents<br>DeviceFileEvents<br>DeviceImageLoadEvents<br>DeviceInfo<br>DeviceLogonEvents<br>DeviceNetworkEvents<br>DeviceNetworkInfo<br>DeviceProcessEvents<br>DeviceRegistryEvents<br>DeviceFileCertificateInfo |
+| **Tabla de Log Analytics** | **Alertas:**<br>SecurityAlert<br>SecurityIncident<br>**Eventos de Defender para punto de conexión:**<br>DeviceEvents<br>DeviceFileEvents<br>DeviceImageLoadEvents<br>DeviceInfo<br>DeviceLogonEvents<br>DeviceNetworkEvents<br>DeviceNetworkInfo<br>DeviceProcessEvents<br>DeviceRegistryEvents<br>DeviceFileCertificateInfo<br>**Eventos de Defender para Office 365:**<br>EmailAttachmentInfo<br>EmailUrlInfo<br>EmailEvents<br>EmailPostDeliveryEvents |
 | **Compatible con** | Microsoft |
 | | |
 

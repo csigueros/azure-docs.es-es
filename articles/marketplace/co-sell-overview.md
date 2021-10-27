@@ -8,12 +8,12 @@ author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
 ms.date: 07/13/2021
-ms.openlocfilehash: 8e705c95f875428c5089416ed3f49d90a474def9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: eccc66085ae8a3df93315054a1acdea994310d28
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121731202"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065528"
 ---
 # <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Información general sobre la venta conjunta de los equipos de ventas de Microsoft y los asociados
 
@@ -72,7 +72,7 @@ El estado Venta conjunta de propiedad intelectual de Azure con incentivos se pue
 
 El estado de venta conjunta con incentivos de Business Applications (Estándar y Premium) puede aplicarse a los siguientes tipos de oferta:
 
-- Dynamics 365 for Customer Engagement y Power Apps
+- Dynamics 365 for Customer Engagement & Power Apps
 - Dynamics 365 for Operations
 
 Las ofertas que logran el estado _Venta conjunta de propiedad intelectual de Azure con incentivos_ obtienen estas ventajas adicionales de Marketplace:

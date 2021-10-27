@@ -2,20 +2,20 @@
 title: 'Preguntas más frecuentes: credenciales verificables de Azure (versión preliminar)'
 description: Encuentre respuestas a preguntas frecuentes sobre las credenciales verificables.
 author: barclayn
-manager: davba
+manager: karenh444
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: c9253ce81b64b45d0ab8a72605eeba4c0d49f3f6
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 760f90a766eca28e3d6cc009e3370192a9bd5285
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110457897"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994810"
 ---
-# <a name="frequently-asked-questions-faq"></a>Preguntas más frecuentes
+# <a name="frequently-asked-questions-faq-preview"></a>Preguntas más frecuentes (P+F): (versión preliminar)
 
 Esta página contiene las preguntas más frecuentes sobre las credenciales verificables y las identidades descentralizadas. Las preguntas están organizadas en las siguientes secciones.
 

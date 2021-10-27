@@ -5,15 +5,15 @@ services: automation
 ms.subservice: ''
 author: mgoedtel
 ms.author: magoedte
-ms.date: 09/24/2021
+ms.date: 10/18/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 824925f4c3616b91f10fc3bae4bdaa1f5a0bb5ee
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 623e36b4efc3a0ecd0a7a5d7f7097e1f5aa64788
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129277164"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179229"
 ---
 # <a name="troubleshoot-agent-based-hybrid-runbook-worker-issues-in-automation"></a>Solución de problemas de Hybrid Runbook Worker basado en agentes en Automation
 
@@ -50,6 +50,16 @@ Los equipos que ejecutan Hybrid Runbook Worker deben cumplir los requisitos mín
 Confirme que el equipo que ejecutará la característica Hybrid Runbook Worker cumple los requisitos mínimos de hardware. Si es así, supervise el uso de la CPU y memoria para determinar las posibles correlaciones entre el rendimiento de los procesos de Hybrid Runbook Worker y Windows. Cualquier presión de CPU o memoria puede indicar la necesidad de actualizar los recursos. También puede seleccionar otro recurso de proceso que pueda admitir los requisitos mínimos y escalarse cuando las demandas de carga de trabajo indiquen que es necesario un aumento.
 
 Compruebe el registro de eventos **Microsoft-SMA** en busca de un evento que corresponda a la descripción `Win32 Process Exited with code [4294967295]`. La causa de este error es que no ha configurado la autenticación en sus runbooks o no ha especificado las credenciales de ejecución para el grupo de Hybrid Runbook Worker. Para confirmar que ha configurado correctamente la autenticación para sus runbooks, revise los permisos de runbook en [Ejecución de runbooks en Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
+
+### <a name="scenario-runbooks-fail-with-gateway-error"></a>Escenario: error de puerta de enlace de runbooks
+
+#### <a name="issue"></a>Incidencia
+
+Se devolvió un error de actualización de los trabajos de Hybrid Runbook Worker al comunicarse mediante un servidor de puerta de enlace de Log Analytics. El error es similar al siguiente: `Spool operation id does not exist (spool ID): see attachment for job details and exact exception messages.`
+
+#### <a name="resolution"></a>Resolución
+
+Compruebe que el servidor de puerta de enlace de Log Analytics está en línea y es accesible desde la máquina que hospeda el rol de Hybrid Runbook Worker. Para obtener información adicional de solución de problemas, consulte [Solución de problemas de puerta de enlace de Log Analytics](../../azure-monitor/agents/gateway.md#troubleshooting).
 
 ### <a name="scenario-event-15011-in-the-hybrid-runbook-worker"></a><a name="cannot-connect-signalr"></a>Escenario: evento 15011 en la instancia de Hybrid Runbook Worker
 

@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: quickstart
 ms.date: 06/21/2021
 ms.author: mbaldwin
-ms.openlocfilehash: f47ce2ea3d805bfc5e5cdd4fd328195c12fe516d
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 13eba035fc81b6ca26ccf56cefc8c955d9af972e
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122821593"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132234"
 ---
 # <a name="quickstart-provision-and-activate-a-managed-hsm-using-azure-cli"></a>Inicio rápido: Aprovisionamiento y activación de un HSM administrado mediante la CLI de Azure
 
@@ -41,10 +41,10 @@ az login
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. En el ejemplo siguiente, se crea un grupo de recursos denominado *ContosoResourceGroup* en la ubicación *eastus2*.
+Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. En el ejemplo siguiente, se crea un grupo de recursos llamado *ContosoResourceGroup* en la ubicación *centralus*.
 
 ```azurecli-interactive
-az group create --name "ContosoResourceGroup" --location eastus2
+az group create --name "ContosoResourceGroup" --location centralus
 ```
 
 ## <a name="create-a-managed-hsm"></a>Creación de un HSM administrado
@@ -62,11 +62,11 @@ Para crear un recurso de Managed HSM, es preciso que proporcione lo siguiente:
 - Una ubicación de Azure.
 - Una lista de administradores iniciales.
 
-En el ejemplo siguiente se crea un HSM denominado **ContosoMHSM**, en el grupo de recursos **ContosoResourceGroup**, que reside en la ubicación **Este de EE. UU. 2**, con **el usuario actual con sesión iniciada** como único administrador y un **período de retención de 28 días** para la eliminación temporal. Más información sobre la [Eliminación temporal de HSM administrado](soft-delete-overview.md).
+En el ejemplo siguiente se crea un dispositivo HSM llamado **ContosoMHSM**, en el grupo de recursos **ContosoResourceGroup**, que reside en la ubicación **Centro de EE. UU.** , con **el usuario actual que ha iniciado la sesión** como único administrador y un **período de retención de 28 días** para la eliminación temporal. Más información sobre la [Eliminación temporal de HSM administrado](soft-delete-overview.md).
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query objectId -o tsv)
-az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGroup" --location "East US 2" --administrators $oid --retention-days 28
+az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGroup" --location "centralus" --administrators $oid --retention-days 28
 ```
 
 > [!NOTE]

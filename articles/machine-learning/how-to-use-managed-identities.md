@@ -1,5 +1,5 @@
 ---
-title: Uso de identidades administradas para el control de acceso (versión preliminar)
+title: Uso de identidades administradas para el control de acceso
 titleSuffix: Azure Machine Learning
 description: Aprenda a usar identidades administradas para controlar el acceso a los recursos de Azure desde el área de trabajo de Azure Machine Learning.
 services: machine-learning
@@ -9,15 +9,15 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.topic: how-to
-ms.date: 10/22/2020
-ms.openlocfilehash: 37f0cff74b3918cc81b099149fff485dba405939
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.date: 10/13/2021
+ms.openlocfilehash: 38d9487c5f0cd31c732a855de1008bae74df7e3f
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424073"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130163257"
 ---
-# <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Utilice identidades administradas con Azure Machine Learning (versión preliminar)
+# <a name="use-managed-identities-with-azure-machine-learning"></a>Uso de identidades administradas con Azure Machine Learning
 
 Las [identidades administradas](../active-directory/managed-identities-azure-resources/overview.md) permiten configurar el área de trabajo con los *permisos mínimos necesarios para acceder a los recursos*. 
 
@@ -30,9 +30,6 @@ En este artículo, aprenderá a usar las identidades administradas para:
  * Configurar y usar ACR para el área de trabajo de Azure Machine Learning sin tener que habilitar el acceso de usuario administrador a ACR.
  * Acceder a una instancia privada de ACR externa al área de trabajo para extraer las imágenes base para el entrenamiento o la inferencia.
  * Cree un área de trabajo con una identidad administrada asignada por el usuario para acceder a los recursos asociados.
-
-> [!IMPORTANT]
-> El uso de identidades administradas para controlar el acceso a los recursos con Azure Machine Learning está actualmente en versión preliminar. La funcionalidad de versión preliminar se proporciona "tal cual", sin ninguna garantía de soporte técnico ni contrato de nivel de servicio. Para obtener más información, consulte [Condiciones de uso complementarias de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -255,7 +252,7 @@ ws = Workspace.create(name="workspace name",
     primary_user_assigned_identity="managed identity ARM ID")
 ```
 
-También puede usar [una plantilla de Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced) para crear un área de trabajo con una identidad administrada asignada por el usuario.
+También puede usar [una plantilla de Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/) para crear un área de trabajo con una identidad administrada asignada por el usuario.
 
 > [!IMPORTANT]
 > Si aporta sus propios recursos asociados, en lugar de crearlos con el servicio Azure Machine Learning, debe conceder los roles de identidad administrados sobre esos recursos. Use la [plantilla de Resource Manager de asignación de roles](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-dependencies-role-assignment) para hacer las asignaciones.
@@ -267,4 +264,6 @@ Si ya tiene un área de trabajo, puede actualizarla de una identidad administrad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información en [Seguridad de empresa para Azure Machine Learning](concept-enterprise-security.md).
+* Más información sobre [seguridad de empresa en Azure Machine Learning](concept-enterprise-security.md)
+* Más información sobre el [acceso a datos basado en identidades](how-to-identity-based-data-access.md)
+* Más información sobre [identidades administradas en clúster de proceso](how-to-create-attach-compute-cluster.md).

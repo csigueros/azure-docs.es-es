@@ -113,6 +113,16 @@
           href: active-directory-architecture.md
         - name: "Integración de todas sus aplicaciones en Azure\_AD"
           href: five-steps-to-full-application-integration-with-azure-ad.md
+        - name: Administración de usuarios multiinquilino
+          items:
+            - name: Introducción a la administración de usuarios multiinquilino
+              href: multi-tenant-user-management-introduction.md
+            - name: Escenarios frecuentes
+              href: multi-tenant-user-management-scenarios.md
+            - name: Consideraciones comunes
+              href: multi-tenant-common-considerations.md
+            - name: Soluciones comunes
+              href: multi-tenant-common-solutions.md
         - name: Autenticación y aprovisionamiento de protocolos
           items:
             - name: Introducción

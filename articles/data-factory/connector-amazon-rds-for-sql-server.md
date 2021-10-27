@@ -1,22 +1,22 @@
 ---
-title: Copia y transformación de datos de Amazon RDS for SQL Server
+title: Copia de datos de Amazon RDS para SQL Server
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Obtenga información sobre cómo copiar y transformar datos de la base de datos de Amazon RDS for SQL Server en un entorno local o en una máquina virtual de Azure mediante canalizaciones de Azure Data Factory o Azure Synapse Analytics.
+description: Obtenga información sobre cómo copiar datos de la base de datos de Amazon RDS for SQL Server en un entorno local o en una máquina virtual de Azure mediante canalizaciones de Azure Data Factory o Azure Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/26/2021
-ms.openlocfilehash: 8c884262620784ef49a011e7f7398a0d44427b33
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.date: 10/18/2021
+ms.openlocfilehash: b75a59d758c5447cec0eb66855866e1349fbd085
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129084218"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176249"
 ---
-# <a name="copy-and-transform-data-from-amazon-rds-for-sql-server-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Copia y transformación de datos de Amazon RDS for SQL Server mediante Azure Data Factory o Azure Synapse Analytics
+# <a name="copy-data-from-amazon-rds-for-sql-server-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Copia de datos desde Amazon RDS para SQL Server mediante Azure Data Factory o Azure Synapse Analytics
 
 En este artículo se resume el uso de la actividad de copia en canalizaciones de Azure Data Factory y Azure Synapse para copiar datos de la base de datos de Amazon RDS for SQL Server. Para obtener más información, lea el artículo de introducción para [Azure Data Factory](introduction.md) o [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 

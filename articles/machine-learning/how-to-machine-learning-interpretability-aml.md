@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: how-to
 ms.custom: devx-track-python, responsible-ml
-ms.openlocfilehash: 803a70b01a39d20080a9724b6ab1780c9a81d354
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 878af265e99c1d6ea431f027e19a6b930eb1ded6
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129425418"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001454"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Uso del paquete de interpretación para explicar los modelos de Machine Learning y las predicciones en Python (versión preliminar)
 
@@ -565,6 +565,15 @@ Puede implementar el explicador junto con el modelo original y usarlo en el mome
 ## <a name="troubleshooting"></a>Solución de problemas
 
 * **No se admiten datos dispersos**: el panel de explicación del modelo se bloquea o ralentiza mucho si hay un gran número de características, por lo que actualmente no se admite el formato de datos dispersos. Además, se producirán problemas de memoria generales cuando haya grandes conjuntos de datos y un gran número de características. 
+* **Matriz de características de explicaciones admitidas**
+
+Pestaña Explicación admitida | Características sin procesar (densas) | Características sin procesar (dispersas) | Características diseñadas (densas) | Características diseñadas (dispersas)
+:----- | :--- | :--- | :---- | :---- |
+Rendimiento del modelo   | Compatible (sin previsión) | Compatible (sin previsión)  | Compatible | Compatible |
+Explorador del conjunto de datos  | Compatible (sin previsión)   | No compatible. Puesto que los datos dispersos no se cargan y la interfaz de usuario tiene problemas para representar datos dispersos. | Compatible | No compatible. Puesto que los datos dispersos no se cargan y la interfaz de usuario tiene problemas para representar datos dispersos. | 
+ Agregación de la importancia de la característica | Compatible | Compatible | Compatible | Compatible |
+ Importancia de una característica individual| Compatible (sin previsión)   | No compatible. Puesto que los datos dispersos no se cargan y la interfaz de usuario tiene problemas para representar datos dispersos. | Compatible | No compatible. Puesto que los datos dispersos no se cargan y la interfaz de usuario tiene problemas para representar datos dispersos. | 
+
 
 * **No se admiten los modelos de previsión con las explicaciones del modelo**: la interpretabilidad, la mejor explicación del modelo, no está disponible para los experimentos de previsión de AutoML, que recomiendan los algoritmos siguientes como el mejor modelo: TCNForecaster, AutoArima, Prophet, ExponentialSmoothing, Average, Naive, Seasonal Average y Seasonal Naive. Los modelos de regresión de previsión de AutoML admiten explicaciones. Sin embargo, en el panel de la explicación, no se admite la pestaña de "importancia de la característica individual" para la previsión debido a la complejidad de sus canalizaciones de datos.
 

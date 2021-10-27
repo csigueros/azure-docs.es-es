@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/18/2021
 ms.custom: references_regions
 ms.author: memildin
-ms.openlocfilehash: 21c453da9a2e84e4e936b92f04748854cbd928d3
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 4bb46ed8146067c44f2d4a602f3c8b1831340d7a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129710753"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003541"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de características para las máquinas
 
@@ -93,8 +93,13 @@ Para más información sobre cuándo se generan recomendaciones para cada una de
 | Symantec v12.1.1100+                                      | Windows Server (todos)                                   | No                           | Sí                       |
 | McAfee v10 o posterior                                               | Windows Server (todos)                                   | No                           | Sí                       |
 | McAfee v10 o posterior                                               | Linux (versión preliminar)                                        | No                           | Sí                       |
+| Microsoft Defender para punto de conexión para Linux<sup>[1](#footnote1)</sup>  | Linux (versión preliminar)                                        | Mediante extensión                | No                        |  
 | Sophos V9+                                                | Linux (versión preliminar)                                        | No                           | Sí                       |
 |                                                           |                                                        |                              |                           |
+
+<sup><a name="footnote1" /></a>1</sup> No basta con tener Microsoft Defender para punto de conexión en la máquina Linux: la máquina solo aparecerá como correcta si el componente de AV está activo.
+De forma predeterminada, el componente de AV está **deshabilitado** para evitar conflictos con otro software de AV.
+
 
 
 
@@ -147,7 +152,7 @@ Para más información sobre cuándo se generan recomendaciones para cada una de
 
 <sup><a name="footnote3" /></a>3</sup> Requiere Azure Defender para registros de contenedor.
 
-<sup><a name="footnote4" /></a>4</sup> Parcialmente en disponibilidad general: la compatibilidad con clústeres habilitados para Azure Arc está en versión preliminar pública y no está disponible en Azure Government.
+<sup><a name="footnote4" /></a>4</sup> Parcialmente en disponibilidad general: la compatibilidad con clústeres habilitados para Azure Arc está en versión preliminar pública y no está disponible en Azure Government.
 
 <sup><a name="footnote5" /></a>5</sup> Requiere Azure Defender para Kubernetes.
 

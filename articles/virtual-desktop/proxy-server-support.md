@@ -7,12 +7,12 @@ ms.date: 04/27/2021
 ms.author: helohr
 ms.reviewer: denisgun
 manager: femila
-ms.openlocfilehash: 41ee917602ed67af40f3244ad7215cae4d3a93c8
-ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
+ms.openlocfilehash: d90f6106d94777c58418a209097d84fe69458d06
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113032464"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177581"
 ---
 # <a name="proxy-server-guidelines-for-azure-virtual-desktop"></a>Directrices del servidor proxy en Azure Virtual Desktop
 
@@ -36,9 +36,9 @@ Si las directivas de red y seguridad de la organización requieren servidores pr
 
 - Etiquetas de servicio de Azure en Azure Firewall
 - Omisión del servidor proxy mediante los archivos de configuración automática de proxy (.PAC)
-- Lista de omisión en la configuración del proxy local 
-- Uso de servidores proxy para la configuración por usuario 
-- Uso de RDP Shortpath para la conexión RDP mientras se mantiene el tráfico de servicio a través del proxy 
+- Lista de omisión en la configuración del proxy local
+- Uso de servidores proxy para la configuración por usuario
+- Uso de RDP Shortpath para la conexión RDP mientras se mantiene el tráfico de servicio a través del proxy
 
 ## <a name="recommendations-for-using-proxy-servers"></a>Recomendaciones para usar servidores proxy
 
@@ -48,9 +48,9 @@ Algunas organizaciones requieren que todo el tráfico de usuario pase a través 
 
 Cuando se usa un servidor proxy, se controla toda la comunicación con la infraestructura de Azure Virtual Desktop y se realiza la resolución DNS y el enrutamiento Anycast a la red de Azure Front Door. Si los servidores proxy están distantes o distribuidos en una zona geográfica de Azure, la resolución geográfica será menos precisa. Una resolución geográfica menos precisa significa que las conexiones se enrutarán a un clúster de Azure Virtual Desktop remoto. Para evitar este problema, use solo servidores proxy que estén geográficamente cerca de su clúster de Azure Virtual Desktop.
 
-### <a name="use-rdp-shortpath-for-desktop-connectivity"></a>Uso de RDP Shortpath para la conectividad de escritorio
+### <a name="use-rdp-shortpath-for-managed-networks-for-desktop-connectivity"></a>Uso de RDP Shortpath para redes administradas para la conectividad de escritorio
 
-Al habilitar RDP Shortpath, los datos RDP omitirán el servidor proxy, si es posible. Omitir el servidor proxy garantiza un enrutamiento óptimo al usar el transporte UDP. Otro tipo de tráfico de Azure Virtual Desktop, como la intermediación, la orquestación y el diagnóstico seguirán pasando por el servidor proxy. 
+Al habilitar RDP Shortpath para redes administradas, los datos RDP omitirán el servidor proxy, si es posible. Omitir el servidor proxy garantiza un enrutamiento óptimo al usar el transporte UDP. Otro tipo de tráfico de Azure Virtual Desktop, como la intermediación, la orquestación y el diagnóstico seguirán pasando por el servidor proxy.
 
 ### <a name="dont-use-ssl-termination-on-the-proxy-server"></a>No use la terminación SSL en el servidor proxy
 

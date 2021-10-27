@@ -1,43 +1,68 @@
 ---
 title: Conceptos de proyección
 titleSuffix: Azure Cognitive Search
-description: Dé forma a los datos enriquecidos de la canalización de indexación de enriquecimiento con IA y guárdelos en un almacén de conocimiento para usarlos en escenarios que no sean la búsqueda de texto completo.
+description: Se presentan los conceptos de proyección y los procedimientos recomendados. Si va a crear un almacén de conocimiento en Cognitive Search, las proyecciones determinarán el tipo, la cantidad y la composición de los objetos de Azure Storage.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/08/2021
-ms.openlocfilehash: 841cd106f1c54e1c35d3b2785eb942842d77f825
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.date: 10/15/2021
+ms.openlocfilehash: fe7353f8b4021e4cacb6037f65fcf9f22520f8ae
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129706757"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130129460"
 ---
 # <a name="knowledge-store-projections-in-azure-cognitive-search"></a>"Proyecciones" en un almacén de conocimiento en Azure Cognitive Search
 
-Las proyecciones son el elemento de una definición de [almacén de conocimiento](knowledge-store-concept-intro.md) que especifica la expresión física de los datos en Azure Storage. Una definición de proyección determina el número y el tipo de estructuras de datos en Azure Storage.
+Las proyecciones son las tablas, objetos y archivos físicos de un [**almacén de conocimiento**](knowledge-store-concept-intro.md) que aceptan contenido de una canalización de enriquecimiento con IA de Cognitive Search. Si va a crear un almacén de conocimiento, la mayor parte del trabajo consiste en definir y dar forma a las proyecciones.
 
-## <a name="types-of-data-structures"></a>Tipos de estructuras de datos
+En este artículo se presentan los conceptos de proyección y flujo de trabajo para que tenga algún conocimiento antes de empezar a codificar.
 
-Un almacén de conocimiento es una construcción lógica que se expresa físicamente en Azure Storage como tablas, objetos JSON o archivos de imagen binarios.
+Las proyecciones se definen en los conjuntos de aptitudes de Cognitive Search, pero los resultados finales son las proyecciones de archivos de imagen, objetos y tablas de Azure Storage.
+
+:::image type="content" source="media/knowledge-store-concept-intro/projections-azure-storage.png" alt-text="Proyecciones expresadas en Azure Storage" border="true":::
+
+## <a name="types-of-projections-and-usage"></a>Tipos de proyecciones y uso
+
+Un almacén de conocimiento es una construcción lógica que se expresa físicamente como una colección dispersa de tablas, objetos JSON o archivos de imagen binarios en Azure Storage.
 
 | Proyección | Storage | Uso |
 |------------|---------|-------|
-| Tablas | Azure Table Storage | Se usa para los datos que se representan mejor como filas y columnas. Las proyecciones de tabla permiten definir una forma o proyección esquematizadas. Solo los objetos JSON válidos se pueden proyectar como tablas. Puesto que un documento enriquecido puede contener nodos que no son objetos JSON con nombre, agregará una [aptitud Conformador o usará la forma insertada](knowledge-store-projection-shape.md) en una aptitud para crear un objeto JSON válido. |
-| Objetos | Azure Blob Storage | Se usa cuando necesita una representación JSON de los datos y enriquecimientos. Al igual que con las proyecciones de tabla, solo los objetos JSON válidos se pueden proyectar como objetos y el modelado puede ayudarle a hacerlo. |
-| Archivos | Azure Blob Storage | Se usa cuando necesita guardar archivos de imagen binarios normalizados. |
+| [Tablas](knowledge-store-projections-examples.md#define-a-table-projection) | Azure Table Storage | Se usa para los datos que se representan mejor como filas y columnas o cuando se necesitan representaciones detalladas de los datos (por ejemplo, como tramas de datos). Las proyecciones de tabla permiten definir una forma esquematizada, mediante una [aptitud Conformador o usar el modelado insertado](knowledge-store-projection-shape.md) para especificar columnas y filas. Puede organizar el contenido en varias tablas en función de los principios de normalización conocidos. Las tablas que están en el mismo grupo se relacionan automáticamente. |
+| [Objects](knowledge-store-projections-examples.md#define-an-object-projection) | Azure Blob Storage | Se usa cuando se necesita la representación JSON completa de los datos y los enriquecimientos en un documento JSON. Al igual que con las proyecciones de tabla, solo los objetos JSON válidos se pueden proyectar como objetos y el modelado puede ayudarle a hacerlo. |
+| [Archivos](knowledge-store-projections-examples.md#define-a-file-projection) | Azure Blob Storage | Se usa cuando necesita guardar archivos de imagen binarios normalizados. |
 
-Puede definir varias proyecciones de los datos a medida que se enriquecen. Estas distintas proyecciones resultan útiles cuando quiere que los mismos datos tengan formas diferentes para casos de uso individuales.
+## <a name="projection-definition"></a>Definición de proyección
 
-## <a name="basic-definition"></a>Definición básica
+Las proyecciones se especifican en la propiedad "knowledgeStore" de un [conjunto de aptitudes](/rest/api/searchservice/create-skillset). Las definiciones de proyección se usan durante la invocación del indizador para crear y cargar objetos en Azure Storage con contenido enriquecido. Si no está familiarizado con estos conceptos, empiece por el [enriquecimiento con IA](cognitive-search-concept-intro.md) para obtener una introducción.
 
-Las proyecciones son una matriz de colecciones complejas bajo una definición `knowledgeStore` en un [objeto de conjunto de aptitudes](/rest/api/searchservice/create-skillset). 
+En el ejemplo siguiente se muestra la ubicación de las proyecciones en knowledgeStore y la construcción básica. El nombre, el tipo y el origen de contenido constituyen una definición de proyección.
 
-Cada conjunto de tablas, objetos y archivos es un *grupo de proyectos* y puede tener varios grupos si los requisitos de almacenamiento incluyen la compatibilidad con diferentes herramientas y escenarios. Dentro de un único grupo, puede tener múltiples tablas, objetos y archivos. 
+```json
+"knowledgeStore" : {
+    "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
+    "projections": [
+      {
+        "tables": [
+          { "tableName": "ks-museums-main", "generatedKeyName": "ID", "source": "/document/tableprojection" },
+          { "tableName": "ks-museumEntities", "generatedKeyName": "ID","source": "/document/tableprojection/Entities/*" }
+        ],
+        "objects": [
+          { "storageContainer": "ks-museums", "generatedKeyName": "ID", "source": "/document/objectprojection" }
+        ],
+        "files": [ ]
+      }
+    ]
+```
 
-Normalmente solo se usa un grupo, pero en el ejemplo siguiente se muestran dos para reforzar la idea de los grupos múltiples.
+## <a name="projection-groups"></a>Grupos de proyecciones
+
+Las proyecciones son una matriz de colecciones complejas, lo que significa que puede especificar varios conjuntos de cada tipo. Es habitual usar un solo grupo de proyección, pero puede usar varios si los requisitos de almacenamiento incluyen la compatibilidad con diferentes herramientas y escenarios. Por ejemplo, puede usar un grupo para diseñar y depurar un conjunto de aptitudes, mientras que un segundo conjunto recopila la salida usada para una aplicación en línea y un tercero se usa para las cargas de trabajo de ciencia de datos.
+
+La misma salida del conjunto de aptitudes se usa para rellenar todos los grupos en las proyecciones. El ejemplo siguiente muestra dos.
 
 ```json
 "knowledgeStore" : {
@@ -57,137 +82,22 @@ Normalmente solo se usa un grupo, pero en el ejemplo siguiente se muestran dos p
 }
 ```
 
-## <a name="data-isolation-and-relatedness"></a>Aislamiento de datos y relación
-
-Tener varios conjuntos de combinaciones de tabla-objeto-archivo es útil para la compatibilidad de distintos escenarios. Puede usar un conjunto para diseñar y depurar un conjunto de aptitudes, y capturar la salida para un examen posterior, mientras que un segundo conjunto recopila la salida usada para una aplicación en línea y un tercero se usa para las cargas de trabajo de ciencia de datos.
-
 Los grupos de proyecciones tienen las siguientes características clave de exclusividad mutua y relación. 
 
 | Principio | Descripción |
 |-----------|-------------|
-| Exclusividad mutua | Todo el contenido proyectado en un mismo grupo es independiente de los datos proyectados en otros grupos de proyecciones. Esta independencia implica que puede tener los mismos datos repetidos en cada grupo de proyecciones, pero con una forma diferente. Cada grupo obtiene datos del mismo origen (árbol de enriquecimiento), pero se aísla completamente de la combinación tabla-objeto-archivo de cualquier grupo de proyección del mismo nivel.|
-| Relación | Las proyecciones admiten la relación dentro del grupo. Dentro de un grupo, el contenido de una tabla está relacionado con el contenido de un objeto o archivo. Entre tipos (tablas, objetos y archivos) del mismo grupo, las relaciones se conservan cuando un único nodo de un árbol de enriquecimiento (por ejemplo, `/document/translated_text`) se proyecta en tablas y objetos diferentes. Dentro de las tablas, las relaciones se basan en una clave generada y cada nodo secundario mantiene una referencia al nodo primario. Por ejemplo, considere un escenario en el que tiene un documento que contiene imágenes y texto. Podría proyectar el texto en tablas u objetos y las imágenes en archivos donde las tablas u objetos tienen una columna o propiedad que contiene la dirección URL del archivo.|
+| Exclusividad mutua | Cada grupo está completamente aislado de otros grupos para admitir diferentes escenarios de modelado de datos. Por ejemplo, si va a probar diferentes combinaciones y estructuras de tabla, debería colocar cada conjunto en un grupo de proyección diferente para las pruebas AB. Cada grupo obtiene datos del mismo origen (árbol de enriquecimiento), pero se aísla completamente de la combinación tabla-objeto-archivo de cualquier grupo de proyección del mismo nivel.|
+| Relación | En un grupo de proyección, el contenido de las tablas, objetos y archivos está relacionado. El almacén de conocimiento usa claves generadas como puntos de referencia a un nodo primario común. Por ejemplo, considere un escenario en el que tiene un documento que contiene imágenes y texto. Puede proyectar el texto en tablas y las imágenes en archivos binarios y tanto las tablas como los objetos tendrán una columna o propiedad que contiene la dirección URL del archivo.|
 
-La decisión de crear grupos de proyección adicionales a menudo se basa en los requisitos de representación de datos. Puede hacerlo si desea relaciones de datos diferentes. Dentro de un conjunto, los datos están relacionados, si se da por sentado que las relaciones existen y se pueden detectar. Si crea más conjuntos, los documentos de cada grupo nunca estarán relacionados. Un ejemplo de uso de varios grupos de proyección podría ser el siguiente. Quiere usar los mismos datos proyectados en el sistema en línea y deben representarse de una forma específica, y también quiere que los mismos datos proyectados se utilicen en una canalización de ciencia de datos que se representa de otra forma.
+## <a name="projection-source"></a>Proyección "origen"
 
-<!-- ## Knowledge Store composition
+El parámetro de origen es el tercer componente de una definición de proyección. Dado que las proyecciones almacenan datos de una canalización de enriquecimiento con IA, el origen de una proyección siempre es la salida de una aptitud. Por lo tanto, la salida puede ser un único campo (por ejemplo, un campo de texto traducido), pero a menudo es una referencia a una forma de datos.
 
-The knowledge store consists of an annotation cache and projections. The *cache* is used by the service internally to cache the results from skills and track changes. A *projection* defines the schema and structure of the enrichments that match your intended use.
+Las formas de datos proceden del conjunto de aptitudes. Entre todas las aptitudes integradas proporcionadas en Cognitive Search, hay una aptitud de utilidad denominada [**aptitud Conformador**](cognitive-search-skill-shaper.md) que se usa para crear formas de datos. Puede incluir aptitudes de Conformador (tantas como necesite) para admitir las proyecciones en el almacén de conocimiento.
 
-Within Azure Storage, projections can be articulated as tables, objects, or files.
+Las formas se usan con frecuencia con proyecciones de tabla, donde la forma no solo especifica las filas que van a la tabla, sino también las columnas que se crean (también puede pasar una forma a una proyección de objeto).
 
-+ As an object, the projection maps to Blob storage, where the projection is saved to a container, within which are the objects or hierarchical representations in JSON for scenarios like a data science pipeline.
-
-+ As a table, the projection maps to Table storage. A tabular representation preserves relationships for scenarios like data analysis or export as data frames for machine learning. The enriched projections can then be easily imported into other data stores. 
-
-You can create multiple projections in a knowledge store to accommodate various constituencies in your organization. A developer might need access to the full JSON representation of an enriched document, while data scientists or analysts might want granular or modular data structures shaped by your skillset.
-
-For instance, if one of the goals of the enrichment process is to also create a dataset used to train a model, projecting the data into the object store would be one way to use the data in your data science pipelines. Alternatively, if you want to create a quick Power BI dashboard based on the enriched documents the tabular projection would work well. -->
-
-## <a name="table-projections"></a>Proyecciones de tabla
-
-Las proyecciones de tabla se recomiendan para escenarios que llaman a la exploración de datos, como el análisis con Power BI. La definición de las tablas es una lista de las tablas que desea proyectar. Cada tabla requiere tres propiedades:
-
-+ tableName: nombre de la tabla en Azure Storage.
-
-+ generatedKeyName: El nombre de columna para la clave que identifica de forma única esta fila.
-
-+ source: El nodo del árbol de enriquecimiento del que obtiene sus enriquecimientos. Este nodo suele ser la salida de una aptitud Conformador que define la forma de la tabla. Las tablas tienen filas y columnas, y el modelado es el mecanismo por el que se especifican filas y columnas. Puede usar una [aptitud Conformador o formas insertadas](knowledge-store-projection-shape.md). La aptitud Conformador genera un objeto JSON válido, pero podría ser la salida de cualquier aptitud, si el JSON es válido. 
-
-Como se muestra en este ejemplo, las entidades y frases clave se modelan en tablas diferentes y contendrán una referencia al elemento primario (MainTable) para cada fila. 
-
-```json
-"knowledgeStore": {
-  "storageConnectionString": "an Azure storage connection string",
-  "projections" : [
-    {
-      "tables": [
-        { "tableName": "MainTable", "generatedKeyName": "SomeId", "source": "/document/EnrichedShape" },
-        { "tableName": "KeyPhrases", "generatedKeyName": "KeyPhraseId", "source": "/document/EnrichedShape/*/KeyPhrases/*" },
-        { "tableName": "Entities", "generatedKeyName": "EntityId", "source": "/document/EnrichedShape/*/Entities/*" }
-      ]
-    },
-    {
-      "objects": [ ]
-    },
-    {
-      "files": [ ]
-    }
-  ]
-}
-```
-
-El nodo de enriquecimiento especificado en "source" se puede segmentar para proyectarse en varias tablas. La referencia a "EnrichedShape" es la salida de una aptitud Conformador (no se muestra). Las entradas de la aptitud determinan la composición de la tabla y las filas que la rellenan. Las claves generadas y los campos comunes de cada tabla proporcionan la base para las relaciones de tabla.
-
-## <a name="object-projections"></a>Proyecciones de objeto
-
-Las proyecciones de objeto son representaciones JSON del árbol de enriquecimiento que pueden proceder de cualquier nodo. En muchos casos, la misma aptitud de conformador que crea una proyección de tabla se puede usar para generar una proyección de objeto. 
-
-Para generar una proyección de objeto se requieren algunos atributos específicos del objeto:
-
-+ storageContainer: El contenedor de blobs donde se guardarán los objetos
-
-+ source: La ruta de acceso al nodo del árbol de enriquecimiento que es la raíz de la proyección
-
-```json
-"knowledgeStore": {
-  "storageConnectionString": "an Azure storage connection string",
-  "projections" : [
-    {
-      "tables": [ ]
-    },
-    {
-      "objects": [
-        {
-          "storageContainer": "hotelreviews", 
-          "source": "/document/hotel"
-        }
-      ]
-    },
-    {
-        "files": [ ]
-    }
-  ]
-}
-```
-
-## <a name="file-projections"></a>Proyecciones de archivos
-
-Las proyecciones de archivo solo actúan en la colección `normalized_images`, pero son similares a las proyecciones de objeto en que se guardan en un contenedor de blobs, con un prefijo de carpeta del valor codificado en Base64 del id. de documento. 
-
-Las proyecciones de archivos no pueden compartir el mismo contenedor que las proyecciones de objetos y deben proyectarse en un contenedor distinto. Las proyecciones de archivo tienen las mismas propiedades que las proyecciones de objeto:
-
-+ storageContainer: El contenedor de blobs donde se guardarán los objetos
-
-+ source: La ruta de acceso al nodo del árbol de enriquecimiento que es la raíz de la proyección
-
-```json
-"knowledgeStore": {
-  "storageConnectionString": "an Azure storage connection string",
-  "projections" : [
-    {
-      "tables": [ ]
-    },
-    {
-      "objects": [ ]
-    },
-    {
-        "files": [
-              {
-              "storageContainer": "ReviewImages",
-              "source": "/document/normalized_images/*"
-            }
-        ]
-    }
-  ]
-}
-```
-
-## <a name="projection-shaping"></a>Modelado de proyección
-
-Es más fácil definir las proyecciones si tiene un objeto en el árbol de enriquecimiento que coincide con el esquema de la proyección, ya sean tablas u objetos. La capacidad de modelar o estructurar los datos en función del uso planeado normalmente se logra mediante la adición de una [aptitud Conformador](cognitive-search-skill-shaper.md) al conjunto de aptitudes. Las formas producidas a partir de una aptitud Conformador se usan como `source` para una proyección, pero también se pueden usar como entrada para otra aptitud.
-
-Dicho de otro modo, en el caso de las proyecciones de tabla, la aptitud Conformador determina las columnas o campos de las tablas. Las entradas a la aptitud Conformador constan de nodos en un árbol de enriquecimiento. La salida es una estructura que se especifica en la proyección de tabla. En el ejemplo siguiente, una proyección de tabla denominada "mytableprojection" constará de las entradas, tal y como especifica la aptitud Conformador.
+Las formas pueden ser complejas y no procede analizarlas en profundidad aquí, pero en el ejemplo siguiente se muestra brevemente una forma básica. La salida de la aptitud Conformador se especifica como origen de una proyección de tabla. En la propia proyección de tabla habrá columnas para "metadata-storage_path", "reviews_text", "reviews_title", etc., tal y como se especifica en la forma.
 
 ```json
 {
@@ -224,43 +134,45 @@ Dicho de otro modo, en el caso de las proyecciones de tabla, la aptitud Conforma
 }
 ```
 
-La aptitud Conformador le permite crear un objeto a partir de diferentes nodos del árbol de enriquecimiento y convertirlos en secundarios de un nuevo nodo. También le permite definir tipos complejos con objetos anidados. Para obtener ejemplos, consulte la documentación de la aptitud [Conformador](cognitive-search-skill-shaper.md).
-
-## <a name="projection-slicing"></a>Segmentación de proyección
-
-Dentro de un grupo de proyecciones de tabla, un único nodo del árbol de enriquecimiento se puede segmentar en varias tablas relacionadas, de modo que cada tabla contenga una categoría de datos. Esto puede ser útil para el análisis, donde puede controlar si se agregan los datos relacionados y de qué manera.
-
-Para crear varias tablas secundarias, comience con la tabla primaria y, a continuación, cree tablas adicionales que se creen a partir del origen del elemento primario. En este ejemplo, "KeyPhrases" y "Entities" toman segmentos de "/document/EnrichedShape".
-
-```json
-"tables": [
-  { "tableName": "MainTable", "generatedKeyName": "SomeId", "source": "/document/EnrichedShape" },
-  { "tableName": "KeyPhrases", "generatedKeyName": "KeyPhraseId", "source": "/document/EnrichedShape/*/KeyPhrases/*" },
-  { "tableName": "Entities", "generatedKeyName": "EntityId", "source": "/document/EnrichedShape/*/Entities/*" }
-]
-```
-
-Al proyectar a varias tablas, la forma completa se proyectará en cada tabla, a menos que un nodo secundario sea el origen de otra tabla dentro del mismo grupo. Agregar una proyección con una ruta de acceso de origen que sea un elemento secundario de una proyección existente hará que el nodo secundario se segmente fuera del nodo primario y se proyecte en la nueva tabla u objeto relacionado. Esta técnica permite definir un único nodo en una aptitud Conformador, que puede ser el origen de todas sus proyecciones.
-
 ## <a name="projection-lifecycle"></a>Ciclo de vida de las proyecciones
 
 Las proyecciones tienen un ciclo de vida que está asociado a los datos de origen del origen de datos. A medida que los datos se actualizan y se vuelven a indexar, las proyecciones se actualizan con los resultados de los enriquecimientos, lo que garantiza la coherencia de las proyecciones con los datos del origen de datos. Sin embargo, las proyecciones también se almacenan de forma independiente en Azure Storage. Las proyecciones no se eliminarán cuando se eliminen el indexador o el propio servicio de búsqueda. 
 
-## <a name="using-projections"></a>Uso de las proyecciones
+## <a name="consume-in-apps"></a>Consumo en aplicaciones
 
-Tras ejecutar el indexador, puede leer los datos proyectados en los contenedores o tablas que especificó a través de las proyecciones.
+Después de ejecutar el indizador, conéctese a las proyecciones y consuma los datos en otras aplicaciones y cargas de trabajo.
 
-En cuanto al análisis, la exploración en Power BI es tan sencilla como establecer Azure Table Storage como origen de datos. Puede crear fácilmente un conjunto de visualizaciones en los datos usando las relaciones que contienen.
++ Use el [Explorador de Storage](knowledge-store-view-storage-explorer.md) para verificar el contenido y la creación de los objetos.
 
-Como alternativa, si tiene que usar los datos enriquecidos en una canalización de ciencia de datos, podría [cargar los datos desde los blobs en un DataFrame de Pandas](/azure/architecture/data-science-process/explore-data-blob).
++ Use [Power BI para la exploración de los datos](knowledge-store-connect-power-bi.md). Esta herramienta funciona mejor cuando los datos están en Azure Table Storage. En Power BI, puede manipular los datos en tablas nuevas que son más fáciles de consultar y analizar.
 
-Por último, si tiene que exportar los datos desde el almacén de conocimiento, Azure Data Factory tiene conectores para exportar los datos y colocarlos en la base de datos que elija. 
++ Use datos enriquecidos en un contenedor de blobs de una canalización de ciencia de datos. Por ejemplo, puede [cargar los datos de blobs en un DataFrame de Pandas](/azure/architecture/data-science-process/explore-data-blob).
+
++ Por último, si tiene que exportar los datos desde el almacén de conocimiento, Azure Data Factory tiene conectores para exportar los datos y colocarlos en la base de datos que elija.
+
+## <a name="checklist-for-getting-started"></a>Lista de comprobación de introducción
+
+Recuerde que las proyecciones son exclusivas de los almacenes de conocimiento y no se usan para estructurar un índice de búsqueda.
+
+1. En Azure Storage, obtenga una cadena de conexión en **Claves de acceso** y compruebe si la cuenta es StorageV2 (de uso general V2).
+
+1. Mientras esté en Azure Storage, familiarícese con el contenido existente de contenedores y tablas para elegir nombres que no entren en conflicto para las proyecciones. Un almacén de conocimiento es una colección dispersa de tablas y contenedores. Considere la posibilidad de adoptar una convención de nomenclatura para realizar un seguimiento de los objetos relacionados.
+
+1. En Cognitive Search, [habilite el almacenamiento en caché de enriquecimiento (versión preliminar)](search-howto-incremental-index.md) en el indizador y, a continuación, [ejecute el indizador](search-howto-run-reset-indexers.md) para ejecutar el conjunto de aptitudes y rellenar la caché. Se trata de una característica en versión preliminar, por lo que debe asegurarse de usar la API de REST en versión preliminar (api-version=2020-06-30-preview o posterior) en la solicitud del indizador. Una vez rellenada la caché, puede modificar las definiciones de proyección en un almacén de conocimiento de forma gratuita (siempre y cuando no se modifiquen las propias aptitudes).
+
+1. En el código, todas las proyecciones se definen únicamente en un conjunto de aptitudes. No hay propiedades de indizador (como asignaciones de campos o asignaciones de campos de salida) que se apliquen a las proyecciones. En una definición de conjunto de aptitudes, se centrará en dos áreas: la propiedad knowledgeStore y la matriz de aptitudes.
+
+   1. En knowledgeStore, especifique las proyecciones de tabla, objeto y archivo en la sección `projections`. El tipo de objeto, el nombre de objeto y la cantidad (según el número de proyecciones que defina) se determinan en esta sección.
+
+   1. En la matriz de aptitudes, determine a qué salidas de aptitud se hará referencia en la propiedad `source` de cada proyección. Todas las proyecciones tienen un origen. El origen puede ser la salida de una aptitud ascendente, pero a menudo es la salida de una aptitud Conformador. La composición de la proyección se determina a través de formas. 
+
+1. Si va a añadir proyecciones a un conjunto de aptitudes existente, [actualícelo](/rest/api/searchservice/update-skillset) y [ejecute el indizador](/rest/api/searchservice/run-indexer).
+
+1. Compruebe los resultados en Azure Storage. En ejecuciones posteriores, evite conflictos de nomenclatura mediante la eliminación de objetos en Azure Storage o el cambio de nombres de proyecto en el conjunto de aptitudes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Como siguiente paso, cree su primer almacén de conocimiento con instrucciones y datos de ejemplo.
+Revise la sintaxis y los ejemplos de cada tipo de proyección.
 
 > [!div class="nextstepaction"]
-> [Creación de un almacén de conocimiento con REST](knowledge-store-create-rest.md)
-
-Para ver conceptos más avanzados, como la segmentación, la forma insertada y las relaciones, consulte [Definición de proyecciones en un almacén de conocimiento](knowledge-store-projections-examples.md).
+> [Definición de proyecciones en un almacén de conocimiento](knowledge-store-projections-examples.md)

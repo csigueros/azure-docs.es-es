@@ -7,7 +7,7 @@ ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 06/21/2019
+ms.date: 10/13/2021
 ms.custom:
 - mvc
 - mqtt
@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: IoT Device'
 - devx-track-js
 - devx-track-azurecli
-ms.openlocfilehash: 7dbc0404679927bcef1647dfdf46ce3360216a79
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 21055be377dff564753844e779cae287cab63b03
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98733306"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176023"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -261,7 +261,7 @@ az group delete --name tutorial-iot-hub-rg
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a sincronizar la información de estado entre los dispositivos y el centro de IoT. Avance hasta el siguiente tutorial para aprender a usar dispositivos gemelos para implementar un proceso de actualización de firmware.
+En este tutorial, ha aprendido a sincronizar la información de estado entre los dispositivos y el centro de IoT. Avance hasta el siguiente tutorial para aprender a usar dispositivos gemelos a fin de implementar un proceso de actualización del dispositivo.
 
 > [!div class="nextstepaction"]
-> [Implementación de un proceso de actualización de firmware de dispositivos](tutorial-firmware-update.md)
+> [Tutorial para implementar Device Update para Azure IoT Hub con la imagen de referencia para Raspberry Pi 3 B+](../iot-hub-device-update/device-update-raspberry-pi.md).

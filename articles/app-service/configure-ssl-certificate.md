@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/13/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: cf15fd428c7e487b82823586be6edfd21f6cab48
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: e9344aae6dd001a660549d85ac1b1527c332f2d8
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129057405"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178583"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Incorporación de un certificado TLS/SSL en Azure App Service
 
@@ -176,7 +176,7 @@ Seleccione **Comprobación de App Service**. Puesto que ya ha asignado el domini
 > - **App Service**: es la opción más conveniente cuando el dominio ya está asignado a una aplicación App Service de la misma suscripción. Se aprovecha de que la aplicación App Service ya ha comprobado la propiedad del dominio.
 > - **Dominio**: se comprueba un [dominio de App Service que haya adquirido a través de Azure](manage-custom-dns-buy-domain.md). Azure agrega automáticamente el registro TXT de comprobación en su lugar y completa el proceso.
 > - **Correo electrónico**: se comprueba el dominio mediante el envío de un correo electrónico al administrador de dominio. Cuando selecciona la opción, se proporcionan instrucciones.
-> - **Manual**: se comprueba el dominio ya sea con una página HTML (solo los certificados **estándar**) o un registro TXT de DNS. Cuando selecciona la opción, se proporcionan instrucciones.
+> - **Manual**: se comprueba el dominio ya sea con una página HTML (solo los certificados **estándar**) o un registro TXT de DNS. Cuando selecciona la opción, se proporcionan instrucciones. La opción de página HTML no funciona para las aplicaciones web con la opción "Solo Https" habilitada.
 
 ### <a name="import-certificate-into-app-service"></a>Importación del certificado en App Service
 
@@ -334,7 +334,9 @@ Para reemplazar un certificado que expira, la forma de actualizar el enlace de c
 ### <a name="renew-an-app-service-certificate"></a>Renovación de un certificado de App Service
 
 > [!NOTE]
-> A partir del 23 de septiembre de 2021, los certificados de App Service requerirán realizar la validación de dominio cada 395 días. A diferencia del Certificado administrado de App Service, la revalidación de dominio para el Certificado de App Service NO se automatizará.
+> A partir del 23 de septiembre de 2021, los certificados de App Service requerirán realizar la validación de dominio cada 395 días. Esto se debe a una nueva directriz establecida por CA/Browser Forum que las autoridades de certificación deben cumplir. 
+> 
+> A diferencia del Certificado administrado de App Service, la revalidación de dominio para el Certificado de App Service NO se automatizará. Consulte [Comprobar la propiedad del dominio](#verify-domain-ownership) para más información sobre cómo comprobar el certificado de App Service.
 
 > [!NOTE]
 > El proceso de renovación requiere que [la entidad de servicio conocida para App Service tenga los permisos necesarios en el almacén de claves](deploy-resource-manager-template.md#deploy-web-app-certificate-from-key-vault). Este permiso se configura automáticamente al importar un App Service Certificate a través del portal y no se debe quitar del almacén de claves.

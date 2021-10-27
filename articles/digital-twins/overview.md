@@ -1,22 +1,27 @@
 ---
 title: ¿Qué es Azure Digital Twins?
 titleSuffix: Azure Digital Twins
-description: Información general sobre lo que se puede hacer con Azure Digital Twins.
+description: Información general de Azure Digital Twins, lo que el servicio comprende y cómo se puede usar en una solución en la nube más amplia.
 author: baanders
 ms.author: baanders
-ms.date: 8/23/2021
+ms.date: 10/5/2021
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 6dfb4faac6fd5bb11dfc1fbb928d9ba377ec1fe3
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 818f001666baa55c1c015974932a5d291a82614d
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224398"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130134153"
 ---
 # <a name="what-is-azure-digital-twins"></a>¿Qué es Azure Digital Twins?
 
-**Azure Digital Twins** es una oferta de plataforma como servicio (PaaS) que permite la creación de gráficos gemelos basados en modelos digitales de entornos completos. Estos entornos podrían ser edificios, fábricas, granjas, redes energéticas, ferrocarriles, estadios, etc., e incluso ciudades enteras. Estos modelos digitales se pueden usar para obtener información que impulse mejores productos, operaciones optimizadas, costos reducidos y experiencias de cliente innovadoras.
+**Azure Digital Twins** es una oferta de plataforma como servicio (PaaS) que permite la creación de grafos gemelos basados en modelos digitales de entornos completos, que pueden ser edificios, fábricas, granjas, redes energéticas, ferrocarriles, estadios y mucho más, incluso ciudades enteras. Estos modelos digitales se pueden usar para obtener información que impulse mejores productos, operaciones optimizadas, costos reducidos y experiencias de cliente innovadoras.
+
+Azure Digital Twins se puede usar para diseñar una arquitectura de gemelos digitales que represente dispositivos IoT reales en una solución en la nube más amplia y que se conecte a dispositivos gemelos de IoT Hub para enviar y recibir datos en directo.
+
+> [!NOTE]
+> Los *dispositivos gemelos de IoT Hub* son distintos a los *gemelos digitales* del servicio Azure Digital Twins. Aunque el centro de IoT mantiene los *dispositivos gemelos de IoT Hub* para cada dispositivo IoT que conecte al centro, los *gemelos digitales* pueden ser representaciones de todo lo que definan los modelos digitales y de lo que se cree una instancia en Azure Digital Twins. 
 
 Aproveche su experiencia en este campo, además de en Azure Digital Twins, para crear soluciones personalizadas y conectadas capaces de:
 * Modelar cualquier entorno y hacer que las gemelos digitales cobren vida de una manera escalable y segura.
@@ -80,7 +85,7 @@ Esta opción es otra manera de que Azure Digital Twins pueda conectarse a una so
 
 Azure Digital Twins se usa normalmente en combinación con otros servicios de Azure como parte de una solución de IoT más grande. 
 
-Una solución completa con Azure Digital Twins puede contener las siguientes partes:
+Una arquitectura de ejemplo de una solución completa mediante Azure Digital Twins puede ser como la siguiente:
 * La instancia de servicio de Azure Digital Twins. Este servicio almacena los modelos gemelos y el grafo de gemelos con su estado, y dirige el procesamiento de eventos.
 * Una o varias aplicaciones cliente que controlan la instancia de Azure Digital Twins mediante la configuración de modelos, la creación de topologías y la extracción de información del grafo de gemelos.
 * Uno o más recursos de proceso externos para procesar eventos generados por Azure Digital Twins u orígenes de datos conectados, como dispositivos. Una forma común de proporcionar recursos de proceso es a través de [Azure Functions](../azure-functions/functions-overview.md).
@@ -101,6 +106,6 @@ Puede ver una lista de **términos de IoT comunes** y sus usos en los servicios 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Profundice en el tema de Azure Digital Twins en [Introducción a Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md).
+* Obtenga más información sobre cómo trabajar con Azure Digital Twins en [Introducción a Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md) y en [Creación de soluciones de un extremo a otro](tutorial-end-to-end.md) para ver escenarios de ejemplo.
 
 * O bien, empiece a obtener información sobre los conceptos de Azure Digital Twins con [modelos DTDL](concepts-models.md).

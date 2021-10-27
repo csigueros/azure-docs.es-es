@@ -3,12 +3,12 @@ title: Temas del sistema en Azure Event Grid
 description: Describe los temas del sistema en Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/19/2021
-ms.openlocfilehash: cb054b8085c422f56a6cf8c6cc492470aaa4be95
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 2c0bf2879ce2b137faf33f1ec00d456ab884ccf8
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114437044"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130035113"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Temas del sistema en Azure Event Grid
 Un tema del sistema en Event Grid representa uno o varios eventos publicados por los servicios de Azure, como Azure Storage y Azure Event Hubs. Por ejemplo, un tema del sistema puede representar **todos los eventos de blobs** o solo los eventos de **blob creado** y **blobs eliminado** publicados para una **cuenta de almacenamiento específica**. En este ejemplo, cuando se carga un blob en la cuenta de almacenamiento, el servicio de Azure Storage publica un evento de **blob creado** en el tema del sistema en Event Grid, que luego reenvía el evento a los [suscriptores](event-handlers.md) del tema que reciben y procesan el evento. 
@@ -57,7 +57,12 @@ Puede crear un tema del sistema de dos maneras:
 
 Cuando se usa la [CLI](create-view-manage-system-topics-cli.md), [REST](/rest/api/eventgrid/version2020-06-01/eventsubscriptions/createorupdate) o una [plantilla de Azure Resource Manager](create-view-manage-system-topics-arm.md), puede elegir cualquiera de los métodos anteriores. Se recomienda crear primero un tema del sistema y, a continuación, crear una suscripción en el tema, ya que esta es la forma más reciente para crear temas del sistema.
 
+### <a name="failure-to-create-system-topics"></a>Error al crear temas del sistema
 Se producirá un error en la creación del tema del sistema si ha configurado las directivas de Azure de forma que el servicio Event Grid no pueda crear al tema. Por ejemplo, puede tener una directiva que permita la creación de solo determinados tipos de recursos (por ejemplo: Azure Storage, Azure Event Hubs, etc.) en la suscripción. 
+
+En tales casos, se conserva la funcionalidad del flujo de eventos. Sin embargo, las métricas y las funcionalidades de diagnóstico de los temas del sistema no estarán disponibles.
+
+Si necesita esta funcionalidad, permita la creación de recursos del tipo de tema del sistema y cree el tema del sistema que falta como se describe en la sección [Ciclo de vida de los temas del sistema](#lifecycle-of-system-topics).
 
 ## <a name="location-and-resource-group-for-a-system-topic"></a>Ubicación y grupo de recursos para un tema del sistema
 En el caso de los orígenes del evento de Azure que se encuentran en una región o ubicación específica, el tema del sistema se crea en la misma ubicación que el origen del evento de Azure. Por ejemplo, si crea una suscripción de evento para un almacenamiento de blobs de Azure en la región Este de EE. UU., el tema del sistema se crea en Este de EE. UU. En el caso de los orígenes del evento globales de Azure, como las suscripciones y grupos de recursos de Azure o Azure Maps, Event Grid crea el tema del sistema en una ubicación **global**. 

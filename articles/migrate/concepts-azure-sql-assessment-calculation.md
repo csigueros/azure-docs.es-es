@@ -5,12 +5,12 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
 ms.date: 02/07/2021
-ms.openlocfilehash: c9319465c4e77eab294606ed046f7946948f2cc1
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: bba3965dc3f03bb0b42595ba6bdf5d8889b483ee
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140378"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004300"
 ---
 # <a name="assessment-overview-migrate-to-azure-sql"></a>Información general sobre la evaluación (migración a Azure SQL)
 
@@ -26,7 +26,7 @@ Existen tres tipos de evaluaciones que puede crear con la herramienta de detecci
 **Tipo de evaluación** | **Detalles**
 --- | --- 
 **MV de Azure** | Evaluaciones para la migración de los servidores locales a máquinas virtuales de Azure. <br/><br/> Con este tipo de evaluación, puede evaluar los servidores locales en los entornos de [VMware](how-to-set-up-appliance-vmware.md) e [Hyper-V](how-to-set-up-appliance-hyper-v.md) y los [servidores físicos](how-to-set-up-appliance-physical.md) para la migración a máquinas virtuales de Azure.
-**SQL de Azure** | Evaluaciones para migrar las instancias locales de SQL Server desde su entorno de VMware a Azure SQL Database o a Azure SQL Managed Instance.
+**SQL de Azure** | Evaluaciones para migrar las instancias locales de SQL Server desde su entorno de VMware a Azure SQL Database o a Azure SQL Managed Instance. <br/><br/> Si las instancias de SQL Server se ejecutan en una plataforma que no es de VMware, puede evaluar la preparación mediante [Data Migration Assistant](/sql/dma/dma-assess-sql-data-estate-to-sqldb).
 **Azure VMware Solution (AVS)** | Evaluaciones para la migración de los servidores locales a [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> Puede evaluar las [máquinas virtuales de VMware](how-to-set-up-appliance-vmware.md) locales para la migración a Azure VMware Solution (AVS) con este tipo de evaluación. [Más información](concepts-azure-vmware-solution-assessment-calculation.md)
 
 > [!NOTE]

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2021
 ms.author: jeedes
-ms.openlocfilehash: 851a396fe848306223f2e875ac81fc7b2fcb5da1
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 94e025c3a76ac2a6722e0fa21b39718624d8645c
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124803046"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042833"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Cisco Webex
 
@@ -91,7 +91,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     d. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://web.ciscospark.com/idb/Consumer/metaAlias/<ID>/sp`
     
     > [!NOTE]
-    > Este valor no es real. Copie el valor lateral de Dirección URL de respuesta y agréguelo a `https://web.ciscospark.com/`para formular el valor real de la dirección URL de inicio de sesión.
+    > Este valor no es real. Copie el valor literal de Dirección URL de respuesta y agréguelo a `https://web.ciscospark.com/` para formular el valor real de la dirección URL de inicio de sesión.
 
 1. La aplicación Cisco Webex espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 

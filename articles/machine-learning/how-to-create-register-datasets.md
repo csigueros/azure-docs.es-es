@@ -11,12 +11,12 @@ ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 07/06/2021
-ms.openlocfilehash: f640165420f06a85633d4db30d6338f4bfa205c4
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: a125ee289f9f3ea87f1015136b07ec2ad76cef32
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129428376"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003049"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Creación de conjuntos de datos de Azure Machine Learning
 
@@ -117,6 +117,8 @@ Use el método [`from_files()`](/python/api/azureml-core/azureml.data.dataset_fa
 Si el almacenamiento está detrás de un firewall o una red virtual, establezca el parámetro `validate=False` en el método `from_files()`. Esto omite el paso de validación inicial y garantiza que se pueda crear el conjunto de datos a partir de estos archivos seguros. Obtenga más información sobre cómo [usar almacenes de datos y conjuntos de datos en una red virtual](how-to-secure-workspace-vnet.md#datastores-and-datasets).
 
 ```Python
+from azureml.core import Workspace, Datastore, Dataset
+
 # create a FileDataset pointing to files in 'animals' folder and its subfolders recursively
 datastore_paths = [(datastore, 'animals')]
 animal_ds = Dataset.File.from_files(path=datastore_paths)
@@ -126,12 +128,22 @@ web_paths = ['https://azureopendatastorage.blob.core.windows.net/mnist/train-ima
              'https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz']
 mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
-Para reutilizar y compartir conjuntos de datos en el experimento en su área de trabajo, [registre el conjunto de datos](#register-datasets). 
 
-> [!TIP] 
-> Cargue archivos desde un directorio local y cree un objeto FileDataset en un único método con el método de versión preliminar pública [upload_directory()](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory#upload-directory-src-dir--target--pattern-none--overwrite-false--show-progress-true-). Este método es una característica en vista previa [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) y puede cambiar en cualquier momento. 
-> 
->  Este método carga los datos en el almacenamiento subyacente y, como resultado, incurre en costos de almacenamiento. 
+Si quiere cargar todos los archivos desde un directorio local, cree un objeto FileDataset en un único método con [upload_directory()](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory#upload-directory-src-dir--target--pattern-none--overwrite-false--show-progress-true-). Este método carga los datos en el almacenamiento subyacente y, como resultado, incurre en costos de almacenamiento. 
+
+```Python
+from azureml.core import Workspace, Datastore, Dataset
+from azureml.data.datapath import DataPath
+
+ws = Workspace.from_config()
+datastore = Datastore.get(ws, '<name of your datastore>')
+ds = Dataset.File.upload_directory(src_dir='<path to you data>',
+           target=DataPath(datastore,  '<path on the datastore>'),
+           show_progress=True)
+
+```
+
+Para reutilizar y compartir conjuntos de datos en el experimento en su área de trabajo, [registre el conjunto de datos](#register-datasets). 
 
 ### <a name="create-a-tabulardataset"></a>Creación de un objeto TabularDataset
 
@@ -317,36 +329,20 @@ titanic_ds.take(3).to_pandas_dataframe()
 
 ## <a name="create-a-dataset-from-pandas-dataframe"></a>Creación de un conjunto de datos a partir de un dataframe de Pandas
 
-Para crear un objeto TabularDataset a partir de un dataframe de Pandas en memoria, escriba los datos en un archivo local —como un archivo CSV— y cree el conjunto de datos a partir de ese archivo. El código siguiente muestra este flujo de trabajo.
+Para crear un objeto TabularDataset a partir de un dataframe de Pandas en memoria, use el método [`register_pandas_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#register-pandas-dataframe-dataframe--target--name--description-none--tags-none--show-progress-true-). Este método registra un objeto TabularDataset en el área de trabajo y carga datos en el almacenamiento subyacente, lo que conlleva costos de almacenamiento. 
 
 ```python
-# azureml-core of version 1.0.72 or higher is required
-# azureml-dataprep[pandas] of version 1.1.34 or higher is required
+from azureml.core import Workspace, Datastore, Dataset
+import pandas as pd
 
-from azureml.core import Workspace, Dataset
-local_path = 'data/prepared.csv'
-dataframe.to_csv(local_path)
+pandas_df = pd.read_csv('<path to your csv file>')
+ws = Workspace.from_config()
+datastore = Datastore.get(ws, '<name of your datastore>')
+dataset = Dataset.Tabular.register_pandas_dataframe(pandas_df, datastore, "dataset_from_pandas_df", show_progress=True)
 
-# upload the local file to a datastore on the cloud
-
-subscription_id = 'xxxxxxxxxxxxxxxxxxxxx'
-resource_group = 'xxxxxx'
-workspace_name = 'xxxxxxxxxxxxxxxx'
-
-workspace = Workspace(subscription_id, resource_group, workspace_name)
-
-# get the datastore to upload prepared data
-datastore = workspace.get_default_datastore()
-
-# upload the local file from src_dir to the target_path in datastore
-datastore.upload(src_dir='data', target_path='data')
-
-# create a dataset referencing the cloud location
-dataset = Dataset.Tabular.from_delimited_files(path = [(datastore, ('data/prepared.csv'))])
 ```
-
 > [!TIP]
-> Cree y registre un objeto TabularDataset a partir de un dataframe de Pandas o Spark de memoria con un método único con los métodos de versión preliminar pública [`register_spark_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#methods) y [`register_pandas_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#methods). Estos métodos de registro son características en vista previa [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) y pueden cambiar en cualquier momento. 
+> Cree y registre un objeto TabularDataset a partir de un dataframe de Spark o Dask en memoria con los métodos de versión preliminar pública [`register_spark_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory##register-spark-dataframe-dataframe--target--name--description-none--tags-none--show-progress-true-) y [`register_dask_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#register-dask-dataframe-dataframe--target--name--description-none--tags-none--show-progress-true-). Estos métodos son características en versión preliminar [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) y pueden cambiar en cualquier momento. 
 > 
 >  Estos métodos cargan los datos en el almacenamiento subyacente y, como resultado, incurren en costos de almacenamiento. 
 
@@ -365,13 +361,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 Hay muchas plantillas en [https://github.com/Azure/azure-quickstart-templates/tree/master//quickstarts/microsoft.machinelearningservices](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices) que pueden usarse para crear conjuntos de datos.
 
 Para información sobre el uso de estas plantillas, consulte [Uso de una plantilla de Azure Resource Manager para crear un área de trabajo para Azure Machine Learning](how-to-create-workspace-template.md).
-
-
-## <a name="create-datasets-from-azure-open-datasets"></a>Creación de conjunto de datos con Azure Open Datasets
-
-[Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) son conjuntos de datos públicos mantenidos que puede usar para agregar características de escenarios específicos a soluciones de aprendizaje automático a fin de obtener modelos más precisos. Los conjuntos de datos incluyen datos de dominio público para el clima, censos, días festivos, seguridad pública y ubicación, que le ayudarán a entrenar los modelos de Machine Learning y enriquecer las soluciones predictivas. Los conjuntos de datos abiertos se encuentran en la nube en Microsoft Azure y se incluyen en el SDK y en Studio.
-
-Aprenda a crear [conjuntos de datos de Azure Machine Learning en Azure Open Datasets](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md). 
+ 
 
 ## <a name="train-with-datasets"></a>Entrenamiento con conjuntos de datos
 

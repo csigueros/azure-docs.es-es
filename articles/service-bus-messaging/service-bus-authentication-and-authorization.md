@@ -3,15 +3,15 @@ title: Autenticación y autorización de Azure Service Bus | Microsoft Docs
 description: Autentique aplicaciones en Service Bus con la autenticación de firma de acceso compartido (SAS).
 ms.topic: article
 ms.date: 09/15/2021
-ms.openlocfilehash: 74ad1674bc09f1514264f4b7f1521526f8da2fd5
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1b1cc20df861f657ed9fff4704862e9ee36965a2
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128597158"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002081"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Autenticación y autorización de Service Bus
-Hay dos maneras de autenticar y autorizar el acceso a los recursos de Azure Service Bus: Azure Activity Directory (Azure AD) y firma de acceso compartido (SAS). En este artículo se proporcionan detalles sobre el uso de estos dos tipos de mecanismos de seguridad. 
+Hay dos maneras de autenticar y autorizar el acceso a los recursos de Azure Service Bus: Azure Active Directory (Azure AD) y Firma de acceso compartido (SAS). En este artículo se proporcionan detalles sobre el uso de estos dos tipos de mecanismos de seguridad. 
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 La integración de Azure AD para recursos de Service Bus proporciona control de acceso basado en rol de Azure (RBAC) para el control específico del acceso de los clientes a los recursos. Puede usar Azure RBAC para conceder permisos a una entidad de seguridad, que puede ser un usuario, un grupo o una entidad de servicio de aplicación. Azure AD autentica la entidad de seguridad para devolver un token de OAuth 2.0. El token se puede usar para autorizar una solicitud de acceso a un recurso de Service Bus (cola, tema, etc.).

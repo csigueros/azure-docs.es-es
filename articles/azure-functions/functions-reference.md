@@ -4,12 +4,12 @@ description: Obtenga información sobre los conceptos y las técnicas de Azure F
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 9/02/2021
-ms.openlocfilehash: 49c6fc554eab18ec598db7ec21ef8c15b95d7be9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b29ae41d85d243e64fea777dcb0cf9ee5ccff581
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128669652"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130137375"
 ---
 # <a name="azure-functions-developer-guide"></a>Guía para desarrolladores de Azure Functions
 En Azure Functions, determinadas funciones comparten algunos componentes y conceptos técnicos básicos, independientemente del idioma o el enlace que use. Antes de ir a detalles de aprendizaje específicos de un idioma o un enlace determinados, asegúrese de leer al completo esta información general que se aplica a todos ellos.
@@ -105,59 +105,64 @@ Cuando el nombre de la conexión se resuelve en un solo valor exacto, el tiempo 
 
 Sin embargo, un nombre de conexión también puede hacer referencia a una colección de varios elementos de configuración. Las variables de entorno se pueden tratar como una colección mediante un prefijo compartido que termina en doble carácter de subrayado `__`. A continuación, se puede hacer referencia al grupo. Para ello, establezca el nombre de la conexión en este prefijo.
 
-Por ejemplo, la propiedad `connection` de una definición de desencadenador de blob de Azure podría ser `Storage1`. Siempre que no haya ningún valor de cadena único configurado con `Storage1` como su nombre, se usará `Storage1__serviceUri` para la propiedad `serviceUri` de la conexión. Las propiedades de conexión son diferentes para cada servicio. Consulte la documentación de la extensión que utiliza la conexión.
+Por ejemplo, la propiedad `connection` de una definición de desencadenador de blob de Azure podría ser "Storage1". Siempre que no haya ningún valor de cadena único configurado por una variable de entorno denominada "Storage1", se podría usar una variable de entorno denominada `Storage1__blobServiceUri` para informar a la propiedad `blobServiceUri` de la conexión. Las propiedades de conexión son diferentes para cada servicio. Consulte la documentación del componente que utiliza la conexión.
 
 ### <a name="configure-an-identity-based-connection"></a>Configuración de una conexión basada en identidades
 
-Algunas conexiones de Azure Functions están configuradas para usar una identidad en lugar de un secreto. La compatibilidad depende de la extensión que utiliza la conexión. En algunos casos, es posible que aún se necesite una cadena de conexión en Functions aunque el servicio al que se está conectando admita conexiones basadas en identidades.
+Algunas conexiones de Azure Functions pueden estar configuradas para usar una identidad en lugar de un secreto. La compatibilidad depende de la extensión que utiliza la conexión. En algunos casos, es posible que aún se necesite una cadena de conexión en Functions aunque el servicio al que se está conectando admita conexiones basadas en identidades.
 
-Las conexiones basadas en identidades son compatibles con las siguientes extensiones de desencadenador y enlace:
+Las conexiones basadas en identidades son compatibles con los siguientes componentes:
+
+| Origen de la conexión                                       | Planes admitidos | Más información                                                                                                         |
+|---------------------------------------------------------|-----------------|--------------------------------------------------------------------------------------------------------------------|
+| Enlaces y desencadenadores de blobs de Azure: versión preliminar              | All             | [Versión de extensión 5.0.0-beta1 o posterior](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)     |
+| Enlaces y desencadenadores de colas de Azure: versión preliminar             | All             | [Versión de extensión 5.0.0-beta1 o posterior](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher)    |
+| Enlaces y desencadenadores de Azure Event Hubs: versión preliminar        | All             | [Versión de extensión 5.0.0-beta1 o posterior](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher)    |
+| Enlaces y desencadenadores de Azure Service Bus: versión preliminar       | All             | [Versión de extensión 5.0.0-beta2 o posterior](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher)  |
+| Enlaces y desencadenadores de Azure Cosmos DB: versión preliminar         | Elastic Premium | [Versión de extensión 4.0.0-preview1 o posterior](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) |
+| Almacenamiento necesario para el host ("AzureWebJobsStorage"): versión preliminar | All             | [Conexión al almacenamiento de host con una identidad](#connecting-to-host-storage-with-an-identity-preview)                        |
 
 > [!NOTE]
 > Las conexiones basadas en identidades no se admiten con Durable Functions.
 
-| Nombre de la extensión | Versión de la extensión                                                                                     | Planes admitidos     |
-|----------------|-------------------------------------------------------------------------------------------------------|---------------------|
-| Blob de Azure     | [Versión 5.0.0-beta1 o posterior](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  | Todo                 |
-| Azure Queue    | [Versión 5.0.0-beta1 o posterior](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) | Todo                 |
-| Azure Event Hubs    | [Versión 5.0.0-beta1 o posterior](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher) | Todo            |
-| Azure Service Bus    | [Versión 5.0.0-beta2 o posterior](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher) | Todo         |
-| Azure Cosmos DB   | [Versión 4.0.0-preview1 o posterior](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) | Elastic Premium |
+[!INCLUDE [functions-identity-based-connections-configuration](../../includes/functions-identity-based-connections-configuration.md)]
 
+Elija una de las pestaña a continuación para obtener información sobre los permisos de cada componente:
 
-Las conexiones de almacenamiento que usa el entorno de ejecución de Functions (`AzureWebJobsStorage`) también pueden configurarse con una conexión basada en identidades. Consulte [Conexión al almacenamiento de host con una identidad](#connecting-to-host-storage-with-an-identity) a continuación.
+# <a name="azure-blobs-extension"></a>[Extensión de blobs de Azure](#tab/blob)
 
-Cuando se hospeda en el servicio de Azure Functions, las conexiones basadas en identidades usan una [identidad administrada](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json). La identidad asignada por el sistema se usa de manera predeterminada, aunque se puede especificar una identidad asignada por el usuario con las propiedades `credential` y `clientID`. Cuando se ejecuta en otros contextos, como el desarrollo local, se usa la identidad del desarrollador en su lugar, aunque se puede personalizar mediante parámetros de conexión alternativos.
+[!INCLUDE [functions-blob-permissions](../../includes/functions-blob-permissions.md)]
 
-#### <a name="grant-permission-to-the-identity"></a>Concesión de permiso a la identidad
+# <a name="azure-queues-extension"></a>[Extensión de colas de Azure](#tab/queue)
 
-Cualquier identidad que se utilice debe tener permisos para realizar las acciones previstas. Normalmente, esto se realiza mediante la asignación de un rol en RBAC de Azure o la especificación de la identidad en una directiva de acceso, en función del servicio al que se esté conectando. Consulte la documentación de cada extensión para conocer los permisos necesarios y el procedimiento para establecerlas.
+[!INCLUDE [functions-queue-permissions](../../includes/functions-queue-permissions.md)]
 
-> [!IMPORTANT]
-> Es posible que el servicio de destino muestre algunos permisos que no son necesarios para todos los contextos. Siempre que sea posible, respete el **principio de privilegios mínimos** y conceda solo los privilegios necesarios a la identidad. Por ejemplo, si la aplicación solo necesita leer un blob, use el rol [Lector de datos de Storage Blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader), ya que el rol [Propietario de datos de Storage Blob](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) incluye permisos excesivos para una operación de lectura.
-Los siguientes roles abarcan los permisos principales necesarios para cada extensión en condiciones de funcionamiento normal:
+# <a name="event-hubs-extension"></a>[Extensión de Event Hubs](#tab/eventhubs)
 
-| Servicio     | Roles integrados de ejemplo |
-|-------------|------------------------|
-| Azure Blobs  | [Lector de datos de Storage Blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader), [Propietario de datos de Storage Blob](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)                 |
-| Colas de Azure | [Lector de datos de la cola de Storage Blob](../role-based-access-control/built-in-roles.md#storage-queue-data-reader), [Procesador de mensajes de datos de Queue Storage](../role-based-access-control/built-in-roles.md#storage-queue-data-message-processor), [Remitente de mensajes de datos de Queue Storage](../role-based-access-control/built-in-roles.md#storage-queue-data-message-sender), [Colaborador de datos de la cola de Storage Blob](../role-based-access-control/built-in-roles.md#storage-queue-data-contributor)             |
-| Event Hubs   |    [Receptor de los datos de Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver), [Remitente de los datos de Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender), [Propietario de los datos de Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner)              |
-| Azure Service Bus | [Receptor de los datos de Azure Service Bus](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver), [Remitente de los datos de Azure Service Bus](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender), [Propietario de los datos de Azure Service Bus](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) |
-| Azure Cosmos DB | [Lector de datos integrado en Cosmos DB](../cosmos-db/how-to-setup-rbac.md#built-in-role-definitions), [Colaborador de datos integrado en Cosmos DB](../cosmos-db/how-to-setup-rbac.md#built-in-role-definitions) |
+[!INCLUDE [functions-event-hubs-permissions](../../includes/functions-event-hubs-permissions.md)]
 
-#### <a name="connection-properties"></a>Propiedades de la conexión
+# <a name="service-bus-extension"></a>[Extensión de Service Bus](#tab/servicebus)
 
-Una conexión basada en identidades para un servicio de Azure acepta las siguientes propiedades, en las que `<CONNECTION_NAME_PREFIX>` es el valor de la propiedad `connection` en la definición de desencadenador o enlace:
+[!INCLUDE [functions-service-bus-permissions](../../includes/functions-service-bus-permissions.md)]
 
-| Propiedad    | Necesario para las extensiones | Variable de entorno | Descripción |
+# <a name="azure-cosmos-db-extension"></a>[Extensión de Azure Cosmos DB](#tab/cosmos)
+
+[!INCLUDE [functions-cosmos-permissions](../../includes/functions-cosmos-permissions.md)]
+
+# <a name="functions-host-storage"></a>[Almacenamiento de host de Functions](#tab/azurewebjobsstorage)
+
+[!INCLUDE [functions-azurewebjobsstorage-permissions](../../includes/functions-azurewebjobsstorage-permissions.md)]
+
+---
+
+#### <a name="common-properties-for-identity-based-connections"></a>Propiedades comunes para conexiones basadas en identidades
+
+Una conexión basada en identidades para un servicio de Azure acepta las siguientes propiedades comunes, en las que `<CONNECTION_NAME_PREFIX>` es el valor de la propiedad `connection` en la definición de desencadenador o enlace:
+
+| Propiedad    |  Plantilla de variable de entorno | Descripción |
 |---|---|---|---|
-| URI de servicio | Blob de Azure<sup>1</sup>, Cola de Azure | `<CONNECTION_NAME_PREFIX>__serviceUri` | URI del plano de datos del servicio al que se está conectando. |
-| Espacio de nombres completo | Event Hubs, Service Bus | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | Espacio de nombres completo de Event Hubs y Service Bus. |
-| Punto de conexión de la cuenta | Azure Cosmos DB | `<CONNECTION_NAME_PREFIX>__accountEndpoint` | El identificador URI del punto de conexión de la cuenta de Azure Cosmos DB. |
-| Credencial de token | (Opcional) | `<CONNECTION_NAME_PREFIX>__credential` | Define cómo se debe obtener un token para la conexión. Solo se recomienda cuando se especifica una identidad asignada por el usuario, cuando se debe establecer en "managedidentity". Esto solo es válido cuando se hospeda en el servicio Azure Functions. |
-| Id. de cliente | (Opcional) | `<CONNECTION_NAME_PREFIX>__clientId` | Cuando `credential` se establece en "managedidentity", esta propiedad especifica la identidad asignada por el usuario que se usará al obtener un token. La propiedad acepta un identificador de cliente correspondiente a una identidad asignada por el usuario asignada a la aplicación. Si no se especifica, se usará la identidad asignada por el sistema. Esta propiedad se usa de forma diferente en [escenarios de desarrollo locales](#local-development-with-identity-based-connections), en los que no se debe establecer el elemento `credential`. |
-
-<sup>1</sup> Los URI de Blob service y Queue service son necesarios para el blob de Azure.
+| Credencial de token |  `<CONNECTION_NAME_PREFIX>__credential` | Define cómo se debe obtener un token para la conexión. Solo se recomienda cuando se especifica una identidad asignada por el usuario, cuando se debe establecer en "managedidentity". Esto solo es válido cuando se hospeda en el servicio Azure Functions. |
+| Id. de cliente | `<CONNECTION_NAME_PREFIX>__clientId` | Cuando `credential` se establece en "managedidentity", esta propiedad especifica la identidad asignada por el usuario que se usará al obtener un token. La propiedad acepta un identificador de cliente correspondiente a una identidad asignada por el usuario asignada a la aplicación. Si no se especifica, se usará la identidad asignada por el sistema. Esta propiedad se usa de forma diferente en [escenarios de desarrollo locales](#local-development-with-identity-based-connections), en los que no se debe establecer el elemento `credential`. |
 
 Es posible que se admitan opciones adicionales para un tipo de conexión determinado. Consulte la documentación del componente que realiza la conexión.
 
@@ -172,26 +177,24 @@ Cuando se ejecuta localmente, la configuración anterior indica al tiempo de eje
 
 Si ninguna de estas opciones produce un resultado satisfactorio, se producirá un error.
 
-En algunos casos, puede especificar el uso de una identidad diferente. Puede agregar propiedades de configuración para la conexión que apunten a la identidad alternativa.
+Dado que usa la identidad del desarrollador, es posible que ya tenga algunos roles en los recursos de desarrollo, pero es posible que no proporcionen acceso a los datos. Los roles de administración, como [Propietario](../role-based-access-control/built-in-roles.md#owner), no son suficientes. Compruebe los permisos necesarios para las conexiones de cada componente y asegúrese de que se le han asignado.
 
-> [!NOTE]
-> No se admiten las siguientes opciones de configuración cuando se hospedan en el servicio Azure Functions.
+En algunos casos, puede especificar el uso de una identidad diferente. Puede agregar propiedades de configuración para la conexión que apunten a la identidad alternativa en función de un identificador de cliente y un secreto de cliente para una entidad de servicio de Azure Active Directory. **No se admite esta opción de configuración cuando se hospedan en el servicio Azure Functions.** Para usar un identificador y un secreto en el equipo local, defina la conexión con las siguientes propiedades adicionales:
 
-Para conectarse mediante una entidad de servicio de Azure Active Directory con un identificador de cliente y un secreto, defina la conexión con las siguientes propiedades requeridas, aparte de las [propiedades de conexión](#connection-properties) anteriores:
-
-| Propiedad    | Variable de entorno | Descripción |
+| Propiedad    | Plantilla de variable de entorno | Descripción |
 |---|---|---|
 | Id. de inquilino | `<CONNECTION_NAME_PREFIX>__tenantId` | Id. de inquilino (directorio) de Azure Active Directory. |
 | Id. de cliente | `<CONNECTION_NAME_PREFIX>__clientId` |  Id. de cliente (aplicación) de un registro de aplicación en el inquilino. |
 | Secreto del cliente | `<CONNECTION_NAME_PREFIX>__clientSecret` | Secreto de cliente generado para el registro de la aplicación. |
 
-Ejemplo de las propiedades `local.settings.json` requeridas para la conexión basada en identidades con blobs de Azure: 
+Ejemplo de las propiedades `local.settings.json` requeridas para la conexión basada en identidades a blobs de Azure: 
 
 ```json
 {
   "IsEncrypted": false,
   "Values": {
-    "<CONNECTION_NAME_PREFIX>__serviceUri": "<serviceUri>",
+    "<CONNECTION_NAME_PREFIX>__blobServiceUri": "<blobServiceUri>",
+    "<CONNECTION_NAME_PREFIX>__queueServiceUri": "<queueServiceUri>",
     "<CONNECTION_NAME_PREFIX>__tenantId": "<tenantId>",
     "<CONNECTION_NAME_PREFIX>__clientId": "<clientId>",
     "<CONNECTION_NAME_PREFIX>__clientSecret": "<clientSecret>"
@@ -199,32 +202,27 @@ Ejemplo de las propiedades `local.settings.json` requeridas para la conexión ba
 }
 ```
 
-Ejemplo de las propiedades `local.settings.json` requeridas para la conexión basada en identidades con Azure Cosmos DB: 
+#### <a name="connecting-to-host-storage-with-an-identity-preview"></a>Conexión al almacenamiento de host con una identidad (versión preliminar)
 
-```json
-{
-  "IsEncrypted": false,
-  "Values": {
-    "<CONNECTION_NAME_PREFIX>__accountEndpoint": "<accountEndpoint>",
-    "<CONNECTION_NAME_PREFIX>__tenantId": "<tenantId>",
-    "<CONNECTION_NAME_PREFIX>__clientId": "<clientId>",
-    "<CONNECTION_NAME_PREFIX>__clientSecret": "<clientSecret>"
-  }
-}
-```
-
-#### <a name="connecting-to-host-storage-with-an-identity"></a>Conexión al almacenamiento de host con una identidad
-
-De forma predeterminada, Azure Functions usa la conexión `AzureWebJobsStorage` para comportamientos básicos, como la coordinación de la ejecución de singleton de los desencadenadores de temporizador y el almacenamiento de claves de aplicación predeterminado. También puede configurarse para aprovechar una identidad.
+De forma predeterminada, Azure Functions usa la conexión "AzureWebJobsStorage" para comportamientos básicos, como la coordinación de la ejecución de singleton de los desencadenadores de temporizador y el almacenamiento de claves de aplicación predeterminado. También puede configurarse para aprovechar una identidad.
 
 > [!CAUTION]
-> Algunas aplicaciones reutilizan `AzureWebJobsStorage` para las conexiones de almacenamiento en sus desencadenadores, enlaces o código de función. Asegúrese de que todos los usos de `AzureWebJobsStorage` pueden utilizar el formato de conexión basado en identidad antes de cambiar esta conexión de una cadena de conexión.
+> Otros componentes de Functions dependen de "AzureWebJobsStorage" para los comportamientos predeterminados. No debe moverlo a una conexión basada en identidades si usa versiones anteriores de extensiones que no admiten este tipo de conexión, incluidos desencadenadores y enlaces para blobs de Azure y Event Hubs.
+> 
+> Además, algunas aplicaciones reutilizan "AzureWebJobsStorage" para las conexiones de almacenamiento en sus desencadenadores, enlaces o código de función. Asegúrese de que todos los usos de "AzureWebJobsStorage" pueden utilizar el formato de conexión basado en identidades antes de cambiar esta conexión de una cadena de conexión.
 
-Para configurar la conexión de esta forma, asegúrese de que la identidad de la aplicación tenga el rol [Propietario de datos de Storage Blob](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) para admitir la funcionalidad de host principal. Puede que necesite permisos adicionales si usa "AzureWebJobsStorage" para cualquier otro fin.
+Para usar una conexión basada en identidades para "AzureWebJobsStorage", configure las siguientes opciones de la aplicación:
 
-Si se usa una cuenta de almacenamiento que utiliza el nombre del servicio y el sufijo DNS predeterminado para Azure global, con el formato `https://<accountName>.blob/queue/file/table.core.windows.net`, puede establecer `AzureWebJobsStorage__accountName` en el nombre de la cuenta de almacenamiento. 
+| Configuración                       | Descripción                                | Valor de ejemplo                                        |
+|-----------------------------------------------------|--------------------------------------------|------------------------------------------------|
+| `AzureWebJobsStorage__blobServiceUri`| El identificador URI del plano de datos del servicio de blobs de la cuenta de almacenamiento. | <storage_account_name>.blob.core.windows.net |
+| `AzureWebJobsStorage__queueServiceUri` | El identificador URI del plano de datos del servicio de colas de la cuenta de almacenamiento. | <storage_account_name>.queue.core.windows.net |
 
-En lugar de usar una cuenta de almacenamiento en una nube soberana o con DNS personalizado, establezca `AzureWebJobsStorage__serviceUri` en el URI de Blob service. Si se usa "AzureWebJobsStorage" para cualquier otro servicio, puede especificar en su lugar `AzureWebJobsStorage__blobServiceUri`, `AzureWebJobsStorage__queueServiceUri` y `AzureWebJobsStorage__tableServiceUri` por separado.
+También se pueden establecer [Propiedades comunes para conexiones basadas en identidades](#common-properties-for-identity-based-connections).
+
+Si se usa una cuenta de almacenamiento que utiliza el nombre del servicio y el sufijo DNS predeterminado para Azure global, con el formato `https://<accountName>.blob/queue/file/table.core.windows.net`, puede, en cambio, establecer `AzureWebJobsStorage__accountName` en el nombre de la cuenta de almacenamiento. Los puntos de conexión de blobs y colas se deducirán para esta cuenta. Esto no funcionará si la cuenta de almacenamiento está en una nube soberana o tiene un DNS personalizado.
+
+[!INCLUDE [functions-azurewebjobsstorage-permissions](../../includes/functions-azurewebjobsstorage-permissions.md)]
 
 ## <a name="reporting-issues"></a>Problemas de informes
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]

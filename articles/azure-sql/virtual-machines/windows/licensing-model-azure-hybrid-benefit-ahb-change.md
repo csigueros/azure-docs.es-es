@@ -3,7 +3,7 @@ title: Cambio del modelo de licencia de una VM de SQL en Azure
 description: Aprenda a cambiar de licencia en una VM con SQL Server en Azure de la modalidad de "pago por uso" a "traiga su propia licencia" con la Ventaja híbrida de Azure.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.subservice: management
 ms.workload: iaas-sql-server
 ms.date: 11/13/2019
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: pamela
+ms.reviewer: mathoma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6d840893de2c516137e54d015123fa9249b93d54
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 6f6e2a4216284776b0d566caac0f79ccfaeb349b
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113434631"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162244"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Cambio del modelo de licencia de una máquina virtual de SQL en Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -117,7 +117,7 @@ El cambio del modelo de licencia:
    - Solo está disponible para los clientes que cuentan con [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-overview).
    - Solo se admite en las ediciones Standard Edition y Enterprise Edition de SQL Server. No se admiten los cambios de licencia para Express, Web ni Developer. 
    - Solo se admite en máquinas virtuales implementadas mediante el modelo de Azure Resource Manager. No se admiten las máquinas virtuales implementadas con el modelo clásico. 
-   - Solo está disponible para las nubes públicas o Azure Government. 
+   - Solo está disponible para las nubes públicas o Azure Government. Actualmente no está disponible para la región de Azure China. 
 
 > [!Note]
 > Únicamente las licencias basadas en núcleo de SQL Server con Software Assurance o las licencias de suscripción son válidas para la Ventaja híbrida de Azure. Si usa una licencia Server + CAL para SQL Server y tiene Software Assurance, puede usar el modelo "traiga su propia licencia" para una imagen de máquina virtual de Azure SQL Server a fin de aprovechar la movilidad de licencias para estos servidores, pero no puede aprovechar las otras características de la Ventaja híbrida de Azure. 
@@ -143,5 +143,5 @@ Para más información, consulte los siguientes artículos.
 * [Introducción a SQL Server en máquinas virtuales Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Preguntas más frecuentes de SQL Server en máquinas virtuales Windows](frequently-asked-questions-faq.yml)
 * [Orientación de precios de SQL Server para máquinas virtuales de Azure](pricing-guidance.md)
-* [Notas de la versión de SQL Server en Azure Virtual Machines](../../database/doc-changes-updates-release-notes.md)
+* [Novedades de SQL Server en Azure VM](doc-changes-updates-release-notes-whats-new.md)
 * [Información general de la extensión Agente de IaaS de SQL](./sql-server-iaas-agent-extension-automate-management.md)

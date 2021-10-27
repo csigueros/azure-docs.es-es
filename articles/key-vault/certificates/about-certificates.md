@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: fb69068ddac311a8020a76eec9b18fab3256fea6
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 09161b73c177642b327ed8bd57cbff13229085a4
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752541"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042133"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Acerca de los certificados de Azure Key Vault
 
@@ -154,6 +154,19 @@ Los contactos de certificados contienen información de contacto para enviar not
 ## <a name="certificate-access-control"></a>Control de acceso al certificado
 
  El control de acceso para los certificados lo administra Key Vault y lo proporciona la instancia de Key Vault que contiene dichos certificados. La directiva de control de acceso para los certificados es distinta de la directiva de control de acceso para las claves y los secretos en la misma instancia de Key Vault. Los usuarios pueden crear uno o varios almacenes para almacenar los certificados, para mantener la segmentación adecuada del escenario y la administración de los certificados.  Para más información sobre el control de acceso a los certificados, consulte [aquí](certificate-access-control.md).
+
+
+## <a name="certificate-use-cases"></a>Casos de uso de certificados
+
+### <a name="secure-communication-and-authentication"></a>Comunicación y autenticación seguras
+
+Los certificados TLS pueden ayudar a cifrar las comunicaciones a través de Internet y a establecer la identidad de los sitios web, lo que protege el punto de entrada y el modo de comunicación.  Además, un certificado encadenado firmado por una entidad de certificación pública puede ayudar a comprobar que las entidades que tienen los certificados son las que dicen ser. Por ejemplo, los siguientes son algunos casos de uso excelentes del uso de certificados para proteger la comunicación y habilitar la autenticación:
+* Sitios web de intranet/Internet: proteja el acceso al sitio de su intranet y asegure la transferencia de datos cifrados a través de Internet mediante certificados TLS.
+* Dispositivos IoT y de red: proteja los dispositivos mediante certificados para la autenticación y la comunicación.
+* Nube o multinube: proteja las aplicaciones basadas en la nube localmente, entre nubes o en el inquilino del proveedor de nube.
+
+### <a name="code-signing"></a>Firma de código
+Un certificado puede ayudar a proteger el código o script de software, lo que garantiza que el autor pueda compartir el software a través de Internet sin que sufra cambios por parte de entidades malintencionadas. Además, una vez que el autor firma el código mediante un certificado que aprovecha la tecnología de firma de código, el software se marca con un sello de autenticación que muestra el autor y su sitio web. Por lo tanto, el certificado usado en la firma de código ayuda a validar la autenticidad del software, lo que refuerza la seguridad de un extremo a otro.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

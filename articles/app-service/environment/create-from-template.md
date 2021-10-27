@@ -1,57 +1,71 @@
 ---
 title: Creación de un ASE con ARM
 description: Aprenda a crear una instancia externa o con un ILB de App Service Environment mediante una plantilla de Azure Resource Manager.
-author: ccompy
+author: madsd
 ms.assetid: 6eb7d43d-e820-4a47-818c-80ff7d3b6f8e
 ms.topic: article
-ms.date: 06/13/2017
-ms.author: ccompy
+ms.date: 10/11/2021
+ms.author: madsd
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 49ebcf06d0e01fb6b97e606bbcb5c3068eb0e727
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 3baad1974c44fae8d683632050fa3850dd44270d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113433317"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130005193"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Creación de una instancia de ASE mediante el uso de una plantilla de Azure Resource Manager
 
 ## <a name="overview"></a>Información general
 > [!NOTE]
-> En este artículo se aborda App Service Environment v2, que se usa con planes de App Service aislados
+> En este artículo se aborda App Service Environment v2 y App Service Environment v3, que se usa con planes de App Service aislado.
 > 
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Las instancias de Azure App Service Environment (ASE) pueden crearse con un punto de conexión accesible de Internet o un punto de conexión en una dirección interna en una red virtual de Azure (VNet). Cuando se crea con un punto de conexión interno, ese punto de conexión siempre lo proporciona un componente de Azure denominado equilibrador de carga interno (ILB). La instancia de ASE en una dirección IP interna se denomina ASE de ILB. La instancia de ASE con un punto de conexión público se denomina ASE externo. 
 
-Un ASE puede crearse con Azure Portal o con una plantilla de Azure Resource Manager. Este artículo le guía por los pasos y la sintaxis que necesita para crear un ASE externo o uno con ILB con plantillas de Resource Manager. Para información sobre cómo crear una instancia de ASE en Azure Portal, consulte [Creación de una instancia externa de App Service Environment][MakeExternalASE] o [Creación de una instancia de Azure App Environment de LIB][MakeILBASE].
+Un ASE puede crearse con Azure Portal o con una plantilla de Azure Resource Manager. Este artículo le guía por los pasos y la sintaxis que necesita para crear un ASE externo o uno con ILB con plantillas de Resource Manager. Para información sobre cómo crear una instancia de ASEv2 en Azure Portal, consulte [Creación de una instancia externa de ASE][MakeExternalASE] o [Creación de una instancia de ASE de ILB][MakeILBASE].
+Para obtener información sobre cómo crear una instancia de ASEv3 en Azure Portal, consulte [Creación de ASEv3][Create ASEv3].
 
-Cuando crea un ASE en Azure Portal, puede crear la red virtual al mismo tiempo o seleccionar una red virtual existente en donde implementarlo. Cuando crea un ASE desde una plantilla, debe comenzar por: 
+Cuando crea un ASE en Azure Portal, puede crear la red virtual al mismo tiempo o seleccionar una red virtual existente en donde implementarlo. 
+
+Cuando crea un ASE desde una plantilla, debe comenzar por: 
 
 * Una red virtual de Resource Manager.
 * Una subred de esa red virtual. Se recomienda que el tamaño de la subred del ASE sea `/24` con 256 direcciones para adaptarse al crecimiento futuro. Una vez creado el ASE, no se puede cambiar el tamaño.
-* El identificador de recurso de la red virtual. Puede obtener esta información en Azure Portal, en las propiedades de su red virtual.
+* Al crear una instancia de ASE en una red virtual y subred preexistentes, se requiere el nombre del grupo de recursos existente, el nombre de la red virtual y el nombre de la subred.
 * La suscripción en la que desea implementarlo.
 * La ubicación en la que desea implementarlo.
 
-Para automatizar la creación del ASE:
+Para automatizar la creación de ASE, siga estas instrucciones en las secciones siguientes. Si va a crear una instancia de ASEv2 de ILB con dnsSuffix personalizado (por ejemplo, `internal-contoso.com`), hay algunas cosas más que hacer.
 
-1. Cree el ASE a partir de una plantilla. Si crea un ASE externo, habrá terminado después de este paso. Si crea un ASE con ILB, hay que realizar algunas acciones adicionales.
+1. Una vez creada la instancia de ASE de ILB con dnsSuffix personalizado, se carga un certificado TLS/SSL que coincide con su dominio de ASE de ILB.
 
-2. Una vez creado el ASE con ILB, se carga un certificado TLS/SSL que coincide con su dominio de ASE con ILB.
-
-3. El certificado TLS/SSL cargado se asigna al ASE con ILB como certificado TLS/SSL "predeterminado".  Este certificado se usa en el tráfico TLS/SSL que va a las aplicaciones del ASE con ILB cuando usan el dominio raíz común asignado al ASE (por ejemplo, `https://someapp.mycustomrootdomain.com`).
+2. El certificado TLS/SSL cargado se asigna al ASE con ILB como certificado TLS/SSL "predeterminado".  Este certificado se usa en el tráfico TLS/SSL que va a las aplicaciones del ASE con ILB cuando usan el dominio raíz común asignado al ASE (por ejemplo, `https://someapp.internal-contoso.com`).
 
 
 ## <a name="create-the-ase"></a>Creación del ASE
-En GitHub, encontrará [un ejemplo][quickstartasev2create] de plantilla de Resource Manager que crea una instancia de ASE y su archivo de parámetros asociado.
+Una plantilla de Resource Manager que crea una instancia de ASE y su archivo de parámetros asociado está disponible en GitHub para [ASEv3][asev3quickstarts] y [ASEv2][quickstartasev2create].
 
-Si quiere crear una instancia de ASE con ILB, use estos [ejemplos][quickstartilbasecreate] de plantillas de Resource Manager. Son específicas a dicho caso de uso. La mayoría de los parámetros del archivo *azuredeploy.parameters.json* son comunes para la creación de los ASE con un ILB y de los ASE externos. La siguiente lista llama a los parámetros especiales o únicos cuando crea un ASE con ILB:
-
-* *internalLoadBalancingMode*: en la mayoría de los casos se establece en 3, lo que significa que tanto el tráfico HTTP/HTTPS de los puertos 80 y 443 como los puertos de los canales de control o de datos a los que escucha el servicio FTP en el ASE estarán enlazados a una dirección de red virtual interna asignada al ILB. Si esta propiedad se establece en 2, solo los puertos relacionados con el servicio FTP (los canales de control y de datos) estarán enlazados a una dirección de ILB. El tráfico HTTP/HTTPS permanece en la VIP pública.
+Si quiere crear una instancia de ASE, use estos ejemplos de plantillas de Resource Manager [ASEv3][asev3quickstarts] o [ASEv2][quickstartilbasecreate]. Son específicas a dicho caso de uso. La mayoría de los parámetros del archivo *azuredeploy.parameters.json* son comunes para la creación de los ASE con un ILB y de los ASE externos. La siguiente lista llama a los parámetros especiales o únicos cuando crea una instancia de ASE de ILB con una subred existente.
+### <a name="asev3-parameters"></a>Parámetros de ASEv3
+* *aseName*: requerido. Este parámetro define un nombre de ASE único. 
+* *internalLoadBalancingMode*: requerido. En la mayoría de los casos, esta opción se establece en 3, lo que significa tráfico HTTP/HTTPS en los puertos 80/443. Si esta propiedad se establece en 0, el tráfico HTTP/HTTPS permanece en la dirección VIP pública.
+* *zoneRedundant*: requerido. En la mayoría de los casos, establezca esta opción en false, lo que significa que la instancia de ASE no se implementará en Availability Zones (AZ). Las instancias de ASE zonales se pueden implementar en algunas regiones, para lo que puede consultar [este artículo][AZ Support for ASEv3].
+* *dedicatedHostCount*: requerido. En la mayoría de los casos, esta opción se establece en 0, lo que significa que la instancia de ASE se implementará de la forma habitual sin que se implementen hosts dedicados.
+* *useExistingVnetandSubnet*: requerido. Se establece en true si se usa una red virtual y una subred existentes. 
+* *vNetResourceGroupName*: se requiere si se usa una red virtual y una subred existentes. Este parámetro define el nombre del grupo de recursos de la red virtual y la subred existentes donde residirá ASE.
+* *virtualNetworkName*: se requiere si se usa una red virtual y una subred existentes. Este parámetro define el nombre de la red virtual de la red virtual y subred existentes donde residirá ASE.
+* *subnetName*: se requiere si se usa una red virtual y una subred existentes. Este parámetro define el nombre de la subred de la red virtual y la subred existentes donde residirá ASE.
+* *createPrivateDNS*: se establece en true si desea crear una zona DNS privada después de crear ASEv3. En el caso de una instancia de ASE de ILB, cuando establezca este parámetro en true, creará una zona DNS privada como nombre de ASE con el sufijo DNS *appserviceenvironment.net*. 
+### <a name="asev2-parameters"></a>Parámetros de ASEv2
+* *aseName*: este parámetro define un nombre de ASE único.
+* *location*: este parámetro define la ubicación del App Service Environment.
+* *existingVirtualNetworkName*: este parámetro define el nombre de la red virtual de la red virtual y subred existentes donde residirá ASE.
+* *existingVirtualNetworkResourceGroup*: este parámetro define el nombre del grupo de recursos de la red virtual y la subred existentes donde residirá ASE.
+* *subnetName*: este parámetro define el nombre de la subred de la red virtual y la subred existentes donde residirá ASE.
+* *internalLoadBalancingMode*: en la mayoría de los casos se establece en 3, lo que significa que tanto el tráfico HTTP/HTTPS de los puertos 80 y 443 como los puertos de los canales de control o de datos a los que escucha el servicio FTP en el ASE estarán enlazados a una dirección de red virtual interna asignada al ILB. Si esta propiedad se establece en 2, solo los puertos relacionados con el servicio FTP (los canales de control y de datos) estarán enlazados a una dirección de ILB. Si esta propiedad se establece en 0, el tráfico HTTP/HTTPS permanece en la dirección VIP pública.
 * *dnsSuffix*: este parámetro define el dominio raíz predeterminado que se asigna al ASE. En la variación pública de Azure App Service, el dominio raíz predeterminado de todas las aplicaciones web es *azurewebsites.net*. Dado que un ASE con ILB está dentro de la red virtual de un cliente, no tiene sentido utilizar el dominio raíz predeterminado del servicio público. En su lugar, un ASE de ILB debe tener un dominio raíz predeterminado que tenga sentido usar en la red virtual interna de una compañía. Por ejemplo, Contoso Corporation podría usar el dominio raíz predeterminado *interno contoso.com* para aquellas aplicaciones que se pretende que se puedan resolver en la red virtual de Contoso, y a las que solo se pueda acceder desde ella. 
-* *ipSslAddressCount*: automáticamente, el valor predeterminado de este parámetro es 0 en el archivo *azuredeploy.json*, ya que los ASE con ILB solo tienen una dirección de ILB individual. No hay direcciones IP-SSL explícitas para un ASE con ILB. Por lo tanto, el grupo de direcciones IP-SSL para un ASE con ILB debe establecerse en cero. En caso contrario, se produce un error de aprovisionamiento. 
+* *ipSslAddressCount*: automáticamente, el valor predeterminado de este parámetro es 0 en el archivo *azuredeploy.json*, ya que los ASE con ILB solo tienen una dirección de ILB individual. No hay direcciones IP-SSL explícitas para un ASE con ILB. Por lo tanto, el grupo de direcciones IP-SSL para un ASE con ILB debe establecerse en cero. En caso contrario, se produce un error de aprovisionamiento.
 
 Después de que se llene el archivo *azuredeploy.parameters.json*, cree el ASE mediante el fragmento de código de PowerShell. Cambie las rutas del archivo para que coincidan con las ubicaciones en las que se encuentran los archivos de plantilla de Resource Manager. Recuerde especificar sus propios valores para el nombre de implementación y el nombre del grupo de recursos de Resource Manager:
 
@@ -62,7 +76,7 @@ $parameterPath="PATH\azuredeploy.parameters.json"
 New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 ```
 
-La creación de un ASE tarda aproximadamente una hora. Luego el ASE se muestra en el portal en la lista de ASE de la suscripción que desencadenó la implementación.
+La creación de una instancia de ASE tarda aproximadamente dos horas. Luego el ASE se muestra en el portal en la lista de ASE de la suscripción que desencadenó la implementación.
 
 ## <a name="upload-and-configure-the-default-tlsssl-certificate"></a>Carga y configuración del certificado TLS/SSL "predeterminado"
 Es preciso asociar un certificado TLS/SSL "predeterminado" con el ASE para establecer conexiones TLS/SSL con las aplicaciones. Si el sufijo DNS predeterminado del ASE es *internal-contoso.com*, una conexión a `https://some-random-app.internal-contoso.com` requiere un certificado TLS/SSL que sea válido para * *.internal-contoso.com*. 
@@ -154,16 +168,6 @@ Una vez finalizada la plantilla, se puede tener acceso a aplicaciones en el ASE 
 
 Sin embargo, al igual que las aplicaciones que se ejecutan en el servicio multiinquilino público, los desarrolladores pueden configurar nombres de host personalizados para las aplicaciones individuales. También pueden configurar enlaces de certificado TLS/SSL SNI únicos para las aplicaciones individuales.
 
-## <a name="app-service-environment-v1"></a>App Service Environment v1 ##
-App Service Environment tiene dos versiones: ASEv1 y ASEv2. La información anterior se basa en ASEv2. En esta sección se muestran las diferencias entre ASEv1 y ASEv2.
-
-En ASEv1, administra todos los recursos de forma manual. Esto incluye los servidores front-end, los trabajos y las direcciones IP utilizadas para el enlace TLS/SSL basado en IP. Antes de escalar horizontalmente el plan de App Service, debe escalar horizontalmente el grupo de trabajo en el que desea hospedarlo.
-
-ASEv1 utiliza un modelo de precios diferente al de ASEv2. En ASEv1, paga por cada vCPU asignada. Esto incluye las vCPU que se usan para los servidores front-end y trabajos que no hospedan ninguna carga de trabajo. En ASEv1, el tamaño de escala máxima predeterminada de una instancia de ASE es de 55 hosts en total. Esto incluye servidores front-end y trabajos. Una ventaja de ASEv1 es que se puede implementar en una red virtual clásica y en una red virtual de Resource Manager. Para más información sobre ASEv1, consulte [Introducción a App Service Environment v1][ASEv1Intro].
-
-Para crear una instancia de ASEv1 mediante una plantilla de Resource Manager, consulte [Creación de una instancia de ASEv1 de ILB con una plantilla de Azure Resource Manager][ILBASEv1Template].
-
-
 <!--Links-->
 [quickstartilbasecreate]: https://azure.microsoft.com/resources/templates/web-app-asev2-ilb-create
 [quickstartasev2create]: https://azure.microsoft.com/resources/templates/web-app-asev2-create
@@ -190,3 +194,6 @@ Para crear una instancia de ASEv1 mediante una plantilla de Resource Manager, co
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [ILBASEv1Template]: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
+[Create ASEv3]: creation.md
+[asev3quickstarts]: https://azure.microsoft.com/resources/templates/web-app-asp-app-on-asev3-create
+[AZ Support for ASEv3]: zone-redundancy.md

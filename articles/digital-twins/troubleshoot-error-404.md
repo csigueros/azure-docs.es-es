@@ -1,19 +1,20 @@
 ---
-title: 'Error de solicitud de Azure Digital Twins con estado: 404 subdominio no encontrado'
-description: 'Causas y soluciones de "Service request failed. Estado: 404 subdominio no encontrado" en Azure Digital Twins.'
+title: 'Solución de problemas de solicitud de servicio con error: error 404 (subdominio no encontrado)'
+titleSuffix: Azure Digital Twins
+description: Aprenda a diagnosticar y resolver respuestas de estado del error 404 (subdominio no encontrado) de Azure Digital Twins.
 ms.service: digital-twins
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
-ms.date: 4/13/2021
-ms.openlocfilehash: 774642e15b7d7371872c1ec97455c8f56f8b8789
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.date: 9/23/2021
+ms.openlocfilehash: 91125140632d689eaab18a74b7da75fe3c69800b
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114456091"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132253"
 ---
-# <a name="service-request-failed-status-404-sub-domain-not-found"></a>Error en la solicitud del servicio. Estado: 404 subdominio no encontrado
+# <a name="troubleshooting-failed-service-request-error-404-sub-domain-not-found"></a>Solución de problemas de solicitud de servicio con error: error 404 (subdominio no encontrado)
 
 En este artículo se describen las causas y los pasos de resolución al recibir un error 404 de las solicitudes de servicio a Azure Digital Twins. 
 

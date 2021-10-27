@@ -10,12 +10,12 @@ ms.author: siarora
 ms.date: 06/14/2021
 ms.topic: how-to
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: eddf1f5a77ef67de3ab6e1861ae44a19b07d8027
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: bbfcf7fd3edb483415041a4706e7a5cd22e2d76a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129425987"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997126"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Administración y aumento de las cuotas de los recursos con Azure Machine Learning
 
@@ -99,12 +99,13 @@ En la siguiente tabla se muestran los límites adicionales en la plataforma. Pó
 | Número de servidores de parámetro por nodo | 1 |
 
 <sup>1</sup> La vigencia máxima es la duración entre el inicio y la finalización de una ejecución. Las ejecuciones completadas se mantienen de forma indefinida. Los datos de las ejecuciones no completadas dentro de la duración máxima no son accesibles.
+
 <sup>2</sup> Los trabajos en un nodo de prioridad baja pueden adelantarse siempre que haya una restricción de capacidad. Se recomienda implementar puntos de comprobación en el trabajo.
 
 ### <a name="azure-machine-learning-managed-online-endpoints-preview"></a>Puntos de conexión en línea administrados (versión preliminar) de Azure Machine Learning.
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-Los puntos de conexión en línea administrados de Azure Machine Learning tienen los siguientes límites.
+Los puntos de conexión en línea administrados de Azure Machine Learning tienen los siguientes límites:
 
 | **Recurso** | **Límite** |
 | --- | --- |
@@ -114,13 +115,13 @@ Los puntos de conexión en línea administrados de Azure Machine Learning tienen
 | Número de implementaciones por suscripción | 200 |
 | Número de implementaciones por punto de conexión | 20 |
 | Número de instancias por implementación | 20 |
-| Tamaño máximo de carga en el nivel de punto de conexión |1,5 MB |
+| Tamaño máximo de carga en el nivel de punto de conexión | 1,5 MB |
 | Tiempo de espera máximo de la solicitud en el nivel de punto de conexión  | 60 segundos |
-| Total de QPS en el nivel de punto de conexión para todas las implementaciones  | 100 |
+| Total de QPS en el nivel de punto de conexión para todas las implementaciones | 100 |
 
-<sup>1</sup> Los guiones únicos, como `my-endpoint-name`, se aceptan en los nombres de los puntos de conexión y de las implementaciones
+<sup>1</sup> Los guiones únicos, como `my-endpoint-name`, se aceptan en los nombres de punto de conexión e implementación.
 
-#### <a name="azure-machine-learning-pipelines"></a>Canalizaciones de Azure Machine Learning
+### <a name="azure-machine-learning-pipelines"></a>Canalizaciones de Azure Machine Learning
 Las [canalizaciones de Azure Machine Learning](concept-ml-pipelines.md) tienen los siguientes límites.
 
 | **Recurso** | **Límite** |

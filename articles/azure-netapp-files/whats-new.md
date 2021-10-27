@@ -12,21 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/05/2021
+ms.date: 10/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 2dff42fcf855a41e2e907563b1aecccad0a1661a
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 78f8b282e701e181dd3a2c137ba254227651b048
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129545932"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130036865"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novedades de Azure NetApp Files
 
 Azure NetApp Files se actualiza periódicamente. En este artículo se proporciona un resumen de las nuevas características y mejoras más recientes. 
-
-    
+ 
 ## <a name="october-2021"></a>Octubre de 2021
+
+* La [replicación entre regiones de Azure NetApp Files](cross-region-replication-introduction.md) está ahora disponible con carácter general (GA)
+
+    La característica de replicación entre regiones ya está disponible con carácter general. Ya no es necesario registrar la característica antes de usarla.
 
 * [Características de red Estándar](configure-network-features.md) (versión preliminar)
 

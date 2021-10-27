@@ -40,16 +40,18 @@ items:
         href: use-purview-studio.md
       - name: Procedimientos recomendados y directrices
         items:
+          - name: Directrices de precios
+            href: concept-guidelines-pricing.md
           - name: Procedimientos recomendados de implementación
             href: deployment-best-practices.md
           - name: Arquitectura de cuentas
             href: concept-best-practices-accounts.md
           - name: Arquitectura de colecciones
             href: concept-best-practices-collections.md
-          - name: Directrices de precios
-            href: concept-guidelines-pricing.md
           - name: Arquitectura de red
             href: concept-best-practices-network.md
+          - name: Procedimientos recomendados en relación con los exámenes
+            href: concept-best-practices-scanning.md
       - name: Permisos de Azure Purview
         href: catalog-permissions.md
       - name: Mapa de datos
@@ -233,8 +235,6 @@ items:
             href: classification-insights.md
           - name: Visualización de información de la etiqueta de confidencialidad
             href: sensitivity-insights.md
-          - name: Visualización de información de la extensión de archivo
-            href: file-extension-insights.md
       - name: Redes y seguridad
         items:
           - name: Puntos de conexión privados

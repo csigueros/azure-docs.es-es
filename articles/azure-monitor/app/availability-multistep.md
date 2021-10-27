@@ -3,22 +3,25 @@ title: 'Supervisión con pruebas web de varios pasos: Azure Application Insights
 description: Configuración de pruebas web de varios pasos para supervisar las aplicaciones web con Azure Application Insights
 ms.topic: conceptual
 ms.date: 07/21/2021
-ms.openlocfilehash: d248340aa272a6a1fef386ca755ed46536668ad9
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 6e0cbbc772b9eb2f3ad245fcb9728b047d2d7126
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114448004"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993233"
 ---
 # <a name="multi-step-web-tests"></a>Pruebas web de varios pasos
 
 Puede supervisar una secuencia registrada de direcciones URL e interacciones con un sitio web a través de pruebas web de varios pasos. En este artículo se proporciona una guía paso a paso del proceso de creación de una prueba web de varios pasos con Visual Studio Enterprise.
 
+> [!IMPORTANT]
+> [Las pruebas web de varios pasos han quedado en desuso](https://azure.microsoft.com/updates/retirement-notice-transition-to-custom-availability-tests-in-application-insights/). Se recomienda utilizar [TrackAvailability](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) para enviar  [pruebas de disponibilidad personalizadas](availability-azure-functions.md) en lugar de pruebas web de varios pasos. Con TrackAvailability() y las pruebas de disponibilidad personalizadas, puede ejecutar pruebas en cualquier proceso que desee y utilizar C# para crear pruebas con facilidad.
+
 > [!NOTE]
 > **No se admiten** las pruebas web de varios pasos en la nube de [ Azure Government](../../azure-government/index.yml).
 
-> [!NOTE]
-> Las pruebas web de varios pasos se clasifican como pruebas clásicas y se pueden encontrar en **Add Classic Test** (Agregar prueba clásica) en el panel Disponibilidad.
+
+Las pruebas web de varios pasos se clasifican como pruebas clásicas y se pueden encontrar en **Add Classic Test** (Agregar prueba clásica) en el panel Disponibilidad.
 
 ## <a name="multi-step-webtest-alternative"></a>Alternativa de prueba web de varios pasos
 

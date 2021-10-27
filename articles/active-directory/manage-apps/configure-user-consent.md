@@ -12,13 +12,13 @@ ms.topic: how-to
 ms.date: 06/01/2021
 ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
-ms.custom: contperf-fy21q2
-ms.openlocfilehash: 5289f9a6ed602df67d85cbb5b11875befec916f5
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.custom: contperf-fy21q2, contperf-fy22q2
+ms.openlocfilehash: cbdf0ed80397d5cd63cd7c38f12f6432e420ec7c
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129614904"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998036"
 ---
 # <a name="configure-how-end-users-consent-to-applications-using-azure-active-directory"></a>Configuración del consentimiento de los usuarios finales a las aplicaciones mediante Azure Active Directory
 
@@ -58,27 +58,25 @@ Para configurar el consentimiento del usuario en Azure Portal:
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Puede usar el módulo de versión preliminar de Azure AD PowerShell más reciente, [AzureADPreview](/powershell/azure/active-directory/install-adv2?preserve-view=true&view=azureadps-2.0-preview), para elegir la directiva de consentimiento de aplicaciones que rige el consentimiento del usuario para las aplicaciones.
+Puede usar el módulo de [Azure AD PowerShell](/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) más reciente para elegir la directiva de consentimiento de aplicaciones que rige el consentimiento del usuario para las aplicaciones.
 
 #### <a name="disable-user-consent"></a>Deshabilitar el consentimiento del usuario
 
 Para deshabilitar el consentimiento del usuario, establezca las directivas de consentimiento que rigen el consentimiento del usuario para que estén vacías:
 
-  ```powershell
-  Set-AzureADMSAuthorizationPolicy `
-     -Id "authorizationPolicy" `
-     -PermissionGrantPolicyIdsAssignedToDefaultUserRole @()
-  ```
+```powershell
+Set-AzureADMSAuthorizationPolicy -DefaultUserRolePermissions @{
+    "PermissionGrantPoliciesAssigned" = @() }
+```
 
 #### <a name="allow-user-consent-subject-to-an-app-consent-policy"></a>Permitir el consentimiento del usuario sujeto a una directiva de consentimiento de aplicaciones
 
 Para permitir el consentimiento del usuario, elija la directiva de consentimiento de aplicaciones que debe controlar la autorización de los usuarios para conceder consentimiento a las aplicaciones:
 
-  ```powershell
-  Set-AzureADMSAuthorizationPolicy `
-     -Id "authorizationPolicy" `
-     -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("managePermissionGrantsForSelf.{consent-policy-id}")
-  ```
+```powershell
+Set-AzureADMSAuthorizationPolicy -DefaultUserRolePermissions @{
+    "PermissionGrantPoliciesAssigned" = @("managePermissionGrantsForSelf.{consent-policy-id}") }
+```
 
 Reemplace `{consent-policy-id}` por el identificador de la directiva que le gustaría aplicar. Puede elegir una [directiva de consentimiento de aplicaciones personalizada](manage-app-consent-policies.md#create-a-custom-app-consent-policy) que ha creado, o bien elegir entre las siguientes directivas integradas:
 
@@ -90,9 +88,8 @@ Reemplace `{consent-policy-id}` por el identificador de la directiva que le gust
 Por ejemplo, para habilitar el consentimiento del usuario en función de la directiva integrada `microsoft-user-default-low`:
 
 ```powershell
-Set-AzureADMSAuthorizationPolicy `
-   -Id "authorizationPolicy" `
-   -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("managePermissionGrantsForSelf.microsoft-user-default-low")
+Set-AzureADMSAuthorizationPolicy -DefaultUserRolePermissions @{
+    "PermissionGrantPoliciesAssigned" = @("managePermissionGrantsForSelf.microsoft-user-default-low") }
 ```
 
 ---

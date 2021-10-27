@@ -126,6 +126,8 @@
           href: understand/mpa-overview.md
         - name: Introducción al portal de Azure EA
           href: manage/ea-portal-get-started.md
+        - name: Introducción a Azure Portal para EA directo
+          href: manage/ea-direct-portal-get-started.md
         - name: 'Solicitud de un crédito de retención de impuestos: India'
           href: manage/withholding-tax-credit-india.md
     - name: Seguridad

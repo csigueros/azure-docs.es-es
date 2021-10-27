@@ -7,13 +7,13 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 08/23/2021
-ms.openlocfilehash: 921db5e082748ce814a19c96c5de4ac3061750e2
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 10/14/2021
+ms.openlocfilehash: 3c14373567bf0860f59b44cd7f6042ad9aeb1adb
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129219358"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066972"
 ---
 # <a name="automated-publishing-for-continuous-integration-and-delivery"></a>Publicación automatizada para la integración y entrega continuas
 
@@ -69,6 +69,9 @@ En el flujo de CI/CD actual, la experiencia de usuario es el intermediario para 
 
 > [!NOTE]
 > Puede seguir usando el mecanismo existente, que es la rama `adf_publish`, o puede usar el flujo nuevo. Se admiten ambos.
+
+> [!WARNING]
+> Cuando se usa la publicación automatizada, no se admite la configuración **Incluir en la plantilla de ARM** para parámetros globales y dará lugar a la eliminación de la configuración de Git de la fábrica después de la implementación de la plantilla de ARM. En su lugar, use el [método de script de PowerShell](author-global-parameters.md#cicd) para implementar parámetros globales en las canalizaciones de Azure.
 
 ## <a name="package-overview"></a>Introducción al paquete
 

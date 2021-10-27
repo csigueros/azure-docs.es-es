@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 5921ad250934121223c35012d2278165b3dcc262
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 186c155ea1ec4d69abde6147997fe4659a3e833f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112237181"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003615"
 ---
 # <a name="review-your-security-recommendations"></a>Examen de las recomendaciones de seguridad
 
@@ -38,12 +38,25 @@ Security Center analiza el estado de seguridad de los recursos para identificar 
 
     1. En el caso de las recomendaciones admitidas, en la barra de navegación superior se muestran algunos o todos los botones siguientes:
         - **Aplicar** y **Denegar** (vea [Evitar errores de configuración con las recomendaciones Aplicar o Denegar](prevent-misconfigurations.md)).
-        - **View policy definition** (Ver definición de directiva) para ir directamente a la entrada Azure Policy de la directiva subyacente.
+        - **View policy definition** (Ver definición de directiva) para ir directamente a la entrada de Azure Policy de la directiva subyacente.
         - **Abrir consulta**: todas las recomendaciones tienen la opción de ver la información detallada sobre los recursos afectados mediante Azure Resource Graph Explorer.
-    1. **Indicador de gravedad**
+    1. **Indicador de gravedad**.
     1. **Intervalo de actualización** (si procede).
-    1. **Recuento de recursos exentos** si existen exenciones para esta recomendación; se muestra el número de recursos exentos.
-    1. **Descripción**: una breve descripción del problema
+    1. **Recuento de recursos exentos**: si existen exenciones para esta recomendación, se muestra el número de recursos exentos.
+    1. **Descripción**: breve descripción del problema de seguridad.
+    1. Si procede, la página de detalles también incluye una tabla de **recomendaciones relacionadas**:
+
+        Los tipos de relaciones son:
+
+        - **Requisito previo**: una recomendación que debe aplicarse antes de la recomendación seleccionada.
+        - **Alternativa**: otra recomendación que proporciona otra manera de lograr los objetivos de la recomendación seleccionada.
+        - **Dependiente**: una recomendación para la cual la recomendación seleccionada es un requisito previo.
+
+        En cada recomendación relacionada, el número de recursos incorrectos se muestra en la columna "Recursos afectados".
+
+        > [!TIP]
+        > Si una recomendación relacionada está atenuada, su dependencia aún no se ha completado y, por tanto, no está disponible.
+
     1. **Pasos de corrección**: una descripción de los pasos manuales necesarios para corregir el problema de seguridad en los recursos afectados Para encontrar recomendaciones con la opción **Corregir**, puede seleccionar **Ver lógica de corrección** antes de aplicar la corrección sugerida a los recursos.
     1. **Recursos afectados**: los recursos se agrupan en pestañas:
         - **Recursos con estado correcto**: recursos relevantes que no se ven afectados o en los que ya se ha corregido el problema.
