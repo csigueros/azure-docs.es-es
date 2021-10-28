@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: b8fc67076418678f6c53331dc6d0fbe0e7e7a0b1
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 8a43995dd125a658e2efd397745a91d7bd822e00
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111410034"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226041"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-package-agent-on-ubuntu-server-1804-x64"></a>Tutorial sobre Device Update para Azure IoT Hub con el agente de paquetes en Ubuntu Server 18.04 (x64)
 
@@ -35,7 +35,7 @@ En este tutorial, aprenderá a:
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Si todavía no lo ha hecho, cree una [instancia y una cuenta de Device Update](create-device-update-account.md), incluida la configuración de un centro de IoT.
-* La [cadena de conexión de un dispositivo de IoT Edge](../iot-edge/how-to-register-device.md?view=iotedge-2020-11&preserve-view=true#view-registered-devices-and-retrieve-connection-strings).
+* La [cadena de conexión de un dispositivo de IoT Edge](../iot-edge/how-to-provision-single-device-linux-symmetric.md?view=iotedge-2020-11&preserve-view=true#view-registered-devices-and-retrieve-provisioning-information).
 
 ## <a name="prepare-a-device"></a>Preparación de un dispositivo
 ### <a name="using-the-automated-deploy-to-azure-button"></a>Uso del botón de implementación automatizada en Azure
@@ -59,7 +59,7 @@ Para mayor comodidad, en este tutorial se usa una [plantilla de Azure Resource M
 
     **Nombre de usuario administrador**: nombre de usuario al que se proporcionarán privilegios raíz en la implementación.
 
-    **Cadena de conexión de dispositivo**: [cadena de conexión de un dispositivo](../iot-edge/how-to-register-device.md) que se ha creado en la instancia de [IoT Hub](../iot-hub/about-iot-hub.md) de su elección.
+    **Cadena de conexión de dispositivo**: [cadena de conexión de un dispositivo](../iot-edge/how-to-provision-single-device-linux-symmetric.md#view-registered-devices-and-retrieve-provisioning-information) que se ha creado en la instancia de [IoT Hub](../iot-hub/about-iot-hub.md) de su elección.
 
     **Tamaño de VM**: [tamaño](../cloud-services/cloud-services-sizes-specs.md) de la máquina virtual que se va a implementar.
 
@@ -88,7 +88,7 @@ Para mayor comodidad, en este tutorial se usa una [plantilla de Azure Resource M
 ### <a name="optional-manually-prepare-a-device"></a>(Opcional) Preparación manual de un dispositivo
 Como los pasos automatizados por el [script cloud-init](https://github.com/Azure/iotedge-vm-deploy/blob/1.2.0-rc4/cloud-init.txt), a continuación se indican los pasos manuales para instalar y configurar el dispositivo. Estos pasos se pueden usar para preparar un dispositivo físico.
 
-1. Siga las instrucciones que se indican en [Instalación del entorno de ejecución de Azure IoT Edge](../iot-edge/how-to-install-iot-edge.md?view=iotedge-2020-11&preserve-view=true).
+1. Siga las instrucciones que se indican en [Instalación del entorno de ejecución de Azure IoT Edge](../iot-edge/how-to-provision-single-device-linux-symmetric.md?view=iotedge-2020-11&preserve-view=true).
    > [!NOTE]
    > El agente de paquetes de Device Update no depende de IoT Edge. Sin embargo, se basa en el demonio del servicio de identidad de IoT que se instala con IoT Edge (1.2.0 y versiones posteriores) para obtener una identidad y conectarse a IoT Hub.
    >

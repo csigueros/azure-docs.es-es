@@ -11,12 +11,12 @@ ms.author: jhirono
 author: jhirono
 ms.date: 09/24/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions
-ms.openlocfilehash: 7f0d206b9327cad0c58cc92dbec16227c1c22644
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: d41c6537d597e34c826a4f0e7e6fecc75684d9a4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130000143"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130241882"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Protección de un entorno de entrenamiento de Azure Machine Learning con redes virtuales
 
@@ -261,6 +261,10 @@ Una instancia de proceso con la opción **Ninguna dirección IP pública** tambi
 
 Para crear una instancia de proceso sin dirección IP pública (una característica en vista previa) en Studio, marque la casilla **Ninguna dirección IP pública** en la sección de la red virtual.
 También puede crear una instancia de proceso sin dirección IP pública mediante una plantilla de ARM. En la plantilla de ARM, establezca el parámetro enableNodePublicIP en false.
+
+Pasos siguientes:
+* [Uso de un DNS personalizado](how-to-custom-dns.md)
+* [Uso de un firewall](how-to-access-azureml-behind-firewall.md)
 
 [!INCLUDE [no-public-ip-info](../../includes/machine-learning-no-public-ip-availibility.md)]
 

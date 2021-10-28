@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: dba8ecd9bbeca9c0b48f312d9c6c4ab27b52c9e7
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 46e70166fffba7c938ea6784db6eda18e69a043f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745320"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130214764"
 ---
 # <a name="azure-monitor-for-azure-virtual-desktop-glossary"></a>Glosario de Azure Monitor para Azure Virtual Desktop
 
@@ -57,7 +57,7 @@ Cuando aparece un error o una alerta en Azure Monitor para Azure Virtual Desktop
 
      - Los errores marcados como "servicio" o "ServiceError = TRUE" se produjeron en el servicio Azure Virtual Desktop.
      - Los errores marcados como "implementación" o etiquetados como "ServiceError = FALSE" se produjeron fuera del servicio Azure Virtual Desktop.
-     - Para obtener más información sobre la etiqueta ServiceError, consulte [Escenarios de error habituales](diagnostics-role-service.md#common-error-scenarios).
+     - Para obtener más información sobre la etiqueta ServiceError, consulte [Escenarios de error habituales](./troubleshoot-set-up-overview.md).
 
 - Origen: esta categoría proporciona una descripción más específica de dónde se produjo el error.
 
@@ -71,7 +71,7 @@ Cuando aparece un error o una alerta en Azure Monitor para Azure Virtual Desktop
 
      - Cliente: un software que se ejecuta en la máquina del usuario final y que proporciona la interfaz al servicio Azure Virtual Desktop. Muestra la lista de recursos publicados y hospeda la conexión de Escritorio remoto una vez realizada la selección.
 
-Cada error o problema de diagnóstico incluye un mensaje que explica qué algo no ha funcionado bien. Para obtener más información sobre la solución de errores, consulte [Identificación y diagnóstico de problemas de Azure Virtual Desktop](diagnostics-role-service.md).
+Cada error o problema de diagnóstico incluye un mensaje que explica qué algo no ha funcionado bien. Para obtener más información sobre la solución de errores, consulte [Identificación y diagnóstico de problemas de Azure Virtual Desktop](./troubleshoot-set-up-overview.md).
 
 ## <a name="input-delay"></a>Retraso de entrada
 

@@ -12,12 +12,12 @@ ms.workload: iaas-sql-server
 ms.date: 9/01/2021
 ms.custom: devx-track-azurepowershell
 ms.reviewer: mathoma
-ms.openlocfilehash: c41e2add335e423a31cc9f804bf643b45641a3d7
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 7fa68f13438069990b035b182dee0fd44ab65d32
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130164540"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262401"
 ---
 # <a name="automatic-registration-with-sql-iaas-agent-extension"></a>Registro automático con la extensión Agente de IaaS de SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -36,7 +36,7 @@ Registro de la VM con SQL Server con la [extensión Agente de IaaS de SQL](sql-
 Cuando el registro automático está habilitado, un trabajo se ejecuta diariamente para detectar si SQL Server está instalado en todas las máquinas virtuales no registradas de la suscripción. Para ello, copie los archivos binarios de extensión del agente de IaaS de SQL en la máquina virtual y, a continuación, ejecute una utilidad puntual que compruebe el subárbol del Registro de SQL Server. Si se detecta el subárbol de SQL Server, la máquina virtual se registra con la extensión en modo ligero. Si no existe ningún subárbol de SQL Server en el Registro, se quitan los archivos binarios. El registro automático puede tardar hasta 4 días en detectar máquinas virtuales con SQL Server recién creadas.
 
 > [!CAUTION]
-> Si el subárbol de SQL Server no está presente en el Registro, la eliminación de los archivos binarios podría verse afectada si hay [bloqueos de recursos](/azure/governance/blueprints/concepts/resource-locking#locking-modes-and-states) en su lugar. 
+> Si el subárbol de SQL Server no está presente en el Registro, la eliminación de los archivos binarios podría verse afectada si hay [bloqueos de recursos](../../../governance/blueprints/concepts/resource-locking.md#locking-modes-and-states) en su lugar. 
 
 
 Una vez que el registro automático esté habilitado para una suscripción, todas las máquinas virtuales actuales y futuras que tengan SQL Server instalado se registrarán con la extensión de agente de IaaS de SQL **en modo ligero sin tiempo de inactividad y sin reiniciar el servicio de SQL Server**. Aún debe [actualizar manualmente al modo de administración completo](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full) para aprovechar todo el conjunto de características. El tipo de licencia predeterminado es el de la imagen de máquina virtual. Si usa una imagen de pago por uso para la máquina virtual, el tipo de licencia será `PAYG`; de lo contrario, el tipo de licencia será `AHUB` de forma predeterminada. 
@@ -116,4 +116,4 @@ Los errores de registro incorrecto se almacenan en `RegistrationErrors.csv`, que
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Actualice el modo de administración a [completo](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full) para aprovechar todo el conjunto de características que proporciona la extensión Agente de IaaS de SQL. 
+Actualice el modo de administración a [completo](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full) para aprovechar todo el conjunto de características que proporciona la extensión Agente de IaaS de SQL.

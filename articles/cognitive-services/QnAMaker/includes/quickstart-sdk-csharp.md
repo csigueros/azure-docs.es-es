@@ -3,12 +3,12 @@ title: 'Inicio rápido: Biblioteca cliente de QnA Maker para .NET'
 description: Este inicio rápido le muestra cómo empezar a trabajar con la biblioteca cliente de QnA Maker para .NET. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.  QnA Maker le permite alimentar un servicio de preguntas y respuestas con su contenido semiestructurado, como documentos de preguntas frecuentes, direcciones URL y manuales de productos.
 ms.topic: quickstart
 ms.date: 04/28/2021
-ms.openlocfilehash: e59f2137af303242ef2747e2b3430dd9e081c6aa
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 65b0ec019061f0cd2fc38983441fec12edd50b99
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110486641"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130287250"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/version-1)
 
@@ -43,7 +43,7 @@ Use la biblioteca cliente de QnA Maker para .NET para:
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 # <a name="qna-maker-ga-stable-release"></a>[Disponibilidad general de QnA Maker (versión estable)](#tab/version-1)
 
@@ -346,7 +346,7 @@ Cree un [QnAMakerRuntimeClient](/dotnet/api/microsoft.azure.cognitiveservices.kn
 
 Use QnAMakerRuntimeClient para:
 * Obtener una respuesta de la base de conocimiento
-* Enviar nuevas preguntas sugeridas a la base de conocimiento para el [aprendizaje activo](../concepts/active-learning-suggestions.md).
+* Enviar nuevas preguntas sugeridas a la base de conocimiento para el [aprendizaje activo](../index.yml).
 
 ## <a name="generate-an-answer-from-the-knowledge-base"></a>Generación de una respuesta de la base de conocimiento
 

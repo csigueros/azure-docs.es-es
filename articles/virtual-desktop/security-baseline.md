@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/25/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0adc8638eeffedf1f8b2b31357b43fc38e67773f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 186def3e179bc5cefdb9eb93d95e852bbe35bc1b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128546340"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262933"
 ---
 # <a name="azure-security-baseline-for-azure-virtual-desktop"></a>Línea base de seguridad de Azure para Azure Virtual Desktop
 
@@ -136,7 +136,7 @@ Azure AD admite identidades externas, que permiten a los usuarios que no tienen
 
 - [¿Qué es la puntuación de seguridad de la identidad en Azure AD?](../active-directory/fundamentals/identity-secure-score.md)
 
-- [Roles específicos que necesita para usar Azure Virtual Desktop ](/azure/virtual-desktop/faq#what-are-the-minimum-admin-permissions-i-need-to-manage-objects)
+- [Roles específicos que necesita para usar Azure Virtual Desktop ](./faq.yml)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -254,7 +254,7 @@ Para garantizar un control de acceso coherente, todos los tipos de control de ac
 
 - [Administradores de la suscripción de Azure](../cost-management-billing/manage/add-change-subscription-administrator.md)
 
-- [Permisos de administrador mínimos necesarios para administrar Azure Virtual Desktop](/azure/virtual-desktop#what-are-the-minimum-admin-permissions-i-need-to-manage-objects)
+- [Permisos de administrador mínimos necesarios para administrar Azure Virtual Desktop](./index.yml)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -500,7 +500,7 @@ Reenvíe los registros desde Azure Virtual Desktop a su solución de administrac
 
 - [Guía de referencia de alertas de seguridad de Azure Security Center](../security-center/alerts-reference.md)
 
-- [Creación de reglas de análisis personalizadas para detectar amenazas](../sentinel/tutorial-detect-threats-custom.md) 
+- [Creación de reglas de análisis personalizadas para detectar amenazas](../sentinel/detect-threats-custom.md) 
 
 - [Inteligencia sobre amenazas cibernéticas con Azure Sentinel](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)
 
@@ -644,7 +644,7 @@ Azure Sentinel proporciona amplios análisis de datos en prácticamente cualquie
 
 - [Recopilación del volcado de memoria e información de diagnóstico del servicio de soporte técnico de Microsoft Azure](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 
 
-- [Investigación de incidentes con Azure Sentinel](../sentinel/tutorial-investigate-cases.md)
+- [Investigación de incidentes con Azure Sentinel](../sentinel/investigate-cases.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 

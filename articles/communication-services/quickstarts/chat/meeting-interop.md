@@ -7,13 +7,13 @@ ms.author: askaur
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-web-ios-android
-ms.openlocfilehash: c3dacc492df4dc749514971b16776ae0c3e2adc7
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+zone_pivot_groups: acs-plat-web-ios-android-windows
+ms.openlocfilehash: 41fdb0a4634d2b6f8f0cdaed37af17cbfba9044d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123254701"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252143"
 ---
 # <a name="quickstart-join-your-chat-app-to-a-teams-meeting"></a>Inicio rápido: Incorporación de una aplicación de chat a una reunión de Teams
 
@@ -31,6 +31,10 @@ Comience a usar Azure Communication Services mediante la conexión de la soluci�
 
 ::: zone pivot="platform-android"
 [!INCLUDE [Teams interop with Android SDK](./includes/meeting-interop-android.md)]
+::: zone-end
+
+::: zone pivot="platform-windows"
+[!INCLUDE [Teams interop with CSharp SDK](./includes/meeting-interop-windows.md)]
 ::: zone-end
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

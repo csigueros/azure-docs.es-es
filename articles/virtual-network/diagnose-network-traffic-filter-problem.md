@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d3180ba6e8c19714759563eb79a8488929efe940
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: ca7503127342a5eceac43a8f5a2bfce578eb21e6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110675861"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257810"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnóstico de un problema de filtro del tráfico de red de una máquina virtual
 
@@ -169,7 +169,7 @@ La regla denominada **defaultSecurityRules/DenyAllInBound** es lo que impide la 
 
 Independientemente de que utilice Azure [Portal](#diagnose-using-azure-portal), [PowerShell](#diagnose-using-powershell) o la [CLI de Azure](#diagnose-using-azure-cli) para diagnosticar el problema que se presenta en el [escenario](#scenario) de este artículo, la solución consiste en crear una regla de seguridad de red con las siguientes propiedades:
 
-| Propiedad                | Valor                                                                              |
+| Propiedad                | Value                                                                              |
 |---------                |---------                                                                           |
 | Source                  | Any                                                                                |
 | Source port ranges      | Any                                                                                |
@@ -193,7 +193,7 @@ Tenga en cuenta los puntos siguientes cuando tenga que solucionar problemas de c
 * Las reglas de seguridad predeterminadas bloquean el acceso de entrada desde Internet y solo permiten el tráfico entrante desde la red virtual. Para permitir el tráfico entrante desde Internet, agregue reglas de seguridad con una prioridad más alta que las reglas predeterminadas. Obtenga más información acerca de las [reglas de seguridad predeterminadas](./network-security-groups-overview.md#default-security-rules) o de cómo [agregar una regla de seguridad](manage-network-security-group.md#create-a-security-rule).
 * Si ha emparejado redes virtuales, de forma predeterminada, la etiqueta de servicio **VIRTUAL_NETWORK** se expande automáticamente para incluir prefijos para las redes virtuales emparejadas. Para solucionar los problemas relacionados con el emparejamiento de redes virtuales, puede ver los prefijos en la lista **ExpandedAddressPrefix**. Obtenga más información acerca del [emparejamiento de redes virtuales](virtual-network-peering-overview.md) y de las [etiquetas de servicio](./network-security-groups-overview.md#service-tags).
 * Las reglas de seguridad vigentes solo se muestran para una interfaz de red si hay un grupo de seguridad de red asociado a la interfaz de red de la máquina virtual o a la subred, y si la máquina virtual está en estado de ejecución.
-* Si no hay ningún grupo de seguridad de red asociado a la interfaz de red o a la subred y tiene una [dirección IP pública](virtual-network-public-ip-address.md) asignada a una máquina virtual, todos los puertos estarán abiertos para el acceso entrante y saliente a y desde cualquier lugar. Si la máquina virtual tiene una dirección IP pública, es aconsejable aplicar un grupo de seguridad de red a la subred o a la interfaz de red.
+* Si no hay ningún grupo de seguridad de red asociado a la interfaz de red o a la subred y tiene una [dirección IP pública](./ip-services/virtual-network-public-ip-address.md) asignada a una máquina virtual, todos los puertos estarán abiertos para el acceso entrante y saliente a y desde cualquier lugar. Si la máquina virtual tiene una dirección IP pública, es aconsejable aplicar un grupo de seguridad de red a la subred o a la interfaz de red.
 
 ## <a name="additional-diagnosis"></a>Diagnóstico adicional
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/27/2021
 ms.author: b-juche
-ms.openlocfilehash: 1a0b2e59f2d11caf1db9985cfba937e2df0f44c7
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 5e6302893884674708f584b0261204b2cc891c6c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129094907"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256388"
 ---
 # <a name="restore-a-backup-to-a-new-volume"></a>Restauración de una copia de seguridad en un nuevo volumen
 
@@ -58,16 +58,13 @@ Al restaurar una copia de seguridad, se crea un nuevo volumen con el mismo tipo 
 ## <a name="next-steps"></a>Pasos siguientes  
 
 * [Descripción de la copia de seguridad de archivos de Azure NetApp Files](backup-introduction.md)
-* [Requisitos y consideraciones para la copia de seguridad de archivos de Azure NetApp Files](backup-requirements-considerations.md)
+* [Requisitos y consideraciones para la copia de seguridad de Azure NetApp Files](backup-requirements-considerations.md)
 * [Límites de recursos para Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Configuración de copias de seguridad basadas en directivas](backup-configure-policy-based.md)
-* [Configuración de copias de seguridad manuales para archivos de Azure NetApp Files](backup-configure-manual.md)
+* [Configuración de copias de seguridad manuales](backup-configure-manual.md)
 * [Administrar directivas de copia de seguridad](backup-manage-policies.md)
 * [Búsqueda de copias de seguridad de volúmenes de Azure NetApp Files](backup-search.md)
 * [Deshabilitación de la funcionalidad de copia de seguridad de un volumen](backup-disable.md)
 * [Eliminación de copias de seguridad de un volumen](backup-delete.md)
 * [Métricas de copia de seguridad de los volúmenes](azure-netapp-files-metrics.md#volume-backup-metrics)
-* [Preguntas frecuentes sobre la copia de seguridad de archivos de Azure NetApp Files](azure-netapp-files-faqs.md#azure-netapp-files-backup-faqs)
-
-
-
+* [Preguntas frecuentes sobre la copia de seguridad de archivos de Azure NetApp Files](faq-backup.md)

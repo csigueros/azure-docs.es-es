@@ -5,12 +5,12 @@ description: Aprenda a crear y usar una dirección IP estática con el equilibra
 services: container-service
 ms.topic: article
 ms.date: 11/14/2020
-ms.openlocfilehash: bb1e5691027a4bd86b57390e12259ac165ca9ed8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 9d49aeb39d4325957591474901496b9424ac0434
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769524"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130240516"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Uso de una dirección IP pública estática y una etiqueta DNS con el equilibrador de carga de Azure Kubernetes Service (AKS)
 
@@ -174,4 +174,4 @@ Para un control adicional sobre el tráfico de red a las aplicaciones, puede ser
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
-[ip-sku]: ../virtual-network/public-ip-addresses.md#sku
+[ip-sku]: ../virtual-network/ip-services/public-ip-addresses.md#sku
