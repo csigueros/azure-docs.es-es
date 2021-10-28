@@ -4,12 +4,12 @@ description: Información general sobre el control de acceso de Service Bus con 
 ms.topic: article
 ms.date: 10/18/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5a31ce93c603f1bc1f0765fb2de438476e1f63de
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 86da611f3d64b4b3b913dc49da7f90c69562d8fc
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130164974"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130263313"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Control de acceso de Service Bus con Firmas de acceso compartido
 
@@ -263,7 +263,7 @@ La siguiente tabla muestra los derechos de acceso necesarios para realizar diver
 | **Reglas** | | |
 | Crear una regla | Escuchar |../myTopic/Subscriptions/mySubscription |
 | Eliminar una regla | Escuchar |../myTopic/Subscriptions/mySubscription |
-| Enumerar reglas | Escuchar |../myTopic/Subscriptions/mySubscription/Rules
+| Enumerar reglas | Administrar o escuchar |../myTopic/Subscriptions/mySubscription/Rules
 
 ## <a name="next-steps"></a>Pasos siguientes
 

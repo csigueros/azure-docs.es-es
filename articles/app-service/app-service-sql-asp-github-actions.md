@@ -6,16 +6,16 @@ ms.topic: tutorial
 ms.date: 09/13/2021
 ms.author: jukullam
 ms.custom: github-actions-azure
-ms.openlocfilehash: 01d4293b33eb0756dec8bc9ae870a972959ced89
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a63a51299cf6ffac98dd7514e79c762b2acb67bd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128702188"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236568"
 ---
 # <a name="tutorial-use-github-actions-to-deploy-to-app-service-and-connect-to-a-database"></a>Tutorial: uso de Acciones de GitHub para implementar en App Service y conectarse a una base de datos
 
-Aprenda a configurar un flujo de trabajo de Acciones de GitHub para implementar una aplicación ASP.NET Core con un back-end de [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md). Cuando haya terminado, tendrá una aplicación ASP.NET en ejecución en Azure y conectada a SQL Database. Primero usará una [plantilla de ARM](/azure/azure-resource-manager/templates/overview) para crear recursos.
+Aprenda a configurar un flujo de trabajo de Acciones de GitHub para implementar una aplicación ASP.NET Core con un back-end de [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md). Cuando haya terminado, tendrá una aplicación ASP.NET en ejecución en Azure y conectada a SQL Database. Primero usará una [plantilla de ARM](../azure-resource-manager/templates/overview.md) para crear recursos.
 
 En este tutorial no se usan los contenedores. Si quiere implementar contenido en una aplicación contenedorizada de ASP.NET Core, consulte [Uso de las Acciones de GitHub para implementar contenido en App Service para contenedores conectarse a una base de datos ](app-service-sql-github-actions.md).
 
@@ -89,7 +89,7 @@ Para utilizar las [credenciales de nivel de usuario](#generate-deployment-creden
  
 ## <a name="create-azure-resources"></a>Creación de recursos de Azure
 
-El flujo de trabajo de creación de recursos de Azure ejecuta una [plantilla de ARM](/azure/azure-resource-manager/templates/overview) para implementar recursos en Azure. El flujo de trabajo:
+El flujo de trabajo de creación de recursos de Azure ejecuta una [plantilla de ARM](../azure-resource-manager/templates/overview.md) para implementar recursos en Azure. El flujo de trabajo:
 
 - Restaura el código fuente con la [acción de restauración](https://github.com/marketplace/actions/checkout).
 - Inicia sesión en Azure con la [acción de inicio de sesión de Azure](https://github.com/marketplace/actions/azure-login) y recopila información del entorno y los recursos de Azure.

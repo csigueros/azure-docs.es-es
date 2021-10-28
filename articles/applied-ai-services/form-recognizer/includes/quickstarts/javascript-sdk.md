@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 05/12/2021
 ms.author: lajanuar
 ms.custom: devx-track-js
-ms.openlocfilehash: 880f27665b191df2459cbdc15b6a8afa47fd3f8c
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: b1b830ae8e6e7a203bc075ca94f8a87767ba3423
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129715407"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130288162"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -144,7 +144,7 @@ cell [1,5] has text PT
 
 ## <a name="analyze-receipts"></a>Análisis de las confirmaciones de recepción
 
-En esta sección se muestra cómo analizar y extraer campos comunes de recibos de EE. UU. mediante un modelo de recibos entrenado previamente. Para más información sobre el análisis de recibos, consulte la [guía conceptual sobre recibos](../../concept-receipts.md).
+En esta sección se muestra cómo analizar y extraer campos comunes de recibos de EE. UU. mediante un modelo de recibos entrenado previamente. Para más información sobre el análisis de recibos, consulte la [guía conceptual sobre recibos](../../concept-receipt.md).
 
 Para analizar los recibos de un identificador URI, use el método `beginRecognizeReceiptsFromUrl`. En el código siguiente se procesa un recibo en el URI especificado y se imprimen los campos y valores principales en la consola.
 
@@ -170,7 +170,7 @@ First receipt:
 
 ## <a name="analyze-business-cards"></a>Análisis de tarjetas de presentación
 
-En esta sección se muestra cómo analizar y extraer campos comunes de tarjetas de presentación en inglés mediante un modelo entrenado previamente. Para más información acerca del análisis de tarjetas de presentación, consulte la [guía conceptual sobre tarjetas de presentación](../../concept-business-cards.md).
+En esta sección se muestra cómo analizar y extraer campos comunes de tarjetas de presentación en inglés mediante un modelo entrenado previamente. Para más información acerca del análisis de tarjetas de presentación, consulte la [guía conceptual sobre tarjetas de presentación](../../concept-business-card.md).
 
 Para analizar tarjetas de presentación en una dirección URL, use el método `beginRecognizeBusinessCardsFromURL`.
 
@@ -181,7 +181,7 @@ Para analizar tarjetas de presentación en una dirección URL, use el método `b
 
 ## <a name="analyze-invoices"></a>Análisis de facturas
 
-En esta sección se muestra cómo analizar y extraer campos comunes de facturas de compra mediante un modelo entrenado previamente. Para más información sobre el análisis de facturas, consulte la [guía conceptual sobre facturas](../../concept-invoices.md).
+En esta sección se muestra cómo analizar y extraer campos comunes de facturas de compra mediante un modelo entrenado previamente. Para más información sobre el análisis de facturas, consulte la [guía conceptual sobre facturas](../../concept-invoice.md).
 
 Para analizar facturas de una dirección URL, use el método `beginRecognizeInvoicesFromUrl`.
 
@@ -192,7 +192,7 @@ Para analizar facturas de una dirección URL, use el método `beginRecognizeInvo
 
 ## <a name="analyze-id-documents"></a>Análisis de documentos de identificación
 
-En esta sección se muestra cómo analizar y extraer información clave de documentos de identificación emitidos por la administración pública (pasaportes de todo el mundo y permisos de conducir de EE. UU.) mediante el modelo de identificación precompilado de Form Recognizer. Para obtener más información sobre el análisis de documentos de identificación, consulte nuestra [guía conceptual del modelo de identificación precompilado](../../concept-identification-cards.md).
+En esta sección se muestra cómo analizar y extraer información clave de documentos de identificación emitidos por la administración pública (pasaportes de todo el mundo y permisos de conducir de EE. UU.) mediante el modelo de identificación precompilado de Form Recognizer. Para obtener más información sobre el análisis de documentos de identificación, consulte nuestra [guía conceptual del modelo de identificación precompilado](../../concept-id-document.md).
 
 Para analizar documentos de identificación de una dirección URL, use el método `beginRecognizeIdDocumentsFromUrl`.
 

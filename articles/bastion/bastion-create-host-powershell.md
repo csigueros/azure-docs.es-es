@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 09/22/2021
 ms.author: cherylmc
-ms.openlocfilehash: 5f58c9c5c58b2706d0861aeef4a2dac2af64274f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 23d249bafca7b9ca89ab743d7aa1beb7ac60e868
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128605171"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233120"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-powershell"></a>Creación de un host Azure Bastion con Azure PowerShell
 
@@ -61,7 +61,7 @@ Esta sección le ayuda a crear un nuevo recurso Azure Bastion con Azure PowerShe
    ```
 ## <a name="disassociate-the-vm-public-ip-address"></a>Desasociación de la dirección IP pública de una máquina virtual
 
-Azure Bastion no usa la dirección IP pública para conectarse a la máquina virtual cliente. Si no necesita la dirección IP pública de la máquina virtual, puede desasociar la dirección IP pública mediante los pasos de este artículo: [Desasociación de una dirección IP pública de una máquina virtual de Azure](../virtual-network/remove-public-ip-address-vm.md).
+Azure Bastion no usa la dirección IP pública para conectarse a la máquina virtual cliente. Si no necesita la dirección IP pública de la máquina virtual, puede desasociar la dirección IP pública mediante los pasos de este artículo: [Desasociación de una dirección IP pública de una máquina virtual de Azure](../virtual-network/ip-services/remove-public-ip-address-vm.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

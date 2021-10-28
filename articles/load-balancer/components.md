@@ -11,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: a75ea7e9f3659b45e79748fdead7be9aa8ca4f94
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 32cac3156a020beebf046fff9c429a75a348ebcd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128649480"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215285"
 ---
 # <a name="azure-load-balancer-components"></a>Componentes de Azure Load Balancer
 
 Azure Load Balancer incluye algunos componentes clave. Puede configurar esos componentes en su suscripción mediante:
 
 * Azure portal
-* Azure CLI
+* CLI de Azure
 * Azure PowerShell
 * Plantillas de Resource Manager
 
@@ -137,8 +137,8 @@ Los equilibradores de carga básicos no admiten reglas de salida.
 
 - Consulte el artículo [Uso de Azure Portal para crear un equilibrador de carga público para equilibrar la carga de máquinas virtuales](quickstart-load-balancer-standard-public-portal.md) para empezar a usar un equilibrador de carga.
 - Más información sobre [Azure Load Balancer](load-balancer-overview.md).
-- Información sobre las [direcciones IP públicas](../virtual-network/virtual-network-public-ip-address.md)
-- Información sobre las [direcciones IP privadas](../virtual-network/private-ip-addresses.md)
+- Información sobre las [direcciones IP públicas](../virtual-network/ip-services/virtual-network-public-ip-address.md)
+- Información sobre las [direcciones IP privadas](../virtual-network/ip-services/private-ip-addresses.md)
 - Aprenda a usar [Standard Load Balancer y Availability Zones](load-balancer-standard-availability-zones.md).
 - Más información acerca de los [diagnósticos de Standard Load Balancer](load-balancer-standard-diagnostics.md).
 - Obtenga información sobre el [restablecimiento de TCP en estado inactivo](load-balancer-tcp-reset.md).

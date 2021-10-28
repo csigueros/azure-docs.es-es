@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 58e68193ffabb6984365eade56c9c8efe8504acd
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 18d3b3c5717c5bec2044a05c7e5854222adb73b1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122692143"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257943"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Conversión de una máquina virtual Linux con discos no administrados en discos administrados
 
@@ -24,7 +24,7 @@ Si ya dispone de máquinas virtuales (VM) con Linux que usan Unmanaged Disks, pu
 En este artículo se muestra cómo convertir máquinas virtuales con la CLI de Azure. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). 
 
 ## <a name="before-you-begin"></a>Antes de empezar
-* Revise las [preguntas frecuentes sobre la migración a Managed Disks](/azure/virtual-machines/faq-for-disks#migrate-to-managed-disks).
+* Revise las [preguntas frecuentes sobre la migración a Managed Disks](../faq-for-disks.yml).
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 

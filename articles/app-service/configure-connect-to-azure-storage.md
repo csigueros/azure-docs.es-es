@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/02/2021
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 77dc45d71a4a9706dd645289dd5839ee97c17314
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: e485efa572dd1b786b714b74b4d6df49d7a44853
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123472027"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236457"
 ---
 # <a name="mount-azure-storage-as-a-local-share-in-a-container-app-in-app-service"></a>Montaje de Azure Storage como un recurso compartido local en una aplicación de contenedor en App Service
 
@@ -20,7 +20,7 @@ ms.locfileid: "123472027"
 > [!NOTE]
 >Azure Storage en un contenedor Windows de App Service se encuentra **en versión preliminar** y **no se admite** para **escenarios de producción**.
 
-En esta guía, se muestra cómo montar archivos de Azure Storage como un recurso compartido de red en un contenedor Windows en App Service. Solo se admiten [recursos compartidos de archivos de Azure Files](../storage/files/storage-how-to-use-files-cli.md) y [recursos compartidos de archivos Premium](../storage/files/storage-how-to-create-file-share.md). Entre las ventajas del montaje personalizado del almacenamiento se encuentran:
+En esta guía, se muestra cómo montar archivos de Azure Storage como un recurso compartido de red en un contenedor Windows en App Service. Solo se admiten [recursos compartidos de archivos de Azure Files](../storage/files/storage-how-to-use-files-portal.md) y [recursos compartidos de archivos Premium](../storage/files/storage-how-to-create-file-share.md). Entre las ventajas del montaje personalizado del almacenamiento se encuentran:
 
 ::: zone-end
 
@@ -39,7 +39,7 @@ En esta guía, se muestra cómo montar Azure Storage como un recurso compartido 
 
 Se admiten las siguientes características para los contenedores Windows:
 
-- Acceso protegido a cuentas de almacenamiento con [vínculos privados](../storage/common/storage-private-endpoints.md) (cuando se usa la [integración de red virtual](web-sites-integrate-with-vnet.md)). En este momento no está disponible la compatibilidad con [puntos de conexión de servicio](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network).
+- Acceso protegido a cuentas de almacenamiento con [vínculos privados](../storage/common/storage-private-endpoints.md) (cuando se usa la [integración de red virtual](./overview-vnet-integration.md)). En este momento no está disponible la compatibilidad con [puntos de conexión de servicio](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network).
 - Azure Files (lectura y escritura).
 - Hasta cinco puntos de montaje por aplicación.
 - Asignaciones de letras de unidad (de `C:` a `Z:`).
@@ -50,7 +50,7 @@ Se admiten las siguientes características para los contenedores Windows:
 
 Se admiten las siguientes características para los contenedores Linux:
 
-- Acceso protegido a cuentas de almacenamiento con [puntos de conexión de servicio](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) y [vínculos privados](../storage/common/storage-private-endpoints.md) (cuando se usa la [integración de red virtual](web-sites-integrate-with-vnet.md)).
+- Acceso protegido a cuentas de almacenamiento con [puntos de conexión de servicio](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) y [vínculos privados](../storage/common/storage-private-endpoints.md) (cuando se usa la [integración de red virtual](./overview-vnet-integration.md)).
 - Azure Files (lectura y escritura).
 - Blobs de Azure (solo lectura).
 - Hasta cinco puntos de montaje por aplicación.
@@ -62,7 +62,7 @@ Se admiten las siguientes características para los contenedores Linux:
 ::: zone pivot="container-windows"
 
 - [Una aplicación de contenedor de Windows existente en Azure App Service](quickstart-custom-container.md)
-- [Creación de un recurso compartido de Azure Files](../storage/files/storage-how-to-use-files-cli.md)
+- [Creación de un recurso compartido de Azure Files](../storage/files/storage-how-to-use-files-portal.md)
 - [Carga de archivos en un recurso compartido de Azure Files](../storage/files/storage-how-to-create-file-share.md)
 
 ::: zone-end
@@ -71,7 +71,7 @@ Se admiten las siguientes características para los contenedores Linux:
 
 - Una [aplicación de App Service en Linux](index.yml) existente.
 - Una [cuenta de Azure Storage](../storage/common/storage-account-create.md?tabs=azure-cli).
-- Un [recurso compartido y un directorio de Azure](../storage/files/storage-how-to-use-files-cli.md).
+- Un [recurso compartido y un directorio de Azure](../storage/files/storage-how-to-use-files-portal.md).
 
 ::: zone-end
 
@@ -85,7 +85,7 @@ Se admiten las siguientes características para los contenedores Linux:
 
 - No se admiten montajes de Azure Storage para aplicaciones Windows nativas (no contenedorizadas).
 - No se admiten blobs de Azure.
-- El [firewall de Azure Storage](../storage/common/storage-network-security.md) solo se admite mediante [puntos de conexión privados](../storage/common/storage-private-endpoints.md) (cuando se usa la [integración de red virtual](web-sites-integrate-with-vnet.md)). La compatibilidad con DNS personalizado no está disponible actualmente cuando la cuenta de Azure Storage montada usa un punto de conexión privado.
+- El [firewall de Azure Storage](../storage/common/storage-network-security.md) solo se admite mediante [puntos de conexión privados](../storage/common/storage-private-endpoints.md) (cuando se usa la [integración de red virtual](./overview-vnet-integration.md)). La compatibilidad con DNS personalizado no está disponible actualmente cuando la cuenta de Azure Storage montada usa un punto de conexión privado.
 - No se admite el acceso FTP/FTPS al almacenamiento montado (use el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/)).
 - No se admite la asignación de `[C-Z]:\`, `[C-Z]:\home`, `/`ni `/home` al montaje personalizado del almacenamiento.
 - Los montajes de Azure Storage no se pueden usar junto con la opción de configuración de clonación durante la creación de [ranuras de implementación](deploy-staging-slots.md).
@@ -95,7 +95,7 @@ Se admiten las siguientes características para los contenedores Linux:
 
 ::: zone pivot="container-linux"
 
-- El [firewall de Azure Storage](../storage/common/storage-network-security.md) solo se admite mediante [puntos de conexión de servicio](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) y [puntos de conexión privados](../storage/common/storage-private-endpoints.md) (cuando se usa la [integración de red virtual](web-sites-integrate-with-vnet.md)). La compatibilidad con DNS personalizado no está disponible actualmente cuando la cuenta de Azure Storage montada usa un punto de conexión privado.
+- El [firewall de Azure Storage](../storage/common/storage-network-security.md) solo se admite mediante [puntos de conexión de servicio](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) y [puntos de conexión privados](../storage/common/storage-private-endpoints.md) (cuando se usa la [integración de red virtual](./overview-vnet-integration.md)). La compatibilidad con DNS personalizado no está disponible actualmente cuando la cuenta de Azure Storage montada usa un punto de conexión privado.
 - No se admite el acceso FTP/FTPS al montaje personalizado del almacenamiento (use el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/)).
 - La compatibilidad con la CLI de Azure, Azure PowerShell y Azure SDK se encuentra en versión preliminar.
 - No se admite la asignación de `/` ni `/home` al montaje personalizado del almacenamiento.

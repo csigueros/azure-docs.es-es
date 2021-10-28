@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 09/14/2021
 ms.author: sajagtap
-ms.openlocfilehash: 8c0fee509dabc0d7d0462dd28e14c453615af52e
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: bb1c2ee770380b5f8689b1dd8f25712293a0bcb2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130000541"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130220230"
 ---
 # <a name="get-started-form-recognizer-studio--preview"></a>Introducción: Form Recognizer Studio | Versión preliminar
 
@@ -36,14 +36,14 @@ Además de la cuenta de Azure y un recurso de Form Recognizer o Cognitive Servic
 
 Una [**cuenta de Azure Blob Storage**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) con un **rendimiento estándar**. Creará contenedores para almacenar y organizar los datos de los blobs en la cuenta de almacenamiento. Si no sabe cómo crear una cuenta de almacenamiento de Azure con un contenedor, siga estos inicios rápidos:
 
-  * [**Creación de una cuenta de almacenamiento**](/azure/storage/common/storage-account-create). Al crear la cuenta de almacenamiento, asegúrese de seleccionar rendimiento **Estándar** en el campo **Detalles de instancia → Rendimiento**.
-  * [**Creación de un contenedor**](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container). Al crear un contenedor, establezca el campo **Nivel de acceso público** en **Contenedor** (acceso anónimo de lectura para contenedores y blobs) en la ventana **Nuevo contenedor**.
+  * [**Creación de una cuenta de almacenamiento**](../../../storage/common/storage-account-create.md). Al crear la cuenta de almacenamiento, asegúrese de seleccionar rendimiento **Estándar** en el campo **Detalles de instancia → Rendimiento**.
+  * [**Creación de un contenedor**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). Al crear un contenedor, establezca el campo **Nivel de acceso público** en **Contenedor** (acceso anónimo de lectura para contenedores y blobs) en la ventana **Nuevo contenedor**.
 
 ### <a name="configure-cors"></a>Configuración de CORS
 
 [CORS (uso compartido de recursos entre orígenes)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) debe configurarse en la cuenta de almacenamiento de Azure para que sea accesible desde Form Recognizer Studio. Para configurar CORS en Azure Portal, necesitará acceso a la hoja CORS de la cuenta de almacenamiento.
 
-:::image type="content" source="../media/quickstarts/storage-cors-example.png" alt-text="Captura de pantalla que muestra la configuración de CORS para una cuenta de almacenamiento.":::
+:::image type="content" source="../media/quickstarts/cors-updated-image.png" alt-text="Captura de pantalla que muestra la configuración de CORS para una cuenta de almacenamiento.":::
 
 1. Seleccione la hoja CORS de la cuenta de almacenamiento.
 2. Empiece por crear una nueva entrada de CORS en Blob service.
@@ -74,7 +74,7 @@ CORS ahora debe estar configurado para usar la cuenta de almacenamiento de Form 
     :::image border="true" type="content" source="../media/sas-tokens/upload-blob-window.png" alt-text="Captura de pantalla: botón Cargar blob en Azure Portal.":::
 
 > [!NOTE]
-> De manera predeterminada, Studio usará los documentos de formulario que se encuentran en la raíz del contenedor. Sin embargo, puede usar datos organizados en carpetas si se especifica en los pasos de creación del proyecto de formulario personalizado. *Consulte* [**Organización de los datos en subcarpetas (opcional)**](/azure/applied-ai-services/form-recognizer/build-training-data-set#organize-your-data-in-subfolders-optional).
+> De manera predeterminada, Studio usará los documentos de formulario que se encuentran en la raíz del contenedor. Sin embargo, puede usar datos organizados en carpetas si se especifica en los pasos de creación del proyecto de formulario personalizado. *Consulte* [**Organización de los datos en subcarpetas (opcional)**](../build-training-data-set.md#organize-your-data-in-subfolders-optional).
 
 ## <a name="sign-into-the-form-recognizer-studio-preview"></a>Inicio de sesión en la versión preliminar de Form Recognizer Studio
 

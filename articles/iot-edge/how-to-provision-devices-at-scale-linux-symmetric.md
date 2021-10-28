@@ -8,12 +8,12 @@ ms.date: 08/17/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c2bae93e325a36b6db28d1a9c1e6e47ee947db39
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b19990be57332df6de4ccbb45ae92c74b30041b3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128699801"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226060"
 ---
 # <a name="create-and-provision-iot-edge-devices-at-scale-on-linux-using-symmetric-key"></a>Creación y aprovisionamiento de dispositivos IoT Edge a escala en Linux mediante claves simétricas
 
@@ -39,7 +39,7 @@ La atestación de clave simétrica es un enfoque sencillo para autenticar un dis
 * Un dispositivo Linux físico o virtual para que sea el dispositivo IoT Edge.
   * Se debe definir un **identificador de registro** *único* para identificar cada dispositivo. Puede usar la dirección MAC, el número de serie o cualquier otra información única del dispositivo. Por ejemplo, podría usar una combinación de una dirección MAC y un número de serie que formen la siguiente cadena de un identificador de registro: `sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6`. Solo se pueden usar caracteres alfanuméricos en minúsculas y guiones (`-`).
 * Una instancia de IoT Hub Device Provisioning Service en Azure que esté vinculada a IoT Hub.
-  * Si no tiene una instancia de Device Provisioning Service, puede seguir las instrucciones de las secciones [Creación de un nuevo IoT Hub Device Provisioning Service](../iot-dps/quick-setup-auto-provision.md#create-a-new-iot-hub-device-provisioning-service) y [Vínculo al centro de IoT y el Device Provisioning Service](../iot-dps/quick-setup-auto-provision.md#link-the-iot-hub-and-your-device-provisioning-service) de la guía de inicio rápido IoT Hub Device Provisioning Service.
+  * Si no tiene una instancia de Device Provisioning Service, puede seguir las instrucciones de las secciones [Creación de una instancia de IoT Hub Device Provisioning Service](../iot-dps/quick-setup-auto-provision.md#create-a-new-iot-hub-device-provisioning-service) y [Vínculo al centro de IoT y a Device Provisioning Service](../iot-dps/quick-setup-auto-provision.md#link-the-iot-hub-and-your-device-provisioning-service) del inicio rápido de IoT Hub Device Provisioning Service.
   * Cuando Device Provisioning Service esté en ejecución, copie el valor de **Ámbito de id.** de la página de información general. Use este valor cuando configure el entorno de ejecución de IoT Edge.
 
 ## <a name="create-a-dps-enrollment"></a>Crear una inscripción de DPS
@@ -235,7 +235,7 @@ Azure IoT Edge utiliza un runtime de contenedor compatible con OCI. En los escen
 
 El demonio de seguridad de IoT Edge proporciona y mantiene los estándares de seguridad en el dispositivo IoT Edge. El demonio se inicia en cada arranque e inicia el resto del entorno de ejecución de IoT Edge para arrancar el dispositivo.
 
-Los pasos de esta sección representan el proceso habitual para instalar la versión más reciente en un dispositivo que tenga conexión a Internet. Si tiene que instalar una versión específica, como una versión preliminar, o tiene que realizar la instalación mientras está sin conexión, siga los pasos de [Instalación sin conexión o de una versión específica](how-to-install-iot-edge.md#offline-or-specific-version-installation-optional).
+Los pasos de esta sección representan el proceso habitual para instalar la versión más reciente en un dispositivo que tenga conexión a Internet. Si tiene que instalar una versión específica, como una versión preliminar, o tiene que realizar la instalación mientras está sin conexión, siga los pasos de [Instalación sin conexión o de una versión específica](how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
 
 1. Actualice las listas de paquetes en el dispositivo.
 
@@ -262,7 +262,7 @@ El servicio IoT Edge proporciona y mantiene los estándares de seguridad en el d
 
 El servicio de identidad de IoT se introdujo junto con la versión 1.2 de IoT Edge. Este servicio controla el aprovisionamiento y la administración de identidades para IoT Edge y otros componentes de dispositivo que necesitan comunicarse con IoT Hub.
 
-Los pasos de esta sección representan el proceso habitual para instalar la versión más reciente en un dispositivo que tenga conexión a Internet. Si tiene que instalar una versión específica, como una versión preliminar, o tiene que realizar la instalación mientras está sin conexión, siga los pasos de [Instalación sin conexión o de una versión específica](how-to-install-iot-edge.md#offline-or-specific-version-installation-optional).
+Los pasos de esta sección representan el proceso habitual para instalar la versión más reciente en un dispositivo que tenga conexión a Internet. Si tiene que instalar una versión específica, como una versión preliminar, o tiene que realizar la instalación mientras está sin conexión, siga los pasos de [Instalación sin conexión o de una versión específica](how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
 
 Actualice las listas de paquetes en el dispositivo.
 

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 04/26/2021
 ms.author: rohink
-ms.openlocfilehash: 4357d3bc347d000ebcdd7c2a9a01069eb64a9343
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: befabd5e35957241fa640c28146e47f01153b72b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130003806"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251687"
 ---
 # <a name="what-is-the-auto-registration-feature-in-azure-dns-private-zones"></a>¿Qué es la característica de registro automático de zonas privadas de Azure DNS?
 
@@ -28,7 +28,7 @@ Para habilitar el registro automático, active la casilla "Habilitar registro au
 
 * El registro automático solo funciona para las máquinas virtuales. En el caso de todos los demás recursos, como los equilibradores de carga internos, etc., puede crear registros DNS manualmente en la zona DNS privada vinculada a la red virtual.
 * Los registros DNS se crean automáticamente solo para la NIC de la máquina virtual principal. Si las máquinas virtuales tienen más de una NIC, puede crear manualmente los registros DNS para las demás interfaces de red.
-* Los registros DNS se crean automáticamente solo si la NIC de la máquina virtual principal usa DHCP. Si usa direcciones IP estáticas, como una configuración con [varias direcciones IP en Azure](../virtual-network/virtual-network-multiple-ip-addresses-portal.md#os-config),el registro automático no creará registros para esa máquina virtual.
+* Los registros DNS se crean automáticamente solo si la NIC de la máquina virtual principal usa DHCP. Si usa direcciones IP estáticas, como una configuración con [varias direcciones IP en Azure](../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.md#os-config),el registro automático no creará registros para esa máquina virtual.
 * No se admite el registro automático para IPv6 (registros AAAA).
 * Una red virtual específica puede estar vinculada a una sola zona DNS privada cuando el registro DNS automático de la máquina virtual está habilitado. Sin embargo, puede vincular varias redes virtuales a una sola zona DNS.
 

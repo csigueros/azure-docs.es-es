@@ -8,12 +8,12 @@ ms.date: 07/15/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 16ba38828cc9137e7d69e113126826b254aaf957
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: fa4bdcd3e9eccb3c8911dda758de431e7c459ce2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122688997"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236758"
 ---
 # <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links"></a>CLI de Azure: restricción del acceso de importación y exportación de discos administrados con instancias de Private Link
 
@@ -158,5 +158,5 @@ az snapshot create -n $snapshotNameSecuredWithPL \
 
 - Carga de un disco duro virtual en Azure o copia de un disco administrado en otra región: la [CLI de Azure](disks-upload-vhd-to-managed-disk-cli.md) o el [módulo de Azure PowerShell](../windows/disks-upload-vhd-to-managed-disk-powershell.md)
 - Descarga de un disco duro virtual [Windows](../windows/download-vhd.md) o [Linux](download-vhd.md)
-- [Preguntas más frecuentes sobre vínculos privados](/azure/virtual-machines/faq-for-disks#private-links-for-securely-exporting-and-importing-managed-disks)
+- [Preguntas más frecuentes sobre vínculos privados](../faq-for-disks.yml)
 - [Exportación o copia de instantáneas administradas como VHD a una cuenta de almacenamiento de otra región con CLI](/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd)

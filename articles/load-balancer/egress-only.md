@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 08/21/2021
 ms.author: allensu
-ms.openlocfilehash: d2f54b8ea7161f297528ac6ea82fde548827033a
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
+ms.openlocfilehash: f3c93d590036c0e9f16caad6cbfc55f32053d4ba
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681192"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249559"
 ---
 # <a name="outbound-only-load-balancer-configuration"></a>Configuración del equilibrador de carga solo de salida
 
@@ -26,7 +26,7 @@ Esta configuración proporciona NAT de salida en los escenarios de equilibradore
 >
 > Para implementar una configuración de equilibrador de carga solo de salida con Azure Virtual Network NAT y NAT Gateway, consulte [Tutorial: Integración de NAT Gateway con un equilibrador de carga interno - Azure Portal](../virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal.md).
 >
-> Para más información sobre las conexiones salientes en Azure y el acceso saliente predeterminado, consulte [Traducción de direcciones de red de origen (SNAT) para conexiones salientes](load-balancer-outbound-connections.md) y [Acceso saliente predeterminado](../virtual-network/default-outbound-access.md).
+> Para más información sobre las conexiones salientes en Azure y el acceso saliente predeterminado, consulte [Traducción de direcciones de red de origen (SNAT) para conexiones salientes](load-balancer-outbound-connections.md) y [Acceso saliente predeterminado](../virtual-network/ip-services/default-outbound-access.md).
 
 :::image type="content" source="./media/egress-only/load-balancer-egress-only.png" alt-text="La figura muestra una configuración de un equilibrador de carga solo de salida" border="true":::
 
@@ -53,7 +53,7 @@ En esta sección, creará la red virtual y las subredes para la máquina virtual
     | **Configuración**          | **Valor**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **Detalles del proyecto**  |                                                                 |
-    | Suscripción     | Selección de su suscripción a Azure                                  |
+    | Subscription     | Selección de su suscripción a Azure                                  |
     | Grupo de recursos   | Seleccione **Crear nuevo**. </br> En **Nombre**, escriba **myResourceGroupLB**. </br> Seleccione **Aceptar**. |
     | **Detalles de instancia** |                                                                 |
     | Nombre             | Escriba **myVNet**.                                    |
@@ -63,7 +63,7 @@ En esta sección, creará la red virtual y las subredes para la máquina virtual
 
 5. En la pestaña **Direcciones IP**, especifique esta información:
 
-    | Parámetro            | Value                      |
+    | Configuración            | Value                      |
     |--------------------|----------------------------|
     | Espacio de direcciones IPv4 | Escriba **10.1.0.0/16**. |
 
@@ -105,7 +105,7 @@ En esta sección va a crear el equilibrador de carga interno.
     | Configuración                 | Value                                              |
     | ---                     | ---                                                |
     | **Detalles del proyecto** |   |
-    | Suscripción               | Seleccione su suscripción.    |    
+    | Subscription               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **myResourceGroupLB**. |
     | **Detalles de instancia** |   |
     | Nombre                   | Escriba **myInternalLoadBalancer**.                                   |
@@ -115,7 +115,7 @@ En esta sección va a crear el equilibrador de carga interno.
 
 4. Seleccione **Siguiente: Configuración de IP de front-end** en la parte inferior de la página.
 
-5. En **Configuración de IP de front-end**, seleccione **+Agregar una IP de front-end**.
+5. En **Configuración de IP de front-end**, seleccione **+ Agregar una IP de front-end**.
 
 6. Escriba **LoadBalancerFrontEnd** en **Nombre**.
 
@@ -126,7 +126,7 @@ En esta sección va a crear el equilibrador de carga interno.
 9. Seleccione **Con redundancia de zona** en **Zona de disponibilidad**.
 
     > [!NOTE]
-    > En las regiones con [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), tiene la opción de seleccionar Ninguna zona (opción predeterminada), una zona específica o con redundancia de zona. La elección dependerá de los requisitos de error de dominio específicos. En regiones sin Availability Zones, este campo no aparecerá. </br> Para más información sobre las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md).
+    > En las regiones con [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), tiene la opción de seleccionar Ninguna zona (opción predeterminada), una zona específica o redundancia de zona. La elección dependerá de los requisitos de error de dominio específicos. En regiones sin Availability Zones, este campo no aparecerá. </br> Para más información sobre las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md).
 
 10. Seleccione **Agregar**.
 
@@ -159,7 +159,7 @@ En esta sección va a crear el equilibrador de carga público.
     | Configuración                 | Value                                              |
     | ---                     | ---                                                |
     | **Detalles del proyecto** |   |
-    | Suscripción               | Seleccione su suscripción.    |    
+    | Subscription               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **myResourceGroupLB**. |
     | **Detalles de instancia** |   |
     | Nombre                   | Escriba **myPublicLoadBalancer**.                                   |
@@ -170,7 +170,7 @@ En esta sección va a crear el equilibrador de carga público.
 
 4. Seleccione **Siguiente: Configuración de IP de front-end** en la parte inferior de la página.
 
-5. En **Configuración de IP de front-end**, seleccione **+Agregar una IP de front-end**.
+5. En **Configuración de IP de front-end**, seleccione **+ Agregar una IP de front-end**.
 
 6. Escriba **LoadBalancerFrontEnd** en **Nombre**.
 
@@ -182,7 +182,7 @@ En esta sección va a crear el equilibrador de carga público.
 8. Seleccione **Dirección IP** para **Tipo de IP**.
 
     > [!NOTE]
-    > Para más información sobre prefijos de IP, consulte [Prefijo de dirección IP pública de Azure](../virtual-network/public-ip-address-prefix.md).
+    > Para más información sobre prefijos de IP, consulte [Prefijo de dirección IP pública de Azure](../virtual-network/ip-services/public-ip-address-prefix.md).
 
 9. Seleccione **Crear nueva** en **Dirección IP pública**.
 
@@ -191,7 +191,7 @@ En esta sección va a crear el equilibrador de carga público.
 11. Seleccione **Con redundancia de zona** en **Zona de disponibilidad**.
 
     > [!NOTE]
-    > En las regiones con [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), tiene la opción de seleccionar Ninguna zona (opción predeterminada), una zona específica o con redundancia de zona. La elección dependerá de los requisitos de error de dominio específicos. En regiones sin Availability Zones, este campo no aparecerá. </br> Para más información sobre las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md).
+    > En las regiones con [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), tiene la opción de seleccionar Ninguna zona (opción predeterminada), una zona específica o redundancia de zona. La elección dependerá de los requisitos de error de dominio específicos. En regiones sin Availability Zones, este campo no aparecerá. </br> Para más información sobre las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md).
 
 12. Deje el valor predeterminado **Microsoft Network** para **Preferencia de enrutamiento**.
 
@@ -230,7 +230,7 @@ Creará una máquina virtual en esta sección. Durante la creación, la agregar�
     | Configuración | Value                                          |
     |-----------------------|----------------------------------|
     | **Detalles del proyecto** |  |
-    | Suscripción | Selección de su suscripción a Azure |
+    | Subscription | Selección de su suscripción a Azure |
     | Grupo de recursos | Seleccione **myResourceGroupLB**. |
     | **Detalles de instancia** |  |
     | Nombre de la máquina virtual | Escriba **myVM**. |
@@ -250,7 +250,7 @@ Creará una máquina virtual en esta sección. Durante la creación, la agregar�
   
 5. En la pestaña Redes, seleccione o escriba:
 
-    | Parámetro | Value |
+    | Configuración | Value |
     |-|-|
     | **Interfaz de red** |  |
     | Virtual network | **myVNet** |
@@ -369,4 +369,3 @@ En este artículo, se ha creado una configuración de "solo salida" con una comb
 Esta configuración permite equilibrar la carga del tráfico interno entrante en el grupo de back-end y, al mismo tiempo, evitar las conexiones entrantes públicas.
 
 Para más información sobre Azure Load Balancer y Azure Bastion, consulte [¿Qué e Azure Load Balancer?](load-balancer-overview.md) y [¿Qué es Azure Bastion?](../bastion/bastion-overview.md)
-

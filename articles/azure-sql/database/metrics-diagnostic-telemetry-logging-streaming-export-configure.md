@@ -10,12 +10,12 @@ author: AlainDormehlMSFT
 ms.author: aldorme
 ms.reviewer: mathoma, wiassaf
 ms.date: 10/13/2021
-ms.openlocfilehash: 333b6faabd6603f09c4522f09a18b52c5503f357
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 443e7e20db1c2be013622b6ba34a1ac22cc9a9a4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130004642"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130244817"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Configuración de la exportación de streaming de los datos de telemetría de diagnóstico de Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -47,7 +47,7 @@ Además de hacer streaming de la exportación del registro de Intelligent Insigh
 | [Interbloqueos](#deadlocks-dataset): contiene información sobre los eventos de interbloqueo en una base de datos. | Sí | No |
 | [AutomaticTuning](#automatic-tuning-dataset): contiene información sobre las recomendaciones de ajuste automático para una base de datos. | Sí | No |
 | [SQLInsights](#intelligent-insights-dataset): contiene Intelligent Insights sobre el rendimiento de una base de datos. Para obtener más información, consulte [Intelligent Insights](intelligent-insights-overview.md). | Sí | Sí |
-| Administración de cargas de trabajo: *disponible solo para Azure Synapse*. Para más información, consulte [Azure Synapse Analytics: supervisión del portal de administración de cargas de trabajo](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor).| No | No | 
+| Administración de cargas de trabajo: *disponible solo para Azure Synapse*. Para más información, consulte [Azure Synapse Analytics: supervisión del portal de administración de cargas de trabajo](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor.md).| No | No | 
 
 > [!NOTE]
 > No se puede establecer la configuración de diagnóstico de las **bases de datos del sistema**, como `master`, `msdb`, `model`, de recursos y `tempdb`.

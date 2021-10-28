@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: pstn
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: 89ceb4463a8ee7795f9cba8675c79633a22f2702
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 649af9f6dc166cd18c1adb726bf169547db8b2f1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128671609"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226761"
 ---
 # <a name="quickstart-call-to-phone"></a>Inicio rápido: Llamada a teléfono
 
@@ -40,5 +40,5 @@ Si quiere limpiar y quitar una suscripción a Communication Services, puede elim
 
 Para más información, consulte los siguientes artículos.
 
-- Más información sobre las [Funcionalidades del SDK de llamadas](./calling-client-samples.md)
+- Más información sobre las [Funcionalidades del SDK de llamadas](./getting-started-with-calling.md)
 - Más información sobre [cómo funciona la llamada](../../concepts/voice-video-calling/about-call-types.md)

@@ -11,12 +11,12 @@ ms.custom: references_regions
 ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/21/2021
-ms.openlocfilehash: 89adb496452a0aa0351c5ac1f544a415c7cf9efc
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 59147dd6037e5eb2f4565ec135d04f3a1c242cc3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130178640"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130247936"
 ---
 # <a name="whats-new-in-azure-sql-managed-instance"></a>Novedades de Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -98,7 +98,7 @@ Obtenga información sobre los cambios importantes en la documentación de Azure
 | **Servicio de reproducción de registros** | Ahora es posible migrar bases de datos de SQL Server a Azure SQL Managed Instance mediante Log Replay Service. Para obtener más información, vea [Migración con Log Replay Service](log-replay-service-migrate.md). Esta funcionalidad actualmente está en su versión preliminar. | 
 | **Retención de copia de seguridad a largo plazo** | Compatibilidad con la retención de copias de seguridad a largo plazo hasta 10 años en Azure SQL Managed Instance. Para obtener más información, vea [Retención de copia de seguridad a largo plazo](long-term-backup-retention-configure.md).|
 | **Machine Learning Services GA** | Machine Learning Services de Azure SQL Managed Instance ahora está disponible con carácter general (GA). Para obtener más información, vea [Machine Learning Services en SQL Managed Instance](machine-learning-services-overview.md).| 
-| **Ventana de mantenimiento** | La característica de ventana de mantenimiento permite configurar una programación de mantenimiento de Azure SQL Managed Instance, actualmente en versión preliminar. Para obtener más información, vea [ventana de mantenimiento](/database/maintenance-window.md).|
+| **Ventana de mantenimiento** | La característica de ventana de mantenimiento permite configurar una programación de mantenimiento de Azure SQL Managed Instance, actualmente en versión preliminar. Para obtener más información, vea [ventana de mantenimiento](../database/maintenance-window.md).|
 | **Intercambio de mensajes de Service Broker** | El componente Service Broker de Azure SQL Managed Instance permite componer las aplicaciones a partir de servicios independientes autocontenidos al proporcionar compatibilidad nativa para el intercambio de mensajes confiable y seguro entre las bases de datos asociadas al servicio. Actualmente en versión preliminar. Para obtener más información, vea [Service Broker](/sql/database-engine/configure-windows/sql-server-service-broker).
 | **SQL Insights** | SQL Insights es una solución completa para realizar la supervisión de cualquier producto de la familia de Azure SQL. SQL Insights usa las vistas de administración dinámica para exponer los datos que necesita para supervisar el estado, diagnosticar problemas y optimizar el rendimiento. Para obtener más información, vea [SQL Insights](../../azure-monitor/insights/sql-insights-overview.md). | 
 ||| 

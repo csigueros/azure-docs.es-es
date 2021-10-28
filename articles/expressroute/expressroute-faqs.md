@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: duau
-ms.openlocfilehash: 08878f4fe13c270b6da3bfb74bed88c2476ad5de
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: a9402ac0a69cff3cd2b420754aceeb452811e1a1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129399629"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130246782"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -88,7 +88,7 @@ ExpressRoute admite [tres dominios de enrutamiento](expressroute-circuit-peering
 
 ### <a name="microsoft-peering"></a>Emparejamiento de Microsoft
 
-Si el circuito ExpressRoute está habilitado para el emparejamiento de Microsoft de Azure, puede acceder a los [intervalos de direcciones IP públicas que se usan en Azure](../virtual-network/public-ip-addresses.md#public-ip-addresses) a través del circuito. El emparejamiento de Microsoft de Azure proporcionará acceso a los servicios hospedados actualmente en Azure (con restricciones geográficas en función de la SKU del circuito). Para validar la disponibilidad de un servicio específico, puede consultar la documentación de ese servicio a fin de comprobar si hay un intervalo reservado publicado para ese servicio. Después, busque los intervalos IP del servicio de destino y compárelos con los intervalos que se enumeran en [Etiquetas de servicio e intervalos IP de Azure: archivo XML de la nube pública](https://www.microsoft.com/download/details.aspx?id=56519). Como alternativa, puede abrir una incidencia de soporte técnico para el servicio a fin de aclararlo.
+Si el circuito ExpressRoute está habilitado para el emparejamiento de Microsoft de Azure, puede acceder a los [intervalos de direcciones IP públicas que se usan en Azure](../virtual-network/ip-services/public-ip-addresses.md#public-ip-addresses) a través del circuito. El emparejamiento de Microsoft de Azure proporcionará acceso a los servicios hospedados actualmente en Azure (con restricciones geográficas en función de la SKU del circuito). Para validar la disponibilidad de un servicio específico, puede consultar la documentación de ese servicio a fin de comprobar si hay un intervalo reservado publicado para ese servicio. Después, busque los intervalos IP del servicio de destino y compárelos con los intervalos que se enumeran en [Etiquetas de servicio e intervalos IP de Azure: archivo XML de la nube pública](https://www.microsoft.com/download/details.aspx?id=56519). Como alternativa, puede abrir una incidencia de soporte técnico para el servicio a fin de aclararlo.
 
 **Se admite:**
 

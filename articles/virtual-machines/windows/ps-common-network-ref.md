@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: a99450a5762e619c167913ce22b126a2be13f8c4
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: f055a4df57bff95a0db800cec293bde72922920b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694844"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130222976"
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>Comandos comunes de PowerShell para Azure Virtual Network
 
@@ -34,7 +34,7 @@ Algunas de las variables podrían serle útiles si ejecuta más de uno de los co
 | ---- | ------- |
 | Crear configuraciones de subred |$subnet1 = [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) -Name "mySubnet1" -AddressPrefix XX.X.X.X/XX<BR>$subnet2 = New-AzVirtualNetworkSubnetConfig -Name "mySubnet2" -AddressPrefix XX.X.X.X/XX<BR><BR>Una red típica podría tener una subred para un [equilibrador de carga accesible desde Internet](../../load-balancer/load-balancer-overview.md) y una subred independiente para un [equilibrador de carga interno](../../load-balancer/load-balancer-overview.md). |
 | Creación de una red virtual |$vnet = [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) -Name "myVNet" -ResourceGroupName $myResourceGroup -Location $location -AddressPrefix XX.X.X.X/XX -Subnet $subnet1, $subnet2 |
-| Prueba para un nombre de dominio único |[Test-AzDnsAvailability](/powershell/module/az.network/test-azdnsavailability) -DomainNameLabel "myDNS" -Location $location<BR><BR>Puede especificar un nombre de dominio DNS para un [recurso de dirección IP pública](../../virtual-network/public-ip-addresses.md), lo que crea una asignación para nombrededominio.ubicación.cloudapp.azure.com en la dirección IP pública de los servidores DNS que administra Azure. El nombre solo puede contener letras, números y guiones. El primer y último carácter debe ser una letra o un número y el nombre de dominio debe ser único dentro de su ubicación de Azure. Si se devuelve **True** , significa que el nombre propuesto es único globalmente. |
+| Prueba para un nombre de dominio único |[Test-AzDnsAvailability](/powershell/module/az.network/test-azdnsavailability) -DomainNameLabel "myDNS" -Location $location<BR><BR>Puede especificar un nombre de dominio DNS para un [recurso de dirección IP pública](../../virtual-network/ip-services/public-ip-addresses.md), lo que crea una asignación para nombrededominio.ubicación.cloudapp.azure.com en la dirección IP pública de los servidores DNS que administra Azure. El nombre solo puede contener letras, números y guiones. El primer y último carácter debe ser una letra o un número y el nombre de dominio debe ser único dentro de su ubicación de Azure. Si se devuelve **True** , significa que el nombre propuesto es único globalmente. |
 | Crear una dirección IP pública |$pip = [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) -Name "myPublicIp" -ResourceGroupName $myResourceGroup -DomainNameLabel "myDNS" -Location $location -AllocationMethod Dynamic<BR><BR>La dirección IP pública utiliza el nombre de dominio que probó anteriormente y la emplea la configuración de front-end del equilibrador de carga. |
 | Crear una configuración de direcciones IP de front-end |$frontendIP = [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) -Name "myFrontendIP" -PublicIpAddress $pip<BR><BR>La configuración de front-end incluye la dirección IP pública que creó anteriormente para el tráfico de red entrante. |
 | Creación de un grupo de direcciones de back-end |$beAddressPool = [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) -Name "myBackendAddressPool"<BR><BR>Proporciona direcciones internas para el back-end del equilibrador de carga al que se accede mediante una interfaz de red. |

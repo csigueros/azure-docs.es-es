@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/02/2021
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 452c0479834ab7929696af2c95454662adfecfab
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 5c8a6974778e76afc6f2ca7018e034ad5655690c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538334"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262534"
 ---
 # <a name="security-recommendations-for-app-service"></a>Recomendaciones de seguridad para App Service
 
@@ -49,7 +49,7 @@ Este artículo contiene recomendaciones de seguridad para Azure App Service. La 
 |-|-|
 | Uso de restricciones de IP estática | En Windows, Azure App Service permite definir una lista de direcciones IP que tienen permiso para acceder a su aplicación. La lista de direcciones permitidas puede incluir direcciones IP individuales o un intervalo de direcciones IP definido por una máscara de subred. Para más información, consulte [Restricciones de IP estáticas de Azure App Service](app-service-ip-restrictions.md).  |
 | Uso del plan de tarifa aislado | Excepto en el plan de tarifa aislado, todos los niveles ejecutan las aplicaciones en la infraestructura de red compartida en Azure App Service. El plan aislado ejecuta las aplicaciones dentro de un [entorno de App Service](environment/intro.md) dedicado para tener un aislamiento de red completo. Los entornos de App Service se ejecutan en su propia instancia de la [red virtual de Azure](../virtual-network/index.yml).|
-| Uso de conexiones seguras al acceder a recursos locales | Puede usar [conexiones híbridas](app-service-hybrid-connections.md), [integración de Virtual Network](web-sites-integrate-with-vnet.md) o [instancias de App Service Environment](environment/intro.md) para conectarse a recursos locales. |
+| Uso de conexiones seguras al acceder a recursos locales | Puede usar [conexiones híbridas](app-service-hybrid-connections.md), [integración de Virtual Network](./overview-vnet-integration.md) o [instancias de App Service Environment](environment/intro.md) para conectarse a recursos locales. |
 | Limitación de la exposición a tráfico de red entrante | Los grupos de seguridad de red le permiten restringir el acceso a la red y controlar el número de puntos de conexión expuestos. Para obtener más información, vea [Cómo controlar el tráfico de entrada a un entorno de App Service](environment/app-service-app-service-environment-control-inbound-traffic.md). |
 
 ## <a name="monitoring"></a>Supervisión

@@ -6,12 +6,12 @@ ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: 770a308fe293140b4d9c56b51c931e426aa1ac81
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: cacb1d9af577a90d8e9030cf00e51dda58763041
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130063020"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256636"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métricas personalizadas en Azure Monitor (versión preliminar)
 
@@ -241,7 +241,7 @@ Si tiene una variable en el nombre o una dimensión de cardinalidad alta, puede 
 
 Si el nombre de la métrica o el valor de la dimensión se rellenan con un identificador o una dimensión de cardinalidad alta por error, puede corregirlo fácilmente quitando la parte variable.
 
-Pero si la cardinalidad alta es esencial para su escenario, es probable que las métricas agregadas no sean la opción correcta. Cambie al uso de registros personalizados (es decir, llamadas a la API trackMetric con el elemento [trackEvent](/azure/azure-monitor/app/api-custom-events-metrics#trackevent)). Sin embargo, tenga en cuenta que los registros no agregan los valores, por lo que se almacenará cada entrada individual. Como resultado, si tiene un gran volumen de registros en un período de tiempo pequeño (1 millón por segundo, por ejemplo), se puede provocar una limitación y retrasos en la ingesta. 
+Pero si la cardinalidad alta es esencial para su escenario, es probable que las métricas agregadas no sean la opción correcta. Cambie al uso de registros personalizados (es decir, llamadas a la API trackMetric con el elemento [trackEvent](../app/api-custom-events-metrics.md#trackevent)). Sin embargo, tenga en cuenta que los registros no agregan los valores, por lo que se almacenará cada entrada individual. Como resultado, si tiene un gran volumen de registros en un período de tiempo pequeño (1 millón por segundo, por ejemplo), se puede provocar una limitación y retrasos en la ingesta. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Use métricas personalizadas desde varios servicios: 

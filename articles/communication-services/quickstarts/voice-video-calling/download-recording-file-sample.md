@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.openlocfilehash: 893ed45046cef2feb10c64464952dafa34d16021
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 95b094620dd9cb3b36ce5f6de664a6aaf8c7990f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128676948"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130247557"
 ---
 # <a name="record-and-download-calls-with-event-grid"></a>Grabación y descarga de llamadas con Event Grid
 
@@ -219,5 +219,5 @@ Si quiere limpiar y quitar una suscripción a Communication Services, puede elim
 Para más información, consulte los siguientes artículos.
 
 - Consulte [Introducción al ejemplo de llamada web](../../samples/web-calling-sample.md).
-- Más información sobre las [Funcionalidades del SDK de llamadas](./calling-client-samples.md?pivots=platform-web)
+- Más información sobre las [Funcionalidades del SDK de llamadas](./getting-started-with-calling.md?pivots=platform-web)
 - Más información sobre [cómo funciona la llamada](../../concepts/voice-video-calling/about-call-types.md)

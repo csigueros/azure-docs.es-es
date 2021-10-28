@@ -8,12 +8,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 05/20/2021
 ms.custom: template-how-to
-ms.openlocfilehash: ca3d72ad346bf86ecf6d12a8292938aac2ac7117
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: bd34b38710bdf4cc3fe4d21c5dee8e1bb7773124
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129367688"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130254071"
 ---
 # <a name="upgrade-a-public-ip-address-using-azure-powershell"></a>Creación de una dirección IP pública mediante Azure PowerShell
 
@@ -24,7 +24,7 @@ En este artículo, aprenderá a actualizar una dirección IP pública de una SK
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* La dirección IP pública de una SKU básica **estática** en la suscripción. Para más información, consulte el artículo [Creación de una dirección IP pública - Azure Portal](../../virtual-network/create-public-ip-portal.md#create-a-basic-sku-public-ip-address).
+* La dirección IP pública de una SKU básica **estática** en la suscripción. Para más información, consulte el artículo [Creación de una dirección IP pública - Azure Portal](./create-public-ip-portal.md#create-a-basic-sku-public-ip-address).
 * Azure PowerShell instalado localmente o Azure Cloud Shell
 
 Si decide instalar y usar PowerShell de forma local, para realizar los pasos de este artículo necesita la versión 5.4.1 del módulo de Azure PowerShell o cualquier versión posterior. Ejecute `Get-Module -ListAvailable Az` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-Az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
@@ -76,5 +76,4 @@ En este artículo, ha actualizado una dirección IP pública de SKU básica a un
 Para más información sobre direcciones IP públicas en Azure, consulte:
 
 - [Direcciones IP públicas en Azure](public-ip-addresses.md)
-- [Creación de una dirección IP pública: Azure Portal](../../virtual-network/create-public-ip-portal.md)
-
+- [Creación de una dirección IP pública: Azure Portal](./create-public-ip-portal.md)

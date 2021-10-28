@@ -6,12 +6,12 @@ ms.author: bagol
 ms.service: purview
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 642611a680e0848208aa7e42493fee6fc16fb4d7
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: c5f0f409f009d66afd0cb6103e2018c527c0b0a2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129208861"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130246068"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Conclusiones de la clasificación sobre los datos de Azure Purview
 
@@ -109,6 +109,3 @@ Obtenga más información sobre los informes de conclusiones de Azure Purview
 
 > [!div class="nextstepaction"]
 > [Conclusiones del etiquetado de confidencialidad](./sensitivity-insights.md)
-
-> [!div class="nextstepaction"]
-> [Conclusiones de extensiones de archivo](file-extension-insights.md)

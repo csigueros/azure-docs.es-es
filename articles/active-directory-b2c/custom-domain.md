@@ -3,22 +3,22 @@ title: Habilitación de dominios personalizados de Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Aprenda a habilitar dominios personalizados en las direcciones URL de redireccionamiento para Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/15/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ceb265ef339d39f14dbc042914e471c692ae6420
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: edddf44509e6eeff6f50b4361fe8c40a7832a8a8
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128568566"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130222881"
 ---
 # <a name="enable-custom-domains-for-azure-active-directory-b2c"></a>Habilitación de dominios personalizados para Azure Active Directory B2C
 
@@ -104,7 +104,7 @@ Siga estos pasos para crear una instancia de Front Door para el inquilino de Azu
 1. En la página principal o en el menú de Azure Portal, seleccione **Crear un recurso**. Seleccione **Redes** > **Ver todas** > **Front Door**.
 1. En la pestaña **Conceptos básicos** de la página **Crear una instancia de Front Door**, escriba o seleccione la siguiente información y, a continuación, seleccione **Siguiente: Configuration** (Siguiente: Configuración).
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | --- | --- |
     | **Suscripción** | Seleccione la suscripción a Azure. |    
     | **Grupo de recursos** | Seleccione un grupo de recursos existente o seleccione **Crear** para crear uno.|

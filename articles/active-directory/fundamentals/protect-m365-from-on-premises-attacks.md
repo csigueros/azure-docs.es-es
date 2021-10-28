@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 456f635e3cd7be91064a15b87c0da627678fdc45
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 73bd6ed2c94ca696eefd4e7a3dfcf5b78cc6dd99
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113732987"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251193"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>Protección de Microsoft 365 contra ataques locales
 
@@ -283,7 +283,7 @@ Defina una estrategia, un diseño y una implementación de almacenamiento y rete
 
    * Eventos de riesgo 
 
-    Azure AD proporciona la [integración de Azure Monitor](../reports-monitoring/concept-activity-logs-azure-monitor.md) para los registros de auditoría y el registro de actividad de inicio de sesión. Los eventos de riesgo se pueden ingerir mediante [Microsoft Graph API](/graph/api/resources/identityriskevent). Puede [transmitir registros de Azure AD a registros de Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+    Azure AD proporciona la [integración de Azure Monitor](../reports-monitoring/concept-activity-logs-azure-monitor.md) para los registros de auditoría y el registro de actividad de inicio de sesión. Los eventos de riesgo se pueden ingerir mediante [Microsoft Graph API](/graph/api/resources/identityprotection-root). Puede [transmitir registros de Azure AD a registros de Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
 * **Registros de seguridad del sistema operativo de infraestructura híbrida**: Todos los registros del sistema operativo de infraestructura de identidad híbrida deben archivarse y supervisarse detenidamente como un sistema de nivel 0, dadas las consecuencias en el área expuesta. Incluya los siguientes elementos: 
 

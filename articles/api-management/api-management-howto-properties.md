@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 02/09/2021
 ms.author: danlep
-ms.openlocfilehash: 65f45758ab00d9e549ac0e52287a198bf5734acd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 72bc12589cb63e2fcecc5568dbf628ccacb85394
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128671210"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224656"
 ---
 # <a name="use-named-values-in-azure-api-management-policies"></a>Uso de valores con nombre en las directivas de Azure API Management
 
@@ -33,7 +33,7 @@ Los *valores con nombre* son una colección global de pares nombre-valor en cada
 
 Los valores normales o los secretos pueden contener [expresiones de directiva](./api-management-policy-expressions.md). Por ejemplo, la expresión `@(DateTime.Now.ToString())` devuelve una cadena que contiene la fecha y la hora actuales.
 
-Para obtener más información sobre los atributos de los valores con nombre, consulte la [referencia de la API REST](/rest/api/apimanagement/2020-06-01-preview/namedvalue/createorupdate) de API Management.
+Para obtener más información sobre los atributos de los valores con nombre, consulte la [referencia de la API REST](/rest/api/apimanagement/2021-04-01-preview/named-value/create-or-update) de API Management.
 
 ## <a name="key-vault-secrets"></a>Secretos de un almacén de claves
 
@@ -206,4 +206,3 @@ Para eliminar un valor con nombre, seleccione el nombre y, a continuación, sele
     -   [Expresiones de directiva](./api-management-policy-expressions.md)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
-

@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 31a65c31558940ba7e39e21c8b6e33ffa8e7c9b9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 12132e5143546abc2b12a83e3e6cd92a43069e1e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128633664"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130263048"
 ---
 # <a name="troubleshoot-common-azure-virtual-desktop-agent-issues"></a>Solución de problemas comunes del agente de Azure Virtual Desktop
 
@@ -144,7 +144,7 @@ Para solucionar este problema:
 3. Asegúrese de que el [servicio del agente se esté ejecutando](#error-the-rdagentbootloader-andor-remote-desktop-agent-loader-has-stopped-running) y de que el [cliente de escucha de la pila esté funcionando](#error-stack-listener-isnt-working-on-windows-10-2004-vm).
 4. Asegúrese [de que el agente pueda conectarse al agente](#error-agent-cannot-connect-to-broker-with-invalid_form).
 5. Asegúrese [de que la máquina virtual tenga un token de registro válido](#error-invalid_registration_token).
-6. Asegúrese [de que el token de registro de la máquina virtual no haya expirado](/azure/virtual-desktop/faq#how-often-should-i-turn-my-vms-on-to-prevent-registration-issues). 
+6. Asegúrese [de que el token de registro de la máquina virtual no haya expirado](./faq.yml). 
 
 ## <a name="error-installmsiexception"></a>Error: InstallMsiException
 

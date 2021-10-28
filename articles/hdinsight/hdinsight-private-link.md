@@ -4,12 +4,12 @@ description: Aprenda a conectarse a un clúster de HDInsight externo mediante Az
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: d21f543d7736ee69a9c15a7b2a4bf0ccd0e877e2
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 5ed9587c0c8bdb378206db70ca459cc8cd004b45
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130165206"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215566"
 ---
 # <a name="enable-private-link-on-an-hdinsight-cluster"></a>Habilitación de Private Link en un clúster de HDInsight
 
@@ -105,7 +105,7 @@ El fragmento de código JSON siguiente incluye las dos propiedades de red que ti
 
 ```json
 networkProperties: {
-    "resourceProviderConnection": "Inbound" | "Outbound",
+    "resourceProviderConnection": "Outbound",
     "privateLink": "Enabled"
 }
 ```

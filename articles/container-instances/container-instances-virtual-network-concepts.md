@@ -3,12 +3,12 @@ title: Escenarios para usar una red virtual
 description: Escenarios, recursos y limitaciones para implementar grupos de contenedores en una red virtual de Azure.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 4d56ba43480182077acc114200ebc69569835bca
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7f0e2719d6949037e2268f66bf1dce8904530992
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121742466"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130247501"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Escenarios y recursos de red virtual
 
@@ -47,7 +47,7 @@ Los grupos de contenedores implementados en una red virtual de Azure permiten es
 * Debido a los recursos de red adicionales que intervienen, las implementaciones en una red virtual suelen ser más lentas que las de una instancia de contenedor estándar.
 * La conexión saliente al puerto 25 no se admite en este momento.
 * Si va a conectar el grupo de contenedores a una cuenta de Azure Storage, debe agregar un [punto de conexión de servicio](../virtual-network/virtual-network-service-endpoints-overview.md) a ese recurso.
-* En este momento, no se admiten [direcciones IPv6](../virtual-network/ipv6-overview.md). 
+* En este momento, no se admiten [direcciones IPv6](../virtual-network/ip-services/ipv6-overview.md). 
 
 ## <a name="required-network-resources"></a>Recursos de red necesarios
 

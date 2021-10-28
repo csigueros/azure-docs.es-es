@@ -11,12 +11,12 @@ author: aanjusingh
 manager: daveba
 ms.reviewer: anjusingh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f5b0ff9c70c84a1f3adda2e93c74ce388ceb322
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: 7fd77e9a31d8ce49eeab411378726ef712040962
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122228579"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130245488"
 ---
 # <a name="app-support-for-sms-based-authentication"></a>Compatibilidad con aplicaciones para la autenticación basada en SMS
 
@@ -35,6 +35,7 @@ La autenticación basada en SMS está disponible para las aplicaciones de Micros
 | Microsoft Stream | ● |   |
 | Microsoft Power Apps | ● |   |
 | Microsoft Azure | ● | ● |
+| Microsoft Authenticator |   | ● |
 | Azure Virtual Desktop | ● |  | 
 
 *_El inicio de sesión por SMS no está disponible para aplicaciones de Office, como Word, Excel, etc., cuando se accede directamente en la web, pero está disponible cuando se accede a través de la [aplicación web Office 365](https://www.office.com)._

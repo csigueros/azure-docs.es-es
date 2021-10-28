@@ -7,12 +7,12 @@ ms.date: 09/30/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fd970e80f2b091d17c40b15d6c55699721fb1025
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 3c4b8c2578d0443077b29eb350ca53c3176e6dbf
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129349673"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234612"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemas compatibles con Azure IoT Edge
 
@@ -165,7 +165,7 @@ Los sistemas que se enumeran en la tabla siguiente se consideran compatibles con
 | [Yocto](https://www.yoctoproject.org/) | ![Yocto + AMD64](./media/support/green-check.png) | ![Yocto + ARM32v7](./media/support/green-check.png) | ![Yocto + ARM64](./media/support/green-check.png) |
 | Raspberry Pi OS Buster |  | ![Raspberry Pi OS Buster + ARM32v7](./media/support/green-check.png) | ![Raspberry Pi OS Buster + ARM64](./media/support/green-check.png) |
 
-<sup>1</sup> Los pasos de instalación de Ubuntu Server 18.04 que se describen en [Instalación o desinstalación de Azure IoT Edge para Linux](how-to-install-iot-edge.md) deberían funcionar sin que sea necesario realizar ningún cambio en Ubuntu 20.04.
+<sup>1</sup> Los pasos de instalación de Ubuntu Server 18.04 que se describen en [Instalación o desinstalación de Azure IoT Edge para Linux](how-to-provision-single-device-linux-symmetric.md) deberían funcionar sin que sea necesario realizar ningún cambio en Ubuntu 20.04.
 
 ## <a name="releases"></a>Lanzamientos
 

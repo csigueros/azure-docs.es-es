@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 06/19/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 529cf643cb68bc806aef991142e68f42fccc0d42
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: 7632bbdda8515476cc88fa0735fcd41b9eb5444a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112420703"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130245822"
 ---
 # <a name="management-issues"></a>Problemas de administración
 
@@ -41,4 +41,4 @@ Para resolver este problema, antes de iniciar sesión en Azure Portal, el admini
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para revisar los escenarios de error comunes que la característica de diagnóstico puede identificar automáticamente, consulte [Identificación y diagnóstico de problemas](diagnostics-role-service.md#common-error-scenarios).
+Para revisar los escenarios de error comunes que la característica de diagnóstico puede identificar automáticamente, consulte [Identificación y diagnóstico de problemas](./troubleshoot-set-up-overview.md).

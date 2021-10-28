@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: f79e436f1fcce346304b2e88f213ff298b27aa04
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: f4b706c296c6f6d4f5921675dd87ec8f4052b9a5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112300838"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256674"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso de la solución Service Map en Azure
 
@@ -25,7 +25,7 @@ En este artículo se describen los detalles sobre la incorporación y utilizaci�
 * [Dependency Agent](vminsights-enable-overview.md#agents) instalado en el equipo con Windows o en el servidor Linux.
 
 >[!NOTE]
->Si ya ha implementado Service Map, ahora también puede ver las asignaciones en VM Insights, lo que incluye características adicionales para supervisar el rendimiento y el estado de la VM. Para más información, consulte [Información general sobre VM Insights](../vm/vminsights-overview.md). Para obtener información sobre las diferencias entre la solución Service Map y la característica de asignación de VM Insights, consulte las siguientes [Preguntas más frecuentes](/azure/azure-monitor/faq#vm-insights).
+>Si ya ha implementado Service Map, ahora también puede ver las asignaciones en VM Insights, lo que incluye características adicionales para supervisar el rendimiento y el estado de la VM. Para más información, consulte [Información general sobre VM Insights](../vm/vminsights-overview.md). Para obtener información sobre las diferencias entre la solución Service Map y la característica de asignación de VM Insights, consulte las siguientes [Preguntas más frecuentes](../faq.yml).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 

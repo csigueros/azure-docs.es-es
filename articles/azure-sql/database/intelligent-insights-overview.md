@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: AlainDormehlMSFT
 ms.author: aldorme
 ms.reviewer: mathoma, wiassaf
-ms.date: 06/12/2020
-ms.openlocfilehash: f05770143719b616aa0e195d6b719ae28da9dcd9
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.date: 10/18/2021
+ms.openlocfilehash: 3277952383d7a328c08a15b5958289ce322e01dd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111593051"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130239459"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Intelligent Insights con inteligencia artificial para supervisar y solucionar problemas de rendimiento de base de datos (versión preliminar)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -59,11 +59,6 @@ Las degradaciones identificadas en el rendimiento de las bases de datos se guard
 | Detecciones | Detección identificada en la base de datos durante un evento. Existen 15 patrones de detección. Para más información, consulte [Troubleshoot database performance issues with Intelligent Insights](intelligent-insights-troubleshoot-performance.md) (Solución de problemas de rendimiento de la base de datos con Intelligent Insights). |
 | Análisis de la causa raíz | Análisis de la causa raíz (RCA) del problema identificado en un formato legible. En algunos casos, la información reveladora podría contener recomendaciones de mejora del rendimiento si es posible. |
 |||
-
-Para obtener información general práctica acerca del uso de Intelligent Insights con Azure SQL Analytics y escenarios de uso habituales, vea este vídeo:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
->
 
 Intelligent Insights destaca a la hora de detectar y solucionar problemas de rendimiento de las bases de datos. Para usar Intelligent Insights para solucionar problemas de rendimiento de bases de datos, consulte [Solucionar problemas de rendimiento con Intelligent Insights](intelligent-insights-troubleshoot-performance.md).
 

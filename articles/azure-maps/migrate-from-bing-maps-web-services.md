@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: d4dae509d65ef2d090439fe1f532f6878a2139b4
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 361eca16094f48c957437eeb5ebdbf9b701d1049
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123439477"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265238"
 ---
 # <a name="tutorial-migrate-web-service-from-bing-maps"></a>Tutorial: Migración de servicios web desde Mapas de Bing
 
@@ -58,7 +58,7 @@ Azure Maps tiene varios servicios web REST adicionales que pueden ser de interé
 -   [Mosaicos de mapa](/rest/api/maps/render/getmaptile): acceda a mosaicos de carreteras e imágenes desde Azure Maps en forma de mosaicos de trama y vectoriales.
 -   [Rutas por lotes](/rest/api/maps/route/postroutedirectionsbatchpreview): permite realizar hasta 1000 solicitudes de ruta en un único lote durante un período. Las rutas se calculan en paralelo en el servidor para acelerar el procesamiento.
 -   [Flujo de tráfico](/rest/api/maps/traffic): acceda a los datos de flujo de tráfico en tiempo real en forma de mosaicos de trama y vectoriales.
--   [Geolocation API (versión preliminar)](/rest/api/maps/geolocation/getiptolocationpreview): obtenga la ubicación de una dirección IP.
+-   [Geolocation API (versión preliminar)](/rest/api/maps/geolocation/get-ip-to-location): obtenga la ubicación de una dirección IP.
 -   [Servicios meteorológicos](/rest/api/maps/weather): obtenga acceso a datos meteorológicos de previsión y en tiempo real.
 
 Asegúrese también de revisar las siguientes guías de procedimientos recomendados:
@@ -280,8 +280,8 @@ En la siguiente tabla se contrastan los parámetros de API de Mapas de Bing con 
 |----------------------------|---------------------------------------------------------------------|
 | `points`                   | `supportingPoints`: pase estos puntos al cuerpo de la solicitud POST.  |
 | `interpolate`              | N/D                                                                 |
-| `includeSpeedLimit`        | N/A                                                                 |
-| `includeTruckSpeedLimit`   | N/A                                                                 |
+| `includeSpeedLimit`        | No aplicable                                                                 |
+| `includeTruckSpeedLimit`   | No aplicable                                                                 |
 | `speedUnit`                | N/D                                                                 |
 | `travelMode`               | `travelMode`                                                        |
 | `key`                      | `subscription-key` (vea también la documentación de [autenticación con Azure Maps](./azure-maps-authentication.md)) |
@@ -342,7 +342,7 @@ En la siguiente tabla se contrastan los parámetros de API de Mapas de Bing con 
 | `mapLayer` (`ml`)        | N/D                                            |
 | `mapSize` (`ms`)         | `width` y `height` (puede tener un tamaño máximo de 8192 x 8192) |
 | `declutterPins` (`dcl`)  | N/D                                            |
-| `dpi`                    | N/A                                            |
+| `dpi`                    | No aplicable                                            |
 | `drawCurve`              | `path`                                         |
 | `mapMetadata`            | N/D                                            |
 | `pitch`                  | N/D: no se admite Streetside.                |

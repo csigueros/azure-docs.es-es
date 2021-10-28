@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 7/16/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 37eff4049973c208ebe70ef452f121109f0c92ed
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 877ab2ab354b070fa5d56d7917379912e1b29e1e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123435841"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261507"
 ---
 # <a name="install-and-configure-sap-hana-large-instances-on-azure"></a>Instalación y configuración de SAP HANA en Azure (instancias grandes)
 
@@ -150,7 +150,7 @@ Para más información sobre los detalles de Ethernet para su arquitectura, cons
 
 ## <a name="storage"></a>Almacenamiento
 
-El diseño del almacenamiento de SAP HANA (instancias largas) es configurado por SAP HANA en Administración de servicios de Azure a través de las instrucciones recomendadas de SAP. Estas instrucciones se documentan en los [Requisitos de almacenamiento de SAP HANA](https://blogs.saphana.com/wp-content/uploads/2015/02/Storage-Whitepaper-2-54.pdf). 
+El diseño del almacenamiento de SAP HANA (instancias largas) es configurado por SAP HANA en Administración de servicios de Azure a través de las instrucciones recomendadas de SAP. Estas instrucciones se documentan en los [Requisitos de almacenamiento de SAP HANA](https://archive.sap.com/kmuuid2/70c8e423-c8aa-3210-3fae-e043f5c1ca92/SAP%20HANA%20TDI%20-%20Storage%20Requirements.pdf). 
 
 Los tamaños aproximados de los diferentes volúmenes con las diferentes SKU de grandes instancias de HANA se documentan en [Introducción y arquitectura de SAP HANA en Azure (instancias grandes)](hana-overview-architecture.md).
 

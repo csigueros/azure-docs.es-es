@@ -8,12 +8,12 @@ ms.date: 10/01/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: references_regions
-ms.openlocfilehash: e7c8ce91f15a6b92e3efa9bae8c5a78bc9fd4baa
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: e8015d4362f394fe8ddf8b05a1a1187112671f9f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130129061"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265657"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Servicios de Azure compatibles con zonas de disponibilidad
 
@@ -59,7 +59,7 @@ Como se mencionó anteriormente en este artículo, no todos los servicios de Azu
 
 Los servicios de Azure que admiten zonas de disponibilidad, incluidas las ofertas zonales y con redundancia de zona, se expanden continuamente.
 
-Para obtener más información sobre máquina virtual de generaciones anteriores, consulte [Generaciones anteriores de tamaños de máquina virtual](/azure/virtual-machines/sizes-previous-gen).
+Para obtener más información sobre máquina virtual de generaciones anteriores, consulte [Generaciones anteriores de tamaños de máquina virtual](../virtual-machines/sizes-previous-gen.md).
 
 En las tablas siguientes se proporciona un resumen de la oferta actual de servicios de Azure zonales, con redundancia de zona y siempre disponibles. Se enumeran las ofertas de Azure según la disponibilidad regional de cada una de ellas.
 
@@ -73,12 +73,12 @@ En el catálogo de productos, los servicios siempre disponibles se enumeran como
 | **Productos**   | **Resistencia**   |
 | --- | --- |
 | [Azure Application Gateway (V2)](../application-gateway/application-gateway-autoscaling-zone-redundant.md)  | ![Icono que indica que este servicio tiene redundancia de zona.](media/icon-zone-redundant.svg) ![Icono que indica que este servicio es zonal.](media/icon-zonal.svg)  |
-| [Azure Backup](/azure/backup/backup-create-rs-vault)  | ![Icono que indica que este servicio es zonal.](media/icon-zonal.svg)  |
+| [Azure Backup](../backup/backup-create-rs-vault.md)  | ![Icono que indica que este servicio es zonal.](media/icon-zonal.svg)  |
 | [Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support)  | ![Icono que indica que este servicio tiene redundancia de zona.](media/icon-zone-redundant.svg)   |
 | [Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md)  | ![Icono que indica que este servicio tiene redundancia de zona.](media/icon-zone-redundant.svg)  |
 | [Azure DNS: Azure DNS Private Zones](../dns/private-dns-getstarted-portal.md)  | ![Icono que indica que este servicio tiene redundancia de zona.](media/icon-zone-redundant.svg)  |
 | [Información técnica de ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md)  | ![Icono que indica que este servicio tiene redundancia de zona.](media/icon-zone-redundant.svg)  |
-| [IP pública de Azure](../virtual-network/public-ip-addresses.md)  | ![Icono que indica que este servicio tiene redundancia de zona.](media/icon-zone-redundant.svg) ![Icono que indica que este servicio es zonal.](media/icon-zonal.svg)  |
+| [IP pública de Azure](../virtual-network/ip-services/public-ip-addresses.md)  | ![Icono que indica que este servicio tiene redundancia de zona.](media/icon-zone-redundant.svg) ![Icono que indica que este servicio es zonal.](media/icon-zonal.svg)  |
 | Azure SQL Database ([nivel de uso general](../azure-sql/database/high-availability-sla.md))  | ![Icono que indica que este servicio tiene redundancia de zona.](media/icon-zone-redundant.svg)  |
 | Azure SQL Database ([niveles Premium y Crítico para la empresa&amp;](../azure-sql/database/high-availability-sla.md))  | ![Icono que indica que este servicio tiene redundancia de zona.](media/icon-zone-redundant.svg)  |
 | [Azure Disk Storage](../storage/common/storage-redundancy.md)  | ![Icono que indica que este servicio tiene redundancia de zona.](media/icon-zone-redundant.svg)  |
@@ -142,7 +142,7 @@ En el catálogo de productos, los servicios siempre disponibles se enumeran como
 | [Azure Network Watcher](../network-watcher/frequently-asked-questions.yml)  | ![Icono que indica que este servicio tiene redundancia de zona.](media/icon-zone-redundant.svg)  |
 | Network Watcher:  [Análisis de tráfico](../network-watcher/frequently-asked-questions.yml)  | ![Icono que indica que este servicio tiene redundancia de zona.](media/icon-zone-redundant.svg)  |
 | [¿Qué es Power BI Embedded de Azure?](/power-bi/admin/service-admin-failover#what-does-high-availability)  | ![Icono que indica que este servicio tiene redundancia de zona.](media/icon-zone-redundant.svg)  |
-| [Premium Blob Storage](../storage/blobs/storage-blob-performance-tiers.md)  | ![Icono que indica que este servicio tiene redundancia de zona.](media/icon-zone-redundant.svg)  |
+| [Premium Blob Storage](../storage/common/storage-account-overview.md)  | ![Icono que indica que este servicio tiene redundancia de zona.](media/icon-zone-redundant.svg)  |
 | Almacenamiento:  [Azure Premium Files](../storage/files/storage-files-planning.md)  | ![Icono que indica que este servicio tiene redundancia de zona.](media/icon-zone-redundant.svg)  |
 | Virtual Machines:  [Azure Dedicated Host](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![Icono que indica que este servicio es zonal.](media/icon-zonal.svg)  |
 | Virtual Machines:  [Serie Ddsv4](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![Icono que indica que este servicio es zonal.](media/icon-zonal.svg)  |

@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 09/13/2021
-ms.openlocfilehash: 2d928ec83559a1bd57adde3cbae98c589bb1cd15
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fbaf2eb104f213c6b4b071ce027b7cb6022aad97
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128622006"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130244623"
 ---
 # <a name="set-name-and-type-for-child-resources-in-bicep"></a>Establecimiento del nombre y el tipo de los recursos secundarios en Bicep
 
@@ -88,7 +88,7 @@ output childAddressPrefix string = VNet1::VNet1_Subnet1.properties.addressPrefix
 
 ## <a name="outside-parent-resource"></a>Fuera del recurso primario
 
-En el ejemplo siguiente se muestra el recurso secundario fuera del recurso primario. Este enfoque puede usarse si el recurso primario no está implementado en la misma plantilla o si quiere usar [un bucle](loop-resources.md) para crear más de un recurso secundario. Especifique la propiedad primaria en el elemento secundario con el valor establecido en el nombre simbólico del elemento primario. Con esta sintaxis, todavía debe declarar el tipo de recurso completo, pero el nombre del recurso secundario es solo el nombre del elemento secundario.
+En el ejemplo siguiente se muestra el recurso secundario fuera del recurso primario. Este enfoque puede usarse si el recurso primario no está implementado en la misma plantilla o si quiere usar [un bucle](loops.md) para crear más de un recurso secundario. Especifique la propiedad primaria en el elemento secundario con el valor establecido en el nombre simbólico del elemento primario. Con esta sintaxis, todavía debe declarar el tipo de recurso completo, pero el nombre del recurso secundario es solo el nombre del elemento secundario.
 
 ```bicep
 resource <parent-resource-symbolic-name> '<resource-type>@<api-version>' = {

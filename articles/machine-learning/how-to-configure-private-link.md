@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/07/2021
-ms.openlocfilehash: 9bb40b02df8de4bbd5fc7e59f55c7f31052b3480
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: cd08a4cb752ede0f958adde438cb516791f4ae76
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429896"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215152"
 ---
 # <a name="configure-a-private-endpoint-for-an-azure-machine-learning-workspace"></a>Configuración de un punto de conexión privado para un área de trabajo de Azure Machine Learning
 
@@ -191,11 +191,11 @@ Como característica en versión preliminar, Azure Machine Learning admite var
 * Un clúster Azure Kubernetes Service (AKS) en una red virtual independiente.
 * Otros servicios de Azure en una red virtual independiente. Por ejemplo, Azure Synapse y Azure Data Factory pueden usar una red virtual administrada por Microsoft. En cualquier caso, se puede agregar un punto de conexión privado para el área de trabajo a la red virtual administrada utilizada por esos servicios. Para más información sobre el uso de una red virtual administrada con estos servicios, consulte los artículos siguientes:
 
-    * [Synapse managed private endpoints](/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints) (Puntos de conexión privados administrados de Synapse)
-    * [Azure Data Factory managed virtual network](/azure/data-factory/managed-virtual-network-private-endpoint) (Red virtual administrada de Azure Data Factory)
+    * [Synapse managed private endpoints](../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md) (Puntos de conexión privados administrados de Synapse)
+    * [Azure Data Factory managed virtual network](../data-factory/managed-virtual-network-private-endpoint.md) (Red virtual administrada de Azure Data Factory)
 
     > [!IMPORTANT]
-    > La [protección contra la filtración de datos de Synapse](/azure/synapse-analytics/security/workspace-data-exfiltration-protection) no se admite con Azure Machine Learning.
+    > La [protección contra la filtración de datos de Synapse](../synapse-analytics/security/workspace-data-exfiltration-protection.md) no se admite con Azure Machine Learning.
 
 > [!IMPORTANT]
 > Cada red virtual que contiene un punto de conexión privado para el área de trabajo también debe poder acceder a la cuenta de Azure Storage, Azure Key Vault y Azure Container Registry utilizada por el área de trabajo. Por ejemplo, puede crear un punto de conexión privado para los servicios de cada red virtual.

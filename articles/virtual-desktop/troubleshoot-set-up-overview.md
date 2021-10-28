@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 10/14/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: f8abe1cc793b5e7e5528d377ee0a7226d5415909
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 435f26a7fba7939ffc7ac370c648f6aae0d7a67f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130045301"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234044"
 ---
 # <a name="troubleshooting-overview-feedback-and-support-for-azure-virtual-desktop"></a>Información general, comentarios y soporte técnico para la solución de problemas de Azure Virtual Desktop
 
@@ -34,7 +34,7 @@ Si realiza una publicación para solicitar ayuda o proponer una nueva caracterí
 
 Antes de hacer nada más, asegúrese de comprobar la [página de estados de Azure](https://status.azure.com/status) y [Azure Service Health](https://azure.microsoft.com/features/service-health/) para cerciorarse de que el servicio Azure funciona correctamente.
 
-Use la siguiente tabla para identificar y resolver los problemas que puedan surgir al configurar un entorno mediante el cliente de Escritorio remoto. Una vez que el entorno esté configurado, puede usar el nuevo [servicio de diagnóstico](diagnostics-role-service.md) para identificar los problemas en escenarios comunes.
+Use la siguiente tabla para identificar y resolver los problemas que puedan surgir al configurar un entorno mediante el cliente de Escritorio remoto. Una vez que el entorno esté configurado, puede usar el nuevo [servicio de diagnóstico]() para identificar los problemas en escenarios comunes.
 
 | **Problema**                                                            | **Solución propuesta**  |
 |----------------------------------------------------------------------|-------------------------------------------------|

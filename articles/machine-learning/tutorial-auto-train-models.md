@@ -11,12 +11,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 10/01/2021
 ms.custom: devx-track-python, automl, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 1cbd1a3a43b7693c62c2955ae89b11c35f7d375e
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 13440b0d504effa4faf231cc181731cca7053dc3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129426574"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234398"
 ---
 # <a name="tutorial-train-a-regression-model-with-automl-and-python"></a>Tutorial: Entrenamiento de un modelo de regresión con AutoML y Python
 
@@ -50,7 +50,7 @@ Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar.
     1. Abra el cuaderno *tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb*
 
 Este tutorial también está disponible en [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) si quiere ejecutarlo en su propio [entorno local](how-to-configure-environment.md#local). Para obtener los paquetes obligatorios, 
-* [instale el cliente `automl` completo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment).
+* [instale el cliente `automl` completo](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment).
 * Ejecute `pip install azureml-opendatasets azureml-widgets` para obtener los paquetes requeridos.
 
 ## <a name="download-and-prepare-data"></a>Descargar y preparar los datos

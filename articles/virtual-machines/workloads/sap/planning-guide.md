@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 26b5e7f65ca688eb1f849fa582f2f02af6e470c0
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 6a707f349d4153c7b7a5dca78e2a739625cc7db5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130131398"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232240"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver
 
@@ -593,7 +593,7 @@ Se pueden asignar direcciones IP reservadas o fijas a las máquinas virtuales de
 
 
 ##### <a name="secondary-ip-addresses-for-sap-hostname-virtualization"></a>Direcciones IP secundarias para la virtualización del nombre de host de SAP
-La tarjeta de interfaz de red de cada máquina virtual de Azure puede tener varias direcciones IP asignadas; esta dirección IP secundaria, que se puede usar para los nombres de host virtuales de SAP, se asigna a un registro A/PTR de DNS si es necesario. Las direcciones IP secundarias deben asignarse a la configuración IP de la vNIC de Azure según [este artículo](../../../virtual-network/virtual-network-multiple-ip-addresses-portal.md), y también configurarse dentro del sistema operativo, ya que las direcciones IP secundarias no se asignan mediante DHCP. Cada dirección IP secundaria debe ser de la misma subred a la que está enlazada la vNIC. [No se admite](../../../load-balancer/load-balancer-multivip-overview.md#limitations) el uso de la dirección IP flotante de Azure Load Balancer para las configuraciones de direcciones IP secundarias, como los clústeres de Pacemaker; en este caso, la dirección IP del Load Balancer habilita los nombres de host virtuales de SAP. Consulte también la nota de SAP [962955](https://launchpad.support.sap.com/#/notes/962955) sobre las instrucciones generales del uso de nombres de host virtuales.
+La tarjeta de interfaz de red de cada máquina virtual de Azure puede tener varias direcciones IP asignadas; esta dirección IP secundaria, que se puede usar para los nombres de host virtuales de SAP, se asigna a un registro A/PTR de DNS si es necesario. Las direcciones IP secundarias deben asignarse a la configuración IP de la vNIC de Azure según [este artículo](../../../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.md), y también configurarse dentro del sistema operativo, ya que las direcciones IP secundarias no se asignan mediante DHCP. Cada dirección IP secundaria debe ser de la misma subred a la que está enlazada la vNIC. [No se admite](../../../load-balancer/load-balancer-multivip-overview.md#limitations) el uso de la dirección IP flotante de Azure Load Balancer para las configuraciones de direcciones IP secundarias, como los clústeres de Pacemaker; en este caso, la dirección IP del Load Balancer habilita los nombres de host virtuales de SAP. Consulte también la nota de SAP [962955](https://launchpad.support.sap.com/#/notes/962955) sobre las instrucciones generales del uso de nombres de host virtuales.
 
 
 ##### <a name="multiple-nics-per-vm"></a>Varias NIC por máquina virtual
@@ -745,7 +745,7 @@ Para obtener más información sobre la instalación, la configuración y el uso
 
 * [Install the Azure classic CLI][xplat-cli] (Instalación de la CLI de Azure clásica)
 * [Instalación de la CLI de Azure 2.0][azure-cli-install]
-* [Implementación y administración de máquinas virtuales con plantillas de Azure Resource Manager y la CLI de Azure](/articles/virtual-machines/linux/create-ssh-secured-vm-from-template)
+* [Implementación y administración de máquinas virtuales con plantillas de Azure Resource Manager y la CLI de Azure](../../linux/create-ssh-secured-vm-from-template.md)
 * [Uso de la CLI de Azure para Mac, Linux y Windows con Azure Resource Manager][xplat-cli-azure-resource-manager]
 
 
@@ -780,7 +780,7 @@ Debido a los requisitos de revisión específicos de la versión del SO o DBMS, 
 ---
 > ![Logotipo de Windows.][Logo_Windows] Windows
 >
-> Para obtener más información, consulte [Carga de un VHD de Windows generalizado y su uso para crear máquinas virtuales nuevas en Azure](/azure/virtual-machines/windows/upload-generalized-managed). La configuración de Windows (como el nombre de host y el SID de Windows) se debe abstraer o generalizar en la máquina virtual local mediante el comando sysprep.
+> Para obtener más información, consulte [Carga de un VHD de Windows generalizado y su uso para crear máquinas virtuales nuevas en Azure](../../windows/upload-generalized-managed.md). La configuración de Windows (como el nombre de host y el SID de Windows) se debe abstraer o generalizar en la máquina virtual local mediante el comando sysprep.
 >
 >
 > ![Logotipo de Linux.][Logo_Linux] Linux

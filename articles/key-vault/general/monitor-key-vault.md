@@ -10,18 +10,18 @@ ms.topic: how-to
 ms.date: 09/21/2021
 ms.author: mbaldwin
 ms.custom: subject-monitoring
-ms.openlocfilehash: 59fb467c2494fa6fa15c10fe9556975b87e0780e
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 229b7ace69c3b91f38f0cfb6e764f7771b4ff495
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130000012"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234555"
 ---
 # <a name="monitoring-azure-key-vault"></a>Supervisión de Azure Key Vault
 
 Si tiene aplicaciones y procesos empresariales críticos que dependen de recursos de Azure, querrá supervisar esos recursos para su disponibilidad, rendimiento y funcionamiento. En el caso de Azure Key Vault, es importante supervisar el servicio a medida que empiece a escalarlo, ya que aumentará el número de solicitudes enviadas al almacén de claves. Es probable que aumente la latencia de las solicitudes y, en casos extremos, puede hacer que las solicitudes se limiten, lo cual afectará al rendimiento del servicio.
 
-En este artículo se describen los datos de supervisión que genera Key Vault. Key Vault usa [Azure Monitor](/azure/azure-monitor/overview). Si no está familiarizado con las características de Azure Monitor comunes a todos los servicios de Azure que lo usan, consulte [Supervisión de recursos de Azure con Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource).
+En este artículo se describen los datos de supervisión que genera Key Vault. Key Vault usa [Azure Monitor](../../azure-monitor/overview.md). Si no está familiarizado con las características de Azure Monitor comunes a todos los servicios de Azure que lo usan, consulte [Supervisión de recursos de Azure con Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md).
 
 ## <a name="monitoring-overview-page-in-azure-portal"></a>Página de información general de supervisión en Azure Portal
 
@@ -47,7 +47,7 @@ La información de Key Vault proporciona una supervisión completa de los almace
 
 ## <a name="monitoring-data"></a>Supervisión de datos
 
-Key Vault recopila los mismos tipos de datos de supervisión que otros recursos de Azure que se describen en [Supervisión de datos de recursos de Azure](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data-from-Azure-resources).
+Key Vault recopila los mismos tipos de datos de supervisión que otros recursos de Azure que se describen en [Supervisión de datos de recursos de Azure](../../azure-monitor/essentials/monitor-azure-resource.md).
 
 Consulte el artículo [Supervisión de la referencia de los datos de *Key Vault*](monitor-key-vault-reference.md) para obtener información detallada sobre las métricas y las métricas de registros creadas por Key Vault.
 
@@ -57,13 +57,13 @@ Las métricas de la plataforma y el registro de actividad se recopilan y almacen
 
 Los registros de recursos no se recopilan ni almacenan hasta que se crea una configuración de diagnóstico y se enrutan a una o varias ubicaciones.
 
-Consulte [Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure](../../azure-monitor/platform/diagnostic-settings.md) para ver el proceso detallado para crear una configuración de diagnóstico mediante el Azure Portal, la CLI o PowerShell. Cuando se crea una configuración de diagnóstico, se especifican las categorías de registros que se van a recopilar. Las categorías de *Key Vault* se enumeran en la [referencia de datos de supervisión de Key Vault](monitor-key-vault-reference.md#resource-logs).
+Consulte [Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure](../../azure-monitor/essentials/diagnostic-settings.md) para ver el proceso detallado para crear una configuración de diagnóstico mediante el Azure Portal, la CLI o PowerShell. Cuando se crea una configuración de diagnóstico, se especifican las categorías de registros que se van a recopilar. Las categorías de *Key Vault* se enumeran en la [referencia de datos de supervisión de Key Vault](monitor-key-vault-reference.md#resource-logs).
 
 A fin de crear una configuración de diagnóstico para el almacén de claves, consulte [Habilitación del registro de Key Vault](howto-logging.md).  En las secciones siguientes se describen las métricas y los registros que se pueden recopilar.
 
 ## <a name="analyzing-metrics"></a>Análisis de métricas
 
-Las métricas de Key Vault se pueden analizar con métricas de otros servicios de Azure mediante el Explorador de métricas. Para ello, hay que abrir **Métricas** en el menú **Azure Monitor**. Consulte [Introducción al explorador de métricas de Azure](/azure/azure-monitor/platform/metrics-getting-started) para más información sobre esta herramienta.
+Las métricas de Key Vault se pueden analizar con métricas de otros servicios de Azure mediante el Explorador de métricas. Para ello, hay que abrir **Métricas** en el menú **Azure Monitor**. Consulte [Introducción al explorador de métricas de Azure](../../azure-monitor/essentials/metrics-getting-started.md) para más información sobre esta herramienta.
 
 En [Supervisión de la referencia de los datos de Key Vault](monitor-key-vault-reference.md#metrics) puede consultar una lista de las métricas de la plataforma que se recopilan para Key Vault.  
 
@@ -71,9 +71,9 @@ En [Supervisión de la referencia de los datos de Key Vault](monitor-key-vault-
 
 Los datos de los registros de Azure Monitor se almacenan en tablas, cada una con un conjunto propio de propiedades únicas.  
 
-Todos los registros de recursos de Azure Monitor tienen los mismos campos seguidos de campos específicos del servicio. El esquema común se describe en [Esquemas del registro de recursos de Azure Monitor](../../azure-monitor/platform/diagnostic-logs-schema.md#top-level-resource-logs-schema). 
+Todos los registros de recursos de Azure Monitor tienen los mismos campos seguidos de campos específicos del servicio. El esquema común se describe en [Esquemas del registro de recursos de Azure Monitor](../../azure-monitor/essentials/resource-logs-schema.md). 
 
-El [registro de actividad](../../azure-monitor/platform/activity-log.md) es un tipo de registro de plataforma de Azure que proporciona conclusiones sobre los eventos del nivel de suscripción. Puede verlo de forma independiente o enrutarlo a registros de Azure Monitor, donde puede realizar consultas mucho más complejas mediante Log Analytics.  
+El [registro de actividad](../../azure-monitor/essentials/activity-log.md) es un tipo de registro de plataforma de Azure que proporciona conclusiones sobre los eventos del nivel de suscripción. Puede verlo de forma independiente o enrutarlo a registros de Azure Monitor, donde puede realizar consultas mucho más complejas mediante Log Analytics.  
 
 En [Supervisión de la referencia de los datos de Key Vault](monitor-key-vault-reference.md#resource-logs) puede consultar una lista de los tipos de registros de recursos que se recopilan para Key Vault.  
 
@@ -84,7 +84,7 @@ En [Supervisión de la referencia de los datos de Key Vault](monitor-key-vault-
 > [!IMPORTANT]
 > Al seleccionar **Registros** en el menú de Key Vault, Log Analytics se abre con el ámbito de la consulta establecido en el almacén de claves actual. Esto significa que las consultas de registro solo incluirán datos de ese recurso. Si quiere ejecutar una consulta que incluya datos de otros almacenes de claves o servicios de Azure, seleccione **Registros** en el menú **Azure Monitor**. Consulte [Ámbito e intervalo de tiempo de una consulta de registro en Log Analytics de Azure Monitor](/azure/azure-monitor/log-query/scope/) para obtener más información.
 
-Estas son algunas consultas que puede escribir en la barra **Búsqueda de registros** para ayudarle a supervisar los recursos de Key Vault. Estas consultas funcionan con el [nuevo lenguaje](/azure/azure-monitor/logs/log-query-overview).
+Estas son algunas consultas que puede escribir en la barra **Búsqueda de registros** para ayudarle a supervisar los recursos de Key Vault. Estas consultas funcionan con el [nuevo lenguaje](../../azure-monitor/logs/log-query-overview.md).
 
 * ¿Hay alguna solicitud lenta?
 
@@ -178,9 +178,9 @@ Estas son algunas consultas que puede escribir en la barra **Búsqueda de regist
 
 ## <a name="alerts"></a>Alertas
 
-Las alertas de Azure Monitor le informan de forma proactiva cuando se detectan condiciones importantes en los datos que se supervisan. Permiten identificar y solucionar las incidencias en el sistema de forma preventiva. Puede establecer alertas en [métricas](../../azure-monitor/platform/alerts-metric-overview.md), [registros](../../azure-monitor/platform/alerts-unified-log.md) y el [registro de actividad](../../azure-monitor/platform/activity-log-alerts.md).  
+Las alertas de Azure Monitor le informan de forma proactiva cuando se detectan condiciones importantes en los datos que se supervisan. Permiten identificar y solucionar las incidencias en el sistema de forma preventiva. Puede establecer alertas en [métricas](../../azure-monitor/alerts/alerts-metric-overview.md), [registros](../../azure-monitor/alerts/alerts-unified-log.md) y el [registro de actividad](../../azure-monitor/alerts/activity-log-alerts.md).  
 
-Si crea o ejecuta una aplicación que se ejecuta en Azure Key Vault, [Azure Monitor Application Insights](/azure/azure-monitor/overview#application-insights) puede ofrecer otros tipos de alertas.
+Si crea o ejecuta una aplicación que se ejecuta en Azure Key Vault, [Azure Monitor Application Insights](../../azure-monitor/overview.md#application-insights) puede ofrecer otros tipos de alertas.
 
 Estas son algunas reglas de alertas comunes y recomendadas de Azure Key Vault.
 
@@ -195,5 +195,5 @@ Si desea obtener más detalles, consulte [Supervisión y alertas de Azure Key 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Consulte [Supervisión de la referencia de los datos de Azure Key Vault](monitor-key-vault-reference.md) para obtener una referencia de las métricas, los registros y otros valores importantes creados por Key Vault.
-- Para más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource).
+- Para más información sobre la supervisión de recursos de Azure, consulte [Supervisión de recursos de Azure con Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md).
 - Consulte [Alertas de Azure Key Vault](alert.md).

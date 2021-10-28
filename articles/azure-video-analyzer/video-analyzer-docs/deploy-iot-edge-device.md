@@ -3,12 +3,12 @@ title: 'Implementación de Azure Video Analyzer en un dispositivo IoT Edge: Azur
 description: En este artículo se enumeran los pasos que ayudarán a implementar Azure Video Analyzer en el dispositivo IoT Edge. Lo haría, por ejemplo, si tiene acceso a una máquina Linux local.
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: cf73e5d44e9c4c04a7c2f018e403da18e18ff17d
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 4b7152859b0e05c44b16d2846c4acacca8b4c4bc
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114603895"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262268"
 ---
 # <a name="deploy-azure-video-analyzer-to-an-iot-edge-device"></a>Implementación de Azure Video Analyzer en un dispositivo IoT Edge
 
@@ -23,8 +23,8 @@ En este artículo se describe cómo puede implementar el módulo perimetral de A
 * Un dispositivo x86-64 o ARM64 que ejecute uno de los [sistemas operativos Linux admitidos](../../iot-edge/support.md#operating-systems).
 * Una cuenta de Azure que tenga una suscripción activa
 * [Creación y configuración de IoT Hub](../../iot-hub/iot-hub-create-through-portal.md).
-* [Registro de un dispositivo de IoT Edge](../../iot-edge/how-to-register-device.md).
-* [Instalación del entorno de ejecución de Azure IoT Edge en sistemas Linux basados en Debian](../../iot-edge/how-to-install-iot-edge.md)
+* [Registro de un dispositivo de IoT Edge](../../iot-edge/how-to-provision-single-device-linux-symmetric.md#register-your-device).
+* [Instalación del entorno de ejecución de Azure IoT Edge en sistemas Linux basados en Debian](../../iot-edge/how-to-provision-single-device-linux-symmetric.md)
 
 
 ## <a name="create-resources-on-iot-edge-device"></a>Creación de recursos en el dispositivo IoT Edge

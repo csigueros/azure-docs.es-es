@@ -3,22 +3,22 @@ title: Incorporación de AD FS como proveedor de identidades de OpenID Connect 
 titleSuffix: Azure AD B2C
 description: Configure AD FS 2016 mediante el protocolo OpenID Connect y las directivas personalizadas en Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/16/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 63d94ebe209c4b1a40c58f3c4b1b02e70c51a391
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 511f546437d12714ae77d1e3a99f15feda31e33f
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128572287"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130228137"
 ---
 # <a name="add-ad-fs-as-an-openid-connect-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Incorporación de AD FS como proveedor de identidades de OpenID Connect mediante las directivas personalizadas de Azure Active Directory B2C
 

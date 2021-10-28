@@ -4,12 +4,12 @@ description: Este tutorial le guía por los pasos necesarios para analizar víde
 ms.topic: tutorial
 ms.date: 06/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
-ms.openlocfilehash: efb89b8ac28ca2d4ddfb72c75d420ace705d92ba
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: b70f93670abcba2212b0c6ab42315e7fb423fae1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114603392"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130247898"
 ---
 # <a name="tutorial-analyze-live-video-with-azure-video-analyzer-on-iot-edge-and-azure-custom-vision"></a>Tutorial: Análisis de vídeo en directo con Azure Video Analyzer en IoT Edge y Azure Custom Vision
 
@@ -76,9 +76,9 @@ En este diagrama se muestra el flujo de las señales en este tutorial. Un [módu
 
 El nodo de extensión HTTP desempeña el rol de un proxy. Se muestrean los fotogramas de vídeo entrantes que configuró mediante el campo `samplingOptions` y también se convierten los fotogramas de vídeo en el tipo de imagen especificado. A continuación, retransmite la imagen al modelo de detector de camiones de juguete creado mediante Custom Vision. El nodo del procesador de extensiones HTTP recopila los resultados de la detección y publica los eventos en el nodo [receptor de mensajes de Azure IoT Hub](pipeline.md#iot-hub-message-sink), el cual envía esos eventos al [centro de IoT Edge](../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
 
-## <a name="build-and-deploy-a-custom-vision-toy-detection-model&quot;></a>Creación e implementación de un modelo de detección de juguetes de Custom Vision
+## <a name="build-and-deploy-a-custom-vision-toy-detection-model"></a>Creación e implementación de un modelo de detección de juguetes de Custom Vision
 
-Custom Vision (que en español significa &quot;visión personalizada") permite crear, como su nombre indica, su propio detector o clasificador personalizado de objetos en la nube. Ofrece una interfaz sencilla, fácil de usar e intuitiva para crear modelos de Custom Vision que se pueden implementar en la nube o en el perímetro mediante contenedores.
+Custom Vision (que en español significa "visión personalizada") permite crear, como su nombre indica, su propio detector o clasificador personalizado de objetos en la nube. Ofrece una interfaz sencilla, fácil de usar e intuitiva para crear modelos de Custom Vision que se pueden implementar en la nube o en el perímetro mediante contenedores.
 
 Para crear un detector de camiones de juguete, siga los pasos descritos en [Inicio rápido: Creación de un detector de objetos con el sitio web de Custom Vision](../../cognitive-services/custom-vision-service/get-started-build-detector.md).
 
@@ -378,7 +378,7 @@ Si va a probar los demás tutoriales o inicios rápidos, conserve los recursos c
 Revise los desafíos adicionales para los usuarios avanzados:
 
 - Use una [cámara IP](https://en.wikipedia.org/wiki/IP_camera) que sea compatible con RTSP, en lugar de utilizar el simulador RTSP. Puede buscar cámaras IP compatibles con RTSP en la página de [productos compatibles con ONVIF](https://www.onvif.org/conformant-products/). Busque dispositivos que se ajusten a los perfiles G, S o T.
-- Use un dispositivo Linux AMD64 o x64, en lugar de una máquina virtual Linux de Azure. El dispositivo debe estar en la misma red que la cámara IP. Puede seguir las instrucciones que aparecen en [Instalación del entorno de ejecución de Azure IoT Edge en Linux](../../iot-edge/how-to-install-iot-edge.md).
+- Use un dispositivo Linux AMD64 o x64, en lugar de una máquina virtual Linux de Azure. El dispositivo debe estar en la misma red que la cámara IP. Puede seguir las instrucciones que aparecen en [Instalación del entorno de ejecución de Azure IoT Edge en Linux](../../iot-edge/how-to-provision-single-device-linux-symmetric.md).
 
 Luego, registre el dispositivo en Azure IoT Hub, para lo que debe seguir las instrucciones que se encuentran en [Implementación del primer módulo IoT Edge en un dispositivo virtual Linux](../../iot-edge/quickstart-linux.md).  
 

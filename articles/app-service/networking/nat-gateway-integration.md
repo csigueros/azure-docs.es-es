@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/04/2021
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 851e1a04b7fa5ac14848c9d679118a8ebf4ada77
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e5a6f2fe52a9b74f74047a5a9512e40bb267161f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780602"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130245291"
 ---
 # <a name="virtual-network-nat-gateway-integration"></a>Integración de Virtual Network NAT Gateway
 
@@ -34,8 +34,8 @@ Para obtener más detalles y conocer los precios, consulte la [información gene
 
 Para configurar la integración de NAT Gateway con App Service, es necesario completar los siguientes pasos:
 
-* Configure la integración con red virtual regional con su aplicación tal y como se describe en [Integración de su aplicación con una instancia de Azure Virtual Network](../web-sites-integrate-with-vnet.md).
-* Asegúrese de que [Redirigir todo](../web-sites-integrate-with-vnet.md#routes) esté habilitado para su integración con red virtual, de modo que el tráfico dirigido a Internet se vea afectado por las rutas de su red virtual.
+* Configure la integración con red virtual regional con su aplicación tal y como se describe en [Integración de su aplicación con una instancia de Azure Virtual Network](../overview-vnet-integration.md).
+* Asegúrese de que [Redirigir todo](../overview-vnet-integration.md#routes) esté habilitado para su integración con red virtual, de modo que el tráfico dirigido a Internet se vea afectado por las rutas de su red virtual.
 * Aprovisione una puerta de enlace NAT con una IP pública y asóciela a la subred de la integración con red virtual.
 
 Configure NAT Gateway a través del portal:
@@ -84,4 +84,4 @@ NAT Gateway admite direcciones IP públicas y prefijos de IP públicas. Una puer
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre la puerta de enlace NAT, consulte la [documentación de NAT Gateway](../../virtual-network/nat-gateway/nat-overview.md).
 
-Para obtener más información sobre Integración con red virtual, consulte la [documentación correspondiente](../web-sites-integrate-with-vnet.md).
+Para obtener más información sobre Integración con red virtual, consulte la [documentación correspondiente](../overview-vnet-integration.md).
