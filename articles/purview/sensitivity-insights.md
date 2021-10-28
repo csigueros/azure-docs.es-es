@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-insights
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: cf3540f439396f3e4308eae10077693de440827f
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 06a48cd4f1a0aa0d95f1c4b5fa0faf4d7ada2ab3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129213981"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238048"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Conclusiones de la etiqueta de confidencialidad sobre los datos de Azure Purview
 
@@ -43,7 +43,7 @@ Antes de empezar con las conclusiones de Purview, asegúrese de que ha completad
 
 - [Etiquetas de confidencialidad de Microsoft 365 extendidas a los recursos de Azure ámbito](create-sensitivity-label.md), y crear o seleccionar las etiquetas que desea aplicar a los datos.
 
-- Configurar y completar un examen de los datos de prueba en cada origen de datos. Para obtener más información, consulte [Administración de orígenes de datos en Azure Purview](manage-data-sources.md) y [Creación de un conjunto de reglas de examen](create-a-scan-rule-set.md).
+- Configurar y completar un examen de los datos de prueba en cada origen de datos. Para más información, consulte [Administración de orígenes de datos en Azure Purview](manage-data-sources.md) y [Creación de un conjunto de reglas de examen](create-a-scan-rule-set.md).
 
 - Ha iniciado sesión en Purview con una cuenta con el [rol de lector o conservador de datos](catalog-permissions.md#roles).
 
@@ -129,5 +129,4 @@ Obtenga más información sobre estos informes de conclusiones de Azure Purview:
 
 - [Conclusiones de glosarios](glossary-insights.md)
 - [Conclusiones de exámenes](scan-insights.md)
-- [Conclusiones de clasificaciones](./classification-insights.md)
-- [Conclusiones de extensiones de archivo](file-extension-insights.md)
+- [Información de la clasificación](./classification-insights.md)

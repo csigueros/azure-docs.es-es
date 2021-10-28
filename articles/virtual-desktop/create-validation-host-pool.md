@@ -7,12 +7,12 @@ ms.date: 10/08/2021
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: c81fb82695d534864fa96d8a5bfff9b3cebd4a4e
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 29a86a476737df6f5a2787748c5551953984f6b6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129705299"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261602"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: Creación de un grupo host para validar las actualizaciones del servicio
 
@@ -23,7 +23,7 @@ Los grupos de hosts son una colección de una o varias máquinas virtuales idén
 
 Para garantizar que las aplicaciones funcionan con las actualizaciones más recientes, el grupo de hosts de validación debe ser lo más parecido posible a los grupos de hosts del entorno sin validación. Los usuarios deben conectarse al grupo de hosts de validación con la misma frecuencia que lo hacen al estándar. Si ha automatizado las pruebas en su grupo host, debe incluir las pruebas automatizadas en el grupo host de validación.
 
-Puede depurar incidencias en el grupo host de validación con [la característica de diagnóstico](diagnostics-role-service.md) o con [artículos de solución de problemas de Azure Virtual Desktop](troubleshoot-set-up-overview.md).
+Puede depurar incidencias en el grupo host de validación con [la característica de diagnóstico](./troubleshoot-set-up-overview.md) o con [artículos de solución de problemas de Azure Virtual Desktop](troubleshoot-set-up-overview.md).
 
 >[!NOTE]
 > Se recomienda que mantenga el grupo host de validación para probar todas las actualizaciones futuras.

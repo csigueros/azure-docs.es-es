@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 09/02/2021
-ms.openlocfilehash: 719962ce297cb6cafbaa15f2805a75ffb0aeab8b
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 24eb83db1d1527941607b78ae64b1c61f3ebddbc
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123473719"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226231"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>Tutorial: Creación de una instancia de IoT Edge para análisis de vídeo (Intel NUC)
 
@@ -37,13 +37,13 @@ En este tutorial, aprenderá a:
 
 * Antes de empezar, debe completar uno de los tutoriales anteriores: [Creación de una aplicación de análisis de vídeo en directo en Azure IoT Central (YOLO v3)](./tutorial-video-analytics-create-app-yolo-v3.md) o [Creación de una aplicación de análisis de vídeo con detección de objetos y movimiento en Azure IoT Central (OpenVINO&trade;)](tutorial-video-analytics-create-app-openvino.md).
 * Un dispositivo, como un Intel NUC, que ejecute Linux, que pueda ejecutar contenedores de Docker y que tenga suficiente capacidad de procesamiento para ejecutar análisis de vídeo.
-* El [entorno de ejecución de IoT Edge instalado](../../iot-edge/how-to-install-iot-edge.md) y en ejecución en el dispositivo.
+* El [entorno de ejecución de IoT Edge instalado](../../iot-edge/how-to-provision-single-device-linux-symmetric.md) y en ejecución en el dispositivo.
 * Poder conectarse al dispositivo IoT Edge desde la máquina Windows, para ello se necesita el [cliente SSH de PuTTy](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) o una utilidad equivalente.
 * También necesita una suscripción de Azure. Si no tiene una suscripción a Azure, puede crear la de forma gratuita en la [página de suscripción a Azure](https://aka.ms/createazuresubscription).
 
 ## <a name="configure-the-iot-edge-device"></a>Configuración del dispositivo de IoT Edge
 
-Si no tiene el entorno de ejecución de IoT Edge instalado en la máquina Intel NUC, consulte las instrucciones de [Instalación del entorno de ejecución de Azure IoT Edge en sistemas Linux basados en Debian](../../iot-edge/how-to-install-iot-edge.md).
+Si no tiene el entorno de ejecución de IoT Edge instalado en la máquina Intel NUC, consulte las instrucciones de [Instalación del entorno de ejecución de Azure IoT Edge en sistemas Linux basados en Debian](../../iot-edge/how-to-provision-single-device-linux-symmetric.md).
 
 Para actualizar el entorno de ejecución de IoT Edge:
 

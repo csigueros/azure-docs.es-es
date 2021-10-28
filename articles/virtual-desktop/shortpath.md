@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 10/18/2021
 ms.author: denisgun
-ms.openlocfilehash: 39a3cc7086bb0778768187ef2deb49b91d5b9e46
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: d24c1b3bdc6da07b844638157a0ecdfc9eb18843
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130181469"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225234"
 ---
 # <a name="azure-virtual-desktop-rdp-shortpath-for-managed-networks"></a>RDP Shortpath de Azure Virtual Desktop para redes administradas
 
@@ -58,7 +58,7 @@ Para admitir RDP Shortpath, el cliente de Azure Virtual Desktop necesita una l�
 - Use el [emparejamiento privado de ExpressRoute](../expressroute/expressroute-circuit-peerings.md).
 - Use una [red privada virtual (VPN) de sitio a sitio (basada en IPsec)](../vpn-gateway/tutorial-site-to-site-portal.md).
 - Use una [red privada virtual de punto a sitio (basada en IPsec)](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md).
-- Use una [asignación de dirección IP pública](../virtual-network/virtual-network-public-ip-address.md).
+- Use una [asignación de dirección IP pública](../virtual-network/ip-services/virtual-network-public-ip-address.md).
 
 Si usa otros tipos de red privada virtual para conectarse a Azure, se recomienda usar una basada en el Protocolo de datagramas de usuario (UDP). Aunque la mayoría de las soluciones de red privada virtual basadas en el Protocolo de control de transmisión (TCP) admiten el protocolo UDP anidado, agregan una sobrecarga heredada del control de congestión TCP, lo que ralentiza el rendimiento de RDP.
 

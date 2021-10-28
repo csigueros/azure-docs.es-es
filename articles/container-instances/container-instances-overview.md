@@ -4,12 +4,12 @@ description: El servicio Azure Container Instances ofrece la forma más rápida 
 ms.topic: overview
 ms.date: 03/22/2021
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 4574802b86e517eac5a908b03759dcca3f17d9b3
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 3628171c8c4a7994ac3237c533c1e15c061a01f1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114292299"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215809"
 ---
 # <a name="what-is-azure-container-instances"></a>¿Qué es Azure Container Instances?
 
@@ -64,7 +64,7 @@ Algunas características están restringidas actualmente a los contenedores Linu
 * [Implementación de Virtual Network](container-instances-vnet.md)
 * [Recursos de GPU](container-instances-gpu.md) (versión preliminar)
 
-En el caso de las implementaciones de contenedores de Windows, use imágenes basadas en [imágenes base de Windows](/azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported) comunes.
+En el caso de las implementaciones de contenedores de Windows, use imágenes basadas en [imágenes base de Windows](./container-instances-faq.yml#what-windows-base-os-images-are-supported-) comunes.
 
 ## <a name="co-scheduled-groups"></a>Grupos con programación compartida
 

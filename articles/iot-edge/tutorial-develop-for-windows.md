@@ -9,12 +9,12 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: e3e4add97b63dc7ed6e375f90eb3d5d48a81ffef
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 0164d0ed578ea3f20392f333408553fa60f4d165
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123039000"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238593"
 ---
 # <a name="tutorial-develop-iot-edge-modules-using-windows-containers"></a>Tutorial: Desarrollo de módulos IoT Edge con contenedores de Windows
 
@@ -49,7 +49,7 @@ Una máquina de desarrollo:
 
 Un dispositivo Azure IoT Edge en Windows:
 
-* [Instale y administre Azure IoT Edge con contenedores de Windows](how-to-install-iot-edge-windows-on-windows.md).
+* [Instale y administre Azure IoT Edge con contenedores de Windows](how-to-provision-single-device-windows-symmetric.md).
 * Se recomienda no ejecutar IoT Edge en la máquina de desarrollo, sino usar un dispositivo independiente, si es posible. Esta distinción entre la máquina de desarrollo y el dispositivo IoT Edge refleja con mayor precisión un verdadero escenario de implementación y ayuda a tener claros los distintos conceptos.
 
 Recursos en la nube:
@@ -158,7 +158,7 @@ Cuando el nuevo proyecto se cargue en la ventana de Visual Studio, dedique unos 
 
 ### <a name="set-iot-edge-runtime-version"></a>Establecimiento de la versión del entorno de ejecución de Azure IoT Edge
 
-La extensión IoT Edge adopta como predeterminada la versión estable más reciente del entorno de ejecución de IoT Edge cuando crea los recursos de implementación. Actualmente, esta es la versión 1.2. 
+La extensión de IoT Edge adopta como predeterminada la versión estable más reciente del entorno de ejecución de IoT Edge cuando crea los recursos de implementación. Actualmente, esta es la versión 1.2. 
 
 Los contenedores Windows solo se admiten en la versión 1.1 con soporte técnico a largo plazo o en la versión 1.0 anterior. Para desarrollar módulos para dispositivos mediante contenedores Windows, actualice la versión del entorno de ejecución de Azure IoT Edge en Visual Studio para que coincida con la versión de IoT Edge en esos dispositivos.
 

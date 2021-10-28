@@ -11,12 +11,12 @@ ms.date: 05/11/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: procesamiento de documentos
-ms.openlocfilehash: 43e7da4eea864bf0ac2767718ff8ed04ed58c54e
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 23f525449edfa8d37a7bd8e3ebeff1fb9cdff601
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129715192"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224505"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -254,7 +254,7 @@ Una vez definida la etiqueta de tabla, etiquete los valores de celda.
 
 Elija el icono Train (Entrenar) en el panel izquierdo para abrir la página de entrenamiento. A continuación, seleccione el botón **Train** (Entrenar) para empezar a entrenar el modelo. Una vez completado el proceso de entrenamiento, verá la siguiente información:
 
-* **Id. del modelo**: el identificador del modelo que se ha creado y entrenado. Cada llamada de entrenamiento crea un nuevo modelo con su propio identificador. Copie esta cadena en una ubicación segura; la necesitará si desea realizar llamadas de predicción mediante la [API REST](quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1) o la [guía de la biblioteca cliente](quickstarts/client-library.md).
+* **Id. del modelo**: el identificador del modelo que se ha creado y entrenado. Cada llamada de entrenamiento crea un nuevo modelo con su propio identificador. Copie esta cadena en una ubicación segura; la necesitará si desea realizar llamadas de predicción mediante la [API REST](./quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api&tabs=preview%2cv2-1) o la [guía de la biblioteca cliente](./quickstarts/try-sdk-rest-api.md).
 * **Precisión media**: el promedio de precisión del modelo. Puede mejorar la precisión del modelo si etiqueta más formularios y vuelve a realizar el entrenamiento para crear otro modelo. Se recomienda empezar por etiquetar cinco formularios y agregar más formularios según sea necesario.
 * La lista de etiquetas y la precisión estimada por etiqueta.
 
@@ -314,4 +314,4 @@ En este inicio rápido, ha aprendido a utilizar la herramienta de etiquetado de 
 > [Entrenamiento con etiquetas mediante Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 
 * [¿Qué es Form Recognizer?](overview.md)
-* [Inicio rápido: Uso de la biblioteca cliente de Form Recognizer](quickstarts/client-library.md)
+* [Inicio rápido: Uso de la biblioteca cliente de Form Recognizer](./quickstarts/try-sdk-rest-api.md)

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp
-ms.openlocfilehash: 445163b0d33f404845a66b7d885815d6336dac46
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 103a3004f6bf4ec6e536d87b7fe72484f2bff974
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121726359"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130259119"
 ---
 # <a name="tutorial-configure-an-azure-iot-edge-device"></a>Tutorial: Configuración de un dispositivo IoT Edge
 
@@ -142,7 +142,7 @@ La máquina virtual se puede implementar mediante Azure Portal o la CLI de Azure
    | **Grupos de recursos** | grupo de recursos existente o recién creado que va a contener la máquina virtual y sus recursos asociados. |
    | **Prefijo de etiqueta DNS** | valor requerido (de su elección) que se usa para colocar el nombre de host de la máquina virtual a modo de prefijo. |
    | **Nombre de usuario administrador** | nombre de usuario al que se proporcionarán privilegios raíz en la implementación. |
-   | **Cadena de conexión del dispositivo** | [cadena de conexión de un dispositivo](./how-to-register-device.md) que se ha creado en la instancia de [IoT Hub](../iot-hub/about-iot-hub.md) de su elección. |
+   | **Cadena de conexión del dispositivo** | [cadena de conexión de un dispositivo](./how-to-provision-single-device-linux-symmetric.md#view-registered-devices-and-retrieve-provisioning-information) que se ha creado en la instancia de [IoT Hub](../iot-hub/about-iot-hub.md) de su elección. |
    | **Tamaño de VM** | [tamaño](../cloud-services/cloud-services-sizes-specs.md) de la máquina virtual que se va a implementar.
    | **Versión del sistema operativo Ubuntu** | versión del sistema operativo Ubuntu que se va a instalar en la máquina virtual base. |
    | **Ubicación** | [región geográfica](https://azure.microsoft.com/global-infrastructure/locations/) donde se va a implementar la máquina virtual. Este valor se establece de forma predeterminada en la ubicación del grupo de recursos seleccionado. |

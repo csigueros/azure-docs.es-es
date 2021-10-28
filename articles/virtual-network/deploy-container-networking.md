@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: b95b3cfdf8fea6e31015d945566803569b4ba064
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 64aa913f6c9c5041356f193dcf0c9945deb852fb
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98222928"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257791"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Implementación del complemento de interfaz de red de contenedor de Azure Virtual Network
 
@@ -95,9 +95,9 @@ Complete los pasos siguientes para instalar el complemento en cada máquina virt
 1. [Descarga e instalación del complemento](#download-and-install-the-plug-in)
 2. Asigne previamente un grupo de direcciones IP de red virtual a cada máquina virtual desde la cual se asignarán las direcciones IP a los pods. Cada máquina virtual de Azure viene con una dirección IP privada de red virtual principal en cada interfaz de red. Las direcciones IP del grupo se agregan como direcciones secundarias (*ipconfigs*) en la interfaz de red de la máquina virtual, con una de las siguientes opciones:
 
-   - **CLI**: [asignación de varias direcciones IP mediante la CLI de Azure](virtual-network-multiple-ip-addresses-cli.md)
-   - **PowerShell**: [asignación de varias direcciones IP mediante PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-   - **Portal**: [asignación de varias direcciones IP mediante Azure Portal](virtual-network-multiple-ip-addresses-portal.md)
+   - **CLI**: [asignación de varias direcciones IP mediante la CLI de Azure](./ip-services/virtual-network-multiple-ip-addresses-cli.md)
+   - **PowerShell**: [asignación de varias direcciones IP mediante PowerShell](./ip-services/virtual-network-multiple-ip-addresses-powershell.md)
+   - **Portal**: [asignación de varias direcciones IP mediante Azure Portal](./ip-services/virtual-network-multiple-ip-addresses-portal.md)
    - **Plantilla de Azure Resource Manager**: [asignación de varias direcciones IP mediante plantillas](./template-samples.md)
 
    Asegúrese de agregar suficientes direcciones IP para todos los pods que se espera que aparezcan en la máquina virtual.

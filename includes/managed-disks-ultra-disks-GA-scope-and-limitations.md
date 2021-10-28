@@ -1,5 +1,5 @@
 ---
-title: Archivo de inclusión
+title: archivo de inclusión
 description: Archivo de inclusión
 services: virtual-machines
 author: roygara
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/17/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0e0d3c131f5cd53684580d0035c8836a2537d780
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 8f485ef5d49ff2f0b9bfec4c6abc6db1b78c3826
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130070836"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130287854"
 ---
 Las únicas opciones de redundancia de infraestructura disponibles actualmente para Ultra Disks son las zonas de disponibilidad. Las máquinas virtuales que usan cualquier otra opción de redundancia no pueden conectar discos Ultra Disks.
 
@@ -24,9 +24,9 @@ En la tabla siguiente se describen las regiones en las que los discos Ultra est�
 
 | Opciones de redundancia | Regions |
 |--------------------|---------|
-| **Máquinas virtuales únicas** | Centro de Australia<br/>Sur de Brasil<br/>Centro de la India<br/>Este de Asia<br/>Centro-oeste de Alemania<br/>Centro de Corea del Sur<br/>Centro-norte de EE. UU., Centro-sur de EE. UU. y Oeste de EE. UU.<br/>US Gov Arizona, US Gov Texas, US Gov Virginia<br/> |
-| **Dos zonas de disponibilidad** | Este de Australia<br/>Centro de Canadá<br/>Norte de Europa y Oeste de Europa<br/>Japón Oriental<br/>Sudeste de Asia<br/>Sur de Reino Unido 2<br/>Centro de EE. UU., Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU. 2|
-| **Tres zonas de disponibilidad** | Centro de Francia |
+| **Máquinas virtuales únicas** | Centro de Australia<br/>Sur de Brasil<br/>Centro de la India<br/>Este de Asia<br/>Centro-oeste de Alemania<br/>Centro de Corea del Sur<br/>Centro-norte de EE. UU., Centro-sur de EE. UU. y Oeste de EE. UU.<br/>US Gov Arizona, US Gov Texas, US Gov Virginia |
+| **Dos zonas de disponibilidad** | Centro de Francia |
+| **Tres zonas de disponibilidad** | Este de Australia<br/>Centro de Canadá<br/>Norte de Europa y Oeste de Europa<br/>Japón Oriental<br/>Sudeste de Asia<br/>Sur de Reino Unido 2<br/>Centro de EE. UU., Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU. 2 |
 
 No todos los tamaños de máquina virtual están disponibles en todas las regiones admitidas con discos Ultra. En la tabla siguiente se enumeran las series de máquinas virtuales que son compatibles con discos Ultra.
 

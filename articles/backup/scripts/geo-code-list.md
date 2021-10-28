@@ -3,12 +3,12 @@ title: Asignación de código geográfico
 description: Obtenga información sobre los códigos geográficos asignados a las regiones correspondientes.
 ms.topic: sample
 ms.date: 09/17/2021
-ms.openlocfilehash: a214d45a974308422cb57840c3eb04d55c53c5b2
-ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.openlocfilehash: 1192336476d25f5c0cc180e67d22c2db18015b36
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128709120"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130264567"
 ---
 # <a name="geo-code-mapping"></a>Asignación de código geográfico
 
@@ -152,4 +152,4 @@ Este XML de ejemplo proporciona información sobre los códigos geográficos asi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Aprenda](/azure/backup/private-endpoints) a crear y agregar zonas DNS para puntos de conexión privados de Azure Backup mediante códigos geográficos.
+[Aprenda](../private-endpoints.md) a crear y agregar zonas DNS para puntos de conexión privados de Azure Backup mediante códigos geográficos.

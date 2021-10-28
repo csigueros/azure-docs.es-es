@@ -7,13 +7,13 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/22/2018
-ms.openlocfilehash: 2d1cd9053f5be915015653e1b522e82eff7b978c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/22/2021
+ms.openlocfilehash: 359b86861326cc2d0f375c95db54142c6da2fd12
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128571242"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130243873"
 ---
 # <a name="updating-ml-studio-classic-models-using-update-resource-activity"></a>Actualización de los modelos de ML Studio (clásico) mediante la actividad de actualización de recurso
 
@@ -48,7 +48,7 @@ En la tabla siguiente se describen los servicios web empleados en este ejemplo. 
 
 La siguiente imagen muestra la relación entre los puntos de conexión de entrenamiento y de puntuación de ML Studio (clásico).
 
-:::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/web-services.png" alt-text="servicios Web":::
+:::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/web-services.png" alt-text="SERVICIOS WEB":::
 
 Puede invocar el **servicio web de entrenamiento** a través de la **actividad de ejecución por lotes de ML Studio (clásico)** . La invocación de un servicio web de entrenamiento es lo mismo que invocar un servicio web de ML Studio (clásico) (servicio web de puntuación) para puntuar datos. Las secciones anteriores abarcan cómo invocar un servicio web de ML Studio (clásico) a partir de una canalización de Azure Data Factory. 
 

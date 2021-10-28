@@ -4,13 +4,13 @@ description: Se describen distintas opciones para analizar los datos de los regi
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/04/2018
-ms.openlocfilehash: 2e2babd39dc9dadf06c9a3ca3292e021e0c1deaa
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 10/20/2021
+ms.openlocfilehash: 4898174fda8dd597a1260211ed28d4719779c073
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102037190"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219970"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Análisis de datos de texto en registros de Azure Monitor
 Algunos datos de registro recopilados por Azure Monitor incluyen varios fragmentos de información en una sola propiedad. El análisis de estos datos en varias propiedades facilita su uso en las consultas. Un ejemplo común es un [registro personalizado](../agents/data-sources-custom-logs.md) que recopila una entrada de registro completo con varios valores en una sola propiedad. Al crear propiedades independientes para los distintos valores, puede buscar y agregar en cada uno.

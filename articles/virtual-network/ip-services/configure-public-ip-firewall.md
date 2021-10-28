@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 06/28/2021
 ms.custom: template-how-to
-ms.openlocfilehash: f520b992e018b41a8adf99b87202975a4a2edd38
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: a6f86fcf24316a24c36d0d42dfff4cef0c3ccaf3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129367737"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130217437"
 ---
 # <a name="manage-a-public-ip-address-with-azure-firewall"></a>Administración de una dirección IP pública con Azure Firewall
 
@@ -25,7 +25,7 @@ En este artículo, aprenderá a crear una instancia de Azure Firewall mediante u
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Tres direcciones IP públicas de SKU estándar en la suscripción. La dirección IP no puede estar asociada a ningún recurso. Para más información sobre cómo crear una IP pública de SKU estándar, consulte [Creación de una dirección IP pública: Azure Portal](../../virtual-network/create-public-ip-portal.md).
+- Tres direcciones IP públicas de SKU estándar en la suscripción. La dirección IP no puede estar asociada a ningún recurso. Para más información sobre cómo crear una IP pública de SKU estándar, consulte [Creación de una dirección IP pública: Azure Portal](./create-public-ip-portal.md).
     - Para los fines de los ejemplos de este artículo, nombre las nuevas direcciones IP públicas **myStandardPublicIP-1**, **myStandardPublicIP-2** y **myStandardPublicIP-3**.
 
 ## <a name="create-azure-firewall-existing-public-ip"></a>Creación de una instancia de Azure Firewall con una dirección IP pública existente
@@ -121,5 +121,5 @@ En esta sección, agregará una configuración de IP pública a Azure Firewall. 
 
 En este artículo, ha aprendido a crear una instancia de Azure Firewall y a usar una dirección IP pública existente. Ha cambiado la IP pública de la configuración IP predeterminada. Por último, ha agregado una configuración de IP pública al firewall.
 
-- Para más información sobre las IP públicas en Azure, consulte [Direcciones IP públicas](../../virtual-network/public-ip-addresses.md).
+- Para más información sobre las IP públicas en Azure, consulte [Direcciones IP públicas](./public-ip-addresses.md).
 - Para más información sobre Azure Firewall, consulte [¿Qué es Azure Firewall?](../../firewall/overview.md)

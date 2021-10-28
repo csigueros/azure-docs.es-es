@@ -11,12 +11,12 @@ metadata:
   ms.date: 10/30/2018
   ms.author: genli
   ms.custom: devx-track-azurepowershell
-  ms.openlocfilehash: 825840dfe237d58f281db5e26b6090c153707195
-  ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+  ms.openlocfilehash: e6b214c5ead4be666b96992aec4c582a23e5c635
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/14/2021
-  ms.locfileid: "129992839"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130231681"
 title: Preguntas más frecuentes sobre la configuración y administración de Web Apps en Azure
 summary: >
   Este artículo contiene respuestas a las preguntas más frecuentes (P+F) sobre los problemas de configuración y administración de la [característica Web Apps de Azure App Service](https://azure.microsoft.com/services/app-service/web/).
@@ -244,7 +244,7 @@ sections:
       Actualmente, no puede tener conexiones VPN de punto a sitio a una red virtual que esté conectada a ExpressRoute. Una VPN de punto a sitio y ExpressRoute no pueden coexistir en la misma red virtual. Para más información, consulte [Límites y limitaciones de ExpressRoute y las conexiones VPN de sitio a sitio](../expressroute/expressroute-howto-coexist-classic.md#limits-and-limitations).
   - question: >
       ¿Cómo se conecta una aplicación web de App Service a una red virtual que tiene una puerta de enlace de enrutamiento estático (basado en directivas)?
-    answer: "Actualmente, no se admite la conexión de una aplicación web de App Service a una red virtual que tenga una puerta de enlace de enrutamiento estático (basado en directivas). Si su red virtual de destino ya existe, debe tener habilitada la VPN de punto a sitio, con una puerta de enlace de enrutamiento dinámico, para poder conectarse a una aplicación. Si la puerta de enlace está configurada para el enrutamiento estático, no podrá habilitar una VPN de punto a sitio. \n\nPara más información, consulte [Integración de su aplicación con una red virtual de Azure](web-sites-integrate-with-vnet.md).\n"
+    answer: "Actualmente, no se admite la conexión de una aplicación web de App Service a una red virtual que tenga una puerta de enlace de enrutamiento estático (basado en directivas). Si su red virtual de destino ya existe, debe tener habilitada la VPN de punto a sitio, con una puerta de enlace de enrutamiento dinámico, para poder conectarse a una aplicación. Si la puerta de enlace está configurada para el enrutamiento estático, no podrá habilitar una VPN de punto a sitio. \n\nPara más información, consulte [Integración de su aplicación con una red virtual de Azure](./overview-vnet-integration.md).\n"
   - question: >
       ¿Por qué veo los tiempos de espera al intentar crear una instancia de App Service Environment?
     answer: >

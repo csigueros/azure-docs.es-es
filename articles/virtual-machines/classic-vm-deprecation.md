@@ -9,18 +9,18 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 253433c98ce2da8e69fadf82ff9e5902e5a990ef
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 93b66a1cd8aa6f39cd12284d0a7bd3234d9b8ef5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123542240"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225072"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>Migre los recursos de IaaS a Azure Resource Manager antes del 1 de marzo de 2023. 
 
 **Se aplica a:** :heavy_check_mark: Máquinas virtuales Linux :heavy_check_mark: Máquinas virtuales Windows
 
-En 2014, lanzamos la infraestructura como servicio (IaaS) en [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Desde entonces, hemos mejorado las funcionalidades. Dado que Azure Resource Manager tiene ahora funcionalidades completas de IaaS y otras mejoras, hemos puesto en desuso las máquinas virtuales (VM) de IaaS mediante [Azure Service Manager](/azure/virtual-machines/migration-classic-resource-manager-faq#what-is-azure-service-manager-and-what-does-it-mean-by-classic) (ASM) el 28 de febrero de 2020. Esta funcionalidad se retirará por completo el 1 de marzo de 2023. 
+En 2014, lanzamos la infraestructura como servicio (IaaS) en [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Desde entonces, hemos mejorado las funcionalidades. Dado que Azure Resource Manager tiene ahora funcionalidades completas de IaaS y otras mejoras, hemos puesto en desuso las máquinas virtuales (VM) de IaaS mediante [Azure Service Manager](./migration-classic-resource-manager-faq.yml) (ASM) el 28 de febrero de 2020. Esta funcionalidad se retirará por completo el 1 de marzo de 2023. 
 
 En la actualidad, aproximadamente el 90 por ciento de las máquinas virtuales de IaaS usan Azure Resource Manager. Si usa recursos de IaaS a través de ASM, empiece a planear la migración ahora. Complétela antes del 1 de marzo de 2023 para aprovechar [Azure Resource Manager](../azure-resource-manager/management/index.yml).
 

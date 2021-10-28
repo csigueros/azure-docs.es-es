@@ -11,12 +11,12 @@ ms.date: 10/07/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-may-2021
 keywords: procesamiento de documentos
-ms.openlocfilehash: 9c009a8d6d41d183596e5a28b1bd18f2e265ba04
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: c3b1037d4263a6565f76ffcf648e77bb692f7f34
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129716857"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265790"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -213,7 +213,7 @@ Siga los pasos anteriores para etiquetar en los cinco formularios del conjunto d
 
 Elija el icono Train (Entrenar) en el panel izquierdo para abrir la página de entrenamiento. A continuación, seleccione el botón **Train** (Entrenar) para empezar a entrenar el modelo. Una vez completado el proceso de entrenamiento, verá la siguiente información:
 
-* **Id. del modelo**: el identificador del modelo que se ha creado y entrenado. Cada llamada de entrenamiento crea un nuevo modelo con su propio identificador. Copie esta cadena en una ubicación segura; la necesitará si desea realizar llamadas de predicción mediante la [API REST](./client-library.md?pivots=programming-language-rest-api) o la [biblioteca cliente](./client-library.md).
+* **Id. del modelo**: el identificador del modelo que se ha creado y entrenado. Cada llamada de entrenamiento crea un nuevo modelo con su propio identificador. Copie esta cadena en una ubicación segura; la necesitará si desea realizar llamadas de predicción mediante la [API REST](./try-sdk-rest-api.md?pivots=programming-language-rest-api) o la [biblioteca cliente](./try-sdk-rest-api.md).
 * **Precisión media**: el promedio de precisión del modelo. Puede mejorar la precisión del modelo si etiqueta más formularios y vuelve a realizar el entrenamiento para crear otro modelo. Se recomienda empezar por etiquetar cinco formularios y realizar un análisis y pruebas de los resultados; después, si es necesario, agregar más formularios.
 * La lista de etiquetas y la precisión estimada por etiqueta.
 
@@ -232,4 +232,4 @@ Seleccione el icono de análisis (bombilla) de la izquierda para probar el model
 En este inicio rápido, ha aprendido a usar la herramienta de ejemplo Form Recognizer para probar cómo diseñar, precompilar y entrenar un modelo personalizado, además de analizar un formulario personalizado con datos etiquetados manualmente. Ahora puede probar la API REST o el SDK de la biblioteca cliente para usar Form Recognizer.
 
 > [!div class="nextstepaction"]
-> [Explorar el inicio rápido de uso de la API REST o el SDK de la biblioteca cliente de Form Recognizer](client-library.md)
+> [Explorar el inicio rápido de uso de la API REST o el SDK de la biblioteca cliente de Form Recognizer](./try-sdk-rest-api.md)

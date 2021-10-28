@@ -3,12 +3,12 @@ title: 'Desarrollo e implementación de un servidor de inferencia de gRPC con Li
 description: En este artículo se proporciona una guía sobre cómo desarrollar e implementar un servidor de inferencia de gRPC con Live Video Analytics.
 ms.topic: how-to
 ms.date: 12/02/2020
-ms.openlocfilehash: d7d636803ac49d78aae78dad256598d9de3e7448
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 1e685a4c363a58e19295da8f5d563114db84df9b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371580"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232354"
 ---
 # <a name="develop-and-deploy-a-grpc-inference-server-with-live-video-analytics"></a>Desarrollo e implementación de un servidor de inferencia de gRPC con Live Video Analytics
 
@@ -30,7 +30,7 @@ En este artículo se muestra cómo puede encapsular los modelos de IA que prefie
 
 * Un dispositivo x86-64 o ARM64 que ejecute uno de los [sistemas operativos Linux admitidos](../../iot-edge/support.md#operating-systems) o una máquina Windows.
 * [Instalar Docker](https://docs.docker.com/desktop/#download-and-install) en la máquina.
-* Instalar un [entorno de ejecución de Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md?tabs=linux).
+* Instalar un [entorno de ejecución de Azure IoT Edge](../../iot-edge/how-to-provision-single-device-linux-symmetric.md).
 
 ## <a name="grpc-implementation-steps"></a>Pasos de implementación de gRPC
 

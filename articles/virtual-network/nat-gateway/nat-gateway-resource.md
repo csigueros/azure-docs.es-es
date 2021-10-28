@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: 79abb40532ad4b7940ecf94552b5ee5c0727f2b6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b9291a7d69bd2aeb5a9343d88d05d42d94d080e0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128636636"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249051"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Diseño de redes virtuales con recursos de puertas de enlace de NAT
 
@@ -339,10 +339,6 @@ Los puertos SNAT están disponibles para volver a usarlos con la misma direcció
 - Se admite la familia de direcciones IPv4.  NAT no interactúa con la familia de direcciones IPv6.  NAT no se puede implementar en una subred con un prefijo IPv6.
 - NAT no puede abarcar varias redes virtuales.
 - La fragmentación de direcciones IP no se admite.
-
-## <a name="suggestions"></a>Sugerencias
-
-Queremos saber cómo podemos mejorar el servicio. ¿Falta una funcionalidad? Proponga lo que debemos crear después en [UserVoice para NAT](https://aka.ms/natuservoice).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

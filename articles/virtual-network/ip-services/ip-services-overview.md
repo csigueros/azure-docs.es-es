@@ -8,12 +8,12 @@ ms.subService: ip-services
 ms.topic: overview
 ms.date: 10/01/2021
 ms.custom: template-overview
-ms.openlocfilehash: 4215fb4682e29a06a7003e30ae53656e09f6f246
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 7b9c1eb8e1e0a067da2f0ed29762ef14ce365690
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129369801"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257697"
 ---
 # <a name="what-is-azure-virtual-network-ip-services"></a>¿Qué es Azure Virtual Network IP Services?
 
@@ -45,7 +45,7 @@ Una dirección IP pública es un recurso con sus propias propiedades. Estos son 
 * Azure Firewall
 * Host bastión
 
-Para más información sobre las direcciones IP públicas, consulte [Direcciones IP públicas](../../virtual-network/public-ip-addresses.md) y [Creación, cambio o eliminación de una dirección IP pública de Azure](../../virtual-network/virtual-network-public-ip-address.md).
+Para más información sobre las direcciones IP públicas, consulte [Direcciones IP públicas](./public-ip-addresses.md) y [Creación, cambio o eliminación de una dirección IP pública de Azure](./virtual-network-public-ip-address.md).
 
 ## <a name="public-ip-address-prefixes"></a>Prefijos de direcciones IP públicas
 
@@ -62,7 +62,7 @@ El tamaño del prefijo se especifica como un tamaño de máscara de enrutamiento
 
 No hay límites en cuanto al número de prefijos creados en una suscripción. El número de intervalos creados no puede superar el límite de direcciones IP públicas estáticas permitido en su suscripción. Para más información, consulte [Límites de Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Para más información sobre los prefijos de direcciones IP públicas, consulte [Prefijo de direcciones IP públicas](../../virtual-network/public-ip-address-prefix.md) y [Creación, cambio o eliminación de un prefijo de dirección IP pública](../../virtual-network/manage-public-ip-address-prefix.md).
+Para más información sobre los prefijos de direcciones IP públicas, consulte [Prefijo de direcciones IP públicas](./public-ip-address-prefix.md) y [Creación, cambio o eliminación de un prefijo de dirección IP pública](./manage-public-ip-address-prefix.md).
 
 ## <a name="private-ip-addresses"></a>Direcciones IP privadas
 
@@ -75,7 +75,7 @@ Estos son algunos de los recursos con los que puede asociar las direcciones IP p
 * Puertas de enlace de aplicaciones
 * Puntos de conexión privados
 
-Para más información sobre las direcciones IP privadas, consulte [Direcciones IP privadas](../../virtual-network/private-ip-addresses.md).
+Para más información sobre las direcciones IP privadas, consulte [Direcciones IP privadas](./private-ip-addresses.md).
 
 ## <a name="routing-preference"></a>Preferencia de enrutamiento
 
@@ -87,7 +87,7 @@ Las opciones de preferencias de enrutamiento incluyen:
 
 * **Internet pública (red de ISP)** : la nueva opción de enrutamiento denominada enrutamiento de Internet minimiza el viaje a través de la red global de Microsoft y utiliza la red de ISP de tránsito para enrutar el tráfico. Este enrutamiento también se conoce como enrutamiento de tipo *"hot potato"* .
 
-Para obtener más información sobre la preferencia de enrutamiento, vea [¿Qué es la preferencia de enrutamiento?](../../virtual-network/routing-preference-overview.md)
+Para obtener más información sobre la preferencia de enrutamiento, vea [¿Qué es la preferencia de enrutamiento?](./routing-preference-overview.md)
 
 ## <a name="routing-preference-unmetered"></a>Preferencias de enrutamiento no medido
 
@@ -99,13 +99,13 @@ La salida del tráfico de red desde el origen en Azure destinado al proveedor de
 
 * La conexión directa entre el proveedor de CDN y el origen en Azure proporciona un rendimiento óptimo, ya que no hay saltos entre ellos. Esta conexión beneficia a la carga de trabajo de la red CDN, que recupera datos del origen con frecuencia.
 
-Para obtener más información sobre la preferencia de enrutamiento no medido, vea [¿Qué es la preferencia de enrutamiento no medido?](../../virtual-network/routing-preference-unmetered.md)
+Para obtener más información sobre la preferencia de enrutamiento no medido, vea [¿Qué es la preferencia de enrutamiento no medido?](./routing-preference-unmetered.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Introducción a la creación de recursos de servicios IP:
 
-- [Creación de una dirección IP pública mediante Azure Portal](../../virtual-network/create-public-ip-portal.md).
-- [Creación de un prefijo de dirección IP pública mediante Azure Portal](../../virtual-network/create-public-ip-prefix-portal.md).
-- [Configuración de una dirección IP privada para una VM mediante Azure Portal](../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md).
-- [Configuración de la preferencia de enrutamiento para una dirección IP pública mediante Azure Portal](../../virtual-network/routing-preference-portal.md).
+- [Creación de una dirección IP pública mediante Azure Portal](./create-public-ip-portal.md).
+- [Creación de un prefijo de dirección IP pública mediante Azure Portal](./create-public-ip-prefix-portal.md).
+- [Configuración de una dirección IP privada para una VM mediante Azure Portal](./virtual-networks-static-private-ip-arm-pportal.md).
+- [Configuración de la preferencia de enrutamiento para una dirección IP pública mediante Azure Portal](./routing-preference-portal.md).

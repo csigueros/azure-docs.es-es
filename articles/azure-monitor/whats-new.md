@@ -3,12 +3,12 @@ title: Novedades en la documentación de Azure Monitor
 description: Novedades en la documentación de Azure Monitor
 ms.topic: conceptual
 ms.date: 09/07/2021
-ms.openlocfilehash: 735c94026695e6eb89005c6e1bbc4bbdbe46f64b
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 3c7a433ed3c13e7853cab9a72bdd6b7a447bb3a0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130178697"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219896"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Novedades en la documentación de Azure Monitor
 
@@ -19,7 +19,7 @@ En este artículo se enumeran cambios importantes en la documentación de Azure 
 
 **Artículos actualizados**
 
-- [Implementación de Azure Monitor a escala mediante Azure Policy](deploy-scale.md)
+- [Implementación de Azure Monitor a escala mediante Azure Policy](./best-practices.md)
 - [Integraciones de asociados de Azure Monitor](partners.md)
 - [Ejemplos de plantillas de Resource Manager para Azure Monitor](resource-manager-samples.md)
 - [Roles, permisos y seguridad en Azure Monitor](roles-permissions-security.md)
@@ -173,7 +173,7 @@ En este artículo se enumeran cambios importantes en la documentación de Azure 
 **Artículos actualizados**
 
 - [Preguntas más frecuentes sobre Azure Monitor](faq.yml)
-- [Implementación de Azure Monitor a escala mediante Azure Policy](deploy-scale.md)
+- [Implementación de Azure Monitor a escala mediante Azure Policy](./best-practices.md)
 
 ### <a name="agents"></a>Agentes
 
@@ -349,4 +349,3 @@ En este artículo se enumeran cambios importantes en la documentación de Azure 
 
 - [Solución de problemas de estado de invitado de VM Insights (versión preliminar)](vm/vminsights-health-troubleshoot.md)
 - [Creación de informes interactivos de VM Insights con libros](vm/vminsights-workbooks.md)
-

@@ -5,12 +5,12 @@ keywords: azure app service, aplicación web, aplicación móvil, api app, aplic
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 61bffcfa8b98ed666e450c344023258b752e4880
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d661781d7eea0b5627dcab13648422003c82e0a4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98736112"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130220470"
 ---
 # <a name="security-in-azure-app-service"></a>Seguridad en Azure App Service
 
@@ -76,7 +76,7 @@ Si la aplicación se hospeda en un [entorno de App Service](environment/intro.md
 
 ### <a name="resources-inside-an-azure-virtual-network"></a>Recursos dentro de una red virtual de Azure
 
-La aplicación puede acceder a los recursos de una [red virtual de Azure](../virtual-network/index.yml) mediante la [integración de redes virtuales](web-sites-integrate-with-vnet.md). La integración se establece con una red virtual mediante una VPN de sitio a punto. Después, la aplicación puede acceder a los recursos de la red virtual con sus direcciones IP privadas. Sin embargo, la conexión de punto a sitio sigue atravesando las redes compartidas en Azure. 
+La aplicación puede acceder a los recursos de una [red virtual de Azure](../virtual-network/index.yml) mediante la [integración de redes virtuales](./overview-vnet-integration.md). La integración se establece con una red virtual mediante una VPN de sitio a punto. Después, la aplicación puede acceder a los recursos de la red virtual con sus direcciones IP privadas. Sin embargo, la conexión de punto a sitio sigue atravesando las redes compartidas en Azure. 
 
 Para aislar por completo la conectividad de los recursos de las redes compartidas en Azure, cree la aplicación en un [entorno de App Service](environment/intro.md). Como un entorno de App Service siempre se implementa en una red virtual dedicada, la conectividad entre la aplicación y los recursos dentro de la red virtual está totalmente aislada. Para otros aspectos de la seguridad de red en un entorno de App Service, consulte [Aislamiento de red](#network-isolation).
 
@@ -85,7 +85,7 @@ Para aislar por completo la conectividad de los recursos de las redes compartida
 Hay tres maneras de acceder de forma segura a los recursos locales, por ejemplo, las bases de datos: 
 
 - [Conexiones híbridas](app-service-hybrid-connections.md): establece una conexión de punto a punto con el recurso remoto a través de un túnel TCP. El túnel TCP se establece con TLS 1.2 con las claves de firma de acceso compartido (SAS).
-- [Integración de red virtual](web-sites-integrate-with-vnet.md) con VPN de sitio a sitio: tal y como se describe en [Recursos dentro de una red virtual de Azure](#resources-inside-an-azure-virtual-network), pero la red virtual se puede conectar a la red local mediante una [VPN de sitio a sitio](../vpn-gateway/tutorial-site-to-site-portal.md). En esta topología de red, la aplicación puede conectarse a los recursos locales igual que a los demás recursos de la red virtual.
+- [Integración de red virtual](./overview-vnet-integration.md) con VPN de sitio a sitio: tal y como se describe en [Recursos dentro de una red virtual de Azure](#resources-inside-an-azure-virtual-network), pero la red virtual se puede conectar a la red local mediante una [VPN de sitio a sitio](../vpn-gateway/tutorial-site-to-site-portal.md). En esta topología de red, la aplicación puede conectarse a los recursos locales igual que a los demás recursos de la red virtual.
 - [Entorno de App Service](environment/intro.md) con VPN de sitio a sitio: tal y como se describe en [Recursos dentro de una red virtual de Azure](#resources-inside-an-azure-virtual-network), pero la red virtual se puede conectar a la red local mediante una [VPN de sitio a sitio](../vpn-gateway/tutorial-site-to-site-portal.md). En esta topología de red, la aplicación puede conectarse a los recursos locales igual que a los demás recursos de la red virtual.
 
 ## <a name="application-secrets"></a>Secretos de aplicación

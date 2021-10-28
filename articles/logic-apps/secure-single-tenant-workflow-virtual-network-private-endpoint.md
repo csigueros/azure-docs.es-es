@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 08/31/2021
-ms.openlocfilehash: 658d8c8c43bd2795a6a25730ff85ffb6bbd3a63c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 500ec9c14dea994b528528389ed03d2b561c1a56
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128598182"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130241827"
 ---
 # <a name="secure-traffic-between-virtual-networks-and-single-tenant-workflows-in-azure-logic-apps-using-private-endpoints"></a>Protección del tráfico entre redes virtuales y flujos de trabajo de inquilino único en Azure Logic Apps mediante puntos de conexión privados
 
@@ -124,7 +124,7 @@ Para más información, consulte [Creación de flujos de trabajo de aplicación 
 
 Para proteger el tráfico saliente de la aplicación lógica, puede integrar la aplicación lógica con una red virtual. De manera predeterminada, el tráfico saliente de la aplicación lógica solo se ve afectado por los grupos de seguridad de red (NSG) y las rutas definidas por el usuario (UDR) cuando se dirige a una dirección privada, como `10.0.0.0/8`, `172.16.0.0/12` y `192.168.0.0/16`.
 
-Si usa su propio servidor de nombres de dominio (DNS) con la red virtual, establezca la configuración de la aplicación `WEBSITE_DNS_SERVER` del recurso de aplicación lógica en la dirección IP del DNS. Si tiene un DNS secundario, agregue otra configuración de aplicación denominada `WEBSITE_DNS_ALT_SERVER` y establezca el valor también en la dirección IP del DNS. Además, actualice los registros DNS para que remitan los puntos de conexión privados a la dirección IP interna. Los puntos de conexión privados funcionan mediante el envío de la búsqueda de DNS a la dirección privada, no a la dirección pública del recurso específico. Para más información, vea [Puntos de conexión privados: Integración de su aplicación con una instancia de Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md#private-endpoints).
+Si usa su propio servidor de nombres de dominio (DNS) con la red virtual, establezca la configuración de la aplicación `WEBSITE_DNS_SERVER` del recurso de aplicación lógica en la dirección IP del DNS. Si tiene un DNS secundario, agregue otra configuración de aplicación denominada `WEBSITE_DNS_ALT_SERVER` y establezca el valor también en la dirección IP del DNS. Además, actualice los registros DNS para que remitan los puntos de conexión privados a la dirección IP interna. Los puntos de conexión privados funcionan mediante el envío de la búsqueda de DNS a la dirección privada, no a la dirección pública del recurso específico. Para más información, vea [Puntos de conexión privados: Integración de su aplicación con una instancia de Azure Virtual Network](../app-service/overview-vnet-integration.md#private-endpoints).
 
 > [!IMPORTANT]
 > Para que el entorno de ejecución de Azure Logic Apps funcione, debe tener una conexión ininterrumpida con el almacenamiento de back-end. Para que los conectores administrados hospedados en Azure funcionen, debe tener una conexión ininterrumpida con el servicio de API administrada.
@@ -135,7 +135,7 @@ La configuración de la integración de red virtual solo afecta al tráfico sali
 
 Para más información, revise la siguiente documentación:
 
-- [Integración de su aplicación con una instancia de Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md)
+- [Integración de su aplicación con una instancia de Azure Virtual Network](../app-service/overview-vnet-integration.md)
 
 - [Grupos de seguridad de red](../virtual-network/network-security-groups-overview.md)
 
@@ -170,7 +170,7 @@ Puede restringir el acceso a la cuenta de almacenamiento para que solo se puedan
 
    1. Para acceder a los datos de flujo de trabajo de la aplicación lógica a través de la red virtual, en la configuración del recurso de la aplicación lógica, establezca la configuración `WEBSITE_CONTENTOVERVNET` en `1`.
 
-   Si usa su propio servidor de nombres de dominio (DNS) con la red virtual, establezca la configuración de la aplicación `WEBSITE_DNS_SERVER` del recurso de aplicación lógica en la dirección IP del DNS. Si tiene un DNS secundario, agregue otra configuración de aplicación denominada `WEBSITE_DNS_ALT_SERVER` y establezca el valor también en la dirección IP del DNS. Además, actualice los registros DNS para que remitan los puntos de conexión privados a la dirección IP interna. Los puntos de conexión privados funcionan mediante el envío de la búsqueda de DNS a la dirección privada, no a la dirección pública del recurso específico. Para más información, vea [Puntos de conexión privados: Integración de su aplicación con una instancia de Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md#private-endpoints).
+   Si usa su propio servidor de nombres de dominio (DNS) con la red virtual, establezca la configuración de la aplicación `WEBSITE_DNS_SERVER` del recurso de aplicación lógica en la dirección IP del DNS. Si tiene un DNS secundario, agregue otra configuración de aplicación denominada `WEBSITE_DNS_ALT_SERVER` y establezca el valor también en la dirección IP del DNS. Además, actualice los registros DNS para que remitan los puntos de conexión privados a la dirección IP interna. Los puntos de conexión privados funcionan mediante el envío de la búsqueda de DNS a la dirección privada, no a la dirección pública del recurso específico. Para más información, vea [Puntos de conexión privados: Integración de su aplicación con una instancia de Azure Virtual Network](../app-service/overview-vnet-integration.md#private-endpoints).
 
 1. Después de aplicar esta configuración de aplicación, puede eliminar el acceso público de la cuenta de almacenamiento.
 

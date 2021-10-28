@@ -9,18 +9,18 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: pstn
-ms.openlocfilehash: 66e39f0ec9beea775c18f0c1619cc8517e9b80a8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9cda3c4f91c3e70d19c33d4fa06343d26f6ff6ee
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609657"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219003"
 ---
 # <a name="telephony-concepts"></a>Conceptos de telefonía
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
-Los SDK de llamadas de Azure Communication Services se pueden usar para agregar telefonía y acceso a la red telefónica conmutada pública para las aplicaciones. En esta página se resumen las funcionalidades y los conceptos clave de la telefonía. Para más información sobre los lenguajes y funcionalidades específicos del SDK, consulte la [biblioteca de llamadas](../../quickstarts/voice-video-calling/calling-client-samples.md).
+Los SDK de llamadas de Azure Communication Services se pueden usar para agregar telefonía y acceso a la red telefónica conmutada pública para las aplicaciones. En esta página se resumen las funcionalidades y los conceptos clave de la telefonía. Para más información sobre los lenguajes y funcionalidades específicos del SDK, consulte la [biblioteca de llamadas](../../quickstarts/voice-video-calling/getting-started-with-calling.md).
 
 ## <a name="overview-of-telephony"></a>Introducción a la telefonía
 Siempre que los usuarios interactúan con un número de teléfono tradicional, las llamadas se facilitan mediante llamadas de voz de RTC (red telefónica conmutada). Para hacer y recibir llamadas RTC, tiene que agregar funcionalidades de telefonía a su recurso de Azure Communication Services. En este caso, las señales y los elementos multimedia usan una combinación de tecnologías basadas en IP y en RTC para conectar a los usuarios. Communication Services proporciona dos maneras discretas de acceder a la red RTC: llamadas de voz (RTC) y enrutamiento directo de Azure.

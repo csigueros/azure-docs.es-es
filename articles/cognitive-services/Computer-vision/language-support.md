@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 684af3b73d9e7b56db5cc5d077510727bed89618
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: f2ded17ed86a550ca781fbad792e89bfc4d7809d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130044523"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215941"
 ---
 # <a name="language-support-for-computer-vision"></a>Compatibilidad con idiomas para Computer Vision
 
@@ -119,7 +119,7 @@ En la tabla siguiente se enumeran los idiomas de impresión admitidos por las AP
 |Koriakia |`kpy`|✅ versión preliminar | |
 |Kosreano |`kos`|✅ versión preliminar | |
 |Cumuco (cirílico) |`kum`|✅ versión preliminar | |
-|Kurdo (latino)| `kur` |✅ | |
+|Kurdo (latino)| `ku` |✅ | |
 |Kirguís (cirílico) |`ky`|✅ versión preliminar | |
 |Lakota |`lkt`|✅ versión preliminar | |
 |Latín|`la`|✅ versión preliminar | |
@@ -154,13 +154,13 @@ En la tabla siguiente se enumeran los idiomas de impresión admitidos por las AP
 |Serbio (latino) | `sr-latn` | ✅ versión preliminar |✅ |
 |Sami skolt|`sms`|✅ versión preliminar | |
 |Eslovaco | `sk` | ✅ versión preliminar |✅ |
-|Esloveno  | `slv` | ✅ ||
+|Esloveno  | `sl` | ✅ ||
 |Sami meridional|`sma`|✅ versión preliminar | |
 |Español | `es` |✅ |✅ |
 |Swahili (Latín)  | `sw` |✅ | |
 |Sueco | `sv` |✅ |✅ |
 |Tayiko (cirílico)|`tg`|✅ versión preliminar | |
-|Tártaro (Latín)  | `tat` | ✅ |
+|Tártaro (Latín)  | `tt` | ✅ |
 |Tetum    | `tet` |✅ |  |
 |Tongano|`to`|✅ versión preliminar | |
 |Turco | `tr` |✅ | ✅ |

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-csharp-java
-ms.openlocfilehash: 397423b0bc86833b9a029c84c0d3e785ffc35049
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 480b88568def6cb2c75a99ad3ee656f8c00a8ea4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128671875"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130264434"
 ---
 # <a name="call-recording-api-quickstart"></a>Inicio rápido de las API de grabación de llamadas
 
@@ -41,5 +41,5 @@ Si quiere limpiar y quitar una suscripción a Communication Services, puede elim
 Para más información, consulte los siguientes artículos.
 
 - Consulte nuestro [ejemplo de elementos principales de una llamada](../../samples/calling-hero-sample.md).
-- Más información sobre la [llamada a las funcionalidades de SDK](./calling-client-samples.md)
+- Más información sobre la [llamada a las funcionalidades de SDK](./getting-started-with-calling.md)
 - Más información sobre [cómo funciona la llamada](../../concepts/voice-video-calling/about-call-types.md)

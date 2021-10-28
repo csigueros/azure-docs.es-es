@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, amqp, devx-track-csharp
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: d7fe67fa9722328be1e730c18893032f98883df7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 530dbd3abba2c61af8ebab3b5fc625990fc1a391
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740630"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130228796"
 ---
 # <a name="tutorial-develop-c-iot-edge-modules-using-windows-containers"></a>Tutorial: Desarrollo de módulos de IoT Edge con C# con contenedores de Windows
 
@@ -54,7 +54,7 @@ Para conocer las opciones para desarrollar e implementar módulos de C# con cont
 Antes de comenzar este tutorial, configure el entorno de desarrollo siguiendo las instrucciones del tutorial [Desarrollo de módulos IoT Edge con contenedores de Windows](tutorial-develop-for-windows.md). Cuando haya terminado, el entorno contendrá los siguientes requisitos previos:
 
 * Una instancia de [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) de nivel estándar o gratis en Azure.
-* Un [dispositivo Windows que ejecute Azure IoT Edge](how-to-install-iot-edge-windows-on-windows.md).
+* Un [dispositivo Windows que ejecute Azure IoT Edge](how-to-provision-single-device-windows-symmetric.md).
 * Un registro de contenedor, como [Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio 2019](/visualstudio/install/install-visual-studio) configurado con la extensión [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools).
 * [Docker Desktop](https://docs.docker.com/docker-for-windows/install/) configurado para ejecutar contenedores de Windows.

@@ -4,12 +4,12 @@ author: cherylmc
 ms.date: 08/19/2021
 ms.service: virtual-wan
 ms.topic: include
-ms.openlocfilehash: 6e09f3d115ad11bc6876092b8c4e87cc56c3c22a
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: 762b5cc965b4f9ee0af929ff32574a98da43cc6a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122779913"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130287681"
 ---
 1. En la página de **Virtual WAN**, en el panel de la izquierda, seleccione **Centros de conectividad**. En la página **Centros**, seleccione **+Nuevo centro de conectividad**.
 
@@ -31,9 +31,9 @@ ms.locfileid: "122779913"
 
 1. Configure las siguientes opciones:
 
-   * **Unidades de escalado de puerta de enlace**: estas representan la capacidad agregada de la puerta de enlace de VPN del usuario. Si selecciona 40 o más unidades de escalado de puerta de enlace, planee el grupo de direcciones de cliente en consecuencia. Para más información sobre cómo esta configuración afecta al grupo de direcciones de cliente, consulte [Acerca de los grupos de direcciones de cliente](../articles/virtual-wan/about-client-address-pools.md). Para obtener información sobre las unidades de escalado de puerta de enlace, vea [Preguntas más frecuentes](../articles/virtual-wan/virtual-wan-faq.md#for-user-vpn-point-to-site--how-many-clients-are-supported).
+   * **Unidades de escalado de puerta de enlace**: estas representan la capacidad agregada de la puerta de enlace de VPN del usuario. Si selecciona 40 o más unidades de escalado de puerta de enlace, planee el grupo de direcciones de cliente en consecuencia. Para obtener información sobre cómo afecta este valor al grupo de direcciones de cliente, vea [Acerca de los grupos de direcciones de cliente](../articles/virtual-wan/about-client-address-pools.md). Para obtener información sobre las unidades de escalado de puerta de enlace, vea [Preguntas más frecuentes](../articles/virtual-wan/virtual-wan-faq.md#for-user-vpn-point-to-site--how-many-clients-are-supported).
    * **Configuración de punto a sitio**: seleccione la configuración de VPN de usuario que creó en un paso anterior.
-   * **Preferencia de enrutamiento**: las preferencias de enrutamiento de Azure le permiten elegir cómo se enruta el tráfico entre Azure e Internet. Puede optar por enrutar el tráfico a través de la red de Microsoft o a través de una red de ISP (Internet público). Estas opciones también se conocen como enrutamiento de tipo "cold-potato" y enrutamiento de tipo "hot-potato" respectivamente. El servicio asigna la IP pública de Virtual WAN en función de la opción de enrutamiento seleccionada. Para obtener más información sobre las preferencias de enrutamiento mediante la red de Microsoft o el ISP, vea el artículo [Preferencias de enrutamiento](../articles/virtual-network/routing-preference-overview.md).
+   * **Preferencia de enrutamiento**: las preferencias de enrutamiento de Azure le permiten elegir cómo se enruta el tráfico entre Azure e Internet. Puede optar por enrutar el tráfico a través de la red de Microsoft o a través de una red de ISP (Internet público). Estas opciones también se conocen como enrutamiento de tipo "cold-potato" y enrutamiento de tipo "hot-potato" respectivamente. El servicio asigna la IP pública de Virtual WAN en función de la opción de enrutamiento seleccionada. Para obtener más información sobre las preferencias de enrutamiento mediante la red de Microsoft o el ISP, vea el artículo [Preferencias de enrutamiento](../articles/virtual-network/ip-services/routing-preference-overview.md).
    * **Grupo de direcciones de cliente**: el grupo de direcciones desde el que las direcciones IP se asignarán automáticamente a los clientes VPN. Para más información, consulte [Acerca de los grupos de direcciones de cliente](../articles/virtual-wan/about-client-address-pools.md).
    * **Servidores DNS personalizados**: la dirección IP de los servidores DNS que usarán los clientes. Puede especificar hasta 5.
 

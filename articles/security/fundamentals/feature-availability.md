@@ -6,12 +6,12 @@ ms.author: terrylan
 ms.service: security
 ms.topic: reference
 ms.date: 09/13/2021
-ms.openlocfilehash: 918743544aeaf60932f14d1d1eed609775b29efd
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 2c75831e31717b59b20b9a6e731189be0db9aa59
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129710552"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225517"
 ---
 # <a name="cloud-feature-availability-for-us-government-customers"></a>Disponibilidad de las características en la nube para clientes de la Administración Pública de Estados Unidos
 
@@ -138,9 +138,9 @@ En las siguientes tablas se muestra la disponibilidad de características de Azu
 |- [Métricas de auditoría de incidentes de centro de operaciones de seguridad](../../sentinel/manage-soc-with-incident-metrics.md) | GA | GA |
 |- [Listas de reproducción](../../sentinel/watchlists.md) | GA | GA |
 | **Compatibilidad con inteligencia sobre amenazas** | | |
-| - [Inteligencia sobre amenazas: conector de datos TAXII](../../sentinel/understand-threat-intelligence.md)  | GA | No disponible |
+| - [Inteligencia sobre amenazas: conector de datos TAXII](../../sentinel/understand-threat-intelligence.md)  | GA | GA |
 | - [Conector de datos de la plataforma de inteligencia sobre amenazas](../../sentinel/understand-threat-intelligence.md)  | Vista previa pública | No disponible |
-| - [Hoja de investigación de la inteligencia sobre amenazas](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-threat-intelligence-menu-item-in-public-preview/ba-p/1646597)  | GA | No disponible |
+| - [Hoja de investigación de la inteligencia sobre amenazas](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-threat-intelligence-menu-item-in-public-preview/ba-p/1646597)  | GA | GA |
 | - [Detonación de direcciones URL](https://techcommunity.microsoft.com/t5/azure-sentinel/using-the-new-built-in-url-detonation-in-azure-sentinel/ba-p/996229) | Vista previa pública | No disponible |
 | - [Libro de inteligencia sobre amenazas](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)  | GA | No disponible |
 |**Compatibilidad con la detección** | | |
@@ -228,7 +228,7 @@ En las siguientes tablas se muestra la disponibilidad de características de Azu
 | - [Symantec VIP](../../sentinel/data-connectors-reference.md#symantec-vip-preview)                                     | Vista previa pública | Vista previa pública |
 | - [Syslog](../../sentinel/connect-syslog.md)                                           | GA             | GA             |
 | - [Plataformas de inteligencia sobre amenazas](../../sentinel/connect-threat-intelligence-tip.md)                   | Vista previa pública | No disponible      |
-| - [Inteligencia sobre amenazas de TAXII](../../sentinel/connect-threat-intelligence-tip.md)                       | Vista previa pública | No disponible      |
+| - [Inteligencia sobre amenazas de TAXII](../../sentinel/connect-threat-intelligence-tip.md)                       | GA | GA      |
 | - [Thycotic Secret Server](../../sentinel/data-connectors-reference.md#thycotic-secret-server-preview)                          | Vista previa pública | Vista previa pública |
 | - [Deep Security de Trend Micro](../../sentinel/data-connectors-reference.md#trend-micro-deep-security)                       | GA             | GA             |
 | - [TippingPoint de Trend Micro](../../sentinel/data-connectors-reference.md#trend-micro-tippingpoint-preview)                         | Vista previa pública | Vista previa pública |

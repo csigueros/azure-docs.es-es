@@ -12,12 +12,12 @@ author: sasapopo
 ms.author: sasapopo
 ms.reviewer: mathoma
 ms.date: 10/08/2020
-ms.openlocfilehash: 4a3e96c33a0bef8e533b4f7f563c701a2c0a8044
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 454b5c20c7e1e28c87e2be38662c12055f14079e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130042208"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226818"
 ---
 # <a name="use-server-trust-groups-to-set-up-and-manage-trust-between-sql-managed-instances"></a>Uso de grupos de confianza de servidor para configurar y administrar la confianza entre instancias de SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -66,7 +66,7 @@ En la siguiente sección se describe el proceso de eliminación de grupos de con
    :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete-confirm.png" alt-text="Confirmación de la eliminación del grupo de confianza del servidor":::
 
 > [!NOTE]
-> Es posible que la eliminación del grupo de confianza del servidor no quite inmediatamente la confianza entre las dos instancias administradas. Para aplicar la eliminación de la confianza, puede invocar la [conmutación por error](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover) de instancias administradas. Consulte los [Problemas conocidos](../database/doc-changes-updates-release-notes.md?tabs=managed-instance#known-issues) para obtener información actualizada sobre este tema.
+> Es posible que la eliminación del grupo de confianza del servidor no quite inmediatamente la confianza entre las dos instancias administradas. Para aplicar la eliminación de la confianza, puede invocar la [conmutación por error](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover) de instancias administradas. Consulte los [Problemas conocidos](../database/doc-changes-updates-release-notes-whats-new.md?tabs=managed-instance) para obtener información actualizada sobre este tema.
 
 ## <a name="limitations"></a>Limitaciones
 

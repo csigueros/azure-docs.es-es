@@ -3,12 +3,12 @@ title: Copia de seguridad de Azure Managed Disks
 description: Obtenga información sobre cómo realizar una copia de seguridad de Azure Managed Disks desde Azure Portal.
 ms.topic: conceptual
 ms.date: 09/17/2021
-ms.openlocfilehash: 4561ff53588c6662759b0e86529f20e7cf837bbe
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6da98c8229d626edb5f1872ede5380f9cc61aa0b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128668369"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224387"
 ---
 # <a name="back-up-azure-managed-disks"></a>Copia de seguridad de Azure Managed Disks
 
@@ -82,7 +82,7 @@ Un almacén de Backup es una entidad de almacenamiento de Azure que contiene los
 ## <a name="configure-backup"></a>Configuración de la copia de seguridad
 
 - La copia de seguridad de disco de Azure solo admite la copia de seguridad de nivel operativo. No se admite la copia de copias de seguridad en el nivel de acceso de almacén. El valor de redundancia de almacenamiento del almacén de copia de seguridad (LRS/GRS) no se aplica a las copias de seguridad almacenadas en el nivel operativo. 
-  Las instantáneas incrementales se almacenan en un almacenamiento de HDD estándar, con independencia del tipo de almacenamiento del disco principal. Para aumentar la confiabilidad, se almacenan instantáneas incrementales en [almacenamiento con redundancia de zona (ZRS)](/azure/storage/common/storage-redundancy) de forma predeterminada en aquellas regiones que lo admitan.
+  Las instantáneas incrementales se almacenan en un almacenamiento de HDD estándar, con independencia del tipo de almacenamiento del disco principal. Para aumentar la confiabilidad, se almacenan instantáneas incrementales en [almacenamiento con redundancia de zona (ZRS)](../storage/common/storage-redundancy.md) de forma predeterminada en aquellas regiones que lo admitan.
 
 - La copia de seguridad de disco de Azure admite copias de seguridad y restauraciones entre suscripciones, donde el almacén de copia de seguridad está en una suscripción y el disco de origen en otra. Como resultado, no se admite la copia de seguridad y la restauración entre regiones y esto permite la copia de seguridad del almacén de copia de seguridad y del disco en la misma o en diferentes suscripciones. Sin embargo, tanto el almacén de copia de seguridad como el disco que se va a copiar deben estar en la misma región.
 
@@ -102,7 +102,7 @@ Para configurar la copia de seguridad de disco, siga estos pasos:
 
    >[!Note]
    >- Asegúrese de que tanto el almacén de copia de seguridad como el disco del que se va a realizar la copia de seguridad se encuentran en la misma ubicación.
-   >- Azure Backup usa [_instantáneas incrementales_](/azure/virtual-machines/disks-incremental-snapshots#restrictions) de discos administrados, que solo almacenan los cambios diferenciales en el disco desde la última instantánea en almacenamiento HDD estándar, independientemente del tipo de almacenamiento del disco principal. Para aumentar la confiabilidad, se almacenan instantáneas incrementales en almacenamiento con redundancia de zona (ZRS) de forma predeterminada en aquellas regiones que lo admitan. Actualmente, Azure Disk Backup admite la copia de seguridad operativa de discos administrados que no copie las copias de seguridad en el almacenamiento del almacén de copia de seguridad. Por consiguiente, el valor de redundancia del almacenamiento de copia de seguridad no se aplica a los puntos de recuperación.
+   >- Azure Backup usa [_instantáneas incrementales_](../virtual-machines/disks-incremental-snapshots.md#restrictions) de discos administrados, que solo almacenan los cambios diferenciales en el disco desde la última instantánea en almacenamiento HDD estándar, independientemente del tipo de almacenamiento del disco principal. Para aumentar la confiabilidad, se almacenan instantáneas incrementales en almacenamiento con redundancia de zona (ZRS) de forma predeterminada en aquellas regiones que lo admitan. Actualmente, Azure Disk Backup admite la copia de seguridad operativa de discos administrados que no copie las copias de seguridad en el almacenamiento del almacén de copia de seguridad. Por consiguiente, el valor de redundancia del almacenamiento de copia de seguridad no se aplica a los puntos de recuperación.
 
    :::image type="content" source="./media/backup-managed-disks/select-backup-vault-inline.png" alt-text="Captura de pantalla que muestra el proceso para seleccionar un almacén de copia de seguridad." lightbox="./media/backup-managed-disks/select-backup-vault-expanded.png":::
 
@@ -117,9 +117,9 @@ Para configurar la copia de seguridad de disco, siga estos pasos:
    >[!Note]
    >Aunque el portal le permite seleccionar varios discos y configurar la copia de seguridad, tenga en cuenta que cada disco es una instancia de copia de seguridad individual. Actualmente, Azure Disk Backup solo admite la copia de seguridad de discos individuales. No se pueden realizar copias de seguridad en un momento dado de varios discos que estén conectados a una máquina virtual.
    >
-   >En Azure Portal, solo puede seleccionar discos que pertenezcan a la misma suscripción. Si tiene varios discos de los que va a hacer una copia de seguridad o si los discos están en distintas suscripciones, puede usar scripts ([PowerShell](/azure/backup/backup-managed-disks-ps)/[CLI](/azure/backup/backup-managed-disks-cli)) para automatizar el proceso. 
+   >En Azure Portal, solo puede seleccionar discos que pertenezcan a la misma suscripción. Si tiene varios discos de los que va a hacer una copia de seguridad o si los discos están en distintas suscripciones, puede usar scripts ([PowerShell](./backup-managed-disks-ps.md)/[CLI](./backup-managed-disks-cli.md)) para automatizar el proceso. 
    >
-   >Para más información sobre la disponibilidad regional de la copia de seguridad de discos de Azure, los escenarios admitidos y las limitaciones, consulte la [matriz de compatibilidad](/azure/backup/disk-backup-support-matrix).
+   >Para más información sobre la disponibilidad regional de la copia de seguridad de discos de Azure, los escenarios admitidos y las limitaciones, consulte la [matriz de compatibilidad](./disk-backup-support-matrix.md).
 
 1. Para iniciar la comprobación de los requisitos previos, seleccione **Snapshot resource group** (Grupo de recursos de instantáneas) y haga clic en **Validar**.
 
@@ -131,7 +131,7 @@ Para configurar la copia de seguridad de disco, siga estos pasos:
 
    - Puede usar este grupo de recursos para almacenar instantáneas en varios discos que se vayan a incluir (o que tenga planeado incluir) en la copia de seguridad.
 
-   - No puede crear una instantánea incremental de un disco determinado fuera de la suscripción de ese disco. Por consiguiente, elija el grupo de recursos de la misma suscripción que el disco del que se va a realizar la copia de seguridad. [Más información](/azure/virtual-machines/disks-incremental-snapshots#restrictions) sobre las instantáneas incrementales de discos administrados.
+   - No puede crear una instantánea incremental de un disco determinado fuera de la suscripción de ese disco. Por consiguiente, elija el grupo de recursos de la misma suscripción que el disco del que se va a realizar la copia de seguridad. [Más información](../virtual-machines/disks-incremental-snapshots.md#restrictions) sobre las instantáneas incrementales de discos administrados.
 
    - Una vez que configure la copia de seguridad de un disco, no puede cambiar el grupo de recursos de instantáneas asignado a una instancia de copia de seguridad.
 
@@ -155,7 +155,7 @@ Para configurar la copia de seguridad de disco, siga estos pasos:
    >[!Note]
    >La validación podría tardar unos minutos en completarse. Puede producirse un error de validación si:
    >
-   >- No se admite un disco. Consulte la [matriz de compatibilidad](/azure/backup/disk-backup-support-matrix) para ver los escenarios que no se admiten.
+   >- No se admite un disco. Consulte la [matriz de compatibilidad](./disk-backup-support-matrix.md) para ver los escenarios que no se admiten.
    >- La identidad administrada del almacén de copia de seguridad no tiene asignaciones de roles válidas en el _disco_ del que se va a realizar una copia de seguridad o en el _grupo de recursos de instantáneas_ donde se almacenan las instantáneas incrementales.
 
    Si el mensaje de error _Role assignment not done_ (Asignación de roles no realizada) aparece en la columna **Backup readiness** (Preparación para copia de seguridad), la identidad administrada del almacén de copia de seguridad necesita permisos de rol en los discos seleccionados o en el grupo de recursos de instantáneas. 
@@ -167,7 +167,7 @@ Para configurar la copia de seguridad de disco, siga estos pasos:
    >[!Note]
    >El almacén de Backup usa la identidad administrada para obtener acceso a otros recursos de Azure. Para configurar una copia de seguridad de los discos administrados, la identidad administrada del almacén de copia de seguridad necesita un conjunto de permisos en los discos de origen y los grupos de recursos donde se crean y administran las instantáneas.
 
-   Solo hay una identidad administrada asignada por cada recurso y está asociada al ciclo de vida del recurso. Para conceder permisos a la identidad administrada, use el control de acceso basado en rol de Azure (Azure RBAC). Tenga en cuenta que una identidad administrada es una entidad de servicio de un tipo especial que solo se puede usar con recursos de Azure. Obtenga más información sobre las [identidades administradas](/azure/active-directory/managed-identities-azure-resources/overview).
+   Solo hay una identidad administrada asignada por cada recurso y está asociada al ciclo de vida del recurso. Para conceder permisos a la identidad administrada, use el control de acceso basado en rol de Azure (Azure RBAC). Tenga en cuenta que una identidad administrada es una entidad de servicio de un tipo especial que solo se puede usar con recursos de Azure. Obtenga más información sobre las [identidades administradas](../active-directory/managed-identities-azure-resources/overview.md).
 
    - Asigne el rol **Lector de copias de seguridad de disco** a la identidad administrada del almacén de copia de seguridad del disco de origen del que se tiene que hacer la copia de seguridad.
    - Asigne el rol de Colaborador de instantáneas de discos a la identidad administrada del almacén de Backup que se encuentra en el grupo de recursos donde el servicio Azure Backup crea y administra las copias de seguridad. Las instantáneas de disco se almacenan en un grupo de recursos de la suscripción. Para permitir que el servicio Azure Backup cree, almacene y administre instantáneas, debe proporcionar permisos al almacén de copia de seguridad.

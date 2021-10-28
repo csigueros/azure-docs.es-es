@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 10/07/2021
 ms.author: lajanuar
-ms.openlocfilehash: 448b13d1406587c36b729b3258d8ca375a0914ae
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 8d076b43e2a6ea1c21394569b56a7e689a1ab5fc
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129706575"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130250889"
 ---
 # <a name="create-and-use-managed-identity-for-your-form-recognizer-resource"></a>Creación y uso de identidades administradas para el recurso de Form Recognizer
 
@@ -55,7 +55,7 @@ Para empezar, necesitará lo siguiente:
   * En la ventana principal, seleccione **Permitir acceso desde Redes seleccionadas**.
   :::image type="content" source="media/managed-identities/firewalls-and-virtual-networks.png" alt-text="Captura de pantalla: botón de radio Redes seleccionadas elegido.":::
 
-  * En la página de redes seleccionadas, vaya a la categoría **Excepciones** y asegúrese de que la casilla [**Allow Azure services on the trusted services list to access this storage account**](/azure/storage/common/storage-network-security?tabs=azure-portal#manage-exceptions) (Permitir que los servicios de Azure de la lista de servicios de confianza accedan a esta cuenta de almacenamiento) esté seleccionada.
+  * En la página de redes seleccionadas, vaya a la categoría **Excepciones** y asegúrese de que la casilla [**Allow Azure services on the trusted services list to access this storage account**](../../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) (Permitir que los servicios de Azure de la lista de servicios de confianza accedan a esta cuenta de almacenamiento) esté seleccionada.
 
     :::image type="content" source="media/managed-identities/allow-trusted-services-checkbox-portal-view.png" alt-text="Captura de pantalla: casilla para permitir los servicios de confianza, vista del portal":::
 * Estar algo familiarizado con el [**control de acceso basado en roles de Azure**](../../role-based-access-control/role-assignments-portal.md) mediante Azure Portal.

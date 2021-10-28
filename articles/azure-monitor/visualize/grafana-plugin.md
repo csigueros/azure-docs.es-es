@@ -3,12 +3,12 @@ title: Supervisión de los servicios y aplicaciones de Azure mediante Grafana
 description: Enrute los datos de Azure Monitor y Application Insights para que puedan verse en Grafana.
 ms.topic: conceptual
 ms.date: 10/10/2021
-ms.openlocfilehash: 691ba341369778692c92fec8ffc47cd60fac3348
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 612a65af3cfe83b96e2604d85348be03ff2b703a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130002764"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252789"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Supervisar los servicios de Azure en Grafana
 Los servicios y las aplicaciones de Azure se pueden supervisar usando [Grafana](https://grafana.com/) y el [complemento de origen de datos de Azure Monitor](https://grafana.com/docs/grafana/latest/datasources/azuremonitor/) que se incluye. El complemento recupera datos de tres servicios de Azure:
@@ -72,7 +72,7 @@ Si la instancia de Grafana se hospeda en una máquina virtual de Azure con una i
 ### <a name="use-managed-identity"></a>Uso de identidad administrada
 
 1. Habilite una identidad administrada en su máquina virtual y cambie a "true" el valor de compatibilidad con identidad administrada del servidor de Grafana.
-    * La identidad administrada de su máquina virtual de hospedaje debe tener asignado el [rol "Lector de supervisión"](/azure/azure-monitor/roles-permissions-security) para la suscripción, el grupo de recursos o los recursos que usted vaya a visualizar en Grafana.
+    * La identidad administrada de su máquina virtual de hospedaje debe tener asignado el [rol "Lector de supervisión"](../roles-permissions-security.md) para la suscripción, el grupo de recursos o los recursos que usted vaya a visualizar en Grafana.
     * Además, deberá actualizar el valor "managed_identity_enabled = true" en la configuración del servidor de Grafana. Consulte [Configuración de Grafana](https://grafana.com/docs/grafana/latest/administration/configuration/) para obtener más información. Una vez completados ambos pasos, puede guardar y probar el acceso.
 
 2. Seleccione **Guardar y probar** para que Grafana pruebe las credenciales. Debería aparecer un mensaje similar al siguiente.  
@@ -82,8 +82,8 @@ Si la instancia de Grafana se hospeda en una máquina virtual de Azure con una i
 ### <a name="or-use-app-registration"></a>Uso de un registro de aplicaciones
 
 1. Cree una entidad de servicio: Grafana usa una entidad de servicio de Azure Active Directory para conectarse a las API de Azure Monitor y recopilar datos. Debe crear una entidad de servicio, o usar una existente, para administrar el acceso a los recursos de Azure.
-    * Vea [estas instrucciones](/azure/active-directory/develop/howto-create-service-principal-portal) para crear una entidad de servicio. Copie y guarde el identificador de inquilino (id. de directorio), el identificador de cliente (id. de aplicación) y el secreto de cliente (valor de clave de aplicación).
-    * Consulte [Asignación de aplicación a un rol](/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) para asignar el [rol "Lector de supervisión"](/azure/azure-monitor/roles-permissions-security) a la aplicación de Azure Active Directory en la suscripción, el grupo de recursos o el recurso que quiera supervisar.
+    * Vea [estas instrucciones](../../active-directory/develop/howto-create-service-principal-portal.md) para crear una entidad de servicio. Copie y guarde el identificador de inquilino (id. de directorio), el identificador de cliente (id. de aplicación) y el secreto de cliente (valor de clave de aplicación).
+    * Consulte [Asignación de aplicación a un rol](../../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) para asignar el [rol "Lector de supervisión"](../roles-permissions-security.md) a la aplicación de Azure Active Directory en la suscripción, el grupo de recursos o el recurso que quiera supervisar.
   
 2. Proporcione los detalles de conexión que desee usar.
     * Al configurar el complemento, puede indicar qué nube de Azure (pública, Azure US Gov, Azure Alemania o Azure China) quiere que supervise el complemento.
@@ -133,7 +133,7 @@ El complemento de Azure Monitor incluye varios paneles predefinidos que puede im
 
      ![Configuración del gráfico de Grafana para Azure Log Analytics](./media/grafana-plugin/logs-config.png)
 
-    * Además de las consultas de métricas y registros que se muestran anteriormente, el complemento de Azure Monitor admite consultas de [Azure Resource Graph](/azure/governance/resource-graph/concepts/explore-resources).
+    * Además de las consultas de métricas y registros que se muestran anteriormente, el complemento de Azure Monitor admite consultas de [Azure Resource Graph](../../governance/resource-graph/concepts/explore-resources.md).
 
 ## <a name="advanced-grafana-features"></a>Características avanzadas de Grafana
 

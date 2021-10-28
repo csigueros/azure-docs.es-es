@@ -7,12 +7,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: b00fca8cf39bc44e0e53a112a332e6f6c5f0194e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6deb906d55f74cc3d418473a669a81d3d2ddf5e4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98218610"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130214670"
 ---
 # <a name="move-azure-public-ip-configuration-to-another-region-using-the-azure-portal"></a>Migración de una configuración de dirección IP pública de Azure a otra región mediante Azure Portal
 
@@ -21,7 +21,7 @@ Hay varios escenarios en los que puede ser conveniente migrar las configuracione
 **Las direcciones IP públicas de Azure son específicas de la región y no se pueden migrar de una región a otra.** Sin embargo, puede usar una plantilla de Azure Resource Manager para exportar la configuración actual de una dirección IP pública.  Después, puede preparar el recurso en otra región exportando la dirección IP pública a una plantilla y modificando los parámetros para que coincidan con la región de destino, y luego implementar la plantilla en la nueva región.  Para más información sobre Resource Manager y las plantillas, consulte [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Asegúrese de que la dirección IP pública de Azure se encuentra en la región de Azure desde la que va a moverla.
 
@@ -109,7 +109,7 @@ En los pasos siguientes se muestra cómo preparar la dirección IP pública para
             },
         ```
 
-        Para más información sobre las diferencias entre las direcciones IP públicas de la SKU básica y estándar, consulte [Creación, modificación o eliminación de una dirección IP pública](./virtual-network-public-ip-address.md):
+        Para más información sobre las diferencias entre las direcciones IP públicas de la SKU básica y estándar, consulte [Creación, modificación o eliminación de una dirección IP pública](./ip-services/virtual-network-public-ip-address.md):
 
     * **Método de asignación de IP pública** y **tiempo de espera de inactividad**: puede cambiar estas dos opciones en la plantilla si cambia la propiedad **publicIPAllocationMethod** de **Dynamic** a **Static** o bien de **Static** a **Dynamic**. El tiempo de espera de inactividad se puede cambiar modificando la propiedad **idleTimeoutInMinutes** con la cantidad deseada.  El valor predeterminado es **4**:
 
@@ -135,7 +135,7 @@ En los pasos siguientes se muestra cómo preparar la dirección IP pública para
 
         ```
 
-        Para más información sobre los métodos de asignación y los valores de tiempo de espera de inactividad, consulte [Creación, modificación o eliminación de una dirección IP pública](./virtual-network-public-ip-address.md).
+        Para más información sobre los métodos de asignación y los valores de tiempo de espera de inactividad, consulte [Creación, modificación o eliminación de una dirección IP pública](./ip-services/virtual-network-public-ip-address.md).
 
 
 13. Haga clic en **Guardar** en el editor en línea.

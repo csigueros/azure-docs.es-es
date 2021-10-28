@@ -10,12 +10,12 @@ author: ma77b
 ms.author: maburd
 ms.reviewer: wiassaf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fae1b6a6d2c9e697a55bbacaa11aa2736970d5a5
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 6144afdca350e8e7ff609eec273f84a39b84d2a3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130002897"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130228494"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Base de datos compartida de Azure Synapse Analytics
 
@@ -42,7 +42,7 @@ Las tablas y bases de datos de Spark, junto con sus representaciones sincronizad
 
 La entidad de seguridad que crea una base de datos se considera el propietario de dicha base de datos y tiene todos los derechos para la base de datos y sus objetos. El administrador de Synapse y el administrador de Synapse SQL también tendrán todos los permisos en los objetos sincronizados del grupo de SQL sin servidor de forma predeterminada. No se permite la creación de objetos personalizados (incluidos los usuarios) en bases de datos SQL sincronizadas. 
 
-Para conceder a una entidad de seguridad, como un usuario, una aplicación de Azure AD o un grupo de seguridad, acceso a los datos subyacentes usados para las tablas externas, debe concederles permisos `read (R)` en los archivos (como los archivos de datos subyacentes de la tabla) y `execute (X)` en la carpeta donde se almacenan los archivos, además de en cada carpeta principal hasta la raíz. Puede consultar más información sobre estos permisos en la página sobre [listas de control de acceso (ACL)](/azure/storage/blobs/data-lake-storage-access-control). 
+Para conceder a una entidad de seguridad, como un usuario, una aplicación de Azure AD o un grupo de seguridad, acceso a los datos subyacentes usados para las tablas externas, debe concederles permisos `read (R)` en los archivos (como los archivos de datos subyacentes de la tabla) y `execute (X)` en la carpeta donde se almacenan los archivos, además de en cada carpeta principal hasta la raíz. Puede consultar más información sobre estos permisos en la página sobre [listas de control de acceso (ACL)](../../storage/blobs/data-lake-storage-access-control.md). 
 
 Por ejemplo, en `https://<storage-name>.dfs.core.windows.net/<fs>/synapse/workspaces/<synapse_ws>/warehouse/mytestdb.db/myparquettable/`, las entidades de seguridad deben tener permisos `X` en todas las carpetas a partir de `<fs>` hasta `myparquettable` y permisos `R` en `myparquettable` y los archivos dentro de esa carpeta, para poder leer una tabla de una base de datos (sincronizada o original).
 

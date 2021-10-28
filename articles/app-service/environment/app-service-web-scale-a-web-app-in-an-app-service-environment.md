@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 15fd0cccbc5db52de14f3de471519c92645572db
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: acc27352e44b6141196f8f5b0bbccd8d31f255bc
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130004623"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130248666"
 ---
 # <a name="scaling-apps-in-an-app-service-environment-v1"></a>Escalado de aplicaciones en una instancia de App Service Environment v1
 En Azure App Service hay normalmente tres cosas que puede escalar:
@@ -69,7 +69,7 @@ Para empezar a trabajar con instancias de App Service Environment, consulte [Cre
 [WhatisASE]: app-service-app-service-environment-intro.md
 [ScaleWebapp]: ../manage-scale-up.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
-[CreateWebappinASE]: app-service-web-how-to-create-a-web-app-in-an-ase.md
+[CreateWebappinASE]: ./using.md
 [Appserviceplans]: ../overview-hosting-plans.md
 [AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/ 
 [ASEAutoscale]: app-service-environment-auto-scale.md

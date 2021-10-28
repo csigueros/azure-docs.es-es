@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: 616d1f5cf4fc2806d56c34335e66418452c7684b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 73fce933d81daca78d538b9a169a53d2a99c9869
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121735794"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227005"
 ---
 # <a name="azure-monitor-logs-overview"></a>Introducción a los registros de Azure Monitor
 Los registros de Azure Monitor son una característica de Azure Monitor que recopila y organiza los datos de registro y rendimiento de los [recursos supervisados](../monitor-reference.md). Se pueden consolidar los datos de varios orígenes en una sola área de trabajo. Estos orígenes pueden ser:
@@ -36,7 +36,7 @@ En la tabla siguiente, se enumeran algunas de las formas en las que se pueden us
 |:---|:---|
 | **Análisis** | Use [Log Analytics](./log-analytics-tutorial.md) en Azure Portal para escribir [consultas de registros](./log-query-overview.md) y analizar los datos de registro de forma interactiva con un motor de análisis eficaz. |
 | **Alerta** | Configurar un [regla de alerta de registro](../alerts/alerts-log.md) que envíe una notificación o realice [una acción automatizada](../alerts/action-groups.md) cuando los resultados de la consulta coincidan con un resultado concreto. |
-| **Visualizar** | Ancle los resultados representados como tablas o gráficos a un [panel de Azure](../../azure-portal/azure-portal-dashboards.md).<br>Cree un [libro](../visualize/workbooks-overview.md) para combinar con varios conjuntos de datos en un informe interactivo. <br>Exporte los resultados de una consulta a [Power BI](../visualize/powerbi.md) para usar diferentes visualizaciones y compartirlos con usuarios fuera de Azure.<br>Exporte los resultados de una consulta a [Grafana](../visualize/grafana-plugin.md) para utilizar sus paneles y combinar con otros orígenes de datos.|
+| **Visualizar** | Ancle los resultados representados como tablas o gráficos a un [panel de Azure](../../azure-portal/azure-portal-dashboards.md).<br>Cree un [libro](../visualize/workbooks-overview.md) para combinar con varios conjuntos de datos en un informe interactivo. <br>Exporte los resultados de una consulta a [Power BI](./log-powerbi.md) para usar diferentes visualizaciones y compartirlos con usuarios fuera de Azure.<br>Exporte los resultados de una consulta a [Grafana](../visualize/grafana-plugin.md) para utilizar sus paneles y combinar con otros orígenes de datos.|
 | **Obtener información** | Compatibilidad con [Insights](../monitor-reference.md#insights-and-core-solutions), que proporciona una experiencia de supervisión personalizada para determinadas aplicaciones y servicios.  |
 | **Recuperar** | Acceda a los resultados de la consulta de registros desde una línea de comandos mediante la [CLI de Azure](/cli/azure/monitor/log-analytics).<br>Acceda a los resultados de la consulta de registros desde una línea de comandos mediante [cmdlets de PowerShell](/powershell/module/az.operationalinsights).<br>Acceda a los resultados de la consulta de registros desde una aplicación personalizada con la [API REST](https://dev.loganalytics.io/). |
 | **Exportarar** | Configure la [exportación automatizada de datos de registro](./logs-data-export.md) a una cuenta de Azure Storage o a Azure Event Hubs.<br>Cree un flujo de trabajo para recuperar datos de registro y copiarlos en una ubicación externa mediante [Azure Logic Apps](./logicapp-flow-connector.md). |

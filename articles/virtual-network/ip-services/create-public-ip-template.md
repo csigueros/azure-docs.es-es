@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 10/01/2021
 ms.author: allensu
-ms.openlocfilehash: ef14611c6d5d981c61a69693b40cc8f3b8fd5185
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 017e782b322eb069f43fff399b0d6bc76f981ed1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129369683"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130231920"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-a-resource-manager-template"></a>Inicio rápido: Creación de una dirección IP pública mediante una plantilla de Resource Manager
 
@@ -224,6 +224,6 @@ Para usar una dirección IPv4 pública global estándar, la sección de plantill
 Para obtener más información sobre las propiedades de la IP pública enumeradas en este artículo, consulte [Administración de direcciones IP públicas](virtual-network-public-ip-address.md#create-a-public-ip-address).
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Asocie una [dirección IP pública a una máquina virtual](../../virtual-network/associate-public-ip-address-vm.md#azure-portal).
+- Asocie una [dirección IP pública a una máquina virtual](./associate-public-ip-address-vm.md#azure-portal).
 - Obtenga más información acerca de las [direcciones IP públicas](public-ip-addresses.md#public-ip-addresses) en Azure.
 - Obtenga más información acerca de toda la [configuración de direcciones IP públicas](virtual-network-public-ip-address.md#create-a-public-ip-address).

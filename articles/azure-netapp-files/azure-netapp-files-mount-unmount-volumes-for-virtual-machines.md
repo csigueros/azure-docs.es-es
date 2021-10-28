@@ -7,12 +7,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
 ms.date: 05/17/2021
-ms.openlocfilehash: 2da352a10f5ff9bacdfb28de8752e5ffefa3fd82
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 78932885ee7c1ec3650de08efe340e998a54acf7
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110068201"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130240041"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Montaje o desmontaje de un volumen para máquinas virtuales Linux 
 
@@ -60,7 +60,7 @@ Puede montar o desmontar un volumen para máquinas virtuales Windows o Linux seg
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Configuración del dominio predeterminado de NFS, versión 4.1, para Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
-* [Preguntas más frecuentes sobre NFS](./azure-netapp-files-faqs.md#nfs-faqs)
+* [Preguntas más frecuentes sobre NFS](faq-nfs.md)
 * [Introducción a Network File System](/windows-server/storage/nfs/nfs-overview)
 * [Montaje de un volumen Kerberos de NFS](configure-kerberos-encryption.md#kerberos_mount)
 * [Configuración de dos máquinas virtuales con el mismo nombre de host para que accedan a volúmenes de NFSv4.1](configure-nfs-clients.md#configure-two-vms-with-the-same-hostname-to-access-nfsv41-volumes) 

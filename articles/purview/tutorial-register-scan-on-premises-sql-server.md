@@ -8,12 +8,12 @@ ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 09/27/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 0054b41fdf12efa4bbd3f1bf34e66023b7ea2d75
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 5fc1369c20130d8c689abe853e321fc1507fa414
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129213283"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249578"
 ---
 # <a name="tutorial-register-and-scan-an-on-premises-sql-server"></a>Tutorial: Registro y examen de una instancia local de SQL Server
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Una instancia activa de [Azure Key Vault](../key-vault/certificates/quick-create-portal.md#create-a-vault).
+- Una instancia activa de [Azure Key Vault](../key-vault/general/quick-create-portal.md).
 - Una cuenta de Azure Purview. Si aún no tiene una, puede [seguir nuestra guía de inicio rápido para crear una](create-catalog-portal.md).
 - Una [instancia local de SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads).
 

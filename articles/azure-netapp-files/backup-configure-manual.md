@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/27/2021
 ms.author: b-juche
-ms.openlocfilehash: 827268fee96227f056029c8b2a75629353861d7e
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: fda75ec22d4573a1730d29fc4f9a34c1f4de239a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129094891"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224262"
 ---
 # <a name="configure-manual-backups-for-azure-netapp-files"></a>Configuración de copias de seguridad manuales para Azure NetApp Files 
 
@@ -28,7 +28,7 @@ La copia de seguridad de Azure NetApp Files admite tanto copias de seguridad *ba
 En este artículo se muestra cómo configurar las copias de seguridad manuales. Para obtener más información sobre la configuración de las copias de seguridad basadas en directivas, consulte [Configuración de copias de seguridad basadas en directivas](backup-configure-policy-based.md).  
 
 > [!IMPORTANT]
-> La característica de copia de seguridad de Azure NetApp Files se encuentra actualmente en versión preliminar. Para acceder a la característica, debe enviar una solicitud de lista de espera a través de la página de **[versión preliminar pública de copias de seguridad de Azure NetApp Files](https://aka.ms/anfbackuppreviewsignup)** . Espere a recibir el correo electrónico de confirmación oficial del equipo de Azure NetApp Files antes de utilizar la característica de copia de seguridad de dicho servicio.
+> La característica de copia de seguridad de Azure NetApp Files se encuentra actualmente en versión preliminar. Para acceder a la característica, debe enviar una solicitud de lista de espera a través de la página **[Versión preliminar pública de la copia de seguridad de Azure NetApp Files](https://aka.ms/anfbackuppreviewsignup)** . Espere a recibir el correo electrónico de confirmación oficial del equipo de Azure NetApp Files antes de utilizar la característica de copia de seguridad de dicho servicio.
 
 ## <a name="about-manual-backups"></a>Acerca de las copias de seguridad manuales  
 
@@ -91,6 +91,6 @@ Si no lo ha hecho, habilite la funcionalidad de copia de seguridad del volumen a
 * [Deshabilitación de la funcionalidad de copia de seguridad de un volumen](backup-disable.md)
 * [Eliminación de copias de seguridad de un volumen](backup-delete.md)
 * [Métricas de copia de seguridad de los volúmenes](azure-netapp-files-metrics.md#volume-backup-metrics)
-* [Preguntas frecuentes sobre la copia de seguridad de archivos de Azure NetApp Files](azure-netapp-files-faqs.md#azure-netapp-files-backup-faqs)
+* [Preguntas frecuentes sobre la copia de seguridad de archivos de Azure NetApp Files](faq-backup.md)
 
 

@@ -3,14 +3,14 @@ title: Análisis de vídeo en directo con su propio modelo (HTTP)
 description: En este inicio rápido se describe cómo analizar vídeo en directo con su propio modelo (HTTP) con Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
-ms.date: 06/01/2021
+ms.date: 09/10/2021
 zone_pivot_groups: video-analyzer-programming-languages
-ms.openlocfilehash: a587191a0e5fd80174b3d288d1a9a1d8fd1d2e82
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: f771bdb457fee24d11a56abc09e35a0ba8d21d06
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114605221"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130239214"
 ---
 # <a name="quickstart-analyze-live-video-with-your-own-model---http"></a>Inicio rápido: Análisis de vídeo en directo con su propio modelo - HTTP
 
@@ -284,4 +284,4 @@ En los mensajes, tenga en cuenta los siguientes detalles:
 Revise los desafíos adicionales para los usuarios avanzados:
 
 - Use una [cámara IP](https://en.wikipedia.org/wiki/IP_camera) que sea compatible con RTSP, en lugar de utilizar el simulador RTSP. Puede buscar cámaras IP compatibles con RTSP en la página de [productos compatibles con ONVIF](https://www.onvif.org/conformant-products/). Busque dispositivos que se ajusten a los perfiles G, S o T.
-- Use un dispositivo Linux AMD64 o x64, en lugar de una máquina virtual Linux de Azure. El dispositivo debe estar en la misma red que la cámara IP. Puede seguir las instrucciones que aparecen en [Instalación del entorno de ejecución de Azure IoT Edge en Linux](../../iot-edge/how-to-install-iot-edge.md?view=iotedge-2018-06&preserve-view=true). Luego, registre el dispositivo en Azure IoT Hub, para lo que debe seguir las instrucciones que se encuentran en [Implementación del primer módulo IoT Edge en un dispositivo virtual Linux](../../iot-edge/quickstart-linux.md?view=iotedge-2018-06&preserve-view=true).
+- Use un dispositivo Linux AMD64 o x64, en lugar de una máquina virtual Linux de Azure. El dispositivo debe estar en la misma red que la cámara IP. Puede seguir las instrucciones que aparecen en [Instalación del entorno de ejecución de Azure IoT Edge en Linux](../../iot-edge/how-to-provision-single-device-linux-symmetric.md?view=iotedge-2018-06&preserve-view=true). Luego, registre el dispositivo en Azure IoT Hub, para lo que debe seguir las instrucciones que se encuentran en [Implementación del primer módulo IoT Edge en un dispositivo virtual Linux](../../iot-edge/quickstart-linux.md?view=iotedge-2018-06&preserve-view=true).

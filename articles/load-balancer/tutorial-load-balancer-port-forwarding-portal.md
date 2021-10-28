@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 8/26/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 0d36be9f0ba0fc9e1b29e3fdaf0b3f9857db2204
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 73dba00fa24eb42c32b0991381ad90a93f038d95
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123112136"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223279"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-azure-portal"></a>Tutorial: Configuración del reenvío de puertos en Azure Load Balancer mediante Azure Portal
 
@@ -166,7 +166,7 @@ En esta sección creará una regla de equilibrador de carga. La dirección IP de
 
 4. Seleccione **Siguiente: Configuración de IP de front-end** en la parte inferior de la página.
 
-5. En **Configuración de IP de front-end**, seleccione **+Agregar una IP de front-end**.
+5. En **Configuración de IP de front-end**, seleccione **+ Agregar una IP de front-end**.
 
 6. Escriba **LoadBalancerFrontEnd** en **Nombre**.
 
@@ -178,7 +178,7 @@ En esta sección creará una regla de equilibrador de carga. La dirección IP de
 8. Seleccione **Dirección IP** para **Tipo de IP**.
 
     > [!NOTE]
-    > Para más información sobre prefijos de IP, consulte [Prefijo de dirección IP pública de Azure](../virtual-network/public-ip-address-prefix.md).
+    > Para más información sobre prefijos de IP, consulte [Prefijo de dirección IP pública de Azure](../virtual-network/ip-services/public-ip-address-prefix.md).
 
 9. Seleccione **Crear nueva** en **Dirección IP pública**.
 
@@ -187,7 +187,7 @@ En esta sección creará una regla de equilibrador de carga. La dirección IP de
 11. Seleccione **Con redundancia de zona** en **Zona de disponibilidad**.
 
     > [!NOTE]
-    > En las regiones con [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), tiene la opción de seleccionar Ninguna zona (opción predeterminada), una zona específica o con redundancia de zona. La elección dependerá de los requisitos de error de dominio específicos. En regiones sin Availability Zones, este campo no aparecerá. </br> Para más información sobre las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md).
+    > En las regiones con [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), tiene la opción de seleccionar Ninguna zona (opción predeterminada), una zona específica o redundancia de zona. La elección dependerá de los requisitos de error de dominio específicos. En regiones sin Availability Zones, este campo no aparecerá. </br> Para más información sobre las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md).
 
 12. Deje el valor predeterminado **Microsoft Network** para **Preferencia de enrutamiento**.
 

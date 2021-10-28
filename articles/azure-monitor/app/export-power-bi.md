@@ -3,12 +3,12 @@ title: Exportación a Power BI desde Azure Application Insights | Microsoft Docs
 description: Las consultas de Analytics se pueden mostrar en Power BI.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: e0644a083021956316595d299a69a69b321a87d9
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 0d1c5d58b668a23618b482bbc3ce82897ad760dd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108164136"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256976"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentación de Power BI desde Application Insights
 
@@ -17,7 +17,7 @@ ms.locfileid: "108164136"
 Hay tres métodos para exportar datos de Application Insights a Power BI:
 
 * [**Exportación de consultas de Analytics**](#export-analytics-queries). Este es el método preferido. Escriba cualquier consulta que desee y expórtela a Power BI. Puede colocar esta consulta en un panel junto con otros datos.
-* [**Exportación continua y Azure Stream Analytics**](./export-stream-analytics.md). Este método es útil si desea almacenar los datos durante largos períodos. Si no tiene un requisito de retención de datos extendido, utilice el método de consulta de análisis de exportación. Exportación continua y Stream Analytics implica más trabajo de configuración y una sobrecarga de almacenamiento adicional.
+* [**Exportación continua y Azure Stream Analytics**](../../stream-analytics/app-insights-export-stream-analytics.md). Este método es útil si desea almacenar los datos durante largos períodos. Si no tiene un requisito de retención de datos extendido, utilice el método de consulta de análisis de exportación. Exportación continua y Stream Analytics implica más trabajo de configuración y una sobrecarga de almacenamiento adicional.
 * **Adaptador de Power BI**. El conjunto de gráficos está predefinido, pero puede agregar sus propias consultas de cualquier otro origen.
 
 > [!NOTE]

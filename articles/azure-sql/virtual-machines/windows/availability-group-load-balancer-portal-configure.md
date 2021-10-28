@@ -15,12 +15,12 @@ ms.date: 02/16/2017
 ms.author: rsetlem
 ms.custom: seo-lt-2019
 ms.reviewer: mathoma
-ms.openlocfilehash: 5a072b5009341809af2b209c808e6164ba0a9be3
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: d0489295cbc161f98ebe036ff79bdc2f2861877a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130166210"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130250376"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Configuración de un equilibrador de carga para un grupo de disponibilidad de SQL Server Always On en Azure Virtual Machines
 
@@ -215,7 +215,7 @@ La conexión SQLCMD se establece automáticamente con la instancia de SQL Server
 
 ## <a name="create-an-ip-address-for-an-additional-availability-group"></a>Creación de una dirección IP para un grupo de disponibilidad adicional
 
-Cada grupo de disponibilidad usa un agente de escucha independiente. Cada agente de escucha tiene su propia dirección IP. Use el mismo equilibrador de carga para contener la dirección IP de los agentes de escucha adicionales. Agregue solo la dirección IP principal de la VM al grupo de back-end del equilibrador de carga, ya que la [dirección IP de la VM secundaria no admite IP flotantes](/azure/load-balancer/load-balancer-floating-ip).
+Cada grupo de disponibilidad usa un agente de escucha independiente. Cada agente de escucha tiene su propia dirección IP. Use el mismo equilibrador de carga para contener la dirección IP de los agentes de escucha adicionales. Agregue solo la dirección IP principal de la VM al grupo de back-end del equilibrador de carga, ya que la [dirección IP de la VM secundaria no admite IP flotantes](../../../load-balancer/load-balancer-floating-ip.md).
 
 Para agregar una dirección IP a un equilibrador de carga con Azure Portal, siga estos pasos:
 
@@ -326,4 +326,4 @@ Para obtener más información, consulte:
 - [Clúster de conmutación por error de Windows Server con SQL Server en máquinas virtuales de Azure](hadr-windows-server-failover-cluster-overview.md)
 - [Grupos de disponibilidad Always On para SQL Server en Azure Virtual Machines](availability-group-overview.md)
 - [Introducción a los grupos de disponibilidad Always On](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
-- [Configuración de alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md)
+- [Configuración de alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](hadr-cluster-best-practices.md)

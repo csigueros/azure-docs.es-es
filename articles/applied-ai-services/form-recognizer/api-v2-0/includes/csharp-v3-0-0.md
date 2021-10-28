@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 09/25/2021
 ms.author: lajanuar
 ms.custom: " devx-track-csharp"
-ms.openlocfilehash: 12d957ded4960a2952f88af92c3cfc6909106fbd
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 3195feac890455ae2f70c059d2c0b14b94cb1fe7
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129725678"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265920"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
@@ -200,7 +200,7 @@ Table 0 has 2 rows and 6 columns.
 
 ## <a name="analyze-receipts"></a>Análisis de las confirmaciones de recepción
 
-En esta sección se muestra cómo analizar y extraer campos comunes de recibos de EE. UU. mediante un modelo de recibos entrenado previamente. Para más información sobre el análisis de recibos, consulte la [guía conceptual sobre recibos](../../concept-receipts.md).
+En esta sección se muestra cómo analizar y extraer campos comunes de recibos de EE. UU. mediante un modelo de recibos entrenado previamente. Para más información sobre el análisis de recibos, consulte la [guía conceptual sobre recibos](../../concept-receipt.md).
 
 Para analizar recibos de una dirección URL, use el método `StartRecognizeReceiptsFromUri`.
 
@@ -344,7 +344,7 @@ El valor de `CustomFormModel` devuelto indica los campos que el modelo puede ext
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_trainlabels_response)]
 
-### <a name="output"></a>Resultados
+### <a name="output"></a>Output
 
 Esta respuesta se ha truncado para facilitar la lectura.
 
@@ -477,7 +477,7 @@ El siguiente bloque de código comprueba cuántos modelos se han guardado en la 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_manage_model_count)]
 
-### <a name="output"></a>Resultados
+### <a name="output"></a>Output
 
 ```console
 Account has 20 models.

@@ -3,12 +3,12 @@ title: Uso de puntos de conexión privados para integrar Azure Functions con una
 description: En este tutorial se explica cómo conectar una función a una red virtual de Azure y cómo bloquearla con puntos de conexión privados.
 ms.topic: article
 ms.date: 2/22/2021
-ms.openlocfilehash: 8007fde1d4aaf52a98bf924f607450462a993c1d
-ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.openlocfilehash: ee6fb79176b0188533725347c3b47369ce050706
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128708441"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252984"
 ---
 # <a name="tutorial-integrate-azure-functions-with-an-azure-virtual-network-by-using-private-endpoints"></a>Tutorial: Integración de Azure Functions con una red virtual de Azure mediante puntos de conexión privados
 
@@ -323,8 +323,7 @@ Para usar la aplicación de funciones con redes virtuales, debe unirla a una sub
     | **WEBSITE_CONTENTSHARE** | archivos | El nombre del recurso compartido de archivos creado en la cuenta de almacenamiento. Use esta configuración con WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. |
     | **SERVICEBUS_CONNECTION** | myServiceBusConnectionString | Cree una configuración de aplicación para la cadena de conexión de la instancia de Service Bus. Esta cadena de conexión de almacenamiento proviene de la sección [Obtención de la cadena de conexión de Service Bus](#get-a-service-bus-connection-string).|
     | **WEBSITE_CONTENTOVERVNET** | 1 | Cree esta configuración de aplicación. Un valor de 1 permite escalar la aplicación de funciones cuando la cuenta de almacenamiento está restringida a una red virtual. |
-    | **WEBSITE_DNS_SERVER** | 168.63.129.16 | Cree esta configuración de aplicación. Cuando la aplicación se integre con una red virtual, usará el mismo servidor DNS que esta. La aplicación de funciones necesita esta configuración para poder trabajar con zonas privadas de Azure DNS. Se requiere cuando se utilizan puntos de conexión privados. Esta configuración y WEBSITE_VNET_ROUTE_ALL enviarán todas las llamadas salientes desde la aplicación a la red virtual. |
-    | **WEBSITE_VNET_ROUTE_ALL** | 1 | Cree esta configuración de aplicación. Cuando la aplicación se integra con una red virtual, usa el mismo servidor DNS que esta. La aplicación de funciones necesita esta configuración para poder trabajar con zonas privadas de Azure DNS. Se requiere cuando se utilizan puntos de conexión privados. Esta configuración y WEBSITE_DNS_SERVER enviarán todas las llamadas salientes desde la aplicación a la red virtual. |
+    | **WEBSITE_VNET_ROUTE_ALL** | 1 | Cree esta configuración de aplicación. Cuando la aplicación se integra con una red virtual, usa el mismo servidor DNS que esta. La aplicación de funciones necesita esta configuración para poder trabajar con zonas privadas de Azure DNS. Se requiere cuando se utilizan puntos de conexión privados. |
 
 1. En la vista **Configuración**, seleccione la pestaña **Configuración del tiempo de ejecución de la función**.
 
@@ -359,7 +358,7 @@ Para usar la aplicación de funciones con redes virtuales, debe unirla a una sub
 
 1. La implementación inicial debería tardar unos minutos. Cuando la aplicación se implementa correctamente, en la pestaña **Registros**, verá un mensaje de estado **correcto (activo)** . Si es necesario, actualice la página.
 
-¡Enhorabuena! Implementó correctamente la aplicación de funciones de ejemplo.
+Felicidades. Implementó correctamente la aplicación de funciones de ejemplo.
 
 ## <a name="lock-down-your-function-app"></a>Bloqueo de la aplicación de funciones
 
@@ -415,7 +414,7 @@ A continuación, se muestra una forma alternativa de supervisar la función medi
 
     :::image type="content" source="./media/functions-create-vnet/18-hello-world.png" alt-text="Captura de pantalla sobre cómo ver mensajes mediante Live Metrics para las aplicaciones de funciones.":::
 
-¡Enhorabuena! Probó correctamente la configuración de la aplicación de funciones con puntos de conexión privados.
+Felicidades. Probó correctamente la configuración de la aplicación de funciones con puntos de conexión privados.
 
 ## <a name="understand-private-dns-zones"></a>Descripción de las zonas DNS privadas
 Usó un punto de conexión privado para conectarse a los recursos de Azure. Está estableciendo una conexión a una dirección IP privada en lugar del punto de conexión público. Los servicios de Azure existentes están configurados para usar un DNS existente para conectarse al punto de conexión público. Debe reemplazar la configuración de DNS para conectarse al punto de conexión privado.

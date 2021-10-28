@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 08/24/2021
+ms.date: 10/21/2021
 ms.author: alkohli
-ms.openlocfilehash: 471d5bff3fa3a4be092f1294f64b0bb8c3fdf9a8
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.openlocfilehash: 019d4da7654c3cdf2eec7fc3b6f2434e1f42cd47
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "129211686"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130218173"
 ---
 # <a name="review-copy-errors-in-uploads-from-azure-data-box-and-azure-data-box-heavy-devices"></a>Revisión de los errores de copia en las cargas desde dispositivos Azure Data Box y Azure Data Box Heavy
 
@@ -159,4 +159,4 @@ Pueden producirse otros errores de API de REST durante las cargas de datos. Para
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Revisión de los errores comunes de la API de REST](/rest/api/storageservices/common-rest-api-error-codes)
-- [Comprobación de la carga de datos en Azure](data-box-deploy-picked-up.md?tabs=in-us-canada-europe#verify-data-upload-to-azure-8)
+- [Comprobación de la carga de datos en Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure)

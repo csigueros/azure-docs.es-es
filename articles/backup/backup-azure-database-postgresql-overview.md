@@ -4,12 +4,12 @@ description: Introducción a la copia de seguridad de Azure Database for Postgre
 ms.topic: conceptual
 ms.date: 09/28/2021
 ms.custom: references_regions
-ms.openlocfilehash: 3740d4c7d149181638da93a3a5ad713c2c230f29
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: b868af4c96691c9496a0c5382d9416e784d3eb8c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129154420"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219401"
 ---
 # <a name="about-azure-database-for-postgresql-backup-preview"></a>Acerca de la copia de seguridad de Azure Database for PostgreSQL (versión preliminar)
 
@@ -18,10 +18,10 @@ Azure Backup y los servicios de base de datos de Azure se han unido para crear u
 - Copia de seguridad a petición y programada controlada por el cliente en el nivel de base de datos individual.
 - Restauraciones en el nivel de base de datos en cualquier servidor PostgreSQL o en cualquier almacenamiento de blobs.
 - Supervisión central de todas las operaciones y trabajos.
-- Las copias de seguridad se almacenan en dominios de seguridad y de error independientes. Si el servidor de origen o la suscripción están en peligro por cualquier circunstancia, las copias de seguridad permanecen seguras en el [almacén de Backup](/azure/backup/backup-vault-overview) (en cuentas de almacenamiento administradas por Azure Backup).
+- Las copias de seguridad se almacenan en dominios de seguridad y de error independientes. Si el servidor de origen o la suscripción están en peligro por cualquier circunstancia, las copias de seguridad permanecen seguras en el [almacén de Backup](./backup-vault-overview.md) (en cuentas de almacenamiento administradas por Azure Backup).
 - El uso de **pg_dump** permite una mayor flexibilidad en las restauraciones. Esto le ayuda a restaurar entre versiones de base de datos. 
 
-Puede usar esta solución de forma independiente o sumada a la [solución de copia de seguridad nativa que ofrece Azure Database for PostgreSQL](/azure/postgresql/concepts-backup), con una retención de hasta 35 días. La solución nativa es adecuada para las recuperaciones operativas, como la recuperación a partir de las copias de seguridad más recientes. La solución de Azure Backup le ayuda a satisfacer sus necesidades de cumplimiento y ofrece procesos de copia de seguridad y restauración más detallados y flexibles.
+Puede usar esta solución de forma independiente o sumada a la [solución de copia de seguridad nativa que ofrece Azure Database for PostgreSQL](../postgresql/concepts-backup.md), con una retención de hasta 35 días. La solución nativa es adecuada para las recuperaciones operativas, como la recuperación a partir de las copias de seguridad más recientes. La solución de Azure Backup le ayuda a satisfacer sus necesidades de cumplimiento y ofrece procesos de copia de seguridad y restauración más detallados y flexibles.
 
 ## <a name="support-matrix"></a>Matrices compatibles
 
@@ -55,7 +55,7 @@ Azure Backup sigue estrictas directrices de seguridad establecidas por Azure; no
 
 ### <a name="key-vault-based-authentication-model"></a>Modelo de autenticación basado en almacén de claves
 
-El servicio Azure Backup debe conectarse a Azure Database for PostgreSQL mientras se hace cada copia de seguridad. Aunque se usa el "nombre de usuario y contraseña" (o una cadena de conexión) correspondientes a la base de datos para realizar esta conexión, estas credenciales no se almacenan con Azure Backup. En su lugar, el administrador de la base de datos debe inicializar estas credenciales de forma segura en [Azure Key Vault como un secreto](/azure/key-vault/secrets/about-secrets). El administrador de la carga de trabajo es responsable de administrar y rotar las credenciales. Azure Backup obtiene los detalles más recientes del secreto del almacén de claves para hacer la copia de seguridad.
+El servicio Azure Backup debe conectarse a Azure Database for PostgreSQL mientras se hace cada copia de seguridad. Aunque se usa el "nombre de usuario y contraseña" (o una cadena de conexión) correspondientes a la base de datos para realizar esta conexión, estas credenciales no se almacenan con Azure Backup. En su lugar, el administrador de la base de datos debe inicializar estas credenciales de forma segura en [Azure Key Vault como un secreto](../key-vault/secrets/about-secrets.md). El administrador de la carga de trabajo es responsable de administrar y rotar las credenciales. Azure Backup obtiene los detalles más recientes del secreto del almacén de claves para hacer la copia de seguridad.
  
 :::image type="content" source="./media/backup-azure-database-postgresql-overview/key-vault-based-authentication-model.png" alt-text="Diagrama que muestra el flujo de la carga de trabajo o la base de datos.":::
 
@@ -115,7 +115,7 @@ Para conceder todos los permisos de acceso necesarios para Azure Backup, consult
    - Mediante la autorización del control de acceso basado en roles de Azure (RBAC de Azure) (es decir, el modelo de permisos se ha establecido en el control de acceso basado en roles de Azure):
 
      - En Control de acceso, conceda el acceso de _Usuario de secretos de Key Vault_ a la MSI del almacén de Backup en el almacén de claves. Los portadores de ese rol podrán leer secretos.
-     - [Conceda permisos para que las aplicaciones accedan a una instancia de Azure Key Vault mediante Azure RBAC](/azure/key-vault/general/rbac-guide?tabs=azure-cli).
+     - [Conceda permisos para que las aplicaciones accedan a una instancia de Azure Key Vault mediante Azure RBAC](../key-vault/general/rbac-guide.md?tabs=azure-cli).
 
    :::image type="content" source="./media/backup-azure-database-postgresql-overview/key-vault-secrets-user-access-inline.png" alt-text="Captura de pantalla que muestra la opción para proporcionar acceso de usuario de secretos." lightbox="./media/backup-azure-database-postgresql-overview/key-vault-secrets-user-access-expanded.png":::
 
@@ -124,7 +124,7 @@ Para conceder todos los permisos de acceso necesarios para Azure Backup, consult
    - Mediante directivas de acceso (es decir, el modelo de permisos se ha establecido en la directiva de acceso del almacén):
 
      - Establezca los permisos para obtener y enumerar secretos.
-     - Más información sobre la [Asignación de una directiva de acceso de Azure Key Vault](/azure/key-vault/general/assign-access-policy?tabs=azure-portal)
+     - Más información sobre la [Asignación de una directiva de acceso de Azure Key Vault](../key-vault/general/assign-access-policy.md?tabs=azure-portal)
 
      :::image type="content" source="./media/backup-azure-database-postgresql-overview/permission-model-is-set-to-vault-access-policy-inline.png" alt-text="Captura de pantalla que muestra la opción para conceder permiso con el modelo de permisos establecido en el modelo de directiva de acceso del almacén." lightbox="./media/backup-azure-database-postgresql-overview/permission-model-is-set-to-vault-access-policy-expanded.png":::  
  

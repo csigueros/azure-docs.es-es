@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7a6b1099ea81c7a4a50692496ee044fe4a72bd24
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 832ae975a19fa7765666acd791c7dfec05a55c3c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124742961"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130235041"
 ---
 # <a name="migrate-databases-with-azure-sql-migration-extension-for-azure-data-studio-preview"></a>Migración de bases de datos con la extensión Azure SQL Migration para Azure Data Studio (versión preliminar)
 
@@ -83,7 +83,7 @@ Los requisitos de Azure Database Migration Service que son comunes en todos los 
     > Si los archivos de copia de seguridad de la base de datos ya se proporcionan en una cuenta de almacenamiento de Azure, no se necesita el entorno de ejecución de integración autohospedado durante el proceso de migración.
 
 * Cuando use el entorno de ejecución de integración autohospedado, asegúrese de que la máquina donde está instalado el entorno de ejecución pueda conectarse a la instancia de SQL Server de origen y al recurso compartido de archivos de red donde se encuentran los archivos de copia de seguridad. El puerto 445 de salida debe estar habilitado para permitir el acceso al recurso compartido de archivos de red.
-* Si es la primera vez que usa Azure Database Migration Service, asegúrese de que el proveedor de recursos Microsoft.DataMigration esté registrado en su suscripción. Puede seguir los pasos para [registrar el proveedor de recursos](/azure/dms/quickstart-create-data-migration-service-portal#register-the-resource-provider).
+* Si es la primera vez que usa Azure Database Migration Service, asegúrese de que el proveedor de recursos Microsoft.DataMigration esté registrado en su suscripción. Puede seguir los pasos para [registrar el proveedor de recursos](./quickstart-create-data-migration-service-portal.md#register-the-resource-provider).
 
 ### <a name="recommendations-for-using-self-hosted-integration-runtime-for-database-migrations"></a>Recomendaciones para usar el entorno de ejecución de integración autohospedado para migrar bases de datos
 - Use un único entorno de ejecución de integración autohospedado para varias bases de datos de SQL Server de origen.

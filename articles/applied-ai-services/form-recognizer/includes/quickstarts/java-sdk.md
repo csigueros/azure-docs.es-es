@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 05/25/2021
 ms.custom: devx-track-java
 ms.author: lajanuar
-ms.openlocfilehash: fdb92ae88ceec485557cc7bccd7a62a5b873362f
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 20a9a932ba55cc106f74e64be742b8e2a6086e77
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129715437"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130287960"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -182,7 +182,7 @@ Cell has text ET.
 
 ## <a name="analyze-receipts"></a>Análisis de las confirmaciones de recepción
 
-En esta sección se muestra cómo analizar y extraer campos comunes de recibos de EE. UU. mediante un modelo de recibos entrenado previamente. Para más información sobre el análisis de recibos, consulte la [guía conceptual sobre recibos](../../concept-receipts.md).
+En esta sección se muestra cómo analizar y extraer campos comunes de recibos de EE. UU. mediante un modelo de recibos entrenado previamente. Para más información sobre el análisis de recibos, consulte la [guía conceptual sobre recibos](../../concept-receipt.md).
 
 Para analizar los recibos a partir de un URI, use el método **beginRecognizeReceiptsFromUrl**.
 
@@ -218,7 +218,7 @@ Total Price: null, confidence: 0.93
 
 ## <a name="analyze-business-cards"></a>Análisis de tarjetas de presentación
 
-En esta sección se muestra cómo analizar y extraer campos comunes de tarjetas de presentación inglesas mediante un modelo entrenado previamente. Para más información acerca del análisis de tarjetas de presentación, consulte la [guía conceptual sobre tarjetas de presentación](../../concept-business-cards.md).
+En esta sección se muestra cómo analizar y extraer campos comunes de tarjetas de presentación inglesas mediante un modelo entrenado previamente. Para más información acerca del análisis de tarjetas de presentación, consulte la [guía conceptual sobre tarjetas de presentación](../../concept-business-card.md).
 
 Para analizar tarjetas de presentación en una dirección URL, use el método `beginRecognizeBusinessCardsFromUrl`.
 
@@ -233,7 +233,7 @@ El valor devuelto es una colección de objetos **RecognizedForm**, uno para cada
 
 ## <a name="analyze-invoices"></a>Análisis de facturas
 
-En esta sección se muestra cómo analizar y extraer campos comunes de facturas de compra mediante un modelo entrenado previamente. Para más información sobre el análisis de facturas, consulte la [guía conceptual sobre facturas](../../concept-invoices.md).
+En esta sección se muestra cómo analizar y extraer campos comunes de facturas de compra mediante un modelo entrenado previamente. Para más información sobre el análisis de facturas, consulte la [guía conceptual sobre facturas](../../concept-invoice.md).
 
 Para analizar facturas de una dirección URL, use el método `beginRecognizeInvoicesFromUrl`.
 
@@ -248,7 +248,7 @@ El valor devuelto es una colección de objetos **RecognizedForm**, uno para cada
 
 ## <a name="analyze-id-documents"></a>Análisis de documentos de identificación
 
-En esta sección se muestra cómo analizar y extraer información clave de documentos de identificación emitidos por la administración pública (pasaportes de todo el mundo y permisos de conducir de EE. UU.) mediante el modelo de identificación precompilado de Form Recognizer. Para obtener más información sobre el análisis de documentos de identificación, consulte nuestra [guía conceptual del modelo de identificación precompilado](../../concept-identification-cards.md).
+En esta sección se muestra cómo analizar y extraer información clave de documentos de identificación emitidos por la administración pública (pasaportes de todo el mundo y permisos de conducir de EE. UU.) mediante el modelo de identificación precompilado de Form Recognizer. Para obtener más información sobre el análisis de documentos de identificación, consulte nuestra [guía conceptual del modelo de identificación precompilado](../../concept-id-document.md).
 
 Para analizar documentos de identificación de un identificador URI, use el método `beginRecognizeIdentityDocumentsFromUrl`.
 
@@ -379,7 +379,7 @@ El siguiente bloque de código comprueba cuántos modelos se han guardado en la 
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_count)]
 
-#### <a name="output"></a>Resultados
+#### <a name="output"></a>Output
 
 ```console
 The account has 12 custom models, and we can have at most 250 custom models

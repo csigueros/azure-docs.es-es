@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 51a8bde53cf2e75501eadd185e0754ec6f0f673c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: afd5ca1c058945427ce78d3380ecc56e9a5cd0c4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124803717"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130240953"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Máquinas virtuales Windows en Azure
 
@@ -50,7 +50,7 @@ En esta tabla se muestran algunas de las formas en que puede obtener una lista d
 
 | Método | Descripción |
 | --- | --- |
-| Azure portal |Seleccione una ubicación en la lista cuando cree una máquina virtual. |
+| Portal de Azure |Seleccione una ubicación en la lista cuando cree una máquina virtual. |
 | Azure PowerShell |Use el comando [Get-AzLocation](/powershell/module/az.resources/get-azlocation). |
 | API DE REST |Use la operación para [mostrar la lista de ubicaciones](/rest/api/resources/subscriptions/listlocations). |
 | Azure CLI |Use la operación[az account list-locations](/cli/azure/account). |
@@ -76,7 +76,7 @@ En esta tabla se muestran algunas maneras de encontrar la información sobre una
 
 | Método | Descripción |
 | --- | --- |
-| Azure portal |Los valores se especifican automáticamente cuando se selecciona una imagen para usarla. |
+| Portal de Azure |Los valores se especifican automáticamente cuando se selecciona una imagen para usarla. |
 | Azure PowerShell |[Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) -Location *location*<BR>[Get-AzVMImageOffer](/powershell/module/az.compute/get-azvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
 | API de REST |[List image publishers](/rest/api/compute/platformimages/platformimages-list-publishers) (Lista de publicadores de imágenes)<BR>[List image offers](/rest/api/compute/platformimages/platformimages-list-publisher-offers) (Lista de ofertas de imágenes)<BR>[List image skus](/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) (Lista de SKU de imágenes) |
 | Azure CLI |[az vm image list-publishers](/cli/azure/vm/image) --location *ubicación*<BR>[az vm image list-offers](/cli/azure/vm/image) --location *location* --publisher *publisherName*<BR>[az vm image list-skus](/cli/azure/vm) --location *location* --publisher *publisherName* --offer *offerName*|
@@ -100,7 +100,7 @@ Los recursos de esta tabla se usan en la máquina virtual y deben ya existir o c
 | [Grupos de recursos](../../azure-resource-manager/management/overview.md) |Sí |La máquina virtual debe encontrarse en un grupo de recursos. |
 | [Cuenta de almacenamiento](../../storage/common/storage-account-create.md) |Sí |La máquina virtual necesita la cuenta de almacenamiento para almacenar sus discos duros virtuales. |
 | [Red virtual](../../virtual-network/virtual-networks-overview.md) |Sí |La máquina virtual debe ser miembro de una red virtual. |
-| [Dirección IP pública](../../virtual-network/public-ip-addresses.md) |No |La máquina virtual puede tener una dirección IP pública asignada para acceder remotamente a ella. |
+| [Dirección IP pública](../../virtual-network/ip-services/public-ip-addresses.md) |No |La máquina virtual puede tener una dirección IP pública asignada para acceder remotamente a ella. |
 | [Interfaz de red](../../virtual-network/virtual-network-network-interface.md) |Sí |La máquina virtual necesita la interfaz de red para comunicarse en la red. |
 | [Discos de datos](attach-managed-disk-portal.md) |No |La máquina virtual puede incluir discos de datos para ampliar las funcionalidades de almacenamiento. |
 

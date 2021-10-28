@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 08/08/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 1d84de13820b23b52c09d3333799f45fd342763f
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: c0a5f441b27d379ff94db41fabfdf398a19ca667
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123260338"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130254672"
 ---
 # <a name="tutorial-load-balance-multiple-ip-configurations-using-the-azure-portal"></a>Tutorial: equilibrio de carga en varias configuraciones de IP mediante Azure Portal 
 
@@ -445,7 +445,7 @@ Durante la creación del equilibrador de carga, configurará:
 8. Seleccione **Dirección IP** para **Tipo de IP**.
 
     > [!NOTE]
-    > Para más información sobre prefijos de IP, consulte [Prefijo de dirección IP pública de Azure](../virtual-network/public-ip-address-prefix.md).
+    > Para más información sobre prefijos de IP, consulte [Prefijo de dirección IP pública de Azure](../virtual-network/ip-services/public-ip-address-prefix.md).
 
 9. Seleccione **Crear nueva** en **Dirección IP pública**.
 
@@ -454,7 +454,7 @@ Durante la creación del equilibrador de carga, configurará:
 11. Seleccione **Con redundancia de zona** en **Zona de disponibilidad**.
 
     > [!NOTE]
-    > En las regiones con [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), tiene la opción de seleccionar Ninguna zona (opción predeterminada), una zona específica o con redundancia de zona. La elección dependerá de los requisitos de error de dominio específicos. En regiones sin Availability Zones, este campo no aparecerá. </br> Para más información sobre las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md).
+    > En las regiones con [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), tiene la opción de seleccionar Ninguna zona (opción predeterminada), una zona específica o redundancia de zona. La elección dependerá de los requisitos de error de dominio específicos. En regiones sin Availability Zones, este campo no aparecerá. </br> Para más información sobre las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md).
 
 12. Deje el valor predeterminado **Microsoft Network** para **Preferencia de enrutamiento**.
 
@@ -531,7 +531,7 @@ Durante la creación del equilibrador de carga, configurará:
     | Port | Escriba **80**. |
     | Puerto back-end | Escriba **80**. |
     | Grupo back-end | Seleccione **myBackendPool-contoso**. |
-    | Sondeo de mantenimiento | Seleccione **Crear nuevo**. </br> En **Nombre**, escriba **myHealthProbe-contoso**. </br> Seleccione **HTTP** en **Protocolo**. </br> Deje el resto de valores predeterminados y seleccione **Aceptar**. |
+    | Sondeo de mantenimiento | Seleccione **Crear nuevo**. </br> En **Nombre**, escriba **myHealthProbe-contoso**. </br> Seleccione **HTTP** en **Protocolo**. </br> Deje el resto de los valores predeterminados y seleccione **Aceptar**. |
     | Persistencia de la sesión | Seleccione **Ninguno**. |
     | Tiempo de espera de inactividad (minutos) | Escriba o seleccione **15**. |
     | Restablecimiento de TCP | Seleccione **Habilitado**. |
@@ -553,7 +553,7 @@ Durante la creación del equilibrador de carga, configurará:
     | Port | Escriba **80**. |
     | Puerto back-end | Escriba **80**. |
     | Grupo back-end | Seleccione **myBackendPool-fabrikam**. |
-    | Sondeo de mantenimiento | Seleccione **Crear nuevo**. </br> En **Nombre**, escriba **myHealthProbe-fabrikam**. </br> Seleccione **HTTP** en **Protocolo**. </br> Deje el resto de valores predeterminados y seleccione **Aceptar**. |
+    | Sondeo de mantenimiento | Seleccione **Crear nuevo**. </br> En **Nombre**, escriba **myHealthProbe-fabrikam**. </br> Seleccione **HTTP** en **Protocolo**. </br> Deje el resto de los valores predeterminados y seleccione **Aceptar**. |
     | Persistencia de la sesión | Seleccione **Ninguno**. |
     | Tiempo de espera de inactividad (minutos) | Escriba o seleccione **15**. |
     | Restablecimiento de TCP | Seleccione **Habilitado**. |
@@ -567,7 +567,7 @@ Durante la creación del equilibrador de carga, configurará:
 27. Seleccione **Crear**.
 
     > [!NOTE]
-    > En este ejemplo, hemos creado una puerta de enlace NAT para proporcionar acceso saliente a Internet. La pestaña de reglas de salida de la configuración se omite, ya que no es necesaria con la puerta de enlace NAT. Para más información sobre la puerta de enlace NAT de Azure, consulte [¿Qué es Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md).
+    > En este ejemplo, hemos creado una puerta de enlace NAT para proporcionar acceso saliente a Internet. La pestaña de reglas de salida de la configuración se omite, ya que no es necesaria con la puerta de enlace NAT. Para más información sobre la puerta de enlace NAT de Azure, consulte [¿Qué es Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
     > Para más información sobre las conexiones salientes en Azure, consulte [Traducción de direcciones de red de origen (SNAT) para conexiones salientes](../load-balancer/load-balancer-outbound-connections.md).
 
 ## <a name="test-load-balancer"></a>Prueba del equilibrador de carga

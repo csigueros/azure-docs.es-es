@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 08/16/2021
 ms.author: allensu
-ms.openlocfilehash: 1b13a4cde0d4c0278698100cde0d5cd9993465a3
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 024a523939e5f03cf01aec937a646f1159f6b79b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122252971"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130254653"
 ---
 # <a name="azure-load-balancer-portal-settings"></a>Configuración del portal para Azure Load Balancer
 
@@ -53,7 +53,7 @@ Si selecciona **Público** como tipo, verá la siguiente información:
 | ------- | ------- |
 | Nombre | Nombre del front-end que se agregará al equilibrador de carga. |
 | Versión de la dirección IP | **IPv4** </br> **IPv6** </br> Un equilibrador de carga admite servidores front-end IPv4 e IPv6. </br> Para más información, consulte [Información general de IPv6 para Azure Load Balancer](load-balancer-ipv6-overview.md). |
-| Tipo de IP | **Dirección IP** </br> **Prefijo IP** </br> El equilibrador de carga admite una dirección IP o un prefijo IP para la dirección IP de front-end. Para más información, consulte [Prefijo de dirección IP pública de Azure](../virtual-network/public-ip-address-prefix.md). |
+| Tipo de IP | **Dirección IP** </br> **Prefijo IP** </br> El equilibrador de carga admite una dirección IP o un prefijo IP para la dirección IP de front-end. Para más información, consulte [Prefijo de dirección IP pública de Azure](../virtual-network/ip-services/public-ip-address-prefix.md). |
 
 :::image type="content" source="./media/manage/add-frontend-public.png" alt-text="Captura de pantalla de cómo se agrega la configuración de IP de front-end." border="true":::
 
@@ -67,7 +67,7 @@ Si selecciona **Dirección IP** en **Tipo de IP**, verá la siguiente informaci�
 | Nivel | **Regional** </br> **Global** </br> El tipo de nivel del equilibrador de carga determinará lo que se selecciona. Regional para equilibrador de carga tradicional, global para equilibrador de carga entre regiones. |
 | Asignación | **Estática** se selecciona automáticamente para Estándar. </br> Las direcciones IP públicas básicas tienen dos tipos: **Dinámica** y **Estática**. </br> Las direcciones IP públicas dinámicas no se asignan hasta la creación. </br> Las direcciones IP se pueden perder si se elimina el recurso. </br> Se recomiendan las direcciones IP estáticas. |
 | Zona de disponibilidad | Seleccione **Con redundancia de zona** para crear un equilibrador de carga resistente. </br> Para crear un equilibrador de carga de zona, seleccione una zona específica entre **1**, **2** o **3**. </br> El equilibrador de carga estándar y las direcciones IP públicas admiten zonas. </br> Obtenga más información sobre los [equilibradores de carga y las zonas de disponibilidad](load-balancer-standard-availability-zones.md). </br> No verá la selección de zona para los equilibradores de carga básicos. Basic Load Balancer no admite zonas. |
-| Preferencia de enrutamiento | Seleccione **Microsoft Network**. </br> Con Microsoft Network, el tráfico se enruta a través de la red global de Microsoft. </br> Con Internet, el tráfico se enruta a través de la red del proveedor de servicios de Internet. </br> Obtenga más información sobre las [preferencias de enrutamiento](../virtual-network/routing-preference-overview.md).|
+| Preferencia de enrutamiento | Seleccione **Microsoft Network**. </br> Con Microsoft Network, el tráfico se enruta a través de la red global de Microsoft. </br> Con Internet, el tráfico se enruta a través de la red del proveedor de servicios de Internet. </br> Obtenga más información sobre las [preferencias de enrutamiento](../virtual-network/ip-services/routing-preference-overview.md).|
 
 :::image type="content" source="./media/manage/create-public-ip.png" alt-text="Captura de pantalla de creación de una dirección IP pública." border="true":::
 
@@ -222,7 +222,7 @@ Si desea agregar una configuración de IP de front-end al equilibrador de carga,
 | ---------- | ---------- |
 | Nombre | El nombre de la configuración de IP de front-end. |
 | Versión de la dirección IP | La versión de la dirección IP que desea que tenga el front-end. </br> Un equilibrador de carga admite configuraciones IP de front-end IPv4 e IPv6. |
-| Tipo de IP | Tipo de IP determina si una única dirección IP está asociada a su front-end o a un intervalo de direcciones IP mediante un prefijo IP. </br> Un [prefijo de IP pública](../virtual-network/public-ip-address-prefix.md) sirve de ayuda para cuando necesita conectarse al mismo punto de conexión repetidamente. El prefijo garantiza que se proporcionan suficientes puertos para ayudar a solucionar los problemas del puerto SNAT. |
+| Tipo de IP | Tipo de IP determina si una única dirección IP está asociada a su front-end o a un intervalo de direcciones IP mediante un prefijo IP. </br> Un [prefijo de IP pública](../virtual-network/ip-services/public-ip-address-prefix.md) sirve de ayuda para cuando necesita conectarse al mismo punto de conexión repetidamente. El prefijo garantiza que se proporcionan suficientes puertos para ayudar a solucionar los problemas del puerto SNAT. |
 | Dirección IP pública (o prefijo si eligió un prefijo antes) | Seleccione o cree una dirección IP pública (o prefijo) para el front-end del equilibrador de carga. |
 
 :::image type="content" source="./media/manage/frontend.png" alt-text="Creación de una configuración de IP de front-end" border="true":::

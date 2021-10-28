@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: cfbca90fe4c0053816421ff392f0af93938ff5ee
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: e9496d3139861c41bbcc3467c8169e2350e5414b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123254177"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249787"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Introducción para operadores de TI de Azure
 
@@ -342,7 +342,7 @@ Del mismo modo, puede utilizar la CLI de Azure para implementar una plantilla de
 
 ### <a name="access-and-security-for-virtual-machines"></a>Acceso y seguridad para máquinas virtuales
 
-Tener acceso a una máquina virtual desde Internet requiere que la interfaz de red asociada, o el equilibrador de carga en su caso, estén configurados con una dirección IP pública. La dirección IP pública incluye un nombre DNS que se resolverá en la máquina virtual o el equilibrador de carga. Para más información, consulte [Direcciones IP en Azure](../../virtual-network/public-ip-addresses.md).
+Tener acceso a una máquina virtual desde Internet requiere que la interfaz de red asociada, o el equilibrador de carga en su caso, estén configurados con una dirección IP pública. La dirección IP pública incluye un nombre DNS que se resolverá en la máquina virtual o el equilibrador de carga. Para más información, consulte [Direcciones IP en Azure](../../virtual-network/ip-services/public-ip-addresses.md).
 
 El acceso a la máquina virtual por la dirección IP pública se administra utilizando un recurso de grupo de seguridad de red (NSG). Un NSG actúa como un firewall y permite o deniega el tráfico a través de la interfaz de red o la subred en un conjunto de puertos definidos. Por ejemplo, para crear una sesión de escritorio remoto con una máquina virtual de Azure, debe configurar el NSG para permitir el tráfico entrante en el puerto 3389. Para más información, consulte [Apertura de puertos para una máquina virtual en Azure mediante Azure Portal](../../virtual-machines/windows/nsg-quickstart-portal.md).
 

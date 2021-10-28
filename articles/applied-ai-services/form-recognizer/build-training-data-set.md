@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/27/2021
 ms.author: lajanuar
-ms.openlocfilehash: 47695a2445e0b61f972f6481471305ed5219b5d7
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 397f3c05d42837ffb5e9bb4fdb465a4aee352fbd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122326592"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233684"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Creación de un conjunto de datos de aprendizaje para un modelo personalizado
 
@@ -72,7 +72,7 @@ Si agrega el contenido siguiente al cuerpo de la solicitud, la API se entrenará
 
 Ahora que aprendió a crear un conjunto de datos de aprendizaje, siga un inicio rápido para entrenar a un modelo personalizado de Form Recognizer y empezar a usarlo en los formularios.
 
-* [Entrenamiento de un modelo y extracción de datos de formularios mediante la biblioteca cliente o la API de REST](./quickstarts/client-library.md)
+* [Entrenamiento de un modelo y extracción de datos de formularios mediante la biblioteca cliente o la API de REST](./quickstarts/try-sdk-rest-api.md)
 * [Entrenamiento con etiquetas mediante la herramienta de etiquetado de ejemplo](label-tool.md)
 
 ## <a name="see-also"></a>Consulte también

@@ -4,12 +4,12 @@ description: La detección inteligente analiza la telemetría de la aplicación 
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 0090171b83a25618b862e766ccd2ef39a4adb970
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 4bcbac5aa9d02aa7e996951b1d1bb334be5b2c9d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111536722"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227034"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detección inteligente: anomalías de rendimiento
 
@@ -74,7 +74,7 @@ Los mensajes de correo electrónico sobre las anomalías de rendimiento de detec
 
   * Aún no, pero puede realizar lo siguiente:
     * [Configurar alertas](../alerts/alerts-log.md) que le indiquen cuándo una métrica cruza un umbral.
-    * [Exportar telemetría](./export-telemetry.md) a una [base de datos](./code-sample-export-sql-stream-analytics.md) o a [PowerBI](./export-power-bi.md) para poder realizar un análisis usted mismo.
+    * [Exportar telemetría](./export-telemetry.md) a una [base de datos](../../stream-analytics/app-insights-export-sql-stream-analytics.md) o a [PowerBI](./export-power-bi.md) para poder realizar un análisis usted mismo.
 * *¿Con qué frecuencia se lleva a cabo el análisis?*
 
   * Ejecutamos el análisis diariamente en la telemetría del día anterior (día completo en la zona horaria UTC).

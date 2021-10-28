@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 73c91e1c4d72fce5757b0b1a0caafc22e0fbcc60
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: 764f6585aab43ba1f6db29a234cc2bc554b78c58
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114230523"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236682"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Uso de Standard Load Balancer en Azure Kubernetes Service (AKS)
 
@@ -127,7 +127,7 @@ Requisitos para usar su propio prefijo o dirección IP pública:
 
 - Las direcciones IP públicas personalizadas deben crearse y ser propiedad del usuario. Las direcciones IP públicas administradas creadas por AKS no se pueden volver a usar como una dirección IP personalizada, ya que pueden provocar conflictos de administración.
 - Debe asegurarse de que la identidad de clúster de AKS (entidad de servicio o identidad administrada) tiene permisos para acceder a la dirección IP de salida. Según la [lista de permisos de dirección IP pública requeridos](kubernetes-service-principal.md#networking).
-- Asegúrese de que cumple [los requisitos previos y las restricciones](../virtual-network/public-ip-address-prefix.md#limitations) necesarios para configurar direcciones IP de salida o prefijos IP de salida.
+- Asegúrese de que cumple [los requisitos previos y las restricciones](../virtual-network/ip-services/public-ip-address-prefix.md#limitations) necesarios para configurar direcciones IP de salida o prefijos IP de salida.
 
 #### <a name="update-the-cluster-with-your-own-outbound-public-ip"></a>Actualización del clúster con su propia dirección IP pública de salida
 

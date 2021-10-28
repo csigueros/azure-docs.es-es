@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/26/2021
 ms.author: jushiman
-ms.openlocfilehash: 48dd300148cdcccc9caf754a5e5bcc69e7c5c0e7
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: a8e6133d0b4e7d0595524bb4142e51610226ad7f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129216562"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130214694"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Compatibilidad para máquinas virtuales de generación 2 en Azure
 
@@ -87,7 +87,7 @@ Actualmente Azure no admite algunas de las características que admite Hyper-V e
 | Arranque seguro                         | :heavy_check_mark:  | Con inicio seguro (versión preliminar)   |
 | VM Blindada                         | :heavy_check_mark:  | :x:   |
 | vTPM                                | :heavy_check_mark:  | Con inicio seguro (versión preliminar)  |
-| Seguridad basada en virtualización (VBS) | :heavy_check_mark:  | Con inicio seguro (versión preliminar)   |
+| Seguridad basada en virtualización (VBS) | :heavy_check_mark:  | :heavy_check_mark:   |
 | Formato VHDX                         | :heavy_check_mark:  | :x:   |
 
 Para más información, consulte [Inicio seguro (versión preliminar)](trusted-launch.md).
@@ -121,7 +121,7 @@ Para más información, consulte [Inicio seguro (versión preliminar)](trusted-l
 
 En Azure Portal o la CLI de Azure, puede crear VM de generación 2 a partir de una imagen de Marketplace que admita el arranque UEFI.
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Portal de Azure
 
 A continuación se indican los pasos para crear una máquina virtual de segunda generación (Gen2) en Azure Portal.
 

@@ -4,12 +4,12 @@ description: Comprenda el proceso de creación de puntos de conexión privados p
 ms.topic: conceptual
 ms.date: 09/24/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cf26b87d0232b05cd7860981faa58a9b315f3979
-ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.openlocfilehash: 246b3fa30b52b654e9210ddbf86ca5ede519f50d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128708270"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130264681"
 ---
 # <a name="create-and-use-private-endpoints-for-azure-backup"></a>Creación y uso de puntos de conexión privados para Azure Backup
 
@@ -544,7 +544,7 @@ Para configurar un servidor proxy para una máquina virtual de Azure o una máqu
    >- [US Gov](../azure-government/documentation-government-developer-guide.md)
    >- [Lista de código geográfico: XML de ejemplo](scripts/geo-code-list.md)
 
-En el diagrama siguiente se muestra una configuración (mientras se utilizan las zonas de DNS privado de Azure) con un servidor proxy cuya red virtual está vinculada a una zona DNS privada con las entradas DNS necesarias. El servidor proxy también puede tener su propio servidor DNS personalizado y los dominios señalados anteriormente se pueden reenviar de forma condicional a 169.63.129.16. Si usa un archivo de host o servidor DNS personalizado para la resolución DNS, consulte las secciones sobre [administración de entradas DNS](/azure/backup/private-endpoints#manage-dns-records) y la [configuración de la protección](/azure/backup/private-endpoints#configure-backup).
+En el diagrama siguiente se muestra una configuración (mientras se utilizan las zonas de DNS privado de Azure) con un servidor proxy cuya red virtual está vinculada a una zona DNS privada con las entradas DNS necesarias. El servidor proxy también puede tener su propio servidor DNS personalizado y los dominios señalados anteriormente se pueden reenviar de forma condicional a 169.63.129.16. Si usa un archivo de host o servidor DNS personalizado para la resolución DNS, consulte las secciones sobre [administración de entradas DNS](#manage-dns-records) y la [configuración de la protección](#configure-backup).
 
 :::image type="content" source="./media/private-endpoints/setup-with-proxy-server-inline.png" alt-text="Diagrama que muestra una configuración con un servidor proxy." lightbox="./media/private-endpoints/setup-with-proxy-server-expanded.png":::
 

@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.topic: how-to
 ms.date: 09/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: 688fd2391d12f74b46a16954706b3c9e0ee1fb8a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b6a25b832c3acc65d6a7b343901cf23cdd17f98a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124771873"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130255794"
 ---
 # <a name="create-and-use-managed-identity"></a>Creación y uso de identidad administrada
 
@@ -48,7 +48,7 @@ Para empezar, necesitará lo siguiente:
   * En la ventana principal, seleccione **Permitir acceso desde Redes seleccionadas**.
   :::image type="content" source="../media/managed-identities/firewalls-and-virtual-networks.png" alt-text="Captura de pantalla: botón de radio Redes seleccionadas elegido.":::
 
-  * En la página de redes seleccionadas, vaya a la categoría **Excepciones** y asegúrese de que la casilla [**Allow Azure services on the trusted services list to access this storage account**](/azure/storage/common/storage-network-security?tabs=azure-portal#manage-exceptions) (Permitir que los servicios de Azure de la lista de servicios de confianza accedan a esta cuenta de almacenamiento) esté seleccionada.
+  * En la página de redes seleccionadas, vaya a la categoría **Excepciones** y asegúrese de que la casilla [**Allow Azure services on the trusted services list to access this storage account**](../../../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) (Permitir que los servicios de Azure de la lista de servicios de confianza accedan a esta cuenta de almacenamiento) esté seleccionada.
 
     :::image type="content" source="../media/managed-identities/allow-trusted-services-checkbox-portal-view.png" alt-text="Captura de pantalla: casilla para permitir los servicios de confianza, vista del portal":::
 

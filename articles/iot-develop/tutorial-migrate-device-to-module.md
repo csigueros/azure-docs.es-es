@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-develop
 services: iot-develop
-ms.openlocfilehash: 44dca3cd3cd7803271fba6abae72de5c54782c1f
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: a0a5402f4947da149609f9563c7f28c6581cd14a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129457418"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130259456"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Tutorial: Conexión de un módulo IoT Plug and Play (C#)
 
@@ -229,7 +229,7 @@ Para convertir este ejemplo y que así funcione como un módulo de IoT Edge de I
 Para obtener información sobre cómo implementar un módulo en contenedor, consulte:
 
 * [Ejecución de Azure IoT Edge en máquinas virtuales Ubuntu](../iot-edge/how-to-install-iot-edge-ubuntuvm.md).
-* [Instalación del entorno de ejecución de Azure IoT Edge en sistemas Linux basados en Debian](../iot-edge/how-to-install-iot-edge.md).
+* [Instalación del entorno de ejecución de Azure IoT Edge en sistemas Linux basados en Debian](../iot-edge/how-to-provision-single-device-linux-symmetric.md).
 
 Puede usar la herramienta del explorador de Azure IoT para ver:
 
