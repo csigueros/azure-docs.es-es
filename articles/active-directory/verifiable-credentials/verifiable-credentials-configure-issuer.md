@@ -8,12 +8,12 @@ manager: karenh444
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 10/08/2021
-ms.openlocfilehash: 2e0d1028efab3b157c21c90944a8bcd41be04c55
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: c2f3757c62399049c1ecdc51c5ee2b873dd6c154
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130070743"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236815"
 ---
 # <a name="issue-azure-ad-verifiable-credentials-from-an-application-preview"></a>Emisión de credenciales verificables de Azure AD desde una aplicación (versión preliminar)
 
@@ -38,7 +38,7 @@ En el diagrama siguiente se muestra la arquitectura de las credenciales verifica
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- Antes de empezar, es importante [configurar un inquilino para las credenciales verificables de Azure AD](/azure/active-directory/verifiable-credentials/verifiable-credentials-configure-tenant).
+- Antes de empezar, es importante [configurar un inquilino para las credenciales verificables de Azure AD](./verifiable-credentials-configure-tenant.md).
 - Para clonar el repositorio que hospeda la aplicación de ejemplo, instale [GIT](https://git-scm.com/downloads).
 - [Visual Studio Code](https://code.visualstudio.com/Download) u otro editor de código.
 - [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0)
@@ -49,11 +49,11 @@ En el diagrama siguiente se muestra la arquitectura de las credenciales verifica
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-Azure Blob Storage es la solución de almacenamiento de objetos de Microsoft para la nube. El servicio de credenciales verificables de Azure AD usa [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) para almacenar los archivos de configuración de credenciales verificables al emitir estas.
+Azure Blob Storage es la solución de almacenamiento de objetos de Microsoft para la nube. El servicio de credenciales verificables de Azure AD usa [Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md) para almacenar los archivos de configuración de credenciales verificables al emitir estas.
 
 Cree y configure la instancia de Azure Blob Storage siguiendo estos pasos:
 
-1. Si no dispone de una cuenta de Azure Blob Storage, [cree una cuenta de almacenamiento](/azure/storage/common/storage-account-create).
+1. Si no dispone de una cuenta de Azure Blob Storage, [cree una cuenta de almacenamiento](../../storage/common/storage-account-create.md).
 1. A continuación, cree un contenedor. En el menú izquierdo de la cuenta de almacenamiento, desplácese a la sección **Almacenamiento de datos** y, después, seleccione **Contenedores**.
 1. Seleccione el botón **+ Contenedor**.
 1. Escriba un **nombre** para el nuevo contenedor. El nombre del contenedor debe escribirse en minúsculas, comenzar por una letra o un número, y solo puede incluir letras, números y el carácter de guión (-). Por ejemplo, *vc-container*.
@@ -87,7 +87,7 @@ Antes de crear el contenedor, conceda al usuario que ha iniciado sesión la asig
         ![Captura de pantalla que muestra cómo configurar la nueva asignación de roles.](media/verifiable-credentials-configure-issuer/add-role-assignment-container.png)
 
 >[!IMPORTANT]
->De forma predeterminada, a los creadores de contenedores se les asigna el rol Propietario. El rol Propietario no es suficiente por sí solo. Su cuenta necesita el rol Lector de datos de Storage Blob. Para más información, consulte [Uso de Azure Portal para asignar un rol de Azure para el acceso a datos de blobs y colas](/azure/storage/blobs/assign-azure-role-data-access).
+>De forma predeterminada, a los creadores de contenedores se les asigna el rol Propietario. El rol Propietario no es suficiente por sí solo. Su cuenta necesita el rol Lector de datos de Storage Blob. Para más información, consulte [Uso de Azure Portal para asignar un rol de Azure para el acceso a datos de blobs y colas](../../storage/blobs/assign-azure-role-data-access.md).
 
 ### <a name="upload-the-configuration-files"></a>Carga de los archivos de configuración
 

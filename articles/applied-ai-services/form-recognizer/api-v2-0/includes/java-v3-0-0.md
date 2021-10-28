@@ -8,12 +8,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/25/2021
 ms.author: lajanuar
-ms.openlocfilehash: e76a536080ffd2b4bf35de744bd34d8022458300
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 8be955312d377f871ab3d09164c23c8cfdf214b9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129725759"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265899"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -190,7 +190,7 @@ Cell has text ET.
 
 ## <a name="analyze-receipts"></a>Análisis de las confirmaciones de recepción
 
-En esta sección se muestra cómo analizar y extraer campos comunes de recibos de EE. UU. mediante un modelo de recibos entrenado previamente. Para más información sobre el análisis de recibos, consulte la [guía conceptual sobre recibos](../../concept-receipts.md).
+En esta sección se muestra cómo analizar y extraer campos comunes de recibos de EE. UU. mediante un modelo de recibos entrenado previamente. Para más información sobre el análisis de recibos, consulte la [guía conceptual sobre recibos](../../concept-receipt.md).
 
 Para analizar los recibos a partir de un URI, use el método **beginRecognizeReceiptsFromUrl**.
 
@@ -342,7 +342,7 @@ El siguiente bloque de código comprueba cuántos modelos se han guardado en la 
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_count)]
 
-#### <a name="output"></a>Resultados
+#### <a name="output"></a>Output
 
 ```console
 The account has 12 custom models, and we can have at most 250 custom models

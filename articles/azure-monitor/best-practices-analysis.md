@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/18/2021
-ms.openlocfilehash: 3f4b671237c842c156e06281926be02ee3cdeb4a
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: c9f46404e1984c7f9eb4e8cea231229f31ffa8ad
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130181574"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130231673"
 ---
 # <a name="azure-monitor-best-practices---analyze-and-visualize-data"></a>Procedimientos recomendados de Azure Monitor: análisis y visualización de los datos
 Este artículo forma parte del escenario de [recomendaciones para configurar Azure Monitor](best-practices.md). Describe las características integradas de Azure Monitor para analizar los datos recopilados y las opciones para crear visualizaciones personalizadas a fin de satisfacer los requisitos de los distintos usuarios de la organización. Visualizaciones como gráficos y diagramas le ayudarán a analizar los datos de supervisión para explorar en profundidad los problemas e identificar patrones.
@@ -64,7 +64,7 @@ Consulte [Creación y uso compartido de paneles de datos de Log Analytics](visua
 
 
 ## <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) es particularmente útil para crear informes y paneles centrados en los negocios, así como informes de análisis de tendencias de KPI a largo plazo. Puede [importar los resultados de una consulta de registro](visualize/powerbi.md) en un conjunto de datos de Power BI para poder beneficiarse de sus características, como la combinación de datos de diferentes orígenes y el uso compartido de informes en la web y los dispositivos móviles.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) es particularmente útil para crear informes y paneles centrados en los negocios, así como informes de análisis de tendencias de KPI a largo plazo. Puede [importar los resultados de una consulta de registro](./logs/log-powerbi.md) en un conjunto de datos de Power BI para poder beneficiarse de sus características, como la combinación de datos de diferentes orígenes y el uso compartido de informes en la web y los dispositivos móviles.
 
 ![Captura de pantalla que muestra un informe de Power BI de ejemplo para las operaciones de TI.](media/visualizations/power-bi.png)
 
@@ -105,4 +105,4 @@ Después, puede compilar sus aplicaciones y sitios web personalizados propios co
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Consulte [Alertas y acciones automatizadas](best-practices-alerts.md) para definir alertas y acciones automatizadas a partir de los datos de Azure Monitor. 
+- Consulte [Alertas y acciones automatizadas](best-practices-alerts.md) para definir alertas y acciones automatizadas a partir de los datos de Azure Monitor.

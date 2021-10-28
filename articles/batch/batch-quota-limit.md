@@ -4,12 +4,12 @@ description: Obtenga información sobre las restricciones, los límites y las cu
 ms.topic: conceptual
 ms.date: 07/20/2021
 ms.custom: seodec18
-ms.openlocfilehash: ad5701c65f9f2068a1a68084b755f8d0a013b8c8
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 799258258e1215977aea5b176d133bd121624bd6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114465580"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130239122"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Límites y cuotas del servicio Batch
 
@@ -138,7 +138,7 @@ Para obtener más información y ejemplos, consulte [Solicitud de un aumento de 
 Se crean los siguientes recursos por cada 100 nodos de grupo en una red virtual:
 
 - Un [grupo de seguridad de red](../virtual-network/network-security-groups-overview.md#network-security-groups)
-- Una [dirección IP pública](../virtual-network/public-ip-addresses.md)
+- Una [dirección IP pública](../virtual-network/ip-services/public-ip-addresses.md)
 - Un [equilibrador de carga](../load-balancer/load-balancer-overview.md)
 
 Estos recursos están limitados por las [cuotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) de la suscripción. Si planea implementaciones de grupos grandes en una red virtual, puede que necesite solicitar un aumento de la cuota para uno o varios de estos recursos.

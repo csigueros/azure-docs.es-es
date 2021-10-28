@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 07/30/2021
 ms.author: victorh
-ms.openlocfilehash: 5acb23767f8c766de80961fb8e76297f4b31a5c3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 348a52aaee7569a4f98a4d67b83d1d957fd89f62
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738083"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130242224"
 ---
 # <a name="azure-firewall-features"></a>Características de Azure Firewall
 
@@ -102,7 +102,7 @@ Puede asociar [varias direcciones IP públicas](deploy-multi-public-ip-powershe
 Esto admite los siguientes escenarios:
 
 - **DNAT**: puede traducir varias instancias de puerto estándar para los servidores back-end. Por ejemplo, si tiene dos direcciones IP públicas, puede traducir el puerto TCP 3389 (RDP) para ambas direcciones IP.
-- **SNAT**: hay más puertos disponibles para las conexiones SNAT salientes, lo que reduce la posibilidad de que se agoten los puertos SNAT. En este momento, Azure Firewall selecciona aleatoriamente la dirección IP pública de origen que se usará para una conexión. Si dispone de algún filtro de nivel inferior de la red, deberá permitir todas las direcciones IP públicas asociadas con el firewall. Considere la posibilidad de usar un [prefijo de dirección IP pública](../virtual-network/public-ip-address-prefix.md) para simplificar esta configuración.
+- **SNAT**: hay más puertos disponibles para las conexiones SNAT salientes, lo que reduce la posibilidad de que se agoten los puertos SNAT. En este momento, Azure Firewall selecciona aleatoriamente la dirección IP pública de origen que se usará para una conexión. Si dispone de algún filtro de nivel inferior de la red, deberá permitir todas las direcciones IP públicas asociadas con el firewall. Considere la posibilidad de usar un [prefijo de dirección IP pública](../virtual-network/ip-services/public-ip-address-prefix.md) para simplificar esta configuración.
 
 ## <a name="azure-monitor-logging"></a>Registro de Azure Monitor
 

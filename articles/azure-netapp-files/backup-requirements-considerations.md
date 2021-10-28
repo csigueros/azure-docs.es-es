@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: b-juche
-ms.openlocfilehash: f396904b3832403337a6fa4553e2ae4a4b8c86b4
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 5e622f86b7b0b9d757dc32089db86c7bfca7fe63
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129667960"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130239759"
 ---
 # <a name="requirements-and-considerations-for-azure-netapp-files-backup"></a>Requisitos y consideraciones para la copia de seguridad de archivos de Azure NetApp Files 
 
@@ -60,5 +60,5 @@ Antes de usar la copia de seguridad de Azure NetApp Files es preciso tener en cu
 * [Deshabilitación de la funcionalidad de copia de seguridad de un volumen](backup-disable.md)
 * [Eliminación de copias de seguridad de un volumen](backup-delete.md)
 * [Métricas de copia de seguridad de los volúmenes](azure-netapp-files-metrics.md#volume-backup-metrics)
-* [Preguntas frecuentes sobre la copia de seguridad de archivos de Azure NetApp Files](azure-netapp-files-faqs.md#azure-netapp-files-backup-faqs)
+* [Preguntas frecuentes sobre la copia de seguridad de archivos de Azure NetApp Files](faq-backup.md)
 * [Funcionamiento de las instantáneas de Azure NetApp Files](snapshots-introduction.md)

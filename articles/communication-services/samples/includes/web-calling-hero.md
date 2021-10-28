@@ -1,5 +1,5 @@
 ---
-title: Archivo de inclusión
+title: archivo de inclusión
 description: archivo de inclusión
 services: azure-communication-services
 author: probableprime
@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: rifox
-ms.openlocfilehash: bf6fba4f8267c1fb52f6b6d5dbc09e033c81a99d
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 767fe99e7648b5f35995530f0404e0ceab8208f2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "123078208"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130288372"
 ---
 En el **ejemplo de elementos principales de llamada grupal** de Azure Communication Services se muestra cómo se puede usar el SDK web de llamadas de Communication Services para crear una experiencia de llamada grupal.
 
@@ -97,7 +97,7 @@ Si quiere limpiar y quitar una suscripción a Communication Services, puede elim
 
 Para más información, consulte los siguientes artículos.
 
-- Familiarícese con el [uso del SDK de llamadas](../../quickstarts/voice-video-calling/calling-client-samples.md).
+- Familiarícese con el [uso del SDK de llamadas](../../quickstarts/voice-video-calling/getting-started-with-calling.md).
 - Más información sobre [cómo funciona la llamada](../../concepts/voice-video-calling/about-call-types.md)
 
 ### <a name="additional-reading"></a>Lecturas adicionales

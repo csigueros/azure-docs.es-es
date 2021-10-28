@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 06/28/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 729e02427b823550a8621380261b7f7db4ff2fe5
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: fa553360085a2793dba43e91cb08fde74eebf52e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129367705"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233930"
 ---
 # <a name="manage-a-public-ip-address-with-a-vpn-gateway"></a>Administración de una dirección IP pública con una puerta de enlace de VPN
 
@@ -29,7 +29,7 @@ En este artículo, aprenderá a crear una instancia de VPN Gateway mediante una 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Una dirección IP pública de SKU estándar en la suscripción. La dirección IP no puede estar asociada a ningún recurso. Para más información sobre cómo crear una IP pública de SKU estándar, consulte [Creación de una dirección IP pública: Azure Portal](../../virtual-network/create-public-ip-portal.md).
+- Una dirección IP pública de SKU estándar en la suscripción. La dirección IP no puede estar asociada a ningún recurso. Para más información sobre cómo crear una IP pública de SKU estándar, consulte [Creación de una dirección IP pública: Azure Portal](./create-public-ip-portal.md).
     - Para los fines de los ejemplos de este artículo, asigne a las nuevas direcciones IP públicas el nombre **myStandardPublicIP**.
 
 ## <a name="create-vpn-gateway-existing-public-ip"></a>Creación de una dirección IP pública existente de VPN Gateway
@@ -124,5 +124,5 @@ VPN Gateway no permite cambiar la IP pública después de la creación.
 
 En este artículo, ha aprendido a crear un a instancia de VPN Gateway y a usar una dirección IP pública existente. 
 
-- Para más información sobre las IP públicas en Azure, consulte [Direcciones IP públicas](../../virtual-network/public-ip-addresses.md).
+- Para más información sobre las IP públicas en Azure, consulte [Direcciones IP públicas](./public-ip-addresses.md).
 - Para más información sobre las instancias de VPN Gateway, consulte [¿Qué es VPN Gateway?](../../vpn-gateway/vpn-gateway-about-vpngateways.md)

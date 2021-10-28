@@ -8,12 +8,12 @@ ms.service: cache
 ms.topic: how-to
 ms.date: 09/30/2021
 ms.custom: template-how-to
-ms.openlocfilehash: e62215649a79f16fcb9cbfc20cfe16bc98f2251f
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 2662ba2f2e87f79b034ae8138bba31fc9358d8d6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129812398"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236178"
 ---
 # <a name="monitor-azure-cache-for-redis-data-using-diagnostic-settings"></a>Supervisión de datos de Azure Cache for Redis mediante la configuración de diagnóstico
 
@@ -28,7 +28,7 @@ Puede activar la configuración de diagnóstico para instancias de Azure Cache f
 - **Centro de eventos**: la configuración de diagnósticos no puede tener acceso a los recursos del centro de eventos cuando están habilitadas las redes virtuales. Habilite la opción **¿Quiere permitir que los servicios de confianza de Microsoft puedan omitir este firewall?** en los centros de eventos para conceder acceso a los recursos del centro de eventos. El centro de eventos debe estar en la misma región que el almacén.
 - **Cuenta de almacenamiento**: debe estar en la misma región que la caché.
 
-Para más información sobre los requisitos de diagnóstico, consulte [Configuración de diagnóstico](/azure/azure-monitor/essentials/diagnostic-settings?tabs=CMD).
+Para más información sobre los requisitos de diagnóstico, consulte [Configuración de diagnóstico](../azure-monitor/essentials/diagnostic-settings.md?tabs=CMD).
 
 Se le aplicarán las tarifas de datos normales por el uso de la cuenta de almacenamiento y del centro de eventos al enviar registros de diagnóstico a cualquier destino. La facturación se realiza en Azure Monitor, no en Azure Cache for Redis.
 Para más información sobre los precios, consulte [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
@@ -53,7 +53,7 @@ Para más información sobre los precios, consulte [Precios de Azure Monitor](ht
 
 ## <a name="create-diagnostic-setting-via-rest-api"></a> Creación de una configuración de diagnóstico a través de la API REST
 
-Use la API REST de Azure Monitor para crear una configuración de diagnóstico a través de la consola interactiva. Para más información, vea el tema sobre [creación o actualización](/rest/api/monitor/diagnostic-settings/create-or-update.md).
+Use la API REST de Azure Monitor para crear una configuración de diagnóstico a través de la consola interactiva. Para más información, vea el tema sobre [creación o actualización](/rest/api/monitor/diagnostic-settings/create-or-update).
 
 ### <a name="request"></a>Solicitud
 

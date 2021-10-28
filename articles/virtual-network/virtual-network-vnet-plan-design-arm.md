@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: kumud
-ms.openlocfilehash: 9ed060c1f3fc47aa7050c0f9b25c757953fa22fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fff105eadfffb8b38ebe5e95b3cfb0c79df0929b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98220344"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130248951"
 ---
 # <a name="plan-virtual-networks"></a>Planear redes virtuales
 
@@ -49,7 +49,7 @@ Una red virtual es una parte virtual y aislada de la red pública de Azure. Cada
 
 - ¿Hay algún requisito de seguridad en la organización para aislar el tráfico en redes virtuales diferentes? Puede elegir conectar la redes virtuales o no. Si conecta las redes virtuales, puede implementar una aplicación virtual de red (como un firewall) para controlar el flujo de tráfico entre las redes virtuales. Para obtener más información, consulte [seguridad](#security) y [conectividad](#connectivity).
 - ¿Hay algún requisito en la organización para aislar las redes virtuales en diversas [suscripciones](#subscriptions) o [regiones](#regions)?
-- Una [interfaz de red](virtual-network-network-interface.md) permite que una máquina virtual se comunique con otros recursos. Cada interfaz de red puede tener una o varias direcciones IP privadas asignadas. ¿Cuántas interfaces de red y [direcciones IP privadas](./private-ip-addresses.md) se necesitan en una red virtual? Hay [límites](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) en el número de interfaces de red y direcciones IP privadas que se pueden tener en una red virtual.
+- Una [interfaz de red](virtual-network-network-interface.md) permite que una máquina virtual se comunique con otros recursos. Cada interfaz de red puede tener una o varias direcciones IP privadas asignadas. ¿Cuántas interfaces de red y [direcciones IP privadas](./ip-services/private-ip-addresses.md) se necesitan en una red virtual? Hay [límites](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) en el número de interfaces de red y direcciones IP privadas que se pueden tener en una red virtual.
 - ¿Quiere conectar la red virtual a otra red virtual o red local? Puede conectar algunas redes virtuales entre sí o a redes locales, pero no a otras redes. Para obtener más información, consulte[Conectividad](#connectivity). Cada red virtual que se conecta a otra red virtual o local debe tener un espacio de direcciones único. Cada red virtual tiene uno o más intervalos de direcciones públicas o privadas asignados a su espacio de direcciones. Un intervalo de direcciones se especifica en un formato propio del enrutamiento de interdominios sin clases (CIDR), como 10.0.0.0/16. Obtenga más información sobre los [intervalos de direcciones](manage-virtual-network.md#add-or-remove-an-address-range) para redes virtuales.
 - ¿Tiene algún requisito de administración de la organización para recursos en diferentes redes virtuales? De ser así, puede separar los recursos en una red virtual a parte para simplificar la [asignación de permisos](#permissions) a los usuarios de la organización, o para asignar diferentes directivas a diferentes redes virtuales.
 - Cuando implementa algunos recursos del servicio de Azure en una red virtual, estos se encargan de crear su propia red virtual. Para determinar si un servicio de Azure ha creado su propia red virtual, consulte la información de cada [servicio de Azure que se puede implementar en una red virtual](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network).

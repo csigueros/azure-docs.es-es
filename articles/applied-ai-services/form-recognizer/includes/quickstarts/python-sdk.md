@@ -8,12 +8,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/12/2021
 ms.author: lajanuar
-ms.openlocfilehash: 1bf3f8e082a54e7f48fa43040e40cb54001b1d19
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 211fdcb9e6c92a2a6eae3e6fb9f96bfd490206ff
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129715461"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130288191"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
@@ -139,7 +139,7 @@ Confidence score: 1.0
 
 ## <a name="analyze-receipts"></a>Análisis de las confirmaciones de recepción
 
-En esta sección se muestra cómo analizar y extraer campos comunes de recibos de EE. UU. mediante un modelo de recibos entrenado previamente. Para más información sobre el análisis de recibos, consulte la [guía conceptual sobre recibos](../../concept-receipts.md). Para analizar recibos de una dirección URL, use el método `begin_recognize_receipts_from_url`.
+En esta sección se muestra cómo analizar y extraer campos comunes de recibos de EE. UU. mediante un modelo de recibos entrenado previamente. Para más información sobre el análisis de recibos, consulte la [guía conceptual sobre recibos](../../concept-receipt.md). Para analizar recibos de una dirección URL, use el método `begin_recognize_receipts_from_url`.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_receipts)]
 
@@ -170,7 +170,7 @@ Total: 1203.39 has confidence 0.774
 
 ## <a name="analyze-business-cards"></a>Análisis de tarjetas de presentación
 
-En esta sección se muestra cómo analizar y extraer campos comunes de tarjetas de presentación inglesas mediante un modelo entrenado previamente. Para más información acerca del análisis de tarjetas de presentación, consulte la [guía conceptual sobre tarjetas de presentación](../../concept-business-cards.md). 
+En esta sección se muestra cómo analizar y extraer campos comunes de tarjetas de presentación inglesas mediante un modelo entrenado previamente. Para más información acerca del análisis de tarjetas de presentación, consulte la [guía conceptual sobre tarjetas de presentación](../../concept-business-card.md). 
 
 Para analizar tarjetas de presentación en una dirección URL, use el método `begin_recognize_business_cards_from_url`.
 
@@ -181,7 +181,7 @@ Para analizar tarjetas de presentación en una dirección URL, use el método `b
 
 ## <a name="analyze-invoices"></a>Análisis de facturas
 
-En esta sección se muestra cómo analizar y extraer campos comunes de facturas de compra mediante un modelo entrenado previamente. Para más información sobre el análisis de facturas, consulte la [guía conceptual sobre facturas](../../concept-invoices.md). 
+En esta sección se muestra cómo analizar y extraer campos comunes de facturas de compra mediante un modelo entrenado previamente. Para más información sobre el análisis de facturas, consulte la [guía conceptual sobre facturas](../../concept-invoice.md). 
 
 Para analizar facturas de una dirección URL, use el método `begin_recognize_invoices_from_url`.
 
@@ -192,7 +192,7 @@ Para analizar facturas de una dirección URL, use el método `begin_recognize_in
 
 ## <a name="analyze-id-documents"></a>Análisis de documentos de identificación
 
-En esta sección se muestra cómo analizar y extraer información clave de documentos de identificación emitidos por la administración pública (pasaportes de todo el mundo y permisos de conducir de EE. UU.) mediante el modelo de identificación precompilado de Form Recognizer. Para obtener más información sobre el análisis de documentos de identificación, consulte nuestra [guía conceptual del modelo de identificación precompilado](../../concept-identification-cards.md).
+En esta sección se muestra cómo analizar y extraer información clave de documentos de identificación emitidos por la administración pública (pasaportes de todo el mundo y permisos de conducir de EE. UU.) mediante el modelo de identificación precompilado de Form Recognizer. Para obtener más información sobre el análisis de documentos de identificación, consulte nuestra [guía conceptual del modelo de identificación precompilado](../../concept-id-document.md).
 
 Para analizar documentos de identificación de una dirección URL, use el método `begin_recognize_id_documents_from_url`.
 
@@ -216,7 +216,7 @@ El código siguiente usa el cliente de entrenamiento con la función `begin_trai
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_train)]
 
-### <a name="output"></a>Resultados
+### <a name="output"></a>Output
 
 Esta es la salida para un modelo entrenado con los datos de entrenamiento disponibles en el [SDK de Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/training).
 
@@ -341,7 +341,7 @@ El siguiente bloque de código comprueba cuántos modelos se han guardado en la 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_manage_count)]
 
-### <a name="output"></a>Resultados
+### <a name="output"></a>Output
 
 ```console
 Our account has 5 custom models, and we can have at most 5000 custom models
@@ -372,7 +372,7 @@ El siguiente bloque de código usa el identificador de modelo guardado en la sec
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_manage_getmodel)]
 
-### <a name="output"></a>Resultados
+### <a name="output"></a>Output
 
 Esta es la salida de ejemplo para el modelo personalizado creado en el ejemplo anterior.
 

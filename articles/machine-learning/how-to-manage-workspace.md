@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 04/22/2021
 ms.topic: how-to
 ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 9d4ad2b71d9ef5e3632344cb715926d2e5ebd343
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: a8dd26019d94cbaeca620d4dbb6e1bdf9dabdb2d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130072674"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130246461"
 ---
 # <a name="manage-azure-machine-learning-workspaces-in-the-portal-or-with-the-python-sdk"></a>Administración de áreas de trabajo de Azure Machine Learning en el portal o con el SDK de Python
 
@@ -171,7 +171,7 @@ El SDK de Azure Machine Learning para Python proporciona la clase [PrivateEndpoi
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. La configuración de red predeterminada es usar un __Punto de conexión público__, que es accesible en la red pública de Internet. Para limitar el acceso al área de trabajo a una instancia de Azure Virtual Network que ha creado, puede seleccionar __Punto de conexión privado__ (versión preliminar) en __Método de conectividad__ y, después, usar __+ Agregar__ para configurar el punto de conexión.   
+1. La configuración de red predeterminada es usar un __Punto de conexión público__, que es accesible en la red pública de Internet. Para limitar el acceso al área de trabajo a una instancia de Azure Virtual Network que ha creado, puede seleccionar __Punto de conexión privado__ como el __Método de conectividad__ y, a continuación, usar __+ Agregar__ para configurar el punto de conexión. 
 
    :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Selección del punto de conexión privado":::  
 
@@ -182,10 +182,6 @@ El SDK de Azure Machine Learning para Python proporciona la clase [PrivateEndpoi
 1. Cuando haya terminado de configurar las redes, puede seleccionar __Revisar y crear__, o bien avanzar hasta la configuración de __Avanzado__ opcional.
 
 ---
-
-> [!IMPORTANT]  
-> El uso de un punto de conexión privado con áreas de trabajo de Azure Machine Learning se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.     
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### <a name="vulnerability-scanning"></a>Examen de vulnerabilidades
 

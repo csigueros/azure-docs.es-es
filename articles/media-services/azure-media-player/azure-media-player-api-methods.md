@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/05/2021
-ms.openlocfilehash: 3b199223c7e77f31cd4bf6e99d6a170f6868848a
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 443c2abbd005c3e2517caa98c707132ad0849d3a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448702"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234329"
 ---
 # <a name="api"></a>API #
 
@@ -30,7 +30,7 @@ Para usar las funciones de API, debe tener acceso al objeto de reproductor. Afor
 
 El tiempo que Azure Media Player tarda en configurar el vídeo y la API variará en función de la tecnología de reproducción que se use. HTML5 suele ser mucho más rápido de cargar que Flash o Silverlight. Por ese motivo, se debe usar la función "ready" del reproductor para desencadenar cualquier código que requiera la API del reproductor.
 
-```javacript
+```javascript
     amp("vid_1").ready(function(){
       var myPlayer = this;
 
@@ -41,7 +41,7 @@ El tiempo que Azure Media Player tarda en configurar el vídeo y la API variará
 
 O BIEN
 
-```javacript
+```javascript
     var myPlayer = amp("vid_1", myOptions, function(){
         //this is the ready function and will only execute after the player is loaded
     });
@@ -51,7 +51,7 @@ O BIEN
 
 Ahora que tiene acceso a un reproductor preparado, puede controlar el vídeo, obtener valores o responder a eventos del vídeo. Los nombres de las funciones de la API de Azure Media Player intentan seguir a los de la [API multimedia HTML5](http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html). La principal diferencia es que se usan funciones de captador y establecedor para las propiedades de vídeo.
 
-```javacript
+```javascript
     // setting a property on a bare HTML5 video element
     myVideoElement.currentTime = 120;
 
@@ -62,7 +62,7 @@ Ahora que tiene acceso a un reproductor preparado, puede controlar el vídeo, ob
 ## <a name="registering-for-events"></a>Registro de eventos ##
 Los eventos se deben registrar directamente después de inicializar el reproductor por primera vez para asegurarse de que todos los eventos se notifican correctamente a la aplicación y se debe realizar fuera del evento preparado.
 
-```javacript
+```javascript
     var myPlayer = amp("vid_1", myOptions, function(){
         //this is the ready function and will only execute after the player is loaded
     });

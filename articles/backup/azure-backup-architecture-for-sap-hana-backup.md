@@ -3,16 +3,16 @@ title: Arquitectura de Azure Backup para la copia de seguridad de SAP HANA
 description: Obtenga más información sobre la arquitectura de Azure Backup para la copia de seguridad de SAP HANA.
 ms.topic: conceptual
 ms.date: 09/27/2021
-ms.openlocfilehash: 7ca16e9990f097a98b8395c97567cabfbcb71eae
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: df8bb6adfeff88eafba19bcc459f887f075aa75b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129084230"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130244585"
 ---
 # <a name="azure-backup-architecture-for-sap-hana-backup"></a>Arquitectura de Azure Backup para la copia de seguridad de SAP HANA
 
-[El servicio de Azure Backup](/azure/backup/backup-overview) le permite realizar una copia de seguridad de los datos de las bases de datos de SAP HANA de una aplicación de forma coherente. En este artículo se describen los componentes de la arquitectura y los procesos de Azure Backup.
+[El servicio de Azure Backup](./backup-overview.md) le permite realizar una copia de seguridad de los datos de las bases de datos de SAP HANA de una aplicación de forma coherente. En este artículo se describen los componentes de la arquitectura y los procesos de Azure Backup.
 
 ## <a name="how-does-azure-backup-work-with-sap-hana-databases"></a>¿Cómo funciona Azure Backup con las bases de datos de SAP HANA?
 
@@ -20,13 +20,13 @@ Azure Backup proporciona una solución de copia de seguridad de streaming para r
 
 Azure Backup tiene [certificación Backint](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5) de SAP, proporciona compatibilidad con copias de seguridad nativas usando las API nativas de SAP HANA. Con esta solución, puede realizar copias de seguridad de bases de datos de SAP HANA que se ejecutan en máquinas virtuales de Azure y restaurarlas, y usar las funcionalidades de administración empresarial que proporciona Azure Backup.
 
-[Obtenga más información](/azure/backup/sap-hana-db-about#added-value) sobre los valores agregados que Azure Backup proporciona para SAP HANA.
+[Obtenga más información](./sap-hana-db-about.md#added-value) sobre los valores agregados que Azure Backup proporciona para SAP HANA.
 
 ## <a name="where-is-the-data-backed-up"></a>¿Dónde se efectúa la copia de seguridad de los datos?
 
 Azure Backup almacena los datos de copia de seguridad en almacenes de Recovery Services. Un almacén es una entidad de almacenamiento en línea de Azure que se usa para almacenar datos, como copias de seguridad, puntos de recuperación y directivas de copia de seguridad.
 
-[Obtenga más información](/azure/backup/backup-azure-backup-faq#recovery-services-vault) sobre los almacenes de Recovery Services.
+[Obtenga más información](./backup-azure-backup-faq.yml) sobre los almacenes de Recovery Services.
 
 ## <a name="backup-agents"></a>Agentes de copia de seguridad
 
@@ -34,30 +34,30 @@ Para hacer una copia de seguridad de las bases de datos de SAP HANA que se ejecu
 
 ## <a name="backup-types"></a>Tipos de copia de seguridad
 
-[Más información](/azure/backup/backup-architecture#sap-hana-backup-types) sobre tipos de copia de seguridad de SAP HANA.
+[Más información](./backup-architecture.md#sap-hana-backup-types) sobre tipos de copia de seguridad de SAP HANA.
 
 ## <a name="about-architecture"></a>Acerca de la arquitectura
 
-Consulte la [arquitectura de alto nivel de Azure Backup para las bases de datos de SAP HANA](/azure/backup/sap-hana-db-about#backup-architecture). Para obtener una descripción detallada del proceso de copia de seguridad, consulte el siguiente proceso:
+Consulte la [arquitectura de alto nivel de Azure Backup para las bases de datos de SAP HANA](./sap-hana-db-about.md#backup-architecture). Para obtener una descripción detallada del proceso de copia de seguridad, consulte el siguiente proceso:
 
 :::image type="content" source="./media/sap-hana-db-about/backup-architecture.png" alt-text="Diagrama que muestra el proceso de copia de seguridad de la base de datos de SAP HANA.":::
 
-1. Para empezar el proceso de copia de seguridad, [cree un almacén de Recovery Services](/azure/backup/tutorial-backup-sap-hana-db#create-a-recovery-services-vault) en Azure. Este almacén se usará para almacenar las copias de seguridad y los puntos de recuperación creados con el tiempo.
+1. Para empezar el proceso de copia de seguridad, [cree un almacén de Recovery Services](./tutorial-backup-sap-hana-db.md#create-a-recovery-services-vault) en Azure. Este almacén se usará para almacenar las copias de seguridad y los puntos de recuperación creados con el tiempo.
 
-1. La máquina virtual de Azure que ejecuta un servidor SAP HANA se registra con el almacén y se [detectan](/azure/backup/tutorial-backup-sap-hana-db#discover-the-databases) las bases de datos de las que se va a realizar la copia de seguridad. A fin de habilitar el servicio Azure Backup para que detecte las bases de datos, debe ejecutar este [script de prerregistro](https://go.microsoft.com/fwlink/?linkid=2173610) en el servidor HANA como usuario raíz. 
+1. La máquina virtual de Azure que ejecuta un servidor SAP HANA se registra con el almacén y se [detectan](./tutorial-backup-sap-hana-db.md#discover-the-databases) las bases de datos de las que se va a realizar la copia de seguridad. A fin de habilitar el servicio Azure Backup para que detecte las bases de datos, debe ejecutar este [script de prerregistro](https://go.microsoft.com/fwlink/?linkid=2173610) en el servidor HANA como usuario raíz. 
    >[!Note]
    >Asegúrese de que la instancia de HANA esté en funcionamiento durante el descubrimiento de las bases de datos de esta instancia.
 
-1. Además, asegúrese de que se cumplen los [demás requisitos previos](/azure/backup/tutorial-backup-sap-hana-db#prerequisites).
+1. Además, asegúrese de que se cumplen los [demás requisitos previos](./tutorial-backup-sap-hana-db.md#prerequisites).
 
    >[!Important]
-   >Asegúrese de que se cumplen los requisitos previos para configurar la conectividad de red adecuada. Consulte la recomendación sobre [cómo configurar máquinas virtuales de Azure que se ejecutan en SAP HANA con componentes de red adicionales para usar la oferta de copia de seguridad](/azure/backup/tutorial-backup-sap-hana-db#set-up-network-connectivity).
+   >Asegúrese de que se cumplen los requisitos previos para configurar la conectividad de red adecuada. Consulte la recomendación sobre [cómo configurar máquinas virtuales de Azure que se ejecutan en SAP HANA con componentes de red adicionales para usar la oferta de copia de seguridad](./tutorial-backup-sap-hana-db.md#set-up-network-connectivity).
 
-1. Consulte también [lo que hace el script de registro previo](/azure/backup/tutorial-backup-sap-hana-db#what-the-pre-registration-script-does). Si intenta configurar la copia de seguridad de las bases de datos de SAP HANA sin ejecutar este script, es posible que reciba el error _UserErrorHanaScriptNotRun_.
+1. Consulte también [lo que hace el script de registro previo](./tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does). Si intenta configurar la copia de seguridad de las bases de datos de SAP HANA sin ejecutar este script, es posible que reciba el error _UserErrorHanaScriptNotRun_.
 
 1. Ahora el servicio Azure Backup instala el complemento de Azure Backup para HANA en el servidor SAP HANA registrado. Este complemento usa el usuario de Backup creado por el script de registro previo para realizar todas las operaciones de copia de seguridad y restauración.
 
-1. Para [configurar la copia de seguridad](/azure/backup/tutorial-backup-sap-hana-db#configure-backup) en las bases de datos que se han detectado, elija la directiva de copia de seguridad necesaria y habilite las copias de seguridad.
+1. Para [configurar la copia de seguridad](./tutorial-backup-sap-hana-db.md#configure-backup) en las bases de datos que se han detectado, elija la directiva de copia de seguridad necesaria y habilite las copias de seguridad.
 
 1. Azure Backup para SAP HANA (solución con certificación Backint), no depende de los tipos de máquina virtual o disco subyacente. La copia de seguridad se realiza mediante secuencias generadas por SAP HANA.
 
@@ -71,9 +71,9 @@ Consulte la [arquitectura de alto nivel de Azure Backup para las bases de datos 
 
 1. Para transmitir los datos de copia de seguridad, Backint crea hasta tres canalizaciones, que escriben directamente en el almacén de Recovery Services de Azure Backup.
 
-   Si no usa firewall o NVA en la configuración, la secuencia de copia de seguridad se transfiere a través de la red de Azure al almacén de Recovery Services. Además, puede configurar [punto de conexión de servicio de red virtual](/azure/virtual-network/virtual-network-service-endpoints-overview) o un [punto de conexión privado](/azure/private-link/private-endpoint-overview) para permitir que SAP HANA envíe tráfico de copia de seguridad directamente a Azure Storage, omitiendo NVA o Azure Firewall. Además, cuando se usa firewall o NVA, el tráfico a Azure Active Directory y al almacén de Recovery Services pasará a través del firewall o NVA y no afectará al rendimiento general de la copia de seguridad. 
+   Si no usa firewall o NVA en la configuración, la secuencia de copia de seguridad se transfiere a través de la red de Azure al almacén de Recovery Services. Además, puede configurar [punto de conexión de servicio de red virtual](../virtual-network/virtual-network-service-endpoints-overview.md) o un [punto de conexión privado](../private-link/private-endpoint-overview.md) para permitir que SAP HANA envíe tráfico de copia de seguridad directamente a Azure Storage, omitiendo NVA o Azure Firewall. Además, cuando se usa firewall o NVA, el tráfico a Azure Active Directory y al almacén de Recovery Services pasará a través del firewall o NVA y no afectará al rendimiento general de la copia de seguridad. 
 
-1. Azure Backup intenta lograr velocidades de hasta 420 MB/s para las copias de seguridad que no son para registros y de hasta 100 MB/s para las copias de seguridad de registros. [Obtenga más información](/azure/backup/tutorial-backup-sap-hana-db#understanding-backup-and-restore-throughput-performance) sobre el rendimiento de las copias de seguridad y la restauración.
+1. Azure Backup intenta lograr velocidades de hasta 420 MB/s para las copias de seguridad que no son para registros y de hasta 100 MB/s para las copias de seguridad de registros. [Obtenga más información](./tutorial-backup-sap-hana-db.md#understanding-backup-and-restore-throughput-performance) sobre el rendimiento de las copias de seguridad y la restauración.
 
 1. Los registros detallados se escriben en los archivos _backup.log_ y _backint.log_ de la instancia de SAP HANA.
 
@@ -98,5 +98,4 @@ Consulte las siguientes configuraciones de SAP HANA y vea la ejecución de la op
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Hacer una copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure](/azure/backup/backup-azure-sap-hana-database).
-
+[Hacer una copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure](./backup-azure-sap-hana-database.md).

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-csharp-java
-ms.openlocfilehash: 78ffdce7cbc4b8973407330a58e2ac3643bfac8b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e4d47fccb19504eb8e628963516f64c37362356c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128676987"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130264472"
 ---
 # <a name="quickstart-use-the-call-automation-apis"></a>Inicio rápido: Uso de las API de automatización de llamadas
 
@@ -42,5 +42,5 @@ Si quiere limpiar y quitar una suscripción a Communication Services, puede elim
 Para más información, consulte los siguientes artículos.
 
 - Consulte nuestro [ejemplo de elementos principales de una llamada](../../samples/calling-hero-sample.md).
-- Más información sobre la [llamada a las funcionalidades de SDK](./calling-client-samples.md)
+- Más información sobre la [llamada a las funcionalidades de SDK](./getting-started-with-calling.md)
 - Más información sobre [cómo funciona la llamada](../../concepts/voice-video-calling/about-call-types.md)

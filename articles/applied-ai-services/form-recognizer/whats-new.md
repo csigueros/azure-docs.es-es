@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: lajanuar
-ms.openlocfilehash: ddecc748443a6596c611fae857301e1f80f57a66
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 8d118d72b267cc42780f198a1fb0dc63f0f0d965
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130039379"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233608"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
@@ -55,7 +55,7 @@ Comience con la nueva [API de REST](https://westus2.dev.cognitive.microsoft.com/
 
 ## <a name="september-2021"></a>Septiembre de 2021
 
-* [Características avanzadas del explorador de métricas de Azure](/azure/azure-monitor/essentials/metrics-charts) disponibles en la página de descripción general de recursos de Form Recognizer en Azure Portal.
+* [Características avanzadas del explorador de métricas de Azure](../../azure-monitor/essentials/metrics-charts.md) disponibles en la página de descripción general de recursos de Form Recognizer en Azure Portal.
 
     ### <a name="monitoring-menu"></a>Menú Supervisión
 
@@ -122,15 +122,15 @@ La revisión aborda las facturas sin campos de elementos de sublínea detectados
 * Form Recognizer 2.1 está disponible con carácter general. Esta versión de disponibilidad general (GA) marca la estabilidad de los cambios introducidos en versiones anteriores del paquete de versión preliminar 2.1. Esta versión le permite detectar y extraer información y datos de lo siguiente:
 
 * [Documentos](concept-layout.md)
-* [Receipts](concept-receipts.md)
-* [Tarjetas de presentación](concept-business-cards.md)
-* [Facturas](concept-invoices.md)
-* [Documentos de identidad](concept-identification-cards.md)
+* [Receipts](./concept-receipt.md)
+* [Tarjetas de presentación](./concept-business-card.md)
+* [Facturas](./concept-invoice.md)
+* [Documentos de identidad](./concept-id-document.md)
 * [Formularios personalizados](concept-custom.md)
 
 #### <a name="get-started"></a>Primeros pasos
 
-Vaya a la [herramienta de ejemplo de Form Recognizer](https://fott-2-1.azurewebsites.net/) y siga el [inicio rápido](quickstarts/get-started-with-form-recognizer.md).
+Vaya a la [herramienta de ejemplo de Form Recognizer](https://fott-2-1.azurewebsites.net/) y siga el [inicio rápido](./quickstarts/try-sample-label-tool.md).
 
 ### <a name="layout-adds-table-headers"></a>Adición de encabezados de tabla por diseño
 
@@ -263,7 +263,7 @@ Paquete NuGet, versión 3.1.0-beta.4
 
    **StartRecognizeIdDocumentsAsync**
 
-   Para obtener una lista de los valores de campos, _consulte_ [Campos extraídos](concept-identification-cards.md#fields-extracted) en la documentación de Form Recognizer.
+   Para obtener una lista de los valores de campos, _consulte_ [Campos extraídos](./concept-id-document.md) en la documentación de Form Recognizer.
 
 * Se ha ampliado el conjunto de idiomas de documento que se pueden proporcionar al método **[StartRecognizeContent](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient.startrecognizecontent?view=azure-dotnet-preview&preserve-view=true)** .
 
@@ -298,7 +298,7 @@ Dependencia del paquete de artefacto de Maven, versión 3.1.0-beta.3
 
   **[beginRecognizeIdDocuments]**
 
-   Para obtener una lista de los valores de campos, _consulte_ [Campos extraídos](concept-identification-cards.md#fields-extracted) en la documentación de Form Recognizer.
+   Para obtener una lista de los valores de campos, _consulte_ [Campos extraídos](./concept-id-document.md) en la documentación de Form Recognizer.
 
 * **Compatibilidad con los archivos de imagen de mapa de bits (.bmp) para los formularios personalizados y los métodos de entrenamiento en la enumeración `FormContentType`** :
 
@@ -336,7 +336,7 @@ Paquete npm, versión 3.1.0-beta.3
 
     **[beginRecognizeIdDocuments](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-preview&preserve-view=true&branch=main#beginRecognizeIdDocuments_FormRecognizerRequestBody__BeginRecognizeIdDocumentsOptions_)**
 
-    Para obtener una lista de los valores de campos, _consulte_ [Campos extraídos](concept-identification-cards.md#fields-extracted) en la documentación de Form Recognizer.
+    Para obtener una lista de los valores de campos, _consulte_ [Campos extraídos](./concept-id-document.md) en la documentación de Form Recognizer.
 
 * **Se han agregado nuevos valores de campo a la interfaz FieldValue**:
 
@@ -361,7 +361,7 @@ Paquete pip, versión 3.1.0b4
 
   **[begin_recognize_id_documents](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python&preserve-view=true)**
 
-  Para obtener una lista de los valores de campos, _consulte_ [Campos extraídos](concept-identification-cards.md#fields-extracted) en la documentación de Form Recognizer.
+  Para obtener una lista de los valores de campos, _consulte_ [Campos extraídos](./concept-id-document.md) en la documentación de Form Recognizer.
 
 * **Se han agregado nuevos valores de campo a la enumeración [FieldValue](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.fieldvaluetype?view=azure-python-preview&preserve-view=true)** :
 
@@ -409,13 +409,13 @@ Paquete pip, versión 3.1.0b4
 
 * **Nuevo modelo de identificación precompilado** El nuevo modelo de identificación precompilado permite a los clientes tomar identificaciones y devolver datos estructurados para automatizar el procesamiento. Combina nuestras potentes capacidades de reconocimiento óptico de caracteres (OCR) con modelos de reconocimiento de identificación para extraer información clave de los pasaportes y los carnés de conducir de EE. UU., como el nombre, la fecha de nacimiento, la fecha de la fecha de caducidad, etc.
 
-  [Más información sobre el modelo de identificación precompilado](concept-identification-cards.md)
+  [Más información sobre el modelo de identificación precompilado](./concept-id-document.md)
 
    :::image type="content" source="./media/id-canada-passport-example.png" alt-text="ejemplo de pasaporte" lightbox="./media/id-canada-passport-example.png":::
 
 * **Extracción de elemento de línea para modelo de factura**: el modelo de factura precompilado ahora admite la extracción de elementos de línea; ahora se extraen los elementos completos y sus partes: descripción, importe, cantidad, id. de producto, fecha y mucho más. Con una sencilla llamada de API/SDK, puede extraer datos útiles de las facturas (texto, tabla, pares clave-valor y elementos de línea).
 
-   [Más información sobre el modelo de factura](concept-invoices.md)
+   [Más información sobre el modelo de factura](./concept-invoice.md)
 
 * **Etiquetado y entrenamiento de tablas supervisados, etiquetado de valores vacíos**: además de [las funciones de aprendizaje profundo para la extracción de tablas automáticamente](https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011)de Form Recognizer, ahora permite que los clientes etiqueten y entrenen tablas. Esta nueva versión incluye la posibilidad de etiquetar y entrenar en elementos de línea y tablas (dinámicas y fijas) y entrenar un modelo personalizado para extraer pares clave-valor y elementos de línea. Una vez que se entrena un modelo, este extrae los elementos de línea como parte de la salida JSON en la sección documentResults.
 
@@ -439,7 +439,7 @@ Paquete pip, versión 3.1.0b4
 
 * **Nuevo modelo de factura precompilado**: el nuevo modelo de factura precompilado permite a los clientes tomar facturas en muchos formatos y devolver datos estructurados para automatizar el procesamiento de facturas. Combina nuestras eficaces funcionalidades de reconocimiento óptico de caracteres (OCR) con modelos de aprendizaje profundo de reconocimiento de facturas para extraer información clave de facturas en inglés. Extrae el texto clave, las tablas y la información como el cliente, el proveedor, el identificador de la factura, la fecha de vencimiento de la factura, el total, el importe debido, el importe de los impuestos, la dirección de envío y la dirección de facturación.
 
-  > [Más información sobre el modelo de factura precompilado](concept-invoices.md)
+  > [Más información sobre el modelo de factura precompilado](./concept-invoice.md)
 
   :::image type="content" source="./media/invoice-example.jpg" alt-text="Ejemplo de factura" lightbox="./media/invoice-example.jpg":::
 
@@ -449,7 +449,7 @@ Paquete pip, versión 3.1.0b4
 
   > [Más información sobre la extracción de Layout](concept-layout.md)
 
-* **Actualización de la biblioteca cliente**: las versiones más recientes de las [bibliotecas cliente](quickstarts/client-library.md) para .NET, Python, Java y JavaScript admiten la API de Form Recognizer 2.1.
+* **Actualización de la biblioteca cliente**: las versiones más recientes de las [bibliotecas cliente](./quickstarts/try-sdk-rest-api.md) para .NET, Python, Java y JavaScript admiten la API de Form Recognizer 2.1.
 * **Nuevo idioma admitido (** japonés): ahora se admite el siguiente idiomas nuevos para `AnalyzeLayout` y `AnalyzeCustomForm`: japonés (`ja`). [Compatibilidad con idiomas](language-support.md)
 * **Indicación de estilo de línea de texto (manuscrito/otros) (solo idiomas romance)** : Form Recognizer ahora genera un objeto `appearance` que clasifica si cada línea de texto tiene estilo manuscrito o no, junto con una puntuación de confianza. Esta característica solo es compatible con los idiomas derivados del latín.
 * **Mejoras en la calidad**: mejoras en la extracción, lo que incluye mejoras en la extracción de dígitos individuales.
@@ -473,13 +473,13 @@ Paquete pip, versión 3.1.0b4
 * **Detección de marcas de selección o casillas**: Form Recognizer admite la detección y extracción de marcas de selección, como casillas y botones de radio. Las marcas de selección se extraen de `Layout` y ahora también es posible etiquetar y entrenar en `Train Custom Model` - _Entrenamiento con etiquetas_ para extraer pares clave-valor de marcas de selección.
 * **Composición de modelos**: permite que se compongan varios modelos y que se llamen con un único identificador de modelo. Cuando envía un documento para que se analice con un identificador de modelo compuesto, primero se realiza un paso de clasificación para enrutarlo al modelo personalizado correcto. La composición de modelos está disponible para `Train Custom Model` - _Entrenamiento con etiquetas_.
 * **Nombre de modelo**: agregue un nombre descriptivo a los modelos personalizados para facilitar su administración y seguimiento.
-* **[Nuevo modelo precompilado para tarjetas de presentación](concept-business-cards.md)** para extraer campos comunes de tarjetas de presentación (en inglés).
-* **[Nuevas configuraciones regionales para recibos precompilados](concept-receipts.md)** : además de EN-US, ahora se admiten EN-AU, EN-CA, EN-GB y EN-IN.
+* **[Nuevo modelo precompilado para tarjetas de presentación](./concept-business-card.md)** para extraer campos comunes de tarjetas de presentación (en inglés).
+* **[Nuevas configuraciones regionales para recibos precompilados](./concept-receipt.md)** : además de EN-US, ahora se admiten EN-AU, EN-CA, EN-GB y EN-IN.
 * **Mejoras de calidad** para `Layout`, `Train Custom Model` - _Entrenamiento sin etiquetas_ y _Entrenamiento con etiquetas_.
 
 La **versión 2.0** incluye la siguiente actualización:
 
-* Las [bibliotecas cliente](quickstarts/client-library.md) para NET, Python, Java y JavaScript ahora tienen disponibilidad general.
+* Las [bibliotecas cliente](./quickstarts/try-sdk-rest-api.md) para NET, Python, Java y JavaScript ahora tienen disponibilidad general.
 
 Hay **nuevos ejemplos** disponibles en GitHub.
 
@@ -616,7 +616,7 @@ Las respuestas JSON para todas las llamadas API tienen nuevos formatos. Algunas 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Complete un [inicio rápido](quickstarts/client-library.md) para empezar a escribir una aplicación de procesamiento de formularios con Form Recognizer en el lenguaje de desarrollo que prefiera.
+Complete un [inicio rápido](./quickstarts/try-sdk-rest-api.md) para empezar a escribir una aplicación de procesamiento de formularios con Form Recognizer en el lenguaje de desarrollo que prefiera.
 
 ## <a name="see-also"></a>Consulte también
 

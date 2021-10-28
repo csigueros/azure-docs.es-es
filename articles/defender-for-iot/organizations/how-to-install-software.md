@@ -1,20 +1,20 @@
 ---
 title: Instalación de Defender para IoT
 description: Obtenga información sobre cómo instalar un sensor y la consola de administración local para Azure Defender para IoT.
-ms.date: 10/09/2021
+ms.date: 10/21/2021
 ms.topic: how-to
-ms.openlocfilehash: f23c5fe84959045ba0446ad03c9a990a7bbb2014
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: 0548b1caa269431bb27a54e2dcbd297b2d4734a0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129754546"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130247595"
 ---
 # <a name="defender-for-iot-installation"></a>Instalación de Defender para IoT
 
 En este artículo se describe cómo instalar los siguientes componentes de Azure Defender para IoT:
 
-- **Sensor**: los sensores de Defender para IoT recopilan el tráfico de ICS mediante la supervisión pasiva (sin agente). Los sensores, pasivos y no invasivos, tienen un impacto nulo sobre el rendimiento en las redes y los dispositivos de OT e IoT. El sensor se conecta a un puerto SPAN o a un TAP de red e inicia inmediatamente la supervisión de la red. Las detecciones se ven en la consola del sensor. Allí puede verlas, investigarlas y analizarlas en un mapa de red, un inventario de dispositivos y una amplia variedad de informes. Algunos ejemplos son los informes de evaluación de riesgos, las consultas de minería de datos y los vectores de ataque. Obtenga más información sobre las funcionalidades del sensor en la [Guía de usuario del sensor de Defender para IoT (descarga directa)](./getting-started.md).
+- **Sensor**: los sensores de Defender para IoT recopilan el tráfico de ICS mediante la supervisión pasiva (sin agente). Los sensores, pasivos y no invasivos, tienen un impacto nulo sobre el rendimiento en las redes y los dispositivos de OT e IoT. El sensor se conecta a un puerto SPAN o a un TAP de red e inicia inmediatamente la supervisión de la red. Las detecciones se ven en la consola del sensor. Allí puede verlas, investigarlas y analizarlas en un mapa de red, un inventario de dispositivos y una amplia variedad de informes. Algunos ejemplos son los informes de evaluación de riesgos, las consultas de minería de datos y los vectores de ataque.
 
 - **Consola de administración local**: la consola de administración local le permite llevar a cabo la administración de dispositivos, riesgos y vulnerabilidades. También puede usarla para llevar a cabo la supervisión de amenazas y la respuesta a incidentes en toda la empresa. Ofrece una vista unificada de todos los dispositivos de red e indicadores de riesgo y alertas clave de OT e IoT detectados en las instalaciones en las que los sensores están implementados. Use la consola de administración local para ver y administrar sensores en redes aisladas.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.service: azure-communication-services
 ms.subservice: pstn
-ms.openlocfilehash: 879dcefc787185b51ab6019c1ad8e2a5f8befb16
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d04c6d298d84b9739564124a02ae8a7710186d0e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128636009"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233082"
 ---
 # <a name="phone-number-types-in-azure-communication-services"></a>Tipos de número de teléfono en Azure Communication Services
 
@@ -85,7 +85,7 @@ En la tabla siguiente se muestra dónde puede adquirir los diferentes tipos de n
 ### <a name="quickstarts"></a>Guías de inicio rápido
 
 - [Obtención de un número de teléfono](../../quickstarts/telephony-sms/get-phone-number.md)
-- [Realización de una llamada](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- [Realización de una llamada](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 - [Enviar un mensaje de texto.](../../quickstarts/telephony-sms/send.md)
 
 ### <a name="conceptual-documentation"></a>Documentación conceptual

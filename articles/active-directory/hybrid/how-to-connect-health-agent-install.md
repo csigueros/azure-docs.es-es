@@ -17,12 +17,12 @@ ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 31dd21a7c525bd1e5dc659b611f72c2c33c6f043
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 963c2d997bd75dadbeb6a37ea80d4237ea46cc35
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725780"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130240668"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalación del agente de Azure AD Connect Health
 
@@ -174,7 +174,7 @@ El nivel de auditoría "básico" está habilitado de forma predeterminada. Para 
 3. A la derecha, seleccione **Filter Current Logs** (Filtrar registros actuales).
 4. En **Orígenes de eventos**, seleccione **AD FS Auditing**(Auditoría de AD FS).
 
-    Para más información acerca de los registros de auditoría, consulte [Preguntas sobre operaciones](/azure/active-directory/hybrid/reference-connect-health-faq#operations-questions).
+    Para más información acerca de los registros de auditoría, consulte [Preguntas sobre operaciones](./reference-connect-health-faq.yml).
 
     ![Captura de pantalla que muestra la ventana Filter Current Logs (Filtrar registros actuales). En el campo "Orígenes de eventos", está seleccionada la opción "AD FS Auditing" (Auditoría de AD FS).](./media/how-to-connect-health-agent-install/adfsaudit.png)
 

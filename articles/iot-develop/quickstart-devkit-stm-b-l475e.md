@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/02/2021
-ms.openlocfilehash: fe009eec23e940377e737938ea1986f515546138
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 30e64f70f713540574545200dc188342b63e2f01
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862137"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130242168"
 ---
 # <a name="quickstart-connect-an-stmicroelectronics-b-l475e-iot01a-or-b-l4s5i-iot01a-discovery-kit-to-iot-central"></a>Inicio rápido: Conexión de un dispositivo STMicroelectronics B-L475E-IOT01A o B-L4S5I-IOT01A a Azure IoT Central
 
@@ -31,7 +31,7 @@ Deberá completar las siguientes tareas:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un equipo con Microsoft Windows 10
+* Un equipo con Windows 10
 * [Git](https://git-scm.com/downloads) para clonar el repositorio
 * Hardware
 

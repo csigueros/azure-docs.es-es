@@ -6,17 +6,17 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
-ms.openlocfilehash: 2435e4ed16889d9d4701b6047c0a1f602ee7ae91
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ac4ada3fe234428216d50edd85caa16fed10a5d2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102558702"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130231577"
 ---
 # <a name="azure-resource-logs"></a>Registros de recursos de Azure
 Los registros de recursos de Azure son [registros de plataforma](../essentials/platform-logs-overview.md) que proporcionan información sobre las operaciones que se realizaron en un recurso de Azure. El contenido de estos registros de recurso varía según el servicio de Azure y el tipo de recurso. Los registros de recurso no se recopilan de forma predeterminada. Debe crear una configuración de diagnóstico para cada recurso de Azure con el fin de enviar sus registros de recursos a un área de trabajo Log Analytics que se usará con [registros de Azure Monitor](../logs/data-platform-logs.md), Azure Event Hubs para reenviar fuera de Azure o Azure Storage para el archivado.
 
-Consulte [Creación de una configuración de diagnóstico para enviar registros de plataforma y métricas a diferentes destinos](../essentials/diagnostic-settings.md) para obtener más información sobre cómo crear una configuración de diagnóstico, así como [Implementación de Azure Monitor a escala mediante Azure Policy](../deploy-scale.md) para obtener más información sobre el uso de Azure Policy para crear automáticamente una configuración de diagnóstico para cada recurso de Azure que cree.
+Consulte [Creación de una configuración de diagnóstico para enviar registros de plataforma y métricas a diferentes destinos](../essentials/diagnostic-settings.md) para obtener más información sobre cómo crear una configuración de diagnóstico, así como [Implementación de Azure Monitor a escala mediante Azure Policy](../best-practices.md) para obtener más información sobre el uso de Azure Policy para crear automáticamente una configuración de diagnóstico para cada recurso de Azure que cree.
 
 ## <a name="send-to-log-analytics-workspace"></a>Envío al área de trabajo de Log Analytics
  Envíe los registros de recursos a un área de trabajo de Log Analytics para habilitar las características de los [registros de Azure Monitor](../logs/data-platform-logs.md), entre lo que se incluye lo siguiente:
@@ -42,7 +42,7 @@ Considere el ejemplo siguiente, donde se recopila la configuración de diagnóst
 
 La tabla AzureDiagnostics tendrá el siguiente aspecto:  
 
-| ResourceProvider    | Category     | A  | B  | C  | D  | E  | F  | G  | H  | I  |
+| ResourceProvider    | Category     | Un  | B  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft.Service1 | AuditLogs    | x1 | y1 | z1 |    |    |    |    |    |    |
 | Microsoft.Service1 | ErrorLogs    |    |    |    | q1 | w1 | e1 |    |    |    |
@@ -59,7 +59,7 @@ En el ejemplo anterior, esto daría lugar a la creación de tres tablas:
  
 - Tabla *Service1AuditLogs*:
 
-    | Proveedor de recursos | Category | A | B | C |
+    | Proveedor de recursos | Category | Un | B | C |
     | -- | -- | -- | -- | -- |
     | Service1 | AuditLogs | x1 | y1 | z1 |
     | Service1 | AuditLogs | x5 | y5 | z5 |

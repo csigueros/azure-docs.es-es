@@ -11,12 +11,12 @@ ms.date: 09/25/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: ffedd73860a9ef171d592689ef7a0d8a0cde82d0
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: ce5da1ae3ae87d3dbfc91b72fbda412ad179cfa9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130044182"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233968"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Creación de un inquilino de Azure Active Directory B2C
 
@@ -50,11 +50,11 @@ En el siguiente tutorial aprenderá a registrar una aplicación.
 1. Seleccione el directorio que contiene la suscripción:
     1. En la barra de herramientas de Azure Portal, seleccione el icono de filtro **Directorios y suscripciones**. 
     
-    ![Icono de filtro Directorios y suscripciones](media/tutorial-create-tenant/directories-subscription-filter-icon.png)
+        ![Icono de filtro Directorios y suscripciones](media/tutorial-create-tenant/directories-subscription-filter-icon.png)
 
     1. Busque el directorio que contiene la suscripción y seleccione el botón **Cambiar** situado al lado. Al cambiar un directorio, se vuelve a cargar el portal.
 
-    ![Directorios y suscripciones con el botón Cambiar](media/tutorial-create-tenant/switch-directory.png)
+        ![Directorios y suscripciones con el botón Cambiar](media/tutorial-create-tenant/switch-directory.png)
 
 1. Agregue **Microsoft.AzureActiveDirectory** como proveedor de recursos para la suscripción de Azure que utiliza ([más información](../azure-resource-manager/management/resource-providers-and-types.md?WT.mc_id=Portal-Microsoft_Azure_Support#register-resource-provider-1)):
 

@@ -3,12 +3,12 @@ title: Uso de Azure DevTest Labs para desarrolladores
 description: Aprenderá acerca de las diversas características de Azure DevTest Labs que se pueden utilizar para cumplir los requisitos del desarrollador y los pasos detallados que puede seguir para configurar un laboratorio.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: bc5376c780413f130d5dc812b3bc9e415acd354c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d7299272864a04c3eaaecbd7fd844841912e373d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128567653"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130235134"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Uso de Azure DevTest Labs para desarrolladores
 Se puede utilizar Azure DevTest Labs para implementar numerosos escenarios clave pero uno de los principales escenarios implica el uso de DevTest Labs para máquinas de desarrollo host para desarrolladores. En este escenario, DevTest Labs ofrece estas ventajas:
@@ -45,7 +45,7 @@ En este artículo, aprenderá acerca de las diversas características de Azure D
    | --- | --- |
    | [Configuración de imágenes de Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Aprenda a permitir imágenes de Azure Marketplace y haga que estén disponibles para su selección solo las imágenes que desee para los desarrolladores.|
    | [Creación de una imagen personalizada](devtest-lab-create-template.md) |Cree una imagen personalizada instalando previamente el software que necesita para que los desarrolladores puedan crear rápidamente una máquina virtual con la imagen personalizada.|
-   | [Información acerca del generador de imágenes](/azure/devtest-labs/devtest-lab-faq#blog-post) |Vea un vídeo que describe cómo configurar y usar un generador de imágenes.|
+   | [Información acerca del generador de imágenes](./devtest-lab-faq.yml#blog-post) |Vea un vídeo que describe cómo configurar y usar un generador de imágenes.|
 
 3. **Creación de plantillas reutilizables para las máquinas de desarrollo** 
    
@@ -87,7 +87,7 @@ En este artículo, aprenderá acerca de las diversas características de Azure D
    | Tarea | Conocimientos que adquirirá |
    | --- | --- |
    | [Definición de directivas de laboratorio](devtest-lab-set-lab-policy.md) |Controle los costos mediante el establecimiento de directivas en el laboratorio. |
-   | [Eliminación de todas las máquinas virtuales del laboratorio mediante un script de PowerShell](/azure/devtest-labs/devtest-lab-faq#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Elimine todos los laboratorios en una sola operación al finalizar el desarrollo.|
+   | [Eliminación de todas las máquinas virtuales del laboratorio mediante un script de PowerShell](./devtest-lab-faq.yml) |Elimine todos los laboratorios en una sola operación al finalizar el desarrollo.|
 
 1. **Incorporación de una red virtual a una máquina virtual** 
    
@@ -103,7 +103,7 @@ En este artículo, aprenderá acerca de las diversas características de Azure D
 
 6. **Uso compartido del laboratorio con cada desarrollador**
    
-    Se puede acceder directamente a los laboratorios mediante un vínculo que puede compartir con los desarrolladores. Ni siquiera es necesario que tengan una cuenta de Azure, siempre y cuando dispongan de una [cuenta de Microsoft](/azure/devtest-labs/devtest-lab-faq#what-is-a-microsoft-account). Los desarrolladores no pueden ver las máquinas virtuales creadas por otros desarrolladores.  
+    Se puede acceder directamente a los laboratorios mediante un vínculo que puede compartir con los desarrolladores. Ni siquiera es necesario que tengan una cuenta de Azure, siempre y cuando dispongan de una [cuenta de Microsoft](./devtest-lab-faq.yml). Los desarrolladores no pueden ver las máquinas virtuales creadas por otros desarrolladores.  
    
     Para más información, haga clic en los vínculos de la tabla siguiente:
    
@@ -111,7 +111,7 @@ En este artículo, aprenderá acerca de las diversas características de Azure D
    | --- | --- |
    | [Incorporación de un desarrollador a un laboratorio de Azure DevTest Labs](devtest-lab-add-devtest-user.md) |Utilice Azure Portal para agregar desarrolladores al laboratorio.|
    | [Incorporación de desarrolladores al laboratorio mediante un script de PowerShell](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |Use PowerShell para automatizar la incorporación de desarrolladores al laboratorio. |
-   | [Obtención de un vínculo al laboratorio](/azure/devtest-labs/devtest-lab-faq#how-do-i-share-a-direct-link-to-my-lab) |Aprenda cómo pueden los desarrolladores tener acceso directamente a un laboratorio a través de un hipervínculo.|
+   | [Obtención de un vínculo al laboratorio](./devtest-lab-faq.yml) |Aprenda cómo pueden los desarrolladores tener acceso directamente a un laboratorio a través de un hipervínculo.|
 
 7. **Automatización de la creación de un laboratorio para más equipos** 
    
@@ -121,6 +121,6 @@ En este artículo, aprenderá acerca de las diversas características de Azure D
    
    | Tarea | Conocimientos que adquirirá |
    | --- | --- |
-   | [Creación de un laboratorio mediante una plantilla de Resource Manager](/azure/devtest-labs/devtest-lab-faq#how-do-i-create-a-lab-from-a-resource-manager-template) |Cree laboratorios en Azure DevTest Labs mediante plantillas de Resource Manager. |
+   | [Creación de un laboratorio mediante una plantilla de Resource Manager](./devtest-lab-faq.yml) |Cree laboratorios en Azure DevTest Labs mediante plantillas de Resource Manager. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

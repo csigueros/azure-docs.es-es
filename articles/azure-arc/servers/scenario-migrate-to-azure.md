@@ -3,12 +3,12 @@ title: Migración de servidores habilitados para Azure Arc a Azure
 description: Obtenga información sobre cómo migrar a Azure servidores habilitados para Azure Arc que se ejecutan en el entorno local u otro entorno en la nube.
 ms.date: 07/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0ed30fac28c3491a9772466aa193f721f4fa440f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a524e9930b96d0f18038a2afd43039081010a504
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124816004"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236270"
 ---
 # <a name="migrate-your-on-premises-or-other-cloud-azure-arc-enabled-server-to-azure"></a>Migración de un servidor local o en la nube habilitado para Azure Arc a Azure
 
@@ -72,7 +72,7 @@ Después de la migración y de completar todos los pasos de configuración poste
 
 Para reanudar el uso de la configuración de auditoría dentro de una máquina definiciones de la directiva de configuración de invitado, consulte [Habilitar configuración de invitado](../../governance/policy/concepts/guest-configuration.md#enable-guest-configuration).
 
-Si la extensión de VM de Log Analytics o la extensión de VM de Dependency Agent se implementaron mediante Azure Policy y la [iniciativa VM Insights](../../azure-monitor/vm/vminsights-enable-policy.md), quite la [exclusión](../../governance/policy/tutorials/create-and-manage.md#remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion) que creó anteriormente. Para usar Azure Policy para habilitar las máquinas virtuales de Azure, consulte [Implementación de Azure Monitor a escala mediante Azure Policy](../../azure-monitor/deploy-scale.md#vm-insights). 
+Si la extensión de VM de Log Analytics o la extensión de VM de Dependency Agent se implementaron mediante Azure Policy y la [iniciativa VM Insights](../../azure-monitor/vm/vminsights-enable-policy.md), quite la [exclusión](../../governance/policy/tutorials/create-and-manage.md#remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion) que creó anteriormente. Para usar Azure Policy para habilitar las máquinas virtuales de Azure, consulte [Implementación de Azure Monitor a escala mediante Azure Policy](../../azure-monitor/best-practices.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

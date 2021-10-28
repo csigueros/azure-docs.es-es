@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: duau
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: af70296b886f7e1fb736c1df1b041e2f43451327
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 5c2da05dd68951cada82fc888d54a0f423ce18c7
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110701960"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130242295"
 ---
 # <a name="create-and-manage-expressroute-public-peering"></a>Creación y administración del emparejamiento público de ExpressRoute
 
@@ -31,7 +31,7 @@ Este artículo le ayuda a crear y administrar la configuración de enrutamiento 
 
 ## <a name="connectivity"></a>Conectividad
 
-La conectividad siempre se inicia desde la WAN a los servicios de Microsoft Azure. Servicios de Microsoft Azure no podrá iniciar conexiones en la red a través de este dominio de enrutamiento. Si el circuito ExpressRoute está habilitado para el emparejamiento público de Azure, puede acceder a los [intervalos de IP públicas que se usan en Azure](../virtual-network/public-ip-addresses.md#public-ip-addresses) a través del circuito.
+La conectividad siempre se inicia desde la WAN a los servicios de Microsoft Azure. Servicios de Microsoft Azure no podrá iniciar conexiones en la red a través de este dominio de enrutamiento. Si el circuito ExpressRoute está habilitado para el emparejamiento público de Azure, puede acceder a los [intervalos de IP públicas que se usan en Azure](../virtual-network/ip-services/public-ip-addresses.md#public-ip-addresses) a través del circuito.
 
 Una vez que se habilita el emparejamiento público, puede conectarse a la mayoría de servicios de Azure. No se permite elegir de forma selectiva servicios para los que anunciemos rutas.
 

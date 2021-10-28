@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 07/20/2021
 ms.custom: references_regions
-ms.openlocfilehash: b3c84a46e19e4cf24459424458340233869ea683
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3cd4249762e0e5836dc6a077d7f9d091394f427c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121736296"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130237973"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novedades de Azure Cognitive Search
 
@@ -24,7 +24,7 @@ Conozca las novedades del servicio. Marque esta página para mantenerse actualiz
 |Característica&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Descripción | Disponibilidad  |
 |------------------------------------|--------------|---------------|
 | [API REST Search 2021-04-30-Preview](/rest/api/searchservice/index-preview) | Agrega compatibilidad con la API REST para las conexiones de indizador realizadas mediante [identidades administradas](search-howto-managed-identities-data-sources.md) y la autenticación de Azure Active Directory (Azure AD). | Versión preliminar pública |
-| [Autorización basada en roles (versión preliminar)](search-security-rbac.md) | Autenticación mediante Azure Active Directory y nuevos roles integrados para el acceso del plano de datos a índices e indexación, lo que elimina o reduce la dependencia de las claves de API. | Versión preliminar pública ([bajo solicitud](https://aka.ms/azure-cognitive-search/rbac-preview)). Una vez que la suscripción esté integrada, use Azure Portal o la API REST de administración versión 2021-04-01-Preview a fin de configurar un servicio de búsqueda para la autenticación del plano de datos.|
+| [Autorización basada en roles (versión preliminar)](search-security-rbac.md) | Autenticación mediante Azure Active Directory y nuevos roles integrados para el acceso del plano de datos a índices e indexación, lo que elimina o reduce la dependencia de las claves de API. | Versión preliminar pública ([bajo solicitud](/azure/search/search-security-rbac?tabs=config-svc-portal%2Croles-portal%2Ctest-portal#step-1-preview-sign-up)). Una vez que la suscripción esté integrada, use Azure Portal o la API REST de administración versión 2021-04-01-Preview a fin de configurar un servicio de búsqueda para la autenticación del plano de datos.|
 | [API REST de administración 2021-04-01-Preview](/rest/api/searchmanagement/) | Modifica [Crear o actualizar un servicio](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) para admitir los nuevos valores [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions). | Versión preliminar pública |
 
 ## <a name="may-2021"></a>Mayo de 2021

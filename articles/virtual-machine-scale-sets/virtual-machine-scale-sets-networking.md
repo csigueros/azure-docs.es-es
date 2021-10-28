@@ -9,12 +9,12 @@ ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 7c984f418ba35290f9c482efad83f3dd4d06c9b8
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ea17d86bb4e5e4a6b5c5106c7d831c6691018b12
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124823542"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130214745"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Redes para conjuntos de escalado de máquinas virtuales de Azure
 
@@ -535,7 +535,7 @@ Entre los escenarios comunes que requieren conectividad de salida explícita se 
 - La activación de una máquina virtual Windows requiere que se haya definido la conectividad de salida desde la instancia de máquina virtual al Servicio de administración de claves (KMS) de activación de Windows. Vea [Solución de problemas de activación de máquinas virtuales Windows](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems) para obtener más información.  
 - Acceda a cuentas de almacenamiento o Key Vault. La conectividad con los servicios de Azure también se puede establecer por medio de [Private Link](../private-link/private-link-overview.md). 
 
-Vea [Acceso de salida predeterminado en Azure](https://aka.ms/defaultoutboundaccess) para obtener más detalles sobre cómo definir conexiones de salida seguras.
+Vea [Acceso de salida predeterminado en Azure](../virtual-network/ip-services/default-outbound-access.md) para obtener más detalles sobre cómo definir conexiones de salida seguras.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

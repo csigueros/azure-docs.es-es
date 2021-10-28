@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/23/2021
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 15bc0aa0c4a657bbb6f363a9c2786c1d4f9116ee
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 23d54c2725e48b1d587fb641c593be0c8d63958f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123544385"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130248647"
 ---
 # <a name="compute-platform-for-azure-api-management"></a>Plataforma de proceso para Azure API Management
 
@@ -57,7 +57,7 @@ Cree o actualice la conexión de red virtual o la configuración de la zona de d
 
 > [!IMPORTANT]
 > Al actualizar la versión de la plataforma de proceso de una instancia conectada a una [red virtual de Azure](virtual-network-concepts.md):
-> * Tendrá que proporcionar un recurso de [dirección IPv4 pública](../virtual-network/public-ip-addresses.md#standard) de SKU estándar.
+> * Tendrá que proporcionar un recurso de [dirección IPv4 pública](../virtual-network/ip-services/public-ip-addresses.md#standard) de SKU estándar.
 > * Las direcciones VIP de la instancia de API Management cambiarán.
 
 ## <a name="next-steps"></a>Pasos siguientes

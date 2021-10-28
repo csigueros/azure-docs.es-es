@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/12/2021
 ms.author: kgremban
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 5db37717356cd06b257867615623e24a1c36a335
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e9b47d3cfdb648a63156164f2341b05b4eeec4a1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121780579"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234781"
 ---
 # <a name="azure-iot-edge-for-linux-on-windows-virtual-switch-creation"></a>Creación de un conmutador virtual de Azure IoT Edge para Linux en Windows
 Azure IoT Edge para Linux en Windows usa un conmutador virtual en la máquina host para comunicarse con la máquina virtual. Las versiones de escritorio de Windows incluyen un conmutador predeterminado que se puede usar, pero Windows Server no. Para poder implementar IoT Edge para Linux en Windows en un dispositivo Windows Server, debe crear un conmutador virtual. Además, puede usar esta guía para crear un conmutador virtual personalizado, si es necesario. 
@@ -26,7 +26,7 @@ En este artículo se explica cómo crear un conmutador virtual en un dispositivo
 
 ## <a name="prerequisites"></a>Requisitos previos
 - Un dispositivo Windows. Para ver las versiones de Windows compatibles, consulte [Sistemas operativos](support.md#operating-systems).
-- El rol de Hyper-V instalado en el dispositivo Windows. Para obtener más información sobre cómo habilitar Hyper-V, consulte [Instalación y aprovisionamiento de Azure IoT Edge para Linux en un dispositivo Windows](./how-to-install-iot-edge-on-windows.md?tabs=powershell#prerequisites).
+- El rol de Hyper-V instalado en el dispositivo Windows. Para obtener más información sobre cómo habilitar Hyper-V, consulte [Instalación y aprovisionamiento de Azure IoT Edge para Linux en un dispositivo Windows](./how-to-provision-single-device-linux-on-windows-symmetric.md?tabs=powershell#prerequisites).
 
 ## <a name="create-virtual-switch"></a>Creación de un conmutador virtual 
 Los pasos de esta sección son una guía genérica para crear un conmutador virtual. Asegúrese de que la configuración del conmutador virtual se alinee con el entorno de red.
@@ -99,4 +99,4 @@ Los pasos de esta sección son una guía genérica para crear un conmutador virt
    ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Siga los pasos descritos en [Instalación y aprovisionamiento de Azure IoT Edge para Linux en un dispositivo Windows](how-to-install-iot-edge-on-windows.md) para configurar un dispositivo con IoT Edge para Linux en Windows.
+Siga los pasos descritos en [Instalación y aprovisionamiento de Azure IoT Edge para Linux en un dispositivo Windows](how-to-provision-single-device-linux-on-windows-symmetric.md) para configurar un dispositivo con IoT Edge para Linux en Windows.

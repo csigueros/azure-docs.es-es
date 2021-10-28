@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 08/12/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 920cfa4053fac692145f46cc5cff7d53381d900b
-ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
+ms.openlocfilehash: a59f97e41705e222bbbca6656cd67d2e692ec5fa
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122201803"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232411"
 ---
 # <a name="tutorial-create-a-load-balancer-with-more-than-one-availability-set-in-the-backend-pool-using-the-azure-portal"></a>Tutorial: Creación de un equilibrador de carga con más de un conjunto de disponibilidad en el grupo de servidores back-end mediante Azure Portal
 
@@ -52,7 +52,7 @@ En esta sección creará una red virtual para el equilibrador de carga y los dem
     | Configuración | Value |
     | ------- | ------|
     | **Detalles del proyecto** |   |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **Crear nuevo**. </br> Escriba **TutorLBmultiAVS-rg** en **Nombre**. |
     | **Detalles de instancia** |   |
     | Nombre | Escriba **myVNet**. |
@@ -97,7 +97,7 @@ En esta sección creará una puerta de enlace NAT para la conectividad saliente 
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** |   |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **TutorLBmultiAVS-rg**. |
     | **Detalles de instancia** |   |
     | Nombre de NAT Gateway | Escriba **myNATgateway**. |
@@ -136,7 +136,7 @@ En esta sección va a crear un equilibrador de carga para las máquinas virtuale
     | Configuración                 | Value                                              |
     | ---                     | ---                                                |
     | **Detalles del proyecto** |   |
-    | Suscripción               | Seleccione su suscripción.    |    
+    | Subscription               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **TutorLBmultiAVS-rg**. |
     | **Detalles de instancia** |   |
     | Nombre                   | Escriba **myLoadBalancer**.                                   |
@@ -159,7 +159,7 @@ En esta sección va a crear un equilibrador de carga para las máquinas virtuale
 8. Seleccione **Dirección IP** para **Tipo de IP**.
 
     > [!NOTE]
-    > Para más información sobre prefijos de IP, consulte [Prefijo de dirección IP pública de Azure](../virtual-network/public-ip-address-prefix.md).
+    > Para más información sobre prefijos de IP, consulte [Prefijo de dirección IP pública de Azure](../virtual-network/ip-services/public-ip-address-prefix.md).
 
 9. Seleccione **Crear nueva** en **Dirección IP pública**.
 
@@ -196,7 +196,7 @@ En esta sección va a crear un equilibrador de carga para las máquinas virtuale
 
 24. En **Agregar regla de equilibrio de carga**, escriba o seleccione la siguiente información:
 
-    | Parámetro | Value |
+    | Configuración | Value |
     | ------- | ----- |
     | Nombre | Escriba **myHTTPRule**. |
     | Versión de la dirección IP | Seleccione **IPv4** o **IPv6** en función de sus requisitos. |
@@ -237,7 +237,7 @@ En esta sección creará dos grupos de disponibilidad con dos máquinas virtuale
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** |   |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **TutorLBmultiAVS-rg**. |
     | **Detalles de instancia** |   |
     | Nombre de la máquina virtual | Escriba **myVM1**. |
@@ -301,7 +301,7 @@ En esta sección creará dos grupos de disponibilidad con dos máquinas virtuale
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** |   |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **TutorLBmultiAVS-rg**. |
     | **Detalles de instancia** |   |
     | Nombre de la máquina virtual | Escriba **myVM3**. |
@@ -440,4 +440,3 @@ En este tutorial ha:
 Pase al siguiente artículo para aprender a crear una instancia de Azure Load Balancer entre regiones:
 > [!div class="nextstepaction"]
 > [Creación de un equilibrador de carga entre regiones](tutorial-cross-region-portal.md)
-

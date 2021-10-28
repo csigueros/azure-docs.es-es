@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/14/2021
+ms.date: 10/20/2021
 ms.author: b-juche
 ms.custom: references_regions
-ms.openlocfilehash: c8cef623e26882443379fff73edcc1999463ec3e
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 013b456bb3a101e29de5aaae954914615123224f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130045775"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233251"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replicación entre regiones de volúmenes de Azure NetApp Files
 
@@ -35,6 +35,7 @@ La replicación de volúmenes de Azure NetApp Files se admite entre varios no pa
 | Geography | Par regional A | Par regional B  |
 |:--- |:--- |:--- |
 | Australia | Este de Australia | Sudeste de Australia |
+| Asia Pacífico | Este de Asia | Sudeste de Asia |
 | Canadá | Centro de Canadá | Este de Canadá |
 | Europa | Norte de Europa | Oeste de Europa |
 | Alemania | Centro-oeste de Alemania | Norte de Alemania |
@@ -44,8 +45,10 @@ La replicación de volúmenes de Azure NetApp Files se admite entre varios no pa
 | Norteamérica | Este de EE. UU. 2 | Centro de EE. UU. |
 | Norteamérica | Centro-Norte de EE. UU | Centro-sur de EE. UU.|
 | Noruega | Este de Noruega | Oeste de Noruega |
-| Reino Unido | Sur de Reino Unido 2 | Oeste de Reino Unido |
+| Suiza | Norte de Suiza | Oeste de Suiza |
+| Reino Unido | Sur de Reino Unido | Oeste de Reino Unido |
 | Emiratos Árabes Unidos | Norte de Emiratos Árabes Unidos | Centro de Emiratos Árabes Unidos |
+| US Gov | US Gov: Arizona | US Gov Texas |
 | US Gov | US Gov - Virginia | US Gov Texas |
 
 ### <a name="azure-regional-non-standard-pairs"></a>Pares no estándar regionales de Azure
@@ -62,6 +65,7 @@ La replicación de volúmenes de Azure NetApp Files se admite entre varios no pa
 | Norteamérica | Centro-sur de EE. UU. | Este de EE. UU. 2 |
 | Norteamérica | Centro-sur de EE. UU. | Centro de EE. UU. |
 | Norteamérica | Oeste de EE. UU. 2 | Este de EE. UU. |
+| US Gov | US Gov: Arizona | US Gov - Virginia |
 
 ## <a name="service-level-objectives"></a>Objetivos de nivel de servicio
 

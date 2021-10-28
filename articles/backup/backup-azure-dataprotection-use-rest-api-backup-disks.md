@@ -4,12 +4,12 @@ description: En este artículo se aprende a configurar, iniciar y administrar la
 ms.topic: conceptual
 ms.date: 10/06/2021
 ms.assetid: 6050a941-89d7-4b27-9976-69898cc34cde
-ms.openlocfilehash: 6aeba0682839384b930dca0c2df34f109260335c
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: e01a0e528c3274ac6ddefe000311e2db7523bb5e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129620921"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130264719"
 ---
 # <a name="back-up-azure-disks-using-azure-data-protection-via-rest-api"></a>Copia de seguridad de Azure Disks mediante Azure Data Protection a través de la API REST
 
@@ -51,7 +51,7 @@ El almacén de Backup requiere permisos en el disco para habilitar las copias de
 
 ### <a name="assign-permissions"></a>Asignación de permisos
 
-Debe asignar algunos permisos mediante RBAC al almacén (representado por el valor de MSI del almacén) y al disco o el grupo de recursos del disco pertinentes. Para ello, se pueden usar Azure Portal o la CLI. Para asignar permisos relacionados, consulte los [requisitos previos para configurar la copia de seguridad de discos administrados](/azure/backup/backup-managed-disks-ps#assign-permissions).
+Debe asignar algunos permisos mediante RBAC al almacén (representado por el valor de MSI del almacén) y al disco o el grupo de recursos del disco pertinentes. Para ello, se pueden usar Azure Portal o la CLI. Para asignar permisos relacionados, consulte los [requisitos previos para configurar la copia de seguridad de discos administrados](./backup-managed-disks-ps.md#assign-permissions).
 
 ### <a name="prepare-the-request-to-configure-backup"></a>Preparación de la solicitud para configurar una copia de seguridad
 

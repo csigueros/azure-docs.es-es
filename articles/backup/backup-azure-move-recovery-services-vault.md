@@ -4,12 +4,12 @@ description: Instrucciones sobre cómo mover el almacén de Recovery Services en
 ms.topic: conceptual
 ms.date: 09/24/2021
 ms.custom: references_regions
-ms.openlocfilehash: d206e0bf136a49b12f60079708aea6dbe39f42ff
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: edd15e6b32911c76a54bbe852af4236ba12250f5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129060539"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130264776"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Traslado del almacén de Recovery Services entre suscripciones y grupos de recursos de Azure
 
@@ -23,7 +23,7 @@ Se admiten todas las regiones públicas y soberanas, excepto el Centro de Franci
 
 - Durante el traslado de almacén entre grupos de recursos, los grupos de recursos de origen y destino están bloqueados para evitar las operaciones de escritura y eliminación. Para más información, consulte este [artículo](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Solo la suscripción del administrador tiene los permisos para mover un almacén.
-- Para trasladar almacenes entre suscripciones, la suscripción de destino debe existir en el mismo inquilino que la suscripción de origen y su estado debe estar habilitado. Para trasladar un almacén a una instancia de Azure AD diferente, consulte [Transferencia de una suscripción a otro directorio](../role-based-access-control/transfer-subscription.md) y [Preguntas frecuentes del almacén de Recovery Services](/azure/backup/backup-azure-backup-faq#recovery-services-vault).
+- Para trasladar almacenes entre suscripciones, la suscripción de destino debe existir en el mismo inquilino que la suscripción de origen y su estado debe estar habilitado. Para trasladar un almacén a una instancia de Azure AD diferente, consulte [Transferencia de una suscripción a otro directorio](../role-based-access-control/transfer-subscription.md) y [Preguntas frecuentes del almacén de Recovery Services](./backup-azure-backup-faq.yml).
 - Debe tener permiso para realizar operaciones de escritura en el grupo de recursos de destino.
 - El traslado del almacén solo cambia el grupo de recursos. El almacén de Recovery Services existirá en la misma ubicación y no se puede cambiar.
 - Solo puede trasladar un almacén de Recovery Services por región cada vez.
@@ -121,7 +121,7 @@ Cuando una máquina virtual (VM) de Azure protegida en un almacén de Recovery S
 
 Antes de trasladar una máquina virtual, asegúrese de que se cumplen los requisitos previos siguientes:
 
-1. Consulte los [requisitos previos asociados al traslado de una máquina virtual](/azure/resource-mover/tutorial-move-region-virtual-machines#prerequisites) y asegúrese de que la máquina virtual es apta para el traslado.
+1. Consulte los [requisitos previos asociados al traslado de una máquina virtual](../resource-mover/tutorial-move-region-virtual-machines.md#prerequisites) y asegúrese de que la máquina virtual es apta para el traslado.
 1. [Seleccione la máquina virtual en la pestaña **Elementos de copia de seguridad**](./backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) del panel del almacén existente y seleccione **Detener protección** seguido de los datos de conservación o eliminación según sus requisitos. Cuando los datos de copia de seguridad de una VM se detienen con datos de retención, los puntos de recuperación se conservan indefinidamente y no cumplen ninguna directiva. Esto garantiza que siempre tenga los datos de copia de seguridad listos para una restauración.
    >[!Note]
    >La conservación de datos en el almacén anterior conlleva cargos de copia de seguridad. Si ya no quiere conservar los datos para evitar su facturación, debe eliminar los datos de copia de seguridad conservados mediante la opción [Eliminar datos](./backup-azure-manage-vms.md#delete-backup-data).
@@ -130,8 +130,8 @@ Antes de trasladar una máquina virtual, asegúrese de que se cumplen los requis
    - En las máquinas virtuales Windows, instale las actualizaciones de Windows más recientes.
    - En las máquinas virtuales Linux, consulte las indicaciones del distribuidor para asegurarse de que las máquinas disponen de los certificados y la lista de revocación de certificados más recientes.
 1. Permita la conectividad saliente desde las máquinas virtuales:
-   - Si utiliza un proxy de firewall basado en direcciones URL para controlar la conectividad de salida, debe facilitar el acceso a [estas URL](/azure/resource-mover/support-matrix-move-region-azure-vm#url-access).
-   - Si utiliza reglas de grupo de seguridad de red (NSG) para controlar la conectividad de salida, cree [estas reglas de etiquetas de servicio](/azure/resource-mover/support-matrix-move-region-azure-vm#nsg-rules).
+   - Si utiliza un proxy de firewall basado en direcciones URL para controlar la conectividad de salida, debe facilitar el acceso a [estas URL](../resource-mover/support-matrix-move-region-azure-vm.md#url-access).
+   - Si utiliza reglas de grupo de seguridad de red (NSG) para controlar la conectividad de salida, cree [estas reglas de etiquetas de servicio](../resource-mover/support-matrix-move-region-azure-vm.md#nsg-rules).
 
 #### <a name="move-azure-vms"></a>Traslado de máquinas virtuales de Azure
 
@@ -151,8 +151,8 @@ Azure Backup ofrece una [solución de administración de instantáneas](./backup
 
 Antes de trasladar la cuenta de almacenamiento, asegúrese de que se cumplen los siguientes requisitos previos:
 
-1.  Consulte los [requisitos previos para trasladar una cuenta de almacenamiento](/azure/storage/common/storage-account-move?tabs=azure-portal#prerequisites). 
-1. Exporte y modifique una plantilla de traslado de recursos. Para obtener más información, consulte [Preparación de la cuenta de almacenamiento para el traslado de región](/azure/storage/common/storage-account-move?tabs=azure-portal#prepare).
+1.  Consulte los [requisitos previos para trasladar una cuenta de almacenamiento](../storage/common/storage-account-move.md?tabs=azure-portal#prerequisites). 
+1. Exporte y modifique una plantilla de traslado de recursos. Para obtener más información, consulte [Preparación de la cuenta de almacenamiento para el traslado de región](../storage/common/storage-account-move.md?tabs=azure-portal#prepare).
 
 #### <a name="move-azure-file-share"></a>Traslado de un recurso compartido de archivos de Azure
 
@@ -177,7 +177,7 @@ Cuando se traslada una VM con servidores SQL o SAP HANA a otra región, las base
 
 Antes de trasladar SQL Server o SAP HANA en ejecución en una VM a una nueva región, asegúrese de que se cumplen los siguientes requisitos previos:
 
-1. Consulte los [requisitos previos asociados al traslado de una máquina virtual](/azure/resource-mover/tutorial-move-region-virtual-machines#prerequisites) y asegúrese de que la máquina virtual es apta para el traslado. 
+1. Consulte los [requisitos previos asociados al traslado de una máquina virtual](../resource-mover/tutorial-move-region-virtual-machines.md#prerequisites) y asegúrese de que la máquina virtual es apta para el traslado. 
 1. Seleccione la VM en la [pestaña Elementos de copia de seguridad](./backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) del panel del almacén existente y seleccione las _bases de datos_ cuyas copias de seguridad han de detenerse. Seleccione **Detener protección** seguido de los datos de conservación o eliminación según sus requisitos. Cuando los datos de copia de seguridad se detienen con datos de retención, los puntos de recuperación se conservan indefinidamente y no cumplen ninguna directiva. Esto garantiza que siempre tenga los datos de copia de seguridad listos para una restauración.
    >[!Note]
    >La conservación de datos en el almacén anterior conlleva cargos de copia de seguridad. Si ya no quiere conservar los datos para evitar su facturación, debe eliminar los datos de copia de seguridad conservados mediante la opción [Eliminar datos](./backup-azure-manage-vms.md#delete-backup-data).
@@ -186,8 +186,8 @@ Antes de trasladar SQL Server o SAP HANA en ejecución en una VM a una nueva reg
    - En las máquinas virtuales Windows, instale las actualizaciones de Windows más recientes.
    - En las máquinas virtuales Linux, consulte las indicaciones del distribuidor y asegúrese de que las máquinas disponen de los certificados y la lista de revocación de certificados más recientes.
 1. Permita la conectividad saliente desde las máquinas virtuales:
-   - Si utiliza un proxy de firewall basado en direcciones URL para controlar la conectividad de salida, debe facilitar el acceso a [estas URL](/azure/resource-mover/support-matrix-move-region-azure-vm#url-access).
-   - Si utiliza reglas de grupo de seguridad de red (NSG) para controlar la conectividad de salida, cree [estas reglas de etiquetas de servicio](/azure/resource-mover/support-matrix-move-region-azure-vm#nsg-rules).
+   - Si utiliza un proxy de firewall basado en direcciones URL para controlar la conectividad de salida, debe facilitar el acceso a [estas URL](../resource-mover/support-matrix-move-region-azure-vm.md#url-access).
+   - Si utiliza reglas de grupo de seguridad de red (NSG) para controlar la conectividad de salida, cree [estas reglas de etiquetas de servicio](../resource-mover/support-matrix-move-region-azure-vm.md#nsg-rules).
 
 #### <a name="move-sql-serversap-hana-in-azure-vm"></a>Traslado de SQL Server o SAP HANA en una VM de Azure
 

@@ -9,12 +9,12 @@ ms.custom:
 - references_regions
 - fasttrack-edit
 - devx-track-azurecli
-ms.openlocfilehash: 2bbef3190a38d1c0f9b058f2c57050ecd85756e3
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: c549f29e729eec4403f2943f51e8acb4a9f21b37
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129984770"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130248400"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan prémium de Azure Functions
 
@@ -98,7 +98,7 @@ Además del [recuento de instancias máximo de un plan](#plan-and-sku-settings),
 
 ## <a name="private-network-connectivity"></a>Conectividad de red privada
 
-Las aplicaciones de funciones implementadas en un plan Prémium pueden aprovechar las ventajas de la [integración de red virtual para aplicaciones web](../app-service/web-sites-integrate-with-vnet.md). Cuando se configura, la aplicación puede comunicarse con los recursos de la red virtual o protegerse mediante puntos de conexión de servicio. Las restricciones de IP también están disponibles en la aplicación para restringir el tráfico entrante.
+Las aplicaciones de funciones implementadas en un plan Prémium pueden aprovechar las ventajas de la [integración de red virtual para aplicaciones web](../app-service/overview-vnet-integration.md). Cuando se configura, la aplicación puede comunicarse con los recursos de la red virtual o protegerse mediante puntos de conexión de servicio. Las restricciones de IP también están disponibles en la aplicación para restringir el tráfico entrante.
 
 Cuando se asigne una subred a la aplicación de funciones en un plan Premium, necesitará una subred con suficientes direcciones IP para cada posible instancia. Se requiere un bloque de direcciones IP con al menos 100 direcciones disponibles.
 
@@ -184,7 +184,7 @@ Consulte la disponibilidad regional completa de Functions en el [sitio web de Az
 |Centro-oeste de Alemania| 100 | 20 |
 |Japón Oriental| 100 | 20 |
 |Japón Occidental| 100 | 20 |
-|JIO de India occidental| 100 | 20 |
+|JIO del Oeste de la India| 100 | 20 |
 |Centro de Corea del Sur| 100 | 20 |
 |Corea del Sur| No disponible | 20 |
 |Centro-Norte de EE. UU| 100 | 20 |
@@ -197,7 +197,7 @@ Consulte la disponibilidad regional completa de Functions en el [sitio web de Az
 |Norte de Suiza| 100 | 20 |
 |Oeste de Suiza| 100 | 20 |
 |Norte de Emiratos Árabes Unidos| 100 | 20 |
-|Sur de Reino Unido 2| 100 | 20 |
+|Sur de Reino Unido| 100 | 20 |
 |Oeste de Reino Unido| 100 | 20 |
 |USGov: Arizona| 100 | 20 |
 |USGov: Texas| 100 | No disponible |

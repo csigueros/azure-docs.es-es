@@ -3,12 +3,12 @@ title: Habilitación de Container Insights | Microsoft Docs
 description: En este artículo se describe cómo habilitar y configurar Container Insights, de forma que pueda conocer el rendimiento de su contenedor y qué problemas relacionados con el rendimiento se han identificado.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: de7475ddb5a8057ef1b58d4ed21c55a1d10a4dd8
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: be2dcaeb088d2996df1d09e3f373e48866db3eb9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129708941"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233457"
 ---
 # <a name="enable-container-insights"></a>Habilitación de Container Insights
 
@@ -51,7 +51,7 @@ Antes de comenzar, asegúrese de que cumple los requisitos siguientes:
    
    Si decide crear el área de trabajo, puede hacerlo mediante: 
    - [Azure Resource Manager](../logs/resource-manager-workspace.md)
-   - [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+   - [PowerShell](../logs/powershell-workspace-configuration.md?toc=%2fpowershell%2fmodule%2ftoc.json)
    - [Portal de Azure](../logs/quick-create-workspace.md) 
    
    Para obtener una lista de los pares de asignación compatibles utilizados para el área de trabajo predeterminada, vea [Asignaciones de región para Container Insights](container-insights-region-mapping.md).

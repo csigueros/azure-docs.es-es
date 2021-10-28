@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: 4061a3dbf4dc92d6d412528115d46edc36d20d5e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 27b1601f9cdd1ccac001e71f2e0364ee168a201f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94700698"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232522"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Información general de IPv6 para Azure Load Balancer
 
 
 >[!NOTE] 
->Se ha reemplazado este contenido por [I0nformación general de IPv6 para Azure Virtual Network](../virtual-network/ipv6-overview.md). Azure recomienda que las nuevas implementaciones de IPv6 usen las nuevas características de IPv6 para Azure Virtual Network.
+>Se ha reemplazado este contenido por [I0nformación general de IPv6 para Azure Virtual Network](../virtual-network/ip-services/ipv6-overview.md). Azure recomienda que las nuevas implementaciones de IPv6 usen las nuevas características de IPv6 para Azure Virtual Network.
 
 >[!NOTE]
 >Azure Load Balancer admite dos tipos diferentes: Básico y Estándar. En este artículo se describe Load Balancer Básico. Para más información sobre Load Balancer Estándar, consulte [Introducción a Azure Load Balancer Estándar (versión preliminar)](./load-balancer-overview.md).
@@ -40,12 +40,12 @@ En la siguiente imagen se muestra la funcionalidad de IPv6 para Azure Load Balan
 
 Una vez implementado, un cliente de Internet con IPv4 o IPv6 habilitado puede comunicarse con direcciones IPv4 o IPv6 públicas (o nombres de host) de Azure Load Balancer con conexión a Internet. El equilibrador de carga redirige los paquetes IPv6 a las direcciones IPv6 privadas de las máquinas virtuales mediante la traducción de direcciones de red (NAT). El cliente de Internet IPv6 no se puede comunicar directamente con la dirección IPv6 de las máquinas virtuales.
 
-## <a name="features&quot;></a>Características
+## <a name="features"></a>Características
 
 La compatibilidad nativa de IPv6 para máquinas virtuales implementadas a través de Azure Resource Manager ofrece:
 
 1. Servicios IPv6 de carga equilibrada para clientes IPv6 en Internet
-2. Puntos de conexión de IPv4 y IPv6 nativas en máquinas virtuales (&quot;dual apilada")
+2. Puntos de conexión de IPv4 y IPv6 nativas en máquinas virtuales ("dual apilada")
 3. Conexiones de IPv6 nativas iniciadas de entrada y salida
 4. Protocolos compatibles como TCP, UDP y HTTP (S) admiten una amplia gama de arquitecturas de servicio
 

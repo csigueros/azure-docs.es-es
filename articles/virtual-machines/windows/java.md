@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/09/2021
 ms.custom: devx-track-java
 ms.author: cynthn
-ms.openlocfilehash: fa4d2f5dc33553cb92a5733e5946c055d6a12941
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: daf1c7738539f225f116edbb839d86965f4e38cd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129810888"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234025"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Creación y administración de máquinas virtuales Windows en Azure mediante Java
 
@@ -141,7 +141,7 @@ AvailabilitySet availabilitySet = azure.availabilitySets()
 ```
 ### <a name="create-the-public-ip-address"></a>Crear la dirección IP pública
 
-Se necesita una [dirección IP pública](../../virtual-network/public-ip-addresses.md) para la comunicación con la máquina virtual.
+Se necesita una [dirección IP pública](../../virtual-network/ip-services/public-ip-addresses.md) para la comunicación con la máquina virtual.
 
 Para crear la dirección IP pública de la máquina virtual, agregue este código al bloque Try del método Main:
 

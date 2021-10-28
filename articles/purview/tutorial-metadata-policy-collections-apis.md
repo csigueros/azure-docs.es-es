@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 09/24/2021
-ms.openlocfilehash: cfb62050da2b1c72ec8e620f9a4222552f50daa2
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 79848d8f54ea1d019f2a9e6cf93a61cc8b7c49f9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129728691"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130245936"
 ---
 # <a name="tutorial-use-rest-apis-to-manage-role-based-access-control-on-azure-purview-collections"></a>Tutorial: Uso de las API REST para administrar el control de acceso basado en rol en las colecciones de Azure Purview 
 
@@ -23,7 +23,7 @@ Este tutorial le guía por el uso paso a paso de las API de la directiva de meta
 Para más información sobre los roles integrados de Azure Purview, consulte [Control de acceso en Azure Purview](catalog-permissions.md#roles). La guía asigna los roles al nivel de los permisos de acceso que se conceden a los usuarios.
 
 ## <a name="metadata-policy-api-reference-summary"></a>Resumen de la referencia de la API de directiva de metadatos
-En la tabla siguiente, se proporciona información general de la [referencia de la API de directiva de metadatos de Azure Purview](/rest/api/purview/metadatapolicydataplane/Metadata-Policy.yml). 
+En la tabla siguiente, se proporciona información general de la [referencia de la API de directiva de metadatos de Azure Purview](/rest/api/purview/metadatapolicydataplane/Metadata-Policy). 
 
 Antes de ejecutar estas API, reemplace {pv-acc-name} por el nombre de la cuenta de Azure Purview. Por ejemplo, si el nombre de la cuenta de Azure Purview es *FabrikamPurviewAccount*, los puntos de conexión de API se convertirán en *FabrikamPurviewAccount.purview.azure.com*.
 

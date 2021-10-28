@@ -4,12 +4,12 @@ description: Aprenda a hacer una copia de seguridad de Azure Managed Disks con A
 ms.topic: conceptual
 ms.date: 09/17/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: beb6a266a9436b7c26f5786c5f5a57f10fb9319a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4aab90bdd5a8ee4ecafd0dbfec81052da6b39f69
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128672716"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130264605"
 ---
 # <a name="back-up-azure-managed-disks-using-azure-powershell"></a>Restauración de Azure Managed Disks mediante Azure PowerShell
 
@@ -159,7 +159,7 @@ El usuario debe asignar algunos permisos mediante RBAC al almacén (representado
 
 El almacén de Backup usa la identidad administrada para obtener acceso a otros recursos de Azure. Para configurar la copia de seguridad de los discos administrados, la identidad administrada del almacén de Backup necesita un conjunto de permisos en los discos de origen y los grupos de recursos donde se crean y administran las instantáneas.
 
-Solo hay un identidad administrada asignada por cada recurso y está asociada al ciclo de vida del recurso. Puede conceder permisos a la identidad administrada mediante el control de acceso basado en roles de Azure (Azure RBAC). Tenga en cuenta que una identidad administrada es una entidad de servicio de un tipo especial que solo se puede usar con recursos de Azure. Obtenga más información sobre las [identidades administradas](/azure/active-directory/managed-identities-azure-resources/overview).
+Solo hay un identidad administrada asignada por cada recurso y está asociada al ciclo de vida del recurso. Puede conceder permisos a la identidad administrada mediante el control de acceso basado en roles de Azure (Azure RBAC). Tenga en cuenta que una identidad administrada es una entidad de servicio de un tipo especial que solo se puede usar con recursos de Azure. Obtenga más información sobre las [identidades administradas](../active-directory/managed-identities-azure-resources/overview.md).
 
 Para configurar la copia de seguridad de los discos administrados, se necesitan los siguientes requisitos previos:
 

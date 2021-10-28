@@ -6,14 +6,14 @@ ms.author: jingwang
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: quickstart
-ms.date: 08/27/2021
+ms.date: 10/14/2021
 ms.custom: template-quickstart, devx-track-azurecli
-ms.openlocfilehash: 30f521567f06eab04aceee462ffc44b817b63333
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 44c76955faf4c0d96c0e6ef502d00b61ff4c99ea
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123187710"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232950"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-azure-cli"></a>Inicio rápido: Creación de una instancia de Azure Data Factory con la CLI de Azure
 
@@ -144,7 +144,7 @@ A continuación, cree un servicio vinculado y dos conjuntos de datos.
 
    ```azurecli
    az datafactory dataset create --resource-group ADFQuickStartRG \
-       --dataset-name InputDataset --factory-name ADFQuickStartFactory \
+       --dataset-name InputDataset --factory-name ADFTutorialFactory \
        --properties @InputDataset.json
    ```
 
@@ -172,7 +172,7 @@ A continuación, cree un servicio vinculado y dos conjuntos de datos.
 
    ```azurecli
    az datafactory dataset create --resource-group ADFQuickStartRG \
-       --dataset-name OutputDataset --factory-name ADFQuickStartFactory \
+       --dataset-name OutputDataset --factory-name ADFTutorialFactory \
        --properties @OutputDataset.json
    ```
 
