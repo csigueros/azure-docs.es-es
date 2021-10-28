@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/03/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 872f6efb6cc8df8ed63fec23af3807a18dde6201
-ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.openlocfilehash: 711f83a33a530aef99bba75a0010bcd131aa771b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128708498"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130228972"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Tutorial: Configuración de una puerta de enlace de red virtual para ExpressRoute con Azure Portal
 > [!div class="op_single_selector"]
@@ -49,11 +49,6 @@ Los pasos de esta tarea usan una red virtual que se basa en los valores de la si
 * Tipo de puerta de enlace = "ExpressRoute" (Este tipo es obligatorio para una configuración de ExpressRoute).
 
 Puede ver un [vídeo](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) de estos pasos antes de comenzar la configuración.
-
-> [!IMPORTANT]
-> La compatibilidad de IPv6 con el emparejamiento privado se encuentra actualmente en **versión preliminar pública**. Si desea conectar la red virtual a un circuito ExpressRoute con el emparejamiento privado basado en IPv6 configurado, asegúrese de que la red virtual es de doble pila y sigue las instrucciones de [IPv6 para Azure Virtual Network](../virtual-network/ipv6-overview.md).
-> 
-> 
 
 ## <a name="create-the-gateway-subnet"></a>Creación de la subred de la puerta de enlace
 

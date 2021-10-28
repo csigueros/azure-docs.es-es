@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: e52e7151bc30a19bd6f6041d52effdd799a87c99
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6a41a2a522d082fa04c60cd58d095ab9b20401f9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91776976"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130229925"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Ciclo de vida de una base de conocimiento de QnA Maker
 QnA Maker aprende mejor en un ciclo iterativo de cambios en el modelo, ejemplos de expresiones, publicación y recopilación de datos de las consultas de punto de conexión.
@@ -88,4 +88,4 @@ La *base de conocimiento publicada* es la versión que se utiliza en la aplicaci
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Sugerencias de aprendizaje activo](./active-learning-suggestions.md)
+> [Sugerencias de aprendizaje activo](../index.yml)

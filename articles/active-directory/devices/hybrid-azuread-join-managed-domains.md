@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 01/26/2021
+ms.date: 10/22/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45eb13f22d44edd215ab55b6f36de5f8f8871e78
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c76db99be355e0cf57a29aaf5a390df0112c644f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128633020"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224618"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configuración de dispositivos híbridos unidos a Azure Active Directory para dominios administrados
 
@@ -42,7 +42,7 @@ En este tutorial, aprenderá a:
 > * Comprobación dispositivos unidos
 > * Solución de problemas
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (versión 1.1.819.0 o posterior)
 - Las credenciales de administrador global para el inquilino de Azure AD
@@ -72,6 +72,7 @@ La unión a Azure AD híbrido requiere que los dispositivos tengan acceso a los
 - `https://login.microsoftonline.com`
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com` (si usa o planea usar SSO de conexión directa)
+- `https://enterpriseregistration.windows.net`
 
 > [!WARNING]
 > Si su organización usa servidores proxy que interceptan el tráfico SSL en escenarios como la prevención de pérdida de datos o las restricciones de inquilino de Azure AD, asegúrese de que el tráfico a "https://device.login.microsoftonline.com" se excluya de la interrupción e inspección de TLS. Si no excluye "https://device.login.microsoftonline.com", pueden surgir interferencias con la autenticación de certificados de cliente, lo que causaría problemas con el registro de dispositivos y el acceso condicional basado en dispositivos.

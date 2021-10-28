@@ -3,12 +3,12 @@ title: Obtención de análisis de costos y creación de presupuestos para Azure 
 description: Obtenga información sobre cómo obtener un análisis de costos, establecer un presupuesto y reducir los costos para los recursos de proceso subyacentes y las licencias de software que se usan para ejecutar las cargas de trabajo de Batch.
 ms.topic: how-to
 ms.date: 10/04/2021
-ms.openlocfilehash: b88b69c4debf34cb97368d7cfb6ac5e611c77334
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 3590aad01216e5ca7401ce1edd55efb88bf26848
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130071822"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219212"
 ---
 # <a name="get-cost-analysis-and-set-budgets-for-azure-batch"></a>Obtención de análisis de costos y creación de presupuestos para Azure Batch
 
@@ -48,7 +48,7 @@ En función de los servicios que usa con la solución de Batch, es posible que i
 
 ## <a name="view-cost-analysis-and-create-budgets"></a>Visualización del análisis de costos y creación de presupuestos
 
-[Azure Cost Management](/azure/cost-management-billing/cost-management-billing-overview) le permite planificar, analizar y reducir sus gastos para maximizar la inversión en la nube. Los costos de uso de todos los servicios de Azure están disponibles, incluidos los de Azure Batch. Puede ver y filtrar los costos de Batch que se verán y filtrarán, pronosticar costos futuros y establecer límites de gasto con alertas cuando se alcancen esos límites.
+[Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) le permite planificar, analizar y reducir sus gastos para maximizar la inversión en la nube. Los costos de uso de todos los servicios de Azure están disponibles, incluidos los de Azure Batch. Puede ver y filtrar los costos de Batch que se verán y filtrarán, pronosticar costos futuros y establecer límites de gasto con alertas cuando se alcancen esos límites.
 
 En Azure Portal, puede crear presupuestos y alertas de gastos para los grupos o cuentas de Batch. Los presupuestos y las alertas son útiles para notificar a las partes interesadas de cualquier riesgo de exceso de gasto, aunque es posible que haya un retraso en las alertas de gasto y que se supere ligeramente el presupuesto.
 
@@ -151,5 +151,5 @@ El [escalado automático](batch-automatic-scaling.md) escala de manera dinámica
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre [Azure Cost Management + Billing](/azure/cost-management-billing/cost-management-billing-overview).
+- Más información sobre [Azure Cost Management + Billing](../cost-management-billing/cost-management-billing-overview.md).
 - Más información sobre las [VM de prioridad baja con Batch](batch-low-pri-vms.md).

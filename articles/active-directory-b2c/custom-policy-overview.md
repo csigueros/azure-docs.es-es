@@ -11,12 +11,12 @@ ms.date: 10/14/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 6da41c32b3b67cbd4e418f844ee73ff4ee85341e
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 51ed0b6bd0f5bd5eabf76c6789ab36a922653fd1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130037402"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130222843"
 ---
 # <a name="azure-ad-b2c-custom-policy-overview"></a>Información general sobre las directivas personalizadas de Azure AD B2C
 
@@ -160,7 +160,7 @@ Empiece a trabajar con la directiva personalizada de Azure AD B2C:
 
 1. [Creación de un inquilino de Azure AD B2C](tutorial-create-tenant.md)
 1. [Registro de una aplicación web](tutorial-register-applications.md) mediante Azure Portal para poder probar la directiva.
-1. Incorporación de las [claves de directiva](tutorial-create-user-flows.md?pivots=b2c-custom-policy#add-signing-and-encryption-keys) y [Registro de las aplicaciones de Identity Experience Framework](tutorial-create-user-flows.md?pivots=b2c-custom-policy#register-identity-experience-framework-applications).
+1. Incorporación de las [claves de directiva](tutorial-create-user-flows.md?pivots=b2c-custom-policy#add-signing-and-encryption-keys-for-identity-experience-framework-applications) y [Registro de las aplicaciones de Identity Experience Framework](tutorial-create-user-flows.md?pivots=b2c-custom-policy#register-identity-experience-framework-applications).
 1. [Obtenga el paquete de inicio de directivas de Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy#get-the-starter-pack) y cárguelo en el inquilino. 
 1. Después de cargar el paquete de inicio, realice una [prueba de la directiva de registro o de inicio de sesión](tutorial-create-user-flows.md?pivots=b2c-custom-policy#test-the-custom-policy).
 1. Le recomendamos que descargue e instale [Visual Studio Code](https://code.visualstudio.com/) (VS Code). Visual Studio Code es un editor de código fuente ligero pero eficaz que se ejecuta en el escritorio y está disponible para Windows, macOS y Linux. Con VS Code puede desplazarse rápidamente por los archivos XML de directivas personalizadas de Azure AD B2C y editarlos si instala la [extensión Azure AD B2C para VS Code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c)

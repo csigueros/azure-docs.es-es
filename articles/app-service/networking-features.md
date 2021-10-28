@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/20/2021
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: aa54c96864476cfd42d1d91e61ce293e919f9069
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 08723d72c24145ac39e1563ee3a60b0f201382f4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128592705"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227328"
 ---
 # <a name="app-service-networking-features"></a>Características de redes de App Service
 
@@ -321,8 +321,8 @@ Si examina App Service, encontrará varios puertos que se exponen para las conex
 [iprestrictions]: ./app-service-ip-restrictions.md
 [serviceendpoints]: ./app-service-ip-restrictions.md
 [hybridconn]: ./app-service-hybrid-connections.md
-[vnetintegrationp2s]: ./web-sites-integrate-with-vnet.md
-[vnetintegration]: ./web-sites-integrate-with-vnet.md
+[vnetintegrationp2s]: ./overview-vnet-integration.md
+[vnetintegration]: ./overview-vnet-integration.md
 [networkinfo]: ./environment/network-info.md
 [appgwserviceendpoints]: ./networking/app-gateway-with-service-endpoints.md
 [privateendpoints]: ./networking/private-endpoint.md

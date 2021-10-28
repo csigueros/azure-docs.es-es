@@ -10,12 +10,12 @@ ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: 44f41d0adebe21eaec28aced556f67e8c1aeda1d
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 6df2a24ca029f14a4743b28641b8ac4c2b88e851
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130047235"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223825"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Creación de un desencadenador que ejecuta una canalización en una ventana de saltos de tamaño constante
 
@@ -213,7 +213,7 @@ En esta sección se muestra cómo usar Azure PowerShell para crear, iniciar y su
 
 - **Azure PowerShell**. Siga las instrucciones de [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-az-ps) (Instalar Azure PowerShell en Windows con PowerShellGet). 
 
-- **Azure Data Factory**. Siga las instrucciones de [Creación de una instancia de Azure Data Factory con PowerShell](/azure/data-factory/quickstart-create-data-factory-powershell) para crear una factoría de datos y una canalización.
+- **Azure Data Factory**. Siga las instrucciones de [Creación de una instancia de Azure Data Factory con PowerShell](./quickstart-create-data-factory-powershell.md) para crear una factoría de datos y una canalización.
 
 ### <a name="sample-code"></a>Código de ejemplo
 
@@ -292,7 +292,7 @@ En esta sección se muestra cómo usar la CLI de Azure para crear, iniciar y sup
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-- Siga las instrucciones de [Creación de una instancia de Azure Data Factory con la CLI de Azure](/azure/data-factory/quickstart-create-data-factory-azure-cli) para crear una factoría de datos y una canalización.
+- Siga las instrucciones de [Creación de una instancia de Azure Data Factory con la CLI de Azure](./quickstart-create-data-factory-azure-cli.md) para crear una factoría de datos y una canalización.
 
 ### <a name="sample-code"></a>Código de ejemplo
 

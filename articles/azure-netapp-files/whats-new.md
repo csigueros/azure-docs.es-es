@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 78f8b282e701e181dd3a2c137ba254227651b048
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 0d733117cd9e1d4ac45dede368153bb77098fad5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130036865"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252466"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novedades de Azure NetApp Files
 
@@ -88,7 +88,7 @@ Azure NetApp Files se actualiza periódicamente. En este artículo se proporcion
 
     Los **complementos de NetApp** son la primera categoría de complementos que se presentan en **Storage service add-ons** (Complementos del servicio de almacenamiento). Esta categoría proporcionan acceso a **NetApp Cloud Compliance**. Al hacer clic en **NetApp Cloud Compliance**, se abre un nuevo explorador que le dirige a la página de instalación del complemento. 
 
-* [Grupo de capacidad de QoS manual](manual-qos-capacity-pool-introduction.md) disponible ahora con carácter general (GA)   
+* [Grupo de capacidad de QoS manual](azure-netapp-files-understand-storage-hierarchy.md#manual-qos-type) disponible ahora con carácter general (GA)   
 
     La característica del grupo de capacidad de QoS manual ya está disponible con carácter general. Ya no es necesario registrar la característica antes de usarla. 
 
@@ -189,7 +189,7 @@ Azure NetApp Files se actualiza periódicamente. En este artículo se proporcion
 
   Azure NetApp Files ahora admite la replicación entre regiones. Con esta nueva funcionalidad de recuperación ante desastres, puede replicar los volúmenes de Azure NetApp Files de una región de Azure a otra de manera rápida y rentable, y así proteger los datos frente a errores regionales imprevistos. La replicación entre regiones de Azure NetApp Files aprovecha la tecnología SnapMirror® de NetApp; solo los bloques modificados se envían a través de la red en un formato comprimido y eficiente. Esta tecnología propietaria reduce la cantidad de datos necesarios para replicar entre regiones, lo que ahorra costos de transferencia de datos. También acorta el tiempo de replicación, por lo que puede lograr un objetivo de punto de restauración (RPO) más pequeño.
 
-* [Grupo de capacidad de QoS manual](manual-qos-capacity-pool-introduction.md) (versión preliminar)  
+* [Grupo de capacidad de QoS manual](azure-netapp-files-understand-storage-hierarchy.md#manual-qos-type) (versión preliminar)  
 
     En un grupo de capacidad de QoS manual, puede asignar la capacidad y el rendimiento de un volumen de forma independiente. El rendimiento total de todos los volúmenes creados con un grupo de capacidad de QoS manual está limitado por el rendimiento total del grupo. Viene determinado por la combinación del tamaño del grupo y el rendimiento del nivel de servicio. También, el [tipo de QoS](azure-netapp-files-understand-storage-hierarchy.md#qos_types) de un grupo de capacidad puede ser automático (auto), que es el valor predeterminado. En un grupo de capacidad de QoS automático, el rendimiento se asigna automáticamente a los volúmenes del grupo, de forma proporcional a la cuota de tamaño asignada a los volúmenes.
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 09/09/2021
 ms.author: aahi
-ms.openlocfilehash: 3d6466f97e3126bb20028f1e99e75c2b365a6033
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 126e5e2de1bae847d81c39a9d044720b62093150
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129533863"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130260367"
 ---
 # <a name="azure-cognitive-services-container-image-tags-and-release-notes"></a>Etiquetas de imágenes de contenedor de Azure Cognitive Services notas de la versión
 
@@ -2306,7 +2306,7 @@ Esta imagen de contenedor tiene disponibles las siguientes etiquetas.
 
 [ad-containers]: ../anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: ../computer-vision/computer-vision-how-to-install-containers.md
-[fa-containers]: ../face/face-how-to-install-containers.md
+[fa-containers]: ../face/overview.md
 [fr-containers]: ../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md
 [lu-containers]: ../luis/luis-container-howto.md
 [sp-stt]: ../speech-service/speech-container-howto.md?tabs=stt

@@ -8,12 +8,12 @@ manager: karenh444
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 10/08/2021
-ms.openlocfilehash: d480696acf10586f41aa9c5c70a8dcf6e2c7651f
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 7f5ad896307466363845c66c89136879e4f92a96
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130070021"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227480"
 ---
 # <a name="configure-your-tenant-for-azure-ad-verifiable-credentials-preview"></a>Configuración del inquilino para las credenciales verificables Azure AD (versión preliminar)
 
@@ -67,7 +67,7 @@ Para crear la entidad de servicio:
 
 ## <a name="step-2-create-a-key-vault"></a>Paso 2. Creación de un almacén de claves
 
-[Azure Key Vault](/azure/key-vault/general/basic-concepts) es un servicio en la nube que permite el almacenamiento seguro y el acceso de secretos y claves. El servicio de credenciales verificables almacena las claves públicas y privadas en Azure Key Vault. Estas claves se usan para firmar y comprobar las credenciales.
+[Azure Key Vault](../../key-vault/general/basic-concepts.md) es un servicio en la nube que permite el almacenamiento seguro y el acceso de secretos y claves. El servicio de credenciales verificables almacena las claves públicas y privadas en Azure Key Vault. Estas claves se usan para firmar y comprobar las credenciales.
 
 Si no tiene una instancia de Azure Key Vault, siga estos pasos para crear un almacén de claves mediante Azure Portal.
 
@@ -78,7 +78,7 @@ Si no tiene una instancia de Azure Key Vault, siga estos pasos para crear un alm
 
 Después de incorporar el servicio de credenciales verificables de Azure, el servicio genera un conjunto de claves que se usan para proporcionar seguridad de mensajes. Estas claves se almacenan en el almacén de claves. Si emite o comprueba que un conjunto de claves se sigue utilizando para firmar, actualizar y recuperar credenciales verificables.
 
-Una [directiva de acceso](/azure/key-vault/general/assign-access-policy) de Key Vault determina si una entidad de seguridad concreta puede realizar distintas operaciones en los secretos y las claves de Key Vault. Establezca directivas de acceso en Azure Key Vault tanto para la cuenta de administrador del servicio de credenciales verificables de Azure AD como para la entidad de seguridad de API de servicio de solicitud que creó.
+Una [directiva de acceso](../../key-vault/general/assign-access-policy.md) de Key Vault determina si una entidad de seguridad concreta puede realizar distintas operaciones en los secretos y las claves de Key Vault. Establezca directivas de acceso en Azure Key Vault tanto para la cuenta de administrador del servicio de credenciales verificables de Azure AD como para la entidad de seguridad de API de servicio de solicitud que creó.
 
 1. En [Azure Portal](https://portal.azure.com/), navegue hasta el **almacén de claves** que utiliza para este tutorial.
 

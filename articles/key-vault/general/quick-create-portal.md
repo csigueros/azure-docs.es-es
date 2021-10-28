@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 12/08/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 93c0c77ad36be82802fd53e4130e48ac431b0280
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 592d97c832f950bbf5a90e4c5b97c25598e71d58
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107819293"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130228624"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>Inicio rápido: Creación de un almacén de claves mediante Azure Portal
 
@@ -52,7 +52,7 @@ Tome nota de las dos propiedades siguientes:
 
 En este momento, su cuenta de Azure es la única autorizada para realizar operaciones en este nuevo almacén.
 
-![Salida tras completarse la creación de Key Vault](../media/quick-create-portal/vault-properties.png)
+:::image type="content" source="../media/quick-create-portal/vault-properties.png" alt-text="Salida tras completarse la creación de Key Vault":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

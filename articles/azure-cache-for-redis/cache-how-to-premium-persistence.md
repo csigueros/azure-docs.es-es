@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/13/2021
-ms.openlocfilehash: b3e6e4336a86b71fe3bfb096cbfc8e1ddc65a186
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 6a8bb7c24b7d2713286141cbd160f2ff400f0a1b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130063134"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252927"
 ---
 # <a name="configure-data-persistence-for-a-premium-azure-cache-for-redis-instance"></a>Configuración de la persistencia de datos en la instancia prémium de Azure Cache for Redis
 
@@ -63,7 +63,7 @@ La persistencia escribe los datos de Redis en una cuenta de Azure Storage que po
    | Configuración      | Valor sugerido  | Descripción |
    | ------------ |  ------- | -------------------------------------------------- |
    | **Frecuencia de copia de seguridad** | Desplácese hacia abajo y seleccione un intervalo de copia de seguridad. Las opciones disponibles son: **15 minutos**, **30 minutos**, **60 minutos**, **6 horas**, **12 horas** y **24 horas**. | Este intervalo empieza la cuenta atrás cuando se completa correctamente la operación de copia de seguridad anterior. Cuando finaliza, se inicia una nueva copia de seguridad. |
-   | **Storage Account** | Desplácese hacia abajo y seleccione la cuenta de almacenamiento. | Elija una cuenta de almacenamiento en la misma región y suscripción que la memoria caché. Se recomienda una cuenta de **Premium Storage** porque tiene un mayor rendimiento. Además, el uso de la característica de eliminación flexible en la cuenta de almacenamiento podría provocar un aumento de los costos de almacenamiento. Para obtener más información, consulte la sección [Precios y facturación](/azure/storage/blobs/soft-delete-blob-overview). |
+   | **Storage Account** | Desplácese hacia abajo y seleccione la cuenta de almacenamiento. | Elija una cuenta de almacenamiento en la misma región y suscripción que la memoria caché. Se recomienda una cuenta de **Premium Storage** porque tiene un mayor rendimiento. Además, el uso de la característica de eliminación flexible en la cuenta de almacenamiento podría provocar un aumento de los costos de almacenamiento. Para obtener más información, consulte la sección [Precios y facturación](../storage/blobs/soft-delete-blob-overview.md). |
    | **Clave de almacenamiento** | Desplácese hacia abajo y seleccione si se usará la **Clave principal** o la **Clave secundaria**. | Si se vuelve a generar la clave de almacenamiento para su cuenta de persistencia, debe volver a configurar la clave en la lista desplegable **Clave de almacenamiento**. |
 
     La primera copia de seguridad se inicia cuando transcurre el intervalo de frecuencia de copia de seguridad.
@@ -75,7 +75,7 @@ La persistencia escribe los datos de Redis en una cuenta de Azure Storage que po
 
    | Configuración      | Valor sugerido  | Descripción |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Primera cuenta de almacenamiento** | Desplácese hacia abajo y seleccione la cuenta de almacenamiento. | Elija una cuenta de almacenamiento en la misma región y suscripción que la memoria caché. Se recomienda una cuenta de **Premium Storage** porque tiene un mayor rendimiento. Además, el uso de la característica de eliminación flexible en la cuenta de almacenamiento podría provocar un aumento de los costos de almacenamiento. Para obtener más información, consulte la sección [Precios y facturación](/azure/storage/blobs/soft-delete-blob-overview). |
+   | **Primera cuenta de almacenamiento** | Desplácese hacia abajo y seleccione la cuenta de almacenamiento. | Elija una cuenta de almacenamiento en la misma región y suscripción que la memoria caché. Se recomienda una cuenta de **Premium Storage** porque tiene un mayor rendimiento. Además, el uso de la característica de eliminación flexible en la cuenta de almacenamiento podría provocar un aumento de los costos de almacenamiento. Para obtener más información, consulte la sección [Precios y facturación](../storage/blobs/soft-delete-blob-overview.md). |
    | **Primera clave de almacenamiento** | Desplácese hacia abajo y seleccione si se usará la **Clave principal** o la **Clave secundaria**. | Si se vuelve a generar la clave de almacenamiento para su cuenta de persistencia, debe volver a configurar la clave en la lista desplegable **Clave de almacenamiento**. |
    | **Segunda cuenta de almacenamiento** | (Opcional) Desplácese hacia abajo y seleccione la cuenta de almacenamiento secundaria. | Opcionalmente, puede configurar otra cuenta de almacenamiento. Si se configura una segunda cuenta de almacenamiento, las operaciones de escritura en la caché de réplica se realizan en esta segunda cuenta de almacenamiento. |
    | **Segunda clave de almacenamiento** | (Opcional) Desplácese hacia abajo y seleccione si se usará la **Clave principal** o la **Clave secundaria**. | Si se vuelve a generar la clave de almacenamiento para su cuenta de persistencia, debe volver a configurar la clave en la lista desplegable **Clave de almacenamiento**. |
@@ -154,7 +154,7 @@ Sí, se le cobrará por el almacenamiento usado según el modelo de precios de l
 
 ### <a name="how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete"></a>¿Con qué frecuencia escribe la persistencia de RDB y AOF en mis blobs y debo habilitar la eliminación temporal?
 
-No se recomienda la eliminación temporal. La persistencia de RDB y AOF puede escribir en los blobs con una frecuencia de cada hora, cada pocos minutos o cada segundo. Además, la habilitación de la eliminación temporal en una cuenta de almacenamiento implica que Azure Cache for Redis no puede minimizar los costos de almacenamiento mediante la eliminación de los datos de copia de seguridad antiguos. La eliminación temporal puede resultar costosa rápidamente con los tamaños de datos típicos de una caché y operaciones de escritura cada segundo. Para obtener más información sobre los costos de la eliminación temporal, consulte la sección [Precios y facturación](/azure/storage/blobs/soft-delete-blob-overview).
+No se recomienda la eliminación temporal. La persistencia de RDB y AOF puede escribir en los blobs con una frecuencia de cada hora, cada pocos minutos o cada segundo. Además, la habilitación de la eliminación temporal en una cuenta de almacenamiento implica que Azure Cache for Redis no puede minimizar los costos de almacenamiento mediante la eliminación de los datos de copia de seguridad antiguos. La eliminación temporal puede resultar costosa rápidamente con los tamaños de datos típicos de una caché y operaciones de escritura cada segundo. Para obtener más información sobre los costos de la eliminación temporal, consulte la sección [Precios y facturación](../storage/blobs/soft-delete-blob-overview.md).
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>¿Puedo cambiar la frecuencia de copia de seguridad de RDB después de crear la memoria caché?
 

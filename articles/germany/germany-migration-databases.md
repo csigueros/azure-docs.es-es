@@ -7,12 +7,12 @@ author: gitralf
 ms.author: ralfwi
 ms.service: germany
 ms.custom: bfmigrate, devx-track-azurepowershell
-ms.openlocfilehash: 6fe6d653712e034c13f3b755e906de491b4dd49a
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 0843adb3060ca4ce8769b79eef3f05e043d4dc5d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "117029061"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130259606"
 ---
 # <a name="migrate-database-resources-to-global-azure"></a>Migración de recursos de base de datos a Azure global
 
@@ -143,7 +143,7 @@ Al migrar una base de datos con replicación geográfica o un archivo BACPAC, la
 
 1. La base de datos de destino donde se van a copiar las copias de seguridad de LTR en Azure global debe existir antes de iniciar la operación de copia. Se recomienda migrar primero la base de datos de origen mediante la [replicación geográfica activa](#migrate-sql-database-using-active-geo-replication) y, a continuación, iniciar la copia de seguridad de LTR. Esto garantizará que las copias de seguridad de la base de datos se copien en la base de datos de destino correcta. Este paso no es necesario si se trata de copias de seguridad de LTR de una base de datos descartada. Al aplicarse a copias de seguridad de LTR de una base de datos descartada, se creará un valor DatabaseID ficticio en la región de destino. 
 2. Instale este [módulo de PowerShell Az](https://www.powershellgallery.com/packages/Az.Sql/3.0.0-preview).
-3. Antes de empezar, asegúrese de que se hayan concedido los [roles de RBAC de Azure](../azure-sql/database/long-term-backup-retention-configure.md#azure-roles-to-manage-long-term-retention) en el ámbito de **suscripción** o de **grupo de recursos**. Nota: Para acceder a las copias de seguridad de LTR que pertenecen a un servidor descartado, se debe conceder el permiso en el ámbito de la suscripción de dicho servidor. . 
+3. Antes de empezar, asegúrese de que se hayan concedido los [roles de RBAC de Azure](../azure-sql/database/long-term-backup-retention-configure.md#prerequisites) en el ámbito de **suscripción** o de **grupo de recursos**. Nota: Para acceder a las copias de seguridad de LTR que pertenecen a un servidor descartado, se debe conceder el permiso en el ámbito de la suscripción de dicho servidor. . 
 
 
 ### <a name="limitations"></a>Limitaciones  

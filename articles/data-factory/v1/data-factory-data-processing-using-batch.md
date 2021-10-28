@@ -7,14 +7,14 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 10/22/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8dc93266244c6dd806d7ab7457893d6d2c89ce13
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 631330195ec9f38f3a059b0515d4f6255cd23677
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128637655"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262192"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Procesamiento de conjuntos de datos a gran escala mediante Data Factory y Batch
 > [!NOTE]

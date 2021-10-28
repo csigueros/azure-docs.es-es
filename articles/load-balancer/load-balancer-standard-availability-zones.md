@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 06b8e193f48a4e1d3956c8c40ee03dfd11a4a088
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: d53ae804fa628c5fcf89fa61d5e9d153abd225cb
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129276026"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225763"
 ---
 # <a name="load-balancer-and-availability-zones"></a>Load Balancer y Availability Zones
 
@@ -59,7 +59,7 @@ En el caso de un servidor front-end de equilibrador de carga interno, se agrega 
 
 ## <a name="non-zonal"></a>No zonal
 
-Los equilibradores de carga también se pueden crear en una configuración no zonal mediante un front-end "sin zona" (dirección IP pública o prefijo de dirección IP pública).  Esta opción no ofrece una garantía de redundancia. Tenga en cuenta que todas las direcciones IP públicas que [se actualicen](../virtual-network/public-ip-upgrade-portal.md) serán de tipo "sin zona".
+Los equilibradores de carga también se pueden crear en una configuración no zonal mediante un front-end "sin zona" (dirección IP pública o prefijo de dirección IP pública).  Esta opción no ofrece una garantía de redundancia. Tenga en cuenta que todas las direcciones IP públicas que [se actualicen](../virtual-network/ip-services/public-ip-upgrade-portal.md) serán de tipo "sin zona".
 
 ## <a name="design-considerations"></a><a name="design"></a> Consideraciones de diseño
 

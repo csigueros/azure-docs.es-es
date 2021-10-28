@@ -7,14 +7,14 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: tutorial
-ms.date: 11/01/2017
+ms.date: 10/22/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 358980423fbc998c1705316c8e0ef873263c847b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6fc40e48a9deb0c5e2f34e9e8283d867c4c33be7
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128664264"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130260101"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Tutorial: Compilación de la primera instancia de Azure Data Factory con la API de REST de Data Factory
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ La canalización de este tutorial tiene una actividad: **actividad de HDInsight 
 > pero cualquier canalización puede tener más de una actividad. También puede encadenar dos actividades (ejecutar una después de otra) haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Para más información, consulte [Programación y ejecución en Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

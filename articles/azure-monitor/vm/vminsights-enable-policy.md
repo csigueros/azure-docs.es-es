@@ -5,20 +5,20 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 63e68a247dd9d38cffe1555806ab23391c38f1fa
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 6b3cdddcc07df6961cc6493404583e6cb7da96e4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130177455"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224467"
 ---
 # <a name="enable-vm-insights-by-using-azure-policy"></a>Habilitación de VM Insights mediante Azure Policy
 En este artículo se explica cómo habilitar VM Insights para máquinas virtuales de Azure o máquinas virtuales híbridas conectadas con Azure Arc (versión preliminar) mediante Azure Policy. Azure Policy permite asignar definiciones de directiva que instalan los agentes necesarios para VM Insights en el entorno de Azure y habilitan automáticamente la supervisión de las máquinas virtuales cuando se crea cada una. VM Insights ofrece una característica que permite detectar y corregir VM no compatibles en el entorno. Use esta característica en lugar de trabajar directamente con Azure Policy.
 
-Si no está familiarizado con Azure Policy, obtenga una breve introducción en [Implementación de Azure Monitor a escala mediante Azure Policy](../deploy-scale.md).
+Si no está familiarizado con Azure Policy, obtenga una breve introducción en [Implementación de Azure Monitor a escala mediante Azure Policy](../best-practices.md).
 
 > [!NOTE]
-> Para usar Azure Policy con conjuntos de escalado de máquinas virtuales de Azure o para trabajar con Azure Policy directamente para habilitar las máquinas virtuales de Azure, vea [Implementación de Azure Monitor a escala mediante Azure Policy](../deploy-scale.md#vm-insights).
+> Para usar Azure Policy con conjuntos de escalado de máquinas virtuales de Azure o para trabajar con Azure Policy directamente para habilitar las máquinas virtuales de Azure, vea [Implementación de Azure Monitor a escala mediante Azure Policy](../best-practices.md).
 
 ## <a name="vm-insights-initiatives"></a>Iniciativas de VM Insights
 VM Insights proporciona definiciones de directiva integradas para instalar el agente de Log Analytics y Dependency Agent en máquinas virtuales de Azure. Las siguientes iniciativas integradas instalan ambos agentes para habilitar la supervisión completa. Asigne estas iniciativas a un grupo de administración, una suscripción o un grupo de recursos para instalar automáticamente los agentes en cualquier máquina virtual Windows o Linux de Azure en ese ámbito.

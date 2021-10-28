@@ -5,16 +5,16 @@ author: linda33wj
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 10/22/2021
 ms.author: jingwang
 ms.custom: devx-track-csharp
 robots: noindex
-ms.openlocfilehash: f3954440923b2e32ce474756afb18b9d667ca36f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 60d99160e1ecfc5c15b472c3f0976df3c1582df6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128571337"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226515"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Copia de datos hacia y desde Data Lake Storage Gen1 mediante Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -93,7 +93,7 @@ Para usar la autenticación de la entidad de servicio, especifique las siguiente
 | **servicePrincipalKey** | Especifique la clave de la aplicación. | Sí |
 | **tenant** | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí |
 
-**Ejemplo: autenticación de la entidad de servicio**
+**Ejemplo: Autenticación de entidad de servicio**
 ```json
 {
     "name": "AzureDataLakeStoreLinkedService",

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/22/2021
 ms.author: oldoll
-ms.openlocfilehash: 1d6710500cbe18fe74d06aa324023486a7ec5c4e
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 8e723e39364207e1075d66eeafcdf12b74e16624
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130067360"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261393"
 ---
 # <a name="standard-version-of-azure-vm-extension-for-sap-solutions"></a>Versión estándar de la extensión de máquina virtual de Azure para soluciones de SAP
 [new-extension]:vm-extension-for-sap-new.md (Nueva versión de la extensión de máquina virtual de Azure para soluciones de SAP)
@@ -464,7 +464,7 @@ Sin embargo, si la imagen de sistema operativo generalizada y preparada con sysp
 
 La máquina virtual de Microsoft Azure que ejecuta la extensión de Azure para SAP requiere acceso a Internet. Si esta VM de Azure forma parte de una red virtual de Azure o de un dominio local, asegúrese de que la configuración de proxy correspondiente esté establecida. Esta configuración también debe ser válida para que la cuenta LocalSystem tenga acceso a Internet. Siga el capítulo [Configuración del proxy][configure-proxy] de esta guía.
 
-Además, si necesita establecer una dirección IP estática para la VM de Azure, no la configure manualmente dentro de la VM de Azure, sino mediante [Azure PowerShell](../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md), la [CLI de Azure](../../../virtual-network/virtual-networks-static-private-ip-arm-cli.md), [Azure Portal](../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). La dirección IP estática se propaga mediante el servicio DHCP de Azure.
+Además, si necesita establecer una dirección IP estática para la VM de Azure, no la configure manualmente dentro de la VM de Azure, sino mediante [Azure PowerShell](../../../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md), la [CLI de Azure](../../../virtual-network/ip-services/virtual-networks-static-private-ip-arm-cli.md), [Azure Portal](../../../virtual-network/ip-services/virtual-networks-static-private-ip-arm-pportal.md). La dirección IP estática se propaga mediante el servicio DHCP de Azure.
 
 No se admite la definición manual de una dirección IP estática dentro de la VM de Azure y puede provocar problemas con la extensión de Azure para SAP.
 

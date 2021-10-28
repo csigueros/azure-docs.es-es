@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: shaunliu
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: adb5668f2a71c8fa8437275795308b66c44e737f
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 7ae4f269bbd34a0f8f863799c24f592f4fc20196
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129668777"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130253560"
 ---
 # <a name="roles-you-cant-manage-in-privileged-identity-management"></a>Roles que no se pueden administrar en Privileged Identity Management
 
@@ -42,7 +42,7 @@ Se admiten todos los roles de Microsoft 365 en la experiencia de roles de Azure
 
 > [!NOTE]
 > - Los usuarios que cumplan los requisitos para el rol Administrador de SharePoint, el rol Administrador de dispositivos, así como los roles que intenten tener acceso al centro de seguridad y cumplimiento de Microsoft, pueden experimentar retrasos de hasta unas horas después de activar su rol. Estamos trabajando con esos equipos para corregir los problemas.
-> - Para obtener información sobre los retrasos en la activación del rol de administrador local del dispositivo unido a Azure AD, consulte [Administración del grupo de administradores locales en dispositivos unidos a Azure AD](/azure/active-directory/devices/assign-local-admin#manage-the-device-administrator-role).
+> - Para obtener información sobre los retrasos en la activación del rol de administrador local del dispositivo unido a Azure AD, consulte [Administración del grupo de administradores locales en dispositivos unidos a Azure AD](../devices/assign-local-admin.md#manage-the-device-administrator-role).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

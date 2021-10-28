@@ -3,12 +3,12 @@ title: Lenguajes admitidos en Azure Functions
 description: Obtenga información sobre los lenguajes admitidos (GA) y los que se encuentran en versión preliminar, y las maneras de ampliar el desarrollo de Functions a otros lenguajes.
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: d0db327a1f5b4189f9715687e3efa8fbe5b668db
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 91dcd26895ad41d79606458287f6aabab9594f79
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128599955"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224322"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Lenguajes admitidos en Azure Functions
 
@@ -21,6 +21,8 @@ En este artículo se explican los niveles de soporte que se ofrecen para los len
 Hay disponibles [varias versiones del entorno en tiempo de ejecución de Azure Functions](functions-versions.md). En la tabla siguiente se indica qué lenguajes se admiten en cada versión del sistema de tiempo de ejecución.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
+
+[!INCLUDE [functions-portal-language-support](../../includes/functions-portal-language-support.md)]
 
 ### <a name="language-major-version-support"></a>Compatibilidad con la versión principal del lenguaje
 

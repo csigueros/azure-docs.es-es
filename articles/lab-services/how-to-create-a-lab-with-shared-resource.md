@@ -5,12 +5,12 @@ author: emaher
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 6436a157c91c7594cd328be53dfaf6e0856412dd
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: efd33b95bd1a32c73712c7f094107717b4e5b973
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130180673"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225782"
 ---
 # <a name="how-to-create-a-lab-with-a-shared-resource-in-azure-lab-services"></a>Creación de un laboratorio con un recurso compartido en Azure Lab Services
 
@@ -38,7 +38,7 @@ Uno de los recursos compartidos más comunes es un servidor de licencias; aquí 
 El servidor de licencias deberá estar conectado a la red virtual que está emparejada con el laboratorio, por lo que el servidor de licencias debe estar ubicado en la misma región que la cuenta de laboratorio.
 
 #### <a name="static-private-ip-and-mac-address"></a>Dirección MAC e IP privada estática
-De forma predeterminada, las máquinas virtuales tienen una dirección IP privada dinámica, por lo que [antes de configurar cualquier software debe establecer la dirección IP privada como estática](../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). Esto configura la dirección IP privada y la dirección MAC para que sean estáticas.  
+De forma predeterminada, las máquinas virtuales tienen una dirección IP privada dinámica, por lo que [antes de configurar cualquier software debe establecer la dirección IP privada como estática](../virtual-network/ip-services/virtual-networks-static-private-ip-arm-pportal.md). Esto configura la dirección IP privada y la dirección MAC para que sean estáticas.  
 
 #### <a name="control-access"></a>Control de acceso
 Controlar el acceso al servidor de licencias es un paso clave.  Una vez que la VM está configurada, el acceso seguirá siendo necesario para realizar trabajos de mantenimiento, solucionar problemas e instalar actualizaciones.  Estas son algunas formas de hacerlo.

@@ -4,12 +4,12 @@ description: Obtenga información acerca de las consideraciones de aplicación d
 ms.topic: reference
 ms.subservice: baremetal-oracle
 ms.date: 10/06/2021
-ms.openlocfilehash: c842ad56e6777817e5db84e51a4d1302aebf5a63
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 145601a4725b257be283840eed1e31f68ed720d1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129657499"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215922"
 ---
 # <a name="patching-considerations-for-baremetal-for-oracle"></a>Consideraciones de aplicación de revisiones de BareMetal para Oracle
 
@@ -23,6 +23,7 @@ Los servidores se entregan a los clientes con versiones compatibles. Sin embargo
 | --- | --- | --- | --- | --- |
 | Red Hat | RHEL 7.6 | 3.2.3i | 2.3.0.53 | 1.6.0.34 |
 | Red Hat | RHEL 7.6 | 4.1.1b | 2.3.0.53 | 1.6.0.34 |
+| Red Hat | RHEL 7.6 | 4.1.1b | 4.0.0.8  | 2.0.0.60 |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

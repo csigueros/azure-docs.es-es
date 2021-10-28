@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/11/2021
 ms.author: shpathak
-ms.openlocfilehash: 02b5c4bd42abc9c36ef971b053979d590d1e602d
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: dd7bb63204ccaa38379b49cfe3946372319dfc44
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129808832"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252908"
 ---
 # <a name="connection-resilience"></a>Resistencia de la conexión
 
@@ -64,7 +64,7 @@ Evite crear muchas conexiones al mismo tiempo al volver a conectarse después de
 Si va a volver a conectar muchas instancias de cliente, considere la posibilidad de escalonar las nuevas conexiones para evitar un pico fuerte en el número de clientes conectados.
 
 > [!NOTE]
-> Si usa la biblioteca cliente `StackExchange.Redis`, establezca `abortConnect` en `false` en la cadena de conexión.  Se recomienda permitir que `ConnectionMultiplexer` controle la reconexión. Para obtener más información, vea [Procedimientos recomendados de StackExchange.Redis](/azure/azure-cache-for-redis/cache-management-faq#stackexchangeredis-best-practices).
+> Si usa la biblioteca cliente `StackExchange.Redis`, establezca `abortConnect` en `false` en la cadena de conexión.  Se recomienda permitir que `ConnectionMultiplexer` controle la reconexión. Para obtener más información, vea [Procedimientos recomendados de StackExchange.Redis](./cache-management-faq.yml#stackexchangeredis-best-practices).
 
 ## <a name="avoid-leftover-connections"></a>Evitar conexiones sobrantes
 

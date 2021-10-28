@@ -4,7 +4,7 @@ description: Creación y administración de grupos de seguridad o grupos de Micr
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 editor: ''
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bff97bd767bb9045c5fa018bbcbffc2cb7445ca1
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: faebf53c9774e71b30003903b9c472ccdcd3c493
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122778058"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129986138"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Configuración de la administración de grupos de autoservicio en Azure Active Directory 
 
@@ -79,7 +79,7 @@ La configuración de grupo permite controlar quién puede crear grupos de seguri
 
  La tabla siguiente le ayudará a decidir qué valores elegir.
 
-| Parámetro | Value | Efecto en el inquilino |
+| Configuración | Value | Efecto en el inquilino |
 | --- | :---: | --- |
 | Los usuarios pueden crear grupos de seguridad en Azure Portal, la API o PowerShell. | Sí | Todos los usuarios de la organización de Azure AD pueden crear nuevos grupos de seguridad y agregar miembros a estos grupos en los portales de Azure, la API o PowerShell. Estos grupos nuevos también se muestran en el Panel de acceso para los restantes usuarios. Si la configuración de la directiva en el grupo lo permite, otros usuarios pueden crear solicitudes para unirse a dichos grupos. |
 |  | No | Los usuarios no pueden crear grupos de seguridad ni cambiar los grupos existentes de los que sean propietarios. Sin embargo, pueden administrar la pertenencia a dichos grupos y aprobar las solicitudes de otros usuarios para unirse a ellos. |

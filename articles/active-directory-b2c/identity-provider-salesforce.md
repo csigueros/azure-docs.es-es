@@ -3,22 +3,22 @@ title: Configuración del registro y el inicio de sesión con una cuenta de Sale
 titleSuffix: Azure AD B2C
 description: Permita suscribirse e iniciar sesión a los clientes con cuentas de Salesforce en las aplicaciones con Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/16/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c1c9ed19d55850258c043a2a1e223474e13d2d21
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5607a5aa1ac29fe89c156a0cf021434b60bb9ada
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128574308"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130227770"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de Salesforce mediante Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ ms.locfileid: "128574308"
 
 ::: zone-end
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 

@@ -8,12 +8,12 @@ ms.date: 07/16/2021
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c6e66487211ed3928f393bb028ae9f4c06e3b0eb
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: b4274144e8437bd47adad0854fec5c3ed9550ffb
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129403127"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130229415"
 ---
 # <a name="virtual-network-configuration-for-an-azure-ssis-integration-runtime"></a>Configuración de la red virtual para un entorno de ejecución de integración de SSIS de Azure
 
@@ -69,7 +69,7 @@ Si desea traer sus propias direcciones IP públicas estáticas para Azure-SSIS 
 
 - Se deben proporcionar exactamente dos sin usar que no estén ya asociadas a otros recursos de Azure. Se usará la adicional en las actualizaciones periódicas de Azure-SSIS IR. Tenga en cuenta que no se puede compartir una dirección IP pública entre sus instancias de Azure-SSIS IR.
 
-- Ambas deben ser estáticas de tipo estándar. Consulte [SKU de dirección IP pública](../virtual-network/public-ip-addresses.md#sku) para más detalles.
+- Ambas deben ser estáticas de tipo estándar. Consulte [SKU de dirección IP pública](../virtual-network/ip-services/public-ip-addresses.md#sku) para más detalles.
 
 - Las dos deben tener un nombre DNS. Si no ha proporcionado un nombre DNS al crearlas, puede hacerlo en Azure Portal.
 
@@ -273,4 +273,3 @@ Para más información acerca de Azure-SSIS IR, consulte los siguientes artícul
 - [Creación de una instancia de Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). En este artículo se amplía el tutorial. Proporciona instrucciones acerca del uso de Azure SQL Database con puntos de conexión de servicio de red virtual o una Instancia administrada de SQL en una red virtual para hospedar el catálogo SSIS. Muestra cómo conectar Azure-SSIS IR a una red virtual. 
 - [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime) (Supervisión de una instancia de Integration Runtime de SSIS de Azure). En este artículo se muestra cómo obtener información acerca de Azure-SSIS IR. Proporciona descripciones del estado de la información devuelta. 
 - [Administración de Integration Runtime de SSIS de Azure](manage-azure-ssis-integration-runtime.md). En este artículo se muestra cómo iniciar, detener o eliminar Azure-SSIS IR. También se muestra cómo escalar horizontalmente la instancia de Integration Runtime para la integración de SSIS en Azure mediante la adición de nodos.
-

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-plat-web-ios-android-windows
-ms.openlocfilehash: 75adda39e2a36bcbe03ccc72216f274264624deb
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 188cfe09aa75d79ef4e67b705ada0a1eec549231
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128671685"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130229643"
 ---
 # <a name="quickstart-add-voice-calling-to-your-app"></a>Inicio rápido: adición de la llamada de voz a su aplicación
 
@@ -49,5 +49,5 @@ Si quiere limpiar y quitar una suscripción a Communication Services, puede elim
 Para más información, consulte los siguientes artículos.
 
 - Consulte nuestro [ejemplo de elementos principales de una llamada](../../samples/calling-hero-sample.md).
-- Más información sobre la [llamada a las funcionalidades de SDK](./calling-client-samples.md)
+- Más información sobre la [llamada a las funcionalidades de SDK]()
 - Más información sobre [cómo funciona la llamada](../../concepts/voice-video-calling/about-call-types.md)

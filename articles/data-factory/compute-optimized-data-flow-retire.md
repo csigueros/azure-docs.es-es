@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: tutorial
 ms.date: 06/29/2021
-ms.openlocfilehash: 2ef5e68f9629feab42a4417b4e08697038947495
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 781841ff8a65d36a9ed712efa5d0bdf8480995bf
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128661837"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130229386"
 ---
 # <a name="retirement-of-data-flow-compute-optimized-option"></a>Retirada de la opción optimizada del proceso de flujo de datos
 
@@ -38,5 +38,5 @@ De aquí hasta el 31 de agosto de 2024, los flujos de datos Optimizados para p
 | Flujos de datos Optimizados para proceso (en desuso) | No se recomienda para las cargas de trabajo de producción. |
 
 * [Visite la página de precios de Azure Data Factory para obtener los precios actualizados más recientes disponibles para flujos De uso general y Optimizados para memoria](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
-* [Puede encontrar información más detallada en Preguntas frecuentes sobre flujos de datos aquí](/azure/data-factory/frequently-asked-questions#mapping-data-flows)  
+* [Puede encontrar información más detallada en Preguntas frecuentes sobre flujos de datos aquí](./frequently-asked-questions.yml#mapping-data-flows)  
 * [Publicar preguntas y encontrar respuestas sobre flujos de datos en Microsoft Q&A](https://aka.ms/datafactoryqa)

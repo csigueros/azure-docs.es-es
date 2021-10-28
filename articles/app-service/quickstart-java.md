@@ -14,19 +14,19 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-java-uiex
-ms.openlocfilehash: e4e72cfce3781f4cf09e37b2c82b6ae9207c9ad5
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: b4b0243f6a626f84d751508256db02337f54a3fc
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130133868"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130253257"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Inicio rápido: Creación de una aplicación de Java en Azure App Service
 
 [Azure App Service](overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático.  En este inicio rápido se muestra cómo usar la [CLI de Azure](/cli/azure/get-started-with-azure-cli) con el [complemento Aplicación web de Azure para Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) para implementar un archivo .jar o un archivo .war. Use las pestañas para cambiar entre las instrucciones para Java SE y Tomcat.
 
 Si Maven no es su herramienta de desarrollo preferida, consulte nuestros tutoriales análogos para desarrolladores de Java:
-+ [Gradle](/azure/app-service/configure-language-java?pivots=platform-linux#gradle)
++ [Gradle](./configure-language-java.md?pivots=platform-linux#gradle)
 + [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app)
 + [Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)
 + [Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp)

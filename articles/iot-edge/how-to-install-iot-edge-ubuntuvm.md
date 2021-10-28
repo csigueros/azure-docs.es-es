@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 05/27/2021
 ms.author: pdecarlo
-ms.openlocfilehash: 5600702d43d0583324dc9e3b6942318ab52c5cbd
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 6865a89eae0df708d73d9062dd07c18c46ece4f8
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110702873"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130263769"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Ejecución de Azure IoT Edge en máquinas virtuales Ubuntu
 
@@ -53,7 +53,7 @@ Con el botón [Implementar en Azure](../azure-resource-manager/templates/deploy-
 
     **Nombre de usuario administrador**: nombre de usuario al que se proporcionarán privilegios raíz en la implementación.
 
-    **Cadena de conexión de dispositivo**: [cadena de conexión de un dispositivo](./how-to-register-device.md) que se ha creado en la instancia de [IoT Hub](../iot-hub/about-iot-hub.md) de su elección.
+    **Cadena de conexión de dispositivo**: [cadena de conexión de un dispositivo](./how-to-provision-single-device-linux-symmetric.md#view-registered-devices-and-retrieve-provisioning-information) que se ha creado en la instancia de [IoT Hub](../iot-hub/about-iot-hub.md) de su elección.
 
     **Tamaño de VM**: [tamaño](../cloud-services/cloud-services-sizes-specs.md) de la máquina virtual que se va a implementar.
 

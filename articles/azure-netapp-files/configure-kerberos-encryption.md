@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/15/2021
 ms.author: b-juche
-ms.openlocfilehash: a12df50ac6fe2e1dc2bf793316538a90ba0f901d
-ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
+ms.openlocfilehash: 8fd2656af426464ccddfaed50124b4ba189254f9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114361341"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256350"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Configuración del cifrado Kerberos de NFSv4.1 para Azure NetApp Files
 
@@ -118,8 +118,9 @@ Debe comprender las opciones de seguridad disponibles para los volúmenes NFSv4.
 ## <a name="next-steps"></a>Pasos siguientes  
 
 * [Impacto en el rendimiento de Kerberos en los volúmenes NFSv4.1](performance-impact-kerberos.md)
-* [Solución de problemas de los volúmenes NFSv4.1 de Kerberos](troubleshoot-nfsv41-kerberos-volumes.md)
-* [Preguntas más frecuentes acerca de Azure NetApp Files](azure-netapp-files-faqs.md)
+* [Solución de errores de volúmenes de Azure NetApp Files](troubleshoot-volumes.md)
+* [Preguntas más frecuentes sobre NFS](faq-nfs.md)
+* [Preguntas más frecuentes sobre rendimiento](faq-performance.md)
 * [Creación de un volumen de NFS para Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Creación de una conexión de Active Directory](create-active-directory-connections.md)
 * [Configuración de un cliente NFS para Azure NetApp Files](configure-nfs-clients.md) 

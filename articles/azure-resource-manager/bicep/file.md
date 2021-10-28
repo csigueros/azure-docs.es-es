@@ -3,12 +3,12 @@ title: Estructura y sintaxis de un archivo Bicep
 description: Describe la estructura y las propiedades de un archivo Bicep mediante la sintaxis declarativa.
 ms.topic: conceptual
 ms.date: 10/07/2021
-ms.openlocfilehash: 8cdeb75aa676b9121d69ba8bf612067157328ee0
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 7fa9126326bc1bc3922379c52a937013a33abd13
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130067162"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216321"
 ---
 # <a name="understand-the-structure-and-syntax-of-bicep-files"></a>Nociones sobre la estructura y la sintaxis de los archivos Bicep
 
@@ -295,7 +295,7 @@ resource storageAccountResources 'Microsoft.Storage/storageAccounts@2019-06-01' 
 
 El decorador `batchSize` está en el [espacio de nombres sys](bicep-functions.md#namespaces-for-functions). Si necesita diferenciar este decorador de otro elemento con el mismo nombre, ponga **sys** delante: `@sys.batchSize(2)`.
 
-Para más información, consulte [Implementación en lotes.](loop-resources.md#deploy-in-batches)
+Para más información, consulte [Implementación en lotes.](loops.md#deploy-in-batches)
 
 ## <a name="outputs"></a>Salidas
 

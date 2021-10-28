@@ -7,12 +7,12 @@ ms.subservice: disks
 ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: 57f0d5ed33bf662867ce7a4323f5f69d889e6653
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 10b4da09ae851a95fdbb267174540972357e028a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122688914"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130217625"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Conversión de máquina virtual Windows con discos no administrados en discos administrados
 
@@ -26,7 +26,7 @@ Si ya dispone de máquinas virtuales Windows que usan discos no administrados, p
 
 * Revise [Planeación de la migración a Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
 
-* Revise las [preguntas frecuentes sobre la migración a Managed Disks](/azure/virtual-machines/faq-for-disks#migrate-to-managed-disks).
+* Revise las [preguntas frecuentes sobre la migración a Managed Disks](../faq-for-disks.yml).
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 

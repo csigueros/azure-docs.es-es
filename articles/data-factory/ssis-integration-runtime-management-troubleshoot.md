@@ -9,12 +9,12 @@ ms.author: dashe
 ms.reviewer: sawinark
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: 9cced212913ad8f31f71445a6bf3e70fc3bb3f8e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b7d6605f1a387a917c9d106078ead404842ea02c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124743120"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251934"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Solución de problemas con la administración de SSIS Integration Runtime en Azure Data Factory
 
@@ -172,7 +172,7 @@ Este error puede producirse por diversos motivos al iniciar Azure-SSIS IR:
 | La dirección IP pública estática proporcionada ya está en uso. Proporcione dos sin usar para la instancia de Azure-SSIS Integration Runtime. | Debe seleccionar dos direcciones IP públicas estáticas sin usar o quitar las referencias actuales a la dirección IP pública especificada y, luego, reiniciar Azure-SSIS IR. |
 | La dirección IP pública estática proporcionada no tiene un nombre DNS. Proporcione dos de ellas con el nombre DNS para la instancia de Azure-SSIS Integration Runtime. | Puede configurar el nombre DNS de la dirección IP pública en Azure Portal, como se muestra en la imagen siguiente. Los pasos básicos son los siguientes: (1) Abra Azure Portal y vaya a la página de recursos de esta dirección IP pública. (2) Seleccione la sección **Configuración** y configure el nombre DNS; a continuación, haga clic en el botón **Guardar**. (3) Reinicie Azure-SSIS IR. |
 | La red virtual y las direcciones IP públicas estáticas proporcionadas para Azure-SSIS Integration Runtime deben estar en la misma ubicación. | De acuerdo con los requisitos de la red de Azure, la dirección IP pública estática y la red virtual deben estar en la misma ubicación y suscripción. Proporcione dos direcciones IP públicas estáticas válidas y reinicie Azure-SSIS IR. |
-| La dirección IP pública estática proporcionada es una básica; proporcione dos estándar para Azure-SSIS Integration Runtime. | Consulte las [SKU de dirección IP pública](../virtual-network/public-ip-addresses.md#sku) para obtener ayuda. |
+| La dirección IP pública estática proporcionada es una básica; proporcione dos estándar para Azure-SSIS Integration Runtime. | Consulte las [SKU de dirección IP pública](../virtual-network/ip-services/public-ip-addresses.md#sku) para obtener ayuda. |
 
 :::image type="content" source="media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png" alt-text="Integration Runtime de SSIS de Azure":::
 

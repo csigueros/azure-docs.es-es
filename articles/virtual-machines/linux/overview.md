@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b419b816de822c72e3c33acddd9d9b6c50745b7f
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: b725577cadcde38117a2b21be31d37c2a8b02240
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130047858"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223070"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Máquinas virtuales Linux en Azure
 
@@ -111,7 +111,7 @@ Azure admite [cloud-init](https://cloud-init.io/) en la mayoría de las distribu
 
 ## <a name="networking"></a>Redes
 * [Información general sobre redes virtuales](../../virtual-network/virtual-networks-overview.md)
-* [Direcciones IP en Azure](../../virtual-network/public-ip-addresses.md)
+* [Direcciones IP en Azure](../../virtual-network/ip-services/public-ip-addresses.md)
 * [Apertura de puertos para una máquina virtual con Linux en Azure](nsg-quickstart.md)
 * [Crear un nombre de dominio completo en el Portal de Azure](../create-fqdn.md)
 

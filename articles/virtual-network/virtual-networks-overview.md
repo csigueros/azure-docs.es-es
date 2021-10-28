@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2020
 ms.author: kumud
-ms.openlocfilehash: 57d719f5ea56123c4b237e48f07f1e82fd885b3b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9445ff2960a9f774d8b55fa1bf983a238b0b0295
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128624811"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262838"
 ---
 # <a name="what-is-azure-virtual-network"></a>¿Qué es Azure Virtual Network?
 
@@ -27,7 +27,7 @@ Una red virtual de Azure permite que los recursos de Azure se comuniquen de form
 
 ### <a name="communicate-with-the-internet"></a>Comunicación con internet
 
-De manera predeterminada, todos los recursos de una red virtual tienen comunicación de salida hacia Internet. Para comunicarse con un recurso entrante, asígnele una dirección IP pública o un equilibrador de carga público. También puede usar la dirección IP pública o el equilibrador de carga público para administrar las conexiones salientes.  Para más información sobre las conexiones salientes en Azure, consulte [Conexiones salientes](../load-balancer/load-balancer-outbound-connections.md), [Direcciones IP públicas](virtual-network-public-ip-address.md) y [Equilibrador de carga](../load-balancer/load-balancer-overview.md).
+De manera predeterminada, todos los recursos de una red virtual tienen comunicación de salida hacia Internet. Para comunicarse con un recurso entrante, asígnele una dirección IP pública o un equilibrador de carga público. También puede usar la dirección IP pública o el equilibrador de carga público para administrar las conexiones salientes.  Para más información sobre las conexiones salientes en Azure, consulte [Conexiones salientes](../load-balancer/load-balancer-outbound-connections.md), [Direcciones IP públicas](./ip-services/virtual-network-public-ip-address.md) y [Equilibrador de carga](../load-balancer/load-balancer-overview.md).
 
 >[!NOTE]
 >Cuando se usa solo una instancia interna de [Standard Load Balancer](../load-balancer/load-balancer-overview.md), la conectividad de salida no está disponible hasta que define cómo desea que las [conexiones salientes](../load-balancer/load-balancer-outbound-connections.md) trabajen con una dirección IP pública o un equilibrador de carga público en el nivel de instancia.

@@ -3,14 +3,14 @@ author: linda33wj
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 10/22/2021
 ms.author: jingwang
-ms.openlocfilehash: c64893c136e607de622abd053fbd86bbc2f9229e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9d72e1d462268d2c54c7558b63ddaf3e4c8565b4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128592358"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223881"
 ---
 ### <a name="azure-storage-linked-service"></a>Servicio vinculado de Azure Storage
 El servicio vinculado de **Azure Storage** le permite vincular una cuenta de Azure Storage a una instancia de Azure Data Factory con una **clave de cuenta**, que proporciona a la instancia de Azure Data Factory acceso global a Azure Storage. En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio vinculado de Azure Storage.

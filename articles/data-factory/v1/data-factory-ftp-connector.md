@@ -5,15 +5,15 @@ author: linda33wj
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 05/02/2018
+ms.date: 10/22/2021
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b6c267c3234e0861a394c75cf47bd198b1209b58
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 94cb4f6a3429084fe555f1d2a54ab80f7c230a36
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128589993"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130260006"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Movimiento de datos de un servidor FTP mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]

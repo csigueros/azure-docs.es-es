@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: allensu
-ms.openlocfilehash: 372953e9a2a11cbb614cc6afd6ccde629344e0c2
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: beaa5df1d0a8e8537574e6e1e6284272d3a8a294
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130132785"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261241"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>¿Qué es IPv6 para Azure Virtual Network?
 
@@ -51,17 +51,17 @@ IPv6 para red virtual de Azure incluye las siguientes características:
     - Y las protecciones de denegación de servicio distribuido (DDoS) de la plataforma Azure se amplían a las IP públicas con conexión a Internet.
 - Personalice el enrutamiento del tráfico IPv6 en la red virtual con rutas definidas por el usuario (especialmente al utilizar aplicaciones virtuales de red para mejorar su aplicación).
 - Las máquinas virtuales Linux y Windows pueden utilizar IPv6 para la red virtual de Azure.
-- Compatibilidad con la instancia de [IPv6 pública de Standard Load Balancer](../../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) para crear aplicaciones resistentes y escalables, lo que incluye:
+- Compatibilidad con la instancia de [IPv6 pública de Standard Load Balancer](../../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) para crear aplicaciones resistentes y escalables, lo que incluye:
     - Sondeo de estado de IPv6 opcional para establecer qué instancias del grupo de back-end tienen un estado correcto y, por tanto, reciben flujos nuevos.
     - Reglas de salida opciones que proporcionan un control declarativo completo sobre la conectividad de salida para escalar y ajustar esta conectividad según sus necesidades específicas.
     - Distintas configuraciones de front-end opcionales que permiten que un único equilibrador de carga use varias direcciones IP públicas IPv6: el mismo protocolo y puerto de front-end pueden usarse entre las direcciones de front-end.
     - Los puertos IPv6 opcionales se pueden reutilizar en las instancias de back-end mediante la característica de *IP flotante* de las reglas de equilibrio de carga. 
     - Nota: El equilibrio de carga no realiza ninguna traducción de protocolo (sin NAT64). 
-- Compatibilidad con la instancia de [IPv6 interna de Standard Load Balancer](../../virtual-network/ipv6-dual-stack-standard-internal-load-balancer-powershell.md) para crear aplicaciones resistentes de varios niveles en redes virtuales de Azure.   
+- Compatibilidad con la instancia de [IPv6 interna de Standard Load Balancer](../../load-balancer/ipv6-dual-stack-standard-internal-load-balancer-powershell.md) para crear aplicaciones resistentes de varios niveles en redes virtuales de Azure.   
 - Compatibilidad con la instancia de IPv6 pública de Basic Load Balancer para la compatibilidad con implementaciones heredadas.
 - [Las direcciones IP públicas y los intervalos de direcciones IPv6 reservadas](public-ip-address-prefix.md) proporcionan direcciones IPv6 estables y predecibles que facilitan el filtrado de las aplicaciones hospedadas en Azure para su empresa y sus clientes.
 - La dirección IP pública a nivel de instancia proporciona conectividad IPv6 a Internet directamente a las máquinas virtuales individuales.
-- [Adición de IPv6 a implementaciones de solo IPv4 existentes](../../virtual-network/ipv6-add-to-existing-vnet-powershell.md): esta característica permite agregar fácilmente conectividad IPv6 a las implementaciones existentes de solo IPv4 sin necesidad de volver a crear dichas implementaciones.  El tráfico de red IPv4 no se ve afectado durante este proceso. Por ello, en función de la aplicación y del sistema operativo, es posible que pueda agregar IPv6 incluso a servicios en directo.    
+- [Adición de IPv6 a implementaciones de solo IPv4 existentes](../../load-balancer/ipv6-add-to-existing-vnet-powershell.md): esta característica permite agregar fácilmente conectividad IPv6 a las implementaciones existentes de solo IPv4 sin necesidad de volver a crear dichas implementaciones.  El tráfico de red IPv4 no se ve afectado durante este proceso. Por ello, en función de la aplicación y del sistema operativo, es posible que pueda agregar IPv6 incluso a servicios en directo.    
 - Permita a los clientes de Internet acceder sin problemas a la aplicación de pila dual con el protocolo de su elección con compatibilidad con Azure DNS para registros IPv6 (AAAA). 
 - Cree aplicaciones de pila doble que se escalen automáticamente a su carga con conjuntos de escalado de máquinas virtuales con IPv6.
 - [Emparejamiento de redes virtuales (VNET)](../../virtual-network/virtual-network-peering-overview.md): tanto en el emparejamiento regional como global, permite conectar redes virtuales de pila dual. Tanto los puntos de conexión de IPv4 como de IPv6 en las máquinas virtuales de las redes emparejadas podrán comunicarse entre sí. Incluso puede emparejar pilas dobles con redes virtuales solo de IPv4 mientras realiza la transición de las implementaciones de doble pila. 
@@ -87,6 +87,6 @@ El ancho de banda y los recursos de Azure de IPv6 tienen el mismo precios que pa
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Aprenda a [implementar una aplicación de pila doble IPv6 con Azure PowerShell](../../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md).
-- Aprenda a [implementar una aplicación de pila doble IPv6 con la CLI de Azure](../../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md).
-- Aprenda a [implementar una aplicación de pila dual IPv6 mediante plantillas de Resource Manager (JSON)](../../virtual-network/ipv6-configure-standard-load-balancer-template-json.md).
+- Aprenda a [implementar una aplicación de pila doble IPv6 con Azure PowerShell](../../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md).
+- Aprenda a [implementar una aplicación de pila doble IPv6 con la CLI de Azure](../../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md).
+- Aprenda a [implementar una aplicación de pila dual IPv6 mediante plantillas de Resource Manager (JSON)](../../load-balancer/ipv6-configure-standard-load-balancer-template-json.md).

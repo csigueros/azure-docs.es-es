@@ -6,12 +6,12 @@ ms.date: 07/23/2021
 ms.topic: article
 author: mayurigupta13
 ms.author: mayg
-ms.openlocfilehash: 16e13238ffd471678eab9bdd0245aa708b7c4419
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: d09bed41ff7553e79a4d05e616e07fabf85d71a9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129389368"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227138"
 ---
 # <a name="azure-arc-enabled-open-service-mesh-preview"></a>Open Service Mesh habilitado para Azure Arc (versión preliminar)
 
@@ -369,7 +369,7 @@ Para obtener más información acerca de la incorporación de servicios, consult
 
 ### <a name="configure-osm-with-service-mesh-interface-smi-policies"></a>Configuración de OSM con directivas de Service Mesh Interface (SMI)
 
-Puede empezar con una [aplicación demo](https://docs.openservicemesh.io/docs/getting_started/quickstart/manual_demo/#deploy-applications) o usar el entorno de pruebas para probar las directivas de SMI.
+Puede empezar con una [aplicación demo](https://release-v0-11.docs.openservicemesh.io/docs/getting_started/quickstart/manual_demo/#deploy-applications) o usar el entorno de pruebas para probar las directivas de SMI.
 
 > [!NOTE] 
 > Asegúrese de que la versión de la aplicación de librería que está ejecutando coincide con la versión de la extensión de OSM instalada en el clúster. Por ejemplo, si usa la versión 0.8.4 de la extensión de OSM, use la demo de librería de la rama release-v0.8 del repositorio de nivel superior de OSM.

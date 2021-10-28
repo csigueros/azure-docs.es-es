@@ -8,21 +8,21 @@ ms.date: 08/10/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: b4b2bf97b684ff83b2a4071ca676d30ffb28b87e
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: 99afad4cad2cddb706957c8a8b860c6dd55d3b71
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114721763"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257164"
 ---
 # <a name="create-two-web-apps-connected-securely-with-private-endpoint-and-vnet-integration"></a>Cree dos aplicaciones web conectadas de forma segura con Punto de conexión privado e Integración con red virtual
 
-En este artículo se muestra un ejemplo de uso de [Punto de conexión privado](../networking/private-endpoint.md) y de [Integración de red virtual](../web-sites-integrate-with-vnet.md) para conectar dos aplicaciones web (front-end y back-end) de forma segura siguiendo estos pasos:
+En este artículo se muestra un ejemplo de uso de [Punto de conexión privado](../networking/private-endpoint.md) y de [Integración de red virtual](../overview-vnet-integration.md) para conectar dos aplicaciones web (front-end y back-end) de forma segura siguiendo estos pasos:
 - Implementación de una red virtual
 - Creación de la primera subred para la integración
 - Creación de la segunda subred para el punto de conexión privado; para ello, tiene que establecer un parámetro específico y deshabilitar las directivas de red
 - Implementación de un plan de App Service de tipo PremiumV2 o PremiumV3, necesario para la característica Punto de conexión privado
-- Cree la aplicación web de front-end con una configuración de aplicación específica para usar la zona DNS privada; [consulte aquí más detalles](../web-sites-integrate-with-vnet.md#azure-dns-private-zones)
+- Cree la aplicación web de front-end con una configuración de aplicación específica para usar la zona DNS privada; [consulte aquí más detalles](../overview-vnet-integration.md#azure-dns-private-zones)
 - Conexión de la aplicación web front-end a la subred de integración
 - Creación de la aplicación web back-end
 - Creación de la zona privada de DNS con el nombre de la zona de vínculo privado para la aplicación web privatelink.azurewebsites.net

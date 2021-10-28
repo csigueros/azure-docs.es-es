@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/27/2021
 ms.author: b-juche
-ms.openlocfilehash: 71fcf944f0664c1d3e4d07e96348d109042047a8
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 0ed10fbe492a49f61a989e9159bed1cf4b60e513
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129094899"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256312"
 ---
 # <a name="search-backups-of-azure-netapp-files-volumes"></a>Búsqueda de copias de seguridad de volúmenes de Azure NetApp Files
 
@@ -66,7 +66,7 @@ Puede mostrar y buscar copias de seguridad asociadas a una suscripción en todas
 ## <a name="next-steps"></a>Pasos siguientes  
 
 * [Descripción de la copia de seguridad de archivos de Azure NetApp Files](backup-introduction.md)
-* [Requisitos y consideraciones para la copia de seguridad de archivos de Azure NetApp Files](backup-requirements-considerations.md)
+* [Requisitos y consideraciones para la copia de seguridad de Azure NetApp Files](backup-requirements-considerations.md)
 * [Límites de recursos para Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Configuración de copias de seguridad basadas en directivas](backup-configure-policy-based.md)
 * [Configuración de copias de seguridad manuales](backup-configure-manual.md)
@@ -75,4 +75,4 @@ Puede mostrar y buscar copias de seguridad asociadas a una suscripción en todas
 * [Deshabilitación de la funcionalidad de copia de seguridad de un volumen](backup-disable.md)
 * [Eliminación de copias de seguridad de un volumen](backup-delete.md)
 * [Métricas de copia de seguridad de los volúmenes](azure-netapp-files-metrics.md#volume-backup-metrics)
-* [Preguntas frecuentes sobre la copia de seguridad de archivos de Azure NetApp Files](azure-netapp-files-faqs.md#azure-netapp-files-backup-faqs)
+* [Preguntas frecuentes sobre la copia de seguridad de archivos de Azure NetApp Files](faq-backup.md)

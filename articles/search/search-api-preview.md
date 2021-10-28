@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/21/2021
-ms.openlocfilehash: 7078c07540ca1613b17b81e471bde519c7a2136c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1e02537fbc4aa8e382b38dcaeb09c5292ff3ab7e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725221"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261755"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Características en versión preliminar de Azure Cognitive Search
 
@@ -24,7 +24,7 @@ Se han quitado de la lista las características en versión preliminar que pasan
 |Característica&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descripción | Disponibilidad  |
 |---------|------------------|-------------|---------------|
 | [**API REST Search 2021-04-30-Preview**](/rest/api/searchservice/index-preview) | Seguridad | Modifica [Crear o actualizar origen de datos](/rest/api/searchservice/preview-api/create-or-update-data-source) para admitir identidades administradas en Azure Active Directory, para los indizadores que se conectan a orígenes de datos externos. | Versión preliminar pública, [API REST Search 2021-04-30-Preview](/rest/api/searchservice/index-preview) |
-| [**Compatibilidad con RBAC de Azure**](search-security-rbac.md) | Seguridad | Use nuevos roles integrados para controlar el acceso a los índices y la indexación, y eliminar o reducir la dependencia de las claves de API. | Versión preliminar pública ([bajo solicitud](https://aka.ms/azure-cognitive-search/rbac-preview)). Una vez que se incorpore la suscripción, use Azure Portal o la API REST de administración versión 2021-04-01-Preview a fin de configurar un servicio de búsqueda para la autenticación del plano de datos. |
+| [**Compatibilidad con RBAC de Azure**](search-security-rbac.md) | Seguridad | Use nuevos roles integrados para controlar el acceso a los índices y la indexación, y eliminar o reducir la dependencia de las claves de API. | Versión preliminar pública ([bajo solicitud](/azure/search/search-security-rbac?tabs=config-svc-portal%2Croles-portal%2Ctest-portal#step-1-preview-sign-up)). Una vez que se incorpore la suscripción, use Azure Portal o la API REST de administración versión 2021-04-01-Preview a fin de configurar un servicio de búsqueda para la autenticación del plano de datos. |
 | [**API REST de administración 2021-04-01-Preview**](/rest/api/searchmanagement/) | Seguridad | Modifica [Crear o actualizar un servicio](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) para admitir los nuevos valores [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions). | Versión preliminar pública, [API REST de administración ](/rest/api/searchmanagement/), versión de API 2021-04-01-Preview.|
 | [**Restablecimiento de documentos**](search-howto-run-reset-indexers.md) | indizador | Vuelve a procesar documentos de búsqueda seleccionados individualmente en cargas de trabajo de indexador. | Use la [API REST Reset Documents](/rest/api/searchservice/preview-api/reset-documents), versiones 2021-04-30-Preview o 2020-06-30-Preview. |
 |  [**Conectores de Power Query**](search-how-to-index-power-query-data-sources.md) | Origen de datos del indexador | Los indexadores ahora pueden realizar la indexación desde otras plataformas de nube. Si usa un indexador para rastrear orígenes de datos externos para la indexación, ahora puede usar conectores de Power Query para conectarse a Amazon Redshift, Elasticsearch, PostgreSQL, Salesforce Objects, Salesforce Reports, Smartsheet y Snowflake. | Es necesario [registrarse](https://aka.ms/azure-cognitive-search/indexer-preview) para que se pueda habilitar el soporte técnico para su suscripción en el back-end. Configure este origen de datos mediante [Crear o actualizar origen de datos](/rest/api/searchservice/preview-api/create-or-update-data-source) con las versiones de API 2021-04-30-Preview o 2020-06-30-Preview, o Azure Portal.|

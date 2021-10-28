@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/03/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: c38c1ec60b3a7fbeb65f85e4560c4495ab93a031
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 6ca686a9fcf2b2ba290e14687f090f833714502c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124754809"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225184"
 ---
 # <a name="restrict-importexport-access-for-managed-disks-using-azure-private-link"></a>Restricción del acceso para importar o exportar discos administrados mediante Azure Private Link
 
@@ -119,5 +119,5 @@ Ahora ha configurado un vínculo privado que puede usar para importar y exportar
 
 - Carga de un disco duro virtual en Azure o copia de un disco administrado en otra región: la [CLI de Azure](linux/disks-upload-vhd-to-managed-disk-cli.md) o el [módulo de Azure PowerShell](windows/disks-upload-vhd-to-managed-disk-powershell.md)
 - Descarga de un disco duro virtual [Windows](windows/download-vhd.md) o [Linux](linux/download-vhd.md)
-- [Instancias de Private Link para exportar e importar Managed Disks de forma segura](/azure/virtual-machines/faq-for-disks#private-links-for-securely-exporting-and-importing-managed-disks)
+- [Instancias de Private Link para exportar e importar Managed Disks de forma segura](./faq-for-disks.yml)
 - [Exportación o copia de instantáneas administradas como VHD a una cuenta de almacenamiento en otra región con PowerShell](/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account)

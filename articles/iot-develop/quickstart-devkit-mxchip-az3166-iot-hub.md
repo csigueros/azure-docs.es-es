@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/09/2021
-ms.openlocfilehash: aea20a9f8a6f0725220a60e425b48e22c6aa8794
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 36e4a46cbe71b39550c1a6c066670be6008ab1c2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862126"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130259475"
 ---
 # <a name="quickstart-connect-an-mxchip-az3166-devkit-to-iot-hub"></a>Inicio rápido: Conexión de un kit de desarrollo MXCHIP AZ3166 a IoT Hub
 
@@ -34,7 +34,7 @@ Deberá completar las siguientes tareas:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un equipo con Microsoft Windows 10
+* Un equipo con Windows 10
 * Si no tiene una suscripción de Azure, [cree una gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de comenzar.
 * [Git](https://git-scm.com/downloads) para clonar el repositorio
 * CLI de Azure. Tiene dos opciones para ejecutar comandos de la CLI de Azure en este inicio rápido:

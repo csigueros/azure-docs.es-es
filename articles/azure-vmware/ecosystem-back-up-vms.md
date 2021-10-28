@@ -3,12 +3,12 @@ title: Soluciones de copia de seguridad para máquinas virtuales de Azure VMware
 description: Obtenga información sobre las soluciones de copia de seguridad y restauración principales para las máquinas virtuales de Azure VMware Solution.
 ms.topic: how-to
 ms.date: 04/21/2021
-ms.openlocfilehash: 76231aaed4b363daf20abe54a78f84a9e0740da4
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 4febf70d473f74b28356310a7c6704c41e3cb1b9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113431634"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252295"
 ---
 # <a name="backup-solutions-for-azure-vmware-solution-virtual-machines-vms"></a>Soluciones de copia de seguridad para máquinas virtuales de Azure VMware Solution
 
@@ -19,7 +19,7 @@ Nuestros asociados de copia de seguridad tienen soluciones de copia de seguridad
 El tráfico de red de copia de seguridad entre las máquinas virtuales de Azure VMware Solution y el repositorio de copias de seguridad de Azure recorre un vínculo de baja latencia y ancho de banda alto. El tráfico de replicación entre regiones viaja por la red interna de backplane de Azure, lo cual reduce los costos de ancho de banda para los usuarios.
 
 >[!NOTE]
->Para preguntas frecuentes, consulte las [preguntas más frecuentes sobre la solución de copia de seguridad de terceros](/azure/azure-vmware/faq#third-party-backup-and-recovery).
+>Para preguntas frecuentes, consulte las [preguntas más frecuentes sobre la solución de copia de seguridad de terceros](./faq.yml).
 
 
 

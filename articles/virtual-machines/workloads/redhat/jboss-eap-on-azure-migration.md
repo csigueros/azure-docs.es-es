@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: redhat
 ms.assetid: 9b37b2c4-5927-4271-85c7-19adf33d838b
 ms.date: 06/08/2021
-ms.openlocfilehash: 188e40f9bc3d2d23035549578cdc6440af60a3e5
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: ab19ecb14f3aa7701205e038fe59b92e297decbd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129359237"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262971"
 ---
 # <a name="how-to-migrate-java-applications-to-jboss-eap-on-azure-vms-and-virtual-machine-scale-sets"></a>Cómo migrar aplicaciones Java a JBoss EAP en máquinas virtuales y conjuntos de escalado de máquinas virtuales de Azure
 
@@ -237,7 +237,7 @@ Una vez completada la migración, revise los archivos de configuración del serv
 
 Puede exponer la aplicación mediante los métodos siguientes, lo que es adecuado para su entorno.
 
-* [Cree una dirección IP pública](../../../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address) para acceder al servidor y a la aplicación.
+* [Cree una dirección IP pública](../../../virtual-network/ip-services/virtual-network-public-ip-address.md#create-a-public-ip-address) para acceder al servidor y a la aplicación.
 * [Cree una máquina virtual de salto en la misma red virtual (VNet)](../../windows/quick-create-portal.md#create-virtual-machine) en una subred diferente (nueva subred) en la misma red virtual y acceda al servidor a través de una máquina virtual de salto. Esta máquina virtual de salto se puede usar para exponer la aplicación.
 * [Cree una máquina virtual de salto con emparejamiento de red virtual](../../windows/quick-create-portal.md#create-virtual-machine) en una red virtual distinta, acceda al servidor y exponga la aplicación mediante [emparejamiento de red virtual](../../../virtual-network/tutorial-connect-virtual-networks-portal.md#peer-virtual-networks).
 * Exponga la aplicación mediante una [puerta de enlace de aplicación](../../../application-gateway/quick-create-portal.md#create-an-application-gateway)

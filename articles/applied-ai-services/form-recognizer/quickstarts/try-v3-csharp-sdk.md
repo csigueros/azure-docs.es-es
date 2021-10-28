@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 10/07/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: f0ed9d9b7574f6d8d1856c263b22dfa66e1207ca
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 50c1cfbcfc79212f03fd67f783afaff110ce1e09
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129809814"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216739"
 ---
 # <a name="quickstart-form-recognizer-c-client-library-sdks-v30--preview"></a>Inicio rápido: Versión v3.0 de los SDK de biblioteca cliente de Form Recognizer para C# | Versión preliminar
 
@@ -46,7 +46,7 @@ En este inicio rápido, usará las siguientes características para analizar y e
 
 * [**Layout**](#try-it-layout-model)
 
-* [**Factura pregenerada**](#try-it-prebuilt-invoice-model)
+* [**Factura precompilada**](#try-it-prebuilt-invoice-model)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -57,11 +57,11 @@ En este inicio rápido, usará las siguientes características para analizar y e
 * Un recurso de Cognitive Services o Form Recognizer. Una vez que tenga la suscripción de Azure, cree un recurso de Form Recognizer de [servicio único](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) o de [varios servicios](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) en Azure Portal para obtener la clave y el punto de conexión. Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
 
 > [!TIP] 
-> Cree un recurso de Cognitive Services si tiene previsto acceder a varios servicios de Cognitive Services en un único punto de conexión o clave. Para acceder únicamente a Form Recognizer, cree un recurso de Form Recognizer. Tenga en cuenta que necesitará un recurso de servicio único si tiene previsto usar la [autenticación de Azure Active Directory](/azure/active-directory/authentication/overview-authentication).
+> Cree un recurso de Cognitive Services si tiene previsto acceder a varios servicios de Cognitive Services en un único punto de conexión o clave. Para acceder únicamente a Form Recognizer, cree un recurso de Form Recognizer. Tenga en cuenta que necesitará un recurso de servicio único si tiene previsto usar la [autenticación de Azure Active Directory](../../../active-directory/authentication/overview-authentication.md).
 
-* Una vez que se implemente el recurso, haga clic en **Ir al recurso**. Necesitará la clave y el punto de conexión del recurso que ha creado para conectar la aplicación a API de Form Recognizer. En una sección posterior de este mismo inicio rápido, pegará la clave y el punto de conexión en el código siguiente:
+* Una vez que se implemente el recurso, haga clic en **Ir al recurso**. Necesitará la clave y el punto de conexión del recurso que ha creado para conectar la aplicación a la API de Form Recognizer. En una sección posterior de este mismo inicio rápido, pegará la clave y el punto de conexión en el código siguiente:
 
-  :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Captura de pantalla: ubicación de las claves y el punto de conexión en Azure Portal.":::
+  :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Captura de pantalla: claves y ubicación del punto de conexión en Azure Portal.":::
 
 ## <a name="set-up"></a>Configurar
 

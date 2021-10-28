@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 05/26/2021
 ms.author: mbullwin
-ms.openlocfilehash: 2bb387863baffdd014eedb20d94ea1273860b8c4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9d5d111e86623b3de63bc9aa5d77f5a14c37fabd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730609"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216777"
 ---
 # <a name="how-to-connect-different-data-sources"></a>Conexión con distintos orígenes de datos
 
@@ -185,7 +185,7 @@ En las secciones siguientes se especifican los parámetros necesarios para todos
         Data Source=<URI Server>;Initial Catalog=<Database>
         ```
 
-    * **Identidad administrada**: la identidad administrada para los recursos de Azure pueden autorizar el acceso a los datos de blobs y colas. La identidad administrada usa las credenciales de Azure AD de las aplicaciones que se ejecutan en máquinas virtuales de Azure, aplicaciones de funciones, conjuntos de escalado de máquinas virtuales y otros servicios. Si usa la identidad administrada para recursos de Azure y la autenticación de Azure AD, puede evitar el almacenamiento de credenciales con las aplicaciones que se ejecutan en la nube. Obtenga información sobre cómo [autorizar con una identidad administrada](../../storage/common/storage-auth-aad-msi.md#enable-managed-identities-on-a-vm). 
+    * **Identidad administrada**: la identidad administrada para los recursos de Azure pueden autorizar el acceso a los datos de blobs y colas. La identidad administrada usa las credenciales de Azure AD de las aplicaciones que se ejecutan en máquinas virtuales de Azure, aplicaciones de funciones, conjuntos de escalado de máquinas virtuales y otros servicios. Si usa la identidad administrada para recursos de Azure y la autenticación de Azure AD, puede evitar el almacenamiento de credenciales con las aplicaciones que se ejecutan en la nube. Obtenga información sobre cómo [autorizar con una identidad administrada](../../storage/blobs/authorize-managed-identity.md#enable-managed-identities-on-a-vm). 
     
         Puede crear una identidad administrada en Azure Portal para Azure Data Explorer (Kusto). Seleccione **Permisos** > **Agregar**. El tipo de rol sugerido es: **administrador/espectador**.
         
@@ -413,7 +413,7 @@ Los registros de Azure Monitor tienen los siguientes tipos de autenticación: b�
         ```
     
         > [!NOTE]
-        > `MI Name` es el nombre de la identidad administrada en Metrics Advisor (para la entidad de servicio, se debe reemplazar por el nombre de la entidad de servicio). Para más información, vea [Autorización con una identidad administrada](../../storage/common/storage-auth-aad-msi.md#enable-managed-identities-on-a-vm). 
+        > `MI Name` es el nombre de la identidad administrada en Metrics Advisor (para la entidad de servicio, se debe reemplazar por el nombre de la entidad de servicio). Para más información, vea [Autorización con una identidad administrada](../../storage/blobs/authorize-managed-identity.md#enable-managed-identities-on-a-vm). 
             
         Este es un ejemplo de una cadena de conexión: 
        

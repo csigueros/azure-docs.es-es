@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4683b38ba6a59b0a50f7e0ea4165657407b59b69
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: bb96e0da4e9e724220492821f1418f3d587b63e8
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124823174"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130222919"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Volúmenes NFS v4.1 en Azure NetApp Files para SAP HANA
 
@@ -40,7 +40,7 @@ A la hora de considerar Azure NetApp Files para SAP Netweaver y SAP HANA, tenga 
 - Es importante que las máquinas virtuales se implementen muy cerca del almacenamiento de Azure NetApp para conseguir una latencia baja.  
 - La red virtual seleccionada debe tener una subred delegada en Azure NetApp Files.
 - Asegúrese de que la latencia del servidor de base de datos en el volumen de ANF se mide y está por debajo de 1 milisegundo.
-- El rendimiento de un volumen de Azure NetApp es una función de la cuota del volumen y del nivel de servicio, como se documenta en [Nivel de servicio para Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). Al ajustar el tamaño de los volúmenes de Azure NetApp de HANA, asegúrese de que el rendimiento resultante cumple los requisitos del sistema HANA. De forma alternativa, considere el uso de un [grupo de capacidad manual de QoS](../../../azure-netapp-files/manual-qos-capacity-pool-introduction.md) donde la capacidad de volumen y el rendimiento se pueden configurar y escalar de forma independiente (en [este documento](../../../azure-netapp-files/manual-qos-capacity-pool-introduction.md) se pueden encontrar ejemplos específicos de SAP HANA).
+- El rendimiento de un volumen de Azure NetApp es una función de la cuota del volumen y del nivel de servicio, como se documenta en [Nivel de servicio para Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). Al ajustar el tamaño de los volúmenes de Azure NetApp de HANA, asegúrese de que el rendimiento resultante cumple los requisitos del sistema HANA. De forma alternativa, considere el uso de un [grupo de capacidad manual de QoS](../../../azure-netapp-files/azure-netapp-files-understand-storage-hierarchy.md#manual-qos-type) donde la capacidad de volumen y el rendimiento se pueden configurar y escalar de forma independiente (en [este documento](../../../azure-netapp-files/azure-netapp-files-understand-storage-hierarchy.md#manual-qos-type) se pueden encontrar ejemplos específicos de SAP HANA).
 - Intente "consolidar" volúmenes para obtener más rendimiento en un volumen de mayor tamaño; por ejemplo, use un volumen para /sapmnt, /usr/sap/trans, etc., si es posible.  
 - Azure NetApp Files ofrece la [directiva de exportación](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md): puede controlar los clientes permitidos, el tipo de acceso (lectura y escritura, solo lectura, etc.). 
 - La característica Azure NetApp Files no depende aún de la zona. En la actualidad, la característica Azure NetApp Files no se implementa en todas las zonas de disponibilidad de una región de Azure. Tenga en cuenta las posibles implicaciones de latencia en algunas regiones de Azure.   
@@ -92,7 +92,7 @@ Al diseñar la infraestructura de SAP en Azure, debe tener en cuenta los requisi
 | Escritura de volumen de datos | 250 MB/s | 4 TB | 2 TB |
 | Lectura de volumen de datos | 400 MB/s | 6,3 TB | 3,2 TB |
 
-Dado que se exigen los tres KPI, el volumen de **/hana/data** debe dimensionarse a la capacidad de mayor tamaño para cumplir los requisitos mínimos de lectura. Cuando se usan grupos de capacidad de QoS manual, el tamaño y el rendimiento de los volúmenes se pueden definir de forma independiente. Dado que tanto la capacidad como el rendimiento se toman del mismo grupo de capacidad, el nivel de servicio y el tamaño del grupo deben ser lo suficientemente grandes como para ofrecer el rendimiento total (vea el ejemplo [aquí](../../../azure-netapp-files/manual-qos-capacity-pool-introduction.md)).
+Dado que se exigen los tres KPI, el volumen de **/hana/data** debe dimensionarse a la capacidad de mayor tamaño para cumplir los requisitos mínimos de lectura. Cuando se usan grupos de capacidad de QoS manual, el tamaño y el rendimiento de los volúmenes se pueden definir de forma independiente. Dado que tanto la capacidad como el rendimiento se toman del mismo grupo de capacidad, el nivel de servicio y el tamaño del grupo deben ser lo suficientemente grandes como para ofrecer el rendimiento total (vea el ejemplo [aquí](../../../azure-netapp-files/azure-netapp-files-understand-storage-hierarchy.md#manual-qos-type)).
 
 En el caso de los sistemas HANA, que no requieren un ancho de banda alto, el rendimiento del volumen de ANF se puede reducir con un tamaño de volumen menor o, en caso de QoS manual, ajustar el rendimiento directamente. Y, en caso de que un sistema HANA requiera más rendimiento, el volumen podría adaptarse mediante el cambio de tamaño de la capacidad en línea. No se ha definido ningún KPI para los volúmenes de copia de seguridad. Sin embargo, el rendimiento del volumen de copia de seguridad es fundamental para un entorno que funcione correctamente. El rendimiento del volumen de registros y datos debe estar diseñado para cumplir con las expectativas de los clientes.
 

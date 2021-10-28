@@ -4,14 +4,14 @@ description: Las áreas de trabajo de Log Analytics en Azure Monitor almacenan d
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/26/2020
+ms.date: 10/20/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a1b0c77646b8b57a2b1175367d6a9e91388f4874
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: fb4f053c0bab838467ebce742cafdc909d4ce5c9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322987"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219877"
 ---
 # <a name="create-and-configure-a-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Crear y configurar el área de trabajo de Log Analytics en Azure Monitor con PowerShell
 En este artículo se proporcionan dos ejemplos de código que muestran cómo crear y configurar un área de trabajo de Log Analytics en Azure Monitor.  
@@ -21,7 +21,7 @@ En este artículo se proporcionan dos ejemplos de código que muestran cómo cre
 > Log Analytics se llamaba anteriormente Operational Insights, razón por la cual se utiliza este nombre en los cmdlets.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Estos ejemplos funcionan con la versión 1.0.0 o posterior del módulo Az.OperationalInsights.
 
 ## <a name="create-workspace"></a>Creación del espacio de trabajo

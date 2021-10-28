@@ -6,12 +6,12 @@ ms.date: 02/04/2021
 ms.service: media-services
 ms.author: faneerde
 author: fvneerden
-ms.openlocfilehash: f3498175030be0c6bc7b57db25dece5f8c2d83ea
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0eddbed98a4110e1d5e2f832690c7b87850111b0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128626843"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130254308"
 ---
 # <a name="tutorial-analyze-live-video-by-using-live-video-analytics-with-intel-openvino-dl-streamer--edge-ai-extension"></a>Tutorial: Análisis de vídeo en directo mediante Live Video Analytics con la extensión de inteligencia artificial de Edge OpenVINO™ DL Streamer 
 
@@ -343,4 +343,4 @@ Si su intención es probar otros inicios rápidos o tutoriales, conserve los rec
 Revise los desafíos adicionales para los usuarios avanzados:
 
 * Use una [cámara IP](https://en.wikipedia.org/wiki/IP_camera) que sea compatible con RTSP, en lugar de utilizar el simulador RTSP. Puede buscar cámaras IP compatibles con RTSP en la página de [productos compatibles con ONVIF](https://www.onvif.org/conformant-products/). Busque dispositivos que se ajusten a los perfiles G, S o T.
-* Use un dispositivo Intel x64 con Linux, en lugar de una máquina virtual Linux de Azure. El dispositivo debe estar en la misma red que la cámara IP. Puede seguir las instrucciones que aparecen en [Instalación del entorno de ejecución de Azure IoT Edge en Linux](../../iot-edge/how-to-install-iot-edge.md). Luego, registre el dispositivo en Azure IoT Hub, para lo que debe seguir las instrucciones que se encuentran en [Implementación del primer módulo IoT Edge en un dispositivo virtual Linux](../../iot-edge/quickstart-linux.md).
+* Use un dispositivo Intel x64 con Linux, en lugar de una máquina virtual Linux de Azure. El dispositivo debe estar en la misma red que la cámara IP. Puede seguir las instrucciones que aparecen en [Instalación del entorno de ejecución de Azure IoT Edge en Linux](../../iot-edge/how-to-provision-single-device-linux-symmetric.md). Luego, registre el dispositivo en Azure IoT Hub, para lo que debe seguir las instrucciones que se encuentran en [Implementación del primer módulo IoT Edge en un dispositivo virtual Linux](../../iot-edge/quickstart-linux.md).

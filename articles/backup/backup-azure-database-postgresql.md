@@ -3,12 +3,12 @@ title: Copia de seguridad de Azure Database for PostgreSQL
 description: Más información sobre la copia de seguridad de Azure Database for PostgreSQL con retención a largo plazo (versión preliminar)
 ms.topic: conceptual
 ms.date: 09/22/2021
-ms.openlocfilehash: 25304aee2a759b55b8b3139aa2ae57511c967595
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: a012ef97db27b97039fa7aac7b108ca86afb9314
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129389881"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219628"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Copia de seguridad de Azure Database for PostgreSQL con retención a largo plazo (versión preliminar)
 
@@ -24,7 +24,7 @@ Puede configurar la copia de seguridad de varias bases de datos en varios servid
 
    :::image type="content" source="./media/backup-azure-database-postgresql/adding-backup-details-inline.png" alt-text="Captura de pantalla que muestra la opción para agregar información de copia de seguridad." lightbox="./media/backup-azure-database-postgresql/adding-backup-details-expanded.png":::
 
-   También puede navegar a esta página desde el [Centro de copias de seguridad](/azure/backup/backup-center-overview). 
+   También puede navegar a esta página desde el [Centro de copias de seguridad](./backup-center-overview.md). 
 
 1. Seleccione [Create a Backup Policy](#create-backup-policy) (Crear una directiva de copia de seguridad), que define la programación de la copia de seguridad y la duración de la retención.
 

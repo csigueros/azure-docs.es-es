@@ -4,12 +4,12 @@ description: Transferir colecciones de imágenes u otros artefactos de un regist
 ms.topic: article
 ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: a82bee4c0750004db11753c56f06b2ef19badf1c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fcec85f44b7538bfd741a6e6c890a4e92b5a9fb0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121722484"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130229472"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transferir artefactos a otro registro
 
@@ -30,7 +30,7 @@ Esta característica está disponible en el nivel de servicio de un registro de 
 > [!IMPORTANT]
 > Esta funcionalidad actualmente está en su versión preliminar. Las versiones preliminares están a su disposición con la condición de que acepte los [términos de uso adicionales][terms-of-use]. Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * **Registros de contenedor**: necesita un registro de origen existente con artefactos para transferir y un registro de destino. La transferencia de ACR está pensada para el movimiento entre nubes físicamente desconectadas. Para las pruebas, los registros de origen y de destino pueden estar en la misma o en otra suscripción de Azure, inquilino de Active Directory o nube. 
 
@@ -210,7 +210,7 @@ Parámetro  |Value  |
 |---------|---------|
 |registryName     | Nombre del registro de contenedor de destino      |
 |importPipelineName     |  Nombre que elija para la canalización de importación       |
-|SourceUri     |  URI del contenedor de almacenamiento en el entorno de destino (el origen de la canalización de importación).<br/>Ejemplo: `https://targetstorage.blob.core.windows.net/transfer/`|
+|SourceUri     |  URI del contenedor de almacenamiento en el entorno de destino (el origen de la canalización de importación).<br/>Ejemplo: `https://targetstorage.blob.core.windows.net/transfer`|
 |keyVaultName     |  Nombre del almacén de claves de destino |
 |sasTokenSecretName     |  Nombre del secreto del token de SAS en el almacén de claves de destino<br/>Ejemplo: acr importsas |
 

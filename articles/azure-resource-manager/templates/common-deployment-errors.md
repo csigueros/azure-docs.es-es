@@ -5,12 +5,12 @@ tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 01/20/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: be79c143cf38602dbe8f406d8aa3e2988de2c9d9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 0993f7683bcf5ee0e350d437f6724bbd9b6bbdda
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124785237"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130250604"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solución de errores comunes de implementación de Azure con Azure Resource Manager
 
@@ -63,8 +63,8 @@ Si busca información sobre un código de error y esa información no se proporc
 | OperationNotAllowed | La implementación trata de realizar una operación que excede la cuota de la suscripción, del grupo de recursos o de la región. Si es posible, revise la implementación para respetar las cuotas. De lo contrario, considere la posibilidad de solicitar un cambio de las cuotas. | [Resolución de cuotas](error-resource-quota.md) |
 | ParentResourceNotFound | Asegúrese de que existe un recurso principal antes de crear los recursos secundarios. | [Resolución del recurso principal](error-parent-resource.md) |
 | PasswordTooLong | Puede que haya seleccionado una contraseña con demasiados caracteres, o que haya convertido el valor de contraseña en una cadena segura antes de pasarlo como parámetro. Si la plantilla incluye un parámetro de **cadena segura**, no es necesario convertir el valor en una cadena segura. Proporcione el valor de contraseña como texto. |  |
-| PrivateIPAddressInReservedRange | La dirección IP especificada incluye un intervalo de direcciones requerido por Azure. Cambie la dirección IP para evitar el intervalo reservado. | [Direcciones IP](../../virtual-network/public-ip-addresses.md) |
-| PrivateIPAddressNotInSubnet | La dirección IP especificada está fuera del intervalo de subred. Cambie la dirección IP para que esté dentro del intervalo de subred. | [Direcciones IP](../../virtual-network/public-ip-addresses.md) |
+| PrivateIPAddressInReservedRange | La dirección IP especificada incluye un intervalo de direcciones requerido por Azure. Cambie la dirección IP para evitar el intervalo reservado. | [Direcciones IP](../../virtual-network/ip-services/public-ip-addresses.md) |
+| PrivateIPAddressNotInSubnet | La dirección IP especificada está fuera del intervalo de subred. Cambie la dirección IP para que esté dentro del intervalo de subred. | [Direcciones IP](../../virtual-network/ip-services/public-ip-addresses.md) |
 | PropertyChangeNotAllowed | Algunas propiedades no se pueden cambiar en un recurso implementado. Al actualizar un recurso, limite los cambios a las propiedades permitidas. | [Actualización de recursos](/azure/architecture/guide/azure-resource-manager/advanced-templates/update-resource) |
 | RequestDisallowedByPolicy | La suscripción incluye una directiva de recursos que impide una acción que está tratando de realizar durante la implementación. Busque la directiva que bloquea la acción. Si es posible, cambie la implementación para cumplir con las limitaciones de la directiva. | [Resolución de directivas](error-policy-requestdisallowedbypolicy.md) |
 | ReservedResourceName | Proporcione un nombre de recurso que no incluya un nombre reservado. | [Nombres de recurso reservados](error-reserved-resource-name.md) |

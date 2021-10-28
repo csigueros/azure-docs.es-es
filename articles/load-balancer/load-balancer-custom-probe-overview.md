@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: bb7505fe23079b13e702dec70bc9cc362cd7b848
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 5e66aad5df5b9adde5739aafe85428af2540e4e0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129388268"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223377"
 ---
 # <a name="load-balancer-health-probes"></a>Sondeos de estado de Load Balancer
 
@@ -37,7 +37,7 @@ Los sondeos de estado admiten varios protocolos. La disponibilidad de un protoco
 >Revise este documento en su totalidad, incluidas las [instrucciones de diseño importantes](#design) que se indican a continuación para crear un servicio confiable.
 
 >[!IMPORTANT]
->Los sondeos de estado de Load Balancer parten de la dirección IP 168.63.129.16 y no se deben bloquear para que los sondeos marquen la instancia como activa.  Para más información, consulte el apartado [Probe source IP address](#probesource) (Dirección IP de origen de sondeo). Para ver este tráfico de sondeo dentro de la instancia de back-end, revise [estas preguntas frecuentes](/azure/load-balancer/load-balancer-faqs#probes).
+>Los sondeos de estado de Load Balancer parten de la dirección IP 168.63.129.16 y no se deben bloquear para que los sondeos marquen la instancia como activa.  Para más información, consulte el apartado [Probe source IP address](#probesource) (Dirección IP de origen de sondeo). Para ver este tráfico de sondeo dentro de la instancia de back-end, revise [estas preguntas frecuentes](./load-balancer-faqs.yml).
 
 >[!IMPORTANT]
 >Independientemente del umbral de tiempo de espera configurado, los sondeos de estado del equilibrador de carga HTTP o HTTPS comprobarán automáticamente una instancia si el servidor devuelve cualquier código de estado que no sea HTTP 200 u OK o si la conexión se termina a través del restablecimiento de TCP.

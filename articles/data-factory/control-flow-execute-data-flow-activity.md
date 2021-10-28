@@ -9,12 +9,12 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 09/09/2021
-ms.openlocfilehash: 14fa6484a3cba97602d33cf2b302d62bf6ef2871
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: c42ba6008f80f3fe625d9716c6a6d62f3fb60d2a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124743876"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130260291"
 ---
 # <a name="data-flow-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Actividad Flujo de datos de Azure Data Factory y Azure Synapse Analytics
 
@@ -107,11 +107,11 @@ La característica de agrupación de los flujos de datos permite establecer el o
 
 El comportamiento predeterminado de los receptores de flujo de datos es ejecutar cada receptor de forma secuencial, en serie, y producir un error en el flujo de datos cuando se encuentra un error en el receptor. Además, todos los receptores se establecen de forma predeterminada en el mismo grupo, a menos que vaya a las propiedades del flujo de datos y establezca otras prioridades para los receptores.
 
+:::image type="content" source="media/data-flow/sink-properties.png" alt-text="Propiedades del receptor":::
+
 ### <a name="first-row-only"></a>Solo la primera fila
 
 Esta opción solo está disponible para los flujos de datos que tienen los receptores de caché habilitados para la "salida a la actividad". La salida del flujo de datos que se inserta directamente en la canalización está limitada a 2 MB. Establecer "solo la primera fila" le ayuda a limitar la salida de datos del flujo de datos al insertar la salida de la actividad de flujo de datos directamente en la canalización.
-
-:::image type="content" source="media/data-flow/sink-properties.png" alt-text="Propiedades del receptor":::
 
 ## <a name="parameterizing-data-flows"></a>Flujos de datos con parámetros
 

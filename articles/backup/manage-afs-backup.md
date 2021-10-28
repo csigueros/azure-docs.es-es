@@ -3,12 +3,12 @@ title: Administración de copias de seguridad de recursos compartidos de archivo
 description: En este artículo se describen las tareas comunes para administrar y supervisar los recursos compartidos de archivos de Azure de los que Azure Backup realiza una copia de seguridad.
 ms.topic: conceptual
 ms.date: 10/08/2021
-ms.openlocfilehash: e955ed1cf01c055ea72218076799d7da31d096b7
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 421162387b28777acf1c4f86288796d8066468a6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129714292"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216055"
 ---
 # <a name="manage-azure-file-share-backups"></a>Administración de copias de seguridad de recursos compartidos de archivos de Azure
 
@@ -30,7 +30,7 @@ Para abrir la página **Backup Jobs** (Trabajos de copia de seguridad), siga est
 
 ## <a name="monitor-using-azure-backup-reports"></a>Supervisión mediante informes de Azure Backup
 
-Azure Backup proporciona una solución de informes que usa [registros de Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md) y [libros de Azure](../azure-monitor/visualize/workbooks-overview.md). Estos recursos le ayudan a obtener mejores conclusiones sobre las copias de seguridad. Puede aprovechar estos informes para obtener visibilidad de los elementos de copia de seguridad de Azure Files, los trabajos en el nivel de elemento y los detalles de las directivas activas. Con la característica "Informe de correo electrónico" disponible en los Informes de Backup, puede crear tareas automatizadas para recibir informes periódicos por correo electrónico. [Aprenda](/azure/backup/configure-reports#get-started) cómo configurar y ver los informes de Azure Backup.
+Azure Backup proporciona una solución de informes que usa [registros de Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md) y [libros de Azure](../azure-monitor/visualize/workbooks-overview.md). Estos recursos le ayudan a obtener mejores conclusiones sobre las copias de seguridad. Puede aprovechar estos informes para obtener visibilidad de los elementos de copia de seguridad de Azure Files, los trabajos en el nivel de elemento y los detalles de las directivas activas. Con la característica "Informe de correo electrónico" disponible en los Informes de Backup, puede crear tareas automatizadas para recibir informes periódicos por correo electrónico. [Aprenda](./configure-reports.md#get-started) cómo configurar y ver los informes de Azure Backup.
 
 ## <a name="create-a-new-policy"></a>Creación de una nueva directiva
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-plat-web-ios-android-windows
-ms.openlocfilehash: 4bb6bf44de0dc98d0a7febbd22e42eea2fa838d0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b585e21a5c8daa425a52d3212dec6ddfb64934f9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128671761"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215903"
 ---
 # <a name="quickstart-join-your-calling-app-to-a-teams-meeting"></a>Inicio rápido: Incorporación de una aplicación de llamadas a una reunión de Teams
 
@@ -55,5 +55,5 @@ Si quiere limpiar y quitar una suscripción a Communication Services, puede elim
 Para más información, consulte los siguientes artículos.
 
 - Consulte nuestro [ejemplo de elementos principales de una llamada](../../samples/calling-hero-sample.md).
-- Más información sobre la [llamada a las funcionalidades de SDK](./calling-client-samples.md)
+- Más información sobre la [llamada a las funcionalidades de SDK](./getting-started-with-calling.md)
 - Más información sobre [cómo funciona la llamada](../../concepts/voice-video-calling/about-call-types.md)

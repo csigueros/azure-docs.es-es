@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4fe0354f3d8e4d2b3ac2938f1cd03baa2ca2ce4d
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 13185cdb0c75b2d88bf8b0fa5a4158789ac85e79
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122324040"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130228214"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolución de nombres de recursos en redes virtuales de Azure
 
@@ -192,7 +192,7 @@ Si el reenvío de consultas a Azure no satisface sus necesidades, debería propo
 
 ### <a name="web-apps"></a>Aplicaciones web
 Supongamos que necesita realizar la resolución de nombres de una aplicación web integrada con App Service y vinculada a una red virtual, a las máquinas virtuales en la misma red virtual. Además de configurar un servidor DNS personalizado que tenga un reenviador DNS que reenvíe las consultas a Azure (dirección IP virtual 168.63.129.16), realice los pasos siguientes:
-1. Habilite la integración de red virtual de la aplicación web, si aún no lo ha hecho, tal y como se describe en [Integración de su aplicación con una instancia de Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Habilite la integración de red virtual de la aplicación web, si aún no lo ha hecho, tal y como se describe en [Integración de su aplicación con una instancia de Azure Virtual Network](../app-service/overview-vnet-integration.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. En Azure Portal, para el plan de App Service que hospeda la aplicación web, seleccione **Sincronizar red** en **Redes**, **Integración de Virtual Network**.
 
     ![Captura de pantalla de la resolución de nombres de red virtual](./media/virtual-networks-name-resolution-for-vms-and-role-instances/webapps-dns.png)
@@ -202,7 +202,7 @@ Si necesita ejecutar la resolución de nombres de la aplicación web integrada m
 * Configure un servidor DNS en la red virtual de destino en una máquina virtual que también pueda reenviar consultas a la resolución recursiva de Azure (dirección IP virtual 168.63.129.16). Puede encontrar un reenviador DNS de ejemplo disponible en la [galería de plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/dns-forwarder/) y en [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/dns-forwarder).
 * Configure un reenviador DNS en la red virtual de origen en una máquina virtual. Configure este reenviador DNS para que reenvíe consultas al servidor DNS de la red virtual de destino.
 * Configure el servidor DNS de origen en la configuración de su red virtual de origen.
-* Habilite la integración de red virtual para la aplicación web para vincular a la red virtual de origen, siguiendo las instrucciones de [Integración de su aplicación con una instancia de Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* Habilite la integración de red virtual para la aplicación web para vincular a la red virtual de origen, siguiendo las instrucciones de [Integración de su aplicación con una instancia de Azure Virtual Network](../app-service/overview-vnet-integration.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * En Azure Portal, para el plan de App Service que hospeda la aplicación web, seleccione **Sincronizar red** en **Redes**, **Integración de Virtual Network**.
 
 ## <a name="specify-dns-servers"></a>Especificación de los servidores DNS

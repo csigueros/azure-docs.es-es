@@ -6,20 +6,20 @@ ms.topic: article
 ms.date: 9/20/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
-ms.openlocfilehash: 2096176c64781e99161188ce66b7dd87d226278e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f479a05fb305887d5e901ca236cb0183d4a2d87b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128594566"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227309"
 ---
 # <a name="deploy-open-service-mesh-osm-azure-kubernetes-service-aks-add-on-using-bicep"></a>Implementación del complemento Open Service Mesh (OSM) en Azure Kubernetes Service (AKS) mediante Bicep
 
-En este artículo se explica cómo implementar el complemento OSM en AKS mediante una plantilla de [Bicep](/azure/azure-resource-manager/bicep/).
+En este artículo se explica cómo implementar el complemento OSM en AKS mediante una plantilla de [Bicep](../azure-resource-manager/bicep/index.yml).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-[Bicep](/azure/azure-resource-manager/bicep/overview) es un lenguaje específico de dominio (DSL) que usa sintaxis declarativa para implementar recursos de Azure. Bicep se puede usar en lugar de crear plantillas de [ARM](/azure/azure-resource-manager/templates/overview) de Azure para implementar los recursos de Azure de infraestructura como código.
+[Bicep](../azure-resource-manager/bicep/overview.md) es un lenguaje específico de dominio (DSL) que usa sintaxis declarativa para implementar recursos de Azure. Bicep se puede usar en lugar de crear plantillas de [ARM](../azure-resource-manager/templates/overview.md) de Azure para implementar los recursos de Azure de infraestructura como código.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -28,7 +28,7 @@ En este artículo se explica cómo implementar el complemento OSM en AKS mediant
 - Versión v 0.9.1 o posterior de OSM
 - Una clave pública SSH usada para implementar AKS
 - [Visual Studio Code](https://code.visualstudio.com/) con un terminal de Bash
-- La [extensión Bicep](/azure/azure-resource-manager/bicep/install) de Visual Studio Code
+- La [extensión Bicep](../azure-resource-manager/bicep/install.md) de Visual Studio Code
 
 ## <a name="install-the-aks-preview-extension"></a>Instalación de la extensión aks-preview
 
@@ -66,7 +66,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="install-the-osm-aks-add-on-for-a-new-aks-cluster-using-bicep"></a>Instalación del complemento OSM de AKS para un nuevo clúster de AKS mediante Bicep
 
-Para un nuevo escenario de implementación de clústeres de AKS, comience con una nueva implementación de un clúster de AKS con el complemento OSM habilitado en la operación de creación del clúster. El siguiente conjunto de instrucciones usará una plantilla genérica de Bicep que implementa un clúster de AKS mediante discos efímeros, con el CNI [`kubenet`](/azure/aks/configure-kubenet) y el complemento OSM de AKS habilitado. Para escenarios de implementación más avanzados, visite la documentación de [Bicep](/azure/azure-resource-manager/bicep/overview).
+Para un nuevo escenario de implementación de clústeres de AKS, comience con una nueva implementación de un clúster de AKS con el complemento OSM habilitado en la operación de creación del clúster. El siguiente conjunto de instrucciones usará una plantilla genérica de Bicep que implementa un clúster de AKS mediante discos efímeros, con el CNI [`kubenet`](./configure-kubenet.md) y el complemento OSM de AKS habilitado. Para escenarios de implementación más avanzados, visite la documentación de [Bicep](../azure-resource-manager/bicep/overview.md).
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 

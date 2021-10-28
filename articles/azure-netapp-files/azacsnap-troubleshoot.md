@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/17/2021
 ms.author: phjensen
-ms.openlocfilehash: 0fb0b0fc0734cc05952457e0e6fc6dc5ff5151b2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f44ad9257f6fbc6b8ca232964f9bee29cea57384
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128614341"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256496"
 ---
 # <a name="troubleshoot-azure-application-consistent-snapshot-tool"></a>Solución de problemas con la herramienta Azure Application Consistent Snapshot
 
@@ -68,7 +68,7 @@ Puede probar que la entidad de servicio está configurada correctamente mediante
 
 **Solución:**
 
-1. Abra una sesión de [Cloud Shell](/azure/cloud-shell/overview) en Azure Portal. 
+1. Abra una sesión de [Cloud Shell](../cloud-shell/overview.md) en Azure Portal. 
 1. Cree un directorio de prueba (por ejemplo, `mkdir azacsnap`).
 1. Ejecute cd en el directorio azacsnap y descargue la versión más reciente de la herramienta azacsnap.
     

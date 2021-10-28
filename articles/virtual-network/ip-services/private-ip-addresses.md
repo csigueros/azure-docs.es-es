@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 748d3db418ee41164f7151dc6a62d7cc73a99604
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 57862739ec73dffb6ba6fde657a212d878f6da6d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129367868"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251155"
 ---
 # <a name="private-ip-addresses"></a>Direcciones IP privadas
 Las direcciones IP privadas permiten la comunicación entre los recursos de Azure. 
@@ -105,4 +105,4 @@ Los límites en una dirección IP se encuentran en el conjunto completo de [lím
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre las [direcciones IP públicas en Azure](public-ip-addresses.md).
-* [Implemente una VM con una dirección IP privada estática](../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md)
+* [Implemente una VM con una dirección IP privada estática](./virtual-networks-static-private-ip-arm-pportal.md)

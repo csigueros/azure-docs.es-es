@@ -5,12 +5,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2019
-ms.openlocfilehash: 02a568d48ca99a58778adfd4068c359b4748ab43
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 639386e1a64ff40375fac5baafc10b6a3a1cb84d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130178452"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227062"
 ---
 # <a name="azure-monitor-overview"></a>Introducción a Azure Monitor
 
@@ -121,7 +121,7 @@ Los [libros](visualize/workbooks-overview.md) proporcionan un lienzo flexible pa
 ![Ejemplo de Workbooks](media/overview/workbooks.png)
 
 ### <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com) es un servicio de análisis empresarial que proporciona visualizaciones interactivas de varios orígenes de datos. Es un medio eficaz de poner los datos a disposición de otras personas de la organización y externas. Puede configurar Power BI para que [los datos de registro se importen automáticamente desde Azure Monitor](./visualize/powerbi.md) y utilizar estas otras visualizaciones.
+[Power BI](https://powerbi.microsoft.com) es un servicio de análisis empresarial que proporciona visualizaciones interactivas de varios orígenes de datos. Es un medio eficaz de poner los datos a disposición de otras personas de la organización y externas. Puede configurar Power BI para que [los datos de registro se importen automáticamente desde Azure Monitor](./logs/log-powerbi.md) y utilizar estas otras visualizaciones.
 
 
 ![Power BI](media/overview/power-bi.png)

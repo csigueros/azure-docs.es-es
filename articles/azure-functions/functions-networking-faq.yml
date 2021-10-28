@@ -6,12 +6,12 @@ metadata:
   ms.service: azure-functions
   ms.date: 4/11/2019
   ms.reviewer: glenga
-  ms.openlocfilehash: 2fd3a00ef0ee01c5d7f535fcdb5021f831ff20d3
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.openlocfilehash: c75cd261eae3e5756162570c899b239ff954e679
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122253831"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130260720"
 title: Preguntas más frecuentes acerca de las redes en Azure Functions
 summary: >
   En este artículo se incluyen las preguntas más frecuentes acerca de las redes en Azure Functions. Para obtener información general más completa, consulte el tema sobre [opciones de redes de Functions](functions-networking-options.md).
@@ -58,4 +58,4 @@ sections:
 
 
       Para escenarios donde necesita solo acceso unidireccional a recursos de red virtual o un aislamiento de red menos exhaustivo, consulte el tema de [información general de redes de Functions](functions-networking-options.md).
-additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\nPara obtener más información sobre las redes y las funciones: \n        \n* [Siga el tutorial sobre cómo empezar con la integración de red virtual](./functions-create-vnet.md)\n* [Obtenga más información sobre las opciones de redes en Azure Functions](./functions-networking-options.md)\n* [Obtenga más información sobre la integración de red virtual con App Service y Functions](../app-service/web-sites-integrate-with-vnet.md)\n* [Obtenga más información sobre las redes virtuales en Azure](../virtual-network/virtual-networks-overview.md)\n* [Habilite más características de redes y control con App Service Environment](../app-service/environment/intro.md)"
+additionalContent: "\n## <a name=\"next-steps\"></a>Pasos siguientes\n\nPara obtener más información sobre las redes y las funciones: \n        \n* [Siga el tutorial sobre cómo empezar con la integración de red virtual](./functions-create-vnet.md)\n* [Obtenga más información sobre las opciones de redes en Azure Functions](./functions-networking-options.md)\n* [Obtenga más información sobre la integración de red virtual con App Service y Functions](../app-service/overview-vnet-integration.md)\n* [Obtenga más información sobre las redes virtuales en Azure](../virtual-network/virtual-networks-overview.md)\n* [Habilite más características de redes y control con App Service Environment](../app-service/environment/intro.md)"

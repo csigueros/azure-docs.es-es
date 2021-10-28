@@ -4,7 +4,7 @@ description: Restauración de usuarios en bloque en el Centro de administración
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
+manager: KarenH444
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: active-directory
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be3947e3de18f8ccaf47382c4035e187521ac710
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d0bcef1404830f8973514c19f2536f73a489f08b
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96571511"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129985340"
 ---
 # <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Restauración masiva de usuarios eliminados en Azure Active Directory
 

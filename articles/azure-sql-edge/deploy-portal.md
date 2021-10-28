@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 5d7d232ada814d5d3c30e7b012c6289f847d641f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b801fdb7093e69853c01ed1922ff577962040ac5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93395095"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262420"
 ---
 # <a name="deploy-azure-sql-edge"></a>Implementación de Azure SQL Edge 
 
@@ -25,9 +25,9 @@ Azure SQL Edge es un motor de base de datos relacional optimizado para implemen
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/).
 * Inicie sesión en [Azure Portal](https://portal.azure.com/).
 * Cree un [Azure IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
-* Cree un [dispositivo de Azure IoT Edge](../iot-edge/how-to-install-iot-edge.md).
+* Cree un [dispositivo de Azure IoT Edge](../iot-edge/how-to-provision-single-device-linux-symmetric.md).
 
-> [!NOTE]   
+> [!NOTE]
 > Para implementar una máquina virtual Linux de Azure como un dispositivo IoT Edge, consulte esta [guía de inicio rápido](../iot-edge/quickstart-linux.md).
 
 ## <a name="deploy-sql-edge-module-from-azure-marketplace"></a>Implementación del módulo de SQL Edge desde Azure Marketplace

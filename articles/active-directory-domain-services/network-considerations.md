@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/12/2021
 ms.author: justinha
-ms.openlocfilehash: 533d663b478ddd362ef18f81528afbe1b9393095
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 841d3b0db01938f42f56931bb370e25afe1651a6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122015643"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216965"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Consideraciones de diseño y opciones de configuración de red virtual para Azure Active Directory Domain Services
 
@@ -94,7 +94,7 @@ Un dominio administrado crea algunos recursos de red durante la implementación.
 | Recurso de Azure                          | Descripción |
 |:----------------------------------------|:---|
 | Tarjeta de interfaz de red                  | Azure AD DS hospeda el dominio administrado en dos controladores de dominio que se ejecutan en Windows Server como máquinas virtuales de Azure. Cada máquina virtual tiene una interfaz de red virtual que se conecta a la subred de la red virtual. |
-| Dirección IP pública estándar dinámica      | Azure AD DS se comunica con el servicio de sincronización y administración mediante una dirección IP pública de SKU estándar. Para obtener más información sobre las direcciones IP públicas, consulte [Tipos de direcciones IP y métodos de asignación en Azure](../virtual-network/public-ip-addresses.md). |
+| Dirección IP pública estándar dinámica      | Azure AD DS se comunica con el servicio de sincronización y administración mediante una dirección IP pública de SKU estándar. Para obtener más información sobre las direcciones IP públicas, consulte [Tipos de direcciones IP y métodos de asignación en Azure](../virtual-network/ip-services/public-ip-addresses.md). |
 | Azure Standard Load Balancer            | Azure AD DS usa un equilibrador de carga de SKU estándar para la traducción de direcciones de red (NAT) y el equilibrio de carga (cuando se usa con LDAP seguro). Para obtener más información sobre los equilibradores de carga de Azure, consulte [¿Qué es Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
 | Reglas de traducción de direcciones de red (NAT) | Azure AD DS crea y usa dos reglas NAT de entrada en el equilibrador de carga para proteger la comunicación remota de PowerShell. Si se usa un equilibrador de carga de SKU estándar, también tendrá una regla NAT de salida. Para el equilibrador de carga de SKU básica, no se requiere ninguna regla NAT de salida. |
 | Reglas de equilibrador de carga                     | Cuando un dominio administrado está configurado para LDAP seguro en el puerto TCP 636, se crean tres reglas y se usan en un equilibrador de carga para distribuir el tráfico. |

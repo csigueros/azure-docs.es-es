@@ -6,13 +6,13 @@ ms.author: jingwang
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 04/13/2018
-ms.openlocfilehash: c863176b73f4b5a41f0320bf9e59c2286fa22446
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/22/2021
+ms.openlocfilehash: 4e9ac666907e4439f67da61dd27fa421da264b07
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128647506"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130263978"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Movimiento de datos de MongoDB mediante Azure Data Factory
 

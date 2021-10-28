@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 10/04/2021
 ms.author: b-juche
-ms.openlocfilehash: 4fc34329ec7f318d79dd04e271db7b37b7e1cc59
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 266ff9dd24ac01347f359ea44f46e7950f8b432f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129533630"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252485"
 ---
 # <a name="create-a-dual-protocol-volume-for-azure-netapp-files"></a>Creación de un volumen de dos protocolos para Azure NetApp Files
 
@@ -251,5 +251,4 @@ Siga las instrucciones de [Configuración de un cliente NFS para Azure NetApp Fi
 * [Configuración de permisos de Unix y cambio del modo de propiedad](configure-unix-permissions-change-ownership-mode.md). 
 * [Configuración de ADDS LDAP sobre TLS para Azure NetApp Files](configure-ldap-over-tls.md)
 * [Configuración de ADDS LDAP con grupos extendidos para el acceso a volúmenes NFS](configure-ldap-extended-groups.md)
-* [Solución de problemas de SMB o de volúmenes de dos protocolos](troubleshoot-dual-protocol-volumes.md)
-* [Solución de problemas de volúmenes LDAP](troubleshoot-ldap-volumes.md)
+* [Solución de errores de volúmenes de Azure NetApp Files](troubleshoot-volumes.md)

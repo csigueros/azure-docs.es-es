@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/27/2021
 ms.author: b-juche
-ms.openlocfilehash: c3f440899e53125b6a7e6ef7986d74e4f1d0977d
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 71f5c09fed1a733b4e04664aade5a69c3a99aae0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129094915"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130229982"
 ---
 # <a name="manage-backup-policies-for-azure-netapp-files"></a>Administración de directivas de copia de seguridad para Azure NetApp Files 
 
@@ -72,7 +72,7 @@ Una directiva de copia de seguridad se puede suspender para que no realice nueva
 ## <a name="next-steps"></a>Pasos siguientes  
 
 * [Descripción de la copia de seguridad de archivos de Azure NetApp Files](backup-introduction.md)
-* [Requisitos y consideraciones para la copia de seguridad de archivos de Azure NetApp Files](backup-requirements-considerations.md)
+* [Requisitos y consideraciones para la copia de seguridad de Azure NetApp Files](backup-requirements-considerations.md)
 * [Límites de recursos para Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Configuración de copias de seguridad basadas en directivas](backup-configure-policy-based.md)
 * [Configuración de copias de seguridad manuales para archivos de Azure NetApp Files](backup-configure-manual.md)
@@ -81,7 +81,7 @@ Una directiva de copia de seguridad se puede suspender para que no realice nueva
 * [Deshabilitación de la funcionalidad de copia de seguridad de un volumen](backup-disable.md)
 * [Eliminación de copias de seguridad de un volumen](backup-delete.md)
 * [Métricas de copia de seguridad de los volúmenes](azure-netapp-files-metrics.md#volume-backup-metrics)
-* [Preguntas frecuentes sobre la copia de seguridad de archivos de Azure NetApp Files](azure-netapp-files-faqs.md#azure-netapp-files-backup-faqs)
+* [Preguntas frecuentes sobre la copia de seguridad de archivos de Azure NetApp Files](faq-backup.md)
 
 
 

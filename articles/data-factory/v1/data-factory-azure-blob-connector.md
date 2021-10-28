@@ -5,15 +5,15 @@ author: linda33wj
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/05/2018
+ms.date: 10/22/2021
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 02b51ff93b14adcbf0dc4c628421a7521fdc49c7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 67a66e618206b182983ada474b1f0d3788526e1e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128599817"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223908"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copia de datos hacia Azure Blob Storage o desde él con Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -206,14 +206,14 @@ Vamos a ver cómo copiar rápidamente datos a y desde una instancia de Azure Blo
     8. Haga clic en **Next**.
         :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-properties-page.png" alt-text="Herramienta de copia: Página de propiedades":::
 3. En la página **Almacén de datos de origen**, haga clic en el icono **Azure Blob Storage**. Use esta página para especificar el almacén de datos de origen para la tarea de copia. Puede usar un servicio vinculado del almacén de datos existente, o bien especificar un almacén de datos nuevo. Para usar un servicio vinculado existente, seleccionaría **FROM EXISTING LINKED SERVICES** (DE SERVICIOS VINCULADOS EXISTENTES) y luego el servicio vinculado correcto.
-    :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-source-data-store-page.png" alt-text="Herramienta de copia: Página de almacén de datos de origen":::
+    :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-source-data-store-page.png" alt-text="Herramienta de copia: página de Almacén de datos de origen":::
 4. En la página **Especificar cuenta de Almacenamiento de blobs de Azure** :
     1. En **Nombre de la conexión**, mantenga el nombre generado automáticamente. El nombre de conexión es el nombre del servicio vinculado de tipo: Azure Storage.
     2. Confirme que la opción **De suscripciones de Azure** está seleccionada para **Método de selección de cuenta**.
     3. Seleccione la suscripción de Azure o mantenga **Seleccionar todo** para **Suscripción de Azure**.
     4. Seleccione una **cuenta de Azure Storage** en la lista de cuentas de Azure Storage disponibles en la suscripción seleccionada. También puede elegir especificar la configuración de la cuenta de almacenamiento manualmente, para lo que debe seleccionar la opción **Enter manually** (Especificar manualmente) en **Account selection method** (Método de selección de cuenta).
     5. Haga clic en **Next**.  
-        :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png" alt-text="Herramienta de copia: Especificación de la cuenta de Azure Blob Storage":::
+        :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png" alt-text="Herramienta de copia: Especificar cuenta de Almacenamiento de blobs de Azure":::
 5. En la página **Elegir el archivo o la carpeta de entrada** :
     1. Haga doble clic en **adfblobcontainer**.
     2. Seleccione **entrada** y haga clic en **Elegir**. En este tutorial, seleccionará la carpeta de entrada. También podría seleccionar en su lugar el archivo emp.txt de la carpeta.

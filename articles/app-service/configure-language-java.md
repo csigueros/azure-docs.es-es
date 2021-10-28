@@ -11,12 +11,12 @@ ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: 47e9e221bd57453a0c799318f939de59b84feb86
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: d994716f24c0a5dff4fd42f8152a08cabc4fe12c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129356071"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130253428"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configuración de una aplicación Java para Azure App Service
 
@@ -154,7 +154,7 @@ Azure proporciona una experiencia de desarrollo de Java App Service directa en l
 Para implementar archivos .jar en Java SE, use el punto de conexión `/api/publish/` del sitio de Kudu. Para obtener más información sobre esta API, consulte [este documento](./deploy-zip.md#deploy-warjarear-packages). 
 
 > [!NOTE]
->  La aplicación .jar debe tener el nombre `app.jar` para App Service y así poder identificar y ejecutar la aplicación. El complemento Maven (mencionado anteriormente) cambiará automáticamente el nombre de la aplicación durante la implementación. Si no quiere cambiar el nombre de archivo JAR a *app.jar*, puede cargar un script de shell con el comando para ejecutar la aplicación .jar. Pegue la ruta de acceso absoluta a este script en el cuadro de texto[Archivo de inicio](/azure/app-service/faq-app-service-linux#built-in-images) de la sección Configuración del portal. El script de inicio no se ejecuta desde el directorio en el que se encuentra. Por lo tanto, use siempre rutas de acceso absolutas para hacer referencia a los archivos del script de inicio (por ejemplo: `java -jar /home/myapp/myapp.jar`).
+>  La aplicación .jar debe tener el nombre `app.jar` para App Service y así poder identificar y ejecutar la aplicación. El complemento Maven (mencionado anteriormente) cambiará automáticamente el nombre de la aplicación durante la implementación. Si no quiere cambiar el nombre de archivo JAR a *app.jar*, puede cargar un script de shell con el comando para ejecutar la aplicación .jar. Pegue la ruta de acceso absoluta a este script en el cuadro de texto[Archivo de inicio](./faq-app-service-linux.yml) de la sección Configuración del portal. El script de inicio no se ejecuta desde el directorio en el que se encuentra. Por lo tanto, use siempre rutas de acceso absolutas para hacer referencia a los archivos del script de inicio (por ejemplo: `java -jar /home/myapp/myapp.jar`).
 
 #### <a name="tomcat"></a>Tomcat
 
@@ -943,7 +943,7 @@ A continuación, determine si el origen de datos debe estar disponible para una 
 
 #### <a name="shared-server-level-resources"></a>Recursos de nivel de servidor compartidos
 
-Para agregar un origen de datos compartido de nivel de servidor, será necesario editar el archivo server.xml de Tomcat. En primer lugar, cargue un [script de inicio](/azure/app-service/faq-app-service-linux#built-in-images) y establezca la ruta de acceso al script en **Configuración** > **Comando de inicio**. Puede cargar el script de inicio mediante [FTP](deploy-ftp.md).
+Para agregar un origen de datos compartido de nivel de servidor, será necesario editar el archivo server.xml de Tomcat. En primer lugar, cargue un [script de inicio](./faq-app-service-linux.yml) y establezca la ruta de acceso al script en **Configuración** > **Comando de inicio**. Puede cargar el script de inicio mediante [FTP](deploy-ftp.md).
 
 El script de inicio realizará una [transformación XSL](https://www.w3schools.com/xml/xsl_intro.asp) al archivo server.xml y generará el archivo XML resultante en `/usr/local/tomcat/conf/server.xml`. El script de inicio debe instalar libxslt a través de APK. El archivo XSL y el script de inicio se pueden cargar a través de FTP. A continuación se muestra un script de inicio de ejemplo.
 

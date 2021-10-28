@@ -7,16 +7,16 @@ ms.topic: sample
 ms.date: 8/26/2021
 ms.author: jordanselig
 ms.custom: mvc, fasttrack-edit
-ms.openlocfilehash: de66f32afb86da526765016e9b8feca7d5ada337
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: c6423d3f77e85918f02bc64224dba86488b7323d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129059106"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224284"
 ---
 # <a name="bicep-files-for-app-service"></a>Archivos Bicep para App Service
 
-En la tabla siguiente se incluyen vínculos a archivos de Bicep para Azure App Service. Para obtener inicios rápidos e información adicional sobre Bicep, consulte la [documentación de Bicep](/azure/azure-resource-manager/bicep/).
+En la tabla siguiente se incluyen vínculos a archivos de Bicep para Azure App Service. Para obtener inicios rápidos e información adicional sobre Bicep, consulte la [documentación de Bicep](../azure-resource-manager/bicep/index.yml).
 
 Para más información sobre la sintaxis de Bicep y las propiedades para los recursos de App Services, consulte [Tipos de recursos Microsoft.Web ](/azure/templates/microsoft.web/allversions).
 

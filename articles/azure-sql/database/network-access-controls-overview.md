@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 1640cfae4925c1ef3699ea72778e392e4249db9b
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 970e20135fab85cbcc6c67a7add1ca7527cefba6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110666607"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130260443"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Controles de acceso a la red de Azure SQL Database y Azure Synapse Analytics
 
@@ -131,7 +131,7 @@ Tenga en cuenta los siguientes términos de redes en Azure a medida que explora 
 
 El firewall de Azure SQL Database le permite especificar intervalos de direcciones IP desde los que se aceptan las comunicaciones en SQL Database. Este enfoque es preciso para las direcciones IP estables que están fuera de la red privada de Azure. Sin embargo, las máquinas virtuales de la red privada de Azure se configuran con direcciones IP *dinámicas*. Las direcciones IP dinámicas pueden cambiar cuando se reinicia la máquina virtual y, a su vez, invalidar la regla de firewall basada en IP. Sería una locura especificar una dirección IP dinámica en una regla de firewall, en un entorno de producción.
 
-Para superar esta limitación, puede obtener una dirección IP *estática* para la máquina virtual. Para obtener más información, consulte [Creación de una máquina virtual con una dirección IP pública estática mediante Azure Portal](../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md). Sin embargo, el enfoque de IP estática puede resultar difícil de administrar, y es costoso si se realiza a escala.
+Para superar esta limitación, puede obtener una dirección IP *estática* para la máquina virtual. Para obtener más información, consulte [Creación de una máquina virtual con una dirección IP pública estática mediante Azure Portal](../../virtual-network/ip-services/virtual-network-deploy-static-pip-arm-portal.md). Sin embargo, el enfoque de IP estática puede resultar difícil de administrar, y es costoso si se realiza a escala.
 
 Las reglas de red virtual son alternativas más fáciles de establecer y su acceso, de administrar desde una subred específica que contenga las máquinas virtuales.
 

@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 06/28/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 68c400b2ec8ef85db494b85a04f8e70c32e0b6cb
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 1d3f8f07412e55da49c8502fde57b9e45dc4a786
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129367860"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130217418"
 ---
 # <a name="manage-a-public-ip-address-with-a-load-balancer"></a>Administración de una IP pública con un equilibrador de carga
 
@@ -38,9 +38,9 @@ Por último, en el artículo se revisan aspectos únicos del uso de IP pública
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Dos IP públicas de SKU estándar en la suscripción. Las direcciones IP no pueden estar asociadas con ningún recurso. Para más información sobre cómo crear una IP pública de SKU estándar, consulte [Creación de una dirección IP pública: Azure Portal](../../virtual-network/create-public-ip-portal.md).
+- Dos IP públicas de SKU estándar en la suscripción. Las direcciones IP no pueden estar asociadas con ningún recurso. Para más información sobre cómo crear una IP pública de SKU estándar, consulte [Creación de una dirección IP pública: Azure Portal](./create-public-ip-portal.md).
     - Para fines de los ejemplos de este artículo, asigne los nombres **myStandardPublicIP-1** y **myStandardPublicIP-2** a las IP públicas nuevas.
-- Un prefijo de dirección IP pública en la suscripción. Para más información sobre cómo crear un prefijo de dirección IP pública, consulte la sección sobre [cómo crear un prefijo de dirección IP pública con Azure Portal](../../virtual-network/create-public-ip-prefix-portal.md).
+- Un prefijo de dirección IP pública en la suscripción. Para más información sobre cómo crear un prefijo de dirección IP pública, consulte la sección sobre [cómo crear un prefijo de dirección IP pública con Azure Portal](./create-public-ip-prefix-portal.md).
     - Para fines del ejemplo de este artículo, asigne el nombre **myPublicIPPrefixOutbound** al prefijo de dirección IP pública nuevo.
 
 ## <a name="create-load-balancer-existing-public-ip"></a>Creación de una IP pública existente de un equilibrador de carga
@@ -155,7 +155,7 @@ En esta sección, cambiará la configuración del front-end que se utiliza para 
 
 ## <a name="caveats"></a>Advertencias
 
-* Los equilibradores de carga públicos estándar pueden usar direcciones IPv6 estáticas de SKU estándar como IP públicas del front-end o prefijos de IP pública.  Cada implementación debe tener dos pilas con los front-ends IPv4 e IPv6. La traducción NAT64 no está disponible. Para más información, consulte [Implementación de una aplicación de pila doble IPv6 en Azure: PowerShell](../../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) (tenga en cuenta que los equilibradores de carga públicos básicos pueden usar direcciones IPv6 dinámicas de SKU básicas como direcciones IP públicas de front-end).
+* Los equilibradores de carga públicos estándar pueden usar direcciones IPv6 estáticas de SKU estándar como IP públicas del front-end o prefijos de IP pública.  Cada implementación debe tener dos pilas con los front-ends IPv4 e IPv6. La traducción NAT64 no está disponible. Para más información, consulte [Implementación de una aplicación de pila doble IPv6 en Azure: PowerShell](../../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) (tenga en cuenta que los equilibradores de carga públicos básicos pueden usar direcciones IPv6 dinámicas de SKU básicas como direcciones IP públicas de front-end).
 
 * Cuando se asignan varios front-ends a un equilibrador de carga público, no hay un método para asignar flujos de instancias de back-end concretas a la salida en una IP específica.  Para más información, consulte [Varios front-ends para Azure Load Balancer](../../load-balancer/load-balancer-multivip-overview.md).
 ## <a name="next-steps"></a>Pasos siguientes
@@ -167,4 +167,4 @@ Ha reemplazado la dirección IP en una configuración de front-end del equilibr
 Por último, ha cambiado la configuración del front-end de salida para usar un prefijo de IP pública.
 
 - Para más información sobre Azure Load Balancer, consulte [¿Qué e Azure Load Balancer?](../../load-balancer/load-balancer-overview.md)
-- Para más información sobre las IP públicas en Azure, consulte [Direcciones IP públicas](../../virtual-network/public-ip-addresses.md).
+- Para más información sobre las IP públicas en Azure, consulte [Direcciones IP públicas](./public-ip-addresses.md).

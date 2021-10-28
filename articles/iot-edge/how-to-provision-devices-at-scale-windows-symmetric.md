@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 0796716e61c900d475a961277e969e57b994805f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2f892af6b876d81d9312e1f93785265e55f960a2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128699462"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226022"
 ---
 # <a name="create-and-provision-iot-edge-devices-at-scale-on-windows-using-symmetric-keys"></a>Creación y aprovisionamiento de dispositivos IoT Edge a escala en Windows mediante claves simétricas
 
@@ -35,7 +35,7 @@ La atestación de clave simétrica es un enfoque sencillo para autenticar un dis
 * Un dispositivo Windows físico o virtual para que sea el dispositivo IoT Edge.
   * Se debe definir un **identificador de registro** *único* para identificar cada dispositivo. Puede usar la dirección MAC, el número de serie o cualquier otra información única del dispositivo. Por ejemplo, podría usar una combinación de una dirección MAC y un número de serie que formen la siguiente cadena de un identificador de registro: `sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6`. Solo se pueden usar caracteres alfanuméricos en minúsculas y guiones (`-`).
 * Una instancia de IoT Hub Device Provisioning Service en Azure que esté vinculada a IoT Hub.
-  * Si no tiene una instancia de Device Provisioning Service, puede seguir las instrucciones de las secciones [Creación de un nuevo IoT Hub Device Provisioning Service](../iot-dps/quick-setup-auto-provision.md#create-a-new-iot-hub-device-provisioning-service) y [Vínculo al centro de IoT y el Device Provisioning Service](../iot-dps/quick-setup-auto-provision.md#link-the-iot-hub-and-your-device-provisioning-service) de la guía de inicio rápido IoT Hub Device Provisioning Service.
+  * Si no tiene una instancia de Device Provisioning Service, puede seguir las instrucciones de las secciones [Creación de una instancia de IoT Hub Device Provisioning Service](../iot-dps/quick-setup-auto-provision.md#create-a-new-iot-hub-device-provisioning-service) y [Vínculo al centro de IoT y a Device Provisioning Service](../iot-dps/quick-setup-auto-provision.md#link-the-iot-hub-and-your-device-provisioning-service) del inicio rápido de IoT Hub Device Provisioning Service.
   * Cuando Device Provisioning Service esté en ejecución, copie el valor de **Ámbito de id.** de la página de información general. Use este valor cuando configure el entorno de ejecución de IoT Edge.
 
 ## <a name="create-a-dps-enrollment"></a>Crear una inscripción de DPS
@@ -166,7 +166,7 @@ En esta sección, preparará su máquina virtual Windows o dispositivo físico p
 
 El demonio de seguridad de IoT Edge proporciona y mantiene los estándares de seguridad en el dispositivo IoT Edge. El demonio se inicia en cada arranque e inicia el resto del entorno de ejecución de IoT Edge para arrancar el dispositivo.
 
-Los pasos de esta sección representan el proceso habitual para instalar la versión más reciente en un dispositivo que tenga conexión a Internet. Si tiene que instalar una versión específica, como una versión preliminar, o tiene que realizar la instalación mientras está sin conexión, siga los pasos de [Instalación sin conexión o de una versión específica](how-to-install-iot-edge.md#offline-or-specific-version-installation-optional).
+Los pasos de esta sección representan el proceso habitual para instalar la versión más reciente en un dispositivo que tenga conexión a Internet. Si tiene que instalar una versión específica, como una versión preliminar, o tiene que realizar la instalación mientras está sin conexión, siga los pasos de [Instalación sin conexión o de una versión específica](how-to-provision-single-device-windows-symmetric.md#offline-or-specific-version-installation-optional).
 
 1. Ejecute PowerShell como administrador.
 
